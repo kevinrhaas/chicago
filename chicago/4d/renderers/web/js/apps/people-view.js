@@ -95,6 +95,10 @@ export async function mount(root, ctx = {}) {
     if (state !== st) return;
     st.met = metFound.year(st.year).met;
     if (!st.list.hidden) drawResults(st);
+    // A greeting can open the card a beat before the talk is counted: say it once it is.
+    const top = st.stack[st.stack.length - 1];
+    const keys = top?.kind === 'person' && isMet(top.id) ? st.card.querySelector('.ppl-keys') : null;
+    if (keys && !keys.querySelector('.ppl-met-note')) keys.append(metNote(doc, top.id));
     st.metRow.paint();
   });
 
@@ -205,6 +209,12 @@ function metBadge(doc) {
   const b = el(doc, 'span', 'ppl-met-badge', t('metfound.badge'));
   b.title = t('metfound.badge.title');
   return b;
+}
+
+function metNote(doc, id) {
+  const note = el(doc, 'p', 'ppl-met-note');
+  note.append(metBadge(doc), doc.createTextNode(` ${t('metfound.card.met', { day: dayWords(state.met[id]) })}`));
+  return note;
 }
 
 function personRow(doc, p, { withHousehold = true } = {}) {
@@ -401,12 +411,7 @@ async function drawPerson(st, id) {
     const head = card.querySelector('.insp-person-head');
     if (head?.after) head.after(keys); else card.append(keys);
     // T-3673: said only of someone you talked with here, with the day you first did.
-    const day = isMet(id) ? state.met[id] : null;
-    if (day) {
-      const note = el(doc, 'p', 'ppl-met-note');
-      note.append(metBadge(doc), doc.createTextNode(` ${t('metfound.card.met', { day: dayWords(day) })}`));
-      keys.append(note);
-    }
+    if (isMet(id)) keys.append(metNote(doc, id));
     const was = st.card.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else st.card.append(card);
     // T-3645: the card's age tabs, over the story they change (under its keys if it has none).

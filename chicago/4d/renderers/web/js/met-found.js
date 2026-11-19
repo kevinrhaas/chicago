@@ -199,7 +199,10 @@ export function placeTitle(title) {
 }
 
 /** A structure's visitor title off the scene registry (what the Map's preview names it). */
-export const sceneTitle = (registry, id) => displayName(registry?.get?.(id)?.sidecar ?? {}, id ?? '').title;
+export function sceneTitle(registry, id) {
+  const sidecar = registry?.get?.(id)?.sidecar;
+  return sidecar ? displayName(sidecar, id ?? '').title : null;   // nothing on record is not a place
+}
 
 /**
  * The places of a scene, from the Map's footprints (navigation.js structureOutlines: rings of
@@ -266,7 +269,7 @@ export function createMetFoundWatch({ store = metFound, year, walker, places }) 
   const y = String(year);
   const out = [];
   let known = null;
-  const fresh = () => { known = new Set(Object.keys(store.year(y).found)); };
+  const fresh = () => (known = new Set(Object.keys(store.year(y).found)));
   const off = store.subscribe(() => { known = null; });
   return {
     talked(thing, actionId) {
@@ -278,11 +281,12 @@ export function createMetFoundWatch({ store = metFound, year, walker, places }) 
       if (!index?.count) return 0;
       placesAt(index, walker(), out);
       if (!out.length) return 0;
-      if (!known) fresh();
+      // Held locally: a record below tells the store's listeners, which drop `known`.
+      const seen = known ?? fresh();
       let added = 0;
       for (const id of out) {
-        if (known.has(id)) continue;
-        known.add(id);   // a refused write (full) is not retried every second
+        if (seen.has(id)) continue;
+        seen.add(id);   // a refused write (full) is not retried every second
         if (store.record(y, 'found', id).added) added++;
       }
       return added;

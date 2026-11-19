@@ -6794,7 +6794,7 @@ async function boot() {
       return p;
     },
     places: () => (metFoundPlaces ??= navigation.outlines ? placeIndex(navigation.outlines, (id) => sceneTitle(loaded.registry, id)) : null) });
-  interactions.on((thing, event) => { if (event === 'done') api.metFound.talked(thing, thing.last?.id); });
+  interactions.on((thing, event) => { if (event === 'done') try { api.metFound.talked(thing, thing.last?.id); } catch { /* nor a talk */ } });
   /** T-3557: Get down, from the travel bar's key: true when the visitor was aboard. */
   api.getDown = () => {
     // T-3612: at the helm of a boat, the bar's key is Go ashore.
@@ -7515,7 +7515,7 @@ async function boot() {
     // Held/hidden frames clear the baseline rather than replaying missed steps.
     api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
     // T-3673: where you stand, against the places' footprints, about once a second.
-    if ((metFoundAt += elapsed) >= 1) { metFoundAt = 0; api.metFound?.tick(); }
+    if ((metFoundAt += elapsed) >= 1) { metFoundAt = 0; try { api.metFound?.tick(); } catch { /* a count never stops the town */ } }
     // T-3445: the first time the key offers something, once per device, what it is.
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
     if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });

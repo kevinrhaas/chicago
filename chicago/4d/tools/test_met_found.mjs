@@ -167,6 +167,17 @@ for (const storage of [null, () => { throw new Error('denied'); }, { getItem() {
   assert.equal(watch.tick(), 1, 'standing in it finds it');
   assert.equal(watch.tick(), 0, 'once');
   assert.deepEqual(Object.keys(store.year('1904').found), ['house']);
+  // Two places at once (a house and the store next to it): both, in one check.
+  const pair = placeIndex([sq(0, 0, 10, 'house'), sq(22, 0, 10, 'store')], (id) => names[id]);
+  const s2 = createMetFound({ storage: memStorage(), today: day });
+  let both = on(11, 0);
+  const w3 = createMetFoundWatch({ store: s2, year: '1835', walker: () => both, places: () => pair });
+  assert.equal(w3.tick(), 2, 'two places in reach are both found in one check');
+  assert.deepEqual(Object.keys(s2.year('1835').found).sort(), ['house', 'store']);
+  assert.equal(w3.tick(), 0);
+  both = on(0, 0);
+  assert.equal(w3.tick(), 0);
+  w3.dispose();
   // Nothing allocated per check: the same output array, and no store read once known.
   let reads = 0;
   const counting = { ...store, year: (y) => { reads++; return store.year(y); }, subscribe: store.subscribe, record: store.record };
@@ -240,9 +251,9 @@ for (const storage of [null, () => { throw new Error('denied'); }, { getItem() {
   for (const f of ['apps/people-view.js', 'people.js', 'apps/map-view.js', 'met-found-view.js', 'person-card.js'])
     assert.doesNotMatch(fs.readFileSync(new URL(f, web), 'utf8'), /\.record\(/, `${f} never records a meeting or a place`);
   const main = fs.readFileSync(new URL('main.js', web), 'utf8');
-  assert.match(main, /interactions\.on\(\(thing, event\) => \{ if \(event === 'done'\) api\.metFound\.talked\(thing, thing\.last\?\.id\); \}\)/,
+  assert.match(main, /interactions\.on\(\(thing, event\) => \{ if \(event === 'done'\) try \{ api\.metFound\.talked\(thing, thing\.last\?\.id\); \}/,
     'main.js tells the watch only of finished Interact actions');
-  assert.match(main, /if \(\(metFoundAt \+= elapsed\) >= 1\) \{ metFoundAt = 0; api\.metFound\?\.tick\(\); \}/, 'and checks places about once a second');
+  assert.match(main, /if \(\(metFoundAt \+= elapsed\) >= 1\) \{ metFoundAt = 0; try \{ api\.metFound\?\.tick\(\); \}/, 'and checks places about once a second');
   for (const f of ['met-found.js', 'met-found-view.js'])
     assert.doesNotMatch(fs.readFileSync(new URL(f, web), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/.*$/gm, ''),
       /fetch\(|XMLHttpRequest|sendBeacon|WebSocket|streak|leaderboard|score/i, `${f}: no network, streaks or scores`);

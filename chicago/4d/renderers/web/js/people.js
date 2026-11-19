@@ -488,9 +488,15 @@ export async function mountPeople({
     title: t('metfound.filter.title'), pressed: () => state.metOnly,
     onToggle: () => { state.metOnly = !state.metOnly; state.shown = PAGE; paint(); } });
   home.insertBefore(metRow.el, filtersEl);
+  const metHtml = (id) => `<p class="people-card-met"><span class="person-met">${escapeHtml(t('metfound.badge'))}</span> ${
+    escapeHtml(t('metfound.card.met', { day: dayWords(met[id]) }))}</p>`;
   metStore.subscribe(() => {
     met = metStore.year(year).met;
     if (!home.hidden) paintList();
+    // A greeting opens the person's card as it ends, a beat before the talk is counted.
+    else if (state.open && isMet(state.open) && !cardEl.querySelector('.people-card-met')) {
+      cardEl.querySelector('.people-card-meta')?.insertAdjacentHTML('afterend', metHtml(state.open));
+    }
     metRow.paint();
   });
 
@@ -939,8 +945,7 @@ export async function mountPeople({
               : ''}`
             : ''}</span>
       </p>
-      ${isMet(r.id) ? `<p class="people-card-met"><span class="person-met">${escapeHtml(t('metfound.badge'))}</span> ${
-        escapeHtml(t('metfound.card.met', { day: dayWords(met[r.id]) }))}</p>` : ''}
+      ${isMet(r.id) ? metHtml(r.id) : ''}
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
       <div class="people-card-row-notes"></div>

@@ -16,7 +16,7 @@
  */
 import { formatDistance } from '../units.js';
 import { displayName } from '../display-name.js';
-import { metFound, placeIndex } from '../met-found.js';
+import { metFound, placeIndex, sceneTitle } from '../met-found.js';
 import { metFoundRow } from '../met-found-view.js';
 import { t } from '../strings/index.js';
 
@@ -130,7 +130,7 @@ export function mount(el, ctx = {}) {
   const year = String(ctx.scene?.id ?? ctx.scene?.scene_id ?? '').slice(0, 4);
   let places = null;
   const placesNow = () => {
-    if (!places && nav()?.outlines) places = placeIndex(nav().outlines, (id) => buildingName(api.registry?.get?.(id), id));
+    if (!places && nav()?.outlines) places = placeIndex(nav().outlines, (id) => sceneTitle(api.registry, id));
     return places;
   };
   let found = metFound.year(year).found;
