@@ -1062,6 +1062,10 @@ export default [
   "Guardando {v1}…"
  ],
  [
+  "{v1} · {v2} kept",
+  "{v1} · {v2} guardados"
+ ],
+ [
   "Age in {v1}",
   "Edad en {v1}"
  ],
@@ -1078,6 +1082,10 @@ export default [
   "Tarea · {v1}"
  ],
  [
+  "Grades {v1}",
+  "Grados {v1}"
+ ],
+ [
   "Held: {v1}",
   "Detenido: {v1}"
  ],
@@ -1092,5 +1100,17 @@ export default [
  [
   "Next: {v1}",
   "Siguiente: {v1}"
+ ],
+ [
+  "{v1} stops",
+  "{v1} paradas"
+ ],
+ [
+  "Start {v1}",
+  "Empezar {v1}"
+ ],
+ [
+  "Ages {v1}",
+  "Edades {v1}"
  ]
 ];

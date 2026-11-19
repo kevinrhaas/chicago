@@ -2874,6 +2874,57 @@ async function boot() {
       return this.current;
     },
   };
+  // T-3687: the Great Fire on its own clock (city-fire.js; when and where it burned is
+  // data/fire/1871.json). Free walk is the city before it: nothing loads until a fire time
+  // is set (a jaunt stop dated on or after 1871-10-08T21:00, or api.fire.set by hand).
+  const fireState = { engine: null, loading: null, want: null, rate: 0, lit: false, listeners: new Set() };
+  const fireEngine = () => fireState.loading ??= Promise.all([
+    import('./city-fire.js'),
+    fetch(new URL('fire/1871.json', resolveBases().dataBase)).then((r) => { if (!r.ok) throw Error(`fire 1871: ${r.status}`); return r.json(); }),
+  ]).then(([{ createCityFire }, doc]) => {
+    fireState.engine = createCityFire({ doc, parent: scene3d, context: () => contextCity, buildings: () => buildings,
+      tier: () => api.humans?.tier ?? 'full', groundAt: (e, n) => terrain.surfaceHeight(e, n) });
+    fireState.engine.onFire((iso) => { for (const fn of fireState.listeners) { try { fn(iso); } catch { /* its own */ } } });
+    return fireState.engine;
+  }).catch((err) => { fireState.loading = null; console.warn('[fire] not drawn:', err?.message ?? err); return null; });
+  api.fire = {
+    /** The fire time in force ('YYYY-MM-DDTHH:MM', the accounts' Chicago clock), or null: the city before it. */
+    time: () => fireState.engine?.iso ?? (fireState.want === null ? null : fireState.want),
+    get active() { return fireState.want !== null; },
+    /**
+     * Set the fire time ('1871-10-09T01:45') or null for the city before the fire. `rate`
+     * runs it on, in fire seconds to the real second (0 holds it). `light` (default true)
+     * sets the sky's hour and day to match; a jaunt that sets its own hour passes false.
+     * Resolves to the engine's snapshot once the city is drawn at that time.
+     */
+    async set(iso, { rate = 0, light = true } = {}) {
+      if (YEAR !== '1871') return null;
+      const at = iso === null || iso === undefined || iso === '' ? null : String(iso).slice(0, 16);
+      fireState.want = at; fireState.rate = rate;
+      if (at === null) {
+        fireState.engine?.set(null);
+        if (fireState.lit) { fireState.lit = false; await api.timeOfDay.restore(); }
+        gateFrame.invalidate?.();
+        return null;
+      }
+      if (light) { fireState.lit = true; await api.timeOfDay.set(at.slice(11, 16), { date: at.slice(0, 10), transient: true }); }
+      const engine = await fireEngine();
+      if (!engine || fireState.want !== at) return engine?.snapshot() ?? null;
+      engine.set(at, { rate });
+      gateFrame.invalidate?.();
+      return engine.snapshot();
+    },
+    /** fn(iso | null) whenever the fire time moves a minute, or the fire is put out. Returns an unsubscribe. */
+    onFire(fn) { fireState.listeners.add(fn); try { fn(api.fire.time()); } catch { /* its own */ } return () => fireState.listeners.delete(fn); },
+    /** When the fire reaches a place (local east/north metres): 'YYYY-MM-DDTHH:MM', or null where it never burned. */
+    async catchAt(e, n) { return (await fireEngine())?.catchTime(e, n) ?? null; },
+    /** What the fire is doing at a place at the fire time: { phase: 'none'|'before'|'burning'|'burnt', heat, minutesToFront, … }. */
+    stateAt: (e, n) => fireState.engine?.stateAt(e, n) ?? { phase: 'none' },
+    snapshot: () => fireState.engine?.snapshot() ?? null,
+    /** QA: run the drawn fire on (smoke and sparks fill in) without moving the fire time. */
+    warm: (seconds = 8) => fireState.engine?.warm(seconds, camera),
+    update(dt, cam) { fireState.engine?.update(dt, cam); },
+  };
   // T-3377: `own` is the visitor's Season; `held` is a jaunt's, set for the outing and
   // given back by api.season.restore() (a choice made by hand ends the hold).
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
@@ -6307,7 +6358,18 @@ async function boot() {
         },
         onComplete: state => jauntPreview.award(state),
         // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
-        hour: api.timeOfDay,
+        // T-3687: a stop dated on or after the fire's first hour (1871-10-08T21:00) burns
+        // the city at that hour, the front running on while the stop is held.
+        hour: {
+          get current() { return api.timeOfDay.current; },
+          async set(value, opts = {}) {
+            const at = YEAR === '1871' && opts.date && /^\d{1,2}:\d{2}$/.test(String(value))
+              ? `${opts.date}T${String(value).padStart(5, '0')}` : null;
+            void api.fire.set(at && at >= '1871-10-08T21:00' ? at : null, { rate: 12, light: false });
+            return api.timeOfDay.set(value, opts);
+          },
+          async restore() { void api.fire.set(null, { light: false }); return api.timeOfDay.restore(); },
+        },
         // T-3377: a jaunt's own season, held for the outing and given back after.
         season: api.season,
         // T-3495: the everyday people held out while a jaunt is on, but for those its stop
@@ -6414,7 +6476,11 @@ async function boot() {
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
-  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // T-3675: on a Chromebook the welcome line reads "Prepare for class" with its size, and
+  // Settings › Graphics carries the same download, for a teacher readying a class set.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev,
+    classroom: !!device.signals?.chromeos });
+  api.pack.attachSettings(document.querySelector('.panel-body[data-panel="settings"] .settings-group[data-set-pane="graphics"]'));
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
   let jauntPictures = null;
@@ -7691,6 +7757,8 @@ async function boot() {
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
+    // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).
+    api.fire?.update(frameDt, camera);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).

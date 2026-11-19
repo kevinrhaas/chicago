@@ -1,0 +1,61 @@
+== title @bf8b4408
+Un recorrido dominical
+
+== premise @0f56e4d4
+Da una caminata tranquila pasando por las dos iglesias del pueblo y su casa de reuniones de troncos. Termina con una visita al Sauganash.
+
+== opening @0024308b
+PASEO: UN RECORRIDO DOMINICAL. Es una mañana de domingo en primavera. Hace tres años, este pueblo no tenía ninguna iglesia. Luego, en un solo año, 1833, las iglesias llegaron todas a la vez. Un sacerdote católico celebró una misa en una de las cabañas de troncos de Mark Beaubien. Un ministro presbiteriano predicó en el taller de carpintería del fuerte. Y los metodistas se reunieron en un cuarto de troncos en Wolf Point. Pronto los líderes del pueblo hasta prohibirán vender alcohol los domingos.
+
+Un vecino te espera en el Sauganash. En el camino pasarás por todos los lugares donde el pueblo rinde culto. Mira desde el camino y ve cuánto ha cambiado todo en tres años.
+
+== stop st-marys @3ab8e91b
+Esta es St. Mary's, en Lake Street al oeste de State Street. Es la primera iglesia católica del pueblo. El padre St. Cyr celebró su primera misa en una cabaña de troncos que pertenecía a Mark Beaubien, en mayo de 1833. Ese agosto, un constructor levantó esta iglesia de madera. Sus tablas llegaron en barco a través del lago desde St. Joseph. Costó unos cuatrocientos dólares. Adentro hay bancos toscos. Afuera no hay pintura, ni campanario ni torre.
+
+== narrative st-marys @2c984365
+Esta es la iglesia más sencilla del pueblo.
+
+== stop presbyterian @c6d5ba2d
+Camina dos cuadras al oeste hasta las calles Lake y Clark y la iglesia presbiteriana. Abrió el 4 de enero de 1834. Su ministro, Jeremiah Porter, llegó con soldados desde otro fuerte. Dio su primer sermón en el taller de carpintería del fuerte el 19 de mayo de 1833. Hasta que se construyó la iglesia, vivió y estudió en el piso de arriba de la tienda de Peck. La iglesia también es un salón de reuniones. El 7 de julio habrá aquí una reunión sobre las escuelas.
+
+== narrative presbyterian @c3baedfe
+Una iglesia y un salón de reuniones.
+
+== stop walker @1986f44b
+Cruza el río hasta Wolf Point. Juliette Kinzie recordaba aquí un pequeño edificio cuadrado de troncos. Al principio iba a ser una escuela. A veces se usaba como iglesia cuando llegaba al pueblo un predicador viajero. Una historia antigua dice que lo construyó el padre Jesse Walker, un predicador metodista. Su casa de troncos era a la vez su hogar, su sala, su cocina y su iglesia. Un predicador de la frontera hizo que un solo cuarto sirviera para todo.
+
+== narrative walker @26c1cad6
+Un cuarto de troncos, dondequiera que estuviera.
+
+== stop the-call @4dbf8cfe
+Regresa por el puente hasta las calles Lake y Market y el Sauganash. Es blanco con postigos azules, y lo arreglaron como nuevo en junio de 1835. Tu vecino te espera. En domingo, el violín del dueño debería estar en silencio. Un libro de historia dice que Mark Beaubien era un católico al que le importaba mucho su fe, aunque no siempre se portaba como un santo. Dio dinero para ayudar a St. Mary's.
+
+== narrative the-call @c9c718be
+Llega a donde te espera tu vecino.
+
+== leg 0 @581ec606
+Camina dos cuadras al oeste, de la sencilla iglesia del sacerdote a la iglesia del ministro.
+
+== note 0 @9e0fd255
+Dos cuadras al oeste por Lake Street, desde State, pasando Dearborn, hasta Clark.
+
+== leg 1 @2b93bef3
+Deja las iglesias de madera del pueblo por su lugar de culto más antiguo.
+
+== note 1 @3f8264a8
+Al oeste por Lake Street hasta el brazo sur del río, por el puente entre Lake y Randolph, y al norte por la orilla oeste hasta la bifurcación.
+
+== leg 2 @552fb3b2
+Cruza el río una vez más, hacia la visita por la que saliste.
+
+== note 2 @a14a6204
+De vuelta por la orilla oeste y por el mismo puente hasta Lake Street y la esquina de Market Street.
+
+== ending among-neighbors @7f134b1c
+Llegas a la puerta del Sauganash. Detrás de ti quedan todas las iglesias del pueblo. Viste la sencilla iglesia de madera de un sacerdote, la iglesia de un ministro que también es salón de reuniones y un cuarto de troncos en la bifurcación que se usaba como escuela y como iglesia. Hace tres años no había nada de esto.
+
+== keepsake title @b004ba0a
+Una mañana entre vecinos
+
+== keepsake text @c4d7a0c8
+Una nota inventada sobre una caminata tranquila pasando por los lugares de culto del pueblo, que termina con una visita al Sauganash.
