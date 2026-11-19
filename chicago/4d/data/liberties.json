@@ -77417,18 +77417,6 @@
           "domain": "structure",
           "structure": "sherman_house_2100_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "sherman_house_2100_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "sherman_house_2100_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.rainwater"
         },
         {
@@ -77453,12 +77441,6 @@
           "domain": "structure",
           "structure": "sherman_house_2100_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.side_base"
-        },
-        {
-          "domain": "structure",
-          "structure": "sherman_house_2100_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.side_bays"
         },
         {
@@ -77466,12 +77448,6 @@
           "structure": "sherman_house_2100_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.stair_tread_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "sherman_house_2100_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stone_front"
         },
         {
           "domain": "structure",
@@ -77517,7 +77493,7 @@
         },
         {
           "label": "Covers",
-          "text": "`sherman_house_2100_prairie.as_mapped_1904.form.stone_front`, `sherman_house_2100_prairie.as_mapped_1904.form.side_base`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.street_front_trim`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.boundary`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`"
+          "text": "`sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.street_front_trim`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
