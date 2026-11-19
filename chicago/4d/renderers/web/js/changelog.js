@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3142, ts: '2026-11-19T22:45:20.199Z', date: 'Nov 19, 2026, 4:45 PM CT', title: 'Your person: body types, a close-up face, a closed habit', kind: 'improvement',
+    items: [
+      'Settings, You now asks for a body type instead of a gender: Masculine, Feminine or Androgynous. Androgynous can wear any of the year\'s clothes and hair, and any face.',
+      'The face you choose is shown up close beside the whole figure. Tap either picture to turn it.',
+      'Riding aside in the habit, her legs no longer show through the skirt at any pace, and the skirt lies over the saddle cloth instead of showing through it.',
+    ] },
+  { v: 3141, ts: '2026-11-19T22:45:20.199Z', date: 'Nov 19, 2026, 4:45 PM CT', title: '1871 Chicago is a city of wood again', kind: 'improvement',
+    items: [
+      'Outside downtown, nine buildings in ten are now wood frame, as an 1868 count of the city\'s buildings found; brick and stone stay in the business centre and the better South Side streets.',
+      'Frame houses wear painted weatherboard, mostly white with some buff, grey and unpainted, so they no longer read as stone.',
+      'Neighbourhood corner shops are two-storey frame stores; every building stays where it stood.',
+    ] },
   { v: 3140, ts: '2026-11-19T21:56:54.614Z', date: 'Nov 19, 2026, 3:56 PM CT', title: 'Every jaunt can now be read in Spanish', kind: 'feature',
     items: [
       'With Language set to Español, all 246 jaunts read in Spanish: titles, openings, every stop, choice, ending and keepsake, at every age level.',
