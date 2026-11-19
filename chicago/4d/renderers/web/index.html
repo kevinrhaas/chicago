@@ -205,7 +205,9 @@
     <p class="gate-build" id="gate-build" hidden><!--BUILD_STAMP--></p>
   </div>
 </div>
-<div id="hud" class="hud" hidden>
+<!-- T-3671 (WCAG 2.4.1): past the HUD's keys, into the Navigator (navigator.js opens it). -->
+<a class="skip-link" id="skip-navigator" href="#navigator" data-str="nav.a11y.skip">Skip to the Navigator</a>
+<div id="hud" class="hud" role="main" aria-label="Town" hidden>
   <div class="hud-top">
     <div class="hud-chips">
     <!-- T-2626 (§10): the year chip — amber LED digits, 1904 · 07.01. A tap opens Jump. -->
@@ -670,7 +672,8 @@
             <button type="button" class="seg-btn" data-theme-choice="dark" role="radio" aria-checked="false" data-str="settings.theme.dark">Dark</button>
             <button type="button" class="seg-btn" data-theme-choice="light" role="radio" aria-checked="false" data-str="settings.theme.light">Light</button>
           </div></div>
-        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. -->
+        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. T-3671
+             (WCAG 1.4.4): to 200 %, and every part of the interface with it. -->
         <label class="field row"><span data-str="settings.textSize">Text size</span>
           <select id="s-text-size">
             <option value="1">100 %</option>
@@ -678,6 +681,9 @@
             <option value="1.2">120 %</option>
             <option value="1.3">130 %</option>
             <option value="1.4">140 %</option>
+            <option value="1.6">160 %</option>
+            <option value="1.8">180 %</option>
+            <option value="2">200 %</option>
           </select></label>
         <!-- K24, owner-requested. The same standing as the road aid: an
              accommodation for your screen, layered on a grade that was measured
@@ -1019,7 +1025,7 @@
 <p class="nav-hint" id="nav-hint" role="status" aria-live="polite" hidden></p>
 <div id="tour" class="tour" hidden>
   <div class="tour-hole" aria-hidden="true" hidden></div>
-  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
+  <section class="tour-card" role="region" aria-label="Field check" aria-describedby="tour-task tour-bubble" tabindex="-1">
     <header class="tour-head"><span id="tour-count">Field check · 1 / 10</span>
       <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
     <div class="tour-pips" id="tour-pips" aria-hidden="true"></div>
@@ -1058,7 +1064,7 @@
     <div class="nav-screen" id="nav-home" role="tabpanel" aria-labelledby="nav-home-title" tabindex="-1">
       <h2 id="nav-home-title" class="visually-hidden" tabindex="-1" data-str="nav.home.title">Navigator Home</h2>
       <section class="nav-block" aria-labelledby="nav-where-k">
-        <span class="nav-k" id="nav-where-k" data-str="nav.where.k">You are at</span>
+        <span class="nav-k" id="nav-where-k" role="heading" aria-level="3" data-str="nav.where.k">You are at</span>
         <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
@@ -1071,14 +1077,14 @@
         <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
       </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
-        <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
+        <span class="nav-k" id="nav-front-k" role="heading" aria-level="3" data-str="nav.front.k">Right in front of you</span>
         <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>
         <span class="nav-sub" id="nav-front-detail"></span>
         <!-- T-3629: Inspect wears the accent, not signal red; red is for Recall, which leaves. -->
         <button class="nav-key nav-roam nav-inspect-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
       </section>
       <section class="nav-block" id="nav-jaunt" aria-labelledby="nav-jaunt-k" hidden>
-        <span class="nav-k nav-k-row"><span id="nav-jaunt-k" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
+        <span class="nav-k nav-k-row"><span id="nav-jaunt-k" role="heading" aria-level="3" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
         <strong class="nav-jaunt-title" id="nav-jaunt-title"></strong>
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
@@ -1095,7 +1101,7 @@
   </div>
 </section>
 
-<aside id="popup" class="popup" hidden aria-live="polite" tabindex="-1"></aside>
+<aside id="popup" class="popup" hidden role="dialog" aria-labelledby="pop-title" tabindex="-1"></aside>
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 

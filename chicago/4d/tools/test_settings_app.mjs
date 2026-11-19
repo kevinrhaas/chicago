@@ -66,10 +66,11 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const display = settingsHtml.slice(settingsHtml.indexOf('id="s-display"'), settingsHtml.indexOf('id="s-machine"'));
   const at = ['s-theme', 's-text-size', 's-brightness', 's-fov', 's-road-aid'].map((id) => display.indexOf(`id="${id}"`));
   assert(at.every((i, k) => i > 0 && (k === 0 || i > at[k - 1])), `Display's rows in order: ${at}`);
-  // Text size offers 100 % to 140 %, and only those.
-  const sizes = [...settingsHtml.slice(settingsHtml.indexOf('id="s-text-size"')).matchAll(/<option value="([\d.]+)">(\d+) %<\/option>/g)].slice(0, 5);
+  // Text size offers 100 % to 140 %, then 160 %, 180 % and 200 % (T-3671, WCAG 1.4.4), and only those.
+  const sizes = [...settingsHtml.slice(settingsHtml.indexOf('id="s-text-size"')).matchAll(/<option value="([\d.]+)">(\d+) %<\/option>/g)].slice(0, TEXT_SCALES.length);
   assert.deepEqual(sizes.map((m) => Number(m[1])), [...TEXT_SCALES]);
-  assert.deepEqual(sizes.map((m) => Number(m[2])), [100, 110, 120, 130, 140]);
+  assert.deepEqual(sizes.map((m) => Number(m[2])), [100, 110, 120, 130, 140, 160, 180, 200]);
+  assert.equal([...settingsHtml.matchAll(/<option value="[\d.]+">\d+ %<\/option>/g)].length, TEXT_SCALES.length, 'no other size offered');
   // Light or dark left the HUD for good, and the old chip with it.
   assert(!/id="btn-theme"/.test(html), 'the HUD chip is gone');
   // About keeps T-2629's stamp, and opens What's new.
@@ -405,5 +406,5 @@ function fakePage() {
 
 console.log('SETTINGS APP PASS — nine icon tabs (Display, You, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
   + 'mouse / look sensitivity (Standard 1x, 0.2-3x) stored and read by both backends; '
-  + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
+  + 'light or dark is a two-way choice; text size 100–200 % applies and persists; Auto names and restores the device\'s levels; '
   + 'Sound\'s four levels persist and say what each covers; the machine tiles are each machine\'s own colours');

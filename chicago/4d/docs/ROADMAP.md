@@ -1,6 +1,13 @@
 ## T-3679 — Play a part (19 November 2026)
 
 Item 9 of the classroom list has its first three role jaunts (1812 runner at Fort Dearborn, 1835 apprentice, 1904 iceman's helper), each with two route-changing choices and four endings, every band and 18+ telling built. Further roles (a household's youngest servant, a store clerk's helper) are content work on the same engine; each needs its own cited stops and an entry in LIBERTIES. A role with staged hosts or narration voices is a separate parcel.
+## T-3663 — First source investigation (19 November 2026)
+
+Use the completed Gossip route for one optional claim-and-evidence comparison of its
+Democrat and American readings, with explicit notebook save. Preserve the missing sale
+figure, the Springfield inference and the story's declared liberties. This is the first
+bounded slice of requested item 8; it adds no mystery engine, invented witnesses or service.
+The separate ticket owns implementation and validation; STATUS records what is checked.
 
 ## T-3654 — Build the city first, then replace its context (2026-11-18)
 
@@ -21,6 +28,13 @@ directory and public-works notebook supply candidates for businesses, inhabitant
 transport and actions; their totals are not allocations to generated lots.
 Photographic street scenes require researched facades, detailed surfaces, planting
 and activity in addition to this citywide baseline.
+
+## T-3672 — Teacher routes (19 November 2026)
+
+Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
+student's Route panel whose answers go to the local field notebook. Next, only with
+storage the owner chooses: a shared library of routes and a way to collect answers.
+A route names places and people the town already holds; it never adds a historical claim.
 
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 

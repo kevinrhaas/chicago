@@ -1,0 +1,106 @@
+== title @d46bd30b
+Carga para la tienda
+
+== premise @e2cae4af
+Cuenta un envío inventado en el muelle de Newberry & Dole, carga la carreta, entrega en dos tiendas y lleva el recuento de vuelta al almacén de George Dole sin que se pierda nada.
+
+== opening @38abbef5
+PASEO: CARGA PARA LA TIENDA. Amanece en el muelle. Todo lo que este pueblo come, viste y usa para construir llega por el lago, y alguien tiene que llevarlo del barco a la tienda. Hoy ese alguien eres tú: un conocimiento de embarque enumera tres bultos desembarcados en lo de Newberry & Dole, dos para la tienda de P. F. W. Peck y uno para la de Thomas Church en Lake Street.
+
+Cuéntalos, carga la carreta, entrégalos y lleva el recuento al viejo almacén de George Dole. A un carretero que pierde un bulto no lo contratan dos veces.
+
+== stop wharf @de7e7416
+Newberry & Dole se anuncian como comerciantes de expedición y comisión desde el primer número del Democrat, en noviembre de 1833, y reciben mercancías del lago para las tiendas de otros. En junio el American los nombró agentes de carga del vapor Michigan, con rumbo a Detroit y Buffalo. Todavía se discute en qué orilla estaba su casa, pero aquí es donde empiezan las mercancías del pueblo. Hay tres bultos esperando.
+
+== narrative wharf @45ee65ed
+¿Cómo vas a cargar los tres?
+
+== label wharf count-all @140e6836
+Cuenta los tres y luego cárgalos
+
+== consequence wharf count-all @de5fc9de
+Tres bultos contados y a bordo. El conocimiento y la carreta coinciden.
+
+== label wharf two-now @114bd035
+Cuenta, y lleva solo los dos de Peck
+
+== consequence wharf two-now @1259b1e0
+Una carga más ligera. El bulto de Church espera en el muelle para un segundo viaje.
+
+== label wharf trust @a1a1ce72
+Carga los tres confiando en el conocimiento
+
+== consequence wharf trust @e92234ce
+Más rápido, pero nadie ha revisado el conocimiento.
+
+== stop store @cd4f85a0
+Al este hasta la esquina de Peck, en LaSalle y South Water. Sus propios avisos de 1833 y 1834 enumeran géneros textiles, ferretería, abarrotes, loza, franelas y percales, con cincuenta barriles de harina superfina en existencia. Construyó la primera casa de madera de dos pisos del poblado con madera 'traída de Detroit en un barco', y desde entonces no ha dejado de descargar barcos. Sus dos bultos pertenecen a esos ramos.
+
+== narrative store @5e1ebc38
+¿Revisas su lista, o descargas enseguida?
+
+== label store check @db717045
+Compara las marcas con su aviso
+
+== consequence store check @944c1ce2
+Géneros textiles y ferretería, dos ramos que enumera su aviso. Dos bultos entregados.
+
+== label store unload @afd915f1
+Descarga los dos bultos y vete
+
+== consequence store unload @d49749c9
+Dos bultos fuera de la carreta, sin revisar.
+
+== stop church @3d450f86
+Subiendo hasta Lake Street, adonde se están mudando los negocios del pueblo: en 1834, dicen Moses y Kirkland, el comercio 'que hasta entonces se había limitado a South Water street' empezó 'a extenderse a Lake street'. Thomas Church llegó ese año, y una nota moderna le atribuye el primer edificio de tienda de la calle, una construcción de madera de dos pisos. No menciona mercancías ni año.
+
+== narrative church @f69c8c01
+¿Está a bordo el bulto de Church?
+
+== label church deliver @fad6c13a
+Deja el bulto de Church
+
+== consequence church deliver @68ad7d93
+La carreta está vacía.
+
+== label church note @e7ee5e15
+Anota la tienda para el segundo viaje
+
+== consequence church note @c0dca97b
+El bulto de Church sigue en el muelle.
+
+== stop tally @d31fa36e
+Andreas sitúa el almacén y el matadero de George W. Dole de 1832 cerca de Lake y Dearborn. Dole es el Dole de Newberry & Dole, y en 1832 inició el comercio de matanza y empaque del pueblo, 'el núcleo de una de esas inmensas industrias' por las que Chicago sería famosa. Para 1834 la firma ya mataba en el brazo sur, así que este viejo corral está tranquilo. Cuadra aquí el conocimiento.
+
+== narrative tally @a4f722ee
+Entrega el recuento.
+
+== leg 0 @f3429d2d
+La carreta cruje hacia el este con su carga.
+
+== note 0 @154a67fa
+Al este por South Water Street hasta LaSalle.
+
+== note 1 @4e42040f
+Una cuadra al sur por LaSalle y al este por Lake Street.
+
+== note 2 @7d0b6fe8
+Al este por Lake Street hasta Dearborn.
+
+== ending second-trip @411e735f
+El recuento cuadra para dos bultos y así lo dice. El bulto de Church espera en lo de Newberry & Dole para un segundo viaje, más ligero. Un carretero cuidadoso y un recuento honrado: te volverán a contratar.
+
+== ending taken-on-trust @5c963617
+Los tres bultos están entregados, pero el recuento solo repite el conocimiento: nadie contó en el muelle. Si una tienda encuentra que falta uno, no hay manera de saber adónde fue. La próxima vez, cuenta primero.
+
+== ending checked-and-counted @ca52400e
+Contados en el muelle, comparados con el propio aviso de Peck y dejados uno por uno: dos bultos en lo de Peck, uno en lo de Church. El recuento coincide con el conocimiento hasta el último bulto.
+
+== ending cargo-accounted-for @bc8380a0
+Tres bultos contados en el muelle, dos dejados en lo de Peck y uno en lo de Church, y un recuento que coincide con el conocimiento. Carga contabilizada.
+
+== keepsake title @1798ae81
+Carga contabilizada
+
+== keepsake text @1eabf9a0
+Un recuento ficticio de un envío inventado: tres bultos del muelle de Newberry & Dole, y adónde fue cada uno. No lleva escrito ningún conocimiento, flete ni precio reales.
