@@ -7,6 +7,7 @@
  *   QA_TAG=before|after           the frames' name prefix (default after)
  *   QA_OUT=<dir>                  where frames go (default the scratch of this ticket's research)
  *   QA_FIRE=<iso local>           set the fire clock first (api.fire.set), when the scene has one
+ *   QA_STANDS=a,b                 only these stands (by name)
  *
  * Serves ../../site/4d, boots /1871/ (full on a 1280 x 800 desktop, light on a 390 x 780 phone),
  * holds the sun at 8 October 1871 16:00, steps the day layer, the crowd and the town's teams by
@@ -94,6 +95,7 @@ try {
           pitch_deg: Math.atan2(t[2] - p[2], Math.hypot(t[0] - p[0], t[1] - p[1])) * 180 / Math.PI });
       }
       a.step();
+      a.navigator?.dock?.();   // a drawer left open by the walk's own furniture would hide the street
       a.camera.position.set(p[0], p[2], -p[1]);
       a.camera.lookAt(t[0], t[2], -t[1]);
       a.camera.updateMatrixWorld();
@@ -127,7 +129,9 @@ try {
       return shoot(args);
     };
     const stands = [];
+    const only = process.env.QA_STANDS ? new Set(process.env.QA_STANDS.split(',')) : null;
     for (const [name, visitor, eye, target] of STANDS) {
+      if (only && !only.has(name)) continue;
       const observation = await settle({ eye, target, visitor });
       await page.screenshot({ path: path.join(out, `${tag}-${label}-${name}.jpg`), type: 'jpeg', quality: 84, timeout: 300000 });
       stands.push({ name, ...observation });
