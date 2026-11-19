@@ -1,0 +1,30 @@
+{
+ "id": "chicagology_2000_block_prairie_engraving_1880",
+ "type": "illustration",
+ "citation": "[The 2000 block of Prairie Avenue looking north from 21st Street, c. 1880.] Engraved street view; engraver and first publication not named. Reproduced on chicagology.com, 2036 Prairie, whose caption puts the Buckingham house at the far left in 1880.",
+ "author": "unknown engraver",
+ "date": "c. 1880 (the Chicagology caption)",
+ "describes_date": "1875-1885 (the Prairie library's bracket on the caption's 1880)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2036-street-engraving-1880, recorded there as 'unknown - link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2036-street-engraving-1880.jpg), committed at data/sources/assets/buckingham_2036_pictures_t1911/.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2036prairie/",
+ "locator": "The left third of the print (x 0-650 of 2000): 2036's 21st Street face, its canted south-east corner and the edge of its Prairie front with the stoop, cut off by the frame above the chamber storey; 2026 Prairie's pale Second Empire flank and towered front beyond it (x 650-1150).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy is unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-17 (T-1911) from the image store's reference copy, 2000 x 1198 px greyscale, sha256 9247cf9c0e5a7a890e21fe96b256f9067b45256822aebef55e376de67e1d036a. Its camera is solved on 2036's own window column, cant and front (data/reference_views/buckingham_house_2036_prairie/chicagology_engraving.json); the engraver's foreground (the fence, the gate's urn piers) does not stand in the same perspective as the house and is not used for the fit.",
+ "note": "The one near view of 2036: a brick house over a stone basement cut in broad horizontal courses, its 21st Street face with a tall principal light under a hood (a cornice over a frieze carved with a running vine, on consoles) and a chamber light over it standing on a stone sill course, a barred basement light; the south-east corner cut on a narrow face hidden by a tree; on the Prairie front a pale column at the head of a broad stoop with turned balusters running down to the walk; an iron fence of spear bars over a band of rings on a stone curb, with urns on the gate piers. The frame stops above the chamber storey, so the cornice and roof are not shown.",
+ "what_it_supplies": [
+  "2036's walls, basement, principal and chamber lights, hood and sill course on its 21st Street face, and their heights through the solved camera",
+  "the cant at the south-east corner, the porch's column and the stoop's balustrade on the Prairie front",
+  "the iron fence's pattern and the urn piers at the gate",
+  "2026 Prairie's south flank and towered front beyond (T-3608's house)"
+ ],
+ "what_it_does_not_supply": [
+  "2036's cornice, roof, dormers and chimneys (out of the frame)",
+  "colour: the print is monochrome",
+  "the rear and the north flank",
+  "a date closer than about 1875-1885, and the 1904 state: alterations after the engraving are not shown"
+ ]
+}
