@@ -23,6 +23,8 @@
 import { t } from './strings/index.js';
 import './strings/recall.js';
 import { reducedMotion } from './motion.js';
+// T-3671 (WCAG 2.1.4): loaded here so its key filter is registered before every other key handler.
+import './letter-keys.js';
 
 export const RECALL_MS = 1100;
 export const RECALL_KEY = 'chicago4d.recall';

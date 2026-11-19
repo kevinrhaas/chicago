@@ -32,6 +32,7 @@ import { t as str } from './strings/index.js';
 import './strings/settings.js';
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
 import { MOTION_CHOICES, MOTION_LABELS, motionChoice, setMotionChoice, onMotionChange } from './motion.js'; // T-3671
+import { LETTER_KEY_CHOICES, LETTER_KEY_LABELS, letterKeysChoice, setLetterKeys, onLetterKeysChange } from './letter-keys.js'; // T-3671, WCAG 2.1.4
 
 /** Text size: every Navigator app's text, 100 % to 140 % (QA-18). */
 export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4]);
@@ -392,6 +393,76 @@ export function wireMotion(seg, { choose = setMotionChoice, current = motionChoi
   return true;
 }
 
+/**
+ * T-3671 (WCAG 2.1.4): Settings › Look › Letter keys — On or Off (js/letter-keys.js). Off holds
+ * back every bare letter and number shortcut; the arrows, Space and the controls still answer.
+ * Two radios in one group, drawn under Motion, the same way.
+ */
+export function letterKeysGroup(doc = globalThis.document) {
+  const have = doc?.getElementById?.('s-letter-keys');
+  if (have) return have;
+  const look = doc?.getElementById?.('s-look');
+  if (!look) return null;
+  const row = doc.createElement('div');
+  row.className = 'field row theme-row letter-keys-row';
+  row.id = 'row-letter-keys';
+  const label = doc.createElement('span');
+  label.id = 's-letter-keys-label';
+  label.textContent = 'Letter keys';
+  const seg = doc.createElement('div');
+  seg.className = 'seg';
+  seg.id = 's-letter-keys';
+  seg.setAttribute('role', 'radiogroup');
+  seg.setAttribute('aria-labelledby', 's-letter-keys-label');
+  for (const id of LETTER_KEY_CHOICES) {
+    const b = doc.createElement('button');
+    b.type = 'button';
+    b.className = 'seg-btn';
+    b.dataset.letterKeys = id;
+    b.setAttribute('role', 'radio');
+    b.setAttribute('aria-checked', 'false');
+    b.textContent = LETTER_KEY_LABELS[id];
+    seg.append(b);
+  }
+  const note = doc.createElement('p');
+  note.className = 'legend-note';
+  note.id = 's-letter-keys-note';
+  note.textContent = 'Off: single letter and number keys do nothing. Walk with the arrows; every key still works in a control.';
+  seg.setAttribute('aria-describedby', note.id);
+  row.append(label, seg);
+  look.append(row, note);
+  return seg;
+}
+
+export function wireLetterKeys(seg, { choose = setLetterKeys, current = letterKeysChoice, subscribe = onLetterKeysChange } = {}) {
+  if (!seg) return false;
+  const keys = [...seg.querySelectorAll('[data-letter-keys]')];
+  const paint = () => {
+    const now = current();
+    for (const k of keys) {
+      const on = k.dataset.letterKeys === now;
+      k.setAttribute('aria-checked', String(on));
+      k.classList.toggle('is-on', on);
+      k.tabIndex = on ? 0 : -1;
+    }
+  };
+  for (const k of keys) k.addEventListener('click', () => { choose(k.dataset.letterKeys); paint(); });
+  seg.addEventListener('keydown', (e) => {
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    const at = keys.indexOf(e.target);
+    if (!step || at < 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const next = keys[(at + step + keys.length) % keys.length];
+    choose(next.dataset.letterKeys);
+    paint();
+    next.focus();
+  });
+  subscribe(paint);
+  paint();
+  return true;
+}
+
 export function wireSettingsApp({
   doc = globalThis.document, settings, device = null, save = () => {}, saveTheme = () => {},
   onSetting = null, openWhatsNew = null, isTouch = false,
@@ -524,6 +595,7 @@ export function wireSettingsApp({
 
   // ---- Look: motion (T-3671). One choice, kept by js/motion.js, read by everything that moves.
   wireMotion(motionGroup(doc));
+  wireLetterKeys(letterKeysGroup(doc));
 
   // ---- About & What's new.
   $('s-open-whatsnew')?.addEventListener('click', () => openWhatsNew?.());
