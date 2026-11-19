@@ -45,6 +45,10 @@ try {
     // T-3670: the guide's three questions, each a group of real options with one answer.
     assert.equal(await page.locator('.jaunt-check-choices[role="group"]').count(), 3);
     const q1 = page.locator('.jaunt-check-question').first();
+    // Owner, 19 November: the question quotes what the walk said; the record waits behind it.
+    const quoted = (await q1.locator(':scope > blockquote').textContent()).trim();
+    assert(jaunt.stops.some(stop => `${stop.text} ${stop.stage?.caption ?? ''}`.includes(quoted)), 'the quoted line is one the walk said');
+    assert.equal(await q1.locator('.jaunt-check-review blockquote').count(), 1, 'the record behind it is in the review');
     const ids = await q1.locator('.jaunt-check-choice').evaluateAll(bs => bs.map(b => b.dataset.option));
     assert(ids.length === 3, 'three options');
     // Try every option until one is right: wrong ones say "not quite", the right one reveals the sources.

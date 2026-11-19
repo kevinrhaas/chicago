@@ -41,8 +41,12 @@ export function understandingQuestions(session, { placeOf = null } = {}) {
       const refs = (claim.sources ?? []).map(source => citations.get(source));
       // Do not hide an unresolved reference by presenting the other references alone.
       if (!refs.length || refs.some(ref => !ref?.citation)) continue;
+      // Only a record the stop actually told aloud: the question quotes the line you
+      // heard, and the record behind it waits under "Where does this come from?".
+      const heard = heardLine(stop, claim.text);
+      if (!heard) continue;
       seen.add(id);
-      candidates.push({ stop: stop.id, place: nameOf(stop),
+      candidates.push({ stop: stop.id, place: nameOf(stop), heard,
         claim: { id, text: claim.text, confidence: claim.confidence,
           locator: claim.locator ?? '', reasoning: claim.reasoning ?? '' },
         sources: refs.map(ref => ({ id: ref.source_id, citation: ref.citation, url: sourceURL(ref.url) ?? sourceURL(ref.archived_url) })) });
@@ -69,6 +73,63 @@ export function understandingQuestions(session, { placeOf = null } = {}) {
       ask: askFor(PREFER[index], picked, { places, told: told.get(picked.claim.id) ?? new Set(),
         speakers, toldBy: toldBy.get(picked.claim.id) ?? new Set(), band, id }) };
   });
+}
+
+/** What a stop says aloud, line by line: its text, then its staged scene's caption. A
+ * line may run on into the next sentence of the same passage, so it is always a span of the
+ * stop's own words. */
+const said = stop => [stop?.text, stop?.stage?.caption].filter(Boolean).flatMap(passage => {
+  const text = String(passage), spans = sentenceSpans(text);
+  return spans.flatMap(([a, b], i) => [text.slice(a, b), ...(spans[i + 1] ? [text.slice(a, spans[i + 1][1])] : [])])
+    .map(x => x.trim());
+});
+// Mr., Mrs., St., Capt. and an initial ("W. H. Stow") do not end a sentence.
+const NOT_AN_END = /(?:^|[\s('"‘“])(?:mr|mrs|ms|dr|st|capt|lt|col|gen|maj|sgt|rev|messrs|jr|sr|co|no|vol|pp?|ft|mt|[a-z])$/i;
+function sentenceSpans(text) {
+  const spans = []; let start = 0;
+  for (const m of text.matchAll(/[.!?]+['’"”)]*(?=\s+|$)/g)) {
+    const end = m.index + m[0].length;
+    if (m[0][0] === '.' && NOT_AN_END.test(text.slice(start, m.index))) continue;
+    if (text.slice(start, end).trim()) spans.push([start, end]);
+    start = end;
+  }
+  if (text.slice(start).trim()) spans.push([start, text.length]);
+  return spans;
+}
+const COMMON = new Set(('the a an and or of to in on at by for from with as is was were be been his her their its it this that these those he she they '
+  + 'we our you your i my me who which when where what had has have not but so than then there here into over under about after before one two all '
+  + 'any each very more most also only same such some just now still even them him us did does do can could would will shall may might must out up down '
+  + 'off much many own other another back long little great good new old first last next way like').split(' '));
+const stem = w => w.length > 4 ? w.replace(/(ings|ing|ed|es|s)$/, '') : w;
+const contentWords = text => new Set((String(text ?? '').toLowerCase().replace(/[’‘]/g, "'").match(/[a-z0-9]+/g) ?? [])
+  .filter(w => !COMMON.has(w) && (w.length > 2 || /\d/.test(w))).map(stem));
+// A date or an hour sets a scene; it is not something a record tells. A line that shares
+// only those with a record ("It is May 1804, in the morning") is not the record being said.
+const WHEN = new Set(('january february march april may june july august september october november december monday tuesday '
+  + 'wednesday thursday friday saturday sunday morning afternoon evening night noon midnight sunset sunrise dawn dusk '
+  + 'clock today year summer winter spring autumn').split(' ').map(stem));
+export const HEARD_MIN_SHARED = 3, HEARD_MIN_COVER = 0.5, HEARD_MIN_BOTH = 0.3;
+/** T-3670 (owner, 19 November): a question must be about something the walk actually said.
+ * The line of the stop (one sentence, or two running on) that a record's own words cover
+ * best; null when no line shares at least three content words with it, two of them more
+ * than a date or an hour, and half of the line's words (or the record's, if shorter). A
+ * stop's evidence list also holds records behind the scene that are never spoken, and
+ * those are never quizzed. */
+export function heardLine(stop, recordText) {
+  const record = contentWords(recordText);
+  let best = null;
+  for (const line of said(stop)) {
+    const words = contentWords(line);
+    const shared = [...words].filter(w => record.has(w));
+    const telling = shared.filter(w => !WHEN.has(w) && !/^\d+$/.test(w)).length;
+    // Both ways: the line is mostly the record's words, and the record is largely in the line.
+    const ofLine = shared.length / Math.max(1, words.size), ofRecord = shared.length / Math.max(1, record.size);
+    const score = shared.length * ofLine;
+    if (shared.length >= HEARD_MIN_SHARED && telling >= 2 && Math.max(ofLine, ofRecord) >= HEARD_MIN_COVER
+      && Math.min(ofLine, ofRecord) >= HEARD_MIN_BOTH
+      && (!best || score > best.score)) best = { line, score };
+  }
+  return best?.line ?? null;
 }
 
 /** The one person who hosts a stop, by the name its own card link gives; a stop with no
@@ -98,6 +159,11 @@ function order(items, seed) {
   return items.map((item, i) => ({ item, k: Math.imul(h ^ (i + 1) * 2654435761, 2246822519) >>> 0 }))
     .sort((a, b) => a.k - b.k).map(x => x.item);
 }
+/** "I'm John Glessner" in the quoted line would answer "who told us" for the student. */
+const namesSpeaker = (line, speaker) => {
+  const given = String(speaker ?? '').split(/\s+/)[0];
+  return !!speaker && (String(line ?? '').includes(speaker) || (given.length > 2 && new RegExp(`\\b${given}\\b`).test(String(line ?? ''))));
+};
 function askFor(kinds, q, { places, told, speakers, toldBy, band, id }) {
   const stem = k => t(`understanding.ask.${k}.${band}`);
   const three = (kind, right, pool, taken) => {
@@ -107,7 +173,7 @@ function askFor(kinds, q, { places, told, speakers, toldBy, band, id }) {
   };
   for (const kind of kinds) {
     const ask = kind === 'where' ? three(kind, q.place, places, told)
-      : kind === 'who' ? three(kind, q.speaker, speakers, toldBy) : null;
+      : kind === 'who' && !namesSpeaker(q.heard, q.speaker) ? three(kind, q.speaker, speakers, toldBy) : null;
     if (ask) return ask;
   }
   // How sure can we be? Always answerable: the claim's own grade.

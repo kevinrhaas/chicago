@@ -31,7 +31,8 @@ export function renderUnderstandingCheck(doc, questions, draft) {
     section.append(heading);
     // A 'where' question does not print its own answer above the claim.
     if (question.place && ask?.kind !== 'where') section.append(node('p', question.place, 'jaunt-meta'));
-    section.append(node('p', t('understanding.claim'), 'jaunt-meta'), node('blockquote', question.claim.text));
+    // The line you heard on the walk; the record behind it waits in the review below.
+    section.append(node('p', t('understanding.heard'), 'jaunt-meta'), node('blockquote', question.heard ?? question.claim.text));
     // T-3670: the guide's question, one answer, as many tries as you like, no score.
     let paintChoices = () => {};
     if (ask) {
@@ -81,7 +82,7 @@ export function renderUnderstandingCheck(doc, questions, draft) {
       node('p', t(`understanding.choice.${question.claim.confidence}`, null, t(`understanding.grade.${question.claim.confidence}`))));
     if (question.place && ask?.kind === 'where') review.append(node('p', question.place, 'jaunt-meta'));
     if (question.speaker && ask?.kind === 'who') review.append(node('p', question.speaker, 'jaunt-meta'));
-    review.append(node('h5', t('understanding.from')));
+    review.append(node('h5', t('understanding.claim')), node('blockquote', question.claim.text), node('h5', t('understanding.from')));
     const sources = node('ul');
     for (const ref of question.sources) {
       const item = node('li', shortCitation(ref.citation));

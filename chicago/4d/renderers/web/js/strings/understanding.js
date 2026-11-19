@@ -35,6 +35,7 @@ export default register('understanding', {
   from: 'Where we read it',
   locator: 'Where in it: {locator}',
   age: 'Questions for ages {age}',
+  heard: 'What we heard on the walk',
   claim: 'What the record says',
   answer: 'In your own words (optional): {prompt}',
   compare: 'Where does this come from?',
