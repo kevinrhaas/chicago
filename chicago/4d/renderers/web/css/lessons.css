@@ -1,0 +1,36 @@
+/* Teacher lessons use the same Navigator tokens; loaded only on request. */
+.nav-lessons { border-top: 1px solid var(--edge, #777); margin-top: 1rem; padding-top: .75rem; }
+.nav-lessons h3 { font-size: 1.1rem; }
+.lesson-controls { display: grid; gap: .75rem; margin: .75rem 0; }
+.lesson-controls label { display: grid; gap: .25rem; font-size: .9rem; }
+.lesson-controls select { width: 100%; min-width: 0; min-height: 44px; font: inherit; color: var(--ink); background: var(--panel-solid, #fff); border: 1px solid var(--edge, #777); border-radius: 4px; }
+.nav-lessons button { min-height: 44px; }
+.nav-lessons :focus-visible { outline: 3px solid var(--accent, #2c5275); outline-offset: 3px; }
+.lesson-guide { color: var(--ink); font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.lesson-guide h3 { margin-top: 1.2rem; }
+.lesson-guide h4 { margin: 1.2rem 0 .4rem; font-size: 1rem; }
+.lesson-guide h5 { margin: .8rem 0 .3rem; font-size: .95rem; }
+.lesson-guide p { margin: .4rem 0; }
+.lesson-guide ul, .lesson-guide ol { padding-left: 1.4rem; }
+.lesson-guide li { margin-bottom: .4rem; }
+.lesson-guide a { color: var(--accent, #245375); text-decoration: underline; }
+.lesson-question { font-weight: 600; }
+.lesson-document { border-top: 1px solid var(--edge, #777); padding: .4rem 0; }
+.lesson-evidence-label, .lesson-footer { font-size: .85rem; }
+.lesson-claim { border-left: 3px solid var(--edge, #777); padding-left: .7rem; margin: .7rem 0; }
+.lesson-warning { font-weight: 600; }
+.lesson-response { line-height: 2.4; }
+.lesson-print { display: none; }
+@media print {
+  @page c4d-lesson { margin: 15mm; }
+  html.is-printing-lesson, html.is-printing-lesson body { height: auto !important; min-height: 0 !important; overflow: visible !important; position: static !important; background: white !important; }
+  html.is-printing-lesson body > :not(.lesson-print) { display: none !important; }
+  html.is-printing-lesson .lesson-print { display: block !important; position: static !important; page: c4d-lesson; }
+  .lesson-print .lesson-guide { --ink: #000; --accent: #000; --edge: #888; color: #000; font: 10pt/1.4 Georgia, serif; }
+  .lesson-print h3 { font-size: 18pt; }
+  .lesson-print h4, .lesson-print h5 { break-after: avoid; }
+  .lesson-print a { color: #000; }
+  .lesson-print a[href]::after { content: ' (' attr(href) ')'; font-size: 8pt; overflow-wrap: anywhere; }
+  .lesson-print .lesson-claim { break-inside: avoid; }
+  .lesson-print .lesson-response { line-height: 3; }
+}
