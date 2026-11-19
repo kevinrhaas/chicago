@@ -927,22 +927,21 @@ p.write_text(s)
 PYEOF
   # THE DEVELOPER NOTES STAY IN THE SOURCE. renderers/web/index.html carries about
   # 13 KB of HTML comments — why each line is the way it is, for the next editor —
-  # and the doors below ship this page five times over. They are byte-identical on
-  # purpose, so validate.py's site check (T-0722) refuses them once they reach its
-  # 64 KB floor, which PR #1030's markup did. The shipped page drops its comments
-  # instead: placeholders and conditional comments stay, and nothing inside
+  # which add no value to the shipped page. Comment stripping first reduced the
+  # old copied doors below validate.py's 64 KB duplicate floor (PR #1030); the
+  # doors now share one canonical page. Placeholders and conditional comments
+  # stay, and nothing inside
   # <script>, <style>, <textarea> or <pre> is touched. It runs after the stamp and
-  # before the doors, so every door is a copy of the stripped page.
+  # before the doors, so the shared page carries no developer notes.
   # `strip_page_comments.mjs --check` (check.sh) holds the shipped form to the source.
   node tools/strip_page_comments.mjs "$SITE/walk/index.html"
 fi
 # THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
-# sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a
-# <base href> into walk/, so the address bar keeps the short path and every relative
-# URL still resolves from walk/. This replaces the old opener page that bounced /4d/
-# to walk/?year=1835. It runs after the stamp so every door shows the same build.
-# Each door keeps walk/index.html's <head> and </body>, which is what
-# .github/chicago-4d-dev-preview.mjs marks (robots meta, DEV PREVIEW banner).
+# sent there: /4d/ is the Observatory and /4d/<year>/ is a small stamped loader of
+# the one shared walk/index.html. It adds <base href> before parsing that page at
+# the same short URL, so path-based year selection and relative assets are kept.
+# Both the loader and shared page have ordinary head/body elements for preview
+# marking; the loaded page carries its own DEV stamp, noindex and banner.
 rm -f "$SITE/index.html"
 node tools/write_entry_pages.mjs "$SITE"
 

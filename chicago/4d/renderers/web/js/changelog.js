@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3125, ts: '2026-11-19T16:53:10.415Z', date: 'Nov 19, 2026, 10:53 AM CT', title: '2108 Prairie, the Mark Kimball house, built from the Tribune\'s 1898 sketch', kind: 'feature',
+    items: [
+      '2108 Prairie Avenue, the Mark Kimball house, replaces its rough draft with a finished house: two storeys of brick behind a pale stone front over a high basement, with two round-headed windows and a round-arched double door at the head of a long stoop between iron rails.',
+      'Its front follows the Chicago Tribune\'s sketch of January 1898 and a street photograph of the block from the early 1890s. Its plan follows the 1911 fire-insurance map, which also shows the two-storey rear wing.',
+    ] },
+  { v: 3124, ts: '2026-11-19T14:45:46.529Z', date: 'Nov 19, 2026, 8:45 AM CT', title: 'Explore the pre-fire city in 1871', kind: 'feature',
+    items: [
+      'Enter 8 October 1871 and explore a citywide baseline with varied commercial, residential and industrial buildings.',
+      'Streets, walks, bridges, rail corridors and riverfront structures give the buildings their setting.',
+      'New city and district viewpoints, source notes and reconstruction labels explain what is known and what remains to be researched.',
+      'Compare the corrected terrain traces with the original map, and read the independent alignment checks in the pre-fire research viewer.',
+    ] },
   { v: 3123, ts: '2026-11-19T12:43:36.570Z', date: 'Nov 19, 2026, 6:43 AM CT', title: '2017 Prairie\'s mansard gets its crenellated crest and barred basement lights', kind: 'improvement',
     items: [
       'The William Armour house at 2017 Prairie now carries a row of square crenellations along the top of its mansard, as its photograph shows, in place of the scrolled iron cresting it had.',

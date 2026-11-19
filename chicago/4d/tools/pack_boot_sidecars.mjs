@@ -44,7 +44,10 @@
  *   node tools/pack_boot_sidecars.mjs --check        each boot copy against its record
  *   node tools/pack_boot_sidecars.mjs --self-test    pack and rehydrate on a fixture
  */
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, existsSync, mkdirSync, mkdtempSync, rmSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import { isDeepStrictEqual } from 'node:util';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -147,10 +150,10 @@ function write(site) {
   for (const { scene, idx, index, rows } of scenes(site)) {
     const dir = path.join(site, scene, 'boot');
     if (existsSync(dir)) rmSync(dir, { recursive: true });
-    // A row whose record is missing stays out of its part, and the loader reports it
-    // exactly as it reported the 404 before.
+    // A missing indexed record stays out of its part; the checker rejects it and
+    // the loader reports it as before. A genuinely empty index still needs its
+    // boot descriptor and empty shared table, with no part files (1871 context).
     const present = rows.map((row, at) => ({ row, at })).filter(({ row }) => existsSync(recordPath(site, scene, row)));
-    if (!present.length) continue;
     const { values, packed } = pack(present.map(({ row }) => read(recordPath(site, scene, row))));
     const parts = new Map();
     present.forEach(({ row, at }, i) => {
@@ -178,6 +181,7 @@ function check(src, site) {
     const sharedFile = path.join(site, scene, 'boot', 'shared.json');
     if (!existsSync(sharedFile)) { problems.push(`${scene}/boot/shared.json: missing`); continue; }
     const { values } = read(sharedFile);
+    if (!Array.isArray(values)) { problems.push(`${scene}/boot/shared.json: holds no \`values\` array`); continue; }
     const expected = new Set(['shared.json']);
     const parts = new Map();
     const partFor = (name) => {
@@ -189,7 +193,7 @@ function check(src, site) {
     };
     for (const [at, row] of rows.entries()) {
       const rec = recordPath(site, scene, row);
-      if (!existsSync(rec)) continue;
+      if (!existsSync(rec)) { problems.push(`${scene}/index.json: missing indexed record ${path.relative(path.dirname(site), rec)}`); continue; }
       const name = partName(at);
       expected.add(name);
       const got = partFor(name);
@@ -218,6 +222,103 @@ function check(src, site) {
   console.log(`packed boot sidecars: ${n} record(s) rehydrate to the record at their own URL, key for key`);
 }
 
+/** Exercise the real CLI in an isolated source/publication layout, including its
+ * strict failure exits. No committed scene, mirror or fixture is modified. */
+function publicationSelfTest() {
+  const root = mkdtempSync(path.join(tmpdir(), 'packed-boot-sidecars-'));
+  try {
+    const tool = path.join(root, 'chicago', '4d', 'tools', 'pack_boot_sidecars.mjs');
+    const src = path.join(root, 'chicago', '4d', 'data', 'sidecars');
+    const site = path.join(root, 'site', '4d', 'data', 'sidecars');
+    mkdirSync(path.dirname(tool), { recursive: true });
+    writeFileSync(tool, readFileSync(fileURLToPath(import.meta.url)));
+    const put = (p, value) => { mkdirSync(path.dirname(p), { recursive: true }); writeFileSync(p, JSON.stringify(value)); };
+    const run = (...args) => {
+      const result = spawnSync(process.execPath, [tool, ...args], { encoding: 'utf8', timeout: 10000 });
+      assert.ifError(result.error);
+      return result;
+    };
+    const requirePass = (result) => assert.equal(result.status, 0, result.stderr || result.stdout);
+    const requireFailure = (message) => {
+      const result = run('--check');
+      assert.equal(result.status, 1, `checker accepted corruption: ${message}`);
+      assert.match(result.stderr, message);
+    };
+    const seed = (count, missing = []) => {
+      rmSync(src, { recursive: true, force: true });
+      rmSync(site, { recursive: true, force: true });
+      const rows = Array.from({ length: count }, (_, i) => ({ id: `roof_${i}` }));
+      const index = { scene: '1871', structures: rows };
+      put(path.join(src, '1871', 'index.json'), index);
+      put(path.join(site, '1871', 'index.json'), index);
+      for (const [at, row] of rows.entries()) {
+        if (missing.includes(at)) continue;
+        put(path.join(site, '1871', `${row.id}.json`), { id: row.id, own: at,
+          note: 'A shared reason long enough for this publication fixture to exercise real packing.' });
+      }
+      requirePass(run('--site', site));
+    };
+    const idx = path.join(site, '1871', 'index.json');
+    const boot = path.join(site, '1871', 'boot');
+    seed(0);
+    assert.deepEqual(read(idx).boot, bootFor('1871'));
+    assert.deepEqual(read(path.join(boot, 'shared.json')), { values: [] });
+    assert.deepEqual(readdirSync(boot), ['shared.json']);
+    requirePass(run('--check'));
+
+    seed(PER_PART + 1);
+    assert.deepEqual(readdirSync(boot).sort(), ['part-0.json', 'part-1.json', 'shared.json']);
+    requirePass(run('--check'));
+    const first = [idx, ...readdirSync(boot).sort().map((f) => path.join(boot, f))]
+      .map((f) => [f, readFileSync(f, 'utf8')]);
+    requirePass(run('--site', site));
+    for (const [f, before] of first) assert.equal(readFileSync(f, 'utf8'), before, `repacking changed ${f}`);
+    requirePass(run('--check'));
+
+    seed(PER_PART + 1, [1]);
+    assert.ok(Object.hasOwn(read(path.join(boot, 'part-1.json')), `roof_${PER_PART}`), 'missing row shifted later parts');
+    requireFailure(/missing indexed record sidecars\/1871\/roof_1\.json/);
+    seed(2, [0, 1]);
+    requireFailure(/missing indexed record/);
+
+    seed(0);
+    const { boot: omitted, ...withoutBoot } = read(idx);
+    put(idx, withoutBoot);
+    requireFailure(/no `boot`/);
+    seed(0);
+    put(idx, { ...read(idx), boot: { ...bootFor('1871'), per_part: 1 } });
+    requireFailure(/`boot` is/);
+    seed(0);
+    rmSync(path.join(boot, 'shared.json'));
+    requireFailure(/shared\.json: missing/);
+    seed(0);
+    put(path.join(boot, 'shared.json'), { values: {} });
+    requireFailure(/holds no `values` array/);
+    seed(0);
+    put(path.join(boot, 'part-0.json'), {});
+    requireFailure(/shipped, but no index row loads it/);
+
+    seed(PER_PART + 1);
+    rmSync(path.join(boot, 'part-1.json'));
+    requireFailure(/does not carry roof_50/);
+    seed(3);
+    const part = read(path.join(boot, 'part-0.json'));
+    part.roof_0.own = 'corrupted';
+    put(path.join(boot, 'part-0.json'), part);
+    requireFailure(/does not rehydrate/);
+
+    seed(PER_PART + 1);
+    put(path.join(src, '1871', 'index.json'), { scene: '1871', structures: [] });
+    put(idx, { ...read(idx), structures: [] });
+    requirePass(run('--site', site));
+    assert.deepEqual(readdirSync(boot), ['shared.json'], 'empty repack retained obsolete parts');
+    assert.deepEqual(read(path.join(boot, 'shared.json')), { values: [] });
+    requirePass(run('--check'));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+}
+
 function selfTest() {
   const long = 'A reason long enough to be worth sharing between the records that carry it.';
   const cite = { source_id: 'spec', citation: 'The reconstruction specification, cited on every roof.' };
@@ -237,8 +338,10 @@ function selfTest() {
   back[0].citations[0].citation = 'changed';
   if (back[1].citations[0].citation !== cite.citation) fails.push('two rehydrated records share one object, so a change to one would change both');
   try { pack([{ id: 'e', x: { [MARK]: 0 } }]); fails.push('a record holding the marker was packed'); } catch { /* refused, as it must be */ }
+  try { publicationSelfTest(); } catch (err) { fails.push(`publication fixtures: ${err.message}`); }
   if (fails.length) { for (const f of fails) console.error(`self-test | FAIL ${f}`); process.exit(1); }
   console.log('self-test | ok: repeated values ship once, every record comes back whole and unaliased');
+  console.log('self-test | ok: empty/nonempty publication, stable repacking and part positions, nine corruption refusals, and stale-part cleanup');
 }
 
 const argv = process.argv.slice(2);

@@ -1,0 +1,59 @@
+{
+  "ticket": "T-3654",
+  "recorded_utc": "2026-11-18T20:07:28.211765+00:00",
+  "base_commit": "8d59e79cd657f58f483533246973e0e1c00ebf51",
+  "source_partition_failure": "Part 7/16 failed four of 89 checks. Hosted part 2/8 also found one stale Navigator expectation among 176 checks. Original failures are preserved in the evidence archive.",
+  "repairs": [
+    {
+      "issue": "Missing 1871 frame-pacing benchmark poses",
+      "repair": "Added optional 1871 walk, turn and flight poses; existing 1812, 1835 and 1904 pose values are unchanged.",
+      "proof": "All four scene pose checks pass against actual footprints, including all 33,580 context buildings. Mutations entering a real building or leaving the road are rejected.",
+      "receipt": "t3654-pacing-1871-source-proof.json"
+    },
+    {
+      "issue": "Aerial viewpoint treated as standing in water; missing 1871 ground reading",
+      "repair": "Recorded 1871 ground measurements and declared aerial heights without changing wet ground to dry.",
+      "proof": "Self-tests and the all-scene gate pass 73 anchors. Existing ground, coordinates, deck, margin and roof values are unchanged. Negative controls retain standing-water, boundary, altitude and drift guards.",
+      "receipt": "t3654-anchor-repair-proof.json"
+    },
+    {
+      "issue": "Stale generated source catalog and backlinks",
+      "repair": "The supported compiler adds eleven research sources and refreshes scene use maps.",
+      "proof": "All 709 existing rows are unchanged. The 720-source index is 295,048 bytes, below the unchanged 296,000-byte budget. Freshness, strict confidence and 14 existing fixtures pass.",
+      "receipt": "t3654-source-use-repair-receipt.json"
+    },
+    {
+      "issue": "Dead tickets pin in the local roof-ID sweep",
+      "repair": "Replaced only the ignored local tickets symlink with a real shallow nested checkout, matching normal repository setup. The original external checkout is retained; no pin or code exemption changed.",
+      "proof": "The pin check passes for 26,863 reachable files; nine self-test guards pass.",
+      "receipts": [
+        "t3654-roof-pins-check.log",
+        "t3654-roof-pins-selftest.log"
+      ]
+    },
+    {
+      "issue": "Navigator fixture still expects three destinations",
+      "repair": "The fixture now asserts all four built destinations, including the 1871 link, while the current 1904 card remains unlinked.",
+      "proof": "The full Navigator suite passes, including phone and desktop behavior, linked-person handling, preload and Go to ownership.",
+      "receipt": "t3654-navigator-repair.log"
+    }
+  ],
+  "limits": [
+    "These are focused repairs; the complete source gate and fresh legacy browser verification remain pending.",
+    "City geometry, terrain, map registration, lighting and standard camera anchors are unchanged.",
+    "Benchmark poses are test camera motions, not historical actions or visitor-facing reading content."
+  ],
+  "next": [
+    "Commit and push this repair checkpoint.",
+    "Complete the source gate before dispatching the fresh full legacy suite.",
+    "Verify the 1871 benchmark in the published browser."
+  ],
+  "receipt_sha256": {
+    "t3654-pacing-1871-source-proof.json": "1c4898648ac200d09b92cbe8dfdb647df55b7f11d2c397503d90cc9fea590b8e",
+    "t3654-anchor-repair-proof.json": "ed37753c7f428b4538c13d92351fd8fddfd924d6864a1327a7b67600abc7ba34",
+    "t3654-source-use-repair-receipt.json": "3242965b4b247615d188e86193db800bd18b2363d897b42e2ff11f30da9b315c",
+    "t3654-roof-pins-check.log": "58b428d5c079710ab25ad1c04e4da8f0da7de5374c049020e962c7a742ae7deb",
+    "t3654-roof-pins-selftest.log": "51a5c2263580671dafc96872945045b63122efed4e3eae939c0a64a094cbd9eb",
+    "t3654-navigator-repair.log": "df6c735ba8ffcef4b4ea090da0f969795914c185b4736b56fb923b57289d3b62"
+  }
+}

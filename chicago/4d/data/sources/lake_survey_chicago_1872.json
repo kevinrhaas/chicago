@@ -1,0 +1,26 @@
+{
+  "id": "lake_survey_chicago_1872",
+  "type": "map",
+  "citation": "Map of the City of Chicago, projected from a Trigonometrical Survey ... under Major C. B. Comstock ... and from local Surveys made by J. R. Mayer. 1872.. 1872. https://historicalcharts.noaa.gov/image.php?filename=LC00040-00-1872WWL",
+  "author": "United States War Department, Office of the Chief of Engineers",
+  "date": "1872",
+  "describes_date": "1872",
+  "repository": "NOAA Office of Coast Survey Historical Map & Chart Collection",
+  "url": "https://historicalcharts.noaa.gov/image.php?filename=LC00040-00-1872WWL",
+  "locator": " Raster or PDF SHA-256 1581f4bb6ec4892659ca588768b36132c8f36f630fc00f7abb1ad2cb38bede47.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "NOAA image metadata explicitly public domain for any purpose except navigation; cite NOAA Office of Coast Survey Historical Map & Chart Collection.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Downloaded and inspected on 2026-11-18. Download: https://historicalcharts.noaa.gov/includes/downloadsingle.php?filename=LC00040-00-1872WWL&fileExt=.jpg ",
+  "what_it_supplies": [
+    "Extensive city street grid, river branches, shoreline, soundings and landcover/vegetation texture",
+    "Iron Lighthouse coordinate 41 degrees 53 minutes 22.88 seconds N; 87 degrees 36 minutes 49.20 seconds west of Greenwich",
+    "Soundings in feet referred to a plane 2.3 feet above zero of Milwaukee grades, or 1.7 feet below high water of 1838"
+  ],
+  "what_it_does_not_supply": [
+    "A validated WGS84 positional accuracy; dates of unrecorded construction between survey and 8 October 1871."
+  ],
+  "note": "Post-fire comparison source and possible independent persistent-street check. Do not adopt shoreline, fill, structures or stated historic coordinates as direct pre-fire WGS84 evidence without dated survey and datum reconciliation."
+}

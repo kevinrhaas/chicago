@@ -1,0 +1,31 @@
+{
+  "id": "usace_chicago_harbor_august_1869",
+  "type": "map",
+  "citation": "U.S. Harbor Improvements \u2014 Lake Michigan \u2014 Chicago Harbor in August 1869. 1869-08. https://catalog.archives.gov/id/86744439",
+  "author": "War Department, Office of the Chief of Engineers; drawing signed Wm. H. [surname not yet securely transcribed]; accompanying J. B. Wheeler report of November 30, 1869",
+  "date": "1869-08",
+  "describes_date": "1869-08",
+  "repository": "National Archives and Records Administration / Wikimedia Commons",
+  "url": "https://catalog.archives.gov/id/86744439",
+  "locator": "Image title, graphic scale, true meridian, river-mouth banks and existing piers; manuscript No.39 and bottom annotation accompanying Wheeler report Nov30,1869. Lower Chicago River from the former Rush Street bridge to river mouth, adjacent Illinois Central slips/depot and north dock basin; local harbor sheet, not whole city. Raster or PDF SHA-256 f9175b992b397008c49fa957ee5b4bea09aae1ec472cad9de7feb08d3cbf6872.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Public domain \u2014 federal government work; NARA/DPLA/Commons mark no copyright in the United States.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Downloaded and inspected on 2026-11-18. Download: https://upload.wikimedia.org/wikipedia/commons/2/2c/United_States_Harbor_Improvements_Lake_Michigan%2C_Chicago_Harbor%2C_Sheet_38_-_DPLA_-_5ba7f7001adf5c7acb49dfd93ef38cf0.jpg Catalog and filename disagree with actual sheet. Image title says August 1869 and south pier is labeled built in 1869; red bottom annotation accompanies Wheeler report Nov 30, 1869. Manuscript upper right says No.39, despite catalog Sheet38. Preserve both values; use image date, flag metadata discrepancy.",
+  "what_it_supplies": [
+    "Both banks of river mouth",
+    "North pier, lighthouse enclosure and U.S. pier",
+    "Chicago Dock & Canal Co basin and water soundings",
+    "U.S. south pier labeled built in 1869",
+    "Illinois Central docks, slips and building outlines",
+    "Area explicitly marked in progress of being filled with earth",
+    "Earlier shorelines, including line labeled 1821",
+    "True meridian and graphic scale"
+  ],
+  "what_it_does_not_supply": [
+    "A validated WGS84 positional accuracy; dates of unrecorded construction between survey and 8 October 1871."
+  ],
+  "note": "Eligible as primary 1869 geometry evidence after registration; 1871 bank/shore adoption requires 1869\u2013October 1871 construction reconciliation. No geometric accuracy number has been validated. Published nominal scale 1:3,600. Chart image evidence and metric-only traces: data/traces/harbor_1869/."
+}

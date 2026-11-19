@@ -13,6 +13,15 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "structure_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$"
+      },
+      "description": "Optional explicit membership for named structure records. Omission preserves date-only resolution for existing scenes. An empty array selects no named structures; generic scene context may still render. Every named id must exist and have exactly one phase covering target_date. A broad phase date range alone does not authorize importing another scene's reconstruction."
+    },
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9_]+$"
@@ -45,6 +54,11 @@
         },
         "note": {
           "type": "string"
+        },
+        "sky_exposure_multiplier": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Optional declared presentation calibration for the analytic daylight sky, its environment fill and sampled haze. Defaults to 1; changes no solar position or material albedo. Explain the reconstruction grade in lighting.note."
         }
       }
     },
@@ -108,8 +122,8 @@
           "altitude_m": {
             "type": "number",
             "minimum": 0,
-            "maximum": 900,
-            "description": "Metres above local ground. Present = this is an AERIAL viewpoint: arriving at it puts the visitor in free-fly at this height rather than on foot. Absent = a standing viewpoint, which is the historical default and stays so."
+            "maximum": 4500,
+            "description": "Metres above local ground. Present = this is an AERIAL viewpoint: arriving at it puts the visitor in free-fly at this height rather than on foot. Absent = a standing viewpoint, which is the historical default and stays so. Citywide scenes may authorize a higher flight ceiling; 1871 supports 4500 m."
           },
           "pitch_deg": {
             "type": "number",

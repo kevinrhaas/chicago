@@ -31,7 +31,9 @@ export default register('arrival', {
   'eyebrow.1835': 'A town at the water’s edge',
   'eyebrow.1904': 'Prairie Avenue',
   'eyebrow.1812': 'The first Fort Dearborn',
+  'eyebrow.1871': 'Chicago before the fire',
   'eyebrow.other': 'Chicago through time',
+  'intro.1871': 'Destination locked: Chicago, {dated}, before the fire. Explore a city baseline of varied period buildings, streets, walks and bridges. Grade: Reconstructed. Individual properties are still being researched.',
   intro: 'Destination locked: {place}, {dated}. Reconstructed from the sources under Sources.',
   'preparing': 'Preparing Chicago, {year}',
   // T-2616's failure state.
