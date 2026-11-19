@@ -53,9 +53,9 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 132,
-  "surfaces": 285,
-  "doors": 124,
+  "lots": 133,
+  "surfaces": 286,
+  "doors": 125,
   "posts": 118,
   "gardens": 31,
   "by_kind": {
@@ -65,7 +65,7 @@
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 31,
-   "rear_terrace": 105
+   "rear_terrace": 106
   }
  },
  "lots": [
@@ -15307,6 +15307,80 @@
      4.85
     ]
    ],
+   "creeper": [],
+   "beds": []
+  },
+  {
+   "parcel": "prairie_2027",
+   "addresses": [
+    "2027"
+   ],
+   "street": "prairie",
+   "side": "east",
+   "structures": [
+    "house_2027_prairie",
+    "house_2027_prairie_coach_house"
+   ],
+   "scheme": "service_court",
+   "grade": "reconstructed",
+   "sources": [],
+   "note": "",
+   "surfaces": [
+    {
+     "id": "prairie_2027:rear_terrace:0",
+     "kind": "rear_terrace",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1449.5,
+       -3563.97
+      ],
+      [
+       1449.53,
+       -3567.84
+      ],
+      [
+       1455.38,
+       -3567.8
+      ],
+      [
+       1455.35,
+       -3563.93
+      ]
+     ],
+     "along_deg": 179.58,
+     "lift_m": 0.03,
+     "order": 0,
+     "grade": "reconstructed",
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    }
+   ],
+   "doors": [
+    {
+     "id": "prairie_2027:back_door",
+     "structure": "house_2027_prairie",
+     "e": 1449.29,
+     "n": -3565.91,
+     "facing_deg": 89.58,
+     "sill_m": 1.4,
+     "width_m": 0.95,
+     "height_m": 2.2,
+     "leaf": true,
+     "stoop": {
+      "depth_m": 1.1,
+      "width_m": 1.6,
+      "risers": 8,
+      "run_m": 3.06,
+      "material": "stone"
+     },
+     "grade": "reconstructed",
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+    }
+   ],
+   "posts": [],
+   "crops": [],
+   "shrubs": [],
+   "trees": [],
    "creeper": [],
    "beds": []
   },
