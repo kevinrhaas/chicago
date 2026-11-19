@@ -412,6 +412,109 @@ const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(
   assert.equal(button(dom, 'jump'), undefined, 'unregister takes the icon out');
 }
 
+// T-3658: an off-rail screen still leaves a visible way back into the tablist.
+// Exercise the actual Jump/Move registration flags, including the interval while a
+// contextual tab is animating out: its DOM button is not hidden until the slide ends.
+for (const reduced of [false, true]) {
+  const dom = miniDom(), later = [];
+  let target = true;
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => reduced, wait: fn => later.push(fn),
+    context: () => ({ target }) });
+  const add = (id, extra = {}) => rail.register({ id, label: id, mount() {}, ...extra });
+  add('home', { order: 0 }); add('map', { order: 20 });
+  add('inspect', { order: 10, when: ctx => ctx.target });
+  for (const id of ['jump', 'move']) {
+    const app = APPS.find(app => app.id === id);
+    assert.equal(app.inRail, false, `${id} uses the real off-rail registration`);
+    add(id, { inRail: app.inRail });
+  }
+  const stops = () => tabsOf(dom).filter(b => b.tabIndex === 0).map(b => b.dataset.app);
+  const expectStop = id => {
+    assert.deepEqual(stops(), id ? [id] : [], 'exactly one eligible rail Tab stop');
+    if (id) assert.equal(button(dom, id).hidden, false, 'the Tab stop is actually visible');
+    assert.deepEqual(tabsOf(dom).filter(b => b.getAttribute('aria-selected') === 'true')
+      .map(b => b.dataset.app), rail.current ? [rail.current] : [], 'selection names only the displayed app');
+  };
+  rail.evaluate(); expectStop('home');
+  await rail.select('map'); expectStop('map');
+  for (const id of ['jump', 'move']) {
+    await rail.select(id); expectStop('map');
+    assert.equal(button(dom, id).hidden, true);
+    assert.equal(button(dom, 'map').getAttribute('aria-selected'), 'false', 'a fallback is not a selected app');
+  }
+  const list = dom.rail.querySelector('.nav-tabs');
+  list.dispatch('keydown', { target: button(dom, 'map'), key: 'Home' });
+  assert.equal(button(dom, 'home').focused, 1, 'Home moves focus to the first visible tab');
+  list.dispatch('keydown', { target: button(dom, 'home'), key: 'ArrowRight' });
+  assert.equal(button(dom, 'inspect').focused, 1, 'arrows retain the visible rail order');
+  assert.equal(rail.current, 'move', 'arrow navigation does not activate an app');
+  button(dom, 'home').dispatch('click');
+  assert.equal(rail.current, 'home', 'the button still activates through its ordinary click');
+  expectStop('home');
+
+  await rail.select('inspect'); expectStop('inspect');
+  await rail.select('jump'); expectStop('inspect');
+  target = false; rail.evaluate(); expectStop('home');
+  assert.equal(rail.current, 'jump', 'a disappearing fallback does not replace the off-rail screen');
+  if (!reduced) assert.equal(button(dom, 'inspect').hidden, false, 'the departing icon is still animating');
+  for (const fn of later.splice(0)) fn();
+  assert.equal(button(dom, 'inspect').hidden, true); expectStop('home');
+  target = true; rail.evaluate();
+  await rail.select('inspect'); expectStop('inspect');
+  target = false; rail.evaluate();
+  assert.equal(rail.current, 'home', 'the original context-loss selection still returns to Home');
+  expectStop('home');
+  await rail.select('inspect'); expectStop('home');
+  assert.equal(rail.current, 'inspect', 'a direct selection of a hidden app keeps selection truthful');
+  rail.evaluate();
+  assert.equal(rail.current, 'home'); expectStop('home');
+
+  target = true; rail.evaluate();
+  await rail.select('map'); await rail.select('move');
+  rail.unregister('map'); expectStop('home');
+  assert.equal(rail.current, 'move', 'removing the fallback leaves the displayed screen selected');
+  await rail.select('home'); rail.unregister('home'); expectStop('inspect');
+  rail.unregister('inspect'); expectStop(null);
+  add('map'); expectStop('map');
+}
+{
+  const dom = miniDom();
+  const deferred = () => { let resolve; const promise = new Promise(r => { resolve = r; }); return { promise, resolve }; };
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', mount() {} });
+  rail.register({ id: 'map', label: 'Map', mount() {} });
+  const stops = () => tabsOf(dom).filter(b => b.tabIndex === 0).map(b => b.dataset.app);
+  const code = deferred();
+  rail.register({ id: 'late', label: 'Late screen', inRail: false, load: () => code.promise });
+  await rail.select('map');
+  const opening = rail.select('late');
+  assert.deepEqual(stops(), ['map'], 'a pending import keeps the current visible Tab stop');
+  await rail.select('home');
+  code.resolve({ mount() {} });
+  assert.equal(await opening, false, 'the original selection race still rejects the old request');
+  assert.equal(rail.current, 'home'); assert.deepEqual(stops(), ['home']);
+  await rail.select('map'); await rail.select('late');
+  assert.equal(rail.current, 'late'); assert.deepEqual(stops(), ['map'], 'the resolved off-rail screen retains a visible fallback');
+
+  const mounting = deferred();
+  rail.register({ id: 'mounting', label: 'Mounting screen', inRail: false, mount: () => mounting.promise });
+  const pending = rail.select('mounting');
+  rail.unregister('map');
+  assert.deepEqual(stops(), ['home'], 'unregister repairs the fallback even while another screen mounts');
+  mounting.resolve(); assert.equal(await pending, true);
+  assert.equal(rail.current, 'mounting'); assert.deepEqual(stops(), ['home']);
+
+  const removedCode = deferred();
+  rail.register({ id: 'removed', label: 'Removed screen', inRail: false, load: () => removedCode.promise });
+  const removed = rail.select('removed');
+  rail.unregister('removed'); removedCode.resolve({ mount() { assert.fail('an unregistered app must not mount'); } });
+  assert.equal(await removed, false);
+  assert.equal(rail.current, 'mounting'); assert.deepEqual(stops(), ['home']);
+}
+console.log('NAVIGATOR VISIBLE TAB STOP PASS — off-rail screens, context loss, removal and asynchronous selection retain keyboard entry');
+
 // ---- the device, its Home and its apps -------------------------------------------------
 for (const phone of [true, false]) {
   const dom = miniDom();

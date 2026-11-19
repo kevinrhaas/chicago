@@ -1,198 +1,633 @@
 {
-  "id": "otis_house_2033_prairie",
-  "name": "2033 Prairie Avenue — Otis Italianate rowhouse (district draft; refined by T-1918)",
-  "aka": [
-    "2033 S. Prairie Avenue"
+ "id": "otis_house_2033_prairie",
+ "name": "2033 Prairie Avenue — the Otis house (Italianate stone-front rowhouse, 1869), K01 frontage assembly",
+ "aka": [
+  "2033 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_35"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling with a stone front and a full-height bay (D), the middle house of the row'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
+ },
+ "review_required": false,
+ "research_note": "T-3659 (piece 1 of T-1918, S09) refines the district draft (T-2352) in place under the same id: the main body, its bay, door, stoop, cornice and fence are rebuilt from the K01 frontage assembly and its kits to Walker Evans' 1946 photograph of the front (source walker_evans_1946_2033_prairie_otis), through its solved camera, on the 1911 sheet 35 trace's plan. The middle house of the 1869 Lemont limestone row (census ruling r35-2031-2035-row); 2031 and 2035 remain drafts (T-3660, T-3661). Every form the photograph does not show is a stated reconstruction; what K01 cannot yet build is written into the match record and liberty L-k01-2033-otis-3659.",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+     "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling with a stone front and a full-height bay (D), the middle house of the row'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1918 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2033-b1), the T-1842 census (s35-2033-front, s35-2033-wing) and the T-1837 register row frontage-35-082 (Otis Italianate rowhouse); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448509.245,
-        "utm_n": 4633813.702,
-        "rotation_deg": 179.385,
-        "symbolic_location": "2033 S. Prairie Avenue, parcel prairie_2033 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 33.750, v -3.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.385 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            12.5,
-            0.0
-          ],
-          [
-            12.5,
-            6.5
-          ],
-          [
-            0.0,
-            6.5
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick_with_stone_front",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  12.5,
-                  6.5
-                ],
-                "from": "s35fp-2033-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "wing",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  -2.75,
-                  -0.5,
-                  0.0,
-                  4.5
-                ],
-                "from": "s35fp-2033-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  12.5,
-                  3.0,
-                  14.5,
-                  6.0
-                ],
-                "from": "s35fp-2033-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 62% of its fill"
-              }
-            ],
-            "lot_v": [
-              -0.81,
-              6.81
-            ],
-            "street_u": 20.729
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2033-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2033-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 82% of its fill; s35fp-2033-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 62% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 3843080768,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 2,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2352",
-              "refined_by": [
-                "T-1918"
-              ]
-            },
-            "v_toward": "south"
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Italianate' overlaid with the frontage row: 2033, the Otis homestead in the middle of the 1869 limestone row (Tribune, February 1904): the row's bracketed flat cornice over three storeys and the sheet's full-height canted stone bay, which the fit carries as a bay; the pedimented double-door hood the Walker Evans photograph shows is T-1918's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3843080768 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-east-2352."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2352",
-            "liberty": "L-draft-prairie-20-22-east-2352",
-            "register_row": "frontage-35-082",
-            "census_ids": [
-              "s35-2033-front",
-              "s35-2033-wing"
-            ],
-            "trace_building": "s35fp-2033-b1",
-            "seed": 3843080768,
-            "replaceable_by": [
-              "T-1918"
-            ],
-            "card": "District draft — refined by T-1918."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "Standing in 1904 as the Otis homestead (the Tribune of February 1904 reports the will that keeps it; the 1904 Blue Book lists the F. R. Otis household) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). Walker Evans photographs its front in 1946. The record claims the 1904 target to the sheet's date and no more.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448509.386,
+    "utm_n": 4633814.514,
+    "rotation_deg": 179.385,
+    "symbolic_location": "2033 S. Prairie Avenue, parcel prairie_2033 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The rear corner of the '3B' main body on the north party line (lot frame u 33.6, v -3.81 from the middle of the rear lot line): its rear wall where the sheet's main part (s35fp-2033-b1 p2) narrows to the rear range, and the parcel's north line, through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of trace on this copy. Rotation 179.385 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      12.9,
+      0.0
+     ],
+     [
+      12.9,
+      7.62
+     ],
+     [
+      0.0,
+      7.62
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35",
+     "walker_evans_1946_2033_prairie_otis"
+    ],
+    "note": "The '3B' main body: 12.9 m from the step to the rear range (lot u 33.6) to the stone front (u 46.5), and the lot's whole 7.62 m (25 ft) between its party lines, as the sheet draws it and the photograph confirms (the front spans the lot between the two lines of the vanished neighbours). The bay stands on K08 (bays); the rear range on K01's rear wings."
+   },
+   "form": {
+    "stories": {
+     "value": 3,
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "'3B; rear2B' printed on the 1911 sheet: three full storeys over a basement; the '2B' is the rear range's (rear_wings). The photograph draws the three."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The sheet colours the street front blue (stone) on a brick house; the census reads it '3B brick dwelling with a stone front and a full-height bay'."
+    },
+    "principal_floor_m": {
+     "value": 1.7,
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The door's threshold and the bay's lowest band, about 1.7 m over the yard at the wall's foot, through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json); inside the K01 contract's 0.8-1.8 m."
+    },
+    "storey_heights_m": {
+     "value": [
+      3.8,
+      3.8,
+      4.15
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "Floor to floor, principal storey first, set so that the photograph's sill bands and heads fall where it draws them through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): the bay's bands at about 1.7, 6.1 and 9.8 m and the carved frieze from about 12.85 m up under the cornice box, whose soffit is the wall head at 13.45 m (1.7 + 11.75; the crown about 14.6 m). The floors themselves are not seen; each sits about half a metre under its storey's sill band."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "A stone front on its brick backing, as every K01 stone front."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.33,
+     "confidence": "reconstructed",
+     "note": "A brick-and-a-half wall, as every K01 brick house."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "The one K03 panel k03_brick lays."
+    },
+    "face_brick": {
+     "value": {
+      "sides": "common_salmon"
+     },
+     "confidence": "reconstructed",
+     "note": "The party walls and the rear are common brick, which no picture shows: a Chicago common brick, salmon run, as 1634."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "limestone_lemont",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.25,
+      "corner_bond": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "Lemont limestone, the row's stone (the census ruling r35-2031-2035-row: 'three attached houses of 1869 on 25-foot lots with Lemont limestone fronts', after the 2003 nomination), pale in the photograph. The photograph lays the whole front in channelled courses about 0.3 m high; K01 lays a street wall's stone smooth or rock-faced only, so the flat front is smooth over two rusticated base courses and the bay alone is channelled (bays.masonry). That difference stands open in the match record (liberty L-k01-2033-otis-3659)."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k01.flat_lintel",
+       "k01.flat_lintel",
+       "k01.flat_lintel"
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "K01's flat stone lintel for any flat-headed light a storey lays; the front's own lights over the door are arched under key blocks (street_front_round_heads), and the door is the principal storey's only opening on the flat front."
+    },
+    "street_front_round_heads": {
+     "value": {
+      "storeys": [
+       1,
+       2
+      ],
+      "head": "segmental",
+      "rise_over_span": 0.25,
+      "key": {
+       "width_m": 0.3,
+       "height_m": 0.3,
+       "proud_m": 0.06
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The lights over the door are arched, as the photograph draws them: cut segmental under K01's arch band with a key block on its crown, the photograph's carved keystone block over each, built at K01's largest key, 0.3 m (the print's block reads about 0.4 m high, its carving finer than the print: liberty L-k01-2033-otis-3659)."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.bracketed_timber",
+      "frieze": {
+       "height_m": 0.6,
+       "proud_m": 0.03
+      },
+      "bracket_m": {
+       "height_m": 0.9,
+       "projection_m": 0.6,
+       "width_m": 0.16
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The photograph's deep bracketed cornice, about 1.8 m from the frieze's foot to the crown, carried round the bay at the same height: K10's timber brackets, here 0.9 m deep as the print's, and bed moulding under the flat roof's cornice box over a plain frieze 0.6 m deep standing for the print's carved one (the carving is finer than the print: liberty L-k01-2033-otis-3659)."
+    },
+    "roof_form": {
+     "value": "flat",
+     "confidence": "reconstructed",
+     "note": "No roof shows over the cornice from the walk; the row's flat roof behind it, as the draft drew it and the stone-front family has it (k01.roof.flat)."
+    },
+    "roof_pitch_deg": {
+     "value": 2,
+     "confidence": "reconstructed",
+     "note": "The deck's fall to the rear, the K05 variant's own."
+    },
+    "eave_overhang_m": {
+     "value": 0.7,
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The cornice box stands out about 0.7 m from the stone in the photograph (its shadow on the frieze), the brackets' reach with room to the fascia."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_flat_seam_painted",
+      "flashing": "painted_tin_sheet"
+     },
+     "confidence": "reconstructed",
+     "note": "K04's flat-seam painted tin, the covering of a low-slope deck."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.sash_round_hooded": "k06.opening.sash_2over2_segmental",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "Every light of the front is arched in the photograph and two-light (an upper and a lower sash): K06's two-over-two under a segmental head; the flanks and rear, which no picture shows, take the same sash."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "The kit's tread."
+    },
+    "stair_landing_depth_m": {
+     "value": 1.2,
+     "confidence": "reconstructed",
+     "note": "A landing before the door, as 1634."
+    },
+    "stoop_width_m": {
+     "value": 1.9,
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The straight stoop as wide as the door and its frame, about 1.9 m in the photograph."
+    },
+    "entrance_bay": {
+     "value": "south",
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The door at the NORTH end of the front, the bay at the south, as the photograph draws them (K01's south: v runs south on this side of the avenue)."
+    },
+    "front_bays": {
+     "value": [
+      1.6,
+      4.85
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "Two bays across the 7.62 m front, through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): the door and the lights over it centred 1.6 m from the north party line, and the canted bay's centre at 4.85 m."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "front_canted_bay",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.street_front",
+       "s_m": 4.85,
+       "fabric": "front_stone",
+       "masonry": {
+        "dressing": "channelled",
+        "course_m": 0.3,
+        "joint_m": 0.02,
+        "relief_m": 0.03
+       },
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -1.5,
+          0.0
+         ],
+         [
+          -0.65,
+          1.1
+         ],
+         [
+          0.65,
+          1.1
+         ],
+         [
+          1.5,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 5.5,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.5,
+           "clear_height_m": 3.0,
+           "sill_m": 1.8,
+           "at": [
+            0.16,
+            0.84
+           ],
+           "why_not_ordinary": "the principal storey's tall arched lights in the bay, from its lowest band to heads about 4.8 m over the yard, as Walker Evans' 1946 photograph draws all three (y 517-665 px on the wall's 47.5 px a metre): about 3.0 m of light on the parlour floor of an 1869 stone front, taller than the reconstruction rules' ordinary sash because the picture says so"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.8,
+           "clear_height_m": 3.0,
+           "sill_m": 1.8,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the principal storey's tall arched lights in the bay, from its lowest band to heads about 4.8 m over the yard, as Walker Evans' 1946 photograph draws all three (y 517-665 px on the wall's 47.5 px a metre): about 3.0 m of light on the parlour floor of an 1869 stone front, taller than the reconstruction rules' ordinary sash because the picture says so"
+          }
+         ]
+        },
+        {
+         "height_m": 3.8,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.5,
+           "clear_height_m": 2.6,
+           "sill_m": 0.6,
+           "at": [
+            0.16,
+            0.84
+           ],
+           "why_not_ordinary": "the second storey's arched lights in the bay as Walker Evans' 1946 photograph draws them, sills about 6.1 m and heads about 8.7 m over the yard (y 330-455 px on the wall's 47.5 px a metre), the cants' lights narrower than the front's: read off the picture, not the reconstruction rules' ordinary sash"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.8,
+           "clear_height_m": 2.6,
+           "sill_m": 0.6,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the second storey's arched lights in the bay as Walker Evans' 1946 photograph draws them, sills about 6.1 m and heads about 8.7 m over the yard (y 330-455 px on the wall's 47.5 px a metre), the cants' lights narrower than the front's: read off the picture, not the reconstruction rules' ordinary sash"
+          }
+         ]
+        },
+        {
+         "height_m": 3.866,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.5,
+           "clear_height_m": 1.95,
+           "sill_m": 0.5,
+           "at": [
+            0.16,
+            0.84
+           ],
+           "why_not_ordinary": "the third storey's arched lights in the bay as the 1946 photograph draws them, sills about 9.8 m and heads about 11.8 m (y 185-278 px), the cants' narrower than the front's: read off the picture"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_segmental",
+           "clear_width_m": 0.8,
+           "clear_height_m": 1.95,
+           "sill_m": 0.5,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the third storey's arched lights in the bay as the 1946 photograph draws them, sills about 9.8 m and heads about 11.8 m (y 185-278 px), the cants' narrower than the front's: read off the picture"
+          }
+         ]
+        }
+       ],
+       "eaves": {
+        "cornice": "k10.cornice.bracketed_timber"
+       },
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.0,
+        "covering": "tin_flat_seam_painted"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis",
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The sheet's stone bay on the front (s35fp-2033-b1 p1) as the photograph draws it through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): three faces through the basement and all three storeys up to the main cornice, which is carried round it; about 3.0 m across at the wall (s 3.35-6.35), its front face about 1.3 m; one arched light to each face a storey, the front's 0.8 m and the cants' 0.5 m, sills and heads at the photograph's; a moulded band at each storey line; laid in channelled courses as the photograph shows. Its projection, 1.1 m, is not read by a square-on camera: it is set between the cants' width in the print and the sheet's 1.85 m, whose small bay the coarse raster draws about two pixels wide each way (liberty L-k01-2033-otis-3659)."
+    },
+    "side_bays": {
+     "value": [],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "None: the north wall is the party wall with 2031, built blank."
+    },
+    "north_bays": {
+     "value": [],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "None: K01's north wall here is the real south one, the party wall with 2035, built blank."
+    },
+    "rear_bays": {
+     "value": [
+      1.2
+     ],
+     "confidence": "reconstructed",
+     "note": "One window a storey in the rear wall's open strip south of the rear range (K01 counts this wall from its south end, so the range covers s 2.42-7.62 of it)."
+    },
+    "rear_wings": {
+     "value": [
+      {
+       "id": "rear_range",
+       "rect": [
+        -4.3,
+        0.0,
+        0.0,
+        5.2
+       ],
+       "floor_m": 1.7,
+       "storey_heights_m": [
+        3.8,
+        3.6
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 0.9,
+         "height_m": 2.2
+        },
+        {
+         "sill_above_floor_m": 0.7,
+         "width_m": 0.9,
+         "height_m": 1.9
+        }
+       ],
+       "windows": {
+        "north": [
+         1.4,
+         3.2
+        ],
+        "rear": [
+         2.6
+        ]
+       },
+       "roof": {
+        "kind": "flat",
+        "overhang_m": 0.15,
+        "fascia_m": 0.3,
+        "covering": "painted_tin_sheet"
+       }
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "The sheet's rear range (census s35-2033-wing, 'rear2B'): the main part narrows behind lot u 33.6 to about 5.2 m along the north line and runs back about 4.3 m. Its place and storeys are the map's; its floors, sash and flat roof are reconstructed, its lights on its open south face (K01's north here) and its rear."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.75,
+       "width_m": 1.0,
+       "height_m": 2.4
+      },
+      {
+       "sill_above_floor_m": 0.7,
+       "width_m": 0.9,
+       "height_m": 2.5
+      },
+      {
+       "sill_above_floor_m": 0.5,
+       "width_m": 0.9,
+       "height_m": 1.95
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The second and third storeys' lights over the door as the photograph draws them through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json): 0.9 m wide, 2.5 and 1.95 m high, sills about 6.2 and 9.8 m over grade. The principal storey has no flat-wall light on the front; its sash is reconstructed for the rear."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.35,
+      "width_m": 0.9,
+      "height_m": 0.65
+     },
+     "confidence": "reconstructed",
+     "note": "Area lights in the basement where K01 lays them. The photograph's arched basement light under the bay's front, half hidden by a shrub, is not cut: K08 lays one light to each face of a storey and the bay's lowest storey runs from grade (liberty L-k01-2033-otis-3659)."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 0.9,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 4.0,
+        "v_m": 0.75
+       },
+       {
+        "u_m": 9.5,
+        "v_m": 0.75
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "No stack shows over the cornice from the walk. Two brick stacks against the north party wall, where a rowhouse's flues rise, between front, middle and back rooms."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.double_door_deep_arch",
+       "front_yard_m": 7.97,
+       "reveal_depth_m": 0.3,
+       "opening_m": [
+        1.64,
+        3.1
+       ],
+       "arch": {
+        "ring_m": 0.22,
+        "keystone_top_m": 5.1,
+        "keystone_m": [
+         0.25,
+         0.3
+        ],
+        "rise_over_span": 0.25
+       },
+       "fanlight_transom": {
+        "height_m": 0.4,
+        "lights": 1,
+        "leaves": 2
+       },
+       "hood": {
+        "soffit_m": 5.15,
+        "width_m": 2.7,
+        "out_m": 0.35,
+        "fascia_m": 0.2,
+        "cornice": {
+         "height_m": 0.12,
+         "proud_m": 0.06
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "pediment": {
+         "rise_m": 0.45,
+         "rake_m": 0.14,
+         "console_m": {
+          "reach_m": 0.3,
+          "drop_m": 1.0,
+          "thickness_m": 0.16
+         }
+        },
+        "fabric": "stone"
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The photograph's door: a double door at the head of a straight stoop, under a stone hood whose entablature stands on two long scrolled consoles and carries a low pediment with an urn on its apex (the hood about 2.7 m across, its soffit about 5.15 m over the yard and its apex about 6.1 m, the print's 5.35 and 6.2 held down by K01's rule that a hood stand clear of the light over it; the print's urn on the apex, which stands before that light's foot, is not built for the same rule), through the solved camera (data/reference_views/otis_house_2033_prairie/walker_evans_1946.json); the door a pair of leaves 1.64 m wide and 3.1 m to the crown of its arched head (K07's door hung as two leaves under a one-light fanlight in its segmental arch, the print's transom with the house number); K01's pedimented hood on carved consoles (T-3562), the consoles at the kit's longest (1.0 m; the print's scroll runs about 1.3 m) and the carving finer than the print (liberty L-k01-2033-otis-3659). The front yard is the 1904 parcel's street line (lot u 54.47) less the body's front (u 46.5)."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 7.67,
+      "lot_s_m": [
+       0.0,
+       7.62
+      ],
+      "fence": "k11.fence.spear_on_curb",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.2
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "walker_evans_1946_2033_prairie_otis"
+     ],
+     "note": "The photograph's iron picket fence on a stone curb along the walk, before the bay; built 0.3 m inside the parcel's street line. The print shows no stone piers at the stoop's foot, only a dark iron post beside it: the walk gate K01 requires on every front hangs on cast-iron posts without urns (boundary.posts, as 1612's); the leaves themselves are reconstructed."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.75,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "The 1904 yard as K14 conditions it; the 1946 photograph shows the yard grassed and planted, evidence of its own date."
+    }
+   }
+  }
+ ]
 }

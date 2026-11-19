@@ -39,7 +39,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # T-3606: twelve records behind the ten 1904 story jaunts (Delia Caton, the Brown divorce, the
 # Pullman twins and Behring, the monument, the Everleigh Club, Kimball, Keith, Glessner Lee) read
 # 289 026; 296 000, the compressed first-open limit unchanged.
-INDEX_BUDGET = 296_000
+# T-3654: the 1871 context city's map, survey and directory sources, meeting dev's new Prairie
+# K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
+INDEX_BUDGET = 304_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

@@ -39,6 +39,10 @@
  */
 
 import { gradeTerm } from './strings/terms.js';
+import { t } from './strings/index.js';
+import './strings/notebook.js';
+import { fieldNotebook } from './field-notebook.js';
+import { personModel } from './person-card.js';
 import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
@@ -46,6 +50,19 @@ import { householdHtml, loadResidentJoins, sayJoins, words } from './residents.j
 import { seatHtml, goTarget } from './seat.js';
 import { readHouseholdRecord } from './letter-list-roster.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+
+/** The legacy directory saves the same person summary as the unified card. The selected
+ * household must contain this exact person; its other residents are never copied as theirs. */
+export function notebookPersonEntry(row, household, citations, sceneId) {
+  const person = household?.persons?.find(p => p.id === row?.id);
+  if (!person) return null;
+  const m = personModel({ row, person, household,
+    citations: citations instanceof Map ? Object.fromEntries(citations) : citations,
+    sceneYear: Number(sceneId) });
+  return { kind: 'person', person: m.id, title: m.name, year: String(sceneId),
+    place: m.household, grade: m.grade, sources: m.sources,
+    excerpt: [m.storyMark?.text, m.lead, ...m.story, m.why?.text].filter(Boolean).join('\n\n') };
+}
 
 const PAGE = 80;
 
@@ -343,6 +360,7 @@ function filterSpecs(people) {
  *                                             (a driver on their round)? Their card then
  *                                             offers Find in town and Follow.
  * @param {(id: string) => void} [o.onFollow]   walk alongside them
+ * @param {(id: string, name: string) => void} [o.onPersonSelected] retain an explicit card selection
  * @param {(text: string|null, onBack?: Function) => void} [o.onTitle]
  *   the drawer head's title hook (hud.setTitle), when the lead passes one: the
  *   open card puts the person's name in the head with a back arrow, and the
@@ -357,6 +375,7 @@ function filterSpecs(people) {
 export async function mountPeople({
   mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null,
   firmsByPerson = null, onBusiness = null, problems = [], inTown = null, atHome = null, onFollow = null,
+  onPersonSelected = null, notebook = fieldNotebook,
 } = {}) {
   const idle = { search() {}, open() { return Promise.resolve(false); }, close() {}, filter() {}, get state() { return null; } };
   if (!mount) return { people: 0, error: 'no mount', ...idle };
@@ -875,6 +894,7 @@ export async function mountPeople({
     if (!r) return false;
     const seq = ++openSeq;
     state.open = id;
+    onPersonSelected?.(id, r.name);
     const known = knownKey(r);
     const knownTitle = KNOWN_TITLE[known] || '';
     cardEl.innerHTML = `
@@ -900,6 +920,20 @@ export async function mountPeople({
       <div class="people-card-row-notes"></div>
       ${firmsHtml(r.id)}
       <div class="people-card-body" aria-busy="true"><p class="legend-note">Loading the household record…</p></div>`;
+    const save = document.createElement('button'); save.type = 'button';
+    save.className = 'setting-button people-notebook-save';
+    save.textContent = t('notebook.personSave'); save.disabled = true;
+    const saveStatus = document.createElement('p'); saveStatus.className = 'people-notebook-status';
+    saveStatus.setAttribute('role', 'status');
+    let notebookEntry = null;
+    save.addEventListener('click', event => {
+      event.stopPropagation();
+      if (!notebookEntry || seq !== openSeq) return;
+      const result = notebook.add(notebookEntry);
+      saveStatus.textContent = t(result.ok ? (result.duplicate ? 'notebook.duplicate' : 'notebook.personSaved')
+        : `notebook.error.${result.reason}`);
+    });
+    cardEl.querySelector('.people-card-actions')?.append(save, saveStatus);
     home.hidden = true;
     cardEl.hidden = false;
     section?.classList.add('people-card-open');
@@ -916,6 +950,8 @@ export async function mountPeople({
       const wasOpen = new Set([...body.querySelectorAll('details[open] > summary')]
         .map((s) => s.textContent.replace(/\s+/g, ' ').trim()));
       const said = sayJoins(joins, reader);
+      notebookEntry = notebookPersonEntry(readerCopy(r, reader), readerCopy(hh, reader), said.citationsById, sceneId);
+      save.disabled = !notebookEntry;
       body.innerHTML = '<h4 class="people-card-h">The household record</h4>'
         + householdHtml(hh, said.citationsById, said.researchByPerson, said.directoryByPerson, said.ladderRules,
           said.agencies, said.withheldByPerson);

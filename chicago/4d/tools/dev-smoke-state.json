@@ -1764,6 +1764,440 @@
         "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42855177518/job/129966150703"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 568,
+      "takenAt": "2026-11-18T20:24:17.471Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "7969031f049f",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          0.9,
+          2.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-15.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 145,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 311,
+      "takenAt": "2026-11-18T20:24:17.293Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "7969031f049f",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          0.9,
+          2.7,
+          3.2
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-14.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 29,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 340,
+      "takenAt": "2026-11-18T19:47:49.809Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.3,
+          5.3,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-12.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 21,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 199,
+      "takenAt": "2026-11-18T19:47:18.580Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-11.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "10",
+      "parts": [
+        10
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 31,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-11-18T19:47:18.356Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-10.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "9",
+      "parts": [
+        9
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 27,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 216,
+      "takenAt": "2026-11-18T19:47:18.169Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-9.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 364,
+      "takenAt": "2026-11-18T19:47:17.899Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-8.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "7",
+      "parts": [
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 39,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 289,
+      "takenAt": "2026-11-18T19:47:17.731Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-7.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "6",
+      "parts": [
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 24,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 332,
+      "takenAt": "2026-11-18T19:47:17.546Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.2,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-6.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 491,
+      "takenAt": "2026-11-18T19:47:17.350Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.1,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-5.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "4",
+      "parts": [
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 45,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 410,
+      "takenAt": "2026-11-18T19:47:17.129Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "cbf3408e032e",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.1,
+          5.6,
+          5.3
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-4.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 257,
+      "takenAt": "2026-11-18T18:58:34.285Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 407,
+      "takenAt": "2026-11-18T18:58:33.952Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 95,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 295,
+      "takenAt": "2026-11-18T18:58:33.551Z",
+      "ref": "steward/t3656-browser-classroom",
+      "commit": "6c83e8cf9558",
+      "devCommit": "169af6421e2b",
+      "treeHash": "sha256:0be7512699bae660",
+      "treeDirty": false,
+      "changelogHash": "sha256:29dd4dbee58c8dbb",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          4.5,
+          5.2,
+          4.7
+        ]
+      },
+      "source": "/tmp/t3656-renderer-mobile-1.log"
     }
   ]
 }

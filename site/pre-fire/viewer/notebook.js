@@ -79,7 +79,7 @@
     for (const sid of record.source_ids) {
       const page = pages[sid], book = books[page.book_id], source = el('div', undefined, 'record-source');
       source.append(link(book.title + ' · p. ' + page.printed_page, page.url, true));
-      source.append(el('p', record.locator + ' · ' + page.verification + ' · scan n' + page.scan_index));
+      source.append(el('p', record.locator + ' · ' + page.verification + ' · ' + (page.scan_label || ('scan n' + page.scan_index))));
       source.append(link('Open original scan ↗', page.local_image || page.image_url, true), document.createTextNode(' · '), link('Source context', '#source-' + sid));
       body.append(source);
     }
@@ -132,13 +132,13 @@
         const details = el('details', undefined, 'source-page'); details.id = 'source-' + page.id;
         details.append(el('summary', 'p. ' + page.printed_page + ' · ' + page.title));
         const body = el('div', undefined, 'card-body');
-        body.append(el('p', page.verification + ' · inspected ' + page.inspected_on + ' · archive scan n' + page.scan_index, 'scan-meta'));
+        body.append(el('p', page.verification + ' · inspected ' + page.inspected_on + ' · ' + (page.scan_label || ('archive scan n' + page.scan_index)), 'scan-meta'));
         body.append(link('Archive page ↗', page.url, true), document.createTextNode(' · '), link('Open original scan ↗', page.local_image || page.image_url, true));
         if (page.local_image) {
           const preview = link('', page.local_image, true); preview.className = 'scan-preview';
           const img = el('img'); img.src = page.local_image; img.loading = 'lazy'; img.decoding = 'async'; img.alt = 'Original page ' + page.printed_page + ' of ' + book.title + ': ' + page.title;
           img.width = 280; img.height = 240; preview.append(img); body.append(preview);
-          body.append(el('p', 'Unmodified local scan · ' + (page.bytes / 1024 / 1024).toFixed(2) + ' MB · SHA-256: ' + page.sha256, 'scan-meta'));
+          body.append(el('p', (page.image_note || 'Unmodified local scan') + ' · ' + (page.bytes / 1024 / 1024).toFixed(2) + ' MB · SHA-256: ' + page.sha256, 'scan-meta'));
         }
         const refs = data.records.filter(r => r.source_ids.includes(page.id)).map(r => r.id);
         body.append(el('h4', refs.length + ' linked observations')); recordLinks(body, refs);
