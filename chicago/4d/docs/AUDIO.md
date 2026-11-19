@@ -139,7 +139,16 @@ applies for all the jaunts"*. So every spoken script, in every jaunt, band and l
 a credit; a re-voiced script costs its whole length again. Every run, push or by hand, prints the
 account's quota before it voices (credits used this period, the limit, the reset date), refuses
 a run that would spend more than is left, and after voicing prints the credits that run used, so
-a re-recording's cost is read off the run, not estimated. `node tools/narrate_jaunts.mjs --quota`
+a re-recording's cost is read off the run, not estimated. A run voices in the order of
+`voices.json`'s `jaunts` list, which is the narration budget plan's order (1812 battle and 1904
+first, grades 6-8 originals first, English first; the owner approved it 2026-11-19, T-3697), up to
+`max_chars_per_run` and what the quota has left above `quota_reserve`; what does not fit waits for
+the next run, which picks up where this one stopped. A jaunt entry may name its narrators
+(`{ "id": …, "narrators": ["essayist"] }`): the owner, 2026-11-19, chose the Cultivated Essayist
+alone for new jaunts and the Storyteller later, and the app plays the Essayist's clip to a visitor
+who chose the Storyteller until hers exists. `docs/RESEARCH/narration-smooth-3696/smooth.py`
+drafts a smooth direction from a jaunt's words (`--draft`) or tones an old one down
+(`--restyle`). `node tools/narrate_jaunts.mjs --quota`
 prints it alone. It needs an API key with the `user_read` permission; without it the run says the
 quota is not readable and voices as before.
 
