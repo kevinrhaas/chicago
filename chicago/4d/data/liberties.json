@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1192,
+  "count": 1193,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51157,6 +51157,38 @@
         {
           "label": "Recorded",
           "text": "2026-10-17 (T-2747); the 50-stop bound 2026-10-27 (T-3187)."
+        }
+      ],
+      "work_refs": []
+    },
+    {
+      "id": "L-onsite-prairie-1904",
+      "title": "The on-site tour of Prairie Avenue: its stops, order and stands",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The on-site tour, a walk on today's Prairie Avenue in Window mode, chooses seven houses of the 1700 to 1900 blocks, their order (north of 18th Street, south down the east walk, back up the west walk to the Glessner House), where on the walk each stop stands, its arrival radius and its framing. These are modern interpretation, not history. No visit, occupant or event on a day in 1904 is asserted beyond what each stop's cited record says."
+        },
+        {
+          "label": "Bounds",
+          "text": "Each stand is derived, not chosen by eye: the middle of the walk band in front of the stop's parcel on the 1911 Sanborn sheets, carried to today's ground through the 1904 registration; the project's gate re-derives every one and holds the last against the City's landmark lot for 1800 S. Prairie. Every factual line of a stop is an existing jaunt evidence row, 1904 household or structure record, and cites its sources."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Revise as interpretation. The stands, the radius and the off-ground margin are tested at the desk only; a walk on the real street with a phone may move them, and that field test is the owner's."
+        },
+        {
+          "label": "Applies to",
+          "text": "the prairie 1904 data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3674)."
         }
       ],
       "work_refs": []
