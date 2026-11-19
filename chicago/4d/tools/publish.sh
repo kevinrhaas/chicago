@@ -688,6 +688,13 @@ if [ -d data/context ]; then
   cp -a data/context "$SITE/data/context"
 fi
 
+# The Great Fire's map and clock (T-3687): where and when the 1871 city burned, read by
+# renderers/web/js/city-fire.js the first time a jaunt stop (or api.fire.set) names an hour.
+if [ -d data/fire ]; then
+  rm -rf "$SITE/data/fire"
+  cp -a data/fire "$SITE/data/fire"
+fi
+
 # ...and the surfaces it is paved with (T-1728): the authored materials file, and
 # for each material the three web maps its material.json names (colour, normal,
 # packed ORM) plus the material.json itself, which carries the metric tile the

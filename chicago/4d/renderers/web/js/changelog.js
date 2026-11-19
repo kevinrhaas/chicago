@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3136, ts: '2026-11-19T21:12:28.904Z', date: 'Nov 19, 2026, 3:12 PM CT', title: '2036 Prairie\'s iron railing now runs along 21st Street', kind: 'feature',
+    items: [
+      'At the corner of Prairie and 21st Street, the Buckingham house\'s iron railing now turns the corner and runs back along 21st Street, the full length of the house\'s side, as the c. 1880 engraving draws it across its foreground. The railing has the same spear-headed bars, ornamented band and stone curb as the Prairie front.',
+      'The house\'s second picture, a photograph of the next block from the early 1890s with 2036 in the distance, is now matched against the model too, and the house\'s card can show you the spot in the roadway it was taken from.',
+    ] },
   { v: 3135, ts: '2026-11-19T20:51:01.064Z', date: 'Nov 19, 2026, 2:51 PM CT', title: 'Teachers can build a route and share it as one link', kind: 'feature',
     items: [
       'Guide\'s For teachers has Make a route for your class: start from a jaunt, or find buildings, viewpoints and people of this year and put them in your own order.',
