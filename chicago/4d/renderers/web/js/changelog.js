@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3163, ts: '2026-11-20T07:23:16.681Z', date: 'Nov 20, 2026, 1:23 AM CT', title: 'Who Started the Fire? Weigh the case at the O\'Leary barn', kind: 'feature',
+    items: [
+      'A new 1871 case story in eight stops around 137 DeKoven Street, from the first flames to the City Council\'s verdict of 1997.',
+      'Hear Catherine O\'Leary, her neighbours, the watchman who rang the wrong alarm box and the official inquiry, in their own words.',
+      'Weigh the cow legend, the reporter who said he made it up, and the later suspects: Daniel Sullivan, a dice game and even a meteor.',
+      'It ends with the question still open, then Make your case: weigh four of the accounts side by side and write your own verdict.',
+      'Told for grades 3-5, 6-8, 9-10 and 11-12, with a fuller telling for adults.',
+    ] },
   { v: 3162, ts: '2026-11-20T07:00:57.203Z', date: 'Nov 20, 2026, 1:00 AM CT', title: 'The Sherman house at 2100 Prairie takes its own shape', kind: 'improvement',
     items: [
       '2100 Prairie, John B. Sherman\'s 1874 house by Burnham & Root at the 21st Street corner, replaces its draft box: a slated mansard over two tall brick storeys and a stone basement, the library pavilion under its steep gable, the porch and balcony, and the steep slate pyramid over the corner — built from the 1911 fire-insurance map, the architects\' 1876 published plan and a c. 1890 photograph.',
