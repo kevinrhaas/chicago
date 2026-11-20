@@ -66,6 +66,12 @@
 # that equivalence for every k, including a prerequisite in the middle. No
 # assertion or timeout changes; CI keeps all eight parts and its required gate.
 #
+# T-3707, 2026-11-20: the content build's own gate (chicago-4d-bake.yml `gate`)
+# kept 600 s per part and lost part 6/8 to it on two PRs while dev passed it in
+# 323 s, so that job raised N to sixteen by the rule above: k/8 is exactly k/16
+# and (k+8)/16, which the harness proves. The PR gate (chicago-4d-check.yml) keeps
+# its eight parts and T-3656's 900 s.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
