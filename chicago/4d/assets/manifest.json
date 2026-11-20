@@ -3703,9 +3703,9 @@
     "mark_kimball_house_2108_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3105272,
+      "bytes": 3138008,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "5b44e8fbd16422417ec7fa1684695200248fd9dbf2e438a11c389376300761de",
+      "inputs_sha256": "9424dd928a69b94e57a2ca235893ccb75b0b45ed7db6292794906b3f12a444fa",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "mark_kimball_house_2108_prairie"
