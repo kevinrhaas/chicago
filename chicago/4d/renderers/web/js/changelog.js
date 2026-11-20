@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3166, ts: '2026-11-20T12:27:40.787Z', date: 'Nov 20, 2026, 6:27 AM CT', title: '2013 Prairie\'s cornice gains its row of blocks', kind: 'feature',
+    items: [
+      'The Reid house at 2013 Prairie gets two more things the 1895 Inland Architect plate shows on its front. A row of thirteen stone blocks now runs under the cornice from corner to corner, and a raised stone border climbs the south edge of the front from the second storey up to the cornice. The plate\'s carving on the border and in the frieze is left plain, and its near-white front is still a shade too warm, because the town has no paler brick yet.',
+    ] },
   { v: 3165, ts: '2026-11-20T10:54:22.000Z', date: 'Nov 20, 2026, 4:54 AM CT', title: 'The Sherman house\'s stone bands and carved arches', kind: 'improvement',
     items: [
       '2100 Prairie\'s dark brick now carries the pale stone bands the c. 1890 photograph shows, on the front and along 21st Street, under a stone frieze with a row of blocks beneath the cornice; the library\'s tall pair and the parlour window stand under carved stone arches.',
