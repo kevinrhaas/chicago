@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3173, ts: '2026-11-20T23:34:09.590Z', date: 'Nov 20, 2026, 5:34 PM CT', title: '1835 asks less of a phone\'s memory', kind: 'fix',
+    items: [
+      '1835 on a phone now holds about 29 MB less in memory once you are in the town: 521 MB where it held 551, the room a phone tab runs out of. The building cards and household cards were keeping hundreds of copies of the same long notes, one per building or household that cites them. Each note is now kept once and shared. Nothing you can see changes: every card says what it said before. A desktop saves about 22 MB the same way.',
+    ] },
+  { v: 3172, ts: '2026-11-20T23:34:09.590Z', date: 'Nov 20, 2026, 5:34 PM CT', title: '2011 Prairie\'s turret now matches both of its pictures', kind: 'improvement',
+    items: [
+      'The round turret at 2011 Prairie now has five small square windows around its top, running from one side of the tower to the other, where it used to have three bunched on the north side. The 1890s photograph from the north and the 1895 magazine plate from the south each show three of them, and each now sees three in the model at the same spacing.',
+      'The windows are cut plainly into the stone, with no sill or lintel of their own, as both pictures show them. The house now matches both of its pictures closely enough to sign it off.',
+    ] },
   { v: 3171, ts: '2026-11-20T19:45:01.981Z', date: 'Nov 20, 2026, 1:45 PM CT', title: '1815 Prairie\'s pavilion gets its dentil band and stone shoulders', kind: 'improvement',
     items: [
       '1815 Prairie\'s front pavilion now carries its own dentil band under the attic, as the old photograph shows it, and the attic\'s sides stand on capped stone shoulders with the slate rising from them, instead of slate running all the way down.',
