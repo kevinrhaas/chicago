@@ -3646,7 +3646,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             ch = st.get("cheeks")
             if ch is None:
                 continue
-            if not isinstance(ch, dict) or set(ch) - {"consoles"} != {"front_run", "width_m", "proud_m"} \
+            if not isinstance(ch, dict) or set(ch) - {"consoles", "shoulder"} != {"front_run", "width_m", "proud_m"} \
                     or not (0 <= int(ch["front_run"]) and 0.3 <= float(ch["width_m"]) <= 2.0
                             and 0.01 <= float(ch["proud_m"]) <= 0.06):
                 raise ParamError(f"bays: {e['id']}'s cheeks take front_run, width_m (0.3-2.0 m) and proud_m "
@@ -3666,9 +3666,27 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s cheek consoles take {', '.join(sorted(ck))}: 0.2 m wide to "
                                  f"0.05 m inside the cheek, top and roll inside that width, standing from from_m "
                                  f"inside the storey, 0.05-0.4 m deep, not {cs}")
+            # T-3562: or slated over a stone SHOULDER (1815's pavilion attic, Chicagology's square-on
+            # print: the pavilion's stone carried up at each side of the attic to a capped block,
+            # the slate rising from its cap): the cheek's stone stands `height_m` over the storey's
+            # foot under a cap `cap_m` deep and `proud_m` out, and may carry a second such band
+            # `ledge_m` over the foot; the slate starts on the cap
+            sh = ch.get("shoulder")
+            sk, sko = {"height_m", "cap_m", "proud_m"}, {"ledge_m"}
+            if sh is not None and (not isinstance(sh, dict) or not sk <= set(sh) <= sk | sko or cs is not None
+                                   or not (0.5 <= float(sh["height_m"]) <= float(st["height_m"]) - 0.5
+                                           and 0.08 <= float(sh["cap_m"]) <= 0.4
+                                           and float(ch["proud_m"]) + 0.02 <= float(sh["proud_m"]) <= 0.3)
+                                   or ("ledge_m" in sh and not float(sh["cap_m"]) + 0.1 <= float(sh["ledge_m"])
+                                       <= float(sh["height_m"]) - float(sh["cap_m"]) - 0.1)):
+                raise ParamError(f"bays: {e['id']}'s cheek shoulder takes height_m (0.5 m over the storey's foot "
+                                 f"to 0.5 m under its top), cap_m (0.08-0.4 m), proud_m (0.02 m past the slate's "
+                                 f"to 0.3 m) and may name ledge_m, a second band clear inside it; not beside "
+                                 f"consoles; not {sh}")
             st["cheeks"] = {"front_run": int(ch["front_run"]), "width_m": float(ch["width_m"]),
                             "proud_m": float(ch["proud_m"]),
-                            **({"consoles": {k: float(cs[k]) for k in sorted(ck)}} if cs is not None else {})}
+                            **({"consoles": {k: float(cs[k]) for k in sorted(ck)}} if cs is not None else {}),
+                            **({"shoulder": {k: float(sh[k]) for k in sorted(sh)}} if sh is not None else {})}
         # T-3002: a dressed band across one run over a storey's windows, under its top, with a
         # roundel on it (1801's south pavilion under its gable's shelf, the Taylor photograph)
         for st in v["storeys"]:

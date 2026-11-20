@@ -2298,20 +2298,43 @@ class Bay:
         the front run (`front_run`) the outer `width_m` at each end, and every other run whole,
         clad in slate standing `proud_m` before the wall, from the storey's foot to its top.
         The wall stays behind it. No light may stand in a cheek. Under the bay's eaves (not
-        `capped`) its top is the soffit's, so it draws none."""
+        `capped`) its top is the soffit's, so it draws none.
+        T-3562: over a `shoulder` (1815's pavilion attic, Chicagology's square-on print) the
+        cheek is the wall's own stone up to `height_m` over the storey's foot, under a band
+        `cap_m` deep and `proud_m` out across the cheek and round its return (and a second
+        at `ledge_m`, if named), and the slate stands on that cap."""
         w, pr = ch["width_m"], ch["proud_m"]
+        sh = ch.get("shoulder")
+        lo_w = lo   # the wall's own foot, under any shoulder
+        if sh:
+            lo = lo_w + sh["height_m"]
         if i != ch["front_run"]:
             if windows:
                 raise ValueError(f"{self.v['id']}: a slated cheek covers run {i}, which has a light")
-            proud(flat, "cheek", run, lo, hi, pr, top=capped)
+            proud(flat, "cheek", run, lo, hi, pr, top=capped, bottom=not sh)   # on a shoulder, the cap is its foot
+            if sh:
+                for y in (sh["height_m"], sh.get("ledge_m")):
+                    if y is not None:
+                        proud(flat, "band", run, lo_w + y - sh["cap_m"], lo_w + y, sh["proud_m"])
         else:
             a0, b1 = run.s_start(0.0) + w, run.s_end(0.0) - w
             for _, s in windows:
                 if not a0 + 0.1 < s < b1 - 0.1:
                     raise ValueError(f"{self.v['id']}: a light at s = {s:.3f} stands in a slated cheek")
+            if sh:
+                cp = sh["proud_m"]
+                for y in (sh["height_m"], sh.get("ledge_m")):
+                    if y is None:
+                        continue
+                    y0_, y1_ = lo_w + y - sh["cap_m"], lo_w + y
+                    for sp_, edge, hx in ((_Span(run, None, a0), a0, 1.0), (_Span(run, b1, None), b1, -1.0)):
+                        proud(flat, "band", sp_, y0_, y1_, cp)
+                        flat.face("band", [flat.P(edge, y0_, 0.0), flat.P(edge, y1_, 0.0), flat.P(edge, y1_, -cp),
+                                           flat.P(edge, y0_, -cp)], (hx, 0.0, 0.0))
+                self.meta["shoulders"] = self.meta.get("shoulders", 0) + 2
             for sa, sb, edge, hx in ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
                 flat.plane("cheek", rect(sa, sb, lo, hi), -pr)
-                for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:]:
+                for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:1 if sh else 2]:
                     flat.face("cheek", [flat.P(run.s_start(0.0) if hx > 0 else b1, y, 0.0),
                                         flat.P(a0 if hx > 0 else run.s_end(0.0), y, 0.0),
                                         flat.P(sb, y, -pr), flat.P(sa, y, -pr)], (0.0, hy, 0.0))
