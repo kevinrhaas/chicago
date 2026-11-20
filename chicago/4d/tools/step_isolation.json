@@ -2740,6 +2740,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_block_grow.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_brick_bond.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -2749,6 +2753,10 @@
       "wrote_ignored": []
     },
     "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_chromebook.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2905,6 +2913,10 @@
       "wrote_ignored": []
     },
     "tools/check_only_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_onsite_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4071,6 +4083,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/fire_1871.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/fit_1871_city_map.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4347,6 +4363,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/jaunts_es.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/k01_contract.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -4356,6 +4376,10 @@
       "wrote_ignored": []
     },
     "tools/lay_crossing_boats_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_driven_1871.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5069,6 +5093,10 @@
       "wrote_by": [
         "../prairie_1904_v1/tools/publish.py ../../site/4d/prairie-1904"
       ]
+    },
+    "tools/qa_city_fire_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/qualify_later_trades.py": {
       "wrote": [],
@@ -6414,6 +6442,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_investigation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6475,6 +6507,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_front_crown.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_front_frame.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6707,6 +6743,10 @@
       "wrote_ignored": []
     },
     "tools/test_merge_ready.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_met_found.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6974,6 +7014,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_route_unreachable.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_scene_selection.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -7110,6 +7154,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_teacher_route.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_team_drive.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -7195,6 +7243,10 @@
       "wrote_ignored": []
     },
     "tools/test_town_people_1835.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_town_people_1871.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -7318,6 +7370,10 @@
       "wrote_ignored": []
     },
     "tools/town_people_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/town_people_1871.py": {
       "wrote": [],
       "wrote_ignored": []
     },

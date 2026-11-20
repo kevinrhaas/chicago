@@ -107,6 +107,7 @@ const FLAME_VERT = /* glsl */`
 `;
 const FLAME_FRAG = /* glsl */`
   uniform float uTime;
+  uniform float uGain;
   varying vec2 vUv;
   varying float vHeat;
   varying float vSeed;
@@ -141,7 +142,7 @@ const FLAME_FRAG = /* glsl */`
     c = mix(c, vec3(1.0, 0.56, 0.13), smoothstep(0.28, 0.7, heat));
     c = mix(c, vec3(1.0, 0.8, 0.45), smoothstep(0.8, 1.35, heat));
     float a = smoothstep(0.0, 0.22, heat);
-    vec3 rgb = c * (0.25 + 1.3 * heat) * a;
+    vec3 rgb = c * (0.25 + 1.3 * heat) * a * uGain;
     // Soot where the tongues go out: the flame's tip turns to a dark smoke over it.
     float soot = env * smoothstep(0.35, 0.85, p.y) * smoothstep(0.35, 0.75, n1) * (1.0 - a) * 0.45 * min(vHeat, 1.0);
     gl_FragColor = vec4(rgb, a * 0.5 + soot);
@@ -172,12 +173,13 @@ const SPARK_VERT = /* glsl */`
   }
 `;
 const SPARK_FRAG = /* glsl */`
+  uniform float uGain;
   varying float vHeat;
   void main() {
     vec2 c = gl_PointCoord - 0.5;
     float a = (1.0 - smoothstep(0.0, 0.5, length(c))) * vHeat;
     vec3 col = mix(vec3(1.0, 0.25, 0.03), vec3(1.0, 0.75, 0.35), vHeat);
-    gl_FragColor = vec4(col * a * 2.6, a);
+    gl_FragColor = vec4(col * a * 2.6 * uGain, a);
     #include <tonemapping_fragment>
     #include <colorspace_fragment>
   }
@@ -242,9 +244,15 @@ export function fireBudget(tier = 'full') {
  * The fire as drawn, under `parent`. Each frame: `flame(x, y, z, w, h, heat, seed)` for every
  * flame burning (world metres, the flame's foot), `smoke(at, opts)` and `sparks(at, n)` to throw
  * some, `glow(x, y, z, r, heat)` under a fire; then `update(dt, camera)` draws them.
+ *
+ * T-3687 (the Great Fire of 1871, city-fire.js) shares it, and may hand its own `budget`
+ * (fireBudget's shape), the `wind` the smoke and sparks go down (a unit vector, world) and
+ * its speed `windMps`, and later `setGain(g)`, which scales the flames' and sparks' light
+ * (1, the default, draws exactly what it always did: a night's exposure whitens them).
  */
-export function createFireFx(parent, { tier = 'full' } = {}) {
-  const budget = fireBudget(tier);
+export function createFireFx(parent, { tier = 'full', budget: given = null, wind: windDir = WIND, windMps = WIND_MPS } = {}) {
+  const budget = given ?? fireBudget(tier);
+  const wind = windDir.clone().normalize();
   const group = new THREE.Group(); group.name = 'fort-fire'; parent?.add?.(group);
 
   // Flames: one card each, a quad standing on its foot.
@@ -259,7 +267,7 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
   const flameMat = new THREE.ShaderMaterial({
     // The fog's own uniforms (the renderer fills them from the scene's fog each frame).
     uniforms: { fogDensity: { value: 0.00025 }, fogNear: { value: 1 }, fogFar: { value: 2000 }, fogColor: { value: new THREE.Color(0xffffff) },
-      uTime: { value: 0 }, uWind: { value: WIND.clone().multiplyScalar(0.55) } },
+      uTime: { value: 0 }, uGain: { value: 1 }, uWind: { value: wind.clone().multiplyScalar(0.55 * Math.min(2.2, Math.max(1, windMps / WIND_MPS) ** 0.5)) } },
     vertexShader: FLAME_VERT, fragmentShader: FLAME_FRAG, defines: { FIRE_OCTAVES: budget.octaves },
     transparent: true, depthWrite: false, fog: true, side: THREE.DoubleSide,
     blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneMinusSrcAlphaFactor, blendEquation: THREE.AddEquation,
@@ -309,7 +317,7 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
   const sHeat = new THREE.BufferAttribute(new Float32Array(budget.sparks), 1).setUsage(THREE.DynamicDrawUsage);
   sg.setAttribute('position', sPos); sg.setAttribute('aSize', sSize); sg.setAttribute('aHeat', sHeat);
   sg.setDrawRange(0, 0);
-  const sparkMat = new THREE.ShaderMaterial({ uniforms: { uScale: { value: 260 } }, vertexShader: SPARK_VERT, fragmentShader: SPARK_FRAG,
+  const sparkMat = new THREE.ShaderMaterial({ uniforms: { uScale: { value: 260 }, uGain: { value: 1 } }, vertexShader: SPARK_VERT, fragmentShader: SPARK_FRAG,
     transparent: true, depthWrite: false, blending: THREE.CustomBlending, blendSrc: THREE.OneFactor, blendDst: THREE.OneMinusSrcAlphaFactor });
   sparkMat.name = 'fort_fire_sparks';
   const sparkPoints = new THREE.Points(sg, sparkMat); sparkPoints.frustumCulled = false; sparkPoints.renderOrder = 8; sparkPoints.name = 'fort-fire:sparks';
@@ -338,13 +346,14 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
     begin() { flameList.length = 0; glowCount = 0; },
     flame(x, y, z, w, h, heat, seed, keep = false) { if (heat > 0.02) flameList.push({ x, y, z, w, h, heat, seed, keep }); },
     /** Throw `n` puffs of smoke from `at` (world): `dark` 0 grey .. 1 thick brown-black, `glow`
-     *  how much the fire under it lights it, `size` metres across at birth, `up` m/s. */
-    smoke(at, { n = 1, dark = 0.7, glow = 0.6, size = 2, up = 2.2, life = 16, spread = 0.6 } = {}) {
+     *  how much the fire under it lights it, `size` metres across at birth, `up` m/s; `glowLife`
+     *  the seconds that light lasts as it rises, `thin` how much a big puff thins (T-3687). */
+    smoke(at, { n = 1, dark = 0.7, glow = 0.6, size = 2, up = 2.2, life = 16, spread = 0.6, glowLife = 0.9, thin = 0.05 } = {}) {
       for (let k = 0; k < n; k++) {
         if (puffs.length >= budget.smoke) puffs.shift();
         puffs.push({ p: new THREE.Vector3(at.x + (rnd() - 0.5) * spread, at.y, at.z + (rnd() - 0.5) * spread),
           v: new THREE.Vector3((rnd() - 0.5) * 0.5, up * (0.7 + 0.6 * rnd()), (rnd() - 0.5) * 0.5),
-          age: 0, life: life * (0.8 + 0.4 * rnd()), s0: size * (0.75 + 0.5 * rnd()), dark, glow, rot: rnd() * 6.283, spin: (rnd() - 0.5) * 0.18,
+          age: 0, life: life * (0.8 + 0.4 * rnd()), s0: size * (0.75 + 0.5 * rnd()), dark, glow, glowLife, thin, rot: rnd() * 6.283, spin: (rnd() - 0.5) * 0.18,
           tile: Math.floor(rnd() * 4) });
       }
     },
@@ -385,8 +394,8 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
         if (s.age >= s.life) { puffs.splice(i, 1); continue; }
         const lift = Math.exp(-s.age / 5);
         s.v.y = lerp(s.v.y, 0.35 + 1.9 * lift, 1 - Math.exp(-step * 0.6));
-        s.v.x += (WIND.x * WIND_MPS - s.v.x) * (1 - Math.exp(-step * 0.35));
-        s.v.z += (WIND.z * WIND_MPS - s.v.z) * (1 - Math.exp(-step * 0.35));
+        s.v.x += (wind.x * windMps - s.v.x) * (1 - Math.exp(-step * 0.35));
+        s.v.z += (wind.z * windMps - s.v.z) * (1 - Math.exp(-step * 0.35));
         s.p.addScaledVector(s.v, step);
         s.rot += s.spin * step;
       }
@@ -402,8 +411,8 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
         const shade = lerp(lerp(0.06, 0.16, 1 - s.dark), lerp(0.22, 0.4, 1 - s.dark), smooth(s.age / 8));
         smoke.setColorAt(i, col.setRGB(shade * 1.04, shade, shade * 0.95));
         const near = camera ? smooth((s.p.distanceTo(camPos) - 0.35 * size) / (0.9 * size)) : 1;
-        const alpha = near * smooth(s.age / 0.7) * (1 - smooth((k - 0.25) / 0.75)) * lerp(0.38, 0.66, s.dark) / (1 + 0.05 * size);
-        iPuff.setXYZW(i, alpha, s.glow * Math.exp(-s.age / 0.9), s.tile, s.rot);
+        const alpha = near * smooth(s.age / 0.7) * (1 - smooth((k - 0.25) / 0.75)) * lerp(0.38, 0.66, s.dark) / (1 + s.thin * size);
+        iPuff.setXYZW(i, alpha, s.glow * Math.exp(-s.age / s.glowLife), s.tile, s.rot);
       }
       smoke.count = n;
       if (n) { smoke.instanceMatrix.needsUpdate = true; smoke.instanceColor.needsUpdate = true; iPuff.needsUpdate = true; }
@@ -416,8 +425,8 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
         if (e.age >= e.life) { sparkList.splice(i, 1); continue; }
         e.w += step * 3;
         e.v.y += (1.2 - e.v.y) * (1 - Math.exp(-step * 0.9));
-        e.v.x += (WIND.x * WIND_MPS + Math.sin(e.w) * 1.2 - e.v.x) * (1 - Math.exp(-step * 1.2));
-        e.v.z += (WIND.z * WIND_MPS + Math.cos(e.w * 1.3) * 1.2 - e.v.z) * (1 - Math.exp(-step * 1.2));
+        e.v.x += (wind.x * windMps + Math.sin(e.w) * 1.2 - e.v.x) * (1 - Math.exp(-step * 1.2));
+        e.v.z += (wind.z * windMps + Math.cos(e.w * 1.3) * 1.2 - e.v.z) * (1 - Math.exp(-step * 1.2));
         e.p.addScaledVector(e.v, step);
       }
       for (const e of sparkList) {
@@ -431,6 +440,8 @@ export function createFireFx(parent, { tier = 'full' } = {}) {
       glows.count = glowCount; glows.visible = glowCount > 0;
       if (glowCount) { glows.instanceMatrix.needsUpdate = true; glows.instanceColor.needsUpdate = true; }
     },
+    /** T-3687: the flames' and sparks' light, 1 as drawn (a night's exposure wants less). */
+    setGain(g) { const v = Number.isFinite(g) ? Math.max(0, g) : 1; flameMat.uniforms.uGain.value = v; sparkMat.uniforms.uGain.value = v; },
     set visible(v) { group.visible = !!v; },
     get visible() { return group.visible; },
     get counts() { return { flames: flameCount, smoke: smoke.count, sparks: sg.drawRange.count, glows: glowCount }; },

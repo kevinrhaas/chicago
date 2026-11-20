@@ -1,0 +1,28 @@
+{
+  "structure_id": "house_2011_prairie",
+  "source_id": "inland_architect_1895_02_reid_plate",
+  "library_image": "a20-ia-1895-02-reid-plate",
+  "photo": "../../sources/assets/house_2011_pictures_t1915/ia_1895_02_reid_photo_upright.jpg",
+  "image_px": [
+    890,
+    1220
+  ],
+  "principal_px": [
+    445.0,
+    1063.7
+  ],
+  "focal_px": 2683.0,
+  "eye": [
+    40.69,
+    44.13,
+    0.67
+  ],
+  "yaw_deg": 220.25,
+  "sun_uvy": [
+    1.0,
+    0.6,
+    0.8
+  ],
+  "solve": "The Inland Architect's February 1895 plate of Reid's house at 2013 Prairie, the leaf's upper photograph turned upright (890 x 1220 px; data/sources/assets/house_2011_pictures_t1915/README.md), which shows 2011's whole front at its left edge, the turret's south side hidden behind Reid's portico. The camera is the one T-3625 solved on the plate for 2013 (data/reference_views/reid_house_2013_prairie/inland_architect_plate.json on that ticket's branch): a level camera north-east and obliquely across Prairie Avenue from its west walk south of Reid's, fitted by least squares to 14 readings of 2013's front (its north and south corners, two points each on five courses whose heights were fixed from the 2003 nomination, and the fence's foot), 3.3 px RMS and 7.0 px at most, f 2683 px, the horizon at y 1064, heading 220.25 degrees in the frame, the eye 0.67 m over grade. It is carried into this house's footprint frame and not re-fitted: the two frames turn the same 179.383 degrees, and 2013's (T-3625's corner, local e 1440.883, n -3520.093) stands 5.54 m behind and 7.89 m south of 2011's (1435.256, -3512.268) along 2011's own axes, so the eye at u 46.23, v 36.24 there is u 40.69, v 44.13 here, about 27.9 m out from 2011's front. CHECK, on what was not fitted: 2011's front's head course, its round-arched door at the north end and the turret's three tiers of lights fall on the plate's within the tolerances the match record gives. WHAT IS SOFT: 2011 is read at the camera's far left, 9-15 m north of the courses the fit rests on, where the distance-focal trade T-3625 notes (fits at 22 m and 30 m out both close within 3 px) moves it most; and the frames' carry rests on the sheet's fit (about 0.2 m). LIGHT: T-3625's winter sun from the south-west (sun_uvy). The neighbours are not rendered: Reid's portico and front, nearer the camera, hide the turret's south side and the stoop in the plate, and those are marked not shown.",
+  "scene": "1904"
+}

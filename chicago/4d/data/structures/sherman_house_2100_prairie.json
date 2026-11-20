@@ -1,195 +1,853 @@
 {
-  "id": "sherman_house_2100_prairie",
-  "name": "2100 Prairie Avenue — Sherman Victorian Gothic (district draft; refined by T-1919, T-1920)",
-  "aka": [
-    "2100 S. Prairie Avenue"
+ "id": "sherman_house_2100_prairie",
+ "name": "2100 Prairie Avenue — John B. Sherman house (Burnham & Root, 1874)",
+ "aka": [
+  "2100 S. Prairie Avenue"
+ ],
+ "archetype": "k01_frontage",
+ "function": {
+  "value": "residence",
+  "confidence": "inferred",
+  "sources": [
+   "sanborn_1911_chicago_v3_sheet_35"
   ],
-  "archetype": "prairie_draft",
-  "function": {
-    "value": "residence",
+  "note": "The 1911 sheet labels the building with a 1911 use, '3S.B. brick building lettered McCORMICK MEDICAL COLLEGE, on the 21st Street corner', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Sherman Victorian Gothic', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
+ },
+ "built": {
+  "value": 1874,
+  "confidence": "attested",
+  "sources": [
+   "hmdb_prairie_lost_houses_2000_2100"
+  ],
+  "note": "The marker: 'John B. Sherman Residence. Built 1874'."
+ },
+ "review_required": false,
+ "research_note": "Refined from the district draft (T-2351) in place by T-1919 (the S10A envelope package of the T-1837 programme) onto the K01 frontage kit, liberty L-k01-2100-sherman-1919: the plan and footprint off the 1911 sheet and the 1876 American Architect plate's 'Plan of First Story', the elevations off the c. 1890 photograph (two prints: Chicagology's and J. W. Taylor's at the Art Institute). The carving, the stone bands, the arched and pointed heads, the side flight of the stoop and the oriel's column are T-1920's (the architecture and the image gate).",
+ "phases": [
+  {
+   "id": "as_mapped_1904",
+   "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+     "sanborn_1911_chicago_v3_sheet_35",
+     "chicagology_2100_sherman_photo"
     ],
-    "note": "The 1911 sheet labels the building with a 1911 use, '3S.B. brick building lettered McCORMICK MEDICAL COLLEGE, on the 21st Street corner', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Sherman Victorian Gothic', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
-  },
-  "built": {
-    "value": 1874,
-    "confidence": "attested",
+    "note": "Built 1874 (the marker) and drawn by the 1911 sheet; the T-1842 census rules it present in 1904 (present_as_mapped), and the undated photograph (the library dates it c. 1885-1895) shows the house as this record builds it. This phase claims the 1904 target and the sheet's date, no more; the 1911 sheet's college lettering is a later use, not drawn.",
+    "to_is": "seen"
+   },
+   "position": {
+    "utm_e": 448435.031,
+    "utm_n": 4633762.88,
+    "rotation_deg": -0.614,
+    "symbolic_location": "2100 S. Prairie Avenue, parcel prairie_2100 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "confidence": "inferred",
     "sources": [
-      "hmdb_prairie_lost_houses_2000_2100"
+     "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The marker: 'John B. Sherman Residence. Built 1874'."
-  },
-  "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1919, T-1920 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2100-b1), the T-1842 census (s35-2100-front, s35-2100-wing, s35-2100-walls) and the T-1837 register row frontage-35-064 (Sherman Victorian Gothic); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
-  "phases": [
-    {
-      "id": "draft_1904",
-      "documented_range": {
-        "from": "1904-07-01",
-        "to": "1911-12-31",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
-        "to_is": "seen"
-      },
-      "position": {
-        "utm_e": 448435.018,
-        "utm_n": 4633764.08,
-        "rotation_deg": -0.614,
-        "symbolic_location": "2100 S. Prairie Avenue, parcel prairie_2100 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 21.000, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.614 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-        "derivation": {
-          "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
-        }
-      },
-      "footprint": {
-        "polygon": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            26.25,
-            0.0
-          ],
-          [
-            26.25,
-            13.0
-          ],
-          [
-            0.0,
-            13.0
-          ]
-        ],
-        "confidence": "inferred",
-        "sources": [
-          "sanborn_1911_chicago_v3_sheet_35"
-        ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
-      },
-      "form": {
-        "stories": {
-          "value": 3,
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "'3S.B.' printed on the 1911 sheet: 3 full storeys."
-        },
-        "construction": {
-          "value": "brick",
-          "confidence": "attested",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "The register reads the map's colours as 'brick'."
-        },
-        "draft_plan": {
-          "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "hip_steep",
-                "rect": [
-                  0.0,
-                  0.0,
-                  26.25,
-                  13.0
-                ],
-                "from": "s35fp-2100-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  5.5,
-                  -1.5,
-                  8.75,
-                  1.75
-                ],
-                "from": "s35fp-2100-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill"
-              }
-            ],
-            "lot_v": [
-              -8.855,
-              14.355
-            ],
-            "street_u": 33.567
-          },
-          "confidence": "inferred",
-          "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
-          ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2100-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill; s35fp-2100-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "house",
-            "seed": 1346818164,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 54,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "centre",
-            "side_spacing_m": 2.6,
-            "chimneys": 3,
-            "brackets": false,
-            "attic_dormers": true,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2351",
-              "refined_by": [
-                "T-1919",
-                "T-1920"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The John B. Sherman house (Burnham & Root, 1874), standing empty in 1904 after Sherman's death: the register's 'steep slate roof and stone dormers' and 'carved chimney tops' as a steep hip with dormers and three stacks over the 3S.B. brick body, the curved stair and clustered columns as a central entrance. The 1911 lettering McCORMICK MEDICAL COLLEGE is a later use and is not drawn; the oriel on its column is T-1919's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1346818164 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2351",
-            "liberty": "L-draft-prairie-20-22-west-2351",
-            "register_row": "frontage-35-064",
-            "census_ids": [
-              "s35-2100-front",
-              "s35-2100-wing",
-              "s35-2100-walls"
-            ],
-            "trace_building": "s35fp-2100-b1",
-            "seed": 1346818164,
-            "replaceable_by": [
-              "T-1919",
-              "T-1920"
-            ],
-            "card": "District draft — refined by T-1919, T-1920."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
-        }
-      }
+    "note": "The rear south corner of the main body, 1.2 m south of the district draft's (which stood at lot frame u 21.000, v -2.750 m from the middle of the rear lot line): the body is widened to the traced outline's 14.2 m on the south (see the footprint). through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.614 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
     }
-  ]
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      26.25,
+      0.0
+     ],
+     [
+      26.25,
+      14.2
+     ],
+     [
+      0.0,
+      14.2
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "sanborn_1911_chicago_v3_sheet_35",
+     "aabn_1876_09_30_sherman_2100_plate"
+    ],
+    "note": "The main body off the 1911 sheet's traced main part (s35fp-2100-b1 p1): 26.25 m from the rear to the parlour's front, the district draft's depth, and 14.2 m along Prairie Avenue, the traced outline's width between its flank lines (local n -3617.4 to -3631.6) where the draft took its largest inscribed rectangle, 13.0 m. The extra 1.2 m is laid on the south: the photograph, through its solved camera, put the porch and the corner where the draft stood and the library pavilion about 2-3 m south of where the draft's front would carry it. The plate's 1876 plan agrees in proportion (the library pavilion stands before this line as a bay). The sheet's small frame piece on the south flank (the plan's veranda) is not built."
+   },
+   "form": {
+    "stories": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "'3S.B.' on the 1911 sheet: the photograph and the 1876 plate both show two full storeys over a high basement under a slated mansard whose dormered attic is the sheet's third storey."
+    },
+    "construction": {
+     "value": "brick_with_stone_front",
+     "confidence": "attested",
+     "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The sheet colours the house brick; the photograph shows dark pressed brick between pale stone bands, a stone basement and stone dressings on every opening (the register's 'pressed dark-red brick with contrasting sandstone bands')."
+    },
+    "stone_front": {
+     "value": {
+      "fabric": "sandstone_fawn",
+      "dressing": "smooth",
+      "trim_fabric": "dressed_trim",
+      "rusticated_base_courses": 2,
+      "coping_height_m": 0.35,
+      "corner_bond": [],
+      "brick_above_m": 1.8,
+      "belts": []
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The photograph shows smooth pale stone up to the principal floor's sill, under the dark brick of the storeys, on the front and the 21st Street flank alike; the register reads it as sandstone (the print is monochrome: K01's fawn sandstone is the kit's colour for it, liberty L-k01-2100-sherman-1919)."
+    },
+    "side_base": {
+     "value": [
+      {
+       "wall": "k01.wall.side.south",
+       "to_m": 1.8,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "to_m": 1.8,
+       "proud_m": 0.03
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The stone basement runs round the 21st Street flank in the photograph (K01's north wall); the south flank's is carried round the same way, which no picture shows (liberty L-k01-2100-sherman-1919)."
+    },
+    "principal_floor_m": {
+     "value": 1.8,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The stoop's landing stands about 140-170 px over the walk at the fence's foot. The photograph is read at about 76 px a metre on the porch's plane (the woman standing on the stoop's landing, x 600-650 px, y 1235-1360, taken as 1.65 m), heights from the landing (y 1360) and the walk at the fence's foot (y 1530)."
+    },
+    "storey_heights_m": {
+     "value": [
+      5.4,
+      5.0
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The balcony's floor over the porch (y 893 px at the porch's face) is about the second floor and the cornice's foot (y 640 px at the front) closes the second storey. The woman on the landing (x 600-650 px, y 1235-1360, taken as 1.65 m)) first gave 4.9 and 4.4 m, which the record rendered through the solved camera (data/reference_views/sherman_house_2100_prairie/chicagology_photo.json) printed about 100 px low at both lines, so both storeys are raised to meet them; she stands back on the landing and may be shorter than taken."
+    },
+    "wall_thickness_front_m": {
+     "value": 0.45,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's front wall for a three-storey brick house."
+    },
+    "wall_thickness_side_m": {
+     "value": 0.4,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): a corner house's flank is a street wall, so it is laid thicker than a party wall."
+    },
+    "service_wall_brick": {
+     "value": "common_buff_common_6",
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's common brick for the rear wall, which no picture shows."
+    },
+    "face_brick": {
+     "value": {
+      "front": "pressed_red",
+      "all_round": true
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The photograph shows the same dark close-jointed pressed brick on the front and the 21st Street flank, so it is carried all round (the register's 'pressed dark-red brick with tight dark joints'); the print is monochrome, so the colour is the kit's."
+    },
+    "roof_form": {
+     "value": "mansard",
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "Both pictures show a steep slated roof rising from the cornice on every face they see, broken by dormers and stopped by a crested deck: a mansard on K05's steep lower faces."
+    },
+    "roof_pitch_deg": {
+     "value": 10,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the deck over the mansard's curb, unseen from the street."
+    },
+    "eave_overhang_m": {
+     "value": 0.45,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The cornice's blocks stand out about a third of a metre from the brick in the photograph (x 545-900 px along the front at y 600-660)."
+    },
+    "mansard": {
+     "value": {
+      "variant": "k05.roof.mansard_convex",
+      "lower_rise_m": 3.6,
+      "bulge": 0.0,
+      "lower_pitch_deg": 76,
+      "dormers": [
+       {
+        "face": "street",
+        "along_m": 7.5,
+        "sash": {
+         "variant": "k06.opening.sash_2over2_flat",
+         "width_m": 0.8,
+         "height_m": 1.2,
+         "sill_m": 0.15
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "gable",
+        "gable_pitch_deg": 40
+       },
+       {
+        "face": "street",
+        "along_m": 10.8,
+        "sash": {
+         "variant": "k06.opening.sash_2over2_flat",
+         "width_m": 0.95,
+         "height_m": 1.7,
+         "sill_m": 0.15
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "gable",
+        "gable_pitch_deg": 55
+       },
+       {
+        "face": "north",
+        "along_m": 9.0,
+        "sash": {
+         "variant": "k06.opening.sash_2over2_flat",
+         "width_m": 0.8,
+         "height_m": 1.6,
+         "sill_m": 0.15
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "gable",
+        "gable_pitch_deg": 60
+       },
+       {
+        "face": "north",
+        "along_m": 12.5,
+        "sash": {
+         "variant": "k06.opening.sash_2over2_flat",
+         "width_m": 0.8,
+         "height_m": 1.6,
+         "sill_m": 0.15
+        },
+        "surround_m": 0.3,
+        "face_setback_m": 0.05,
+        "head": "gable",
+        "gable_pitch_deg": 60
+       }
+      ],
+      "deck": {
+       "cresting": {
+        "height_m": 0.3,
+        "inset_m": 0.08
+       }
+      },
+      "dormer_fabric": "front_stone"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The photograph: the slated faces rise from the cornice (y 600 px) to the crested curb (y 300-380, about 3.6 m) at about 76 degrees; on the front a small dormer over the entrance (x 445-585) and a larger stone dormer with a roundel in its gable over the parlour (x 670-850); on the 21st Street face two tall gabled stone dormers behind the great stack (x 1170-1255 and 1290-1380), the plate showing the same pair. The small front dormer's head is drawn as a low gable where the photograph shows a flat-topped dormer; the gable dormer's roundel and the dormers' stone pinnacles are T-1920's."
+    },
+    "roof_covering": {
+     "value": {
+      "fabric": "tin_standing_seam_painted",
+      "flashing": "copper_sheet",
+      "caps": "copper_ridge_roll",
+      "lower_faces": "slate_pennsylvania",
+      "paint": "black"
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The photograph's lower faces are laid in small slates in even courses (the register's 'steep slate roof'); the deck is unseen and takes the kit's tin."
+    },
+    "wall_head": {
+     "value": {
+      "cornice": "k10.cornice.moulded_stone",
+      "walls": [
+       "k01.wall.side.south",
+       "k01.wall.street_front",
+       "k01.wall.side.north"
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "A deep stone cornice, pale like the bands, runs along the front and the 21st Street flank at y 600-660 px; K10's moulded stone cornice, carried round the south flank too, which no picture shows. Its paired blocks and dentil band are T-1920's."
+    },
+    "street_front_trim": {
+     "value": {
+      "by_storey": [
+       "k09.surround.rowhouse_restrained",
+       "k01.flat_lintel"
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's dressed surrounds; the photograph's stone arches and pointed heads over the principal storey are T-1920's."
+    },
+    "stair_tread_m": {
+     "value": 0.3,
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's tread."
+    },
+    "stair_landing_depth_m": {
+     "value": 2.2,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The landing runs out under the porch to the columns (the plate's plan draws the stoop's flight from the porch's front edge)."
+    },
+    "stoop_width_m": {
+     "value": 3.0,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The curved front flight in the photograph (x 410-530 px at its foot) and the plan's flight, a little narrower than the porch."
+    },
+    "entrance_bay": {
+     "value": 2,
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The hall's door in the middle of the front, between the library pavilion and the parlour (the plate's plan: vestibule, hall)."
+    },
+    "front_bays": {
+     "value": [
+      1.5,
+      7.5,
+      11.1
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The plan's front, read in proportion on the sheet's 14.2 m: the library behind the pavilion (its own lights are the pavilion's), the hall's door at v 7.5 and the parlour's one light a storey at v 11.1 (photograph x 720-810 px); the first entry stands behind the pavilion and carries no light the street sees."
+    },
+    "sash_by_storey": {
+     "value": [
+      {
+       "sill_above_floor_m": 0.5,
+       "width_m": 1.1,
+       "height_m": 3.3
+      },
+      {
+       "sill_above_floor_m": 0.5,
+       "width_m": 1.05,
+       "height_m": 2.8
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The parlour's tall light (x 720-810 px, y 700-920 in the second storey, about 2.8 m) and the principal storey's lights to the floor's height. The photograph is read at about 76 px a metre on the porch's plane (the woman standing on the stoop's landing, x 600-650 px, y 1235-1360, taken as 1.65 m), heights from the landing (y 1360) and the walk at the fence's foot (y 1530)."
+    },
+    "basement_lights": {
+     "value": {
+      "sill_m": 0.4,
+      "width_m": 0.8,
+      "height_m": 0.8
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The basement's lights under the 21st Street flank (x 1180-1300 px, y 1395-1510), each under a sloped stone hood that is T-1920's."
+    },
+    "window_kit": {
+     "value": {
+      "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+      "k01.opening.area_light": {
+       "variant": "k06.opening.area_light",
+       "well": false
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's two-over-two sash; the photograph's lights are mostly single panes, T-1920's to refine."
+    },
+    "side_bays": {
+     "value": [
+      4.0,
+      8.0,
+      18.0,
+      22.0
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the south flank faces the neighbour across a side yard and no picture shows it: four lights a storey at the kit's spacing, clear of the plan's veranda."
+    },
+    "north_bays": {
+     "value": [
+      3.6,
+      5.6,
+      7.4,
+      16.0,
+      19.0,
+      22.5
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The 21st Street flank (s from the front): three narrow lights a storey behind the corner (photograph x 1120-1300 px), the bay window of the plan's sitting room, and the rear part's lights, which only the plate's far end shows."
+    },
+    "rear_bays": {
+     "value": [
+      3.0,
+      10.0
+     ],
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the rear wall, which no picture shows."
+    },
+    "bays": {
+     "value": [
+      {
+       "id": "library_pavilion",
+       "variant": "k08.projection.full_height",
+       "wall": "k01.wall.street_front",
+       "s_m": 3.1,
+       "fabric": "brick",
+       "plinth_m": 0.1,
+       "plan": {
+        "width_m": 5.0,
+        "proud_m": 0.8,
+        "shallow": true
+       },
+       "storeys": [
+        {
+         "height_m": 1.8,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.8,
+           "clear_height_m": 0.7,
+           "sill_m": 0.5,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "the pavilion's two basement lights under its principal pair, low in the stone base as the 21st Street flank's are in the photograph (x 1180-1300 px); the pavilion's own are behind the fence and its scrolls"
+          }
+         ]
+        },
+        {
+         "height_m": 5.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.1,
+           "clear_height_m": 3.2,
+           "sill_m": 0.6,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "the library's tall pair under its stone arch in the photograph (x 60-215 px, y 750-940): about 3.2 m of light in a 5.4 m principal storey"
+          }
+         ]
+        },
+        {
+         "height_m": 5.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 2.6,
+           "sill_m": 0.6,
+           "at": [
+            0.3,
+            0.7
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "the pavilion's second-storey pair in the photograph (x 55-200 px, y 540-660 behind the tree), about 2.6 m tall in a 5.0 m storey"
+          }
+         ]
+        },
+        {
+         "height_m": 2.2,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.8,
+           "clear_height_m": 1.6,
+           "sill_m": 0.3,
+           "at": [
+            0.5
+           ],
+           "recess_m": 0.33
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "gable",
+        "pitch": 1.9,
+        "covering": "slate_pennsylvania",
+        "gable": {
+         "inset_m": [
+          0.0,
+          0.0
+         ],
+         "upstand_m": 0.15,
+         "coping": {
+          "width_m": 0.95,
+          "height_m": 0.18,
+          "proud_m": 0.08
+         },
+         "kneeler": {
+          "width_m": 0.4,
+          "out_m": 0.03
+         },
+         "finial": {
+          "width_m": 0.25,
+          "shaft_m": 0.4,
+          "cap_m": 0.35
+         }
+        }
+       },
+       "cornice_across": true
+      },
+      {
+       "id": "corner_oriel",
+       "variant": "k08.tower.octagonal",
+       "wall": "k01.wall.street_front",
+       "s_m": 14.2,
+       "across_corner": "right",
+       "fabric": "brick",
+       "plan": {
+        "radius_m": 1.78,
+        "centre_proud_m": -0.46,
+        "sides": 4,
+        "turned_deg": 45
+       },
+       "eaves": {
+        "cornice": "k10.cornice.moulded_stone"
+       },
+       "storeys": [
+        {
+         "height_m": 1.8,
+         "windows": []
+        },
+        {
+         "height_m": 5.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.75,
+           "clear_height_m": 3.2,
+           "sill_m": 0.5,
+           "at": [
+            0.135,
+            0.454,
+            0.818
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "the parlour's corner lights, as tall as the principal storey's other lights in the photograph (x 920-1000 px), about 3.2 m in a 5.4 m storey"
+          }
+         ]
+        },
+        {
+         "height_m": 5.0,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.75,
+           "clear_height_m": 2.6,
+           "sill_m": 0.5,
+           "at": [
+            0.135,
+            0.454,
+            0.818
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "the oriel's lights in the photograph (x 960-1060 px, y 690-860), about 2.6 m tall in a 5.0 m storey, three round its two faces"
+          }
+         ]
+        },
+        {
+         "height_m": 1.2,
+         "windows": []
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 3.1,
+        "covering": "slate_pennsylvania",
+        "finial": true
+       }
+      },
+      {
+       "id": "sitting_room_bay",
+       "variant": "k08.bay.canted",
+       "wall": "k01.wall.side.north",
+       "s_m": 11.0,
+       "fabric": "brick",
+       "plan": {
+        "kind": "polyline",
+        "points": [
+         [
+          -1.7,
+          0.0
+         ],
+         [
+          -1.0,
+          0.9
+         ],
+         [
+          1.0,
+          0.9
+         ],
+         [
+          1.7,
+          0.0
+         ]
+        ]
+       },
+       "storeys": [
+        {
+         "height_m": 1.8,
+         "windows": []
+        },
+        {
+         "height_m": 5.4,
+         "windows": [
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 0.55,
+           "clear_height_m": 3.1,
+           "sill_m": 0.5,
+           "at": [
+            0.13,
+            0.87
+           ],
+           "recess_m": 0.33,
+           "why_not_ordinary": "a canted bay's cheek light, narrower than an ordinary sash so it fits the cheek, as tall as the sitting room's front light"
+          },
+          {
+           "opening": "k06.opening.sash_2over2_flat",
+           "clear_width_m": 1.0,
+           "clear_height_m": 3.1,
+           "sill_m": 0.5,
+           "at": [
+            0.5
+           ],
+           "why_not_ordinary": "the sitting room's principal light, the full height of the principal storey's other lights (about 3.1 m in 5.4 m), as the plan's bay window"
+          }
+         ]
+        }
+       ],
+       "roof": {
+        "kind": "hip",
+        "pitch": 0.15,
+        "covering": "tin_flat_seam_painted"
+       },
+       "plinth_m": 0.05
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "aabn_1876_09_30_sherman_2100_plate",
+      "chicagology_2100_sherman_photo",
+      "sanborn_1911_chicago_v3_sheet_35"
+     ],
+     "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); built as K08's square tower across the corner from grade, its windowless lowest storey standing where the plan cuts the parlour's corner on the diagonal and the photograph shows the oriel's column (the cut is not made: K01 lays no tower on a canted corner; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed."
+    },
+    "chimneys": {
+     "value": {
+      "plan_m": [
+       0.9,
+       0.75
+      ],
+      "top_above_ridge_m": 1.2,
+      "cap_proud_m": 0.05,
+      "cap_depth_m": 0.15,
+      "stacks": [
+       {
+        "u_m": 19.8,
+        "v_m": 13.2,
+        "plan_m": [
+         1.3,
+         0.9
+        ],
+        "top_m": 19.0
+       },
+       {
+        "u_m": 13.0,
+        "v_m": 2.0
+       },
+       {
+        "u_m": 4.0,
+        "v_m": 7.0
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The great stack on the 21st Street flank behind the corner (photograph x 1050-1145 px, its clustered flues' tops at y 185, about 19 m through the solved camera), which the plate also draws; the other two stacks are the plan's fireplaces on the south wall and the kitchen's, their heights the kit's."
+    },
+    "rainwater": {
+     "value": {
+      "gutter": "half_round",
+      "fabric": "copper_sheet",
+      "downpipe": "round",
+      "ends_at": "grade_with_splash_stone",
+      "downpipes": [
+       {
+        "wall": "k01.wall.side.south",
+        "s_m": 0.4
+       },
+       {
+        "wall": "k01.wall.rear_service",
+        "s_m": 0.35
+       }
+      ]
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's copper; no downpipe shows on the front or the corner in the photograph."
+    },
+    "entrance_kit": {
+     "value": {
+      "k01.opening.door_leaf": {
+       "variant": "k07.entrance.panel_door_stoop",
+       "front_yard_m": 7.3,
+       "hood": {
+        "fabric": "stone",
+        "soffit_m": 6.4,
+        "width_m": 3.0,
+        "out_m": 2.2,
+        "fascia_m": 0.45,
+        "cornice": {
+         "height_m": 0.15,
+         "proud_m": 0.15
+        },
+        "brackets": "k08.bay.canted_hooded",
+        "railing": {
+         "height_m": 0.55,
+         "post_m": 0.25,
+         "baluster_m": 0.08,
+         "pitch_m": 0.25,
+         "rail_m": [
+          0.15,
+          0.1
+         ]
+        },
+        "columns": {
+         "diameter_m": 0.45,
+         "plinth_m": [
+          0.6,
+          0.5
+         ],
+         "capital_m": 0.4,
+         "respond_m": 0.15
+        },
+        "railing_fabric": "stone"
+       }
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo",
+      "aabn_1876_09_30_sherman_2100_plate"
+     ],
+     "note": "The porch before the hall: in the photograph stone piers and a cluster of three columns with carved capitals (x 525-595 px) carry a deep stone entablature (y 965-1050) and the second floor's balcony over it, railed by a carved stone balustrade (y 895-960, about 0.85 m, built 0.55 m so it stays under the sill of the light behind it, which K01 holds it to); the soffit at y 1050 px is about 4.6 m over the landing through the solved camera; the plan draws the porch the hall's width before the vestibule. The cluster is built as one column a side; the balcony's carving and the side flight are T-1920's."
+    },
+    "boundary": {
+     "value": {
+      "street_line_m": 7.05,
+      "lot_s_m": [
+       -7.655,
+       15.555
+      ],
+      "fence": "k11.fence.scroll_band",
+      "entrance_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "leaves": 2,
+       "clear_m": 1.3,
+       "drawn_deg": 70
+      },
+      "side_gate": {
+       "variant": "k11.gate.walk_gate_on_piers",
+       "pier_s_m": -3.0,
+       "drawn_deg": 0
+      },
+      "posts": {
+       "section_m": 0.12,
+       "height_m": 1.2
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "The photograph's low iron fence of scrolled panels on a stone curb between square stone piers with pyramidal caps, along the walk (y 1480-1545 px); K11's scroll band. The fence turning along 21st Street is not built: K11 lays no side-street iron yet (liberty L-k01-2100-sherman-1919)."
+    },
+    "yard": {
+     "value": {
+      "kit": "k14_condition",
+      "built": 1904,
+      "lawn": "none",
+      "grass_edge": "street_front",
+      "under_stoop": "earth",
+      "front_walk": {
+       "surface": "stone_flags",
+       "flag_m": 0.6,
+       "top_m": 0.06,
+       "wear_tone": 0.9
+      }
+     },
+     "confidence": "reconstructed",
+     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's yard: a flagged walk to the stoop. The house stood empty in 1904 after Sherman's death (the register); its upkeep is not read."
+    }
+   }
+  }
+ ]
 }

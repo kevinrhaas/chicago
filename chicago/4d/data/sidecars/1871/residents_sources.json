@@ -228,6 +228,22 @@
         "any statement about 1835 — it is later evidence and cannot on its own place a person in the scene"
       ]
     },
+    "census_1870_us_vol1": {
+      "source_id": "census_1870_us_vol1",
+      "citation": "United States Census Office, Ninth Census, Volume I: The Statistics of the Population of the United States (Washington: Government Printing Office, 1872); the count of Chicago restated in the Census Bureau's 'History and the Census: 1871 Great Chicago Fire' (October 2021).",
+      "url": "https://www.census.gov/library/publications/1872/dec/1870a.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the city's population in 1870 (298,977), the bound the 1871 town's drawn people are scaled to",
+        "the city's broad nativity: about half foreign-born, Germans and Irish the most"
+      ],
+      "what_it_does_not_supply": [
+        "any person's name on any street on 8 October 1871",
+        "ward populations at a block's grain"
+      ]
+    },
     "chicago_american_1835": {
       "source_id": "chicago_american_1835",
       "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
@@ -770,6 +786,21 @@
       "archived_url": "",
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
+    },
+    "edwards_chicago_directory_1871": {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
     },
     "elgin_history_gifford": {
       "source_id": "elgin_history_gifford",
@@ -1339,6 +1370,22 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "mitchell_1870_chicago_map": {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
     },
     "moses_kirkland_history_of_chicago_v1": {
       "source_id": "moses_kirkland_history_of_chicago_v1",

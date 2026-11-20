@@ -1,3 +1,30 @@
+## T-3678 — More Make your case mysteries (19 November 2026)
+
+A case table now drives Make your case; four more completed jaunts offer a case from their
+own cited claims (the 1812 attack's place, the 1812 trading-post sale, the 1835 Chappel
+school, the 1904 bronze). Next: more cases only where a jaunt's evidence argues both ways;
+the 18+ tellings stay out until a case is written for them.
+
+## T-3669, T-3670 — The rest of the top five (19 November 2026)
+
+The owner asked to finish the top five. Same spot, another year (T-3669): Jump lands on the
+ground you stand on where the far year has it, on the existing moment link and the far
+page's own bounds and obstruction checks; no extra world is loaded. The guide's three
+questions (T-3670): one settled answer each, every option drawn from the jaunt itself,
+unlimited retry, no score. [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) has the detail.
+
+## T-3679 — Play a part (19 November 2026)
+
+Item 9 of the classroom list has its first three role jaunts (1812 runner at Fort Dearborn, 1835 apprentice, 1904 iceman's helper), each with two route-changing choices and four endings, every band and 18+ telling built. Further roles (a household's youngest servant, a store clerk's helper) are content work on the same engine; each needs its own cited stops and an entry in LIBERTIES. A role with staged hosts or narration voices is a separate parcel.
+
+## T-3663 — First source investigation (19 November 2026)
+
+Use the completed Gossip route for one optional claim-and-evidence comparison of its
+Democrat and American readings, with explicit notebook save. Preserve the missing sale
+figure, the Springfield inference and the story's declared liberties. This is the first
+bounded slice of requested item 8; it adds no mystery engine, invented witnesses or service.
+The separate ticket owns implementation and validation; STATUS records what is checked.
+
 ## T-3654 — Build the city first, then replace its context (2026-11-18)
 
 The owner's choice is a complete 1871 context city with district-appropriate generic
@@ -17,6 +44,19 @@ directory and public-works notebook supply candidates for businesses, inhabitant
 transport and actions; their totals are not allocations to generated lots.
 Photographic street scenes require researched facades, detailed surfaces, planting
 and activity in addition to this citywide baseline.
+
+## T-3677 — Where and when? in more years (19 November 2026)
+
+The hunt runs in 1835 (three Green Tree Tavern prints and drawings) with its own link, daily
+order and progress. 1812 has two pictures with a camera on safe ground and needs a third;
+1871 has no catalogued picture. Both open when a ground camera is solved on a held,
+public-domain picture of that year.
+## T-3672 — Teacher routes (19 November 2026)
+
+Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
+student's Route panel whose answers go to the local field notebook. Next, only with
+storage the owner chooses: a shared library of routes and a way to collect answers.
+A route names places and people the town already holds; it never adds a historical claim.
 
 ## T-3657, T-3658 — Next browser-only delivery (18 November 2026)
 

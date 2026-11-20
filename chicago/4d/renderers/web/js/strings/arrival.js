@@ -65,6 +65,7 @@ export default register('arrival', {
   'device.head': 'This device',
   'device.reading': 'Reading',
   'device.software': 'software renderer',
+  'device.chromebook': 'Chromebook',
   'device.shared': 'shared memory',
   'device.memory': '{gb} GB',
   'device.cores': '{n} cores',

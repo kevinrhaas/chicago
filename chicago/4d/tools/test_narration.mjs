@@ -9,7 +9,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR, normalNarrator, VOICE, voiceLevel } from '../renderers/web/js/narration.js';
-import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems } from './narrate_jaunts.mjs';
+import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT, spokenWords, sameWords, loadDirection, directionProblems, styleProblems, loadDirectionFile, quota, quotaLine, jauntEntries, jauntIds, takeWithin } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
 const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jaunts/glessner-household-tour.json'), 'utf8'));
@@ -130,10 +130,68 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   // Every voiced jaunt's direction still matches the words its panel shows. A script edited
   // without its direction fails here: bring the direction along (same words, tags kept).
   const config = loadConfig(), all = await scriptsFor(config);
-  const problems = directionProblems(all, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
+  const problems = directionProblems(all, Object.fromEntries(jauntIds(config).map(id => [id, loadDirection(id)])));
   assert.deepEqual(problems, [], `data/narration/direction/ is out of step with the jaunts:\n${problems.join('\n')}`);
   assert.equal(config.model_id, 'eleven_v3', 'directions carry v3 audio tags, which only eleven_v3 performs');
+  // T-3696: the smooth style. A file marked "style": "smooth" breathes between subjects and keeps
+  // laughter and whispering down; every direction written from now on is marked so.
+  const twenty = 'one two three four five six seven eight nine ten '.repeat(6);
+  assert.deepEqual(styleProblems('j', { scripts: { 'stop:a': `[whispers] ${twenty}` } }), [], 'an unmarked (older) file is not held to it');
+  const bad = styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `[whispers] ${twenty} [laughs] [chuckles]` } });
+  assert.equal(bad.length, 3, bad.join('; '));
+  assert.deepEqual(styleProblems('j', { style: 'smooth', scripts: { 'stop:a': `${twenty.slice(0, 120)} [short pause] ${twenty.slice(120)}... [laughs] done.` } }), []);
+  for (const id of jauntIds(config)) {
+    const problems = styleProblems(id, loadDirectionFile(id));
+    assert.deepEqual(problems, [], `data/narration/direction/${id}.json is marked smooth but:\n${problems.join('\n')}`);
+  }
+  assert.equal(loadDirectionFile('glessner-household-tour-grades-3-5')?.style, 'smooth', 'the 3rd-grade Glessner Household is performed in the smooth style (owner, 2026-11-19)');
   assert.ok([0, 0.5, 1].includes(config.voice_settings.stability), 'eleven_v3 takes stability 0, 0.5 or 1');
+}
+
+// ---- narrators per jaunt (T-3696: Essayist only first, the owner 2026-11-19) ----------------
+{
+  const cfg = { narrators: { essayist: {}, storyteller: {} }, jaunts: ['a', { id: 'b', narrators: ['essayist'] }, { id: 'c' }] };
+  assert.deepEqual(jauntEntries(cfg), [{ id: 'a', narrators: ['essayist', 'storyteller'] }, { id: 'b', narrators: ['essayist'] }, { id: 'c', narrators: ['essayist', 'storyteller'] }]);
+  const config = loadConfig(), all = await scriptsFor(config);
+  for (const j of jauntEntries(config)) {
+    const told = new Set(all.filter(s => s.jaunt === j.id && s.narrator).map(s => s.narrator));
+    assert.deepEqual([...told].sort(), [...j.narrators].sort(), `${j.id}: narrator scripts are voiced in exactly its narrators`);
+  }
+}
+
+// ---- the quota (T-3696) ----------------------------------------------------------------
+{
+  const ok = async () => new Response(JSON.stringify({ tier: 'creator', character_count: 40000, character_limit: 100000, next_character_count_reset_unix: 1796083200 }), { status: 200 });
+  const q = await quota('k', ok);
+  assert.deepEqual(q, { tier: 'creator', used: 40000, limit: 100000, resets: new Date(1796083200 * 1000).toISOString() });
+  assert.match(quotaLine(q, 'now'), /40000 of 100000 credits used this period \(60000 left, plan creator, resets /);
+  const denied = await quota('k', async () => new Response('no', { status: 401 }));
+  assert.equal(denied.error, 'HTTP 401');
+  assert.match(quotaLine(denied, 'now'), /not readable/);
+  assert.equal((await quota('k', async () => { throw Error('offline'); })).error, 'offline', 'a failed quota read never fails the run');
+  const todo = [{ text: 'a'.repeat(400) }, { spoken: 'b'.repeat(500), text: 'b' }, { text: 'c'.repeat(100) }];
+  assert.deepEqual(takeWithin(todo, 1000).chars, 1000, 'everything fits');
+  const part = takeWithin(todo, 850);
+  assert.equal(part.batch.length, 1, 'stops at the first clip that does not fit, keeping the order');
+  assert.equal(part.rest.length, 2);
+  assert.equal(takeWithin(todo, 0).batch.length, 0, 'no credits left: nothing voiced, nothing fails');
+}
+{
+  // A refusal part way (credits run out) keeps and indexes what was already voiced.
+  const config = loadConfig(), all = await scriptsFor(config);
+  const names = new Map([...Object.values(config.voices), ...Object.values(config.narrators).map(n => n.voice)].map((v, i) => [v.replace(/\s+/g, ' ').trim().toLowerCase(), `v${String(i).padStart(19, '0')}`]));
+  const work = plan(all, config, { version: 1, clips: {} }, names).todo.slice(0, 3);
+  assert.equal(work.length, 3);
+  {
+    let n = 0;
+    const out = fs.mkdtempSync(path.join(os.tmpdir(), 'narr-stop-'));
+    const twoThenBroke = async () => (++n <= 2 ? new Response(Buffer.alloc(2000 + n), { status: 200 }) : new Response('{"detail":{"status":"quota_exceeded"}}', { status: 401 }));
+    const r = await voice(work, { version: 1, clips: {} }, out, 'k', { fetcher: twoThenBroke });
+    assert.equal(r.made.length, 2, 'the two voiced clips are kept');
+    assert.match(r.stopped.error, /HTTP 401/);
+    assert.equal(Object.keys(JSON.parse(fs.readFileSync(path.join(out, 'narration/index.json'), 'utf8')).clips).length, 2, 'and indexed for the upload');
+    fs.rmSync(out, { recursive: true, force: true });
+  }
 }
 
 // ---- the player ------------------------------------------------------------------------

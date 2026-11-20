@@ -1,0 +1,479 @@
+{
+ "id": "hh_1871_dekoven_036",
+ "scene": "1871",
+ "name": "The Quinn household on the West Side near DeKoven Street",
+ "head": "hh_1871_dekoven_036_1",
+ "division": "dekoven",
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "sources": [
+   "census_1870_us_vol1"
+  ],
+  "note": "A reconstructed household of the 1870 census's city."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "dekoven",
+   "resolves_to": "neighbourhood",
+   "tier": "reconstructed",
+   "source_id": "mitchell_1870_chicago_map",
+   "note": "Lives on the West Side near DeKoven Street; the house is an anonymous building of the context city (L-1871-city-baseline), found at run time on the street nearest the household's place."
+  }
+ ],
+ "arrival": {
+  "value": "1850",
+  "precision": "year",
+  "tier": "reconstructed"
+ },
+ "card_evidence": [
+  {
+   "source_id": "census_1870_us_vol1",
+   "locator": "Population of Chicago, 1870",
+   "quote": "the 1870 Census counted 298,977 people living in Chicago, Illinois",
+   "claim": "The city's count; this card is one of the reconstructed households drawn at about one person in eighty-five."
+  },
+  {
+   "source_id": "edwards_chicago_directory_1871",
+   "locator": "the directory's occupations",
+   "claim": "The trades are in the directory's words; no listing is claimed for this household."
+  }
+ ],
+ "persons": [
+  {
+   "id": "hh_1871_dekoven_036_1",
+   "name": "Bartholomew Quinn",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "54-54",
+    "low": 54,
+    "high": 54,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "fireman",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 54",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Clare, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Fireman",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1817 in County Clare, Ireland and came to Chicago about 1850. He works as a fireman, and the household lives on the West Side near DeKoven Street. The family's church is Holy Family."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_dekoven_036_2",
+   "name": "Honora Quinn",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "48-48",
+    "low": 48,
+    "high": 48,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 48",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Clare, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Keeping house",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1823 in County Clare, Ireland and came to Chicago about 1850. She keeps house for her husband Bartholomew and their family on the West Side near DeKoven Street. The family's church is Holy Family."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_dekoven_036_3",
+   "name": "Norah Quinn",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "17-17",
+    "low": 17,
+    "high": 17,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 17",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1854 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_dekoven_036_4",
+   "name": "Elizabeth Quinn",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "16-16",
+    "low": 16,
+    "high": 16,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 16",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1855 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_dekoven_036_5",
+   "name": "Catherine Quinn",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "14-14",
+    "low": 14,
+    "high": 14,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 14",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1857 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_dekoven_036_6",
+   "name": "Alice Quinn",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "11-11",
+    "low": 11,
+    "high": 11,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 11",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "At school",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1860 in Illinois and born in Chicago."
+    ]
+   }
+  }
+ ]
+}

@@ -6,6 +6,7 @@
   "scenes": [
     "1812",
     "1835",
+    "1871",
     "1904"
   ],
   "sources": [
@@ -594,5 +595,5 @@
   },
   "source_protection": "Original geometry/UV/skin/IBMs/joints/clips/maps unchanged; shader colour only. Derived anchors do not replace complete-hoof classifiers.",
   "native_all_path_visual_qualification": "UNRUN",
-  "recipe_sha256": "f144e9fed237f7c6d751539be7116ebcefebf0362d9adb62992709ef6707c443"
+  "recipe_sha256": "87077c5be3a4f2a235d64916224a27d208f370e25f674a0ee4243a15d49cef6a"
 }

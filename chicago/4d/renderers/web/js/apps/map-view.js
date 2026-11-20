@@ -16,10 +16,19 @@
  */
 import { formatDistance } from '../units.js';
 import { displayName } from '../display-name.js';
+import { mountBlockGrowEntry } from '../block-grow-entry.js';
+import { metFound, placeIndex, sceneTitle } from '../met-found.js';
+import { metFoundRow } from '../met-found-view.js';
+import { t } from '../strings/index.js';
 
 export const GRADES = Object.freeze(['attested', 'inferred', 'reconstructed']);
 const GRADE_LABEL = Object.freeze({ attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' });
 const LEGEND_KEY = 'chicago4d.map.legend';
+const FOUND_KEY = 'chicago4d.map.found';
+/** T-3673: a found place's mark: a deep teal edge on a pale halo, apart from the grade colours. */
+const FOUND_EDGE = '#0b6e79';
+const FOUND_HALO = 'rgba(255, 255, 255, .9)';
+const FOUND_TINT = 'rgba(11, 110, 121, .28)';
 const TICK_MS = 250;
 /** Close up: pixels per metre — a 15 m house is about 19 px, easy to tap. */
 export const NEAR_K = 1.25;
@@ -140,6 +149,28 @@ export function mount(el, ctx = {}) {
     legend.append(li);
   }
   bar.append(zoomBtn, legendBtn, legend);
+  // T-3673: the places you have stood at or inside this year, outlined, with their count.
+  const year = String(ctx.scene?.id ?? ctx.scene?.scene_id ?? '').slice(0, 4);
+  let places = null;
+  const placesNow = () => {
+    if (!places && nav()?.outlines) places = placeIndex(nav().outlines, (id) => sceneTitle(api.registry, id));
+    return places;
+  };
+  let found = metFound.year(year).found;
+  let foundOn = true;
+  try { foundOn = win.localStorage?.getItem(FOUND_KEY) !== '0'; } catch { /* a convenience */ }
+  const foundCount = () => (placesNow()?.ids ?? []).reduce((n, id) => n + (Object.prototype.hasOwnProperty.call(found, id) ? 1 : 0), 0);
+  const foundRow = metFoundRow(doc, { year, cls: 'nav-map-found', toggleCls: 'nav-map-toggle nav-map-found-toggle',
+    text: () => t('metfound.found', { n: foundCount(), total: placesNow()?.count ?? 0 }),
+    title: t('metfound.found.title'), pressed: () => foundOn,
+    onToggle: () => {
+      foundOn = !foundOn;
+      try { win.localStorage?.setItem(FOUND_KEY, foundOn ? '1' : '0'); } catch { /* a convenience */ }
+      last = null; paint();
+    } });
+  bar.append(foundRow.el);
+  let foundSeen = 0;
+  const offFound = metFound.subscribe(() => { found = metFound.year(year).found; foundSeen++; foundRow.paint(); });
 
   const preview = make('section', 'nav-block nav-map-preview');
   preview.hidden = true;
@@ -155,6 +186,8 @@ export function mount(el, ctx = {}) {
   const foot = make('p', 'nav-sub nav-map-foot');
   // The preview sits right under the map, so Go is in reach at HALF on a phone.
   el.append(scope, preview, bar, foot);
+  // T-3676: Watch a block grow, a closed section under the map until it is opened (1904 only).
+  if (ctx.actions?.blockGrow?.available) mountBlockGrowEntry(el, ctx);
 
   let legendOn = false;
   try { legendOn = win.localStorage?.getItem(LEGEND_KEY) === '1'; } catch { /* a convenience */ }
@@ -240,6 +273,18 @@ export function mount(el, ctx = {}) {
       }
       g.restore();
     }
+    if (foundOn) {
+      const index = placesNow();
+      g.save();
+      g.lineJoin = 'round';
+      for (const r of index?.rings ?? []) {
+        if (!Object.prototype.hasOwnProperty.call(found, r.id)) continue;
+        ring(r); g.fillStyle = FOUND_TINT; g.fill();
+        g.lineWidth = 3.6; g.strokeStyle = FOUND_HALO; g.stroke();
+        g.lineWidth = 2; g.strokeStyle = FOUND_EDGE; g.stroke();
+      }
+      g.restore();
+    }
     // The active Jaunt: a dotted line through its stops, the one you are heading for ringed.
     const route = ctx.actions?.jauntRoute?.() ?? null;
     if (route?.stops?.length) {
@@ -303,13 +348,14 @@ export function mount(el, ctx = {}) {
     const p = nav()?.player;
     const route = ctx.actions?.jauntRoute?.();
     const ride = ctx.actions?.travelRoute?.();
-    const key = p ? `${p.e.toFixed(1)},${p.n.toFixed(1)},${Math.round(p.bearingDeg)},${route?.at ?? ''},${route?.stops?.length ?? 0},${ride?.length ?? 0},${fit.w}x${fit.h}` : '';
+    const key = p ? `${p.e.toFixed(1)},${p.n.toFixed(1)},${Math.round(p.bearingDeg)},${route?.at ?? ''},${route?.stops?.length ?? 0},${ride?.length ?? 0},${fit.w}x${fit.h},${foundSeen}` : '';
     if (key === last) return;
     if (paint()) last = key;
   }
   const timer = win.setInterval?.(tick, TICK_MS);
   timer?.unref?.(); // a test's fake page never keeps its process alive
   el._mapTimer = timer;
+  el._mapOff = offFound;
   el._mapApi = {
     paint,
     setZoom(z) { zoom = z === 'field' ? 'field' : 'near'; paintBar(); paint(); return zoom; },
@@ -317,10 +363,13 @@ export function mount(el, ctx = {}) {
     get selected() { return selected?.id ?? null; },
     get legend() { return legendOn; },
     get zoom() { return zoom; },
+    foundRow,
+    get found() { return { on: foundOn, n: foundCount(), of: placesNow()?.count ?? 0 }; },
     get size() { return { ...fit }; },
     get view() { return view ? { ...view } : null; },
   };
   paintBar();
+  foundRow.paint();
   paint();
 }
 
@@ -332,12 +381,15 @@ export function mount(el, ctx = {}) {
  */
 export function shown(el, ctx = {}) {
   if (ctx.navigator?.detent === 'half') ctx.navigator.open?.(2);
+  el._mapApi?.foundRow?.paint();
   el._mapApi?.paint();
 }
 
 export function unmount(el) {
   if (el._mapTimer) (el.ownerDocument.defaultView ?? globalThis).clearInterval(el._mapTimer);
   el._mapTimer = null;
+  el._mapOff?.();
+  el._mapOff = null;
   el._mapApi = null;
   el.replaceChildren();
 }
