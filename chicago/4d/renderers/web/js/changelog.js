@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3174, ts: '2026-11-20T23:43:04.033Z', date: 'Nov 20, 2026, 5:43 PM CT', title: 'Content builds check themselves in sixteen shorter parts', kind: 'chore',
+    items: [
+      'The automatic check that runs after a content build now splits into sixteen parts instead of eight, each half the size of an old one, because a slow build machine was running one part past its ten-minute limit and failing changes that were fine. Every check still runs, and the time limit is unchanged.',
+    ] },
   { v: 3173, ts: '2026-11-20T23:34:09.590Z', date: 'Nov 20, 2026, 5:34 PM CT', title: '1835 asks less of a phone\'s memory', kind: 'fix',
     items: [
       '1835 on a phone now holds about 29 MB less in memory once you are in the town: 521 MB where it held 551, the room a phone tab runs out of. The building cards and household cards were keeping hundreds of copies of the same long notes, one per building or household that cites them. Each note is now kept once and shared. Nothing you can see changes: every card says what it said before. A desktop saves about 22 MB the same way.',
