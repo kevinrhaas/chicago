@@ -10004,9 +10004,9 @@
     "sherman_house_2100_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 10334944,
+      "bytes": 10589852,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "8192e74301675b40a5b1d3544ca1168995d0a20a51ffa5f82053e438b236d977",
+      "inputs_sha256": "b10498b0d60b4b3fd34c4d645c3e02ae6f116efce984ca0d21d7091a30f95ef2",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sherman_house_2100_prairie"

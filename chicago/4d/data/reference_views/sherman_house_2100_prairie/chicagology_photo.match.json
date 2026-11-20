@@ -2,7 +2,7 @@
   "structure_id": "sherman_house_2100_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
-  "glb_sha256": "86b4437ef8769d18770cab955ffc9f187c345fdab87996e0d73b817e30a6e614",
+  "glb_sha256": "8772535bc3744e8211ced66be79ec6bfacf69c33c1eaf0d2cc8e7e5d29e51e31",
   "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
   "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
   "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
@@ -41,15 +41,23 @@
       "status": "open"
     },
     {
-      "what": "the stone bands: the photograph's pale stone sill and spring courses, the stone panels under the principal lights and the stone dressings round every opening against the dark brick; the record shows only the stone basement and the kit's surrounds",
+      "what": "the stone bands (T-3699): the photograph's pale stone against the dark brick in three bands — the stone carried on over the principal floor to the principal lights' sills, a deep band from the principal heads to the second-storey sills (the arches and the balcony's string course in it), and the frieze under the cornice — are now laid on the front's parlour bay and along the 21st Street flank at the record's own sill and head lines; at the parlour the deep band prints at y 950-1050 px against the photograph's 905-1060. The flank's deep band prints taller than the photograph's because the record's flank lights are shorter than the photograph's (the flank's lights are their own difference, below); the south flank is carried round the same way",
+      "status": "fixed"
+    },
+    {
+      "what": "the library pavilion's bands and base: the photograph carries the same pale bands and the stone basement across the pavilion, with carved panels under its tall pair; the record's pavilion is a K08 brick projection from its 0.1 m plinth to the gable, with none of them (K08 lays dress bands only on a stone bay's polyline plan, and its plinth cannot reach the basement's top over a storey with lights in it)",
       "status": "open"
     },
     {
-      "what": "the openings' heads: the photograph's principal-storey lights under stone arches and the pavilion's paired lights; the record's are square-headed two-over-two sash",
-      "status": "open"
+      "what": "the openings' heads (T-3699): the parlour's principal light now stands square-headed under a stone lintel with a carved segmental tympanum over it, and the library's tall pair in moulded stone surrounds under one broad tympanum spanning both, as the photograph draws them; both print inside the deep stone band",
+      "status": "fixed"
     },
     {
-      "what": "the cornice: the photograph's paired blocks over a dentil band; the record's plain moulded stone cornice",
+      "what": "the cornice's frieze and blocks (T-3699): a pale stone frieze over the second-storey heads and a row of stone blocks under the corona about 1.0 m apart, as the photograph's (x 540-870 px along the front), now stand under the moulded cornice on the front and both flanks",
+      "status": "fixed"
+    },
+    {
+      "what": "the cornice's dentil band: the photograph's row of dentils under the blocks; K10's moulded stone cornice lays none",
       "status": "open"
     },
     {
@@ -57,7 +65,7 @@
       "status": "open"
     },
     {
-      "what": "the 21st Street flank: the photograph's narrow lights, its projecting bay with a balustraded top and the basement lights under sloped stone hoods; the record's lights at the kit's spacing and its one-storey canted bay",
+      "what": "the 21st Street flank: the photograph's narrow lights, its projecting bay with a balustraded top and the basement lights under sloped stone hoods; the record's lights at the kit's spacing and its one-storey canted bay; and one flank light under a round arch in the principal storey (x 405-440 px of the flank), where the record's are square-headed",
       "status": "open"
     },
     {
