@@ -180,60 +180,98 @@
     },
     "1835": {
       "desktop": {
-        "total_bytes": 1389363200,
-        "reading_bytes": 1253577273,
+        "total_bytes": 1572864000,
+        "reading_bytes": 1406597404,
         "tier": "full",
         "reading_mb": {
-          "total": 1195.5,
-          "js_heap": 108.4,
-          "arraybuffers": 458.8,
-          "gpu_buffers": 319.6,
-          "gpu_textures": 308.7
+          "total": 1341.4,
+          "js_heap": 155.4,
+          "arraybuffers": 512.5,
+          "gpu_buffers": 326.4,
+          "gpu_textures": 347.1
         },
-        "lowered_by": {
-          "ticket": "T-2786",
-          "on": "2026-10-18T16:43:05.218Z",
-          "build": "a71a7a3e+T-2786",
-          "reading": "docs/measurements/T-2786-memory.json",
-          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1577.6 -> 1195.5 MB; x 1.1 rounded up to 25 MiB = 1325 MiB.",
-          "before": null
-        }
-      },
-      "mobile": {
-        "total_bytes": 550502400,
-        "reading_bytes": 497806023,
-        "tier": "light",
-        "reading_mb": {
-          "total": 474.7,
-          "js_heap": 100.3,
-          "arraybuffers": 153.4,
-          "gpu_buffers": 144.4,
-          "gpu_textures": 76.7
-        },
-        "lowered_by": {
-          "ticket": "T-3595",
-          "on": "2026-11-14T05:10:28.211Z",
-          "build": "8db04535d+T-3595",
-          "reading": "docs/measurements/T-3595-memory-1835-phone.json",
-          "note": "A friend of the owner's lost 1835 on her phone on prod (black box: Light at Sharpness Low, ready at 44 s, the tab gone ~23 s later, 238 MB of geometry). The frontage's prebuilt timber was 61 MB in one buffer that every chunk viewed, so no chunk's release ever freed it, and the page's resolved promise kept it besides; the streets' prebuilt pieces kept their 9.7 MB buffer through the surfaces list. Each prebuilt array is now its own copy and both buffers are let go once built. Dev 8db04535d read 500.3 MB here; with the change 474.7 (arraybuffers 182.9 -> 153.4). 474.7 x 1.1 rounded up to 25 MiB = 525 MiB.",
+        "raised_by": {
+          "ticket": "T-3708",
+          "on": "2026-11-20T18:02:35.288Z",
+          "build": "b008aa7f9",
+          "reading": "docs/measurements/T-3708-memory-1835.json",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 1347.6 MB on main c0d4f425a and 1355.3 on #2261's head; dev b008aa7f9 reads 1341.4 here. Against 1279.1 on 2026-11-17: js heap 125.3 -> 155.4 here (154.8 on CI), arraybuffers 492.2 -> 512.5 (520.8 on CI), gpu textures 339.2 -> 347.1 with the name cards' sheet 6.8 MB new; structures +3.5 MB. The heap is the 1835 people, jaunts, outings, Make your case and Where and when? work and the Spanish interface, none of it geometry. Highest reading 1355.3 x 1.1 rounded up to 25 MiB = 1500 MiB.",
           "before": {
-            "total_bytes": 576716800,
-            "reading_bytes": 513608912,
-            "tier": "light",
+            "total_bytes": 1389363200,
+            "reading_bytes": 1253577273,
+            "tier": "full",
             "reading_mb": {
-              "total": 489.8,
-              "js_heap": 121.7,
-              "arraybuffers": 149.3,
-              "gpu_buffers": 150.1,
-              "gpu_textures": 68.8
+              "total": 1195.5,
+              "js_heap": 108.4,
+              "arraybuffers": 458.8,
+              "gpu_buffers": 319.6,
+              "gpu_textures": 308.7
             },
             "lowered_by": {
               "ticket": "T-2786",
               "on": "2026-10-18T16:43:05.218Z",
               "build": "a71a7a3e+T-2786",
               "reading": "docs/measurements/T-2786-memory.json",
-              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 581.5 -> 489.8 MB; x 1.1 rounded up to 25 MiB = 550 MiB.",
-              "before": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 1577.6 -> 1195.5 MB; x 1.1 rounded up to 25 MiB = 1325 MiB.",
+              "before": null
+            }
+          }
+        }
+      },
+      "mobile": {
+        "total_bytes": 602931200,
+        "reading_bytes": 577542180,
+        "tier": "light",
+        "reading_mb": {
+          "total": 550.8,
+          "js_heap": 130.4,
+          "arraybuffers": 184.3,
+          "gpu_buffers": 149.1,
+          "gpu_textures": 87.0
+        },
+        "raised_by": {
+          "ticket": "T-3708",
+          "on": "2026-11-20T18:02:35.288Z",
+          "build": "b008aa7f9",
+          "reading": "docs/measurements/T-3708-memory-1835.json",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 551.5 MB on main c0d4f425a and 551.6 on #2261's head; dev b008aa7f9 reads 550.8 here, so CI and this machine agree within 1 MB on this row. Against 508.6 on 2026-11-17 (474.7 when T-3595 lowered it): js heap 100.1 -> 130.4 here (119.3 on CI), gpu textures 76.7 -> 87.0 (the phone's people 3.0 MB and name cards 3.4 MB, both new), gpu buffers 144.4 -> 149.1; structures +2.7 MB. Kept tight, as T-3538 and T-3603 kept the phone lines on the owner's choice: the rule would give 625, and 575 holds 23 MB over the highest reading. The heap growth is filed to be brought back down (T-3709).",
+          "before": {
+            "total_bytes": 550502400,
+            "reading_bytes": 497806023,
+            "tier": "light",
+            "reading_mb": {
+              "total": 474.7,
+              "js_heap": 100.3,
+              "arraybuffers": 153.4,
+              "gpu_buffers": 144.4,
+              "gpu_textures": 76.7
+            },
+            "lowered_by": {
+              "ticket": "T-3595",
+              "on": "2026-11-14T05:10:28.211Z",
+              "build": "8db04535d+T-3595",
+              "reading": "docs/measurements/T-3595-memory-1835-phone.json",
+              "note": "A friend of the owner's lost 1835 on her phone on prod (black box: Light at Sharpness Low, ready at 44 s, the tab gone ~23 s later, 238 MB of geometry). The frontage's prebuilt timber was 61 MB in one buffer that every chunk viewed, so no chunk's release ever freed it, and the page's resolved promise kept it besides; the streets' prebuilt pieces kept their 9.7 MB buffer through the surfaces list. Each prebuilt array is now its own copy and both buffers are let go once built. Dev 8db04535d read 500.3 MB here; with the change 474.7 (arraybuffers 182.9 -> 153.4). 474.7 x 1.1 rounded up to 25 MiB = 525 MiB.",
+              "before": {
+                "total_bytes": 576716800,
+                "reading_bytes": 513608912,
+                "tier": "light",
+                "reading_mb": {
+                  "total": 489.8,
+                  "js_heap": 121.7,
+                  "arraybuffers": 149.3,
+                  "gpu_buffers": 150.1,
+                  "gpu_textures": 68.8
+                },
+                "lowered_by": {
+                  "ticket": "T-2786",
+                  "on": "2026-10-18T16:43:05.218Z",
+                  "build": "a71a7a3e+T-2786",
+                  "reading": "docs/measurements/T-2786-memory.json",
+                  "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 581.5 -> 489.8 MB; x 1.1 rounded up to 25 MiB = 550 MiB.",
+                  "before": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+                }
+              }
             }
           }
         }
@@ -279,255 +317,293 @@
     },
     "1904": {
       "desktop": {
-        "total_bytes": 1494220800,
-        "reading_bytes": 1355091672,
+        "total_bytes": 1782579200,
+        "reading_bytes": 1567135866,
         "tier": "full",
         "reading_mb": {
-          "total": 1292.3,
-          "js_heap": 91.6,
-          "arraybuffers": 594.5,
-          "gpu_buffers": 283.2,
-          "gpu_textures": 323.0
+          "total": 1494.5,
+          "js_heap": 140.0,
+          "arraybuffers": 707.6,
+          "gpu_buffers": 304.1,
+          "gpu_textures": 342.8
         },
         "raised_by": {
-          "ticket": "T-3538",
-          "on": "2026-11-10T19:20:30.352Z",
-          "build": "565e5a35d+T-3537",
-          "reading": "docs/measurements/T-3538-memory-1904-desktop.json",
-          "note": "1904 desktop Full read 1292.3 MB here (CI 1313.8 on PR #1923, run 42890523490) against 1300: the people, horse teams and household routines added since 2026-11-08 (T-3516, T-3521, T-3524, T-3533, T-2795), which the owner calls core (2026-11-10: losing people, carriages or wagons 'is not really an option'). Since T-3537 only a capable desktop boots Full: integrated graphics boot Balanced with the phone memory diet (1904 shared row, 539.6 MB), so this line is no longer the one a crash-prone computer stands on. Nothing is cut. Reading x1.1 rounded up to 25 MiB = 1425 MiB.",
+          "ticket": "T-3708",
+          "on": "2026-11-20T17:58:12.183Z",
+          "build": "b008aa7f9",
+          "reading": "docs/measurements/T-3708-memory-1904-desktop.json",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 1464.6 MB on main c0d4f425a (run 44697689969) and 1529.1 on #2261's dev-based head cc46a9f (run 44749745188); dev b008aa7f9 reads 1494.5 here. Against 1320.5 on 2026-11-17: structures +25.0 MB kept on the CPU and +25.0 of GPU geometry, their textures 742 -> 946 (the Prairie Avenue houses onto K01: 2100, 2101, 2011, 2017, 2018, 2109, 2112 and their neighbours), the name cards' sheet 6.8 MB new, renderbuffers 3.0 -> 6.3, js heap 95.0 -> 140.0 here (150.2 on CI). A desktop is not the device that kills tabs. Highest reading 1529.1 x 1.1 rounded up to 25 MiB = 1700 MiB.",
           "before": {
-            "total_bytes": 1363148800,
-            "reading_bytes": 1225453614,
+            "total_bytes": 1494220800,
+            "reading_bytes": 1355091672,
             "tier": "full",
             "reading_mb": {
-              "total": 1168.7,
-              "js_heap": 76.6,
-              "arraybuffers": 603.8,
-              "gpu_buffers": 212.9,
-              "gpu_textures": 275.5
+              "total": 1292.3,
+              "js_heap": 91.6,
+              "arraybuffers": 594.5,
+              "gpu_buffers": 283.2,
+              "gpu_textures": 323.0
             },
-            "reread_by": {
-              "ticket": "T-3173",
-              "on": "2026-11-02T10:46:56.209Z",
-              "build": "3dc01941+T-3173 lap",
-              "reading": "docs/measurements/T-3173-memory.json",
-              "before": "docs/measurements/T-3173-memory-desktop-before.json",
-              "reading_mb": {
-                "total": 1267.1,
-                "js_heap": 72.4,
-                "arraybuffers": 648.1,
-                "gpu_buffers": 270.7,
-                "gpu_textures": 275.8
-              },
-              "note": "CI read this row at 1323.6 against 1300 on PR #1605's first lap (arraybuffers 701.5); this machine read the same head at 1302.3. Brought back under, ceiling unchanged: a desktop no longer banks the inspection GLB's bytes for a detail switch (main.js keepAssetBytes: false, as a phone has since T-2548) \u2014 32.6 MB of ArrayBuffer, Glessner's, held for the whole visit for a Settings switch the HTTP cache answers \u2014 and the view-occluder and placement savings the mobile row lists. 1302.3 -> 1267.1 MB on the same machine the same hour; GPU bytes identical (270.7 / 275.8)."
+            "raised_by": {
+              "ticket": "T-3538",
+              "on": "2026-11-10T19:20:30.352Z",
+              "build": "565e5a35d+T-3537",
+              "reading": "docs/measurements/T-3538-memory-1904-desktop.json",
+              "note": "1904 desktop Full read 1292.3 MB here (CI 1313.8 on PR #1923, run 42890523490) against 1300: the people, horse teams and household routines added since 2026-11-08 (T-3516, T-3521, T-3524, T-3533, T-2795), which the owner calls core (2026-11-10: losing people, carriages or wagons 'is not really an option'). Since T-3537 only a capable desktop boots Full: integrated graphics boot Balanced with the phone memory diet (1904 shared row, 539.6 MB), so this line is no longer the one a crash-prone computer stands on. Nothing is cut. Reading x1.1 rounded up to 25 MiB = 1425 MiB.",
+              "before": {
+                "total_bytes": 1363148800,
+                "reading_bytes": 1225453614,
+                "tier": "full",
+                "reading_mb": {
+                  "total": 1168.7,
+                  "js_heap": 76.6,
+                  "arraybuffers": 603.8,
+                  "gpu_buffers": 212.9,
+                  "gpu_textures": 275.5
+                },
+                "reread_by": {
+                  "ticket": "T-3173",
+                  "on": "2026-11-02T10:46:56.209Z",
+                  "build": "3dc01941+T-3173 lap",
+                  "reading": "docs/measurements/T-3173-memory.json",
+                  "before": "docs/measurements/T-3173-memory-desktop-before.json",
+                  "reading_mb": {
+                    "total": 1267.1,
+                    "js_heap": 72.4,
+                    "arraybuffers": 648.1,
+                    "gpu_buffers": 270.7,
+                    "gpu_textures": 275.8
+                  },
+                  "note": "CI read this row at 1323.6 against 1300 on PR #1605's first lap (arraybuffers 701.5); this machine read the same head at 1302.3. Brought back under, ceiling unchanged: a desktop no longer banks the inspection GLB's bytes for a detail switch (main.js keepAssetBytes: false, as a phone has since T-2548) \u2014 32.6 MB of ArrayBuffer, Glessner's, held for the whole visit for a Settings switch the HTTP cache answers \u2014 and the view-occluder and placement savings the mobile row lists. 1302.3 -> 1267.1 MB on the same machine the same hour; GPU bytes identical (270.7 / 275.8)."
+                }
+              }
             }
           }
         }
       },
       "mobile": {
-        "total_bytes": 498073600,
-        "reading_bytes": 459624046,
+        "total_bytes": 576716800,
+        "reading_bytes": 515204081,
         "tier": "light",
         "reading_mb": {
-          "total": 438.3,
-          "js_heap": 97.7,
-          "arraybuffers": 87.0,
-          "gpu_buffers": 185.2,
-          "gpu_textures": 68.4
+          "total": 491.3,
+          "js_heap": 108.1,
+          "arraybuffers": 96.4,
+          "gpu_buffers": 207.7,
+          "gpu_textures": 79.1
         },
         "raised_by": {
-          "ticket": "T-3603",
-          "on": "2026-11-16T02:12:17.069Z",
-          "build": "150434d56",
-          "reading": "docs/measurements/T-3603-memory-1904-phone.json",
-          "note": "The owner's choice (2026-11-15), over holding the sign-out PR or cutting first: 1904 had grown to its 450 line on dev itself (the T-3553 people work, the T-3594 monument figures), so the row went red on every PR that ran it. CI read 449.7 MB on 2026-11-14 (run 43596061673), then 451.3 and 452.6 on 2026-11-15 (run 43751353537, PR #2087, which adds no scene memory: under navigator.webdriver it only hides one Settings row). This tree, dev f8d77b48b plus the sign-out row, reads 438.3 MB here; dev 32d6de91e read 442.4 and the sign-out branch on its older base 436.6 on the same machine the same day. CI reads about 14 MB higher. Raised 450 -> 475 MiB, under the rule's 500, to keep the line tight.",
+          "ticket": "T-3708",
+          "on": "2026-11-20T18:08:57.964Z",
+          "build": "b008aa7f9",
+          "reading": "docs/measurements/T-3708-memory-1904-shared-phone.json",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 492.1 MB on main c0d4f425a and 501.2 on #2261's head; dev b008aa7f9 reads 491.3 here. Against 438.4 on 2026-11-17: structures' GPU geometry 115.4 -> 137.7 MB and textures 202.0 -> 258.9 (742 -> 947, the Prairie Avenue houses onto K01, with more of them queued), the name cards' sheet 3.4 MB, renderbuffers 3.0 -> 4.9, js heap 94.4 -> 108.1. One commit read 13 MB apart on two CI nights (438.4, 451.3). Kept tight, as T-3538 and T-3603 kept the phone lines on the owner's choice: the rule would give 575, and 550 holds 49 MB over the highest reading.",
           "before": {
-            "total_bytes": 471859200,
-            "reading_bytes": 446999272,
+            "total_bytes": 498073600,
+            "reading_bytes": 459624046,
             "tier": "light",
             "reading_mb": {
-              "total": 426.3,
-              "js_heap": 91.6,
-              "arraybuffers": 81.7,
-              "gpu_buffers": 181.7,
-              "gpu_textures": 71.3
+              "total": 438.3,
+              "js_heap": 97.7,
+              "arraybuffers": 87.0,
+              "gpu_buffers": 185.2,
+              "gpu_textures": 68.4
             },
             "raised_by": {
-              "ticket": "T-3542",
-              "on": "2026-11-10T23:53:12.921Z",
-              "build": "39ccc8aa2",
-              "reading": "docs/measurements/T-3542-memory-1904-phone.json",
-              "note": "T-3542, the owner's ruling (2026-11-10: 'we really want to keep all the people and horses and carriages in all cases'): a phone's Light keeps the parked brougham and its team (50 m), the town's teams (45 m) and people to 140 m, with the horses' maps redrawn at 512 px (draft-horse-assets.js: their 22.0 MB on the GPU -> 6.0). Dev 7649e0df plus the change read 1904 phone at 426.3 MB here (397.0 before; parked transport 5.3 + 6.0 MB, humans +1.5, js heap +6) against the 425 the owner set to keep the line tight (T-3538); CI reads about 7 MB higher. The rule would give 475; 450 keeps it tight over the CI offset.",
+              "ticket": "T-3603",
+              "on": "2026-11-16T02:12:17.069Z",
+              "build": "150434d56",
+              "reading": "docs/measurements/T-3603-memory-1904-phone.json",
+              "note": "The owner's choice (2026-11-15), over holding the sign-out PR or cutting first: 1904 had grown to its 450 line on dev itself (the T-3553 people work, the T-3594 monument figures), so the row went red on every PR that ran it. CI read 449.7 MB on 2026-11-14 (run 43596061673), then 451.3 and 452.6 on 2026-11-15 (run 43751353537, PR #2087, which adds no scene memory: under navigator.webdriver it only hides one Settings row). This tree, dev f8d77b48b plus the sign-out row, reads 438.3 MB here; dev 32d6de91e read 442.4 and the sign-out branch on its older base 436.6 on the same machine the same day. CI reads about 14 MB higher. Raised 450 -> 475 MiB, under the rule's 500, to keep the line tight.",
               "before": {
-                "total_bytes": 445644800,
-                "reading_bytes": 417880714,
+                "total_bytes": 471859200,
+                "reading_bytes": 446999272,
                 "tier": "light",
                 "reading_mb": {
-                  "total": 398.5,
-                  "js_heap": 86.5,
-                  "arraybuffers": 67.2,
-                  "gpu_buffers": 180.2,
-                  "gpu_textures": 64.6
+                  "total": 426.3,
+                  "js_heap": 91.6,
+                  "arraybuffers": 81.7,
+                  "gpu_buffers": 181.7,
+                  "gpu_textures": 71.3
                 },
                 "raised_by": {
-                  "ticket": "T-3538",
-                  "on": "2026-11-10T21:08:52.598Z",
-                  "build": "565e5a35d+T-3537",
-                  "reading": "docs/measurements/T-3538-memory-1904-phone.json",
-                  "note": "Owner's choice, 2026-11-10 (decision card 'How should 1904 phones get back under their memory line?': Raise phone line to 425 MB, over 'Softer house textures on phones'). Dev read 1904 phone at 398.5 MB here and 405.9 on CI (run 42890523490) against 400. Growth since T-3454's 380.9 (2026-11-07) is mostly the people, horse-team and household work (js heap 77.7 -> 86.5, arraybuffers 61.6 -> 67.2), which the owner rules core. Phones already load GLB textures without mip 0 (ktx2.js light tier), so the next cut would have been visibly softer houses. The rule would give 398.5 x 1.1 rounded up to 25 = 450; the owner set 425 to keep the line tight. If the owner's iPhone starts losing the tab again, this is the first line to revisit.",
+                  "ticket": "T-3542",
+                  "on": "2026-11-10T23:53:12.921Z",
+                  "build": "39ccc8aa2",
+                  "reading": "docs/measurements/T-3542-memory-1904-phone.json",
+                  "note": "T-3542, the owner's ruling (2026-11-10: 'we really want to keep all the people and horses and carriages in all cases'): a phone's Light keeps the parked brougham and its team (50 m), the town's teams (45 m) and people to 140 m, with the horses' maps redrawn at 512 px (draft-horse-assets.js: their 22.0 MB on the GPU -> 6.0). Dev 7649e0df plus the change read 1904 phone at 426.3 MB here (397.0 before; parked transport 5.3 + 6.0 MB, humans +1.5, js heap +6) against the 425 the owner set to keep the line tight (T-3538); CI reads about 7 MB higher. The rule would give 475; 450 keeps it tight over the CI offset.",
                   "before": {
-                    "total_bytes": 419430400,
-                    "reading_bytes": 363616697,
+                    "total_bytes": 445644800,
+                    "reading_bytes": 417880714,
                     "tier": "light",
                     "reading_mb": {
-                      "total": 346.8,
-                      "js_heap": 78.5,
-                      "arraybuffers": 68.1,
-                      "gpu_buffers": 102.6,
-                      "gpu_textures": 97.7
+                      "total": 398.5,
+                      "js_heap": 86.5,
+                      "arraybuffers": 67.2,
+                      "gpu_buffers": 180.2,
+                      "gpu_textures": 64.6
                     },
-                    "reread_by": {
-                      "ticket": "T-3454",
-                      "on": "2026-11-07T16:01:43.770Z",
-                      "build": "a6f3a51f3+T-3454",
-                      "reading": "docs/measurements/T-3454-memory.json",
-                      "before": "docs/measurements/T-3454-memory-dev.json",
-                      "reading_mb": {
-                        "total": 380.9,
-                        "js_heap": 77.7,
-                        "arraybuffers": 61.6,
-                        "gpu_buffers": 178.2,
-                        "gpu_textures": 63.5
-                      },
-                      "note": "room for 1904's four placed figures (owner, 2026-11-07, 'Win back town memory': phone-only, desktop unchanged). Clean dev a6f3a51f3 read 401.0 MB here (CI read 408.4 on 70ef821), over the line with the people in; the largest ArrayBuffer retainer was not the town's geometry but 19.0 MB of ENCODED pictures, 69 GLB images whose bytes a phone keeps so texture residency can decode one again after its bitmap is closed (shared-images.js, T-2598/T-2828). A phone now keeps those bytes as a Blob (shared-images.js encodedRecord): WebKit holds a Blob's bytes in its network process and Chromium in its browser process, so they leave the web content process whose memory iOS kills a tab by, and residency decodes from the Blob as it always did through an object URL. This meter does not count a Blob, which is the point and is also a limit of the reading: the bytes still exist, in the browser, not in the tab. 401.0 -> 380.9 MB on the same machine the same hour (arraybuffers 80.4 -> 61.6; js heap, gpu buffers and textures within 0.9 MB); the humans layer is untouched (1.0 geometry, 7.5 textures, its LOD pictures as before). The Prairie walk on the phone: 44 evictions, 3 sources transcoded again from their Blobs, 0 problems, 0 page errors. 1835 mobile 490.8 of 550, 1812 mobile 209.1 of 250. Desktop keeps its views (no Blob off a phone): 1904 desktop 1213.0 on dev -> 1213.7 here, arraybuffers and GPU bytes identical. The rule would set 380.9 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400: 19.1 MiB of margin here, about 11 on CI's machine at its observed ~8 MB offset.",
-                      "previous": {
-                        "ticket": "T-3408",
-                        "on": "2026-11-06T06:59:53Z",
-                        "build": "4610867c3+T-3408",
-                        "reading": "docs/measurements/T-3408-memory.json",
-                        "before": "docs/measurements/T-3408-memory-dev.json",
-                        "reading_mb": {
-                          "total": 375.1,
-                          "js_heap": 71.5,
-                          "arraybuffers": 72.4,
-                          "gpu_buffers": 172.3,
-                          "gpu_textures": 59.0
-                        },
-                        "note": "the people pool (the photographic-humans plan, owner 2026-11-06): about 12 MB of this ceiling is set aside for people's shared skin, hair and cloth textures on a phone, so the phone had to come down first, with nothing on a desktop changed. Clean dev 4610867c3 read 390.9 MB here (CI reads ~7 MB higher, so it stood at the line); 188 MB of its GPU buffers were 151.5 MB of structure batches, and eight of those batches held 4.3 of the town's 6.6 million structure vertices with 32-bit indices. A phone (buildings.js lowSpec) now lays a bucket over 65,535 vertices as several 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (short-index.js); the same geometries, instances and triangles. 390.9 -> 375.1 MB on the same machine the same hour (gpu buffers 187.9 -> 172.3); 1812 mobile 202.1 -> 201.3, 1835 mobile 489.7 -> 487.8; the three desktop rows unchanged (635.3, 1260.9 -> 1260.8, 1194.9). The rule would set 375.1 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400: the 25 MiB under it is the people pool (12 MB) plus CI's ~7 MB.",
-                        "previous": {
-                          "ticket": "T-3173",
-                          "on": "2026-11-02T10:46:56.209Z",
-                          "build": "3dc01941+T-3173 lap",
-                          "reading": "docs/measurements/T-3173-memory.json",
-                          "before": "docs/measurements/T-3173-memory-dev.json",
-                          "reading_mb": {
-                            "total": 386.5,
-                            "js_heap": 67.1,
-                            "arraybuffers": 85.2,
-                            "gpu_buffers": 176.0,
-                            "gpu_textures": 58.3
-                          },
-                          "note": "Read again on the PR's second lap, because CI read the first lap's head at 404.0 (js heap 77.8 + arraybuffers 91.9; this machine read the same head at 396.4, its arraybuffers 7.5 MB lower), so a 3.4 MiB margin here was red there. Ceiling unchanged; nothing taken out of the scene, GPU bytes identical (176.0 / 58.3). The second lap takes the JS heap down again: a released row's GLB node tree collapses to one plain node carrying its materials for disposal (upload-release.js collapseScene); each view occluder shares its corners with its neighbours, and its normal and confidence range with its twins, and carries no area; and an occluding instance's placement is one float32 slot in a shared array rather than a Matrix4 in its closure, kept only when something holds the closure. js heap 77.7 -> 67.1, arraybuffers 84.4 -> 85.2, total 396.4 -> 386.5 MB on the same machine the same hour; 13.5 MiB of margin here, about 6 on CI's machine at its observed offset.",
-                          "previous": {
-                            "ticket": "T-3213",
-                            "on": "2026-10-28T00:18:00Z",
-                            "build": "1f999039e+T-3213",
-                            "reading": "docs/measurements/T-3213-memory.json",
-                            "before": "docs/measurements/T-3213-memory-dev.json",
-                            "reading_mb": {
-                              "total": 377.5,
-                              "js_heap": 99.3,
-                              "arraybuffers": 81.8,
-                              "gpu_buffers": 139.8,
-                              "gpu_textures": 56.5
-                            },
-                            "note": "dev had drifted over this ceiling unseen (409.4 on 0fc818209 on 2026-10-27, CI 417.4; 412.1 on 1f999039e here) as the 1904 streetscape and parkway work landed, because this job does not run on dev pushes. Brought back under it, ceiling unchanged: the untextured structures batches no longer carry a uv nothing reads (gpu buffers 158.1 -> 139.8), the batches drop the update ranges every addGeometry left behind once three has uploaded them whole (js heap -12), and the view-occlusion backings share one identity and one scratch matrix (js heap -4). 412.1 -> 377.5 MB on the same machine the same hour; every other row fell or held (1904 desktop 1222.3 -> 1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and 192.3 -> 192.0). The rule would set 377.5 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
-                          },
-                          "first_lap": {
-                            "ticket": "T-3173",
-                            "on": "2026-11-02T09:05:03.763Z",
-                            "build": "c4923d59+T-3173",
-                            "reading": "docs/measurements/T-3173-memory.json",
-                            "before": "docs/measurements/T-3173-memory-dev.json",
-                            "reading_mb": {
-                              "total": 396.9,
-                              "js_heap": 78.3,
-                              "arraybuffers": 84.4,
-                              "gpu_buffers": 176.0,
-                              "gpu_textures": 58.3
-                            },
-                            "note": "dev had drifted over this ceiling again (CI read main at 406.4 on 2026-11-02; dev c4923d59 read 421.9 here) as the 1904 Prairie Avenue houses and coach houses landed: structures went from 332 to 411 batches and their GPU geometry from 81.7 to 108.1 MB since T-3213. Geometry the owner asked for is not what moves at Light, so this is brought back under in the JS heap, ceiling unchanged: each BatchedMesh geometry's box and sphere kept as float32 figures in two typed arrays instead of a Box3 and a Sphere apiece, rounded outward so the cull stays conservative (batch-bounds.js; 82,927 rows, about 20 MB of objects for 3.4 MB of arrays); the street grid lets go of the plain arrays its attributes were copied from (about 6 MB, kept alive by the materials' hooks); one shared [lo, hi] per distinct confidence range instead of an array per instance (about 3 MB); and the buildings' tone rows kept as columns (about 3 MB). js heap 106.5 -> 78.3, arraybuffers 81.1 -> 84.4 (the bounds' arrays), GPU unchanged. 421.9 -> 396.9 MB on the same machine the same hour. The rule would set 396.9 x 1.1 rounded up to 25 MiB = 450 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
-                          }
-                        }
-                      }
-                    },
-                    "lowered_by": {
-                      "ticket": "T-2828",
-                      "on": "2026-10-19T01:26:58.745Z",
-                      "build": "43d8f0a04+T-2828",
-                      "reading": "docs/measurements/T-2828-memory.json",
-                      "note": "a phone lets go of each GLB KTX2's transcoded levels once uploaded, and transcodes again from the kept file when residency brings a source back (texture-residency.js); GPU textures unchanged. The same build without the change read 403.1 MB here, arraybuffers 124.3 (docs/measurements/T-2828-glessner-approach-before.json, 4 m west of the spawn after GC); with it 346.8, arraybuffers 68.1. 408.1 -> 346.8 MB; x 1.1 rounded up to 25 MiB = 400 MiB.",
+                    "raised_by": {
+                      "ticket": "T-3538",
+                      "on": "2026-11-10T21:08:52.598Z",
+                      "build": "565e5a35d+T-3537",
+                      "reading": "docs/measurements/T-3538-memory-1904-phone.json",
+                      "note": "Owner's choice, 2026-11-10 (decision card 'How should 1904 phones get back under their memory line?': Raise phone line to 425 MB, over 'Softer house textures on phones'). Dev read 1904 phone at 398.5 MB here and 405.9 on CI (run 42890523490) against 400. Growth since T-3454's 380.9 (2026-11-07) is mostly the people, horse-team and household work (js heap 77.7 -> 86.5, arraybuffers 61.6 -> 67.2), which the owner rules core. Phones already load GLB textures without mip 0 (ktx2.js light tier), so the next cut would have been visibly softer houses. The rule would give 398.5 x 1.1 rounded up to 25 = 450; the owner set 425 to keep the line tight. If the owner's iPhone starts losing the tab again, this is the first line to revisit.",
                       "before": {
-                        "ticket": "T-2806",
-                        "on": "2026-10-18T19:10:04.962Z",
-                        "build": "75420287+T-2806",
-                        "reading": "docs/measurements/T-2806-memory.json",
-                        "note": "a phone's railway ground strips indexed, the yard's maps halved and only its light share of tufts and stones built; the rails' faces indexed on every tier; one invocation, all six rows. 516.3 -> 408.1 MB; x 1.1 rounded up to 25 MiB = 450 MiB.",
-                        "before": {
-                          "ticket": "T-2786",
-                          "on": "2026-10-18T16:43:05.218Z",
-                          "build": "a71a7a3e+T-2786",
-                          "reading": "docs/measurements/T-2786-memory.json",
-                          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 696.4 -> 516.3 MB; x 1.1 rounded up to 25 MiB = 575 MiB.",
-                          "before": {
-                            "ticket": "T-2775",
-                            "on": "2026-10-18T14:21:22.796Z",
-                            "build": "7b146804+T-2775",
-                            "reading": "docs/measurements/T-2775-memory.json",
-                            "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
-                            "before": {
-                              "ticket": "T-2718",
-                              "on": "2026-10-17T17:09:52.425Z",
-                              "build": "e62b79251",
-                              "reading": "docs/measurements/T-2718-memory-mobile.json",
-                              "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+                        "total_bytes": 419430400,
+                        "reading_bytes": 363616697,
+                        "tier": "light",
+                        "reading_mb": {
+                          "total": 346.8,
+                          "js_heap": 78.5,
+                          "arraybuffers": 68.1,
+                          "gpu_buffers": 102.6,
+                          "gpu_textures": 97.7
+                        },
+                        "reread_by": {
+                          "ticket": "T-3454",
+                          "on": "2026-11-07T16:01:43.770Z",
+                          "build": "a6f3a51f3+T-3454",
+                          "reading": "docs/measurements/T-3454-memory.json",
+                          "before": "docs/measurements/T-3454-memory-dev.json",
+                          "reading_mb": {
+                            "total": 380.9,
+                            "js_heap": 77.7,
+                            "arraybuffers": 61.6,
+                            "gpu_buffers": 178.2,
+                            "gpu_textures": 63.5
+                          },
+                          "note": "room for 1904's four placed figures (owner, 2026-11-07, 'Win back town memory': phone-only, desktop unchanged). Clean dev a6f3a51f3 read 401.0 MB here (CI read 408.4 on 70ef821), over the line with the people in; the largest ArrayBuffer retainer was not the town's geometry but 19.0 MB of ENCODED pictures, 69 GLB images whose bytes a phone keeps so texture residency can decode one again after its bitmap is closed (shared-images.js, T-2598/T-2828). A phone now keeps those bytes as a Blob (shared-images.js encodedRecord): WebKit holds a Blob's bytes in its network process and Chromium in its browser process, so they leave the web content process whose memory iOS kills a tab by, and residency decodes from the Blob as it always did through an object URL. This meter does not count a Blob, which is the point and is also a limit of the reading: the bytes still exist, in the browser, not in the tab. 401.0 -> 380.9 MB on the same machine the same hour (arraybuffers 80.4 -> 61.6; js heap, gpu buffers and textures within 0.9 MB); the humans layer is untouched (1.0 geometry, 7.5 textures, its LOD pictures as before). The Prairie walk on the phone: 44 evictions, 3 sources transcoded again from their Blobs, 0 problems, 0 page errors. 1835 mobile 490.8 of 550, 1812 mobile 209.1 of 250. Desktop keeps its views (no Blob off a phone): 1904 desktop 1213.0 on dev -> 1213.7 here, arraybuffers and GPU bytes identical. The rule would set 380.9 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400: 19.1 MiB of margin here, about 11 on CI's machine at its observed ~8 MB offset.",
+                          "previous": {
+                            "ticket": "T-3408",
+                            "on": "2026-11-06T06:59:53Z",
+                            "build": "4610867c3+T-3408",
+                            "reading": "docs/measurements/T-3408-memory.json",
+                            "before": "docs/measurements/T-3408-memory-dev.json",
+                            "reading_mb": {
+                              "total": 375.1,
+                              "js_heap": 71.5,
+                              "arraybuffers": 72.4,
+                              "gpu_buffers": 172.3,
+                              "gpu_textures": 59.0
+                            },
+                            "note": "the people pool (the photographic-humans plan, owner 2026-11-06): about 12 MB of this ceiling is set aside for people's shared skin, hair and cloth textures on a phone, so the phone had to come down first, with nothing on a desktop changed. Clean dev 4610867c3 read 390.9 MB here (CI reads ~7 MB higher, so it stood at the line); 188 MB of its GPU buffers were 151.5 MB of structure batches, and eight of those batches held 4.3 of the town's 6.6 million structure vertices with 32-bit indices. A phone (buildings.js lowSpec) now lays a bucket over 65,535 vertices as several 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (short-index.js); the same geometries, instances and triangles. 390.9 -> 375.1 MB on the same machine the same hour (gpu buffers 187.9 -> 172.3); 1812 mobile 202.1 -> 201.3, 1835 mobile 489.7 -> 487.8; the three desktop rows unchanged (635.3, 1260.9 -> 1260.8, 1194.9). The rule would set 375.1 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400: the 25 MiB under it is the people pool (12 MB) plus CI's ~7 MB.",
+                            "previous": {
+                              "ticket": "T-3173",
+                              "on": "2026-11-02T10:46:56.209Z",
+                              "build": "3dc01941+T-3173 lap",
+                              "reading": "docs/measurements/T-3173-memory.json",
+                              "before": "docs/measurements/T-3173-memory-dev.json",
+                              "reading_mb": {
+                                "total": 386.5,
+                                "js_heap": 67.1,
+                                "arraybuffers": 85.2,
+                                "gpu_buffers": 176.0,
+                                "gpu_textures": 58.3
+                              },
+                              "note": "Read again on the PR's second lap, because CI read the first lap's head at 404.0 (js heap 77.8 + arraybuffers 91.9; this machine read the same head at 396.4, its arraybuffers 7.5 MB lower), so a 3.4 MiB margin here was red there. Ceiling unchanged; nothing taken out of the scene, GPU bytes identical (176.0 / 58.3). The second lap takes the JS heap down again: a released row's GLB node tree collapses to one plain node carrying its materials for disposal (upload-release.js collapseScene); each view occluder shares its corners with its neighbours, and its normal and confidence range with its twins, and carries no area; and an occluding instance's placement is one float32 slot in a shared array rather than a Matrix4 in its closure, kept only when something holds the closure. js heap 77.7 -> 67.1, arraybuffers 84.4 -> 85.2, total 396.4 -> 386.5 MB on the same machine the same hour; 13.5 MiB of margin here, about 6 on CI's machine at its observed offset.",
+                              "previous": {
+                                "ticket": "T-3213",
+                                "on": "2026-10-28T00:18:00Z",
+                                "build": "1f999039e+T-3213",
+                                "reading": "docs/measurements/T-3213-memory.json",
+                                "before": "docs/measurements/T-3213-memory-dev.json",
+                                "reading_mb": {
+                                  "total": 377.5,
+                                  "js_heap": 99.3,
+                                  "arraybuffers": 81.8,
+                                  "gpu_buffers": 139.8,
+                                  "gpu_textures": 56.5
+                                },
+                                "note": "dev had drifted over this ceiling unseen (409.4 on 0fc818209 on 2026-10-27, CI 417.4; 412.1 on 1f999039e here) as the 1904 streetscape and parkway work landed, because this job does not run on dev pushes. Brought back under it, ceiling unchanged: the untextured structures batches no longer carry a uv nothing reads (gpu buffers 158.1 -> 139.8), the batches drop the update ranges every addGeometry left behind once three has uploaded them whole (js heap -12), and the view-occlusion backings share one identity and one scratch matrix (js heap -4). 412.1 -> 377.5 MB on the same machine the same hour; every other row fell or held (1904 desktop 1222.3 -> 1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and 192.3 -> 192.0). The rule would set 377.5 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+                              },
+                              "first_lap": {
+                                "ticket": "T-3173",
+                                "on": "2026-11-02T09:05:03.763Z",
+                                "build": "c4923d59+T-3173",
+                                "reading": "docs/measurements/T-3173-memory.json",
+                                "before": "docs/measurements/T-3173-memory-dev.json",
+                                "reading_mb": {
+                                  "total": 396.9,
+                                  "js_heap": 78.3,
+                                  "arraybuffers": 84.4,
+                                  "gpu_buffers": 176.0,
+                                  "gpu_textures": 58.3
+                                },
+                                "note": "dev had drifted over this ceiling again (CI read main at 406.4 on 2026-11-02; dev c4923d59 read 421.9 here) as the 1904 Prairie Avenue houses and coach houses landed: structures went from 332 to 411 batches and their GPU geometry from 81.7 to 108.1 MB since T-3213. Geometry the owner asked for is not what moves at Light, so this is brought back under in the JS heap, ceiling unchanged: each BatchedMesh geometry's box and sphere kept as float32 figures in two typed arrays instead of a Box3 and a Sphere apiece, rounded outward so the cull stays conservative (batch-bounds.js; 82,927 rows, about 20 MB of objects for 3.4 MB of arrays); the street grid lets go of the plain arrays its attributes were copied from (about 6 MB, kept alive by the materials' hooks); one shared [lo, hi] per distinct confidence range instead of an array per instance (about 3 MB); and the buildings' tone rows kept as columns (about 3 MB). js heap 106.5 -> 78.3, arraybuffers 81.1 -> 84.4 (the bounds' arrays), GPU unchanged. 421.9 -> 396.9 MB on the same machine the same hour. The rule would set 396.9 x 1.1 rounded up to 25 MiB = 450 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+                              }
                             }
                           }
-                        }
-                      }
-                    },
-                    "people_spent_by": [
-                      {
-                        "ticket": "T-3423",
-                        "on": "2026-11-06T19:48:58Z",
-                        "build": "0aa9fa5c2+T-3423",
-                        "reading": "docs/measurements/T-3423-memory.json",
-                        "reading_mb": {
-                          "total": 389.2,
-                          "js_heap": 75.1,
-                          "arraybuffers": 76.8,
-                          "gpu_buffers": 176.9,
-                          "gpu_textures": 60.3
                         },
-                        "humans_layer_mb": 1.3,
-                        "note": "The first figure drawn from the people pool: Martha Williamson standing in the Glessner courtyard, about 45 m from the spawn, drawn at the light tier's LOD3 (0.1 MB of geometry, 1.2 MB of four 256 px textures). The total sits under the 400 MiB line; CI reads about 7 MB higher. Dev has moved on since T-3408 read 375.1 MB; of this reading the human layer is 1.3 MB. The ceiling is unchanged."
-                      },
-                      {
-                        "ticket": "T-3452",
-                        "on": "2026-11-07T14:22:15Z",
-                        "build": "70ef8216d+T-3453",
-                        "reading": "docs/measurements/T-3452-memory.json",
-                        "reading_mb": {
-                          "total": 400.0,
-                          "js_heap": 77.5,
-                          "arraybuffers": 80.5,
-                          "gpu_buffers": 178.4,
-                          "gpu_textures": 63.5
+                        "lowered_by": {
+                          "ticket": "T-2828",
+                          "on": "2026-10-19T01:26:58.745Z",
+                          "build": "43d8f0a04+T-2828",
+                          "reading": "docs/measurements/T-2828-memory.json",
+                          "note": "a phone lets go of each GLB KTX2's transcoded levels once uploaded, and transcodes again from the kept file when residency brings a source back (texture-residency.js); GPU textures unchanged. The same build without the change read 403.1 MB here, arraybuffers 124.3 (docs/measurements/T-2828-glessner-approach-before.json, 4 m west of the spawn after GC); with it 346.8, arraybuffers 68.1. 408.1 -> 346.8 MB; x 1.1 rounded up to 25 MiB = 400 MiB.",
+                          "before": {
+                            "ticket": "T-2806",
+                            "on": "2026-10-18T19:10:04.962Z",
+                            "build": "75420287+T-2806",
+                            "reading": "docs/measurements/T-2806-memory.json",
+                            "note": "a phone's railway ground strips indexed, the yard's maps halved and only its light share of tufts and stones built; the rails' faces indexed on every tier; one invocation, all six rows. 516.3 -> 408.1 MB; x 1.1 rounded up to 25 MiB = 450 MiB.",
+                            "before": {
+                              "ticket": "T-2786",
+                              "on": "2026-10-18T16:43:05.218Z",
+                              "build": "a71a7a3e+T-2786",
+                              "reading": "docs/measurements/T-2786-memory.json",
+                              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 696.4 -> 516.3 MB; x 1.1 rounded up to 25 MiB = 575 MiB.",
+                              "before": {
+                                "ticket": "T-2775",
+                                "on": "2026-10-18T14:21:22.796Z",
+                                "build": "7b146804+T-2775",
+                                "reading": "docs/measurements/T-2775-memory.json",
+                                "note": "the lakefront railway's full rail section laid only near the eye, and on a phone its page arrays let go once uploaded. Dev 7b146804 before the change read 854.1 MB on the same machine the same hour (arraybuffers 379.3, railway layer 214.9 MB kept; docs/measurements/T-2775-memory-dev.json). 696.4 x 1.1 rounded up to 25 MiB = 775 MiB.",
+                                "before": {
+                                  "ticket": "T-2718",
+                                  "on": "2026-10-17T17:09:52.425Z",
+                                  "build": "e62b79251",
+                                  "reading": "docs/measurements/T-2718-memory-mobile.json",
+                                  "note": "texture residency (T-2598) at spawn on the phone: 56 of 63 house pictures resident, 62.7 of a 256 MiB budget, 0 uploads pending when read (the spawn reading now settles residency before it reads). GPU textures 117.4 MB against 384.0 at T-2595; arraybuffers rose 358.5 -> 372.4 MB, which the encoded bytes residency keeps on a phone to decode a picture again (keepEncoded) would account for; not read to its owner here (no heap snapshot taken)"
+                                }
+                              }
+                            }
+                          }
                         },
-                        "humans_layer_mb": 8.5,
-                        "note": "Four figures drawn from the people pool: John Glessner and Martha Williamson, with Frances Glessner in the courtyard and the maid Mary Reynolds at the 18th Street arch, at the light tier's LOD2/LOD3 (1.0 MB of geometry, 7.2 MB of sixteen textures, their pictures decoded once across figures since T-3453). The human layer stays inside its 12 MB. The total reads 11 KB under the 400 MiB line here; CI read 408.4 MB on this build (70ef821) against 399.3 on the branch before it (3d4a760, Martha alone), so the 400 MiB line is crossed on CI: the rest of 1904 grew about 16 MB on a phone since T-3408's 375.1 (without the two new figures this build read 395.9). The ceiling is unchanged."
+                        "people_spent_by": [
+                          {
+                            "ticket": "T-3423",
+                            "on": "2026-11-06T19:48:58Z",
+                            "build": "0aa9fa5c2+T-3423",
+                            "reading": "docs/measurements/T-3423-memory.json",
+                            "reading_mb": {
+                              "total": 389.2,
+                              "js_heap": 75.1,
+                              "arraybuffers": 76.8,
+                              "gpu_buffers": 176.9,
+                              "gpu_textures": 60.3
+                            },
+                            "humans_layer_mb": 1.3,
+                            "note": "The first figure drawn from the people pool: Martha Williamson standing in the Glessner courtyard, about 45 m from the spawn, drawn at the light tier's LOD3 (0.1 MB of geometry, 1.2 MB of four 256 px textures). The total sits under the 400 MiB line; CI reads about 7 MB higher. Dev has moved on since T-3408 read 375.1 MB; of this reading the human layer is 1.3 MB. The ceiling is unchanged."
+                          },
+                          {
+                            "ticket": "T-3452",
+                            "on": "2026-11-07T14:22:15Z",
+                            "build": "70ef8216d+T-3453",
+                            "reading": "docs/measurements/T-3452-memory.json",
+                            "reading_mb": {
+                              "total": 400.0,
+                              "js_heap": 77.5,
+                              "arraybuffers": 80.5,
+                              "gpu_buffers": 178.4,
+                              "gpu_textures": 63.5
+                            },
+                            "humans_layer_mb": 8.5,
+                            "note": "Four figures drawn from the people pool: John Glessner and Martha Williamson, with Frances Glessner in the courtyard and the maid Mary Reynolds at the 18th Street arch, at the light tier's LOD2/LOD3 (1.0 MB of geometry, 7.2 MB of sixteen textures, their pictures decoded once across figures since T-3453). The human layer stays inside its 12 MB. The total reads 11 KB under the 400 MiB line here; CI read 408.4 MB on this build (70ef821) against 399.3 on the branch before it (3d4a760, Martha alone), so the 400 MiB line is crossed on CI: the rest of 1904 grew about 16 MB on a phone since T-3408's 375.1 (without the two new figures this build read 395.9). The ceiling is unchanged."
+                          }
+                        ]
                       }
-                    ]
+                    }
                   }
                 }
               }
@@ -536,22 +612,41 @@
         }
       },
       "shared": {
-        "total_bytes": 629145600,
-        "reading_bytes": 565795498,
+        "total_bytes": 734003200,
+        "reading_bytes": 640958240,
         "tier": "balanced",
         "reading_mb": {
-          "total": 539.6,
-          "js_heap": 95.4,
-          "arraybuffers": 88.1,
-          "gpu_buffers": 215.1,
-          "gpu_textures": 141.0
+          "total": 611.3,
+          "js_heap": 114.3,
+          "arraybuffers": 107.5,
+          "gpu_buffers": 241.4,
+          "gpu_textures": 148.1
         },
-        "set_by": {
-          "ticket": "T-3537",
-          "on": "2026-11-10T19:29:21.394Z",
-          "build": "565e5a35d+T-3537",
-          "reading": "docs/measurements/T-3537-memory-1904-shared.json",
-          "note": "A desktop on integrated graphics (?device=weak, 1920x1080): the owner's Inspiron 3880 (Intel UHD 630, 12 GB) crashed 1904 at Full ('Aw, Snap'). Same build before: Full 1292.3 MB, the old weak boot (Balanced, every page array kept) 1009.3. Now Balanced at Sharpness Low with the phone's memory diet (upload-release, lowSpec layers, light textures): 539.6 MB, with people, carriages, horses and wagons still drawn (owner, 2026-11-10: losing them is not an option). Reading x1.1 rounded up to 25 MiB."
+        "raised_by": {
+          "ticket": "T-3708",
+          "on": "2026-11-20T18:08:57.964Z",
+          "build": "b008aa7f9",
+          "reading": "docs/measurements/T-3708-memory-1904-shared-phone.json",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 628.5 MB on main c0d4f425a and 620.2 on #2261's head; dev b008aa7f9 reads 611.3 here. Against 554.8 on 2026-11-17: structures' GPU geometry 115.6 -> 137.7 MB and their textures 203.4 -> 260.5 (742 -> 947, the Prairie Avenue houses onto K01), the name cards' sheet 5.3 MB, renderbuffers 3.0 -> 6.3, js heap 99.1 -> 114.3. Highest reading 628.5 x 1.1 rounded up to 25 MiB = 700 MiB.",
+          "before": {
+            "total_bytes": 629145600,
+            "reading_bytes": 565795498,
+            "tier": "balanced",
+            "reading_mb": {
+              "total": 539.6,
+              "js_heap": 95.4,
+              "arraybuffers": 88.1,
+              "gpu_buffers": 215.1,
+              "gpu_textures": 141.0
+            },
+            "set_by": {
+              "ticket": "T-3537",
+              "on": "2026-11-10T19:29:21.394Z",
+              "build": "565e5a35d+T-3537",
+              "reading": "docs/measurements/T-3537-memory-1904-shared.json",
+              "note": "A desktop on integrated graphics (?device=weak, 1920x1080): the owner's Inspiron 3880 (Intel UHD 630, 12 GB) crashed 1904 at Full ('Aw, Snap'). Same build before: Full 1292.3 MB, the old weak boot (Balanced, every page array kept) 1009.3. Now Balanced at Sharpness Low with the phone's memory diet (upload-release, lowSpec layers, light textures): 539.6 MB, with people, carriages, horses and wagons still drawn (owner, 2026-11-10: losing them is not an option). Reading x1.1 rounded up to 25 MiB."
+            }
+          }
         }
       },
       "chromebook": {
