@@ -1,7 +1,0 @@
-{
-  "title": "Phones draw the middle-distance crowd again",
-  "kind": "fix",
-  "items": [
-    "On some phones the town's people a short way off failed to draw after the last crowd update, because their figures asked the graphics chip for more inputs than a phone allows. They now fit, and draw as before."
-  ]
-}

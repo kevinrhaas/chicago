@@ -1,3 +1,20 @@
+## T-3678 — Four more Make your case mysteries (19 November 2026)
+
+The Gossip comparison's hard-wired check is now a case table
+(`renderers/web/js/jaunt-investigation-cases.js`): each row names a jaunt (tellings match
+by `version_of`), a year, and readings that are sets of the jaunt's compiled evidence ids
+with their stop, grade and source ids. Strings are per case in `strings/investigation.js`.
+The Gossip case's model and notebook entry are byte-identical for all five tellings before
+and after the refactor. Four new cases, in the four student tellings of each jaunt:
+*The Battle of Fort Dearborn* (where the attack began: Heald's journal and Helm against the
+Kinzies' tree and the stand's Inferred reasoning), *Chicago's First Murder* (Le Mai or
+Lalime as buyer of du Sable's post: the family's version against the deed the Reader
+reports), *A Schoolday Errand* (Andreas against an unfootnoted 2018 history and the
+Inferred placement) and *The Bronze at Eighteenth Street* (the 1893 statue against
+Karamanski's essay). The 18+ tellings are left out of these cases. Evidence and reasons:
+`docs/RESEARCH/investigations-3678.md`. The existing test now drives every case, telling
+and refusal; its isolation row was re-measured (no writes).
+
 ## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
 
 Jump passes the walker's ground, facing, season and hour (never a date, person or
@@ -13,6 +30,42 @@ the claim, a wrong teller never also tells it, every quoted line is one the stop
 (`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
 reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
 technology beyond native buttons, groups and status lines.
+
+## T-3677 — Where and when? in 1835; 1812 and 1871 left out (19 November 2026)
+
+Owner request, 19 November 2026 (the 17 November list, item 7, "anything that does not
+require a server"). Home's **Where and when?** now has one set per year that holds at least
+three pictures whose solved camera stands on safe ground in that year's world, all read from
+the existing catalogue. Each year keeps its own `year=` link, daily order and saved record;
+1904's link, seed and record are unchanged.
+
+- **1835: three pictures**, all of the Green Tree Tavern: Andreas 1884 (wood engraving),
+  Kurz & Allison 1893 (chromolithograph, panel 11) and Trowbridge 1902 (a drawing). A shorter
+  set rather than a padded one. Every other 1835 camera is `diagnostic_only` (no historical
+  observer position may be offered); Gifford's Tremont drawing is also rights-unknown.
+- **1812: left out.** Seven 1812 pictures have a solved camera, but only two stand on safe
+  ground in the 1812 town: Eastman's 1854 steel engraving after Schoolcraft's 1820 sketch and
+  the Chicago Magazine's 1857 Kinzie house. Probed in the published town with the hunt's own
+  bounds, water, router and house-barrier checks: Lossing 1869 and Sarony (Currey 1912) are
+  drawn from the river (water); Currey's 1912 Hardscrabble is drawn from across the South
+  Branch, outside the modelled ground and in water; Cram 1893, the Teich postcard and
+  Gemmell's lithograph have eyes 18 to 66 m up, not places anyone stood. Two is under the
+  three a set needs. A new ground camera solved on another public-domain 1812 picture would
+  open it.
+- **1871: left out.** The picture catalogue holds no picture of the 1871 scene.
+
+Every 1835 picture is a print or drawing made after 1835; each reveal says what it is ("a
+print, an engraving", "a drawing, printed in a book") and when it was made, and the hunt never
+calls one a photograph. Cameras whose eye is more than 10 m up are refused.
+
+The three Green Tree pictures were link-only on their cards. Each now has a held library
+record (`prairie_1904_v1/research/images/stream-early-photo-hunt-references.json`) whose
+`reference_views` name the camera it is the exact copy of; `compile_pictures.py` joins a
+camera to that copy only while the camera's own photo file hashes to the copy's
+`original_sha256`, so no camera file (or match record) changed. Their image files were already
+in kevinrhaas/chicago-images (served, but cited by no record) and are reused unchanged.
+`prairie_1904_v1/tools/test_evidence_review.py` fails on dev before this change (184 ≠ 181
+Glessner records); it is unrelated and not run by `check.sh`.
 
 ## T-3675 — Chromebook class set (19 November 2026)
 

@@ -1,0 +1,25 @@
+{
+ "id": "nypl_carbutt_clark_street_north_from_washington_stereo",
+ "type": "photograph",
+ "citation": "'58. Clark street, North from Washington.' Stereograph from Carbutt's Views of Chicago, c. 1866-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F179 (digital ID G90F179_011F).",
+ "author": "unattributed on the mount (the series is catalogued with Carbutt's Views of Chicago)",
+ "date": "c. 1866-1871 (before the fire of October 1871)",
+ "describes_date": "c. 1866-1871",
+ "repository": "New York Public Library, Miriam and Ira D. Wallach Division of Art, Prints and Photographs: Photography Collection; catalog record b11707456.",
+ "url": "https://images.nypl.org/index.php?id=G90F179_011F&t=w",
+ "locator": "Clark Street north from Washington beside the Court House square: a pale stone five-storey front with an arched ground floor and a lettered frieze, attached brick fronts, awnings.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Created before 1871; public domain. NYPL marks the Dennis collection 'No known copyright restrictions'. Read for period forms only; no pixels are sampled and no geometry is traced.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3686) from NYPL's image server, digital ID G90F179_011F.",
+ "note": "A street view, not a survey: it shows how the pre-fire business streets and residential blocks were built, not the fronts of the generated lots.",
+ "what_it_supplies": [
+  "pale stone and brick attached fronts on Clark Street by the Court House square",
+  "lettered friezes and signboards, arched ground floors, awnings"
+ ],
+ "what_it_does_not_supply": [
+  "the identity or dimensions of any generated front"
+ ]
+}

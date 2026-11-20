@@ -32,7 +32,7 @@ import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
-import { huntSpotSafe } from './photo-hunt.js';
+import { huntSet, huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 // T-3672: a teacher's route, read from its link once and opened after the landing.
 import { parseRouteLink, routeSession, routeCatalog, activeRoute } from './teacher-route.js';
@@ -2758,7 +2758,8 @@ async function boot() {
       // The pixel proof covers the scene's July appearance. Winter's on/off
       // comparison has a repeatable raster difference; alternate seasons retain
       // the complete draw list, then summer can safely restore this filter.
-      allow:()=>buildings.group.visible && api.season?.current==='summer'});
+      // T-3676: a held building's backing would hide what stands behind its empty lot.
+      allow:()=>buildings.group.visible && api.season?.current==='summer' && !api.blockGrow?.bar});
   }
 
   // T-2481 — the Season setting: the ground's snow, sward and leaves (season.js
@@ -6066,6 +6067,30 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
+  // T-3676: Watch a block grow. Its scene half (block-grow-scene.js) holds the block's
+  // unbuilt buildings out of the town and ghosts the undated; its bar (block-grow-view.js)
+  // steps the years. Both load on first use; Leave puts the town back exactly.
+  const blockGrow = { scene: null, bar: null, opening: false, buildings: null };
+  async function openBlockGrow(id) {
+    if (String(YEAR) !== '1904' || blockGrow.opening) return false;
+    blockGrow.opening = true;
+    try {
+      const [{ offeredBlocks }, { createBlockGrowScene }, { mountBlockGrowBar }] = await Promise.all([
+        import('./block-grow.js'), import('./block-grow-scene.js'), import('./block-grow-view.js')]);
+      const block = offeredBlocks(loaded.registry).find((b) => b.id === id);
+      if (!block) return false;
+      api.townTransport?.cancelDriverApproaches?.();
+      blockGrow.scene ??= createBlockGrowScene({ scene3d, buildings: () => buildings, walker, hud, camera,
+        registry: loaded.registry, doorGroups: () => [api.houseDoors?.group, api.coachHouse?.group] });
+      blockGrow.bar?.close();
+      navigatorUi?.dock();
+      blockGrow.buildings = buildings;
+      blockGrow.bar = mountBlockGrowBar(document.body, { block, scene: blockGrow.scene,
+        onLeave: () => { blockGrow.bar = null; } });
+      return true;
+    } finally { blockGrow.opening = false; }
+  }
+  api.blockGrow = blockGrow;
   let guideFaq = null; // T-2662
   const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
@@ -7262,7 +7287,7 @@ async function boot() {
         // Its optional visit validates the actual stand before starting ordinary travel.
         photoHunt: {
           load: async () => {
-            if (String(YEAR) !== '1904') return null;
+            if (!huntSet(YEAR)) return null;
             const doc = await ensurePictures();
             if (doc) destinations.addPhotos(doc);
             else picturesPromise = null; // The hunt's retry may read a restored connection.
@@ -7276,6 +7301,19 @@ async function boot() {
               barrierAt: (e, n) => houseBarriers?.near(e, n, BODY_R_M) })) return false;
             return goToTarget({ kind: 'photo', id });
           },
+        },
+        // T-3676: Watch a block grow — one block of the loaded 1904 town, one year at a
+        // time, from its buildings' recorded years (block-grow.js); no other year is read.
+        blockGrow: {
+          available: String(YEAR) === '1904',
+          blocks: async () => {
+            if (String(YEAR) !== '1904') return [];
+            const { offeredBlocks } = await import('./block-grow.js');
+            return offeredBlocks(loaded.registry).map((b) => ({ id: b.id, title: b.title,
+              dated: b.dated.length, undated: b.undated.length }));
+          },
+          open: (id) => openBlockGrow(id),
+          get active() { return !!blockGrow.bar; },
         },
         // T-2825: the record as the card says it — its notes without a ticket, a record id or
         // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
@@ -7816,6 +7854,11 @@ async function boot() {
       buildings?.setDate?.(world.sunDate);
       api.yards?.setDate?.(world.sunDate);
       gateFrame.invalidate?.();
+    }
+    // T-3676: a detail change rebuilt the buildings under a time-lapse: hold its year again.
+    if (blockGrow.bar && blockGrow.buildings !== buildings) {
+      blockGrow.buildings = buildings;
+      blockGrow.scene?.reapply();
     }
     api.days?.update(frameDt);
     api.jauntHosts?.update(frameDt);

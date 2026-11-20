@@ -1,3 +1,10 @@
+## T-3678 — More Make your case mysteries (19 November 2026)
+
+A case table now drives Make your case; four more completed jaunts offer a case from their
+own cited claims (the 1812 attack's place, the 1812 trading-post sale, the 1835 Chappel
+school, the 1904 bronze). Next: more cases only where a jaunt's evidence argues both ways;
+the 18+ tellings stay out until a case is written for them.
+
 ## T-3669, T-3670 — The rest of the top five (19 November 2026)
 
 The owner asked to finish the top five. Same spot, another year (T-3669): Jump lands on the
@@ -38,6 +45,12 @@ transport and actions; their totals are not allocations to generated lots.
 Photographic street scenes require researched facades, detailed surfaces, planting
 and activity in addition to this citywide baseline.
 
+## T-3677 — Where and when? in more years (19 November 2026)
+
+The hunt runs in 1835 (three Green Tree Tavern prints and drawings) with its own link, daily
+order and progress. 1812 has two pictures with a camera on safe ground and needs a third;
+1871 has no catalogued picture. Both open when a ground camera is solved on a held,
+public-domain picture of that year.
 ## T-3672 — Teacher routes (19 November 2026)
 
 Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
