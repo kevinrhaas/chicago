@@ -1,0 +1,7 @@
+{
+  "title": "Faster, steadier road checks behind the scenes",
+  "kind": "fix",
+  "items": [
+    "The automated check that reads how well the streets stand out from the ground now pauses the town's own animation while it takes each picture. A picture used to wait out several slow frames on the test machine and could give up after ninety seconds, which held back three Prairie Avenue houses that do not touch a road. Nothing changes for a visitor. The checks read the same frames against the same bars, without the wait."
+  ]
+}
