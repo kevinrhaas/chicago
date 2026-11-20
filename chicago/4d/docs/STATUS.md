@@ -1,3 +1,20 @@
+## T-3678 — Four more Make your case mysteries (19 November 2026)
+
+The Gossip comparison's hard-wired check is now a case table
+(`renderers/web/js/jaunt-investigation-cases.js`): each row names a jaunt (tellings match
+by `version_of`), a year, and readings that are sets of the jaunt's compiled evidence ids
+with their stop, grade and source ids. Strings are per case in `strings/investigation.js`.
+The Gossip case's model and notebook entry are byte-identical for all five tellings before
+and after the refactor. Four new cases, in the four student tellings of each jaunt:
+*The Battle of Fort Dearborn* (where the attack began: Heald's journal and Helm against the
+Kinzies' tree and the stand's Inferred reasoning), *Chicago's First Murder* (Le Mai or
+Lalime as buyer of du Sable's post: the family's version against the deed the Reader
+reports), *A Schoolday Errand* (Andreas against an unfootnoted 2018 history and the
+Inferred placement) and *The Bronze at Eighteenth Street* (the 1893 statue against
+Karamanski's essay). The 18+ tellings are left out of these cases. Evidence and reasons:
+`docs/RESEARCH/investigations-3678.md`. The existing test now drives every case, telling
+and refusal; its isolation row was re-measured (no writes).
+
 ## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
 
 Jump passes the walker's ground, facing, season and hour (never a date, person or

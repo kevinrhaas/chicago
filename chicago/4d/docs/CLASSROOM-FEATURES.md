@@ -45,6 +45,11 @@ in the existing notebook. No new account, service, route or source image is invo
 This separate implementation follows the merged first delivery and still requires
 its own complete release gates in PR #2205.
 
+T-3678 generalizes it: a small case table names each case's jaunt, year, readings and
+evidence, and four more completed outings offer one (1812 twice, 1835, 1904). Each case is
+refused unless every named claim is still cited, visited and graded as recorded.
+`docs/RESEARCH/investigations-3678.md` records each case's evidence and why it conflicts.
+
 ## Teacher routes (item 11)
 
 T-3672 adds a teacher's own route without a server, account or upload. In Guide ›
@@ -76,7 +81,7 @@ Nothing about the route is recorded or sent anywhere.
 | 5 | Lesson guides | First delivery: current catalog groups, document tasks, discussion and suggested standards connections; preserve source type and provenance. |
 | 6 | Class codes and teacher view | Defer shared class storage, authentication and cross-device submissions. Local exports are useful now but are not a dashboard. |
 | 7 | Where and when? | T-3657 implemented the 1904 hunt: five licensed photographs, deterministic daily/shareable order, ground-distance scores, source/date reveals and bounded local progress. T-3677 adds **1835**: three prints and drawings of the Green Tree Tavern (Andreas 1884, Kurz & Allison 1893, Trowbridge 1902), a shorter honest set, with its own link (`year=` must name it), daily order and saved record; 1904's are unchanged. Each reveal says what the picture is and when it was made; none is called a photograph. **1812** is left out: only two of its pictures have a camera on safe ground (the others stand in the river, off the modelled ground, or 18–66 m up). **1871** has no catalogued picture. No leaderboard service. |
-| 8 | Mysteries with sources | T-3663: first bounded case in progress, attached to eligible Gossip completion. Compare two cited newspaper readings, choose support, write a claim/uncertainty, review an ungraded guide and explicitly save to Notebook. No invented witnesses or new engine; browser and release validation pending. |
+| 8 | Mysteries with sources | T-3663: the Gossip case (two cited newspaper readings). T-3678: a case table drives it, with four more cases built only from each jaunt's own cited claims: where the 1812 attack began, who bought Du Sable's trading post (1812), where Eliza Chappel's school met (1835) and whether the 1893 bronze shows what happened (1904). Student bands; the 18+ tellings are left out of the later cases. Claim, chosen support, uncertainty and ungraded review, saved to Notebook only on request. No invented witnesses, engine or service. |
 | 9 | Play a part | Existing engine already supports choices and alternate endings. Later authored historical-role stories, with reconstruction labelled. |
 | 10 | Accessibility | T-3658 first slice (Navigator zoom, keyboard picture viewers, rail Tab stop), then T-3671 the full pass toward WCAG 2.1 AA: keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 %; contrast and focus ring in every appearance; grades told by shape as well as colour; narration transcripts and Pause; Settings › Look › Motion and Letter keys. Criterion by criterion with its tests and the known gaps (the canvas itself; no physical screen-reader run yet): docs/ACCESSIBILITY.md. No third-party audit or legal conformance claim. |
 | 11 | Assign/build a jaunt | T-3672 implemented the browser-only subset: Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints and people (up to 20 stops, a note and a question each), as one bounded `?route=` link and a reopenable route file; the student's Route panel in Jaunts gives Go there per stop, shows the teacher's words as theirs, and saves answers to the local field notebook. Shared authoring libraries and submission tracking still need storage. |
