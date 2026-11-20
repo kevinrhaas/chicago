@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1202,
+  "count": 1203,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75734,6 +75734,37 @@
       ],
       "work_refs": [
         "T-3606"
+      ]
+    },
+    {
+      "id": "L-1871-great-fire-jaunt",
+      "title": "The Great Chicago Fire jaunt: where you stand at each hour, and the crowd in the street",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-19: *\"i definitiely want a follow the chicago fire like a timeline and you follow the start of the fire and you see it engulf an area and then you move to the next stop and see that, through burning the north side, etc. you shoul be sure to make it seasonal time of day etc\"*; *\"its ok and good if we look at the main landmarks and watch them burn along with the whole streetscape\"*. *The Great Chicago Fire* (the the great fire data) is written by the research notes on jaunt great fire from the claims tool: twelve stops in the fire's order, from the O'Leary barn on Sunday 8 October 1871 at nine to the old City Cemetery on Monday evening, and the rain. **What is read.** Every fact the narrator tells and every quotation, each verbatim in a claim the stop cites (Andreas's *History of Chicago*, vol. 2, 1885, with the inquiry testimony as he prints it; Sheahan and Upton, 1871; Colbert and Chamberlin, 1871). A stop's hour is the hour a source gives it where one does (the barn, St. Paul's, the Parmelee stable, the Court House, State and Kinzie, the Water Works); where none does, the hour is inferred from the order the sources tell and the hours on either side, and the claim says so. **What is invented.** Where you stand: each stop is a viewpoint of its own in the 1871 scenes data (a `fire_*` anchor), a stand in the street at a distance chosen for the building and the fire to read, looking at the building's corner as the modern grid places it (no source puts an observer there). The crowd: every stop is staged with unnamed figures (people watching from the stand, people hurrying away from the fire past it), how many, where each stands, where and how fast they go; they are nobody's likeness, and their bodies are the town's 1835 and 1904 figures (no 1871 bodies exist yet), so the dress is wrong in its decade. Nobody named is staged; no word anyone says is staged, and nobody is shown burning or dying. The weather at each stop is the season's (a dry October night, then day under smoke), not a record of that hour's sky."
+        },
+        {
+          "label": "How to resolve",
+          "text": "1871 cards for the night's people let the stops stage them where the sources place them (Sullivan and Lee at the barn, Schaffer in the tower, Bross at the Tribune); 1871 figure bodies replace the borrowed dress; a source that times a stop given an inferred hour replaces the inference."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on jaunt great fire (the build tool, the claims tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3691)."
+        }
+      ],
+      "work_refs": [
+        "T-3690",
+        "T-3691"
       ]
     },
     {
