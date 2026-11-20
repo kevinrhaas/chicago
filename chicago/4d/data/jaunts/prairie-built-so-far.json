@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 777639703,
+  "content_version": 225091184,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -21,7 +21,7 @@
     "season": "summer"
   },
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 110 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 60 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 111 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 61 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -1035,7 +1035,7 @@
         "kind": "structure",
         "id": "high_house_2021_prairie"
       },
-      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Mark Kimball House, 2108 Prairie.",
+      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Sherman House, 2100 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-48",
@@ -1054,18 +1054,19 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "mark_kimball_house_2108_prairie"
+        "id": "sherman_house_2100_prairie"
       },
-      "text": "Mark Kimball House, 2108 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Elbridge Keith House, 1900 Prairie.",
-      "read_s": 16,
+      "text": "Sherman House, 2100 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. RAZED 1936. Next: Elbridge Keith House, 1900 Prairie.",
+      "read_s": 17,
       "evidence": [
         "stood-49",
+        "razed-49",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "mark_kimball_house_2108_prairie",
+          "id": "sherman_house_2100_prairie",
           "label": "About this building"
         }
       ],
@@ -1728,12 +1729,22 @@
     },
     {
       "id": "stood-49",
-      "text": "Mark Kimball House, 2108 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Sherman House, 2100 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicagology_2100_sherman_photo"
       ],
       "confidence": "inferred",
-      "reasoning": "Standing in 1904 (empty and to let that spring, the register's note) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the Tribune drew it in January 1898 and the street photograph of the early 1890s shows it. The record claims the 1904 target to the sheet's date and no more."
+      "reasoning": "Built 1874 (the marker) and drawn by the 1911 sheet; the T-1842 census rules it present in 1904 (present_as_mapped), and the undated photograph (the library dates it c. 1885-1895) shows the house as this record builds it. This phase claims the 1904 target and the sheet's date, no more; the 1911 sheet's college lettering is a later use, not drawn."
+    },
+    {
+      "id": "razed-49",
+      "text": "John B. Sherman Residence, 2100 S. Prairie Avenue: razed 1936.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2100 S. Prairie Avenue entry."
     },
     {
       "id": "stood-50",

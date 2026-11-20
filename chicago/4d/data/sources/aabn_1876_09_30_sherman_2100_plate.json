@@ -1,0 +1,27 @@
+{
+ "id": "aabn_1876_09_30_sherman_2100_plate",
+ "type": "illustration",
+ "citation": "'Residence of Mr. J. B. Sherman, Chicago.' Burnham & Root, architects. Heliotype plate with an inset 'Plan of First Story' (scale 1/16 inch to the foot). The American Architect and Building News, vol. I no. 40, 30 September 1876; James R. Osgood & Co., Boston.",
+ "author": "Burnham & Root (architects); heliotype by James R. Osgood & Co.",
+ "date": "1876-09-30",
+ "describes_date": "1876 (the house as designed and newly built, 1874-1876)",
+ "repository": "Internet Archive, sim_american-architect-and-architecture_1876-09-30_1_40, page n8 (printed sideways). Prairie library image dw-aabn-1876-09-30-sherman-2100-plate; the image store's display copy (kevinrhaas/chicago-images, prairie-1904/files/dw-aabn-1876-09-30-sherman-2100-plate.jpg) is the copy read.",
+ "url": "https://archive.org/details/sim_american-architect-and-architecture_1876-09-30_1_40/page/n8/mode/1up",
+ "locator": "The perspective of the front and the 21st Street flank from the north-east, and the inset plan at the plate's top left (the image store's 1607 x 2400 px copy, x 160-730, y 320-740, turned a quarter right): library, hall and vestibule, parlour with its cut north-east corner and the oriel's dashed square over it, sitting room with its canted bay on the flank, bed room, dining room, veranda, kitchen and pantries.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1876, in the public domain. Read for plan, forms and counts; no asset is derived from it and no copy is committed.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-1919) from the image store's 1607 x 2400 px display copy, sha256 c49d12a44bd17866654c7f30e97756e8a1ffdb5be278aed1243cbeddc3d75e75.",
+ "note": "The architects' published design, two years after building (the marker's 1874). A design drawing is evidence of the intent: where it and the later photograph agree (the library pavilion under its steep gable, the porch and balcony, the corner oriel under the steep pyramid, the great stack on the flank, gabled dormers on the mansard) both are used; where they differ the photograph, nearer 1904, is followed. The plan is read in proportion only: its printed scale cannot be trusted on a reduced reproduction, so lengths are taken against the 1911 Sanborn sheet's 13 m front.",
+ "what_it_supplies": [
+  "the first storey's plan: rooms, the library's projection before the front, the hall's door, the parlour's cut corner and the oriel's square over it, the sitting room's canted bay on the flank, the veranda",
+  "the perspective's composition of the front and the 21st Street flank"
+ ],
+ "what_it_does_not_supply": [
+  "dimensions that hold at the plate's scale",
+  "the house as it stood in 1904",
+  "colour"
+ ]
+}

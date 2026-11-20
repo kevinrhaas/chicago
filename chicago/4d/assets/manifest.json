@@ -10001,14 +10001,14 @@
       "phase_id": "sherman_1861_1871",
       "structure_id": "sherman_house_1871"
     },
-    "sherman_house_2100_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "sherman_house_2100_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 348908,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "96347377b0cfba8611ee68ea1a3920e9ef1674f81ec6f8a5423fd63f0feee82d",
+      "bytes": 10334944,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "550b2b673a72dc9b75b3cf311624c91a400b4f97c46cc028a7ffdee0ffab191a",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "sherman_house_2100_prairie"
     },
     "sherman_house_2100_prairie_coach_house__draft_1904.glb": {
