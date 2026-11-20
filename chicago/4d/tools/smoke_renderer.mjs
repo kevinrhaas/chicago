@@ -15051,15 +15051,17 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps and the available Jaunts, 1871's Great Fire among them, on one page at Letter and A4 (T-2666, T-3691)`,
+    check(`${label}: Guide › For teachers prints the ten tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
-      // 1871 has one Jaunt, the Great Fire (T-3691); the three earlier destinations have three each.
+      // 1871 has its own Jaunts since The Last Sunday (T-3692): one to three suggested; the
+      // three earlier destinations keep three each.
       && handoutRead.dests.every((d) => d.name.startsWith('1871')
-        ? d.jaunts === 1 && d.empty === null : d.jaunts === 3 && d.empty === null)
+        ? d.jaunts >= 1 && d.jaunts <= 3 && d.empty === null : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10 && s.jaunts === 10)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10
+        && s.jaunts === 9 + (handoutRead.dests.find((d) => d.name.startsWith('1871'))?.jaunts ?? 0))
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
