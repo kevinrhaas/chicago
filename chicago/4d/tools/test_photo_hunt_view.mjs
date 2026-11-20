@@ -5,21 +5,25 @@ import path from 'node:path';
 import http from 'node:http';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
-import { huntOrder, HUNT_STORAGE_KEY } from '../renderers/web/js/photo-hunt.js';
+import { huntOrder, huntSet, huntCount, HUNT_STORAGE_KEY } from '../renderers/web/js/photo-hunt.js';
 
 const { chromium } = createRequire(import.meta.url)('playwright');
 const root = path.resolve(new URL('..', import.meta.url).pathname);
 const web = path.join(root, 'renderers/web');
 assert(!/<link[^>]+href=["'][^"']*\/photo-hunt\.css["']/.test(fs.readFileSync(path.join(web, 'index.html'), 'utf8')),
   'photo-hunt.css must not load globally before its panel is mounted');
-const doc = JSON.parse(execFileSync('python3', ['-c',
-  'import sys,json;sys.path.insert(0,"tools");import compile_pictures as p;print(json.dumps(p.add_place_names(p.derive(*p.read_tree()),p.load_json(p.PLACE_NAMES))["1904"]))'], { cwd: root, maxBuffer: 4 * 1024 * 1024 }));
-const registry = [];
-for (const id of Object.keys(doc.by_structure)) {
-  const file = path.join(root, 'data/sidecars/1904', `${id}.json`);
-  if (fs.existsSync(file)) registry.push([id, { sidecar: JSON.parse(fs.readFileSync(file)) }]);
+const docs = JSON.parse(execFileSync('python3', ['-c',
+  'import sys,json;sys.path.insert(0,"tools");import compile_pictures as p;print(json.dumps(p.add_place_names(p.derive(*p.read_tree()),p.load_json(p.PLACE_NAMES))))'], { cwd: root, maxBuffer: 64 * 1024 * 1024 }));
+// One fixture per scene with a hunt (T-3677), each the real catalogue of its own year.
+const fixtures = {};
+for (const year of ['1904', '1812', '1835', '1871']) { // 1812 and 1871 have no set
+  const doc = docs[year], registry = [];
+  for (const id of Object.keys(doc.by_structure)) {
+    const file = path.join(root, 'data/sidecars', year, `${id}.json`);
+    if (fs.existsSync(file)) registry.push([id, { sidecar: JSON.parse(fs.readFileSync(file)) }]);
+  }
+  fixtures[year] = JSON.stringify({ doc, registry });
 }
-const fixture = JSON.stringify({ doc, registry });
 const pageHTML = `<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 :root { --ink: #ecf0f3; --panel-raised: #252e38; --edge: #8994a1; color:var(--ink); background:#18212a; font:16px system-ui; }
@@ -29,10 +33,11 @@ import home from '/js/apps/home.js';
 import { createDestinations } from '/js/destinations.js';
 import { createRail } from '/js/nav-rail.js';
 window.fixture = { loads:0, visits:[], blocked:false, pose:null, home, level:1 };
-const context = { scene:{id:'1904'}, api:{}, navigator:{get level(){return fixture.level;}}, actions:{
+const sceneYear = location.pathname.split('/')[1] || '1904';
+const context = { scene:{id:sceneYear}, api:{}, navigator:{get level(){return fixture.level;}}, actions:{
  freeRoam:()=>{fixture.level=0; fixture.rail.setVisible(false); fixture.roamed=true;},
  photoHunt:{
-  async load(){ fixture.loads++; const data=await fetch('/fixture.json').then(r=>r.json());
+  async load(){ fixture.loads++; const data=await fetch('/fixture-'+sceneYear+'.json').then(r=>r.json());
    const destinations=createDestinations({scene:{},registry:new Map(data.registry)}); destinations.addPhotos(data.doc);
    fixture.destinations=destinations; return {doc:data.doc,destinations}; },
   position:()=>fixture.pose,
@@ -50,8 +55,9 @@ Object.defineProperty(navigator,'clipboard',{value:{writeText:()=>Promise.reject
 </script></body></html>`;
 const server = http.createServer((req, res) => {
   const pathname = new URL(req.url, 'http://localhost').pathname;
-  if (pathname === '/' || pathname === '/1904/') { res.setHeader('Content-Type', 'text/html'); res.end(pageHTML); return; }
-  if (pathname === '/fixture.json') { res.setHeader('Content-Type', 'application/json'); res.end(fixture); return; }
+  if (pathname === '/' || /^\/(1904|1812|1835|1871)\/$/.test(pathname)) { res.setHeader('Content-Type', 'text/html'); res.end(pageHTML); return; }
+  const fx = /^\/fixture-(\d{4})\.json$/.exec(pathname);
+  if (fx && fixtures[fx[1]]) { res.setHeader('Content-Type', 'application/json'); res.end(fixtures[fx[1]]); return; }
   const file = path.resolve(web, `.${pathname}`);
   if (!file.startsWith(`${web}/`)) { res.writeHead(403); res.end(); return; }
   fs.readFile(file, (error, bytes) => { res.writeHead(error ? 404 : 200, { 'Content-Type': file.endsWith('.js') ? 'text/javascript'
@@ -244,6 +250,73 @@ try {
     console.log(`${width}: corrupt/blocked storage and cleanup pass`);
     await page.evaluate(() => { fixture.home.unmount(document.getElementById('nav-home')); });
     assert.equal(await page.locator('#nav-photo-hunt').count(), 0);
+    assert.deepEqual(errors, []);
+    await context.close();
+  }
+  // T-3677: the 1835 set of prints and drawings, and 1812 and 1871 without one.
+  const kindText = { ENGRAVING: 'a print, an engraving', LITHO: 'a print, a lithograph', ILLUSTRATION: 'a drawing, printed in a book' };
+  for (const width of [390, 1280]) {
+    const context = await browser.newContext({ viewport: { width, height: width === 390 ? 780 : 800 } });
+    const page = await context.newPage(); const errors = []; const requests = [];
+    const run = { width, checks: [], errors }; report.runs.push(run);
+    page.on('pageerror', error => errors.push(error.message));
+    await page.route('https://kevinrhaas.github.io/chicago-images/**', route => {
+      requests.push(route.request().url());
+      return route.fulfill({ status: 200, contentType: 'image/png', body: imageBytes });
+    });
+    const day = '2026-11-18';
+    for (const none of ['1812', '1871']) {
+      await page.goto(`${origin}/${none}/?year=${none}&nav=home&hunt=1&huntDay=${day}`);
+      await page.getByText('This year has no picture hunt yet: none of its pictures has a recorded camera spot. Choose 1835 or 1904 in Other years to play.', { exact: true }).waitFor();
+      assert.equal(await page.locator('.photo-hunt button').count(), 0, `${none} offers no hunt to open`);
+    }
+    await page.goto(`${origin}/1904/?year=1835&nav=home&hunt=1&huntDay=2020-01-02`);
+    await page.getByText('This challenge link is not valid. You can open today’s hunt instead.', { exact: true }).waitFor();
+    assert.equal(await page.getByText('Challenge date: 2020-01-02 (UTC)', { exact: true }).count(), 0, 'a refused link does not set the day');
+    run.checks.push('1812 and 1871 have no set; a link naming another year’s set is refused');
+    for (const year of ['1835']) {
+      const count = huntCount(year), order = huntOrder(day, year), set = huntSet(year);
+      const fx = JSON.parse(fixtures[year]);
+      requests.length = 0;
+      await page.goto(`${origin}/${year}/?year=${year}&nav=home&hunt=1&huntDay=${day}`);
+      await page.getByText(`Find the spots that ${count} old prints and drawings of ${year} were drawn from.`, { exact: true }).waitFor();
+      await page.getByRole('button', { name: `Open the ${count}-picture hunt`, exact: true }).click();
+      await page.getByRole('heading', { name: `Picture 1 of ${count}`, exact: true }).waitFor();
+      await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
+      assert(requests[0].endsWith(`${order[0]}-thumb.jpg`)); assert.equal(requests.length, 1, 'one picture at a time');
+      assert.match(await page.locator('.photo-hunt-image').getAttribute('alt'), /^Historical print or drawing for round 1\./);
+      assert.doesNotMatch(await page.locator('.photo-hunt h3, .photo-hunt-content > p, .photo-hunt [role=status]').allInnerTexts().then(t => t.join(' ')),
+        /photograph/i, 'a print or drawing is never called a photograph');
+      for (let i = 0; i < count; i++) {
+        await page.waitForFunction(() => [...document.querySelectorAll('.photo-hunt button')].some(b => b.textContent === 'Guess this spot' && !b.disabled));
+        await page.evaluate(id => { const row = fixture.destinations.byId('photo', id); fixture.pose = { e: row.e + 30, n: row.n + 40 }; }, order[i]);
+        await page.getByRole('button', { name: 'Guess this spot', exact: true }).click();
+        await page.getByText('50 metres from the spot it was drawn from · 407 points', { exact: true }).waitFor();
+        const p = Object.values(fx.doc.by_structure).flat().find(p => p.id === order[i]);
+        await page.getByText(`What it is: ${kindText[p.kind]}.`, { exact: true }).waitFor();
+        await page.getByText(`Made in ${p.years[0]}, after this ${year} world. It shows the place as its maker pictured it.`, { exact: true }).waitFor();
+        assert.match(await page.locator('.photo-hunt-content').innerText(), /Recorded year range:.*Source’s date description:/s);
+        if (i === 0) {
+          await page.getByRole('button', { name: 'Visit the spot it was drawn from', exact: true }).click();
+          assert.equal(await page.evaluate(() => fixture.visits.at(-1)), order[0]);
+          if (out) await page.screenshot({ path: path.join(out, `${width}-${year}-reveal.png`) });
+        }
+        await page.getByRole('button', { name: i === count - 1 ? 'Finish hunt' : 'Next picture', exact: true }).click();
+      }
+      await page.getByRole('heading', { name: `${count}-picture hunt complete`, exact: true }).waitFor();
+      await page.getByText(`${count * 407} of ${(count * 1000).toLocaleString('en-US')} points`, { exact: true }).waitFor();
+      const record = JSON.parse(await page.evaluate(key => localStorage.getItem(key), set.storageKey));
+      assert.equal(record.year, year); assert.equal(record.cursor, count);
+      assert.equal(await page.evaluate(key => localStorage.getItem(key), HUNT_STORAGE_KEY), null, `${year} never writes 1904’s progress`);
+      await page.getByRole('button', { name: 'Copy challenge link', exact: true }).click();
+      const shared = new URL(await page.getByRole('textbox', { name: 'Challenge link', exact: true }).inputValue());
+      assert.equal(shared.searchParams.get('year'), year); assert.equal(shared.searchParams.get('huntDay'), day);
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      await page.reload(); await page.getByRole('button', { name: `Open the ${count}-picture hunt`, exact: true }).click();
+      await page.getByRole('heading', { name: `${count}-picture hunt complete`, exact: true }).waitFor();
+      run.checks.push(`${year}: ${count} prints/drawings, kind and later date on each reveal, own storage and link, reload keeps the result`);
+      console.log(`${width}: ${year} ${count}-picture hunt passes`);
+    }
     assert.deepEqual(errors, []);
     await context.close();
   }

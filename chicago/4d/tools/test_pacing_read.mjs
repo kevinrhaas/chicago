@@ -242,7 +242,7 @@ function footprints(scene) {
       assert.ok([e, n, w, d, th].every(Number.isFinite) && w > 0 && d > 0,
         `${scene} context footprint has finite positive dimensions`);
       const cos = Math.cos(th); const sin = Math.sin(th);
-      out.push({ id: value(row, 'id', `${e},${n}`),
+      out.push({ id: value(row, 'id', `${e},${n}`), context: true,
         pts: [[-w / 2, -d / 2], [w / 2, -d / 2], [w / 2, d / 2], [-w / 2, d / 2]]
           .map(([x, z]) => [e + cos * x + sin * z, n + sin * x - cos * z]) });
     }
@@ -299,7 +299,7 @@ for (const scene of scenes) {
   const anchor = (id) => scene.anchors.find((a) => a.id === id);
   const poses = SCENE_POSES[1871];
   const downtown = anchor('downtown'); const above = anchor('river_from_above');
-  assert.equal(footprints('1871').length, context.buildings.length,
+  assert.equal(footprints('1871').filter((f) => f.context).length, context.buildings.length,
     'every generated context building participates in the clearance check');
   assert.deepEqual(poses.walk.from, [downtown.local_e, downtown.local_n]);
   assert.deepEqual(poses.turn, { at: [downtown.local_e, downtown.local_n], yaw_deg: downtown.yaw_deg });

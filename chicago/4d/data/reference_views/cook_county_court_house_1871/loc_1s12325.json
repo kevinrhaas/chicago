@@ -1,0 +1,26 @@
+{
+ "structure_id": "cook_county_court_house_1871",
+ "source_id": "loc_stereo_1s12325_court_house",
+ "photo": "../../sources/assets/landmarks_1871_t3688/loc_1s12325_court_house_left.jpg",
+ "image_px": [
+  1600,
+  1592
+ ],
+ "principal_px": [
+  800,
+  1230
+ ],
+ "focal_px": 1500,
+ "eye": [
+  100,
+  95,
+  1.8
+ ],
+ "yaw_deg": 226,
+ "solve": "NOT YET FITTED (T-3688, 2026-11-19). Placed by eye on the left half of Lovejoy & Foster's card No. 22 (1600 x 1592 px, the Library's master scaled), in the footprint frame (u east from the building's south-west corner, v north; the wings' north fronts at v 38): eye u 100, v 95, 1.8 m, heading 226 degrees, focal 1500 px, horizon y 1230 - the corner of Clark and Randolph Streets, looking south-west across the square, where the east wing's north front stands nearest at left and its east front shows edge-on. A least-squares fit on the east wing's north corners, the west wing's north-east corner and the cupola's axis does not converge (40-115 px rms for any camera): the record's wings (30 by 38 m, read by eye) and the cupola's height do not reconcile with the picture. Its match record is 'differs' until a plan or dimension of the 1870 wings is found.",
+ "sun_uvy": [
+  0.6,
+  -0.4,
+  0.7
+ ]
+}
