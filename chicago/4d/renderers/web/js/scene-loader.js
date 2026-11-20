@@ -145,14 +145,32 @@ async function getJSON(url) {
  * record's own URL holds. Each object is a fresh copy: two records must never share one
  * object, or a change to one card's data would quietly be a change to another's. The
  * gate runs the tool's copy of this function over every shipped record.
+ *
+ * T-3709: fresh OBJECTS, shared STRINGS. `structuredClone` copied the strings too, so a
+ * note the pack ships once came back as one heap copy per record that cites it: 6,339
+ * copies of one 650-character roof note, 8.3 MB of a phone's 124 MB JS heap, and
+ * 15.5 MB of duplicate strings in the registry all told. A string cannot be changed in
+ * place, so handing every record the same one aliases nothing a record could alter.
  */
+export function copyShared(v) {
+  if (v === null || typeof v !== 'object') return v;
+  if (Array.isArray(v)) return v.map(copyShared);
+  const out = {};
+  for (const k of Object.keys(v)) {
+    // An own `__proto__` (JSON.parse makes one) must stay a key, not become a prototype.
+    if (k === '__proto__') Object.defineProperty(out, k, { value: copyShared(v[k]), enumerable: true, writable: true, configurable: true });
+    else out[k] = copyShared(v[k]);
+  }
+  return out;
+}
+
 export function rehydrate(v, values) {
   if (v === null || typeof v !== 'object') return v;
   const keys = Object.keys(v);
   if (keys.length === 1 && keys[0] === '$shared' && !Array.isArray(v)) {
     const got = values[v.$shared];
     if (got === undefined) throw new Error(`no shared value ${v.$shared}`);
-    return structuredClone(got);
+    return copyShared(got);
   }
   for (const k of keys) v[k] = rehydrate(v[k], values);
   return v;
