@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3167, ts: '2026-11-20T12:29:37.560Z', date: 'Nov 20, 2026, 6:29 AM CT', title: 'The teachers\' handout prints on one page again', kind: 'fix',
+    items: [
+      'Guide › For teachers prints its handout on a single sheet again, at Letter and at A4. Since 1871 gained its own Jaunts there are twelve suggestions, and the last one was running onto a second page. The four destinations now print two by two, 1835 beside 1904 and 1812 beside 1871, under the ten Field Check steps.',
+    ] },
   { v: 3166, ts: '2026-11-20T12:27:40.787Z', date: 'Nov 20, 2026, 6:27 AM CT', title: '2013 Prairie\'s cornice gains its row of blocks', kind: 'feature',
     items: [
       'The Reid house at 2013 Prairie gets two more things the 1895 Inland Architect plate shows on its front. A row of thirteen stone blocks now runs under the cornice from corner to corner, and a raised stone border climbs the south edge of the front from the second storey up to the cornice. The plate\'s carving on the border and in the frieze is left plain, and its near-white front is still a shade too warm, because the town has no paler brick yet.',
