@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3170, ts: '2026-11-20T17:30:24.610Z', date: 'Nov 20, 2026, 11:30 AM CT', title: '2112 Prairie, the Rothschild house, built from its map and photograph', kind: 'feature',
+    items: [
+      '2112 Prairie now stands as the Rothschild house instead of a draft box. It has a pale stone front with a canted stone bay at the south end, and a round-arched door at the head of a broad stoop between solid stone cheeks. Over two tall storeys and a high basement rises a slated mansard with two dormers, and a two-storey range stands behind.',
+      'Its plan comes from the 1911 fire-insurance map, read at full size: a 14.5 by 11.7 m house, its bay and its rear range. The draft had put the house where the rear range stands. The front\'s forms come from the early-1890s photograph of the 2100 block, which shows it first on the left.',
+    ] },
   { v: 3169, ts: '2026-11-20T15:02:03.257Z', date: 'Nov 20, 2026, 9:02 AM CT', title: '2100 Prairie\'s corner oriel stands on its column', kind: 'feature',
     items: [
       'The Sherman house\'s corner at 21st Street now looks like its c. 1890 photograph and the 1876 plate: a stone oriel set across the corner at the second storey, on stepped corbels and a slender stone column with a carved capital, replacing the brick tower that stood from the ground.',
