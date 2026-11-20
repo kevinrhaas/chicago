@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 163525084,
+ "bytes": 167499235,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -612,6 +612,30 @@
   "a18-chm-clark-c1905-prairie-west-side-north-from-1936.jpg": {
    "bytes": 96863,
    "sha256": "be1c39794fe71d84dff1e465215fc1a1cc0e730f1367ece701db20665a4cb6a7"
+  },
+  "a18-commons-glessner-house-jpg-thumb.jpg": {
+   "bytes": 20538,
+   "sha256": "88f5cb5e394b1363f6b5b8757ae54e0e2defdbfd7e4acaff1524cb4e83a30433"
+  },
+  "a18-commons-glessner-house-jpg.jpg": {
+   "bytes": 811005,
+   "sha256": "b2589c1469a72583733f628c3512c8fe8dee3fd8f72e05047cfccff86f168ca3"
+  },
+  "a18-commons-glessner-prairie-18th-52907569502-thumb.jpg": {
+   "bytes": 36041,
+   "sha256": "29ee1a197fdb3948d8110b34d2405feffe93b77b411a7ca1dab14f853c177ad6"
+  },
+  "a18-commons-glessner-prairie-18th-52907569502.jpg": {
+   "bytes": 1362020,
+   "sha256": "2e7fb4976880810abdd20975a25dbe07f163c344b2c014dd6c48f827023a1ad8"
+  },
+  "a18-commons-glessnerhousenew-thumb.jpg": {
+   "bytes": 28061,
+   "sha256": "c2d0a220bc8e0f5677c0fb624f14eb8ae23711e95bc9e99f541052fe2ea596c5"
+  },
+  "a18-commons-glessnerhousenew.jpg": {
+   "bytes": 37868,
+   "sha256": "8fcf4d79767cdaff08dc0f623f108c1de2afd32b062e3db034690f895c288373"
   },
   "a18-commons-wlemay-glessner-dining-copper-2024-thumb.jpg": {
    "bytes": 26302,
@@ -4876,6 +4900,30 @@
   "early-gifford-first-tremont.jpg": {
    "bytes": 229586,
    "sha256": "ee935a51c5cd7cfa4a07c7bf9451d79e4efffc10e0f36bdab9614ea3ce75a3ed"
+  },
+  "early-green-tree-andreas-1884-thumb.jpg": {
+   "bytes": 23053,
+   "sha256": "8e3f8f67cc69298cbc1bc57507af073372a01720cf581102e3df5aa696bd964b"
+  },
+  "early-green-tree-andreas-1884.jpg": {
+   "bytes": 970135,
+   "sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a"
+  },
+  "early-green-tree-kurz-allison-1893-thumb.jpg": {
+   "bytes": 28020,
+   "sha256": "40016b97d7be376b99a7eb9febd734891a1312d13e2f964e78f582980db651f3"
+  },
+  "early-green-tree-kurz-allison-1893.jpg": {
+   "bytes": 65989,
+   "sha256": "5ca78b355fe4582d33371d894b2145971ace8ddd969d53e80916efa4ecfc554b"
+  },
+  "early-green-tree-trowbridge-1902-thumb.jpg": {
+   "bytes": 18147,
+   "sha256": "e35230a54c0c498469392da65a6fc825c6fde43c737c082372f81bd948a1f0d3"
+  },
+  "early-green-tree-trowbridge-1902.jpg": {
+   "bytes": 573274,
+   "sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225"
   },
   "early-moss-1884-st-marys-thumb.jpg": {
    "bytes": 22068,

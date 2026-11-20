@@ -41,6 +41,12 @@ transport and actions; their totals are not allocations to generated lots.
 Photographic street scenes require researched facades, detailed surfaces, planting
 and activity in addition to this citywide baseline.
 
+## T-3677 — Where and when? in more years (19 November 2026)
+
+The hunt runs in 1835 (three Green Tree Tavern prints and drawings) with its own link, daily
+order and progress. 1812 has two pictures with a camera on safe ground and needs a third;
+1871 has no catalogued picture. Both open when a ground camera is solved on a held,
+public-domain picture of that year.
 ## T-3672 — Teacher routes (19 November 2026)
 
 Item 11's browser-only subset is in: a teacher's route as one link or one file, and a
