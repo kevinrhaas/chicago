@@ -1,0 +1,7 @@
+{
+  "title": "Content builds check themselves in sixteen shorter parts",
+  "kind": "chore",
+  "items": [
+    "The automatic check that runs after a content build now splits into sixteen parts instead of eight, each half the size of an old one, because a slow build machine was running one part past its ten-minute limit and failing changes that were fine. Every check still runs, and the time limit is unchanged."
+  ]
+}
