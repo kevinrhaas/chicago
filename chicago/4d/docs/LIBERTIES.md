@@ -45425,7 +45425,12 @@ porch's full width against the same photograph, whose match record lists each di
 flank or the rear would replace the invented parts. T-3699 (T-1920's first piece) read the front's trim off the photograph — the
 parlour light's carved tympanum on its lintel and the square stone head over the second-storey light — so
 `street_front_trim` is no longer covered here; the stone bands it laid on the south flank, which no picture shows,
-are carried round from the 21st Street flank under this liberty, as the stone basement's are.
+are carried round from the 21st Street flank under this liberty, as the stone basement's are. T-3700 (the second
+piece) built the corner off the photograph and the 1876 plate: the second-storey oriel across the corner on its
+corbels, the plate's stone column under it, its small coped gable with a roundel, and the slated pyramid springing
+behind the gable from the main cornice's line; the square tower from grade is gone. What stays otherwise than the
+evidence there: the plan's cut corner is not made behind the column (the parlour's corner stands square; K01 lays no
+cut under an oriel), and the plate's carved rose in the roundel is a plain disc.
 **Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.

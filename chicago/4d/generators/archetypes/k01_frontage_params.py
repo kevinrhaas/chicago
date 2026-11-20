@@ -2816,6 +2816,59 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"rise_m (0.2 m to half its chord, at most 1.2 m), not {q}")
                 v["plan"] = {"kind": "bow", "chord_m": float(q["chord_m"]), "rise_m": float(q["rise_m"])}
                 q = None
+            # T-3700: or SET ACROSS ITS HOUSE'S CORNER on its corbels (2100 Prairie's corner oriel
+            # in the c. 1890 photograph, on the second storey over the plan's cut corner, its face
+            # to the corner's diagonal): the across-corner tower's turned square (T-3176), its
+            # centre on the end wall's plane and `centre_proud_m` out of (or inside) the face, its
+            # walls on the ring outside the house from its base up; its cap the whole ring's
+            across = e.get("across_corner")
+            if across is not None:
+                if over is not None or "apron" in e or q is None \
+                        or set(q) != {"radius_m", "centre_proud_m", "sides", "turned_deg"} \
+                        or int(q["sides"]) != 4 or abs(float(q["turned_deg"]) - 45.0) > 1e-9 \
+                        or across not in ("left", "right"):
+                    raise ParamError(f"bays: {e['id']} is an oriel across its 'left' or 'right' corner, on its "
+                                     f"corbels, sized by radius_m, centre_proud_m, sides 4 and turned_deg 45")
+                r, c = float(q["radius_m"]), float(q["centre_proud_m"])
+                end = 0.0 if across == "left" else wall_len[e["wall"]]
+                if abs(float(e["s_m"]) - end) > 1e-6:
+                    raise ParamError(f"bays: {e['id']} stands across its {across} corner, so its s_m is that "
+                                     f"corner's ({end} m), not {e['s_m']}")
+                if not 1.0 <= r <= 2.5 or not -(r - 0.3) <= c <= r / math.sqrt(2):
+                    raise ParamError(f"bays: {e['id']}'s oriel across its corner is 1.0-2.5 m in radius, its "
+                                     f"centre {-(r - 0.3):.2f} to {r / math.sqrt(2):.2f} m proud, not {r} and {c}")
+                v["plan"] = {"kind": "polygon", "sides": 4, "radius_m": r, "centre_proud_m": c,
+                             "turned_deg": 45.0, "across_corner": across}
+                q = None
+                # and on a stone COLUMN before its corner (2100's, under its face in the 1876 plate):
+                # its axis `at` [x, z] in the oriel's frame (x out of the corner's end wall, z out of
+                # the face), its pedestal clear of the house's end wall, from grade to `foot_m` (the
+                # principal floor), its shaft `radius_m`; K08 stops its capital under the corbels
+                col = e.get("column")
+                if col is not None:
+                    try:
+                        cx, cz = (float(t) for t in col["at"])
+                        cr, cf, cp = float(col["radius_m"]), float(col["foot_m"]), float(col["pedestal_m"])
+                    except (KeyError, TypeError, ValueError):
+                        cx = cz = cr = cf = cp = None
+                    side_clear = (cx - cp >= 0.0) if across == "right" else (cx + cp <= 0.0) if cx is not None else False
+                    if cx is None or set(col) != {"at", "radius_m", "foot_m", "pedestal_m"} \
+                            or not 0.1 <= cr <= 0.3 or not cr + 0.1 <= cp <= 0.5 \
+                            or not any(abs(cf - y) < 1e-6 for y in floors[:1]) or not side_clear:
+                        raise ParamError(f"bays: {e['id']}'s column takes at [x, z], radius_m 0.1-0.3, pedestal_m "
+                                         f"0.1-0.5 m and at least 0.1 m past the shaft, its pedestal clear of the "
+                                         f"end wall's plane, and foot_m the principal floor {floors[:1]}, not {col}")
+                    v["column"] = {"at": [cx, cz], "radius_m": cr, "foot_m": cf, "pedestal_m": cp}
+                # and a small coped stone gable over its face to the corner, a roundel in it, standing
+                # on its eaves before its cap (2100's, in its photograph and the 1876 plate)
+                fg = e.get("face_gable")
+                if fg is not None:
+                    ok = isinstance(fg, dict) and set(fg) == {"rise_m", "depth_m", "roundel_m"}
+                    if not ok or not 0.6 <= float(fg["rise_m"]) <= 2.0 or not 0.3 <= float(fg["depth_m"]) <= 1.5 \
+                            or not 0.0 <= float(fg["roundel_m"]) <= 0.8:
+                        raise ParamError(f"bays: {e['id']}'s face_gable takes rise_m 0.6-2.0, depth_m 0.3-1.5 and "
+                                         f"roundel_m 0-0.8 m, not {fg}")
+                    v["face_gable"] = {k: float(fg[k]) for k in ("rise_m", "depth_m", "roundel_m")}
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
                 # T-3007: or, saying so (`asymmetric`), returns of their own (1811's on its 1888
@@ -4181,6 +4234,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"0.3 m over the eave's front edge ({edge:.2f} m), and its front 0.15 m past "
                                      f"the eave's {overhang} m (has {front})")
                 v["back_from_m"] = eave
+            elif e.get("cap_at_eave") is True and v["plan"].get("across_corner"):
+                # T-3700: an oriel across its corner whose cornice runs on the main cornice's line
+                # and whose slated cap springs from there, over the mansard behind it (2100's in
+                # its photograph): its wall top the eave's, or under it by less than a metre; its
+                # cap is the whole ring's (k08_bays._hip), so it has no back to close
+                if spire or v["roof"].get("kind") != "hip" or not eave - 1.0 < top <= eave + 1e-9:
+                    raise ParamError(f"bays: {e['id']} carries its cap at the eave across its corner: under a "
+                                     f"hip, its wall top under the eave ({eave:.2f} m) by less than a metre "
+                                     f"(has {top:.2f})")
             elif e.get("cap_at_eave") is True:
                 # T-3294: a half-round turret whose cornice runs level with the main cornice and
                 # whose cone rises past the eave against the roof behind (1912's corner turret: the
