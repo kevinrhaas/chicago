@@ -200,6 +200,8 @@ uniform vec3 uTintReconstructed;
 // dither's kept fraction or the ghost's alpha, by mode.
 uniform vec3 uGradeMode;
 uniform vec3 uGradeOpacity;
+// T-3671 (WCAG 1.4.1): the grade patterns, 0 off; else the pattern's pixel scale.
+uniform float uConfPattern;
 
 // Ordered 4x4 Bayer matrix. Screen-door translucency: a stable per-pixel
 // threshold means no sorting, no blending, and no order dependence between the
@@ -306,6 +308,16 @@ const FRAGMENT_TINT = /* glsl */`
     diffuseColor.rgb = mix(diffuseColor.rgb, uTintAttested, chicagoMix.x);
     diffuseColor.rgb = mix(diffuseColor.rgb, uTintInferred, chicagoMix.y);
     diffuseColor.rgb = mix(diffuseColor.rgb, uTintReconstructed, chicagoMix.z);
+    // T-3671 (WCAG 1.4.1): a grade is not told by its colour alone. Inferred wears upright
+    // stripes; Reconstructed, where it is not already dithered, a diagonal hatch; Attested
+    // stays plain. Screen-space, like the dither, so it costs a batch nothing.
+    if (uConfPattern > 0.0) {
+      float chiPx = 7.0 * uConfPattern;
+      float chiStripe = step(0.7, fract(gl_FragCoord.x / chiPx));
+      float chiHatch = step(0.7, fract((gl_FragCoord.x + gl_FragCoord.y) / chiPx));
+      float chiLine = max(chicagoW.y * chiStripe, chicagoW.z * (1.0 - chicago_inMode(2.0).z) * chiHatch);
+      diffuseColor.rgb *= 1.0 - 0.42 * chiLine;
+    }
   }
 `;
 
@@ -335,9 +347,17 @@ export function programKeyOf(material) {
  * One uniforms object shared by every patched material, so flipping the view is
  * a single assignment no matter how many materials exist.
  */
+/** T-3671: the pattern uniform's value — 0 off, else the screen's pixel ratio (1 to 3). */
+export function patternScale(on, ratio = globalThis.devicePixelRatio) {
+  if (!on) return 0;
+  const r = Number(ratio);
+  return Number.isFinite(r) && r > 0 ? Math.min(3, Math.max(1, r)) : 1;
+}
+
 export function createConfidenceView({
   colors = {},
   looks = {},
+  patterns = true,
 } = {}) {
   const sceneHex = (level) => colors[level] ?? GRADE_COLORS[level].scene;
   const look = Object.fromEntries(GRADE_NAMES.map((level) => [level, { ...GRADE_LOOK[level], ...(looks[level] || {}) }]));
@@ -367,6 +387,8 @@ export function createConfidenceView({
     uTintReconstructed: { value: new THREE.Color(sceneHex('reconstructed')) },
     uGradeMode: { value: new THREE.Vector3(...GRADE_NAMES.map((l) => GRADE_MODES[look[l].mode] ?? 0)) },
     uGradeOpacity: { value: new THREE.Vector3(...GRADE_NAMES.map((l) => look[l].opacity)) },
+    // T-3671: the grade patterns, on by default (setPatterns), at the screen's pixel ratio.
+    uConfPattern: { value: patternScale(patterns) },
   };
 
   const patched = new WeakSet();
@@ -740,6 +762,18 @@ export function createConfidenceView({
       return enabled;
     },
     toggle() { return this.set(!enabled); },
+
+    /**
+     * T-3671 (WCAG 1.4.1): the grade patterns — Inferred striped, Reconstructed hatched where
+     * it is not dithered — on or off. On by default; the Confidence view's Patterns key sets it.
+     * A uniform write: nothing recompiles.
+     */
+    setPatterns(on, ratio) {
+      patterns = !!on;
+      uniforms.uConfPattern.value = patternScale(patterns, ratio);
+      return patterns;
+    },
+    get patterns() { return patterns; },
 
     /**
      * Remove everything at one level from the view.

@@ -57,6 +57,7 @@ FOR INSPECT'S PHOTOS TAB (T-2645) each entry also carries, where the data record
 """
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -297,6 +298,23 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                          + r')(?![A-Za-z0-9_])') \
         if picture_sources else None
 
+    # T-3677: a held library copy that names the reference views it is the exact picture of
+    # (`reference_views`, "<structure>/<view>") stands in for those cameras' missing
+    # `library_image`, but only while the camera's own photo file is byte-identical to the copy's
+    # original (`local.original_sha256`), so a changed or different picture never inherits a spot.
+    copy_of_view = {}
+    for r in recs.values():
+        sha = (r.get("local") or {}).get("original_sha256")
+        for v in r.get("reference_views") or []:
+            if sha:
+                copy_of_view[v] = (r["id"], sha)
+
+    def library_of(cam):
+        if cam.get("library_image"):
+            return cam["library_image"]
+        rid, sha = copy_of_view.get(cam.get("_view"), (None, None))
+        return rid if rid and sha == cam.get("_photo_sha256") else None
+
     # T-3335: a group camera lends its picture to the members it names in `card_members`.
     member_views = {}
     for anchor, cams in views.items():
@@ -318,8 +336,8 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                 for pa in pas_at.get(number, ()):
                     lib_ids.update(by_building.get(pa, []))
             for cam in views.get(sid, []) + member_views.get(sid, []):
-                if cam.get("library_image") and (not cam.get("scene") or cam["scene"] == scene):
-                    lib_ids.add(cam["library_image"])
+                if library_of(cam) and (not cam.get("scene") or cam["scene"] == scene):
+                    lib_ids.add(library_of(cam))
             for iid in lib_ids:
                 r = recs.get(iid)
                 if not r or not is_picture(r):
@@ -348,7 +366,7 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
             # T-2645: "from this spot", only where this building's own solved camera names it.
             for cam in views.get(sid, []):
                 spot = camera_spot(cam)
-                for key in (cam.get("library_image"), cam.get("source_id")):
+                for key in (library_of(cam), cam.get("source_id")):
                     if spot and key in entries and "spot" not in entries[key]:
                         entries[key]["spot"] = spot
             if entries:
@@ -392,6 +410,10 @@ def read_tree():
                 continue
             cam = load_json(f, {})
             if isinstance(cam, dict):
+                cam["_view"] = f"{f.parent.name}/{f.stem}"
+                photo = (f.parent / cam["photo"]).resolve() if isinstance(cam.get("photo"), str) else None
+                if photo and photo.is_file():
+                    cam["_photo_sha256"] = hashlib.sha256(photo.read_bytes()).hexdigest()
                 views.setdefault(f.parent.name, []).append(cam)
     return images, tsv, sources, structure_texts, scenes, views
 
@@ -491,6 +513,18 @@ def self_test():
     ug = derive(group_images, tsv, sources, texts, scenes, unnamed)["1904"]["by_structure"]
     expect("fort" not in {e["id"] for e in ug.get("kellogg_house_1709_prairie", [])},
            "a rendered member the camera does not name in card_members gets no picture")
+    # T-3677: a held copy naming a camera's view joins it only while the camera's photo is that copy.
+    copy_images = dict(images, images=images["images"] + [img("copy", local=dict(held, original_sha256="abc"),
+                                                              reference_views=["inn/plate"])])
+    cam = {"_view": "inn/plate", "_photo_sha256": "abc", "source_id": "plate", "eye": [5.0, 6.0, 1.7],
+           "yaw_deg": 90, "image_px": [1200, 800], "focal_px": 1000}
+    joined = {e["id"]: e for e in derive(copy_images, tsv, sources, texts, scenes, {"inn": [cam]})["1835"]["by_structure"]["inn"]}
+    expect("copy" in joined and joined["copy"].get("held") and joined["copy"].get("spot", {}).get("u") == 5.0,
+           f"a held copy naming the camera's view takes its spot ({sorted(joined)})")
+    stale = {e["id"]: e for e in derive(copy_images, tsv, sources, texts, scenes,
+                                        {"inn": [dict(cam, _photo_sha256="other")]})["1835"]["by_structure"]["inn"]}
+    expect("copy" not in stale and stale["plate"].get("spot"),
+           f"a camera whose photo is not the copy keeps its own source entry ({sorted(stale)})")
     tilt = camera_spot({"eye": [0, 0, 2], "basis_right_up_forward": [[1, 0, 0], [0, 0, 1], [0, -0.9950042, 0.0998334]]})
     expect(tilt and tilt["bearing"] == 180.0 and tilt["pitch"] == 5.7, f"a basis camera's bearing and pitch ({tilt})")
     for fail in fails:

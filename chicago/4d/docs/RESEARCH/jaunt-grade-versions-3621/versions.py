@@ -33,6 +33,13 @@ keeps the base's words. Two keys are its own:
     warning                         the 18+ tag's tooltip (default below)
     cite <stop id>                  base evidence ids, space-separated, the stop's text also cites
 
+T-3696 (the owner, 2026-11-19: transitions between topics and pauses between subjects; "that
+smother narration rule applies for all the jaunts"): every telling is written to be heard. A stop
+groups its facts into a few subjects joined by short lines that carry no fact ("Now, about this
+house."), never more than about five bare facts in a row, and ends on the hand-on. A joining line
+must still keep the telling inside its band; the reading-level tool counts it like any other
+words. docs/AUDIO.md § Narration style; docs/JAUNTS-AUTHORING.md § Spoken words.
+
 Words file format: a line `== <key>` starts a passage, and the passage runs to the next such
 line (blank lines inside are kept, ends trimmed). Keys:
 

@@ -15,6 +15,21 @@ export function createTourOverlay({ doc = globalThis.document, onNext = () => {}
   $('tour-skip')?.addEventListener('click', () => onSkip());
   let target = null;
   let shownStep = null;
+  // T-3671 (WCAG 2.4.3, 2.1.2): the card takes focus as the tour starts, and again as a step
+  // begins when focus was on nothing or on the card (its Next key hides as a step waits), so a
+  // keyboard or screen reader meets each step where it is said. The card is a region, not a
+  // dialog: the visitor acts on the page, and walking keys work while it holds focus
+  // (controls/keyboard.js READERS). Esc in the card ends the tour, unless a building card is
+  // open under it (the Release step asks for Esc); focus then goes back to where it was.
+  const card = root.querySelector('.tour-card');
+  let returnTo = null, escape = 'end';
+  const visible = (el) => !!el?.isConnected && !el.closest?.('[hidden]') && (el.getClientRects?.().length ?? 0) > 0;
+  root.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' || root.hidden || escape !== 'end') return;
+    const popup = doc.getElementById('popup');
+    if (popup && !popup.hidden) return;
+    e.preventDefault(); e.stopPropagation(); onSkip();
+  });
 
   function place() {
     let el = target ? doc.querySelector(target) : null;
@@ -34,9 +49,20 @@ export function createTourOverlay({ doc = globalThis.document, onNext = () => {}
 
   /** Paint a step's view, or hide everything for null. */
   function paint(v) {
+    const was = !root.hidden, focused = doc.activeElement;
+    const idle = !focused || focused === doc.body || focused === doc.documentElement;
+    const inside = !!focused && root.contains(focused);
     root.hidden = !v;
     doc.documentElement.toggleAttribute('data-tour', !!v);
-    if (!v) { target = null; shownStep = null; return; }
+    if (!v) {
+      target = null; shownStep = null;
+      if (was && (idle || inside)) { if (visible(returnTo)) returnTo.focus({ preventScroll: true }); else if (inside) focused.blur?.(); }
+      returnTo = null;
+      return;
+    }
+    escape = v.escape ?? 'end';
+    const fresh = shownStep === null, moved = fresh || v.step !== shownStep;
+    if (fresh && !inside && !idle) returnTo = focused;
     target = v.target;
     $('tour-count').textContent = `Field check · ${v.n} / ${v.of}`;
     // T-3642: a segment a step, lit to the one in hand, as the jaunt meter (T-3620); the card
@@ -60,6 +86,8 @@ export function createTourOverlay({ doc = globalThis.document, onNext = () => {}
     next.hidden = !v.action;
     next.textContent = v.action === 'finish' ? 'Finish' : 'Next';
     place();
+    const now = doc.activeElement;
+    if (card && moved && (fresh || idle || inside) && !(now && now !== card && root.contains(now) && visible(now))) card.focus({ preventScroll: true });
   }
   return { paint, place };
 }

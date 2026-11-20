@@ -172,7 +172,8 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
   ok(made && made.reps > 0 && made.triangles > 0, `a body is made (${made?.reps} points, ${made?.triangles} triangles)`);
   const all = body.geometry.attributes.position.count + coat.geometry.attributes.position.count;
   ok(made.reps < all / 3, `clustered: ${made.reps} of ${all} points`);
-  const region = made.geometry.attributes.aRegion.array;
+  // aRegion is region + 4 x (slot + 1) (T-3553); the region is its remainder.
+  const region = [...made.geometry.attributes.aRegion.array].map((x) => x % 4);
   const skinShare = region.filter((r) => r === 1).length / region.length;
   ok(skinShare < 0.15, `the body under the coat is folded into it (skin points ${(skinShare * 100).toFixed(1)}%, MERGE_M ${MERGE_M} m)`);
   ok(made.vat.image.width * made.vat.image.height >= made.reps * (WALK_FRAMES + 1), 'the walk texture holds every frame');
@@ -182,6 +183,42 @@ ok(sample.every((x) => !Object.prototype.hasOwnProperty.call(x, 'day')), 'readin
   const dx = half((4 * made.reps + 0) * 4) - p0[0];
   ok(Math.abs(dx - 0.1) < 0.01, `the walk's middle frame is swayed by the clip (${dx.toFixed(3)} m)`);
   ok(Math.abs(made.height - 1.6) < 0.05, `its height is the figure's (${made.height.toFixed(2)} m)`);
+
+  // T-3553 (owner 2026-11-19: dresses black far off, coloured up close): the body's cloth is its
+  // slots, and a person's own dress record reaches them as the whole figure's dressCloth does.
+  const { dressSlots, CROWD_SLOTS, CARD_SLOTS } = crowd;
+  ok(made.slots.length === 1 && made.slots[0].material === 'garment_outer__coat', 'the coat is the body\'s one cloth slot');
+  ok(made.slots[0].under === '#skin', `what lies under the coat is skin (${made.slots[0].under})`);
+  const slotAttr = made.slotOf, maskAttr = made.geometry.attributes.aMask.array;
+  ok(!made.geometry.attributes.aSlot, 'no attribute of its own for the slot: a phone has 16 (T-3553)');
+  ok([...made.geometry.attributes.aRegion.array].every((x, r) => Math.floor(x / 4) - 1 === slotAttr[r]),
+    'aRegion carries region + 4 x (slot + 1)');
+  for (let r = 0; r < made.reps; r++) {
+    const cloth = region[r] === 0;
+    if (cloth !== (slotAttr[r] === 0)) { ok(false, `point ${r}: cloth ${cloth}, slot ${slotAttr[r]}`); break; }
+    if ((maskAttr[r * 4] === 1) !== cloth) { ok(false, `point ${r}: the card mask follows its slot`); break; }
+  }
+  ok(CARD_SLOTS <= 4 && CROWD_SLOTS >= CARD_SLOTS, 'the card carries at most one RGBA mask of slots');
+  const white = [0.74, 0.73, 0.69];
+  const rec = { colours: { garment_outer__coat: white }, hide: [],
+    seasons: { winter: { colours: { garment_outer__coat: [0.07, 0.045, 0.1] } } } };
+  const summer = dressSlots(made, rec, { season: 'summer' });
+  ok(summer && summer.length === CROWD_SLOTS * 4 && summer[3] === 1 && Math.abs(summer[0] - white[0]) < 1e-6, 'their own colour, not the body\'s black coat');
+  const winter = dressSlots(made, rec, { season: 'winter' });
+  ok(winter && Math.abs(winter[0] - 0.07) < 1e-6, 'and the season\'s, as the figure dresses for it');
+  ok(dressSlots(made, null) === null && dressSlots(made, { colours: { other_material: white } }) === null, 'nothing of theirs: the body\'s own colours');
+  const ground = dressSlots(made, { finery: { garment_outer__coat: { ground: [0.3, 0.2, 0.1] } } });
+  ok(ground && Math.abs(ground[0] - 0.3) < 1e-6, 'a finery ground colours its garment where the record gives no colour');
+  const checked = dressSlots(made, { colours: { garment_outer__coat: [0.62, 0.6, 0.55] }, finery: { garment_outer__coat: { pattern: { kind: 'check', rgb: [0.2, 0.12, 0.06], contrast: 0.9 } } } });
+  ok(checked && Math.abs(checked[0] - (0.62 + (0.2 - 0.62) * 0.45)) < 1e-6, 'a checked cloth is its mean from afar, as fabric.js fades it');
+  const tint = [0.5, 0.5, 0.5];
+  const off = dressSlots(made, { colours: { garment_outer__coat: white }, hide: ['coat'] }, { skin: tint });
+  ok(off && Math.abs(off[0] - made.skinBase[0] * 0.5) < 1e-6, 'a coat not worn today is drawn as what it covers (skin, by complexion)');
+  const hatted = { ...made, slots: [{ material: 'headwear__lady_hat_black', meshes: ['x_headwear_lady_hat_lod3'], base: [0.01, 0.01, 0.01], under: '#hair' }] };
+  const hat = dressSlots(hatted, { hide: ['headwear_lady_hat'], hat: { kind: 'picture', rgb: [0.62, 0.58, 0.48] } });
+  ok(hat && Math.abs(hat[0] - 0.62) < 1e-6, 'a body\'s hat put by for their own is drawn in their hat\'s colour');
+  const bare = dressSlots(hatted, { hide: ['headwear_lady_hat'] }, { hair: [0.1, 0.05, 0.02] });
+  ok(bare && Math.abs(bare[0] - 0.1) < 1e-6, 'and with no hat of their own, as their hair');
 }
 
 // ── teams ──────────────────────────────────────────────────────────────────────────────────

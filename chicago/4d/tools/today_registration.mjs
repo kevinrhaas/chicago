@@ -55,6 +55,14 @@ const readJson = (p) => JSON.parse(readFileSync(path.join(APP, p), 'utf8'));
 
 /** A crossing further than this from today's is a different crossing, not an error. */
 export const MAX_MISS_M = 60;
+/** 1871: the river's middle is paired every this many metres along the scene's channel. */
+export const RIVER_STEP_M = 100;
+/** 1871: today's channel further than this from the scene's is not the same reach. */
+export const RIVER_MAX_M = 90;
+/** 1871: today's channel must be one plain channel across, not a junction or a turning basin. */
+export const RIVER_WIDTH_M = [20, 110];
+/** 1871: the reaches paired (the forks' outer channels, the canal and the editorial extensions are not). */
+const RIVERS_1871 = ['main_stem', 'north_branch', 'north_branch_canal', 'south_branch'];
 /** A street's line is carried this far past its end, so a T-junction is a crossing. */
 const REACH_M = 12;
 
@@ -80,6 +88,16 @@ function segX(a, b, c, d, reach = 0) {
   const sin = Math.abs(den) / (lr * ls);
   if (sin < Math.sin(35 * Math.PI / 180)) return null;
   return [a[0] + t * r[0], a[1] + t * r[1]];
+}
+
+/** Where segment ab meets segment cd at any angle (a bank against a line across the river). */
+function segHit(a, b, c, d) {
+  const r = [b[0] - a[0], b[1] - a[1]], s = [d[0] - c[0], d[1] - c[1]];
+  const den = r[0] * s[1] - r[1] * s[0];
+  if (Math.abs(den) < 1e-12) return null;
+  const t = ((c[0] - a[0]) * s[1] - (c[1] - a[1]) * s[0]) / den;
+  const u = ((c[0] - a[0]) * r[1] - (c[1] - a[1]) * r[0]) / den;
+  return t >= 0 && t <= 1 && u >= 0 && u < 1 ? [a[0] + t * r[0], a[1] + t * r[1]] : null;
 }
 
 /** Every crossing of polyline set A with polyline set B. */
@@ -200,6 +218,105 @@ export function deriveControls() {
   const fortToday = centroid(fortSite.polygon_lnglat.map(([lng, lat]) => latLngToLocal(lat, lng)));
   take('fort:first_fort_1803', ['1812'], southSideMiddle(footprintRing('first_fort_dearborn_pickets_outer', 'first_fort_1803', origin)), fortToday, 'landmark_site');
   take('fort:picket_1816', ['1835'], southSideMiddle(footprintRing('fort_dearborn_palisade', 'picket_1816', origin)), fortToday, 'landmark_site');
+
+  // 1871 (Kevin, 2026-11-19: "from the today view in 1871 it seems like the today view sits
+  // further west where i am standing ... like we are standing on the shore and in today
+  // view we are in the river"). The 1871 city is not laid on the 1835 plat: its named
+  // streets, its river and its shore were all read off Mitchell's 1870 map through one
+  // affine fit (data/context/1871/plan.json map_control, 18.7 m RMS, 40 m at worst), and
+  // the river's line wanders 20 to 80 m from today's channel. So 1871 takes its own
+  // controls and none of the 1835 plat's.
+  //   - The fit's own corners: each named crossing the fit and its checks hold, where the
+  //     fit puts it in the scene (its pixel through the affine) against where OpenStreetMap
+  //     puts it today (the control's modern_control).
+  //   - The river. By 1871 the Chicago River ran between dock lines, and in most reaches
+  //     today's banks are those docks (the channel since is the same water, give or take
+  //     a widening): the 1871 river's distance from today's is the map reading, not the
+  //     river moving. So every RIVER_STEP_M along the scene's main stem, Branches and North
+  //     Branch Canal, the middle of the scene's channel is paired with the middle of
+  //     today's (data/modern/chicago_river.json, the City's own water polygons) across it,
+  //     where today's is one plain channel (RIVER_WIDTH_M) no more than RIVER_MAX_M off.
+  //     Left out where the river DID move: the South Branch between Polk and Eighteenth
+  //     Streets, straightened about a quarter mile west in 1928-30 (the scene's channel
+  //     there is the old bend, and standing on it is standing on today's dry ground), and
+  //     the mouth east of the 1871 shore, since rebuilt as harbour and lock.
+  const plan = readJson('data/context/1871/plan.json');
+  const fit = plan.map_control.coefficients;
+  const affine = ([px, py]) => [fit.a * px + fit.b * py + fit.c, fit.d * px + fit.e * py + fit.f];
+  for (const c of plan.map_control.controls) {
+    // Today's corner: OpenStreetMap's intersection the control was read against.
+    const today = latLngToLocal(c.modern_control.lat, c.modern_control.lon);
+    take(`1871:map_${c.id}`, ['1871'], affine(c.pixel), today, 'map_fit_corner');
+  }
+  const water = readJson('data/modern/chicago_river.json').polygons
+    .map((p) => p.rings.map((r) => r.map(([lng, lat]) => latLngToLocal(lat, lng))));
+  const inWater = (q) => {
+    let k = false;
+    for (const poly of water) for (const r of poly) {
+      for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+        const [xi, yi] = r[i], [xj, yj] = r[j];
+        if ((yi > q[1]) !== (yj > q[1]) && q[0] < (xj - xi) * (q[1] - yi) / (yj - yi) + xi) k = !k;
+      }
+    }
+    return k;
+  };
+  // Today's channel across the scene's at c (unit normal nv): the water interval nearest
+  // the scene's middle, as offsets along nv, or null.
+  const across = (c, nv) => {
+    const a = [c[0] - nv[0] * 200, c[1] - nv[1] * 200], b = [c[0] + nv[0] * 200, c[1] + nv[1] * 200];
+    const ts = [];
+    for (const poly of water) for (const r of poly) for (let i = 0; i + 1 < r.length; i++) {
+      const p = segHit(a, b, r[i], r[i + 1]);
+      if (p) ts.push(Math.hypot(p[0] - a[0], p[1] - a[1]) - 200);
+    }
+    ts.sort((x, y) => x - y);
+    let best = null;
+    for (let k = 0; k + 1 < ts.length; k++) {
+      const m = (ts[k] + ts[k + 1]) / 2;
+      if (ts[k + 1] - ts[k] < 0.5 || !inWater([c[0] + nv[0] * m, c[1] + nv[1] * m])) continue;
+      if (!best || Math.abs(m) < Math.abs(best.m)) best = { m, width: ts[k + 1] - ts[k] };
+    }
+    return best;
+  };
+  const insideBoundary = (q) => {
+    let k = false;
+    const r = plan.boundary;
+    for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+      const [xi, yi] = r[i], [xj, yj] = r[j];
+      if ((yi > q[1]) !== (yj > q[1]) && q[0] < (xj - xi) * (q[1] - yi) / (yj - yi) + xi) k = !k;
+    }
+    return k;
+  };
+  const streetN = (id) => {
+    const pts = plan.streets.find((s) => s.id === id).points;
+    return pts.reduce((acc, p) => acc + p[1], 0) / pts.length;
+  };
+  const straightened = [streetN('eighteenth_street'), streetN('polk_street')];
+  for (const id of RIVERS_1871) {
+    const pts = plan.rivers.find((r) => r.id === id).points;
+    let carry = 0, k = 0;
+    for (let i = 0; i + 1 < pts.length; i++) {
+      const a = pts[i], b = pts[i + 1];
+      const L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      if (L < 1) continue;
+      const u = [(b[0] - a[0]) / L, (b[1] - a[1]) / L], nv = [-u[1], u[0]];
+      for (let s = carry; s < L; s += RIVER_STEP_M) {
+        const c = [a[0] + u[0] * s, a[1] + u[1] * s];
+        const rid = `1871:river_${id}_${String(k++).padStart(3, '0')}`;
+        if (id === 'south_branch' && c[1] > straightened[0] && c[1] < straightened[1]) {
+          dropped.push({ id: rid, why: 'straightened 1928-30' }); continue;
+        }
+        if (!insideBoundary(c)) { dropped.push({ id: rid, why: 'past the 1871 shore or limits' }); continue; }
+        const t = across(c, nv);
+        if (!t) { dropped.push({ id: rid, why: 'no channel today' }); continue; }
+        if (Math.abs(t.m) > RIVER_MAX_M || t.width < RIVER_WIDTH_M[0] || t.width > RIVER_WIDTH_M[1]) {
+          dropped.push({ id: rid, why: `today's channel ${r1(t.m)} m off, ${r1(t.width)} m wide` }); continue;
+        }
+        take(rid, ['1871'], c, [c[0] + nv[0] * t.m, c[1] + nv[1] * t.m], 'river_middle');
+      }
+      carry = ((carry - L) % RIVER_STEP_M + RIVER_STEP_M) % RIVER_STEP_M;
+    }
+  }
 
   controls.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
   return { controls, dropped };

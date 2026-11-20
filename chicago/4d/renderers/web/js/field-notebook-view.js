@@ -96,6 +96,8 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
       const article = node(doc, 'article', null, 'field-notebook-entry');
       article.dataset.notebookId = entry.id;
       const heading = node(doc, 'h3', entry.title || tr('note'));
+      // T-3671 (2.4.6, 3.3.2): every entry's note field and keys say which entry they are for.
+      heading.id = `notebook-entry-${String(entry.id).replace(/[^\w-]/g, '_')}`;
       article.append(heading, node(doc, 'p', meta(entry), 'nav-sub'));
       if (entry.photo) { const img = doc.createElement('img'); img.src = entry.photo; img.alt = entry.title; img.loading = 'lazy'; article.append(img); }
       if (entry.excerpt) {
@@ -105,6 +107,7 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
       const label = node(doc, 'label', tr('note'));
       const note = doc.createElement('textarea'); note.rows = 3; note.maxLength = LIMITS.noteChars; note.value = drafts.get(entry.id) ?? entry.text;
       note.addEventListener('input', () => drafts.set(entry.id, note.value));
+      note.setAttribute('aria-describedby', heading.id);
       label.append(note); article.append(label);
       if (entry.sources.length) {
         const list = doc.createElement('ul');
@@ -118,13 +121,14 @@ export function mountFieldNotebook(container, { notebook = fieldNotebook, contex
       }
       if (entry.link) { const a = node(doc, 'a', tr('moment')); a.href = entry.link; article.append(a); }
       const actions = node(doc, 'div', null, 'field-notebook-actions');
-      actions.append(button(doc, tr('edit'), () => {
+      const forEntry = (b) => { b.setAttribute('aria-describedby', heading.id); return b; };
+      actions.append(forEntry(button(doc, tr('edit'), () => {
         const r = notebook.update(entry.id, note.value); result(r);
         if (r.ok) { drafts.delete(entry.id); [...entries.children].find(item => item.dataset.notebookId === entry.id)?.querySelector('textarea')?.focus(); }
-      }), button(doc, tr('remove'), () => {
+      })), forEntry(button(doc, tr('remove'), () => {
         const r = notebook.remove(entry.id); result(r);
         if (r.ok) { drafts.delete(entry.id); status.textContent = tr('deleted'); title.focus(); }
-      }));
+      })));
       article.append(actions); entries.append(article);
     }
   }

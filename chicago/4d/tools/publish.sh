@@ -347,6 +347,9 @@ cp -f data/datum.json "$SITE/data/"
 # tools/build_modern_streets.py), which the compass readout and the maps show in every year.
 mkdir -p "$SITE/data/modern"
 cp -f data/modern/streets.json "$SITE/data/modern/"
+# T-3674: the on-site tour (js/onsite.js), fetched only when Window mode starts in its year.
+mkdir -p "$SITE/data/onsite"
+cp -f data/onsite/*.json "$SITE/data/onsite/"
 # T-2200 frozen metric/photo comparison, consumed by the isolated review page.
 mkdir -p "$SITE/data/comparisons/glessner"
 cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
@@ -686,6 +689,13 @@ fi
 if [ -d data/context ]; then
   rm -rf "$SITE/data/context"
   cp -a data/context "$SITE/data/context"
+fi
+
+# The Great Fire's map and clock (T-3687): where and when the 1871 city burned, read by
+# renderers/web/js/city-fire.js the first time a jaunt stop (or api.fire.set) names an hour.
+if [ -d data/fire ]; then
+  rm -rf "$SITE/data/fire"
+  cp -a data/fire "$SITE/data/fire"
 fi
 
 # ...and the surfaces it is paved with (T-1728): the authored materials file, and
