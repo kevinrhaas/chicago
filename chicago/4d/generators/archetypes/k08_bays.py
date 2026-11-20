@@ -2154,7 +2154,7 @@ class Bay:
         if i != ch["front_run"]:
             if windows:
                 raise ValueError(f"{self.v['id']}: a slated cheek covers run {i}, which has a light")
-            proud(flat, "cheek", run, lo, hi, pr, top=capped)
+            proud(flat, "cheek", run, lo, hi, pr, top=capped, bottom=not sh)   # on a shoulder, the cap is its foot
             if sh:
                 for y in (sh["height_m"], sh.get("ledge_m")):
                     if y is not None:
@@ -2177,7 +2177,7 @@ class Bay:
                 self.meta["shoulders"] = self.meta.get("shoulders", 0) + 2
             for sa, sb, edge, hx in ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
                 flat.plane("cheek", rect(sa, sb, lo, hi), -pr)
-                for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:]:
+                for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:1 if sh else 2]:
                     flat.face("cheek", [flat.P(run.s_start(0.0) if hx > 0 else b1, y, 0.0),
                                         flat.P(a0 if hx > 0 else run.s_end(0.0), y, 0.0),
                                         flat.P(sb, y, -pr), flat.P(sa, y, -pr)], (0.0, hy, 0.0))
