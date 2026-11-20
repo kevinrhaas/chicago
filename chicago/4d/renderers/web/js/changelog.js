@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3166, ts: '2026-11-20T12:27:40.787Z', date: 'Nov 20, 2026, 6:27 AM CT', title: '2013 Prairie\'s cornice gains its row of blocks', kind: 'feature',
+    items: [
+      'The Reid house at 2013 Prairie gets two more things the 1895 Inland Architect plate shows on its front. A row of thirteen stone blocks now runs under the cornice from corner to corner, and a raised stone border climbs the south edge of the front from the second storey up to the cornice. The plate\'s carving on the border and in the frieze is left plain, and its near-white front is still a shade too warm, because the town has no paler brick yet.',
+    ] },
+  { v: 3165, ts: '2026-11-20T10:54:22.000Z', date: 'Nov 20, 2026, 4:54 AM CT', title: 'The Sherman house\'s stone bands and carved arches', kind: 'improvement',
+    items: [
+      '2100 Prairie\'s dark brick now carries the pale stone bands the c. 1890 photograph shows, on the front and along 21st Street, under a stone frieze with a row of blocks beneath the cornice; the library\'s tall pair and the parlour window stand under carved stone arches.',
+    ] },
   { v: 3164, ts: '2026-11-20T08:02:47.548Z', date: 'Nov 20, 2026, 2:02 AM CT', title: '2101 Prairie, the 21st Street corner house, is built', kind: 'feature',
     items: [
       '2101 Prairie, on the corner of 21st Street, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a two-and-a-half-storey brick house 22 m deep, two painted frame bays along 21st Street, a two-storey frame bay on its south side and a long brick range behind. No picture of it is known, so the red brick front, hooded windows, bracketed cornice, slate roof with its dormer and the stoop are a careful best guess, and the house\'s card says so.',

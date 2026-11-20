@@ -137,11 +137,17 @@ def spec(params) -> dict | None:
                          f"height_m 0.3-1.2, proud_m 0.01-0.06")
     # T-3186: stone blocks under the moulded cornice's corona, K10's scrolled console in the
     # walls' stone, at an even spacing along every stretch of the course round a mansard
+    # T-3626: and under the street front's moulded stone cornice on a flat roof (2013 Prairie's
+    # row of blocks under the corona, the Inland Architect's 1895 plate), where no frieze runs:
+    # the plate's frieze stands where the section itself does, its foot on the lunette's crown
     bk = t.get("blocks")
-    if bk is not None and (not mansard_stone or set(bk) != {"spacing_m", "height_m", "projection_m", "width_m"}
+    street_stone = t.get("cornice") == STONE and getattr(params, "roof_form", "hip") == "flat"
+    if bk is not None and (not (mansard_stone or street_stone)
+                           or set(bk) != {"spacing_m", "height_m", "projection_m", "width_m"}
                            or not 0.4 <= float(bk["spacing_m"]) <= 1.6 or not 0.2 <= float(bk["height_m"]) <= 0.8
                            or not 0.08 <= float(bk["width_m"]) <= 0.3 or not 0.1 <= float(bk["projection_m"]) <= 0.4):
-        raise ValueError(f"wall_head.blocks stand under {STONE!r} round a mansard: spacing_m 0.4-1.6, "
+        raise ValueError(f"wall_head.blocks stand under {STONE!r} round a mansard or along a flat roof's "
+                         f"street front: spacing_m 0.4-1.6, "
                          f"height_m 0.2-0.8, width_m 0.08-0.3, projection_m 0.1-0.4")
     # T-3184: the timber cornice's brackets sized off a picture (1834's photograph: deep carved
     # brackets, paired, under a cornice about 1.1 m deep), the kit's shape at the read size
@@ -988,12 +994,17 @@ def _stone_cornice(a, K, data, bays, conf):
     seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
     var.seed, var.rng = seed, random.Random(seed)
+    paths = []
     for k, (s0, s1) in enumerate(spans):
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=[front.name])
         ends = (s0 < lo + 1e-9, s1 > hi - 1e-9)       # capped at a corner or a stop; dying into a bay
-        K.sweep(pc.mesh, [front.at(s0, y_c), front.at(s1, y_c)], K.Y, prof, side=1.0, sgn=1.0, caps=ends)
+        path = [front.at(s0, y_c), front.at(s1, y_c)]
+        K.sweep(pc.mesh, path, K.Y, prof, side=1.0, sgn=1.0, caps=ends)
+        paths.append((path, ends))
     a.wall_head = {"cornice": STONE, "cornice_m": [round(y_c, 4), round(y_s, 4)], "projection_m": pj,
                    "stretches": [[round(s0, 3), round(s1, 3)] for s0, s1 in spans]}
+    # T-3626: the course of blocks under its corona, where the record names one (2013 Prairie)
+    _stone_frieze_blocks(a, K, var, prof, y_c, paths, [front.name])
     _lay(a, var.pieces, conf, STONE)
 
 

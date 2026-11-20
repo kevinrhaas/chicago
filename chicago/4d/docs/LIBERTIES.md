@@ -45383,8 +45383,11 @@ built.
 
 **How to resolve:** T-1920 (the architecture and the image gate) builds the oriel, the bands, the carving and the
 porch's full width against the same photograph, whose match record lists each difference; a picture of the south
-flank or the rear would replace the invented parts.
-**Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.street_front_trim`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
+flank or the rear would replace the invented parts. T-3699 (T-1920's first piece) read the front's trim off the photograph — the
+parlour light's carved tympanum on its lintel and the square stone head over the second-storey light — so
+`street_front_trim` is no longer covered here; the stone bands it laid on the south flank, which no picture shows,
+are carried round from the 21st Street flank under this liberty, as the stone basement's are.
+**Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-19 (T-1919).
@@ -45509,3 +45512,34 @@ gate's sign-off.
 **Ticket:** T-3690.
 **Review:** `tools/lay_driven_1871.mjs` (`--audit`), `data/transport/driven/drivers_1871.json`.
 **Recorded:** 2026-11-19 (T-3690).
+
+### L-k10-2013-reid-blocks-3626 — 2013 Prairie's row of blocks under its cornice and the border up its south edge, off the Inland Architect's 1895 plate: plain where the plate is carved
+
+**Decision:** T-3626 (piece 2 of T-1916) adds the two things the plate draws on 2013 Prairie's upper front that
+`L-k01-2013-reid-3626` left out. A course of thirteen stone blocks stands under the corona of K10's moulded
+stone cornice, 0.65 m apart, each the kit's scrolled console at 0.22 m tall, 0.18 m wide and 0.2 m out
+(12.91-13.13 m); the street front's stone cornice on a flat roof now takes `wall_head.blocks`, which only the
+cornice round a mansard took before (`generators/archetypes/k10_frontage.py`). And a raised border runs up the
+front's south edge, 0.4 m wide and 0.05 m proud, from the belt's top (5.95 m) to under the cornice (12.95 m), as a
+fifth strip of the front's frame (`street_front_windows.frame.pilasters`).
+
+**What is read, not invented.** Through the camera T-3625 solved on the plate: the blocks' row under the corona and
+their spacing (about 25 px apart along a front of about 300 px), the border's place at the south corner (x
+600-640 px) and its run from under the frieze to the second storey.
+
+**What is invented.** The blocks' section (the kit's console, not the plate's square modillion) and their
+projection; the border's projection; carrying the border down to the belt, where the plate shows its lower
+length only in part behind 2017's carved lamp bracket.
+
+**What is built otherwise than the evidence, and why.** The border is a plain strip where the plate carves it, and
+its carved bracket at about 7.7 m is not built. The frieze of garlands is not a separate band: the plate's frieze
+stands where K10's moulded section does (its foot on the lunette's crown at about 12.9 m), and a band under the
+section would strike the lunette's head. The front's tone stays as `L-k01-2013-reid-3625` laid it (cream_sooted):
+the plate prints the front near white, and K03 lays no face paler than its common buff panel (a recipe only darkens
+a panel, and 1904 adds no brick map at its phone memory ceiling).
+
+**How to resolve:** a pale brick panel in K03, if the owner pays its memory, re-tones the front; the 2003
+nomination photographs, once readable and cleared, read the flanks and rear.
+**Ticket:** T-3626 (piece 2 of T-1916, S07).
+**Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg`.
+**Recorded:** 2026-11-20 (T-3626).
