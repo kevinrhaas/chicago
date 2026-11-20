@@ -53,19 +53,19 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 132,
-  "surfaces": 282,
-  "doors": 124,
-  "posts": 112,
+  "lots": 133,
+  "surfaces": 284,
+  "doors": 125,
+  "posts": 114,
   "gardens": 30,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
-   "drying_yard": 56,
+   "drying_yard": 57,
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 30,
-   "rear_terrace": 106
+   "rear_terrace": 107
   }
  },
  "lots": [
@@ -16177,6 +16177,131 @@
      2.54
     ]
    ],
+   "trees": [],
+   "creeper": [],
+   "beds": []
+  },
+  {
+   "parcel": "prairie_2112",
+   "addresses": [
+    "2112"
+   ],
+   "street": "prairie",
+   "side": "west",
+   "structures": [
+    "rothschild_house_2112_prairie",
+    "rothschild_house_2112_prairie_coach_house"
+   ],
+   "scheme": "service_court",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "note": "",
+   "surfaces": [
+    {
+     "id": "prairie_2112:rear_terrace:0",
+     "kind": "rear_terrace",
+     "material": "flags",
+     "polygon_local_m": [
+      [
+       1364.84,
+       -3661.24
+      ],
+      [
+       1364.87,
+       -3664.4
+      ],
+      [
+       1359.54,
+       -3664.45
+      ],
+      [
+       1359.51,
+       -3661.29
+      ]
+     ],
+     "along_deg": 179.46,
+     "lift_m": 0.03,
+     "order": 0,
+     "grade": "reconstructed",
+     "note": "A paved terrace at the back door, in stone flagging: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2112:drying_yard:1",
+     "kind": "drying_yard",
+     "material": "trodden",
+     "polygon_local_m": [
+      [
+       1357.04,
+       -3663.89
+      ],
+      [
+       1357.09,
+       -3669.89
+      ],
+      [
+       1353.09,
+       -3669.93
+      ],
+      [
+       1353.04,
+       -3663.93
+      ]
+     ],
+     "along_deg": 179.46,
+     "lift_m": 0.03,
+     "order": 0,
+     "grade": "inferred",
+     "note": "The drying yard: the 1900 census enumerates a laundress in this household, so the wash was done and hung at home; the yard's place and size are reconstructed (L-prairie-back-yards-3488)."
+    }
+   ],
+   "doors": [
+    {
+     "id": "prairie_2112:back_door",
+     "structure": "rothschild_house_2112_prairie",
+     "e": 1364.86,
+     "n": -3662.82,
+     "facing_deg": 269.46,
+     "sill_m": 1.5,
+     "width_m": 0.95,
+     "height_m": 2.2,
+     "leaf": true,
+     "stoop": {
+      "depth_m": 1.1,
+      "width_m": 1.6,
+      "risers": 8,
+      "run_m": 3.06,
+      "material": "stone"
+     },
+     "grade": "reconstructed",
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+    }
+   ],
+   "posts": [
+    {
+     "kind": "clothes_post",
+     "e": 1355.04,
+     "n": -3664.21,
+     "height_m": 2.3,
+     "arm_m": 0.9,
+     "facing_deg": 179.46,
+     "line_to": 1,
+     "grade": "inferred"
+    },
+    {
+     "kind": "clothes_post",
+     "e": 1355.09,
+     "n": -3669.61,
+     "height_m": 2.3,
+     "arm_m": 0.9,
+     "facing_deg": 179.46,
+     "line_to": null,
+     "grade": "inferred"
+    }
+   ],
+   "crops": [],
+   "shrubs": [],
    "trees": [],
    "creeper": [],
    "beds": []
