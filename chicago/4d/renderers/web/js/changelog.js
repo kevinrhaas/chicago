@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3148, ts: '2026-11-20T00:03:04.470Z', date: 'Nov 19, 2026, 6:03 PM CT', title: '1871 downtown stands shoulder to shoulder, with shopfronts, signs and doors', kind: 'improvement',
+    items: [
+      'Downtown and along Lake, Randolph, Clark, Wells, Madison, Canal, Milwaukee and North Clark, buildings now stand wall to wall in rows of brick, cream stone and painted brick, three to six storeys high.',
+      'Every shop has its door, plate-glass windows and iron front, many with a painted trade sign and an awning; fronts carry window hoods, arched heads and bracketed cornices.',
+      'Houses have their steps, stoops and porches, and front yards a picket fence with a gate.',
+      'Near the tour stops, from the Court House square and State Street to the Water Tower and DeKoven Street, fronts are built in full detail; further off they keep the same colours and outline.',
+      'The strip between the shops and the plank walk is planked too, so downtown no longer reads as lawns.',
+    ] },
   { v: 3147, ts: '2026-11-19T23:52:38.310Z', date: 'Nov 19, 2026, 5:52 PM CT', title: 'Your guide asks three questions at a jaunt\'s end', kind: 'feature',
     items: [
       'Check your understanding now asks three questions with real answers: where on the walk you heard something, who told you, and how sure we can be of it.',
