@@ -24,6 +24,11 @@ import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "data/context/1871/plan.json"
+# T-3684: the inner city's streets are the platted lines, drawn on the City's
+# centrelines and named from 1870-71 sources (tools/build_streets_1871.py).
+CLIP = ROOT / "data/context/1871/modern_clip.json"
+NAMES = ROOT / "data/context/1871/street_names_1871.json"
+STREETS_1835 = ROOT / "data/streets/1835.json"
 OUT = ROOT / "data/context/1871"
 EPOCH = ROOT / "data/terrain/epochs/e1871_prefire"
 GENERATOR = "generators/city_1871_emit.py"
@@ -70,6 +75,7 @@ BOUNDS = (-7300., 3500., -7100., 4350.)
 GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.34
 CELL = 10.
 LIBERTY = "L-1871-city-baseline"
+NETWORK_LIBERTY = "L-1871-street-network"
 ANCHOR = (837.63, -525.27)
 ANGLE = math.radians(.71)
 C, S = math.cos(ANGLE), math.sin(ANGLE)
@@ -82,7 +88,7 @@ def encoded(doc):
 def inputs_sha():
     """One recipe stamp for all products; used by the repository's stale gate."""
     h = hashlib.sha256(b"city-context-1871-v1\0")
-    for p in (Path(__file__), PLAN, ROOT / "data/datum.json"):
+    for p in (Path(__file__), PLAN, ROOT / "data/datum.json", CLIP, NAMES, STREETS_1835):
         h.update(p.relative_to(ROOT).as_posix().encode() + b"\0")
         h.update(p.read_bytes())
     return h.hexdigest()
@@ -137,6 +143,107 @@ def intersection(a, b, c, d):
     if 0 <= t <= 1 and 0 <= u <= 1:
         return (a[0]+t*ax, a[1]+t*ay)
     return None
+
+
+def turning(a, b, c):
+    """Degrees the line turns at b (0 = straight on)."""
+    u, v = (b[0]-a[0], b[1]-a[1]), (c[0]-b[0], c[1]-b[1])
+    lu, lv = math.hypot(*u), math.hypot(*v)
+    if lu < 1e-9 or lv < 1e-9:
+        return 0.
+    return math.degrees(math.acos(max(-1., min(1., (u[0]*v[0]+u[1]*v[1])/(lu*lv)))))
+
+
+def dedupe(points, eps=.05):
+    out = []
+    for p in points:
+        p = (float(p[0]), float(p[1]))
+        if not out or math.dist(out[-1], p) > eps:
+            out.append(p)
+    return out
+
+
+def catmull(points, step=5.):
+    """T-3684: a centripetal Catmull-Rom spline through every traced vertex.
+
+    The traced vertices stay exactly on the line; between them the street bends
+    on a curve instead of a corner. Centripetal parameters cannot loop or cusp.
+    """
+    pts = dedupe(points)
+    if len(pts) < 3:
+        return pts
+    ext = [(2*pts[0][0]-pts[1][0], 2*pts[0][1]-pts[1][1])]+pts+[(2*pts[-1][0]-pts[-2][0], 2*pts[-1][1]-pts[-2][1])]
+    out = [pts[0]]
+    for i in range(1, len(ext)-2):
+        p0, p1, p2, p3 = ext[i-1:i+3]
+        t0 = 0.
+        t1 = t0+max(1e-6, math.dist(p0, p1))**.5
+        t2 = t1+max(1e-6, math.dist(p1, p2))**.5
+        t3 = t2+max(1e-6, math.dist(p2, p3))**.5
+        n = max(1, math.ceil(math.dist(p1, p2)/step))
+        for k in range(1, n):
+            t = t1+(t2-t1)*k/n
+            mix = lambda a, b, ta, tb: tuple((tb-t)/(tb-ta)*a[j]+(t-ta)/(tb-ta)*b[j] for j in (0, 1))
+            a1, a2, a3 = mix(p0, p1, t0, t1), mix(p1, p2, t1, t2), mix(p2, p3, t2, t3)
+            b1, b2 = mix(a1, a2, t0, t2), mix(a2, a3, t1, t3)
+            out.append(mix(b1, b2, t1, t2))
+        out.append(p2)
+    return out
+
+
+def fillet(points, low=8., high=75., radius=30.):
+    """Round every bend between `low` and `high` degrees on a short curve.
+
+    A sharper turn is a real street corner (a jog in a plat) and is kept.
+    """
+    pts = dedupe(points)
+    if len(pts) < 3:
+        return pts
+    out = [pts[0]]
+    for i in range(1, len(pts)-1):
+        a, b, c = pts[i-1], pts[i], pts[i+1]
+        theta = turning(a, b, c)
+        if not low < theta < high:
+            out.append(b)
+            continue
+        half = math.tan(math.radians(theta)/2)
+        r = min(radius, .45*min(math.dist(a, b), math.dist(b, c))/half)
+        d = r*half
+        ua = ((b[0]-a[0])/math.dist(a, b), (b[1]-a[1])/math.dist(a, b))
+        uc = ((c[0]-b[0])/math.dist(b, c), (c[1]-b[1])/math.dist(b, c))
+        p_in, p_out = (b[0]-ua[0]*d, b[1]-ua[1]*d), (b[0]+uc[0]*d, b[1]+uc[1]*d)
+        m = max(2, math.ceil(theta/4))
+        for k in range(m+1):
+            t = k/m
+            out.append(((1-t)**2*p_in[0]+2*(1-t)*t*b[0]+t*t*p_out[0], (1-t)**2*p_in[1]+2*(1-t)*t*b[1]+t*t*p_out[1]))
+    out.append(pts[-1])
+    return dedupe(out)
+
+
+def polyline_length(pts):
+    return sum(math.dist(a, b) for a, b in zip(pts, pts[1:]))
+
+
+def ribbon_cuts(a, b, c, d, half):
+    """Interval of a->b (0..1) inside the carriageway of c->d (half-width half)."""
+    tx, ty = b[0]-a[0], b[1]-a[1]
+    ux, uy = d[0]-c[0], d[1]-c[1]
+    lt, lu = math.hypot(tx, ty), math.hypot(ux, uy)
+    if lt < 1e-6 or lu < 1e-6:
+        return None
+    ux, uy = ux/lu, uy/lu
+    # perpendicular offset f(s) = f0 + s*f1 and along-c coordinate g(s) = g0 + s*g1, s in 0..1
+    f0, f1 = ux*(a[1]-c[1])-uy*(a[0]-c[0]), ux*ty-uy*tx
+    g0, g1 = ux*(a[0]-c[0])+uy*(a[1]-c[1]), ux*tx+uy*ty
+    lo, hi = 0., 1.
+    for v0, v1, vlo, vhi in ((f0, f1, -half, half), (g0, g1, 0., lu)):
+        if abs(v1) < 1e-9:
+            if not vlo < v0 < vhi:
+                return None
+            continue
+        s0, s1 = (vlo-v0)/v1, (vhi-v0)/v1
+        lo, hi = max(lo, min(s0, s1)), min(hi, max(s0, s1))
+    return (lo, hi) if hi-lo > 1e-6 else None
 
 
 def bank_accuracy(city, sampler, spacing=40.):
@@ -206,6 +313,24 @@ def bank_accuracy(city, sampler, spacing=40.):
             return {"mean_m":round(sum(values)/len(values),4),"p95_m":round(ordered[min(len(ordered)-1,int(len(ordered)*.95))],4),"max_m":round(max(values),4)} if values else None
         out[kind]={"sample_count":len(g["errors"]),"excluded_junction_or_extent_count":g["excluded"],"unresolved_count":len(g["unresolved"]),"unresolved_points":g["unresolved"],"resampling_error":stats(g["errors"]),"distance_from_modeled_plan_bank":stats(g["plan_errors"])}
     return out
+
+
+def extents(rec):
+    """A lot's extent along the lattice axes (u, v): its frontage runs along u
+    when it faces north or south, along v when it faces east or west; a lot
+    facing a curving street (T-3684) is bounded by its box on those axes."""
+    turn=(rec["bearing_deg"]+math.degrees(ANGLE))%180
+    if abs(turn-90)<1:return (rec["depth_m"],rec["width_m"])
+    if turn<1 or turn>179:return (rec["width_m"],rec["depth_m"])
+    c,s=abs(math.cos(math.radians(turn))),abs(math.sin(math.radians(turn)))
+    return (rec["width_m"]*c+rec["depth_m"]*s,rec["width_m"]*s+rec["depth_m"]*c)
+
+
+def corners(e,n,width,depth,bearing):
+    """A footprint's four corners and centre, as the renderer places them
+    (city-context.js): the front faces the compass bearing."""
+    r=-math.radians(bearing);c,s=math.cos(r),math.sin(r)
+    return [(e+c*x+s*z,n+s*x-c*z) for x,z in [(-width/2,-depth/2),(width/2,-depth/2),(width/2,depth/2),(-width/2,depth/2),(0,0)]]
 
 
 class SpatialLines:
@@ -361,6 +486,7 @@ class City:
         if isinstance(self.shore,dict): self.shore=self.shore.get("points",self.shore.get("coordinates"))
         self.shore=sorted(self.shore,key=lambda p:p[1])
         self.rivers=plan.get("rivers",[])
+        self.river_points={r["id"]:[tuple(p) for p in r["points"]] for r in self.rivers}
         self.parks=plan.get("parks",[])
         self.water_polygons=plan.get("water_polygons",[])
         self.water_bounds=[(min(p[0] for p in w["polygon"])-10,max(p[0] for p in w["polygon"])+10,
@@ -452,16 +578,13 @@ class City:
         us+=[round(i*self.pitch_e/2,3) for i in range(-15,7) if i%2]
         vs=[round(i*self.pitch_n,3) for i in range(-52,39)]
         mapped_axes={"ns":[],"ew":[]}
-        representatives={}
         for r in self.arterials:
             if r in self.diagonals:continue
             points=[uv(*p) for p in r["points"]]
             ns=abs(points[0][0]-points[-1][0])<abs(points[0][1]-points[-1][1])
             axis="ns" if ns else "ew";cross=0 if ns else 1;along=1-cross
             positions=sorted(p[cross] for p in points)
-            representative=positions[len(positions)//2]
-            mapped_axes[axis].append(representative)
-            representatives[r["id"]]=(axis,representative)
+            mapped_axes[axis].append(positions[len(positions)//2])
             self.parallel[axis].append((r,min(p[along] for p in points),max(p[along] for p in points)))
         def reconciled(values,positions):
             # The generic block lattice bends its subdivision coordinates to
@@ -472,25 +595,493 @@ class City:
             return sorted(values)
         us=reconciled(us,mapped_axes["ns"]);vs=reconciled(vs,mapped_axes["ew"])
         self.grid_us,self.grid_vs=us,vs
-        # Unnamed extensions outside the map remain explicit reconstruction.
-        for i,u in enumerate(us):
-            self.streets.append({"id":f"grid_ns_{i:03}","name":"Reconstructed north–south street","points":[en(u,-7400),en(u,5200)],"width_m":14 if -1700<u<700 else 12,"walk_m":2.3,"grid_axis":"ns"})
-        for i,v in enumerate(vs):
-            self.streets.append({"id":f"grid_ew_{i:03}","name":"Reconstructed east–west street","points":[en(-8500,v),en(3100,v)],"width_m":14 if -1400<v<1200 else 12,"walk_m":2.3,"grid_axis":"ew"})
-        self.streets.extend(dict(r,alignment="mapped_arterial",source_id=r["id"]) for r in self.arterials)
-        connectors=[]
-        for r in self.arterials:
-            if r["id"] not in representatives:continue
-            axis,representative=representatives[r["id"]];along=1 if axis=="ns" else 0
-            ends=sorted((r["points"][0],r["points"][-1]),key=lambda p:uv(*p)[along])
-            for side,p in zip((-1,1),ends):
-                position=uv(*p)[along]+side*70
-                far=en(representative,position) if axis=="ns" else en(position,representative)
-                if not self.town(p,3) or not self.town(far,3):continue
-                connectors.append({"id":f"grid_join_{r['id']}_{side}","name":"Reconstructed continuation beyond mapped street","points":[p,far],"width_m":r.get("width_m",14),"walk_m":r.get("walk_m",2.3),"alignment":"reconstructed_connection"})
-        self.streets.extend(connectors)
-        self.mapped_index=SpatialLines(self.arterials+connectors)
+        # T-3684: the inner city is drawn on its platted streets; outside it the
+        # mapped arterials run on splines through their traced points, and the
+        # generic lattice fills the rest in whole blocks, never in stubs.
+        core=self.core_streets()
+        arterials=self.arterial_pieces(core)
+        self.join_arterial_ends(arterials,us,vs)
+        core=self.prune_stubs(core,arterials)
+        lattice=self.lattice_pieces(us,vs,arterials)
+        self.core,self.arterial_runs=core,arterials
+        self.streets=lattice+arterials+core
+        self.mapped_index=SpatialLines(arterials+core)
         return us,vs
+
+    # ---- T-3684: names -------------------------------------------------
+    def division(self,p):
+        """South, West or North Division, the three sides of 1871's river."""
+        e,n=p
+        def across(river,n):
+            pts=self.river_points[river]
+            for a,b in zip(pts,pts[1:]):
+                if min(a[1],b[1])<=n<=max(a[1],b[1]) and a[1]!=b[1]:
+                    return a[0]+(b[0]-a[0])*(n-a[1])/(b[1]-a[1])
+            return None
+        fork=self.river_points["main_stem"][0]
+        if n>fork[1]:
+            x=across("north_branch",n)
+            if x is not None and e<x:return "west"
+            main=self.river_points["main_stem"]
+            if e>=fork[0]:
+                for a,b in zip(main,main[1:]):
+                    if a[0]<=e<=b[0]:
+                        if n>a[1]+(b[1]-a[1])*(e-a[0])/(b[0]-a[0]):return "north"
+                        break
+                else:
+                    if n>main[-1][1]:return "north"
+            return "south"
+        x=across("south_branch",n)
+        return "west" if x is not None and e<x else "south"
+
+    def styled(self,base,p,axis):
+        """The division prefix the 1871 directory prints: W. Lake, N. Clark, S. Canal."""
+        if not base:return base
+        if base.split()[0] in ("North","South","West","East"):return base
+        division=self.division(p)
+        if division=="west":
+            if axis=="ns":return ("North " if p[1]>-530 else "South ")+base
+            if axis=="ew" and base in self.shared_names:return "West "+base
+        if division=="north" and axis=="ns" and base in self.shared_names:return "North "+base
+        return base
+
+    def name_rule(self,modern,mid):
+        for rule in self.name_rules.get(modern,[]):
+            where=rule.get("where",{})
+            if all(lo<=mid[k]<=hi for k,(lo,hi) in ((0,where.get("e",(-1e9,1e9))),(1,where.get("n",(-1e9,1e9))))):
+                return rule
+        return None
+
+    # ---- T-3684: the inner city's platted streets ---------------------
+    def core_streets(self):
+        clip=json.loads(CLIP.read_text());names=clip["names"]
+        rules=json.loads(NAMES.read_text())
+        self.name_bases=rules["bases"];self.arterial_names=rules.get("arterials",{})
+        self.name_rules=collections.defaultdict(list)
+        for rule in rules["rules"]:self.name_rules[rule["modern"]].append(rule)
+        chains=collections.defaultdict(list)
+        for s in clip["segments"]:chains[names[s[0]]].append([(s[9][i],s[9][i+1]) for i in range(0,len(s[9]),2)])
+        def chain_of(name):
+            segs=chains[name];deg=collections.Counter()
+            key=lambda p:(round(p[0]*2),round(p[1]*2))
+            for g in segs:deg[key(g[0])]+=1;deg[key(g[-1])]+=1
+            return segs,key,deg
+        # The core: Halsted Street to the lake, Twenty-second Street to Division
+        # Street, each edge drawn on its own centreline so the streets outside
+        # meet it at a junction.
+        def edge(name,axis):
+            pts=sorted({p for g in chains[name] for p in g},key=lambda p:p[1 if axis=="ns" else 0])
+            return pts
+        halsted=[p for p in edge("S Halsted St","ns")+edge("N Halsted St","ns")]
+        division=edge("W Division St","ew")+edge("E Division St","ew")
+        cermak=edge("W Cermak Rd","ew")+edge("E Cermak Rd","ew")
+        def at(pts,value,axis):
+            k=1 if axis=="ns" else 0
+            for a,b in zip(pts,pts[1:]):
+                if min(a[k],b[k])<=value<=max(a[k],b[k]) and a[k]!=b[k]:
+                    t=(value-a[k])/(b[k]-a[k]);return (a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t)
+            return None
+        sw=at(halsted,cermak[0][1],"ns");nw=at(halsted,division[0][1],"ns")
+        west=[sw]+[p for p in halsted if sw[1]<p[1]<nw[1]]+[nw]
+        north=[p for p in division if p[0]>nw[0]]
+        south=[p for p in cermak if p[0]>sw[0]]
+        east=3500.
+        self.core_polygon=west+north+[(east,north[-1][1]),(east,south[-1][1])]+list(reversed(south))
+        # Junction ends on these edges are anchored: the lattice meets them.
+        self.core_edges=[west,north,south]
+        out=[];missing=set();bases=collections.defaultdict(set);pending=[]
+        def in_core(p):
+            return inside(p,self.core_polygon) or min(distance(p,e) for e in self.core_edges)<3
+        for name,segs in sorted(chains.items()):
+            for g in segs:
+                mid=g[len(g)//2] if len(g)>2 else ((g[0][0]+g[-1][0])/2,(g[0][1]+g[-1][1])/2)
+                if not in_core(mid):continue
+                rule=self.name_rule(name,mid)
+                if rule is None:missing.add(name);continue
+                # South of the river the 1871 shore ran along Michigan Avenue:
+                # east of it lay the lake basin and the Illinois Central's made
+                # ground, so no platted street continued past the avenue.
+                if mid[0]>1165 and -2200<mid[1]<230:continue
+                if rule["name"] is None and rule["basis"] in ("later","made_land"):continue
+                (a,b)=(g[0],g[-1]);axis="ns" if abs(b[1]-a[1])>abs(b[0]-a[0])*2 else "ew" if abs(b[0]-a[0])>abs(b[1]-a[1])*2 else "diag"
+                pending.append((rule,name,g,mid,axis))
+                if rule["name"]:bases[rule["name"]].add(self.division(mid))
+        if missing:raise ValueError("T-3684: modern streets with no 1871 name rule: "+", ".join(sorted(missing)))
+        self.shared_names={b for b,d in bases.items() if len(d)>1 or b in ("Wells Street","LaSalle Street","Clark Street","Dearborn Street","State Street","Franklin Street","Market Street")}
+        # South Water Street ran where Wacker Drive now does; its 1835 record
+        # (drawn on the 1830 plat) carries the line west of State.
+        south_water=next(r for r in json.loads(STREETS_1835.read_text())["streets"] if r["id"]=="south_water")
+        sw_rule={"name":"South Water Street","basis":"edwards_1871","note":"Edwards 1871 alarm boxes 2-4; the line west of State is the 1835 record data/streets/1835.json south_water (Thompson's 1830 plat)."}
+        # The 1871 river is drawn wider than 1835's; where the 1835 line would
+        # put the street's north walk on the bank slope it steps south, at most
+        # 12 m, to the first dry ground (L-1871-street-network).
+        line=[]
+        for e,n in south_water["path_local_enu_m"]:
+            for _ in range(24):
+                if self.field_height(e,n+16.*.5+4.2+.5)>=GRADE-.01:break
+                n-=.5
+            line.append((e,n))
+        # East of State it runs on along the old line Wacker Place keeps.
+        place=min((q for g in chains.get("E Wacker Pl",[]) for q in g),key=lambda q:q[0],default=None)
+        if place:line.append(place)
+        pending.append((sw_rule,"South Water Street (1835 record)",line,tuple(line[-1]),"ew"))
+        # Merge each name's blocks into continuous lines.
+        groups=collections.defaultdict(list)
+        for rule,modern,g,mid,axis in pending:
+            name=self.styled(rule["name"],mid,axis) if rule["name"] else None
+            groups[(name,rule["basis"],modern if not name else "")].append((g,rule,modern,axis))
+        for (name,basis,_),items in sorted(groups.items(),key=lambda x:(x[0][0] or "",x[0][1],x[0][2])):
+            key=lambda p:(round(p[0]*2),round(p[1]*2))
+            deg=collections.Counter()
+            for g,*_ in items:deg[key(g[0])]+=1;deg[key(g[-1])]+=1
+            ends=collections.defaultdict(list)
+            for i,(g,*_) in enumerate(items):ends[key(g[0])].append(i);ends[key(g[-1])].append(i)
+            used=set();lines=[]
+            order=sorted(range(len(items)),key=lambda i:(deg[key(items[i][0][0])]==2 and deg[key(items[i][0][-1])]==2,items[i][0][0]))
+            for i in order:
+                if i in used:continue
+                used.add(i);line=list(items[i][0])
+                for forward in (True,False):
+                    while True:
+                        tip=key(line[-1] if forward else line[0])
+                        if deg[tip]!=2:break
+                        nxt=[j for j in ends[tip] if j not in used]
+                        if not nxt:break
+                        j=nxt[0];used.add(j);g=list(items[j][0])
+                        if forward:line+=(g[1:] if key(g[0])==tip else list(reversed(g))[1:])
+                        else:line=(g[:-1] if key(g[-1])==tip else list(reversed(g))[:-1])+line
+                lines.append(line)
+            lines=self.close_gaps(lines)
+            rule=items[0][1];axis=items[0][3]
+            base=rule["name"] or ""
+            if base.endswith("Place") or base.endswith("Court") or not rule["name"]:width,walk=7.,2.
+            elif base in ("State Street","Michigan Avenue","Lake Street","Randolph Street","Madison Street","Clark Street","Wabash Avenue","Market Street","South Water Street","Twelfth Street","Twenty-second Street","Halsted Street","Chicago Avenue","Division Street","Archer Road","Milwaukee Avenue"):width,walk=16.,4.2
+            else:width,walk=13.,3.5
+            lines=[fillet(line) for line in sorted(lines,key=polyline_length,reverse=True)]
+            kept=[]
+            for line in lines:
+                # A divided modern roadway is one 1871 street: a second line of
+                # the same name running alongside within 25 m is dropped.
+                samples=[q for a,b in zip(line,line[1:]) for q in (a,((a[0]+b[0])/2,(a[1]+b[1])/2))]+[line[-1]]
+                if any(sum(distance(q,o)<25 for q in samples)>=.7*len(samples) for o in kept):continue
+                kept.append(line)
+            for k,line in enumerate(sorted(kept)):
+                if polyline_length(line)<4:continue
+                slug=("".join(ch if ch.isalnum() else "_" for ch in (rule["name"] or "unnamed").lower())).strip("_")
+                out.append({"id":f"{slug}" if not k and name else f"{slug}_{len(out):04}","name":name,"points":[tuple(round(v,3) for v in p) for p in line],
+                            "width_m":width,"walk_m":walk,"alignment":"core_platted","name_basis":basis,
+                            "modern_names":sorted({m for _,_,m,_ in items}),"name_note":rule["note"]})
+        ids=collections.Counter(r["id"] for r in out)
+        for r in out:
+            if ids[r["id"]]>1:r["id"]=f"{r['id']}_{out.index(r):04}"
+        return out
+
+    def prune_stubs(self,core,arterials):
+        """A platted street piece that stops short on open ground, where no
+        street meets it, is a fragment of today's map (a cul-de-sac, a
+        half-vacated block), not an 1871 street: its tail back to the last
+        street it crosses goes, and a piece crossing none goes whole."""
+        for _ in range(3):
+            cells=collections.defaultdict(list)
+            lines=core+arterials
+            for li,r in enumerate(lines):
+                half=r.get("width_m",14)/2
+                for a,b in zip(r["points"],r["points"][1:]):
+                    for i in range(math.floor((min(a[0],b[0])-half)/50),math.floor((max(a[0],b[0])+half)/50)+1):
+                        for j in range(math.floor((min(a[1],b[1])-half)/50),math.floor((max(a[1],b[1])+half)/50)+1):
+                            cells[i,j].append((li,a,b,half))
+            def met(p,li):
+                return any(segdist(p,a,b)<=half+1.5 for o,a,b,half in cells[math.floor(p[0]/50),math.floor(p[1]/50)] if o!=li)
+            def open_beyond(tip,prev):
+                L=math.dist(tip,prev)
+                if L<1e-6:return False
+                q=(tip[0]+(tip[0]-prev[0])/L*12,tip[1]+(tip[1]-prev[1])/L*12)
+                return self.road_ok(q,3) and self.river_distance(q)>=45 and self.rail_index.clear(q,10) and self.in_core(q)
+            out=[];changed=False
+            for li,r in enumerate(core):
+                pts=list(r["points"])
+                for end in (0,-1):
+                    if len(pts)<2:break
+                    seq=pts if end==0 else list(reversed(pts))
+                    if met(seq[0],li) or not open_beyond(seq[0],seq[1]):continue
+                    # walk in from the tip to the first crossing street
+                    acc=0.;cut=None
+                    for a,b in zip(seq,seq[1:]):
+                        L=math.dist(a,b);count=max(1,math.ceil(L/2))
+                        for k in range(1,count+1):
+                            q=(a[0]+(b[0]-a[0])*k/count,a[1]+(b[1]-a[1])*k/count)
+                            if met(q,li):cut=(acc+L*k/count,q);break
+                        if cut:break
+                        acc+=L
+                    if cut and cut[0]>=150:continue
+                    if not cut:
+                        if polyline_length(pts)<150:pts=[]
+                        break
+                    keep=[cut[1]];acc=0.
+                    for a,b in zip(seq,seq[1:]):
+                        acc+=math.dist(a,b)
+                        if acc>cut[0]+1e-6:keep.append(b)
+                    pts=keep if end==0 else list(reversed(keep))
+                    changed=True
+                if len(pts)>1 and polyline_length(pts)>=4:out.append(dict(r,points=pts))
+                else:changed=True
+            core=out
+            if not changed:break
+        return core
+
+    def close_gaps(self,lines):
+        """One 1871 street, broken today by an expressway, a superblock or a
+        rail yard, runs on through: two pieces of the same name whose ends face
+        each other in line across under 160 m of dry ground are one street."""
+        def heading(line,end):
+            seq=line if end==0 else list(reversed(line))
+            p=q=seq[0];acc=0.
+            for k in range(1,len(seq)):
+                acc+=math.dist(seq[k-1],seq[k]);q=seq[k]
+                if acc>=20:break
+            L=math.dist(p,q)
+            return ((p[0]-q[0])/L,(p[1]-q[1])/L) if L>1e-6 else None
+        while True:
+            best=None
+            for i,a in enumerate(lines):
+                for j,b in enumerate(lines):
+                    if j<=i:continue
+                    for ea in (0,-1):
+                        for eb in (0,-1):
+                            p,q=a[ea],b[eb];gap=math.dist(p,q)
+                            if not 1<gap<160 or (best and gap>=best[0]):continue
+                            ha,hb=heading(a,ea),heading(b,eb)
+                            if not ha or not hb:continue
+                            g=((q[0]-p[0])/gap,(q[1]-p[1])/gap)
+                            if ha[0]*g[0]+ha[1]*g[1]<math.cos(math.radians(8)) or -(hb[0]*g[0]+hb[1]*g[1])<math.cos(math.radians(8)):continue
+                            count=max(1,math.ceil(gap/5))
+                            if not all(self.road_ok((p[0]+(q[0]-p[0])*k/count,p[1]+(q[1]-p[1])*k/count),0) for k in range(count+1)):continue
+                            best=(gap,i,j,ea,eb)
+            if not best:return lines
+            _,i,j,ea,eb=best
+            a=lines[i] if ea==-1 else list(reversed(lines[i]));b=lines[j] if eb==0 else list(reversed(lines[j]))
+            lines=[x for k,x in enumerate(lines) if k not in (i,j)]+[a+b]
+
+    def in_core(self,p):
+        return inside(p,self.core_polygon)
+
+    # ---- T-3684: arterials outside the inner city ---------------------
+    def arterial_pieces(self,core):
+        out=[]
+        by_base=collections.defaultdict(list)
+        for r in core:
+            if r["name"]:
+                base=r["name"].split(" ",1)[1] if r["name"].split()[0] in ("North","South","West") else r["name"]
+                by_base[base].append(r)
+        def doubles(q,pts):
+            # within 18 m of the street, away from its two ends
+            acc=0.;total=polyline_length(pts)
+            for a,b in zip(pts,pts[1:]):
+                L=math.dist(a,b)
+                if L>1e-9:
+                    t=max(0.,min(1.,((q[0]-a[0])*(b[0]-a[0])+(q[1]-a[1])*(b[1]-a[1]))/L/L))
+                    if math.dist(q,(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t))<18 and 25<acc+L*t<total-25:return True
+                acc+=L
+            return False
+        for r in self.arterials:
+            pts=catmull(r["points"])
+            edge=self.core_polygon+[self.core_polygon[0]]
+            runs=[];prev=self.in_core(pts[0]);run=[] if prev else [pts[0]]
+            for a,b in zip(pts,pts[1:]):
+                now=self.in_core(b)
+                if now==prev:
+                    if not now:run.append(b)
+                else:
+                    hits=[x for c,d in zip(edge,edge[1:]) for x in [intersection(a,b,c,d)] if x]
+                    cut=min(hits,key=lambda x:math.dist(x,a)) if hits else (a if now else b)
+                    if now:run.append(cut);runs.append(run);run=[]
+                    else:run=[cut,b]
+                prev=now
+            if len(run)>1:runs.append(run)
+            info=self.arterial_names.get(r["id"],{})
+            base=info.get("name",r["name"])
+            basis=info.get("basis","mitchell_1870" if "mitchell_1870_chicago_map" in r.get("sources",[]) else "city_limits_1869")
+            split=[]
+            for run in runs:
+                run=dedupe(run)
+                if polyline_length(run)<10:continue
+                # Vertices at most 20 m apart, so easing an end bends only the
+                # run's last 300 m, never a long straight trace as a whole.
+                dense=[run[0]]
+                for a,b in zip(run,run[1:]):
+                    count=max(1,math.ceil(math.dist(a,b)/20))
+                    dense.extend((a[0]+(b[0]-a[0])*i/count,a[1]+(b[1]-a[1])*i/count) for i in range(1,count+1))
+                # Where the trace runs alongside the platted street of its own
+                # name (Halsted, Division and Twenty-second bound the core) it is
+                # that street, already drawn: the doubled stretch is dropped.
+                piece=[]
+                for q in dense:
+                    if any(doubles(q,c["points"]) for c in by_base.get(base,[])):
+                        if len(piece)>1:split.append(piece)
+                        piece=[]
+                    else:piece.append(q)
+                if len(piece)>1:split.append(piece)
+            for k,run in enumerate(x for x in split if polyline_length(x)>=10):
+                eased=[]
+                # Where the arterial leaves the core, it continues the platted
+                # street of its own name: ease the trace onto that street's end
+                # over 300 m, so the street runs on without a jog.
+                for end in (0,-1):
+                    p=run[end]
+                    if not min(distance(p,e) for e in self.core_edges)<5:continue
+                    best=None
+                    for c in by_base.get(base,[]):
+                        for q in (c["points"][0],c["points"][-1]):
+                            if math.dist(p,q)<70 and (best is None or math.dist(p,q)<math.dist(p,best)):best=q
+                    if best is None:continue
+                    dx,dy=best[0]-p[0],best[1]-p[1]
+                    seq=run if end==0 else list(reversed(run))
+                    eased.append([round(best[0],3),round(best[1],3),round(math.hypot(dx,dy),3)])
+                    acc=0.;moved=[]
+                    for i,q in enumerate(seq):
+                        if i:acc+=math.dist(seq[i-1],q)
+                        w=max(0.,1-acc/300.);w=w*w*(3-2*w)
+                        moved.append((q[0]+dx*w,q[1]+dy*w))
+                    run=moved if end==0 else list(reversed(moved))
+                axis="ns" if abs(run[-1][1]-run[0][1])>abs(run[-1][0]-run[0][0]) else "ew"
+                name=self.styled(base,run[len(run)//2],"diag" if r in self.diagonals else axis)
+                out.append(dict(r,id=r["id"] if not k else f"{r['id']}_{k}",name=name,source_name=r["name"],points=[tuple(round(v,3) for v in q) for q in run],alignment="mapped_arterial",source_id=r["id"],name_basis=basis,eased=eased,**({"name_note":info["note"]} if info.get("note") else {})))
+        return out
+
+    def join_arterial_ends(self,arterials,us,vs):
+        """An arterial whose trace stops short runs on into the lattice street it
+        becomes: its last 300 m ease onto the nearest lattice crossing ahead."""
+        for r in arterials:
+            pts=r["points"]
+            if len(pts)<2:continue
+            for end in (0,-1):
+                p=pts[end];q=pts[1] if end==0 else pts[-2]
+                if min(distance(p,e) for e in self.core_edges)<5:continue
+                L=math.dist(p,q)
+                if L<1e-6:continue
+                d=((p[0]-q[0])/L,(p[1]-q[1])/L)
+                if not self.road_ok((p[0]+d[0]*12,p[1]+d[1]*12),3):continue
+                pu,pv=uv(*p);best=None
+                for u in us:
+                    if abs(u-pu)>80:continue
+                    for v in vs:
+                        if abs(v-pv)>80:continue
+                        node=en(u,v);off=(node[0]-p[0],node[1]-p[1])
+                        if off[0]*d[0]+off[1]*d[1]<-20 or self.in_core(node):continue
+                        if best is None or math.hypot(*off)<math.dist(p,best):best=node
+                if best is None or math.dist(p,best)>70:continue
+                dx,dy=best[0]-p[0],best[1]-p[1]
+                r.setdefault("eased",[]).append([round(best[0],3),round(best[1],3),round(math.hypot(dx,dy),3)])
+                seq=pts if end==0 else list(reversed(pts));acc=0.;moved=[]
+                for i,c in enumerate(seq):
+                    if i:acc+=math.dist(seq[i-1],c)
+                    w=max(0.,1-acc/300.);w=w*w*(3-2*w)
+                    moved.append((round(c[0]+dx*w,3),round(c[1]+dy*w,3)))
+                pts=moved if end==0 else list(reversed(moved))
+            r["points"]=pts
+
+    def street_junctions(self,runs):
+        """Where two named streets meet: [e, n, name, name]."""
+        cells=collections.defaultdict(list)
+        for ri,(r,run) in enumerate(runs):
+            if not r.get("name"):continue
+            for si,(a,b) in enumerate(zip(run,run[1:])):
+                for i in range(math.floor((min(a[0],b[0])-2)/100),math.floor((max(a[0],b[0])+2)/100)+1):
+                    for j in range(math.floor((min(a[1],b[1])-2)/100),math.floor((max(a[1],b[1])+2)/100)+1):
+                        cells[i,j].append((ri,si,a,b))
+        checked=set();found={}
+        for lst in cells.values():
+            for x in range(len(lst)):
+                r1,s1,a,b=lst[x];n1=runs[r1][0]["name"]
+                for y in range(x+1,len(lst)):
+                    r2,s2,c,d=lst[y];n2=runs[r2][0]["name"]
+                    if n1==n2 or (r1,s1,r2,s2) in checked:continue
+                    checked.add((r1,s1,r2,s2))
+                    p=intersection(a,b,c,d)
+                    if p is None:
+                        for q,e,f in ((a,c,d),(b,c,d),(c,a,b),(d,a,b)):
+                            if segdist(q,e,f)<1.5:p=q;break
+                    if p is None:continue
+                    pair=tuple(sorted((n1,n2)));key=(pair,round(p[0]/10),round(p[1]/10))
+                    if key not in found:found[key]=[round(p[0],2),round(p[1],2),*pair]
+        return sorted(found.values())
+
+    # ---- T-3684: the generic lattice, in whole blocks ------------------
+    def road_ok(self,p,half):
+        if not(self.town(p,3) and self.field_height(*p)>=GRADE-.01 and not self.park(p)):return False
+        return BOUNDS[0]+half<p[0]<BOUNDS[1]-half and BOUNDS[2]+half<p[1]<BOUNDS[3]-half
+
+    def lattice_pieces(self,us,vs,arterials):
+        lines=[]
+        for i,u in enumerate(us):
+            lines.append(("ns",i,u,-7400.,5200.,14 if -1700<u<700 else 12))
+        for i,v in enumerate(vs):
+            lines.append(("ew",i,v,-8500.,3100.,14 if -1400<v<1200 else 12))
+        art_uv=[[uv(*q) for q in r["points"]] for r in arterials]
+        edge_uv=[[uv(*q) for q in e] for e in [self.core_polygon+[self.core_polygon[0]]]]
+        pieces=[]
+        for axis,i,c,lo,hi,width in lines:
+            k=0 if axis=="ns" else 1   # the line's fixed coordinate index in (u,v)
+            cuts=[(lo,("end",)),(hi,("end",))]
+            others=vs if axis=="ns" else us
+            cuts+=[(o,("grid",axis,c,o)) for o in others if lo<o<hi]
+            for j,pts in enumerate(art_uv):
+                for a,b in zip(pts,pts[1:]):
+                    if (a[k]-c)*(b[k]-c)<0 or (a[k]==c and b[k]!=c):
+                        t=(c-a[k])/(b[k]-a[k]);along=a[1-k]+(b[1-k]-a[1-k])*t
+                        cuts.append((along,("art",j)))
+            for pts in edge_uv:
+                for a,b in zip(pts,pts[1:]):
+                    if (a[k]-c)*(b[k]-c)<0:
+                        t=(c-a[k])/(b[k]-a[k]);cuts.append((a[1-k]+(b[1-k]-a[1-k])*t,("core",)))
+            cuts.sort(key=lambda x:x[0])
+            point=lambda t:en(c,t) if axis=="ns" else en(t,c)
+            for (t0,n0),(t1,n1) in zip(cuts,cuts[1:]):
+                if t1-t0<4:continue
+                a,b=point(t0),point(t1)
+                if self.in_core(point((t0+t1)/2)):continue
+                samples=[point(t0+(t1-t0)*q/max(1,math.ceil((t1-t0)/5))) for q in range(max(1,math.ceil((t1-t0)/5))+1)]
+                ok=[self.road_ok(p,width/2+2.3+.3) for p in samples]
+                if not any(ok):continue
+                doubled=sum(1 for p,o in zip(samples,ok) if o and self.mapped_parallel_at(p,axis))
+                if doubled>.3*sum(ok):continue
+                pieces.append({"axis":axis,"line":i,"a":a,"b":b,"ends":(n0,n1),"width":width,"samples":samples,"ok":ok})
+        # Prune dead ends: a lattice block that stops at a crossing where no other
+        # street continues, on dry ground, is a stub; drop it until none is left.
+        def node(n):
+            if n[0]=="grid":
+                axis,c,o=n[1:];return ("grid",round(o,3),round(c,3)) if axis=="ns" else ("grid",round(c,3),round(o,3))
+            return None
+        alive=set(range(len(pieces)))
+        while True:
+            degree=collections.Counter()
+            for i in alive:
+                for n in pieces[i]["ends"]:
+                    key=node(n)
+                    if key:degree[key]+=1
+            drop=set()
+            for i in alive:
+                piece=pieces[i]
+                for end,n in enumerate(piece["ends"]):
+                    key=node(n)
+                    if key is None or degree[key]>1:continue
+                    # A block ending at water, a park or the city limit is a real end.
+                    if not piece["ok"][0 if end==0 else -1]:continue
+                    tip=piece["a"] if end==0 else piece["b"];other=piece["b"] if end==0 else piece["a"]
+                    L=math.dist(tip,other);probe=(tip[0]+(tip[0]-other[0])/L*12,tip[1]+(tip[1]-other[1])/L*12)
+                    if self.road_ok(probe,piece["width"]/2+2.6):drop.add(i)
+            if not drop:break
+            alive-=drop
+        # Blocks left end to end on one lattice line are one street.
+        out=[];prev=None
+        for i in sorted(alive):
+            piece=pieces[i]
+            if prev and (prev["axis"],prev["line"])==(piece["axis"],piece["line"]) and out[-1]["points"][-1]==piece["a"]:
+                out[-1]["points"].append(piece["b"])
+            else:
+                out.append({"id":f"grid_{piece['axis']}_{piece['line']:03}_{i:05}","name":None,"points":[piece["a"],piece["b"]],"width_m":piece["width"],"walk_m":2.3,"grid_axis":piece["axis"],"alignment":"reconstructed_grid","name_basis":"reconstructed"})
+            prev=piece
+        return out
 
     def mapped_parallel_at(self,p,axis):
         along=uv(*p)[1 if axis=="ns" else 0]
@@ -523,17 +1114,18 @@ class City:
         out=[];rng=self.rng
         occupied=collections.defaultdict(list)
         self.placement_overlap_omissions=0
-        def place(rec):
+        def place(rec,probe=False):
             # Mapped frontage rows can shift within their generic blocks. Keep
             # the first valid parcel, and leave space where two resulting lots
             # would otherwise overlap; never move a mapped street to fit them.
             # Attached fronts share a party wall: touching is not overlapping.
-            u,v=uv(rec["e"],rec["n"]);w,d=extent_uv(rec)
+            u,v=uv(rec["e"],rec["n"]);w,d=extents(rec)
             ix,iy=math.floor(u/100),math.floor(v/100)
             for x in range(ix-1,ix+2):
                 for y in range(iy-1,iy+2):
                     if any(abs(u-ou)<(w+ow)/2-.02 and abs(v-ov)<(d+od)/2-.02 for ou,ov,ow,od in occupied[x,y]):
-                        self.placement_overlap_omissions+=1
+                        # A probe tries a shallower front next; it is not an omission.
+                        if not probe:self.placement_overlap_omissions+=1
                         return False
             occupied[ix,iy].append((u,v,w,d));out.append(rec)
             return True
@@ -629,11 +1221,15 @@ class City:
             scale=length/total
             for lot in lots:lot[0]*=scale
             return lots
+        # Platted frontage first: a generic lattice lot never takes its place.
+        self.core_lots(place,recipes,heights,fronts,strip)
+        self.curve_lots(place,recipes,heights)
         for bi,(u0,u1) in enumerate(zip(us,us[1:])):
             for bj,(v0,v1) in enumerate(zip(vs,vs[1:])):
                 if u1-u0<45 or v1-v0<75:continue
                 e,n=en((u0+u1)/2,(v0+v1)/2)
                 if not self.town((e,n)) or self.park((e,n)):continue
+                if self.in_core((e,n)):continue
                 district=self.district(e,n);density,kits=recipes[district]
                 commercial=district=="central_business"; industrial=district=="river_industry"
                 lot=14 if commercial else 23 if industrial else 17.5 if district=="south_residential" else 15.5
@@ -727,6 +1323,147 @@ class City:
                                 e2,n2=en(u,v2);place(dict({k:v for k,v in rec.items() if k!="yard_m"},id=rec["id"]+"_yard",e=round(e2,2),n=round(n2,2),width_m=round(w2,2),depth_m=d2,eave_m=round(rng.uniform(2.8,4.0),2),kit="stable"))
         return out
 
+    def curve_lots(self,place,recipes,heights):
+        """T-3684: lots along a curving or diagonal street (Clybourn, Milwaukee,
+        Blue Island, Ogden, Archer, North Clark) face it, turned to its local
+        line, before the lattice fills the blocks behind them."""
+        rng=random.Random(18711885)
+        for si,street in enumerate(self.arterial_runs+self.core):
+            pts=street["points"]
+            if len(pts)<2:continue
+            straight=all(abs(uv(*b)[1]-uv(*a)[1])<=math.dist(a,b)*.07 or abs(uv(*b)[0]-uv(*a)[0])<=math.dist(a,b)*.07 for a,b in zip(pts,pts[1:]))
+            if straight and street.get("alignment")=="core_platted":continue
+            edge=street.get("width_m",14)/2+street.get("walk_m",2.3)+5
+            L=polyline_length(pts)
+            cum=[0.]
+            for a,b in zip(pts,pts[1:]):cum.append(cum[-1]+math.dist(a,b))
+            def at(t):
+                for i in range(len(pts)-1):
+                    if cum[i+1]>=t:
+                        a,b=pts[i],pts[i+1];seg=cum[i+1]-cum[i] or 1e-9;k=(t-cum[i])/seg
+                        return (a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k),((b[0]-a[0])/seg,(b[1]-a[1])/seg)
+                a,b=pts[-2],pts[-1];seg=math.dist(a,b) or 1e-9
+                return b,((b[0]-a[0])/seg,(b[1]-a[1])/seg)
+            for side in (-1,1):
+                s0=12.;k=0
+                while s0<L-12:
+                    (p,t)=at(s0)
+                    if not self.town(p,8):s0+=20;continue
+                    district=self.district(*p);density,kits=recipes[district]
+                    commercial=district=="central_business";industrial=district=="river_industry"
+                    lot=14 if commercial else 23 if industrial else 17.5 if district=="south_residential" else 15.5
+                    width=lot*rng.uniform(.8,1.05)
+                    if s0+width>L-12:break
+                    mid=s0+width/2;s0+=width;k+=1
+                    if rng.random()>density:continue
+                    (c,t)=at(mid);nrm=(-t[1]*side,t[0]*side)
+                    # straight-on only where the street does not bend much under the lot
+                    (_,t0),(_,t1)=at(mid-width/2),at(mid+width/2)
+                    if t0[0]*t1[0]+t0[1]*t1[1]<math.cos(math.radians(12)):continue
+                    kit=rng.choice(kits)
+                    if kit in FRAME_OF and random.Random(f"1871-fabric-curve-{si}-{side}-{k}").random()<FRAME_SHARE[district]:
+                        kit=FRAME_OF[kit]
+                    depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
+                    setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)
+                    back=edge+setback+depth/2
+                    e,n=c[0]+nrm[0]*back,c[1]+nrm[1]*back
+                    bearing=math.degrees(math.atan2(-nrm[0],-nrm[1]))
+                    w=width*.94
+                    if not self.lot_clear(corners(e,n,w,depth,bearing)):continue
+                    h=heights[kit]*rng.uniform(.91,1.09)
+                    place({"id":f"context1871_curve_{si:04}_{'l' if side>0 else 'r'}_{k:03}","e":round(e,2),"n":round(n,2),"width_m":round(w,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE})
+
+    def core_lots(self,place,recipes,heights,fronts,strip):
+        """T-3684: inside the platted city, lots front the streets themselves.
+
+        Each straight block face of a grid-aligned street is divided into
+        generic lots facing it, set back exactly as the lattice rows are; a
+        corner keeps the first lot placed. Diagonal streets take no frontage
+        here (their neighbours' lots fill the blocks). Downtown, and on the shop
+        streets within the city's shopping reach, a face is one attached row
+        (T-3686): fronts party wall to party wall, built to the walk.
+        """
+        rng=random.Random(18711884)
+        for si,street in enumerate(self.core):
+            pts=street["points"];edge=street.get("width_m",14)/2+street.get("walk_m",2.3)+5
+            for gi,(a,b) in enumerate(zip(pts,pts[1:])):
+                (ua,va),(ub,vb)=uv(*a),uv(*b);du,dv=ub-ua,vb-va;L=math.hypot(du,dv)
+                if L<26:continue
+                if abs(dv)<=L*.07:axis="ew"
+                elif abs(du)<=L*.07:axis="ns"
+                else:continue
+                for side in (-1,1):
+                    mid=(ua+du*.5,va+dv*.5);district=self.district(*en(*mid))
+                    if district=="central_business" or (math.hypot(*mid)<2600 and strip(street) and district!="outer_settlement"):
+                        self.core_row(place,street,si,gi,side,axis,(ua,va),(du,dv),L,edge,district,fronts)
+                        continue
+                    s0=9.;k=0
+                    while s0<L-9:
+                        mid=(ua+du*(s0/L),va+dv*(s0/L))
+                        district=self.district(*en(*mid));density,kits=recipes[district]
+                        commercial=district=="central_business";industrial=district=="river_industry"
+                        lot=14 if commercial else 23 if industrial else 17.5 if district=="south_residential" else 15.5
+                        width=min(lot*rng.uniform(.8,1.05),L-9-s0)
+                        if width<6:break
+                        s0+=width;k+=1
+                        if rng.random()>density:continue
+                        kit=rng.choice(kits)
+                        if kit in FRAME_OF and random.Random(f"1871-fabric-core-{si}-{gi}-{side}-{k}").random()<FRAME_SHARE[district]:
+                            kit=FRAME_OF[kit]
+                        depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
+                        setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)
+                        at=s0-width/2;c=(ua+du*at/L,va+dv*at/L)
+                        back=edge+setback+depth/2
+                        if axis=="ew":
+                            u,v=c[0],c[1]+side*back;eu,ev=width*.94,depth
+                            bearing=-math.degrees(ANGLE)+(180 if side>0 else 0)
+                        else:
+                            u,v=c[0]+side*back,c[1];eu,ev=depth,width*.94
+                            bearing=-math.degrees(ANGLE)+(-90 if side>0 else 90)
+                        pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
+                        if not self.lot_clear(pts4):continue
+                        e,n=en(u,v);h=heights[kit]*rng.uniform(.91,1.09)
+                        rec={"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_{k:02}","e":round(e,2),"n":round(n,2),"width_m":round(width*.94,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE}
+                        # T-3686: a house's front yard, its front to the walk's outer edge.
+                        if kit in HOUSE_KITS:rec["yard_m"]=round(setback+5,1)
+                        place(rec)
+
+    def core_row(self,place,street,si,gi,side,axis,a,d,L,edge,district,fronts):
+        """T-3686 on a platted face: attached fronts fill the face from corner
+        to corner at the building line, with the gap to the walk paved
+        (walk_gap_m); a front a cross street's lot already holds is left out."""
+        (ua,va),(du,dv)=a,d
+        kind="central_business" if district=="central_business" else "strip"
+        draw=random.Random(f"1871-core-row-{si}-{gi}-{side}")
+        gap=edge+.05-street.get("width_m",14)/2-street.get("walk_m",2.3)
+        # The row runs from one cross street's building line to the next; the
+        # front stands just outside the corridor margin lot_clear keeps.
+        s0=edge+.05
+        if L-2*s0<16:return
+        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-2*s0,kind,draw,district,f"core-{si}-{gi}-{side}")):
+            at=s0+width/2;s0+=width
+            full=max(10.,draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26))
+            c=(ua+du*at/L,va+dv*at/L)
+            # A wider mapped corridor or a shallow block: set the front back a
+            # little, or build shallower, before leaving the lot empty.
+            for push in (0.,.3,.8,1.5,2.5):
+                for depth in dict.fromkeys((full,max(10.,full*.7),max(10.,full*.5),10.)):
+                    back=edge+.05+push+depth/2
+                    if axis=="ew":
+                        u,v=c[0],c[1]+side*back;eu,ev=width,depth
+                        bearing=-math.degrees(ANGLE)+(180 if side>0 else 0)
+                    else:
+                        u,v=c[0]+side*back,c[1];eu,ev=depth,width
+                        bearing=-math.degrees(ANGLE)+(-90 if side>0 else 90)
+                    pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
+                    if not self.lot_clear(pts4):continue
+                    # Backs meeting the row behind (a half block between two
+                    # platted streets) build shallower rather than leave a gap.
+                    e,n=en(u,v)
+                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(gap+push,2)},probe=True):break
+                else:continue
+                break
+
     def infrastructure(self):
         roads=Mesh("city1871");bridges=Mesh("city1871_bridge");rail=Mesh("city1871_rail")
         total=0.;segments=[]
@@ -750,45 +1487,91 @@ class City:
                         roads.face("charred",[(start,GRADE+.015,-n),(e,GRADE+.015,-n),
                                                (e,GRADE+.015,-n-5),(start,GRADE+.015,-n-5)],"saturday_fire_clearance")
                         start=None
+        # T-3684: each street is drawn as continuous runs over dry, open ground.
+        # A bend is covered by extending the ribbons on its outside; a walk stops
+        # at the kerb of every street it meets, so junctions are one carriageway
+        # with the plank walks wrapping their corners.
+        runs=[]
         for r in self.streets:
-            for a,b in zip(r["points"],r["points"][1:]):
-                dx,dn=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dn)
-                count=max(1,math.ceil(length/5));start=None
-                nx,nn=-dn/length,dx/length
-                outer_edge=r.get("width_m",14)/2+r.get("walk_m",2.3)+.25
+            pts=dedupe(r["points"])
+            width=r.get("width_m",14);walk=r.get("walk_m",2.3);outer=width/2+walk+.25
+            run=[]
+            for a,b in zip(pts,pts[1:]):
+                L=math.dist(a,b);nx,nn=-(b[1]-a[1])/L,(b[0]-a[0])/L
+                count=max(1,math.ceil(L/5))
                 for k in range(count+1):
-                    t=k/count;p=(a[0]+dx*t,a[1]+dn*t)
-                    valid=self.town(p,3) and self.field_height(*p)>=GRADE-.01 and not self.park(p)
-                    if valid:
-                        # The outer visual skirt is horizon context, not a
-                        # navigation field. Keep the complete road and walks
-                        # inside the dated field even on the municipal edge.
-                        edges=[(p[0]+nx*off,p[1]+nn*off) for off in (-outer_edge,outer_edge)]
-                        valid=all(BOUNDS[0]+.01<e<BOUNDS[1]-.01 and BOUNDS[2]+.01<n<BOUNDS[3]-.01
-                                  and self.field_height(e,n)>=GRADE-.01 for e,n in edges)
-                    if valid and r.get("grid_axis") and self.mapped_parallel_at(p,r["grid_axis"]):valid=False
-                    if valid and start is None:start=p
-                    if start is not None and (not valid or k==count):
-                        end=(a[0]+dx*max(0,k-1)/count,a[1]+dn*max(0,k-1)/count) if not valid else p
-                        span=math.dist(start,end)
-                        if span>4:
-                            start=tuple(round(v,3) for v in start);end=tuple(round(v,3) for v in end)
-                            district=self.district(*start);outer=district=="outer_settlement"
-                            mat="dirt" if outer else "woodblock"
-                            width=r.get("width_m",14);walk=r.get("walk_m",2.3)
-                            roads.ribbon(mat,start,end,width,ROAD_Y,"streets")
-                            surface_id=f"{r['id']}__{len(segments)}"
-                            self.walk_surfaces.append({"id":surface_id+"_road","kind":"road","a":start,"b":end,"width_m":width,"y":ROAD_Y})
-                            # Continuous planked pedestrian walks on both sides.
-                            nx,nn=-dn/length,dx/length
-                            for side in (-1,1):
-                                off=side*(width/2+walk/2)
-                                aa=tuple(round(v,3) for v in (start[0]+nx*off,start[1]+nn*off));bb=tuple(round(v,3) for v in (end[0]+nx*off,end[1]+nn*off))
-                                roads.ribbon("plank",aa,bb,walk,WALK_Y,"walks")
-                                self.walk_surfaces.append({"id":surface_id+f"_walk_{side}","kind":"walk","a":aa,"b":bb,"width_m":walk,"y":WALK_Y})
-                            total+=span
-                            segments.append({"street_id":r["id"],"name":r.get("name",r["id"]),"alignment":r.get("alignment","reconstructed_grid"),"a":[round(t,2) for t in start],"b":[round(t,2) for t in end],"width_m":width,"walk_m":walk,"surface":mat})
-                        start=None
+                    if k==0 and run and math.dist(run[-1],a)<1e-6:continue
+                    t=k/count;q=(a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t)
+                    valid=self.road_ok(q,0) and all(BOUNDS[0]+.01<e<BOUNDS[1]-.01 and BOUNDS[2]+.01<n<BOUNDS[3]-.01 and self.field_height(e,n)>=GRADE-.01 for e,n in ((q[0]+nx*off,q[1]+nn*off) for off in (-outer,outer)))
+                    if valid:run.append(q)
+                    else:
+                        if len(run)>1 and polyline_length(run)>4:runs.append((r,run))
+                        run=[]
+            if len(run)>1 and polyline_length(run)>4:runs.append((r,run))
+        # Keep the vertices the line's shape needs: within 1 cm of the sampled
+        # run (Douglas-Peucker), so a straight block is one segment and a curve
+        # keeps its spline points.
+        def simplify(run,tol=.01):
+            keep=[False]*len(run);keep[0]=keep[-1]=True;stack=[(0,len(run)-1)]
+            while stack:
+                i,j=stack.pop()
+                if j<=i+1:continue
+                k=max(range(i+1,j),key=lambda m:segdist(run[m],run[i],run[j]))
+                if segdist(run[k],run[i],run[j])>tol:keep[k]=True;stack+=[(i,k),(k,j)]
+            return [q for q,f in zip(run,keep) if f]
+        runs=[(r,[tuple(round(v,3) for v in q) for q in simplify(run)]) for r,run in runs]
+        carriage=collections.defaultdict(list)
+        for ri,(r,run) in enumerate(runs):
+            half=r.get("width_m",14)/2
+            for si,(a,b) in enumerate(zip(run,run[1:])):
+                for i in range(math.floor((min(a[0],b[0])-half)/100),math.floor((max(a[0],b[0])+half)/100)+1):
+                    for j in range(math.floor((min(a[1],b[1])-half)/100),math.floor((max(a[1],b[1])+half)/100)+1):
+                        carriage[i,j].append((ri,si,a,b,half))
+        def cut_walk(ri,si,wa,wb,reach):
+            cuts=[]
+            seen=set()
+            for i in range(math.floor((min(wa[0],wb[0])-reach)/100),math.floor((max(wa[0],wb[0])+reach)/100)+1):
+                for j in range(math.floor((min(wa[1],wb[1])-reach)/100),math.floor((max(wa[1],wb[1])+reach)/100)+1):
+                    for rec in carriage[i,j]:
+                        if (rec[0],rec[1]) in seen or (rec[0],rec[1])==(ri,si):continue
+                        seen.add((rec[0],rec[1]))
+                        hit=ribbon_cuts(wa,wb,rec[2],rec[3],rec[4])
+                        if hit:cuts.append(hit)
+            cuts.sort();pieces=[];t=0.
+            for lo,hi in cuts:
+                if lo>t:pieces.append((t,lo))
+                t=max(t,hi)
+            if t<1:pieces.append((t,1.))
+            L=math.dist(wa,wb)
+            return [(p0,p1) for p0,p1 in pieces if (p1-p0)*L>.5]
+        self.runs=runs
+        for ri,(r,run) in enumerate(runs):
+            width=r.get("width_m",14);walk=r.get("walk_m",2.3);half=width/2
+            bend=[(0.,0)]*len(run)
+            for i in range(1,len(run)-1):
+                a,b,c=run[i-1],run[i],run[i+1]
+                theta=min(100.,turning(a,b,c))
+                side=(b[0]-a[0])*(c[1]-b[1])-(b[1]-a[1])*(c[0]-b[0])
+                bend[i]=(math.tan(math.radians(theta)/2),-1 if side>0 else 1)
+            for si,(a,b) in enumerate(zip(run,run[1:])):
+                L=math.dist(a,b);dx,dn=(b[0]-a[0])/L,(b[1]-a[1])/L;nx,nn=-dn,dx
+                ta,oa=bend[si];tb,ob=bend[si+1]
+                district=self.district(*a);mat="dirt" if district=="outer_settlement" else "woodblock"
+                start=(round(a[0]-dx*half*ta,3),round(a[1]-dn*half*ta,3));end=(round(b[0]+dx*half*tb,3),round(b[1]+dn*half*tb,3))
+                roads.ribbon(mat,start,end,width,ROAD_Y,"streets")
+                surface_id=f"{r['id']}__{len(segments)}"
+                self.walk_surfaces.append({"id":surface_id+"_road","kind":"road","a":start,"b":end,"width_m":width,"y":ROAD_Y})
+                for side in (-1,1):
+                    off=side*(half+walk/2)
+                    ea=(half+walk)*ta if oa==side else 0.;eb=(half+walk)*tb if ob==side else 0.
+                    wa=(a[0]+nx*off-dx*ea,a[1]+nn*off-dn*ea);wb=(b[0]+nx*off+dx*eb,b[1]+nn*off+dn*eb)
+                    for k,(p0,p1) in enumerate(cut_walk(ri,si,wa,wb,half+walk+30)):
+                        aa=tuple(round(wa[i]+(wb[i]-wa[i])*p0,3) for i in (0,1));bb=tuple(round(wa[i]+(wb[i]-wa[i])*p1,3) for i in (0,1))
+                        roads.ribbon("plank",aa,bb,walk,WALK_Y,"walks")
+                        self.walk_surfaces.append({"id":surface_id+f"_walk_{side}"+(f"_{k}" if k else ""),"kind":"walk","a":aa,"b":bb,"width_m":walk,"y":WALK_Y})
+                total+=L
+                segments.append({"street_id":r["id"],"name":r.get("name"),"alignment":r.get("alignment","reconstructed_grid"),"name_basis":r.get("name_basis","reconstructed"),"run":ri,"a":[round(t,2) for t in a],"b":[round(t,2) for t in b],"width_m":width,"walk_m":walk,"surface":mat,**({"source_name":r["source_name"],"trace_id":r["source_id"]} if r.get("source_name") else {})})
+        self.junctions=self.street_junctions(runs)
         bridge_records=self.plan.get("bridges",[])
         for i,rec in enumerate(bridge_records):
             p=rec["point"]
@@ -798,7 +1581,8 @@ class City:
             if rec.get("railway_id"):
                 named=[r for r in self.rails if r["id"]==rec["railway_id"]]
             else:
-                named=[r for r in self.arterials if (r["id"]==rec.get("street_id") if rec.get("street_id") else stem in r.get("name","").lower())]
+                pool=[r for r in self.streets if r.get("name")]+self.arterials
+                named=[r for r in pool if (r["id"]==rec.get("street_id") if rec.get("street_id") else stem in r.get("name","").lower())]
             street=min(named,key=lambda r:distance(p,r["points"])) if named else None
             axis=rec.get("axis_points")
             if axis:
@@ -810,12 +1594,19 @@ class City:
                 alignment="source_point_and_axis"
             else:
                 if street is None:raise ValueError(f"{name}: supply a mapped approach or explicit source axis; no generic-grid fallback")
+                # T-3684: the deck carries the street as it is drawn; the traced
+                # arterial is the fallback where no drawn street of the name
+                # crosses within the reading's tolerance.
                 candidates=[]
-                for a,b in zip(street["points"],street["points"][1:]):
-                    for river in self.rivers:
-                        for c,d in zip(river["points"],river["points"][1:]):
-                            cross=intersection(a,b,c,d)
-                            if cross:candidates.append((cross,a,b,river))
+                for street in sorted(named,key=lambda r:(r in self.arterials,distance(p,r["points"]))):
+                    for a,b in zip(street["points"],street["points"][1:]):
+                        for river in self.rivers:
+                            for c,d in zip(river["points"],river["points"][1:]):
+                                cross=intersection(a,b,c,d)
+                                if cross:candidates.append((cross,a,b,river,street))
+                    near=[q for q in candidates if math.dist(q[0],p)<=rec.get("max_alignment_offset_m",35)]
+                    if near:candidates=near;break
+                candidates=[q[:4] for q in candidates if q[4] is street] or [q[:4] for q in candidates]
                 if not candidates:raise ValueError(f"{name}: mapped road does not cross mapped river; re-read the source approach")
                 cross,a,b,river=min(candidates,key=lambda q:math.dist(q[0],p))
                 if math.dist(cross,p)>rec.get("max_alignment_offset_m",35):
@@ -1045,13 +1836,13 @@ def generate():
             for y in range(iy-1,iy+2):
                 for b in occupied[x,y]:
                     u,v=uv(t["e"]-b["e"]+ANCHOR[0],t["n"]-b["n"]+ANCHOR[1])
-                    w,d=extent_uv(b)
-                    if abs(u)<w/2+1 and abs(v)<d/2+1:return False
+                    eu,ev=extents(b)
+                    if abs(u)<eu/2+1 and abs(v)<ev/2+1:return False
         return True
     trees=[t for t in trees if unoccupied(t)]
     names={"central_business":"Central business district","river_industry":"River warehouses and industrial yards","south_residential":"South Side residential streets","north_residential":"North Division mixed residential streets","west_residential":"West Division working neighborhoods","mixed_neighborhood":"Mixed shops and dwellings","outer_settlement":"Sparse outer settlement and platted streets"}
-    stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"trees":len(trees),"street_segments":len(segments),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
-    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":WALK_Y,"bridge":DECK_Y,"quay":WALK_Y}}
+    stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"trees":len(trees),"street_segments":len(segments),"named_street_segments":sum(1 for x in segments if x.get("name")),"junctions":len(city.junctions),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
+    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":WALK_Y,"bridge":DECK_Y,"quay":WALK_Y}}
     # T-3686: where the fronts are built at full detail (a list the jaunt stops extend).
     doc["detail_rings"]="context/1871/detail-rings.json"
     outputs={ROOT/"data/context/1871.json":encoded(doc),OUT/"streets.glb":roads.glb(digest),OUT/"bridges.glb":bridges.glb(digest),OUT/"rail.glb":rail.glb(digest)}
