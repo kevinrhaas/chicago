@@ -24,18 +24,7 @@
     { "id": "the-pullman-twins", "narrators": ["essayist"] },
     { "id": "the-walk-to-the-lake", "narrators": ["essayist"] },
     "glessner-household-tour",
-    "prairie-avenue-orientation",
-    { "id": "prairie-famous-names", "narrators": ["essayist"] },
-    { "id": "prairie-notable-women", "narrators": ["essayist"] },
-    { "id": "prairie-ghosts-at-night", "narrators": ["essayist"] },
-    { "id": "prairie-architects", "narrators": ["essayist"] },
-    { "id": "prairie-style-italianate", "narrators": ["essayist"] },
-    { "id": "prairie-style-romanesque", "narrators": ["essayist"] },
-    { "id": "prairie-style-second-empire", "narrators": ["essayist"] },
-    { "id": "first-fort-dearborn-tour", "narrators": ["essayist"] },
-    { "id": "killing-of-jean-lalime", "narrators": ["essayist"] },
-    { "id": "battle-of-fort-dearborn-grades-3-5", "narrators": ["essayist"] },
-    { "id": "battle-of-fort-dearborn-grades-9-10", "narrators": ["essayist"] }
+    "prairie-avenue-orientation"
   ],
   "$held": "Month 2 of the narration plan (T-3698), held out of `jaunts` until the owner gives the monthly ElevenLabs limit or the quota can be read (2026-11-20): move these back into `jaunts` to voice them.",
   "held": [
