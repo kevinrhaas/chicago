@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3157, ts: '2026-11-20T04:17:46.793Z', date: 'Nov 19, 2026, 10:17 PM CT', title: '2013 Prairie\'s front gains its stone frame and its two oval windows', kind: 'improvement',
+    items: [
+      'The Reid house\'s upper windows now sit inside the stone frame the 1895 plate shows: pilasters between the lights, a sunk panel under each top-floor window and one corniced hood across them all.',
+      'The top floor\'s broad window is now a square window under the hood with a small arched window above it, as the plate draws it.',
+      'The two oval windows either side of the frame stand in their moulded stone rings.',
+      'Still to come: the carved capitals and border, the garlanded frieze, the front\'s paler brick, and the sides and back.',
+    ] },
   { v: 3156, ts: '2026-11-20T03:19:33.373Z', date: 'Nov 19, 2026, 9:19 PM CT', title: '1871\'s streets are wood block, boulders and dirt, under raised plank walks', kind: 'improvement',
     items: [
       'Clark, Lake and the other streets the Board of Public Works\' 1871 report names are paved in end-grain wood block; the main thoroughfares share the rest of its 57 miles.',
