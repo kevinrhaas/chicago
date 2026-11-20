@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3149, ts: '2026-11-20T00:07:54.061Z', date: 'Nov 19, 2026, 6:07 PM CT', title: 'More walks to be read aloud', kind: 'feature',
+    items: [
+      'Next in line to be read aloud, after the battle and the 1904 story walks: Famous names of Prairie Avenue, Women of Prairie Avenue, Ghosts of Prairie Avenue, Architects of Prairie Avenue, and the Italianate, Romanesque and Second Empire style walks.',
+      'Also queued: Fort Dearborn, Building by Building, Chicago\'s First Murder, and the younger and older tellings of the Battle of Fort Dearborn, all in the Cultivated Essayist\'s smooth reading.',
+    ] },
   { v: 3148, ts: '2026-11-20T00:03:04.470Z', date: 'Nov 19, 2026, 6:03 PM CT', title: '1871 downtown stands shoulder to shoulder, with shopfronts, signs and doors', kind: 'improvement',
     items: [
       'Downtown and along Lake, Randolph, Clark, Wells, Madison, Canal, Milwaukee and North Clark, buildings now stand wall to wall in rows of brick, cream stone and painted brick, three to six storeys high.',
