@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3169, ts: '2026-11-20T15:02:03.257Z', date: 'Nov 20, 2026, 9:02 AM CT', title: '2100 Prairie\'s corner oriel stands on its column', kind: 'feature',
+    items: [
+      'The Sherman house\'s corner at 21st Street now looks like its c. 1890 photograph and the 1876 plate: a stone oriel set across the corner at the second storey, on stepped corbels and a slender stone column with a carved capital, replacing the brick tower that stood from the ground.',
+      'Over the oriel\'s face is its own small coped stone gable with a roundel. Behind it the steep slated pyramid now springs from the main cornice, flared at its foot, instead of from a tower top.',
+    ] },
   { v: 3168, ts: '2026-11-20T14:30:09.666Z', date: 'Nov 20, 2026, 8:30 AM CT', title: 'Faster, steadier road checks behind the scenes', kind: 'fix',
     items: [
       'The automated check that reads how well the streets stand out from the ground now pauses the town\'s own animation while it takes each picture. A picture used to wait out several slow frames on the test machine and could give up after ninety seconds, which held back three Prairie Avenue houses that do not touch a road. Nothing changes for a visitor. The checks read the same frames against the same bars, without the wait.',

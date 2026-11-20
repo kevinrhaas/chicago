@@ -86,6 +86,12 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                the wall's face (a `side` junction, mitred and trimmed on that plane, not the
                face's), the gable on the shortened front and its kneeler over the chamfer's
                head; its host cuts its own corner under it (k01_frontage_params.chamfer_spans)
+  across oriel (T-3700) an oriel set across its house's corner on its corbels (2100 Prairie's,
+               its photograph and the 1876 plate): the across-corner tower's turned square from
+               its floor up, its cap the whole ring's (and it may flare); under it a `column`, a
+               stone shaft on a pedestal from grade with a base and a capital stopped under the
+               lowest corbel course over its axis; over its face to the corner a `face_gable`, a
+               small coped stone triangle on its eaves, a roundel on it, dying into the cap
   tower dress  (T-3329) a square tower's record may add the bracketed bay's `brackets` (1936's
                belvedere, its photograph): consoles at the ring's corners that stand out of
                the wall, never at one inside the house, and the row of modillions along each
@@ -1883,6 +1889,10 @@ class Bay:
             self._apron_bottom(world, y0, cv)
         elif not grade and not v.get("on_shaft"):   # T-3370: a whole stage stands on its shaft
             self._corbel_bottom(world, y0, cv)
+        if v.get("column"):
+            self._column(world, v["column"], y0, cv)
+        if v.get("face_gable"):
+            self._face_gable(world, v["face_gable"], y_e, ov)
         if not v.get("capped"):
             self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
@@ -2084,6 +2094,11 @@ class Bay:
             reach = self.plan["centre"][1] + self.plan["R"]
         step = reach / (K + 1)
         h = cb["course_height_m"]
+        # T-3700: an oriel across its corner (2100's) is a turned square, whose courses step in at
+        # its corners by step * sqrt(2): each is held to the oversail rule there, and its lowest
+        # course is carried by the column under it, not by the wall the ring stands clear of
+        if self.plan.get("across_corner") and v["kind"] == "oriel":
+            step = min(step, cb["max_oversail_ratio"] * h / math.sqrt(2) * 0.999)
         return K, step, h, reach
 
     def _corbel_courses(self, flat, run, y0):
@@ -2109,6 +2124,91 @@ class Bay:
         self.meta["corbel"] = {"courses": K, "course_height_m": h, "step_m": round(step, 4),
                                "reach_m": round(reach, 4), "bearing_m": round(reach - K * step, 4),
                                "bottom_m": round(y, 4)}
+
+    def _column(self, world, col, y0, cv):
+        """T-3700: the stone column an oriel set across its corner stands on (2100 Prairie's, under
+        its face to the corner in the 1876 plate, a shaft with a moulded base and a carved
+        capital before the cut corner): a square PEDESTAL `pedestal_m` each side of the column's
+        axis from grade to `foot_m`, a square BASE over it, a round SHAFT of `radius_m`, and a
+        square CAPITAL whose top is the underside of the lowest corbel course standing over the
+        axis (or the oriel's floor, where none does), so it carries the courses it stands under.
+        `at` is the axis in the bay's frame, outside the house and inside the ring."""
+        if not self.plan.get("across_corner") or self.v["kind"] != "oriel" or self.v.get("apron"):
+            raise ValueError(f"{self.v['id']}: only an oriel across its corner, on its corbels, stands on a column")
+        x, z = (float(q) for q in col["at"])
+        r, foot, ped = float(col["radius_m"]), float(col["foot_m"]), float(col["pedestal_m"])
+        # how far in from the ring's nearest face the axis stands, so which course it is under
+        d = min(n[0] * (a[0] - x) + n[1] * (a[1] - z) for a, _e, n in self.plan["lines"])
+        K, step, h, _reach = self._corbel_layout(y0)
+        if d <= ped:
+            raise ValueError(f"{self.v['id']}: its column's pedestal stands out past the oriel's face "
+                             f"({d:.2f} m in from it, the pedestal {ped} m each side)")
+        top = y0 - min(K, int(d / step + 1e-9)) * h
+        cap_h, base_h, cap_w, base_w = 0.35, 0.2, r + 0.12, r + 0.06
+        if not foot + base_h + 1.0 <= top - cap_h:
+            raise ValueError(f"{self.v['id']}: its column from {foot} m to {top:.2f} m leaves no shaft")
+
+        def block(x0, x1, y_lo, y_hi, z0, z1, under=True):
+            world.face("plinth", [(x0, y_hi, z0), (x0, y_hi, z1), (x1, y_hi, z1), (x1, y_hi, z0)], Y)
+            if under:   # the base's underside lies on the pedestal's top, so it is not drawn twice
+                world.face("plinth", [(x0, y_lo, z0), (x1, y_lo, z0), (x1, y_lo, z1), (x0, y_lo, z1)],
+                           (0.0, -1.0, 0.0))
+            world.face("plinth", [(x0, y_lo, z1), (x1, y_lo, z1), (x1, y_hi, z1), (x0, y_hi, z1)], (0.0, 0.0, 1.0))
+            world.face("plinth", [(x1, y_lo, z0), (x0, y_lo, z0), (x0, y_hi, z0), (x1, y_hi, z0)], (0.0, 0.0, -1.0))
+            world.face("plinth", [(x1, y_lo, z1), (x1, y_lo, z0), (x1, y_hi, z0), (x1, y_hi, z1)], (1.0, 0.0, 0.0))
+            world.face("plinth", [(x0, y_lo, z0), (x0, y_lo, z1), (x0, y_hi, z1), (x0, y_hi, z0)], (-1.0, 0.0, 0.0))
+
+        block(x - ped, x + ped, 0.0, foot, z - ped, z + ped)
+        block(x - base_w, x + base_w, foot, foot + base_h, z - base_w, z + base_w, under=False)
+        block(x - cap_w, x + cap_w, top - cap_h, top - 0.002, z - cap_w, z + cap_w)
+        n = 16 if self.tier == "full" else 6
+        y_lo, y_hi = foot + base_h, top - cap_h
+        for j in range(n):
+            f0, f1 = 2 * math.pi * j / n, 2 * math.pi * (j + 1) / n
+            p0, p1 = (x + r * math.cos(f0), z + r * math.sin(f0)), (x + r * math.cos(f1), z + r * math.sin(f1))
+            fm = (f0 + f1) / 2
+            world.face("plinth", [(p0[0], y_lo, p0[1]), (p0[0], y_hi, p0[1]), (p1[0], y_hi, p1[1]), (p1[0], y_lo, p1[1])],
+                       (math.cos(fm), 0.0, math.sin(fm)))
+        self.meta["column"] = {"at": [round(x, 4), round(z, 4)], "radius_m": r, "foot_m": foot,
+                               "top_m": round(top, 4), "pedestal_m": ped, "in_from_face_m": round(d, 4)}
+
+    def _face_gable(self, world, fg, y_e, ov):
+        """T-3700: a small coped stone gable over an across-corner oriel's face to the corner,
+        standing on its eaves before its slated cap (2100 Prairie's, in the c. 1890 photograph
+        and the 1876 plate, a rose roundel in its tympanum): a triangle `rise_m` high across the
+        face's run, its front on the eaves' line and its slopes run back `depth_m` into the cap,
+        which they die into; a disc `roundel_m` across stands proud on its tympanum."""
+        if not self.plan.get("across_corner"):
+            raise ValueError(f"{self.v['id']}: only an oriel across its corner carries a face gable")
+        right = self.plan["across_corner"] == "right"
+        out = lambda r: (r.world(0.0, 0.0, 1.0)[0] - r.world(0.0, 0.0, 0.0)[0],
+                         r.world(0.0, 0.0, 1.0)[2] - r.world(0.0, 0.0, 0.0)[2])
+        run = max(self.runs, key=lambda r: (out(r)[0] if right else -out(r)[0]) + out(r)[1])
+        H, D, rd = float(fg["rise_m"]), float(fg["depth_m"]), float(fg["roundel_m"])
+        zf = ov
+        s0, s1 = run.s_start(zf), run.s_end(zf)
+        sm = (s0 + s1) / 2
+        W = lambda s, y, z: run.world(s, y, z)
+        nrm = (out(run)[0], 0.0, out(run)[1])
+        world.face("band", [W(s0, y_e, zf), W(s1, y_e, zf), W(sm, y_e + H, zf)], nrm)
+        half = (s1 - s0) / 2
+        for a, b in ((s0, sm), (sm, s1)):
+            ya, yb = (y_e, y_e + H) if a == s0 else (y_e + H, y_e)
+            sl = (-1.0 if a == s0 else 1.0) * H / half
+            n = _unit((out(run)[0] * 0.0, 1.0, 0.0))
+            world.face("band", [W(a, ya, zf), W(b, yb, zf), W(b, yb, zf - D), W(a, ya, zf - D)], n)
+        # the roundel: a disc proud of the tympanum, its rim closed back to it (the light tier,
+        # seen from afar, keeps the plain tympanum)
+        if rd > 0 and self.tier == "full":
+            cy, R, pr, k = y_e + H * 0.4, rd / 2, 0.05, 16
+            if not R < H * 0.4 or not rd < half:
+                raise ValueError(f"{self.v['id']}: a {rd} m roundel does not fit its {H} m gable")
+            ring = [(sm + R * math.cos(2 * math.pi * j / k), cy + R * math.sin(2 * math.pi * j / k)) for j in range(k)]
+            world.face("band", [W(a, b, zf + pr) for a, b in ring], nrm)
+            for (a0, b0), (a1, b1) in zip(ring, ring[1:] + ring[:1]):
+                world.face("band", [W(a0, b0, zf), W(a1, b1, zf), W(a1, b1, zf + pr), W(a0, b0, zf + pr)], nrm)
+        self.meta["face_gable"] = {"rise_m": H, "depth_m": D, "roundel_m": rd, "span_m": round(s1 - s0, 4),
+                                   "apex_m": round(y_e + H, 4)}
 
     def _apron_layout(self, y0):
         """T-2883: (foot, the foot's profile [n out, u up] from its underside to the face).
@@ -2378,7 +2478,9 @@ class Bay:
     # roof -----------------------------------------------------------------------------------
     def _roof(self, world, y_e, ov, cv):
         rf = self.v["roof"]
-        tower = self.v["kind"] == "tower"
+        # T-3700: an oriel set across its corner (2100's) stands past its house's corner on both
+        # walls as an across-corner tower does, so its cap is the whole ring's as the tower's is
+        tower = self.v["kind"] == "tower" or bool(self.plan.get("across_corner"))
         if rf["kind"] == "gable":
             return self._gable(world, self._y_top, y_e, ov)
         if rf["kind"] == "spire":
@@ -2395,8 +2497,12 @@ class Bay:
         part of the plan where it is the lowest, so the planes meet on their hips."""
         lines = [((a[0] + ov * n[0], a[1] + ov * n[1]), (-n[0], -n[1])) for a, e, n in self.plan["lines"]]
         flare = self.v["roof"].get("flare")
-        if flare and (tower or pitch == 0):
-            raise ValueError(f"{self.v['id']}: only a bay's pitched hip flares")
+        # T-3700: or an across-corner oriel's whole cap (2100's slated pyramid, flared at its foot
+        # in the photograph): every plane is cut at the same distances in from the eaves, so the
+        # bands meet on the hips of a whole ring as they do on a bay's
+        if flare and ((tower and not (self.v["kind"] == "oriel" and self.plan.get("across_corner")))
+                      or pitch == 0):
+            raise ValueError(f"{self.v['id']}: only a bay's pitched hip, or an across-corner oriel's cap, flares")
         mn = self.v["roof"].get("mansard")
         if mn and (tower or flare or pitch == 0 or self.plan["kind"] != "polyline"):
             raise ValueError(f"{self.v['id']}: a mansard is a polyline bay's pitched hip, unflared")

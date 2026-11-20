@@ -2,7 +2,7 @@
   "structure_id": "sherman_house_2100_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8772535bc3744e8211ced66be79ec6bfacf69c33c1eaf0d2cc8e7e5d29e51e31",
+  "glb_sha256": "4e3d8d8c9540940013728b60897e2c849efb5c382564cc6d0e982643166daf8f",
   "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
   "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
   "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
@@ -21,12 +21,16 @@
       "status": "fixed"
     },
     {
-      "what": "the corner: the photograph's oriel at the second storey on a column over the cut corner, under its own small stone gable; the record stands a square brick tower across the corner from grade, its windowless base where the photograph shows the column and the open corner",
-      "status": "open"
+      "what": "the corner (T-3700): the photograph's oriel at the second storey over the cut corner now stands there, a turned stone square on its corbel courses at the second floor, its face to the corner about 2.2 m across with its pair of lights (y 690-860 px; the render's within about 20 px) and a narrow light on each cheek, on the 1876 plate's stone column with its capital (the photograph's tree hides the column); the record's square brick tower from grade is gone. The parlour's corner behind the column stands square where the plan cuts it, which the tree hides here",
+      "status": "fixed"
     },
     {
-      "what": "the corner's pyramid: the photograph's springs from the mansard behind the oriel, wider at its foot and flared; the record's springs from the tower's own cornice",
-      "status": "open"
+      "what": "the corner's pyramid (T-3700): it now springs from the oriel's eaves on the main cornice's line, behind the oriel's gable, flared at its foot and steep above, its tip at about y 130-150 px against the photograph's 130; the photograph's stands a little wider at its foot than the oriel's cornice",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel's gable (T-3700): the photograph's and the plate's small coped stone gable over the oriel's face, a roundel in its tympanum (y 560-655 px), now stands on the oriel's eaves before the pyramid; the plate's carved rose in the roundel is a plain disc",
+      "status": "fixed"
     },
     {
       "what": "the library pavilion's gable: the photograph's has slated, flared cheeks with a carved panel and kneeler blocks; the record's is a plain coped brick gable, and the pavilion stands 0.8 m out where the plan draws about 1.25",
