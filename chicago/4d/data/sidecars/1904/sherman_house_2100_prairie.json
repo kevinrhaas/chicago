@@ -851,6 +851,7 @@
           "kit": "data/components/prairie_1904/k15_chimneys.json",
           "from": "k15.stack.sherman",
           "omit": [
+            "bands",
             "panels"
           ],
           "flues": 2,
@@ -879,7 +880,7 @@
         "chicagology_2100_sherman_photo",
         "aabn_1876_09_30_sherman_2100_plate"
       ],
-      "note": "The great stack on the 21st Street flank behind the corner (photograph x 1050-1145 px, its clustered flues' tops at y 185, about 19 m through the solved camera), which the plate also draws; the other two stacks are the plan's fireplaces on the south wall and the kitchen's, their heights the kit's. T-3702: the great stack's head off the photograph (crop at x 1020-1180, y 170-620 px): a dark brick shaft from a stone base, a stone head over corbel courses under a projecting cap (y 320-370), and on it a row of three round flue shafts with moulded tops about 1.9 m high (y 185-320, at about 70 px a metre at the stack), seen in a row running back from the street, so they stand in a row along the stack's long side (`across: x`). Built as the K15 carved Sherman stack (its bands and corbel blocks; its sunk panels omitted, the photograph's shaft showing none) with the kit's slender 1.1 m `long` shaft on each flue, its cap at 17.9 m so the flues' tops stand at the photograph's 19.0 m: the kit has no 1.9 m flue shaft (adding one to the shared K15 kit would restale every house that reads it), so the head stands about 0.8 m higher than the photograph's and its shafts that much shorter. The two stacks the photograph does not see take the same head without shafts (RECONSTRUCTED, L-k01-2100-sherman-1919). The carved gablet on the head's street face is not built."
+      "note": "The great stack on the 21st Street flank behind the corner (photograph x 1050-1145 px, its clustered flues' tops at y 185, about 19 m through the solved camera), which the plate also draws; the other two stacks are the plan's fireplaces on the south wall and the kitchen's, their heights the kit's. T-3702: the great stack's head off the photograph (crop at x 1020-1180, y 170-620 px): a dark brick shaft from a stone base, a stone head over corbel courses under a projecting cap (y 320-370), and on it a row of three round flue shafts with moulded tops about 1.9 m high (y 185-320, at about 70 px a metre at the stack), seen in a row running back from the street, so they stand in a row along the stack's long side (`across: x`). Built as the K15 carved Sherman stack (its corbel blocks under a corbelled head; its string bands and sunk panels omitted, the photograph's shaft showing neither) with the kit's slender 1.1 m `long` shaft on each flue, its cap at 17.9 m so the flues' tops stand at the photograph's 19.0 m: the kit has no 1.9 m flue shaft (adding one to the shared K15 kit would restale every house that reads it), so the head stands about 0.8 m higher than the photograph's and its shafts that much shorter. The two stacks the photograph does not see take the same head without shafts (RECONSTRUCTED, L-k01-2100-sherman-1919). The carved gablet on the head's street face is not built."
     },
     "rainwater": {
       "value": {

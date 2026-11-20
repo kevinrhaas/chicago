@@ -45439,7 +45439,7 @@ cut under an oriel), and the plate's carved rose in the roundel is a plain disc.
 piece) built the roof's ornament off the photograph: the small dormer over the hall is a stone face under a
 projecting shelf with a slated hood leaning back over it; the large dormer over the parlour carries a stone coping up
 its rakes, an engaged pinnacle at each shoulder and a finial; the great stack carries the K15 carved Sherman head
-(string courses, corbel blocks, corbelled courses, cap) with three round flue shafts in a row along its long side;
+(corbel blocks, corbelled courses, cap) with three round flue shafts in a row along its long side;
 and the pavilion's gable carries K08's carved panel. What stays otherwise than the evidence there: the hood's rise
 and lean, the pinnacles' and finial's sizes and the head's courses are read at the photograph's scale and the kit's
 proportions, not measured (RECONSTRUCTED); the flue shafts are the kit's 1.1 m `long` profile where the photograph's
