@@ -32,10 +32,10 @@ CONSUMED = {"composition"}
 
 #: the fabrics a composition may name, each the 1904 kit's own (see landmark_1871.MATERIALS)
 WALLS = ("marble", "lockport_marble", "limestone", "brick_red", "brick_cream", "iron_stone",
-         "lockport_weathered", "limestone_pale")
+         "lockport_weathered", "limestone_pale", "clapboard")
 ROOFS = ("slate", "tin", "tin_dark")
 OPENINGS = ("flat", "segment", "round", "pair_round", "store", "door_round", "door_flat",
-            "oculus", "blank")
+            "oculus", "blank", "pointed", "door_pointed")
 HOODS = ("none", "cornice", "arch", "pediment", "segment")
 CAPS = ("dome", "bell", "pyramid", "flat", "lantern_dome")
 FACES = ("S", "N", "E", "W")

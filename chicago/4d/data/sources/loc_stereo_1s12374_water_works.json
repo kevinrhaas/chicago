@@ -1,0 +1,26 @@
+{
+  "id": "loc_stereo_1s12374_water_works",
+  "type": "photograph",
+  "citation": "P. B. Greene, 'Water Works', stereograph, [Chicago: P. B. Greene, 1871]. Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12374.",
+  "author": "P. B. Greene, photographer and publisher (the card's mount)",
+  "date": "[October-December 1871] (after the fire: the works stand roofless)",
+  "describes_date": "1871, just after the fire of 8-9 October",
+  "repository": "Library of Congress, Prints and Photographs Division (STEREO U.S. GEOG FILE - Illinois--Chicago--Fire, 1871). The left half of the card is committed at data/sources/assets/landmarks_1871_t3689/loc_1s12374_water_works_left.jpg.",
+  "url": "https://www.loc.gov/pictures/item/2018649308/",
+  "locator": "The left half of the card: the works from across the street, roofless after the fire, two of its fronts meeting at a great corner turret, the stack behind, an iron fence on a stone curb in the foreground.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published in 1871.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Library's master TIFF of the whole card (tile.loc.gov storage-services, service/pnp/stereo/1s12000/1s12300/1s12374); the left half cropped and committed at 1600 x 1662 px, sha256 bc4338502056fc0face6b260f0b4f7a3e7e08ae76b4643207eb687bd0e2aa0f3.",
+  "note": "The works after the fire, a few weeks after 9 October 1871. Monochrome.",
+  "what_it_supplies": [
+    "the works' walls, turrets, pavilion, windows and battlements",
+    "the stack's form and crown"
+  ],
+  "what_it_does_not_supply": [
+    "the roof (burned)",
+    "colour"
+  ]
+}

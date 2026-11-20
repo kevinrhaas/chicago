@@ -1,0 +1,29 @@
+{
+  "structure_id": "chicago_pumping_station_1871",
+  "view": "loc_1s12375",
+  "glb": "assets/gltf/chicago_pumping_station_1871__works_1869_1871.glb",
+  "glb_sha256": "73235d4172e77c62765952cfe3503047ab38e052ee1fa656d8caab134ff77bf8",
+  "camera_sha256": "e0158e9818c140e6fc0077d67066a7db7bfe71457ecf5e9a751b9e82259f9e1b",
+  "photo_sha256": "fa813beebf89ee89bff37f9735d5cedbeb04fd8650f1c3501b88fca1ef94308d",
+  "side_by_side": "docs/RESEARCH/photo-match/chicago_pumping_station_1871/loc_1s12375-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Long front with centre pavilion, corner turrets, battlemented parapet, two tiers of windows and the stack behind north of centre stand where the print shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "Roof: the print was taken after the fire and shows the walls standing roofless; the scene is the night before, so the slate roof is built (the fire leaves the walls)",
+      "status": "not shown"
+    },
+    {
+      "what": "The works' south half stands behind the tower in the print and cannot be compared from it",
+      "status": "not shown"
+    },
+    {
+      "what": "The pavilion's pinnacles and the corbel table under the parapet are drawn simpler than the print",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

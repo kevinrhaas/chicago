@@ -205,6 +205,26 @@
       "phase_id": "quarters_1832",
       "structure_id": "chicago_lighthouse_keepers_quarters"
     },
+    "chicago_pumping_station_1871__works_1869_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1803488,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "459ac49e3a00212e5a679a1abc1d516de7c598eb6ec0148559b5fc18b360438f",
+      "kind": "generated",
+      "phase_id": "works_1869_1871",
+      "structure_id": "chicago_pumping_station_1871"
+    },
+    "chicago_water_tower_1871__tower_1869_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1381240,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "49b02f50e24f5d5158a2f6b12c04cdc1c8c346280984067e36d6a43e980d9720",
+      "kind": "generated",
+      "phase_id": "tower_1869_1871",
+      "structure_id": "chicago_water_tower_1871"
+    },
     "clybourn_cabins__log_1824.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,

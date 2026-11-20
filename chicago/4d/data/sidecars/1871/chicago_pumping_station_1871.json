@@ -1,0 +1,940 @@
+{
+  "id": "chicago_pumping_station_1871",
+  "phase": "works_1869_1871",
+  "name": "The Water Works engine house (W. W. Boyington, 1869), Pine Street at Chicago Avenue",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/chicago_pumping_station_1871__works_1869_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "loc_stereo_1s12375_water_tower"
+    ]
+  },
+  "documented_range": {
+    "from": "1869-01-01",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2_water_works"
+    ],
+    "note": "Built 1867-1869; its roof burned in the fire at 3:20 a.m. on 9 October 1871 (Andreas vol. 2, p. 742)."
+  },
+  "change_note": "Built T-3689 (2026-11-20): the Water Works engine house stands in the 1871 scene on the landmark_1871 archetype.",
+  "placement": {
+    "local_e": 1190.0,
+    "local_n": 1186.5,
+    "rotation_deg": 89.33,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2_water_works",
+      "loc_stereo_1s12375_water_tower"
+    ],
+    "position_note": "Its long front faces Pine Street and the tower across it, behind a fenced yard (Greene's stereograph of the works), its north end on the 1871 plan's Pearson Street building line. Andreas (vol. 2, p. 69) puts the tower 'about one hundred feet to the west of the main building'; Greene's stereograph of the tower, taken from the burnt ground west of it, shows the works' long front behind the tower with its centre pavilion and the stack north of it. A camera solved on the tower's measured heights, the stack and three of the works' turrets puts the front about 50 m east of the tower's centre (Andreas's hundred feet is the open ground between them, read loosely) and its north end at Pearson Street's centre line, about 7 m further north than the 1871 plan's building line, which is within that plan's fit; the north end is held just behind the building line. The front's north end is local E 1190.0 N 1186.5.",
+    "symbolic_location": "East side of Pine Street between Chicago Avenue and Pearson Street, its long front on Pine Street, facing the Water Tower across the street.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        -1.2
+      ],
+      [
+        43.28,
+        -1.2
+      ],
+      [
+        43.28,
+        30.49
+      ],
+      [
+        0,
+        30.49
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2_water_works"
+    ],
+    "note": "The engine house 142 by 60 feet (Andreas vol. 2, p. 69), the front pavilion's projection and the boiler rooms behind it to the north; the boiler rooms' size is reconstructed."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "tint": {
+          "stone_wall": [
+            1.0,
+            0.95,
+            0.83
+          ],
+          "stone_trim": [
+            1.0,
+            0.96,
+            0.86
+          ],
+          "stone_weathered": [
+            1.0,
+            0.95,
+            0.83
+          ]
+        },
+        "fire": {
+          "fate": "burned",
+          "left": "walls",
+          "time": "1871-10-09T03:20",
+          "sources": [
+            "andreas_1885_v2_water_works"
+          ],
+          "note": "Its slate roof on wooden trusses caught at about 3:20 a.m. on 9 October from brands blown over the burning North Side, and fell on the engines; the stone walls stood, and the water supply was gone (Andreas vol. 2, p. 742)."
+        },
+        "blocks": [
+          {
+            "name": "the engine house",
+            "box": [
+              0,
+              0,
+              43.28,
+              18.29
+            ],
+            "storeys": [
+              3.6,
+              9.2
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "belts": [
+              1
+            ],
+            "water_table": 0.45,
+            "cornice": {
+              "kind": "light",
+              "proj": 0.4
+            },
+            "parapet": 0.5,
+            "battlement": {
+              "h": 0.75,
+              "base": 0.4,
+              "merlon": 0.62,
+              "gap": 0.42,
+              "depth": 0.38
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "slate"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    6.6,
+                    10.2,
+                    14.4,
+                    28.9,
+                    33.1,
+                    36.7,
+                    40.3
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 2.2,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.7,
+                    "h": 5.4,
+                    "sill": 1.6,
+                    "hood": "segment"
+                  }
+                ],
+                "levels": [
+                  3.6,
+                  9.2
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    4.2,
+                    9.15,
+                    14.1
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 2.2,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.7,
+                    "h": 5.4,
+                    "sill": 1.6,
+                    "hood": "segment"
+                  }
+                ],
+                "levels": [
+                  3.6,
+                  9.2
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    4.2,
+                    9.15,
+                    14.1
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 2.2,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.7,
+                    "h": 5.4,
+                    "sill": 1.6,
+                    "hood": "segment"
+                  }
+                ],
+                "levels": [
+                  3.6,
+                  9.2
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    6.6,
+                    10.2,
+                    33.1,
+                    36.7,
+                    40.3
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.3,
+                    "h": 2.2,
+                    "sill": 1.0,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.7,
+                    "h": 5.4,
+                    "sill": 1.6,
+                    "hood": "segment"
+                  }
+                ],
+                "levels": [
+                  3.6,
+                  9.2
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2_water_works",
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "142 feet long, 60 feet wide and 36 feet in the clear inside over a nine-foot pump floor (Andreas vol. 2, p. 69); the walls' height, the two tiers of windows and the battlemented parapet on a corbel table are read off Greene's stereograph."
+          },
+          {
+            "name": "the engine house's roof",
+            "box": [
+              0.6,
+              0.6,
+              42.68,
+              17.689999999999998
+            ],
+            "z0": 13.2,
+            "storeys": [
+              1.0
+            ],
+            "wall": "limestone",
+            "faces": {
+              "S": "none",
+              "N": "none",
+              "E": "none",
+              "W": "none"
+            },
+            "roof": {
+              "kind": "hip",
+              "h": 3.2,
+              "eave": 0.0,
+              "covering": "slate"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2_water_works"
+            ],
+            "note": "'Constructed of massive timbers, covered with slate' (Andreas vol. 2, p. 69): a low hip behind the parapet; its pitch is reconstructed (the photographs taken after the fire show the walls only)."
+          },
+          {
+            "name": "the front pavilion",
+            "box": [
+              17.14,
+              -1.2,
+              26.14,
+              0.0
+            ],
+            "storeys": [
+              3.6,
+              4.6,
+              4.6
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "belts": [
+              1,
+              2
+            ],
+            "cornice": {
+              "kind": "light",
+              "proj": 0.4
+            },
+            "battlement": {
+              "h": 0.75,
+              "base": 0.4,
+              "merlon": 0.62,
+              "gap": 0.42,
+              "depth": 0.38
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    2.4,
+                    4.5,
+                    6.6
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.1,
+                    "h": 2.0,
+                    "sill": 1.0
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.1,
+                    "h": 2.4,
+                    "sill": 1.0,
+                    "hood": "segment"
+                  },
+                  {
+                    "kind": "segment",
+                    "w": 1.1,
+                    "h": 2.3,
+                    "sill": 0.9,
+                    "hood": "segment"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_pointed",
+                    "w": 2.2,
+                    "h": 3.6,
+                    "sill": 0.1
+                  },
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "pointed",
+                    "w": 1.4,
+                    "h": 2.9,
+                    "sill": 0.6
+                  }
+                ]
+              },
+              "W": "blank",
+              "E": "blank",
+              "N": "none"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2_water_works",
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "'The central portion of the main front was divided into two stories ... the lower part was divided by the main entrance' (Andreas vol. 2, p. 69): the pavilion with its pointed doorway, standing a storey over the long walls, as the stereograph shows it."
+          },
+          {
+            "name": "the north boiler room",
+            "box": [
+              3.0,
+              18.29,
+              15.2,
+              30.49
+            ],
+            "storeys": [
+              8.6
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3
+            },
+            "battlement": {
+              "h": 0.75,
+              "base": 0.4,
+              "merlon": 0.62,
+              "gap": 0.42,
+              "depth": 0.38
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin_dark"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "n": 3,
+                  "margin": 2.6
+                },
+                "storeys": [
+                  {
+                    "kind": "segment",
+                    "w": 1.6,
+                    "h": 3.8,
+                    "sill": 2.4,
+                    "hood": "segment"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "n": 3,
+                  "margin": 2.4
+                },
+                "storeys": [
+                  {
+                    "kind": "segment",
+                    "w": 1.6,
+                    "h": 3.8,
+                    "sill": 2.4,
+                    "hood": "segment"
+                  }
+                ]
+              },
+              "E": "blank",
+              "S": "none"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2_water_works"
+            ],
+            "note": "'The boiler rooms were placed nineteen feet apart, and were situated in the rear of the main building' (Andreas vol. 2, p. 69). Their size and height are not given: reconstructed."
+          },
+          {
+            "name": "the south boiler room",
+            "box": [
+              21.0,
+              18.29,
+              33.2,
+              30.49
+            ],
+            "storeys": [
+              8.6
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "cornice": {
+              "kind": "light",
+              "proj": 0.3
+            },
+            "battlement": {
+              "h": 0.75,
+              "base": 0.4,
+              "merlon": 0.62,
+              "gap": 0.42,
+              "depth": 0.38
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin_dark"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "n": 3,
+                  "margin": 2.6
+                },
+                "storeys": [
+                  {
+                    "kind": "segment",
+                    "w": 1.6,
+                    "h": 3.8,
+                    "sill": 2.4,
+                    "hood": "segment"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "n": 3,
+                  "margin": 2.4
+                },
+                "storeys": [
+                  {
+                    "kind": "segment",
+                    "w": 1.6,
+                    "h": 3.8,
+                    "sill": 2.4,
+                    "hood": "segment"
+                  }
+                ]
+              },
+              "W": "blank",
+              "S": "none"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2_water_works"
+            ],
+            "note": "As the north boiler room."
+          }
+        ],
+        "towers": [
+          {
+            "name": "corner turret",
+            "at": [
+              0,
+              0
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.6,
+                "h": 15.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.5,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.25,
+                  "h": 1.2,
+                  "sill": 9.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              43.28,
+              0
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.6,
+                "h": 15.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.5,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.25,
+                  "h": 1.2,
+                  "sill": 9.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              0,
+              18.29
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.6,
+                "h": 15.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.5,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.25,
+                  "h": 1.2,
+                  "sill": 9.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              43.28,
+              18.29
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.6,
+                "h": 15.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.5,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.25,
+                  "h": 1.2,
+                  "sill": 9.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "buttress pinnacle",
+            "at": [
+              12.6,
+              -0.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.6,
+                "h": 15.0,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "buttress pinnacle",
+            "at": [
+              30.68,
+              -0.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.6,
+                "h": 15.0,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "pavilion turret",
+            "at": [
+              17.14,
+              -1.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.9,
+                "h": 17.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "pavilion turret",
+            "at": [
+              26.14,
+              -1.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.9,
+                "h": 17.6,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "the smoke-stack",
+            "at": [
+              18.1,
+              24.39
+            ],
+            "z0": 0.0,
+            "plan": "round",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 3.0,
+                "h": 38.0,
+                "cornice": false
+              },
+              {
+                "w": 3.7,
+                "h": 1.2,
+                "cornice_proj": 0.15,
+                "battlement": {
+                  "h": 0.6,
+                  "base": 0.2,
+                  "merlon": 0.45,
+                  "gap": 0.3,
+                  "depth": 0.3
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "attested",
+            "sources": [
+              "andreas_1885_v2_water_works",
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "'Between the boiler rooms was the smoke-stack, which rose to a height of one hundred and thirty feet from the ground' (Andreas vol. 2, p. 69); a round stone stack with a corbelled crown, as the stereographs show it."
+          }
+        ],
+        "note": "Laid out on Andreas's dimensions (vol. 2, p. 69) and read off P. B. Greene's two stereographs of the works and tower taken after the fire."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2_water_works",
+        "loc_stereo_1s12374_water_works",
+        "loc_stereo_1s12375_water_tower"
+      ],
+      "note": "The engine house's plan and the stack's height are Andreas's; the storeys, bays, turrets and battlements are read off Greene's two stereographs; the boiler rooms are placed as Andreas describes them and sized by reconstruction."
+    },
+    "wall_material": {
+      "value": "Rock-faced ashlar with cut-stone trimmings",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "'Executed with solid rock-faced ashlar stone and cut-stone trimmings, all the details being of a massive and permanent character' (Andreas vol. 2, p. 69). Built in the K02 Lemont limestone tinted buff, as the tower.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "water_works",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "The pumping engines that lifted the lake water from the two-mile tunnel and forced it up the tower's stand-pipe into the city's mains (Andreas vol. 2, pp. 69-70; Colbert & Chamberlin p. 155)."
+    },
+    "built": {
+      "value": 1869,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "Built with the tower, 1867-1869; the last of its four engines was placed in 1871 (Colbert & Chamberlin p. 155)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2_water_works",
+      "citation": "A. T. Andreas, History of Chicago, vol. 2, From 1857 until the Fire of 1871 (Chicago: A. T. Andreas, 1885), pp. 69-70 ('Water Works') and p. 742 (the fire at the works).",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the works' plan dimensions, style, material and roof",
+        "the tower's heights and its distance from the works",
+        "when the works' roof burned and that the tower survived"
+      ],
+      "what_it_does_not_supply": [
+        "the works' orientation on its lot (read from the stereographs)",
+        "the boiler rooms' size"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12374_water_works",
+      "citation": "P. B. Greene, 'Water Works', stereograph, [Chicago: P. B. Greene, 1871]. Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12374.",
+      "url": "https://www.loc.gov/pictures/item/2018649308/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the works' walls, turrets, pavilion, windows and battlements",
+        "the stack's form and crown"
+      ],
+      "what_it_does_not_supply": [
+        "the roof (burned)",
+        "colour"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12375_water_tower",
+      "citation": "P. B. Greene, 'Water Works', stereograph, [Chicago: P. B. Greene, 1871]. Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12375.",
+      "url": "https://www.loc.gov/pictures/item/2018649309/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the tower's massing and heights as they stood in 1871",
+        "the works' long front, pavilion, corner turrets and stack, and where they stand behind the tower"
+      ],
+      "what_it_does_not_supply": [
+        "the works' south half (behind the tower)",
+        "colour"
+      ]
+    }
+  ],
+  "research_note": "THE WATER WORKS ENGINE HOUSE, built by T-3689 for the 1871 scene: Andreas's 142 by 60 feet in castellated Gothic, rock-faced ashlar with cut-stone trimmings, a slate roof on massive timbers, the two-storey centre of its long front on Pine Street round the main entrance, two boiler rooms behind with the 130-foot smoke-stack between them (Andreas vol. 2, p. 69). Read off P. B. Greene's stereographs of the works after the fire. Its roof burned at 3:20 a.m. on 9 October and fell on the engines; the walls stood.",
+  "research_doc": "",
+  "review_required": false
+}
