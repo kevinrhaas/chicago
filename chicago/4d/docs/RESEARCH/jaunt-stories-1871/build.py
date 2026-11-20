@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""The 1871 story jaunts: T-3692 The Last Sunday (last_sunday.py), and the others that join it.
+"""The 1871 story jaunts: T-3692 The Last Sunday (last_sunday.py) and T-3693 Who Started the Fire?
+(who_started.py).
 
 Writes data/jaunts/<id>.json for each jaunt module in JAUNTS, from the claims in claims.py, and
 data/narration/direction/<id>.json, the narrator's performance copy (T-3578 format) from the
@@ -22,7 +23,7 @@ ROOT = HERE.parents[2]
 sys.path.insert(0, str(HERE))
 import claims as C  # noqa: E402
 
-JAUNTS = ['last_sunday']
+JAUNTS = ['last_sunday', 'who_started']
 
 
 def read_s(text):

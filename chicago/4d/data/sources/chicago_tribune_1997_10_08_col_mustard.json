@@ -1,0 +1,26 @@
+{
+ "id": "chicago_tribune_1997_10_08_col_mustard",
+ "type": "newspaper",
+ "citation": "[DeBartolo, Anthony.] 'Col. Mustard with a Bic?' Chicago Tribune, 8 October 1997.",
+ "author": "Chicago Tribune (credited to Anthony DeBartolo by Wikipedia's 'Great Chicago Fire', whose citation names him)",
+ "date": "1997-10-08",
+ "describes_date": "1871-10-08; Louis M. Cohn's bequest of 1944",
+ "repository": "Chicago Tribune online archive",
+ "url": "https://www.chicagotribune.com/1997/10/08/col-mustard-with-a-bic/",
+ "locator": "By paragraph: Carl Smith's 'interesting, but ultimately unprovable theory' (2); Dick Bales and the committee (3-4); Louis M. Cohn's claim, the 1944 bequest and the press release (7-13); his birth and death (14-15); the will (25).",
+ "tier": 3,
+ "rights_status": "check_required",
+ "rights_note": "Cited for short quoted fragments in text only; the article text is (c) Chicago Tribune and is not reproduced or derived from beyond those fragments.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3693) on the live page; the page itself shows no byline.",
+ "note": "An argued feature, not a finding: it presents Cohn's claim as plausible and says plainly that 'we'll surely never know the truth'. The press release it quotes is Northwestern University's of 1944; the will it describes 'contains no reference to the fire'.",
+ "what_it_supplies": [
+  "Louis M. Cohn's claim of a dice game in the hayloft, from Northwestern's 1944 press release",
+  "Cohn's dates (born 10 March 1853 in Breslau; died 1942)",
+  "Carl Smith's judgement that the cow, the comet and Sullivan are 'interesting, but ultimately unprovable theory'"
+ ],
+ "what_it_does_not_supply": [
+  "any record from 1871 naming Cohn"
+ ]
+}

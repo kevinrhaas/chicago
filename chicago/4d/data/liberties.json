@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1205,
+  "count": 1206,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -78615,6 +78615,36 @@
         "T-3691",
         "T-3690",
         "T-3692"
+      ]
+    },
+    {
+      "id": "L-1871-who-started-3693",
+      "title": "Who Started the Fire?: the case told as a walk round 137 DeKoven Street",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-19: a case jaunt at the O'Leary place that weighs every account of how the Great Chicago Fire began, quotes the testimony verbatim, is fair to each, and ends on the visitor's own verdict. Eight stops, written by the research notes on jaunt stories from the claims tool and the who started tool, with its four school tellings and an 18+ telling made by the research notes on jaunt grade versions. **What is read.** Catherine O'Leary's testimony as the Chicago History Museum and Northwestern University transcribe it (*The Great Chicago Fire and the Web of Memory*, the O'Leary Legend Library); the Board of Police and Fire Commissioners' report, and the affidavits of 15 October 1871 and the other witnesses' testimony as A. T. Andreas printed and condensed them (*History of Chicago*, vol. II, 1885); the museum's essay on the legend; the Chicago Tribune of 6 and 8 October 1997 and 3 March 1998 (the City Council committee, Richard Bales's case against Daniel Sullivan, Louis M. Cohn's dice game); and Wikipedia's article for the date it gives Michael Ahern's retraction, the Tribune articles' author and the meteor theory. Every quotation stands verbatim in a claim the stop cites. **What is invented.** The walk: the order of its stops, and the hour at each of the four stops on the night (21:28 to 21:40), chosen from the hours the witnesses gave, which do not agree (Schaffer 9:28; Sullivan about half past nine in 1871 and about nine in 1884; the Board 9:20-9:25; Andreas a quarter to nine). The later stops (the inquiry, the legend, the suspects, the City Council) are told over the place and carry no date. The stops are told, not staged: no figure stands for anyone named. **Names as the sources give them.** The neighbour who found the O'Learys in bed is \"Dennis Rogan\" in Andreas, who is the only source read for him; Sullivan is \"Dennis\" in Andreas and \"Daniel [Dennis]\" in the Board's report, and \"Daniel\" in every later account, which the walk follows. **Where the sources disagree, both are told.** Ahern's boast: the museum dates it to the fire's fortieth anniversary (1911), Wikipedia to 1893. **Left out on purpose.** Bales's own article and book, which were not read (his case is told as the Tribune summarised it); the Chicago Times's attacks on Catherine O'Leary in 1871, for want of a text in hand."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the Board's full transcript (Chicago History Museum) read for Sullivan, Rogan/Regan and the McLaughlins in their own words replaces Andreas's condensation; Bales's article read for his case; a dated copy of Ahern's Tribune piece settles the year."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on jaunt stories (the build tool, the claims tool, the who started tool)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3693)."
+        }
+      ],
+      "work_refs": [
+        "T-3693"
       ]
     },
     {
