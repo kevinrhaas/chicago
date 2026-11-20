@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3162, ts: '2026-11-20T07:00:57.203Z', date: 'Nov 20, 2026, 1:00 AM CT', title: 'The Sherman house at 2100 Prairie takes its own shape', kind: 'improvement',
+    items: [
+      '2100 Prairie, John B. Sherman\'s 1874 house by Burnham & Root at the 21st Street corner, replaces its draft box: a slated mansard over two tall brick storeys and a stone basement, the library pavilion under its steep gable, the porch and balcony, and the steep slate pyramid over the corner — built from the 1911 fire-insurance map, the architects\' 1876 published plan and a c. 1890 photograph.',
+    ] },
   { v: 3161, ts: '2026-11-20T06:29:51.517Z', date: 'Nov 20, 2026, 12:29 AM CT', title: 'The Last Sunday: walk 1871 Chicago on the day before the fire', kind: 'feature',
     items: [
       'A new 1871 story: Sunday 8 October, from Lake Street at two in the afternoon to DeKoven Street at dusk.',
