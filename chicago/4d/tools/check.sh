@@ -1635,6 +1635,15 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
 
+# T-3616. ...and a K08 light may be PLAIN (no sill or lintel of its own, cut square in the stone)
+# and, near the ends of a round tower standing into its wall over the eave, THROUGH-PLANE, its
+# recess back through the wall plane inside a hole its host opens (2011 Prairie's turret band,
+# five lights junction to junction off the Chicagology photograph and the 1895 Inland Architect
+# plate); the hole taken away, an unmarked light behind the plane, a dressed or unreasoned plain
+# light, and a through-plane light off an inset round tower or under the eave all refused.
+step "a K08 light may be plain, and through-plane over the eave on an inset round tower (T-3616)" \
+  python3 tools/test_k08_plain_through_plane.py
+
 # T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
 # front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the
 # Taylor print): the foot and shelf flare_m wider and further out, the top unmoved, the slating
