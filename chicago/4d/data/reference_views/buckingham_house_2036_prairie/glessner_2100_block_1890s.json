@@ -1,0 +1,23 @@
+{
+ "structure_id": "buckingham_house_2036_prairie",
+ "source_id": "glessner_blog_2100_block_looking_nw_1890s",
+ "library_image": "a20-glessner-2100-block-west-side-1890s",
+ "photo": "../../sources/assets/buckingham_2036_pictures_t1911/glessner_2100_block_nw_1890s.jpg",
+ "image_px": [
+  900,
+  318
+ ],
+ "principal_px": [
+  450.0,
+  220.0
+ ],
+ "focal_px": 564.1,
+ "eye": [
+  37.8,
+  -78.05,
+  2.1
+ ],
+ "yaw_deg": -31.45,
+ "sky": "overcast",
+ "solve": "A level camera fitted by least squares to the street, not to 2036, which stands about 80 m off and some 60 px wide in a 900 x 318 copy. The principal point is held at the picture's centre across and on its horizon (y 220 px: the far roadway, the distant carriages' wheels and the walkers' heads all stand on it), as a copy cropped from a taller view. Fitted to: the vanishing point of Prairie's roadway (x 795 px), where the west curb and the east curb meet; two points of the west curb (x 350, y 290 and x 560, y 255) on its line 14 ft out from the lot line (u 27.07, the row_66 cross-section); the east curb at the picture's foot (x 845, y 318) on its line 38 ft further (u 38.65); and the fronts of the two houses the blog names nearest 2036, their main bodies' north-east corners off the 1911 sheet: 2110's (x 330 px, where its pale front meets 2108's dark one) and 2100's (x 545 px, where Sherman's dark front gives way to the pale house behind). Residuals under 2 px on all nine readings, which is what nine readings on eight unknowns give, so the fit is soft and says so: the eye comes out on Prairie's roadway 0.85 m inside the east curb, about 78 m south of 2036's 21st Street face (before 2116-2120), 2.1 m up (a tripod, or a step), looking 31 degrees west of north, f 564 px (about 77 degrees across). The eye, the focal length and 2100's corner trade against one another by a few metres; the two curb lines and the vanishing point are firm. Checks it did not fit: 2036's front falls at x 590-626 px and its cornice at y 163, where the pale house behind the carriage stands. LIGHT: soft and from the left; the fronts are lit flat and nothing casts a hard shadow across the roadway: overcast."
+}

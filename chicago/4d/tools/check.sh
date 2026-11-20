@@ -249,11 +249,19 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A classroom Chromebook boots as a computer on the memory diet, people and teams kept, and is offered Prepare for class (T-3675)" \
+  node tools/check_chromebook.mjs
+
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
+
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
 
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
@@ -4756,6 +4764,18 @@ step "1871 buildings, crossings and generated surfaces are spatially coherent" \
 selftest "1871 browser acceptance harness rejects broken contracts" \
   node tools/smoke_city_1871.mjs --self-test
 
+# T-3687: the Great Fire's map and clock. Every timed place cites a source and lies in the
+# burnt district, every hour falls inside the fire, and the local outlines are re-derived
+# from the scene's rivers and shoreline, so a moved river is red here, not a wrong fire.
+step "1871 Great Fire district and hours are sourced and current (T-3687)" \
+  python3 tools/fire_1871.py --check
+
+selftest "…and its own checks fire when broken" \
+  python3 tools/fire_1871.py --self-test
+
+selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
+  node tools/qa_city_fire_1871.mjs --self-test
+
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
 step "1904 built-so-far walk matches the building records (T-2747)" \
@@ -4766,6 +4786,13 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3681: each jaunt's Spanish telling (data/jaunts/_es/<id>.txt) compiles to the overlay beside
+# its English (sidecars/<scene>/jaunts/es/). Each passage carries the mark of the English it was
+# translated from, and the app shows it only while that English stands, so a change to a jaunt's
+# English never stales this step.
+step "Spanish jaunt overlays are as built from their words files (T-3681)" \
+  python3 tools/jaunts_es.py --check
 
 # T-3590: every jaunt's school grade band is measured from its own words (the mean of five
 # grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.

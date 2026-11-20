@@ -31,7 +31,7 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
-import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
+import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
 import { huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 // T-3672: a teacher's route, read from its link once and opened after the landing.
@@ -60,7 +60,7 @@ import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
-import { createWindowMode, windowAt } from './controls/window.js';
+import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -2874,6 +2874,57 @@ async function boot() {
       return this.current;
     },
   };
+  // T-3687: the Great Fire on its own clock (city-fire.js; when and where it burned is
+  // data/fire/1871.json). Free walk is the city before it: nothing loads until a fire time
+  // is set (a jaunt stop dated on or after 1871-10-08T21:00, or api.fire.set by hand).
+  const fireState = { engine: null, loading: null, want: null, rate: 0, lit: false, listeners: new Set() };
+  const fireEngine = () => fireState.loading ??= Promise.all([
+    import('./city-fire.js'),
+    fetch(new URL('fire/1871.json', resolveBases().dataBase)).then((r) => { if (!r.ok) throw Error(`fire 1871: ${r.status}`); return r.json(); }),
+  ]).then(([{ createCityFire }, doc]) => {
+    fireState.engine = createCityFire({ doc, parent: scene3d, context: () => contextCity, buildings: () => buildings,
+      tier: () => api.humans?.tier ?? 'full', groundAt: (e, n) => terrain.surfaceHeight(e, n) });
+    fireState.engine.onFire((iso) => { for (const fn of fireState.listeners) { try { fn(iso); } catch { /* its own */ } } });
+    return fireState.engine;
+  }).catch((err) => { fireState.loading = null; console.warn('[fire] not drawn:', err?.message ?? err); return null; });
+  api.fire = {
+    /** The fire time in force ('YYYY-MM-DDTHH:MM', the accounts' Chicago clock), or null: the city before it. */
+    time: () => fireState.engine?.iso ?? (fireState.want === null ? null : fireState.want),
+    get active() { return fireState.want !== null; },
+    /**
+     * Set the fire time ('1871-10-09T01:45') or null for the city before the fire. `rate`
+     * runs it on, in fire seconds to the real second (0 holds it). `light` (default true)
+     * sets the sky's hour and day to match; a jaunt that sets its own hour passes false.
+     * Resolves to the engine's snapshot once the city is drawn at that time.
+     */
+    async set(iso, { rate = 0, light = true } = {}) {
+      if (YEAR !== '1871') return null;
+      const at = iso === null || iso === undefined || iso === '' ? null : String(iso).slice(0, 16);
+      fireState.want = at; fireState.rate = rate;
+      if (at === null) {
+        fireState.engine?.set(null);
+        if (fireState.lit) { fireState.lit = false; await api.timeOfDay.restore(); }
+        gateFrame.invalidate?.();
+        return null;
+      }
+      if (light) { fireState.lit = true; await api.timeOfDay.set(at.slice(11, 16), { date: at.slice(0, 10), transient: true }); }
+      const engine = await fireEngine();
+      if (!engine || fireState.want !== at) return engine?.snapshot() ?? null;
+      engine.set(at, { rate });
+      gateFrame.invalidate?.();
+      return engine.snapshot();
+    },
+    /** fn(iso | null) whenever the fire time moves a minute, or the fire is put out. Returns an unsubscribe. */
+    onFire(fn) { fireState.listeners.add(fn); try { fn(api.fire.time()); } catch { /* its own */ } return () => fireState.listeners.delete(fn); },
+    /** When the fire reaches a place (local east/north metres): 'YYYY-MM-DDTHH:MM', or null where it never burned. */
+    async catchAt(e, n) { return (await fireEngine())?.catchTime(e, n) ?? null; },
+    /** What the fire is doing at a place at the fire time: { phase: 'none'|'before'|'burning'|'burnt', heat, minutesToFront, … }. */
+    stateAt: (e, n) => fireState.engine?.stateAt(e, n) ?? { phase: 'none' },
+    snapshot: () => fireState.engine?.snapshot() ?? null,
+    /** QA: run the drawn fire on (smoke and sparks fill in) without moving the fire time. */
+    warm: (seconds = 8) => fireState.engine?.warm(seconds, camera),
+    update(dt, cam) { fireState.engine?.update(dt, cam); },
+  };
   // T-3377: `own` is the visitor's Season; `held` is a jaunt's, set for the outing and
   // given back by api.season.restore() (a choice made by hand ends the hold).
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
@@ -5292,11 +5343,48 @@ async function boot() {
     onChange: (on) => {
       windowKey?.setAttribute('aria-pressed', String(on));
       blackbox.log(on ? 'window' : 'window-end');
-      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
-      else hud.say('Window closed');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); offerOnsite(); }
+      else { onsite?.end(); hud.say('Window closed'); }
     },
   });
   api.window = windowMode;
+
+  /**
+   * T-3674: the on-site tour (js/onsite.js, its card js/onsite-view.js) — in 1904, Window mode
+   * offers a walk on today's Prairie Avenue to the Glessner House: each stop's distance and
+   * direction from the fix, arrival inside a radius scaled to the fix's accuracy, and a fix off
+   * the tour's ground held where the visitor stands. The card and its data load the first time
+   * Window mode starts in that year, never at boot.
+   */
+  // The tour's year is onsite.js's ONSITE_YEAR, said here so the boot imports nothing of it
+  // (tools/check_onsite_tour.mjs holds the two equal).
+  const ONSITE_YEAR = '1904';
+  let onsite = null, onsiteLoad = null, onsiteData = null, onsiteUnwatch = null;
+  const loadOnsite = () => onsiteLoad ??= import('./onsite-view.js')
+    .then(({ mountOnsite }) => (onsite = mountOnsite(document.body, {
+      load: () => onsiteData ??= fetch(new URL('onsite/prairie_1904.json', bases.dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+        .catch((err) => { onsiteData = null; problems.push(`onsite/prairie_1904.json: ${err.message} — the on-site tour is not offered`); throw err; }),
+      toLocal: (lat, lon) => toLocalLL(lat, lon, loaded.datum),
+      heading: () => walker.bearingDeg,
+      where: () => ({ e: walker.state.e, n: walker.state.n }),
+      lastFix: () => windowMode.lastFix,
+      pinned: windowMode.pinned,
+      openHouse: (id) => pick(id),
+      say: (line) => hud.say(line),
+      onRun: (running) => {
+        blackbox.log(running ? 'onsite' : 'onsite-end');
+        onsiteUnwatch?.(); onsiteUnwatch = null;
+        if (running) onsiteUnwatch = windowMode.watchFix((fix, at) => onsite.fix(fix, at));
+      },
+    })))
+    .catch((error) => { onsiteLoad = null; problems.push(`on-site tour: ${error.message}`); return null; });
+  function offerOnsite() {
+    if (String(loaded.scene.id ?? YEAR) !== ONSITE_YEAR) return;
+    void loadOnsite().then((o) => { if (o && windowMode.on && !o.running) o.offer(); });
+  }
+  api.onsite = { get state() { return onsite?.state ?? null; }, get running() { return !!onsite?.running; },
+    offer: offerOnsite, end: () => onsite?.end() };
   if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
   windowKey?.addEventListener('click', () => {
     if (windowMode.on) { windowMode.stop(); return; }
@@ -6307,7 +6395,18 @@ async function boot() {
         },
         onComplete: state => jauntPreview.award(state),
         // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
-        hour: api.timeOfDay,
+        // T-3687: a stop dated on or after the fire's first hour (1871-10-08T21:00) burns
+        // the city at that hour, the front running on while the stop is held.
+        hour: {
+          get current() { return api.timeOfDay.current; },
+          async set(value, opts = {}) {
+            const at = YEAR === '1871' && opts.date && /^\d{1,2}:\d{2}$/.test(String(value))
+              ? `${opts.date}T${String(value).padStart(5, '0')}` : null;
+            void api.fire.set(at && at >= '1871-10-08T21:00' ? at : null, { rate: 12, light: false });
+            return api.timeOfDay.set(value, opts);
+          },
+          async restore() { void api.fire.set(null, { light: false }); return api.timeOfDay.restore(); },
+        },
         // T-3377: a jaunt's own season, held for the outing and given back after.
         season: api.season,
         // T-3495: the everyday people held out while a jaunt is on, but for those its stop
@@ -6414,7 +6513,11 @@ async function boot() {
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
-  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev });
+  // T-3675: on a Chromebook the welcome line reads "Prepare for class" with its size, and
+  // Settings › Graphics carries the same download, for a teacher readying a class set.
+  api.pack = createYearPack({ year: YEAR, mount: document.getElementById('welcome-pack'), dev: resolveBases().dev,
+    classroom: !!device.signals?.chromeos });
+  api.pack.attachSettings(document.querySelector('.panel-body[data-panel="settings"] .settings-group[data-set-pane="graphics"]'));
   // The Jaunts list, for the Welcome card's Jaunts choice and for the Navigator's Jaunts
   // app (T-2630), which shows the same list wherever it is.
   let jauntPictures = null;
@@ -7117,6 +7220,13 @@ async function boot() {
         recall: (href) => recallHome?.ask(href),
         // T-3390: a Jump to another year asks the same way before its ring runs.
         confirmJump: (to, go) => (recallHome ? recallHome.askJump(to, go) : go()),
+        // T-3669: where you stand, for Jump to land on the same ground in the far year.
+        jumpPose: () => {
+          if (!api.ready || gateOpen) return null;
+          const st = walker.state;
+          return { e: st.e, n: st.n, bearing: walker.bearingDeg, pitch: st.pitch / DEG,
+            altitude: st.flying ? st.altitude : null, season: api.season.current, hour: world.sunTime };
+        },
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -7317,11 +7427,29 @@ async function boot() {
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
     const restoreMoment = async () => {
-      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
-      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
-        blockedAt: (e, n) => router.blockedAt(e, n) })) {
-        hud.say(t('moment.invalid')); return;
+      const ground = { inBounds: (e, n) => terrain.inBounds(e, n), blockedAt: (e, n) => router.blockedAt(e, n) };
+      const jumped = sharedMoment.via === 'jump';
+      let moved = 0;
+      if (!momentFits(sharedMoment, { year: YEAR, ...ground })) {
+        // T-3669: a Jump keeps your ground where this year has it: a house or the river
+        // where you stood moves you to the nearest open ground; land this year's town does
+        // not cover leaves this year's own arrival (its Welcome) in place, and says so.
+        // A shared link never moves.
+        const open = jumped && sharedMoment.year === String(YEAR) && sharedMoment.altitude === null
+          ? nearestOpen(sharedMoment.e, sharedMoment.n, ground) : null;
+        if (!open) {
+          if (jumped) {
+            api.jumpLanding = { kept: false, outside: true, from: sharedMoment.from ?? null };
+            hud.say(t('moment.jumpOutside', { from: sharedMoment.from ?? t('moment.thatYear'), year: YEAR }));
+          } else {
+            if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+            hud.say(t('moment.invalid'));
+          }
+          return;
+        }
+        sharedMoment.e = open.e; sharedMoment.n = open.n; moved = open.moved;
       }
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
       travel.stop('shared-moment'); follow.stop('input');
       if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
       if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
@@ -7336,7 +7464,11 @@ async function boot() {
         else missingPerson = true;
       } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
       api.momentRestored = sharedMoment;
-      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+      if (jumped) {
+        api.jumpLanding = { kept: true, outside: false, moved, e: sharedMoment.e, n: sharedMoment.n, from: sharedMoment.from ?? null };
+        hud.say(t(moved ? 'moment.jumpNear' : 'moment.jumpSame', { year: YEAR, m: moved }));
+      }
+      else hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
     };
     const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
     if (journey.state === 'landed' || journey.state === 'exploring') open();
@@ -7691,6 +7823,8 @@ async function boot() {
     api.jauntHosts?.speak(api.narration?.voice?.() ?? null);
     // T-3553: a jaunt stop's staged history plays on the same clock as the people.
     api.jauntStage?.update(frameDt);
+    // T-3687: the Great Fire, at the fire time a stop set (nothing at all in free walk).
+    api.fire?.update(frameDt, camera);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).

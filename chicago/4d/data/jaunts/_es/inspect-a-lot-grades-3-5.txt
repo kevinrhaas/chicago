@@ -1,0 +1,103 @@
+== title @c70fc853
+Mira antes de comprar un lote
+
+== premise @8c6f5317
+Lee un aviso sobre tierras en venta. Ve la sala donde se vende la tierra en subasta. Encuentra tu esquina, y mira el terreno antes de pagar.
+
+== opening @87c4be1e
+PASEO: MIRA ANTES DE COMPRAR UN LOTE. En el verano de 1835, Chicago se ha vuelto loco por la tierra. Cuando abrió la oficina de tierras en mayo, la gente se emocionó todavía más. Un pedazo de tierra que costaba entre diez y cincuenta dólares en 1830 ahora cuesta veinte o treinta veces más. Una parte del pueblo se vendió el verano pasado por veinte mil dólares. Este mayo se volvió a vender por cien mil dólares.
+
+La tierra se vende en subastas. Un hombre con un abrigo rojo brillante recorre el pueblo en un caballo blanco, anunciando a gritos la hora de la venta. Las multitudes lo siguen y escuchan cada palabra. Antes de unirte a ellas, mira lo que de verdad está en venta. Mira la sala, los avisos, la esquina y el terreno mismo.
+
+== stop auction @aecc9ddc
+Empieza en Dearborn Street, en la nueva sala de subastas de John Bates. En junio, el periódico dijo que aquí se venderían cincuenta pedazos de tierra en Marseilles, y cincuenta más después. ¡Pero Marseilles es otro pueblo completamente distinto! En esta locura por la tierra, dice un libro de historia, todo el país parecía estar marcado con pueblos que solo existían en el papel. Muy pocos de estos pueblos de papel llegaron a ser pueblos de verdad. Vuelve a leer el aviso.
+
+== narrative auction @9932e6e2
+¿Qué vendía de verdad ese aviso?
+
+== label auction chicago-lots @280d3598
+Vendía lotes de Chicago
+
+== consequence auction chicago-lots @9a56f4f0
+Léelo otra vez. La tierra estaba en Marseilles. La sala es un mercado, no la tierra.
+
+== label auction another-town @f8065835
+Vendía lotes de otro pueblo
+
+== consequence auction another-town @63c7ccd6
+¡Correcto! La sala está en Chicago, pero la tierra estaba en otro lugar.
+
+== stop notice @3ce42fd5
+Camina al oeste hasta Clark Street. El periódico Democrat se imprimía en esta esquina desde 1833. Después su oficina se mudó encima de una ferretería. Tu periódico tiene dos avisos de tierras. Uno vende pedazos de tierra en el pueblo. El otro vende tierra por donde pasará un canal que se planea construir. Los precios son descabellados. Esta primavera, Gurdon Hubbard y sus socios compraron ochenta acres por cinco mil dólares. Vendieron la mitad en subasta por ochenta mil dólares.
+
+== narrative notice @1a83f5b8
+Elige el aviso que vas a seguir.
+
+== label notice town-lots @c7801f5e
+Sigue los lotes de Hubbard en el pueblo
+
+== consequence notice town-lots @a296a851
+Buscarás un pedazo de tierra en el pueblo mismo.
+
+== label notice canal-land @cbc291f6
+Sigue las tierras de Fell en la ruta del canal
+
+== consequence notice canal-land @af168439
+Mirarás tierras fuera del pueblo, por donde pasará el canal.
+
+== stop corner @7d285557
+Sigue caminando al oeste hasta LaSalle Street, donde está la tienda de dos pisos de Peck, en la esquina. La tierra se compra por sus esquinas y las calles que la rodean. Así que mira a tu alrededor. El río está al norte. Los pedazos de tierra se extienden hacia el sur. Philo Carpenter llegó aquí en 1832. Pagó setenta y cinco dólares por dos pedazos de tierra en South Water Street. En la locura por la tierra, un pedazo se vendió en junio por cinco mil dólares. Se volvió a vender en agosto por diez mil.
+
+== narrative corner @7dccc414
+Encuentra la esquina y mira hacia el sur, hacia la tierra.
+
+== stop ground @1e0ed08d
+Unos pasos al este, una pequeña zanja corre por debajo de South Water Street hasta el río. La calle la cruza sobre troncos. Un informe sobre el pueblo temprano dice que esta parte del pueblo era baja y mojada, como un pantano. Era todavía más mojada cerca del río, y estaba cubierta de pasto alto y cañas. Un maestro recordaba lodo hasta la mitad de la pierna, hasta el centro de las ruedas de los carros. Decide qué te dice el terreno.
+
+== narrative ground @49b46d03
+¿Haces más preguntas, o te guardas el dinero?
+
+== label ground inquire @2102a7be
+Primero averigua sobre un lote
+
+== consequence ground inquire @bb626b0b
+Preguntarás por un pedazo de tierra y caminarás sobre él.
+
+== label ground hold @7bb4c747
+Guárdate el dinero
+
+== consequence ground hold @6bf45f36
+Por ahora te guardas el dinero.
+
+== leg 0 @bc75f481
+Deja la sala de ventas por el periódico que habló de ella.
+
+== note 0 @9a93a6ed
+Al norte por Dearborn hasta South Water Street y al oeste por ella hasta la esquina de Clark Street.
+
+== leg 1 @45663526
+Lleva tu aviso a una esquina en la que puedas confiar.
+
+== note 1 @3b2d199e
+Al oeste por South Water Street, una cuadra, hasta la esquina de LaSalle.
+
+== leg 2 @a7f38868
+Ahora mira hacia abajo, al terreno mismo.
+
+== note 2 @f605c56b
+Unos pasos al este por South Water Street hasta donde el desagüe se junta con el río.
+
+== ending inquire-town @f1107149
+Preguntarás por un pedazo de tierra del aviso de Hubbard. Te pararás sobre él antes de pagar. En este pueblo los precios pueden duplicarse en dos meses, así que un comprador que mira primero es muy raro.
+
+== ending inquire-canal @5e3cac92
+Preguntarás por un pedazo de tierra por donde pasará el canal, como dice el aviso, y caminarás sobre él antes de pagar. Todo el mundo dice que el canal viene. Asegúrate de que la tierra también sea de verdad.
+
+== ending held @8541c060
+Te guardas el dinero. Un aviso, una sala de ventas y una calle llena de lodo te han dicho suficiente por un día. Recuerda esto cuando se acabe la locura por la tierra. Después de 1836, casi todos los compradores de la primera venta de tierras del canal no pudieron terminar de pagar y perdieron la tierra. Solo Peck hizo su segundo pago.
+
+== keepsake title @da936678
+Lee el terreno
+
+== keepsake text @e01ae4c7
+Una nota inventada sobre un aviso de tierras que leíste, una sala de ventas que viste y el terreno que caminaste antes de gastar dinero.

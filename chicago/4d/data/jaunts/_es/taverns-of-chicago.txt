@@ -1,0 +1,126 @@
+== title @d09578d1
+Tabernas de Chicago
+
+== premise @efb1d2a6
+Visita tres tabernas, recoge lo que se dice en el pueblo y decide dónde terminar la noche.
+
+== opening @ef3a0e41
+PASEO: TABERNAS DE CHICAGO. Una noche de verano de 1835, y el pueblo está a reventar. La oficina de tierras abrió en mayo y, como dijo una historia, 'echó leña al ya brillante incendio de la emoción'. No queda una cama libre, las cantinas hacen ruido y todo el pueblo habla de lotes, bancos y barcos.
+
+Cuatro posadas públicas están a poca distancia a caballo de la confluencia, atendidas por algunos de los personajes más notables del pueblo. Empieza en el Sauganash, donde el posadero toca el violín, cruza a caballo a la orilla oeste y termina donde quieras. El condado fija el precio de un trago desde 1831: '6¼ por un gill de whisky'. Bebe o no bebas. De cualquier forma, mantén los oídos abiertos.
+
+Primero, decide cuánto dinero llevas.
+
+== stop purse @fe7566c6
+El Sauganash, en Lake y Market: la casa blanca de dos pisos con postigos azul brillante que recordaba Juliette Kinzie, y que en junio el Democrat encontró reparada, acondicionada y amueblada con esmero. Moses y Kirkland la llaman 'la hostería más atractiva que poseía la ciudad', y a su posadero, Mark Beaubien, 'con su alegre violín, el más popular de los anfitriones'. Era 'el violinista por excelencia del pueblo'. El juez Caton dijo que Mark podía 'levantar al perezoso de su asiento y ponerlo a girar por el piso como loco'.
+
+== narrative purse @68be5020
+Antes de seguir a caballo, decide cuánto puede gastar tu bolsa esta noche.
+
+== label purse no-purse @ab9dbb1f
+No llevar bolsa
+
+== consequence purse no-purse @f3abbfe2
+Hablar es gratis; esta noche no gastarás nada.
+
+== label purse modest @d7c4a017
+Una bolsa modesta
+
+== consequence purse modest @812c85a9
+25 centavos para la noche.
+
+== label purse fuller @4a6b1d63
+Una bolsa más llena
+
+== consequence purse fuller @23325dcb
+50 centavos para la noche.
+
+== stop wolf-point @ea1942ef
+Al otro lado del río, en la confluencia, está la Wolf Point Tavern, con su letrero pintado de un lobo. A William Walters se le nombra su posadero hasta 1836, aunque una cronología dice que dejó de recibir huéspedes en 1834, así que el que te sirvan depende de a quién le creas. En la barra se habla de lo que dicen los periódicos: ninguna casa en Chicago es lo bastante grande, y una nueva y lujosa, la Lake House, se está levantando al otro lado del río. 'Pretendía atender solo a huéspedes de la más alta clase'. Wolf Point nunca lo pretendió.
+
+== narrative wolf-point @3e7267de
+Escucha. ¿Un vaso con la plática, o agua?
+
+== label wolf-point glass @b88e218d
+Toma un vaso con la plática
+
+== consequence wolf-point glass @4fbe873d
+Seis centavos por un gill, casi los 6¼ del condado, y la plática sigue.
+
+== label wolf-point water @4b7cb2c2
+Escucha con una taza de agua
+
+== consequence wolf-point water @1585fa64
+Tu bolsa y tu cabeza se quedan como estaban.
+
+== stop green-tree @d1e3d00e
+Un poco al sur, el Green Tree, que James Kinzie construyó en 1833, la primera casa de aquí levantada para servir de hotel, 'llamada así por un roble que estaba muy cerca'. Chester Ingersoll lo atiende. Los huéspedes recordaban una cantina, tabiques de tablas encalados y cuartos de unos doce pies por lado. Es una casa sencilla y con suerte: sobrevivirá a todas las tabernas de este pueblo, trasladada a Milwaukee Avenue en 1880, 'el recuerdo más antiguo de las primeras tabernas'.
+
+== narrative green-tree @b9f63392
+Compara su acogida con la del Sauganash.
+
+== label green-tree glass @adc7c5f9
+Otro vaso en la cantina
+
+== consequence green-tree glass @8486fe0d
+Seis centavos más, y un paseo a caballo más lento después.
+
+== label green-tree chambers @f7bda467
+Mejor pregunta por los cuartos
+
+== consequence green-tree chambers @9ee804f0
+Tomas nota de los cuartos y mantienes la cabeza despejada.
+
+== stop western @5c9ae9af
+Termina el recorrido una cuadra al sur, en el Western Hotel de W. H. Stow, en Randolph y Canal: una fachada de cuarenta pies, un ala de sesenta pies, un establo grande y un patio al que entran las caravanas de carretas de los granjeros. No todos aprueban tanta bebida. En 1832 Philo Carpenter, el boticario, 'preparó e hizo circular la primera promesa de templanza entre los ciudadanos parranderos' del pueblo. No ha tenido éxito: el censo de fin de este año contará ocho tabernas, y pronto los síndicos prohibirán 'la venta de licores en domingo'.
+
+== narrative western @2437b021
+Ahora elige la casa donde termina tu noche.
+
+== label western stay-western @686c6339
+Quédate con los carreteros
+
+== consequence western stay-western @a1f5bed0
+Terminas la noche en el Western.
+
+== label western back-green-tree @c5ffc595
+Regresa a caballo al Green Tree
+
+== consequence western back-green-tree @429cc258
+Terminas la noche en el Green Tree.
+
+== label western back-sauganash @ad6a0d3d
+Cruza de vuelta al Sauganash
+
+== consequence western back-sauganash @df2caff9
+Terminas la noche donde empezaste.
+
+== leg 0 @51629657
+Cruza a caballo con tu bolsa ya decidida. Detrás de ti, el violín se está afinando.
+
+== note 0 @c64ff337
+Al oeste, sobre el brazo sur, hasta la confluencia.
+
+== note 1 @c7433f4f
+Un poco al sur, por la orilla oeste, hacia Lake Street.
+
+== note 2 @abe08f5c
+Una cuadra al sur, hasta Randolph y Canal.
+
+== ending talk-is-free @967c933c
+No llevaste bolsa y no te perdiste nada. La plática fue gratis, el violín fue gratis, y te llevas a casa cada palabra de una noche en un pueblo en pleno auge.
+
+== ending clear-head @6539a2eb
+Rechazaste todos los vasos y mantuviste tu bolsa entera. Philo Carpenter te haría firmar su promesa en ese mismo instante. Una cabeza despejada se lleva a casa intacta la plática de la noche.
+
+== ending two-houses @ab5a4763
+Un gill en dos cantinas, a más o menos el precio del condado, y aun así una noche modesta. Dejas que los chismes sigan siendo chismes y regresas a caballo despacio bajo las estrellas.
+
+== ending a-sensible-evening @da1f623f
+Un vaso, muchísima plática y una bolsa casi sin tocar. Una noche sensata, en un pueblo que ha perdido la cabeza por la tierra.
+
+== keepsake title @def42ba0
+Una noche sensata
+
+== keepsake text @b0a18064
+Una tarjeta de visita ficticia de una noche de recorrido por las posadas públicas de la confluencia.

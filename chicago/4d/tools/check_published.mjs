@@ -54,6 +54,8 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   // T-2741: today's streets, for the compass readout and the maps in every year.
   ['data/modern/', 'data/modern/'],
+  // T-3674: the on-site tour, fetched when Window mode starts in 1904.
+  ['data/onsite/', 'data/onsite/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
@@ -100,6 +102,8 @@ const COPIES = [
   ['data/wells/', 'data/wells/'],
   ['data/street_grid/', 'data/street_grid/'],
   ['data/context/', 'data/context/'],
+  // T-3687: the Great Fire's district and hours, read by city-fire.js once a fire time is set.
+  ['data/fire/', 'data/fire/'],
   ['data/street_surfaces/', 'data/street_surfaces/'],
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],

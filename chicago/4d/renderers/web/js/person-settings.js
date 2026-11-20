@@ -5,13 +5,16 @@
  * Kevin, 2026-11-17: "you will need to provide options for users in settings to change the gender
  * appearance dress, etc. this becomes a person builder eventually but the foundation starts with
  * customizing the default person". So the tab is a small builder over visitor-person.js: a
- * portrait of the person (person-portrait.js, the figure the town draws, turned with a tap), then
- * Man or Woman, age, complexion (swatches), the face (the library's faces, Auto first), eyes, hair
+ * portrait of the person (person-portrait.js, the figure the town draws, turned with a tap) and
+ * beside it their face up close (Kevin, 2026-11-19: "the face would be nice in addition to the
+ * body to see the face up close"), then the body type (Kevin, 2026-11-19: named for the person's
+ * style, not their gender, with a third type), age, complexion (swatches), the face (the
+ * library's faces, Auto first), eyes, hair
  * colour and cut, whiskers, and the dress for the year the visitor is in, each year's kept
  * separately. Every change is the person's at once: a figure already in the saddle is re-made.
  * The lists come from data/humans/visitor_person.json; nothing here names an id of its own.
  */
-import { faceChoices } from './visitor-person.js';
+import { faceChoices, wardrobe } from './visitor-person.js';
 
 /**
  * Swatch colours for the complexions: a light skin as the portrait's light shows it (linear)
@@ -74,15 +77,19 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     host.append(el(doc, 'p', { class: 'legend-note', text: `Your person is drawn in ${(C.years ?? []).join(', ')}.` }));
     return null;
   }
-  let turn = 0;
+  let turn = 0, faceTurn = 0;
 
-  // The portrait: the figure itself, a tap turns it.
+  // The portrait: the figure itself, a tap turns it; beside it the face up close, a tap turns
+  // that from the front to three-quarters to the profile and back.
   const canvas = el(doc, 'canvas', { class: 'person-portrait', width: 240, height: 360, 'aria-label': 'Your person' });
   const pic = el(doc, 'button', { type: 'button', class: 'person-pic', title: 'Turn', 'aria-label': 'Turn your person' }, [canvas]);
+  const faceCanvas = el(doc, 'canvas', { class: 'person-portrait person-face-close', width: 240, height: 240, 'aria-label': 'Your face, close' });
+  const facePic = el(doc, 'button', { type: 'button', class: 'person-pic person-face-pic', title: 'Turn', 'aria-label': 'Turn your face' }, [faceCanvas]);
   const status = el(doc, 'p', { class: 'legend-note person-status', role: 'status' });
   pic.addEventListener('click', () => { turn = (turn + 1) % 8; paint(); });
-  host.append(el(doc, 'div', { class: 'person-stage' }, [pic, status]));
-  if (!portrait) pic.hidden = true;
+  facePic.addEventListener('click', () => { faceTurn = (faceTurn + 1) % FACE_TURNS.length; paint(); });
+  host.append(el(doc, 'div', { class: 'person-stage' }, [el(doc, 'div', { class: 'person-pics' }, [pic, facePic]), status]));
+  if (!portrait) pic.hidden = facePic.hidden = true;
 
   // A row of choices as buttons (one pressed), or as a select where the list is long.
   const rows = {};
@@ -104,7 +111,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     return rows[key];
   };
 
-  choiceRow('sex', 'Gender');
+  choiceRow('sex', C.body_label ?? 'Body type');
   selectRow('age', 'Age');
   choiceRow('complexion', 'Complexion', { swatch: true });
   choiceRow('face', 'Face');
@@ -165,11 +172,11 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     fillButtons(rows.face, faces, choice.face, faceThumb);
     fillSelect(rows.eyes.select, C.eyes, choice.eyes);
     fillSelect(rows.hair_colour.select, C.hair_colours, choice.hair_colour);
-    fillSelect(rows.cut.select, C.cuts?.[yc.year]?.[sex] ?? [], yc.cut?.id);
+    fillSelect(rows.cut.select, wardrobe(C, 'cuts', yc.year, sex), yc.cut?.id);
     const facial = C.facial?.[sex] ?? [];
     fillSelect(rows.facial.select, facial, choice.facial);
     rows.facial.box.hidden = facial.length < 2;
-    fillSelect(rows.outfit.select, C.outfits?.[yc.year]?.[sex] ?? [], yc.outfit?.id);
+    fillSelect(rows.outfit.select, wardrobe(C, 'outfits', yc.year, sex), yc.outfit?.id);
     worn.textContent = yc.outfit?.worn ?? '';
   }
 
@@ -179,7 +186,12 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     if (painting) { again = true; return painting; }
     status.textContent = 'Drawing…';
     painting = portrait.draw(canvas, { year, turn: turn * 45 })
-      .then((ok) => { status.textContent = ok ? '' : 'Your person is drawn when the town\'s people have loaded.'; if (ok) canvas.dataset.drawn = String(Date.now()); })
+      .then(async (ok) => {
+        // The face from the same figure: one more render, no second build.
+        if (ok && !facePic.hidden) ok = await portrait.draw(faceCanvas, { year, turn: FACE_TURNS[faceTurn], frame: 'face' }).catch(() => false) && ok;
+        status.textContent = ok ? '' : 'Your person is drawn when the town\'s people have loaded.';
+        if (ok) canvas.dataset.drawn = faceCanvas.dataset.drawn = String(Date.now());
+      })
       .catch((e) => { status.textContent = 'Could not draw your person here.'; console.warn('[4D Chicago] person portrait', e); })
       .finally(() => { painting = null; if (again) { again = false; void paint(); } });
     return painting;
@@ -204,5 +216,8 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
 /** The faces on offer (visitor-person.js faceChoices), each with a plain label. */
 export function facesFor(catalog, sex, complexion) {
   const word = { young: 'Young', middle: 'Middle-aged', old: 'Older' };
-  return faceChoices(catalog.faces, sex, complexion).map((f, n) => ({ ...f, label: `${word[f.age] ?? 'A'} face ${n + 1}` }));
+  return faceChoices(catalog.faces, sex, complexion, catalog).map((f, n) => ({ ...f, label: `${word[f.age] ?? 'A'} face ${n + 1}` }));
 }
+
+/** The close face's turns (degrees from the front, as person-portrait.js draws): front, three-quarters, profile. */
+export const FACE_TURNS = Object.freeze([0, 40, 80]);

@@ -1,3 +1,63 @@
+## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
+
+Jump passes the walker's ground, facing, season and hour (never a date, person or
+building) to the far year. That page checks the spot with `momentFits`; if a structure or
+water now holds it, `nearestOpen` searches rings out to 24 m inside coverage; if the town
+does not reach it, the year's Welcome stays and a line says why. Shared links never move.
+Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
+new Jump-landing check, which accepts either outcome and requires the page to say which.
+
+The understanding check's questions (where / who told us / how sure) were checked over all
+240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
+the claim, a wrong teller never also tells it, every quoted line is one the stop said and shares its words with the record behind it (238 tellings quizzed; Lalime and 1612 for ages 8-10 are retold too loosely and get none), the quoted line never names who told it, stable order on repaint
+(`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
+reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
+technology beyond native buttons, groups and status lines.
+
+## T-3675 — Chromebook class set (19 November 2026)
+
+Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
+or Chrome's userAgentData) and profiled as a computer, touch screen or not: class `weak`, so
+Balanced detail, Sharpness Low, light textures and the memory diet, with people, horses,
+carriages and wagons drawn and never Light. Before this, a touch-screen Chromebook in a window
+under 900 px wide (or in tablet mode) was profiled as a phone: the emulated one booted 1835 at
+Light ("modest phone or tablet"), and an Arm Mali Chromebook's GPU only counted as shared memory
+on a non-touch one. Its controls stay keyboard and trackpad unless its pointer is coarse
+(tablet mode); a touch on the screen still switches to touch controls. PowerVR (MediaTek
+MT8173 Chromebooks) joins the shared-memory GPUs, Mesa's prefix and chip codename are dropped
+from the GPU name, and the loading screen reads "Chromebook · Intel UHD Graphics 600 · shared
+memory · 4 GB · 4 cores".
+
+The year's offline copy is the "Prepare for class" path: on a Chromebook the welcome line reads
+"Prepare for class · 374 MB" (1835), and Settings › Graphics carries the same download on every
+device, with progress, a "ready offline" state and how to check it (Wi-Fi off, reload). The
+copy says the honest thing: do this on each device before the lesson; each keeps its own copy
+and nothing is shared across the room. No server, no new assets.
+
+**Memory, emulated Chromebook** (`tools/chromebook_emulation.mjs`: ChromeOS user agent,
+`deviceMemory` 4, 4 threads, Intel UHD 600 renderer string, 1366×768 at 1×, nothing forced),
+build ccf78e0ce + this change, every year measured, `docs/measurements/T-3675-memory-chromebook.json`:
+
+| Year | Chromebook (Balanced, diet) | New ceiling | Same build, desktop at Full | People drawn at spawn, Chromebook / desktop |
+|---|---|---|---|---|
+| 1812 | 452.1 MB | 500 MiB | 786.0 MB | 284 / 284 |
+| 1835 | 677.1 MB | 750 MiB | 1,327.5 MB | 10 / 10 |
+| 1904 | 595.3 MB | 675 MiB | 1,433.8 MB | 10 / 10, and the parked carriage with its team on both |
+
+Every Chromebook row was routed by the town itself ("a Chromebook: graphics sharing the
+system's memory (Intel(R) UHD Graphics 600, 4 GB)"). The `chromebook` row is in the CI memory
+matrix for every year, and `measure_memory.mjs --gate` fails it unless it boots routed so.
+The same run read the desktop rows over their ceilings on dev's code path (1835 1,327.5 against
+1,325; 1904 1,433.8 against 1,425): a desktop on SwiftShader is untouched by this change (the
+software-renderer branch returns before any ChromeOS rule), so those are dev's growth, recorded
+here rather than raised. `tools/check_chromebook.mjs` (in check.sh) holds the routing, the
+controls rule, the loading-screen words, the "Prepare for class" words and the ceilings.
+
+**Not tested here:** a real Chromebook (Intel and Arm), its real frame rate and its tab
+limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
+other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
+a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
 Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
@@ -61,6 +121,8 @@ The map-fit and both deterministic generator checks are in `tools/check.sh`; the
 published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
 complete context baseline, not a claim of individually surveyed buildings, populated
 daily activity or photographic finish.
+
+T-3683 (19 November 2026) corrects the building materials. Colbert and Chamberlin (1871, pp. 146-147) count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868. The business centre stays masonry; elsewhere masonry picks turn to frame by district, so about one house or shop in ten is masonry (2,942 of 33,580 footprints, down from 10,770). Every footprint is unchanged. Frame walls are pale weatherboard with a per-house reconstructed paint. A seventeenth form, the two-storey frame store, replaces the brick shop block outside the centre.
 
 ## T-3672 — Teacher routes (19 November 2026)
 

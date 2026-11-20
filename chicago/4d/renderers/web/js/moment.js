@@ -23,13 +23,17 @@ export function normalMoment(raw) {
     season: SEASONS.includes(raw.season) ? raw.season : null,
     person: ID.test(raw.person ?? '') ? raw.person : null,
     structure: ID.test(raw.structure ?? '') ? raw.structure : null,
-    hour: /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(raw.hour ?? '') ? raw.hour : null };
+    hour: /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(raw.hour ?? '') ? raw.hour : null,
+    // T-3669: a Jump carries the year it left, so the far page can say what happened to
+    // the ground; a shared link never has these keys at all.
+    ...(raw.via === 'jump' ? { via: 'jump',
+      from: MOMENT_YEARS.includes(String(raw.from)) && String(raw.from) !== String(raw.year) ? String(raw.from) : null } : {}) };
 }
 export function parseMoment(search) {
   try {
     const p = new URLSearchParams(search);
     if (p.get('moment') !== '1') return null;
-    return normalMoment(Object.fromEntries(['date', 'year', 'e', 'n', 'bearing', 'pitch', 'altitude', 'season', 'person', 'structure', 'hour']
+    return normalMoment(Object.fromEntries(['date', 'year', 'e', 'n', 'bearing', 'pitch', 'altitude', 'season', 'person', 'structure', 'hour', 'via', 'from']
       .map(key => [key, p.get(key)])));
   } catch { return null; }
 }
@@ -43,6 +47,37 @@ export function momentLink(raw, href = globalThis.location?.href) {
   url.searchParams.set('moment', '1');
   for (const [key, value] of Object.entries(m)) if (value !== null) url.searchParams.set(key, String(value));
   return url.href;
+}
+/** T-3669, same spot another year: the far year's page at the ground you stand on. Every
+ * year shares one datum (data/datum.json), so the same local e/n is the same ground. Only
+ * where you stand, which way you face, and the season and hour travel: a date, a person
+ * or a building belongs to the year that holds them. The far page still validates the
+ * spot against its own coverage and obstructions (momentFits / nearestOpen); nothing is
+ * preloaded here. Returns the plain href when there is no usable pose. */
+export function jumpHref(href, pose, { year, from } = {}) {
+  const m = normalMoment({ e: pose?.e, n: pose?.n, bearing: pose?.bearing, pitch: pose?.pitch,
+    altitude: pose?.altitude ?? null, season: pose?.season, hour: pose?.hour,
+    year: String(year), via: 'jump', from: String(from) });
+  if (!m) return href;
+  const q = new URLSearchParams({ moment: '1' });
+  for (const key of ['year', 'e', 'n', 'bearing', 'pitch', 'altitude', 'season', 'hour', 'via', 'from'])
+    if (m[key] != null) q.set(key, String(m[key]));
+  return `${href.split(/[?#]/)[0]}?${q}`;
+}
+/** The nearest open ground to a spot the far year has built over or flooded: rings out to
+ * `radius` metres, the closest free point first, inside the far year's coverage. A shared
+ * link never moves; only a Jump asks for this. */
+export function nearestOpen(e, n, { inBounds, blockedAt, radius = 24, step = 2, spokes = 16 } = {}) {
+  const free = (x, y) => inBounds?.(x, y) === true && !blockedAt?.(x, y);
+  if (free(e, n)) return { e, n, moved: 0 };
+  for (let r = step; r <= radius; r += step) {
+    for (let k = 0; k < spokes; k++) {
+      const a = (2 * Math.PI * k) / spokes;
+      const x = round(e + r * Math.sin(a)), y = round(n + r * Math.cos(a));
+      if (free(x, y)) return { e: x, n: y, moved: r };
+    }
+  }
+  return null;
 }
 /** Scene coverage and the normal navigation obstruction map must both allow the view. */
 export function momentFits(m, { year, inBounds, blockedAt } = {}) {

@@ -42,7 +42,7 @@ def main():
     check(meta["reconstruction"]["horizontal_map_rms_m"]==plan["map_control"]["rms_m"],"terrain has stale training residual metadata")
     check(meta["reconstruction"]["held_out_rmse_m"]==plan["map_control"]["held_out_rms_m"],"terrain has stale reserved-check accuracy metadata")
     check(len(doc["buildings"])>=25000,"city context has shrunk to a neighborhood")
-    check(len({b["kit"] for b in doc["buildings"]})==16,"one or more period kit families is absent")
+    check(len({b["kit"] for b in doc["buildings"]})==17,"one or more period kit families is absent")
     check(set(b["id"] for b in doc["bridges"])==set(b["id"] for b in plan["bridges"]),"mapped bridge inventory was dropped")
     bridge_sources={b["id"]:b for b in plan["bridges"]}
     for bridge in doc["bridges"]:
@@ -57,7 +57,8 @@ def main():
     city=recipe.City(plan)
     collision=collections.defaultdict(list);overlaps=[];unsupported=[];forbidden=[];mapped_intrusions=[]
     for b in doc["buildings"]:
-        u,v=recipe.uv(b["e"],b["n"]);w,d=b["width_m"],b["depth_m"]
+        # T-3686: a front on a north-south street is turned a quarter.
+        u,v=recipe.uv(b["e"],b["n"]);w,d=recipe.extent_uv(b)
         corners=[recipe.en(u+du,v+dv) for du,dv in [(-w/2,-d/2),(w/2,-d/2),(w/2,d/2),(-w/2,d/2),(0,0)]]
         if min(height(*p) for p in corners)<b["base_m"]-.015:unsupported.append(b["id"])
         if any(not city.mapped_index.clear(p,1.98) for p in corners):mapped_intrusions.append(b["id"])
@@ -203,7 +204,7 @@ def main():
         check(all("_CONFIDENCE" in p["attributes"] for m in gltf["meshes"] for p in m["primitives"]),f"missing confidence channel: {name}")
     if fails:
         print("\n".join("FAIL "+x for x in fails));return 1
-    print(f"1871 context PASS: {len(doc['buildings']):,} footprints, 16 kits, {len(bridges)} walkable bridges, {len(quays)} supported quay bays; visible floor agreement, safe bank access, field support, exclusion masks, non-overlap, 30mm mesh agreement, provenance and every generated hash verified")
+    print(f"1871 context PASS: {len(doc['buildings']):,} footprints, 17 kits, {len(bridges)} walkable bridges, {len(quays)} supported quay bays; visible floor agreement, safe bank access, field support, exclusion masks, non-overlap, 30mm mesh agreement, provenance and every generated hash verified")
     return 0
 
 
