@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3156, ts: '2026-11-20T03:19:33.373Z', date: 'Nov 19, 2026, 9:19 PM CT', title: '1871\'s streets are wood block, boulders and dirt, under raised plank walks', kind: 'improvement',
+    items: [
+      'Clark, Lake and the other streets the Board of Public Works\' 1871 report names are paved in end-grain wood block; the main thoroughfares share the rest of its 57 miles.',
+      'Blocks of street running along the river, such as Market Street and Kingsbury Street, are paved with rounded boulders, up to the report\'s figure.',
+      'Every other street is packed dirt with wheel ruts.',
+      'The walks are raised plank walks a step above the street, with a kerb board and steps. Planks cross the dirt streets at the corners.',
+      'Close to, each surface shows its blocks, stones, ruts and boards; further off it settles into its own colour. A phone shows the same colours with smaller textures.',
+    ] },
   { v: 3155, ts: '2026-11-20T02:43:25.135Z', date: 'Nov 19, 2026, 8:43 PM CT', title: '1871\'s streets carry their 1871 names, meet cleanly and curve smoothly', kind: 'improvement',
     items: [
       'Downtown and the near North and West Sides now carry the names the 1871 directory and the 1870 map use: Fifth Avenue for Wells, Market, Griswold, Third and Fourth Avenues, Sherman, Pine, Cass, Michigan Street, Indiana Street and the rest.',
