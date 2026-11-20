@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3152, ts: '2026-11-20T01:07:47.816Z', date: 'Nov 19, 2026, 7:07 PM CT', title: 'Make your case on four more outings', kind: 'feature',
+    items: [
+      'After The Battle of Fort Dearborn, weigh two officers\' distances against the tree the Kinzies pointed out.',
+      'After Chicago\'s First Murder, compare the family\'s story of Du Sable\'s trading post with the land record.',
+      'After A Schoolday Errand, compare two histories of Eliza Chappel\'s school with where the outing places it.',
+      'After The Bronze at Eighteenth Street, ask whether the 1893 statue shows what happened.',
+      'Each case uses the outing\'s own cited sources, keeps inferences marked, and saves to your notebook only when you choose.',
+    ] },
   { v: 3151, ts: '2026-11-20T00:30:38.799Z', date: 'Nov 19, 2026, 6:30 PM CT', title: 'Where and when? now plays in 1835, with three old pictures', kind: 'feature',
     items: [
       'In 1835, Home’s Where and when? shows three old pictures of the Green Tree Tavern. Walk to where you think each was drawn from and guess.',
