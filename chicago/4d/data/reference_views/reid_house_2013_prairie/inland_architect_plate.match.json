@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "185772022af471fae1318c689e0de307dfb415311d76d82ae29869bc6beda52f",
+  "glb_sha256": "5e847dc0b84ca7495ebb910c9d9beff091672fb122b29668351c8f49a1c7d360",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "185772022af471fae1318c689e0de307dfb415311d76d82ae29869bc6beda52f"
+      "glb_sha256": "5e847dc0b84ca7495ebb910c9d9beff091672fb122b29668351c8f49a1c7d360"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -42,18 +42,18 @@
         7.885140492844279
       ],
       "rotation_y": 0,
-      "glb_sha256": "5096fd7422a6227a38c42790b0b0961f2e8e8d5d11f8e1ef86650105768585af"
+      "glb_sha256": "273f176c475b2fc1cae80aaf70ee6a3b3875fd0543ff8693642b78d175bda12b"
     },
     {
       "structure_id": "house_2017_prairie",
-      "glb": "assets/gltf/house_2017_prairie__draft_1904.glb",
+      "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
       "placement": {
         "local_e": 1441.061,
         "local_n": -3530.462,
         "rotation_deg": 179.389,
         "scene": "1904",
         "target_date": "1904-07-01",
-        "phase": "draft_1904"
+        "phase": "as_mapped_1904"
       },
       "position": [
         -0.06633137903880316,
@@ -61,10 +61,10 @@
         -10.370315576112317
       ],
       "rotation_y": -0.00010471975511966374,
-      "glb_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
+      "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53"
     }
   ],
-  "group_sha256": "7637f60ec5c375b9f4802a19623552839a526bf53dff4e3caf52445a2874e7c3",
+  "group_sha256": "636427cfa9b8c56e37fbecd4e88f36c77611253c2b9603bec272f94e5988e1b7",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -115,23 +115,28 @@
     },
     {
       "what": "the pilasters' carved capitals under the hood, and the small carved roundels in the narrow panels",
-      "status": "open",
-      "how": "the pilasters are plain dressed strips to the hood's bed; their capitals (about 0.3 m) and the panels' roundels are carving K01's frame does not cut (L-k01-2013-reid-3626); the split piece with the frieze"
+      "status": "within tolerance",
+      "how": "T-3626: the pilasters stand where the plate draws them and stop under the hood; their carved capitals (about 0.3 m) and the narrow panels' small roundels are carving on parts that are built, under the bar a street visitor would notice (L-k01-2013-reid-3626)"
     },
     {
       "what": "the carved border up the front's south edge, from the frieze down past the second storey (x 600-640 px, y 250-600), its foot on a carved bracket",
-      "status": "open",
-      "how": "not built; the T-3625 record did not list it; the split piece with the frieze"
+      "status": "fixed",
+      "how": "T-3626: a raised border 0.4 m wide and 0.05 m proud up the south corner (street_front_windows.frame.pilasters[4], s 7.22-7.62 m), from the belt's top (5.95 m) to under the cornice (12.95 m); the render's strip at the front's south edge, under the cornice to the second storey, where the plate's is. Its carving and its carved bracket at about 7.7 m are not cut, under the bar (L-k10-2013-reid-blocks-3626)"
     },
     {
-      "what": "the entablature's frieze of garlands and wreaths and the dentils under the cornice's corona (x 300-615 px, y 160-335)",
-      "status": "open",
-      "how": "K10's moulded section stands for them uncarved (L-k01-2013-reid-3625); T-3626"
+      "what": "the row of blocks under the cornice's corona (x 300-615 px, y 160-335)",
+      "status": "fixed",
+      "how": "T-3626: wall_head.blocks: thirteen of K10's stone consoles under the moulded cornice's corona, 0.65 m apart, 0.22 m tall, 0.18 m wide and 0.2 m out (12.91-13.13 m); in the render a toothed course under the corona from corner to corner, about 25 px apart as in the plate (L-k10-2013-reid-blocks-3626)"
+    },
+    {
+      "what": "the frieze's garlands and wreaths between the lunette's crown and the blocks",
+      "status": "within tolerance",
+      "how": "the plate's frieze stands where K10's moulded section does (about 12.9-13.3 m), its foot on the lunette's crown, so the band is there; its garlands are low-relief carving on it, under the bar. A separate frieze band under the section would strike the lunette's head (L-k10-2013-reid-blocks-3626)"
     },
     {
       "what": "the front's tone: the plate prints it the palest front on the block, near white beside 2011's pale stone, where the render's cream brick reads a warm tan",
       "status": "open",
-      "how": "K03's palest front recipe is cream_sooted, smoke-greyed; the register's 'cream textured brick' of 1894 wants a cleaner, paler face; T-3626"
+      "how": "still open, and not fixable on the kit: K03 lays a face as one of its two panels under a colour factor of at most 1, so no recipe is paler than the common buff panel, and the 1904 scene adds no brick map at its phone memory ceiling (k03_face_brick.json `rule`). The plate's near-white front wants a pale brick panel; the nomination text's 'cream rough-textured brick' says the same (L-k10-2013-reid-blocks-3626)"
     },
     {
       "what": "the portico's entablature and the door",
@@ -151,14 +156,19 @@
     {
       "what": "the flanks, the rear and the roof",
       "status": "not shown",
-      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck; T-3626 reads the 2003 photographs"
+      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck. The 2003 nomination photographs (north side, rear, rear garden) were not read: the library holds them link-only, their reuse rights not established, and on 2026-11-20 NARA's copy refused this runner (403) and NPGallery's is not digitized. Their summaries are post-1955 (the north wall bared when 2009-2011 came down) and the rear's coach house is 1910, so neither is 1904 evidence of what the plate cannot see"
     },
     {
       "what": "2011 and 2017 themselves",
       "status": "not shown",
       "how": "rendered as the 1904 scene's own records for context only; their pictures are their own tickets'; 2011's K01 turret (T-3615, built off the Chicagology photograph's camera) falls where the plate draws it, its cone at x 90-290 px of the render against the plate's 160-320 px, an independent check on this camera"
+    },
+    {
+      "what": "a plain strip up the north corner, from the frieze to the balcony",
+      "status": "within tolerance",
+      "how": "about 0.2 m wide in the plate (x 322-332 px), under the bar; not built"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-17"
+  "reviewed": "2026-11-20"
 }

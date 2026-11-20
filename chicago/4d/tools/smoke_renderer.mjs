@@ -869,6 +869,56 @@ const BRIGHT_AID_MIN_MEAN = 15;
 // critic frame this suite takes is read here. world.js § BASE_EXPOSURE.
 const BASE_EXPOSURE = 0.95;
 
+// T-3706 — A STILL FRAME FOR THE CAMERA. Each road-contrast pass sets its state and
+// calls `a.step()`, and that draw IS the frame being measured. A bare
+// `page.screenshot` then waited behind the app's own animation loop too. Each rAF
+// is a full tick, 8-11 s at desktop on the software-GL runner (T-2412), and the
+// capture has to wait out the tick in flight plus whatever the loop asks for next.
+// Five of these shots per station were ~5 minutes of desktop part 8 on a green
+// run (PR #2252, 0:50 -> 6:11 for one station). On a runner a little slower
+// (dev's town ready in 68-78 s, not 46-57) one shot passed the 90 s default and
+// part 8 went red on #2251, #2254 and #2255, none of which touch a road.
+//
+// So the shot holds the loop for its own length and no longer. The rAF the
+// loop has already asked for runs once, before the shot, and draws the same
+// state. Requests made while held are queued and handed back to the real rAF
+// afterwards. The canvas keeps showing the last frame it presented, the same
+// pixels as before, with no queue in front of the camera. The bar is not moved
+// and the 90 s timeout stays.
+async function stillShot(page) {
+  await page.evaluate(() => new Promise((done) => {
+    const w = window;
+    if (!w.__chiRafHold) {
+      const raf = w.requestAnimationFrame.bind(w);
+      const caf = w.cancelAnimationFrame.bind(w);
+      const h = { raf, on: false, held: new Map(), next: 0 };
+      w.requestAnimationFrame = (cb) => {
+        if (!h.on) return raf(cb);
+        const id = -(++h.next);
+        h.held.set(id, cb);
+        return id;
+      };
+      w.cancelAnimationFrame = (id) => (id < 0 ? h.held.delete(id) : caf(id));
+      w.__chiRafHold = h;
+    }
+    w.__chiRafHold.on = true;
+    // Native rAF callbacks run in the order asked, so this one resolves after
+    // the frame the loop had already requested: nothing is drawing at the shot.
+    w.__chiRafHold.raf(() => done());
+  }));
+  try {
+    return await page.screenshot({ type: 'png' });
+  } finally {
+    await page.evaluate(() => {
+      const h = window.__chiRafHold;
+      h.on = false;
+      const queued = [...h.held.values()];
+      h.held.clear();
+      for (const cb of queued) h.raf(cb);
+    });
+  }
+}
+
 /** Project the street centrelines, then read R, M and O. Restores what it moved. */
 async function roadContrast(page, station) {
   const shot = await page.evaluate((st) => {
@@ -948,7 +998,7 @@ async function roadContrast(page, station) {
     return { probes: out, cssWidth: w };
   }, station);
 
-  const shotR = await page.screenshot({ type: 'png' });
+  const shotR = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     a.__roadMarkers = [];
@@ -968,7 +1018,7 @@ async function roadContrast(page, station) {
     });
     a.step();
   });
-  const shotM = await page.screenshot({ type: 'png' });
+  const shotM = await stillShot(page);
   // DIAGNOSTIC PASS — the same markers with the sward and the trees hidden. A
   // probe marked here but not in `shotM` is a road that is ON SCREEN and
   // COVERED BY VEGETATION, which the marked-only denominator drops instead of
@@ -980,7 +1030,7 @@ async function roadContrast(page, station) {
     if (a.trees?.group) a.trees.group.visible = false;
     a.step();
   });
-  const shotMF = await page.screenshot({ type: 'png' });
+  const shotMF = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     if (a.flora?.group) a.flora.group.visible = a.__floraWas[0] ?? true;
@@ -991,7 +1041,7 @@ async function roadContrast(page, station) {
     a.streets.group.visible = false;
     a.step();
   });
-  const shotO = await page.screenshot({ type: 'png' });
+  const shotO = await stillShot(page);
   // DIAGNOSTIC PASS — the road painted at FULL opacity. A near band that still
   // scores flat here is not an alpha fault: it is the ribbon and the ground
   // sharing a lightness.
@@ -1015,7 +1065,7 @@ async function roadContrast(page, station) {
     });
     a.step();
   });
-  const shotOP = await page.screenshot({ type: 'png' });
+  const shotOP = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     for (const [m, t, at, dw] of a.__roadOpaque) {
@@ -18133,7 +18183,8 @@ for (const [label, viewport, touch] of [
     // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
     // device opens and closes by keyboard alone: N opens it with focus inside and visible,
     // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
-    // one, Escape closes it and leaves focus, visibly, on the grip.
+    // one, Escape closes it and leaves focus, visibly, on the grip (a phone) or the open
+    // app's rail key (a desktop).
     await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
     const visibleFocus = () => page.evaluate(() => {
       const el = document.activeElement;
@@ -18174,7 +18225,9 @@ for (const [label, viewport, touch] of [
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
       && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
-      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      // T-3671 (WCAG 2.4.3) hands focus on close to the rail key of the app that was open,
+      // Home's here, on a desktop whose rail stays; a phone's grip is still the handle (T-3703).
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-tab-home') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
