@@ -38,13 +38,19 @@ def check(ok, what):
 record = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
 p = KP.from_phase(record["phases"][0], record)
 fr = p.street_dress["frame"]
-check(len(fr["pilasters"]) == 4, f"four pilasters ({len(fr['pilasters'])})")
+# T-3626: four frame pilasters under the hood, and the border up the front's south edge
+check(len(fr["pilasters"]) == 5, f"five strips: four pilasters and the south edge's border ({len(fr['pilasters'])})")
 check(len(fr["panels"]) == 3, f"a panel under each third-storey light ({len(fr['panels'])})")
 check(len(fr["hoods"]) == 1 and fr["hoods"][0]["corona"]["proud_m"] > fr["hoods"][0]["proud_m"],
       "one hood, its corona further out than its frieze")
 check(sorted(o["s_m"] for o in fr["ovals"]) == [0.83, 6.54], "the two ovals at 0.83 and 6.54 m")
 hood = fr["hoods"][0]
-check(all(abs(q["to_m"] - hood["bed_m"]) < 1e-6 for q in fr["pilasters"]), "the pilasters carry the hood")
+under_hood = [q for q in fr["pilasters"] if q["s_m"][1] <= hood["s_m"][1] + 1e-6]
+check(len(under_hood) == 4 and all(abs(q["to_m"] - hood["bed_m"]) < 1e-6 for q in under_hood),
+      "the pilasters carry the hood")
+border = [q for q in fr["pilasters"] if q not in under_hood]
+check(len(border) == 1 and abs(border[0]["s_m"][1] - p.width_m) < 1e-6 and border[0]["to_m"] > hood["top_m"],
+      "the south edge's border runs up the corner past the hood")
 front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
 lun = [o for o in front if o.component == "k01.opening.street_sash_round"]
 check(len(lun) == 1 and lun[0].sill_m > hood["top_m"], "the round-headed lunette stands over the hood")
@@ -53,7 +59,7 @@ check(under and all(o.head_m <= hood["bed_m"] + 1e-6 for o in under), "every thi
 
 a = K1.build(p, SID)
 inst = a.components["k01.wall.front_frame"]["instances"]
-check(len(inst) == 1 and inst[0]["params"] == {"pilasters": 4, "panels": 3, "hoods": 1, "ovals": 2},
+check(len(inst) == 1 and inst[0]["params"] == {"pilasters": 5, "panels": 3, "hoods": 1, "ovals": 2},
       "one frame instance counting its parts")
 seats = [f for fs in a.footprints.values() for f in fs if f[4] == "k01.front_frame"]
 check(len(seats) == 1, f"the frame seated on the front ({len(seats)})")
