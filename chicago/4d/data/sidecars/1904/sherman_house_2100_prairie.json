@@ -627,71 +627,80 @@
         },
         {
           "id": "corner_oriel",
-          "variant": "k08.tower.octagonal",
+          "variant": "k08.oriel.canted_corbelled",
           "wall": "k01.wall.street_front",
           "s_m": 14.2,
           "across_corner": "right",
-          "fabric": "brick",
+          "base_m": 7.2,
+          "fabric": "stone",
           "plan": {
-            "radius_m": 1.78,
+            "radius_m": 1.55,
             "centre_proud_m": -0.46,
             "sides": 4,
             "turned_deg": 45
+          },
+          "corbel": {
+            "courses": 5
+          },
+          "column": {
+            "at": [
+              0.46,
+              0.0
+            ],
+            "radius_m": 0.18,
+            "foot_m": 1.8,
+            "pedestal_m": 0.32
+          },
+          "cap_at_eave": true,
+          "face_gable": {
+            "rise_m": 1.3,
+            "depth_m": 1.0,
+            "roundel_m": 0.5
           },
           "eaves": {
             "cornice": "k10.cornice.moulded_stone"
           },
           "storeys": [
             {
-              "height_m": 1.8,
-              "windows": []
-            },
-            {
-              "height_m": 5.4,
+              "height_m": 4.6,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.75,
-                  "clear_height_m": 3.2,
-                  "sill_m": 0.5,
+                  "clear_width_m": 0.45,
+                  "clear_height_m": 2.3,
+                  "sill_m": 0.6,
                   "at": [
-                    0.135,
-                    0.454,
-                    0.818
+                    0.13,
+                    0.815
                   ],
                   "recess_m": 0.33,
-                  "why_not_ordinary": "the parlour's corner lights, as tall as the principal storey's other lights in the photograph (x 920-1000 px), about 3.2 m in a 5.4 m storey"
-                }
-              ]
-            },
-            {
-              "height_m": 5.0,
-              "windows": [
+                  "why_not_ordinary": "the oriel's cheek lights in the photograph (x 910-935 px on its south cheek), narrow, about 2.3 m tall in a 4.6 m storey"
+                },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.75,
-                  "clear_height_m": 2.6,
-                  "sill_m": 0.5,
+                  "clear_width_m": 0.5,
+                  "clear_height_m": 2.3,
+                  "sill_m": 0.6,
                   "at": [
-                    0.135,
-                    0.454,
-                    0.818
+                    0.374,
+                    0.516
                   ],
                   "recess_m": 0.33,
-                  "why_not_ordinary": "the oriel's lights in the photograph (x 960-1060 px, y 690-860), about 2.6 m tall in a 5.0 m storey, three round its two faces"
+                  "why_not_ordinary": "the oriel's pair on its face to the corner in the photograph (x 965-1055 px, y 690-860, a colonnette between them), about 2.3 m tall in a 4.6 m storey"
                 }
               ]
-            },
-            {
-              "height_m": 1.2,
-              "windows": []
             }
           ],
           "roof": {
             "kind": "hip",
-            "pitch": 3.1,
+            "pitch": 4.2,
             "covering": "slate_pennsylvania",
-            "finial": true
+            "finial": true,
+            "flare": {
+              "eave_pitch": 0.5,
+              "over_m": 0.8,
+              "bands": 4
+            }
           }
         },
         {
@@ -768,7 +777,7 @@
         "chicagology_2100_sherman_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); built as K08's square tower across the corner from grade, its windowless lowest storey standing where the plan cuts the parlour's corner on the diagonal and the photograph shows the oriel's column (the cut is not made: K01 lays no tower on a canted corner; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed. T-3699: the library's tall pair (x 60-215 px) stands in moulded stone surrounds under one broad carved segmental tympanum spanning both lights (its crown at y 990 px), K09's tympanum with span_m over the pair;"
+      "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); T-3700: built as the photograph's and the plate's oriel, K08's turned square set across the corner on five stone corbel courses at the second floor (7.2 m), in stone, 1.55 m in radius so its face to the corner is about 2.2 m as the photograph's (x 935-1095 px), its storey 4.6 m so its cornice stands under the main cornice as the photograph's gable foot does; a narrow light on each cheek and the pair on its face (2.3 m, the photograph's y 690-860 px); under its face the plate's stone column, a shaft 0.36 m across with a base and a capital stopped under the corbels, on a pedestal from grade to the principal floor (the photograph's tree hides it; the plate draws it whole); over its face the small coped stone gable with its rose roundel (1.3 m high, the photograph's y 560-655 px); and behind the gable the slated pyramid springing from its eaves on the main cornice's line, flared at its foot (eave pitch 0.5 over its first 0.8 m) and steep above (4.2), its finial's foot at about y 130 px against the photograph's 130. The plan's cut corner is not made under it: the parlour's corner stands square behind the column (K01 lays no cut there; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed. T-3699: the library's tall pair (x 60-215 px) stands in moulded stone surrounds under one broad carved segmental tympanum spanning both lights (its crown at y 990 px), K09's tympanum with span_m over the pair;"
     },
     "chimneys": {
       "value": {
@@ -1114,7 +1123,7 @@
       ]
     }
   ],
-  "research_note": "Refined from the district draft (T-2351) in place by T-1919 (the S10A envelope package of the T-1837 programme) onto the K01 frontage kit, liberty L-k01-2100-sherman-1919: the plan and footprint off the 1911 sheet and the 1876 American Architect plate's 'Plan of First Story', the elevations off the c. 1890 photograph (two prints: Chicagology's and J. W. Taylor's at the Art Institute). The carving, the stone bands, the arched and pointed heads, the side flight of the stoop and the oriel's column are T-1920's (the architecture and the image gate).",
+  "research_note": "Refined from the district draft (T-2351) in place by T-1919 (the S10A envelope package of the T-1837 programme) onto the K01 frontage kit, liberty L-k01-2100-sherman-1919: the plan and footprint off the 1911 sheet and the 1876 American Architect plate's 'Plan of First Story', the elevations off the c. 1890 photograph (two prints: Chicagology's and J. W. Taylor's at the Art Institute). The carving, the stone bands, the arched and pointed heads, the side flight of the stoop are T-1920's (the architecture and the image gate); T-3700 built the corner's oriel on its column, its gable and the pyramid behind it.",
   "research_doc": "",
   "review_required": false
 }
