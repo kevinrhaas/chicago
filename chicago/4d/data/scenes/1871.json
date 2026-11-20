@@ -256,6 +256,50 @@
       "local_e": 470.0,
       "local_n": 2870.0,
       "yaw_deg": 186.3
+    },
+    {
+      "id": "case_sullivan_seat",
+      "label": "DeKoven Street, south side, a few lots east of the O'Learys",
+      "local_e": -270,
+      "local_n": -2032,
+      "yaw_deg": 335
+    },
+    {
+      "id": "case_oleary_yard",
+      "label": "The yard between the O'Leary cottage and the barn",
+      "local_e": -312,
+      "local_n": -1986,
+      "yaw_deg": 20
+    },
+    {
+      "id": "case_oleary_front",
+      "label": "Before the O'Leary cottage, 137 DeKoven Street",
+      "local_e": -301,
+      "local_n": -2018,
+      "yaw_deg": 0
+    },
+    {
+      "id": "case_court_tower",
+      "label": "The Court House cupola, looking southwest",
+      "local_e": 592,
+      "local_n": -330,
+      "altitude_m": 37,
+      "pitch_deg": -4,
+      "yaw_deg": 208
+    },
+    {
+      "id": "case_barn_alley",
+      "label": "The alley behind the O'Leary barn",
+      "local_e": -292,
+      "local_n": -1950,
+      "yaw_deg": 195
+    },
+    {
+      "id": "case_fire_academy",
+      "label": "DeKoven Street toward Jefferson, the Fire Academy's site",
+      "local_e": -345,
+      "local_n": -2022,
+      "yaw_deg": 75
     }
   ],
   "layers": [
