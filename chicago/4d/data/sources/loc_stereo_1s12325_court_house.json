@@ -1,0 +1,27 @@
+{
+  "id": "loc_stereo_1s12325_court_house",
+  "type": "photograph",
+  "citation": "'Court House', stereograph, No. 22 [of a Chicago series; the mount names Lovejoy & Foster's 'Chicago and Vicinity'], [1871]. Library of Congress Prints and Photographs Division, Stereograph Cards collection, LC-DIG-stereo-1s12325.",
+  "author": "Lovejoy & Foster (publishers, per the card's mount)",
+  "date": "[1871] (the Library's date)",
+  "describes_date": "1870-1871: the Court House with its two wings of 1870 complete, before the fire",
+  "repository": "Library of Congress, Prints and Photographs Division (call number STEREO U.S. GEOG FILE - Illinois--Chicago--Buildings--Court House). The left half of the card is committed at data/sources/assets/landmarks_1871_t3688/loc_1s12325_court_house_left.jpg.",
+  "url": "https://www.loc.gov/pictures/item/2018649162/",
+  "locator": "The left half of the card: the Court House from the north-east, from the corner of Clark and Randolph Streets, the east wing's north front nearest at left, the 1853 house and its cupola in the middle, the west wing beyond at right; the square's iron fence and the Randolph Street walk in the foreground.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published in 1871.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) from the Library's master TIFF of the whole card (tile.loc.gov storage-services, service/pnp/stereo/1s12000/1s12300/1s12325); the left half cropped (2455 x 2443 px) and committed at 1600 px wide, sha256 e0950504e4fa06d6e9360f453e405719a588a1287fefb92bf0a54cf758f45c8c.",
+  "note": "The clearest photograph found of the Court House as it stood on 8 October 1871, after the enlargement of 1869-1870: the new wings' rusticated basements, three storeys of arched windows, scrolled crests and corner domes, and the old house's cupola with its gallery, clock and dome, the octagonal belfry and small domed cupola beside it. Monochrome.",
+  "what_it_supplies": [
+    "the Court House's massing, storeys and bays from the north-east",
+    "the cupola, the belfry and the wings' crests and domes"
+  ],
+  "what_it_does_not_supply": [
+    "the south and west fronts",
+    "measured sizes",
+    "colour"
+  ]
+}

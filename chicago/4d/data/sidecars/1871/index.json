@@ -101,7 +101,26 @@
   ],
   "street_standard": "No dated street layer is committed for this scene.",
   "streets": [],
-  "structures": [],
+  "structures": [
+    {
+      "id": "chamber_of_commerce_1871",
+      "name": "The Chamber of Commerce (E. Burling, 1865), LaSalle and Washington Streets",
+      "sidecar": "sidecars/1871/chamber_of_commerce_1871.json",
+      "asset": "gltf/chamber_of_commerce_1871__chamber_1865_1871.glb"
+    },
+    {
+      "id": "cook_county_court_house_1871",
+      "name": "The Court House and City Hall (J. M. Van Osdel 1853; wings 1870), Court House square",
+      "sidecar": "sidecars/1871/cook_county_court_house_1871.json",
+      "asset": "gltf/cook_county_court_house_1871__court_house_1870_1871.glb"
+    },
+    {
+      "id": "sherman_house_1871",
+      "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets",
+      "sidecar": "sidecars/1871/sherman_house_1871.json",
+      "asset": "gltf/sherman_house_1871__sherman_1861_1871.glb"
+    }
+  ],
   "excluded_by_date": [],
   "excluded_by_scope": [
     "agency_striker_log_house",

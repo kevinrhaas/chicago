@@ -82,6 +82,7 @@ PURE_EMITTERS = (
     "generators/haystack_emit.py",
     "generators/lodge_camp_emit.py",
     "generators/monument_emit.py",
+    "generators/landmark_1871_emit.py",
 )
 
 MISSING = object()

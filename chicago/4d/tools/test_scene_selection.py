@@ -22,7 +22,8 @@ from scene_selection import selection_errors, structure_is_selected
 
 ROOT = Path(__file__).resolve().parent.parent
 EMITTERS = ("k01_emit", "k12_emit", "k13_emit", "k16_emit", "draft_emit",
-            "haystack_emit", "monument_emit", "lodge_camp_emit")
+            "haystack_emit", "monument_emit", "lodge_camp_emit",
+            "landmark_1871_emit")
 
 
 def scene(selected=None, *, explicit=False):
