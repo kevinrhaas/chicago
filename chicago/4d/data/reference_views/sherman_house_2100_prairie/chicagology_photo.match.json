@@ -2,7 +2,7 @@
   "structure_id": "sherman_house_2100_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4e3d8d8c9540940013728b60897e2c849efb5c382564cc6d0e982643166daf8f",
+  "glb_sha256": "f764e03f09d89a3c631963c4f611ff31590757017058c5d54a3040fa5eb9222b",
   "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
   "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
   "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
@@ -33,7 +33,11 @@
       "status": "fixed"
     },
     {
-      "what": "the library pavilion's gable: the photograph's has slated, flared cheeks with a carved panel and kneeler blocks; the record's is a plain coped brick gable, and the pavilion stands 0.8 m out where the plan draws about 1.25",
+      "what": "the library pavilion's gable panel (T-3702): the photograph's pale carved field in the gable's apex now stands there, K08's dressed gable panel under the copings with its carved relief; the photograph's carving is a diaper lattice and the panel's is K08's leaf relief, and the panel fills the whole gable over the pavilion's top light where the photograph's stops at a stone band over the gable's light",
+      "status": "fixed"
+    },
+    {
+      "what": "the library pavilion's gable: the photograph's rakes flare out at their feet over slated cheeks, with kneeler blocks; the record's coping runs straight to its kneelers (K08's coped gable does not flare), and the pavilion stands 0.8 m out where the plan draws about 1.25",
       "status": "open"
     },
     {
@@ -65,7 +69,11 @@
       "status": "open"
     },
     {
-      "what": "the front dormers: the photograph's small flat-topped dormer over the hall and the large stone dormer with a roundel in its gable; the record's two gabled dormers without the roundel",
+      "what": "the front dormers (T-3702): the small dormer over the hall is now the photograph's stone face under a projecting stone shelf with a slated hood leaning back over it, its light 0.7 m across; the large dormer over the parlour now carries the photograph's stone coping up its rakes, a short engaged pinnacle with its spike at each shoulder and a finial at its apex",
+      "status": "fixed"
+    },
+    {
+      "what": "the large front dormer's roundel: the photograph's roundel in its gable (y 290-330 px); K01's lower-face dormer has no roundel, so its gable is plain",
       "status": "open"
     },
     {
@@ -77,7 +85,11 @@
       "status": "open"
     },
     {
-      "what": "the great stack: the photograph's clustered flues in carved stone; the record's plain brick stack in the same place",
+      "what": "the great stack (T-3702): the plain brick stack now carries a carved stone head (the K15 Sherman stack's string courses, corbel blocks, corbelled courses and projecting cap) and on it a row of three round flue shafts running back from the street, their tops at the photograph's y 185 px (about 19.0 m)",
+      "status": "fixed"
+    },
+    {
+      "what": "the great stack's flue shafts: the photograph's stand about 1.9 m over the head; the kit's longest shaft is 1.1 m, so the record's head stands about 0.8 m higher than the photograph's under shorter shafts, and the carved gablet on the head's street face is not built",
       "status": "open"
     },
     {
