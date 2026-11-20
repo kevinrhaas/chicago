@@ -25095,7 +25095,7 @@ and its draft attributes are gone.
 
 ### L-draft-prairie-20-22-west-2351 — The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state
 
-**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 20th-22nd block, west side (T-2351, piece 1 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25142,6 +25142,7 @@ its record's `draft.replaceable_by`) replaces its attributes in place, under the
 buildings are T-1937's.
 **Retired in part:** 2000 and 2010, the two frame dwellings at the 20th Street end, by T-1909, which refined both in place on the K16 timber kit under `L-k16-2000-2010-frame-1909`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, T-1935's); and 2018, the stone-front house with its bow, by T-3607 (piece 1 of T-1910), which refined it in place on the K01 frontage kit under `L-k01-2018-stone-front-3607`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's); and 2026, the Louis Wahl house, by T-3608 (piece 2 of T-1910), which refined it in place on the K01 frontage kit to its 1874 Land Owner engraving under `L-k01-2026-wahl-3608`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's).
 **Retired in part:** 2108, the Mark Kimball house, by T-3667 (piece 1 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2108-kimball-3667`, under the same id; its draft attributes are gone (the coach house it shares with 2110 is still this draft's, T-1937's).
+**Retired in part:** 2112, the Max M. Rothschild house, by T-3668 (piece 2 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2112-rothschild-3668`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
 **Retired in part:** 2036, the Ebenezer Buckingham house at the 21st Street corner, by T-1911 (the S08 package's corner house), which refined it in place on the K01 frontage kit under `L-k01-2036-buckingham-1911`, under the same id; its draft attributes are gone (its alley stable is still this draft's, T-1938's).
 **Retired in part:** 2100, the John B. Sherman house at the 21st Street corner, by T-1919 (the S10A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2100-sherman-1919`, under the same id; its draft attributes are gone (its alley coach house is still this draft's, T-1938's; the 21st Street wall is still not built).
 **Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
@@ -25185,6 +25186,48 @@ in a K01 area light, closes the basement lights' open item in the match record.
 **Ticket:** T-3667 (piece 1 of T-1921).
 **Review:** `docs/RESEARCH/k01-2108-kimball-3667/README.md`.
 **Recorded:** 2026-11-19 (T-3667).
+
+### L-k01-2112-rothschild-3668 — 2112 Prairie, the Max M. Rothschild house, refined from the district draft onto K01: its plan, canted stone bay and mansard off the 1911 sheet, its pale stone front, round-arched door, round-headed lights and stone-cheeked stoop off the early-1890s street photograph, everything neither shows the kits'
+
+**Decision:** 2112 Prairie Avenue (T-3668, piece 2 of T-1921) is no longer a district draft. It
+stands, under the draft's own id (`rothschild_house_2112_prairie`), as a `k01_frontage` record built
+by `generators/k01_emit.py`. It has two storeys of K03 common brick over a high basement behind a K02
+smooth limestone front, and a K08 canted stone bay at the front's south end. The parlour storey has
+K06 round-headed sash and the upper storey flat-headed sash under K09 hoods. K07's pair of leaves
+stands in a deep round-arched opening at the head of a broad stoop between solid stone cheeks. Over
+a K10 bracketed cornice rises a K05 slated mansard with two round-headed dormers to the street, and
+the two-storey rear range stands on K01's rear wings. The front yard is open to the walk.
+**What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size through the
+T-1250 fit, and the T-1842 census (s35-2112-front, s35-2112-wing):
+- the '3B' main body, 14.5 x 11.7 m, 0.4 m inside the north lot line and 3 m from the south one;
+- its stone front, and the canted stone bay at the south end, 4.46 m at the wall and 1.1 m out;
+- the dashed curb and hips drawn inside the main body's outline, read with the sheet's '3B' as two
+  storeys under a mansard (as at 2017 and 2026 on this sheet);
+- the '2B' rear range, 9.65 x 8.2 m, across the middle of the rear.
+The draft had taken the rear range for the main body. From the Glessner House blog's early-1890s
+photograph of the 2100 block (`glessner_blog_2100_block_looking_nw_1890s`, which names 2112 first
+on the left; forms only, its rights unresolved and banked in `tools/rights_derivation_baseline.json`):
+- the pale ashlar front, and the canted bay with tall round-headed lights in its parlour storey and
+  a barred basement light;
+- the round-arched door at the head of a broad stoop between solid stone cheeks ending in pedestals,
+  and a round-headed light north of it;
+- the heavy hood over the upper lights, and the open walk before it.
+**What is invented.** Every height. The parlour floor is held to the low end of what the photograph
+shows, where K07's risers and K02's courses agree. Also invented: the upper storey's and the bay's
+upper lights; the wall head, mansard and dormers, which neither picture shows; the stone's kind; the
+flanks' and rear's windows; the two stacks; the rainwater goods; the walls' thickness; the basement
+lights' height (K02's two base courses); and the yard's walk. The photograph is not solved into a
+camera: its rights are unresolved, so it is read for forms only, as for 2108.
+**What is not built.** The sheet's one-storey frame porch on the south flank, about 4.8 x 1.1 m,
+and the dashed '1/2 AT' outline behind it. The quoins and colonnettes the photograph shows. The
+north wall stands blank against 2110.
+**How to resolve:** a photograph of 2112's whole front with clear rights, solved into a reference
+view, replaces the kit's choices attribute by attribute. A K01 side porch would let the sheet's
+south porch stand.
+**Covers:** `rothschild_house_2112_prairie.as_mapped_1904.form.storey_heights_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.wall_thickness_front_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.wall_thickness_side_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.service_wall_brick`, `rothschild_house_2112_prairie.as_mapped_1904.form.face_brick`, `rothschild_house_2112_prairie.as_mapped_1904.form.wall_head`, `rothschild_house_2112_prairie.as_mapped_1904.form.roof_pitch_deg`, `rothschild_house_2112_prairie.as_mapped_1904.form.eave_overhang_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.roof_covering`, `rothschild_house_2112_prairie.as_mapped_1904.form.mansard`, `rothschild_house_2112_prairie.as_mapped_1904.form.rainwater`, `rothschild_house_2112_prairie.as_mapped_1904.form.window_kit`, `rothschild_house_2112_prairie.as_mapped_1904.form.stair_tread_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.stair_landing_depth_m`, `rothschild_house_2112_prairie.as_mapped_1904.form.side_bays`, `rothschild_house_2112_prairie.as_mapped_1904.form.rear_bays`, `rothschild_house_2112_prairie.as_mapped_1904.form.chimneys`, `rothschild_house_2112_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-3668 (piece 2 of T-1921).
+**Review:** `docs/RESEARCH/k01-2112-rothschild-3668/README.md`.
+**Recorded:** 2026-11-20 (T-3668).
 
 ### L-k01-2026-wahl-3608 — 2026 Prairie, the Louis Wahl house, refined from the district draft to a K01 Second Empire stone-front house built to its 1874 Land Owner engraving and the 1911 sheet's plan: its tower, stoop and balcony, flank bay and stack as the print draws them, everything neither shows the kits'
 

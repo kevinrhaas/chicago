@@ -1,10 +1,10 @@
 {
   "id": "rothschild_house_2112_prairie",
-  "name": "2112 Prairie Avenue — Rothschild stone-front townhouse (district draft; refined by T-1921)",
+  "name": "2112 Prairie Avenue — the Max M. Rothschild house, two storeys of brick behind a pale stone front over a high basement under a slated mansard, a canted stone bay at its south end and a round-arched door at the head of a stone-cheeked stoop",
   "aka": [
     "2112 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k01_frontage",
   "function": {
     "value": "residence",
     "confidence": "inferred",
@@ -14,10 +14,10 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling with a stone front and a canted bay (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1921 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2112-b1), the T-1842 census (s35-2112-front, s35-2112-wing) and the T-1837 register row frontage-35-067 (Rothschild stone-front townhouse); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-3668 (piece 2 of T-1921, S11) refines the district draft (T-2351) in place under the same id. The house is rebuilt from the K01 frontage assembly and its kits. Its plan is read off sheet 35 of the 1911 Sanborn at full size: the '3B' main body with its canted stone bay and the '2B' rear range. Its front is read off the early-1890s street photograph of the 2100 block, which names it first on the left (forms only: its rights are unresolved). The photograph shows a pale ashlar front, the canted bay at the south end with tall round-headed lights in its parlour storey, a round-arched door north of it at the head of a broad stoop between solid stone cheeks, and a round-headed light beyond it. The sheet's '3B' is read as two storeys under a mansard. The detached rear building on the alley (rothschild_house_2112_prairie_coach_house) is T-1937's and is untouched. The sheet's one-storey frame porch on the south flank and its dashed '1/2 AT' outline behind it are not built (docs/LIBERTIES.md L-k01-2112-rothschild-3668).",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_mapped_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,19 +25,19 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "Standing in 1904 and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The street photograph of the early 1890s shows it. The record claims the 1904 target to the sheet's date and no more; the register's loss date (1934) is not built.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448437.95,
-        "utm_n": 4633729.542,
+        "utm_e": 448447.277,
+        "utm_n": 4633727.303,
         "rotation_deg": -0.681,
         "symbolic_location": "2112 S. Prairie Avenue, parcel prairie_2112 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 23.750, v -2.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.681 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the '3B' main body on its south wall (lot frame u 33.05, v -4.6 from the middle of the rear lot line): the rear wall at the sheet's column 653 and the south wall at row 1272, through the T-1250 fit of the sheet. The fit carries no independent check: its own residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The rotation (the draft's) turns the plan's u axis onto the lot's own rear-to-street line. The draft stood its main rectangle on the rear range, 9.3 m further back.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -50,198 +50,581 @@
             0.0
           ],
           [
-            11.25,
+            14.5,
             0.0
           ],
           [
-            11.25,
-            8.0
+            14.5,
+            11.7
           ],
           [
             0.0,
-            8.0
+            11.7
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The '3B' main body, read off sheet 35 of the 1911 Sanborn at full size (dark-line profiles, the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2112-rothschild-3668/README.md). It is 14.5 m from the rear wall (column 653, lot u 33.05) to the stone front (column 731, lot u 47.55), and 11.7 m from the south wall (row 1272, lot v -4.6) to the north wall (row 1209, lot v 7.1), 0.4 m inside the north lot line, with a 3 m side yard to the south. The draft's largest rectangle was the rear range, 11.25 x 8 m. The canted bay stands on K08 and the rear range on K01's rear wings."
       },
       "form": {
         "stories": {
-          "value": 3,
-          "confidence": "attested",
+          "value": 2,
+          "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "sanborn_1911_chicago_v3_sheet_35",
+            "glessner_blog_2100_block_looking_nw_1890s"
           ],
-          "note": "'3B; rear2B' printed on the 1911 sheet: 3 full storeys."
+          "note": "'3B' printed on the 1911 sheet over the main body, and '2B' over the rear range. On this sheet '3B' counts a mansard's attic as the third storey, as at 2017, 2026 and 1816. The sheet draws a dashed square inside the main body's outline, joined to its four corners by diagonals: a roof's curb and hips, so the house is read as two full storeys over a basement under a mansard. The early-1890s photograph shows the parlour and upper storeys over a high basement; its top edge cuts off the wall head."
         },
         "construction": {
           "value": "brick_with_stone_front",
           "confidence": "attested",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35"
+            "sanborn_1911_chicago_v3_sheet_35",
+            "glessner_blog_2100_block_looking_nw_1890s"
           ],
-          "note": "The register reads the map's colours as 'brick with stone front'."
+          "note": "The sheet colours the building pink (brick) with a blue (stone) front, as the census reads it: '3B brick dwelling with a stone front and a canted bay'. The early-1890s photograph shows a pale ashlar front."
         },
-        "draft_plan": {
+        "principal_floor_m": {
+          "value": 2.3,
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "The parlour floor about 2.3 m over the yard at the head of a long, steep stoop. The early-1890s photograph shows the stoop's landing about a man's height over the walk and a full basement storey under the bay, with a barred light in it."
+        },
+        "storey_heights_m": {
+          "value": [
+            4.4,
+            4.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: floor to floor; the parlour storey is the taller, as the photograph's tall round-headed lights need. The wall head stands at 10.7 m and the mansard's 3 m lower slope rises over it (L-k01-2112-rothschild-3668)"
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a stone front on its brick backing, as every K01 stone front (L-k01-2112-rothschild-3668)"
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a brick-and-a-half wall, as every K01 brick house (L-k01-2112-rothschild-3668)"
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the one K03 panel k03_brick lays (L-k01-2112-rothschild-3668)"
+        },
+        "face_brick": {
           "value": {
-            "parts": [
-              {
-                "id": "r1",
-                "role": "main",
-                "storeys": 3,
-                "roof": "flat",
-                "rect": [
-                  0.0,
-                  0.0,
-                  11.25,
-                  8.0
-                ],
-                "from": "s35fp-2112-b1 p8 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
-              },
-              {
-                "id": "r2",
-                "role": "range",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  11.75,
-                  -0.25,
-                  21.75,
-                  7.5
-                ],
-                "from": "s35fp-2112-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r3",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  17.5,
-                  -2.25,
-                  22.0,
-                  -0.25
-                ],
-                "from": "s35fp-2112-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill"
-              },
-              {
-                "id": "r4",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  11.5,
-                  -2.25,
-                  14.75,
-                  -0.25
-                ],
-                "from": "s35fp-2112-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill"
-              },
-              {
-                "id": "r5",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  19.0,
-                  7.75,
-                  22.0,
-                  9.25
-                ],
-                "from": "s35fp-2112-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "bay",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  11.25,
-                  7.75,
-                  14.0,
-                  9.25
-                ],
-                "from": "s35fp-2112-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill"
-              },
-              {
-                "id": "r7",
-                "role": "porch",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  22.0,
-                  -0.75,
-                  23.25,
-                  1.75
-                ],
-                "from": "s35fp-2112-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 63% of its fill"
-              }
-            ],
-            "lot_v": [
-              -5.24,
-              9.74
-            ],
-            "street_u": 30.958
+            "sides": "common_salmon"
           },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the flanks and rear are common brick, which no picture shows: a Chicago common brick, salmon run (L-k01-2112-rothschild-3668)"
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_lemont",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.25,
+            "corner_bond": []
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "Pale smooth ashlar, as the early-1890s photograph shows it, as pale as 2110's and 2108's beside it. The sheet colours the front blue (stone). The stone's kind is reconstructed: Lemont limestone, the 2100 block's pale stone (L-k01-2112-rothschild-3668). The photograph's quoins at the front's north corner are not built."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k01.flat_lintel",
+              "k09.trim.lintel_cornice_hood"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "The parlour storey's heads are round (street_front_round_heads). Over the upper storey's lights the photograph shows a heavy moulded hood under the trees, built as K09's lintel-and-cornice hood. Its section is the kit's (L-k01-2112-rothschild-3668)."
+        },
+        "street_front_round_heads": {
+          "value": {
+            "storeys": [
+              0
+            ],
+            "key": {
+              "width_m": 0.22,
+              "height_m": 0.3,
+              "proud_m": 0.04
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "The parlour storey's door and light are round-headed in the photograph (x 77-97 and 117-137 of 900 px), each under a dressed head with a key, as are the bay's lights. The key's size is 2108's."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the photograph's top edge cuts off the wall head. K10's bracketed cornice under the mansard's foot, as at 2026, the block's other '3B' stone front under a mansard (L-k01-2112-rothschild-3668)"
+        },
+        "roof_form": {
+          "value": "mansard",
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2112-b1 p8 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s35fp-2112-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s35fp-2112-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill; s35fp-2112-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 79% of its fill; s35fp-2112-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2112-b1 p7 (range, brick), rectangle 1 of that part; the part's rectangles cover 78% of its fill; s35fp-2112-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 63% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "A mansard. The sheet draws a dashed square inside the main body's outline, inset about 1.1 m (6 px) from each wall and joined to the outline's four corners by diagonals: the roof's curb and its hips. The sheet's '3B' counts its attic as the third storey, as at 2017 and 2026 on this sheet."
         },
-        "draft_elevation": {
+        "roof_pitch_deg": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the deck's pitch over the curb, as every K01 mansard on the block (L-k01-2112-rothschild-3668)"
+        },
+        "eave_overhang_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: room for the bracketed cornice, as 2026's (L-k01-2112-rothschild-3668)"
+        },
+        "roof_covering": {
           "value": {
-            "kind": "house",
-            "seed": 4249541492,
-            "principal_floor_m": 1.4,
-            "storey_heights_m": [
-              3.9,
-              3.5,
-              3.3,
-              3.1
-            ],
-            "roof_pitch_deg": 25,
-            "mansard_lower_m": 3.0,
-            "front_bays": 3,
-            "entrance": "north",
-            "side_spacing_m": 2.6,
-            "chimneys": 2,
-            "brackets": true,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2351",
-              "refined_by": [
-                "T-1921"
-              ]
+            "fabric": "tin_standing_seam_painted",
+            "flashing": "copper_sheet",
+            "caps": "copper_ridge_roll",
+            "lower_faces": "slate_pennsylvania",
+            "paint": "black"
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: slate on the mansard's lower faces and painted tin on its deck, as every K01 mansard on the block (L-k01-2112-rothschild-3668)"
+        },
+        "mansard": {
+          "value": {
+            "variant": "k05.roof.mansard_convex",
+            "lower_rise_m": 3.0,
+            "bulge": 0.0,
+            "lower_pitch_deg": 76,
+            "dormers": [
+              {
+                "face": "street",
+                "along_m": 6.75,
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.2,
+                "face_setback_m": 0.05
+              },
+              {
+                "face": "street",
+                "along_m": 9.7,
+                "sash": {
+                  "variant": "k06.opening.sash_round_fanlight",
+                  "width_m": 0.8,
+                  "height_m": 1.5,
+                  "sill_m": 0.1
+                },
+                "surround_m": 0.2,
+                "face_setback_m": 0.05
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the lower slope is 3 m high at 76 degrees, with its inset about the 1.1 m the sheet's dashed curb stands in from the walls. Two dormers light the attic, over the door and the light north of the bay. Neither picture shows them (L-k01-2112-rothschild-3668)"
+        },
+        "rainwater": {
+          "value": {
+            "gutter": "half_round",
+            "fabric": "copper_sheet",
+            "downpipe": "round",
+            "ends_at": "grade_with_splash_stone",
+            "downpipes": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 1.0
+              },
+              {
+                "wall": "k01.wall.rear_service",
+                "s_m": 0.35
+              }
+            ]
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a copper half-round gutter at the mansard's foot and two round downpipes, one at the south flank's rear end and one at the rear wall's south end, as at 2026. Neither picture shows them (L-k01-2112-rothschild-3668)"
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+            "k01.opening.sash_round_plain": "k06.opening.sash_round_fanlight",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: The Rothschild stone-front townhouse: three storeys with a stone front and a rear 2B range, flat behind a bracketed cornice; the sheet's canted bay stands as its stone projection. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 4249541492 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+          "note": "RECONSTRUCTED: K06 two-over-two double-hung sash, round-headed under a fanlight in the parlour storey and flat-headed above and on the flanks and rear (L-k01-2112-rothschild-3668)"
         },
-        "draft": {
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the kit's tread (L-k01-2112-rothschild-3668)"
+        },
+        "stair_landing_depth_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: a landing before the door, as the photograph's broad landing at the stoop's head (L-k01-2112-rothschild-3668)"
+        },
+        "stoop_width_m": {
+          "value": 2.2,
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "A broad straight stoop, square out from the door to the walk between two solid stone cheeks, each ending in a pedestal at the foot, as the photograph shows it (x 37-170 of 900 px). Its width is read as about the door's arch and its reveals."
+        },
+        "entrance_bay": {
+          "value": "south",
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The door is in the south of the front's two flat bays, beside the canted bay. The photograph's stoop rises against the bay's north cant to the first round-arched opening north of it. The north bay is a round-headed light."
+        },
+        "front_bays": {
+          "value": [
+            6.75,
+            9.7
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Two flat bays north of the canted bay across the sheet's 11.7 m front, measured from its south corner: the door at 6.75 m, 0.55 m clear of the bay's north cant, and a light at 9.7 m. That leaves the 1.5 m north corner pier the photograph shows quoined. Their spacing is read off the photograph as proportions of the front north of the bay."
+        },
+        "side_bays": {
+          "value": [
+            2.5,
+            7.25,
+            12.0
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: three windows a storey in the south wall, over the 3 m side yard the sheet leaves to the south lot line. Neither picture shows this wall (L-k01-2112-rothschild-3668)"
+        },
+        "north_bays": {
+          "value": [],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "None. The north wall stands 0.4 m inside the north lot line, against 2110's south wall (the sheet's rows 1207-1209), so it is built blank."
+        },
+        "rear_bays": {
+          "value": [
+            10.45
+          ],
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: one window a storey in the rear wall's 2.5 m open strip south of the rear range (K01 counts this wall from its north end); the 1 m strip north of the range is left blank (L-k01-2112-rothschild-3668)"
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_range",
+              "rect": [
+                -9.65,
+                0.0,
+                2.5,
+                10.7
+              ],
+              "floor_m": 2.3,
+              "storey_heights_m": [
+                4.0,
+                3.4
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.75,
+                  "width_m": 0.9,
+                  "height_m": 2.3
+                },
+                {
+                  "sill_above_floor_m": 0.7,
+                  "width_m": 0.9,
+                  "height_m": 1.9
+                }
+              ],
+              "windows": {
+                "south": [
+                  2.0,
+                  5.0,
+                  8.0
+                ],
+                "rear": [
+                  2.2,
+                  6.0
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The sheet's '2B' rear range (census s35-2112-wing), read off sheet 35 of the 1911 Sanborn at full size (dark-line profiles, the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2112-rothschild-3668/README.md). It runs 9.65 m from the main body's rear wall (column 653) to its own rear wall (column 601, lot u 23.4), and 8.2 m from row 1259 (lot v -2.1) to row 1215 (lot v 6.08), across the middle of the rear. Its heights, windows and flat tin roof are reconstructed (L-k01-2112-rothschild-3668)."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.3,
+              "width_m": 1.0,
+              "height_m": 3.0
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 2.4
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "The parlour storey's lights are tall and round-headed, their sills near the floor, as the photograph shows the light north of the door. The upper storey's sizes are reconstructed (L-k01-2112-rothschild-3668)."
+        },
+        "basement_lights": {
           "value": {
-            "pass": "T-2351",
-            "liberty": "L-draft-prairie-20-22-west-2351",
-            "register_row": "frontage-35-067",
-            "census_ids": [
-              "s35-2112-front",
-              "s35-2112-wing"
+            "sill_m": 0.25,
+            "width_m": 0.9,
+            "height_m": 0.8
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "A light in the basement under the north light, as the photograph shows one under the bay. K02 tops its two base courses at the area lights' heads, so they are 0.8 m high (L-k01-2112-rothschild-3668)."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.9,
+              0.75
             ],
-            "trace_building": "s35fp-2112-b1",
-            "seed": 4249541492,
-            "replaceable_by": [
-              "T-1921"
-            ],
-            "card": "District draft — refined by T-1921."
+            "top_above_ridge_m": 1.2,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 4.0,
+                "v_m": 11.0
+              },
+              {
+                "u_m": 10.0,
+                "v_m": 11.0
+              }
+            ]
           },
           "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "RECONSTRUCTED: two brick stacks against the north wall, where the flues of a side-hall house rise between the front, middle and back rooms. Neither picture shows the roof (L-k01-2112-rothschild-3668)"
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 7.14,
+              "opening_m": [
+                1.7,
+                3.2
+              ],
+              "reveal_depth_m": 0.45,
+              "arch": {
+                "ring_m": 0.3,
+                "keystone_top_m": 6.05,
+                "keystone_m": [
+                  0.22,
+                  0.32
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "A pair of leaves in a deep round-arched opening at the head of the stoop. The photograph's first opening north of the bay is a dark round-arched recess at the stoop's head. The leaves and fanlight are K07's, and the arch's size is 2108's (L-k01-2112-rothschild-3668). The front yard is 7.14 m deep, from the sheet's front (column 731, lot u 47.55) to the 1904 street line (lot u 54.69)."
+        },
+        "boundary": {
+          "value": {
+            "layout": "open",
+            "lot_s_m": [
+              -2.89,
+              12.09
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "No fence or coping across the front yard. In the early-1890s photograph 2112's stoop and pedestals stand on an open walk, with the two carriage posts at the curb (glessner_blog_2100_block_looking_nw_1890s, locator). The lot runs from the south lot line (lot v -7.49) to the north (v 7.49)."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.75,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 2.2
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED: the 1904 yard as K14 conditions it: a flagged walk from the open front out to the stoop's foot, as wide as the stoop (L-k01-2112-rothschild-3668)"
+        },
+        "bays": {
+          "value": [
+            {
+              "id": "front_south_canted",
+              "variant": "k08.bay.canted",
+              "wall": "k01.wall.street_front",
+              "s_m": 3.11,
+              "fabric": "front_stone",
+              "plan": {
+                "kind": "polyline",
+                "points": [
+                  [
+                    -2.23,
+                    0.0
+                  ],
+                  [
+                    -1.02,
+                    1.1
+                  ],
+                  [
+                    1.02,
+                    1.1
+                  ],
+                  [
+                    2.23,
+                    0.0
+                  ]
+                ]
+              },
+              "storeys": [
+                {
+                  "height_m": 2.3,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 0.8,
+                      "sill_m": 0.8,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the photograph's barred basement light under the bay (forms only)",
+                      "grille": {
+                        "bars": 6,
+                        "set_back_m": 0.05,
+                        "ring_radius_m": 0.15
+                      }
+                    }
+                  ]
+                },
+                {
+                  "height_m": 4.4,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 3.0,
+                      "sill_m": 0.3,
+                      "at": [
+                        0.154,
+                        0.846
+                      ],
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "the photograph's tall round-headed lights in the bay's parlour storey, one in each cant"
+                    },
+                    {
+                      "opening": "k06.opening.sash_round_fanlight",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 3.0,
+                      "sill_m": 0.3,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the photograph's tall round-headed light in the bay's front"
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.74,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.3,
+                      "sill_m": 0.7,
+                      "at": [
+                        0.154,
+                        0.846
+                      ],
+                      "recess_m": 0.35,
+                      "why_not_ordinary": "reconstructed: the upper storey's lights over the parlour storey's, which the photograph's trees hide"
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.95,
+                      "clear_height_m": 2.3,
+                      "sill_m": 0.7,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "reconstructed: as the cants'"
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "hip",
+                "pitch": 0.12,
+                "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.bracketed_timber"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "glessner_blog_2100_block_looking_nw_1890s"
+          ],
+          "note": "The sheet's canted stone bay at the SOUTH end of the front (census s35-2112-front; trace p1, stone), read off sheet 35 of the 1911 Sanborn at full size (dark-line profiles, the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2112-rothschild-3668/README.md). It spans 4.46 m at the wall (rows 1243 to 1267, lot v 0.74 to -3.72) and stands 1.1 m out (column 737) on a 2.04 m face, 0.9 m in from the front's south corner. The early-1890s photograph shows it on the picture's left (south): pale ashlar, its parlour storey's lights tall and round-headed between colonnettes, and a barred light in its basement. Built as K08's canted bay on that plan, in the front's stone, through the basement, parlour and upper storeys under a low tin hip at the cornice. The upper storey's lights and the colonnettes are not in the photograph's reach and are reconstructed or not built (L-k01-2112-rothschild-3668)."
         }
       }
     }
