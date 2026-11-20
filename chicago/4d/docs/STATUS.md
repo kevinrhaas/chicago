@@ -13,13 +13,13 @@ their readings (`docs/measurements/T-3708-memory-*.json`, dev b008aa7f9) and the
 | 1904 desktop | 1425 | 1464.6 / 1529.1 / 1494.5 | 1700 | Prairie Avenue houses onto K01 (structure textures 742 -> 946, +25 MB geometry), name cards, js heap |
 | 1835 desktop | 1325 | 1347.6 / 1355.3 / 1341.4 | 1500 | js heap +30 (people, jaunts, outings, Spanish), name cards |
 | 1904 shared | 600 | 628.5 / 620.2 / 611.3 | 700 | the same K01 houses, name cards, renderbuffers 3.0 -> 6.3 |
-| 1835 phone | 525 | 551.5 / 551.6 / 550.8 | 575 | js heap 100 -> 130, the phone's people and name cards |
+| 1835 phone | 525 | 551.5 / 551.6 (567.2 on #2262) / 550.8 | 600 | js heap 100 -> 130, the phone's people and name cards |
 | 1904 phone | 475 | 492.1 / 501.2 / 491.3 | 550 | the K01 houses, name cards, renderbuffers 3.0 -> 4.9 |
 
 Desktop and shared rows take the file's rule (highest reading x 1.1, rounded up to 25 MiB).
-The phone rows are kept under the rule (625 and 575), as T-3538 and T-3603 kept them on the
+The phone rows are kept under the rule (625 and 575; 1835's at 600 after CI read 567.2 on this PR's own head), as T-3538 and T-3603 kept them on the
 owner's choice. The self-test's kept-geometry phone still reads over 1835's new phone line
-(708.7 MB on CI against 575). The 1835 phone's heap growth is the largest part nobody has
+(708.7 MB on CI against 600). The 1835 phone's heap growth is the largest part nobody has
 accounted for, and is filed to be brought back down (T-3709).
 
 ## T-3678 — Four more Make your case mysteries (19 November 2026)

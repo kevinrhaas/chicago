@@ -219,7 +219,7 @@
         }
       },
       "mobile": {
-        "total_bytes": 602931200,
+        "total_bytes": 629145600,
         "reading_bytes": 577542180,
         "tier": "light",
         "reading_mb": {
@@ -234,7 +234,7 @@
           "on": "2026-11-20T18:02:35.288Z",
           "build": "b008aa7f9",
           "reading": "docs/measurements/T-3708-memory-1835.json",
-          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 551.5 MB on main c0d4f425a and 551.6 on #2261's head; dev b008aa7f9 reads 550.8 here, so CI and this machine agree within 1 MB on this row. Against 508.6 on 2026-11-17 (474.7 when T-3595 lowered it): js heap 100.1 -> 130.4 here (119.3 on CI), gpu textures 76.7 -> 87.0 (the phone's people 3.0 MB and name cards 3.4 MB, both new), gpu buffers 144.4 -> 149.1; structures +2.7 MB. Kept tight, as T-3538 and T-3603 kept the phone lines on the owner's choice: the rule would give 625, and 575 holds 23 MB over the highest reading. The heap growth is filed to be brought back down (T-3709).",
+          "note": "Dev drifted over five rows while the frame-time job ran only nightly on main and on pushes that touch its own tools: main's 2026-11-17 run on 137da5c8a held every row, the 2026-11-18 and 11-19 runs on that same commit drifted (one sha, 1904 phone 438.4 -> 451.3), and main's 2026-11-20 run on c0d4f425a, the promotion that brought 810 dev commits across, read five rows over (run 44697689969). Every 4D PR carries that red, since a PR's frame-time run measures the tree it merges into dev (#2261, run 44749745188). CI 551.5 MB on main c0d4f425a and 551.6 on #2261's head; dev b008aa7f9 reads 550.8 here, so CI and this machine agree within 1 MB on this row. Against 508.6 on 2026-11-17 (474.7 when T-3595 lowered it): js heap 100.1 -> 130.4 here (119.3 on CI), gpu textures 76.7 -> 87.0 (the phone's people 3.0 MB and name cards 3.4 MB, both new), gpu buffers 144.4 -> 149.1; structures +2.7 MB. CI then read 567.2 MB on this ticket's own PR head (#2262), 16 MB over its two earlier runs, so the spread on this row is wider than this machine shows. Kept under the rule, as T-3538 and T-3603 kept the phone lines on the owner's choice: the rule would give 625 on 567.2, and 600 holds 33 MB over the highest reading. The heap growth is filed to be brought back down (T-3709).",
           "before": {
             "total_bytes": 550502400,
             "reading_bytes": 497806023,
