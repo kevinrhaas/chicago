@@ -75,6 +75,12 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
                recesses run back through the wall plane (`host_holes`, which its host opens
                its face round), and the gable is a solid parapet carried back past the plane
+  plain light  (T-3616) a light cut square in the stone with no sill or lintel of its own
+               (2011's turret band): K06's reveal, frame, sashes and glass, its sill's top inside
+               the reveal and nothing proud of the face
+  through-plane (T-3616) a plain light near the ends of a round tower standing into its wall,
+               over the eave: its recess runs back through the wall plane into the roof space,
+               inside a hole its host opens (`host_holes`)
   chamfer      (T-3048) a shallow projection flush with its wall's corner may cut that corner:
                its last run cants from the front's corner back to the SIDE wall's plane behind
                the wall's face (a `side` junction, mitred and trimmed on that plane, not the
@@ -1505,7 +1511,32 @@ def window(w: dict, s: float, y_sill: float, recess: float):
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
     o = K6.Opening(v6, data6, origin=(s, y_sill, 0.0)).build()
+    if w.get("plain"):
+        plain_light(o)
     return o
+
+
+def plain_light(o) -> None:
+    """T-3616: a PLAIN light, an opening cut square through the stone with no dressing of its
+    own (2011's turret's top band, in the Chicagology photograph and the Inland Architect plate:
+    square lights between plain piers, the band's course under them their sill and the frieze
+    over them their head). K06's reveal, frame, sashes and glass are kept; of its sill only the
+    top inside the reveal, which closes the recess's foot, and its head band not at all. In
+    K06's frame +z is out of the face, so what stands proud of it (z > 0) is the dressing."""
+    for role in ("sill", "head"):
+        pr = o.prims.get(role)
+        if pr is None or not pr.idx:
+            continue
+        n = len(pr.pos)
+        tris = [pr.idx[t:t + 3] for t in range(0, len(pr.idx), 3)]
+        tris = [t for t in tris if all(pr.pos[i][2] <= 1e-9 for i in t)] if role == "sill" else []
+        used = sorted({i for t in tris for i in t})
+        at = {i: j for j, i in enumerate(used)}
+        for attr in ("pos", "nrm", "uv", "conf", "tone"):
+            seq = getattr(pr, attr, None)
+            if seq is not None and len(seq) == n:
+                setattr(pr, attr, [seq[i] for i in used])
+        pr.idx = [at[i] for t in tris for i in t]
 
 
 # -- the bay ----------------------------------------------------------------------------------------
@@ -1705,6 +1736,8 @@ class Bay:
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos
+                            if not pts:   # T-3616: a plain light has no head band
+                                continue
                             x0, x1 = min(p[0] for p in pts)-.002, max(p[0] for p in pts)+.002
                             y0_, y1 = min(p[1] for p in pts)-.002, max(p[1] for p in pts)+.002
                             trim_holes.append((x0, x1, y0_, y1, (), True))
@@ -1719,6 +1752,8 @@ class Bay:
                         drop = (*drop, "head", "sill")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
+                    if w.get("through_plane"):   # T-3616
+                        self._through_plane(run, self.windows[-1])
                 # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
                 sp_ = v["storeys"][k].get("pier")
                 if v.get("masonry") and sp_ and i == sp_["run"] and sp_.get("oculus"):
@@ -1837,8 +1872,10 @@ class Bay:
                 self._apron_face(flat, run, y0)
             elif not grade and not v.get("on_shaft"):
                 self._corbel_courses(flat, run, y0)
+            # T-3616: so is a through-plane light's on a tower standing into its wall (2011's)
+            thru = any(w.get("through_plane") for ws in per_run[i].values() for w, _ in ws)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")),
-                 keep_behind=WINDOW_ROLES if v.get("shallow") else ())
+                 keep_behind=WINDOW_ROLES if v.get("shallow") or thru else ())
         world = strip(f"{v['id']}|world")
         if ct is not None:
             self._chamfer_cheek(world, ct, y_top, recess, wall_t, cv)
@@ -2012,7 +2049,27 @@ class Bay:
                 "recess_m": round(-z_lo, 4), "footprint": hull(foot), "panes": panes,
                 "why_not_ordinary": w.get("why_not_ordinary"),
                 **({"door": True} if w.get("door") else {}),
-                **({"in_plinth": True} if w.get("in_plinth") else {})}
+                **({"in_plinth": True} if w.get("in_plinth") else {}),
+                **({"through_plane": True} if w.get("through_plane") else {})}
+
+    def _through_plane(self, run, rec):
+        """T-3616: a THROUGH-PLANE light on a round tower whose centre stands inside its wall
+        (2011's, 0.8 m in): over its house's eave the drum's ends meet the wall plane at a slant,
+        and a light near them (the top band's end lights, which both pictures show at the drum's
+        junctions) has its recess run back through the plane into the roof space behind, as a
+        shallow bay's do (T-3047). Its hole on the plane, inside the drum's chord, is where the
+        host opens its face (`host_holes`; K01's back closing over the eave)."""
+        foot = rec["footprint"]
+        xs = [p[0] for p in foot if p[1] < 0.0]
+        for a, b in zip(foot, foot[1:] + foot[:1]):
+            if (a[1] < 0.0) != (b[1] < 0.0):
+                xs.append(a[0] + (b[0] - a[0]) * (0.0 - a[1]) / (b[1] - a[1]))
+        if not xs:
+            return
+        j0, j1 = sorted((run.world(0.0, 0.0, 0.0)[0], run.world(run.L, 0.0, 0.0)[0]))
+        x0, x1 = max(min(xs) - 0.005, j0), min(max(xs) + 0.005, j1)
+        if x1 - x0 > 1e-6:
+            self.host_holes.append((x0, x1, rec["y"][0] - 0.005, rec["y"][1] + 0.005))
 
     # supports ----------------------------------------------------------------------------
     def _corbel_layout(self, y0):
