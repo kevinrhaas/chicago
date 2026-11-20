@@ -211,6 +211,9 @@ const COVERAGE = [
   // fetches a people.json only for a scene that draws `residents`, which 1904 does not
   // (T-1740), so no module reads either; test_people_scene.py holds them in check.sh.
   ['data/residents_1904/', NONE, '1904 household cards, read by no module: test_people_scene.py'],
+  // T-3690: the 1871 town's household cards (tools/town_people_1871.py), compiled into the
+  // 1871 directory and resident sidecars the cards read, as data/residents/ is for 1835.
+  ['data/residents_1871/', [1, 3, 4, 5, 13, 14], 'the 1871 town\'s household cards, compiled into its resident cards'],
   ['data/sidecars/1904/people.json', NONE, 'the 1904 directory, fetched by no module (1904 draws no residents): test_people_scene.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by
   // check_published.mjs in check.sh, not by the renderer.

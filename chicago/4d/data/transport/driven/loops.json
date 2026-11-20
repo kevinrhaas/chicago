@@ -3764,6 +3764,1410 @@
       ],
       "note": "Private William Moffett of Heald's company drives the fort's wagon down the shore road to the Lee family's house and back, standing at each end as if loading. The road follows the 1812 track south of the fort; the cart, team, timetable and errand are reconstructed.",
       "liberty": "L-1812-army-wagons-3497"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "express_wagon_state_madison_1871",
+      "name": "An express wagon round State, Madison, Wabash and Monroe, William Hill at the horses' heads",
+      "ride_name": "William's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            840.48,
+            -528.14
+          ],
+          [
+            967.45,
+            -524.96
+          ],
+          [
+            969.98,
+            -664.78
+          ],
+          [
+            845.78,
+            -668.53
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 0,
+      "hours": [
+        5.5,
+        19.5
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "billings_august_1904_stable_helper",
+      "person_id": "hh_1871_drv_express_wagon_state_madison_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_express_wagon_state_madison_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_express_wagon_state_madison_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "William Hill drives an express wagon round State, Madison, Wabash and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "William Hill drives an express wagon round State, Madison, Wabash and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "milk_wagon_court_house_1871",
+      "name": "A milk wagon round Dearborn, Randolph, State and Washington, Peter Cronin at the horses' heads",
+      "ride_name": "Peter's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            703.91,
+            -256.3
+          ],
+          [
+            828.74,
+            -256.2
+          ],
+          [
+            830.98,
+            -393.99
+          ],
+          [
+            704.6,
+            -393.4
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 183.75,
+      "hours": [
+        6.75,
+        20.75
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "mahoney_patrick_1835",
+      "person_id": "hh_1871_drv_milk_wagon_court_house_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_milk_wagon_court_house_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_milk_wagon_court_house_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Peter Cronin drives a milk wagon round Dearborn, Randolph, State and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Peter Cronin drives a milk wagon round Dearborn, Randolph, State and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "express_wagon_clark_dearborn_1871",
+      "name": "An express wagon round Clark, Madison, Dearborn and Adams, Joseph Harris at the horses' heads",
+      "ride_name": "Joseph's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            585.03,
+            -533.47
+          ],
+          [
+            704.42,
+            -532.11
+          ],
+          [
+            706.49,
+            -812.81
+          ],
+          [
+            588.19,
+            -814.56
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 570,
+      "hours": [
+        6.25,
+        20.25
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_express_wagon_clark_dearborn_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_express_wagon_clark_dearborn_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_express_wagon_clark_dearborn_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Joseph Harris drives an express wagon round Clark, Madison, Dearborn and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Joseph Harris drives an express wagon round Clark, Madison, Dearborn and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "hotel_baggage_wagon_wells_1871",
+      "name": "A hotel baggage wagon round Fifth, Washington, LaSalle and Monroe, Henry Davis at the horses' heads",
+      "ride_name": "Henry's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            337.51,
+            -393.31
+          ],
+          [
+            456.02,
+            -394.29
+          ],
+          [
+            460.48,
+            -673.41
+          ],
+          [
+            340.59,
+            -674.39
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 84.75,
+      "hours": [
+        5.75,
+        19.75
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_hotel_baggage_wagon_wells_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_hotel_baggage_wagon_wells_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_hotel_baggage_wagon_wells_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Henry Davis drives a hotel's baggage wagon round Fifth, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Henry Davis drives a hotel's baggage wagon round Fifth, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "grocer_wagon_lake_street_1871",
+      "name": "A grocer's wagon round Franklin, Lake, Fifth and Madison, Georg Zimmermann at the horses' heads",
+      "ride_name": "Georg's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            211.03,
+            -113.51
+          ],
+          [
+            331.82,
+            -115.09
+          ],
+          [
+            337.47,
+            -530.2
+          ],
+          [
+            215.97,
+            -530.6
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 501.75,
+      "hours": [
+        6,
+        20
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_grocer_wagon_lake_street_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_grocer_wagon_lake_street_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_grocer_wagon_lake_street_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Fifth and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Fifth and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "brewery_wagon_canal_1871",
+      "name": "A brewery wagon round Jefferson, Randolph, Canal and Washington, Hugh Nolan at the horses' heads",
+      "ride_name": "Nolan's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            -397.67,
+            -253.5
+          ],
+          [
+            -156.23,
+            -254.3
+          ],
+          [
+            -152.53,
+            -390.9
+          ],
+          [
+            -395.91,
+            -390
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 619.5,
+      "hours": [
+        5.25,
+        19.25
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_brewery_wagon_canal_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_brewery_wagon_canal_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_brewery_wagon_canal_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Hugh Nolan drives a brewery wagon round Jefferson, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Hugh Nolan drives a brewery wagon round Jefferson, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "milk_wagon_west_madison_1871",
+      "name": "A milk wagon round Halsted, Madison, Jefferson and Adams, Conrad Klein at the horses' heads",
+      "ride_name": "Conrad's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            -788.72,
+            -545.43
+          ],
+          [
+            -395.76,
+            -541.71
+          ],
+          [
+            -391.02,
+            -823.01
+          ],
+          [
+            -777.84,
+            -826.28
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 288.75,
+      "hours": [
+        5.5,
+        19.5
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_milk_wagon_west_madison_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_milk_wagon_west_madison_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_milk_wagon_west_madison_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Conrad Klein drives a milk wagon round Halsted, Madison, Jefferson and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Conrad Klein drives a milk wagon round Halsted, Madison, Jefferson and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "livery_wagon_west_lake_1871",
+      "name": "A livery wagon round Halsted, Lake, Jefferson and Randolph, Johann Brandt at the horses' heads",
+      "ride_name": "Johann's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            -788.46,
+            -113.79
+          ],
+          [
+            -401.85,
+            -112.3
+          ],
+          [
+            -399.74,
+            -248.5
+          ],
+          [
+            -786.44,
+            -248.5
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 599,
+      "hours": [
+        6.25,
+        20.25
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "billings_august_1904_stable_helper",
+      "person_id": "hh_1871_drv_livery_wagon_west_lake_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_livery_wagon_west_lake_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_livery_wagon_west_lake_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Jefferson and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Jefferson and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "milk_wagon_dekoven_1871",
+      "name": "A milk wagon round Jefferson, Taylor, Canal and Twelfth, Jeremiah Daly at the horses' heads",
+      "ride_name": "Jeremiah's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            -371.58,
+            -1886.19
+          ],
+          [
+            -124.99,
+            -1883.71
+          ],
+          [
+            -122.23,
+            -2158.21
+          ],
+          [
+            -366.74,
+            -2159.99
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 970,
+      "hours": [
+        6.75,
+        20.75
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "billings_august_1904_stable_helper",
+      "person_id": "hh_1871_drv_milk_wagon_dekoven_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_milk_wagon_dekoven_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_milk_wagon_dekoven_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Jeremiah Daly drives a milk wagon round Jefferson, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Jeremiah Daly drives a milk wagon round Jefferson, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "hay_wagon_dekoven_1871",
+      "name": "A hay wagon round Halsted, Taylor, Jefferson and Twelfth, Hugh Quinn at the horses' heads",
+      "ride_name": "Quinn's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            -759.39,
+            -1896.14
+          ],
+          [
+            -373.58,
+            -1886.23
+          ],
+          [
+            -368.74,
+            -2160.01
+          ],
+          [
+            -757.91,
+            -2164.27
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 425,
+      "hours": [
+        5.75,
+        19.75
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_hay_wagon_dekoven_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_hay_wagon_dekoven_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_hay_wagon_dekoven_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Jefferson and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Jefferson and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "express_wagon_south_clark_1871",
+      "name": "An express wagon round Clark, Harrison, State and Polk, Martin Kennedy at the horses' heads",
+      "ride_name": "Martin's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            596.21,
+            -1359.88
+          ],
+          [
+            845.52,
+            -1358.32
+          ],
+          [
+            849.48,
+            -1606.26
+          ],
+          [
+            599.69,
+            -1612.14
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 679.25,
+      "hours": [
+        6,
+        20
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "bardwell_otis_1835",
+      "person_id": "hh_1871_drv_express_wagon_south_clark_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_express_wagon_south_clark_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_express_wagon_south_clark_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Martin Kennedy drives an express wagon round Clark, Harrison, State and Polk on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Martin Kennedy drives an express wagon round Clark, Harrison, State and Polk on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "livery_wagon_south_wabash_1871",
+      "name": "A livery wagon round Wabash, Van Buren, Michigan and Harrison, Edward Tuttle at the horses' heads",
+      "ride_name": "Edward's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            981.41,
+            -1090.56
+          ],
+          [
+            1122.91,
+            -1088.14
+          ],
+          [
+            1125.49,
+            -1371.14
+          ],
+          [
+            984.29,
+            -1373.26
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 57.25,
+      "hours": [
+        6.25,
+        20.25
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "mahoney_patrick_1835",
+      "person_id": "hh_1871_drv_livery_wagon_south_wabash_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_livery_wagon_south_wabash_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_livery_wagon_south_wabash_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Edward Tuttle drives a livery stable's wagon round Wabash, Van Buren, Michigan and Harrison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Edward Tuttle drives a livery stable's wagon round Wabash, Van Buren, Michigan and Harrison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "driver_local_m": [
+        1.3,
+        0,
+        4.4
+      ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
+      "envelope_local_xz_m": [
+        -1.21,
+        -1.86,
+        1.75,
+        5.1
+      ],
+      "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
+      "id": "grocer_wagon_twelfth_1871",
+      "name": "A grocer's wagon round State, Twelfth, Wabash and Sixteenth, Gottlieb Schneider at the horses' heads",
+      "ride_name": "Gottlieb's wagon",
+      "scene": "1871",
+      "driver_mode": "on_foot",
+      "streamed": true,
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 17,
+        "points_enu_m": [
+          [
+            860.62,
+            -2152.48
+          ],
+          [
+            987.53,
+            -2151.52
+          ],
+          [
+            995.49,
+            -2950.05
+          ],
+          [
+            867.69,
+            -2952.35
+          ]
+        ]
+      },
+      "stops": [],
+      "initial_distance_m": 802.5,
+      "hours": [
+        5.25,
+        19.25
+      ],
+      "vehicle_file": "transport/farm-box-master/farm-box-near.glb",
+      "vehicle_glb_sha256": "a1e8365d6369c417f86afda3a316d54a1a8b8591e729d6f23d2f7d75244bbf8d",
+      "vehicle_file_light": "transport/farm-box-master/farm-box-far.glb",
+      "vehicle_glb_sha256_light": "097c293885341c4d166c0121b921da3e89846cd04b3c6507576401e96d568a25",
+      "driver_asset": "mahoney_patrick_1835",
+      "person_id": "hh_1871_drv_grocer_wagon_twelfth_1871_1",
+      "replace_human_instance": "hi_inside_hh_1871_drv_grocer_wagon_twelfth_1871_1",
+      "driver_instance": {
+        "person_id": "hh_1871_drv_grocer_wagon_twelfth_1871_1",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Gottlieb Schneider drives a grocer's wagon round State, Twelfth, Wabash and Sixteenth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "liberty": "L-1871-town-traffic"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "farm_box_w01",
+        "web_assets": true
+      },
+      "source_ids": [
+        "edwards_chicago_directory_1871",
+        "census_1870_us_vol1",
+        "mitchell_1870_chicago_map",
+        "chicago_public_works_1871"
+      ],
+      "note": "Gottlieb Schneider drives a grocer's wagon round State, Twelfth, Wabash and Sixteenth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "liberty": "L-1871-town-traffic"
     }
   ]
 }

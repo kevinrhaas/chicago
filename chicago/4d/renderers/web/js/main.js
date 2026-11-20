@@ -4239,7 +4239,9 @@ async function boot() {
   // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
   // otherwise swallow a shoe whose trousers come down over it.
   const figureGround = (e, n) => figureGroundHeight(terrain, decks, e, n,
-    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null : null);
+    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null
+      // T-3690: the 1871 city's people stand on its plank walks and roadways, not under them.
+      : String(YEAR) === '1871' ? api.contextCity?.floorHeight?.(e, n) ?? null : null);
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -4300,14 +4302,25 @@ async function boot() {
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
-  if (['1812', '1835', '1904'].includes(daysScene)) {
+  if (['1812', '1835', '1871', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
-      : daysScene === '1812' && doorsFile1812 ? doorsFile1812 : getOptional(`humans/doors_${daysScene}.json`),
+    let [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
+      : daysScene === '1812' && doorsFile1812 ? doorsFile1812
+      : daysScene === '1871' ? null : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
-      ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
+      getOptional(`humans/inside_${daysScene}.json`)]);
+    // T-3690: the 1871 city's people (tools/town_people_1871.py) are given their doors and the
+    // places outside them on the context city's own walks, as the city stands today.
+    if (daysScene === '1871' && inside) {
+      const { placeTown1871, roadHeightOf } = await import('./town-1871.js');
+      api.roadHeight1871 = roadHeightOf(api.contextCity?.doc?.walk_surfaces ?? []);
+      const placed = placeTown1871(inside, api.contextCity);
+      doors = placed.doors;
+      api.town1871 = placed.census;
+      if (placed.census.dropped) layerProblems('humans').push(`town-1871: ${placed.census.dropped} of ${placed.census.households} households have no walk near their place and are not drawn`);
+    }
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
     // skirt's width off and nobody is stepped aside into (house-barriers.js).
@@ -4367,7 +4380,7 @@ async function boot() {
       standClear: houseBarriers ? (q) => houseBarriers.clearOf(q.e, q.n, BARRIER_STAND_M, (r) => dayClear(r, r)) : null,
       // T-3556: 1835's town is thousands under its roofs, so more of them are out about the
       // visitor at once; fewer on a lighter detail (a phone), never none (people are core).
-      residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
+      residentsNear: ['1835', '1871'].includes(daysScene) ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
       // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
@@ -4468,6 +4481,8 @@ async function boot() {
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
+          // T-3690: 1871's teams ride the context city's roadway ribbons where it lays them.
+          : String(YEAR) === '1871' ? (e, n) => api.roadHeight1871?.(e, n) ?? profiledGroundHeight(terrain, decks, e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).

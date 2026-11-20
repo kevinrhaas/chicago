@@ -1,0 +1,425 @@
+{
+ "id": "hh_1871_union_park_019",
+ "scene": "1871",
+ "name": "The Krüger household on the West Side near Union Park",
+ "head": "hh_1871_union_park_019_1",
+ "division": "union_park",
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "sources": [
+   "census_1870_us_vol1"
+  ],
+  "note": "A reconstructed household of the 1870 census's city."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "union_park",
+   "resolves_to": "neighbourhood",
+   "tier": "reconstructed",
+   "source_id": "mitchell_1870_chicago_map",
+   "note": "Lives on the West Side near Union Park; the house is an anonymous building of the context city (L-1871-city-baseline), found at run time on the street nearest the household's place."
+  }
+ ],
+ "arrival": {
+  "value": "1855",
+  "precision": "year",
+  "tier": "reconstructed"
+ },
+ "card_evidence": [
+  {
+   "source_id": "census_1870_us_vol1",
+   "locator": "Population of Chicago, 1870",
+   "quote": "the 1870 Census counted 298,977 people living in Chicago, Illinois",
+   "claim": "The city's count; this card is one of the reconstructed households drawn at about one person in eighty-five."
+  },
+  {
+   "source_id": "edwards_chicago_directory_1871",
+   "locator": "the directory's occupations",
+   "claim": "The trades are in the directory's words; no listing is claimed for this household."
+  }
+ ],
+ "persons": [
+  {
+   "id": "hh_1871_union_park_019_1",
+   "name": "Jacob Krüger",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "37-37",
+    "low": 37,
+    "high": 37,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "dry goods merchant",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the German people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 37",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Holstein",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "German",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Dry goods merchant",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1834 in Holstein and came to Chicago about 1855. He works as a dry goods merchant, and the household lives on the West Side near Union Park. The family's church is St. Michael's."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_union_park_019_2",
+   "name": "Anna Krüger",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "32-32",
+    "low": 32,
+    "high": 32,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the German people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 32",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Holstein",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "German",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Keeping house",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1839 in Holstein and came to Chicago about 1855. She keeps house for her husband Jacob and their family on the West Side near Union Park. The family's church is St. Michael's."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_union_park_019_3",
+   "name": "Joseph Krüger",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "13-13",
+    "low": 13,
+    "high": 13,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the German people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 13",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "German",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "At school",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1858 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_union_park_019_4",
+   "name": "Peter Krüger",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "10-10",
+    "low": 10,
+    "high": 10,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the German people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 10",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "German",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "At school",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1861 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_union_park_019_9",
+   "name": "Kate Doyle",
+   "relationship": "servant",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "26-26",
+    "low": 26,
+    "high": 26,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "servant",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 26",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Limerick, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Servant",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1845 in County Limerick, Ireland. She is the hired girl of the Krüger household, living in, and has Sunday afternoons to herself."
+    ]
+   }
+  }
+ ]
+}
