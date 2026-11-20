@@ -6,6 +6,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { dressStreetSurfaces } from './street-surfaces-1871.js';
 import { buildFronts, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
 
 async function json(url) {
@@ -210,6 +211,17 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     // remain resident; shared materials/textures are released with the layer.
     for (const geometry of sourceGeometries) { geometry.dispose(); geometries.delete(geometry); }
   }
+  // T-3685: the streets' painted surfaces (wood block, boulders, dirt, planks)
+  // and the raised walks' kerb boards and crossing steps, from the floors.
+  const surfacing=dressStreetSurfaces(infrastructureMeshes,{walkSurfaces:doc.walk_surfaces ?? [],
+    heights:doc.surface_heights_m ?? {},detail,confidence});
+  for (const texture of surfacing.textures) textures.add(texture);
+  for (const material of surfacing.materials) materials.add(material);
+  for (const mesh of surfacing.meshes) {
+    geometries.add(mesh.geometry); infrastructureMeshes.push(mesh); group.add(mesh);
+    out.census.infrastructureTriangles+=mesh.userData.triangles;
+  }
+  out.census.streetSurfaces=surfacing.census;
   out.census.infrastructureMeshes=infrastructureMeshes.length;
   const templates = new Map([...definition.templates,...(definition.vegetation ?? [])].map(t => [t.id, t]));
   const columns = Object.fromEntries((doc.fields?.buildings ?? []).map((key, index) => [key, index]));
@@ -448,13 +460,16 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   // margin; that strip is paved in the walk's own planking, front to walk,
   // so the business streets read as built up, not as lawns before shops.
   const apronMeshes=[];
+  // T-3685 raises the walks on planks: the apron meets the walk at its own
+  // height (just under it, so the two never fight), not a step below it.
+  const apronWalkY=+(doc.surface_heights_m?.walk);
   if (walkMaterial) {
     for (const tile of tiles.values()) {
       const p=[], nrm=[], uv=[], idx=[];
       for (const rows of tile.sets.values()) for (const r of rows) {
         const gap=r.isTree?0:+value(r.row,'walk_gap_m',0);
         if (!(gap>.05)) continue;
-        const reach=gap+.35, y=r.base+.1, base=p.length/3;
+        const reach=gap+.35, y=Number.isFinite(apronWalkY)?apronWalkY-.005:r.base+.1, base=p.length/3;
         for (const [x,z] of [[-r.w/2,-r.d/2],[r.w/2,-r.d/2],[r.w/2,-r.d/2-reach],[-r.w/2,-r.d/2-reach]]) {
           const e=r.e+r.cos*x+r.sin*z, n=r.n+r.sin*x-r.cos*z;
           p.push(e,y,-n); nrm.push(0,1,0); uv.push(e/2,-n/2);
