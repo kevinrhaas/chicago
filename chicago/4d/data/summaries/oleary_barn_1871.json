@@ -1,0 +1,93 @@
+{
+  "id": "oleary_barn_1871",
+  "scene": "1871",
+  "name": "The O'Leary barn",
+  "address": "Behind 137 DeKoven Street, on the alley",
+  "status": {
+    "text": "Burned on 8 October 1871",
+    "today": "The Chicago Fire Academy stands on the site",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "The barn burned that night; the site's later history is not researched here."
+  },
+  "built": {
+    "year": 1864,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ]
+  },
+  "use": "Barn for cows and a horse",
+  "summary": "A small wooden barn, its loft stuffed with fresh hay. The O'Learys kept five cows here and sold the milk to neighbours. The Great Chicago Fire began here on Sunday night. According to legend, a cow kicked over a lamp, but the inquiry could not prove how it started.",
+  "key": [
+    {
+      "label": "Size",
+      "value": "16 by 20 feet, 14 feet high",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Animals",
+      "value": "Five cows, a calf and a horse",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Fire seen",
+      "value": "About 9 p.m., 8 October 1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "chicago_board_police_fire_1871_report"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "High wooden fences ran from the barn to the sheds next door, and carried the fire to them.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "Dennis Sullivan saw the fire from across the street and ran in to save the animals.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "No picture of the barn is known: this one is built from the inquiry's description.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-08",
+      "text": "Fire in the barn at about nine at night.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "chicago_board_police_fire_1871_report"
+      ]
+    }
+  ]
+}

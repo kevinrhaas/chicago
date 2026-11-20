@@ -1,0 +1,375 @@
+{
+  "id": "forbes_cottage_1871",
+  "phase": "cottage_1871",
+  "name": "The Forbes house, 133 DeKoven Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/forbes_cottage_1871__cottage_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 707-715); when it was built is not known, and the scene's phase begins in 1860."
+  },
+  "change_note": "Built T-3689 (2026-11-20): the O'Leary site on DeKoven Street, on the landmark_1871 archetype in the 1835 town's clapboard and shingles.",
+  "placement": {
+    "local_e": -307.05,
+    "local_n": -1954.947,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "On the 1871 plan's north building line, two lots east of the O'Learys; its lot's width is reconstructed as twenty-five feet. The footprint's origin is local E -307.05 N -1954.95.",
+    "symbolic_location": "133 DeKoven Street, north side, two doors east of the O'Learys.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.1,
+        0
+      ],
+      [
+        6.1,
+        11.0
+      ],
+      [
+        0,
+        11.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "A front and a rear part (Andreas); their sizes are reconstructed."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "blocks": [
+          {
+            "name": "the front part",
+            "box": [
+              0,
+              0,
+              6.1,
+              6.1
+            ],
+            "storeys": [
+              0.6,
+              2.6
+            ],
+            "wall": "clapboard",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.12,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 1.6,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    1.5,
+                    4.4
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      0
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 0.9,
+                    "h": 2.05,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.0
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    3.0
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": "none"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "The front part of the house at No. 133, where the Forbes family lived (Andreas vol. 2, p. 712). Its size is reconstructed."
+          },
+          {
+            "name": "the rear part",
+            "box": [
+              0.5,
+              6.1,
+              5.6,
+              11.0
+            ],
+            "storeys": [
+              0.6,
+              2.4
+            ],
+            "wall": "clapboard",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.12,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 1.3,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "E": {
+                "bays": {
+                  "at": [
+                    2.4
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      0
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 0.9,
+                    "h": 2.05,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    2.4
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    2.55
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": "none"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "The rear part, let to the Lees and the Connovans (Andreas vol. 2, p. 712). Its size is reconstructed."
+          }
+        ],
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "time": "1871-10-08T21:20",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "Next to the barn on the east: the fire went from the barn to the sheds and houses north and east of it within minutes (Andreas vol. 2, p. 708)."
+        },
+        "note": "THE FORBES HOUSE, built by T-3689 for the 1871 scene: the frame house two doors east of the O'Learys, in a front and a rear part, the Forbes family in front and the Lees and Connovans behind (Andreas vol. 2, p. 712). It burned in the fire's first half-hour.",
+        "tint": {
+          "clapboard": [
+            0.56,
+            0.54,
+            0.5
+          ]
+        },
+        "chimneys": [
+          {
+            "at": [
+              3.05,
+              3.0
+            ],
+            "z0": 3.8,
+            "h": 1.9,
+            "w": 0.6,
+            "d": 0.6,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "S",
+            "s0": 1.0,
+            "s1": 2.0,
+            "n": 3,
+            "material": "wood_trim",
+            "rise": 0.2
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Sizes from Andreas's account where he gives them; storeys, roofs and openings from the photograph where it shows them, else reconstructed as the neighbourhood's one-storey frame cottages."
+    },
+    "wall_material": {
+      "value": "Unpainted weatherboards on a frame, shingle roofs",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Reconstructed as the O'Learys'.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "dwelling",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Three households (Andreas vol. 2, p. 712)."
+    },
+    "built": {
+      "value": 1864,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not known."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "THE FORBES HOUSE, built by T-3689 for the 1871 scene: the frame house two doors east of the O'Learys, in a front and a rear part, the Forbes family in front and the Lees and Connovans behind (Andreas vol. 2, p. 712). It burned in the fire's first half-hour.",
+  "research_doc": "",
+  "review_required": false
+}

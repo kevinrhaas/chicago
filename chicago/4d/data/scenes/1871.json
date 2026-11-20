@@ -8,7 +8,13 @@
     "cook_county_court_house_1871",
     "sherman_house_1871",
     "chicago_water_tower_1871",
-    "chicago_pumping_station_1871"
+    "chicago_pumping_station_1871",
+    "oleary_cottage_1871",
+    "oleary_barn_1871",
+    "dalton_cottage_1871",
+    "dalton_shed_1871",
+    "forbes_cottage_1871",
+    "sullivan_house_1871"
   ],
   "lighting": {
     "local_time": "16:00",
@@ -148,17 +154,17 @@
       "id": "sunday_dekoven",
       "label": "DeKoven Street, before the O'Leary cottage",
       "local_e": -318,
-      "local_n": -2022,
-      "yaw_deg": 25
+      "local_n": -1966,
+      "yaw_deg": 355
     },
     {
       "id": "fire_oleary_barn",
       "label": "DeKoven Street, before the O'Leary cottage, looking at the barn behind it",
       "short": "O'Leary barn",
       "glyph": "street",
-      "local_e": -300.0,
-      "local_n": -2004.0,
-      "yaw_deg": 0.0
+      "local_e": -311.0,
+      "local_n": -1962.0,
+      "yaw_deg": 347.0
     },
     {
       "id": "fire_st_pauls",
@@ -262,22 +268,22 @@
     {
       "id": "case_sullivan_seat",
       "label": "DeKoven Street, south side, a few lots east of the O'Learys",
-      "local_e": -270,
-      "local_n": -2032,
-      "yaw_deg": 335
+      "local_e": -308,
+      "local_n": -1972.5,
+      "yaw_deg": 343
     },
     {
       "id": "case_oleary_yard",
       "label": "The yard between the O'Leary cottage and the barn",
-      "local_e": -312,
-      "local_n": -1986,
-      "yaw_deg": 20
+      "local_e": -319,
+      "local_n": -1937,
+      "yaw_deg": 0
     },
     {
       "id": "case_oleary_front",
       "label": "Before the O'Leary cottage, 137 DeKoven Street",
-      "local_e": -301,
-      "local_n": -2018,
+      "local_e": -319.2,
+      "local_n": -1959.5,
       "yaw_deg": 0
     },
     {
@@ -292,16 +298,16 @@
     {
       "id": "case_barn_alley",
       "label": "The alley behind the O'Leary barn",
-      "local_e": -292,
-      "local_n": -1950,
+      "local_e": -312,
+      "local_n": -1921.6,
       "yaw_deg": 195
     },
     {
       "id": "case_fire_academy",
       "label": "DeKoven Street toward Jefferson, the Fire Academy's site",
       "local_e": -345,
-      "local_n": -2022,
-      "yaw_deg": 75
+      "local_n": -1965.3,
+      "yaw_deg": 60
     }
   ],
   "layers": [

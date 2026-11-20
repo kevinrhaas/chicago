@@ -55,6 +55,9 @@ GENERATOR = "chicago-4d generators/archetypes/landmark_1871.py (T-3688)"
 ROOT = Path(__file__).resolve().parents[2]
 STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04
+T1835 = ROOT / "assets" / "textures" / "chicago_1835_pbr"     # the 1835 town's wood (T-3689)
+#: the 1835 maps are 1024 px PNG masters; a landmark embeds them at this size, as JPEG
+K1835_PX = 256
 BRICK = ROOT / "assets" / "textures" / "prairie_1904_brick"   # K03
 
 CONF = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
@@ -80,15 +83,20 @@ MATERIALS = {
     "iron": (None, None, (0.05, 0.05, 0.055), 0.55, "iron", {}),
     "clock": (None, None, (0.80, 0.78, 0.72), 0.5, "roof", {}),
     "awning": (None, None, (0.62, 0.57, 0.46), 0.95, "roof", {}),
-    # painted pine weatherboards (T-3689: the frame houses that stood, Ogden's); its
-    # courses are drawn as the board laps, at the record's `course_m`
-    "clapboard": (None, None, (0.80, 0.78, 0.72), 0.85, "walls", {}),
+    # T-3689: the frame city, in the 1835 town's own wood (textures/chicago_1835_pbr):
+    # white-lead clapboard (painted, a record's `tint` gives its colour), the same boards
+    # unpainted and weathered, sawn boards for barns and sheds, and weathered shingles
+    "clapboard": ("k1835", "walls/clapboard_white_lead_paint", (1.0, 1.0, 1.0), 0.7, "walls", {}),
+    "clapboard_bare": ("k1835", "walls/clapboard_weathered_oak", (1.0, 1.0, 1.0), 0.86, "walls", {}),
+    "boards": ("k1835", "walls/vertical_sawn_board", (1.0, 1.0, 1.0), 0.88, "walls", {}),
+    "shingle": ("k1835", "roofs/wood_shingles_weathered", (1.0, 1.0, 1.0), 0.85, "roof", {}),
+    "wood_trim": (None, None, (0.40, 0.37, 0.32), 0.8, "trim", {}),
 }
 ROLE_OF = {k: v[4] for k, v in MATERIALS.items()}
 WALL_MAT = {"marble": "marble_wall", "lockport_marble": "marble_wall", "limestone": "stone_wall",
             "lockport_weathered": "stone_weathered", "limestone_pale": "marble_wall",
             "brick_red": "brick_wall", "brick_cream": "brick_cream", "iron_stone": "iron_stone",
-            "clapboard": "clapboard"}
+            "clapboard": "clapboard", "clapboard_bare": "clapboard_bare", "boards": "boards"}
 
 
 def _sub(a, b):
@@ -124,6 +132,9 @@ def _tile(mat: str) -> tuple:
         return tuple(json.loads((ROOFS / fab / "material.json").read_text())["tile_m"])
     if lib == "k03":
         return tuple(json.loads((BRICK / "panel" / fab / "material.json").read_text())["tile_m"])
+    if lib == "k1835":
+        span = json.loads((T1835 / fab / "material.json").read_text())["span_m"]
+        return (span, span)
     return (1.0, 1.0)
 
 
@@ -139,7 +150,23 @@ def _images(mat: str) -> dict:
         m = json.loads((BRICK / "panel" / fab / "material.json").read_text())
         return {"basecolor": BRICK / "panel" / fab / m["web"]["basecolor"],
                 "normal": BRICK / "panel" / fab / m["web"]["normal_gl"]}
+    if lib == "k1835":
+        stem = fab.split("/")[-1]
+        return {"basecolor": T1835 / fab / f"{stem}_basecolor.png", "normal": T1835 / fab / f"{stem}_normal_gl.png"}
     return {}
+
+
+def _image_bytes(src: Path) -> bytes:
+    """A map's bytes as the GLB embeds them: the K02-K04 web JPEGs as they are, the 1835
+    PNG masters scaled to K1835_PX and saved as JPEG (as city_context_emit does)."""
+    if src.suffix == ".png":
+        import io
+        from PIL import Image
+        im = Image.open(src).convert("RGB").resize((K1835_PX, K1835_PX), Image.Resampling.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, "JPEG", quality=88, optimize=False)
+        return buf.getvalue()
+    return src.read_bytes()
 
 
 def texture_files() -> list:
@@ -673,6 +700,32 @@ def roof(m: Mesh, block, ztop, conf, sides):
             m.face(cov, [(*ring[0], ztop), (*ring[1], ztop), (*ridge[0], ztop + h)], conf, (0, -1, 1))
             m.face(cov, [(*ring[2], ztop), (*ring[3], ztop), (*ridge[1], ztop + h)], conf, (0, 1, 1))
         return ztop + h
+    if kind == "gable":
+        # T-3689: a pitched roof over a frame house or barn, its ridge along the block's
+        # longer side unless `ridge` names the axis ("x" or "y"); the gable ends are
+        # closed in the block's own wall, the eaves and rakes run out by `eave`.
+        h = r["h"]
+        e = r.get("eave", 0.3)
+        wmat = WALL_MAT[block.get("wall", "limestone")]
+        along_x = r.get("ridge", "x" if (x1 - x0) >= (y1 - y0) else "y") == "x"
+        if along_x:
+            ym = (y0 + y1) / 2
+            a0, a1 = x0 - e, x1 + e
+            m.face(cov, [(a0, y0 - e, ztop - e * h / ((y1 - y0) / 2)), (a1, y0 - e, ztop - e * h / ((y1 - y0) / 2)),
+                         (a1, ym, ztop + h), (a0, ym, ztop + h)], conf, (0, -1, 1))
+            m.face(cov, [(a1, y1 + e, ztop - e * h / ((y1 - y0) / 2)), (a0, y1 + e, ztop - e * h / ((y1 - y0) / 2)),
+                         (a0, ym, ztop + h), (a1, ym, ztop + h)], conf, (0, 1, 1))
+            m.face(wmat, [(x0, y0, ztop), (x0, y1, ztop), (x0, ym, ztop + h)], conf, (-1, 0, 0))
+            m.face(wmat, [(x1, y0, ztop), (x1, y1, ztop), (x1, ym, ztop + h)], conf, (1, 0, 0))
+        else:
+            xm = (x0 + x1) / 2
+            a0, a1 = y0 - e, y1 + e
+            dz = e * h / ((x1 - x0) / 2)
+            m.face(cov, [(x0 - e, a1, ztop - dz), (x0 - e, a0, ztop - dz), (xm, a0, ztop + h), (xm, a1, ztop + h)], conf, (-1, 0, 1))
+            m.face(cov, [(x1 + e, a0, ztop - dz), (x1 + e, a1, ztop - dz), (xm, a1, ztop + h), (xm, a0, ztop + h)], conf, (1, 0, 1))
+            m.face(wmat, [(x0, y0, ztop), (x1, y0, ztop), (xm, y0, ztop + h)], conf, (0, -1, 0))
+            m.face(wmat, [(x0, y1, ztop), (x1, y1, ztop), (xm, y1, ztop + h)], conf, (0, 1, 0))
+        return ztop + h
     # mansard: a curved or straight lower slope to a curb, then a low deck
     h = r["h"]
     i0 = r.get("inset", 0.25)
@@ -951,7 +1004,7 @@ def steps(m, blocks, p, conf):
     fr, L = face_frame(b["box"], p["face"])
     n, rise, tread = p["n"], p.get("rise", 0.17), p.get("tread", 0.32)
     for i in range(n):
-        fr.fbox(m, "stone_trim", p["s0"], p["s1"], 0.0, rise * (n - i), 0.0, tread * (i + 1) + p.get("landing", 0.0) * (i == 0),
+        fr.fbox(m, p.get("material", "stone_trim"), p["s0"], p["s1"], 0.0, rise * (n - i), 0.0, tread * (i + 1) + p.get("landing", 0.0) * (i == 0),
                 conf, skip=("bottom",))
 
 
@@ -1047,7 +1100,7 @@ def glb(params: LandmarkParams, structure_id: str, phase_id: str, fire: dict | N
         for r_, src in imgs.items():
             if (fab, r_) not in image_of:
                 images.append({"name": src.stem.removesuffix("_web"), "mimeType": "image/jpeg",
-                               "bufferView": view(src.read_bytes())})
+                               "bufferView": view(_image_bytes(src))})
                 textures.append({"sampler": 0, "source": len(images) - 1})
                 image_of[(fab, r_)] = len(textures) - 1
         if imgs:

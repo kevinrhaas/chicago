@@ -127,10 +127,46 @@
       "asset": "gltf/cook_county_court_house_1871__court_house_1870_1871.glb"
     },
     {
+      "id": "dalton_cottage_1871",
+      "name": "Dalton's cottage, 135 DeKoven Street",
+      "sidecar": "sidecars/1871/dalton_cottage_1871.json",
+      "asset": "gltf/dalton_cottage_1871__cottage_1871.glb"
+    },
+    {
+      "id": "dalton_shed_1871",
+      "name": "Dalton's shed",
+      "sidecar": "sidecars/1871/dalton_shed_1871.json",
+      "asset": "gltf/dalton_shed_1871__shed_1871.glb"
+    },
+    {
+      "id": "forbes_cottage_1871",
+      "name": "The Forbes house, 133 DeKoven Street",
+      "sidecar": "sidecars/1871/forbes_cottage_1871.json",
+      "asset": "gltf/forbes_cottage_1871__cottage_1871.glb"
+    },
+    {
+      "id": "oleary_barn_1871",
+      "name": "The O'Leary barn",
+      "sidecar": "sidecars/1871/oleary_barn_1871.json",
+      "asset": "gltf/oleary_barn_1871__barn_1871.glb"
+    },
+    {
+      "id": "oleary_cottage_1871",
+      "name": "The O'Leary cottages, 137 DeKoven Street",
+      "sidecar": "sidecars/1871/oleary_cottage_1871.json",
+      "asset": "gltf/oleary_cottage_1871__cottage_1871.glb"
+    },
+    {
       "id": "sherman_house_1871",
       "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets",
       "sidecar": "sidecars/1871/sherman_house_1871.json",
       "asset": "gltf/sherman_house_1871__sherman_1861_1871.glb"
+    },
+    {
+      "id": "sullivan_house_1871",
+      "name": "Dennis Sullivan's house, 134 DeKoven Street",
+      "sidecar": "sidecars/1871/sullivan_house_1871.json",
+      "asset": "gltf/sullivan_house_1871__house_1871.glb"
     }
   ],
   "excluded_by_date": [],

@@ -1,0 +1,111 @@
+{
+  "id": "oleary_cottage_1871",
+  "scene": "1871",
+  "name": "The O'Leary cottages",
+  "address": "137 DeKoven Street",
+  "status": {
+    "text": "Survived the fire",
+    "today": "The Chicago Fire Academy stands on the site",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "The cottages stood after the fire (Andreas vol. 2, p. 719); the Fire Academy was built on the site long after. Their later history is not researched here."
+  },
+  "built": {
+    "year": 1864,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ]
+  },
+  "use": "Two family homes",
+  "summary": "Two little frame houses, one behind the other. The McLaughlins rented the front one and were having a party that night. Patrick and Catherine O'Leary and their five children lived in the back one. The fire started in their barn, but the wind blew it away from these houses, and they survived.",
+  "key": [
+    {
+      "label": "Owners",
+      "value": "Patrick and Catherine O'Leary",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Size",
+      "value": "36 feet from front to back, both houses",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Lot",
+      "value": "East half of lot 12, block 38",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The O'Learys said they were in bed when the fire started.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "A photographer came within weeks and took a picture of the houses standing in the burnt block.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "loc_cph_3b04891_oleary_cottage"
+      ]
+    },
+    {
+      "text": "Two plain frame houses, their gables to the street, a chimney on each ridge.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_cph_3b04891_oleary_cottage"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-08",
+      "text": "A party in the front house; the O'Learys go to bed.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "date": "1871-10-08",
+      "text": "The barn behind them catches fire at about nine.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "chicago_board_police_fire_1871_report"
+      ]
+    },
+    {
+      "date": "1871-10-15",
+      "text": "A reporter finds the O'Leary house 'yet standing'.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

@@ -59,71 +59,71 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              -302.7,
-              -1986.0
+              -312.5,
+              -1958.0
             ],
-            "heading": 5.5
+            "heading": 343.0
           },
           {
             "extra": "fire_oleary_barn_watch_1",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              -300.9,
-              -1985.0
+              -310.7,
+              -1957.0
             ],
-            "heading": 1.9
+            "heading": 341.5
           },
           {
             "extra": "fire_oleary_barn_watch_2",
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              -298.65,
-              -1987.0
+              -308.5,
+              -1959.0
             ],
-            "heading": 357.3
+            "heading": 340.0
           },
           {
             "extra": "fire_oleary_barn_watch_3",
             "dress": "child_girl_1904",
             "name": "A child watching (unnamed)",
             "at": [
-              -296.85,
-              -1984.0
+              -306.7,
+              -1956.0
             ],
-            "heading": 353.1
+            "heading": 338.0
           },
           {
             "extra": "fire_oleary_barn_watch_4",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              -295.5,
-              -1989.0
+              -305.3,
+              -1960.5
             ],
-            "heading": 351.7
+            "heading": 339.0
           },
           {
             "extra": "fire_oleary_barn_flee_0",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman getting away (unnamed)",
             "at": [
-              -304.2,
-              -1964.0
+              -313.8,
+              -1948.0
             ],
-            "heading": 186.2,
+            "heading": 170.0,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    -308.1,
-                    -1986.0
+                    -308.0,
+                    -1964.0
                   ],
                   [
-                    -309.0,
-                    -2008.0
+                    -285.0,
+                    -1965.0
                   ]
                 ],
                 "pace": "hurry"
@@ -135,21 +135,21 @@
             "dress": "glessner_john_j_1904",
             "name": "A man getting away (unnamed)",
             "at": [
-              -295.1,
-              -1966.0
+              -303.5,
+              -1956.5
             ],
-            "heading": 176.1,
+            "heading": 160.0,
             "beats": [
               {
                 "t": 4,
                 "walk": [
                   [
-                    -292.15,
-                    -1987.0
+                    -300.0,
+                    -1964.0
                   ],
                   [
-                    -292.2,
-                    -2008.0
+                    -275.0,
+                    -1965.0
                   ]
                 ],
                 "pace": "hurry"
@@ -161,21 +161,21 @@
             "dress": "child_girl_1904",
             "name": "A child getting away (unnamed)",
             "at": [
-              -297.9,
-              -1968.0
+              -297.0,
+              -1956.5
             ],
-            "heading": 175.3,
+            "heading": 160.0,
             "beats": [
               {
                 "t": 7,
                 "walk": [
                   [
-                    -297.75,
-                    -1988.0
+                    -294.0,
+                    -1964.0
                   ],
                   [
-                    -294.6,
-                    -2008.0
+                    -268.0,
+                    -1965.0
                   ]
                 ],
                 "pace": "brisk"

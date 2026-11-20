@@ -1,0 +1,58 @@
+{
+  "id": "dalton_shed_1871",
+  "scene": "1871",
+  "name": "Dalton's shed",
+  "address": "Behind 135 DeKoven Street",
+  "status": {
+    "text": "Burned on 8 October 1871",
+    "today": "The Chicago Fire Academy's block",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Its later history is not researched here."
+  },
+  "built": {
+    "year": 1864,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ]
+  },
+  "use": "Shed",
+  "summary": "A board shed at the back of Dalton's lot, right beside the O'Leary barn. A high fence joined it to Dalton's house.",
+  "key": [
+    {
+      "label": "Size",
+      "value": "12 by 20 feet",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The fire jumped to it from the barn along the fences.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-08",
+      "text": "The fire breaks out in the O'Leary barn next door.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

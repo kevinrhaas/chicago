@@ -599,9 +599,14 @@
    "locator": "Andreas p. 719, 'At 8:45 the incipient blaze began'; the Board: flames seen 'not more than twenty or twenty-five minutes past nine', the alarm 'at 9:30'.",
    "note": "Nine o'clock, between Andreas's 8:45 and the Board's 9:20.",
    "local": [
-    -300.6,
-    -1965.2
-   ]
+    -319.0,
+    -1927.0
+   ],
+   "plan_local": [
+    -319.0,
+    -1927.0
+   ],
+   "plan_note": "The O'Leary lot as T-3689 builds it on the 1871 plan's DeKoven Street (data/structures/oleary_cottage_1871.json, oleary_barn_1871.json): the plan, a tracing of Mitchell's 1870 map, has DeKoven Street about 35 m north of where the modern controls put it here, so the fire starts in the barn the scene stands."
   },
   {
    "id": "taylor_street",
@@ -1312,15 +1317,21 @@
    ],
    "locator": "p. 719: 'the O'Leary house, yet standing ... at No. 137 DeKoven Street'.",
    "local": [
-    -300.9,
-    -1998.5
-   ]
+    -319.3,
+    -1949.4
+   ],
+   "plan_local": [
+    -319.3,
+    -1949.4
+   ],
+   "plan_note": "The O'Leary lot as T-3689 builds it on the 1871 plan's DeKoven Street (data/structures/oleary_cottage_1871.json, oleary_barn_1871.json): the plan, a tracing of Mitchell's 1870 map, has DeKoven Street about 35 m north of where the modern controls put it here, so the fire starts in the barn the scene stands."
   }
  ],
  "survivors": [
   "chicago_water_tower_1871",
   "oleary_cottage_1871",
-  "ogden_house_1871"
+  "ogden_house_1871",
+  "sullivan_house_1871"
  ],
  "structures": {
   "st_michaels_church_1871": {
@@ -1369,6 +1380,18 @@
   "st_pauls_church_1871": {
    "fate": "collapses",
    "note": "Andreas p. 717: a wooden church, 'gone down in ruins' by ten."
+  },
+  "dalton_cottage_1871": {
+   "fate": "collapses",
+   "note": "Andreas vol. 2, p. 708: the fire went from the barn to the adjoining sheds, barns and dwellings to the north and north-east within minutes; a frame cottage burned to the ground."
+  },
+  "dalton_shed_1871": {
+   "fate": "collapses",
+   "note": "A board shed beside the barn, joined to it by a high fence (Andreas vol. 2, pp. 708, 712)."
+  },
+  "forbes_cottage_1871": {
+   "fate": "collapses",
+   "note": "A frame house two doors east of the barn, in the fire's path north and east."
   }
  },
  "model": {

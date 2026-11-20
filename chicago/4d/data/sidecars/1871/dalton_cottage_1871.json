@@ -1,0 +1,308 @@
+{
+  "id": "dalton_cottage_1871",
+  "phase": "cottage_1871",
+  "name": "Dalton's cottage, 135 DeKoven Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/dalton_cottage_1871__cottage_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 707-715); when it was built is not known, and the scene's phase begins in 1860."
+  },
+  "change_note": "Built T-3689 (2026-11-20): the O'Leary site on DeKoven Street, on the landmark_1871 archetype in the 1835 town's clapboard and shingles.",
+  "placement": {
+    "local_e": -315.2,
+    "local_n": -1944.547,
+    "rotation_deg": 359.11,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2"
+    ],
+    "position_note": "On the west line of its lot, next east of the O'Leary lot; its front two feet south of the north line of the O'Leary cottages and its rear eight feet south of the barn (Andreas vol. 2, pp. 711-712). The footprint's origin is local E -315.2 N -1944.55.",
+    "symbolic_location": "135 DeKoven Street, north side, next east of the O'Learys.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        6.1,
+        0
+      ],
+      [
+        6.1,
+        12.2
+      ],
+      [
+        0,
+        12.2
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Forty feet deep (Andreas); twenty feet wide, reconstructed."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "blocks": [
+          {
+            "name": "Dalton's cottage",
+            "box": [
+              0,
+              0,
+              6.1,
+              12.2
+            ],
+            "storeys": [
+              1.22,
+              2.6
+            ],
+            "wall": "clapboard",
+            "trim": "wood_trim",
+            "cornice": {
+              "kind": "light",
+              "proj": 0.12,
+              "material": "wood_trim"
+            },
+            "roof": {
+              "kind": "gable",
+              "h": 1.7,
+              "eave": 0.3,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    1.5,
+                    4.3
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      0
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 0.9,
+                    "h": 2.05,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    2.4,
+                    6.1,
+                    9.8
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.0,
+                    9.0
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    3.05
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.75,
+                    "h": 1.35,
+                    "sill": 0.8,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      0
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_flat",
+                    "w": 0.9,
+                    "h": 2.05,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "inferred",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "'A one-story frame cottage' set back from the street, standing on cedar posts four feet above the ground, forty feet deep, on the west line of its lot with three windows on that side (Andreas vol. 2, pp. 711-712, from the 1871 inquiry's plan)."
+          }
+        ],
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "time": "1871-10-08T21:15",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "Next to the barn on the east: the fire went from the barn to the sheds and houses north and east of it within minutes (Andreas vol. 2, p. 708)."
+        },
+        "note": "DALTON'S COTTAGE, built by T-3689 for the 1871 scene: the one-storey frame house next east of the O'Learys, forty feet deep on cedar posts four feet high, set back so that its front stood two feet south of the O'Leary cottages' north end, with three windows in its west wall facing the O'Leary yard (Andreas vol. 2, pp. 711-712). It burned in the first minutes of the fire.",
+        "tint": {
+          "clapboard": [
+            0.56,
+            0.54,
+            0.5
+          ]
+        },
+        "chimneys": [
+          {
+            "at": [
+              3.05,
+              6.1
+            ],
+            "z0": 4.4,
+            "h": 1.9,
+            "w": 0.6,
+            "d": 0.6,
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "S",
+            "s0": 1.0,
+            "s1": 2.0,
+            "n": 6,
+            "material": "wood_trim",
+            "rise": 0.2
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Sizes from Andreas's account where he gives them; storeys, roofs and openings from the photograph where it shows them, else reconstructed as the neighbourhood's one-storey frame cottages."
+    },
+    "wall_material": {
+      "value": "Unpainted weatherboards on a frame, a shingle roof",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "A frame cottage (Andreas); its finish is reconstructed as the O'Learys'.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "dwelling",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Dalton's dwelling (Andreas vol. 2, p. 711)."
+    },
+    "built": {
+      "value": 1864,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Not known: reconstructed as its neighbours'."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    }
+  ],
+  "research_note": "DALTON'S COTTAGE, built by T-3689 for the 1871 scene: the one-storey frame house next east of the O'Learys, forty feet deep on cedar posts four feet high, set back so that its front stood two feet south of the O'Leary cottages' north end, with three windows in its west wall facing the O'Leary yard (Andreas vol. 2, pp. 711-712). It burned in the first minutes of the fire.",
+  "research_doc": "",
+  "review_required": false
+}

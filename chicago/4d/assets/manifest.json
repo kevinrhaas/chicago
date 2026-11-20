@@ -300,6 +300,26 @@
       "phase_id": "coursoll_1808",
       "structure_id": "coursoll_field_1812"
     },
+    "dalton_cottage_1871__cottage_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 170716,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "0fd0ab14704b6706cd07b2f1d79423353f6dfa069aa16c3b0a6c40874d13794e",
+      "kind": "generated",
+      "phase_id": "cottage_1871",
+      "structure_id": "dalton_cottage_1871"
+    },
+    "dalton_shed_1871__shed_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 55372,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "b46c1fc32701c2e2b05e2ce43e50f4cace7f98f852f9ac205f5b25de3591e93b",
+      "kind": "generated",
+      "phase_id": "shed_1871",
+      "structure_id": "dalton_shed_1871"
+    },
     "dearborn_street_drawbridge__draw_1834.glb": {
       "archetype": "bridge_timber",
       "baked_ao": false,
@@ -781,6 +801,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "flats_2127_prairie"
+    },
+    "forbes_cottage_1871__cottage_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 169696,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "b6f12cc64598bfbaa4ac20d73d45c59b5d612e7fa04379f7ea3ff0b4410249b7",
+      "kind": "generated",
+      "phase_id": "cottage_1871",
+      "structure_id": "forbes_cottage_1871"
     },
     "forks_company_cornfield_1812__cornfield_1808.glb": {
       "archetype": "palisade",
@@ -4067,6 +4097,26 @@
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "old_bank_building"
+    },
+    "oleary_barn_1871__barn_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 69144,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "ed4b5f6b1ac9c2828e7216b8c7ed0060d4e6d87aafbf889d7fd56c9f47118e76",
+      "kind": "generated",
+      "phase_id": "barn_1871",
+      "structure_id": "oleary_barn_1871"
+    },
+    "oleary_cottage_1871__cottage_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 175588,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "d2a4107540ca683b5411858bb5afb0893a17d1eb14807954988ebb0da6b59b3d",
+      "kind": "generated",
+      "phase_id": "cottage_1871",
+      "structure_id": "oleary_cottage_1871"
     },
     "otis_house_2033_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -10163,6 +10213,16 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "stone_house_2035_prairie_rear_building"
+    },
+    "sullivan_house_1871__house_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 167064,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "efa7b96657d89604c2e95459662e486e80c3659a3c10457b1fe9c4fc59d2811b",
+      "kind": "generated",
+      "phase_id": "house_1871",
+      "structure_id": "sullivan_house_1871"
     },
     "temple_building__frame_1833.glb": {
       "archetype": "frame_dwelling",
