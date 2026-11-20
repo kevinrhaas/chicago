@@ -677,6 +677,27 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** The two Native and Métis households are told from public anchors and never called at (audit_jaunt_refusals rule I); the Robinson cabins are Wau-Bun's of 1831 and no one is claimed in them on the scene date. Later lives are told as later history (L-jaunt-women-1835).
 
+## 28. Apprentice at the Democrat — play a part, the owner's ask of 2026-11-19
+
+**ID:** `apprentice-at-the-democrat` · **Owner ticket:** T-3679 (in kevinrhaas/chicago-tickets)
+
+**Setup/goal:** The visitor plays the Chicago Democrat's new apprentice, aged thirteen, carrying the paper of Wednesday 1 July 1835 round the town, and chooses where the first copies go and where to linger. Item 9 ("Play a part") of the 2026-11-17 classroom list; added as one JSON file in `data/jaunts/`, compiled by `tools/compile_jaunts.py`, with no renderer change.
+
+**Stops, in story order (two forks):**
+
+- [`chicago_democrat_office`](../data/structures/chicago_democrat_office.json) — the paper's old corner at South Water and Clark; then either
+- [`sauganash_hotel`](../data/structures/sauganash_hotel.json) — the Sauganash (west first), or
+- [`chicago_american_office`](../data/structures/chicago_american_office.json) — the rival American (east first); then
+- [`newberry_dole_warehouse`](../data/structures/newberry_dole_warehouse.json) — Newberry & Dole's, whose card is in the day's number; then either
+- [`dearborn_street_drawbridge`](../data/structures/dearborn_street_drawbridge.json) — wait for a sail at the draw, or
+- [`tremont_house_1`](../data/structures/tremont_house_1.json) — the last copies to the Tremont.
+
+**Primary interactions:** two choices, each changing the next stop; four endings from the two together.
+
+**Keepsake/outcome:** An Apprentice's Round (News & Knowledge, with Livelihood); fictional narrative memento.
+
+**Evidence and route cautions:** Every fact is a claim already published by another jaunt and copied word for word; the only vacancy named is the Democrat's own notice of 20 May 1835. The office over Jones & King's is not placed in the town, so the walk starts at the corner the paper left. The apprentice, the round and the endings are reconstructed (L-play-a-part-3679); no named person is met.
+
 ## Initial research anchors
 
 Use the source records already attached to the chosen claims, rather than treating

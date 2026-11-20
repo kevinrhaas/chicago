@@ -1,0 +1,157 @@
+{
+  "datum": "NAD83 UTM zone16N EPSG26916, origin447072.7/4637395.8; x=e,z=-n,y=up metres",
+  "scope": "No new network. Reproject every original latitude/longitude and compare only overlaps among existing OSM API extracts. Counts in original Rees targets are not unique shared-node counts; duplicates are possible and exact averaging cannot be reconstructed without their original element set.",
+  "max_reprojection_rounding_error_m": 0.0055,
+  "targets": [
+    {
+      "id": "R1",
+      "label": "State Street x Madison Street",
+      "reprojected_local_e": 837.6348,
+      "reprojected_local_n": -525.2685,
+      "stored_rounding_error_m": 0.005,
+      "original_osm_crossings": 4,
+      "original_crossing_spread_m": 0.0,
+      "new_target": {
+        "id": "state_madison",
+        "local_e": 837.63,
+        "local_n": -525.27,
+        "osm_node_ids": [
+          27446720
+        ],
+        "nodes_averaged": 1,
+        "crossing_spread_m": 0.0
+      },
+      "old_to_new_distance_m": 0.0
+    },
+    {
+      "id": "R2",
+      "label": "State Street x Cermak Road (Twenty-Second Street)",
+      "reprojected_local_e": 873.3659,
+      "reprojected_local_n": -3764.5164,
+      "stored_rounding_error_m": 0.0055,
+      "original_osm_crossings": 8,
+      "original_crossing_spread_m": 6.0,
+      "new_target": null
+    },
+    {
+      "id": "R3",
+      "label": "State Street x Roosevelt Road (Twelfth Street)",
+      "reprojected_local_e": 855.6771,
+      "reprojected_local_n": -2149.0707,
+      "stored_rounding_error_m": 0.0029,
+      "original_osm_crossings": 15,
+      "original_crossing_spread_m": 7.5,
+      "new_target": null
+    },
+    {
+      "id": "R4",
+      "label": "State Street x Thirty-First Street",
+      "reprojected_local_e": 895.0986,
+      "reprojected_local_n": -5383.3404,
+      "stored_rounding_error_m": 0.0014,
+      "original_osm_crossings": 7,
+      "original_crossing_spread_m": 7.7,
+      "new_target": null
+    },
+    {
+      "id": "R5",
+      "label": "Halsted Street x Madison Street",
+      "reprojected_local_e": -784.8008,
+      "reprojected_local_n": -542.4611,
+      "stored_rounding_error_m": 0.0014,
+      "original_osm_crossings": 3,
+      "original_crossing_spread_m": 0.0,
+      "new_target": null
+    },
+    {
+      "id": "R6",
+      "label": "Halsted Street x Cermak Road (Twenty-Second Street)",
+      "reprojected_local_e": -737.65,
+      "reprojected_local_n": -3775.6974,
+      "stored_rounding_error_m": 0.0026,
+      "original_osm_crossings": 4,
+      "original_crossing_spread_m": 0.0,
+      "new_target": null
+    },
+    {
+      "id": "R7",
+      "label": "Halsted Street x Roosevelt Road (Twelfth Street)",
+      "reprojected_local_e": -762.4585,
+      "reprojected_local_n": -2164.4628,
+      "stored_rounding_error_m": 0.0032,
+      "original_osm_crossings": 10,
+      "original_crossing_spread_m": 10.2,
+      "new_target": null
+    },
+    {
+      "id": "R8",
+      "label": "Halsted Street x North Avenue",
+      "reprojected_local_e": -837.1486,
+      "reprojected_local_n": 2693.9632,
+      "stored_rounding_error_m": 0.0035,
+      "original_osm_crossings": 3,
+      "original_crossing_spread_m": 0.0,
+      "new_target": null
+    },
+    {
+      "id": "R9",
+      "label": "Western Avenue x Madison Street",
+      "reprojected_local_e": -4027.1301,
+      "reprojected_local_n": -585.6848,
+      "stored_rounding_error_m": 0.0048,
+      "original_osm_crossings": 4,
+      "original_crossing_spread_m": 0.0,
+      "new_target": null
+    },
+    {
+      "id": "R10",
+      "label": "Western Avenue x Roosevelt Road (Twelfth Street)",
+      "reprojected_local_e": -4007.9328,
+      "reprojected_local_n": -2201.5108,
+      "stored_rounding_error_m": 0.0029,
+      "original_osm_crossings": 6,
+      "original_crossing_spread_m": 0.0,
+      "new_target": null
+    },
+    {
+      "id": "R11",
+      "label": "Ashland Avenue x Chicago Avenue",
+      "reprojected_local_e": -2427.1453,
+      "reprojected_local_n": 1056.5297,
+      "stored_rounding_error_m": 0.0047,
+      "original_osm_crossings": 7,
+      "original_crossing_spread_m": 6.8,
+      "new_target": null
+    },
+    {
+      "id": "R12",
+      "label": "Ashland Avenue x Madison Street",
+      "reprojected_local_e": -2398.4939,
+      "reprojected_local_n": -565.3703,
+      "stored_rounding_error_m": 0.0039,
+      "original_osm_crossings": 8,
+      "original_crossing_spread_m": 7.1,
+      "new_target": null
+    },
+    {
+      "id": "R13",
+      "label": "Ashland Avenue x Roosevelt Road (Twelfth Street)",
+      "reprojected_local_e": -2378.0291,
+      "reprojected_local_n": -2188.4235,
+      "stored_rounding_error_m": 0.0036,
+      "original_osm_crossings": 16,
+      "original_crossing_spread_m": 8.8,
+      "new_target": null
+    },
+    {
+      "id": "R14",
+      "label": "Ashland Avenue x North Avenue",
+      "reprojected_local_e": -2447.5409,
+      "reprojected_local_n": 2673.8619,
+      "stored_rounding_error_m": 0.0021,
+      "original_osm_crossings": 8,
+      "original_crossing_spread_m": 4.9,
+      "new_target": null
+    }
+  ]
+}

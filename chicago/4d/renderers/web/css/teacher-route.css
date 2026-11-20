@@ -1,0 +1,46 @@
+/* T-3672 — a teacher's route: the builder in Guide and the Route panel in Jaunts.
+   Navigator tokens only; loaded the first time either is drawn. */
+.nav-route-build { border-top: 1px solid var(--edge, #777); margin-top: 1rem; padding-top: .75rem; overflow-wrap: anywhere; }
+.nav-route-build h3 { font-size: 1.1rem; }
+.nav-route-build h4 { margin: 1rem 0 .25rem; font-size: 1rem; }
+.route-build { display: grid; gap: .5rem; min-width: 0; }
+.route-field { display: grid; gap: .3rem; margin: .4rem 0; font-size: .9rem; min-width: 0; }
+.route-field input, .route-field textarea, .route-field select {
+  box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; min-height: 44px; padding: .5rem;
+  color: var(--ink); background: var(--panel-raised, var(--panel-solid, #fff)); border: 1px solid var(--edge, currentColor);
+  border-radius: 4px; font: inherit;
+}
+.route-field textarea { resize: vertical; min-height: 64px; }
+.route-jaunt-pick { display: grid; gap: .25rem; }
+.route-jaunt-line { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: .25rem 0; }
+.route-jaunt-line[hidden], .route-link[hidden] { display: none; }
+.route-results { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; }
+.route-result { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .35rem 0; border-bottom: 1px solid var(--edge, #777); }
+.route-result-words { min-width: 0; }
+.route-kind { display: inline-block; font-size: .75rem; padding: 0 .4rem; border: 1px solid var(--edge, currentColor); border-radius: 999px; white-space: nowrap; }
+.route-count { margin: 0; font-size: .9rem; }
+.route-stops, .route-panel-stops { margin: 0; padding-left: 0; list-style: none; display: grid; gap: .5rem; counter-reset: none; }
+.route-stop, .route-panel-stop { border: 1px solid var(--edge, #777); border-radius: 6px; padding: .6rem; min-width: 0; }
+.route-stop-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.route-stop-head > div:first-child { min-width: 0; flex: 1 1 12rem; }
+.route-stop-tools { display: flex; flex-wrap: wrap; gap: .35rem; }
+.route-tool { min-width: 44px; padding-inline: .5rem; }
+.route-tool:disabled { opacity: .4; cursor: default; }
+.route-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.nav-route-build button, .route-panel button, .route-year-link { min-height: 44px; white-space: normal; }
+.route-status { min-height: 1.4em; margin: .25rem 0; }
+.route-panel { margin-bottom: 1rem; overflow-wrap: anywhere; }
+.route-panel .nav-place { display: block; margin: .15rem 0 .25rem; }
+.route-panel-jaunt { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.route-panel-jaunt p { margin: 0; flex: 1 1 12rem; }
+.route-skipped { font-weight: 600; }
+.route-stop-name { display: block; }
+.route-teacher { margin-top: .5rem; padding-left: .7rem; border-left: 3px solid var(--accent, #2c5275); }
+.route-teacher-k { margin: 0; font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; opacity: .8; }
+.route-teacher-words { margin: .15rem 0 .35rem; white-space: pre-wrap; font-style: italic; }
+.route-answer { margin-top: .35rem; }
+.route-answer-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.route-answer-row .route-status { flex: 1 1 10rem; }
+.route-year-link { display: inline-flex; align-items: center; text-decoration: none; }
+.route-close { margin-top: .5rem; }
+.nav-route-build :focus-visible, .route-panel :focus-visible { outline: 3px solid var(--accent, currentColor); outline-offset: 3px; }

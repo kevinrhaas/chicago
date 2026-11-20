@@ -113,6 +113,8 @@ import { claimValueText } from './claim-value.js';
 // that do not restate it, and a templated lead — never a raw field (T-2636).
 import { cardTitle, clean, fallbackAddress, fallbackSummary, otherNames } from './fallback-summary.js';
 import { builtPhrase, rangeWords } from './range-words.js';
+// T-3671: the card's keyboard and screen-reader half, laid on after it is drawn.
+import { rovingTabs, labelTabs, wireToggles, flipToggle, openerOf, giveBack, focusHeading } from './card-a11y.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -617,9 +619,9 @@ function openQuestionSection(questions, structureId) {
  * the card — but kept for anything broader, because a scene-wide liberty landing
  * on one building is a fact worth showing rather than flattening.
  */
-function libertySection(liberties, structureId) {
+function libertySection(liberties, structureId, explicitIds = []) {
   if (!Array.isArray(liberties)) return '';   // not loaded: claim nothing
-  const mine = libertiesFor(liberties, structureId);
+  const mine = libertiesFor(liberties, structureId, explicitIds);
   const body = mine.length
     ? `<div class="liberties">${mine.map((lib) => libertyEntryHtml(lib, {
       showSubjects: false,
@@ -1383,7 +1385,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     // to read before opening it. Null lists (not loaded) count as nothing, which
     // is the same "claim nothing" rule `libertySection` applies.
     const libertyCount = Array.isArray(liberties)
-      ? libertiesFor(liberties, record.id).length : 0;
+      ? libertiesFor(liberties, record.id, record.libertyIds).length : 0;
     const questionCount = Array.isArray(openQuestions)
       ? openQuestionsFor(openQuestions, record.id).length : 0;
 
@@ -1403,7 +1405,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       </section>`;
 
     const libertiesPane = `
-      ${libertySection(liberties, record.id)}
+      ${libertySection(liberties, record.id, record.libertyIds)}
       ${openQuestionSection(openQuestions, record.id)}`;
 
     const recordPane = `
@@ -1415,7 +1417,13 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     return { evidencePane, libertiesPane, recordPane, libertyCount, questionCount };
   }
 
+  /** What had focus when the card opened (T-3671), for close to give it back to. */
+  let opener = null;
   function close() {
+    const doc = root.ownerDocument;
+    const open = typeof root.hasAttribute === 'function' && !root.hasAttribute('hidden');
+    const active = doc?.activeElement;
+    const focusHere = open && (!active || active === doc.body || !!root.contains?.(active));
     closePictureViewer();
     currentId = null;
     currentRecord = null;
@@ -1424,7 +1432,12 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     root.innerHTML = '';
     document.documentElement.classList.remove('card-open');
     root.dispatchEvent(new Event('source-card-close'));
+    // 2.4.3: focus back to what opened the card, or the scene for a card opened from it.
+    if (focusHere) giveBack(opener, doc);
+    opener = null;
   }
+
+  rovingTabs(root);
 
   root.addEventListener('click', (e) => {
     if (e.target.closest('[data-close]')) { close(); return; }
@@ -1435,12 +1448,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     const pic = e.target.closest('[data-pic]');
     if (pic && currentId) { openPictureViewer(pictures, currentId, Number(pic.dataset.pic) || 0); return; }
     const toggle = e.target.closest('[data-toggle-note]');
-    if (toggle) {
-      const note = toggle.parentElement.querySelector('[data-note]');
-      const shown = !note.hasAttribute('hidden');
-      note.toggleAttribute('hidden', shown);
-      toggle.textContent = shown ? 'why' : 'hide';
-    }
+    if (toggle) flipToggle(toggle);
   });
 
   return {
@@ -1606,7 +1614,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         // T-2644: the Sources tab lays these out itself (inspect-sources.js): this building's
         // liberties and open questions as loaded (null: not loaded, which claims nothing), and
         // where its dossier is read. Its facts and their sources come off the sidecar.
-        liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id) : null,
+        liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id, record.libertyIds) : null,
         questions: Array.isArray(openQuestions) ? openQuestionsFor(openQuestions, record.id) : null,
         dossier: s.research_doc ? docBase + s.research_doc : null,
         // T-3022: everything the card holds beyond Inspect's own tabs, for its Research tab
@@ -1635,6 +1643,16 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
       onShow?.(record);
+      // T-3671: whether this is a new card or a redraw of the one on screen (its liberties or
+      // pictures landing), and where focus stood in it, so a redraw keeps the reader's place.
+      const doc = root.ownerDocument;
+      const wasOpen = typeof root.hasAttribute === 'function' && !root.hasAttribute('hidden');
+      const fresh = !wasOpen || currentId !== record.id;
+      const active = doc?.activeElement;
+      const focusIn = wasOpen && !!active && !!root.contains?.(active);
+      const keep = !focusIn ? null : active.dataset?.popTab ? `[data-pop-tab="${active.dataset.popTab}"]`
+        : active.hasAttribute?.('data-close') ? '[data-close]' : null;
+      if (!wasOpen) opener = openerOf(root);
       // Said for a reader (T-2825). Spelt from `record.sidecar` so validate.py's
       // sidecar-contract scan still binds `s` to the record it reads.
       const s = record.sidecar && said(record.sidecar);
@@ -1687,6 +1705,20 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       // The tab strip pins under the title row, whatever height a long name wraps it to.
       const pinned = root.querySelector?.('.pop-title-row');
       root.style?.setProperty?.('--pop-pin', `${pinned?.offsetHeight ?? 0}px`);
+      // T-3671 (4.1.2, 2.4.3): the card is a dialog named by its title; its tabs label their
+      // panes; each "why" says what it opens. A new card puts focus on its title; a redraw
+      // puts it back on the tab or key it was on.
+      if (typeof root.querySelector === 'function') {
+        const title = root.querySelector('.pop-title-row h2');
+        if (title) { title.id = 'pop-title'; title.setAttribute('tabindex', '-1'); }
+        labelTabs(root);
+        wireToggles(root);
+        if (fresh) focusHeading(title);
+        else if (focusIn) {
+          const back = keep ? root.querySelector(keep) : null;
+          if (back) back.focus({ preventScroll: true }); else focusHeading(title);
+        }
+      }
       onShown?.(record);
       return true;
     },

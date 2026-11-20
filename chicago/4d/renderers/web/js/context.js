@@ -468,6 +468,10 @@ export async function createContext({
     return out;
   }
   out.doc = doc;
+  if (doc.kind === 'city_context_1871') {
+    const { createCityContext } = await import('./city-context.js');
+    return createCityContext({ doc, dataBase, terrain, footprints, confidence, detail, problems });
+  }
   const F = doc.fields?.buildings ?? [];
   const at = Object.fromEntries(F.map((k, i) => [k, i]));
   const T = Object.fromEntries((doc.fields?.trees ?? []).map((k, i) => [k, i]));

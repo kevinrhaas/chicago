@@ -50,7 +50,7 @@
 import * as THREE from 'three';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { enuToWorld } from './terrain.js';
-import { COMPLEXION_TINT } from './human-looks.js';
+import { COMPLEXION_TINT, dressInSeason } from './human-looks.js';
 import { HAIR_COLOURS } from './human-hair-styles.js';
 
 /** Middle tier, metres from the eye: [near edge, far edge], by scene detail. */
@@ -79,6 +79,12 @@ export const CARD_CELL = Object.freeze({ full: Object.freeze([32, 64]), balanced
 /** Headings a card is baked from, and the poses: idle, then two strides of the walk. */
 export const CARD_YAWS = 8;
 export const CARD_POSES = 3;
+/**
+ * T-3553: a body's cloth slots a person's own colours reach in the middle tier (largest first),
+ * and how many of them the card's mask carries (one RGBA mask: four).
+ */
+export const CROWD_SLOTS = 12;
+export const CARD_SLOTS = 4;
 /** Frames of the walk clip in the animation texture (the idle is one more). */
 export const WALK_FRAMES = 8;
 /** The clustering cell a shared body is merged on, metres, by detail. */
@@ -250,6 +256,69 @@ function measuringStage(renderer) {
   return stage;
 }
 
+/** fabric.js's mean cover of each pattern (its far fade), so a crowd figure is the cloth's mean. */
+const PATTERN_MEAN = Object.freeze({ stripe: 0.5, check: 0.5, dot: 0.13, sprig: 0.16, damask: 0.3, plaid: 0.45, pinstripe: 0.12 });
+const rgbOk = (a) => Array.isArray(a) && a.length === 3 && a.every(Number.isFinite);
+
+/**
+ * T-3553: THE SAME CLOTHES AT EVERY DISTANCE. The owner, 2026-11-19, walking toward people in
+ * 1904: "it seems like they change their clothing, like womens dresses from far away are black
+ * and when close they change to dresses in different color". The shared body is the asset as
+ * drawn (the 1904 lady's suit and the maid's dress are black cloth), and a person's own dress
+ * (their record's `colours` or a finery `ground`, by material name, for the season, with a
+ * pattern's mean cover as fabric.js fades it far off) was laid on only by the whole figure
+ * (human-looks.js dressCloth). This is that same record read for the shared body's slots, so
+ * the middle body and the card wear what the figure will: a slot's own colour (rgb, flag 1), or
+ * the body's (flag 0). A piece not worn today
+ * (`hide`) is drawn as what it covers (the layer folded under it most: another garment, or skin
+ * by their complexion, or their hair), or, for a hat put by for one of their own (`hat`), that
+ * hat's colour. Pure: tools/test_crowd.mjs reads it.
+ * @returns {Float32Array|null} CROWD_SLOTS x [r, g, b, flag], linear; null where nothing is theirs
+ */
+export function dressSlots(body, record, { season = 'summer', skin = DEFAULT_SKIN, hair = DEFAULT_HAIR } = {}) {
+  const slots = body?.slots;
+  if (!slots?.length || !record || typeof record !== 'object') return null;
+  const dress = dressInSeason(record, season) ?? record;
+  const colours = dress.colours ?? {}, finery = dress.finery ?? {};
+  const hide = (dress.hide ?? []).map((h) => String(h).replace(/[^a-z0-9_]/gi, '')).filter(Boolean);
+  const hidden = hide.length ? new RegExp(`(^|_)(${hide.join('|')})(_lod\\d+)?$`) : null;
+  const hat = rgbOk(dress.hat?.rgb) ? dress.hat.rgb : null;
+  const byName = new Map(slots.map((sl, i) => [sl.material, i]));
+  const out = new Float32Array(CROWD_SLOTS * 4);
+  let any = false;
+  // The cloth's colour as the whole figure draws it from afar: its ground (or colour) with its
+  // figure's mean cover (fabric.js fades a pattern to that mean before it can alias).
+  const own = (sl) => {
+    const fin = finery[sl.material];
+    const rgb = rgbOk(fin?.ground) ? fin.ground : rgbOk(colours[sl.material]) ? colours[sl.material] : null;
+    const pat = fin?.pattern;
+    const m = PATTERN_MEAN[pat?.kind];
+    if (!rgb || !m || !rgbOk(pat.rgb)) return rgb;
+    const k = m * (Number.isFinite(pat.contrast) ? Math.min(1, Math.max(0, pat.contrast)) : 1);
+    return rgb.map((x, i) => x + (pat.rgb[i] - x) * k);
+  };
+  const resolve = (i, depth) => {
+    const sl = slots[i];
+    const off = hidden && sl.meshes.length > 0 && sl.meshes.every((m) => hidden.test(m));
+    if (!off) return own(sl);
+    if (hat && /hat/.test(sl.material)) return hat;
+    if (depth > 3 || !sl.under) return null;
+    if (sl.under === '#skin') return (body.skinBase ?? [1, 1, 1]).map((x, k) => x * (skin[k] ?? 1));
+    if (sl.under === '#hair') return hair;
+    const j = byName.get(sl.under);
+    if (j == null) return null;
+    return resolve(j, depth + 1) ?? slots[j].base;
+  };
+  slots.forEach((_, i) => {
+    if (i >= CROWD_SLOTS) return;
+    const rgb = resolve(i, 0);
+    if (!rgb) return;
+    out.set([rgb[0], rgb[1], rgb[2], 1], i * 4);
+    any = true;
+  });
+  return any ? out : null;
+}
+
 /**
  * ONE SHARED BODY. `gltf` is an asset's LOD3 figure. Its meshes are posed by its own clips, merged
  * into one, and clustered on a CLUSTER_M grid (outer garment first, so the cloth over a body is
@@ -294,6 +363,10 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   const repPos = [];        // x, y, z of each kept point
   const repOf = meshes.map(({ mesh }) => new Int32Array(mesh.geometry.attributes.position.count).fill(-1));
   const cellKey = (x, y, z) => `${x},${y},${z}`;
+  // What lies under each outer layer (the material, or skin or hair, folded into it most): a
+  // piece a person does not wear today is drawn in what it covers (`dressSlots`).
+  const under = new Map();          // material name -> Map(inner key -> points)
+  const innerKey = (entry) => (entry.region === 1 ? '#skin' : entry.region === 2 ? '#hair' : entry.material.name ?? '');
   meshes.forEach((entry, k) => {
     const n = entry.mesh.geometry.attributes.position.count;
     for (let i = 0; i < n; i++) {
@@ -311,6 +384,14 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
         const key = cellKey(cx, cy, cz);
         best = cells.get(key) ?? -1;
         if (best < 0) { best = reps.length; reps.push({ entry, index: i }); repPos.push(v.x, v.y, v.z); cells.set(key, best); }
+      }
+      const outer = reps[best].entry;
+      if (outer.material !== entry.material && outer.region === 0) {
+        const name = outer.material.name ?? '';
+        let m = under.get(name);
+        if (!m) under.set(name, m = new Map());
+        const ik = innerKey(entry);
+        m.set(ik, (m.get(ik) ?? 0) + 1);
       }
       repOf[k][i] = best;
     }
@@ -348,8 +429,29 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   mixer.stopAllAction(); mixer.uncacheRoot(root);
   let height = 0;
   for (let r = 0; r < count; r++) height = Math.max(height, rest[r * 3 + 1]);
+  // aRegion carries the point's region (0 cloth, 1 skin, 2 hair) and its slot, as region + 4 x
+  // (slot + 1): a phone has 16 vertex attributes, and gl_InstanceID can take one of them under
+  // ANGLE, so the middle body adds none of its own for its slots (T-3553).
   const colour = new Float32Array(count * 3), region = new Float32Array(count), lift = new Float32Array(count);
+  const slotOf = new Float32Array(count).fill(-1), mask = new Float32Array(count * 4);
   const c = new THREE.Color();
+  // T-3553: THE CLOTH'S SLOTS. Each cloth material the body wears is a slot, largest first (by
+  // the points it keeps), so a person's own colour for it (their dress record, by material name,
+  // as dressCloth lays it on the whole figure) reaches every point of it here too; the first
+  // CARD_SLOTS of them are also the card's (a mask baked beside the atlas).
+  const slotIndex = new Map();      // material name -> slot
+  const slots = [];
+  let skinBase = null;
+  reps.forEach(({ entry }) => {
+    if (entry.region !== 0) return;
+    const name = entry.material.name ?? '';
+    let k = slotIndex.get(name);
+    if (k == null) { slotIndex.set(name, k = slots.length); slots.push({ material: name, points: 0, meshes: new Set(), base: null }); }
+    slots[k].points++;
+  });
+  for (const { mesh, material, region: rg } of meshes) if (rg === 0 && slotIndex.has(material.name ?? '')) slots[slotIndex.get(material.name ?? '')].meshes.add(mesh.name ?? '');
+  const ranked = [...slots].sort((a, b) => b.points - a.points).slice(0, CROWD_SLOTS);
+  const rank = new Map(ranked.map((sl, i) => [sl.material, i]));
   reps.forEach(({ entry }, r) => {
     const m = entry.material;
     c.copy(m.color ?? c.setRGB(1, 1, 1));
@@ -358,12 +460,27 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
     colour[r * 3] = c.r; colour[r * 3 + 1] = c.g; colour[r * 3 + 2] = c.b;
     region[r] = entry.region;
     lift[r] = (DRAW_ORDER.length - entry.priority) * LAYER_LIFT_M;
+    if (entry.region === 1 && !skinBase) skinBase = [c.r, c.g, c.b];
+    const k = entry.region === 0 ? rank.get(m.name ?? '') : undefined;
+    if (k != null) {
+      slotOf[r] = k;
+      region[r] = entry.region + 4 * (k + 1);
+      ranked[k].base ??= [c.r, c.g, c.b];
+      if (k < CARD_SLOTS) mask[r * 4 + k] = 1;
+    }
+  });
+  const slotList = ranked.map((sl) => {
+    const counts = under.get(sl.material);
+    let best = null, most = 0;
+    for (const [key, n] of counts ?? []) if (n > most) { most = n; best = key; }
+    return { material: sl.material, meshes: [...sl.meshes], base: sl.base ?? [1, 1, 1], under: best };
   });
   const geometry = new THREE.BufferGeometry();
   geometry.setAttribute('position', new THREE.BufferAttribute(rest, 3));
   geometry.setAttribute('color', new THREE.BufferAttribute(colour, 3));
   geometry.setAttribute('aRegion', new THREE.BufferAttribute(region, 1));
   geometry.setAttribute('aLift', new THREE.BufferAttribute(lift, 1));
+  geometry.setAttribute('aMask', new THREE.BufferAttribute(mask, 4));
   geometry.setIndex(count > 65535 ? new THREE.Uint32BufferAttribute(tris, 1) : new THREE.Uint16BufferAttribute(tris, 1));
   geometry.computeVertexNormals();
   geometry.computeBoundingSphere();
@@ -371,7 +488,8 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   vat.minFilter = vat.magFilter = THREE.NearestFilter;
   vat.generateMipmaps = false;
   vat.needsUpdate = true;
-  return { geometry, vat, reps: count, triangles: tris.length / 3, height, walkSeconds, vatBytes: data.byteLength };
+  return { geometry, vat, reps: count, triangles: tris.length / 3, height, walkSeconds, vatBytes: data.byteLength,
+    slots: slotList, slotOf, skinBase: skinBase ?? [1, 1, 1] };
 }
 
 /** The vertex half of the animation texture, for any lit or unlit material. */
@@ -384,18 +502,24 @@ function vatVertex(shader, body, { instanced = true } = {}) {
     .replace('#include <common>', `#include <common>
 uniform highp sampler2D uVat; uniform float uVatW; uniform float uReps; uniform float uFrame;
 attribute float aRegion; attribute float aLift;
-${instanced ? 'attribute vec4 iA; attribute vec3 iSkin; attribute vec3 iHair; attribute float iCloth;' : ''}
+${instanced ? 'attribute vec4 iA; attribute vec4 iSkin; attribute vec3 iHair; uniform highp sampler2D uDress;'
+    : 'attribute vec4 aMask; varying vec4 vCrowdMask;'}
 varying float vCrowdFade;
 vec3 crowdVat(float f) {
   float k = f * uReps + float(gl_VertexID);
   return texelFetch(uVat, ivec2(int(mod(k, uVatW)), int(floor(k / uVatW))), 0).xyz;
 }`)
     .replace('#include <begin_vertex>', instanced
-      ? 'vec3 transformed = mix(crowdVat(iA.x), crowdVat(iA.y), iA.z) + normal * aLift; vCrowdFade = iA.w;'
-      : 'vec3 transformed = crowdVat(uFrame) + normal * aLift; vCrowdFade = 1.0;')
+      // iA: the walk's frame, the instance's row (its own dress), the blend to the next frame,
+      // the fade. The next frame is the one after, round the walk; the idle (WALK_FRAMES) holds.
+      ? `float crowdNext = iA.x > ${WALK_FRAMES - 0.5} ? iA.x : mod(iA.x + 1.0, ${WALK_FRAMES}.0);
+vec3 transformed = mix(crowdVat(iA.x), crowdVat(crowdNext), iA.z) + normal * aLift; vCrowdFade = iA.w;`
+      : 'vec3 transformed = crowdVat(uFrame) + normal * aLift; vCrowdFade = 1.0; vCrowdMask = aMask;')
     .replace('#include <color_vertex>', `#include <color_vertex>
-${instanced ? 'vColor.rgb = aRegion > 1.5 ? iHair : (aRegion > 0.5 ? vColor.rgb * iSkin : vColor.rgb * iCloth);'
-    : 'if (aRegion > 1.5) vColor.rgb = vec3(' + DEFAULT_HAIR.map((x) => x.toFixed(4)).join(', ') + ');'}`);
+float crowdRegion = mod(aRegion, 4.0), crowdSlot = floor(aRegion / 4.0 + 0.01) - 1.0;
+${instanced ? `vColor.rgb = crowdRegion > 1.5 ? iHair : (crowdRegion > 0.5 ? vColor.rgb * iSkin.rgb : vColor.rgb * iSkin.w);
+if (crowdSlot > -0.5) { vec4 own = texelFetch(uDress, ivec2(int(crowdSlot + 0.5), int(iA.y + 0.5)), 0); if (own.a > 0.5) vColor.rgb = own.rgb; }`
+    : 'if (crowdRegion > 1.5) vColor.rgb = vec3(' + DEFAULT_HAIR.map((x) => x.toFixed(4)).join(', ') + ');'}`);
 }
 
 function crowdFragment(shader, mode) {
@@ -407,21 +531,29 @@ ${mode === 'card' ? 'if (crowdDither(gl_FragCoord.xy) < 1.0 - vCrowdFade) discar
 }
 
 /** The middle tier's material for one shared body. */
-function midMaterial(body) {
+function midMaterial(body, dress) {
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85, metalness: 0, side: THREE.DoubleSide });
   m.name = 'crowd_mid';
-  m.onBeforeCompile = (shader) => { vatVertex(shader, body); crowdFragment(shader, 'mid'); };
-  m.customProgramCacheKey = () => 'crowd-mid-v1';
+  m.onBeforeCompile = (shader) => { shader.uniforms.uDress = { value: dress }; vatVertex(shader, body); crowdFragment(shader, 'mid'); };
+  m.customProgramCacheKey = () => 'crowd-mid-v3';
   return m;
 }
 
 /** The bake's unlit material: the body as its colours, posed at uFrame. */
 function bakeMaterial(body) {
-  const uFrame = { value: WALK_FRAMES };
+  const uFrame = { value: WALK_FRAMES }, uMaskPass = { value: 0 };
   const m = new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide });
-  m.onBeforeCompile = (shader) => { shader.uniforms.uFrame = uFrame; vatVertex(shader, body, { instanced: false }); };
-  m.customProgramCacheKey = () => 'crowd-bake-v1';
+  m.onBeforeCompile = (shader) => {
+    shader.uniforms.uFrame = uFrame; shader.uniforms.uMaskPass = uMaskPass;
+    vatVertex(shader, body, { instanced: false });
+    // The mask pass (T-3553): which of the card's slots each pixel is, one channel a slot.
+    shader.fragmentShader = shader.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform float uMaskPass; varying vec4 vCrowdMask;')
+      .replace('#include <dithering_fragment>', '#include <dithering_fragment>\nif (uMaskPass > 0.5) gl_FragColor = vCrowdMask;');
+  };
+  m.customProgramCacheKey = () => 'crowd-bake-v3';
   m.userData.uFrame = uFrame;
+  m.userData.uMaskPass = uMaskPass;
   return m;
 }
 
@@ -430,15 +562,17 @@ function bakeMaterial(body) {
  * `yaws` baked headings the eye sees it from. Instanced by `iPos` (x, y, z, yaw) and `iCell`
  * (scale, first cell, fade, shade). Shared with the distant teams (traffic-cards.js).
  */
-export function cardMaterial(atlas, cols, rows, yaws = CARD_YAWS) {
+export function cardMaterial(atlas, cols, rows, yaws = CARD_YAWS, { mask = null } = {}) {
   const m = new THREE.MeshLambertMaterial({ map: atlas, alphaTest: 0.45, side: THREE.DoubleSide });
   m.name = 'crowd_card';
   m.onBeforeCompile = (shader) => {
     shader.uniforms.uGrid = { value: new THREE.Vector2(cols, rows) };
+    if (mask) shader.uniforms.uMask = { value: mask };
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', `#include <common>
 uniform vec2 uGrid;
 attribute vec4 iPos; attribute vec4 iCell;
+${mask ? 'attribute vec3 iC0; attribute vec3 iC1; attribute vec3 iC2; attribute vec3 iC3; varying vec3 vC0; varying vec3 vC1; varying vec3 vC2; varying vec3 vC3;' : ''}
 varying float vCrowdFade; varying float vCrowdShade;
 vec2 crowdToCam() { vec3 t = cameraPosition - iPos.xyz; return normalize(t.xz + vec2(1e-4, 0.0)); }`)
       .replace('#include <uv_vertex>', `#include <uv_vertex>
@@ -451,6 +585,7 @@ vec2 crowdToCam() { vec3 t = cameraPosition - iPos.xyz; return normalize(t.xz + 
   vec2 cr = vec2(mod(cell, uGrid.x), floor(cell / uGrid.x));
   vMapUv = (cr + uv) / uGrid;
   vCrowdFade = iCell.z; vCrowdShade = iCell.w;
+  ${mask ? 'vC0 = iC0; vC1 = iC1; vC2 = iC2; vC3 = iC3;' : ''}
 }`)
       .replace('#include <defaultnormal_vertex>', `#include <defaultnormal_vertex>
 { vec2 tn = crowdToCam(); transformedNormal = normalize(mat3(viewMatrix) * normalize(vec3(tn.x, 0.8, tn.y))); }`)
@@ -462,12 +597,17 @@ vec4 mvPosition = viewMatrix * vec4(crowdWorld, 1.0);
 gl_Position = projectionMatrix * mvPosition;`)
       .replace('#include <worldpos_vertex>', 'vec4 worldPosition = vec4(crowdWorld, 1.0);');
     shader.fragmentShader = shader.fragmentShader
-      .replace('#include <common>', `#include <common>\nvarying float vCrowdFade; varying float vCrowdShade;\n${DITHER_GLSL}`)
+      .replace('#include <common>', `#include <common>\nvarying float vCrowdFade; varying float vCrowdShade;\n${DITHER_GLSL}
+${mask ? 'uniform sampler2D uMask; varying vec3 vC0; varying vec3 vC1; varying vec3 vC2; varying vec3 vC3;' : ''}`)
+      // T-3553: a person's own colours over the dress's picture, slot by slot (a delta from the
+      // body's colour, by the mask's weight, so the picture's edges and mips stay its own).
+      .replace('#include <map_fragment>', mask ? `#include <map_fragment>
+{ vec4 mk = texture2D(uMask, vMapUv); diffuseColor.rgb = max(diffuseColor.rgb + mk.r * vC0 + mk.g * vC1 + mk.b * vC2 + mk.a * vC3, vec3(0.0)); }` : '#include <map_fragment>')
       .replace('#include <alphatest_fragment>', `#include <alphatest_fragment>
 if (crowdDither(gl_FragCoord.xy) < 1.0 - vCrowdFade) discard;
 diffuseColor.rgb *= vCrowdShade;`);
   };
-  m.customProgramCacheKey = () => `crowd-card-v1-${yaws}`;
+  m.customProgramCacheKey = () => `crowd-card-v1-${yaws}${mask ? '-dress' : ''}`;
   return m;
 }
 
@@ -560,7 +700,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   }
 
   // ── the atlas: one row per dress, CARD_YAWS x CARD_POSES pictures a row ─────────────────
-  let atlas = null, cardMesh = null, cardAttrs = null, atlasCell = null, atlasRows = 0;
+  let atlas = null, maskAtlas = null, cardMesh = null, cardAttrs = null, atlasCell = null, atlasRows = 0;
   const cardCols = CARD_YAWS * CARD_POSES;
   function ensureAtlas() {
     const want = CARD_CELL[tier] ?? CARD_CELL.full;
@@ -574,6 +714,12 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     });
     atlas.texture.colorSpace = THREE.SRGBColorSpace;
     atlas.texture.name = 'crowd_atlas';
+    // T-3553: which of a dress's CARD_SLOTS each pixel is, at half the picture's size (a weight a
+    // channel; filtered and mipped as the picture is, so a far card's edges blend alike).
+    maskAtlas = new THREE.WebGLRenderTarget(cardCols * (want[0] >> 1), need * (want[1] >> 1), {
+      type: THREE.UnsignedByteType, depthBuffer: false, generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter, magFilter: THREE.LinearFilter,
+    });
+    maskAtlas.texture.name = 'crowd_atlas_mask';
     const cap = (CAPS[tier] ?? CAPS.full).far;
     const quad = new THREE.PlaneGeometry(1, 2).translate(0, 1, 0);
     const geometry = new THREE.InstancedBufferGeometry();
@@ -581,12 +727,14 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     geometry.setAttribute('position', quad.attributes.position);
     geometry.setAttribute('normal', quad.attributes.normal);
     geometry.setAttribute('uv', quad.attributes.uv);
-    cardAttrs = { pos: new THREE.InstancedBufferAttribute(new Float32Array(cap * 4), 4), cell: new THREE.InstancedBufferAttribute(new Float32Array(cap * 4), 4), cap };
+    cardAttrs = { pos: new THREE.InstancedBufferAttribute(new Float32Array(cap * 4), 4), cell: new THREE.InstancedBufferAttribute(new Float32Array(cap * 4), 4), cap,
+      dress: [0, 1, 2, 3].map(() => new THREE.InstancedBufferAttribute(new Float32Array(cap * 3), 3)) };
     cardAttrs.pos.setUsage(THREE.DynamicDrawUsage); cardAttrs.cell.setUsage(THREE.DynamicDrawUsage);
     geometry.setAttribute('iPos', cardAttrs.pos);
     geometry.setAttribute('iCell', cardAttrs.cell);
+    cardAttrs.dress.forEach((a, k) => { a.setUsage(THREE.DynamicDrawUsage); geometry.setAttribute(`iC${k}`, a); });
     geometry.instanceCount = 0;
-    cardMesh = new THREE.Mesh(geometry, cardMaterial(atlas.texture, cardCols, need));
+    cardMesh = new THREE.Mesh(geometry, cardMaterial(atlas.texture, cardCols, need, CARD_YAWS, { mask: maskAtlas.texture }));
     cardMesh.name = 'crowd_cards';
     cardMesh.frustumCulled = false;
     // Never picked: a far figure or team is a picture, not a thing to aim at or walk into.
@@ -598,7 +746,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   }
   function disposeAtlas() {
     if (cardMesh) { group.remove(cardMesh); cardMesh.geometry.dispose(); release(cardMesh.material); cardMesh = null; cardWarm = !canWarm; cardWarming = null; }
-    atlas?.dispose(); atlas = null; cardAttrs = null;
+    atlas?.dispose(); atlas = null; maskAtlas?.dispose(); maskAtlas = null; cardAttrs = null;
   }
 
   // T-3643: ONE bake material for the layer, its uniforms pointed at the dress being baked.
@@ -606,7 +754,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   // compiled the same shader again, a blocking compile mid-walk for each one that joined the
   // crowd. The GLSL does not depend on the dress (vatVertex's are all uniforms), so the
   // pictures are the same.
-  const bakeUniforms = { uVat: { value: null }, uVatW: { value: 1 }, uReps: { value: 1 }, uFrame: { value: WALK_FRAMES } };
+  const bakeUniforms = { uVat: { value: null }, uVatW: { value: 1 }, uReps: { value: 1 }, uFrame: { value: WALK_FRAMES }, uMaskPass: { value: 0 } };
   let bakeKept = null;
   function bakeMaterialFor(body) {
     if (!bakeKept) {
@@ -616,6 +764,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       const compile = bakeKept.onBeforeCompile;
       bakeKept.onBeforeCompile = (shader, r) => { compile(shader, r); Object.assign(shader.uniforms, bakeUniforms); };
       bakeKept.userData.uFrame = bakeUniforms.uFrame;
+      bakeKept.userData.uMaskPass = bakeUniforms.uMaskPass;
     }
     bakeUniforms.uVat.value = body.vat;
     bakeUniforms.uVatW.value = body.vat.image.width;
@@ -652,11 +801,27 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           atlas.viewport.set(x, y, cw, ch);
           atlas.scissor.set(x, y, cw, ch);
           atlas.scissorTest = true;
+          material.userData.uMaskPass.value = 0;
           renderer.setRenderTarget(atlas);
           renderer.render(scene, cam);
+          if (maskAtlas) {
+            const mw = cw >> 1, mh = ch >> 1, mx = (p * CARD_YAWS + k) * mw, my = row * mh;
+            maskAtlas.viewport.set(mx, my, mw, mh);
+            maskAtlas.scissor.set(mx, my, mw, mh);
+            maskAtlas.scissorTest = true;
+            material.userData.uMaskPass.value = 1;
+            renderer.setRenderTarget(maskAtlas);
+            renderer.render(scene, cam);
+          }
         }
       }
     } catch (err) { problems.push(`crowd: ${id} could not be baked (${err?.message ?? err})`); }
+    material.userData.uMaskPass.value = 0;
+    if (maskAtlas) {
+      maskAtlas.scissorTest = false;
+      maskAtlas.viewport.set(0, 0, maskAtlas.width, maskAtlas.height);
+      maskAtlas.scissor.set(0, 0, maskAtlas.width, maskAtlas.height);
+    }
     atlas.scissorTest = false;
     atlas.viewport.set(0, 0, atlas.width, atlas.height);
     atlas.scissor.set(0, 0, atlas.width, atlas.height);
@@ -705,16 +870,22 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   function mountMid(b) {
     const cap = (CAPS[tier] ?? CAPS.full).mid;
     const geometry = new THREE.InstancedBufferGeometry();
-    for (const [k, a] of Object.entries(b.body.geometry.attributes)) geometry.setAttribute(k, a);
+    for (const [k, a] of Object.entries(b.body.geometry.attributes)) if (k !== 'aMask') geometry.setAttribute(k, a);
     geometry.index = b.body.geometry.index;
     const mk = (n) => { const a = new THREE.InstancedBufferAttribute(new Float32Array(cap * n), n); a.setUsage(THREE.DynamicDrawUsage); return a; };
-    b.attrs = { a: mk(4), skin: mk(3), hair: mk(3), cloth: mk(1), m: mk(16), cap };
+    // iSkin.w is the cloth's shade; iA.y the instance's row in its dress table (no gl_InstanceID).
+    b.attrs = { a: mk(4), skin: mk(4), hair: mk(3), m: mk(16), cap };
     geometry.setAttribute('iA', b.attrs.a);
     geometry.setAttribute('iSkin', b.attrs.skin);
     geometry.setAttribute('iHair', b.attrs.hair);
-    geometry.setAttribute('iCloth', b.attrs.cloth);
     geometry.instanceCount = 0;
-    const mesh = new THREE.InstancedMesh(geometry, midMaterial(b.body), cap);
+    // T-3553: each instance's own colours for the body's slots, one row an instance.
+    const dress = new THREE.DataTexture(new Float32Array(CROWD_SLOTS * cap * 4), CROWD_SLOTS, cap, THREE.RGBAFormat, THREE.FloatType);
+    dress.minFilter = dress.magFilter = THREE.NearestFilter;
+    dress.generateMipmaps = false;
+    dress.needsUpdate = true;
+    b.dress = dress;
+    const mesh = new THREE.InstancedMesh(geometry, midMaterial(b.body, dress), cap);
     mesh.count = 0;
     mesh.visible = false;
     mesh.name = 'crowd_mid';
@@ -725,13 +896,29 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     b.mesh = mesh;
   }
 
-  /** A person's own tints: skin by their complexion, hair by its colour, a shade of cloth. */
-  function looksOf(key) {
+  /**
+   * A person's own tints: skin by their complexion, hair by its colour, a shade of cloth; and
+   * (T-3553) their own dress for the season, as the body's slots (`dressSlots`) and as the
+   * card's deltas from the body's colours. `dressOf` is whose dress they wear (a staged
+   * figure's `dress_of`).
+   */
+  function looksOf(key, body, dressOf = key) {
     const looks = kit?.persons?.[key]?.looks ?? null;
     const skin = COMPLEXION_TINT[looks?.complexion?.drawn] ?? DEFAULT_SKIN;
     const hair = HAIR_COLOURS[looks?.hair?.drawn] ?? DEFAULT_HAIR;
     const scale = Number.isFinite(looks?.height_scale) ? Math.min(1.08, Math.max(0.92, looks.height_scale)) : 0.97 + hash01(`h:${key}`) * 0.06;
-    return { skin, hair, cloth: 0.86 + hash01(`c:${key}`) * 0.26, scale, looked: !!kit };
+    const season = humans?.season ?? 'summer';
+    const slots = body ? dressSlots(body, kit?.persons?.[dressOf]?.dress ?? null, { season, skin, hair }) : null;
+    let card = null;
+    if (slots) {
+      card = new Float32Array(CARD_SLOTS * 3);
+      body.slots.slice(0, CARD_SLOTS).forEach((sl, k) => {
+        if (slots[k * 4 + 3] > 0.5) for (let c = 0; c < 3; c++) card[k * 3 + c] = slots[k * 4 + c] - sl.base[c];
+      });
+    }
+    // Someone in their own dress wears it as the figure does: no shade over it.
+    return { skin, hair, cloth: 0.86 + hash01(`c:${key}`) * 0.26, scale, looked: !!kit, slots, card, season, body,
+      shade: slots ? 1 : 0.92 + hash01(`c:${key}`) * 0.26 * 0.3 };
   }
 
   /** Read who is out: the day's people not built, and built figures past their range. */
@@ -770,6 +957,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         const p = keep(`d:${o.person}`, () => ({ key: o.person, assetId: o.asset_id, built: false, e: from.e, n: from.n,
           heading, y: null, phase: hash01(`p:${o.person}`), walk: 0 }));
         p.assetId = o.asset_id;
+        p.dressOf = o.dress_of ?? o.person;
         // A new place (the hour moved them): there at once; they are far off.
         if (!p.from || p.from.e !== from.e || p.from.n !== from.n) {
           p.from = from; p.e = from.e; p.n = from.n; p.heading = heading; p.rest = heading; p.y = null; p.len = null;
@@ -786,8 +974,8 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       if (!a || a.disposed || a.indoors || a.inRange || humans.isHeld?.(a) || !a.instance?.appearance?.asset_id) continue;
       if (Math.hypot(a.e - v.e, a.n - v.n) > far) continue;
       built++;
-      const p = keep(`a:${a.id}`, () => ({ key: a.personId ?? a.id, assetId: a.instance.appearance.asset_id, built: true, actor: a,
-        phase: hash01(`p:${a.id}`), y: null, yAt: null }));
+      const p = keep(`a:${a.id}`, () => ({ key: a.personId ?? a.id, dressOf: a.instance.appearance.dress_of ?? a.personId ?? a.id,
+        assetId: a.instance.appearance.asset_id, built: true, actor: a, phase: hash01(`p:${a.id}`), y: null, yAt: null }));
       p.actor = a;
     }
     stats.built = built;
@@ -846,8 +1034,9 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
     /** What the crowd holds now, for the smoke and the measurements. */
     census() {
       let tris = 0, bytes = 0;
-      for (const b of bodies.values()) if (b.body) { tris += b.body.triangles * (b.mesh?.count ?? 0); bytes += b.body.vatBytes + b.body.reps * 40 + b.body.triangles * 6; }
+      for (const b of bodies.values()) if (b.body) { tris += b.body.triangles * (b.mesh?.count ?? 0); bytes += b.body.vatBytes + b.body.reps * 60 + b.body.triangles * 6 + (b.dress?.image.data.byteLength ?? 0); }
       if (atlas) bytes += Math.round(atlas.width * atlas.height * 4 * 4 / 3);
+      if (maskAtlas) bytes += Math.round(maskAtlas.width * maskAtlas.height * 4 * 4 / 3);
       return { ...stats, midTriangles: tris, bytes, bodiesReady: [...bodies.values()].filter((b) => b.status === 'ready').length,
         atlas: atlas ? [atlas.width, atlas.height] : null, tier };
     },
@@ -946,7 +1135,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           groundMs += performance.now() - g0;
           p.y = Number.isFinite(h) ? h : 0; p.ye = p.e; p.yn = p.n;
         }
-        if (!p.look || (!p.look.looked && kit)) p.look = looksOf(p.key);
+        if (!p.look || (!p.look.looked && kit) || p.look.body !== b.body || p.look.season !== (humans?.season ?? 'summer')) p.look = looksOf(p.key, b.body, p.dressOf ?? p.key);
         const yaw = Math.PI - ((p.heading ?? 0) * Math.PI) / 180;
         // The walk's frame: the stride's phase by the ground covered.
         p.cycle = ((p.cycle ?? p.phase) + (p.walk ? (PACE_M_S * step) / STRIDE_M : 0)) % 1;
@@ -956,35 +1145,42 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           q.setFromAxisAngle(up, yaw); s3.setScalar(p.look.scale);
           m4.compose(w3, q, s3);
           b.mesh.setMatrixAt(i, m4);
-          let fa = WALK_FRAMES, fb = WALK_FRAMES, ft = 0;
-          if (p.walk) { const f = p.cycle * WALK_FRAMES; fa = Math.floor(f) % WALK_FRAMES; fb = (fa + 1) % WALK_FRAMES; ft = f - Math.floor(f); }
-          b.attrs.a.setXYZW(i, fa, fb, ft, p.wm);
+          let fa = WALK_FRAMES, ft = 0;
+          if (p.walk) { const f = p.cycle * WALK_FRAMES; fa = Math.floor(f) % WALK_FRAMES; ft = f - Math.floor(f); }
+          b.attrs.a.setXYZW(i, fa, i, ft, p.wm);
           const sk = p.look.skin, hr = p.look.hair;
-          b.attrs.skin.setXYZ(i, sk[0], sk[1], sk[2]);
+          b.attrs.skin.setXYZW(i, sk[0], sk[1], sk[2], p.look.cloth);
           b.attrs.hair.setXYZ(i, hr[0], hr[1], hr[2]);
-          b.attrs.cloth.setX(i, p.look.cloth);
+          const row = b.dress.image.data, o = i * CROWD_SLOTS * 4;
+          if (p.look.slots) row.set(p.look.slots, o); else row.fill(0, o, o + CROWD_SLOTS * 4);
           nMid++;
         }
         if (p.wf > 0 && haveAtlas && b.baked && cardAttrs && nFar < Math.min(caps.far, cardAttrs.cap)) {
           const i = nFar++;
           cardAttrs.pos.setXYZW(i, p.e, p.y, -p.n, yaw);
           const pose = p.walk ? (p.cycle < 0.5 ? 1 : 2) : 0;
-          cardAttrs.cell.setXYZW(i, p.look.scale, rows.get(p.assetId) * cardCols + pose * CARD_YAWS, p.wf, 0.92 + (p.look.cloth - 0.86) * 0.3);
+          cardAttrs.cell.setXYZW(i, p.look.scale, rows.get(p.assetId) * cardCols + pose * CARD_YAWS, p.wf, p.look.shade);
+          const dc = p.look.card;
+          for (let k = 0; k < CARD_SLOTS; k++) {
+            if (dc) cardAttrs.dress[k].setXYZ(i, dc[k * 3], dc[k * 3 + 1], dc[k * 3 + 2]);
+            else cardAttrs.dress[k].setXYZ(i, 0, 0, 0);
+          }
         }
       }
       let tris = 0;
       for (const b of bodies.values()) if (b.mesh) {
         b.mesh.instanceMatrix.needsUpdate = true;
         b.mesh.instanceMatrix.clearUpdateRanges?.(); b.mesh.instanceMatrix.addUpdateRange?.(0, b.mesh.count * 16);
-        for (const a of [b.attrs.a, b.attrs.skin, b.attrs.hair, b.attrs.cloth]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, b.mesh.count * a.itemSize); }
+        for (const a of [b.attrs.a, b.attrs.skin, b.attrs.hair]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, b.mesh.count * a.itemSize); }
         b.mesh.visible = b.mesh.count > 0;
+        if (b.mesh.count > 0) b.dress.needsUpdate = true;
         tris += b.body.triangles * b.mesh.count;
       }
       if (cardMesh) {
         const shown = nFar > 0 && cardsReady();
         cardMesh.geometry.instanceCount = shown ? nFar : 0;
         cardMesh.visible = shown;
-        for (const a of [cardAttrs.pos, cardAttrs.cell]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, nFar * 4); }
+        for (const a of [cardAttrs.pos, cardAttrs.cell, ...cardAttrs.dress]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, nFar * a.itemSize); }
       }
       stats.mid = nMid; stats.far = nFar; stats.midTriangles = tris;
       // The frame's own cost; a dress's one-off bake is kept apart (`bakeMs`, the last one).
@@ -1005,6 +1201,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   function dropBody(b) {
     if (b.mesh) { group.remove(b.mesh); b.mesh.geometry.dispose(); release(b.mesh.material); b.mesh.dispose?.(); }
     if (b.body) { b.body.geometry.dispose(); b.body.vat.dispose(); }
+    b.dress?.dispose(); b.dress = null;
     b.mesh = null; b.body = null; b.status = 'dropped';
   }
   return layer;

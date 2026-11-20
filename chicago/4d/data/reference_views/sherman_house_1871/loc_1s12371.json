@@ -1,0 +1,26 @@
+{
+ "structure_id": "sherman_house_1871",
+ "source_id": "loc_stereo_1s12371_sherman_house",
+ "photo": "../../sources/assets/landmarks_1871_t3688/loc_1s12371_sherman_house_left.jpg",
+ "image_px": [
+  1600,
+  1623
+ ],
+ "principal_px": [
+  800.0,
+  804.7
+ ],
+ "focal_px": 2099.9,
+ "eye": [
+  75.162,
+  -75.297,
+  11.911
+ ],
+ "yaw_deg": 331.794,
+ "solve": "Solved by T-3688 (2026-11-19) on the left half of Carbutt's card No. 52 (1600 x 1623 px, the Library's master scaled), in the footprint frame (u east from the south-west corner, v north; the Randolph Street front at v 0, the Clark Street front at u 45.72). A level camera (the corners' verticals are vertical). READ OFF THE PRINT: the cornice crown's three corners, south-east (1056, 321), south-west (160, 401) and north-east (1397, 508), and the feet of the south front's two ends, (1056, 1116) and (160, 1083). With the wall head at the 25.5 m first guessed nothing fitted under 50 px; the fit is best with the crown at about 33 m (13 px rms) and set at 30 m (24.5 px rms, the largest 40 px at the south-west foot, which a lamp post and the shop awnings hide): eye u 75.2, v -75.3, 11.9 m, heading 331.8 degrees, focal 2099.9 px, horizon y 804.7. So the camera stands about 12 m up, some 75 m south of the hotel's Randolph front: an upper window on the north side of the Court House square, as the square's fence in the foreground says. The record's storeys were raised to 30 m to the cornice by this camera. LIGHT: sun from the south-east, high; the south front lit, the Clark front in half light.",
+ "sun_uvy": [
+  -0.5,
+  -0.6,
+  0.7
+ ]
+}

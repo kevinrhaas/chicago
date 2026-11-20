@@ -20,3 +20,12 @@ repository, so the HABS view of Glessner House stands in until one is recorded.
 motion, Data Saver, a browser that plays neither clip format). Over it plays a short loop filmed
 in the app itself, from `../clips/`: renders of this project's own scene, so they carry no
 outside rights. `tools/portal_clips.mjs` films them from the shot lists in `tools/portal_clips/`.
+
+
+**`chicago-1871-baseline.jpg` (T-3654):** a screenshot rendered by this project's
+published 1871 scene, captured on 18 November 2026. It shows the reconstructed
+city context, not a historical photograph. Original project geometry and procedural
+textures; no external image pixels. Scene date 8 October 1871, local mean time 16:00.
+The source of the map interpretation and the reconstruction limits are recorded in
+`data/context/1871/plan.json` and L-1871-city-baseline. The portal labels this destination
+as a baseline in progress.

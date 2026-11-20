@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Fort Dearborn",
+  "menu_group": "Errands",
+  "grade_band": "3-5",
+  "review_required": false,
+  "long_form": true,
+  "id": "errands-before-the-march-grades-3-5",
+  "scene": "1812",
+  "title": "Errands Before the March",
+  "premise": "Be a young runner at Fort Dearborn in the week the soldiers are told to leave, August 1812. Pick who hears the news from you first, and where you are on the last nights before the gate opens.",
+  "default_mode": "fly",
+  "allowed_modes": [
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "JAUNT: ERRANDS BEFORE THE MARCH. It is Monday, 10 August 1812. You are where the Chicago River meets Lake Michigan. You are thirteen. You live in the little town outside the fort's wooden walls, and you are the fastest runner around. Soldiers, traders and families all send you with their messages. The United States has been at war with Britain since June. Last night a letter came from the general in Detroit.\n\nThis morning it will be read out loud. By noon, everyone at the river mouth will need to know what it says. You pick who hears it from you first. You pick where you are on the last nights before the soldiers leave. The people and the places are real. The runner is you.",
+    "read_s": 32
+  },
+  "variables": {
+    "first": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "last": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-order",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "date": "1812-08-10",
+      "hour": "morning",
+      "hour_evidence": [
+        "order-morning"
+      ],
+      "text": "It is the morning of 10 August 1812. You are on the parade, the big open square inside the fort. A letter from General William Hull is read out loud. It says the soldiers must leave the fort, because there is not enough food. They must break their guns and get rid of their gunpowder. The goods in the government's store must be given away. Some will go to the poor people who live here. The officers want to stay and make the fort stronger. But Captain Heald, the fort's leader, says they will obey. You heard it all from the back of the crowd, and you are already sneaking toward the gate.",
+      "narrative": "Across the river, or out to the houses by the fort?",
+      "read_s": 35,
+      "action_s": 10,
+      "evidence": [
+        "war-declared",
+        "hull-order",
+        "order-arrives",
+        "order-morning",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "kinzies",
+          "label": "Run to the Kinzies'",
+          "consequence": "The trader who sells to the soldiers should hear it first.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 1
+            }
+          ],
+          "next": "kinzie"
+        },
+        {
+          "id": "agency",
+          "label": "Run to the Agency House",
+          "consequence": "The families staying there will want the news right away.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 2
+            }
+          ],
+          "next": "agency"
+        }
+      ]
+    },
+    {
+      "id": "kinzie",
+      "destination": {
+        "kind": "anchor",
+        "id": "kinzie_house_front"
+      },
+      "date": "1812-08-10",
+      "hour": "11:00",
+      "hour_evidence": [
+        "errand-hours"
+      ],
+      "text": "You cross the river and climb the bank to the Kinzie house. It stands on the north side of the river, right across from the fort. John Kinzie is a trader. In January Captain Heald said only Kinzie and his partner could sell things to the soldiers. Lieutenant Helm's wife, Margaret, is Kinzie's stepdaughter, so this news is family news here too. The Kinzies will not walk away with the soldiers. When the day comes, they will leave by boat.",
+      "narrative": "The trader's house across the river.",
+      "read_s": 25,
+      "action_s": 5,
+      "evidence": [
+        "kinzie",
+        "march",
+        "errand-hours",
+        "role"
+      ],
+      "next": "council"
+    },
+    {
+      "id": "agency",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_factory_front"
+      },
+      "date": "1812-08-10",
+      "hour": "11:00",
+      "hour_evidence": [
+        "errand-hours"
+      ],
+      "text": "West of the fort stand some log houses that belong to the government. One is a store. Next to it is the Agency House. It is an old log house with a hall down the middle. Since April, families who live outside the fort have moved in here to be safe. They covered the porches with thick boards and cut small holes to look out of. At night, guards keep watch. Captain Heald has also signed up fifteen men from the town to help guard it. Inside the store are shelves of goods that will soon be given away. By the end of the week the shelves will be empty.",
+      "narrative": "The boarded-up house west of the fort.",
+      "read_s": 35,
+      "action_s": 5,
+      "evidence": [
+        "agency",
+        "quaife-militia",
+        "goods",
+        "errand-hours",
+        "role"
+      ],
+      "next": "council"
+    },
+    {
+      "id": "council",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_esplanade"
+      },
+      "date": "1812-08-12",
+      "hour": "afternoon",
+      "hour_evidence": [
+        "council"
+      ],
+      "text": "It is the afternoon of 12 August. You are on the open ground west of the fort. The news has spread fast. People have come in from all around, because they heard the goods in the store would be given to them. Their leaders meet Captain Heald here for a big meeting, called a council. Heald promises them the goods. He is the only soldier who comes. His officers stay inside the fort's corner towers and watch from there. From the edge of the crowd you can see the whole meeting, but you can hardly hear a thing. Heald talks about the goods. Nobody has said a word yet about the guns, the gunpowder or the whiskey.",
+      "narrative": "Help tonight, or watch the road?",
+      "read_s": 33,
+      "action_s": 10,
+      "evidence": [
+        "council",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "night-work",
+          "label": "Help with the night work",
+          "consequence": "Something has to be carried after dark, by quiet helpers.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 1
+            }
+          ],
+          "next": "covered-way"
+        },
+        {
+          "id": "watch-road",
+          "label": "Watch the gate",
+          "consequence": "Whoever comes next, you will see them first.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 2
+            }
+          ],
+          "next": "the-gate"
+        }
+      ]
+    },
+    {
+      "id": "covered-way",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_covered_way"
+      },
+      "date": "1812-08-13",
+      "hour": "dusk",
+      "hour_evidence": [
+        "destroyed"
+      ],
+      "text": "It is the evening of 13 August. You are above the fort's north-east corner. All day the store has been giving away its goods: blankets, cloth and paints. Now it is dark, and there is secret work to do. The soldiers carry some of the gunpowder and whiskey to a deep well inside the fort, dug there for water. They throw it all in. They break up the guns and throw them in too. The rest of the whiskey goes out the north gate. The soldiers open the barrels and pour the whiskey into the river. Your job is to carry, and to stay quiet.",
+      "narrative": "Where the barrels go down to the river.",
+      "read_s": 33,
+      "action_s": 5,
+      "evidence": [
+        "goods",
+        "goods-hour",
+        "destroyed",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "the-gate",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "date": "1812-08-14",
+      "hour": "sunset",
+      "hour_evidence": [
+        "gate-evening"
+      ],
+      "text": "It is sunset on 14 August, at the fort's main gate. The store is empty now. Captain Heald has given away all its goods, and food the soldiers cannot carry. Then Captain William Wells rides in from Fort Wayne, with about thirty men. Wells is the uncle of Heald's wife, Rebekah. He has come to help them get away. But the gunpowder is already gone. You saw him on the road before anyone at the gate did. Tomorrow at nine in the morning, the gate will open and the soldiers will march away.",
+      "narrative": "The gate on the last evening.",
+      "read_s": 30,
+      "action_s": 5,
+      "evidence": [
+        "goods",
+        "wells",
+        "gate-evening",
+        "march",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-order",
+      "to": "kinzie",
+      "note": "Out of the gate and across the river to the Kinzie house.",
+      "evidence": [
+        "kinzie"
+      ],
+      "story": "Across the water with the news.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-order",
+      "to": "agency",
+      "note": "Out of the gate and west to the government houses.",
+      "evidence": [
+        "agency"
+      ],
+      "story": "Out past the fort walls, as fast as you can run.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "kinzie",
+      "to": "council",
+      "note": "Back across the river, and around to the open ground west of the fort.",
+      "evidence": [
+        "kinzie",
+        "council"
+      ]
+    },
+    {
+      "from": "agency",
+      "to": "council",
+      "note": "A few steps north, to the open ground below the corner tower.",
+      "evidence": [
+        "council"
+      ]
+    },
+    {
+      "from": "council",
+      "to": "covered-way",
+      "note": "Around the north side of the fort to its north-east corner.",
+      "evidence": [
+        "destroyed"
+      ],
+      "story": "Two days later, after dark.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "council",
+      "to": "the-gate",
+      "note": "Around the fort to the main gate on its south side.",
+      "evidence": [
+        "wells"
+      ],
+      "story": "Two days later, at sunset.",
+      "story_evidence": [
+        "role"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "strong-grog",
+      "text": "By morning the river will taste like whiskey, and you know why! You took the news to the Kinzie house on the first day. You helped empty the barrels after dark. On Saturday at nine the soldiers will march out, and the Kinzies will go by boat. The fort will leave nothing behind to drink.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "first",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "last",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "news-both-ways",
+      "text": "Your week began with news going out of the fort. It ends with news riding in. The Kinzies heard about the letter from you, and you watched the gate open for Captain Wells. Tonight nobody at the fort is sleeping. Everyone is packing what they can carry. At nine tomorrow the band will play, the gate will open, and the soldiers will march out along the lake.",
+      "read_s": 16,
+      "completion_eligible": true,
+      "when": {
+        "var": "first",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "nothing-left-behind",
+      "text": "You took the news to the Agency House first. After dark you helped make sure the fort would leave no gunpowder and no whiskey behind. The guards on the boarded-up porches will not be needed much longer. On Saturday at nine the soldiers and the town's men march out. The long wait at the river mouth is over.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "var": "last",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "the-last-sunset",
+      "text": "From the Agency House on the first morning to the gate at the last sunset, you carried the week's news on your own two feet. Captain Wells is inside now. The gates shut behind him for the last time. Tomorrow at nine they will open again. In 1816 the army will come back and build a new fort on this same ground.",
+      "read_s": 15,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "a-runners-week-grades-3-5",
+    "title": "A Runner's Week",
+    "text": "A made-up note of one young runner's errands in the week before the soldiers marched out, 15 August 1812. It shows who heard the news first, and where the last nights were spent. No real runner or message is written on it."
+  },
+  "evidence": [
+    {
+      "id": "war-declared",
+      "text": "Quaife (1913): 'Meanwhile war had been declared by Congress on June 18'. 'News of the declaration of war was received at Fort Dearborn toward the middle of July.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the chapter on the evacuation (Gutenberg #69274 plain text, the paragraphs on Hull's march and on the news reaching Fort Dearborn)"
+    },
+    {
+      "id": "hull-order",
+      "text": "General William Hull's order, Sandwich, 29 July 1812, found among the Heald papers and first printed by Quaife: 'It is with regret I order the Evacuation of your Post owing to the want of Provisions only a neglect of the Commandant' ... 'You will therefore Destroy all arms & ammunition, but the Goods of the Factory you may give to the Friendly Indians who may be desirous of Escorting you on to Fort Wayne & to the Poor & needy of your Post.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "note 583, Gutenberg #69274 plain text, the evacuation chapter"
+    },
+    {
+      "id": "order-arrives",
+      "text": "Heald's journal: 'On the 9th of Augt, 1812, rec'd orders from Genl Wm. Hull to evacuate the Post of Chicago and proceed with my Command to Detroit.' Quaife: 'The next day the Indian runner. Winnemac, delivered to Captain Heald at Fort Dearborn his order for the evacuation.' Wau-Bun puts the runner, Winnemeg or Catfish, a Potawatomi, at the post on the 7th, bringing despatches that 'announced the declaration of war between the United States and Great Britain'. Wau-Bun: 'The order for evacuating the post was read next morning upon parade', and the officers' 'unanimous advice was, to remain where they were, and fortify themselves as strongly as possible.' Quaife defends Heald: 'Obedience to orders is the primary duty of a soldier.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife Appendix III (Heald's journal) and the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "order-morning",
+      "text": "Heald's journal has the order received on 9 August; Wau-Bun says it 'was read next morning upon parade'. This stop is set on the morning of 10 August, putting the two together; the hour is Wau-Bun's 'next morning', not a recorded time.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Heald's own date for the order's arrival plus Wau-Bun's 'next morning' for its reading; the two sources differ by two days on the runner, so the date is a reading, not a record."
+    },
+    {
+      "id": "kinzie",
+      "text": "Wau-Bun (1856): 'On the north side of the main stream, but quite near its junction with Lake Michigan, stood (as has already been described) the dwelling-house and trading-establishment of Mr. Kinzie.' 'The fort was situated on the southern bank, directly opposite this mansion'. The Chicago Reader (2018): in January 1812 Heald made 'Messrs. Kinzie & Forsyth' the exclusive fort sutlers. Kirkland (1893): Margaret Helm was the 'step-daughter of old John Kinzie'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Wau-Bun, the April section; the Reader, the sutler paragraph; Kirkland, the Helm narrative"
+    },
+    {
+      "id": "quaife-militia",
+      "text": "Quaife (1913): 'after the murders at the Lee farm, Captain Heald enrolled fifteen militiamen from the civilian population outside the fort.' Wau-Bun: the people outside the fort 'now intrenched themselves in the Agency House'; its piazzas 'were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, the chapter on the first fort (Gutenberg #69274 plain text, the paragraph on the civilians around the fort); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "agency",
+      "text": "Quaife (1913): 'A short distance to the southwest were two log houses, one occupied by Matthew Irwin, the United States factor, and the other by Charles Jouett, the Indian agent.' Wau-Bun (1856) on the Agency House in April 1812: 'It was an old-fashioned log building, with a hall running through the centre, and one large room on each side. Piazzas extended the whole length of the building in front and rear. These were planked up, for greater security, port-holes were cut, and sentinels posted at night.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text, the paragraph beginning 'It was an old-fashioned log building'"
+    },
+    {
+      "id": "council",
+      "text": "Heald's report: 'The neighboring Indians got the information as early as I did, and came in from all quarters in order to receive the goods in the factory store, which they understood were to be given them.' His warriors on the 15th were 'mostly of the Potawatamie nation' (the Potawatomi, as the name is now written). Wau-Bun puts a council on the afternoon of the 12th: 'Captain Heald alone attended on the part of the military.' His officers 'took command of the block-houses which overlooked the esplanade on which the council was held, opened the port-holes, and pointed the cannon so as to command the whole assembly.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife note 589 and the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "goods",
+      "text": "Heald's report: 'On the 14th, I delivered the Indians all the goods in the factory store, and a considerable quantity of provisions which we could not take away with us.' Wau-Bun, which dates it the 13th: 'the goods, consisting of blankets, broadcloths, calicoes, paints, etc., were distributed, as stipulated.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "goods-hour",
+      "text": "Wau-Bun puts the goods out on the 13th and the powder down the well 'The same evening', so the giving-out was by day; this stop is set at two in the afternoon of the 13th. No hour is recorded.",
+      "confidence": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "reasoning": "Wau-Bun's sequence on the 13th (goods, then 'The same evening' the well); Heald dates the goods to the 14th. The hour is the jaunt's, inside the daylight the sequence needs."
+    },
+    {
+      "id": "destroyed",
+      "text": "Heald's report: 'The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession. I also destroyed all the liquor on hand after they began to collect.' Wau-Bun: 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency; the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' The muskets 'were broken up and thrown into the well'. The noise betrayed it, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "wells",
+      "text": "Heald's report: 'On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in, by the request of General Hull.' Wau-Bun has him arrive on the 14th 'with fifteen friendly Miamis' to save 'his relative, Captain Heald', and says he came 'all too late': the ammunition was already destroyed. Quaife: Heald's wife Rebekah was 'the niece of Captain Wells'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "gate-evening",
+      "text": "Wells reached the fort on the 13th by Heald's report or the 14th by Wau-Bun; Black Partridge came to the commanding officer 'on the evening' after the second council. This stop is set at sunset on 14 August, the eve of the march.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Wau-Bun's 'evening succeeding the council' and the march next morning; the hour is a reading of 'evening'."
+    },
+    {
+      "id": "march",
+      "text": "Heald's report: 'On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front, and the remainder in our rear, as guards, under the direction of Captain Wells. The situation of the country rendered it necessary for us to take the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance.' Wau-Bun: 'As the troops left the fort, the band struck up the Dead March', and Wells 'had blackened his face before leaving the garrison, in token of his impending fate.' Mrs. Kinzie's boat 'had scarcely reached the mouth of the river, which, it will be recollected, was here half a mile below the fort, when another messenger from To-pee-nee-bee arrived to detain them where they were.' Quaife lists the order: Wells and part of the Miamis, the garrison, the women and children, the twelve Chicago militia.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the battle chapter; Wau-Bun ch. XIX, Narrative of the Massacre, Continued, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "burned",
+      "text": "Heald's report, 23 October 1812: 'The next morning, they set fire to the fort and left the place, taking the prisoners with them.' Quaife (1913): 'over Chicago silence and desolation reigned supreme.' The second fort went up on the same ground in 1816.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, Appendix IV, Heald's report; ch. IX, the paragraph beginning 'several villages'"
+    },
+    {
+      "id": "errand-hours",
+      "text": "The runner's calls at the Kinzie house and at the government houses west of the fort are set at eleven in the morning of 10 August 1812, after the order was read on parade that morning. No such call is recorded, and the hour is the jaunt's pacing.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Heald's journal has the order received on 9 August and Wau-Bun has it read 'next morning upon parade'; a message carried from the parade to either house would arrive later the same morning. The hour is placed after the reading, not read from a source."
+    },
+    {
+      "id": "role",
+      "text": "The runner the visitor plays, their age, their home outside the pickets and their errands, who sends them and where, the order of the route, the two choices, the four endings, the timing inputs and the A Runner's Week keepsake are invented connective narrative. No such runner is recorded. No child of a named family is played or met, nobody is put in danger by a choice, no named person speaks, and the walk ends on the eve of the march of 15 August 1812.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3679"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3679"
+  ],
+  "version_of": "errands-before-the-march"
+}

@@ -2552,6 +2552,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/audit_1871_city_map.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/audit_businesses.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2736,6 +2740,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_block_grow.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_brick_bond.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -2745,6 +2753,14 @@
       "wrote_ignored": []
     },
     "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_chromebook.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_city_1871.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2897,6 +2913,10 @@
       "wrote_ignored": []
     },
     "tools/check_only_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_onsite_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4063,6 +4083,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/fire_1871.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/fit_1871_city_map.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/fit_portrait_face.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4332,6 +4360,10 @@
       "wrote_ignored": []
     },
     "tools/jaunt_reading_level.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/jaunts_es.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5058,6 +5090,10 @@
         "../prairie_1904_v1/tools/publish.py ../../site/4d/prairie-1904"
       ]
     },
+    "tools/qa_city_fire_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/qualify_later_trades.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5516,6 +5552,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/smoke_city_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/sort_land_sales_onto_tracts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5755,6 +5795,10 @@
       "wrote_ignored": []
     },
     "tools/test_check_visitor_ui.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_city_context_depth.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6394,6 +6438,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_investigation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6694,6 +6742,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_met_found.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6958,6 +7010,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_route_unreachable.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_scene_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_second_fort_commandants_gallery.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -7087,6 +7147,10 @@
       "wrote_ignored": []
     },
     "tools/test_teacher_handout.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_teacher_route.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -7298,6 +7362,10 @@
       "wrote_ignored": []
     },
     "tools/town_people_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/trace_harbor_1869.py": {
       "wrote": [],
       "wrote_ignored": []
     },

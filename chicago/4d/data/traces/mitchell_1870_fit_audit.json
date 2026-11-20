@@ -1,0 +1,754 @@
+{
+  "id": "mitchell_1870_registration_audit",
+  "controls_file": "data/traces/gcp/mitchell_1870_controls.json",
+  "controls_sha256": "5e749031dce110426f39daae3b85817212d7facf69c650a805fde5f8cb6fbc8d",
+  "raster_sha256": "7c9284f406e799c1e9968d737140218c089489bb7b1f3c7dcbeb5735b069219a",
+  "selected_model": "affine",
+  "portable_target_check": {
+    "portable_targets": 23,
+    "portable_nodes": 416,
+    "portable_ways": 106,
+    "max_rounding_error_m": 0.006289318195461455,
+    "portable_extract_sha256": "fb09fb6a0060500273d833b7ce5b01a09281fe5cd92481ba3f33aba21b090aa3"
+  },
+  "selection_policy": "Compare fixed candidates on 28 development controls using leave-one-out checks and omission of each whole district. Prefer the lowest RMSE in the worst-performing district over improvements confined to the densely sampled core. Reserve 8 checks until the model is chosen. Do not tune to their errors.",
+  "selection_reason": "The affine model has a worst-district RMSE of 28.4 m, compared with 75.8 m for the projective model, 111.5 m for the quadratic model and 37.7\u201358.1 m for the thin-plate spline candidates. Exact interpolators have zero training error by construction; this does not establish geographical accuracy. Piecewise affine interpolation does not improve cross-validation. The simpler affine model is shipped.",
+  "fit_ids": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "halsted_fullerton",
+    "western_division",
+    "ashland_division",
+    "western_chicago",
+    "halsted_16th",
+    "state_16th",
+    "halsted_31st",
+    "ashland_cermak",
+    "lasalle_randolph",
+    "lasalle_washington",
+    "lasalle_madison",
+    "wells_madison",
+    "clark_lake",
+    "wells_randolph"
+  ],
+  "reserved_check_ids": [
+    "ashland_fullerton",
+    "western_north",
+    "halsted_division",
+    "state_chicago",
+    "ashland_16th",
+    "western_cermak",
+    "lasalle_lake",
+    "clark_madison"
+  ],
+  "candidate_results": {
+    "affine": {
+      "training": {
+        "rmse_m": 18.668942666488007,
+        "median_m": 13.098435170049072,
+        "p95_m": 34.888250521461124,
+        "max_m": 39.62755626560784
+      },
+      "development_loo": {
+        "rmse_m": 21.488960931717248,
+        "median_m": 14.906201016329959,
+        "p95_m": 42.48938193606609,
+        "max_m": 47.94028772630159
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 13.48168052455985,
+          "median_m": 11.749131795400649,
+          "p95_m": 21.380326291582058,
+          "max_m": 23.857059022873496
+        },
+        "north": {
+          "rmse_m": 22.02355643120389,
+          "median_m": 20.62463270247198,
+          "p95_m": 27.50525302027269,
+          "max_m": 27.688209844904605
+        },
+        "south": {
+          "rmse_m": 28.369958445991745,
+          "median_m": 20.238855569747802,
+          "p95_m": 42.311238042855436,
+          "max_m": 45.143030154102654
+        },
+        "central_west": {
+          "rmse_m": 13.925888170894437,
+          "median_m": 12.68087522113702,
+          "p95_m": 18.064821904921647,
+          "max_m": 18.66303820311994
+        }
+      }
+    },
+    "projective": {
+      "training": {
+        "rmse_m": 16.43766166272546,
+        "median_m": 14.498168123590691,
+        "p95_m": 26.356481470674506,
+        "max_m": 27.58895918557837
+      },
+      "development_loo": {
+        "rmse_m": 20.00495737181365,
+        "median_m": 16.59073917542295,
+        "p95_m": 32.419337360867,
+        "max_m": 39.66891611693638
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 21.871084642418506,
+          "median_m": 22.256310547963235,
+          "p95_m": 31.131747668419024,
+          "max_m": 33.71684429286885
+        },
+        "north": {
+          "rmse_m": 75.84631339844142,
+          "median_m": 67.12653099398992,
+          "p95_m": 119.02465814786225,
+          "max_m": 135.06852465026918
+        },
+        "south": {
+          "rmse_m": 28.897533331225354,
+          "median_m": 22.52995719680437,
+          "p95_m": 45.46564326775312,
+          "max_m": 50.056204675957105
+        },
+        "central_west": {
+          "rmse_m": 20.073609878271093,
+          "median_m": 18.349323792888303,
+          "p95_m": 23.518863597092324,
+          "max_m": 24.093256908670547
+        }
+      }
+    },
+    "quadratic": {
+      "training": {
+        "rmse_m": 15.812988066340147,
+        "median_m": 14.404639169883206,
+        "p95_m": 24.510820320559137,
+        "max_m": 25.6817784566368
+      },
+      "development_loo": {
+        "rmse_m": 22.543102935140805,
+        "median_m": 18.451165363266593,
+        "p95_m": 38.11484408992584,
+        "max_m": 52.45130904980312
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 26.71663432006229,
+          "median_m": 29.074440883827716,
+          "p95_m": 34.64175075974284,
+          "max_m": 36.052121071764326
+        },
+        "north": {
+          "rmse_m": 111.51656353950436,
+          "median_m": 96.70774766211018,
+          "p95_m": 176.45875563223058,
+          "max_m": 199.31581277810957
+        },
+        "south": {
+          "rmse_m": 78.82827884015975,
+          "median_m": 54.36851579852992,
+          "p95_m": 148.0568594090377,
+          "max_m": 168.24964726023512
+        },
+        "central_west": {
+          "rmse_m": 20.800163277807705,
+          "median_m": 19.932360916857196,
+          "p95_m": 25.747377336617156,
+          "max_m": 26.39349027214604
+        }
+      }
+    },
+    "tps_0.0": {
+      "training": {
+        "rmse_m": 7.624311333957846e-13,
+        "median_m": 6.072337914837804e-13,
+        "p95_m": 1.2866458368298831e-12,
+        "max_m": 1.4177419874413577e-12
+      },
+      "development_loo": {
+        "rmse_m": 17.0711002262601,
+        "median_m": 11.624912866823195,
+        "p95_m": 31.74637134692668,
+        "max_m": 39.39089929932164
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 13.610802369149015,
+          "median_m": 12.02845645102163,
+          "p95_m": 20.980747387148146,
+          "max_m": 24.366380702222784
+        },
+        "north": {
+          "rmse_m": 56.39762168383473,
+          "median_m": 49.9162180407851,
+          "p95_m": 79.4969822055733,
+          "max_m": 86.52893508043117
+        },
+        "south": {
+          "rmse_m": 58.07196930523607,
+          "median_m": 54.97272110293831,
+          "p95_m": 79.94109571447491,
+          "max_m": 89.29650946648698
+        },
+        "central_west": {
+          "rmse_m": 28.289475543237334,
+          "median_m": 28.60654477276202,
+          "p95_m": 28.60965505685088,
+          "max_m": 28.610000643971865
+        }
+      }
+    },
+    "tps_0.01": {
+      "training": {
+        "rmse_m": 3.3569021983148923,
+        "median_m": 1.3002592728462146,
+        "p95_m": 7.147858659977223,
+        "max_m": 8.263558404375537
+      },
+      "development_loo": {
+        "rmse_m": 16.792698947460412,
+        "median_m": 13.531245209465403,
+        "p95_m": 28.574698487234592,
+        "max_m": 39.61117741385446
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 14.01599531489046,
+          "median_m": 12.573761415516636,
+          "p95_m": 22.089062827120635,
+          "max_m": 25.639929100577145
+        },
+        "north": {
+          "rmse_m": 38.42999074373501,
+          "median_m": 37.48923535610675,
+          "p95_m": 49.05753737911068,
+          "max_m": 51.13155436553758
+        },
+        "south": {
+          "rmse_m": 53.64539239945513,
+          "median_m": 47.0724151392766,
+          "p95_m": 80.6234089444306,
+          "max_m": 96.41752999824075
+        },
+        "central_west": {
+          "rmse_m": 25.518250027287507,
+          "median_m": 27.198319916501813,
+          "p95_m": 28.362212307877368,
+          "max_m": 28.491533684696876
+        }
+      }
+    },
+    "tps_0.1": {
+      "training": {
+        "rmse_m": 7.456989007534841,
+        "median_m": 6.385124349165679,
+        "p95_m": 13.298994798641914,
+        "max_m": 13.837633847716079
+      },
+      "development_loo": {
+        "rmse_m": 16.89350770348288,
+        "median_m": 13.776469235089248,
+        "p95_m": 27.563704579374452,
+        "max_m": 42.36262619998936
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 15.271371871070654,
+          "median_m": 11.16052304668756,
+          "p95_m": 24.339351857468635,
+          "max_m": 27.642006159863787
+        },
+        "north": {
+          "rmse_m": 28.7432222677922,
+          "median_m": 26.843598313060816,
+          "p95_m": 37.33147532897709,
+          "max_m": 39.16619227245842
+        },
+        "south": {
+          "rmse_m": 37.732226721534616,
+          "median_m": 34.15089793522073,
+          "p95_m": 58.936958931185444,
+          "max_m": 66.76117612353192
+        },
+        "central_west": {
+          "rmse_m": 22.944415769046447,
+          "median_m": 24.01848030737545,
+          "p95_m": 27.444634480293423,
+          "max_m": 27.82531827728431
+        }
+      }
+    },
+    "piecewise": {
+      "training": {
+        "rmse_m": 1.7618840139730255e-13,
+        "median_m": 0.0,
+        "p95_m": 4.547473508864641e-13,
+        "max_m": 4.687428401686771e-13
+      },
+      "development_loo": {
+        "rmse_m": 22.539618648404005,
+        "median_m": 15.062521906552552,
+        "p95_m": 45.0762743139816,
+        "max_m": 47.94028772630159
+      },
+      "development_spatial_holdout": {
+        "core": {
+          "rmse_m": 15.98672009889689,
+          "median_m": 12.262659790792627,
+          "p95_m": 23.601235219630844,
+          "max_m": 23.857059022873496
+        },
+        "north": {
+          "rmse_m": 22.02355643120389,
+          "median_m": 20.62463270247198,
+          "p95_m": 27.50525302027269,
+          "max_m": 27.688209844904605
+        },
+        "south": {
+          "rmse_m": 28.369958445991745,
+          "median_m": 20.238855569747802,
+          "p95_m": 42.311238042855436,
+          "max_m": 45.143030154102654
+        },
+        "central_west": {
+          "rmse_m": 18.728265677304226,
+          "median_m": 19.20038907511938,
+          "p95_m": 23.658440466982597,
+          "max_m": 24.153779510522956
+        }
+      }
+    }
+  },
+  "shipped_coefficients": {
+    "a": 4.073015176618989,
+    "b": 0.0191500120300101,
+    "c": -4939.770380649316,
+    "d": 0.001467954802173896,
+    "e": -4.102535151295263,
+    "f": 5564.777071163417
+  },
+  "shipped_training": {
+    "rmse_m": 18.668942666488007,
+    "median_m": 13.098435170049072,
+    "p95_m": 34.888250521461124,
+    "max_m": 39.62755626560784
+  },
+  "reserved_validation": {
+    "rmse_m": 15.61892805459518,
+    "median_m": 13.375102808662781,
+    "p95_m": 24.651762577313068,
+    "max_m": 25.649689616327606
+  },
+  "original_transform_reserved_validation": {
+    "rmse_m": 49.967628573941184,
+    "median_m": 37.3968218180387,
+    "p95_m": 77.49966991561305,
+    "max_m": 78.16693419930408
+  },
+  "residuals": [
+    {
+      "id": "M1",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        22.49031747872482,
+        1.9137310198445903
+      ],
+      "error_m": 22.571591585666937
+    },
+    {
+      "id": "M2",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        -8.34201098350104,
+        8.362361912540564
+      ],
+      "error_m": 11.811784116091907
+    },
+    {
+      "id": "M3",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        10.073389708268905,
+        -17.35233105112229
+      ],
+      "error_m": 20.064310930664945
+    },
+    {
+      "id": "M4",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        -34.78425179775786,
+        18.984178740574862
+      ],
+      "error_m": 39.62755626560784
+    },
+    {
+      "id": "M5",
+      "role": "fit",
+      "district": "central_west",
+      "error_enu_m": [
+        -6.620311598457079,
+        4.149602318353573
+      ],
+      "error_m": 7.813304362505704
+    },
+    {
+      "id": "M6",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        14.278670182936935,
+        2.5597189348227403
+      ],
+      "error_m": 14.50629460676924
+    },
+    {
+      "id": "M7",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        9.28560706208907,
+        -23.058518841145087
+      ],
+      "error_m": 24.85795224186742
+    },
+    {
+      "id": "M8",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        -12.146330444316504,
+        4.6144231645348555
+      ],
+      "error_m": 12.993315373834571
+    },
+    {
+      "id": "M9",
+      "role": "fit",
+      "district": "central_west",
+      "error_enu_m": [
+        -10.320632262100844,
+        11.328093555648366
+      ],
+      "error_m": 15.3245278522713
+    },
+    {
+      "id": "M10",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        -13.61884703687474,
+        -34.36570680914201
+      ],
+      "error_m": 36.96585991297513
+    },
+    {
+      "id": "M11",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        7.210718421376896,
+        2.512797736728544
+      ],
+      "error_m": 7.636007636068222
+    },
+    {
+      "id": "M12",
+      "role": "fit",
+      "district": "central_west",
+      "error_enu_m": [
+        8.4974066324462,
+        8.022021877985594
+      ],
+      "error_m": 11.685835634990772
+    },
+    {
+      "id": "M13",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        18.1660199577982,
+        -24.292837918058012
+      ],
+      "error_m": 30.333912626302588
+    },
+    {
+      "id": "M14",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        -2.3555447957082833,
+        3.6248411711189874
+      ],
+      "error_m": 4.322969442458233
+    },
+    {
+      "id": "ashland_fullerton",
+      "role": "check",
+      "district": "north",
+      "error_enu_m": [
+        0.5046473344318656,
+        12.091088090759513
+      ],
+      "error_m": 12.101614774510702
+    },
+    {
+      "id": "halsted_fullerton",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        7.977289834066369,
+        1.7494700477436709
+      ],
+      "error_m": 8.166872017158765
+    },
+    {
+      "id": "western_north",
+      "role": "check",
+      "district": "north",
+      "error_enu_m": [
+        -7.365917624522353,
+        6.298453001942562
+      ],
+      "error_m": 9.691607331548688
+    },
+    {
+      "id": "western_division",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        -4.66733490145225,
+        8.521964106470023
+      ],
+      "error_m": 9.716372127202503
+    },
+    {
+      "id": "ashland_division",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        -6.436909831552839,
+        2.224882767796771
+      ],
+      "error_m": 6.810573508154847
+    },
+    {
+      "id": "halsted_division",
+      "role": "check",
+      "district": "north",
+      "error_enu_m": [
+        -12.723830315570922,
+        7.258467867309037
+      ],
+      "error_m": 14.648590842814862
+    },
+    {
+      "id": "western_chicago",
+      "role": "fit",
+      "district": "north",
+      "error_enu_m": [
+        -9.554782531622095,
+        8.162539301394645
+      ],
+      "error_m": 12.566658946331078
+    },
+    {
+      "id": "state_chicago",
+      "role": "check",
+      "district": "north",
+      "error_enu_m": [
+        -22.7418073459811,
+        1.606365587964774
+      ],
+      "error_m": 22.7984695048575
+    },
+    {
+      "id": "ashland_16th",
+      "role": "check",
+      "district": "south",
+      "error_enu_m": [
+        24.831775337531326,
+        6.425691480324531
+      ],
+      "error_m": 25.64968961632761
+    },
+    {
+      "id": "halsted_16th",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        11.194854853512425,
+        13.009276579837206
+      ],
+      "error_m": 17.16292668287992
+    },
+    {
+      "id": "state_16th",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        -1.2831556928443888,
+        -19.422690212752514
+      ],
+      "error_m": 19.465029761925134
+    },
+    {
+      "id": "halsted_31st",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        -11.628273761518358,
+        22.368933072348227
+      ],
+      "error_m": 25.21082936890436
+    },
+    {
+      "id": "western_cermak",
+      "role": "check",
+      "district": "south",
+      "error_enu_m": [
+        -15.717896863590795,
+        0.6901286554698345
+      ],
+      "error_m": 15.733040372908789
+    },
+    {
+      "id": "ashland_cermak",
+      "role": "fit",
+      "district": "south",
+      "error_enu_m": [
+        30.496440654925664,
+        5.728668986605953
+      ],
+      "error_m": 31.02983308007801
+    },
+    {
+      "id": "lasalle_lake",
+      "role": "check",
+      "district": "core",
+      "error_enu_m": [
+        -0.6488438099237896,
+        2.873719797882032
+      ],
+      "error_m": 2.946059022900859
+    },
+    {
+      "id": "lasalle_randolph",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        0.2797066351711237,
+        -8.120080800025505
+      ],
+      "error_m": 8.124896799387768
+    },
+    {
+      "id": "lasalle_washington",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        8.144194973697324,
+        -6.810070905750422
+      ],
+      "error_m": 10.61626005290682
+    },
+    {
+      "id": "lasalle_madison",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        3.24091276431966,
+        7.209337851062742
+      ],
+      "error_m": 7.904306914378771
+    },
+    {
+      "id": "clark_madison",
+      "role": "check",
+      "district": "core",
+      "error_enu_m": [
+        -4.077729708033985,
+        6.792442138549404
+      ],
+      "error_m": 7.922445946633181
+    },
+    {
+      "id": "wells_madison",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        -11.972028234735149,
+        5.56815981216846
+      ],
+      "error_m": 13.203554966263574
+    },
+    {
+      "id": "clark_lake",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        -5.991403687952811,
+        3.266290487122035
+      ],
+      "error_m": 6.823897104901161
+    },
+    {
+      "id": "wells_randolph",
+      "role": "fit",
+      "district": "core",
+      "error_enu_m": [
+        -11.613711598953842,
+        -10.459056906717734
+      ],
+      "error_m": 15.629144841661521
+    }
+  ],
+  "reserved_validation_by_district": {
+    "core": {
+      "rmse_m": 5.976805733154629,
+      "median_m": 5.43425248476702,
+      "p95_m": 7.673626600446565,
+      "max_m": 7.922445946633181
+    },
+    "north": {
+      "rmse_m": 15.610315165489938,
+      "median_m": 13.375102808662781,
+      "p95_m": 21.575987705551103,
+      "max_m": 22.7984695048575
+    },
+    "south": {
+      "rmse_m": 21.277160722116122,
+      "median_m": 20.691364994618198,
+      "p95_m": 25.153857154156665,
+      "max_m": 25.649689616327606
+    }
+  },
+  "uncertainties": {
+    "registration": "The 8 reserved checks have RMSE 15.62 m and maximum error 25.65 m. Leave-one-out RMSE among the 28 fit controls is 21.49 m. Whole-district holdout RMSE ranges from 13.5 to 28.4 m. Use 30 m as a planning allowance within the mapped coverage; it is not a statistical confidence bound.",
+    "pixel_reading": "Manual street-centre picks typically have reading uncertainty of 1.5\u20132 pixels (about 6\u20138 m). Raster geometry, engraved line width and original surveying remain independent limits.",
+    "modern_target_continuity": "Modern intersections may have widened or shifted since 1870. Independent reprojection of the retained latitude/longitude values finds less than 0.007 m of rounding discrepancy. This does not establish that historical and modern street centrelines coincide.",
+    "map_feature_generalization": "Bank widths, rail and shore envelopes, and park edges retain a context allowance of roughly 40\u201380 m. Registration residuals do not establish the accuracy of actual 1871 banks.",
+    "outside_mapped_coverage": "Areas west of Western Avenue and south of Thirty-first Street are editorial reconstructions. Their planning allowance is 150\u2013300 m or greater; they have no validation from this map registration."
+  },
+  "not_a_claim": "These errors describe street intersections in a printed city map. They do not establish survey precision for building footprints, banks, the 1871 shoreline or individual properties."
+}

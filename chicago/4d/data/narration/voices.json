@@ -1,5 +1,5 @@
 {
-  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A narrator script (a jaunt's opening, its endings, any stop with no host) is voiced once for each narrator in `narrators`; visitors choose which they hear in Settings › Sound, and `essayist` is the default (owner, 2026-11-13). A stop is read by its first host, by person id, in `voices`. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and those scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration. Each script is performed from its direction in data/narration/direction/<jaunt>.json (the same words with ElevenLabs v3 audio tags and pauses; owner, 2026-11-15), so the model is eleven_v3, whose stability takes 0 (creative), 0.5 (natural) or 1 (robust).",
+  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A narrator script (a jaunt's opening, its endings, any stop with no host) is voiced once for each narrator in `narrators`, or for the narrators a jaunt entry names ({id, narrators}: the owner, 2026-11-19, T-3696, new jaunts in the Cultivated Essayist only, the Storyteller later); visitors choose which they hear in Settings › Sound, and `essayist` is the default (owner, 2026-11-13). A stop is read by its first host, by person id, in `voices`. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and those scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration. Each script is performed from its direction in data/narration/direction/<jaunt>.json (the same words with ElevenLabs v3 audio tags and pauses; owner, 2026-11-15), so the model is eleven_v3, whose stability takes 0 (creative), 0.5 (natural) or 1 (robust). A run voices the jaunts in this list's order (the narration budget plan's) up to max_chars_per_run and what the ElevenLabs quota has left above quota_reserve; the rest waits for the next run (T-3696).",
   "version": 1,
   "model_id": "eleven_v3",
   "output_format": "mp3_44100_64",
@@ -9,10 +9,36 @@
   },
   "bucket": "chicago-4d-media",
   "max_chars_per_run": 30000,
+  "quota_reserve": 2000,
   "jaunts": [
-    "glessner-household-tour",
     "glessner-household-tour-grades-3-5",
+    { "id": "battle-of-fort-dearborn", "narrators": ["essayist"] },
+    { "id": "bronze-at-eighteenth", "narrators": ["essayist"] },
+    { "id": "field-and-mrs-caton", "narrators": ["essayist"] },
+    { "id": "frances-glessner-lee", "narrators": ["essayist"] },
+    { "id": "monday-reading-class", "narrators": ["essayist"] },
+    { "id": "one-year-and-a-day", "narrators": ["essayist"] },
+    { "id": "pullmans-other-son", "narrators": ["essayist"] },
+    { "id": "scandal-at-1612", "narrators": ["essayist"] },
+    { "id": "sisters-of-the-levee", "narrators": ["essayist"] },
+    { "id": "the-pullman-twins", "narrators": ["essayist"] },
+    { "id": "the-walk-to-the-lake", "narrators": ["essayist"] },
+    "glessner-household-tour",
     "prairie-avenue-orientation"
+  ],
+  "$held": "Month 2 of the narration plan (T-3698), held out of `jaunts` until the owner gives the monthly ElevenLabs limit or the quota can be read (2026-11-20): move these back into `jaunts` to voice them.",
+  "held": [
+    { "id": "prairie-famous-names", "narrators": ["essayist"] },
+    { "id": "prairie-notable-women", "narrators": ["essayist"] },
+    { "id": "prairie-ghosts-at-night", "narrators": ["essayist"] },
+    { "id": "prairie-architects", "narrators": ["essayist"] },
+    { "id": "prairie-style-italianate", "narrators": ["essayist"] },
+    { "id": "prairie-style-romanesque", "narrators": ["essayist"] },
+    { "id": "prairie-style-second-empire", "narrators": ["essayist"] },
+    { "id": "first-fort-dearborn-tour", "narrators": ["essayist"] },
+    { "id": "killing-of-jean-lalime", "narrators": ["essayist"] },
+    { "id": "battle-of-fort-dearborn-grades-3-5", "narrators": ["essayist"] },
+    { "id": "battle-of-fort-dearborn-grades-9-10", "narrators": ["essayist"] }
   ],
   "narrators": {
     "essayist": {

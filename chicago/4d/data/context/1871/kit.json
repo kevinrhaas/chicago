@@ -1,0 +1,808 @@
+{
+  "schema": "chicago-city-context-kit-v1",
+  "generated_by": "generators/city_context_emit.py",
+  "recipe": "context/1871/kit-recipe.json",
+  "glb": "context/1871/kit.glb",
+  "confidence": "reconstructed",
+  "sources": [
+    "ruger_1868_chicago_panorama"
+  ],
+  "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. Colbert and Chamberlin (1871, pp. 146-147) report a spring 1868 enumeration of 35,654 wooden buildings to 3,712 of brick and stone, so frame forms dominate outside the business centre. Neither source establishes these footprints, storey heights, window patterns, colours or individual addresses. Pre-fire stereographs of Lake, State and Clark streets (NYPL Dennis collection, Carbutt's Views of Chicago) show the business streets built wall to wall in Italianate and commercial-palace fronts of brick, pale stone and painted brick, with cast-iron storefronts, signboards, awnings, hooded and arched windows and bracketed cornices, and North Side houses behind fenced yards with stoops; they inform these period forms, not any generated front. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
+  "license": "Original procedural geometry and textures, and for the detail ring the project's own wall textures (textures/chicago_1835_pbr brick and clapboard, textures/prairie_1904_stone limestone and trim); project license. No third-party image pixels are embedded or sampled.",
+  "coordinates": "Y up; footprint centred at origin; width +X; front -Z; base Y=0; bearing clockwise from grid north",
+  "input_sha256": "88fdb1222988ba96f4470251ff5bd96267f0f74eb61f5e59bb4b32013bafad4b",
+  "citations": [
+    {
+      "source_id": "chicago_evening_post_1869_city_limits",
+      "citation": "A New Map of Chicago. Chicago Evening Post, April 9, 1869. Reproduced with publication attribution on Chicagology, Ward Map – 2 February 1869.",
+      "url": "https://chicagology.com/population/ward-map-1869/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Stepped municipal shape: Fullerton east of Western, North Avenue toward the new western limit, the canal southwest edge and Egan Avenue south.",
+        "A proposed Jefferson addition north of North Avenue and west of Western, distinguished from present city limits."
+      ],
+      "what_it_does_not_supply": [
+        "Surveyed legal-boundary vertices, precise street positions or a reliable population count from the modern host paragraph."
+      ]
+    },
+    {
+      "source_id": "chicago_public_works_1871",
+      "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+      "url": "https://archive.org/details/annualreportboa06workgoog",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+        "Contracted sidewalk work, park improvements and canal-opening chronology."
+      ],
+      "what_it_does_not_supply": [
+        "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+        "Individual building footprints or facades."
+      ]
+    },
+    {
+      "source_id": "colbert_chamberlin_1871_great_conflagration",
+      "citation": "Elias Colbert and Everett Chamberlin, Chicago and the Great Conflagration. Cincinnati and New York: C. F. Vent; Chicago: J. S. Goodman & Co., 1871.",
+      "url": "https://archive.org/details/chicagogreatconf1871colb",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "A citywide ratio of building materials before the fire: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone (about nine in ten wooden).",
+        "The city's 59,500 buildings in 1871 by division, with the West Division largest (29,400).",
+        "Descriptions that the West Side's burned blocks were nearly all frame, and that the South Division's burned centre held the city's most expensive structures."
+      ],
+      "what_it_does_not_supply": [
+        "A material for any particular lot, block or street; a material ratio by division or for 1871 itself; paint colours."
+      ]
+    },
+    {
+      "source_id": "edwards_chicago_directory_1871",
+      "citation": "Edwards’ Annual Directory of the City of Chicago, 1871. Fourteenth annual issue. Chicago: Richard Edwards, 1871.",
+      "url": "https://archive.org/details/edwardsannualdir141871chic",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Occupations, business categories, institution names and historical addresses for further location research.",
+        "Evidence for varied commercial, residential and industrial uses."
+      ],
+      "what_it_does_not_supply": [
+        "Modern coordinates, measured footprints, facades, exact people present at 16:30 or guaranteed October occupancy for every listing."
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    },
+    {
+      "source_id": "nypl_carbutt_booksellers_row_state_street_stereo",
+      "citation": "John Carbutt, '11. Book Seller's Row, State Street.' Stereograph from Carbutt's Views of Chicago, c. 1868-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F169 (digital ID G90F169_004F).",
+      "url": "https://images.nypl.org/index.php?id=G90F169_004F&t=w",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "pale stone fronts of five storeys built as runs of identical units",
+        "round-arched upper windows and a heavy bracketed cornice",
+        "cast-iron ground-floor storefronts with plate glass, awnings"
+      ],
+      "what_it_does_not_supply": [
+        "the dimensions of any generated front",
+        "the colour of any particular stone front"
+      ]
+    },
+    {
+      "source_id": "nypl_carbutt_clark_street_north_from_washington_stereo",
+      "citation": "'58. Clark street, North from Washington.' Stereograph from Carbutt's Views of Chicago, c. 1866-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F179 (digital ID G90F179_011F).",
+      "url": "https://images.nypl.org/index.php?id=G90F179_011F&t=w",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "pale stone and brick attached fronts on Clark Street by the Court House square",
+        "lettered friezes and signboards, arched ground floors, awnings"
+      ],
+      "what_it_does_not_supply": [
+        "the identity or dimensions of any generated front"
+      ]
+    },
+    {
+      "source_id": "nypl_carbutt_lake_street_east_from_clark_stereo",
+      "citation": "John Carbutt, '70. Lake street, East from Clark.' Stereograph from Carbutt's Views of Chicago, c. 1866-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, 'Stereoscopic views of streets in Chicago', MFY Dennis Coll 90-F179 (digital ID G90F179_027F).",
+      "url": "https://images.nypl.org/index.php?id=G90F179_027F&t=w",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "attached commercial rows of four and five storeys on Lake Street, without side gaps",
+        "segmental and round-headed windows with hoods, bracketed cornices, painted signboards and wall lettering, awnings",
+        "cast-iron and glazed ground-floor shop fronts"
+      ],
+      "what_it_does_not_supply": [
+        "the identity, width or height of any generated front",
+        "sign wording for any particular building"
+      ]
+    },
+    {
+      "source_id": "nypl_dennis_pine_street_north_from_erie_stereo",
+      "citation": "'No. 101 Pine street north from Erie.' Stereograph, c. 1866-1871. New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F179 (digital ID G90F179_037F).",
+      "url": "https://images.nypl.org/index.php?id=G90F179_037F&t=w",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "North Side houses set back behind fenced front yards",
+        "stoops and steps to raised front doors"
+      ],
+      "what_it_does_not_supply": [
+        "any particular house's fence, gate or stoop"
+      ]
+    },
+    {
+      "source_id": "ruger_1868_chicago_panorama",
+      "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+      "url": "https://www.loc.gov/item/73693350/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+        "Central-city spatial relationships from Schiller Street to Twelfth Street."
+      ],
+      "what_it_does_not_supply": [
+        "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+        "Photographic color or an exhaustive citywide building inventory."
+      ]
+    }
+  ],
+  "asset_sha256": "3e539d96a46832f9cbb81dd24c5fd7c160de7f2e8b3494d898563a77ee038fe6",
+  "asset_bytes": 1880900,
+  "templates": [
+    {
+      "id": "timber_cottage",
+      "name": "Frame cottage",
+      "material": "timber",
+      "roof": "gable",
+      "width_m": 7.2,
+      "depth_m": 12,
+      "eave_m": 3.6,
+      "rise_m": 2.6,
+      "storeys": 1,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "timber_cottage__near",
+        "far": "timber_cottage__far"
+      },
+      "triangles": {
+        "near": 114,
+        "far": 14
+      }
+    },
+    {
+      "id": "timber_house",
+      "name": "Two-storey frame house",
+      "material": "timber",
+      "roof": "gable",
+      "width_m": 7.5,
+      "depth_m": 13,
+      "eave_m": 6.4,
+      "rise_m": 2.8,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "timber_house__near",
+        "far": "timber_house__far"
+      },
+      "triangles": {
+        "near": 152,
+        "far": 14
+      }
+    },
+    {
+      "id": "frame_shop",
+      "name": "Two-storey frame store",
+      "material": "timber",
+      "roof": "flat",
+      "width_m": 7.5,
+      "depth_m": 18,
+      "eave_m": 7.4,
+      "rise_m": 0.5,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 5,
+      "shop": true,
+      "nodes": {
+        "near": "frame_shop__near",
+        "far": "frame_shop__far"
+      },
+      "triangles": {
+        "near": 204,
+        "far": 38
+      }
+    },
+    {
+      "id": "timber_hip",
+      "name": "Frame house with hipped roof",
+      "material": "timber",
+      "roof": "hip",
+      "width_m": 9,
+      "depth_m": 12,
+      "eave_m": 6.4,
+      "rise_m": 2.6,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "timber_hip__near",
+        "far": "timber_hip__far"
+      },
+      "triangles": {
+        "near": 152,
+        "far": 14
+      }
+    },
+    {
+      "id": "brick_cottage",
+      "name": "Brick cottage",
+      "material": "brick",
+      "roof": "gable",
+      "width_m": 7.5,
+      "depth_m": 13,
+      "eave_m": 4,
+      "rise_m": 2.5,
+      "storeys": 1,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "brick_cottage__near",
+        "far": "brick_cottage__far"
+      },
+      "triangles": {
+        "near": 94,
+        "far": 14
+      }
+    },
+    {
+      "id": "brick_rowhouse",
+      "name": "Brick town house",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 7.2,
+      "depth_m": 15,
+      "eave_m": 9.2,
+      "rise_m": 0.4,
+      "storeys": 3,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "brick_rowhouse__near",
+        "far": "brick_rowhouse__far"
+      },
+      "triangles": {
+        "near": 214,
+        "far": 18
+      }
+    },
+    {
+      "id": "brick_mansard",
+      "name": "Mansard town house",
+      "material": "brick",
+      "roof": "mansard",
+      "width_m": 8.5,
+      "depth_m": 15,
+      "eave_m": 7.1,
+      "rise_m": 3,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 4,
+      "nodes": {
+        "near": "brick_mansard__near",
+        "far": "brick_mansard__far"
+      },
+      "triangles": {
+        "near": 186,
+        "far": 18
+      }
+    },
+    {
+      "id": "villa_hip",
+      "name": "Detached masonry villa",
+      "material": "stone",
+      "roof": "hip",
+      "width_m": 13,
+      "depth_m": 17,
+      "eave_m": 7.5,
+      "rise_m": 3.5,
+      "storeys": 2,
+      "front_bays": 4,
+      "side_bays": 5,
+      "nodes": {
+        "near": "villa_hip__near",
+        "far": "villa_hip__far"
+      },
+      "triangles": {
+        "near": 168,
+        "far": 14
+      }
+    },
+    {
+      "id": "commercial_2",
+      "name": "Two-storey shop block",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 8,
+      "depth_m": 20,
+      "eave_m": 8,
+      "rise_m": 0.5,
+      "storeys": 2,
+      "front_bays": 3,
+      "side_bays": 6,
+      "shop": true,
+      "nodes": {
+        "near": "commercial_2__near",
+        "far": "commercial_2__far"
+      },
+      "triangles": {
+        "near": 212,
+        "far": 38
+      }
+    },
+    {
+      "id": "commercial_3",
+      "name": "Three-storey business block",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 9,
+      "depth_m": 22,
+      "eave_m": 11.5,
+      "rise_m": 0.5,
+      "storeys": 3,
+      "front_bays": 3,
+      "side_bays": 6,
+      "shop": true,
+      "nodes": {
+        "near": "commercial_3__near",
+        "far": "commercial_3__far"
+      },
+      "triangles": {
+        "near": 248,
+        "far": 38
+      }
+    },
+    {
+      "id": "commercial_4",
+      "name": "Four-storey business block",
+      "material": "stone",
+      "roof": "flat",
+      "width_m": 12,
+      "depth_m": 26,
+      "eave_m": 15.2,
+      "rise_m": 0.6,
+      "storeys": 4,
+      "front_bays": 4,
+      "side_bays": 7,
+      "shop": true,
+      "nodes": {
+        "near": "commercial_4__near",
+        "far": "commercial_4__far"
+      },
+      "triangles": {
+        "near": 316,
+        "far": 38
+      }
+    },
+    {
+      "id": "commercial_5",
+      "name": "Five-storey business block",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 16,
+      "depth_m": 28,
+      "eave_m": 18.5,
+      "rise_m": 0.6,
+      "storeys": 5,
+      "front_bays": 5,
+      "side_bays": 7,
+      "shop": true,
+      "nodes": {
+        "near": "commercial_5__near",
+        "far": "commercial_5__far"
+      },
+      "triangles": {
+        "near": 380,
+        "far": 38
+      }
+    },
+    {
+      "id": "commercial_6",
+      "name": "Six-storey business block",
+      "material": "stone",
+      "roof": "flat",
+      "width_m": 18,
+      "depth_m": 30,
+      "eave_m": 22,
+      "rise_m": 0.7,
+      "storeys": 6,
+      "front_bays": 6,
+      "side_bays": 8,
+      "shop": true,
+      "nodes": {
+        "near": "commercial_6__near",
+        "far": "commercial_6__far"
+      },
+      "triangles": {
+        "near": 476,
+        "far": 38
+      }
+    },
+    {
+      "id": "warehouse",
+      "name": "Brick warehouse",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 22,
+      "depth_m": 36,
+      "eave_m": 13.5,
+      "rise_m": 0.5,
+      "storeys": 3,
+      "front_bays": 6,
+      "side_bays": 8,
+      "warehouse": true,
+      "nodes": {
+        "near": "warehouse__near",
+        "far": "warehouse__far"
+      },
+      "triangles": {
+        "near": 218,
+        "far": 18
+      }
+    },
+    {
+      "id": "factory",
+      "name": "Brick works",
+      "material": "brick",
+      "roof": "flat",
+      "width_m": 24,
+      "depth_m": 42,
+      "eave_m": 11.5,
+      "rise_m": 0.4,
+      "storeys": 3,
+      "front_bays": 7,
+      "side_bays": 10,
+      "factory": true,
+      "nodes": {
+        "near": "factory__near",
+        "far": "factory__far"
+      },
+      "triangles": {
+        "near": 254,
+        "far": 28
+      }
+    },
+    {
+      "id": "industrial_shed",
+      "name": "Industrial frame shed",
+      "material": "weathered",
+      "roof": "gable",
+      "width_m": 18,
+      "depth_m": 38,
+      "eave_m": 5.5,
+      "rise_m": 4.5,
+      "storeys": 1,
+      "front_bays": 5,
+      "side_bays": 9,
+      "warehouse": true,
+      "nodes": {
+        "near": "industrial_shed__near",
+        "far": "industrial_shed__far"
+      },
+      "triangles": {
+        "near": 92,
+        "far": 14
+      }
+    },
+    {
+      "id": "stable",
+      "name": "Frame stable or workshop",
+      "material": "weathered",
+      "roof": "gable",
+      "width_m": 10,
+      "depth_m": 18,
+      "eave_m": 4.6,
+      "rise_m": 3.2,
+      "storeys": 1,
+      "front_bays": 3,
+      "side_bays": 5,
+      "warehouse": true,
+      "nodes": {
+        "near": "stable__near",
+        "far": "stable__far"
+      },
+      "triangles": {
+        "near": 68,
+        "far": 14
+      }
+    }
+  ],
+  "vegetation": [
+    {
+      "id": "deciduous_round",
+      "name": "Generic rounded deciduous tree",
+      "form": "round",
+      "height_m": 8,
+      "crown_r_m": 3.1,
+      "trunk_r_m": 0.24,
+      "confidence": "reconstructed",
+      "nodes": {
+        "near": "deciduous_round__near",
+        "far": "deciduous_round__far"
+      },
+      "triangles": {
+        "near": 96,
+        "far": 28
+      },
+      "width_m": 6.2,
+      "depth_m": 6.2,
+      "eave_m": 8,
+      "vegetation": true
+    },
+    {
+      "id": "deciduous_oval",
+      "name": "Generic tall deciduous tree",
+      "form": "oval",
+      "height_m": 11,
+      "crown_r_m": 3.2,
+      "trunk_r_m": 0.28,
+      "confidence": "reconstructed",
+      "nodes": {
+        "near": "deciduous_oval__near",
+        "far": "deciduous_oval__far"
+      },
+      "triangles": {
+        "near": 96,
+        "far": 28
+      },
+      "width_m": 6.4,
+      "depth_m": 6.4,
+      "eave_m": 11,
+      "vegetation": true
+    },
+    {
+      "id": "deciduous_spreading",
+      "name": "Generic spreading deciduous tree",
+      "form": "spreading",
+      "height_m": 9.5,
+      "crown_r_m": 4.7,
+      "trunk_r_m": 0.34,
+      "confidence": "reconstructed",
+      "nodes": {
+        "near": "deciduous_spreading__near",
+        "far": "deciduous_spreading__far"
+      },
+      "triangles": {
+        "near": 96,
+        "far": 28
+      },
+      "width_m": 9.4,
+      "depth_m": 9.4,
+      "eave_m": 9.5,
+      "vegetation": true
+    }
+  ],
+  "vegetation_note": "Generic deciduous silhouettes and sparse green/ochre foliage are reconstructed context. No exact species, measured crown, planting record or observed 8 October phenology is asserted.",
+  "fronts": {
+    "materials": {
+      "brick": {
+        "material": "fronts_brick",
+        "span_m": 4.2,
+        "atlas_row": 0,
+        "match": [
+          0.909,
+          0.719,
+          0.675
+        ]
+      },
+      "stone": {
+        "material": "fronts_stone",
+        "span_m": 1.2,
+        "atlas_row": 2,
+        "match": [
+          1.314,
+          1.379,
+          1.513
+        ]
+      },
+      "clapboard": {
+        "material": "fronts_clapboard",
+        "span_m": 4.48,
+        "atlas_row": 1,
+        "match": [
+          1.078,
+          1.054,
+          1.023
+        ]
+      },
+      "painted": {
+        "material": "fronts_painted",
+        "span_m": 4.2,
+        "atlas_row": 2,
+        "match": [
+          0.639,
+          0.579,
+          0.433
+        ]
+      },
+      "parts": {
+        "material": "fronts_parts"
+      }
+    },
+    "cells": {
+      "shop_glass": [
+        0,
+        0
+      ],
+      "shop_door": [
+        1,
+        0
+      ],
+      "sash": [
+        2,
+        0
+      ],
+      "house_door": [
+        3,
+        0
+      ],
+      "iron": [
+        0,
+        1
+      ],
+      "cornice": [
+        1,
+        1
+      ],
+      "trim": [
+        2,
+        1
+      ],
+      "dark": [
+        3,
+        1
+      ],
+      "awning": [
+        0,
+        3
+      ],
+      "boards": [
+        1,
+        3
+      ],
+      "flags": [
+        2,
+        3
+      ],
+      "recess": [
+        3,
+        3
+      ]
+    },
+    "boards": [
+      [
+        0.0,
+        0.5,
+        0.25,
+        0.5625
+      ],
+      [
+        0.0,
+        0.5625,
+        0.25,
+        0.625
+      ],
+      [
+        0.0,
+        0.625,
+        0.25,
+        0.6875
+      ],
+      [
+        0.0,
+        0.6875,
+        0.25,
+        0.75
+      ],
+      [
+        0.25,
+        0.5,
+        0.5,
+        0.5625
+      ],
+      [
+        0.25,
+        0.5625,
+        0.5,
+        0.625
+      ],
+      [
+        0.25,
+        0.625,
+        0.5,
+        0.6875
+      ],
+      [
+        0.25,
+        0.6875,
+        0.5,
+        0.75
+      ],
+      [
+        0.5,
+        0.5,
+        0.75,
+        0.5625
+      ],
+      [
+        0.5,
+        0.5625,
+        0.75,
+        0.625
+      ],
+      [
+        0.5,
+        0.625,
+        0.75,
+        0.6875
+      ],
+      [
+        0.5,
+        0.6875,
+        0.75,
+        0.75
+      ],
+      [
+        0.75,
+        0.5,
+        1.0,
+        0.5625
+      ],
+      [
+        0.75,
+        0.5625,
+        1.0,
+        0.625
+      ],
+      [
+        0.75,
+        0.625,
+        1.0,
+        0.6875
+      ],
+      [
+        0.75,
+        0.6875,
+        1.0,
+        0.75
+      ]
+    ],
+    "atlas_cells": 4,
+    "node": "fronts__materials"
+  }
+}

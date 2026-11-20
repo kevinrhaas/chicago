@@ -84,7 +84,8 @@ export const STEPS = [
   { task: 'Release it',
     bubble: (p) => { const key = p.card ? 'Close' : 'Back';
       return p.touch ? `Release it. Tap ${key}, or tap the street.` : `Release it. Press Esc, click ${key}, or click the street.`; },
-    target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected },
+    target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected,
+    escape: 'page' }, // T-3671: Esc is this step's own action, so the card does not take it to end the tour
   // T-3642: the Interact key, used during the step (a press, or its list opened on a person).
   // 1904 has no boat to take; the ring is on the key once it shows.
   { task: 'Interact',
@@ -128,7 +129,7 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     const live = STEPS.filter((x) => applies(x, p));
     return { step, n: live.indexOf(s) + 1 || step + 1, of: live.length, task: s.task, bubble: s.bubble(p),
       target: typeof s.target === 'function' ? s.target(p) : s.target,
-      action: s.action ?? null, waiting: !s.action };
+      action: s.action ?? null, waiting: !s.action, escape: s.escape ?? 'end' };
   }
   function paint(v) { shown = v; render(v); }
   function enter(i, { resumed = false } = {}) {

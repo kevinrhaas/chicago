@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import { yearForProgress, createArrival } from '../renderers/web/js/arrival.js';
 import { createBoot } from '../renderers/web/js/boot-phases.js';
 import { scenePresentation, arrivalTitles } from '../renderers/web/js/scene-presentation.js';
-for (const year of [1812, 1835, 1904, 1920]) {
+for (const year of [1812, 1835, 1871, 1904, 1920]) {
   let prior = 2026;
   for (let i = 0; i <= 100; i++) {
     const value = yearForProgress(i / 100, 2026, false, year);
@@ -17,6 +17,11 @@ for (const year of [1812, 1835, 1904, 1920]) {
   assert.equal(arrival.state.year, year);
   assert(scenePresentation(year).welcomeTitle.includes(String(year)));
 }
+const prefire = scenePresentation('1871', '1871-10-08');
+assert.equal(prefire.place, 'Pre-fire Chicago');
+assert.equal(prefire.eyebrow, 'Chicago before the fire');
+assert(prefire.intro.includes('8 October 1871') && prefire.intro.includes('city baseline') && prefire.intro.includes('Reconstructed'));
+assert(!prefire.welcomeTitle.includes('summer'));
 const prairie = scenePresentation('1904', '1904-07-01');
 assert(prairie.intro.includes('1 July 1904'));
 assert(prairie.entries.every(e => !/1835|Thompson|Hathaway|prairie$/i.test(e.text)));

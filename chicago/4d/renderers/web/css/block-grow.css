@@ -1,0 +1,63 @@
+/* "Watch a block grow" (T-3676): a bar over the town, in the page's own skin tokens. */
+.block-grow {
+  position: fixed; z-index: 60; right: 16px; bottom: 16px;
+  width: min(400px, calc(100vw - 32px)); max-height: min(70vh, 640px);
+  display: flex; flex-direction: column; gap: .5rem; box-sizing: border-box;
+  padding: .75rem .875rem; border-radius: 10px;
+  background: var(--panel, rgba(16, 32, 58, .94)); color: var(--ink, #ECE6D8);
+  border: 1px solid var(--edge-strong, var(--edge, #3E5A86));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  font: 15px/1.4 system-ui, sans-serif; overflow-wrap: anywhere;
+}
+.block-grow-head { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+.block-grow h2 { margin: 0; font-size: 1.05rem; }
+.block-grow h2:focus { outline: none; }
+.block-grow-block { margin: .1rem 0 0; color: var(--ink-dim, #A7B4C8); font-size: .875rem; }
+.block-grow button {
+  font: inherit; color: var(--ink, #ECE6D8); background: var(--panel-raised, #1A3052);
+  border: 1px solid var(--edge, #2A3F63); border-radius: 6px; min-height: 44px; min-width: 44px;
+  padding: .4rem .7rem; cursor: pointer;
+}
+.block-grow button:disabled { opacity: .5; cursor: default; }
+.block-grow-leave { flex: none; font-size: .875rem !important; }
+.block-grow-controls { display: flex; align-items: center; gap: .4rem; }
+.block-grow-step { font-size: 1.3rem !important; line-height: 1; }
+.block-grow-play { min-width: 5.5em !important; background: var(--accent, #8CF5A8) !important;
+  color: var(--accent-ink, #0A1426) !important; border-color: var(--accent, #8CF5A8) !important; font-weight: 600 !important; }
+.block-grow-year { margin-left: auto; font: 700 1.9rem/1 Georgia, 'Times New Roman', serif; font-variant-numeric: tabular-nums; }
+.block-grow-slider { width: 100%; min-height: 32px; margin: 0; accent-color: var(--accent, #8CF5A8); }
+.block-grow-line { margin: 0; font-size: .875rem; color: var(--ink-dim, #A7B4C8); }
+.block-grow-scroll { overflow-y: auto; min-height: 0; display: flex; flex-direction: column; gap: .5rem; }
+.block-grow-cards { display: flex; flex-direction: column; gap: .5rem; }
+.block-grow-card { border: 1px solid var(--edge, #2A3F63); border-left: 4px solid var(--accent, #8CF5A8);
+  border-radius: 6px; padding: .5rem .65rem; background: var(--panel-raised, #1A3052); }
+.block-grow-card h3 { margin: 0 0 .25rem; font-size: .95rem; }
+.block-grow-card p, .block-grow-final, .block-grow-quiet { margin: .2rem 0; font-size: .875rem; }
+.block-grow-note { font-style: italic; }
+.block-grow-grade, .block-grow-k, .block-grow-undated { color: var(--ink-dim, #A7B4C8); }
+.block-grow a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.block-grow details { border-top: 1px solid var(--edge, #2A3F63); padding-top: .4rem; font-size: .875rem; }
+.block-grow summary { cursor: pointer; font-weight: 600; min-height: 32px; display: flex; align-items: center; }
+.block-grow ul { margin: .25rem 0; padding-left: 1.1rem; }
+.block-grow li { margin: .3rem 0; }
+.block-grow-sources { display: block; font-size: .8125rem; }
+.block-grow :focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+@media (max-width: 600px) {
+  .block-grow { left: 8px; right: 8px; bottom: 8px; width: auto; max-height: 46vh; padding: .6rem .7rem; font-size: 14px; }
+  .block-grow-year { font-size: 1.6rem; }
+  .block-grow h2 { font-size: .95rem; }
+  .block-grow-block { font-size: .8rem; }
+  .block-grow-card h3 { font-size: .875rem; }
+  .block-grow-card p { font-size: .8125rem; }
+}
+#nav-block-grow { margin-block: 1rem; }
+#nav-block-grow > summary { cursor: pointer; padding: .75rem; font-weight: 600; }
+.nav-block-grow { padding: 0 .75rem .75rem; }
+.nav-block-grow p { margin: .4rem 0; }
+.nav-block-grow ul { list-style: none; padding: 0; margin: .5rem 0; display: flex; flex-direction: column; gap: .5rem; }
+.nav-block-grow li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem;
+  border: 1px solid var(--edge); border-radius: 6px; padding: .5rem .6rem; }
+.nav-block-grow li span { display: block; font-size: .875em; color: var(--ink-dim); }
+.nav-block-grow button { font: inherit; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--edge);
+  border-radius: 4px; min-height: 44px; padding: .5rem .75rem; cursor: pointer; }
+#nav-block-grow summary:focus-visible, .nav-block-grow :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }

@@ -1,0 +1,61 @@
+== title @4d42f945
+A través de Wolf Point
+
+== premise @8c24aa4b
+Haz un cruce corto entre las partes del asentamiento y descubre por qué importaba la confluencia.
+
+== opening @a0ac2449
+PASEO: A TRAVÉS DE WOLF POINT. Amanece en primavera, y el río viene crecido. Aquí empezó Chicago: la confluencia, donde el brazo norte y el brazo sur se juntan y corren al este hasta el lago como un solo río. Antes de que hubiera calles, aquí había tabernas, y los primeros puentes, y un balsero que además tocaba el violín.
+
+Cruza el río como lo hacía el pueblo: desde la taberna que le dio nombre a Wolf Point, bajando por la orilla oeste más allá del Green Tree, sobre el puente del brazo sur y hasta el Sauganash. Cuatro paradas, nada que comprar, y todo el pueblo de los primeros tiempos a la vista.
+
+== stop the-fork @85b93a86
+Empieza en la orilla oeste, en la taberna que le dio nombre a Wolf Point, en parte de troncos y en parte de armazón de madera. Su letrero lo hizo un oficial del ejército, el teniente Allen, con un pedazo de caja, y tenía pintado un lobo. Si todavía recibe viajeros está en disputa: un relato dice que William Walters la atendió hasta 1836, otro dice que cerró en 1834. Mira al este: los dos brazos se juntan frente a esta orilla y corren al lago como un solo río.
+
+== narrative the-fork @fdb8c4be
+Lee la confluencia antes de cruzarla.
+
+== stop west-bank @5fdf49ef
+Al sur por la orilla hasta el Green Tree, en Lake y West Water, que James Kinzie construyó en 1833 como la primera casa de aquí levantada para servir de hotel, 'llamada así por un roble que estaba muy cerca'. Los antiguos pobladores recordaban que Chester Ingersoll lo atendió de 1834 a 1837. Es el gran sobreviviente entre las tabernas del pueblo: sesenta años después sigue en pie, trasladado a Milwaukee Avenue, 'el recuerdo más antiguo de las primeras tabernas'.
+
+== narrative west-bank @1f8cbf1c
+Mira al este: el lado sur es adonde vas.
+
+== stop the-crossing @3c630744
+Unos pasos al sur, el puente del brazo sur, entre Lake y Randolph. Moses y Kirkland dicen que 'al principio consistía en troncos flotantes atados entre sí'; cuatro antiguos pobladores firmaron que se apoyaba en estribos de troncos y dos caballetes, de unos diez pies de ancho y seis pies sobre el agua, lo bastante alto para que las yuntas pasaran por debajo sobre el hielo. Se pagó por suscripción, $486.20, 'de los cuales los indios de los alrededores aportaron $200'.
+
+== narrative the-crossing @02020f94
+Este es el cruce: por la plataforma, nunca por el agua.
+
+== stop south-side @fedea95c
+Baja del puente y ve al norte hasta Lake y Market: el Sauganash, blanco, de dos pisos, con postigos de madera azul brillante, que el Democrat del 10 de junio de 1835 encontró recién acondicionado. Moses y Kirkland lo llaman 'la hostería más atractiva que poseía la ciudad'. Su posadero, Mark Beaubien, era 'violinista, posadero, comerciante, balsero y patrocinador de carreras de caballos', y en invierno el pueblo corría sus caballos sobre el río congelado que acabas de cruzar.
+
+== narrative south-side @1582f011
+Por la orilla oeste, sobre el puente, al norte hasta esta esquina: ya conoces el camino.
+
+== leg 0 @fff7c06e
+Primero mira los dos brazos, luego camina a lo largo del que vas a cruzar.
+
+== note 0 @9e2eb03b
+Un poco al sur por la orilla oeste, hacia Lake Street.
+
+== leg 1 @42812570
+El brazo sur es el agua que hay entre tú y el lado sur.
+
+== note 1 @231281fd
+Sigue por West Water Street hasta el desembarcadero oeste del puente, entre Lake y Randolph.
+
+== leg 2 @bc77061a
+Llega al lado sur, a la casa más conocida del pueblo.
+
+== note 2 @2c84a428
+Por la plataforma del puente y al norte hasta Lake Street.
+
+== ending crossed @8a8070a5
+Cruzaste entre las partes del pueblo como lo hacía el pueblo, por el puente y no por el agua, desde la esquina de la taberna más antigua hasta la de la más famosa. Vuelve cuando el río se congele, para las carreras.
+
+== keepsake title @b2cf19c9
+Conoce el cruce
+
+== keepsake text @c7578318
+Una nota ficticia de ruta a través del brazo sur, desde la confluencia hasta la esquina del Sauganash.

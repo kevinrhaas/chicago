@@ -7,7 +7,9 @@
      stand-in day and figure layers: people of real dresses stood in rows at known distances on
      a flat ground, so one can read what each tier draws, where, and that the cross-fades
      leave nobody drawn twice or not at all. `?asset=a,b` picks the dresses, `?d=30,60` the
-     distances, `?tier=light` the detail. -->
+     distances, `?tier=light` the detail, `?who=` the carded person each dress row is
+     (their own dress, T-3553), `?season=` theirs and `?scene=1835` the year whose own persons
+     table is read. -->
 <style>html,body{margin:0;height:100%;background:#9fb4c4;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
 <script type="importmap">{"imports":{
   "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
@@ -23,6 +25,9 @@ const assetIds = (q.get('asset') ?? 'mahoney_patrick_1835,flynn_mary_1835_dress_
 const dists = (q.get('d') ?? '32,45,70,100,140,220').split(',').map(Number);
 const tier = q.get('tier') ?? 'full';
 const walking = q.get('walk') === '1';
+// `?who=a,b` (T-3553): the carded person each dress row is, so the crowd wears their own dress
+// from the persons file (in `?season=`), as their whole figure does up close.
+const who = (q.get('who') ?? '').split(',').filter(Boolean);
 window.__crowd = { ready: false, error: null };
 try {
   const renderer = new THREE.WebGLRenderer({ antialias: false });
@@ -40,13 +45,13 @@ try {
   const camera = new THREE.PerspectiveCamera(Number(q.get('fov') ?? 50), innerWidth / innerHeight, 0.1, 3000);
   camera.position.set(0, 1.6, 0);
   camera.lookAt(0, 1.6, -100);
-  const assets = createHumanAssets({ assetBase: new URL('../assets/', location.href) });
+  const assets = createHumanAssets({ assetBase: new URL('../assets/', location.href), sceneId: q.get('scene') });
   // People in a fan before the eye: each distance a column, each dress a row across it.
   const people = [];
   dists.forEach((d, i) => assetIds.forEach((asset, k) => {
     const spread = (k - (assetIds.length - 1) / 2) * Math.max(1.2, d * 0.035);
     const lane = (i - (dists.length - 1) / 2) * Math.max(1.5, d * 0.02);
-    people.push({ person: `p_${i}_${k}`, asset_id: asset, at: { e: spread + lane, n: d, heading_deg: Number(q.get('heading') ?? 180) },
+    people.push({ person: `p_${i}_${k}`, dress_of: who[k] ?? null, asset_id: asset, at: { e: spread + lane, n: d, heading_deg: Number(q.get('heading') ?? 180) },
       activity: walking ? 'walk' : 'stand', to: walking ? { e: spread + lane + 30, n: d } : null, d });
   }));
   // `?n=1500`: a town's worth instead, seeded, in a fan out to 600 m (the CPU measurement).
@@ -62,7 +67,7 @@ try {
         to: walk ? { e: e + 20, n } : null, d });
     }
   }
-  const humans = { assets, actors: [], shown: true, isHeld: () => false };
+  const humans = { assets, actors: [], shown: true, isHeld: () => false, season: q.get('season') ?? 'summer' };
   const days = { outdoors: () => people };
   const crowd = createCrowd({ humans, days, renderer, tier, heightAt: () => 0, assetIds });
   scene.add(crowd.group);

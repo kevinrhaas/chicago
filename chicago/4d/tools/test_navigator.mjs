@@ -16,6 +16,7 @@ import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/na
 import { APPS } from '../renderers/web/js/apps/index.js';
 import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
+import { metFound } from '../renderers/web/js/met-found.js';
 import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS, TAG_PLACES, TAG_HOLDS, normalTagPlace, normalTagHold, addressKey, sameAddress } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -145,6 +146,23 @@ const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
   assert.deepEqual(createWhere({ streets: { status: status('on') } }).at(0, 0), { mode: 'on', place: 'Lake Street' });
   assert.deepEqual(createWhere({ streets: { status: status('ahead') } }).at(0, 0), { mode: 'near', place: 'near Lake Street' });
   assert.equal(createWhere({ streets: { status: () => null } }).at(0, 0), null);
+
+  // T-3684: the 1871 city lists where its named streets meet, and the THEN line says the
+  // intersection, or the street between its cross streets, as the 1871 directory does.
+  {
+    const doc1871 = json('data/context/1871.json');
+    const lines = doc1871.streets.filter((s) => s.name).map((s) => ({ name: s.name, e0: s.a[0], n0: s.a[1], e1: s.b[0], n1: s.b[1] }));
+    const w = createWhere({ lines, junctions: doc1871.junctions });
+    const sm = doc1871.junctions.find((j) => j.includes('State Street') && j.includes('Madison Street'));
+    assert.ok(sm, 'State and Madison is a junction of the 1871 streets');
+    assert.deepEqual(w.at(sm[0] + 6, sm[1] + 8)?.place, 'State and Madison streets');
+    assert.equal(w.at(sm[0] + 0.5, sm[1] + 70)?.place, 'State Street, between Madison and Washington');
+    const cw = doc1871.junctions.find((j) => j.includes('Clark Street') && j.includes('Washington Street'));
+    assert.equal(w.at(cw[0] + 0.5, cw[1] + 60)?.place, 'Clark Street, between Washington and Randolph');
+    assert.ok(!doc1871.streets.some((s) => /reconstructed/i.test(s.name ?? '')), 'no 1871 street is named as a reconstruction');
+    // Kevin's stands at 148 E Wacker Dr, on the river bank by Michigan Avenue.
+    for (const [e, n] of [[1196, 100], [1196, 60]]) assert.match(w.at(e, n)?.place ?? '', /Michigan Avenue/);
+  }
 
   assert.equal(facingWords(264.94), 'facing west');
   assert.equal(facingWords(-90), 'facing west');
@@ -717,10 +735,12 @@ for (const phone of [true, false]) {
   assert(jump && !jump.hidden, 'Jump opens in its own screen');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 08 · JUMP');
   const cards = jump.children[0].children;
-  // T-2655: all three destinations, in the Observatory's order (1812 is a link too).
-  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A'], '1835 and 1812 are links, 1904 (here) is not');
+  // All four built destinations, in the Observatory's order; HERE is not a link.
+  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A', 'A'], '1835, 1812 and 1871 are links, 1904 (here) is not');
   assert.equal(cards[1].getAttribute('aria-current'), 'page');
   assert.equal(cards[0].href, '../1835/');
+  assert.equal(cards[2].href, '../1812/');
+  assert.equal(cards[3].href, '../1871/');
   assert.equal(jump.children[1].href, '../', 'Recall goes back to the Observatory');
   await nav.select('home');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 01 · HOME');
@@ -853,7 +873,7 @@ for (const phone of [true, false]) {
   // the People side pins that household's people, never a household row among the people.
   const dom5 = miniDom();
   const nav5 = createNavigator({ root: dom5.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
-    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie',
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie', scene: { id: '1904' },
       actions: { peopleDirectory: async () => dir, record: () => null } }) });
   await nav5.select('people');
   const list5 = dom5.byId.get('nav-app-people').children[0];
@@ -870,6 +890,21 @@ for (const phone of [true, false]) {
   const pplRows = list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen);
   assert(!pplRows.includes('pa1904_shortall_john_g') && pplRows.every((id) => !id.startsWith('hh_')), 'and they are not listed again under it');
   assert.equal(list5.querySelector('.ppl-rest').textContent, 'Everyone else');
+
+  // T-3673: Met N of M, the Met filter and the badge, from the browser's own list (never a card).
+  const metToggle = list5.querySelector('.ppl-met-toggle');
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'nobody met before any talk');
+  assert.equal(list5.querySelectorAll('.ppl-met-badge').length, 0);
+  metFound.record('1904', 'met', 'pa1904_shortall_john_g');
+  assert.equal(metToggle.textContent, 'Met 1 of 445', 'a talk in town counts, and the screen repaints');
+  assert.equal(pin.querySelectorAll('.ppl-met-badge').length, 1, 'the Met badge on their row');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metToggle.getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen), ['pa1904_shortall_john_g'], 'Met lists only who you met');
+  assert(pin.hidden, 'and drops the pin');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metFound.clearYear('1904').ok, true);
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'Clear 1904 forgets them');
 }
 
 // ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
@@ -1285,7 +1320,7 @@ for (const phone of [true, false]) {
   const went = [];
   const navigation = { field: () => field, player, outlines: [yard, shed, far], drawView: (dest, view) => calls.push(['field', view.eMin]), drawMarker: (dest, x, y) => calls.push(['arrow', Math.round(x), Math.round(y)]), units: 'imperial' };
   const docked = [], opened = [];
-  const ctx = { api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }]]) },
+  const ctx = { scene: { id: '1904' }, api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }], ['far', { sidecar: { name: 'Far House' } }]]) },
     navigator: { level: 1, detent: 'half', dock: () => docked.push(1), open: (l) => opened.push(l) },
     actions: { goTo: (id) => { went.push(id); return true; }, jauntRoute: () => ({ stops: [[0, 0], [20, 10], [40, 0]], at: 1 }), travelRoute: () => [] } };
   mapView.mount(el, ctx);
@@ -1315,6 +1350,21 @@ for (const phone of [true, false]) {
   listeners.get('nav-key nav-map-go|click')();
   assert.deepEqual(went, ['shed'], 'Go travels there');
   assert.deepEqual(docked, [1], 'and on a phone the device steps down so the ride is in view');
+  // T-3673: the places you stood at, outlined, and their count; a shed is not a place.
+  const foundToggle = bar.children[3].children[0];
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
+  assert.equal(foundToggle.attrs['aria-pressed'], 'true', 'shown by default');
+  calls.length = 0;
+  metFound.record('1904', 'found', 'far');
+  assert.equal(foundToggle.textContent, 'Found 1 of 1 places');
+  el._mapApi.setZoom('field');
+  assert(calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'a found place is outlined');
+  calls.length = 0;
+  listeners.get('nav-map-toggle nav-map-found-toggle|click')();
+  assert.equal(foundToggle.attrs['aria-pressed'], 'false');
+  assert(!calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'and the toggle hides the outlines');
+  metFound.clearYear('1904');
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
   el._mapApi.setZoom('field');
   assert.equal(zoomBtn.textContent, 'Close up');
   assert.match(foot.textContent, /east to west/);

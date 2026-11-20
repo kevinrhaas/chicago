@@ -1,0 +1,73 @@
+== title @3d48a9e9
+Un abrigo decente
+
+== premise @c0abe3a2
+Evalúa lo que dos comerciantes de South Water Street anunciaban como vestimenta, y luego determina cómo presentarte a un compromiso social en el Sauganash.
+
+== opening @4470e363
+PASEO: UN ABRIGO DECENTE. Tienes un compromiso social en el Sauganash esta noche y un empleo que comienza mañana, y tu único abrigo sigue descolorido por el polvo del camino. En este asentamiento de frontera eso puede resultar sorprendentemente intrascendente. En un baile de Chicago en 1834, el autor neoyorquino Charles Hoffman se encontró con "una completa mezcla de todos los rangos, edades, profesiones, oficios y ocupaciones", y observó "un par de zapatillas como las de Cenicienta" bailando frente a "un par de toscos zapatones de suela gruesa".
+
+Aun así, preferirías aparentar respetabilidad. South Water Street ofrece ropa fabricada ya hecha y tela medida por yarda. Investiga los anuncios de los comerciantes, vuelve a tu casa de huéspedes para deliberar y determina tu atuendo para esta noche.
+
+== stop ready-made @f33a3a9b
+Comienza a una puerta de Dearborn, en el establecimiento de John Holbrook. El 10 de junio de 1835 anunciaba ropa, botas y zapatos, al por mayor y al por menor, como agente de los fabricantes, con mercancía fresca que llegaba "cada quince o veinte días". Esto ejemplifica la economía comercial emergente de un pueblo en auge: prendas fabricadas en talleres del este y transportadas a través de los Grandes Lagos, que se pueden poner de inmediato. Sin sastre, sin pruebas, sin demora, solo una compra.
+
+== narrative ready-made @18ec7624
+Un abrigo disponible para esta noche.
+
+== stop cloth @d0cc1627
+Una cuadra al oeste, en Clark Street, Harmon, Loomis and Company venden telas al por menor. Su anuncio de invierno enumeraba paños finos, casimires, satinetes, franelas y camelote de pelo de cabra, junto con lona gruesa de Rusia y lienzo, y en junio siguen anunciando telas, al por mayor y al por menor. Una tela superior rinde un abrigo superior, pero la tela sigue siendo apenas una posibilidad: alguien todavía tiene que cortarla y confeccionarla, un proceso que requiere bastante más que una sola tarde.
+
+== narrative cloth @4d448048
+Un abrigo superior, con el tiempo, pero no para esta noche.
+
+== stop dress @8e0b1d67
+Una cuadra más al oeste, a la casa de huéspedes de troncos de la señora Rufus Brown, detrás de la tienda de Peck. La tienda que tiene enfrente fue la primera estructura de madera de dos pisos del pueblo, construida con madera "aserrada de nogales negros" y "traída de Detroit en un barco"; desde entonces el asentamiento ha adquirido un refinamiento considerable. Dispón la decisión sobre la cama que compartes: el compromiso de esta noche requiere pulcritud, el trabajo de mañana requiere resistencia, y una sola prenda tiene que atender ambas obligaciones.
+
+== stop the-call @76a1da4e
+Avanza hasta Lake y Market y el Sauganash, blanco con postigos azul brillante en el recuerdo de Juliette Kinzie, y reparado y recién amueblado este junio. Su propietario, Mark Beaubien, es "el violinista par excellence del pueblo", y cuando toca, recordaba el juez Caton, podía "poner en movimiento cada talón y cada punta del salón". En medio de tanto entusiasmo, nadie va a escrutar tu atuendo por mucho tiempo. Determina qué te vas a poner.
+
+== narrative the-call @0d93b399
+El compromiso es esta noche, independientemente de tu atuendo.
+
+== label the-call made-coat @09f483b6
+Ponte un abrigo ya hecho
+
+== consequence the-call made-coat @db305c37
+Un abrigo sencillo de fábrica, de la variedad que ofrece el anuncio de Holbrook, disponible esta noche.
+
+== label the-call brushed-coat @20ccc248
+Cepilla el abrigo viejo
+
+== consequence the-call brushed-coat @ad6b75bd
+Preséntate respetable con la prenda que ya tienes; la tela para un abrigo de trabajo resistente se puede mandar a confeccionar después.
+
+== leg 0 @e8c82411
+De las prendas de fábrica a los textiles con los que se confeccionan las prendas.
+
+== note 0 @171893d3
+Una cuadra al oeste por South Water Street, de Dearborn a Clark.
+
+== leg 1 @418ee691
+Regresa a tu alojamiento para sopesar las obligaciones en competencia de las dos ocasiones.
+
+== note 1 @113155ad
+Más al oeste hasta LaSalle; la casa de huéspedes está detrás de la tienda de la esquina de Peck.
+
+== leg 2 @f9f60d48
+Llega a la posada del asentamiento, renovada hace poco, para el compromiso.
+
+== note 2 @d8107914
+Al oeste hacia el brazo sur y una cuadra al sur hasta Lake Street, donde el Sauganash ocupa la esquina de Market Street.
+
+== ending ready-tonight @82821b6d
+Asistes al compromiso con un abrigo sencillo de fábrica, y reservas el abrigo de viaje para el empleo de mañana. Para la segunda pieza nadie puede distinguir una prenda de Holbrook de la creación de un sastre de Nueva York, y para la tercera nadie considera que valga la pena notar la diferencia.
+
+== ending brushed @8ffe250e
+Asistes al compromiso cepillado y respetable con el abrigo con el que llegaste, contemplando un corte de paño fino de calidad para más adelante. En un asentamiento de zapatillas y zapatones, donde las distinciones sociales siguen siendo notablemente fluidas, pasas del todo desapercibido.
+
+== keepsake title @8cdf1e25
+A la altura de la ocasión
+
+== keepsake text @dd31f030
+Una nota ficticia que documenta tu atuendo para un compromiso en el Sauganash, y la mercancía que examinaste a lo largo de South Water Street.

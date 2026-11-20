@@ -79,7 +79,7 @@ function counts(row) {
   const total = row.counts.entities;
   return `<div class="src-counts"><span><b>Claims: ${row.counts.claims}</b> — ${figures(c)}</span>` +
     `<span><b>Entities: ${total}</b> — ${figures(e)}</span></div>` +
-    (e ? `<div class="src-bar" aria-label="Entities by strongest confidence: ${e.map((v,i)=>`${v} ${GRADES[i]}`).join(', ')}">${e.map((v,i)=>`<i class="src-g${i}" style="width:${total ? 100*v/total : 0}%"></i>`).join('')}</div>` : '');
+    (e ? `<div class="src-bar" role="img" aria-label="Entities by strongest confidence: ${e.map((v,i)=>`${v} ${GRADES[i]}`).join(', ')}">${e.map((v,i)=>`<i class="src-g${i}" style="width:${total ? 100*v/total : 0}%"></i>`).join('')}</div>` : '');
 }
 function urlLink(url,label) {
   try { const u = new URL(url); if (!['https:','http:'].includes(u.protocol)) return '';return `<a href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${label}</a>`; } catch { return ''; }
