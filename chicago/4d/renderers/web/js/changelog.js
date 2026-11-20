@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3151, ts: '2026-11-20T00:30:38.799Z', date: 'Nov 19, 2026, 6:30 PM CT', title: 'Where and when? now plays in 1835, with three old pictures', kind: 'feature',
+    items: [
+      'In 1835, Home’s Where and when? shows three old pictures of the Green Tree Tavern. Walk to where you think each was drawn from and guess.',
+      'Every reveal says what the picture is, an engraving, a lithograph or a drawing, and when it was made. All three were made long after 1835, and none is called a photograph.',
+      'The 1835 hunt keeps its own daily order, share link and saved progress. The 1904 photo hunt and its links work as before.',
+      '1812 and 1871 have no hunt yet: too few of their pictures were drawn from a spot you can stand on in the town.',
+    ] },
+  { v: 3150, ts: '2026-11-20T00:30:38.799Z', date: 'Nov 19, 2026, 6:30 PM CT', title: 'Watch a block of Prairie Avenue grow, year by year', kind: 'feature',
+    items: [
+      'In 1904, open Map and choose Watch a block grow: the Glessner side of the 1800 block, the Pullman side of the 1700 block or the 1900 block\'s west side.',
+      'A year slider and Play raise you over the block and show only the houses standing by each year, from the year each one\'s records give.',
+      'Each house names its year, how sure the record is and its source as it appears.',
+      'Buildings with no recorded year are pale outlines until 1904, never given a guessed year.',
+      'Leave puts the 1904 town back exactly as it was, and you back where you stood.',
+    ] },
   { v: 3149, ts: '2026-11-20T00:07:54.061Z', date: 'Nov 19, 2026, 6:07 PM CT', title: 'More walks to be read aloud', kind: 'feature',
     items: [
       'Next in line to be read aloud, after the battle and the 1904 story walks: Famous names of Prairie Avenue, Women of Prairie Avenue, Ghosts of Prairie Avenue, Architects of Prairie Avenue, and the Italianate, Romanesque and Second Empire style walks.',
