@@ -731,6 +731,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "1871's Sunday wagons go round their blocks as lay_driven_1871.mjs writes them, on streets their turns fit (T-3690)" \
+  node tools/lay_driven_1871.mjs --check
 step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
   node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
@@ -789,6 +791,10 @@ step "The 1835 town's people, their homes, places of business, doors, days, dres
   python3 tools/town_people_1835.py --check
 step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
   node tools/test_town_people_1835.mjs
+step "The 1871 city's people, their households, cards, days, dress and looks are what town_people_1871.py writes, bounded by the 1870 census (T-3690)" \
+  python3 tools/town_people_1871.py --check
+step "1871's people stand on the context city's walks at their own doors, most out on the Sunday afternoon, and each wagon is led by its carded driver (T-3690)" \
+  node tools/test_town_people_1871.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \

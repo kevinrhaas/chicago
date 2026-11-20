@@ -41,7 +41,7 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 289 026; 296 000, the compressed first-open limit unchanged.
 # T-3654: the 1871 context city's map, survey and directory sources, meeting dev's new Prairie
 # K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
-INDEX_BUDGET = 304_000
+INDEX_BUDGET = 312_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -520,6 +520,11 @@ class Compiler:
         # wardrobe sources produce 631 complete sources and 259 766 raw bytes; 60 598 gzip
         # bytes for the index, inside the same 120 000-byte compressed first-open assertion;
         # another conscious 8 000-byte raw increase (+3.1%), nothing cut.
+        # 312 000 SINCE 2026-11-20 (T-3690): the 1871 town's dress, census and street-picture sources (five
+        # records) merged onto dev's 1871 streets and fire landmarks take the index to
+        # 305 681 raw bytes with every citation whole. Another conscious 8 000-byte raw
+        # increase (70 699 gzip bytes for the index), inside the same 120 000-byte compressed
+        # first-open assertion; nothing cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

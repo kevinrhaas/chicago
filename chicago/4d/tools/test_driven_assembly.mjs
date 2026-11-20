@@ -471,7 +471,7 @@ const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
 assert(!actualScene1904.layers.includes('residents') && actualScene1904.layers.includes('humans'));
 assert.equal(actualPeople1904.people.length, 445); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
-for (const id of ['1812', '1835', '1904', 1812, 1835, 1904]) assert(supportsTownTransport(id));
+for (const id of ['1812', '1835', '1871', '1904', 1812, 1835, 1871, 1904]) assert(supportsTownTransport(id));
 for (const id of ['1880', '1905', null]) assert(!supportsTownTransport(id));
 assert(sceneBindingSource.includes('if (!supportsTownTransport(sceneId)) return null;'), 'Mount shares the same eligibility guard');
 // T-3468 (owner, 2026-11-07): every scene without the 1835 drawer directory (1812 and 1904)

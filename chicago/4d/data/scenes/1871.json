@@ -90,7 +90,8 @@
   "layers": [
     "terrain",
     "water",
-    "context"
+    "context",
+    "humans"
   ],
   "released": false,
   "note": "T-3654: a complete municipal context baseline, within the reconstructed 1869 city boundary. The 1870 Mitchell map and 1869 ward map guide the geography, with explicit reconstructed extensions. Building instances are anonymous period types, differentiated by district, not identified historical properties. The explicit empty structure_ids allowlist prevents broad phases from importing named buildings authored for other years. Each researched 1871 property can later replace context. See data/context/1871/plan.json and docs/LIBERTIES.md L-1871-city-baseline.",

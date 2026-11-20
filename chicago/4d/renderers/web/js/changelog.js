@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3158, ts: '2026-11-20T04:53:38.621Z', date: 'Nov 19, 2026, 10:53 PM CT', title: '2011 Prairie\'s corner turret gets its two-stage slate roof', kind: 'improvement',
+    items: [
+      'The round turret at 2011 Prairie Avenue now has the roof its photograph shows: a flared slate skirt, then a ledge, then a steeper cone up to the finial. Before, it had one plain cone.',
+      'The turret now stands about 1.2 m out from the front, as the 1911 map draws it. Before, it stood 2.15 m out. From the south, the arched front door and the window over it now show beside the turret, as they do in the 1895 Inland Architect photograph.',
+    ] },
   { v: 3157, ts: '2026-11-20T04:17:46.793Z', date: 'Nov 19, 2026, 10:17 PM CT', title: '2013 Prairie\'s front gains its stone frame and its two oval windows', kind: 'improvement',
     items: [
       'The Reid house\'s upper windows now sit inside the stone frame the 1895 plate shows: pilasters between the lights, a sunk panel under each top-floor window and one corniced hood across them all.',
