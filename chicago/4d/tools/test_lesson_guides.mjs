@@ -37,7 +37,7 @@ for (const year of ['1812', '1835', '1904']) {
     assert(seen > 0, `${year}/${group}: a lesson is available`);
   }
 }
-assert.equal(groupCount, 10, 'all currently available year/group combinations; Build log is unavailable');
+assert.equal(groupCount, 12, 'all currently available year/group combinations (1904 gained Work and 1812 Errands with T-3679); Build log is unavailable');
 assert(tellingCount > 150, 'covers the grade variants, not only a few featured jaunts');
 assert.equal(safeSourceURL('javascript:alert(1)'), '');
 assert.equal(safeSourceURL('data:text/html,bad'), '');

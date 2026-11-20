@@ -1,0 +1,115 @@
+== premise
+Be a young runner at Fort Dearborn in the week the soldiers are told to leave, August 1812. Pick who hears the news from you first, and where you are on the last nights before the gate opens.
+
+== opening
+JAUNT: ERRANDS BEFORE THE MARCH. It is Monday, 10 August 1812. You are where the Chicago River meets Lake Michigan. You are thirteen. You live in the little town outside the fort's wooden walls, and you are the fastest runner around. Soldiers, traders and families all send you with their messages. The United States has been at war with Britain since June. Last night a letter came from the general in Detroit.
+
+This morning it will be read out loud. By noon, everyone at the river mouth will need to know what it says. You pick who hears it from you first. You pick where you are on the last nights before the soldiers leave. The people and the places are real. The runner is you.
+
+== stop the-order
+It is the morning of 10 August 1812. You are on the parade, the big open square inside the fort. A letter from General William Hull is read out loud. It says the soldiers must leave the fort, because there is not enough food. They must break their guns and get rid of their gunpowder. The goods in the government's store must be given away. Some will go to the poor people who live here. The officers want to stay and make the fort stronger. But Captain Heald, the fort's leader, says they will obey. You heard it all from the back of the crowd, and you are already sneaking toward the gate.
+
+== narrative the-order
+Across the river, or out to the houses by the fort?
+
+== label the-order kinzies
+Run to the Kinzies'
+
+== consequence the-order kinzies
+The trader who sells to the soldiers should hear it first.
+
+== label the-order agency
+Run to the Agency House
+
+== consequence the-order agency
+The families staying there will want the news right away.
+
+== stop kinzie
+You cross the river and climb the bank to the Kinzie house. It stands on the north side of the river, right across from the fort. John Kinzie is a trader. In January Captain Heald said only Kinzie and his partner could sell things to the soldiers. Lieutenant Helm's wife, Margaret, is Kinzie's stepdaughter, so this news is family news here too. The Kinzies will not walk away with the soldiers. When the day comes, they will leave by boat.
+
+== narrative kinzie
+The trader's house across the river.
+
+== stop agency
+West of the fort stand some log houses that belong to the government. One is a store. Next to it is the Agency House. It is an old log house with a hall down the middle. Since April, families who live outside the fort have moved in here to be safe. They covered the porches with thick boards and cut small holes to look out of. At night, guards keep watch. Captain Heald has also signed up fifteen men from the town to help guard it. Inside the store are shelves of goods that will soon be given away. By the end of the week the shelves will be empty.
+
+== narrative agency
+The boarded-up house west of the fort.
+
+== stop council
+It is the afternoon of 12 August. You are on the open ground west of the fort. The news has spread fast. People have come in from all around, because they heard the goods in the store would be given to them. Their leaders meet Captain Heald here for a big meeting, called a council. Heald promises them the goods. He is the only soldier who comes. His officers stay inside the fort's corner towers and watch from there. From the edge of the crowd you can see the whole meeting, but you can hardly hear a thing. Heald talks about the goods. Nobody has said a word yet about the guns, the gunpowder or the whiskey.
+
+== narrative council
+Help tonight, or watch the road?
+
+== label council night-work
+Help with the night work
+
+== consequence council night-work
+Something has to be carried after dark, by quiet helpers.
+
+== label council watch-road
+Watch the gate
+
+== consequence council watch-road
+Whoever comes next, you will see them first.
+
+== stop covered-way
+It is the evening of 13 August. You are above the fort's north-east corner. All day the store has been giving away its goods: blankets, cloth and paints. Now it is dark, and there is secret work to do. The soldiers carry some of the gunpowder and whiskey to a deep well inside the fort, dug there for water. They throw it all in. They break up the guns and throw them in too. The rest of the whiskey goes out the north gate. The soldiers open the barrels and pour the whiskey into the river. Your job is to carry, and to stay quiet.
+
+== narrative covered-way
+Where the barrels go down to the river.
+
+== stop the-gate
+It is sunset on 14 August, at the fort's main gate. The store is empty now. Captain Heald has given away all its goods, and food the soldiers cannot carry. Then Captain William Wells rides in from Fort Wayne, with about thirty men. Wells is the uncle of Heald's wife, Rebekah. He has come to help them get away. But the gunpowder is already gone. You saw him on the road before anyone at the gate did. Tomorrow at nine in the morning, the gate will open and the soldiers will march away.
+
+== narrative the-gate
+The gate on the last evening.
+
+== leg 0
+Across the water with the news.
+
+== note 0
+Out of the gate and across the river to the Kinzie house.
+
+== leg 1
+Out past the fort walls, as fast as you can run.
+
+== note 1
+Out of the gate and west to the government houses.
+
+== note 2
+Back across the river, and around to the open ground west of the fort.
+
+== note 3
+A few steps north, to the open ground below the corner tower.
+
+== leg 4
+Two days later, after dark.
+
+== note 4
+Around the north side of the fort to its north-east corner.
+
+== leg 5
+Two days later, at sunset.
+
+== note 5
+Around the fort to the main gate on its south side.
+
+== ending strong-grog
+By morning the river will taste like whiskey, and you know why! You took the news to the Kinzie house on the first day. You helped empty the barrels after dark. On Saturday at nine the soldiers will march out, and the Kinzies will go by boat. The fort will leave nothing behind to drink.
+
+== ending news-both-ways
+Your week began with news going out of the fort. It ends with news riding in. The Kinzies heard about the letter from you, and you watched the gate open for Captain Wells. Tonight nobody at the fort is sleeping. Everyone is packing what they can carry. At nine tomorrow the band will play, the gate will open, and the soldiers will march out along the lake.
+
+== ending nothing-left-behind
+You took the news to the Agency House first. After dark you helped make sure the fort would leave no gunpowder and no whiskey behind. The guards on the boarded-up porches will not be needed much longer. On Saturday at nine the soldiers and the town's men march out. The long wait at the river mouth is over.
+
+== ending the-last-sunset
+From the Agency House on the first morning to the gate at the last sunset, you carried the week's news on your own two feet. Captain Wells is inside now. The gates shut behind him for the last time. Tomorrow at nine they will open again. In 1816 the army will come back and build a new fort on this same ground.
+
+== keepsake title
+A Runner's Week
+
+== keepsake text
+A made-up note of one young runner's errands in the week before the soldiers marched out, 15 August 1812. It shows who heard the news first, and where the last nights were spent. No real runner or message is written on it.
