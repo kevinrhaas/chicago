@@ -2700,14 +2700,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2100_calumet_coach_house"
     },
-    "house_2101_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2101_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 250512,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "e97190414ad730c05ed7b0b8c93d15518f37458fa80a0d6a5059b1c3a16aeb85",
+      "bytes": 3642544,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "4c80875e4fa7af89ea242714242f03c0140408d5555b4391027d51593866469e",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_2101_prairie"
     },
     "house_2101_prairie_coach_house__draft_1904.glb": {
