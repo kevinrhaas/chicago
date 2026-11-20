@@ -18133,7 +18133,8 @@ for (const [label, viewport, touch] of [
     // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
     // device opens and closes by keyboard alone: N opens it with focus inside and visible,
     // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
-    // one, Escape closes it and leaves focus, visibly, on the grip.
+    // one, Escape closes it and leaves focus, visibly, on the grip (a phone) or the open
+    // app's rail key (a desktop).
     await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
     const visibleFocus = () => page.evaluate(() => {
       const el = document.activeElement;
@@ -18174,7 +18175,9 @@ for (const [label, viewport, touch] of [
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
       && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
-      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      // T-3671 (WCAG 2.4.3) hands focus on close to the rail key of the app that was open,
+      // Home's here, on a desktop whose rail stays; a phone's grip is still the handle (T-3703).
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-tab-home') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------

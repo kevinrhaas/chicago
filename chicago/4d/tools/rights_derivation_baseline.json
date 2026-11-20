@@ -5176,6 +5176,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "sherman_house_2100_prairie/as_mapped_1904/form.side_belts": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2100_sherman_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "sherman_house_2100_prairie/as_mapped_1904/form.stair_landing_depth_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -5214,6 +5222,14 @@
         "chicagology_2100_sherman_photo"
       ],
       "sole_support": false,
+      "confidence": "inferred"
+    },
+    "sherman_house_2100_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2100_sherman_photo"
+      ],
+      "sole_support": true,
       "confidence": "inferred"
     },
     "sherman_house_2100_prairie/as_mapped_1904/form.wall_head": {
