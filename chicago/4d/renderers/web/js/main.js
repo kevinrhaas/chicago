@@ -32,7 +32,7 @@ import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
-import { huntSpotSafe } from './photo-hunt.js';
+import { huntSet, huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 // T-3672: a teacher's route, read from its link once and opened after the landing.
 import { parseRouteLink, routeSession, routeCatalog, activeRoute } from './teacher-route.js';
@@ -7287,7 +7287,7 @@ async function boot() {
         // Its optional visit validates the actual stand before starting ordinary travel.
         photoHunt: {
           load: async () => {
-            if (String(YEAR) !== '1904') return null;
+            if (!huntSet(YEAR)) return null;
             const doc = await ensurePictures();
             if (doc) destinations.addPhotos(doc);
             else picturesPromise = null; // The hunt's retry may read a restored connection.
