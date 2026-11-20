@@ -57,7 +57,8 @@ def main():
     city=recipe.City(plan)
     collision=collections.defaultdict(list);overlaps=[];unsupported=[];forbidden=[];mapped_intrusions=[]
     for b in doc["buildings"]:
-        u,v=recipe.uv(b["e"],b["n"]);w,d=b["width_m"],b["depth_m"]
+        # T-3686: a front on a north-south street is turned a quarter.
+        u,v=recipe.uv(b["e"],b["n"]);w,d=recipe.extent_uv(b)
         corners=[recipe.en(u+du,v+dv) for du,dv in [(-w/2,-d/2),(w/2,-d/2),(w/2,d/2),(-w/2,d/2),(0,0)]]
         if min(height(*p) for p in corners)<b["base_m"]-.015:unsupported.append(b["id"])
         if any(not city.mapped_index.clear(p,1.98) for p in corners):mapped_intrusions.append(b["id"])
