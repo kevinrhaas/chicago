@@ -1863,7 +1863,9 @@ class Bay:
             self._column(world, v["column"], y0, cv)
         if v.get("face_gable"):
             self._face_gable(world, v["face_gable"], y_e, ov)
-        if not v.get("capped") and not self.raked:
+        if self.raked:
+            self._raked_top(world, y_top)
+        elif not v.get("capped"):
             self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
             self._back(world, float(v["back_from_m"]), y_top, y_e)
@@ -2242,6 +2244,15 @@ class Bay:
                                   flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta.setdefault("brackets", {})["modillions"] = self.meta.get("brackets", {}).get("modillions", 0) + n
 
+    def _raked_top(self, world, y_top):
+        """T-3562: over raked cheeks the bay is closed at its wall top between them, under the
+        crown's soffit (k01), from its host's plane to its face: beside it the slopes close it."""
+        ch = self.v["storeys"][-1]["cheeks"]
+        f = self.runs[ch["front_run"]]
+        a, b = f.s_start(0.0) + ch["width_m"], f.s_end(0.0) - ch["width_m"]
+        (xa, za), (xb, zb) = [(f.A[0] + s * f.e[0], f.A[1] + s * f.e[1]) for s in (a, b)]
+        world.face("roof", [(xa, y_top, 0.0), (xb, y_top, 0.0), (xb, y_top, zb), (xa, y_top, za)], Y)
+
     def _raked_holes(self, run, i, lo, hi, ch):
         """T-3562: over a raked cheek's shoulder the storey's wall stands only between the
         cheeks (the attic's stone front); beside it, and on every other run, it stops on the
@@ -2250,10 +2261,9 @@ class Bay:
             return []
         y = lo + ch["shoulder"]["height_m"]
         if i != ch["front_run"]:
-            return [(0.0, run.L, y, hi + 0.001, (), True)]
+            return [(0.0, run.L, y, hi, (), True)]
         w = ch["width_m"]
-        return [(-0.001, run.s_start(0.0) + w, y, hi + 0.001, (), True),
-                (run.s_end(0.0) - w, run.L + 0.001, y, hi + 0.001, (), True)]
+        return [(0.0, run.s_start(0.0) + w, y, hi, (), True), (run.s_end(0.0) - w, run.L, y, hi, (), True)]
 
     def _cheeks(self, flat, run, i, lo, hi, ch, windows, capped):
         """T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
@@ -2306,9 +2316,18 @@ class Bay:
                 self.meta["shoulders"] = self.meta.get("shoulders", 0) + 2
             if rk:
                 s0, s1 = run.s_start(0.0), run.s_end(0.0)
-                bk = rk["back_m"]
-                prism(flat, "cheek", [(s0, lo), (a0, lo), (a0, hi)], -pr, bk)
-                prism(flat, "cheek", [(b1, lo), (s1, lo), (b1, hi)], -pr, bk)
+                bk, dy = rk["back_m"], hi - lo
+                # each slope as a prism with no underside: the shoulder's cap is its foot in front,
+                # the bay's own wall and the cut roof's floor behind (k01 shallow_bay_cutters)
+                for tri, edge, (ea, eb), hx in (([(s0, lo), (a0, lo), (a0, hi)], a0, (s0, a0), 1.0),
+                                                ([(b1, lo), (s1, lo), (b1, hi)], b1, (s1, b1), -1.0)):
+                    flat.plane("cheek", tri, -pr)
+                    flat.plane("cheek", tri[::-1], bk, (0.0, 0.0, -1.0))
+                    ln = math.hypot(dy, eb - ea)
+                    flat.face("cheek", [flat.P(ea, lo, -pr), flat.P(eb, hi, -pr), flat.P(eb, hi, bk),
+                                        flat.P(ea, lo, bk)], (-hx * dy / ln, abs(eb - ea) / ln, 0.0))
+                    flat.face("cheek", [flat.P(edge, lo, -pr), flat.P(edge, hi, -pr), flat.P(edge, hi, bk),
+                                        flat.P(edge, lo, bk)], (hx, 0.0, 0.0))
                 self.meta["raked_cheeks"] = self.meta.get("raked_cheeks", 0) + 2
             for sa, sb, edge, hx in () if rk else ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
                 flat.plane("cheek", rect(sa, sb, lo, hi), -pr)

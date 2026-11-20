@@ -5106,9 +5106,10 @@ class Assembly:
         ch = v["storeys"][-1].get("cheeks") or {}
         if not ch.get("raked"):
             return None
-        y0 = 0.0 if v.get("base", "grade") == "grade" else float(v["base"])
-        return float(ch["width_m"]), y0 + sum(float(st["height_m"]) for st in v["storeys"][:-1]) \
-            + float(ch["shoulder"]["height_m"])
+        y = 0.0 if v.get("base", "grade") == "grade" else float(v["base"])
+        for st in v["storeys"][:-1]:   # left to right, as K08 lays its levels (T-2363)
+            y += float(st["height_m"])
+        return float(ch["width_m"]), y + float(ch["shoulder"]["height_m"])
 
     def shallow_bay_cutters(self, k5, yf):
         """T-3047: in front of a shallow pavilion the mansard's eave box, gutter and covering's
