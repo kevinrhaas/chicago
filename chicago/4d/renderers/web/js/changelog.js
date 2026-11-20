@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3153, ts: '2026-11-20T01:43:03.170Z', date: 'Nov 19, 2026, 7:43 PM CT', title: 'The Court House, Chamber of Commerce and Sherman House stand in 1871', kind: 'feature',
+    items: [
+      'The Court House rises in the middle of its square: the smoke-darkened 1853 house under its domed cupola, between the two pale stone wings of 1870.',
+      'The Chamber of Commerce stands at Washington and LaSalle with its triple-arched entrance, clock crest and slate mansard, built from Carbutt\'s stereograph.',
+      'The Sherman House fills the corner of Randolph and Clark, six storeys of stone over its arcaded shops, from Carbutt\'s view across the square.',
+      'Each building\'s card tells who built it, what it was for and the hour the fire took it on 9 October 1871, with its sources.',
+      'Each one is set beside the photograph it was built from; what still differs is listed openly in its match record.',
+    ] },
   { v: 3152, ts: '2026-11-20T01:07:47.816Z', date: 'Nov 19, 2026, 7:07 PM CT', title: 'Make your case on four more outings', kind: 'feature',
     items: [
       'After The Battle of Fort Dearborn, weigh two officers\' distances against the tree the Kinzies pointed out.',

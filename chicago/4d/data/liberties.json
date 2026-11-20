@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1195,
+  "count": 1196,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -78088,6 +78088,44 @@
       ],
       "work_refs": [
         "T-3688"
+      ]
+    },
+    {
+      "id": "L-play-a-part-3679",
+      "title": "Play a part: the young people the visitor plays in three choice-driven jaunts, and what they choose",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "three jaunts in which the visitor plays a young person of the town, each with two decision points that change the route and four endings. In `errands-before-the-march` (1812, Errands) the visitor is a runner of the settlement outside the pickets of Fort Dearborn, aged thirteen, in the week the evacuation order is read: from the parade on the morning of 10 August either across the river to the Kinzie house or out to the Agency House and the factor's store, then to the council on the esplanade on the 12th, then either to the covered way on the evening of the 13th, where the ammunition and liquor are destroyed, or to the main gate at sunset on the 14th, when William Wells rides in. In `apprentice-at-the-democrat` (1835, Work) the visitor is the Chicago Democrat's new apprentice, aged thirteen, carrying the number of Wednesday 1 July 1835 round the town: from the paper's old corner at South Water and Clark either west to the Sauganash or east to the rival Chicago American's office, then to Newberry & Dole's warehouse, then either to the Dearborn Street drawbridge to watch for a sail or to the Tremont House with the last copies. In `ice-for-prairie-avenue` (1904, Work) the visitor is an iceman's helper, aged thirteen, on a Monday morning in October 1904: from the corner of Prairie Avenue and Eighteenth Street either to the Glessners' front door (the family's) or round by the alley to the courtyard gates, then to the service entrance under the great arch, then either to the stable's carriage doorway to wait for the kitchen's order or across the avenue to W. W. Kimball's house. The same walks retold for grades 3-5, 9-10 and 11-12 and for adults (`<id>-grades-<band>`, `<id>-adults`, the research notes on jaunt grade versions) carry the same stops, choices, endings, facts and this liberty in other words."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-19, on item 9 (\"Play a part\") of the 2026-11-17 classroom gap list: *\"work the rest of that list for anything that does not require a server\"*; and, the same day, that the set should cover 1812 as well as 1835 and 1904, showing only the build-up to the evacuation of 15 August 1812. **What is read, not invented.** Every fact a stop tells is a claim already cited by a published jaunt and copied into these three word for word: for 1812, Hull's order of 29 July, Heald's journal and report, Quaife and Wau-Bun on the order read on parade, the Kinzie house and its sutlership, the Agency House and the militia, the council, the factory goods, the destruction of the ammunition and liquor, Wells's arrival, the march and the burning, as published in The Battle of Fort Dearborn and Fort Dearborn, Building by Building; for 1835, the Democrat's own notices (the call for an apprentice of 20 May, the colophon placing the office over Jones & King's, the cholera paragraph of 24 June, the auction notice whose first sale falls on 1 July, Newberry & Dole's card in the number of 1 July), the American's elixir advertisement of 27 June, Wau-Bun, Andreas and Moses and Kirkland on the Sauganash, the drawbridge, the Tremont and the harbour cut; for 1904, The Story of a House and the HABS pages and drawings on the house, its doors and its stable, the house museum's posts on the servants, the cold closet's half-door and Mattie Williamson, its family page on the Reading Class, and the district marker, a photograph and a biography for the Kimball house. **What is invented.** The young person: their age, home, duties, round, errands, bundle or wagon, and every word put to them; the iceman, his wagon and horse; the order of each route and the two choices at each fork; the kitchen's order and the watering of the horse; the four endings of each walk, which are what the young person brings back, not a historical outcome; the keepsakes (A Runner's Week, An Apprentice's Round, The Ice Round); the reading and action seconds; the 1812 runner's calls at the Kinzie house and the government houses at eleven on 10 August (an inferred hour). No runner of 1812 is recorded; no child of a named family is played or met, and no choice puts anyone in danger. The 1812 walk ends on the eve of the march: the fighting of 15 August is not told or staged, and no unnamed person is used, so no reconstructed name is added. Who answered the Democrat's notice is not recorded, and no apprentice is named. No ice delivery on a day in 1904 is asserted, and where along the service side the half-door opens is not stated, so no stop claims its spot. The Reading Class met every Monday from October to May (attested); its carriages at the door on this morning are not. No named person is met, speaks or is quoted except in their own printed words; no interior is entered. The 1835 walk stays on 1 July and stages nothing after it; the 1904 walk is set in October, when the family and their one cook are in Chicago, so the temporary summer cook of 1900 has no part in it."
+        },
+        {
+          "label": "Bounds",
+          "text": "the approved 14 August 1812, 1 July 1835 and 1904 scenes and their structure, anchor and people records; the claims listed above, as published in The Battle of Fort Dearborn, Fort Dearborn, Building by Building, News Before Breakfast, Along the Working Harbor, Work on the Waterfront, A Decent Coat, Across Wolf Point, An Evening Stroll, Freight for the Store, The Glessner Household, Prairie Avenue orientation, Monday at the Fortress, the architects' walk and Famous Names. No blow, shot or blood; nothing staged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "these are interpretive choices and cannot be upgraded into historical claims; revise them openly. An indenture, an office account or a memoir naming the Democrat's apprentice of 1835, an ice company's route book for Prairie Avenue, or a muster or memoir naming a boy or girl who carried the post's messages in August 1812, would let a stop name what is now invented."
+        },
+        {
+          "label": "Applies to",
+          "text": "the errands before the march data, the apprentice at the democrat data, the ice for prairie avenue data and their grade-band and adults versions."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3679)."
+        }
+      ],
+      "work_refs": [
+        "T-3679"
       ]
     },
     {
