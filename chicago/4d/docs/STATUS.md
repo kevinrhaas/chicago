@@ -1,3 +1,72 @@
+## T-3678 — Four more Make your case mysteries (19 November 2026)
+
+The Gossip comparison's hard-wired check is now a case table
+(`renderers/web/js/jaunt-investigation-cases.js`): each row names a jaunt (tellings match
+by `version_of`), a year, and readings that are sets of the jaunt's compiled evidence ids
+with their stop, grade and source ids. Strings are per case in `strings/investigation.js`.
+The Gossip case's model and notebook entry are byte-identical for all five tellings before
+and after the refactor. Four new cases, in the four student tellings of each jaunt:
+*The Battle of Fort Dearborn* (where the attack began: Heald's journal and Helm against the
+Kinzies' tree and the stand's Inferred reasoning), *Chicago's First Murder* (Le Mai or
+Lalime as buyer of du Sable's post: the family's version against the deed the Reader
+reports), *A Schoolday Errand* (Andreas against an unfootnoted 2018 history and the
+Inferred placement) and *The Bronze at Eighteenth Street* (the 1893 statue against
+Karamanski's essay). The 18+ tellings are left out of these cases. Evidence and reasons:
+`docs/RESEARCH/investigations-3678.md`. The existing test now drives every case, telling
+and refusal; its isolation row was re-measured (no writes).
+
+## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
+
+Jump passes the walker's ground, facing, season and hour (never a date, person or
+building) to the far year. That page checks the spot with `momentFits`; if a structure or
+water now holds it, `nearestOpen` searches rings out to 24 m inside coverage; if the town
+does not reach it, the year's Welcome stays and a line says why. Shared links never move.
+Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
+new Jump-landing check, which accepts either outcome and requires the page to say which.
+
+The understanding check's questions (where / who told us / how sure) were checked over all
+240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
+the claim, a wrong teller never also tells it, every quoted line is one the stop said and shares its words with the record behind it (238 tellings quizzed; Lalime and 1612 for ages 8-10 are retold too loosely and get none), the quoted line never names who told it, stable order on repaint
+(`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
+reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
+technology beyond native buttons, groups and status lines.
+
+## T-3677 — Where and when? in 1835; 1812 and 1871 left out (19 November 2026)
+
+Owner request, 19 November 2026 (the 17 November list, item 7, "anything that does not
+require a server"). Home's **Where and when?** now has one set per year that holds at least
+three pictures whose solved camera stands on safe ground in that year's world, all read from
+the existing catalogue. Each year keeps its own `year=` link, daily order and saved record;
+1904's link, seed and record are unchanged.
+
+- **1835: three pictures**, all of the Green Tree Tavern: Andreas 1884 (wood engraving),
+  Kurz & Allison 1893 (chromolithograph, panel 11) and Trowbridge 1902 (a drawing). A shorter
+  set rather than a padded one. Every other 1835 camera is `diagnostic_only` (no historical
+  observer position may be offered); Gifford's Tremont drawing is also rights-unknown.
+- **1812: left out.** Seven 1812 pictures have a solved camera, but only two stand on safe
+  ground in the 1812 town: Eastman's 1854 steel engraving after Schoolcraft's 1820 sketch and
+  the Chicago Magazine's 1857 Kinzie house. Probed in the published town with the hunt's own
+  bounds, water, router and house-barrier checks: Lossing 1869 and Sarony (Currey 1912) are
+  drawn from the river (water); Currey's 1912 Hardscrabble is drawn from across the South
+  Branch, outside the modelled ground and in water; Cram 1893, the Teich postcard and
+  Gemmell's lithograph have eyes 18 to 66 m up, not places anyone stood. Two is under the
+  three a set needs. A new ground camera solved on another public-domain 1812 picture would
+  open it.
+- **1871: left out.** The picture catalogue holds no picture of the 1871 scene.
+
+Every 1835 picture is a print or drawing made after 1835; each reveal says what it is ("a
+print, an engraving", "a drawing, printed in a book") and when it was made, and the hunt never
+calls one a photograph. Cameras whose eye is more than 10 m up are refused.
+
+The three Green Tree pictures were link-only on their cards. Each now has a held library
+record (`prairie_1904_v1/research/images/stream-early-photo-hunt-references.json`) whose
+`reference_views` name the camera it is the exact copy of; `compile_pictures.py` joins a
+camera to that copy only while the camera's own photo file hashes to the copy's
+`original_sha256`, so no camera file (or match record) changed. Their image files were already
+in kevinrhaas/chicago-images (served, but cited by no record) and are reused unchanged.
+`prairie_1904_v1/tools/test_evidence_review.py` fails on dev before this change (184 ≠ 181
+Glessner records); it is unrelated and not run by `check.sh`.
+
 ## T-3675 — Chromebook class set (19 November 2026)
 
 Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
@@ -41,6 +110,10 @@ controls rule, the loading-screen words, the "Prepare for class" words and the c
 limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
 other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
 a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
+## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
+
+Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
 
 ## T-3663 — Gossip source comparison checkpoint (19 November 2026)
 
@@ -276,7 +349,7 @@ Implementation on `steward/t3656-browser-classroom`, based on development commit
 
 Validation checkpoint: all four focused logic suites pass under Node 22; reflection
 coverage spans 240 available tellings and five bands, and lesson coverage spans 192
-school tellings and 10 available year/group combinations. Existing Navigator,
+school tellings and 10 available year/group combinations (12 since T-3679 gave 1904 a Work jaunt and 1812 an Errands jaunt). Existing Navigator,
 person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
 Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
 save/edit/reload/export/print/errors, lesson selection and source links, request races,

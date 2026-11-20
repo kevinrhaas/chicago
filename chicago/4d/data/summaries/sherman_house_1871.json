@@ -1,0 +1,110 @@
+{
+  "id": "sherman_house_1871",
+  "scene": "1871",
+  "name": "The Sherman House",
+  "address": "Northwest corner of Clark and Randolph Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Later hotels, then offices, stood on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "It burned on 9 October 1871. The corner's later buildings are not researched here."
+  },
+  "built": {
+    "year": 1861,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Hotel",
+  "summary": "One of the city's two great hotels, six storeys of pale Lemont stone looking over the Court House square. Over three hundred guests slept here the night of the fire.",
+  "key": [
+    {
+      "label": "Built by",
+      "value": "Francis C. Sherman",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Size",
+      "value": "180 feet on Clark, 150 on Randolph",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Cost",
+      "value": "A little over $200,000",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Around midnight men tore down its awnings to keep the sparks from catching.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "text": "The night clerk woke every guest and sent the sick away in carriages.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "text": "Shops with striped awnings fill the arches along both streets.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12371_sherman_house"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1861-07-08",
+      "text": "The new hotel opens on the site of the old City Hotel.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-08",
+      "text": "Men tear down the awnings as the fire nears.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "Flames break from a third-storey window, and the hotel burns.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

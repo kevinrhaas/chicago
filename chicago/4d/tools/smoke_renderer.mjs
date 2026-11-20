@@ -22247,7 +22247,9 @@ for (const [label, viewport, touch] of [
       });
       const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));
       await p14.waitForURL(new RegExp(`/${to}/`), { timeout: 30_000 });
-      await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 240_000, polling: 500 });
+      // T-3669: a Jump lands on the ground you stood on when the far year has it, straight
+      // into the town ('world'); where it does not, the year's own Welcome stays ('welcome').
+      await p14.waitForFunction(() => ['welcome', 'world'].includes(window.__chicago4d?.welcome?.state), null, { timeout: 240_000, polling: 500 });
       // The Welcome shows at the flip's midpoint and the journey reads `landed` half a flip
       // (260 ms of timers) later; on a runner whose frames take seconds the read fell between
       // the two (T-2649's local run: "journey":"landing"). Wait for it; the check still asks.
@@ -22258,6 +22260,21 @@ for (const [label, viewport, touch] of [
         !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
         && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
         JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+      // T-3669: and the far page says what it did with the ground: kept (perhaps a few metres
+      // off a house), or outside this year's town with its Welcome left in place.
+      await p14.waitForFunction(() => !!window.__chicago4d?.jumpLanding, null, { timeout: 60_000, polling: 250 }).catch(() => {});
+      const jumpLanding = await p14.evaluate(() => ({ landing: window.__chicago4d.jumpLanding ?? null,
+        query: Object.fromEntries(new URLSearchParams(location.search)), state: window.__chicago4d.welcome?.state ?? null,
+        at: window.__chicago4d.walker?.state ? { e: Math.round(window.__chicago4d.walker.state.e * 100) / 100, n: Math.round(window.__chicago4d.walker.state.n * 100) / 100 } : null }));
+      {
+        const L = jumpLanding.landing, q = jumpLanding.query;
+        const kept = L?.kept === true && jumpLanding.state === 'world' && L.moved <= 24
+          && Math.hypot(jumpLanding.at.e - Number(q.e), jumpLanding.at.n - Number(q.n)) <= L.moved + 1.5;
+        const outside = L?.outside === true && jumpLanding.state === 'welcome';
+        check(`${label}: Jump carries the ground you stood on to the far year, or says this year's town does not reach it (T-3669)`,
+          q.via === 'jump' && !!q.from && q.from !== to && (kept || outside),
+          JSON.stringify(jumpLanding));
+      }
       // >>> T-2649: walking in at the far year, the choices made before the Jump are in force.
       await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
       await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 120_000, polling: 250 }).catch(() => {});

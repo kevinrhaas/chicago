@@ -258,6 +258,11 @@ step "A VR headset walks the town through WebXR: hidden without one, booted as a
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
 
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
@@ -410,12 +415,14 @@ step "A teacher's route travels whole in one bounded link or file, degrades with
   node tools/test_teacher_route.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
-step "Gossip investigations preserve cited uncertainty and explicit bounded notebook saves (T-3663)" \
+step "Make your case: every case table row uses its telling's cited claims, refuses gaps, saves only on request (T-3663, T-3678)" \
   node tools/test_jaunt_investigation.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
   node tools/test_lesson_guides.mjs
 step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
   node tools/test_photo_hunt.mjs
+step "Watch a block grow shows each year only the buildings recorded standing by then, never guesses an undated one, and Leave restores the town exactly (T-3676)" \
+  node tools/check_block_grow.mjs
 step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
   node tools/test_viewport_accessibility.mjs
 step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
@@ -724,6 +731,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "1871's Sunday wagons go round their blocks as lay_driven_1871.mjs writes them, on streets their turns fit (T-3690)" \
+  node tools/lay_driven_1871.mjs --check
 step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
   node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
@@ -782,6 +791,10 @@ step "The 1835 town's people, their homes, places of business, doors, days, dres
   python3 tools/town_people_1835.py --check
 step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
   node tools/test_town_people_1835.mjs
+step "The 1871 city's people, their households, cards, days, dress and looks are what town_people_1871.py writes, bounded by the 1870 census (T-3690)" \
+  python3 tools/town_people_1871.py --check
+step "1871's people stand on the context city's walks at their own doors, most out on the Sunday afternoon, and each wagon is led by its carded driver (T-3690)" \
+  node tools/test_town_people_1871.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
@@ -1011,6 +1024,8 @@ step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
   python3 generators/lodge_camp_emit.py --check
 step "the monuments are the bytes their records build (T-3567)" \
   python3 generators/monument_emit.py --check
+step "the 1871 fire landmarks are the bytes their records build (T-3688)" \
+  python3 generators/landmark_1871_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -1877,6 +1892,13 @@ step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365
 # light's lintel. Held on the committed record; each part refused out of its range.
 step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
   python3 tools/test_k01_window_hoods.py
+
+# T-3626. The stone frame of a K01 named-window front (2013 Prairie, the Inland Architect's 1895
+# plate): pilasters carrying one corniced hood over the top storey's lights, a sunk panel under
+# each of them, a lunette over the hood and two oval lights in moulded rings, every part proud of
+# the brick and clear of every light. Held on the committed record; each part refused out of range.
+step "a K01 named-window front takes a stone frame of pilasters, panels, a hood and oval lights (T-3626)" \
+  python3 tools/test_k01_front_frame.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on

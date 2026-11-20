@@ -175,7 +175,7 @@ function findClip(clips, want) {
  * it; the parsed source is disposed when the last actor wearing it lets it go.
  */
 /** T-3556: the scenes whose townspeople's variation rows are a table of their own. */
-export const SCENE_PERSONS = Object.freeze(['1835']);
+export const SCENE_PERSONS = Object.freeze(['1835', '1871']);
 
 export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch, sceneId = null } = {}) {
   // T-3453: every figure carries the same hair, skin and eye pictures (published once under

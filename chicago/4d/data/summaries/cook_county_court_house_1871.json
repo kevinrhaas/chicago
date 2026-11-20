@@ -1,0 +1,122 @@
+{
+  "id": "cook_county_court_house_1871",
+  "scene": "1871",
+  "name": "The Court House and City Hall",
+  "address": "Court House square: Clark, Randolph, LaSalle and Washington Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "The City Hall and County Building stands on the square",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Burned on the night of 8-9 October 1871 (Andreas). That the city and county's later building holds the square today is general knowledge, not researched here."
+  },
+  "built": {
+    "year": 1853,
+    "grade": "attested",
+    "sources": [
+      "andreas_1884_v1",
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Court house and city hall",
+  "summary": "The city and the county shared this marble building from 1853. In 1870 two big stone wings and another storey were added. Its cupola held the fire watch and the city's great bell.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "John M. Van Osdel (1853)",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ]
+    },
+    {
+      "label": "Stone",
+      "value": "Lockport marble; Lemont stone wings",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Enlarged",
+      "value": "Two wings and a storey, 1869-1870",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "A watchman in the cupola sighted the fire and helped give the alarm on 8 October.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "text": "At 2:05 in the morning the great bell fell through the burning building.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "text": "The cupola with the clock rises over the middle of the old building.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12325_court_house"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1853",
+      "text": "The city and county finish their joint court house.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1870",
+      "text": "Two wings and an added storey are completed.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-08",
+      "text": "Around midnight the cupola catches fire.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The bell falls at 2:05 a.m. and the building burns out.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

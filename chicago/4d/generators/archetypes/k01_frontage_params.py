@@ -2662,6 +2662,7 @@ BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone
 #: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
 PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
+CUT_DOOR_PROUD_M = 0.15    # T-3562: the most a pavilion the door is cut through (cut_by_door) stands proud
 EAVE_FASCIA_M = 0.20       # the K05 eave's fascia on a K01 house: its soffit stands this far under the eaves line
 BRACKETED_CORNICE = "k10.cornice.bracketed_timber"
 
@@ -3055,6 +3056,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
             c_lo = -(r - 0.3) if e.get("corner") is not None or across is not None else 0.0
+            # T-3616: and a round front tower whose cap is built in two stages (2011's, its bow
+            # 1.3 m proud on the 1911 sheet on a ring 4 m across, and its cap's axis behind the
+            # drum's in both pictures): its cap stands whole over the house's roof behind it
+            if not square and across is None and (e.get("roof") or {}).get("upper") is not None:
+                c_lo = -(r - 1.0)
             # T-3318: and a square tower's, its front standing out of the wall by what its sheet
             # draws (1936's 1.3 m on a 3.8 m square), so long as 0.3 m of its cheeks stays clear
             if square:
@@ -3116,6 +3122,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-3616: a round tower's cap in two stages (2011 Prairie's turret in the Chicagology
+        # photograph): a skirt from the eaves up `from_m`, a ledge `out_m` out over its top and
+        # `ledge_m` deep, and a steeper upper cone at its own `pitch` (k08_bays._two_stage_cone)
+        if v["roof"].get("upper") is not None:
+            up = v["roof"]["upper"]
+            if v["kind"] != "tower" or v["roof"].get("kind") != "cone" or v.get("cap_whole") \
+                    or not isinstance(up, dict) or set(up) != {"from_m", "out_m", "ledge_m", "pitch"} \
+                    or not 0.3 <= float(up["from_m"]) <= 3.0 or not 0.05 <= float(up["out_m"]) <= 0.6 \
+                    or not 0.05 <= float(up["ledge_m"]) <= 0.4 or not 0.5 <= float(up["pitch"]) <= 4.0:
+                raise ParamError(f"bays: {e['id']}'s roof.upper is a round tower's cone's upper stage: "
+                                 f"from_m 0.3-3 m, out_m 0.05-0.6 m, ledge_m 0.05-0.4 m, pitch 0.5-4, not {up}")
         # T-1881: a pavilion's mansard slated as the house's own lower faces (1729's: each
         # forward section carries the main roof's slate round its own curb in every photograph)
         # T-1890: and a tower's or corner turret's cone (1801's two, slated as the mansard in the
@@ -4208,6 +4225,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 if e.get("cut_by_entrance") is True and v["kind"] == "projection" and (
                         (a < j0 < b < o.s_m and b - j0 <= 0.5) or (o.s_m < a < j1 < b and j1 - a <= 0.5)):
                     continue
+                # T-3562: or a SHALLOW pavilion a flat-headed door is cut through at its edge
+                # (1815's: Chicagology's square-on print draws the pavilion's dentil band and
+                # quoins ending at s 4.0, over the door's south half, and the oblique no cheek
+                # beside the door): one jamb inside the pavilion, the other past its edge, the
+                # pavilion no more than CUT_DOOR_PROUD_M proud, so the door reads in one plane
+                if e.get("cut_by_door") is True and v["kind"] == "projection" \
+                        and e["wall"] == "k01.wall.street_front" and not e.get("cut_by_entrance") \
+                        and float((e.get("plan") or {}).get("proud_m", 1.0)) <= CUT_DOOR_PROUD_M + 1e-9 \
+                        and ((a < j0 < b < j1) or (j0 < a < j1 < b)):
+                    continue
                 # T-1881: or a forward block that CARRIES the entrance on its face (1729's: the
                 # 1911 sheet draws the Prairie front's north part 2.95 m before the rest, its stoop
                 # before it, and the photographs put the door behind the portico on that part):
@@ -4343,6 +4370,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
                     **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
+                    # T-3562: a shallow pavilion the flat-headed door is cut through at its edge
+                    **({"cut_by_door": True} if e.get("cut_by_door") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
                     **({"entrance": True} if "door_hole" in v else {}),
@@ -4763,6 +4792,8 @@ def _street_dress(sfw, openings, floors, width) -> dict:
     hoods = _street_hoods(sfw.get("hoods"), sfw["windows"], openings, floors, width)
     if hoods:
         out["hoods"] = hoods
+    if sfw.get("frame"):
+        out["frame"] = _street_frame(sfw["frame"], openings, floors, width)
     cbs = []
     for j, cb in enumerate(sfw.get("carved_bands") or ()):
         # T-2915: a carved belt on a named-window front (1812's photograph: a carved interlace
@@ -4834,6 +4865,110 @@ def _street_dress(sfw, openings, floors, width) -> dict:
         # each is a belt course of the front's, laid with the rest, but a panel (T-3365)
         out["belts"] = tuple(sorted(out.get("belts", ()) + tuple(
             (b["bed_m"], b["top_m"]) for b in cbs if not b.get("panel"))))
+    return out
+
+
+def _street_frame(fr, openings, floors, width) -> dict:
+    """T-3626: the stone frame a named-window front draws round its lights and on its plain
+    wall (2013 Prairie's, off the Inland Architect's 1895 plate: pilasters up both sides of
+    the three-light storeys and between their lights, a sunk panel under each upper light, a
+    corniced hood over the top storey's outer lights and an oval light in a moulded ring on
+    the wall either side of the frame). Every part is optional and every one is laid proud of
+    the wall's face, clear of every street opening:
+
+      pilasters  [{s_m: [from, to], from_m, to_m, proud_m}] — a flat dressed strip up the wall
+      panels     [{s_m: [from, to], bed_m, top_m, border_m, proud_m}] — a raised border round a
+                 field sunk to the wall's face
+      hoods      [{s_m: [from, to], bed_m, top_m, proud_m, corona: {height_m, proud_m,
+                 overhang_m}}] — a frieze from bed_m up under a corona `height_m` deep at its
+                 top, the corona `overhang_m` past both ends and `proud_m` out
+      ovals      [{s_m, y_m, width_m, height_m, ring_m, proud_m}] — an oval light: a moulded
+                 ring `ring_m` wide round a dark field, the light's grille and glass behind it
+
+    Every height is the front's, every s along it."""
+    known = {"pilasters", "panels", "hoods", "ovals"}
+    if not isinstance(fr, dict) or not fr or set(fr) - known:
+        raise ParamError(f"street_front_windows.frame takes any of {sorted(known)}")
+    front = [o for o in openings if o.wall == "k01.wall.street_front"]
+
+    def clear(what, s0, s1, y0, y1):
+        if not 0.0 <= s0 < s1 <= width + 1e-6:
+            raise ParamError(f"{what} [{s0}, {s1}] is not inside the {width} m front")
+        if not floors[0] < y0 < y1:
+            raise ParamError(f"{what} [{y0}, {y1}] does not stand over the ground floor")
+        for o in front:
+            if o.s_m - o.width_m / 2 < s1 - 1e-6 and o.s_m + o.width_m / 2 > s0 + 1e-6 \
+                    and o.sill_m < y1 - 1e-6 and o.head_m > y0 + 1e-6:
+                raise ParamError(f"{what} meets {o.component} at s {o.s_m}")
+
+    out = {}
+    pil = []
+    for j, q in enumerate(fr.get("pilasters") or ()):
+        what = f"street_front_windows.frame.pilasters[{j}]"
+        if set(q) != {"s_m", "from_m", "to_m", "proud_m"}:
+            raise ParamError(f"{what} takes s_m [from, to], from_m, to_m and proud_m")
+        (s0, s1), y0, y1, d = (float(x) for x in q["s_m"]), float(q["from_m"]), float(q["to_m"]), float(q["proud_m"])
+        if not 0.08 <= s1 - s0 <= 0.6 or not 0.01 <= d <= 0.15:
+            raise ParamError(f"{what}: a strip 0.08-0.6 m wide and 0.01-0.15 m proud")
+        clear(what, s0, s1, y0, y1)
+        pil.append({"s_m": (s0, s1), "from_m": y0, "to_m": y1, "proud_m": d})
+    if pil:
+        out["pilasters"] = tuple(pil)
+    pan = []
+    for j, q in enumerate(fr.get("panels") or ()):
+        what = f"street_front_windows.frame.panels[{j}]"
+        if set(q) != {"s_m", "bed_m", "top_m", "border_m", "proud_m"}:
+            raise ParamError(f"{what} takes s_m [from, to], bed_m, top_m, border_m and proud_m")
+        (s0, s1), y0, y1 = (float(x) for x in q["s_m"]), float(q["bed_m"]), float(q["top_m"])
+        bd, d = float(q["border_m"]), float(q["proud_m"])
+        if not 0.03 <= bd <= 0.2 or not 0.01 <= d <= 0.08 or min(s1 - s0, y1 - y0) < 3 * bd:
+            raise ParamError(f"{what}: a border 0.03-0.2 m wide and 0.01-0.08 m proud round a field at least "
+                             f"its width across")
+        clear(what, s0, s1, y0, y1)
+        pan.append({"s_m": (s0, s1), "bed_m": y0, "top_m": y1, "border_m": bd, "proud_m": d})
+    if pan:
+        out["panels"] = tuple(pan)
+    hds = []
+    for j, q in enumerate(fr.get("hoods") or ()):
+        what = f"street_front_windows.frame.hoods[{j}]"
+        if set(q) != {"s_m", "bed_m", "top_m", "proud_m", "corona"} \
+                or set(q["corona"]) != {"height_m", "proud_m", "overhang_m"}:
+            raise ParamError(f"{what} takes s_m [from, to], bed_m, top_m, proud_m and corona {{height_m, "
+                             f"proud_m, overhang_m}}")
+        (s0, s1), y0, y1, d = (float(x) for x in q["s_m"]), float(q["bed_m"]), float(q["top_m"]), float(q["proud_m"])
+        c = {k: float(v) for k, v in q["corona"].items()}
+        if not 0.1 <= y1 - y0 <= 0.6 or not 0.03 <= d <= 0.2 or not 0.04 <= c["height_m"] < y1 - y0 \
+                or not d < c["proud_m"] <= 0.35 or not 0.0 <= c["overhang_m"] <= 0.2:
+            raise ParamError(f"{what}: a hood 0.1-0.6 m deep and 0.03-0.2 m proud, its corona at least 0.04 m "
+                             f"and less than the hood deep, further out than the frieze (at most 0.35 m) and at "
+                             f"most 0.2 m past its ends")
+        clear(what, s0 - c["overhang_m"], s1 + c["overhang_m"], y0, y1)
+        hds.append({"s_m": (s0, s1), "bed_m": y0, "top_m": y1, "proud_m": d, "corona": c})
+    if hds:
+        out["hoods"] = tuple(hds)
+    ovs = []
+    for j, q in enumerate(fr.get("ovals") or ()):
+        what = f"street_front_windows.frame.ovals[{j}]"
+        if set(q) != {"s_m", "y_m", "width_m", "height_m", "ring_m", "proud_m"}:
+            raise ParamError(f"{what} takes s_m, y_m, width_m, height_m, ring_m and proud_m")
+        s, y, w, h, rg, d = (float(q[k]) for k in ("s_m", "y_m", "width_m", "height_m", "ring_m", "proud_m"))
+        if not 0.2 <= w <= 1.2 or not 0.3 <= h <= 1.6 or not 0.04 <= rg <= min(w, h) / 4 or not 0.01 <= d <= 0.1:
+            raise ParamError(f"{what}: 0.2-1.2 m across, 0.3-1.6 m tall, its ring 0.04 m up to a quarter of "
+                             f"either and 0.01-0.1 m proud")
+        clear(what, s - w / 2, s + w / 2, y - h / 2, y + h / 2)
+        ovs.append({"s_m": s, "y_m": y, "width_m": w, "height_m": h, "ring_m": rg, "proud_m": d})
+    if ovs:
+        out["ovals"] = tuple(ovs)
+    rects = [(*q["s_m"], q["from_m"], q["to_m"]) for q in pil] + [(*q["s_m"], q["bed_m"], q["top_m"]) for q in pan] \
+        + [(q["s_m"][0] - q["corona"]["overhang_m"], q["s_m"][1] + q["corona"]["overhang_m"], q["bed_m"], q["top_m"])
+           for q in hds] \
+        + [(q["s_m"] - q["width_m"] / 2, q["s_m"] + q["width_m"] / 2, q["y_m"] - q["height_m"] / 2,
+            q["y_m"] + q["height_m"] / 2) for q in ovs]
+    for a in range(len(rects)):   # the parts abut (a pilaster under a hood) but none lies in another
+        for b in range(a + 1, len(rects)):
+            ra, rb = rects[a], rects[b]
+            if ra[0] < rb[1] - 1e-6 and rb[0] < ra[1] - 1e-6 and ra[2] < rb[3] - 1e-6 and rb[2] < ra[3] - 1e-6:
+                raise ParamError(f"street_front_windows.frame: two of its parts overlap ({ra} and {rb})")
     return out
 
 
@@ -6796,12 +6931,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not val("stone_front") or sfo or val("front_bays_by_storey") or val("street_front_round_heads"):
             raise ParamError("street_front_windows names every window of a K02 stone front, and takes "
                              "no street_front_openings, front_bays_by_storey or street_front_round_heads")
-        if not {"windows", "base_top_m", "belts", "surrounds", "carved_bands", "corner_stone", "hoods"} >= set(sfw) \
+        if not {"windows", "base_top_m", "belts", "surrounds", "carved_bands", "corner_stone", "hoods",
+                "frame"} >= set(sfw) \
                 >= {"windows", "base_top_m"} \
                 or not sfw["windows"]:
             raise ParamError("street_front_windows takes windows: [{component, storey, s_m, width_m, sill_m, "
                              "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it "
-                             "(and, T-2753, belts and surrounds; T-2915, carved_bands; T-3365, corner_stone and hoods)")
+                             "(and, T-2753, belts and surrounds; T-2915, carved_bands; T-3365, corner_stone and hoods; "
+                             "T-3626, frame)")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
     # T-2960: or segmental-headed (`head`), under K09's cornice hood on its consoles (`hood`)
     # in place of the arch band and its key block

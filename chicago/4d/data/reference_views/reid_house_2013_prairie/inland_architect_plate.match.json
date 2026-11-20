@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d",
+  "glb_sha256": "185772022af471fae1318c689e0de307dfb415311d76d82ae29869bc6beda52f",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d"
+      "glb_sha256": "185772022af471fae1318c689e0de307dfb415311d76d82ae29869bc6beda52f"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
     }
   ],
-  "group_sha256": "76aac937ecd2d46ce865ae39cac282a494b06310945d8601d6c81594bd24a2e9",
+  "group_sha256": "7637f60ec5c375b9f4802a19623552839a526bf53dff4e3caf52445a2874e7c3",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -86,7 +86,7 @@
     {
       "what": "the upper storeys' three lights each, a broad one between two narrow ones, and the third storey's broad light carried up under a round arch",
       "status": "fixed",
-      "how": "T-3625: named street sash at 2.36, 3.7 and 4.97 m on both floors, the third's broad one K06's round-headed fanlight sash to 12.6 m"
+      "how": "T-3625: named street sash at 2.36, 3.7 and 4.97 m on both floors, the third's broad one K06's round-headed fanlight sash to 12.6 m; T-3626 re-reads the third's broad light as a square light under the hood and a lunette over it (below)"
     },
     {
       "what": "the belt under the second floor's sills, the cornice over the whole front and the balustrade over it",
@@ -100,13 +100,28 @@
     },
     {
       "what": "the two oval lights in the upper wall, at the frame's two sides about 7.3 m up (x 340-370 and 575-600 px)",
-      "status": "open",
-      "how": "not cut: K01 cuts no oval in a plain wall (L-k01-2013-reid-3625); T-3626"
+      "status": "fixed",
+      "how": "T-3626: two oval lights 0.75 by 1.2 m over their moulded stone rings at 0.83 and 6.54 m, 7.3 m up (street_front_windows.frame.ovals), a dark field in each ring for the grilled light, no hole cut (L-k01-2013-reid-3626); the render's rings at x 343-370 and 572-605 px, y 620-705 and 590-670, against the plate's 340-370 and 565-602"
     },
     {
       "what": "the frame round the three-light storeys: pilasters at 1.85 and 5.27 m from the second floor's belt to the frieze, sunk panels between the two floors' lights and a corniced hood over each storey's lights",
+      "status": "fixed",
+      "how": "T-3626: street_front_windows.frame: a stone pilaster up each side of the frame and one in each pier between its lights, 5.95-11.45 m; a raised border round a sunk panel under each third-storey light, 8.4-9.55 m; one corniced hood across the whole frame at 11.45-11.8 m, on the pilasters. The render's frame edges at x 393 and 470 px against the plate's 385-400 and about 470, its hood's foot at y 375 px at the north end against the plate's about 380"
+    },
+    {
+      "what": "the third storey's broad light: a tall square-headed light under the frame's hood, its head at the hood, and a round-headed lunette over the hood in its own moulded arch (x 445-495 px, y 300-345)",
+      "status": "fixed",
+      "how": "T-3626: the one round-headed light T-3625 built 9.7-12.6 m is now the two the plate draws: a broad square light 1.2 m wide, 9.7-11.45 m, and a round-headed light 0.9 m wide, 11.9-12.6 m, over the hood; the top storey's narrow lights cut to 1.6 m (heads 11.3 m), under the pilasters' capitals as the plate has them. The lunette's arch moulding is K06's own (no separate carved arch)"
+    },
+    {
+      "what": "the pilasters' carved capitals under the hood, and the small carved roundels in the narrow panels",
       "status": "open",
-      "how": "not built (L-k01-2013-reid-3625); T-3626"
+      "how": "the pilasters are plain dressed strips to the hood's bed; their capitals (about 0.3 m) and the panels' roundels are carving K01's frame does not cut (L-k01-2013-reid-3626); the split piece with the frieze"
+    },
+    {
+      "what": "the carved border up the front's south edge, from the frieze down past the second storey (x 600-640 px, y 250-600), its foot on a carved bracket",
+      "status": "open",
+      "how": "not built; the T-3625 record did not list it; the split piece with the frieze"
     },
     {
       "what": "the entablature's frieze of garlands and wreaths and the dentils under the cornice's corona (x 300-615 px, y 160-335)",

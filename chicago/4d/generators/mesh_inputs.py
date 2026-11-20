@@ -87,7 +87,8 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
                "prairie_draft": "draft_emit.py",  # T-2329: the district draft
                "haystack": "haystack_emit.py",  # T-2510: Lee's Place's stacks
                "lodge_camp": "lodge_camp_emit.py",  # T-3342: the Potawatomi camp of 1812
-               "monument": "monument_emit.py"}  # T-3567: the Fort Dearborn monument of 1893
+               "monument": "monument_emit.py",  # T-3567: the Fort Dearborn monument of 1893
+               "landmark_1871": "landmark_1871_emit.py"}  # T-3688: the 1871 fire landmarks
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
@@ -317,6 +318,10 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
         # its prose and variants do not, so only `parts` is hashed
         k05 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
         doc["k05_parts"] = hashlib.sha256(json.dumps(k05["parts"], sort_keys=True).encode()).hexdigest()
+    if arch == "landmark_1871":
+        # T-3688: a landmark embeds the K02 stone, K03 brick and K04 roof maps it names
+        from archetypes import landmark_1871
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in landmark_1871.texture_files()}
     if arch == "monument":
         # T-3583: the figures' bodies are the people rigs' meshes and skins, read as data
         from archetypes import monument_figures

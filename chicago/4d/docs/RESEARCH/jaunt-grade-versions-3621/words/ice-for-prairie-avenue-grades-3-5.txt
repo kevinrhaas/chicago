@@ -1,0 +1,115 @@
+== premise
+Be the iceman's young helper on a Monday morning in October 1904. Find the right way in at 1800 Prairie Avenue, where the family has one door and the ice has another. Then wait for the kitchen, or run ahead.
+
+== opening
+JAUNT: ICE FOR PRAIRIE AVENUE. It is a Monday morning in October 1904. You are thirteen, and you ride on the back of an ice wagon down Prairie Avenue. The iceman lifts the heavy blocks. The small jobs are yours. Today your job is to find the way in at some of the biggest houses in Chicago. Here every family has its own door, and the ice has a different one.
+
+The first house is the stone one at the corner of Eighteenth Street. Find the right door before the ice starts to drip! The houses and the people in them are real. The iceman's helper is you.
+
+== stop the-corner
+This is the corner of Prairie Avenue and Eighteenth Street. John Glessner built his house here. Across the street is the house of Mr. Kimball, and across the corner is Mr. Pullman's mansion. The outside walls are made of granite, a very hard stone. Inside the walls is hollow brick, so there is no place for a mouse to live! People walking by talk about the skinny windows along Eighteenth Street. They do not know that the house has big windows on the other side, facing its yard. From out here it looks like a castle with no back door.
+
+== narrative the-corner
+Which way in for the ice?
+
+== label the-corner front
+Knock at the front door
+
+== consequence the-corner front
+It is the fanciest door on the corner.
+
+== label the-corner alley
+Go around by the alley
+
+== consequence the-corner alley
+A big house must have a back way somewhere.
+
+== stop front-door
+This door on Prairie Avenue is for the family. A famous builder, Henry Hobson Richardson, planned this house. It was the last house he ever planned. The Glessners have lived here since 1 December 1887. Today is Monday. Every Monday from October to May, Mrs. Glessner's Reading Class meets in the library for two hours. The ladies sew while a reader reads to them. Soon their carriages will stop at this door. They do not want to meet a dripping block of ice! Next to the door, a tunnel leads under the house to the yard. Back you go, and around.
+
+== narrative front-door
+This door is for the family, not for you.
+
+== stop the-gates
+Around the back, off the alley, are the gates to the yard. On 1 December 1887 the Glessners moved all their things into the house through these gates. They did it so quietly that the neighbors did not even know they were moving! That night they lit the first fire with fire carried from their old house. Above the yard, nearly sixty doves live in little houses. Their eggs go to the family's table. But even here, the ice does not go in. The door for deliveries is around on Eighteenth Street.
+
+== narrative the-gates
+This is the back way in, but not for ice.
+
+== stop the-arch
+Under the great stone arch on Eighteenth Street is the door for the people who work in the house. It even has its own address, 35 Eighteenth Street. A small hallway goes from here to the kitchen. The kitchen window is right inside the arch. The ice never comes inside. It goes through a little half-door into a cold room called the cold closet. In the kitchen, a board with bells shows which room is calling for help. The workers eat their own dinner at about three o'clock. This house has one cook. Since 1892 she has been Mattie Williamson.
+
+== narrative the-arch
+Wait for the kitchen, or run ahead?
+
+== label the-arch wait
+Wait for the kitchen
+
+== consequence the-arch wait
+You will learn how much ice to bring next time. The wagon waits at the stable doors.
+
+== label the-arch run
+Run ahead
+
+== consequence the-arch run
+You will find the Kimballs' back way before the wagon gets there.
+
+== stop the-stable
+The wagon waits by the stable's big door on Eighteenth Street. The iceman's horse can get a drink here. The stable has six stalls for horses, and room for six carriages too. It is all built of shiny white brick. The furnace that heats the house is underneath, so the dirty coal and ashes stay away from the house. Nobody wrote down who drives for the Glessners now. Their driver of twenty-four years left in 1902. In two years the horses will be gone, and cars will take their place.
+
+== narrative the-stable
+This is where the wagon waits.
+
+== stop kimball
+Across Prairie Avenue stands Mr. Kimball's house. It was built in 1890 and looks like a castle in France. It has a very steep roof made of slate and a round tower with a pointed top. W. W. Kimball made pianos. He started his business in Chicago in 1857 with only four pianos. By 1881 his own factory was making about one hundred pianos and organs every week! A house this fancy has its own back way too. Finding it is your job.
+
+== narrative kimball
+This is the next house on your route.
+
+== leg 0
+The fanciest door on the corner, then.
+
+== note 0
+Walk a few steps south along Prairie Avenue to the front door.
+
+== leg 1
+Every big house has a back way, if you can find it.
+
+== note 1
+Walk west along Eighteenth Street past the stable. Turn into the alley to find the gates.
+
+== leg 2
+Hurry around the corner before the ice drips any more.
+
+== note 2
+Walk back to the corner, then west along Eighteenth Street to the big arch.
+
+== note 3
+Walk out of the alley and east along Eighteenth Street to the big arch.
+
+== note 4
+Walk a little way west along Eighteenth Street to the stable door.
+
+== leg 5
+Run across the street!
+
+== note 5
+Walk east to the corner and across Prairie Avenue.
+
+== ending a-regular
+You used the back way first. You took the kitchen's order, and the horse got a drink at the stable. The iceman says you will do just fine. Next Monday you will go around by the alley without being told. Soon the kitchen will know your face at the half-door.
+
+== ending ahead-of-the-wagon
+You found the Glessners' back way all by yourself. Now you are across Prairie Avenue before the wagon, looking for the Kimballs' back door. The iceman will not say so, but he is pleased. Every house on this street has a door for the family and a way in for everything else. You are learning them one alley at a time.
+
+== ending round-the-long-way
+You learned the hard way that the big front door is not for ice. But you learned it before the Reading Class arrived! The kitchen's order is in your pocket, and the horse has had a drink. Next Monday you will go around by Eighteenth Street first.
+
+== ending two-lessons
+Two lessons before ten o'clock. The front door is for the family, and a wagon waits for nobody. Now you are across Prairie Avenue, looking for the Kimballs' back way, while the iceman whistles for you. Tomorrow the route starts again, and you will know one more door.
+
+== keepsake title
+The Ice Round
+
+== keepsake text
+A made-up card of one morning's ice route on Prairie Avenue in October 1904: which door you tried first, and where you went next. No real delivery, order or helper is written on it.
