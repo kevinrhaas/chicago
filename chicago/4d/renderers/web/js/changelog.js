@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3164, ts: '2026-11-20T08:02:47.548Z', date: 'Nov 20, 2026, 2:02 AM CT', title: '2101 Prairie, the 21st Street corner house, is built', kind: 'feature',
+    items: [
+      '2101 Prairie, on the corner of 21st Street, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a two-and-a-half-storey brick house 22 m deep, two painted frame bays along 21st Street, a two-storey frame bay on its south side and a long brick range behind. No picture of it is known, so the red brick front, hooded windows, bracketed cornice, slate roof with its dormer and the stoop are a careful best guess, and the house\'s card says so.',
+    ] },
   { v: 3163, ts: '2026-11-20T07:23:16.681Z', date: 'Nov 20, 2026, 1:23 AM CT', title: 'Who Started the Fire? Weigh the case at the O\'Leary barn', kind: 'feature',
     items: [
       'A new 1871 case story in eight stops around 137 DeKoven Street, from the first flames to the City Council\'s verdict of 1997.',
