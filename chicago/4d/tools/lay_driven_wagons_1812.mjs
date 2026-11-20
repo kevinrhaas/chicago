@@ -41,6 +41,12 @@ const VEHICLE = {
   team_half_spacing_m: 0.65, horse_offset_m: [0, 0, 3.4987],
   // He walks off the near (left, +x) horse's shoulder, by its head.
   driver_local_m: [1.3, 0, 4.4],
+  // T-3557: no one rides the wagon but a visitor who climbs up: they sit on the bed boards
+  // (farm-box-near.glb CartBody planks, top 0.955 m across x ±0.3 m, z -1.17 to 1.18 m),
+  // on the centre line forward of the middle, behind the front board (top 1.35 m at z 1.07 m).
+  passenger_local_m: [0, 0.955, 0.4],
+  passenger_eye_m: 0.78,
+  passenger_basis: 'Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).',
   envelope_local_xz_m: [-1.21, -1.86, 1.75, 5.1],
   envelope_basis: 'Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.',
 };
@@ -48,6 +54,8 @@ const VEHICLE = {
 const loop = {
   id: 'fort_wagon_loop_1812',
   name: 'Fort wagon going round the outbuildings',
+  // T-3557: the ride bar's short name (a phone cuts the long one).
+  ride_name: 'Fort wagon',
   person_id: 'mills_elias',
   replace_human_instance: 'hi_mills_elias_1812',
   route: { kind: 'rounded_block', bounds_enu_m: [1078, 85, 1198, 147], corner_radius_m: 18, clockwise: false },
@@ -62,6 +70,7 @@ const loop = {
 const haul = {
   id: 'shore_road_wagon_haul_1812',
   name: "Fort wagon on the shore road to Lee's place",
+  ride_name: 'Shore-road wagon',
   person_id: 'moffett_william',
   replace_human_instance: 'hi_moffett_william_1812',
   route: {
@@ -91,7 +100,7 @@ export function buildRows() {
     });
     return {
       ...VEHICLE,
-      id: spec.id, name: spec.name, scene: '1812', driver_mode: 'on_foot',
+      id: spec.id, name: spec.name, ride_name: spec.ride_name, scene: '1812', driver_mode: 'on_foot',
       route: spec.route, stops, initial_distance_m: spec.initial_distance_m,
       // His hours (hi_*_1812 behaviour.hours, human-duties.js): out 5:30 to 21:00; the wagon is put up between.
       hours: [5.5, 21],

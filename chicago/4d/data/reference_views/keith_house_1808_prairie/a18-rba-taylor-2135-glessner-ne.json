@@ -12,7 +12,7 @@
   ],
   "focal_px": 2301.6831823661023,
   "eye": [
-    57.73768939847942,
+    74.436689,
     51.3260725710555,
     1.7
   ],
@@ -39,6 +39,6 @@
     20,
     40
   ],
-  "solve": "T-1883: this is a reproduction of the Taylor construction-era photograph. SIFT/RANSAC registration to taylor-2135-ne: 6000/6000 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 0.00px coordinate RMS. The original Glessner control fit has 1.57px RMS in the 1600-pixel display; this is a coordinate translation to Keith, not an independent survey. Homography [[1.0, 5.574022090492963e-17, -3.0894905663370725e-14], [1.7348510914451762e-17, 1.0, 1.8110367168164332e-15], [1.867576899598173e-20, 1.0733254395374171e-19, 1.0]]. Monochrome: colour not shown.",
+  "solve": "T-1883: this is a reproduction of the Taylor construction-era photograph. SIFT/RANSAC registration to taylor-2135-ne: 6000/6000 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 0.00px coordinate RMS. The original Glessner control fit has 1.57px RMS in the 1600-pixel display; this is a coordinate translation to Keith, not an independent survey. Homography [[1.0, 5.574022090492963e-17, -3.0894905663370725e-14], [1.7348510914451762e-17, 1.0, 1.8110367168164332e-15], [1.867576899598173e-20, 1.0733254395374171e-19, 1.0]]. Monochrome: colour not shown. T-3564: the eye's u is moved +16.699 m with the footprint frame, whose origin (the SW corner) went back that far when the house was deepened to its 1911 rear; the front, and so the camera's place in the world, did not move.",
   "source_id": "taylor_2135_glessner_exterior_1887_1889"
 }

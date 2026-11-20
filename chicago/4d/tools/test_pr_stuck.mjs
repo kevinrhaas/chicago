@@ -648,6 +648,14 @@ const unstable = (over = {}) => ({
   check('the gate still triggers on pushes to dev and main only (T-1288)',
         /push:\s*\n\s*branches: \[dev, main\]/.test(y),
         'an unfiltered push trigger double-gates every open PR');
+  // 2026-11-12: a superseded run must not hold runners a live PR head needs. PR
+  // runs cancel per PR number; dev/main runs only drop their stale pending ones.
+  const cc = (y.match(/^concurrency:\s*\n\s+group:\s*(.+)\n\s+cancel-in-progress:\s*(.+)$/m) || []);
+  check('…and its concurrency group is per PR number, else per ref',
+        /pull_request\.number/.test(cc[1] || '') && /github\.ref/.test(cc[1] || ''),
+        cc[1] || 'no concurrency group found');
+  check('…cancelling in progress only for pull requests, so dev always gets a verdict',
+        (cc[2] || '').trim() === "${{ github.event_name == 'pull_request' }}", cc[2] || 'none');
 }
 
 /* ------------------------------------------------------------------ T-1573

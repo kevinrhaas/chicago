@@ -1,0 +1,61 @@
+== premise
+Cross the town's first drawbridge to the North Side. See what stood on the far bank: a brickyard, the first house built for a school, and a brick hotel going up. There is nothing to count or carry.
+
+== opening
+JAUNT: OVER THE DRAW TO THE NORTH SIDE. It is an autumn afternoon. Most of the town's stores are on the south bank of the river. But the North Side is where the rich families are going to live. By 1836, a history book says, most of the town's rich and important families lived there. The new Lake House hotel would be their favorite place to meet.
+
+Cross the town's first drawbridge and watch the North Side being built. You will see a brickyard, the first house ever built for a school, and a brick hotel going up.
+
+== stop the-draw
+Start at the end of Dearborn Street, at the town's first drawbridge. A ship builder named Nelson Norton built it in 1834. It was about three hundred feet long and sixteen feet wide. Its middle opened up so ships could pass through. When a sailing ship comes up the river, the bridge opens and everyone waits. Cross to the north bank.
+
+== narrative the-draw
+This is the way across the river.
+
+== stop the-brickyard
+Get off the bridge and walk a short way west along the bank. A history book puts the town's first brickyard here, in the spring of 1833. Henry Lampman was the town's first brick maker. The first brick building outside the fort went up that year. It stood next to where the Lake House is going up now. One drying shed stands for the whole brickyard.
+
+== narrative the-brickyard
+This is where the town's bricks began.
+
+== stop the-school-house
+Walk a few steps on, just east of Clark Street. A history book says a school house was built here in 1833. It was the first house built just for a school in Chicago. In 1835 John Watkins taught the North Side's public school here. But Watkins himself did not remember this building. That can happen in a town that changes so fast. His first class, in 1832, met in a tiny log house with twelve students.
+
+== narrative the-school-house
+A school house on the river bank.
+
+== stop the-lake-house
+Walk east along the bank to Rush Street and the Lake House. A history book tells what it will be like when it is done. It will be brick, three stories tall with a basement, and it will open in the fall of 1836. It was meant only for the richest guests. Fancy parties will be held there. For now it is just walls and wooden frames for the builders. Choose how to end your walk.
+
+== narrative the-lake-house
+A hotel going up, and a choice of where to stop.
+
+== label the-lake-house end-here
+End at the Lake House site
+
+== consequence the-lake-house end-here
+Finish on the North Side, at the corner of Rush Street.
+
+== label the-lake-house back-over
+Back over the draw
+
+== consequence the-lake-house back-over
+Walk west along the bank and back over the Dearborn Street bridge to where you started.
+
+== leg 0
+Cross the river to the North Side.
+
+== leg 1
+Walk from the brickyard to the school house.
+
+== leg 2
+Walk along the bank to the building going up.
+
+== ending on-the-north-side
+You end your walk on the North Side, at the Lake House by Rush Street. You crossed the drawbridge and saw a brickyard, a school house and the town's grandest hotel going up. In a year this will be the fanciest place to live in Chicago.
+
+== ending back-on-south-water
+You walk back west along the bank and over the Dearborn Street bridge to South Water Street, where your walk began. Behind you, the North Side is filling in, one brick at a time.
+
+== keepsake text
+A made-up note about crossing the Dearborn Street drawbridge to a brickyard, a school house and a hotel being built on the far bank.

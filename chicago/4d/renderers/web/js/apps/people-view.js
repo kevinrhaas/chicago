@@ -26,10 +26,14 @@
  * The pure half (households, search) is people-directory.js.
  */
 import { personModel, renderPersonCard } from '../person-card.js';
+import { readingTabs } from '../reading-level.js';
 import { formerResidentsBlock } from './former-residents.js';
 import {
   directoryModel, search, householdOf, householdAt, householdCount, placeIn, workOf, yearsWords, away,
 } from '../people-directory.js';
+import { metFound } from '../met-found.js';
+import { metFoundRow, dayWords } from '../met-found-view.js';
+import { t } from '../strings/index.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -79,6 +83,24 @@ export async function mount(root, ctx = {}) {
   const st = state = { root, ctx, dir, model, seg: 'households', shown: PAGE, stack: [], listTop: 0 };
   const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
   st.sceneYear = sceneYear;
+  // T-3673: who you met here, this year: a Met filter with its count, a badge on their rows.
+  st.year = String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? sceneYear ?? '').slice(0, 4);
+  st.metOnly = false;
+  st.met = metFound.year(st.year).met;
+  st.metRow = metFoundRow(doc, { year: st.year, cls: 'ppl-met', toggleCls: 'nav-segment ppl-met-toggle',
+    text: () => t('metfound.filter', { n: metCount(st), total: st.model.people.length }),
+    title: t('metfound.filter.title'), pressed: () => st.metOnly,
+    onToggle: () => { st.metOnly = !st.metOnly; if (st.metOnly) st.seg = 'people'; st.shown = PAGE; drawResults(st); } });
+  st.offMet = metFound.subscribe(() => {
+    if (state !== st) return;
+    st.met = metFound.year(st.year).met;
+    if (!st.list.hidden) drawResults(st);
+    // A greeting can open the card a beat before the talk is counted: say it once it is.
+    const top = st.stack[st.stack.length - 1];
+    const keys = top?.kind === 'person' && isMet(top.id) ? st.card.querySelector('.ppl-keys') : null;
+    if (keys && !keys.querySelector('.ppl-met-note')) keys.append(metNote(doc, top.id));
+    st.metRow.paint();
+  });
 
   // The list: search, switch, status, the household in view, the results.
   const list = st.list = el(doc, 'div', 'ppl-dir');
@@ -112,7 +134,7 @@ export async function mount(root, ctx = {}) {
   st.results = el(doc, 'div', 'ppl-results');
   st.more = button(doc, 'nav-segment ppl-more', '');
   st.more.addEventListener('click', () => { st.shown += PAGE; drawResults(st); });
-  list.append(find, segs, st.status, st.inView, st.rest, st.results, st.more);
+  list.append(find, segs, st.metRow.el, st.status, st.inView, st.rest, st.results, st.more);
   st.card = el(doc, 'div', 'ppl-card');
   st.card.hidden = true;
   root.append(list, st.card);
@@ -141,7 +163,7 @@ export function shown(root, ctx = {}) {
 }
 
 export function unmount(root) {
-  if (state?.root === root) state = null;
+  if (state?.root === root) { state.offMet?.(); state = null; }
   root.replaceChildren();
 }
 
@@ -156,17 +178,23 @@ function drawInView(st, ctx) {
  * People (a household is never a row among people). Returns the ids it shows, which the list
  * under it leaves out, so nothing is said twice (T-3438).
  */
+/** T-3671 (WCAG 1.3.1): the In view label heads its rows for a screen reader too. */
+const inViewHeading = (doc, text) => {
+  const k = el(doc, 'span', 'nav-k', text);
+  k.setAttribute('role', 'heading'); k.setAttribute('aria-level', '3');
+  return k;
+};
 function pinFor(st, doc) {
   const h = st.pinned;
   st.inView.replaceChildren();
   if (!h) return new Set();
   if (st.seg === 'households') {
-    st.inView.append(el(doc, 'span', 'nav-k', 'In view'), householdRow(doc, h));
+    st.inView.append(inViewHeading(doc, 'In view'), householdRow(doc, h));
     return new Set([h.id]);
   }
   const here = [...h.family, ...h.staff].map((p) => st.model.byId.get(p.id) ?? p);
   if (!here.length) return new Set();
-  st.inView.append(el(doc, 'span', 'nav-k', `In view · ${h.short}`), ...here.map((p) => personRow(doc, p, { withHousehold: false })));
+  st.inView.append(inViewHeading(doc, `In view · ${h.short}`), ...here.map((p) => personRow(doc, p, { withHousehold: false })));
   return new Set(here.map((p) => p.id));
 }
 
@@ -179,6 +207,22 @@ function householdRow(doc, h) {
   return b;
 }
 
+const isMet = (id) => !!state?.met && Object.prototype.hasOwnProperty.call(state.met, id);
+const metCount = (st) => st.model.people.reduce((n, p) => n + (Object.prototype.hasOwnProperty.call(st.met, p.id) ? 1 : 0), 0);
+
+/** The Met badge: you talked with them here in town (T-3673). */
+function metBadge(doc) {
+  const b = el(doc, 'span', 'ppl-met-badge', t('metfound.badge'));
+  b.title = t('metfound.badge.title');
+  return b;
+}
+
+function metNote(doc, id) {
+  const note = el(doc, 'p', 'ppl-met-note');
+  note.append(metBadge(doc), doc.createTextNode(` ${t('metfound.card.met', { day: dayWords(state.met[id]) })}`));
+  return note;
+}
+
 function personRow(doc, p, { withHousehold = true } = {}) {
   const b = button(doc, 'nav-person ppl-row', null);
   b.dataset.pplKind = 'person';
@@ -187,7 +231,12 @@ function personRow(doc, p, { withHousehold = true } = {}) {
   const role = p.relationship === 'servant' ? [workOf(p) || placeIn(p.relationship)] : [placeIn(p.relationship), workOf(p)];
   const sub = [...role, away(p) ? `lived here ${yearsWords(p.lived_here)}`.trim() : '',
     withHousehold ? p.short : ''].filter(Boolean);
-  b.append(line(doc, 'span', 'nav-person-name', p.name, p.grade), el(doc, 'span', 'nav-sub', sub.join(' · ')));
+  const name = line(doc, 'span', 'nav-person-name', p.name, p.grade);
+  if (isMet(p.id)) {
+    name.append(metBadge(doc));
+    b.setAttribute('aria-label', `${p.name}, ${t('metfound.badge')}`);
+  }
+  b.append(name, el(doc, 'span', 'nav-sub', sub.join(' · ')));
   return b;
 }
 
@@ -195,6 +244,11 @@ function personRow(doc, p, { withHousehold = true } = {}) {
 function drawResults(st, { auto = false } = {}) {
   const doc = st.root.ownerDocument;
   const r = search(st.model, st.input.value);
+  if (st.metOnly) {
+    // T-3673: only the people you met here, and the households they belong to.
+    r.people = r.people.filter((p) => isMet(p.id));
+    r.households = r.households.filter((h) => h.members.some((p) => isMet(p.id)));
+  }
   // A query that finds nothing on this side but something on the other moves the switch there.
   if (auto && r.query) {
     if (st.seg === 'households' && !r.households.length && r.people.length) st.seg = 'people';
@@ -207,13 +261,16 @@ function drawResults(st, { auto = false } = {}) {
     b.querySelector('.ppl-seg-n').textContent = String(r[key].length);
   }
   const all = { households: st.model.households.length, people: st.model.people.length };
-  st.status.textContent = r.query
+  st.status.textContent = st.metOnly
+    ? (r.people.length ? `${counted(r.households.length, 'household')} · ${counted(r.people.length, 'person', 'people')}`
+      : t(r.query ? 'metfound.filter.empty' : 'metfound.filter.none'))
+    : r.query
     ? (r.households.length + r.people.length
       ? `${counted(r.households.length, 'household')} · ${counted(r.people.length, 'person', 'people')} match` : 'No match')
     : `${counted(all.households, 'household')} · ${counted(all.people, 'person', 'people')}`;
   // The pin only on the whole list; a search lists every match, the household in view among them.
-  const pinned = r.query ? new Set() : pinFor(st, doc);
-  if (r.query) st.inView.replaceChildren();
+  const pinned = r.query || st.metOnly ? new Set() : pinFor(st, doc);
+  if (r.query || st.metOnly) st.inView.replaceChildren();
   st.inView.hidden = !pinned.size;
   st.rest.hidden = !pinned.size;
   st.rest.textContent = st.seg === 'households' ? 'Every other household' : 'Everyone else';
@@ -222,6 +279,7 @@ function drawResults(st, { auto = false } = {}) {
   const left = items.length - Math.min(items.length, st.shown);
   st.more.hidden = left <= 0;
   st.more.textContent = left > 0 ? `Show ${Math.min(PAGE, left)} more · ${left} left` : '';
+  st.metRow?.paint();
 }
 
 // ---- the cards --------------------------------------------------------------------- //
@@ -340,13 +398,13 @@ async function drawPerson(st, id) {
   const row = st.model.byId.get(id);
   if (!row) { back(st); return; }
   const a = st.ctx.actions ?? {};
+  a.onPersonSelected?.(id, row.name);
   const h = householdOf(st.model, id);
-  const placed = (pid) => typeof a.inTown === 'function' && !!a.inTown(pid);
   const render = (m) => {
     // Find and Follow are live for someone placed in town now, greyed with the reason for
     // anyone else (T-3531); Go to house is the way to where they live.
     const card = renderPersonCard(doc, m, { dot, onFind: a.findPerson ?? null,
-      onFollow: a.followPerson ?? null, inTown: a.inTown ?? null });
+      onFollow: a.followPerson ?? null, inTown: a.inTown ?? null, atHome: a.atHome ?? null });
     const b = card.querySelector('[data-person-back]');
     if (b) b.replaceWith(backButton(doc, backLabel(st)));
     const keys = houseKeys(st, row.lives_at && !away(row) ? row.lives_at : (h?.lives_at ?? row.lives_at));
@@ -358,8 +416,12 @@ async function drawPerson(st, id) {
     }
     const head = card.querySelector('.insp-person-head');
     if (head?.after) head.after(keys); else card.append(keys);
+    // T-3673: said only of someone you talked with here, with the day you first did.
+    if (isMet(id)) keys.append(metNote(doc, id));
     const was = st.card.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else st.card.append(card);
+    // T-3645: the card's age tabs, over the story they change (under its keys if it has none).
+    readingTabs(card, { after: card.querySelector('.insp-person-story > h3') ?? keys });
     return card;
   };
   render(personModel({ row, sceneYear: st.sceneYear })).querySelector('[data-ppl-back]')?.focus?.({ preventScroll: true });

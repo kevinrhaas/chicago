@@ -407,8 +407,9 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     left either side, its crown under the entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns", "rail"}:
-        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns, rail)")
+    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns", "rail",
+                                                                                 "dressings"}:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns, rail, dressings)")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
     ys, H = float(spec["spring_m"]), float(spec["head_m"])
@@ -419,9 +420,9 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     if not 0.0 <= fl <= 3.0 or not fl + 1.5 <= ys < H <= 9.0:
         raise ParamError("corner_porch: a 0-3 m podium, the arches springing at least 1.5 m over it, under the entablature")
     E, B = spec["entablature"], spec["balustrade"]
-    if set(E) != ENT_KEYS or set(B) != BAL_KEYS or len(B["rail_m"]) != 2:
-        raise ParamError("corner_porch.entablature takes height_m and proud_m; its balustrade height_m, post_m, "
-                         "baluster_m, pitch_m and rail_m [width, depth]")
+    if not ENT_KEYS <= set(E) <= ENT_KEYS | {"modillions"} or set(B) != BAL_KEYS or len(B["rail_m"]) != 2:
+        raise ParamError("corner_porch.entablature takes height_m and proud_m (and modillions); its balustrade "
+                         "height_m, post_m, baluster_m, pitch_m and rail_m [width, depth]")
     eh, ep = float(E["height_m"]), float(E["proud_m"])
     bh, bp, bb, bpi = (float(B[k]) for k in ("height_m", "post_m", "baluster_m", "pitch_m"))
     rw, rd = (float(x) for x in B["rail_m"])
@@ -477,12 +478,49 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
         roundels = {"y_m": ry, "d_m": rdm, "centre_m": cs}
     columns = _porch_columns(spec.get("columns"), arches, t, fl, ys)
     rail = _porch_rail(spec.get("rail"), arches, fl, ys)
+    modillions = _porch_modillions(E.get("modillions"), arches, ep, ys, H)
+    dressings = spec.get("dressings")
+    if dressings is not None and dressings != "trim":
+        raise ParamError("corner_porch.dressings: trim (the entablature, its modillions and the balustrade in "
+                         "the front's trim stone), or leave it out for the porch's own stone")
     return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
             **({"roundels": roundels} if roundels else {}),
+            **({"modillions": modillions} if modillions else {}),
+            **({"dressings": dressings} if dressings else {}),
             **({"columns": columns} if columns else {}),
             **({"rail": rail} if rail else {}),
             "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
+
+
+# T-3370: the entablature's cornice carried on modillions. 1936 Prairie's verandah, in
+# Chicagology's photograph (x 1420-1640, y 680-698 px), draws a row of pale blocks with dark
+# gaps between them hanging under its cornice, down to the arches' crowns, about 0.4 m apart
+# along the front: the Tribune's "stone cornice". Each modillion is a block `width_m` wide
+# hanging `drop_m` under the cornice's proud soffit and standing `out_m` out from the wall
+# under it (at most the cornice's proud), at `spacing_m` along every face where the cornice
+# stands proud; never down past an arch's crown on the front (docs/LIBERTIES.md
+# L-k01-1936-allerton-1901).
+
+PORCH_MODILLION_KEYS = {"width_m", "drop_m", "out_m", "spacing_m"}
+
+
+def _porch_modillions(ms, arches, ep, ys, H):
+    if ms is None:
+        return None
+    if not isinstance(ms, dict) or set(ms) != PORCH_MODILLION_KEYS:
+        raise ParamError(f"corner_porch.entablature.modillions takes {sorted(PORCH_MODILLION_KEYS)}")
+    w, dr, mo, sp = (float(ms[k]) for k in ("width_m", "drop_m", "out_m", "spacing_m"))
+    if not (0.06 <= w <= 0.3 and 0.1 <= dr <= 0.6 and 0.05 <= mo <= ep and w + 0.1 <= sp <= 1.0):
+        raise ParamError("corner_porch.entablature.modillions: 0.06-0.3 m wide, hanging 0.1-0.6 m, standing "
+                         "0.05 m out to the cornice's proud, 0.1 m apart at the least and at most 1 m on centres")
+    if ep < 0.1:
+        raise ParamError("corner_porch.entablature.modillions carry a cornice standing at least 0.1 m proud")
+    crown = max((ys + ar["span_m"] / 2 for ar in arches if ar["face"] == "front"), default=ys)
+    if H - dr < crown - 1e-6:
+        raise ParamError(f"corner_porch.entablature.modillions hang to {H - dr:.2f} m, past the front arches' "
+                         f"crowns at {crown:.2f} m")
+    return {"width_m": w, "drop_m": dr, "out_m": mo, "spacing_m": sp}
 
 
 # T-3356: the front's piers between its arches stood as columns. 1936 Prairie's verandah, in
@@ -706,6 +744,15 @@ def dress_porch(a):
     # the porch's floor on the podium, inside its walls
     quad([P(s0 + t, fl, 0.0), P(s1 - t, fl, 0.0), P(s1 - t, fl, out - t), P(s0 + t, fl, out - t)], up, bh)
 
+    if pc.get("dressings") == "trim":
+        # T-3370: the entablature, its modillions and the balustrade in the front's trim stone,
+        # the dressings' own (1936's, pale over its arcade as the window hoods are in the print)
+        if not p.stone:
+            raise ValueError("corner_porch.dressings: trim needs a stone front whose trim it is")
+        mat = "dress_stone"
+        pr = a.prim(mat)
+        bf, bh, be = a.basis(mat, O, R, Y, seed), a.basis(mat, O, R, N, seed), a.basis(mat, O, N, Y, seed)
+
     eh, ep = pc["entablature"]["height_m"], pc["entablature"]["proud_m"]
     S0, S1, Dd, y1 = s0 - ep, s1 + ep, out + ep, H + eh
     if s0 == 0.0:   # flush with the side wall at the corner, as the sheet draws it
@@ -723,6 +770,38 @@ def dress_porch(a):
             quad([P(S0, H, 0.0), P(s0, H, 0.0), P(s0, H, out), P(S0, H, out)], down, bh)
         if S1 > s1:
             quad([P(s1, H, 0.0), P(S1, H, 0.0), P(S1, H, out), P(s1, H, out)], down, bh)
+    nm = 0
+    mo = pc.get("modillions")
+    if mo:
+        # T-3370: the modillions under the cornice's proud soffit, along each face it stands
+        # proud of, evenly from end to end (resolve_porch: never past the front arches' crowns)
+        mw, y_m, mf = mo["width_m"], H - mo["drop_m"], mo["out_m"]
+
+        def block(pts8, faces):
+            for ids, n in faces:
+                quad([pts8[i] for i in ids], n, bf if n in (N, _mul(N, -1)) else (bh if n in (up, down) else be))
+
+        def row(lo, hi):
+            k = max(1, round((hi - lo) / mo["spacing_m"]))
+            return [lo + (hi - lo) * (i + 0.5) / k for i in range(k)]
+        # the front's run, `out_m` out from the porch's face
+        for m in row(S0 + (0.0 if S0 == s0 else ep), S1 - (0.0 if S1 == s1 else ep)):
+            a0, a1 = m - mw / 2, m + mw / 2
+            c8 = [P(a0, y_m, out), P(a1, y_m, out), P(a1, y_m, out + mf), P(a0, y_m, out + mf),
+                  P(a0, H, out), P(a1, H, out), P(a1, H, out + mf), P(a0, H, out + mf)]
+            block(c8, (((3, 2, 6, 7), N), ((0, 1, 2, 3), down), ((0, 3, 7, 4), _mul(R, -1)), ((1, 5, 6, 2), R)))
+            nm += 1
+        # each end the cornice stands proud of, `out_m` out from the end wall
+        for s_, S_, sg in ((s0, S0, -1.0), (s1, S1, 1.0)):
+            if S_ == s_:
+                continue
+            for m in row(0.0, out):
+                d0, d1, Sm = m - mw / 2, m + mw / 2, s_ + sg * mf
+                c8 = [P(s_, y_m, d0), P(Sm, y_m, d0), P(Sm, y_m, d1), P(s_, y_m, d1),
+                      P(s_, H, d0), P(Sm, H, d0), P(Sm, H, d1), P(s_, H, d1)]
+                block(c8, (((1, 2, 6, 5), _mul(R, sg)), ((0, 1, 2, 3), down), ((0, 1, 5, 4), _mul(N, -1)),
+                           ((3, 7, 6, 2), N)))
+                nm += 1
 
     B = pc["balustrade"]
     pm, bm, (rw, rd) = B["post_m"], B["baluster_m"], B["rail_m"]
@@ -765,7 +844,9 @@ def dress_porch(a):
     for a0 in (Ls, Rs - pm):
         nb += balusters(pm, F - pm, False, mid(a0, a0 + pm))
     a.seat((O, R, N), [(s, y, 0.0) for s in (S0, S1) for y in (0.0, y3)], "k01.corner_porch")
-    a.corner_porch_meta = {"arches": len(pc["arches"]), "balusters": nb, "top_m": round(y3, 4)}
+    a.corner_porch_meta = {"arches": len(pc["arches"]), "balusters": nb, "top_m": round(y3, 4),
+                           **({"modillions": nm} if mo else {}),
+                           **({"dressings": pc["dressings"]} if pc.get("dressings") else {})}
 
 
 # -- T-3239: a columned porch on a side wall ------------------------------------------

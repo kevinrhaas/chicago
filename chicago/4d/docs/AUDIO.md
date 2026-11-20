@@ -15,7 +15,7 @@ textures using the existing verified R2 files. The owner-selected calmer river a
 
 Moving transport uses the Effects bus: actual mesh anchors and accepted travelled
 metres drive direction, distance and intensity. Harness jingles serve four loaded
-moving teams; rolling wood serves the three 1812/1835 wagons, not the 1904 brougham.
+moving teams; rolling wood serves the three 1812/1835 wagons and, quieter, the 1904 brougham (T-3587).
 The catalogue names each actor and scene date. Stop, dwell, pause, reduced motion,
 hidden/cull, off-hours and disposal silence those sources. Two nearest teams share
 two mono 48 kHz buffers (6,737,316 decoded bytes, 8 MiB ceiling) across four finite
@@ -33,6 +33,27 @@ The owner selected **Light water on rocks** (TRP575244) from three actual loop a
 The owner uploaded the selected MP3, and full public verification passed for its exact hash, CORS, MIME and byte ranges. It adds 352,940 transferred bytes. Three eligible 22-second environmental buffers use 12,672,000 decoded bytes within the 14 MiB environmental cache. Habitat and transport have their separate existing bounds; insects remain unchanged.
 
 Other audition candidates remain inactive: [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) includes a possible faint dock cleat/flagpole clang; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) has wooden-dock character. The selected [Manitoulin recording](https://freesound.org/people/TRP/sounds/575244/) retains its rocky-lake provenance rather than being relabelled a historical Chicago recording.
+
+### Horses and carriages you can hear — T-3587 (2026-11-13)
+
+The owner could barely hear the teams roll past. Hoofbeats played only in 1812, the 1904 brougham had no wheel sound, the 1835 and 1904 teams were silent outside summer, and every team was set low (harness 0.15, wheels 0.22, hoofs 0.24) and faded as (1 − d/max)², so a team ten metres off was near a robin's level. Now: hoof contacts (`horse-walking`, timed by each horse's own gait) sound for the 1835 Western Hotel wagon team and the 1904 Prairie Avenue brougham pair as well as the two 1812 teams; harness, wheels and hoofs are bound at each scene's four seasonal viewing dates; levels are 0.3 at the team (wheels 0.18 for the light 1904 brougham on paving, a per-binding gain that can only lower the placement's); reach is 48 m (hoofs 40 m) and the fade is (1 − d/max)^1.5 (`TEAM_FALLOFF`). A team passing five metres off is about 0.2–0.3, clearly over the birds (about 0.05–0.12) and the 1904 wind (at most 0.019); across a 20 m street it is still about 0.1, and beyond its reach it is gone. Any year with an approved hoof recording takes the 1812 six-voice / 10 MiB transport budget (peak 8,824,988 decoded bytes). No new recording or upload: the same three R2 files. The dirt hoof and downhill-wagon recordings on 1904 asphalt and brick are declared proxies. Liberty L-team-sounds-3587.
+
+### Wind follows the trees — T-3586 (2026-11-13)
+
+The leaf-rustle loop's gain is now `windGain(...) × windGustGain(gustAtScene(listener))` (`renderers/web/js/wind-gust.js`): the same gust rhythm that scales every tree, vine and plant's sway in its vertex shader. A gust front crosses the town from the south-west at 7 m/s; the sound runs 0.3× the old level in a lull to 1.6× at a gust's top, averaging about 0.69× (under the 2026-11-11 town mix). All years; winter still has no leaf rustle. Liberty L-wind-gusts-3586; test `tools/test_wind_gust.mjs`.
+
+### 1904 nature sounds — T-3585 (2026-11-13)
+
+The owner heard few birds in 1904 summer daytime: 1904 had no habitat sound at all, only the 0.012 leaf rustle. It now has its own `town_placements` (catalogue and intake), read by `renderers/web/js/habitat-town.js` through the existing habitat scheduler, on four recordings already licensed and verified on R2, so no new bytes are uploaded or shipped:
+
+| Recording | 1904 seasons and hours | Where |
+|---|---|---|
+| robin-calls | spring and summer dawn/day/dusk (gaps 25–55 s, 20–45 s), fall dawn/day (90–180 s) | one mature parkway elm's crown, 9 m up, 24–110 m away, behind the listener when the phrase begins |
+| summer-cicada-proxy | summer, after noon, day/dusk | listener within 45 m of a parkway elm |
+| summer-crickets | summer dusk/night | listener within 45 m of a parkway elm |
+| late-summer-katydid | summer nights from 20 July only (silent on the scene's 1 July) | listener within 45 m of a parkway elm |
+
+The habitat is the scene's own `data/street_trees/1904.json` (main.js passes `streetTrees` into the audio environment); a date whose own season disagrees with the visitor's season stays quiet; winter is silent and no insect plays outside summer. The robin's season rests on Woodruff 1907 (`woodruff_1907_birds_chicago_area`: abundant summer resident, early April to October) and the Illinois DNR account. Unlike the 1835 red-wing, a robin phrase that has begun is not cut when the visitor turns toward its tree, since it sings inside a drawn crown. One habitat voice and the 12–25 s global gap are unchanged. The house sparrow, 1904's commonest street bird, has no licensed recording yet and is left silent rather than faked; the European starling is excluded (not in Woodruff's 1907 list). Liberty: L-1904-nature-sounds-3585. Test: `tools/test_habitat_audio_1904.mjs`.
 
 ### Pre-integration pilot checkpoints
 
@@ -59,6 +80,103 @@ now targets the evidenced workplace action explicitly, since the People card's
 first button is Find/Follow and can legitimately be disabled. A focused regression
 test covers both a person present and a person away. The complete release gate
 still requires both viewports and every smoke stage.
+
+## Narration (T-3578)
+
+The owner, 2026-11-13, asked for the jaunt scripts (first *The Glessner Household*) to be read
+aloud in his ElevenLabs voices, made automatically rather than by copying text out of the app.
+
+**What is spoken.** `renderers/web/js/narration.js` § `narrationScripts` lists a jaunt's opening
+(its title, then the welcome's paragraphs), each stop (its `since` lead and text, read by the
+stop's first host, else the narrator) and each ending (the narrator). The app and the voicer
+both use that one function on the compiled jaunt the app loads, so what is voiced is exactly
+what the panel shows. Each script is keyed by the SHA-256 of its words.
+
+**Voices.** `data/narration/voices.json` lists the voiced jaunts and a voice per speaker: an
+ElevenLabs voice id, or the exact name of one of the owner's voices; `null` is not yet chosen
+and that speaker is skipped. The owner chose his voices on 2026-11-13 by name ("Character -
+Glessner, John" and so on), and gave two narrators, the **Cultivated Essayist** (default) and the
+**Midwestern Storyteller**: every narrator script is voiced once in each (index key
+`<sha>~essayist`, `<sha>~storyteller`), and a visitor picks one in Settings › Sound › Narrator; a
+narrator not yet voiced falls back to the essayist. The two lists (`narration.js` `NARRATORS`,
+`voices.json` `narrators`) are held equal by `tools/test_narration.mjs`. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
+about 0.5 MB a minute), voice settings and a per-run character cap live there too.
+
+**Direction.** The owner, 2026-11-15: the voices were "a bit robotic without pauses or tags for
+direction". Each voiced script is now performed from `data/narration/direction/<jaunt>.json`
+(keyed `<part>:<id>`): the same words the panel shows, with ElevenLabs v3 audio tags in square
+brackets (`[warmly]`, `[laughs]`, `[sighs]`, `[whispers]`, `[short pause]` …) and ellipses and
+dashes for breath. The model is `eleven_v3`, the one that performs the tags (its `stability` takes
+0, 0.5 or 1; we use 0.5, natural). The words may not drift: `narrate_jaunts.mjs` compares a
+direction's words with the script's (tags, case and punctuation aside), voices the plain words
+when they differ and says so in the run, and `tools/test_narration.mjs` fails, so a script edited
+without its direction is caught at the gate. A clip is still found by the shown words' SHA-256;
+the index also records the performed text's (`spoken_sha256`), so a changed direction re-voices
+that clip alone. A laugh or a whisper is a reading, not evidence of how anyone spoke
+(L-jaunt-voices-3578).
+
+**Narration style: smooth (owner, 2026-11-19, T-3696).** Of the 3rd-grade Glessner Household:
+*"there is not a lot of transition between topics and also pauses between subjects topics as they
+speak. mattie seems like she is delivering a lot of facts and does not pause"*, and *"the parts
+where they whisper and laugh could be toned down a bit"*; then *"that smother narration rule
+applies for all the jaunts"*. So every spoken script, in every jaunt, band and language:
+
+- **Words** (the jaunt or words file): a speaker groups their facts into a few subjects (who I am,
+  what I do, this place, one story, where to go next) and walks from one to the next with a short
+  joining line (*"Let me start with how we got here."*, *"Now, about this house."*, *"Here is my
+  favorite story."*). A joining line carries no fact of its own. No run of more than about five
+  bare facts in a row. The hand-on to the next stop is its own last subject.
+- **Direction** (`data/narration/direction/<jaunt>.json`): a `[short pause]` (or `[long pause]`
+  after a long subject) at every change of subject, ellipses for a breath inside one, a warm tag
+  at the start; at most one laugh or chuckle in a script, and no whispering. A file written this
+  way says `"style": "smooth"`, and `tools/test_narration.mjs` holds it to that (no
+  `[whispers]`, at most one laugh, a pause at least every 50 words; `SMOOTH` in
+  `tools/narrate_jaunts.mjs`). Every new or re-made direction is marked smooth. Older voiced
+  files are brought to it when they are next voiced, since re-directing a voiced script re-voices
+  it and spends ElevenLabs credits (the narration budget plan says when).
+
+**Credits.** ElevenLabs bills a character of the performed text (tags and ellipses included) as
+a credit; a re-voiced script costs its whole length again. Every run, push or by hand, prints the
+account's quota before it voices (credits used this period, the limit, the reset date), refuses
+a run that would spend more than is left, and after voicing prints the credits that run used, so
+a re-recording's cost is read off the run, not estimated. A run voices in the order of
+`voices.json`'s `jaunts` list, which is the narration budget plan's order (1812 battle and 1904
+first, grades 6-8 originals first, English first; the owner approved it 2026-11-19, T-3697), up to
+`max_chars_per_run` and what the quota has left above `quota_reserve`; what does not fit waits for
+the next run, which picks up where this one stopped. Jaunts in `voices.json`'s `held` list are not voiced at all: a batch waits there while the month's credits are uncertain (month 2 of the plan, held 2026-11-20 until the monthly limit is known) and is released by moving its entries back into `jaunts`. A jaunt entry may name its narrators
+(`{ "id": …, "narrators": ["essayist"] }`): the owner, 2026-11-19, chose the Cultivated Essayist
+alone for new jaunts and the Storyteller later, and the app plays the Essayist's clip to a visitor
+who chose the Storyteller until hers exists. `docs/RESEARCH/narration-smooth-3696/smooth.py`
+drafts a smooth direction from a jaunt's words (`--draft`) or tones an old one down
+(`--restyle`). `node tools/narrate_jaunts.mjs --quota`
+prints it alone. It needs an API key with the `user_read` permission; without it the run says the
+quota is not readable and voices as before.
+
+**Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
+compiled jaunt, the voice file or the script function, and by hand (plan / voice / list-voices).
+`tools/narrate_jaunts.mjs` reads the media host's `narration/index.json` and sends ElevenLabs
+only the scripts with no clip for their words, or a clip made with another voice or settings:
+an unchanged jaunt costs nothing. Clips are uploaded to the R2 bucket as
+`narration/<sha256 of the bytes>.mp3` (immutable), then the index (no-cache), and the run
+fetches both back from the public host to verify them. The index only gains entries, so a
+build still showing older words (production before a promote) keeps finding its clips. The run
+keeps the clips as an artifact for 30 days. Secrets: `ELEVENLABS_API_KEY`, `R2_ACCESS_KEY_ID`,
+`R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT` (an R2 API token with Object Read & Write on the
+bucket); without them a push run says so and stops green.
+
+**Playback.** The app finds the index beside the hosted media (`hosting.public_base` in the
+published catalogue; a local build looks beside its own audio). A part with a clip for its
+current words shows **Listen**; one without shows nothing, so changed words are silent until
+voiced again. One media element, primed with a moment of silence inside a tap (WebKit, so
+iPhone Chrome, then lets later stops start unprompted), streams through Settings › Sound's
+**Narration** bus under Master, and music, ambience and effects duck to 0.3 while it speaks.
+With sound on and Narration up, arriving at a stop starts its voice, or queues it behind the one
+still speaking; travelling on does not cut a voice off; muting Narration or all sound, hiding
+the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. A jaunt's Start, Continue, Next Stop and Straight-there taps also prime the element, so the opening (the title, then the Background) plays as the jaunt begins and John follows it at the first stop. The
+Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
+
+**Liberty.** The voices are synthetic and chosen by ear, not the people's voices
+(L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
 
 ## Implemented foundation
 
@@ -88,7 +206,14 @@ searchable Audio library are under `renderers/web/audio/`. Rebuild with
 the owner-supplied score is not licensed as an open sample collection.
 
 Music collections are deliberately disjoint: 1812 Frontier (3), 1835 Border (2),
-1904 Waltzes (2). Browser selection uses Ogg/Opus first and AAC when unsupported.
+1904 Ragtime (10; T-3569, the owner's own set, which replaced the two waltzes on
+2026-11-12). The waltzes stay catalogued with `runtime_enabled: false`. Eras listed in
+the catalogue's `music_shuffle_eras` (only 1904) open at a random track and play a
+shuffled order: every track once before any repeats, and a re-shuffle never reopens
+with the track that just ended. The ragtime deliveries are matched to -17.5 LUFS
+integrated by one static gain per track, with trailing silence cut to 0.4 s; Opus
+64 kbps VBR (1.0-2.1 MB a track) with AAC-LC 112 kbps fallback. `prepare_audio.py
+--ragtime-only` rebuilds just these, leaving every other verified delivery untouched. Browser selection uses Ogg/Opus first and AAC when unsupported.
 Only the active cue streams. Music cycles continuously through the selected era’s
 collection, wrapping to the first cue with no scheduled silence between tracks.
 Period music is permitted only while exploring, inspecting, on a jaunt or touring; time travel, landing, the arrival choices and recall keep it off without changing the ambience/effects sliders. The compact loading-screen speaker retains a 44 px touch target and accessible on/off labels. Settings keep only the requested Ambience and Effects examples, grouped close to their own sliders; the additional Music/general notes were removed on owner review.

@@ -1,0 +1,28 @@
+{
+  "id": "rand_mcnally_1893_views_prairie_west_1702_1812",
+  "type": "illustration",
+  "citation": "'Prairie Avenue (Looking North West).' Street-front drawing of the west side of Prairie Avenue from 1702 to 1812, the left-hand strip of p. 233 in Rand, McNally & Co.'s Bird's-Eye Views and Guide to Chicago (Chicago: Rand, McNally & Co., 1893); artist not named.",
+  "author": "Rand, McNally & Co. (artist not named)",
+  "date": "1893",
+  "describes_date": "1892-1893",
+  "repository": "Internet Archive, item randmcnallycosbi00lawr (digitized from the University of Illinois at Chicago Library); the Prairie library's image st-randmcnally-1893-p233-west-1700-1800 (stream-streetscape), held in the image store; Chicagology crops the same strip for its 1712 page (cgn-1712-randmcnally-1893-strip, an arrow added at 1712).",
+  "url": "https://archive.org/details/randmcnallycosbi00lawr/page/233/mode/1up",
+  "locator": "The strip's house fronts, each over its printed street number: 1812, 1808, 1800, 18th Street, 1736, 1730, 1726, 1720, 1712 and 1702. The front over 1712 stands second from the north end, between 1720's broad porched front and 1702's corner tower.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Published in Chicago in 1893, before 1929: public domain in the United States. Read for forms, counts and proportions and used as the image gate's reference picture for 1712 Prairie; nothing in a scene is derived from it (no texture, no traced mesh).",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-12 (T-1872) from the image store's copy, 864 x 2400 px (the strip printed sideways on the page; the library records the Internet Archive crop at 905 x 2514), sha256 in data/sources/assets/rand_mcnally_1893_p233_west_t1872/README.md, turned upright and enlarged five times over 1712's front.",
+  "note": "A drawing of the west side of Prairie Avenue from 1702 to 1812, each front over its printed number, from an imagined eye over the east walk looking north-west. The front over 1712 is drawn as a flat, three-bay front of two storeys over a high basement, entered in its middle bay: a round-headed door at the head of a stoop that runs straight out toward the street with a rail each side; either side of it on the principal floor a pair of round-headed lights under one round hood; under each pair a pair of round-headed basement lights; over the door a hood carrying a railed balcony under the second storey's middle window; three single round-arched windows across the second storey, each under its own arched hood; a bracketed cornice over a plain frieze; a low hipped roof drawn in crossed hatching, with one tall stack rising behind the front near its north end and no dormer on the street slope. Its south face is hatched (in shade) and the fronts are lit. A guidebook drawing, not a measured one: the houses are not drawn to one horizontal scale (1720's front is drawn half again as wide for its width as 1712's).",
+  "what_it_supplies": [
+    "1712's storeys, its high basement, the middle-bay entrance and its stoop, the round-headed openings and their grouping, the balcony over the door, the cornice and the hipped roof without a street dormer, as drawn in 1893",
+    "the proportions of 1712's front heightwise, at a guidebook drawing's accuracy"
+  ],
+  "what_it_does_not_supply": [
+    "measurement",
+    "the front's width (the 1911 Sanborn sheet's plan sets it; the strip narrows it)",
+    "material or colour",
+    "the north wall, the rear and the rear wing"
+  ]
+}

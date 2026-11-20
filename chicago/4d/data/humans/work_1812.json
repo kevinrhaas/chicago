@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scene": "1812",
+  "asset": "props/work_1812.glb",
+  "provenance": {
+    "grade": "reconstructed",
+    "sources": ["kinzie_waubun_1856", "quaife_1913"],
+    "basis": "The existing unnamed militia man's dated day record supplies his presence, place and repair/packing activity. The particular hammer, packing chest, short sequence of nail strokes and sound are an original reconstruction, not a witnessed act or recorded sound of 1812.",
+    "license": "CC0-1.0",
+    "generator": "python3 tools/generate_work_1812.py"
+  },
+  "geometry": {
+    "chest": {"width_m": 0.64, "depth_m": 0.38, "height_m": 0.72, "centre_z_m": 0.52, "board_thickness_m": 0.024},
+    "hammer": {"handle_m": 0.28, "handle_width_m": 0.027, "head_m": [0.13, 0.045, 0.043], "strike_local": [0, 0.3025, 0]},
+    "contact_local": [-0.18, 0.744, 0.46],
+    "left_wrist_local": [0.18, 0.79, 0.45]
+  },
+  "action": {"id": "nail-wood", "cycle_seconds": 4.2, "contact_phase": 0.63, "lift_m": 0.16, "lift_radians": 0.58, "max_contact_error_m": 0.018},
+  "tasks": [
+    {
+      "id": "militia-piazza-repair",
+      "actor_id": "hi_town_chicago_militia_unnamed_4_1812",
+      "dates": {"from": "1812-04-07", "to": "1812-08-13"},
+      "hours": [[6.5, 12], [13, 18]],
+      "at": {"e": 1072.5, "n": 177, "heading_deg": 90},
+      "description": "Mending a loose wooden panel at the agency-house work place.",
+      "basis": "Within the existing piazza-planking repair day span; the supported panel/chest and nailing gesture are reconstructed. The repair period is not extended into 14 August."
+    },
+    {
+      "id": "militia-packing-chest",
+      "actor_id": "hi_town_chicago_militia_unnamed_4_1812",
+      "dates": {"from": "1812-08-14", "to": "1812-08-14"},
+      "hours": [[13, 18]],
+      "at": {"e": 1082, "n": 165, "heading_deg": 270},
+      "description": "Securing a packing chest's wooden lid before the agency house.",
+      "basis": "A brief reconstructed nailing task within the man's existing afternoon packing span. This does not claim the source identifies a chest, a particular nail or a hammer stroke."
+    }
+  ]
+}

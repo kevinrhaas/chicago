@@ -144,6 +144,27 @@ assert.equal(teamStops, 1); assert(teamPoses > 1);
 drivenTeam.resume(); drivenTeam.update(.1); drivenTeam.update(.1, { drawn: false });
 assert.equal(teamStops, 2); drivenTeam.dispose();
 
+// Kevin, 2026-11-14 ("allow it to make right turns"): the team rides the fore-carriage. On a
+// turn it swings with the front axle about the axle's king-pin, abreast of the pole, both ways;
+// straight ahead it stands where it always stood.
+{
+  const swingVehicle = vehicle.clone(true), team = { root: new THREE.Group(), poseVehicle() {}, stop() {} };
+  const swung = createDrivenAssembly({ vehicle: swingVehicle, driver: { root: new THREE.Group() }, horse: team,
+    driverSeat_m: [0, 1.58, .65], horseOffset_m: [0, 0, 3.4987], disposeVehicle() {} });
+  const axle = swingVehicle.getObjectByName('vehicle_steer_front').position;
+  const base = { e: 0, n: 0, yaw: 0, height: 0, rootAhead: 1.175, curvature: 0, wheelRotation: [0, 0, 0, 0] };
+  swung.pose({ ...base, steering: 0 });
+  assert.deepEqual(team.root.position.toArray().map(v => +v.toFixed(9)), [0, 0, 3.4987]);
+  for (const steering of [.25, -.25]) {
+    swung.pose({ ...base, steering, curvature: Math.tan(steering) / 2.35 });
+    const p = team.root.position, reach = 3.4987 - axle.z;
+    assert(Math.abs(Math.hypot(p.x - axle.x, p.z - axle.z) - reach) < 1e-9, 'the team keeps its distance from the king-pin');
+    assert(Math.abs(Math.atan2(p.x - axle.x, p.z - axle.z) - steering) < 1e-9, 'and swings with the axle');
+    assert(Math.abs(team.root.rotation.y - steering) < 1e-9, 'abreast of the pole');
+  }
+  swung.dispose();
+}
+
 // A Light switch while the first cooperative yield is pending cancels before
 // any ground read, support sample or asset acquisition; an eligible scene only.
 let earlyGround = 0, earlySupport = 0, earlyAssets = 0;
@@ -236,6 +257,43 @@ await wrongScene.ready(); assert.equal(wrongSceneAssets, 0); wrongScene.dispose(
 }
 console.log('deferred live spawn: first approach/Light restoration, cached circuit, no GLB thrash/duplicate rows, fatal refusal cache and disposal PASS');
 
+{
+  // Kevin, 2026-11-17: "i also just saw a carriage on its route drive through a horse, they should
+  // either stop and wait for the horse to move". A horse in the team's way (riding.js obstacles)
+  // pulls it up short, with the word "a horse"; once the horse has gone the team drives on.
+  const { footprintOfPose } = await import('../renderers/web/js/team-drive.js');
+  const { overlaps } = await import('../renderers/web/js/transport-crossings.js');
+  const row = { ...validRow, id: 'held-by-horse', envelope_local_xz_m: [-1, -1.5, 1, 4] };
+  let horse = null;
+  const town = createTownTransport({ rows: [row], sceneId: '1835', heightAt: () => 0, clear: () => true,
+    obstacles: () => (horse ? [{ id: 'saddle-horse:test', word: 'a horse', print: horse }] : []),
+    makeAssembly: () => ({ root: new THREE.Group(), pose() {}, dispose() {} }) });
+  await town.ready(); const eye = { x: 20, z: 0 };
+  for (let i = 0; i < 10; i++) town.update(.1, eye, { hour: 12 });
+  const team = town.actors[0], start = team.snapshot().distance_m;
+  assert(start > 0, 'the team is under way');
+  // A horse stood across its way 6 m on (the circle's point there, as a 1 x 3 m horse).
+  const p = team.pose, ahead = 6 / 20, a0 = Math.atan2(p.n, p.e);
+  const angles = [a0 + ahead, a0 - ahead].map(a => ({ e: 20 * Math.cos(a), n: 20 * Math.sin(a) }));
+  // The one ahead is the one nearer where the team faces.
+  const fe = Math.sin(p.yaw), fn = -Math.cos(p.yaw);
+  const spot = angles.sort((x, y) => ((y.e - p.e) * fe + (y.n - p.n) * fn) - ((x.e - p.e) * fe + (x.n - p.n) * fn))[0];
+  horse = footprintOfPose({ e: spot.e, n: spot.n, yaw: p.yaw }, [-.5, -1.2, .5, 1.75], 0);
+  let touched = false;
+  for (let i = 0; i < 150; i++) {
+    town.update(.1, eye, { hour: 12 });
+    if (overlaps(footprintOfPose(team.pose, row.envelope_local_xz_m, 0), horse)) touched = true;
+  }
+  const held = team.snapshot().distance_m;
+  assert(!touched, 'the team never drives into the horse');
+  assert(held - start < 6, `the team waits short of the horse (went ${(held - start).toFixed(2)} m)`);
+  horse = null;
+  for (let i = 0; i < 30; i++) town.update(.1, eye, { hour: 12 });
+  assert(team.snapshot().distance_m > held + 1, 'the horse gone, the team drives on');
+  town.dispose();
+}
+console.log('a team waits for a horse in its way, and drives on when it has gone PASS');
+
 console.log('driven assembly: actual W01 source hierarchy/THREE transforms + lifecycle PASS');
 
 // Actual factory source with controlled asynchronous I/O/portable-human leases.
@@ -243,6 +301,13 @@ console.log('driven assembly: actual W01 source hierarchy/THREE transforms + lif
 const { webcrypto } = await import('node:crypto');
 const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
 const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
+// T-3559: the horse's gaits and levels, imported with 'three' resolved to the vendored copy.
+const { createHorseGait, attachHorseLods, loadGaitClip } = await (async () => {
+  const { registerHooks } = await import('node:module');
+  const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+  const hooks = registerHooks({ resolve: (specifier, context, next) => specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context) });
+  try { return await import('../renderers/web/js/horse-rig.js'); } finally { hooks.deregister(); }
+})();
 const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
 const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
 const fixtureBytes = readFileSync(path);
@@ -306,6 +371,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
     HumanActor: FixtureActor, prepareHorseTemplate, applyHorseAppearance, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
+    createHorseGait, attachHorseLods, loadGaitClip,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
       else if (value === gltfHorse) stats.horseDisposed++;
@@ -313,7 +379,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
@@ -420,10 +486,10 @@ function actualAssemblyCallback(code, catalog = null) {
   let gets = 0, nativeLoaderCalls = 0;
   const nativeLoader = options => { nativeLoaderCalls++; return async row => resolveHumanIdentity({ ...row.driver_instance, scene: row.scene }, { sceneId: '1904', people: options.people }); };
   const nativeHitch = () => {};
-  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', `return (${method});`)(
+  const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', 'pathHeightAt', `return (${method});`)(
     row => row.horse_model, catalog, async () => { gets++; return actualPeople1904; }, new Map(), nativeLoader,
     '1904', actualRoutes, { assets: {} }, null, () => 0, new Map(), nativeHitch, false,
-    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch, coatRecipe: null }));
+    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch, coatRecipe: null }), null);
   return { make, get gets() { return gets; }, get nativeLoaderCalls() { return nativeLoaderCalls; } };
 }
 const lazy = actualAssemblyCallback(sceneBindingSource);
@@ -879,7 +945,14 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
 
   // Both actual configured identities: no load at request, stop before publication,
   // no later automatic resume, and no change to the route/seat side-stand owner.
-  for (const row of config.rows) {
+  // T-3557: a team on call (the Glessner brougham, waiting as a parked carriage) is not where
+  // its coachman is until it is brought round: Go to finds him standing at his post instead.
+  for (const row of config.rows.filter(r => r.on_call)) {
+    const f = fixture(row);
+    assert.equal(f.town.driverAnchorForPerson(row.person_id), null, `${row.id}: on call, no driving anchor`);
+    assert.equal(f.town.isOnCall(row.id), true);
+  }
+  for (const row of config.rows.filter(r => !r.on_call)) {
     const f = fixture(row), original = JSON.stringify(row), visits = [];
     const cold = f.town.driverAnchorForPerson(row.person_id);
     const go = makeGo(f.town, { go(destination, callbacks) { visits.push({destination, callbacks}); return true; } });
@@ -975,6 +1048,9 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   {
     const other=structuredClone(row);other.id='fixture-other-route';other.person_id='fixture-other-person';
     other.driver_instance.person_id=other.person_id;
+    // T-3558: a streamed twin on the very same road would wait for the first to drive clear
+    // of its place (town-transport.js ghostClear); that is not what this case is about.
+    delete other.streamed;
     const f=fixture(row,{rows:[row,other]});const first=f.town.requestDriverApproach(row.person_id);
     f.town.requestDriverApproach(other.person_id);first.cancel();
     const loading=f.town.ready(), a=await f.load(0);a.gate.resolve(a.assembly);
@@ -1060,7 +1136,10 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
 // Exercise the actual createDrivenAssembly adapter, town and loop together.
 {
   const config=JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json',import.meta.url)));
-  const row=config.rows.find(r=>r.scene==='1835');let phase=0;const calls=[];let town;
+  // T-3558: 1835's teamsters now walk at their horses' heads beside the photographic farm-box;
+  // this parcel seats a driver on the W01 board loaded above, on the first 1835 round.
+  const row={...config.rows.find(r=>r.scene==='1835'),driver_seat_node_m:[0,1.58,.65],driver_local_m:[0,1.58,.65]};
+  delete row.streamed;delete row.driver_mode;let phase=0;const calls=[];let town;
   town=createTownTransport({rows:[row],sceneId:row.scene,heightAt:()=>0,clear:()=>true,routeSupport:()=>({valid:true}),
     makeAssembly:async liveRow=>createDrivenAssembly({vehicle:vehicle.clone(true),
       driver:{root:new THREE.Group(),updateVisual(dt){phase+=dt;calls.push(dt);},snapshot(){return{time_s:phase};}},

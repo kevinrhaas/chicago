@@ -5,6 +5,7 @@
  */
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 
@@ -129,6 +130,29 @@ function staticBatches(root, confidence, excluded = null) {
   return group;
 }
 
+/** T-3558: one model's seeded paint over a shared photographic master. The factors
+ * multiply the master's own maps (grain, wear and ironwork read through), body meshes
+ * by `paint.body`, every other mesh by `paint.gear`, per source material name. Painted
+ * materials are cached per model so its batches still merge by material. */
+function paintVehicle(root, model, paint, paintedMaterials) {
+  const body = new Set(paint.body_meshes ?? []);
+  root.traverse(node => {
+    if (!node.isMesh || Array.isArray(node.material)) return;
+    const part = body.has(node.name) ? 'body' : 'gear';
+    const factor = paint[part]?.[node.material.name];
+    if (!factor) return;
+    const key = `${model}:${part}:${node.material.uuid}`;
+    let material = paintedMaterials.get(key);
+    if (!material) {
+      material = node.material.clone();
+      material.color.setRGB(factor[0], factor[1], factor[2]);
+      material.userData = { ...material.userData, parkedPaint: part };
+      paintedMaterials.set(key, material);
+    }
+    node.material = material;
+  });
+}
+
 /** Solve the lowest actual tongue vertex against this stand's terrain, not its centerline.
  * A failed bracket keeps the legacy wagon; it never silently buries the pole.
  */
@@ -168,15 +192,22 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   detail = 'full', problems = [], hostMissing = () => false, groundHeight = null,
   getDrawingBufferHeight = () => null, loadWithin = null, stationaryTeams = false } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
-  const instances = [], assets = new Map(), replacementIds = new Set();
+  const instances = [], assets = new Map(), replacementIds = new Set(), paintedMaterials = new Map();
+  // T-3558: yard vehicles no row replaces and the record retires (`retired_yard_wagons`).
+  // The yard layer reads this set and never builds them (main.js passes it beside
+  // `replacementIds`), so no tier, setting, reach or far merge can draw one.
+  const retiredIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
   // T-3439: Settings › Show › Carriages and horses. Hidden, no vehicle (nor the yard's old
   // stand-in it replaces) is drawn, fetched or picked.
   let shown = true;
+  // T-3557: parked vehicles another layer stands in for (the Glessner brougham while its driven
+  // twin is out, town-transport-scene.js): not drawn, picked or animated until given back.
+  const standIns = new Set();
   const ray = new THREE.Raycaster();
   const deferred = Number.isFinite(loadWithin) && loadWithin >= 0;
   const requested = new Set(), finished = new Set();
-  const out = { group, instances, replacementIds, records: [], requested,
+  const out = { group, instances, replacementIds, retiredIds, records: [], requested,
     // Vehicles asked for and not yet placed (or refused): a scripted view waits on 0.
     get pending() { return requested.size - finished.size + instances.filter(i => i.teamPending).length; },
     async ready() {
@@ -190,6 +221,24 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       }
     },
     setFallback(callback) { fallback = callback; },
+    /** T-3557: hide (`shown` false) or give back one parked vehicle, its team and its pick. */
+    setStandIn(id, shownAgain) {
+      const had = standIns.has(id);
+      if (shownAgain === false) standIns.add(id); else standIns.delete(id);
+      const instance = instances.find(i => i.row.id === id);
+      if (instance && shownAgain === false) instance.group.visible = false;
+      if (had && shownAgain !== false && lastCamera) out.update(lastCamera);
+      return !!instance;
+    },
+    isStoodIn: id => standIns.has(id),
+    /** T-3557: a parked vehicle's stand: its root (ENU), bearing, rendered base and whether its team is up. */
+    standOf(id) {
+      const instance = instances.find(i => i.row.id === id);
+      const row = instance?.row ?? rows.find(r => r.id === id);
+      if (!row) return null;
+      return { id, at_local_enu_m: [...row.at_local_enu_m], bearing_deg: row.bearing_deg,
+        base_m: instance ? instance.group.position.y : null, team: !!instance?.team, loaded: !!instance };
+    },
     get shown() { return shown; },
     setShown(on) {
       shown = on !== false;
@@ -213,7 +262,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         void load(row => horizontalDistance(camera, row) < within);
       }
       for (const instance of instances) {
-        const visible = (REACH[tier] ?? REACH.full) > 0
+        const visible = (REACH[tier] ?? REACH.full) > 0 && !standIns.has(instance.row.id)
           && camera.position.distanceTo(instance.group.position) < REACH[tier];
         instance.group.visible = visible;
         if (instance.team && horizontalDistance(camera, instance.row) > (REACH[tier] ?? 0) + (loadWithin ?? 0)) {
@@ -285,8 +334,10 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       group.traverse(n => { if (n.userData.parkedBatchGeometry) geometry.add(n.geometry); });
       for (const value of geometry) value.dispose();
       for (const promise of assets.values()) void promise.then(disposeLoadedAsset, () => {});
+      for (const material of paintedMaterials.values()) material.dispose();
+      paintedMaterials.clear();
       group.clear();
-      instances.length = 0; replacementIds.clear();
+      instances.length = 0; replacementIds.clear(); retiredIds.clear();
     },
   };
   // Declared before the early returns below (T-3311): a scene with no parked
@@ -339,6 +390,9 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   } catch (error) { problems.push(`parked transport: ${error.message}`); return out; }
   rows = (record.scenes[String(sceneId)] ?? []).filter(row => !hostMissing(row.belongs_to));
   for (const row of rows) if (row.replaces) replacementIds.add(row.replaces);
+  for (const id of record.retired_yard_wagons?.[String(sceneId)] ?? []) {
+    if (typeof id === 'string' && !replacementIds.has(id)) retiredIds.add(id);
+  }
   out.records = rows;
   // Each row is requested once; a later call loads only rows not yet asked for,
   // after whatever is already in flight, so the order and the caches are as before.
@@ -357,21 +411,28 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       const spec = record.models[row.model];
       let building = null;
       try {
-        let pending = assets.get(row.model);
+        // T-3558: ordinary models are cached by FILE, so models that share one GLB
+        // (the farm-box master under every covered wagon) decode and upload it once.
+        // Light (phones) takes a model's own `file_light` when it names one: the farm-box
+        // master's mid level carries a quarter of the near level's texture memory.
+        const file = (tier === 'light' && spec.file_light) || spec.file;
+        const assetKey = row.model === 'studebaker_brougham_1893' ? row.model : `file:${file}`;
+        let pending = assets.get(assetKey);
         if (!pending) {
           pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file,
             stationaryTeams ? row.stationary_team?.vehicles?.near?.sha256 : null)
-            : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
-          assets.set(row.model, pending);
+            : new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(new URL(file, new URL('../', import.meta.url)).href);
+          assets.set(assetKey, pending);
         }
         const asset = await pending;
         if (disposed) break;
         const root = asset.scene.clone(true);
+        if (spec.paint) paintVehicle(root, row.model, spec.paint, paintedMaterials);
         if (spec.support_file) {
-          const supportKey = `${row.model}:support`;
+          const supportKey = `file:${spec.support_file}`;
           let support = assets.get(supportKey);
           if (!support) {
-            support = new GLTFLoader().loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
+            support = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).loadAsync(new URL(spec.support_file, new URL('../', import.meta.url)).href);
             assets.set(supportKey, support);
           }
           const supportAsset = await support;

@@ -99,6 +99,10 @@ python3 generators/draft_emit.py "$@" --wrote "$WROTE"
 python3 generators/haystack_emit.py "$@" --wrote "$WROTE"
 # T-3342: and the Potawatomi camp's groups of 1812, the same way.
 python3 generators/lodge_camp_emit.py "$@" --wrote "$WROTE"
+# T-3567: and the monuments (the Fort Dearborn group of 1893 on 18th Street), the same way.
+python3 generators/monument_emit.py "$@" --wrote "$WROTE"
+# T-3688: and the 1871 fire landmarks (the Court House square's), the same way.
+python3 generators/landmark_1871_emit.py "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"

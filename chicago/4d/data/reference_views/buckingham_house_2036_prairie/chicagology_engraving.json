@@ -1,0 +1,23 @@
+{
+ "structure_id": "buckingham_house_2036_prairie",
+ "source_id": "chicagology_2000_block_prairie_engraving_1880",
+ "library_image": "a20-chicagology-2036-street-engraving-1880",
+ "photo": "../../sources/assets/buckingham_2036_pictures_t1911/chicagology_2000_block_engraving_1880.jpg",
+ "image_px": [
+  2000,
+  1198
+ ],
+ "principal_px": [
+  343.3,
+  860.9
+ ],
+ "focal_px": 3149.7,
+ "eye": [
+  22.66,
+  -25.0,
+  1.36
+ ],
+ "yaw_deg": -19.58,
+ "sky": "overcast",
+ "solve": "Fitted by least squares on 2036's own features in the engraving, not on its foreground: the 21st Street window column's left jamb at x 135 px at its sill (2.3 m) and head (5.4 m), its right jamb (x 225 px, weighted down: the engraver draws the light wider than the perspective gives it), the chamber sill at y 212 px (6.65 m), the basement's top at y 800 px (1.8 m), the south wall's end at the cant (x 300 px) and the cant's end on the front (x 372 px, the stoop's landing at y 775 px), and the walk's vanishing point along Prairie at x 1470 px, with the eye held near 1.5 m. The eye comes out on the far walk of 21st Street at the Prairie corner, 25 m south of the 21st Street face, looking 19.6 degrees west of north, f 3150 px; the principal point stands far left (x 343 px), as in a copy cropped from a wider view. The eye was bounded at 21st Street's south walk: unbounded, the fit runs to a telephoto view from 60 m and fits no better. Residuals 3-40 px on the house's points (rms about 25 px). WHAT IS SOFT: an engraving is not a photograph; its foreground does not stand in the house's perspective (the fence's corner pier, x 1125 px, and the gate's urn piers, x 790-880 px, fall 350-650 px left of where this camera puts the walk line), so they are read as the engraver's composition and not fitted, and the window column's place along the face (u 12.25 m) is taken from this fit. LIGHT: no cast shadows are drawn; the hatching darkens the 21st Street face and the stoop's underside: overcast."
+}

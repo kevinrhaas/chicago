@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crowd lineup · T-3555</title><link rel="icon" href="data:,">
+<!-- T-3555: a page for looking at the crowd's tiers by eye, served from chicago/4d by any static
+     server and never published.
+     It drives renderers/web/js/crowd.js (the town's middle-distance bodies and far cards) with
+     stand-in day and figure layers: people of real dresses stood in rows at known distances on
+     a flat ground, so one can read what each tier draws, where, and that the cross-fades
+     leave nobody drawn twice or not at all. `?asset=a,b` picks the dresses, `?d=30,60` the
+     distances, `?tier=light` the detail, `?who=` the carded person each dress row is
+     (their own dress, T-3553), `?season=` theirs and `?scene=1835` the year whose own persons
+     table is read. -->
+<style>html,body{margin:0;height:100%;background:#9fb4c4;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { createHumanAssets } from '../renderers/web/js/humans.js';
+import { createCrowd } from '../renderers/web/js/crowd.js';
+
+const q = new URLSearchParams(location.search);
+const assetIds = (q.get('asset') ?? 'mahoney_patrick_1835,flynn_mary_1835_dress_study').split(',');
+const dists = (q.get('d') ?? '32,45,70,100,140,220').split(',').map(Number);
+const tier = q.get('tier') ?? 'full';
+const walking = q.get('walk') === '1';
+// `?who=a,b` (T-3553): the carded person each dress row is, so the crowd wears their own dress
+// from the persons file (in `?season=`), as their whole figure does up close.
+const who = (q.get('who') ?? '').split(',').filter(Boolean);
+window.__crowd = { ready: false, error: null };
+try {
+  const renderer = new THREE.WebGLRenderer({ antialias: false });
+  renderer.setPixelRatio(1);
+  renderer.setSize(innerWidth, innerHeight);
+  document.body.appendChild(renderer.domElement);
+  if (q.get('shadow') === '1') { renderer.shadowMap.enabled = true; }
+  const scene = new THREE.Scene();
+  if (q.get('fog') === '1') scene.fog = new THREE.Fog(0x9fb4c4, 50, 900);
+  scene.background = new THREE.Color(0x9fb4c4);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x445533, 1.6));
+  const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(-40, 80, 30); sun.castShadow = q.get('shadow') === '1'; scene.add(sun);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: 0x8a7f66 }));
+  scene.add(ground);
+  const camera = new THREE.PerspectiveCamera(Number(q.get('fov') ?? 50), innerWidth / innerHeight, 0.1, 3000);
+  camera.position.set(0, 1.6, 0);
+  camera.lookAt(0, 1.6, -100);
+  const assets = createHumanAssets({ assetBase: new URL('../assets/', location.href), sceneId: q.get('scene') });
+  // People in a fan before the eye: each distance a column, each dress a row across it.
+  const people = [];
+  dists.forEach((d, i) => assetIds.forEach((asset, k) => {
+    const spread = (k - (assetIds.length - 1) / 2) * Math.max(1.2, d * 0.035);
+    const lane = (i - (dists.length - 1) / 2) * Math.max(1.5, d * 0.02);
+    people.push({ person: `p_${i}_${k}`, dress_of: who[k] ?? null, asset_id: asset, at: { e: spread + lane, n: d, heading_deg: Number(q.get('heading') ?? 180) },
+      activity: walking ? 'walk' : 'stand', to: walking ? { e: spread + lane + 30, n: d } : null, d });
+  }));
+  // `?n=1500`: a town's worth instead, seeded, in a fan out to 600 m (the CPU measurement).
+  const many = Number(q.get('n') ?? 0);
+  if (many) {
+    people.length = 0;
+    let seed = 7;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    for (let i = 0; i < many; i++) {
+      const d = 30 + rnd() * 570, a = (rnd() - 0.5) * 2.2, asset = assetIds[i % assetIds.length];
+      const e = Math.sin(a) * d, n = Math.cos(a) * d, walk = rnd() < 0.3;
+      people.push({ person: `t_${i}`, asset_id: asset, at: { e, n, heading_deg: rnd() * 360 }, activity: walk ? 'walk' : 'stand',
+        to: walk ? { e: e + 20, n } : null, d });
+    }
+  }
+  const humans = { assets, actors: [], shown: true, isHeld: () => false, season: q.get('season') ?? 'summer' };
+  const days = { outdoors: () => people };
+  const crowd = createCrowd({ humans, days, renderer, tier, heightAt: () => 0, assetIds });
+  scene.add(crowd.group);
+  window.__crowd.crowd = crowd;
+  let frames = 0;
+  const tick = () => {
+    crowd.update(1 / 30, camera, { e: 0, n: 0 });
+    renderer.render(scene, camera);
+    frames++;
+    const c = crowd.census();
+    window.__crowd.census = c;
+    window.__crowd.frames = frames;
+    window.__crowd.info = { calls: renderer.info.render.calls, triangles: renderer.info.render.triangles, programs: renderer.info.programs?.length };
+    if (c.bodiesReady === assetIds.length && c.baked >= assetIds.length && frames > 4) window.__crowd.ready = true;
+    requestAnimationFrame(tick);
+  };
+  tick();
+} catch (err) { window.__crowd.error = String(err?.stack ?? err); }
+</script></body></html>

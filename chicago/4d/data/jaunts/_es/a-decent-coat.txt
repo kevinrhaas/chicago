@@ -1,0 +1,73 @@
+== title @3d48a9e9
+Un abrigo decente
+
+== premise @ad6eb7ea
+Mira lo que dos tiendas de South Water anunciaban para vestir, y escoge cómo ir a una visita en el Sauganash.
+
+== opening @53dff4d2
+PASEO: UN ABRIGO DECENTE. Tienes que hacer una visita en el Sauganash esta noche y empezar a trabajar mañana, y tu único abrigo sigue gris del polvo del camino. En este pueblo eso quizá no importe mucho. En un baile de Chicago en 1834, el escritor neoyorquino Charles Hoffman encontró 'una completa mezcla de todos los rangos, edades, profesiones, oficios y ocupaciones', y vio 'un par de zapatillas como las de Cenicienta' bailar frente a 'un par de toscos zapatones de suela gruesa'.
+
+Aun así, te gustaría verte decente. South Water Street vende ropa ya hecha y tela por yarda. Mira lo que anuncian las tiendas, pasa por tu casa de huéspedes para pensarlo y decide qué te vas a poner esta noche.
+
+== stop ready-made @2b4a4067
+Empieza a una puerta de Dearborn, en lo de John Holbrook. El 10 de junio de 1835 anunciaba ropa, botas y zapatos, al por mayor y al por menor, como agente de los fabricantes, con mercancía nueva que llegaba 'cada quince o veinte días'. Esa es la nueva manera de vestirse en un pueblo en auge: abrigos hechos en los talleres del este y traídos por el lago, listos para ponerse esta noche. Sin sastre, sin pruebas, sin esperas.
+
+== narrative ready-made @c4385c6b
+Un abrigo que podrías ponerte esta noche.
+
+== stop cloth @3a8a8232
+Una cuadra al oeste, en Clark, Harmon, Loomis and Company venden telas. Su tarjeta de invierno enumeraba paños finos, casimires, satinetes, franelas y camelote de pelo de cabra, con lona gruesa de Rusia y lienzo, y en junio todavía anuncian telas, al por mayor y al por menor. Una tela fina hace un abrigo fino, pero la tela no es un abrigo: alguien todavía tiene que cortarla y coserla, y eso toma más de una tarde.
+
+== narrative cloth @a9a27888
+Un abrigo mejor, algún día, pero no para esta noche.
+
+== stop dress @8aad2822
+Una cuadra más al oeste, a la casa de huéspedes de troncos de la señora Rufus Brown, detrás de la tienda de Peck. La tienda de enfrente fue el primer edificio de madera de dos pisos del pueblo, construido con madera 'aserrada de nogales negros' y 'traída de Detroit en un barco'; desde entonces el pueblo se ha arreglado bastante. Extiende la decisión sobre la cama que compartes: una visita esta noche pide pulcritud, el trabajo de mañana pide resistencia, y un solo abrigo tiene que servir para las dos cosas.
+
+== stop the-call @28126316
+Sigue hasta Lake y Market y el Sauganash, blanco con postigos azul brillante en el recuerdo de Juliette Kinzie, y reparado y recién acondicionado este junio. Su dueño, Mark Beaubien, es 'el violinista par excellence del pueblo', y cuando toca, dijo el juez Caton, podía 'poner en movimiento cada talón y cada punta del salón'. Nadie va a mirar tu abrigo por mucho tiempo. Decide qué te pones.
+
+== narrative the-call @581adc4d
+La visita es esta noche, te pongas lo que te pongas.
+
+== label the-call made-coat @09f483b6
+Ponte un abrigo ya hecho
+
+== consequence the-call made-coat @84abcbf4
+Un abrigo sencillo ya hecho, del tipo que ofrece la tarjeta de Holbrook, listo para esta noche.
+
+== label the-call brushed-coat @20ccc248
+Cepilla el abrigo viejo
+
+== consequence the-call brushed-coat @fe2e552a
+Ve pulcro con lo que tienes; la tela para un abrigo de trabajo se puede confeccionar después.
+
+== leg 0 @3e02d854
+De la ropa hecha a la tela con que se hace.
+
+== note 0 @171893d3
+Una cuadra al oeste por South Water Street, de Dearborn a Clark.
+
+== leg 1 @6d1ab5de
+De vuelta a tu alojamiento para poner las dos ocasiones lado a lado.
+
+== note 1 @113155ad
+Más al oeste hasta LaSalle; la casa de huéspedes está detrás de la tienda de la esquina de Peck.
+
+== leg 2 @0add4b30
+Llega a la posada del pueblo, recién reacondicionada, para la visita.
+
+== note 2 @d8107914
+Al oeste hacia el brazo sur y una cuadra al sur hasta Lake Street, donde el Sauganash ocupa la esquina de Market Street.
+
+== ending ready-tonight @dd94f398
+Vas a la visita con un abrigo sencillo ya hecho, y guardas el abrigo de viaje para el trabajo de mañana. Para la segunda pieza nadie distingue un abrigo de Holbrook del de un sastre de Nueva York, y para la tercera a nadie le importa.
+
+== ending brushed @695febf5
+Vas a la visita cepillado y pulcro con el abrigo con el que llegaste, pensando en un corte de buen paño fino para más adelante. En un pueblo de zapatillas y zapatones, encajas a la perfección.
+
+== keepsake title @8cdf1e25
+A la altura de la ocasión
+
+== keepsake text @700ec557
+Una nota ficticia de lo que te pusiste para una visita en el Sauganash, y de lo que miraste a lo largo de South Water Street.

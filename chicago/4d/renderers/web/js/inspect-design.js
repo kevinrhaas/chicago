@@ -162,6 +162,8 @@ export function renderDesign(doc, model, { dot, onLook = null } = {}) {
     const last = words.pop();
     const n = el(tag, cls, words.length ? `${words.join(' ')} ` : '');
     n.append(mark(el('span', 'sg-tail', last), grade));
+    // T-3645: one line to the reading tabs, though its last word sits in its own span.
+    n.dataset.readingLine = '';
     return n;
   };
   const svg = (paths) => {

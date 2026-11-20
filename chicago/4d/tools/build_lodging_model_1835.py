@@ -192,6 +192,13 @@ def scene_phase(rec: dict) -> dict | None:
     return phases[-1]
 
 
+def not_yet_built(rec: dict) -> bool:
+    """True when every phase of the record opens after the scene date."""
+    starts = [(phase.get("documented_range") or {}).get("from")
+              for phase in rec.get("phases") or []]
+    return bool(starts) and all(start and start > SCENE_DATE for start in starts)
+
+
 def enclosed_area_m2(phase: dict) -> tuple[float, float, float]:
     """Footprint area, storeys, and the enclosed floor area that is their product.
 
@@ -290,11 +297,38 @@ def build(data: dict) -> dict:
     ceiling = sizes["max"]
 
     targets = data["inventory"]["family_targets"]
+    # T-3605: roofs raised to a picture of the street, not to house the model's people.
+    # The inventory's `pictured_roofs` takes them off every household weight, so the bed
+    # bracket does not count them either: their slots leave the schedule and the
+    # buildings stand outside the programme, with their rooms recorded and no beds dealt.
+    pictured = data["inventory"].get("pictured_roofs") or {}
+    # T-3605 phase 2: the commercial core's row-fill stores stand on the same footing.
+    pictured_prefix = tuple(pictured.get("structure_prefixes")
+                            or ([pictured["structure_prefix"]]
+                                if pictured.get("structure_prefix") else []))
+    pictured_n = {group: sum((cells or {}).values())
+                  for group, cells in (pictured.get("by_group") or {}).items()}
 
     places, outside, closed = [], [], []
     for rec in data["structures"]:
         fn = function_of(rec)
         if fn is None:
+            continue
+        if not_yet_built(rec):
+            # T-3688: a house every phase of which opens after the scene date is not in
+            # this town at all (the 1871 Sherman House), so it neither sleeps anyone nor
+            # is recorded as a house that was going up.
+            continue
+        if pictured_prefix and rec["id"].startswith(pictured_prefix) \
+                and fn in LODGING_FUNCTIONS:
+            outside.append({
+                "id": rec["id"], "name": rec["name"], "function": fn,
+                "beds_ordinary": None, "beds_crowded": None,
+                "why_no_beds": "Raised to a drawing of the street (the inventory's pictured_roofs, "
+                               "T-3605), not to house the town model's people, so the bed bracket "
+                               "does not count it and no beds are dealt here. Its rooms are recorded "
+                               "so a seating pass knows they exist.",
+            })
             continue
         if fn in NOT_YET_OPEN:
             phase = scene_phase(rec)
@@ -346,7 +380,7 @@ def build(data: dict) -> dict:
     for cls, (group, families) in PROGRAMME_GROUPS.items():
         mine = [p for p in places if p["class"] == cls]
         n = len(mine)
-        scheduled = sum(targets[f] for f in families)
+        scheduled = sum(targets[f] for f in families) - pictured_n.get(group, 0)
         areas = [p["enclosed_floor_m2"] for p in mine]
         low, low_clamp = apportion(areas, n * ordinary, ceiling)
         high, high_clamp = apportion(areas, n * crowded[cls], ceiling)

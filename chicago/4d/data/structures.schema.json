@@ -44,6 +44,8 @@
         "camp",
         "haystack",
         "lodge_camp",
+        "monument",
+        "landmark_1871",
         "k01_frontage",
         "k12_coach_house",
         "k13_conservatories",
@@ -295,6 +297,19 @@
             "by": {"enum": ["type", "keeper", "keeper_trade"]},
             "household": {"type": ["string", "null"]},
             "words": {"type": "string", "minLength": 1}
+          }
+        },
+        "drawn": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_id", "face", "key", "drawn_px", "read"],
+          "description": "T-3605: this roof was built to a drawn front in a documentary view, the owner having ruled the view a reasonable picture of the year (docs/LIBERTIES.md L-gifford-street-faces-3605). `source_id` is the view, `face` the street face the drawn row was read as, `key` the building's place in the recipe's row, `drawn_px` its left and right edge on the plate in pixels, and `read` what the drawing shows there. A value whose own sources name the same view was read off it; tools/measure_band_claims.py exempts such a value from its family band only while a reference view on that source with a \"matches\" verdict renders this record. Who stood in the building is not on the drawing, and nothing here says so.",
+          "properties": {
+            "source_id": {"type": "string", "minLength": 1},
+            "face": {"type": "string", "minLength": 1},
+            "key": {"type": "string", "minLength": 1},
+            "drawn_px": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+            "read": {"type": "string", "minLength": 1}
           }
         },
         "capacity": {
@@ -775,6 +790,7 @@
             "carpenter_or_joiner_shop",
             "church",
             "commanding_officers_quarters",
+            "commercial_exchange",
             "company_gardens",
             "cooper_wagon_or_wheelwright_shop",
             "cooperage",
@@ -829,6 +845,7 @@
             "merchant_or_professional_house",
             "military_barn",
             "military_post_enclosure",
+            "monument",
             "narrow_two_story_store",
             "narrow_two_story_warehouse",
             "office_and_lodging",

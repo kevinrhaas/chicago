@@ -49,9 +49,41 @@
       "support_file": "transport/parked-carriage/shaft-rest.glb"
     },
     "covered_w01_western_blue": {
-      "file": "transport/covered-wagon/covered_w01_western_blue/covered-w01.glb",
+      "file": "transport/farm-box-master/farm-box-near.glb",
+      "file_light": "transport/farm-box-master/farm-box-mid.glb",
       "type": "Covered wagon",
-      "basis": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "basis": "Covered wagon v2 (T-3558): this wagon's own reconstructed canvas cover, sewn hems, five bows and laid-by ox yoke stand on the licensed photographic farm-box master (Old Cart by Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), painted with its own seeded faded blue body and oxide running gear over the photographed boards; the canvas carries its own seeded ageing. The original record ID and exact coordinates keep its seeded finish family and canvas ageing. Canvas construction, colour, wear, bows and paint are reconstructed; no manufacturer, historical owner or load is identified. Occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "support_file": "transport/covered-wagon/covered_w01_western_blue/covered-v2-cover.glb",
+      "paint": {
+        "body_meshes": [
+          "CartBody_CartBase_0",
+          "CartBody_CartDetails_0"
+        ],
+        "body": {
+          "CartBase": [
+            0.5732,
+            0.9425,
+            1.4639
+          ],
+          "CartDetails": [
+            0.529,
+            0.9099,
+            1.4466
+          ]
+        },
+        "gear": {
+          "CartBase": [
+            1.0154,
+            0.3527,
+            0.2549
+          ],
+          "CartDetails": [
+            0.9371,
+            0.3405,
+            0.2519
+          ]
+        }
+      },
       "wheel_contacts_m": [
         [
           -0.605,
@@ -72,9 +104,41 @@
       ]
     },
     "covered_w01_wolfpoint_oak": {
-      "file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-w01.glb",
+      "file": "transport/farm-box-master/farm-box-near.glb",
+      "file_light": "transport/farm-box-master/farm-box-mid.glb",
       "type": "Covered wagon",
-      "basis": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "basis": "Covered wagon v2 (T-3558): this wagon's own reconstructed canvas cover, sewn hems, five bows and laid-by ox yoke stand on the licensed photographic farm-box master (Old Cart by Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), painted with its own seeded aged oak body and dark oak running gear over the photographed boards; the canvas carries its own seeded ageing. The original record ID and exact coordinates keep its seeded finish family and canvas ageing. Canvas construction, colour, wear, bows and paint are reconstructed; no manufacturer, historical owner or load is identified. Occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "support_file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-v2-cover.glb",
+      "paint": {
+        "body_meshes": [
+          "CartBody_CartBase_0",
+          "CartBody_CartDetails_0"
+        ],
+        "body": {
+          "CartBase": [
+            0.9072,
+            0.663,
+            0.4268
+          ],
+          "CartDetails": [
+            0.8372,
+            0.6401,
+            0.4217
+          ]
+        },
+        "gear": {
+          "CartBase": [
+            0.4874,
+            0.3497,
+            0.2467
+          ],
+          "CartDetails": [
+            0.4498,
+            0.3376,
+            0.2438
+          ]
+        }
+      },
       "wheel_contacts_m": [
         [
           -0.605,
@@ -151,13 +215,37 @@
         "mid": "transport/parked-brougham/brougham-mid-delivery-v1.glb",
         "runtime_distance_selection_enabled": true
       }
+    },
+    "farm_box_w01": {
+      "file": "transport/farm-box-master/farm-box-near.glb",
+      "file_light": "transport/farm-box-master/farm-box-mid.glb",
+      "type": "Farm-box wagon",
+      "basis": "The photographic farm-box wagon the 1835 town's moving teams draw (T-3558): the licensed Old Cart master (Lyskilde/longtail, CC BY 4.0, credited in assets/LICENSES.md), unpainted, at the original yard or verge stand and bearing of the procedural wagon it replaces. It stands unhitched and empty. Maker, owner, load and finish are not identified; the stand is the town wagon rule's (T-0064), not a source's.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
     }
   },
   "scenes": {
     "1835": [
       {
         "id": "parked_western_hotel_wagon_yard_wagon",
-        "model": "wagon_w01",
+        "model": "farm_box_w01",
         "name": "Farm-box wagon",
         "replaces": "western_hotel_wagon_yard_wagon",
         "belongs_to": "western_hotel",
@@ -170,12 +258,12 @@
         "source_ids": [
           "chicagology_prefire278"
         ],
-        "liberty": "L-parked-vehicles-2979",
-        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
       },
       {
         "id": "parked_town_wagon_western_hotel_wagon_yard_2",
-        "model": "wagon_w01",
+        "model": "farm_box_w01",
         "name": "Farm-box wagon",
         "replaces": "town_wagon_western_hotel_wagon_yard_2",
         "belongs_to": null,
@@ -186,12 +274,12 @@
         ],
         "bearing_deg": 176.2,
         "source_ids": [],
-        "liberty": "L-parked-vehicles-2979",
-        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
       },
       {
         "id": "parked_town_wagon_wolf_point_tavern_yard_2",
-        "model": "wagon_w01",
+        "model": "farm_box_w01",
         "name": "Farm-box wagon",
         "replaces": "town_wagon_wolf_point_tavern_yard_2",
         "belongs_to": null,
@@ -202,8 +290,8 @@
         ],
         "bearing_deg": 191.2,
         "source_ids": [],
-        "liberty": "L-parked-vehicles-2979",
-        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this yard's original reconstructed stand and bearing (Kevin, 2026-11-16: \"replace any parked wagons with these photographic wagons\"). Maker, owner, load and finish are unidentified; the yard supports the kind of setting, not this wagon."
       },
       {
         "id": "parked_town_wagon_western_hotel_wagon_yard_1",
@@ -236,6 +324,54 @@
         "source_ids": [],
         "liberty": "L-covered-wagons-2980",
         "note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+      },
+      {
+        "id": "parked_town_wagon_market_1",
+        "model": "farm_box_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_market_1",
+        "belongs_to": null,
+        "location": "Existing 1835 street-verge stand",
+        "at_local_enu_m": [
+          77.48,
+          -495.01
+        ],
+        "bearing_deg": 4.8,
+        "source_ids": [],
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this street verge's original reconstructed stand and bearing, one of the few the town keeps standing now that ten teams work the streets (Kevin, 2026-11-16). Maker, owner, load and finish are unidentified; the town wagon rule (T-0064) places the stand, not a source."
+      },
+      {
+        "id": "parked_town_wagon_dearborn_1",
+        "model": "farm_box_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_dearborn_1",
+        "belongs_to": null,
+        "location": "Existing 1835 street-verge stand",
+        "at_local_enu_m": [
+          690.53,
+          -474.02
+        ],
+        "bearing_deg": 358.9,
+        "source_ids": [],
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this street verge's original reconstructed stand and bearing, one of the few the town keeps standing now that ten teams work the streets (Kevin, 2026-11-16). Maker, owner, load and finish are unidentified; the town wagon rule (T-0064) places the stand, not a source."
+      },
+      {
+        "id": "parked_town_wagon_randolph_13",
+        "model": "farm_box_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_randolph_13",
+        "belongs_to": null,
+        "location": "Existing 1835 street-verge stand",
+        "at_local_enu_m": [
+          606.31,
+          -262.93
+        ],
+        "bearing_deg": 273.5,
+        "source_ids": [],
+        "liberty": "L-1835-parked-farm-box",
+        "note": "The photographic farm-box wagon at this street verge's original reconstructed stand and bearing, one of the few the town keeps standing now that ten teams work the streets (Kevin, 2026-11-16). Maker, owner, load and finish are unidentified; the town wagon rule (T-0064) places the stand, not a source."
       }
     ],
     "1904": [
@@ -257,7 +393,12 @@
         "note": "Reconstructed parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. A matched pair and their stationary activity are reconstructed when the near carriage team is shown. Closed doors, no occupant, boarding, traffic or driving; no coachman or passenger fit is claimed.",
         "stationary_team": {
           "schema": "chicago4d_parked_draft_team_v1",
-          "horse_appearance": {"recipe_file": "transport/horse-coats.json", "scene": "1904", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
+          "horse_appearance": {
+            "recipe_file": "transport/horse-coats.json",
+            "scene": "1904",
+            "grade": "reconstructed",
+            "liberty": "L-horse-individual-coats-2795"
+          },
           "driver_present": false,
           "reins_mode": "unheld",
           "pole_node": "vehicle_team_pole",
@@ -311,6 +452,40 @@
           ]
         }
       }
+    ]
+  },
+  "retired_yard_wagons": {
+    "_doc": "T-3558, Kevin 2026-11-16: \"replace any parked wagons with these photographic wagons, you may not need to keep all of the parked wagons given the ones in motion\". Procedural farm-box and covered wagons of data/yard/town_trade_goods.json that no photographic row replaces are not drawn: the ten moving teams now carry the street traffic, only the photographic covered pair is qualified as a covered wagon, and a photographic farm box stands only where its four wheels find level ground (the parked layer's 30 mm wheel plane): most street verges slope to the gutter. Carts are not wagons and are untouched. The records themselves stay in town_trade_goods.json (the generator's own output, guarded by farm-box-protected.json); parked-transport.js hands the list to the yard layer (`retiredIds`), which never builds them, so neither the reach nor the far merge can draw one. Liberty L-1835-parked-farm-box.",
+    "1835": [
+      "green_tree_tavern_yard_wagon_1",
+      "green_tree_tavern_yard_wagon_2",
+      "town_wagon_canal_4",
+      "town_wagon_kinzie_10",
+      "town_wagon_kinzie_11",
+      "town_wagon_kinzie_14",
+      "town_wagon_lake_1",
+      "town_wagon_lake_2",
+      "town_wagon_lake_4",
+      "town_wagon_lake_5",
+      "town_wagon_lake_6",
+      "town_wagon_lake_7",
+      "town_wagon_lake_9",
+      "town_wagon_lake_11",
+      "town_wagon_lake_15",
+      "town_wagon_lake_17",
+      "town_wagon_lake_23",
+      "town_wagon_lake_28",
+      "town_wagon_market_2",
+      "town_wagon_randolph_2",
+      "town_wagon_randolph_8",
+      "town_wagon_randolph_11",
+      "town_wagon_south_water_14",
+      "town_wagon_south_water_15",
+      "town_wagon_south_water_16",
+      "town_wagon_south_water_18",
+      "town_wagon_south_water_38",
+      "town_wagon_south_water_39",
+      "town_wagon_wolf_point_tavern_yard_3"
     ]
   }
 }

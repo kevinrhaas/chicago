@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>4D Chicago</title>
 <meta name="description" content="A walkable reconstruction of downtown Chicago in the summer of 1835, rendered from a research dataset with per-attribute source provenance.">
 <meta name="color-scheme" content="dark light">
@@ -47,6 +47,7 @@
 <link rel="stylesheet" href="./css/card.css">
 <link rel="stylesheet" href="./css/recall.css">
 <link rel="stylesheet" href="./css/skins.css">
+<link rel="stylesheet" href="./css/signin.css">
 <script src="./js/skin.js"></script>
 
 <!--
@@ -57,7 +58,8 @@
 {
   "imports": {
     "three": "./vendor/three-0.185.1/three.module.js",
-    "three/addons/": "./vendor/three-0.185.1/addons/"
+    "three/addons/": "./vendor/three-0.185.1/addons/",
+    "https://www.gstatic.com/firebasejs/13.3.0/": "./vendor/firebase-13.3.0/"
   }
 }
 </script>
@@ -73,6 +75,10 @@
     <!-- T-2617: on its back face (Home) the arrival device wears the Navigator's screen code. -->
     <div class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II</span><span>SCR 01 · HOME</span></div>
     <button id="arrival-sound" type="button" aria-label="Enable audio" title="Enable audio" aria-pressed="false" class="arrival-sound"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-muted-icon" d="m16 9 5 6m0-6-5 6"/><path class="sound-playing-icon" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/></svg></button>
+    <!-- T-3578: back in the town's Home (a jaunt finished, or the Navigator's Home), its close key
+         stands at the upper right like the Navigator's own (the owner, 2026-11-13: "have that on
+         the upper right of things to close them"). It does what Return to the town does. -->
+    <button id="welcome-x" class="welcome-x" type="button" hidden aria-label="Close and return to the town" title="Close"><svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <p class="gate-eyebrow" data-str="arrival.eyebrow">4D Chicago · Arrival</p>
     <h1 id="gate-title" tabindex="-1" data-str="arrival.title.0">Preparing your arrival</h1>
     <!-- T-2164: the arrival as a portable machine — the front door's console in a
@@ -95,7 +101,7 @@
             var p = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [])[1], to = '1835', t = document.getElementById('arrival-destination'), b = document.createElement('b');
             try { to = String(new URLSearchParams(location.search).get('year') || p || '1835').replace(/[^0-9a-z_-]/gi, ''); } catch (e) { to = p || '1835'; }
             if (!/^\d{4}$/.test(to)) to = '1835'; b.textContent = to;
-            t.textContent = 'Destination '; t.appendChild(b); t.appendChild(document.createTextNode(' \u00b7 ' + ({ 1812: 'Fort Dearborn', 1835: 'River settlement', 1904: 'Prairie Ave' }[to] || 'Chicago')));
+            t.textContent = 'Destination '; t.appendChild(b); t.appendChild(document.createTextNode(' \u00b7 ' + ({ 1812: 'Fort Dearborn', 1835: 'River settlement', 1904: 'Prairie Ave', 1871: 'Pre-fire Chicago' }[to] || 'Chicago')));
             h.textContent = ''; for (var i = 0; i < 4; i++) { var d = document.createElement('span'); d.className = 'arrival-digit'; d.dataset.value = y[i];
             d.innerHTML = '<span class="arrival-digit-half arrival-digit-top"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-bottom"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-flap"><span>' + y[i] + '</span></span>';
             h.appendChild(d); } h.dataset.year = y;
@@ -199,7 +205,9 @@
     <p class="gate-build" id="gate-build" hidden><!--BUILD_STAMP--></p>
   </div>
 </div>
-<div id="hud" class="hud" hidden>
+<!-- T-3671 (WCAG 2.4.1): past the HUD's keys, into the Navigator (navigator.js opens it). -->
+<a class="skip-link" id="skip-navigator" href="#navigator" data-str="nav.a11y.skip">Skip to the Navigator</a>
+<div id="hud" class="hud" role="main" aria-label="Town" hidden>
   <div class="hud-top">
     <div class="hud-chips">
     <!-- T-2626 (§10): the year chip — amber LED digits, 1904 · 07.01. A tap opens Jump. -->
@@ -261,6 +269,20 @@
           <button type="button" class="street-toggle" id="street-toggle" aria-pressed="true"
             aria-controls="street-readout" title="Street names: then and today"
             aria-label="Street names: then and today"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 6h11l3 2.5L16 11H5z"/><path d="M19 13H8l-3 2.5L8 18h11z"/></svg></button>
+          <!-- T-3597: the VR and Window keys hang off the row's left end, beside the fly key, so
+               they never widen the row: a wider row pushed the round face 57 px in from the
+               right edge on a phone, onto the Researcher label and past the HUD's 10 % budget. -->
+          <span class="instrument-keys">
+          <!-- T-3575: Enter VR, shown only where the browser offers a headset (js/controls/xr.js). -->
+          <button type="button" class="vr-key" id="btn-vr" hidden aria-pressed="false"
+            title="View in a VR headset" aria-label="Enter VR">VR</button>
+          <!-- T-3577: Window mode, on a phone or tablet: where you stand, which way you face
+               (js/controls/window.js). T-3597: a round key the fly key's size, a phone held up
+               to the street, rather than the word, which cost 0.6 % of a phone's screen. -->
+          <button type="button" class="vr-key icon-key" id="btn-window" hidden aria-pressed="false"
+            title="Look through the screen from where you stand" aria-label="Window: look from where you stand"><svg
+            viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M9 15.5l2.2-2.6 1.6 1.6 2.2-2.7"/><path d="M11 18.5h2"/></svg></button>
+          </span>
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own
@@ -271,9 +293,32 @@
         <div class="instrument-below" id="instrument-below">
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
           <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
-          <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
+          <!-- T-3601: the TODAY tag is also the Today window's switch. -->
+          <span class="street-line street-today"><button type="button" class="street-today-key" id="street-today-key"
+            aria-pressed="false" aria-controls="today-view" title="Today's street view: show or hide"
+            aria-label="Today's street view: show or hide"><b>Today</b><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><circle cx="12" cy="12.5" r="3.2"/><path d="M8.5 6l1.4-2.2h4.2L15.5 6"/></svg></button><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
         </div>
+        <!-- T-3601: the Today window — Google Street View, today, from where you stand and the
+             way you face, turning and moving with you (js/today-view.js). Nothing from Google
+             loads until it is first shown; with no key it is a card with Google Maps' link. -->
+        <section id="today-view" class="today-view" data-size="small" data-mode="off" hidden
+          aria-label="Today: Street View from where you stand">
+          <header class="today-head">
+            <b class="today-tag">Today</b>
+            <span class="today-where" id="today-where"></span>
+            <button type="button" class="today-btn" id="today-expand" aria-pressed="false"
+              aria-label="Make the Today window big" title="Make the Today window big"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="today-grow" d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/><path class="today-shrink" d="M19 11h-6V5M5 13h6v6M13 11l7-7M11 13l-7 7"/></svg></button>
+            <a class="today-btn" id="today-open" href="https://www.google.com/maps" target="_blank" rel="noopener"
+              aria-label="Open this view in Google Maps" title="Open this view in Google Maps"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
+            <button type="button" class="today-btn" id="today-close"
+              aria-label="Hide the Today window" title="Hide the Today window"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </header>
+          <div class="today-body">
+            <div class="today-pano" id="today-pano" hidden></div>
+            <p class="today-note" id="today-note"></p>
+          </div>
+        </section>
         </div>
       </div>
     </div>
@@ -320,6 +365,9 @@
       <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Guide" data-str-title="hud.tab.guide"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label" data-str="hud.tab.guide">Guide</span></button>
       <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new" data-str-title="hud.tab.whatsnew"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label" data-str="hud.tab.whatsnew">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
     </nav>
+    <!-- T-3563: the Settings card's own tabs, one row of icons over small labels like Inspect's
+         (T-3435). js/settings-app.js draws the buttons; shown while Settings or What's new is. -->
+    <nav class="set-tabs" id="settings-tabs" role="tablist" aria-label="Settings" hidden></nav>
     <header class="panel-head">
       <button class="panel-back" id="panel-back" type="button" aria-label="Back" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
       <h2 class="panel-title" id="panel-title">Go to</h2>
@@ -358,13 +406,19 @@
           <button type="button" class="seg-btn" data-arrive="ride" role="radio" aria-checked="false">Ride there</button>
           <button type="button" class="seg-btn" data-arrive="fly" role="radio" aria-checked="false">Fly over</button>
         </div></div>
+      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
+           by goToTarget like Go to, so it takes this choice too. T-3629: the note sits under
+           the control it explains. -->
+      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>
       <!-- T-2727: whether Jaunts take that choice too. Off by default: a guided outing was
            written around its own way of going. -->
       <label class="field row check-field"><span data-str="hud.move.jaunts">Jaunts use my choice</span>
         <input type="checkbox" id="s-jaunts-choice"></label>
-      <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
-           by goToTarget like Go to, so it takes this choice too. -->
-      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>
+      <!-- The owner, 2026-11-15: the jaunts that stage the 1812 fighting graphically (killings,
+           wounds, blood), for adults only. Off by default; on, they are listed with the rest. -->
+      <label class="field row check-field"><span data-str="hud.move.adultJaunts">18+ jaunts: I am 18 or over</span>
+        <input type="checkbox" id="s-adult-jaunts" aria-describedby="s-adult-jaunts-help"></label>
+      <p class="legend-note" id="s-adult-jaunts-help" data-str="hud.move.adultJauntsHelp">Lists the jaunts that show the 1812 fighting graphically: killings, wounds and blood. Not for students.</p>
       <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
            each a choice about the view and never about the town. -->
       <h3 class="legend-h" id="move-comfort">Comfort</h3>
@@ -610,17 +664,7 @@
          and readouts stay terse; the reasoning lives in the source comments.
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
-      <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
-           T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
-           research or not in the navigator") names it Expert research and puts it first: it is
-           what adds Inspect's Research tab, the building card folded into the Navigator. -->
-      <div class="settings-group" id="s-research">
-        <h4 data-str="settings.research">Research</h4>
-        <label class="field row check-field"><span data-str="research.switch">Expert research</span>
-          <input type="checkbox" id="s-researcher"></label>
-        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
-      </div>
-      <div class="settings-group" id="s-display">
+      <div class="settings-group" id="s-display" data-set-pane="display">
         <h4 data-str="settings.display">Display</h4>
         <!-- T-2625 moved light / dark here from the HUD; T-2656 makes it a two-way choice. -->
         <div class="field row theme-row"><span data-str="settings.theme">Light or dark</span>
@@ -628,7 +672,8 @@
             <button type="button" class="seg-btn" data-theme-choice="dark" role="radio" aria-checked="false" data-str="settings.theme.dark">Dark</button>
             <button type="button" class="seg-btn" data-theme-choice="light" role="radio" aria-checked="false" data-str="settings.theme.light">Light</button>
           </div></div>
-        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. -->
+        <!-- T-2656 (QA-18): every Navigator app's text, 100-140 %; the screens reflow. T-3671
+             (WCAG 1.4.4): to 200 %, and every part of the interface with it. -->
         <label class="field row"><span data-str="settings.textSize">Text size</span>
           <select id="s-text-size">
             <option value="1">100 %</option>
@@ -636,6 +681,9 @@
             <option value="1.2">120 %</option>
             <option value="1.3">130 %</option>
             <option value="1.4">140 %</option>
+            <option value="1.6">160 %</option>
+            <option value="1.8">180 %</option>
+            <option value="2">200 %</option>
           </select></label>
         <!-- K24, owner-requested. The same standing as the road aid: an
              accommodation for your screen, layered on a grade that was measured
@@ -651,14 +699,37 @@
         <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
           <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
       </div>
-      <div class="settings-group">
-        <h4>Show</h4>
+      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
+      <div class="settings-group" id="s-machine" data-set-pane="display">
+        <h4 data-str="settings.machine">Appearance</h4>
+        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Appearance" data-str-label="settings.machine"></div>
+      </div>
+      <div class="settings-group" data-set-pane="display">
+        <h4>Units</h4>
+        <label class="field row"><span>Measurement units</span>
+          <select id="s-units">
+            <option value="imperial">Imperial — ft, mi, mph</option>
+            <option value="metric">Metric — m, km, km/h</option>
+          </select></label>
+      </div>
+      <!-- T-3644 (Kevin, 2026-11-17: "provide options for users in settings to change the gender
+           appearance dress, etc. this becomes a person builder eventually"): the You tab's group, the
+           visitor's own person, goes here. js/person-settings.js (personHost) makes all of it, the
+           group included: the published page is at validate.py's 64 KB duplicate floor (the year
+           doors are copies of it), so this page carries none of its bytes. -->
+      <!-- T-3629: Show in two groups with one job each: what is drawn over the town, and the
+           town itself (its season, hour, trees, people and carriages). -->
+      <div class="settings-group" data-set-pane="show">
+        <h4>On screen</h4>
         <label class="field row check-field"><span>Compass</span>
           <input type="checkbox" id="s-compass"></label>
         <label class="field row check-field"><span>Overview map</span>
           <input type="checkbox" id="s-overview-map"></label>
         <label class="field row check-field"><span id="s-street-names-label">Street names, then and today</span>
           <input type="checkbox" id="s-street-names"></label>
+        <!-- T-3601: the Today window, Google Street View from where you stand (off by default). -->
+        <label class="field row check-field"><span>Today window: Street View from where you stand</span>
+          <input type="checkbox" id="s-today-view"></label>
         <label class="field row check-field"><span>Name of what you look at</span>
           <input type="checkbox" id="s-look-tag"></label>
         <!-- T-2942: where that name shows, and whether it fades. -->
@@ -673,6 +744,9 @@
             <option value="fade">Fades after a few seconds</option>
             <option value="always">Always shown</option>
           </select></label>
+      </div>
+      <div class="settings-group" id="s-town" data-set-pane="show">
+        <h4>The town</h4>
         <label class="field row" id="row-season" hidden><span>Season</span>
           <select id="s-season" title="A viewing choice: the scene keeps its own date">
             <option value="summer">Summer — the scene's own day, full leaf</option>
@@ -710,26 +784,32 @@
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
+        <!-- T-3614: a small card over each person with their name; a tap opens their card. -->
+        <label class="field row check-field" id="row-name-cards"><span>Name cards over people</span>
+          <input type="checkbox" id="s-name-cards"></label>
         <label class="field row" id="row-vehicles"><span>Carriages and horses</span>
           <select id="s-vehicles">
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
+      </div>
+      <!-- T-3563 (the owner, 2026-11-12: "could you add a setting to adjust the mouse sensitivity
+           for the app?"): how far the view turns for a move of the mouse, or of a finger on a
+           touch screen. 1x is the turn the app always had (js/controls/pointerlock.js, touch.js). -->
+      <div class="settings-group" id="s-look" data-set-pane="look">
+        <h4>Look</h4>
+        <label class="field"><span><span id="s-look-speed-label">Mouse sensitivity</span> <b id="v-look-speed"></b></span>
+          <input type="range" id="s-look-speed" min="0.2" max="3" step="0.1" aria-labelledby="s-look-speed-label"></label>
+      </div>
+      <div class="settings-group" data-set-pane="look">
+        <h4>Movement</h4>
+        <p class="legend-note"><span data-str="hud.move.note">Speeds, eye height and comfort:</span> <b data-str="hud.tab.move">Move</b>.</p>
         <!-- T-2661: the controls are Guide's, in the Navigator; this opens it there. -->
         <div class="field row"><span>Guide</span>
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
-      <div class="settings-group">
-        <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">Speeds, eye height and comfort:</span> <b data-str="hud.tab.move">Move</b>.</p>
-      </div>
-      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
-      <div class="settings-group" id="s-machine">
-        <h4 data-str="settings.machine">Machine</h4>
-        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
-      </div>
-      <div class="settings-group">
+      <div class="settings-group" data-set-pane="graphics">
         <h4>Performance</h4>
         <label class="field row"><span>Scene detail</span>
           <select id="s-detail">
@@ -771,7 +851,7 @@
           aria-label="Frame pacing reading"></textarea>
       </div>
       <!-- Sound controls: brief examples distinguish Ambience from Effects. -->
-      <div class="settings-group" id="s-sound">
+      <div class="settings-group" id="s-sound" data-set-pane="sound">
         <h4 data-str="settings.sound">Sound</h4>
         <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
@@ -780,7 +860,7 @@
         <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.effects">Effects</span> <b id="v-sound-effects"></b></span>
           <input type="range" id="s-sound-effects" min="0" max="1" step="0.05" aria-describedby="s-sound-effects-help"></label>
-        <p class="legend-note" id="s-sound-effects-help" data-str="settings.sound.effectsHelp">Nearby actions: wagon wheels and harness jingles from moving teams.</p>
+        <p class="legend-note" id="s-sound-effects-help" data-str="settings.sound.effectsHelp">Nearby actions: hoofbeats, wagon wheels and hammering.</p>
         </div>
         <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
@@ -791,29 +871,45 @@
         <label class="field"><span><span data-str="settings.sound.music">Music</span> <b id="v-sound-music"></b></span>
           <input type="range" id="s-sound-music" min="0" max="1" step="0.05"></label>
         </div>
+        <div class="sound-control">
+        <label class="field"><span><span data-str="settings.sound.narration">Narration</span> <b id="v-sound-narration"></b></span>
+          <input type="range" id="s-sound-narration" min="0" max="1" step="0.05" aria-describedby="s-sound-narration-help"></label>
+        <p class="legend-note" id="s-sound-narration-help" data-str="settings.sound.narrationHelp">Jaunt voices: each stop read aloud when you arrive.</p>
+        </div>
+        <label class="field row"><span data-str="settings.sound.narrator">Narrator</span>
+          <select id="s-narrator"><option value="essayist">Cultivated Essayist</option><option value="storyteller">Midwestern Storyteller</option></select></label>
         <a href="./audio/credits.html" target="_blank" rel="noopener">Audio credits and liberties</a>
-      </div>
-      <div class="settings-group">
-        <h4>Units</h4>
-        <label class="field row"><span>Measurement units</span>
-          <select id="s-units">
-            <option value="imperial">Imperial — ft, mi, mph</option>
-            <option value="metric">Metric — m, km, km/h</option>
-          </select></label>
       </div>
       <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
            On a phone this is where they are: the arrival card's stamp and the dev
            preview's banner and pill are not drawn there. -->
-      <div class="settings-group about" id="s-about">
-        <h4 data-str="settings.about">About &amp; What's new</h4>
+      <div class="settings-group about" id="s-about" data-set-pane="about">
+        <h4 data-str="settings.about">About</h4>
         <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
           <span id="s-about-build"></span></p>
         <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
           <a href="/4d/" data-str="hud.about.production">Open production</a></p>
-        <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
+        <!-- T-3603: who is signed in, and the way out (js/sign-in.js showAccount). Hidden
+             unless the sign-in gate let someone in. -->
+        <div class="field row account-row" id="s-account" hidden><span class="account-who">Signed in as
+          <b id="s-account-who"></b> <span id="s-account-how"></span></span>
+          <button class="setting-button" id="s-sign-out" type="button">Sign out</button></div>
+        <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
-        <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
+      </div>
+      <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
+           T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
+           research or not in the navigator") names it Expert research: it is what adds Inspect's Research tab, the building card
+           folded into the Navigator. T-3563 (the owner, 2026-11-12: "the research mode should be
+           at the end") makes it the Settings card's last tab. -->
+      <div class="settings-group" id="s-research" data-set-pane="research">
+        <h4 data-str="settings.research">Research</h4>
+        <label class="field row check-field"><span data-str="research.switch">Expert research</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
+        <!-- T-3629: the field log moved here from About; its counters are for whoever studies
+             how the app is used, not every visitor. T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
              device only, never sent anywhere, with Clear. The rows are painted from the table. -->
         <div class="field-log" id="s-field-log">
           <h5 data-str="fieldlog.title">Field log</h5>
@@ -832,7 +928,7 @@
       <section class="nav-block nav-guide-tour" id="guide-tour" aria-labelledby="guide-tour-title">
         <span class="nav-k">Tour</span>
         <strong class="nav-place" id="guide-tour-title">The field check</strong>
-        <span class="nav-sub">Eight steps, about a minute. Skip any time.</span>
+        <span class="nav-sub">About a minute, one step at a time. Skip any time.</span>
         <button class="nav-key nav-tour-key" id="tour-start" type="button">Take the tour <span aria-hidden="true">→</span></button>
       </section>
       <dl class="keys" id="keys-desktop">
@@ -871,7 +967,7 @@
 
   <div class="crosshair" id="crosshair" aria-hidden="true"></div>
   <!-- T-2614: desktop only, until the first click on the scene takes the pointer. -->
-  <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to engage look</p>
+  <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to look around</p>
   <!-- T-2627 (§10): the target tag — after the reticle rests on a building for 400 ms, its
        name and distance; a tap opens Inspect (so does E). T-2942: this is its Centre place;
        by default target-tag.js docks it under the address (#instrument-below), and Bottom
@@ -881,7 +977,7 @@
        Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
        fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg> <span class="chip-label">Inspect</span></button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg> <span class="chip-label">Inspect</span><kbd class="ik-kbd" aria-hidden="true">E</kbd></button>
     <!-- T-3319: the Interact key — while something to work (a fort gate) is in reach on
          foot: what it will do ("Open gate"), and R from the keyboard (js/interact.js). -->
     <button id="btn-interact" class="chip quick-interact" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11a1.5 1.5 0 0 1 3 0v3.5a6.5 6.5 0 0 1-6.5 6.5h-1a6 6 0 0 1-4.6-2.2L4.6 15.6a1.5 1.5 0 0 1 2.3-1.9L8 15"/></svg> <span class="ik-verb">Interact ·</span> <span class="ik-what">Open gate</span><kbd class="ik-kbd" aria-hidden="true">R</kbd></button>
@@ -929,9 +1025,10 @@
 <p class="nav-hint" id="nav-hint" role="status" aria-live="polite" hidden></p>
 <div id="tour" class="tour" hidden>
   <div class="tour-hole" aria-hidden="true" hidden></div>
-  <section class="tour-card" role="dialog" aria-labelledby="tour-bubble" aria-describedby="tour-task">
-    <header class="tour-head"><span id="tour-count">Field check · 1 / 7</span>
+  <section class="tour-card" role="region" aria-label="Field check" aria-describedby="tour-task tour-bubble" tabindex="-1">
+    <header class="tour-head"><span id="tour-count">Field check · 1 / 10</span>
       <button type="button" class="tour-skip" id="tour-skip">Skip <span aria-hidden="true">×</span></button></header>
+    <div class="tour-pips" id="tour-pips" aria-hidden="true"></div>
     <p class="tour-task" id="tour-task"></p>
     <p class="tour-bubble" id="tour-bubble" aria-live="polite"></p>
     <p class="tour-status" id="tour-status">Waiting for input</p>
@@ -951,6 +1048,12 @@
     <span class="nav-dock-year" id="nav-dock-year" aria-hidden="true"></span>
     <span class="nav-code" id="nav-code" data-str="nav.home.code">SCR 01 · HOME</span>
     <span class="nav-date" id="nav-date"></span>
+    <!-- T-3571: the owner, 2026-11-12: "add mute all sound and mute music toggles to navigator".
+         Lit means muted; js/main.js flips the same levels Settings › Sound's sliders hold. -->
+    <button class="nav-mute" type="button" id="nav-mute-all" aria-pressed="false" aria-label="Mute all sound" data-str-label="nav.mute.all" title="Mute all sound"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path class="mute-on" d="M16 9.5l5 5m0-5l-5 5"/><path class="mute-off" d="M15.5 9c1.4 1.6 1.4 4.4 0 6m2.6-8.5c2.8 3 2.8 8 0 11"/></svg></button>
+    <button class="nav-mute" type="button" id="nav-mute-music" aria-pressed="false" aria-label="Mute music" data-str-label="nav.mute.music" title="Mute music"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17.5V6l10-2v11.5"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/><path class="mute-on" d="M3.5 3.5l17 17"/></svg></button>
+    <!-- T-3578: MUTE NARRATION, the jaunt voices (js/narration.js); lit means muted. -->
+    <button class="nav-mute" type="button" id="nav-mute-narration" aria-pressed="false" aria-label="Mute narration" data-str-label="nav.mute.narration" title="Mute narration"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v8a1.5 1.5 0 0 1-1.5 1.5h-7l-4.5 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5z"/><path class="mute-off" d="M8 11h.01M12 11h.01M16 11h.01"/><path class="mute-on" d="M3.5 3.5l17 17"/></svg></button>
     <!-- T-2742: the open device's close key; it does what the rail's collapse arrow does. -->
     <button class="nav-close" type="button" id="nav-close" aria-label="Close the Navigator" data-str-label="nav.close" title="Close" data-str-title="nav.close.short"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </header>
@@ -961,24 +1064,27 @@
     <div class="nav-screen" id="nav-home" role="tabpanel" aria-labelledby="nav-home-title" tabindex="-1">
       <h2 id="nav-home-title" class="visually-hidden" tabindex="-1" data-str="nav.home.title">Navigator Home</h2>
       <section class="nav-block" aria-labelledby="nav-where-k">
-        <span class="nav-k" id="nav-where-k" data-str="nav.where.k">You are at</span>
+        <span class="nav-k" id="nav-where-k" role="heading" aria-level="3" data-str="nav.where.k">You are at</span>
         <strong class="nav-place" id="nav-where" data-str="nav.where.looking">Looking for the street…</strong>
         <span class="nav-sub" id="nav-where-detail"></span>
       </section>
-      <!-- T-2630: Home's three choices (§04 E), each opening the Jaunts app on its segment. -->
+      <!-- T-2630: Home's three choices (§04 E). T-3629: Take a Jaunt left them, since the
+           labelled Jaunts tab sits beside them on the rail; Other years took its place, for
+           Jump left the rail. -->
       <div class="nav-choices" role="group" aria-label="What next">
-        <button class="nav-choice" type="button" data-segment="jaunts"><strong>Take a Jaunt</strong><span>A guided outing</span></button>
         <button class="nav-choice" type="button" data-segment="goto"><strong>Go to…</strong><span>A house, a person, a shop</span></button>
+        <button class="nav-choice" type="button" id="nav-choice-years" data-app="jump"><strong>Other years</strong><span>1812, 1835, 1871, 1904</span></button>
         <button class="nav-choice" type="button" data-segment="roam"><strong>Free roam</strong><span>Wander on your own</span></button>
       </div>
       <section class="nav-block nav-front" id="nav-front" aria-labelledby="nav-front-k" aria-live="polite">
-        <span class="nav-k" id="nav-front-k" data-str="nav.front.k">Right in front of you</span>
+        <span class="nav-k" id="nav-front-k" role="heading" aria-level="3" data-str="nav.front.k">Right in front of you</span>
         <strong class="nav-place" id="nav-front-name" data-str="nav.front.none">Nothing close by</strong>
         <span class="nav-sub" id="nav-front-detail"></span>
-        <button class="nav-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
+        <!-- T-3629: Inspect wears the accent, not signal red; red is for Recall, which leaves. -->
+        <button class="nav-key nav-roam nav-inspect-key" id="nav-inspect" type="button" hidden>Inspect <span aria-hidden="true">→</span></button>
       </section>
       <section class="nav-block" id="nav-jaunt" aria-labelledby="nav-jaunt-k" hidden>
-        <span class="nav-k nav-k-row"><span id="nav-jaunt-k" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
+        <span class="nav-k nav-k-row"><span id="nav-jaunt-k" role="heading" aria-level="3" data-str="nav.jaunt.k">Jaunt in progress</span><span class="nav-step" id="nav-jaunt-step"></span></span>
         <strong class="nav-jaunt-title" id="nav-jaunt-title"></strong>
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
@@ -995,7 +1101,7 @@
   </div>
 </section>
 
-<aside id="popup" class="popup" hidden aria-live="polite" tabindex="-1"></aside>
+<aside id="popup" class="popup" hidden role="dialog" aria-labelledby="pop-title" tabindex="-1"></aside>
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 

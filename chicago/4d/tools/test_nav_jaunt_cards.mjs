@@ -33,6 +33,11 @@ assert.equal(plate.credit, 'Library of Congress', 'the holder, as the card shows
 assert.match(plate.full, /HABS photographer/);
 assert.match(plate.full, /PUBLIC DOMAIN/, 'the whole credit and the rights ride along');
 assert.match(plate.alt, /^PHOTO: Glessner House/);
+// T-3584: a jaunt may name which held picture heads its card; an unknown one falls back to the first.
+doc.by_structure.glessner_house.push({ id: 'g2', kind: 'PHOTO', title: 'Glessner House, coach-house end', holder: 'Cornell', rights: 'public domain', held: { t: 'thumbs/g2.jpg' } });
+assert.equal(plateFor(doc, ['glessner_house'], 'g2').src, 'https://images.example.org/store/thumbs/g2.jpg', 'the picture the jaunt names');
+assert.equal(plateFor(doc, ['glessner_house'], 'gone').src, plate.src, 'a named picture not held: the first held one');
+doc.by_structure.glessner_house.pop();
 
 // ---- the cards, over a small DOM -----------------------------------------------------------
 function makeDom() {
@@ -102,6 +107,81 @@ const text = byId['prairie-walk'].textContent;
 assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.test(text) && /10 min/.test(text),
   `title, premise, stops and minutes: ${text}`);
 
+// T-3604 (owner, 2026-11-15: "include grade level filters for the jaunts"): a row of grade pills,
+// one per band the year's jaunts have; a pill shows only that band, and Clear filters lets it go.
+{
+  const graded = [
+    { ...rows[0], id: 'tour', title: 'The Tour', grade_band: '6-8', menu_group: 'People' },
+    { ...rows[0], id: 'tour-young', title: 'The Tour', grade_band: '3-5', menu_group: 'People', version_of: 'tour' },
+    { ...rows[1], id: 'style', title: 'A Style Walk', grade_band: '9-10', menu_group: 'Architecture' },
+  ];
+  const { createReadingChoice } = await import('../renderers/web/js/reading-level.js');
+  const mem = () => { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), removeItem: (k) => m.delete(k) }; };
+  const choice = createReadingChoice({ storage: mem() });
+  const groot = document.createElement('div');
+  createJauntMenu({ root: groot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice }).show(graded);
+  const row = groot.querySelectorAll('.jaunt-grades')[0];
+  assert(row && !row.hidden, 'a grade row when the jaunts have more than one band');
+  const pills = row.querySelectorAll('.jaunt-grade-pill');
+  // T-3629: Any, then the bands present, youngest first; one card per jaunt. The owner,
+  // 2026-11-17: the row is "Your age", each pill the age band its grade band stands for.
+  // T-3645: 18+ is a reading age too, always last: each jaunt as first told.
+  assert.equal(row.querySelectorAll('.jaunt-grades-label')[0].textContent, 'Your age');
+  assert.deepEqual(pills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15', '18+'], 'Any, then the age bands present, youngest first, then 18+');
+  assert.deepEqual(pills.map((p) => p.getAttribute('aria-label')), ['Any age', 'Ages 8–10', 'Ages 11–13', 'Ages 14–15', 'Ages 18 and over']);
+  const shown = () => groot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
+  assert.deepEqual(shown(), ['tour', 'style'], 'no grade picked: each jaunt once, as first told');
+  const tags = (id) => groot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === id).querySelectorAll('.jaunt-grade').map((t) => t.textContent);
+  assert.deepEqual(tags('tour'), ['Grades 6–8', 'Ages 11–13'], 'each card: its age band next to its grade level');
+  pills[1].click();
+  assert.deepEqual(shown(), ['tour-young', 'style'], 'Ages 8–10: the 3–5 telling, and a jaunt with no 3–5 telling stays');
+  assert.equal(pills[1].getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(choice.get(), ['8-10'], 'the pill is the reader\'s age: Settings sees it');
+  // T-3645 (owner: "i can add multiple levels to see and then you would see all jaunts"): a second age adds its tellings.
+  pills[2].click();
+  assert.deepEqual(shown(), ['tour', 'tour-young', 'style'], 'Ages 8–10 and 11–13: both tellings of the tour, the walk once');
+  assert.equal(pills[1].getAttribute('aria-pressed'), 'true'); assert.equal(pills[2].getAttribute('aria-pressed'), 'true');
+  const clear = groot.querySelectorAll('.jaunt-clear')[0];
+  assert(clear.hidden, 'a picked age is a choice, not a filter to clear');
+  pills[1].click(); pills[2].click();
+  assert.deepEqual(shown(), ['tour', 'style'], 'tapping each picked age again lets it go');
+  assert.equal(pills[0].getAttribute('aria-pressed'), 'true', 'Any age again');
+  choice.set(['14-15'], 'account');
+  assert.deepEqual(shown(), ['tour', 'style'], 'an age chosen elsewhere (Settings, the account) redraws the list');
+  assert.equal(pills[3].getAttribute('aria-pressed'), 'true');
+  pills[0].click();
+  assert.deepEqual(choice.get(), [], 'Any clears every age');
+  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts"): an 18+ telling is played by the
+  // 18+ pill, after the bands, where it has one; the card carries the 18+ tag and no grade tag.
+  const aroot = document.createElement('div');
+  const grown = { ...rows[0], id: 'tour-adults', title: 'The Tour', grade_band: '6-8', menu_group: 'People', version_of: 'tour', audience: 'adults', content_warning: 'Told in full, for adults.' };
+  const achoice = createReadingChoice({ storage: mem() });
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: achoice }).show([grown, ...graded]);
+  const apills = aroot.querySelectorAll('.jaunt-grades')[0].querySelectorAll('.jaunt-grade-pill');
+  assert.deepEqual(apills.map((p) => p.textContent), ['Any', '8–10', '11–13', '14–15', '18+'], 'the 18+ pill comes after the age bands');
+  assert.equal(apills[4].title, 'Each jaunt in its 18+ telling, where it has one');
+  const ashown = () => aroot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
+  assert.deepEqual(ashown(), ['tour', 'style'], 'one card per jaunt: the 18+ telling waits for its pill');
+  apills[2].click();
+  assert.deepEqual(ashown(), ['tour', 'style'], 'an age pill leaves the 18+ telling out');
+  apills[2].click(); apills[4].click();
+  assert.deepEqual(ashown(), ['tour-adults', 'style'], 'the 18+ pill plays each jaunt\'s 18+ telling where it has one, the rest as first told');
+  const gcard = aroot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === 'tour-adults');
+  assert.equal(gcard.querySelectorAll('.jaunt-adults').length, 1, 'its 18+ tag');
+  assert.equal(gcard.querySelectorAll('.jaunt-grade').length, 0, 'and no grade or age tag');
+  const bchoice = createReadingChoice({ storage: mem() });
+  bchoice.set(['18+']);
+  createJauntMenu({ root: aroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: bchoice }).show(graded);
+  assert.equal(aroot.querySelectorAll('.jaunt-grade-pill').find((p) => p.textContent === '18+').title, 'Each jaunt as first told', 'with the 18+ tellings unlisted, 18+ reads each jaunt as first told');
+  assert.deepEqual(ashown(), ['tour', 'style']);
+  const one = document.createElement('div');
+  createJauntMenu({ root: one, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {}, choice: createReadingChoice({ storage: mem() }) }).show([graded[0]]);
+  assert(one.querySelectorAll('.jaunt-grades')[0].hidden, 'one band only: no grade row to choose from');
+  // T-3645: the one grade T-3629 remembered becomes the first reading age.
+  const old = mem(); old.setItem('chicago4d.jaunts.grade', '9-10');
+  assert.deepEqual(createReadingChoice({ storage: old }).get(), ['14-15'], 'a remembered grade band is read as its age');
+}
+
 // ---- the Continue card in jaunt-preview.js ------------------------------------------------
 const preview = read('renderers/web/js/jaunt-preview.js');
 assert(/`Continue · Stop \$\{at \+ 1\} of \$\{stops\.length \|\| at \+ 1\}`/.test(preview), 'CONTINUE · STOP n OF m');
@@ -117,23 +197,94 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
 // related outings together — by kind, featured first within it, then by name ---------------
 {
   const { jauntOrder, sortTitle, filterJaunts } = await import('../renderers/web/js/jaunt-menu.js');
-  const { FAMILIES } = await import('../renderers/web/js/menu-icons.js');
+  const { GROUPS, groupOf } = await import('../renderers/web/js/menu-icons.js');
   const { readFileSync } = await import('node:fs');
   const catalog = (y) => JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts;
   assert.equal(sortTitle('A Letter Home'), 'Letter Home'); assert.equal(sortTitle('An Evening Stroll'), 'Evening Stroll');
   assert.equal(sortTitle('The architects'), 'architects'); assert.equal(sortTitle('Taverns of Chicago'), 'Taverns of Chicago');
   for (const y of ['1835', '1904']) {
     const rows = filterJaunts(catalog(y));
+    // T-3590: a version for another grade band takes the place of the jaunt it retells.
+    const byId = new Map(rows.map((r) => [r.id, r])), place = (r) => (r.version_of ? byId.get(r.version_of) : r);
     for (const r of rows) {
       assert(!/^(Prairie Avenue|Style walk):/.test(r.title), `${y}: "${r.title}" leads with what it shares, not what it is`);
       assert(r.title.length <= 34, `${y}: "${r.title}" is short enough for two lines on a phone`);
     }
-    const kinds = rows.map((r) => FAMILIES.indexOf(r.primary_family));
-    assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped by kind, in the pills' order`);
-    for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i]) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
+    // T-3584: ranked jaunts lead; the rest are grouped in the pills' order, every row in a group.
+    for (const r of rows) assert(GROUPS.includes(r.menu_group), `${y}: ${r.id} has a menu group`);
+    const rest = rows.filter((r) => !Number.isInteger(place(r).menu_rank));
+    assert.deepEqual(rows.slice(0, rows.length - rest.length).map((r) => place(r).menu_rank), rows.filter((r) => Number.isInteger(place(r).menu_rank)).map((r) => place(r).menu_rank).sort((a, b) => a - b), `${y}: ranked jaunts lead, in rank order`);
+    const kinds = rest.map((r) => GROUPS.indexOf(groupOf(r)));
+    assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped, in the pills' order`);
+    for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i], (r) => byId.get(r.version_of)) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
   }
-  const t1904 = filterJaunts(catalog('1904')).map((r) => r.title);
+  // T-3584 (owner, 2026-11-13): the household tour first, then the other Glessner jaunt, the
+  // build log last, and the two Glessner cards carry a picture of the house.
+  const r1904 = filterJaunts(catalog('1904'));
+  // T-3590: the household tour's retellings sit right after it, youngest band first (T-3621:
+  // every jaunt now has one per band); the orientation and its retellings follow.
+  const tellings = (id) => [id, ...['3-5', '6-8', '9-10', '11-12'].map((g) => `${id}-grades-${g}`), `${id}-adults`].filter((x) => r1904.some((r) => r.id === x));
+  const lead = [...tellings('glessner-household-tour'), ...tellings('prairie-avenue-orientation')];
+  assert.deepEqual(lead.slice(0, 6), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'glessner-household-tour-grades-9-10', 'glessner-household-tour-grades-11-12', 'glessner-household-tour-adults', 'prairie-avenue-orientation']);
+  assert.deepEqual(r1904.slice(0, lead.length).map((r) => r.id), lead);
+  assert.equal(r1904.at(-1).id, 'prairie-built-so-far');
+  for (const r of r1904.slice(0, lead.length)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
+  assert.deepEqual(filterJaunts(catalog('1904'), '', 'Architecture').filter((r) => !r.version_of).map((r) => r.id).sort(), ['prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire']);
+  const t1904 = r1904.filter((r) => !r.version_of).map((r) => r.title);
   const styles = t1904.map((t, i) => (/ style walk$/.test(t) ? i : -1)).filter((i) => i >= 0);
   assert.deepEqual(styles.map((i) => t1904[i]), ['Italianate style walk', 'Romanesque style walk', 'Second Empire style walk']);
   assert.equal(styles[2] - styles[0], 2, 'the three style walks sit together');
+  // T-3590: every jaunt names its school grade band; the household tour reads at 6-8 and its retelling at 3-5.
+  const { GRADE_BANDS, gradeLabel } = await import('../renderers/web/js/jaunt-menu.js');
+  for (const y of ['1812', '1835', '1904']) for (const r of catalog(y)) assert(GRADE_BANDS.includes(r.grade_band), `${y}: ${r.id} has a grade band`);
+  const band = Object.fromEntries(r1904.map((r) => [r.id, r.grade_band]));
+  assert.equal(band['glessner-household-tour'], '6-8');
+  assert.equal(band['glessner-household-tour-grades-3-5'], '3-5');
+  assert.equal(r1904[1].version_of, 'glessner-household-tour');
+  assert.equal(gradeLabel('3-5'), 'Grades 3–5'); assert.equal(gradeLabel('9-10'), 'Grades 9–10'); assert.equal(gradeLabel(undefined), '');
+  // The search finds the band, not a fixed list: the generated build-log jaunt is re-measured on
+  // every landing and sits on the 3-5 / 6-8 line (grade 5.9-6.0), so it may join either band.
+  const g35 = filterJaunts(catalog('1904'), 'grades 3–5');
+  assert(g35.some((r) => r.id === 'glessner-household-tour-grades-3-5'), 'the grade band is searchable');
+  assert(g35.every((r) => r.grade_band === '3-5'), 'a grade search returns only that band');
+  // T-3604: the grade filter, alone and with a group; the retelling keeps the tour's own name.
+  const f35 = filterJaunts(catalog('1904'), '', '', '3-5');
+  assert(f35.some((r) => r.id === 'glessner-household-tour-grades-3-5') && f35.every((r) => r.grade_band === '3-5'), 'the grade filter');
+  const people68 = filterJaunts(catalog('1904'), '', 'People', '6-8');
+  assert(people68.some((r) => r.id === 'glessner-household-tour') && people68.every((r) => r.grade_band === '6-8' && r.menu_group === 'People'), 'grade and group together');
+  assert.equal(r1904[1].title, r1904[0].title, 'the grades 3-5 retelling is named as the tour it retells; its grade tag tells them apart');
+  // T-3623 (owner, 2026-11-16: "Do 18+ jaunts for all jaunts, fill them in"): every jaunt but the
+  // build log has an 18+ telling under the same title and stops, with no warning text in its words.
+  for (const y of ['1812', '1835', '1904']) {
+    const all = catalog(y), grown = new Map(all.filter((r) => r.audience === 'adults').map((r) => [r.version_of, r]));
+    for (const r of all.filter((r) => !r.version_of && r.menu_group !== 'Build log')) {
+      const g = grown.get(r.id);
+      assert(g, `${y}: ${r.id} has an 18+ telling`);
+      assert.equal(g.title, r.title, `${y}: ${g.id} keeps the title`);
+      assert.equal(g.stop_count, r.stop_count, `${y}: ${g.id} keeps the stops`);
+      assert(g.featured !== true && g.content_warning && !/18\+|no child|for adults/i.test(g.premise), `${y}: ${g.id} is never featured, and its premise reads as story`);
+    }
+  }
+}
+
+// ---- T-3629 (owner, 2026-11-16, the interface sweep): one card per jaunt, the picked grade's
+// telling where there is one, else the jaunt itself; nothing else is lost or reordered.
+{
+  const { filterJaunts, oneTellingEach } = await import('../renderers/web/js/jaunt-menu.js');
+  const { readFileSync } = await import('node:fs');
+  for (const y of ['1812', '1835', '1904']) {
+    const all = filterJaunts(JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts);
+    const roots = new Set(all.map((r) => r.version_of || r.id));
+    for (const g of ['', '3-5', '6-8', '9-10', '11-12']) {
+      const once = oneTellingEach(all, g);
+      assert.equal(once.length, roots.size, `${y} grade "${g}": every jaunt exactly once`);
+      assert.deepEqual(once, all.filter((r) => once.includes(r)), `${y}: the list keeps its order`);
+      for (const r of once) {
+        const tellings = all.filter((x) => (x.version_of || x.id) === (r.version_of || r.id));
+        if (g && tellings.some((x) => x.grade_band === g)) assert.equal(r.grade_band, g, `${y}: ${r.id} is the ${g} telling`);
+        else if (!g) assert(!r.version_of || !tellings.some((x) => !x.version_of), `${y}: with no grade, ${r.id} is the jaunt itself`);
+      }
+    }
+  }
+  console.log('test_nav_jaunt_cards: one card per jaunt, told for the picked grade');
 }

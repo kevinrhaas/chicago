@@ -33,6 +33,7 @@ from occupied_footprints import phase_polygons
 from associations import (ASSOCIATION_KINDS, ASSOCIATION_RESOLUTION, HOME_KINDS, WORK_KINDS,
                          check_association_rows, home_of, workplace_of)
 from exclusion_scope import ruled_for, scenes_of
+from scene_selection import selection_errors, structure_is_selected
 from heightfield import Heightfield
 from migrate_attribute_tiers import check_tier_block
 from reconstruct_residents_1835 import (PROGRAMME as RECONSTRUCTION_PROGRAMME,
@@ -293,7 +294,32 @@ WIDE_RANGE_YEARS = 12
 # younger-resident records. Two443 + last measured other-content132.233 =
 # 1018.233 MiB, below the established1024 MiB accounting ceiling. The assets
 # load on demand; boot, frame, Light, memory and duplicate gates are unchanged.
-SITE_BUDGET_MB = 443
+# T-3564, 2026-11-13: conscious measured storage re-budget, 443 -> 444 MiB. The
+# owner asked for the stable's south wall and the court wall's alley run in buff
+# Chicago common brick (his photographs, 2026-11-12): one albedo-only 2048 study
+# beside court brick's, 623,490 B KTX2 in the web master and 166,557 B in Light.
+# The published tree measured 443.1 MiB in a local part-2 gate. Two 444 + the
+# last documented 132.233 MiB other content = 1020.233 MiB, under the 1024 MiB
+# accounting ceiling. Boot, frame, Light, memory and duplicate gates unchanged.
+# 2026-11-13, 444 -> 445 MiB, pending the owner's go (thread "Merge green open PRs"):
+# merged onto dev 9af90330e, this branch's published tree measured 444.2 MiB
+# (local publish.sh + validate --all; CI part 7/8 read the same on 7a03e0db2). Nine
+# PRs landed on dev while this one waited, so the overrun is dev's growth under it,
+# not new bytes here. Two 445 + the last documented 132.233 MiB other content =
+# 1022.233 MiB, under the 1024 MiB accounting ceiling by 1.767: this is the LAST
+# whole-MiB raise that fits. The next one must be a cut (T-3232's lever: each KTX2
+# kit sheet shipped once). Boot, frame, Light, memory and duplicate gates unchanged.
+# T-3581, 2026-11-13, 445 -> 740 MiB: the owner split the dev preview onto its own
+# GitHub Pages site (kevinrhaas/chicago-dev, dev.chicago.polecat.live/4d/dev/; main
+# #1994). Each site now holds ONE copy of this tree, so the 2 x cap arithmetic above
+# no longer applies. The binding site is production's: this tree plus the other
+# content it carries (landing films 58.589, /pre-fire/ 47.880, /prairie-1904/ as
+# deploy.yml republishes it 46.974, /rebuilding-1870s/ 37.333, root pages 0.159 =
+# 190.935 MiB, measured 2026-11-13) must fit the deploy's 1,000,000,000-byte limit
+# (953.674 MiB). 740 + 190.935 = 930.935 MiB, 22.7 MiB under it, kept as room for the
+# landing page to grow. The dev site carries only this tree. docs/SITE-BUDGET.md §19.
+# Boot, frame, Light, memory, warning and duplicate gates unchanged.
+SITE_BUDGET_MB = 740
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
@@ -612,8 +638,13 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
             rep.error(where, f"terrain_epoch '{ep_id}' covers {frm}..{to}, "
                              f"which does not include target_date {target}")
 
-    included, excluded = [], []
+    for error in selection_errors(scene, (st.get("id") for st in structures.values())):
+        rep.error(where, error)
+    included, excluded, scoped_out = [], [], []
     for path, st in structures.items():
+        if not structure_is_selected(scene, st.get("id")):
+            scoped_out.append(st.get("id"))
+            continue
         covering = []
         for ph in st.get("phases", []):
             rng = ph.get("documented_range", {})
@@ -628,6 +659,9 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
             included.append(f"{st.get('id')}:{covering[0]}")
         else:
             excluded.append(st.get("id"))
+            if "structure_ids" in scene:
+                rep.error(where, f"selected structure '{st.get('id')}' has no phase "
+                                 f"covering {target}")
 
     # T-2672: the owner lifted review_required as a release block on 2026-10-16.
     # Keep flags, source confidence, review reasons and scene-date checks intact.
@@ -635,7 +669,8 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
 
     rep.note(f"scene {sid} ({target}): {len(included)} structure(s) included, "
              f"{len(excluded)} excluded by date"
-             + (f" [{', '.join(excluded)}]" if excluded else ""))
+             + (f" [{', '.join(excluded)}]" if excluded else "")
+             + (f", {len(scoped_out)} excluded by scene membership" if scoped_out else ""))
 
     # exclusions.json is a research record, not a filter — but it should not
     # contradict the dataset by naming something that is actually in the scene.
@@ -1913,7 +1948,7 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             except Exception:  # noqa: BLE001 — reported by the param check
                 continue
 
-    targets = sorted((d, scene_ground_key(sc)) for d, sc in
+    targets = sorted((d, scene_ground_key(sc), str(sc.get("id", "")), sc) for d, sc in
                      ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d)
     town_field = field
     for name, st in sorted(structures.items()):
@@ -1926,7 +1961,8 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             pid = ph.get("id", "?")
             r = ph.get("documented_range", {})
             frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
-            hits = [ep for t, ep in targets if frm and to and frm <= t <= to]
+            hits = [ep for t, ep, _, sc in targets if frm and to and frm <= t <= to
+                    and structure_is_selected(sc, sid)]
             if not hits:
                 continue
             field = (fields or {}).get(hits[0]) or town_field
@@ -6459,6 +6495,8 @@ def check_versions(structures: dict, scenes: dict, sources: dict, source_ids: se
         check_record_provenance(where, doc, source_ids, rep, {})
         shown_in = []
         for scene_id, target in targets:
+            if not structure_is_selected(scenes[scene_id], sid):
+                continue
             mine = covering(doc, target)
             if len(mine) > 1:
                 rep.error(where, f"{len(mine)} phases cover scene {scene_id}'s "
@@ -6810,6 +6848,8 @@ def run_param_check(structures: dict, scenes: dict, rep: Report) -> None:
         if target is None:
             continue
         for st in structures.values():
+            if not structure_is_selected(sc, st.get("id")):
+                continue
             arch = st.get("archetype")
             for ph in st.get("phases", []):
                 r = ph.get("documented_range", {})
@@ -7010,6 +7050,9 @@ def run_stale_check(structures: dict, rep: Report) -> None:
                                        f"has")
                     continue
                 got = mesh_inputs.structure_inputs_sha(st, phase, entry.get("archetype"))
+            elif entry.get("generator") == "generators/city_1871_emit.py":
+                import city_1871_emit  # noqa: PLC0415
+                got = city_1871_emit.inputs_sha()
             elif entry.get("terrain_epoch"):
                 ep_dir = DATA / "terrain" / "epochs" / entry["terrain_epoch"]
                 got = terrain_gen.terrain_inputs_sha(ep_dir)
@@ -7082,7 +7125,8 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
                                    f"compute {mesh_inputs.SCHEME!r} — re-bake the versions "
                                    f"(tools/bake.sh bakes them with the town)")
         return
-    targets = [d for d in (parse_date(sc.get("target_date", "")) for sc in scenes.values()) if d]
+    targets = [(d, sc) for d, sc in
+               ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d]
 
     expected: dict[str, tuple[dict, dict]] = {}
     for rel, doc in sorted(versions.items()):
@@ -7093,7 +7137,8 @@ def run_version_stale_check(versions: dict, scenes: dict, rep: Report) -> None:
         for ph in doc.get("phases", []):
             r = ph.get("documented_range", {})
             frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
-            if not (frm and to and any(frm <= d <= to for d in targets)) or drawn(ph):
+            if not (frm and to and any(frm <= d <= to and structure_is_selected(sc, sid)
+                                      for d, sc in targets)) or drawn(ph):
                 continue
             expected[V.asset_key(sid, label, ph.get("id", "?"))] = (doc, ph)
 
@@ -7218,6 +7263,8 @@ def run_bake_reach_check(structures: dict, scenes: dict, rep: Report) -> None:
             continue                      # run_stale_check already reports this
         hits = []
         for scene_id, target in targets:
+            if not structure_is_selected(scenes[scene_id], sid):
+                continue
             covering = []
             for ph in st.get("phases", []):
                 rng = ph.get("documented_range", {})

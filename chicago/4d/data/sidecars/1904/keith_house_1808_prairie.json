@@ -46,15 +46,15 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1369.959,
-    "local_n": -3250.476,
+    "local_e": 1353.261,
+    "local_n": -3250.67,
     "rotation_deg": -0.669,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_vol3_sheet_28",
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "Placed in the Glessner record's own frame, so the two share one bearing and one building line exactly. The footprint origin (its SW corner) is Glessner-frame u 31.149, v -10.42: the front wall on Glessner's east face line (u 49.149, 14.7 ft behind the Prairie Avenue line — RECONSTRUCTED: Sanborn 1911 draws 1808 set back on a common line with its neighbour, and the sheet is not read here to the foot for this lot), and the north wall 0.02 m south of Glessner's south face (v 0), closing its courtyard as the sheet draws. The south wall then stands 1.1 m inside the parcel's south line at the street. Rotation -0.669 degrees is Glessner's, the 18th Street line's bearing less 90.",
+    "position_note": "Placed in the Glessner record's own frame, so the two share one bearing and one building line exactly. The footprint origin (its SW corner) is Glessner-frame u 14.45, v -10.42 (T-3564: u 31.149 until the house was deepened to its 1911 rear): the front wall on Glessner's east face line (u 49.149, 14.7 ft behind the Prairie Avenue line — RECONSTRUCTED: Sanborn 1911 draws 1808 set back on a common line with its neighbour, and the sheet is not read here to the foot for this lot), and the north wall 0.02 m south of Glessner's south face (v 0), closing its courtyard as the sheet draws. The south wall then stands 1.1 m inside the parcel's south line at the street. Rotation -0.669 degrees is Glessner's, the 18th Street line's bearing less 90.",
     "symbolic_location": "1808 S. Prairie Avenue: west side of Prairie between 18th and 20th Streets, the lot directly south of the Glessner house, parcel prairie_1808 (data/street_grid/1904.json).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -68,11 +68,11 @@
         0.0
       ],
       [
-        18.0,
+        34.699,
         0.0
       ],
       [
-        18.0,
+        34.699,
         10.4
       ],
       [
@@ -85,7 +85,7 @@
       "sanborn_1911_vol3_sheet_28",
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main range only, 18.0 m deep by 10.4 m across the front. RECONSTRUCTED: the 1911 sheet draws a brick house the width of most of its 38.1 ft lot, but its depth and side passage are not read here to a figure; 10.4 m leaves a 1.1 m passage on the south and 18.0 m is a Prairie Avenue town house of three bays. The detached rear garage the sheet also draws is T-1935's."
+    "note": "T-3564: the main range runs back to its brick rear on the 1911 sheet, 34.70 m deep by 10.4 m across the front, three storeys the whole way. The owner, 2026-11-12, on his photographs of the court's surviving south wall: 'the keith house went back as far as the brick edge there you can see in the wall', and 'keith should be the full height all the way back, not just a wing'. The 1911 sheet 28 trace (data/traces/prairie_1904_footprints_s28.json, s28fp-1808-b1 part p3, brick, 'main') draws the brick main part from 7.3 to 39.41 m behind the street line, its rear at local E 1352.87: Glessner-frame u 14.45 (W 113.85). So the rear wall stands there, on the map carried to 1904 (the depth inferred; the footprint stays reconstructed for its width and passage); the owner's reading of the edge from his photographs (about the stable wing's court face, W 125.75) lies 12 ft west of the map's, inside what a photograph read by eye can place, and the map is the measured line. Before T-3564 the range was 18.0 m deep (a three-bay town house, reconstructed). Width 10.4 m and the 1.1 m south passage are unchanged (reconstructed). The brick range the sheet draws from there to the alley (p5) is not built: the court's tall alley wall stands on its north line (glessner_house courtyard_wall), and the detached rear garage the sheet also draws is T-1935's."
   },
   "attributes": {
     "stories": {
@@ -247,13 +247,17 @@
     },
     "side_bays": {
       "value": [
-        3.0,
-        7.0,
-        11.0,
-        15.0
+        3.7,
+        7.7,
+        11.7,
+        15.7,
+        19.7,
+        23.7,
+        27.7,
+        31.7
       ],
       "confidence": "reconstructed",
-      "note": "Four windows a storey along the south wall, west to east, the passage side."
+      "note": "Four windows a storey along the south wall, west to east, the passage side. T-3564: one window a storey every 4 m along the deepened south wall; the old four at u 3-15 stand at 19.7-31.7 on the same bays of the front part (u shifted 16.699 m with the origin), the rest continue the rhythm. Reconstructed."
     },
     "rear_bays": {
       "value": [
@@ -312,11 +316,11 @@
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 12.1,
+            "u_m": 28.799,
             "v_m": 0.65
           },
           {
-            "u_m": 13.6,
+            "u_m": 30.299,
             "v_m": 9.75,
             "top_m": 16.1
           }
@@ -329,13 +333,13 @@
       "value": [
         {
           "stack": "library",
-          "u_m": 12.1,
+          "u_m": 28.799,
           "v_m": 0.65,
           "wall": "k01.wall.side.south"
         },
         {
           "stack": "hall",
-          "u_m": 13.6,
+          "u_m": 30.299,
           "v_m": 9.75,
           "wall": "k01.wall.side.north"
         }
@@ -673,8 +677,8 @@
     "alley_wall": {
       "value": {
         "u_m": [
-          -31.378,
-          -30.948
+          -14.679,
+          -14.249
         ],
         "s_m": [
           7.921,
@@ -689,7 +693,7 @@
       "sources": [
         "habs_glessner_house_il_1015_drawings"
       ],
-      "note": "T-3321 (piece 1 of T-1944): the Glessner court wall's return south along the alley, which HABS IL-1015 sheet 2 (first floor plan, 1963) draws on 1808's alley line and T-2201 left to this lot (L-glessner-court-wall-2201). Read on the committed scan (chicago/prairie_1904_v1/research/public/glessner-habs-sheet-2.png) at the sheet's 37.2 px/ft: a hatched run 53 px through (1.4 ft, +/- 0.15: the hatch's inner edge has no drawn line), its west face the heavy line that runs on as the granite gate pier's outer face, from the court wall's north face (S 74.0) 304 px south (8.2 ft, to S 82.2). In Glessner's frame (x = (161.25 - W) x 0.3048, y = (74.0 - S) x 0.3048; this record's origin is that frame's u 31.149, v -10.42) the west face stands on W 162.0, u -31.378 here, the east face 0.43 m in, and the run from the court wall's south face (S 75.1, s 10.085) to s 7.921. Its north end abuts the court wall, so the end face it hides is not drawn and its coping stops short of the court wall's. INFERRED for 1904, as the court wall is: a survey of 1963 carried back because nothing read records exterior work on the court before the 1946 conversion. No picture of the alley side is held. Height and coping: alley_wall_height. docs/LIBERTIES.md L-1808-alley-return-1944."
+      "note": "T-3321 (piece 1 of T-1944): the Glessner court wall's return south along the alley, which HABS IL-1015 sheet 2 (first floor plan, 1963) draws on 1808's alley line and T-2201 left to this lot (L-glessner-court-wall-2201). Read on the committed scan (chicago/prairie_1904_v1/research/public/glessner-habs-sheet-2.png) at the sheet's 37.2 px/ft: a hatched run 53 px through (1.4 ft, +/- 0.15: the hatch's inner edge has no drawn line), its west face the heavy line that runs on as the granite gate pier's outer face, from the court wall's north face (S 74.0) 304 px south (8.2 ft, to S 82.2). In Glessner's frame (x = (161.25 - W) x 0.3048, y = (74.0 - S) x 0.3048; this record's origin is that frame's u 31.149, v -10.42) the west face stands on W 162.0, u -31.378 here, the east face 0.43 m in, and the run from the court wall's south face (S 75.1, s 10.085) to s 7.921. Its north end abuts the court wall, so the end face it hides is not drawn and its coping stops short of the court wall's. INFERRED for 1904, as the court wall is: a survey of 1963 carried back because nothing read records exterior work on the court before the 1946 conversion. No picture of the alley side is held. Height and coping: alley_wall_height. docs/LIBERTIES.md L-1808-alley-return-1944. T-3564: the house's origin moved 16.699 m west with its deepened rear (now Glessner-frame u 14.45), so u_m is that much greater; the run has not moved."
     },
     "alley_wall_height": {
       "value": {

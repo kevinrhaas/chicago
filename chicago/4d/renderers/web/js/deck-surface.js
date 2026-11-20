@@ -65,6 +65,8 @@ export function deckFromSidecar(id, sidecar) {
 /** Nominal plank top; callers retain polygon, highest-deck and ground policy.
  * Bridges8mm board gaps and omits55mm proud thresholds; not a mesh/IK raycast. */
 export function deckHeightAt(deck, e, n) {
+  // A house's stoop and porch tops (house-floors.js): a grid, null off its cells.
+  if (deck.heightAt) return deck.heightAt(e, n);
   if (!deck.profile) return deck.y;
   validateSpanProfile(deck.profile, deck.y);
   const f = deck.profileFrame;
@@ -90,7 +92,7 @@ export function profiledGroundHeight(terrain, decks, e, n) {
   if (!decks.some(d => d.profile && insideDeck(e, n, d.pts))) return terrain.surfaceHeight(e, n);
   let height = null;
   for (const d of decks) {
-    if (!insideDeck(e, n, d.pts)) continue;
+    if (d.wall || !insideDeck(e, n, d.pts)) continue;
     const y = deckHeightAt(d, e, n);
     if (typeof y === 'number' && (height === null || y > height)) height = y;
   }
@@ -109,7 +111,8 @@ export function profiledGroundHeight(terrain, decks, e, n) {
 export function deckGroundHeight(terrain, decks, e, n, visibleBase = null) {
   let height = null;
   for (const d of decks) {
-    if (!insideDeck(e, n, d.pts)) continue;
+    // A house floor's walls (house-floors.js) turn the visitor back; nobody is stood on one.
+    if (d.wall || !insideDeck(e, n, d.pts)) continue;
     const y = deckHeightAt(d, e, n);
     if (typeof y === 'number' && (height === null || y > height)) height = y;
   }

@@ -1,0 +1,85 @@
+== premise
+Fill a short shopping list for your family along the busy riverfront, without buying everything you see.
+
+== opening
+JAUNT: SHOPPING SOUTH WATER STREET. This is the town's main street, and it is not a pretty one. The river is on one side. On the other side are plank walks and mud. Every store is packed with goods off the boats. In 1833 the paper said tea cost about a dollar a pound. Bright cotton cloth cost a few cents a yard.
+
+You have three dollars and a short list for your family. You need something for a cough, a basic food or cloth, and tea. Three stores on South Water Street sell them. Then add up what you bought on Lake Street, where the town's stores are moving next.
+
+== stop remedy
+Start at Philo Carpenter's drug store, at the Sign of the Golden Mortar. He came to town in 1832, when a sickness called cholera was at the fort. He sold medicines from a log house by the river. The next summer he built this store. He also wrote the town's first promise to stay away from alcohol. His June notice lists medicines, licorice drops and tooth powder.
+
+== narrative remedy
+Buy the medicine, or hope the cough goes away on its own.
+
+== label remedy liquorice
+Liquorice ball for a cough — 25¢
+
+== consequence remedy liquorice
+A small paper of it goes in your basket.
+
+== stop staples
+Walk a short way east to Peck's store at the corner of LaSalle and South Water Streets. His ad from 1833 lists cloth, tools, food and dishes. He also had fifty barrels of fine flour. An ad from 1834 adds more kinds of cloth, like flannel and bright cotton.
+
+== narrative staples
+Choose the one thing your family needs most, or save your money for later.
+
+== label staples flour
+Flour for the bin — $2
+
+== consequence staples flour
+Your family cannot do without flour. It costs most of your money.
+
+== label staples calico
+A length of calico — $1.25
+
+== consequence staples calico
+Cloth for fixing clothes. The bread can wait for the next trip.
+
+== stop compare
+Walk on east to Clark Street and Harmon, Loomis and Company. Their June 1835 notice sells two kinds of tea, sugar, dishes and glass. A history book says the store was at the corner of Clark and South Water, but not which corner. Business is good. Next year this company will build a row of four-story brick stores on South Water Street.
+
+== narrative compare
+Look at what is on the shelf and how much money you have left. Then choose.
+
+== label compare hyson
+Young Hyson tea and loaf sugar — $1
+
+== consequence compare hyson
+The last thing on your list, with sugar to go with it.
+
+== label compare souchong
+A smaller paper of Souchong — 40¢
+
+== consequence compare souchong
+You are short on money, so you buy a cheaper tea instead.
+
+== label compare bowl
+A crockery bowl instead — 50¢
+
+== consequence compare bowl
+It is not on your list, but the old bowl is cracked. The tea can wait.
+
+== stop receipt
+Drive up to Lake Street. In 1834, a history book says, stores began to spread to Lake Street. Thomas Church came that year. A modern note says he built the first store on this street, a two-story wooden building. It does not say what he sold, so you buy nothing here. Add up your basket.
+
+== narrative receipt
+Count what is in your basket and how much money is left.
+
+== leg 0
+Your cough is taken care of. Now choose the food or cloth your family needs most.
+
+== leg 1
+Tea is the last thing on your list, and you have less money now.
+
+== leg 2
+There is nothing left to buy. Find a quiet spot and add up your basket.
+
+== ending list-filled
+A basic item, a medicine and tea. Your list is crossed off, and you have a few coins left. Your family has what it needs this week. And you know South Water Street better than most new people in town.
+
+== ending list-short
+Some of your list will have to wait for another day. You go home with what your money could buy. South Water Street, mud and all, will still be there.
+
+== keepsake text
+A made-up shopping list and receipt from three South Water Street stores, added up on Lake Street.

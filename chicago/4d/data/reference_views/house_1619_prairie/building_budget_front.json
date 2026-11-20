@@ -1,0 +1,26 @@
+{
+  "structure_id": "house_1619_prairie",
+  "scene": "1904",
+  "also_render": [
+    "house_1621_prairie"
+  ],
+  "source_id": "building_budget_1886_06_hamline_farwell_houses",
+  "library_image": "cgn-1619-1625-building-budget-hamline-farwell",
+  "photo": "../../sources/assets/hamline_1619_drawing_t2420/building_budget_1619_panel.jpg",
+  "image_px": [
+    580,
+    846
+  ],
+  "principal_px": [
+    649,
+    600
+  ],
+  "focal_px": 920,
+  "eye": [
+    33.23,
+    19.26,
+    1.6
+  ],
+  "yaw_deg": -90.0,
+  "solve": "T-1868. The plate draws 1619 only at its left edge: the south end of the front that stood north of John H. Hamline's house in 1886, cut by the frame (panel x 0-230, y 300-800: a round-headed light under a hood mould with label stops, a round-arched doorway with a radial fanlight, a high stoop climbing north beside the front behind a solid cheek with iron rails, a round-arched basement light under its landing, and a bracketed cornice; over the cornice only a faint wall line). Not fitted here. The plate has ONE station point, which T-2433 solved in front of Farwell's house at 1623 and T-2440 carried to 1621 (data/reference_views/house_1621_prairie/building_budget_front.json: f = 920 px, the principal point at the panel's x 649, y 600, eye 1.6 m up, 20.05 m in front of 1621's street wall). This camera is that same eye carried into 1619's footprint frame through the two records' 1904 scene placements (data/sidecars/1904: 1621's origin lies at u -0.12, v 8.71 in 1619's frame and the bearings differ by 0.004 degrees), so 1621's eye (33.35, 10.54) is (33.23, 19.26) here; the same yaw, focal length and principal point. Nothing is fitted to the drawn neighbour: 1621 is rendered beside 1619 (also_render) so the side-by-side shows the carried camera landing 1621 where its own record does, and where the 1904 build at 1619 stands against the 1886 front the plate draws. Light: as 1621's, the review default; the pen plate hatches the south walls in shade and casts no shadow on the fronts."
+}

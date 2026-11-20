@@ -10,7 +10,8 @@ future" half. It reads what was BUILT, not what a record says: the component ins
 the K11 boundary's runs, gates and coping), and the sidecars the walker turns into solid
 footprints (renderers/web/js/walker.js footprintsFrom). For every worked house — a
 `k01_frontage` or `k16_timber` record with a phase in the 1904 scene (a dwelling: an alley
-outbuilding built from the same kit, T-1932, has no front walk to require); a `prairie_draft` is not
+outbuilding built from the same kit, T-1932, has no front walk to require, nor has a house `part_of`
+another, T-3566, whose walk is that house's); a `prairie_draft` is not
 worked, and Glessner (`masonry_house`, its own pipeline and bake notes) is not one of these —
 it requires:
 
@@ -271,6 +272,8 @@ def worked_houses():
             continue
         if (st.get("function") or {}).get("value", "residence") != "residence":
             continue     # T-1932: an alley outbuilding built from a house kit has no front door to walk to
+        if (st.get("part_of") or {}).get("value"):
+            continue     # T-3566: one dwelling with the house it names (1721's frame house behind its brick front), whose walk is that house's
         for ph in st.get("phases", []):
             if _covers(ph):
                 yield st["id"], ph["id"], _front_yard(ph)

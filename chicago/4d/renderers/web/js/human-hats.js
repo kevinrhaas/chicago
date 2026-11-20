@@ -17,6 +17,19 @@
  *   knit    a knitted cap close over the crown with its top falling back (the voyageur's tuque
  *           or bonnet rouge), for a man whose body has none;
  *
+ * T-3553 adds the ladies' hats of 1904 (the owner, 2026-11-14: "they are very fancy and lots of
+ * details"), after the Met's hats of 1900–1905 (docs/RESEARCH/finery-3553/):
+ *
+ *   picture  a wide brim and a low crown, perched high on the dressed hair and tipped forward,
+ *            one side turned up (`cock`), the brim's edge waved;
+ *   sailor   the straw sailor: a flat-topped straight crown, a flat brim, a ribbon round it;
+ *   toque    no brim: a low, wide, ruched crown of silk or velvet, close over the hair;
+ *
+ * each with its own `trim`: ostrich plumes curling from the band over the crown and brim, a
+ * cluster of silk flowers with their leaves, a ribbon bow's two loops. The trimming is its own
+ * small mesh (vertex-coloured, one material), named `accessory__…` as the body's own plumes
+ * are, so the hair's cut and the greeting's brim see only the hat.
+ *
  * The lathe is fitted to the head it sits on: its band follows this body's own cap and brow (as
  * human-hair.js lays its headcloth), a few millimetres out over the hair, set level a little
  * above the brow in front and lower behind. Rigid on the head bone, built at every level (so it
@@ -73,21 +86,42 @@ function smoothRing(row, fallback) {
   return row;
 }
 
-/** A hat's spec, with its numbers held to what a hat of 1812 could be. */
+/** The ladies' kinds of 1904 (T-3553). */
+export const LADY_HATS = Object.freeze(['picture', 'sailor', 'toque']);
+const rgb3 = (a) => (Array.isArray(a) && a.length === 3 && a.every(Number.isFinite) ? a : null);
+
+/** A hat's trimming, held to a few plumes, a few flowers and one bow; null where it names none. */
+function trimSpec(t, clamp) {
+  if (!t || typeof t !== 'object') return null;
+  const plumes = t.plumes && rgb3(t.plumes.rgb) ? { n: Math.round(clamp(t.plumes.n, 1, 3, 2)), rgb: rgb3(t.plumes.rgb), length: clamp(t.plumes.length_m, .12, .34, .24), side: clamp(t.plumes.side, -1, 1, 1) } : null;
+  const flowers = t.flowers && rgb3(t.flowers.rgb) ? { n: Math.round(clamp(t.flowers.n, 3, 14, 7)), rgb: rgb3(t.flowers.rgb), rgb2: rgb3(t.flowers.rgb2) ?? rgb3(t.flowers.rgb), leaf: rgb3(t.flowers.leaf) ?? [.05, .1, .035], size: clamp(t.flowers.size_m, .012, .04, .022), side: clamp(t.flowers.side, -1, 1, -1), spread: clamp(t.flowers.spread, .3, 3.2, 1.2) } : null;
+  const bow = t.bow && rgb3(t.bow.rgb) ? { rgb: rgb3(t.bow.rgb), side: clamp(t.bow.side, -1, 1, 1), size: clamp(t.bow.size_m, .03, .09, .05) } : null;
+  return plumes || flowers || bow ? { plumes, flowers, bow } : null;
+}
+
+/** A hat's spec, with its numbers held to what a hat of 1812 (or a lady's of 1904) could be. */
 export function hatSpec(hat) {
   if (!hat || typeof hat !== 'object') return null;
-  const kind = ['round', 'straw', 'knit'].includes(hat.kind) ? hat.kind : null;
+  const kind = ['round', 'straw', 'knit', ...LADY_HATS].includes(hat.kind) ? hat.kind : null;
   if (!kind || !Array.isArray(hat.rgb) || hat.rgb.length !== 3) return null;
   const clamp = (v, lo, hi, d) => (Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d);
+  const lady = LADY_HATS.includes(kind);
   return {
     kind, rgb: hat.rgb, band: Array.isArray(hat.band) && hat.band.length === 3 ? hat.band : null,
-    crown: clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
-    brim: clamp(hat.brim_m, 0, .13, kind === 'straw' ? .085 : .06),
-    taper: clamp(hat.taper, .78, 1.12, .94),
+    crown: lady ? clamp(hat.crown_m, .03, .12, { picture: .065, sailor: .07, toque: .085 }[kind]) : clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
+    brim: kind === 'toque' ? 0 : lady ? clamp(hat.brim_m, .03, .17, kind === 'sailor' ? .065 : .12) : clamp(hat.brim_m, 0, .13, kind === 'straw' ? .085 : .06),
+    taper: clamp(hat.taper, .78, 1.12, kind === 'sailor' ? 1 : .94),
     roll: clamp(hat.roll, 0, 1, 0),
     droop: clamp(hat.droop, -.4, .6, 0),
     tilt: clamp(hat.tilt, -.03, .03, 0),
     tail: clamp(hat.tail_m, 0, .2, .09),
+    // T-3553: how high above the brow a lady's hat is perched on her dressed hair, how far one
+    // side of the brim is turned up (+ her left, - her right), how wide a toque puffs out.
+    perch: lady ? clamp(hat.perch_m, 0, .06, .03) : 0,
+    cock: lady ? clamp(hat.cock, -1, 1, 0) : 0,
+    puff: kind === 'toque' ? clamp(hat.puff, 0, .5, .25) : 0,
+    finish: lady ? clamp(hat.finish, .3, 1, kind === 'sailor' ? .7 : kind === 'toque' ? .55 : .8) : null,
+    trim: lady ? trimSpec(hat.trim, clamp) : null,
   };
 }
 
@@ -100,7 +134,7 @@ function lathe(spec, pts, f, seg) {
   const cz = -.08;
   // The band: level a little above the brow before, lower behind (as a hat sits), its radius
   // the head's there plus the hair's thickness under it.
-  const front = .046 + spec.tilt, back = .022 + spec.tilt;
+  const front = .046 + spec.tilt + spec.perch, back = .022 + spec.tilt + spec.perch * 1.3;
   const bearings = Array.from({ length: seg }, (_, k) => -Math.PI + 2 * Math.PI * k / seg);
   const bandY = th => back + (front - back) * (1 + Math.cos(th)) / 2;
   const clear = spec.kind === 'knit' ? .006 : .009;
@@ -153,7 +187,10 @@ function lathe(spec, pts, f, seg) {
       brimRows.push(ringAt((th, k) => {
         const side = Math.sin(th) ** 2, ends = Math.cos(th) ** 2;
         const out = spec.brim * u * (1 - .12 * ends * (spec.kind === 'straw' ? 0 : 1));
-        const lift = spec.roll * spec.brim * .55 * side * u * u - spec.droop * spec.brim * .5 * ends * u ** 1.5;
+        let lift = spec.roll * spec.brim * .55 * side * u * u - spec.droop * spec.brim * .5 * ends * u ** 1.5;
+        // T-3553: a picture hat's one side turned up, and its edge gently waved.
+        if (spec.cock) lift += Math.abs(spec.cock) * spec.brim * .75 * Math.max(0, Math.sign(spec.cock) * Math.sin(th)) ** 2 * u ** 1.5;
+        if (spec.kind === 'picture') lift += .006 * Math.sin(th * 5 + 1) * u * u;
         return [ring0[k] + out, bandY(th) - .002 + lift];
       }));
     }
@@ -169,31 +206,159 @@ function lathe(spec, pts, f, seg) {
       groupsAt.push(index.length);
     } else strip(base, bandTop);
     const crownRows = [bandTop];
-    for (const t of [.55, .85, 1]) {
+    const crownSteps = spec.kind === 'toque' ? [.2, .4, .6, .78, .92, 1] : [.55, .85, 1];
+    for (const t of crownSteps) {
       crownRows.push(ringAt((th, k) => {
         const y = bandY(th) + bandH + (H - bandH) * t;
-        const shoulder = spec.kind === 'straw' && t === 1 ? .9 : t === 1 ? .985 : 1;
+        if (spec.kind === 'toque') {
+          // Ruched silk puffed out round the hair and drawn in over the top.
+          const puff = 1 + spec.puff * Math.sin(Math.PI * Math.min(1, t * 1.15)) + .03 * Math.sin(th * 9 + t * 7);
+          return [ring0[k] * puff * (t === 1 ? .55 : 1), y - (t === 1 ? (H - bandH) * .05 : 0)];
+        }
+        const shoulder = spec.kind === 'straw' && t === 1 ? .9 : spec.kind === 'sailor' && t === 1 ? .97 : t === 1 ? .985 : 1;
         return [ring0[k] * (1 + (spec.taper - 1) * (bandH + (H - bandH) * t) / H) * shoulder, y];
       }));
     }
     for (let j = 0; j + 1 < crownRows.length; j++) strip(crownRows[j], crownRows[j + 1]);
-    const topY = (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : .003);
+    const topY = (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : spec.kind === 'sailor' ? 0 : .003);
     fan(crownRows[crownRows.length - 1], P(0, topY, cz - .003));
     if (!spec.band) groupsAt.push(index.length);
   }
+  // T-3553: the trimming, as its own small mesh laid on the band and crown.
+  const trim = spec.trim ? trimming(spec, { ring0, bandY, bearings, cz, H: spec.crown, f, seg }) : null;
   // The band is its own mesh on the same points: one material a mesh, as every reader of a
   // worn hat (the hair's cut, the greeting's brim) takes a mesh's material by its name.
   const pos = new THREE.Float32BufferAttribute(position, 3);
   const make = (ix) => { const g = new THREE.BufferGeometry(); g.setAttribute('position', pos); g.setIndex(ix); g.computeVertexNormals(); return g; };
   if (spec.band && spec.kind !== 'knit') {
     const [b0, b1] = groupsAt;
-    return { hat: make([...index.slice(0, b0), ...index.slice(b1)]), band: make(index.slice(b0, b1)) };
+    return { hat: make([...index.slice(0, b0), ...index.slice(b1)]), band: make(index.slice(b0, b1)), trim };
   }
-  return { hat: make(index), band: null };
+  return { hat: make(index), band: null, trim };
+}
+
+/** The ring's radius at bearing th, from the band's samples (linear between bearings). */
+function ringRadius(ring0, th, seg) {
+  const u = ((th + Math.PI) / (2 * Math.PI)) * seg;
+  const k = Math.floor(u), t = u - k;
+  return ring0[((k % seg) + seg) % seg] * (1 - t) + ring0[(((k + 1) % seg) + seg) % seg] * t;
+}
+
+/**
+ * T-3553: a lady's hat's trimming, vertex-coloured, in the face's frame: ostrich plumes (a
+ * curled, tapering vane with a waved edge, laid from the band over the crown and down behind),
+ * silk flowers (cupped petals round a centre, with two leaves) clustered on one side, a ribbon
+ * bow's two loops and its knot.
+ */
+function trimming(spec, { ring0, bandY, cz, H, f, seg }) {
+  const position = [], color = [], index = [];
+  const P = (x, y, z, rgb) => {
+    const p = f.o.clone().addScaledVector(f.x, x).addScaledVector(f.y, y).addScaledVector(f.z, z);
+    position.push(p.x, p.y, p.z); color.push(...rgb); return position.length / 3 - 1;
+  };
+  const rnd = (i) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+  const at = (th, up = 0, out = 0) => {
+    const r = ringRadius(ring0, th, seg) + out;
+    return [Math.sin(th) * r, bandY(th) + up, cz + Math.cos(th) * r];
+  };
+  const t = spec.trim;
+  if (t.plumes) {
+    // Each plume lies round the crown from one side of the front toward the back, rising off
+    // the band and curling down over the brim behind: a soft, full body of fluffed barbs
+    // (a flattened tube, puffed and tapering), its colour stippled as a plume's barbs catch light.
+    const up = new THREE.Vector3(0, 1, 0), RING = 8;
+    for (let j = 0; j < t.plumes.n; j++) {
+      const sgn = t.plumes.side >= 0 ? 1 : -1;
+      const th0 = sgn * (.3 + .45 * j), L = t.plumes.length * (1 - .12 * j), N = 18, w0 = .032 * (1 - .1 * j);
+      const span = L / Math.max(.06, ringRadius(ring0, th0, seg) * 1.15);
+      const spine = (u) => {
+        const th = th0 + sgn * span * u;
+        const w = w0 * Math.sin(Math.PI * Math.min(1, .1 + u * .92)) ** .5;
+        const r = ringRadius(ring0, th, seg) * (1 + (spec.taper - 1) * .7) + w * .6 + .004;
+        const y = bandY(th) + H * (.35 + .55 * Math.sin(Math.PI * Math.min(1, u * .9))) - H * 1.2 * u ** 3 + w * .5;
+        return { th, w, p: new THREE.Vector3(Math.sin(th) * r, y, cz + Math.cos(th) * r) };
+      };
+      let prev = null;
+      for (let i = 0; i <= N; i++) {
+        const u = i / N, { th, w, p } = spine(u);
+        const radial = new THREE.Vector3(Math.sin(th), 0, Math.cos(th));
+        const across = radial.clone().multiplyScalar(.8).addScaledVector(up, .6).normalize();
+        const thick = across.clone().cross(new THREE.Vector3(Math.cos(th), 0, -Math.sin(th))).normalize();
+        const row = [];
+        for (let k = 0; k < RING; k++) {
+          const a = (k / RING) * Math.PI * 2;
+          const fluff = 1 + .18 * Math.sin(a * 3 + i * 1.7 + j);
+          const q = p.clone().addScaledVector(across, Math.cos(a) * w * fluff).addScaledVector(thick, Math.sin(a) * w * .45 * fluff)
+            .addScaledVector(up, -Math.abs(Math.cos(a)) * w * .25);
+          const tone = .8 + .35 * rnd(i * RING + k + 97 * j) + .1 * Math.sin(a);
+          row.push(P(q.x, q.y, q.z, t.plumes.rgb.map((c) => Math.min(1, c * tone))));
+        }
+        if (prev) for (let k = 0; k < RING; k++) { const k1 = (k + 1) % RING; index.push(prev[k], row[k], prev[k1], prev[k1], row[k], row[k1]); }
+        else { const c = P(p.x, p.y, p.z, t.plumes.rgb); for (let k = 0; k < RING; k++) index.push(c, row[(k + 1) % RING], row[k]); }
+        prev = row;
+      }
+      const end = spine(1).p, c = P(end.x, end.y, end.z, t.plumes.rgb);
+      for (let k = 0; k < RING; k++) index.push(prev[k], c, prev[(k + 1) % RING]);
+    }
+  }
+  if (t.flowers) {
+    const { n, size, side, spread } = t.flowers;
+    for (let j = 0; j < n; j++) {
+      const th = side * (spread * .5 + (j / Math.max(1, n - 1) - .5) * spread * .6) + (rnd(j) - .5) * .25;
+      const [cx, cy, cz2] = at(th, .006 + rnd(j + 7) * .02, .012);
+      const nrm = new THREE.Vector3(Math.sin(th), .7, Math.cos(th)).normalize();
+      const a = new THREE.Vector3(0, 1, 0).cross(nrm).normalize();
+      if (a.lengthSq() < .1) a.set(1, 0, 0);
+      const b = nrm.clone().cross(a).normalize();
+      const r = size * (.75 + .5 * rnd(j + 3)), rgb = j % 3 === 2 ? t.flowers.rgb2 : t.flowers.rgb;
+      // Two leaves under it.
+      for (const lsign of [1, -1]) {
+        const lt = new THREE.Vector3(cx, cy, cz2).addScaledVector(a, lsign * r * 1.5).addScaledVector(nrm, -.004);
+        const q0 = P(cx, cy, cz2, t.flowers.leaf);
+        const q1 = P(...lt.clone().addScaledVector(b, r * .45).toArray(), t.flowers.leaf);
+        const q2 = P(...lt.clone().addScaledVector(a, lsign * r * .6).toArray(), t.flowers.leaf);
+        const q3 = P(...lt.clone().addScaledVector(b, -r * .45).toArray(), t.flowers.leaf);
+        index.push(q0, q1, q2, q0, q2, q3);
+      }
+      const centre = P(...new THREE.Vector3(cx, cy, cz2).addScaledVector(nrm, r * .25).toArray(), rgb.map((c) => c * .55));
+      const petals = 10, rim = [];
+      for (let k = 0; k < petals; k++) {
+        const ang = (k / petals) * Math.PI * 2;
+        const rr = r * (.7 + .3 * Math.abs(Math.cos(ang * 2.5)));
+        const pt = new THREE.Vector3(cx, cy, cz2).addScaledVector(a, Math.cos(ang) * rr).addScaledVector(b, Math.sin(ang) * rr).addScaledVector(nrm, r * .35);
+        rim.push(P(pt.x, pt.y, pt.z, rgb.map((c) => Math.min(1, c * (1.05 + .2 * (k % 2))))));
+      }
+      for (let k = 0; k < petals; k++) index.push(centre, rim[k], rim[(k + 1) % petals]);
+    }
+  }
+  if (t.bow) {
+    const { side, size } = t.bow;
+    const th = side * 1.25;
+    const [cx, cy, cz2] = at(th, .012, .006);
+    const out = new THREE.Vector3(Math.sin(th), 0, Math.cos(th));
+    const along = new THREE.Vector3(Math.cos(th), 0, -Math.sin(th));
+    // Two loops, front and back of the knot, each a flattened ribbon ring.
+    for (const dir of [1, -1]) {
+      const N = 12, w = size * .45, ring = [];
+      for (let i = 0; i <= N; i++) {
+        const a = (i / N) * Math.PI * 2;
+        const c = new THREE.Vector3(cx, cy, cz2).addScaledVector(along, dir * size * (.5 - .5 * Math.cos(a))).addScaledVector(new THREE.Vector3(0, 1, 0), size * .35 * Math.sin(a)).addScaledVector(out, .004);
+        ring.push([P(...c.clone().addScaledVector(out, w * .5).toArray(), t.bow.rgb), P(...c.clone().addScaledVector(out, -w * .5).toArray(), t.bow.rgb.map((v) => v * .8))]);
+      }
+      for (let i = 0; i < N; i++) index.push(ring[i][0], ring[i][1], ring[i + 1][0], ring[i + 1][0], ring[i][1], ring[i + 1][1]);
+    }
+  }
+  if (!index.length) return null;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(position, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(color, 3));
+  g.setIndex(index);
+  g.computeVertexNormals();
+  return g;
 }
 
 /** The finish of each kind's material: felt is matte, straw a little glossier. */
-const FINISH = { round: .9, straw: .72, knit: .97 };
+const FINISH = { round: .9, straw: .72, knit: .97, picture: .8, sailor: .7, toque: .55 };
 
 /**
  * Put `hat` (a dress record's spec) on the figure at `root`. Returns { mesh, materials } or null
@@ -216,7 +381,7 @@ export function dressHat(root, hat, { person = null, lod = 0 } = {}) {
   if (!cache) {
     cache = new Map();
     made.set(hair.geometry, cache);
-    hair.geometry.addEventListener('dispose', () => { for (const e of cache.values()) { e.geometry.dispose(); e.band?.dispose(); } cache.clear(); });
+    hair.geometry.addEventListener('dispose', () => { for (const e of cache.values()) { e.geometry.dispose(); e.band?.dispose(); e.trim?.dispose(); } cache.clear(); });
   }
   const seg = SEGMENTS[Math.min(SEGMENTS.length - 1, Math.max(0, lod | 0))];
   const key = `${person ?? 'anon'}|${JSON.stringify(spec)}|${seg}`;
@@ -226,12 +391,18 @@ export function dressHat(root, hat, { person = null, lod = 0 } = {}) {
     if (!f) return null;
     const pts = headPoints(hair, skin?.skeleton ? skin : null, root, f);
     if (pts.length < 30) return null;
-    const { hat: geometry, band } = lathe(spec, pts, f, seg);
+    const { hat: geometry, band, trim } = lathe(spec, pts, f, seg);
+    const rigid = (g) => {
+      const n = g.attributes.position.count;
+      g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Uint16Array(n * 4).map((_, i) => (i % 4 ? 0 : headBone)), 4));
+      g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(new Float32Array(n * 4).map((_, i) => (i % 4 ? 0 : 1)), 4));
+    };
     const n = geometry.attributes.position.count;
     const skinIndex = new THREE.Uint16BufferAttribute(new Uint16Array(n * 4).map((_, i) => (i % 4 ? 0 : headBone)), 4);
     const skinWeight = new THREE.Float32BufferAttribute(new Float32Array(n * 4).map((_, i) => (i % 4 ? 0 : 1)), 4);
     for (const g of [geometry, band]) if (g) { g.setAttribute('skinIndex', skinIndex); g.setAttribute('skinWeight', skinWeight); }
-    entry = { geometry, band, R: metricSurface(hair, root).R };
+    if (trim) rigid(trim);
+    entry = { geometry, band, trim, R: metricSurface(hair, root).R };
     cache.set(key, entry);
   }
   const bind = hair.bindMatrix.clone().multiply(entry.R.clone().invert());
@@ -246,13 +417,19 @@ export function dressHat(root, hat, { person = null, lod = 0 } = {}) {
     return m;
   };
   const materials = [new THREE.MeshStandardMaterial({ name: `headwear__${spec.kind}_hat_t3522`,
-    color: new THREE.Color().setRGB(...spec.rgb, THREE.LinearSRGBColorSpace), roughness: FINISH[spec.kind], metalness: 0, side: THREE.DoubleSide })];
+    color: new THREE.Color().setRGB(...spec.rgb, THREE.LinearSRGBColorSpace), roughness: spec.finish ?? FINISH[spec.kind], metalness: 0, side: THREE.DoubleSide })];
   const m = wear(entry.geometry, materials[0]);
   // The band is named so the hair's cut passes over it (human-hair.js skips /band/): the crown is the hat.
   if (entry.band) {
     materials.push(new THREE.MeshStandardMaterial({ name: `headwear__${spec.kind}_hat_band_t3522`,
       color: new THREE.Color().setRGB(...spec.band, THREE.LinearSRGBColorSpace), roughness: .6, metalness: 0, side: THREE.DoubleSide }));
     wear(entry.band, materials[1]);
+  }
+  // T-3553: plumes, flowers and bow, in their own colours on one material.
+  if (entry.trim) {
+    materials.push(new THREE.MeshStandardMaterial({ name: `accessory__${spec.kind}_hat_trim_t3553`,
+      vertexColors: true, roughness: .78, metalness: 0, side: THREE.DoubleSide }));
+    wear(entry.trim, materials[materials.length - 1]);
   }
   return { mesh: m, materials };
 }

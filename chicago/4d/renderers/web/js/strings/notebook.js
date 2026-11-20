@@ -1,0 +1,21 @@
+import { register } from './index.js';
+export default register('notebook', {
+  title: 'Field notebook',
+  intro: 'Keep notes, people and photos here. Download your notebook or print it to hand in.',
+  privacy: 'Saved in this browser only. Clearing site data removes it. Download a copy before leaving a shared computer.',
+  limits: 'Up to 100 entries and 12 small photos. Full photos can be downloaded separately.',
+  heading: 'Title', note: 'My notes', add: 'Save note', edit: 'Save changes', remove: 'Delete entry',
+  empty: 'Your notebook is empty. Write a note, save a person’s card, or take a photo.',
+  saved: 'Saved in this browser.', deleted: 'Entry deleted.', duplicate: 'This person is already in your notebook.',
+  download: 'Download notebook', print: 'Print / save PDF',
+  personSave: 'Save to field notebook', personSaved: 'Saved. Open Guide to read your field notebook.',
+  sources: 'Sources', evidence: 'Source context', moment: 'Open this moment',
+  'error.full': 'Your notebook is full. Download a copy, then delete an entry to make room.',
+  'error.storage': 'This browser could not save your notebook. Check its storage settings and try again.',
+  'error.damaged': 'Your saved notebook could not be read. Its stored copy has been left unchanged.',
+  'error.empty': 'Write a title or a note first.',
+  'error.missing': 'That entry is no longer here. Reopen the notebook to see the latest entries.',
+  'error.photo': 'The photo could not be saved. Try taking another photo.',
+  'export.note': 'Notes written by the visitor are separate from the cited record.',
+  'export.none': 'No source was attached to this entry.',
+});

@@ -1,3 +1,495 @@
+## T-3678 — Four more Make your case mysteries (19 November 2026)
+
+The Gossip comparison's hard-wired check is now a case table
+(`renderers/web/js/jaunt-investigation-cases.js`): each row names a jaunt (tellings match
+by `version_of`), a year, and readings that are sets of the jaunt's compiled evidence ids
+with their stop, grade and source ids. Strings are per case in `strings/investigation.js`.
+The Gossip case's model and notebook entry are byte-identical for all five tellings before
+and after the refactor. Four new cases, in the four student tellings of each jaunt:
+*The Battle of Fort Dearborn* (where the attack began: Heald's journal and Helm against the
+Kinzies' tree and the stand's Inferred reasoning), *Chicago's First Murder* (Le Mai or
+Lalime as buyer of du Sable's post: the family's version against the deed the Reader
+reports), *A Schoolday Errand* (Andreas against an unfootnoted 2018 history and the
+Inferred placement) and *The Bronze at Eighteenth Street* (the 1893 statue against
+Karamanski's essay). The 18+ tellings are left out of these cases. Evidence and reasons:
+`docs/RESEARCH/investigations-3678.md`. The existing test now drives every case, telling
+and refusal; its isolation row was re-measured (no writes).
+
+## T-3669, T-3670 — Same spot, another year; the guide's questions (19 November 2026)
+
+Jump passes the walker's ground, facing, season and hour (never a date, person or
+building) to the far year. That page checks the spot with `momentFits`; if a structure or
+water now holds it, `nearestOpen` searches rings out to 24 m inside coverage; if the town
+does not reach it, the year's Welcome stays and a line says why. Shared links never move.
+Checked: `test_moment.mjs`, `test_nav_jump.mjs` (pure and DOM-fake), and smoke part 14's
+new Jump-landing check, which accepts either outcome and requires the page to say which.
+
+The understanding check's questions (where / who told us / how sure) were checked over all
+240 catalog tellings: exactly one answer, no repeated option, a wrong place never also tells
+the claim, a wrong teller never also tells it, every quoted line is one the stop said and shares its words with the record behind it (238 tellings quizzed; Lalime and 1612 for ages 8-10 are retold too loosely and get none), the quoted line never names who told it, stable order on repaint
+(`test_jaunt_understanding.mjs`), and in the browser at 390×780 and 1280×800 with retry,
+reveal and start-again (`test_jaunt_understanding_view.mjs`). Not checked: assistive
+technology beyond native buttons, groups and status lines.
+
+## T-3677 — Where and when? in 1835; 1812 and 1871 left out (19 November 2026)
+
+Owner request, 19 November 2026 (the 17 November list, item 7, "anything that does not
+require a server"). Home's **Where and when?** now has one set per year that holds at least
+three pictures whose solved camera stands on safe ground in that year's world, all read from
+the existing catalogue. Each year keeps its own `year=` link, daily order and saved record;
+1904's link, seed and record are unchanged.
+
+- **1835: three pictures**, all of the Green Tree Tavern: Andreas 1884 (wood engraving),
+  Kurz & Allison 1893 (chromolithograph, panel 11) and Trowbridge 1902 (a drawing). A shorter
+  set rather than a padded one. Every other 1835 camera is `diagnostic_only` (no historical
+  observer position may be offered); Gifford's Tremont drawing is also rights-unknown.
+- **1812: left out.** Seven 1812 pictures have a solved camera, but only two stand on safe
+  ground in the 1812 town: Eastman's 1854 steel engraving after Schoolcraft's 1820 sketch and
+  the Chicago Magazine's 1857 Kinzie house. Probed in the published town with the hunt's own
+  bounds, water, router and house-barrier checks: Lossing 1869 and Sarony (Currey 1912) are
+  drawn from the river (water); Currey's 1912 Hardscrabble is drawn from across the South
+  Branch, outside the modelled ground and in water; Cram 1893, the Teich postcard and
+  Gemmell's lithograph have eyes 18 to 66 m up, not places anyone stood. Two is under the
+  three a set needs. A new ground camera solved on another public-domain 1812 picture would
+  open it.
+- **1871: left out.** The picture catalogue holds no picture of the 1871 scene.
+
+Every 1835 picture is a print or drawing made after 1835; each reveal says what it is ("a
+print, an engraving", "a drawing, printed in a book") and when it was made, and the hunt never
+calls one a photograph. Cameras whose eye is more than 10 m up are refused.
+
+The three Green Tree pictures were link-only on their cards. Each now has a held library
+record (`prairie_1904_v1/research/images/stream-early-photo-hunt-references.json`) whose
+`reference_views` name the camera it is the exact copy of; `compile_pictures.py` joins a
+camera to that copy only while the camera's own photo file hashes to the copy's
+`original_sha256`, so no camera file (or match record) changed. Their image files were already
+in kevinrhaas/chicago-images (served, but cited by no record) and are reused unchanged.
+`prairie_1904_v1/tools/test_evidence_review.py` fails on dev before this change (184 ≠ 181
+Glessner records); it is unrelated and not run by `check.sh`.
+
+## T-3675 — Chromebook class set (19 November 2026)
+
+Gap-analysis item 17. A classroom Chromebook is recognised (ChromeOS from the user agent `CrOS`
+or Chrome's userAgentData) and profiled as a computer, touch screen or not: class `weak`, so
+Balanced detail, Sharpness Low, light textures and the memory diet, with people, horses,
+carriages and wagons drawn and never Light. Before this, a touch-screen Chromebook in a window
+under 900 px wide (or in tablet mode) was profiled as a phone: the emulated one booted 1835 at
+Light ("modest phone or tablet"), and an Arm Mali Chromebook's GPU only counted as shared memory
+on a non-touch one. Its controls stay keyboard and trackpad unless its pointer is coarse
+(tablet mode); a touch on the screen still switches to touch controls. PowerVR (MediaTek
+MT8173 Chromebooks) joins the shared-memory GPUs, Mesa's prefix and chip codename are dropped
+from the GPU name, and the loading screen reads "Chromebook · Intel UHD Graphics 600 · shared
+memory · 4 GB · 4 cores".
+
+The year's offline copy is the "Prepare for class" path: on a Chromebook the welcome line reads
+"Prepare for class · 374 MB" (1835), and Settings › Graphics carries the same download on every
+device, with progress, a "ready offline" state and how to check it (Wi-Fi off, reload). The
+copy says the honest thing: do this on each device before the lesson; each keeps its own copy
+and nothing is shared across the room. No server, no new assets.
+
+**Memory, emulated Chromebook** (`tools/chromebook_emulation.mjs`: ChromeOS user agent,
+`deviceMemory` 4, 4 threads, Intel UHD 600 renderer string, 1366×768 at 1×, nothing forced),
+build ccf78e0ce + this change, every year measured, `docs/measurements/T-3675-memory-chromebook.json`:
+
+| Year | Chromebook (Balanced, diet) | New ceiling | Same build, desktop at Full | People drawn at spawn, Chromebook / desktop |
+|---|---|---|---|---|
+| 1812 | 452.1 MB | 500 MiB | 786.0 MB | 284 / 284 |
+| 1835 | 677.1 MB | 750 MiB | 1,327.5 MB | 10 / 10 |
+| 1904 | 595.3 MB | 675 MiB | 1,433.8 MB | 10 / 10, and the parked carriage with its team on both |
+
+Every Chromebook row was routed by the town itself ("a Chromebook: graphics sharing the
+system's memory (Intel(R) UHD Graphics 600, 4 GB)"). The `chromebook` row is in the CI memory
+matrix for every year, and `measure_memory.mjs --gate` fails it unless it boots routed so.
+The same run read the desktop rows over their ceilings on dev's code path (1835 1,327.5 against
+1,325; 1904 1,433.8 against 1,425): a desktop on SwiftShader is untouched by this change (the
+software-renderer branch returns before any ChromeOS rule), so those are dev's growth, recorded
+here rather than raised. `tools/check_chromebook.mjs` (in check.sh) holds the routing, the
+controls rule, the loading-screen words, the "Prepare for class" words and the ceilings.
+
+**Not tested here:** a real Chromebook (Intel and Arm), its real frame rate and its tab
+limit; a school network and its filters; Cache Storage quotas on a 32 GB Chromebook with
+other users; a teacher-side view of which devices are ready; any room-wide cache (that needs
+a local server). SwiftShader draws the pixels, so the readings are bytes, never timings.
+
+## T-3679 — Play a part: three choice-driven role jaunts (19 November 2026)
+
+Three new jaunts put the visitor in a young person's place, on the existing jaunt engine with no engine change. *Errands Before the March* (1812, Errands, `errands-before-the-march`): a runner of the settlement outside Fort Dearborn hears the evacuation order read on the parade on 10 August 1812 and carries it either across the river to the Kinzie house or out to the Agency House, sees the council of the 12th, then spends the evening of the 13th either helping carry the ammunition and liquor to the well and the river or at the main gate when William Wells rides in on the 14th; it ends on the eve of the march, and the fighting is neither told nor staged. *Apprentice at the Democrat* (1835, Work, `apprentice-at-the-democrat`): the Chicago Democrat's new apprentice carries the number of 1 July 1835 from the paper's old corner either west to the Sauganash or east to the rival American, then to Newberry & Dole's, then either to the drawbridge to watch for a sail or to the Tremont with the last copies. *Ice for Prairie Avenue* (1904, Work, `ice-for-prairie-avenue`): an iceman's helper on a Monday in October 1904 tries either the Glessners' front door or the alley gates, reaches the service entrance under the great arch, then either waits for the kitchen's order at the stable doors or runs ahead to the Kimball house. Each has two forks that change the next stop and four endings from the pair. Every stop's facts are claims already published in other jaunts, copied word for word; the roles, routes, choices, endings and keepsakes are reconstructed (L-play-a-part-3679). All three are tellings for grades 6-8 by measure (7.5, 7.9 and 7.5), with versions for 3-5, 9-10, 11-12 and 18+ built by versions.py, each measuring inside its band. Text only: no narration voice and no stage. The 1904 Jaunts menu gains a Work group and the 1812 menu an Errands group, so the lesson guides cover 12 year/group combinations.
+
+## T-3663 — Gossip source comparison checkpoint (19 November 2026)
+
+Integrated onto DEV `38f51fcda` after the T-3656/T-3657/T-3658 delivery merged in
+PR #2197. The prior feature checkpoint remains on `backup/t3663-before-dev`. Eligible
+Gossip completions offer a collapsed **Make your case** beside the existing reflection:
+two newspaper readings, selected support, a claim, an uncertainty and an ungraded
+reading guide. Save explicitly adds an ordinary note to the existing bounded notebook;
+a revised save keeps a new copy. Failed saves retain the draft and earlier entries.
+
+The current telling supplies all historical text and citations. The Democrat's second
+sale figure stays lost; the Chicago branch decision does not establish an operating
+bank; the Springfield building remains Inferred with its reasoning and shared American
+item locator. Both sources are text-only with no public URL. No witnesses, scans,
+source links, route, service or notebook schema are added.
+
+Focused pure checks pass for all five tellings, exclusions, complete provenance,
+bounded/duplicate/revised saves, edited notebook entries, storage failures and escaped
+HTML export. Existing reflection/notebook regressions and the string lint pass.
+The registered pure gate step was officially measured with `--tool`: no tracked or
+ignored writes, and the isolation audit passes. The native no-world fixture passed
+53 checks across 390×780 and 1280×800 with no page, console or HTTP errors: native
+summary/checkbox/textarea and Space behavior, saves/revisions, retained drafts after
+quota failure, repaint/replay/dismissal, 200% text and HTML/PDF export. Notebook excerpts
+now use the neutral heading **Source context**, so newspaper readings are not labelled
+as a person's card. The actual-store export regression and native fixture cover both
+the saved context and heading. Its first attempt
+incorrectly forbade the rejected editorial supply even in the source locator's explicit
+warning; that failed fixture attempt is preserved. The corrected check separately
+verifies the quotation's missing figure and the locator's rejection of that supply.
+
+The real published Gossip completion flow and the final combined source/release gates
+remain pending at this checkpoint. Latest DEV also changes the served changelog and
+1823 Prairie's 1904 model, so fresh published stages 13–15 at both widths are required.
+Earlier renderer evidence carries only under explicit input and behavior review.
+PR #2205 and its linked evidence record the final results; this is not a release verdict.
+
+## T-3671 — accessibility pass toward WCAG 2.1 AA (19 November 2026)
+
+Keyboard and screen-reader paths through every menu, Settings tab, jaunt and card; Text size to 200 % across the interface; contrast and one focus ring in all four appearances and both tones; grades told by shape as well as colour (and patterns in the town's Confidence view); narration highlighted as it plays, with a Transcript where an age tab shows other words, and a Pause key; Settings › Look › Motion (System / Reduce / Full) and Letter keys (2.1.4). docs/ACCESSIBILITY.md lists each criterion, the browser fixture that holds it (tools/test_a11y_*.mjs, Chromium at 390 and 1280, no town load) and the known gaps. Unverified: no physical screen reader (NVDA, JAWS, VoiceOver) and no Chromebook has been tried; the WebGL town and its name cards are not themselves readable. This is not a third-party audit or a legal conformance claim.
+
+## T-3654 — 1871 context city (19 November 2026)
+
+PR #2198 adds a walkable baseline for 8 October 1871 at 16:00 local mean solar time: 33,580 varied generic buildings, 3,627 trees, streets and plank walks, 22 road crossings, 597 quay bays and five rail corridors on dedicated pre-fire terrain. Six additional report bridges remain withheld pending opening-date or placement evidence. These are model counts, not a historical census. Identified properties, people, vehicles, daily activity and photographic finish remain subsequent smaller milestones.
+
+The Mitchell-map fit improves from 37.73 m to 18.67 m RMS; eight reserved checks improve from 49.97 m to 15.62 m RMS, with a 25.65 m maximum. River branches, canal, shoreline and transport geography were checked against retained source pixels and records. Bank, parcel and elevation uncertainty remains separate. Modern Today/Google Maps and OSM targets agree within 2.023 m RMS in the same coordinate frame; the generated historical State/Madison crossing remains 22.57 m from its modern target. Older scenes’ display shifts are not applied to 1871.
+
+The saved 6409dda build passed full publication, mirror and boot checks, all eight hosted source parts and their aggregate, and both supporting workflows. Its mobile browser stages 1–12 passed 468 checks, covering 12 of the 30 required stage/viewport pairs. Nine unfinished browser groups were cancelled after upstream runtime changes; their partial output supplies no pass. These results remain dated evidence for 6409, not acceptance of the later combined build.
+
+At the 19 November 2026, 02:26 UTC checkpoint, the branch included dev through c23d8a9, including the 2027 villa, 1815 chimney correction and smoke-stage 15 settling repair. The owning compilers regenerated shared records; both integration audits preserve all 899 audited 1871/pre-fire/renderer files and the incoming assets and photo proofs. Focused freshness, derived-record, source-use, unique-ID and changelog-entry-file checks pass; all 1,126 assets match their inputs. Full publication and fresh source/browser verification were pending at that checkpoint. After publication checks, the source gate and six browser groups may run concurrently, covering all 15 stages on both viewports. The complete hosted source gate and all 30 browser pairs must pass before merge.
+
+Recorded focused city checks cover both viewports, all detail levels, bridge and quay walking, collision, source/liberty cards, confidence shadows and context startup. Their exact inputs and limits remain in docs/measurements/ and the versioned evidence. SwiftShader results do not establish physical-device performance or photographic quality. PR #2198 was draft at that checkpoint; delivery targets dev and its preview, with production promotion reserved to the owner. The concise validation checkpoint records the current checks and evidence; earlier failures and intermediate steps remain archived.
+
+The first subsequent source-CI part found a stale generated liberty count after the dev merge: both parents declared 1,184, but the merged document contains 1,185 entries. The owning compiler regenerated the count; all entries and names remain unchanged. This repair checkpoint precedes its fresh source and browser verification. Completed results will be filed in the versioned evidence and the immediate research follow-up.
+
+Regenerate with `python3 generators/city_context_emit.py`, then
+`python3 generators/city_1871_emit.py`, `python3 tools/compile_scene.py --scene 1871`
+and `python3 tools/compile_jaunts.py`. Register the terrain entries from
+`data/context/1871/generated-assets.json` in `assets/manifest.json`, then run
+`tools/web_derivatives.sh --only terrain__e1871_prefire.glb,water__e1871_prefire.glb`.
+The map-fit and both deterministic generator checks are in `tools/check.sh`; the
+published scene has a dedicated `tools/smoke_city_1871.mjs` browser check. This is the
+complete context baseline, not a claim of individually surveyed buildings, populated
+daily activity or photographic finish.
+
+T-3683 (19 November 2026) corrects the building materials. Colbert and Chamberlin (1871, pp. 146-147) count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868. The business centre stays masonry; elsewhere masonry picks turn to frame by district, so about one house or shop in ten is masonry (2,942 of 33,580 footprints, down from 10,770). Every footprint is unchanged. Frame walls are pale weatherboard with a per-house reconstructed paint. A seventeenth form, the two-storey frame store, replaces the brick shop block outside the centre.
+
+## T-3672 — Teacher routes (19 November 2026)
+
+Guide › For teachers builds a route from a jaunt or from one year's buildings, viewpoints
+and people, with a note and a question per stop, as one bounded share link and a route
+file; Jaunts shows a student the Route panel, with Go there per stop and answers saved to
+the local field notebook ([CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) § Teacher routes).
+`tools/test_teacher_route.mjs` covers the round trip, the bounds, malformed, over-long,
+other-year and unknown-id links, text-only rendering and the notebook save, against the
+real 1812, 1835 and 1904 directories and catalogs: every offered jaunt fits one link with
+a question at every stop. Screenshots of the running 1904 town at 1280×800 and 390×780 were
+taken under SwiftShader. Not verified: physical phones, assistive technology, and the
+full gate and smoke on this change, which run before merge.
+
+## T-3656, T-3657, T-3658 — Combined browser-only delivery (19 November 2026)
+
+PR #2197 now carries all three completed implementations so the new classroom
+controls, photo hunt and keyboard ownership fix can land together. PR #2199 is
+superseded after its tickets are retargeted. The candidate preserves the runtime
+from `ddc786069`, a direct child of classroom checkpoint `b1f507400`, and incorporates
+DEV `c23d8a9e8`, including the T-3635 and T-3562 houses. Only our two
+pending entry files are consolidated into one T-3656 group entry; upstream records
+and the folded changelog are preserved.
+
+Earlier evidence retains its original commit, viewport and scope. The complete
+b1/c676 renderer cohort and its eight passing source partitions are historical
+baselines, not a gate for the later DEV inputs. Completed ddc renderer stages 1–12
+may carry forward only under the explicit source/data/behavior review. The new
+global source/liberty records, 1904 house and changelog require fresh published
+stages 13–15 at both widths. The final combined head must also pass all eight
+source partitions and their aggregate, moving-frame and upload-release checks.
+Incomplete or capped groups never establish coverage. PR #2197 and the linked
+evidence repository record those final results; this checkpoint claims no merge.
+
+The ddc local source gate passed parts 1–6. Part 7 found an XR wiring assertion
+that still expected the old inline keyboard guard. The repair from `fd27937a0`
+executes the actual main registration and imported callback: XR, arrival and
+Window mode each block activation/locking, and ending the modes restores input.
+Negative controls reject a missing XR guard and an always-disabled callback.
+All 20 XR checks, keyboard regressions, syntax and official no-write measurement
+pass; the original pointer guard remains. Full part 7 and preflight's part 8
+are repeated on that test-only cohort; final combined CI still runs all eight.
+The incoming unique-ID checker was also officially remeasured against the new
+data: both declared commands wrote nothing in-tree, and its existing row is
+unchanged. Its actual unique-ID check and the consolidated changelog checks pass.
+
+The first ddc desktop 13–15 group completed with 308 passing and two failing
+assertions; it establishes no release coverage. Stage 14 left a Navigator button
+focused before pressing Space, which correctly activated that control instead of
+inspecting the world. The smoke now proves native button activation separately,
+establishes world focus explicitly, and retains the original inspection/no-flight,
+Escape and E-close assertions. The exact repaired block passed 11 checks in the
+published town at each width, with zero page/console or HTTP errors. The first
+desktop diagnostic attempt lost its execution context and remains recorded as an
+incomplete failure; the bounded retry passed. No runtime change was needed.
+
+The upstream T-3662 smoke repair drains pending picture work before stage 15's
+intermediate page reload, using its existing bounded settling helper. Error
+listeners and the zero-page-errors assertion remain intact. The old texture error
+and both harness changes require a fresh full 13–15 result at each width; the
+focused checks above do not replace it.
+
+## T-3657, T-3658 — Photo hunt and targeted accessibility (18 November 2026)
+
+Originally prepared on an isolated branch after classroom checkpoint `03ecd9678`.
+The normalized `ddc786069` checkpoint incorporates the later T-3656 repairs and all
+keyboard ownership work; it is now part of the combined PR #2197 above. Keep the
+original checkpoints as evidence, rather than replaying the earlier branch history
+over a folded changelog.
+
+Home's **Where and when?** uses five licensed historical photographs of four places in
+the 1904 scene. It derives the picture, canonical building, credit, recorded date/range
+and solved camera position from the existing catalogue. The same five photographs have
+a deterministic UTC daily order; a versioned link preserves that challenge after midnight
+without sending guesses or account state. Location scoring measures ground distance, not
+camera height, direction or an invented exact year. Guess or skip before source/date
+reveals and optional travel; visits check bounds, water, router blockers and house barriers.
+Only the current thumbnail has an image source, released when hidden. One bounded local
+progress record reports unreadable or refused storage and supports an explicit restart.
+The actual rail regression covers quiet Home selection while docked: the thumbnail
+remains unloaded until reopened. Hunt styles load once per owning document on mount;
+closed panels and merely importing the module do not request them. Browser fixtures
+verify applied styles, remount deduplication and iframe isolation at both widths.
+
+Navigator reading now permits native browser magnification and panning. Viewport sizing
+keeps the drawing buffer stable during pinch zoom while still responding to keyboard,
+URL-bar and orientation changes. World movement and looking retain separate thumb roles
+when the page is magnified off-centre. Picture dialogs cycle keyboard focus, isolate the
+background, close on Escape, restore the opener and release pending image loads.
+The rail also keeps one visible Tab stop when Move or Jump is open. It retains the
+previous visible icon, then Home as fallback, without falsely selecting that icon.
+Context changes, unregistering and delayed selection cannot leave the rail unreachable.
+
+The keyboard-ownership continuation keeps arrows and Space with the focused Navigator,
+reader or native control instead of requesting pointer lock, walking or inspecting behind
+it. Moving focus into a reading surface releases already-held movement and any queued
+keyboard inspection; returning focus does not restart those keys. World-focused controls
+still work while the non-modal Navigator is visible. E still closes a legacy building
+popup or a hand-opened Navigator Inspect card, including from their buttons; text entry,
+other apps and nested picture dialogs retain the key. The existing `isTyping` contract is
+unchanged.
+
+Before-fix reproduction at `6ee1a689077839dd9923edbc80269dd2cbaccfb6`, with the actual
+main capture callback and PointerLockControls backend in a small event fixture, measured
+one pointer-lock request and `forward = -1` from ArrowDown on a Navigator button. Space
+on that button set `interact = true` and prevented its native default. The new actual
+capture/backend regression passes UI/world ownership, already-held keys, focus transfer,
+prevented/modifier/composition events, popup/Inspect E exceptions and listener cleanup.
+Navigator and Settings regressions and JavaScript syntax checks pass. The continuation's
+native browser fixture passes 20 checks at source `3131c7986`, ten each at 390×780 and
+1280×800, with zero page errors, HTTP errors or external requests. It uses the actual
+Navigator, capture callback, PointerLockControls and backend, native button/summary Space
+activation, rail arrows, role-less dialogs and real held-W-to-Tab focus transfer. World
+keys, already-prevented keys, popup/Inspect E and text entry pass. It counts pointer-lock
+requests at the canvas method without granting mouse capture; no world or WebGL is loaded.
+The new regression's official isolation measurement records no in-tree writes, and the
+isolation audit passes. Complete source and published-renderer release gates still remain
+pending for the combined branch.
+
+Final published-town integration on feature commit `5674d33d` passed at both widths:
+all five actual photograph responses and destination guards, a real Glessner arrival,
+distance score, share/reload, picture dialog and photo/notebook capture/edit flows.
+The phone run also exercised native pinch and horizontal pan with a stable drawing
+buffer. Both report zero page/HTTP errors or overflow; request cancellations are
+recorded separately. The later rail repair passes 36 native keyboard checks at both
+widths with normal and reduced motion: actual Tab/Shift+Tab, arrows, Home/End, Enter,
+Escape, off-rail screens, dock/reopen, context disappearance and unregistering. That
+fixture loads the real Navigator/rail modules with small app bodies, no world or canvas;
+its source hashes match the committed modules. Updated Navigator tests, official
+single-tool isolation measurement and isolation audit pass, with no new in-tree writes.
+
+Focused logic/catalogue and browser fixtures pass on the combined branch at 390×780
+and 1280×800.
+Hunt coverage includes all five rounds, real source dates, distance scoring, saved order
+and scores after reload, keyboard activation, image failure/retry, clipboard fallback,
+corrupt/refused storage, cleanup and zero page errors or horizontal overflow. It uses real
+Home/modules/catalogue with tiny fixture image bytes, not a complete 3D world. Accessibility
+fixtures use the real Navigator CSS, modal and touch controls with a small WebGL canvas
+running the production resize body; native pinch/pan, two-thumb input, orientation and
+modal lifecycle pass. Pure checks cover keyboard/URL-bar viewport dimensions as well.
+These are browser measurements, not physical phone/Chromebook tests or whole-app WCAG
+conformance. The combined regression also passes the four classroom logic suites, existing
+Navigator/link/photo checks, strings and changelog validation. The two newly gated pure
+tests were instrumented separately; both wrote nothing in-tree. The isolation audit and
+its self-test pass, preserving all four T-3656 measurements. Complete source and
+published-renderer release gates remain pending; no DEV merge or production promotion
+is claimed here.
+
+## T-3656 — Browser-only classroom tools (18 November 2026)
+
+Implementation on `steward/t3656-browser-classroom`, based on development commit
+`169af6421`; the associated DEV pull request records the final release verdict.
+
+- Navigator Home offers on-demand stamped PNG capture (maximum 1280-pixel edge) and a
+  validated moment link carrying the public position, year, orientation, season, hour,
+  date and selected person/place. It copies a normal rendered frame; no extra renderer,
+  persistent render target or `preserveDrawingBuffer` is enabled.
+- Guide's local Field notebook saves notes, selected person records with their grades and
+  citations, and small photo copies. It caps storage, reports refused writes, supports
+  deletion, downloads standalone HTML and prints through a small document frame for PDF.
+- Completed jaunts offer three optional typed reflections from visited, cited evidence,
+  with reading-band wording, source comparison, revision and retry. This is self-review,
+  not automatic marking or invented historical dialogue; answers stay in tab memory.
+- For teachers offers group inquiry templates using a selected jaunt's real citations,
+  with document tasks, discussion and suggested Illinois/C3 connections. These are a
+  starting set of guides, not a fully authored curriculum or certified standards mapping.
+
+Validation checkpoint: all four focused logic suites pass under Node 22; reflection
+coverage spans 240 available tellings and five bands, and lesson coverage spans 192
+school tellings and 10 available year/group combinations (12 since T-3679 gave 1904 a Work jaunt and 1812 an Errands jaunt). Existing Navigator,
+person-card, teacher-handout, jaunt-mechanics, string and changelog checks pass.
+Real-component browser fixtures pass at 390×780 and 1280×800 for notebook
+save/edit/reload/export/print/errors, lesson selection and source links, request races,
+three-page Letter PDFs, and reflection completion. Dark notebook inputs measure
+10.62:1 contrast. Legacy 1835 People cards pass real-record notebook save, duplicate
+and denied-storage checks. People and Inspect selections pass through Home sharing
+with the final selection logic; lesson documents use the readable-text overlay.
+
+Final-runtime published-town tests now pass at 390×780 and 1280×800. Each uses the
+real People card to save canonical citations, captures a nonblank bounded PNG through
+the normal rendered frame, copies its selected-person/view URL, saves the actual photo
+to the notebook, edits its note, then navigates to the shared link. Exact notebook,
+photo, note and citation data persist; the person and view restore; the saved jaunt
+remains stored and inactive. Both runs report zero page errors, local 404s or overflow.
+The software-GPU harness pauses continuous drawing between interactions and executes
+the actual normal frame for capture; it is not a low-end hardware performance result.
+Earlier reports with skipped notebook assertions and pre-final runtime are retained
+with explicit scope corrections in the evidence archive; these final integrated runs
+supersede them for the photo/notebook/arrival flow.
+
+**Release validation before the final resource repairs:** source partitions 1–7 of
+eight pass (175, 174, 174, 174, 175, 174 and 174 checks), and preflight's changelog-entry
+and ticket-ID checks pass. All fifteen published mobile renderer stages pass on the
+earlier runtime with zero failures or page errors: 921 assertions including repeated
+always-on checks. Stage 6's second-world recovery passed unchanged on quiet CPU. Stage
+13 exceeded the local 595-second command cap; its unchanged remote run then completed
+all 157 assertions successfully.
+
+Source partition 7 exposed a tour test's fixed 200-character source span: inserting the
+notebook exceeded it despite the tour still appearing first. The test now mounts the
+real Guide and verifies that the original tour element leads its controls and hosted
+sections. Focused tests pass; isolated mutations that move or omit the tour are both
+rejected. Its instrumented write measurement remains empty; complete partition 7's
+rerun passed all 174 checks.
+
+Partition 8, locally and on GitHub, found an ambiguous person callback alias interpreted
+as a placement field by the sidecar scanner, and identical era entry pages at 65,638
+bytes, over the existing 65,536-byte duplicate threshold. The callback now says `person`.
+Photo/notebook styles load once per owning document when their views mount, removing
+104 bytes from the shared entry markup. No validator limit or assertion was weakened.
+Browser checks verify real stylesheet loading, application, remount deduplication and
+iframe isolation. The publisher and full partition 8 must verify the final repair.
+
+Resource review found Glessner's 9,307-character citation caption caused 9,241 text
+measurements. Binary-search fitting preserves full metadata and reduces that to 17
+calls; actual canvas-only Chromium measurements fell from 2–5.6 seconds to 3.6–4.9 ms.
+These are local measurements, not a phone or town performance benchmark. Notebook drafts
+now drop IDs confirmed deleted elsewhere while preserving unsaved writing after storage
+errors. The real cross-tab regression rejects the earlier code and passes after 120
+deleted/recreated IDs. Focused logic and browser tests pass for both repairs. Earlier
+whole-town reports remain evidence for the pre-repair runtime; fresh integrated checks
+are required for these changes before merge.
+
+CI found four missing step-isolation records for the new gate tests. The instrumented
+measurement tool now records all four as writing nothing in-tree, and the isolation
+audit and its self-tests pass. This repairs the measurement registry without changing
+the application or assertions. The repaired source partition, complete published
+desktop renderer smoke, post-repair browser checks and exact-head PR CI remain required before DEV
+merge. The PR records their final aggregate; GitHub's phone upload/memory-release check
+has also passed on the unchanged runtime.
+
+Implementation and recovery checkpoints are backed up in PR #2197. Completed logs,
+screenshots, exact source hashes and reproduction harnesses are in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/main/evidence/t3656-browser-classroom-2026-11-18).
+Later receipts go there and to T-3656 without implying unrun gates passed. No production
+promotion is part of this work.
+
+No new server or shared-service activation. Photos/notes stay local until explicitly
+exported. Shared URLs do not contain notebook text or account state. No claim of full
+WCAG conformance or low-end Chromebook hardware certification. Same-spot Jump remains
+lower priority, with the current single-session replacement default unchanged.
+[CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) accounts for all twenty requested items.
+
+**Owner-authorized budget update, 18 November:** the baseline desktop smoke recorded
+3,607,087 Full-detail triangles at West prairie, 2,087 over the previous allowance,
+with draw calls inside their limit. The owner authorized an appropriate increase so
+the DEV merge can proceed. The standing measured-maximum plus 18,059 margin, rounded
+up to 5,000, sets Full to 3,630,000 (a 0.69% increase). Other tiers, calls, reaches,
+shadows and assets stay unchanged; the policy test still rejects extra increases.
+[The measurement and authorization](measurements/t-3656-full-detail-budget.md) record
+the evidence and limits. The baseline desktop run timed out during stage 12; source
+CI partition 1 also hit its 600-second cap without an assertion failure. Neither is
+reported as passing. Fresh budget validation and unfinished renderer/source checks
+remain before merge.
+
+## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
+
+The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple
+and Facebook perhaps later. The panel (js/sign-in.js) draws the ways `providers` names in
+js/sign-in-config.js: Continue with Google, Continue with Microsoft (Firebase OAuthProvider
+`microsoft.com`, popup then redirect), and behind the grey link an email and password form
+(sign in, create account, forgot password, which never says whether an account exists) and
+Just enter with my email. The visitor list records `method` google, microsoft, password or
+email; the visitors page counts people by sign-in. **Unverified:** still switched off (no
+project yet); checked with `?signin=preview` at 390×780 and 1280×800 in every mode, and
+tools/test_sign_in.mjs.
+
+## T-3576 — Sign-in before a year, switched off until the Firebase project exists (2026-11-13)
+
+The owner asked for Google sign-in, or a typed email for anyone without Google (unverified
+for now), in front of every year before its download, once per device, with no server, a
+list of everyone who has come in, and some usage numbers. Built on Firebase (docs/SIGN-IN.md):
+`boot()` awaits `signInGate()` (js/sign-in.js) before the scene is fetched, so the
+Observatory's cards, the year doors and `?year=` links all pass it; Google is a popup
+(redirect if blocked), email is anonymous sign-in plus the address; each entry writes
+`visitors/<uid>` and `visits/<id>` over Firestore REST (js/visitor-store.js); the owner reads
+them at walk/visitors.html (counts by year, device and day; CSV); Analytics logs `login` and
+`enter_year`. The SDK (app, auth, analytics 13.3.0) is vendored and reached through the import
+map. **Unverified:** the gate ships OFF (`js/sign-in-config.js` has no project yet), so a real
+Google sign-in, the rules and the Firestore writes have not run against a live project; what
+has run is tools/test_sign_in.mjs and the panel by `?signin=preview` at 390×780 and 1280×800,
+where no scene data was requested until the visitor went in. It fails open: off-host, under
+automation, or with Firebase unreachable, the visitor goes straight in.
+
+## T-3563 — Settings in icon tabs, and a mouse sensitivity setting (2026-11-12)
+
+The owner (after meeting Bill Tyre) asked for a mouse-sensitivity setting and for the Settings
+card to be organised under a row of icon tabs like Inspect's, with What's new one of the last
+tabs and Research at the end. Settings now draws its own tab bar (#settings-tabs,
+js/settings-app.js § wireSettingsTabs) in the panel's nav row, styled as Inspect's (one row,
+icon over a small label): Display (Display, Machine, Units) · Show · Look (Look, Movement,
+Show the controls; not "Controls", which section 03 renamed Guide) · Graphics (Performance) · Sound · About · What's new · Research. Each
+group names its tab with `data-set-pane`; only the chosen tab's groups are drawn, and the
+tab in force is kept across a visit to What's new. What's new stays the HUD's own section
+(its key, the unread dot, About's button and every route to it are unchanged); its tab
+selects that section and carries the dot. The section-tab row stands down in the Settings
+app (`has-own-tabs`, apps/drawer-host.js). Settings › Look adds Mouse sensitivity (Look
+sensitivity on a touch screen), `lookSpeed`, 0.2x-3x in tenths, Standard 1x = the turn the
+app always had: the mouse's PointerLockControls.pointerSpeed and the drag-to-look rate both
+read it live through controls/intent.js § lookScale. Every id the page and the smoke read is
+kept; the smoke's `openSection(tab, pane)` clicks the tab a hit-tested row is on.
+
+## T-3551 — 1812 seasonal nature, hoofbeats and visible work (2026-11-11)
+
+1812 now has separate seasonal habitat placements for robin, redwing, cicada, cricket, katydid and rare distant nighttime coyote recordings. Winter insects stay silent. Existing 1835 placements and 1904 activation are unchanged. Actual moving teams emit short recorded dirt-hoof contacts at their measured gait phases; the rendered snow amount softens and filters those contacts. Snow remains a processed dirt-recording proxy, not a dedicated snow recording.
+
+One existing militia worker now visibly nails a generated wooden chest/support during his existing spring repair and August 14 afternoon packing routines. Hands, hammer and sound follow the actual normalized primary work position and tool contact. Other workers do not acquire generic hammer noise. His presence and schedule leave winter and fall work silent. The generated kit is 19,960 bytes; all audio reuses existing hosted recordings, with no additional upload. Nature shares one voice; transport allows four mechanical and two hoof voices in 1812; work adds one voice. Hoof cuts retain 55,296 decoded bytes and the hammer pulse 69,120 bytes.
+
+All 52 integrated focused ecology, gait, audio lifecycle, actual portable-rig contact and real day-source tests pass. Real-media browser fixtures pass at 390 and 1280 pixels for nature and hoof audio, including hash checks, high output sample rates, mute and stale decode cleanup. The original generated kit reproduces byte-for-byte. These are automated measurements, not physical listening or native-scene visual acceptance. Native published town checks pass at 390 pixels (Light) and 1280 pixels (Full), using real R2 recordings: four seasonal views, dirt and snow hoof contacts, both actual work tasks, effects mute, hidden people/confidence and visibility cleanup, with zero page errors. The source checkpoint is bound to staged tree f7a4e1d433f3c824912c09da23944a295f20f115 and published module/catalog hashes; its build stamp alone names the earlier parent commit. Wide rendered views were captured, but closer hand/tool visual inspection is not yet signed off at this checkpoint. The library check exposed horizontal overflow from the longer collection selector, corrected by bounding the label and control widths. The first local gate found the non-human work kit in the human skeleton asset folder; the kit now has a dedicated props directory, explicit publication mapping and missing-kit checks, while its geometry bytes remain unchanged. All four local gate parts, required CI and full mapped renderer coverage remain release requirements; the PR records their final results and the close-view review before DEV merge. L-1812-seasonal-audio-3551 records the reconstruction and recording limitations.
+
 ## PR #1933 native linen intake — 11 November 2026
 
 The working tree adopts the eight settler MASTER/WEB LODs from immutable source
@@ -27015,3 +27507,10 @@ T-3544 river selection follow-up (2026-11-11): the owner selected “Light water
 ### T-1789 - Charles near wool candidate
 
 The existing Charles1904 coat is the only proposed visible adoption. Four validated MASTER/WEB LOD0/1 children retain current geometry/UV/skin/rig/idle/walk/noncoat data and all four FAR baselines. Current source work adds transactional canonical-export finishing, immutable offline parent guards and a cheap derived registration owner. Eight actual-parent guards and nine scoped fixture parser controls passed under the original resource limits; actual integrated regeneration reproduced all four validated output hashes in40.138 seconds; actual four-row browser remeasurement now passes at both original viewports/30 frames while all 244 other rows remain exact. Fresh-blobless acquisition/offline/corruption controls and legitimate writer/isolation measurement pass. At this source freeze, no APP commit/PR or full gate has run for this candidate. The earlier selected-published research collected six views and ownership/meter readings but remains strict NONPASS; full published release, phone budgets, photographic likeness and clothing fit remain open. No extra views or new actors are claimed.
+
+### T-3558 — photographic wagons and the plate-matched Brougham (2026-11-17)
+
+**Brougham V20.** The four driven 1904 broughams (Hans Johnson, Henry Windish, Joseph Daniels, Charles Nelson) draw `parked-brougham/brougham-v20-near.glb` (46,796 triangles, 1.51 MB) and, on Light/phones, `brougham-v20-mid.glb` (23,660, 0.86 MB); a far level (11,360, 0.57 MB) is exported beside them. V20 is derived from V19 by `tools/transport/brougham_v20/produce.py`: a closed driving box, dash, iron rail, stays and swept irons from the 1893 plate, and no rear mudguards. Inside, the cab is lowered (T-3553, 2026-11-17): cushion and seat data 0.21 m, floor 0.20 m, the squab lengthened down to the cushion and the body's lower rear quarter brought down behind the door, so a passenger sits upright; `check.py` holds every other frame and seat datum to V19's. `check.py` (run inside the existing Brougham gate step) rebuilds all three levels byte-exact, proves the coachman's seat, cushion, piping, backboard, footboard and side rails identical to V19 at each level, checks the four rows' bindings and refuses three negative controls. The register (`discrepancies.json`) keeps the box about 0.3 m lower than the plate's, for the fitted coachmen. Khronos validator: 0 errors, 0 warnings on all three files. The unchanged parked Brougham (`prairie_parked_studebaker_brougham`) still draws its V19 delivery files.
+**Covered wagons v2.** The Western Hotel and Wolf Point covered wagons stand on the photographic farm-box master (desktop near, phones mid), painted in their own seeded colours, each carrying its own v1 cover with seeded weathering and a skirt fitted to the master's uneven boards (`tools/transport/wagon_covered/upgrade_v2.py`; identity checks now also refuse a swapped cover, swapped paint or the plain W01 gear). `parked-transport.js` now decodes meshopt, caches ordinary models by file and takes an optional `file_light` and `paint`. The v1 covered GLBs stay published and gate-checked as the covers' source.
+**Farm box qualified.** `farm-box-master/QUALIFICATION.json` holds the matched views, ground and tree clearance (1812 routes: no trunk within 60 m of the fort loop, 33.6 m at the nearest on the shore road; 1835 stands: none within 30 m, 4.1 m), the levels and their costs; `check_farm_box_master.py` now ties `photographic_acceptance` to it.
+**Measured in the published site, swiftshader, same pose before/after** (frames also hold moving people): 1904 desktop quarter 1,054 → 1,052 draws; 1904 phone 480 → 491 draws, 731k → 666k triangles; 1835 desktop Wolf Point 825 → 844 draws, 1.08M → 1.15M triangles; 1835 phone 612 → 610 draws. **Not measured here:** the resident-memory gate (`measure_memory.mjs`) was not re-run in this container; the parked layer does not load at spawn. Pictures: kevinrhaas/chicago-evidence `evidence/T-3558-wagons-brougham-2026-11-17/`.

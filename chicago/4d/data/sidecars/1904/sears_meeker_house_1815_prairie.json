@@ -58,18 +58,19 @@
       ],
       [
         17.46,
-        10.47
+        9.72
       ],
       [
         0.0,
-        10.47
+        9.72
       ]
     ],
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_28"
+      "sanborn_1911_chicago_v3_sheet_28",
+      "chicagology_1815_sears_two_views"
     ],
-    "note": "The front block read off the 1911 sheet's trace (s28fp-1815-b1 p1) in the lot frame: the front's main plane at u 34.96, the north wall at v -7.12 and the south wall at v 3.35, 10.47 m along the front; 17.46 m deep to lot u 17.5, so the sheet's canted south-flank bay (u 18.1-25.6) stands on it. The stair projection on the north flank, the corner bay, the canted flank bay and the rear range (to u 9.6) stand on it as K08 bays and a K01 rear wing."
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1815-b1 p1) in the lot frame: the front's main plane at u 34.96, the north wall at v -7.12 and the south wall at v 3.35, 10.47 m along the front; 17.46 m deep to lot u 17.5, so the sheet's canted south-flank bay (u 18.1-25.6) stands on it. The stair projection on the north flank, the corner bay, the canted flank bay and the rear range (to u 9.6) stand on it as K08 bays and a K01 rear wing. T-3562: built 9.72 m along the front, not the sheet's 10.47. Both photographs stand the corner bay's south face about 0.75 m south of the main front's south wall (the oblique: the cornice turns onto the flank at about x 1605-1655 px and the bay's south face shows at x 1745-1790 px; the square-on: the upper wall's south edge at x 834 px and the bay's at x 905 px), and the bay keeps its place on the front, its canted junction (6.99 m) close against the window column at 6.1 m; so the main south wall stands 0.75 m inside the bay's south face, at 9.72 m. The 1911 sheet is the remodelled house (no corner bay); its south wall on the line of the bay's south face is read as the remodel's, which a 1904 front built to the photographs does not take (L-k01-1815-sears-1893)."
   },
   "attributes": {
     "stories": {
@@ -166,13 +167,19 @@
         "trim_fabric": "dressed_trim",
         "rusticated_base_courses": 2,
         "coping_height_m": 0.25,
-        "corner_bond": []
+        "corner_bond": [],
+        "flanks": {
+          "walls": [
+            "north"
+          ],
+          "dressing": "rock_faced"
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "Smooth coursed ashlar in light stone across the whole street front on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), its basement storey laid in two broad courses under a plinth course at the principal floor (K02's channelled base, its channels 18 mm: a finer joint than the print can show, within tolerance). The fabric is K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone' (a secondary reading); its exact quarry is reconstructed."
+      "note": "Smooth coursed ashlar in light stone across the whole street front on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), its basement storey laid in two broad courses under a plinth course at the principal floor (K02's channelled base, its channels 18 mm: a finer joint than the print can show, within tolerance). The fabric is K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone' (a secondary reading); its exact quarry is reconstructed. T-3562: the south flank (K01's north wall) is the same stone, rock-faced: on the oblique photograph (the right of the two views, x 1605-1790 px) it reads dark and broken against the smooth front, its faces catching the light stone by stone, where the build laid it in buff common brick. It is laid on the front's beds in the profile's rock face (stone_front.flanks); the print lays it as broken-coursed random ashlar, the build as even courses on the front's lines, a joint pattern under a visitor's notice. That the flank is the front's Lemont stone and not another is inferred from the one reading of the fabric."
     },
     "street_front_trim": {
       "value": {
@@ -194,13 +201,23 @@
           "k01.wall.side.south",
           "k01.wall.street_front",
           "k01.wall.side.north"
-        ]
+        ],
+        "frieze": {
+          "height_m": 0.32,
+          "proud_m": 0.025
+        },
+        "blocks": {
+          "spacing_m": 0.5,
+          "height_m": 0.45,
+          "projection_m": 0.19,
+          "width_m": 0.17
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "A deep stone cornice on blocks over a dentil course at the second storey's head, y 357-430 px on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px)."
+      "note": "A deep stone cornice on blocks over a dentil course at the second storey's head, y 357-430 px on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3561: enlarged, the square-on print draws under the corona a close row of carved stone consoles, scrolled, with dark sunk panels between them and a rosette over each, standing on a plain frieze: twelve across the main front south of the pavilion (x 447-852 px, about 35 px or 0.49 m apart), each about 32 px (0.45 m) high and 12 px (0.17 m) wide, their feet at y 432 px (8.5 m) and the corona's soffit at about y 400 px (9.0 m); the oblique (the right print) carries the same row round the south-west corner and along the south flank. Built as K10's scrolled console in the walls' stone (wall_head.blocks, T-3186, as 1901's), 0.45 m high and 0.17 m wide at no more than 0.5 m apart, their tops under the corona's soffit, standing on a frieze 0.32 m under the cornice's foot, the most the upper storey's lintels leave under it, so the consoles' feet stand at 8.39 m against the print's 8.5 m (the build's corona stands about 0.15 m under the print's, within tolerance); the projection (0.19 m) is the most the corona's soffit covers, and the carving is the kit's generic scroll. The rosettes over the consoles are not built."
     },
     "roof_form": {
       "value": "mansard",
@@ -281,7 +298,14 @@
     "front_bays_by_storey": {
       "value": {
         "1": [
-          4.22,
+          {
+            "s_m": 4.22,
+            "sill_m": 6.19,
+            "width_m": 0.43,
+            "height_m": 1.09,
+            "head": "plain",
+            "why_not_ordinary": "the narrow light over the door's south jamb, x 386-417 px and y 598-520 px on the square-on photograph (6.19-7.28 m over grade, 0.43 m across): a single light standing over the door's hood, short of the storey's sills and heads"
+          },
           6.1
         ]
       },
@@ -289,7 +313,7 @@
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "The second storey's lights stand off the principal storey's columns on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): a narrow light over the door's south jamb (x 388-416 px, 0.4 m wide; built at the storey's sash width, open in the match record) and the window column at x 536 px."
+      "note": "The second storey's lights stand off the principal storey's columns on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): T-3562: the narrow light over the door's south jamb, x 386-417 px and y 598-520 px, 0.43 m across and 1.09 m high with its sill 6.19 m over grade (about 0.35 m over the storey's other sills and its head 0.75 m under their heads), laid once at its own size as one light under the storey's flat lintel; and the window column at x 536 px."
     },
     "sash_by_storey": {
       "value": [
@@ -334,21 +358,66 @@
         "stacks": [
           {
             "u_m": 15.2,
-            "v_m": 0.7,
-            "top_m": 14.6
+            "v_m": -0.075,
+            "top_m": 14.6,
+            "on_cornice": true,
+            "pot": false,
+            "panelled": false
           },
           {
-            "u_m": 15.6,
-            "v_m": 9.75,
-            "top_m": 14.6
+            "u_m": 15.23,
+            "v_m": 9.65,
+            "top_m": 14.45,
+            "plan_m": [
+              1.26,
+              0.75
+            ],
+            "across": "x",
+            "flues": 4,
+            "pot": "long",
+            "on_cornice": true,
+            "panel_foot_m": 11.35
           }
-        ]
+        ],
+        "k15": {
+          "kit": "data/components/prairie_1904/k15_chimneys.json",
+          "from": "k15.stack.stone",
+          "omit": [],
+          "flues": 2,
+          "pot": "tall",
+          "corbels": [
+            [
+              0.15,
+              0.04
+            ],
+            [
+              0.2,
+              0.08
+            ],
+            [
+              0.2,
+              0.12
+            ]
+          ],
+          "cap": {
+            "thickness_m": 0.15,
+            "projection_m": 0.15
+          },
+          "panels": {
+            "count": 3,
+            "width_m": 0.15,
+            "depth_m": 0.05,
+            "above_roof_m": 0.5,
+            "under_head_m": 0.3,
+            "min_height_m": 0.5
+          }
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "Two tall stacks on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): the north one over the stair projection behind the pavilion (x 85-130 px) and the south one over the south flank near the front (x 785-820 px, also the oblique's broad stack). Their exact plans are reconstructed."
+      "note": "Two tall stacks on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): the north one over the stair projection behind the pavilion (x 85-130 px) (T-3562: read through the solved square-on camera its shaft, x 145-192 px at 29.8 m from the eye, centres about 0.33 m north of the north wall's line, over the stair projection, and its head is bare, a stone cap with no pot on it; it is built on the north wall's cornice, astride the wall line with its outer face at the cornice's 0.45 m edge (v -0.075), the furthest out K01 carries a stack on a house with no side parapet, about 0.25 m short of the print's, and it names its own pots as none) and the south one over the south flank near the front (x 785-820 px, also the oblique's broad stack). Their exact plans are reconstructed. T-3561: the south stack read off both prints and rebuilt. Triangulated through the two solved cameras (its south-west arris at x 830 px on the square-on and x 1765 px on the oblique), its west face stands about 1.6 m back from the front and its south face in line with the print's main south wall, which the oblique shows standing about 0.75 m inside the corner bay's south face (the open set-out in the match records): so it is the stack 'carried up from the flank wall past the mansard' of the oblique, standing on the south cornice. T-3562 built the set-out, so the south wall stands at v 9.72 and the stack on its cornice (on_cornice, v 9.65), its south face in line with the print's main south wall, its west face at u 15.86. Its plan, 1.26 m along the flank by 0.75 m: the square-on's 50 px west face at its depth (0.75 m), and along the flank the least that holds the four flues its head carries (below), four of K15's 0.21 m flues each with 0.1 m of stone between, 1.24 m, made a whole 12 half-bricks; its west face stays at u 15.86, so it grows 0.16 m toward the rear. It had been 1.1 m, the oblique's 60 px south face read through that view's camera, whose scale on this side of the house is not settled (its match record). Its head is read off both prints: the corbelled head's foot at about 13.6-13.8 m, the cap's top at about 14.3-14.5 m (top_m 14.45), a clay pot on each of three flues. T-3562 re-read the pots: on the oblique they stand 57-65 px over the cap's near edge (x 1730-1800, y 72-145 px), against the head's 43 px from the cap's top down to the corbels' foot (0.7 m), so about 0.95-1.05 m by the head's scale; and against the head in a render of the build, whose 1.0 m pots stand 1.14 times the head's height where the print's stand 1.4 times it, nearer 1.2 m: slender pots, three dark and fluted, about 0.15-0.18 m across. They take K15's long pot, 1.1 m over the cap (to 15.55 m), the middle of those readings, where the kit's tall one (0.72 m) stood about 0.3-0.5 m short. T-3562: and a fourth, the pale shape nearest the street (x 1737-1758 px): enlarged, it carries a rolled lip at its top (y 70-77 px) and stands from the cap to a top in line with the three dark pots' (their tops at y 82, 90 and 98 px, stepping down about 8-10 px a pot as the row recedes; this one's at 72 px, the next step nearer). It is pale where they are dark because it is the one pot seen whole: with the sun and the camera both to the south-west, the nearest pot shows its lit west side, and each pot behind it shows only the shaded sliver it leaves past the pot in front. So the head carries four pots in its row, each K15's long pot. The pots stand in a row back from the street, so the stack is turned (across 'x'), and it names its own four flues where the north stack keeps two. Both stacks are K15's stone stack, its courses overridden by the head the print draws (three corbel courses, a 0.15 m cap): the oblique's lit west face is as pale as the stone front and the square-on shows it coursed. T-3562: the sunk panels the oblique draws on its south face are built: three narrow ones side by side (x 1765-1825 px, three dark lines evenly across the shaded face), run from about 11.35 m (panel_foot_m: the stack stands on the flank's cornice, clear of the mansard, whose highest covering under it is 12.0 m) to 0.3 m under the corbelled head (13.45 m), each 0.15 m across and 0.05 m deep, cut in the stack's own stone (K15's stone panel). Their count and width are inferred from the lines' spacing on a small, half-shaded face; the north stack is bare in the square-on print and takes none (panelled: false)."
     },
     "rainwater": {
       "value": {
@@ -374,7 +443,81 @@
       "value": {
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
-          "front_yard_m": 9.33
+          "front_yard_m": 9.33,
+          "hood": {
+            "soffit_m": 4.85,
+            "width_m": 2.45,
+            "out_m": 0.3,
+            "fascia_m": 0.2,
+            "cornice": {
+              "height_m": 0.1,
+              "proud_m": 0.05
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "pediment": {
+              "rise_m": 0.5,
+              "rake_m": 0.12,
+              "finial_m": [
+                0.2,
+                0.3
+              ],
+              "console_m": {
+                "reach_m": 0.22,
+                "drop_m": 0.4,
+                "thickness_m": 0.12
+              }
+            },
+            "fabric": "stone"
+          },
+          "cheek_form": {
+            "kind": "swept",
+            "head_m": 0.0,
+            "foot_m": 1.0,
+            "block_m": 0.5,
+            "newel": {
+              "width_m": 0.5,
+              "cap_m": [
+                0.12,
+                0.04
+              ],
+              "knob_m": 0.25
+            },
+            "arched": {
+              "side": "right",
+              "pier_m": 0.5,
+              "spring_m": 0.82,
+              "span_m": 0.9,
+              "soffit_m": 0.3
+            },
+            "railed": {
+              "head_m": 0.45,
+              "foot_m": 0.12,
+              "bar_m": 0.04,
+              "baluster_m": 0.025,
+              "balusters": 1,
+              "landing_balusters": 1,
+              "post": {
+                "side": "right",
+                "width_m": 0.35,
+                "height_m": 0.65
+              }
+            },
+            "wing": {
+              "side": "left",
+              "width_m": 1.72,
+              "soffit_m": 0.45,
+              "back_m": 0.45,
+              "post": {
+                "width_m": 0.4,
+                "height_m": 0.55
+              },
+              "doorway": {
+                "at_m": 0.53,
+                "width_m": 0.65,
+                "head_m": 0.08
+              }
+            }
+          }
         }
       },
       "confidence": "inferred",
@@ -382,7 +525,7 @@
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). Over it the photograph draws a pedimented hood on carved brackets (x 245-430 px, y 700-615 px); K07's door hood is a flat balconied hood, so it is not built and is open in the match record. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m."
+      "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3562: over the door the photograph draws a stone pediment on two small carved brackets: its raking cornice's apex at y 621 px (5.86 m over grade) under a carved finial to y 592 px (6.27 m), its foot at y 690 px (4.9 m), its ends at x 305 and 487 px (2.55 m apart), the brackets at y 720-745 px (4.1-4.5 m) beside the transom. Built as K01's bracketed door hood with a pediment in place of the railing, in the front's stone: soffit 4.85 m (K01's 0.35 m over the 2.70 m door's head), apex 5.77 m, finial to 6.07 m, the brackets 0.4 m deep. T-3562: built 2.55 m wide (hood width_m 2.45), the print's, now that the pavilion the door is cut through stands 0.1 m proud and the hood runs on across its face as the print draws it (it had been held to 1.72 m clear of a 2.2 m pavilion 0.45 m proud). The stoop's cheeks sweep down to a square stone newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px, about 0.5 m square), read off the same print; their heights reconstructed within K07's swept-cheek ranges. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m. T-3562: the stoop is open beneath its south side, as the right-hand (oblique) print of the same copy draws it (x 1080-1340 px, y 980-1160 px; about 71 px/m in height there, grade at y 1131 px, the landing's floor at y 1003 px): the landing stands on a square pier at its outer corner (x 1235-1272 px, about 0.5 m, on a plinth) and is open beneath from the pier back to the wall, its soffit about 0.3 m under the floor (y 1022 px), the void black; and the flight is carried off the pier on a rampant arch springing at y 1073 px (0.82 m over grade) and falling to grade about 0.9 m down the run (x 1188 px, about 67 px/m along the run off the nosings' spacing), the lower steps solid on grade from there to the newel. Built as K07's arched swept cheek on the stoop's right (south) side: the void runs through to the north cheek and is closed there and at the wall in the kit's dark backing, which the print shows black; the north side's own form is not pictured (the square-on print shows the landing's north end over the basement doorway, still open in the match record). T-3562: neither cheek is a solid swept wall: both prints show the flight's steps along its sides, each cheek's top level with the tread it stands beside, under an iron hand rail (the oblique print, x 1100-1290 px: the rail leaves a square stone post on the landing's outer corner, over the pier, at y 977 px, about 0.37 m over the landing's floor at y 1003 px, the post's cap at y 950 px, about 0.75 m; it falls to the foot newel's top at about y 1065 px, 0.93 m over grade, on one bar part way down; and a level rail runs from the post back to the wall over the landing's edge; the square-on print, x 265-300 and 440-470 px, draws the two rails curving down onto the newels' tops and the north side's steps against the dark of the basement doorway). Built as K07's railed swept cheek: the cheeks stepped, their top level with the landing beside it (head 0), the rails 0.45 m over the landing at the head and 0.12 m over each newel's cap at the foot, 0.04 m square, one bar between, the post 0.35 m square and 0.65 m over the landing on the south (right) side only, the level rail from it to the wall on one bar; on the north side the rail's head stands on a bar at the landing's edge, because the print's north post stands at the north end of a landing carried on over the basement doorway, which is not built (open in the match record). T-3562: the landing runs on north of the flight across the pavilion's front, as the square-on print draws it: a square stone post on its outer corner (x 142-172 px, from grade to about 0.5 m over the floor), a level iron rail along its front (y 890 px), a fascia down to y 945 px (about 1.3 m over grade) and the dark under it, the pavilion's face in shadow (x 170-220 px) and a basement doorway black beside it (x 220-267 px), behind the north newel. Built as K07's landing wing (cheek_form.wing): 1.72 m past the north cheek to a 0.4 m post 0.55 m over the floor, the fascia 0.45 m, open back to the pavilion's face 0.45 m proud with a 0.65 m doorway in it; its depth, the post's plan, the doorway's width and the closed north end reconstructed (L-k01-1815-sears-1893)."
     },
     "bays": {
       "value": [
@@ -390,28 +533,18 @@
           "id": "north_pavilion",
           "variant": "k08.projection.full_height",
           "wall": "k01.wall.street_front",
-          "s_m": 1.4,
+          "s_m": 1.94,
           "plan": {
-            "width_m": 2.2,
-            "proud_m": 0.45
+            "width_m": 3.88,
+            "proud_m": 0.1,
+            "shallow": true
           },
+          "flush_corner": "left",
           "fabric": "front_stone",
           "storeys": [
             {
               "height_m": 1.75,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.8,
-                  "clear_height_m": 0.9,
-                  "sill_m": 0.25,
-                  "at": [
-                    0.445
-                  ],
-                  "recess_m": 0.35,
-                  "why_not_ordinary": "the pavilion's basement light under the principal window, x 175-235 px and y 1030-960 px on the square-on photograph, partly behind the stoop's north newel"
-                }
-              ]
+              "windows": []
             },
             {
               "height_m": 3.75,
@@ -422,7 +555,7 @@
                   "clear_height_m": 2.3,
                   "sill_m": 0.35,
                   "at": [
-                    0.4782
+                    0.3608
                   ],
                   "recess_m": 0.35
                 }
@@ -437,7 +570,7 @@
                   "clear_height_m": 2.15,
                   "sill_m": 0.3,
                   "at": [
-                    0.545
+                    0.5155
                   ],
                   "recess_m": 0.35
                 }
@@ -448,16 +581,21 @@
               "windows": [
                 {
                   "opening": "k06.opening.casement_pair_transom_plate",
-                  "clear_width_m": 1.5,
+                  "clear_width_m": 1.7,
                   "clear_height_m": 1.75,
                   "sill_m": 0.2,
                   "at": [
-                    0.5136
+                    0.5155
                   ],
                   "recess_m": 0.35,
                   "why_not_ordinary": "the attic storey's paired lights, read off the square-on photograph (T-3156): two lights on a stone mullion, each under a leaded transom light, x 200-325 px (1.75 m over the mullion; built 1.5 m clear, the most the pavilion's 2.45 m face holds with its piers) and y 390-250 px (9.15-11.0 m over grade; built 9.25-11.0 m over the storey's band), centred at x 262 px, 1.43 m from the front's north corner (built at 1.43 m); the oblique shows the same pair"
                 }
-              ]
+              ],
+              "cheeks": {
+                "front_run": 1,
+                "width_m": 0.75,
+                "proud_m": 0.03
+              }
             }
           ],
           "roof": {
@@ -474,8 +612,9 @@
             "block_m": 1.0,
             "joint_m": 0.01,
             "relief_m": 0.03,
-            "to_m": 5.5
-          }
+            "to_m": 9.05
+          },
+          "cut_by_door": true
         },
         {
           "id": "corner_bay",
@@ -558,7 +697,8 @@
               "count": 1,
               "rows": 1
             }
-          }
+          },
+          "set_out_m": 0.75
         },
         {
           "id": "north_stair",
@@ -680,7 +820,7 @@
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up an attic storey past the main cornice under its own steep hipped roof (T-3156: its paired lights x 200-325 px and y 390-250 px, its eave at y 210 px, 11.6 m; the main eave stopping square at its cheeks, 0.3 m in from the north corner, K08's least pier to a corner, 2.2 m wide to stand clear of the entrance, which puts the attic over the print's within about 0.5 m): the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half, and K01 cannot cut a door through a projection, so it is built 2.45 m wide north of the door, its steep roof centred 0.75 m north of the photograph's (x 148-340 px), open in the match record; the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902)."
+      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up an attic storey past the main cornice under its own steep hipped roof (T-3156: its paired lights x 200-325 px and y 390-250 px, its eave at y 210 px, 11.6 m; the main eave stopping square at its cheeks): the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half. T-3562: built so, re-read through the square-on camera (x 160-447 px there, s 0-4.0 m): its dentil band and quoins stop over the door's south half (the door's south jamb at s 4.13 m, the narrow light from s 4.01 m) and the oblique draws no cheek beside the door, so the pavilion is SHALLOW, 0.1 m proud (K08's least), 3.88 m wide from the north corner (flush_corner; 0.12 m short of the print's so the narrow light's lintel clears the junction), its window recesses run back through the wall (shallow), and the door is cut through its edge (cut_by_door, a K01 option T-3562 added: the face cut back from the door's north jamb past the cheek between sill and head). Its windows re-read: the principal storey's centred at s 1.40 m (x 228-295 px), the second storey's at 2.0 m (x 265-342 px) and the attic's paired lights at 2.0 m (x 240-362 px), widened to 1.7 m; the attic storey slated at its sides (K08's storey cheeks, 0.75 m each, as 1823's), leaving a 2.38 m stone front against the print's 2.37 m (x 217-387 px); the coursing carried up to the attic's foot (9.05 m). The print's own dentil band at the second storey's head and its stone shoulders beside the attic are not built (open in the match record); the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902). T-3562: the corner bay stands SET OUT 0.75 m past the main front's south wall (set_out_m, a K01 option this ticket added: a flush projection's cheek carried past its corner, its back closed on the front's plane over the stretch past it): the oblique print draws its south face at x 1745-1790 px, beyond the cornice's turn onto the flank, and the square-on its south edge at x 905 px against the upper wall's 834 px. The bay keeps its 9.43 m centre; the main wall moves in (the footprint)."
     },
     "mansard": {
       "value": {
@@ -695,17 +835,24 @@
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
               "width_m": 1.15,
-              "height_m": 1.35,
+              "height_m": 1.65,
               "sill_m": 0.15
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
             "head": "gable",
-            "gable_pitch_deg": 50
+            "gable_pitch_deg": 42,
+            "ornament": {
+              "finial": {
+                "height_m": 0.45,
+                "radius_m": 0.08
+              }
+            },
+            "frieze_m": 0.05
           },
           {
             "face": "north",
-            "along_m": 9.0,
+            "along_m": 13.83,
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
               "width_m": 0.9,
@@ -722,17 +869,33 @@
           "form": "hip",
           "over_bay": "north_pavilion",
           "depth_m": 5.0,
-          "overhang_m": 0.5,
-          "pitch_deg": 52,
-          "end_pitch_deg": 52,
-          "attic_m": 2.35
+          "overhang_m": 0.3,
+          "side_inset_m": 0.85,
+          "pitch_deg": 58,
+          "end_pitch_deg": 58,
+          "attic_m": 2.35,
+          "finial": {
+            "height_m": 0.9,
+            "radius_m": 0.2,
+            "form": "cross"
+          }
+        },
+        "deck": {
+          "cresting": {
+            "height_m": 0.45,
+            "inset_m": 0.08,
+            "sides": [
+              "street",
+              "north"
+            ]
+          }
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back)."
+      "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back). T-3562: the south flank's dormer read off the oblique, where it stands just east of the tall south stack (the stack's shaft x 1740-1820 px, the dormer's gable x 1820-1880 px): its centre about 1.4 m behind the stack's (the stack's 1.1 m shaft spans 80 px there), at 13.9 m from the rear, its body clear of the stack (it stood at 9.0 m, read off no picture, and so out of the oblique's frame); T-3562 then took it to 13.83 m, 1.4 m behind the stack's centre still, when the stack was widened toward the rear for its fourth flue (the chimneys' note), so its body stays clear of the stack. T-3562: the curb's iron cresting, the pavilion's cross and the street dormer re-read off the square-on print (66.7 px/m on the mansard's face): along the curb a pierced iron band, its top rail a dark line at y 146-150 px with hung ornaments under it and its foot on a dark line at y 178 over the slates, about 0.45 m, the sky showing over its rail and no deck behind it; built as the K10 kit's iron cresting 0.45 m high on the street curb and the south flank's (K01's north side; the oblique shows the curb under its cresting there), stopped short either side of the pavilion's crown where the crown stands through the curb (k01_mansard_deck.crown_gap); its pattern, hung trefoils in the print, is the kit's. On the crown's apex a cross over a square block and a flared cap, y 30-93 px, about 0.9 m: the block about 0.14 m across, the cap about 0.4 m, the cross's head from 0.6 of its height, its arms near the top (k01_mansard_deck.cross). The street dormer: its light y 230-347 px, about 1.7 m (it was built 1.35, its head 27 px low), built 1.65 m with a 0.05 m frieze between the surround's head and the gable's foot, the gable pitched 42 degrees (the print's foot at y 187 px and apex at y 135, a 52 px rise; the build's 50 degrees rose 68). The print's gable rises through the curb's cresting, about 0.15 m more light and frieze than the kit allows: it holds a lower-face dormer's head 0.1 m under the curb, and this one stands at 3.09 m against the curb's 3.2, and on the apex a finial y 93-130 px, about 0.45 m (a three-lobed iron fleur-de-lis in the print, built as the dormer ornament's turned finial). T-3562: with the pavilion widened to 3.88 m the crown's slates rise 0.85 m in from its 0.3 m cornice (side_inset_m), so the pyramid stands over the attic's stone front as the print's does (its eave x 205-402 px, 2.75 m), at 58 degrees so its apex, set back over the attic, falls on the print's (y 75 px); 58 keeps the north stack's head 0.6 m over the ridge. The print's crown cornice spans the attic front alone, the cheeks' slate sloping out beneath it; the build's runs across the cheeks (open in the match record)."
     },
     "rear_wings": {
       "value": [
@@ -742,7 +905,7 @@
             -7.9,
             0.0,
             0.0,
-            10.47
+            9.72
           ],
           "floor_m": 1.75,
           "storey_heights_m": [
@@ -793,7 +956,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The 1911 sheet draws the house three storeys deep to lot u 9.6, against the coach house: the range behind the front block (lot u 9.6-17.5) stands three storeys under a tin deck. The sheet colours it stone; K01 lays a wing in brick."
+      "note": "The 1911 sheet draws the house three storeys deep to lot u 9.6, against the coach house: the range behind the front block (lot u 9.6-17.5) stands three storeys under a tin deck. The sheet colours it stone; K01 lays a wing in brick. T-3562: the range is built 9.72 m across, carrying the front block's south wall back on the line the photographs give it (the sheet's 10.47 m is the remodelled house); no picture sees the range, so that is an inference."
     },
     "boundary": {
       "value": {
@@ -826,14 +989,24 @@
             "to_s_m": 18.71,
             "height_m": 0.25
           }
-        ]
+        ],
+        "passage_fence": {
+          "fence": "k11.fence.spear_on_curb",
+          "s_m": [
+            -4.35,
+            -1.33
+          ],
+          "x_m": 15.6,
+          "rail_top_m": 0.45,
+          "curb_height_m": 0.1
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The square-on photograph (chicagology_square_on.json) shows no fence: a low stone coping along the inner edge of the public walk, and a square stone post about 0.9 m high either side of the walk where it leaves the stair, the walk running straight out between them. K11's stone coping wall, 0.25 m, on the parcel's street line (9.33 m from the front; data/street_grid/1904.json prairie_1815), the posts as 0.3 m runs 0.9 m high. Through the solved camera the posts stand at s 1.96-2.22 and 3.83-4.10 (x 186-214 and 386-414 px on the 2000 px print); they are laid at s 2.16-2.46 and 4.26-4.56, square to the stair's axis (s 3.36), 0.2-0.45 m from that reading (recorded in the match record). The parkway's stone posts at the curb are not this boundary."
+      "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The square-on photograph (chicagology_square_on.json) shows no fence: a low stone coping along the inner edge of the public walk, and a square stone post about 0.9 m high either side of the walk where it leaves the stair, the walk running straight out between them. K11's stone coping wall, 0.25 m, on the parcel's street line (9.33 m from the front; data/street_grid/1904.json prairie_1815), the posts as 0.3 m runs 0.9 m high. Through the solved camera the posts stand at s 1.96-2.22 and 3.83-4.10 (x 186-214 and 386-414 px on the 2000 px print); they are laid at s 2.16-2.46 and 4.26-4.56, square to the stair's axis (s 3.36), 0.2-0.45 m from that reading (recorded in the match record). The parkway's stone posts at the curb are not this boundary. T-3562: the square-on photograph also draws a low iron railing across the north side yard, set back behind the wall: its spear band's tips at y 983 px, its top rail at y 995 px and its foot at y 1033 px where it meets the stair projection's street end (x 107 px), running out of the frame past x 0. Through the solved camera (eye 1.6 m, focal 1966 px, horizon y 926) that foot stands 29.4 m from the eye, so the fence's line is u 15.6, 1.9 m behind the front's plane, and it meets the north stair projection's flank (v -1.2, u 11.5-16.5); about 0.8 m high overall (52 px at 66.9 px/m). Built as the K11 kit's spear fence on a 0.1 m curb with its top rail 0.45 m over it (0.79 m to the spears' tips), from 0.12 m inside the north lot line to the projection's flank. The spear heads and the posts' spacing are the kit's (reconstructed): the print shows a band of finials at that height but not their shape. The pale braced stakes before it (x 43 and 78 px) are not read as part of it and are not built."
     },
     "yard": {
       "value": {

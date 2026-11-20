@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2405 3864" width="2405" height="3864" role="group" aria-labelledby="title description">
+<title id="title">Chicago 1871: retained terrain readings on the original 1870 Mitchell map</title>
+<desc id="description">Source-pixel lines show watercourse centrelines, the outer lake edge, lagoon and park or cemetery outlines. Numbered circles mark retained bridge locations. These are generalized plan readings, not surveyed banks, bridge footprints or evidence of an exact October 1871 shoreline. The full original scan remains visible.</desc>
+<metadata id="provenance">{
+  &quot;plan_path&quot;: &quot;chicago/4d/data/context/1871/plan.json&quot;,
+  &quot;plan_sha256&quot;: &quot;795610cb42defeb130f571f2ccb4157460e34ee1e3a4af607ac0d207b1a53a3f&quot;,
+  &quot;raster_url&quot;: &quot;../maps/images/1870_mitchell_map.jpg&quot;,
+  &quot;raster_sha256&quot;: &quot;7c9284f406e799c1e9968d737140218c089489bb7b1f3c7dcbeb5735b069219a&quot;,
+  &quot;scene_date&quot;: &quot;1871-10-08&quot;,
+  &quot;method&quot;: &quot;Exact retained source_pixels and shoreline_source_pixels; no fitting, inverse projection, width buffer or inferred geometry in this overlay.&quot;,
+  &quot;feature_counts&quot;: {
+    &quot;waterway&quot;: 7,
+    &quot;coast&quot;: 1,
+    &quot;lagoon&quot;: 1,
+    &quot;park&quot;: 4
+  },
+  &quot;bridge_count&quot;: 22,
+  &quot;report_tabulated_bridge_count&quot;: 21,
+  &quot;map_only_crossing_count&quot;: 1,
+  &quot;omitted_without_retained_pixels&quot;: [
+    &quot;south fork outer extension&quot;,
+    &quot;illinois michigan canal outer extension&quot;
+  ]
+}</metadata>
+<style>text{font-family:system-ui,sans-serif;fill:#17231f}.heading{font-size:43px;font-weight:750}.note{font-size:24px}.legend{font-size:25px}.bridge-label{font-size:24px;font-weight:800;fill:#af2925;stroke:white;stroke-width:4px;paint-order:stroke}.bridge-name{font-size:24px}.bridge-name:target{font-weight:800;fill:#af2925}a:focus-visible circle{stroke:#17231f;stroke-width:5px}</style>
+<rect width="2405" height="3864" fill="#f5f2e9"/>
+<text x="38" y="60" class="heading">Read the terrain against Mitchell’s 1870 map</text>
+<text x="38" y="104" class="note">Retained source-pixel readings from the 1871 city plan. These generalized lines do not establish surveyed banks.</text>
+<text x="38" y="143" class="note">Bridge symbols mark positions, not span length or structure form. Use browser zoom to inspect the original ink.</text>
+<path d="M 40,178 h 68" fill="none" stroke="#00718c" stroke-width="5" stroke-dasharray="14 7"/><text x="123" y="185" class="legend">Watercourse centreline; width omitted</text>
+<path d="M 1220,178 h 68" fill="none" stroke="#b74b16" stroke-width="5" stroke-dasharray="none"/><text x="1303" y="185" class="legend">Outer shoreline / lake edge</text>
+<path d="M 40,220 h 68" fill="none" stroke="#7035a4" stroke-width="5" stroke-dasharray="9 5"/><text x="123" y="227" class="legend">Lagoon water envelope</text>
+<path d="M 1220,220 h 68" fill="none" stroke="#237542" stroke-width="5" stroke-dasharray="18 7"/><text x="1303" y="227" class="legend">Park / cemetery outline</text>
+<circle cx="74" cy="262" r="9" fill="#af2925" stroke="white" stroke-width="3"/><text x="123" y="269" class="legend">Bridge points · numbered; not span footprints</text>
+<circle cx="1254" cy="262" r="9" fill="white" stroke="#af2925" stroke-width="3"/><text x="1303" y="269" class="legend">Open circle: map-attested span outside the report table</text>
+<g transform="translate(0 300)">
+<image href="../maps/images/1870_mitchell_map.jpg" x="0" y="0" width="2405" height="3000"/>
+<g id="feature-main_stem" class="feature waterway" role="group" aria-label="main stem: Watercourse centreline; width omitted"><title>main stem — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 1198,1365 L 1238,1345 L 1286,1343 L 1295,1342 L 1345.5,1342 L 1375,1342 L 1413.5,1340 L 1465.5,1304.5 L 1530,1314 L 1630,1318 L 1720,1318" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 1198,1365 L 1238,1345 L 1286,1343 L 1295,1342 L 1345.5,1342 L 1375,1342 L 1413.5,1340 L 1465.5,1304.5 L 1530,1314 L 1630,1318 L 1720,1318" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-north_branch" class="feature waterway" role="group" aria-label="north branch: Watercourse centreline; width omitted"><title>north branch — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 1198,1365 L 1180,1275 L 1137.5,1227.5 L 1082,1152 L 1081,1125 L 1078,1092.5 L 1075.5,1080 L 1077,1074 L 1063,1058 L 1053,1055 L 1046,1057 L 1027,1053 L 1004.5,1048.5 L 982,1043 L 970,1036 L 960,1023 L 947,1015 L 839,978 L 825,951 L 813,927 L 806.5,896.5 L 801,875 L 799,850 L 797,827 L 802,800 L 812,775 L 823,740 L 823,718 L 820,690 L 822,638 L 814,616 L 799,593 L 785,577 L 763,558 L 737,549 L 717,561 L 703,572 L 694,570 L 685,554 L 681,540 L 678,531.5 L 674,514 L 669,499 L 659,482 L 650,465 L 640,454 L 580,405 L 545,350 L 524,312" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 1198,1365 L 1180,1275 L 1137.5,1227.5 L 1082,1152 L 1081,1125 L 1078,1092.5 L 1075.5,1080 L 1077,1074 L 1063,1058 L 1053,1055 L 1046,1057 L 1027,1053 L 1004.5,1048.5 L 982,1043 L 970,1036 L 960,1023 L 947,1015 L 839,978 L 825,951 L 813,927 L 806.5,896.5 L 801,875 L 799,850 L 797,827 L 802,800 L 812,775 L 823,740 L 823,718 L 820,690 L 822,638 L 814,616 L 799,593 L 785,577 L 763,558 L 737,549 L 717,561 L 703,572 L 694,570 L 685,554 L 681,540 L 678,531.5 L 674,514 L 669,499 L 659,482 L 650,465 L 640,454 L 580,405 L 545,350 L 524,312" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-south_branch" class="feature waterway" role="group" aria-label="south branch: Watercourse centreline; width omitted"><title>south branch — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 1198,1365 L 1195,1475 L 1210,1580 L 1230,1670 L 1270,1800 L 1294,1895 L 1304,1914 L 1316,1940 L 1324,1980 L 1328,2005 L 1324,2024 L 1313,2040 L 1295,2059 L 1275,2082 L 1265,2100 L 1254,2120 L 1247,2149 L 1238,2168 L 1220,2189 L 1198,2208 L 1175,2220 L 1157,2240 L 1150,2250 L 1133,2300 L 1110,2346 L 1094,2361 L 1065,2367 L 1040,2368 L 1022,2368.5 L 1000,2370 L 977,2378 L 955,2385 L 927,2388 L 870,2397 L 840,2395 L 810,2396 L 790,2406 L 770,2418 L 755,2424 L 740,2444 L 725,2460 L 710,2478 L 690,2485 L 665,2493" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 1198,1365 L 1195,1475 L 1210,1580 L 1230,1670 L 1270,1800 L 1294,1895 L 1304,1914 L 1316,1940 L 1324,1980 L 1328,2005 L 1324,2024 L 1313,2040 L 1295,2059 L 1275,2082 L 1265,2100 L 1254,2120 L 1247,2149 L 1238,2168 L 1220,2189 L 1198,2208 L 1175,2220 L 1157,2240 L 1150,2250 L 1133,2300 L 1110,2346 L 1094,2361 L 1065,2367 L 1040,2368 L 1022,2368.5 L 1000,2370 L 977,2378 L 955,2385 L 927,2388 L 870,2397 L 840,2395 L 810,2396 L 790,2406 L 770,2418 L 755,2424 L 740,2444 L 725,2460 L 710,2478 L 690,2485 L 665,2493" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-south_fork" class="feature waterway" role="group" aria-label="south fork: Watercourse centreline; width omitted"><title>south fork — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 665,2493 L 659,2506 L 655,2516 L 655,2530 L 648,2545 L 643,2560 L 643.5,2572 L 647,2580 L 652,2590 L 654,2600 L 655,2610 L 657,2620 L 657,2640 L 658,2650 L 661,2660 L 663,2670" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 665,2493 L 659,2506 L 655,2516 L 655,2530 L 648,2545 L 643,2560 L 643.5,2572 L 647,2580 L 652,2590 L 654,2600 L 655,2610 L 657,2620 L 657,2640 L 658,2650 L 661,2660 L 663,2670" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-illinois_michigan_canal" class="feature waterway" role="group" aria-label="illinois michigan canal: Watercourse centreline; width omitted"><title>illinois michigan canal — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 643.5,2572 L 612,2580 L 580,2595 L 545,2610 L 512,2620 L 480,2630 L 443,2642 L 410,2655 L 376,2670" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 643.5,2572 L 612,2580 L 580,2595 L 545,2610 L 512,2620 L 480,2630 L 443,2642 L 410,2655 L 376,2670" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-west_fork_south_branch" class="feature waterway" role="group" aria-label="West Branch of the South Branch: Watercourse centreline; width omitted"><title>West Branch of the South Branch — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 665,2493 L 650,2487 L 631.5,2476.5 L 612,2474 L 593,2475 L 575,2481 L 564,2492 L 549,2506 L 530,2517 L 510,2520 L 493,2529 L 470,2535 L 451,2550 L 433,2565 L 413,2575 L 394,2583 L 380,2589 L 366,2574 L 354,2557 L 344,2543 L 328,2532 L 310,2526 L 290,2522 L 276,2514 L 265,2512 L 246,2517 L 215,2523" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 665,2493 L 650,2487 L 631.5,2476.5 L 612,2474 L 593,2475 L 575,2481 L 564,2492 L 549,2506 L 530,2517 L 510,2520 L 493,2529 L 470,2535 L 451,2550 L 433,2565 L 413,2575 L 394,2583 L 380,2589 L 366,2574 L 354,2557 L 344,2543 L 328,2532 L 310,2526 L 290,2522 L 276,2514 L 265,2512 L 246,2517 L 215,2523" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-north_branch_canal" class="feature waterway" role="group" aria-label="North Branch Canal east of Goose Island: Watercourse centreline; width omitted"><title>North Branch Canal east of Goose Island — Watercourse centreline; width omitted; retained source-pixel reading</title>
+<path d="M 823,718 L 839,720 L 853,727 L 867,737 L 879,752 L 893,770 L 907,790 L 921,811 L 935,830 L 946,849 L 957,871 L 972,895.5 L 987,912 L 1003,934 L 1018,956 L 1030,980 L 1038,1001 L 1042,1022 L 1045,1044 L 1053,1055" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="14 7"/>
+<path d="M 823,718 L 839,720 L 853,727 L 867,737 L 879,752 L 893,770 L 907,790 L 921,811 L 935,830 L 946,849 L 957,871 L 972,895.5 L 987,912 L 1003,934 L 1018,956 L 1030,980 L 1038,1001 L 1042,1022 L 1045,1044 L 1053,1055" fill="none" stroke="#00718c" stroke-width="4" stroke-dasharray="14 7"/>
+</g>
+<g id="feature-outer_shoreline" class="feature coast" role="group" aria-label="Outer shoreline / lake edge: Outer shoreline / lake edge"><title>Outer shoreline / lake edge — Outer shoreline / lake edge; retained source-pixel reading</title>
+<path d="M 1334,318 L 1345,410 L 1367,530 L 1417,698 L 1455,895 L 1480,1010 L 1538,1096 L 1587,1200 L 1623,1280 L 1605,1312 L 1593,1335 L 1590,1420 L 1536,1425 L 1534,1525 L 1534,1680 L 1535,1888 L 1590,2030 L 1610,2120 L 1664,2272 L 1705,2440 L 1752,2669" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="none"/>
+<path d="M 1334,318 L 1345,410 L 1367,530 L 1417,698 L 1455,895 L 1480,1010 L 1538,1096 L 1587,1200 L 1623,1280 L 1605,1312 L 1593,1335 L 1590,1420 L 1536,1425 L 1534,1525 L 1534,1680 L 1535,1888 L 1590,2030 L 1610,2120 L 1664,2272 L 1705,2440 L 1752,2669" fill="none" stroke="#b74b16" stroke-width="4" stroke-dasharray="none"/>
+</g>
+<g id="feature-lake_park_lagoon" class="feature lagoon" role="group" aria-label="lake park lagoon: Lagoon water envelope"><title>lake park lagoon — Lagoon water envelope; retained source-pixel reading</title>
+<path d="M 1494,1424 L 1519,1424 L 1519,1518 L 1519,1680 L 1519,1795 L 1520,1848 L 1519,1853 L 1515,1843 L 1513,1820 L 1507,1800 L 1501,1750 L 1498,1680 L 1495,1600 L 1494,1518 L 1494,1424 Z" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="9 5"/>
+<path d="M 1494,1424 L 1519,1424 L 1519,1518 L 1519,1680 L 1519,1795 L 1520,1848 L 1519,1853 L 1515,1843 L 1513,1820 L 1507,1800 L 1501,1750 L 1498,1680 L 1495,1600 L 1494,1518 L 1494,1424 Z" fill="none" stroke="#7035a4" stroke-width="4" stroke-dasharray="9 5"/>
+</g>
+<g id="feature-lincoln_park" class="feature park" role="group" aria-label="Lincoln Park: Park / cemetery outline"><title>Lincoln Park — Park / cemetery outline; retained source-pixel reading</title>
+<path d="M 1239.9991,317.9989 L 1334.0006,317.9996 L 1366.9991,530.0 L 1269.999,530.0003 L 1239.9991,317.9989 Z" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="18 7"/>
+<path d="M 1239.9991,317.9989 L 1334.0006,317.9996 L 1366.9991,530.0 L 1269.999,530.0003 L 1239.9991,317.9989 Z" fill="none" stroke="#237542" stroke-width="4" stroke-dasharray="18 7"/>
+</g>
+<g id="feature-city_cemetery_remnants" class="feature park" role="group" aria-label="Old City Cemetery parcels: Park / cemetery outline"><title>Old City Cemetery parcels — Park / cemetery outline; retained source-pixel reading</title>
+<path d="M 1280,553 L 1375,553 L 1417,698 L 1335,698 L 1310,635 L 1294,590 L 1280,553 Z" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="18 7"/>
+<path d="M 1280,553 L 1375,553 L 1417,698 L 1335,698 L 1310,635 L 1294,590 L 1280,553 Z" fill="none" stroke="#237542" stroke-width="4" stroke-dasharray="18 7"/>
+</g>
+<g id="feature-union_park" class="feature park" role="group" aria-label="Union Park: Park / cemetery outline"><title>Union Park — Park / cemetery outline; retained source-pixel reading</title>
+<path d="M 619,1396 L 645,1396 L 694,1425 L 656,1464 L 619,1464 L 619,1396 Z" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="18 7"/>
+<path d="M 619,1396 L 645,1396 L 694,1425 L 656,1464 L 619,1464 L 619,1396 Z" fill="none" stroke="#237542" stroke-width="4" stroke-dasharray="18 7"/>
+</g>
+<g id="feature-jefferson_park" class="feature park" role="group" aria-label="Jefferson Park (historical West Side park): Park / cemetery outline"><title>Jefferson Park (historical West Side park) — Park / cemetery outline; retained source-pixel reading</title>
+<path d="M 706.0004,1524.9996 L 747.0002,1524.9994 L 746.9992,1560.0 L 705.9994,1560.0002 L 706.0004,1524.9996 Z" fill="none" stroke="white" stroke-width="7" stroke-opacity="0.78" stroke-dasharray="18 7"/>
+<path d="M 706.0004,1524.9996 L 747.0002,1524.9994 L 746.9992,1560.0 L 705.9994,1560.0002 L 706.0004,1524.9996 Z" fill="none" stroke="#237542" stroke-width="4" stroke-dasharray="18 7"/>
+</g>
+<a class="bridge" href="#bridge-state_street_bridge" aria-label="1. State Street bridge"><title>1. State Street bridge — retained point at pixel 1413.5, 1340; report-tabulated bridge; not a surveyed footprint</title><circle cx="1413.5" cy="1340" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1426.5" y="1330" class="bridge-label">1</text></a>
+<a class="bridge" href="#bridge-clark_street_bridge" aria-label="2. Clark Street bridge"><title>2. Clark Street bridge — retained point at pixel 1345.5, 1342; report-tabulated bridge; not a surveyed footprint</title><circle cx="1345.5" cy="1342" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1358.5" y="1332" class="bridge-label">2</text></a>
+<a class="bridge" href="#bridge-wells_street_bridge" aria-label="3. Wells Street bridge"><title>3. Wells Street bridge — retained point at pixel 1286, 1343; report-tabulated bridge; not a surveyed footprint</title><circle cx="1286" cy="1343" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1299" y="1333" class="bridge-label">3</text></a>
+<a class="bridge" href="#bridge-lake_street_bridge" aria-label="4. Lake Street bridge"><title>4. Lake Street bridge — retained point at pixel 1196, 1392; report-tabulated bridge; not a surveyed footprint</title><circle cx="1196" cy="1392" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1209" y="1382" class="bridge-label">4</text></a>
+<a class="bridge" href="#bridge-randolph_street_bridge" aria-label="5. Randolph Street bridge"><title>5. Randolph Street bridge — retained point at pixel 1195, 1421; report-tabulated bridge; not a surveyed footprint</title><circle cx="1195" cy="1421" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1208" y="1411" class="bridge-label">5</text></a>
+<a class="bridge" href="#bridge-madison_street_bridge" aria-label="6. Madison Street bridge"><title>6. Madison Street bridge — retained point at pixel 1195, 1487; report-tabulated bridge; not a surveyed footprint</title><circle cx="1195" cy="1487" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1208" y="1477" class="bridge-label">6</text></a>
+<a class="bridge" href="#bridge-adams_street_bridge" aria-label="7. Adams Street bridge"><title>7. Adams Street bridge — retained point at pixel 1208, 1554; report-tabulated bridge; not a surveyed footprint</title><circle cx="1208" cy="1554" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1221" y="1544" class="bridge-label">7</text></a>
+<a class="bridge" href="#bridge-rush_street_bridge" aria-label="8. Rush Street bridge"><title>8. Rush Street bridge — retained point at pixel 1465.5, 1304.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="1465.5" cy="1304.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1478.5" y="1294.5" class="bridge-label">8</text></a>
+<a class="bridge" href="#bridge-clybourn_avenue_bridge" aria-label="9. Clybourn Avenue bridge"><title>9. Clybourn Avenue bridge — retained point at pixel 678, 531.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="678" cy="531.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="691" y="521.5" class="bridge-label">9</text></a>
+<a class="bridge" href="#bridge-north_avenue_bridge" aria-label="10. North Avenue bridge"><title>10. North Avenue bridge — retained point at pixel 820, 700; report-tabulated bridge; not a surveyed footprint</title><circle cx="820" cy="700" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="833" y="690" class="bridge-label">10</text></a>
+<a class="bridge" href="#bridge-division_street_bridge" aria-label="11. Division Street bridge"><title>11. Division Street bridge — retained point at pixel 806.5, 896.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="806.5" cy="896.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="819.5" y="886.5" class="bridge-label">11</text></a>
+<a class="bridge" href="#bridge-north_halsted_street_bridge" aria-label="12. North Halsted Street bridge"><title>12. North Halsted Street bridge — retained point at pixel 1004.5, 1048.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="1004.5" cy="1048.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1017.5" y="1038.5" class="bridge-label">12</text></a>
+<a class="bridge" href="#bridge-chicago_avenue_bridge" aria-label="13. Chicago Avenue bridge"><title>13. Chicago Avenue bridge — retained point at pixel 1078, 1092.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="1078" cy="1092.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1091" y="1082.5" class="bridge-label">13</text></a>
+<a class="bridge" href="#bridge-indiana_street_bridge" aria-label="14. Indiana Street bridge"><title>14. Indiana Street bridge — retained point at pixel 1137.5, 1227.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="1137.5" cy="1227.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1150.5" y="1217.5" class="bridge-label">14</text></a>
+<a class="bridge" href="#bridge-kinzie_street_bridge" aria-label="15. Kinzie Street bridge"><title>15. Kinzie Street bridge — retained point at pixel 1186, 1293; report-tabulated bridge; not a surveyed footprint</title><circle cx="1186" cy="1293" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1199" y="1283" class="bridge-label">15</text></a>
+<a class="bridge" href="#bridge-van_buren_street_bridge" aria-label="16. Van Buren Street bridge"><title>16. Van Buren Street bridge — retained point at pixel 1219, 1622; report-tabulated bridge; not a surveyed footprint</title><circle cx="1219" cy="1622" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1232" y="1612" class="bridge-label">16</text></a>
+<a class="bridge" href="#bridge-polk_street_bridge" aria-label="17. Polk Street bridge"><title>17. Polk Street bridge — retained point at pixel 1256, 1754; report-tabulated bridge; not a surveyed footprint</title><circle cx="1256" cy="1754" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1269" y="1744" class="bridge-label">17</text></a>
+<a class="bridge" href="#bridge-twelfth_street_bridge" aria-label="18. Twelfth Street bridge"><title>18. Twelfth Street bridge — retained point at pixel 1285, 1891; report-tabulated bridge; not a surveyed footprint</title><circle cx="1285" cy="1891" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1298" y="1881" class="bridge-label">18</text></a>
+<a class="bridge" href="#bridge-eighteenth_street_bridge" aria-label="19. Eighteenth Street bridge"><title>19. Eighteenth Street bridge — retained point at pixel 1247, 2149; report-tabulated bridge; not a surveyed footprint</title><circle cx="1247" cy="2149" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1260" y="2139" class="bridge-label">19</text></a>
+<a class="bridge" href="#bridge-south_halsted_street_bridge" aria-label="20. South Halsted Street bridge"><title>20. South Halsted Street bridge — retained point at pixel 1022, 2368.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="1022" cy="2368.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="1035" y="2358.5" class="bridge-label">20</text></a>
+<a class="bridge" href="#bridge-reuben_street_bridge" aria-label="21. Reuben Street bridge"><title>21. Reuben Street bridge — retained point at pixel 631.5, 2476.5; report-tabulated bridge; not a surveyed footprint</title><circle cx="631.5" cy="2476.5" r="8" fill="#af2925" stroke="white" stroke-width="3"/><text x="644.5" y="2466.5" class="bridge-label">21</text></a>
+<a class="bridge" href="#bridge-division_street_north_branch_canal_crossing" aria-label="22. Division Street canal crossing"><title>22. Division Street canal crossing — retained point at pixel 972, 895.5; map-attested crossing outside the municipal report table; not a surveyed footprint</title><circle cx="972" cy="895.5" r="8" fill="white" stroke="#af2925" stroke-width="3"/><text x="985" y="885.5" class="bridge-label">22</text></a>
+</g>
+<text x="38" y="3348" class="heading">22 crossing locations</text>
+<text x="38" y="3390" class="note">Public-domain original scan: S. Augustus Mitchell, 1870; University of Illinois via Wikimedia Commons.</text>
+<text id="bridge-state_street_bridge" x="38" y="3440" class="bridge-name">1. State Street bridge</text>
+<text id="bridge-clark_street_bridge" x="38" y="3483" class="bridge-name">2. Clark Street bridge</text>
+<text id="bridge-wells_street_bridge" x="38" y="3526" class="bridge-name">3. Wells Street bridge</text>
+<text id="bridge-lake_street_bridge" x="38" y="3569" class="bridge-name">4. Lake Street bridge</text>
+<text id="bridge-randolph_street_bridge" x="38" y="3612" class="bridge-name">5. Randolph Street bridge</text>
+<text id="bridge-madison_street_bridge" x="38" y="3655" class="bridge-name">6. Madison Street bridge</text>
+<text id="bridge-adams_street_bridge" x="38" y="3698" class="bridge-name">7. Adams Street bridge</text>
+<text id="bridge-rush_street_bridge" x="38" y="3741" class="bridge-name">8. Rush Street bridge</text>
+<text id="bridge-clybourn_avenue_bridge" x="828" y="3440" class="bridge-name">9. Clybourn Avenue bridge</text>
+<text id="bridge-north_avenue_bridge" x="828" y="3483" class="bridge-name">10. North Avenue bridge</text>
+<text id="bridge-division_street_bridge" x="828" y="3526" class="bridge-name">11. Division Street bridge</text>
+<text id="bridge-north_halsted_street_bridge" x="828" y="3569" class="bridge-name">12. North Halsted Street bridge</text>
+<text id="bridge-chicago_avenue_bridge" x="828" y="3612" class="bridge-name">13. Chicago Avenue bridge</text>
+<text id="bridge-indiana_street_bridge" x="828" y="3655" class="bridge-name">14. Indiana Street bridge</text>
+<text id="bridge-kinzie_street_bridge" x="828" y="3698" class="bridge-name">15. Kinzie Street bridge</text>
+<text id="bridge-van_buren_street_bridge" x="828" y="3741" class="bridge-name">16. Van Buren Street bridge</text>
+<text id="bridge-polk_street_bridge" x="1618" y="3440" class="bridge-name">17. Polk Street bridge</text>
+<text id="bridge-twelfth_street_bridge" x="1618" y="3483" class="bridge-name">18. Twelfth Street bridge</text>
+<text id="bridge-eighteenth_street_bridge" x="1618" y="3526" class="bridge-name">19. Eighteenth Street bridge</text>
+<text id="bridge-south_halsted_street_bridge" x="1618" y="3569" class="bridge-name">20. South Halsted Street bridge</text>
+<text id="bridge-reuben_street_bridge" x="1618" y="3612" class="bridge-name">21. Reuben Street bridge</text>
+<text id="bridge-division_street_north_branch_canal_crossing" x="1618" y="3655" class="bridge-name">22. Division Street canal crossing</text>
+<text x="38" y="3809" class="note">Not drawn without retained pixels: south fork outer extension, illinois michigan canal outer extension. No reconstructed river widths are shown.</text>
+<a href="geography.html"><text x="38" y="3849" class="note" text-decoration="underline">Return to the geography audit</text></a>
+</svg>

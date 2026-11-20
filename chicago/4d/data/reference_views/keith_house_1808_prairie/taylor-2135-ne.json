@@ -12,7 +12,7 @@
   ],
   "focal_px": 2301.6831823661023,
   "eye": [
-    57.73768939847942,
+    74.436689,
     51.3260725710555,
     1.7
   ],
@@ -103,7 +103,8 @@
         ]
       ],
       "rms_px": 1.5698954755110228
-    }
+    },
+    "frame_shift_T3564": "The eye's u is moved +16.699 m with the footprint frame, whose origin (the SW corner) went back that far when the house was deepened to its 1911 rear (T-3564); the front, and so the camera's place in the world, did not move."
   },
   "source_id": "taylor_2135_glessner_exterior_1887_1889"
 }

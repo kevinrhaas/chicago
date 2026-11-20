@@ -16,6 +16,7 @@ import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/na
 import { APPS } from '../renderers/web/js/apps/index.js';
 import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
+import { metFound } from '../renderers/web/js/met-found.js';
 import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS, TAG_PLACES, TAG_HOLDS, normalTagPlace, normalTagHold, addressKey, sameAddress } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -145,6 +146,23 @@ const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
   assert.deepEqual(createWhere({ streets: { status: status('on') } }).at(0, 0), { mode: 'on', place: 'Lake Street' });
   assert.deepEqual(createWhere({ streets: { status: status('ahead') } }).at(0, 0), { mode: 'near', place: 'near Lake Street' });
   assert.equal(createWhere({ streets: { status: () => null } }).at(0, 0), null);
+
+  // T-3684: the 1871 city lists where its named streets meet, and the THEN line says the
+  // intersection, or the street between its cross streets, as the 1871 directory does.
+  {
+    const doc1871 = json('data/context/1871.json');
+    const lines = doc1871.streets.filter((s) => s.name).map((s) => ({ name: s.name, e0: s.a[0], n0: s.a[1], e1: s.b[0], n1: s.b[1] }));
+    const w = createWhere({ lines, junctions: doc1871.junctions });
+    const sm = doc1871.junctions.find((j) => j.includes('State Street') && j.includes('Madison Street'));
+    assert.ok(sm, 'State and Madison is a junction of the 1871 streets');
+    assert.deepEqual(w.at(sm[0] + 6, sm[1] + 8)?.place, 'State and Madison streets');
+    assert.equal(w.at(sm[0] + 0.5, sm[1] + 70)?.place, 'State Street, between Madison and Washington');
+    const cw = doc1871.junctions.find((j) => j.includes('Clark Street') && j.includes('Washington Street'));
+    assert.equal(w.at(cw[0] + 0.5, cw[1] + 60)?.place, 'Clark Street, between Washington and Randolph');
+    assert.ok(!doc1871.streets.some((s) => /reconstructed/i.test(s.name ?? '')), 'no 1871 street is named as a reconstruction');
+    // Kevin's stands at 148 E Wacker Dr, on the river bank by Michigan Avenue.
+    for (const [e, n] of [[1196, 100], [1196, 60]]) assert.match(w.at(e, n)?.place ?? '', /Michigan Avenue/);
+  }
 
   assert.equal(facingWords(264.94), 'facing west');
   assert.equal(facingWords(-90), 'facing west');
@@ -412,6 +430,109 @@ const fakeStorage = () => { const m = new Map(); return { getItem: (k) => m.get(
   assert.equal(button(dom, 'jump'), undefined, 'unregister takes the icon out');
 }
 
+// T-3658: an off-rail screen still leaves a visible way back into the tablist.
+// Exercise the actual Jump/Move registration flags, including the interval while a
+// contextual tab is animating out: its DOM button is not hidden until the slide ends.
+for (const reduced of [false, true]) {
+  const dom = miniDom(), later = [];
+  let target = true;
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => reduced, wait: fn => later.push(fn),
+    context: () => ({ target }) });
+  const add = (id, extra = {}) => rail.register({ id, label: id, mount() {}, ...extra });
+  add('home', { order: 0 }); add('map', { order: 20 });
+  add('inspect', { order: 10, when: ctx => ctx.target });
+  for (const id of ['jump', 'move']) {
+    const app = APPS.find(app => app.id === id);
+    assert.equal(app.inRail, false, `${id} uses the real off-rail registration`);
+    add(id, { inRail: app.inRail });
+  }
+  const stops = () => tabsOf(dom).filter(b => b.tabIndex === 0).map(b => b.dataset.app);
+  const expectStop = id => {
+    assert.deepEqual(stops(), id ? [id] : [], 'exactly one eligible rail Tab stop');
+    if (id) assert.equal(button(dom, id).hidden, false, 'the Tab stop is actually visible');
+    assert.deepEqual(tabsOf(dom).filter(b => b.getAttribute('aria-selected') === 'true')
+      .map(b => b.dataset.app), rail.current ? [rail.current] : [], 'selection names only the displayed app');
+  };
+  rail.evaluate(); expectStop('home');
+  await rail.select('map'); expectStop('map');
+  for (const id of ['jump', 'move']) {
+    await rail.select(id); expectStop('map');
+    assert.equal(button(dom, id).hidden, true);
+    assert.equal(button(dom, 'map').getAttribute('aria-selected'), 'false', 'a fallback is not a selected app');
+  }
+  const list = dom.rail.querySelector('.nav-tabs');
+  list.dispatch('keydown', { target: button(dom, 'map'), key: 'Home' });
+  assert.equal(button(dom, 'home').focused, 1, 'Home moves focus to the first visible tab');
+  list.dispatch('keydown', { target: button(dom, 'home'), key: 'ArrowRight' });
+  assert.equal(button(dom, 'inspect').focused, 1, 'arrows retain the visible rail order');
+  assert.equal(rail.current, 'move', 'arrow navigation does not activate an app');
+  button(dom, 'home').dispatch('click');
+  assert.equal(rail.current, 'home', 'the button still activates through its ordinary click');
+  expectStop('home');
+
+  await rail.select('inspect'); expectStop('inspect');
+  await rail.select('jump'); expectStop('inspect');
+  target = false; rail.evaluate(); expectStop('home');
+  assert.equal(rail.current, 'jump', 'a disappearing fallback does not replace the off-rail screen');
+  if (!reduced) assert.equal(button(dom, 'inspect').hidden, false, 'the departing icon is still animating');
+  for (const fn of later.splice(0)) fn();
+  assert.equal(button(dom, 'inspect').hidden, true); expectStop('home');
+  target = true; rail.evaluate();
+  await rail.select('inspect'); expectStop('inspect');
+  target = false; rail.evaluate();
+  assert.equal(rail.current, 'home', 'the original context-loss selection still returns to Home');
+  expectStop('home');
+  await rail.select('inspect'); expectStop('home');
+  assert.equal(rail.current, 'inspect', 'a direct selection of a hidden app keeps selection truthful');
+  rail.evaluate();
+  assert.equal(rail.current, 'home'); expectStop('home');
+
+  target = true; rail.evaluate();
+  await rail.select('map'); await rail.select('move');
+  rail.unregister('map'); expectStop('home');
+  assert.equal(rail.current, 'move', 'removing the fallback leaves the displayed screen selected');
+  await rail.select('home'); rail.unregister('home'); expectStop('inspect');
+  rail.unregister('inspect'); expectStop(null);
+  add('map'); expectStop('map');
+}
+{
+  const dom = miniDom();
+  const deferred = () => { let resolve; const promise = new Promise(r => { resolve = r; }); return { promise, resolve }; };
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', mount() {} });
+  rail.register({ id: 'map', label: 'Map', mount() {} });
+  const stops = () => tabsOf(dom).filter(b => b.tabIndex === 0).map(b => b.dataset.app);
+  const code = deferred();
+  rail.register({ id: 'late', label: 'Late screen', inRail: false, load: () => code.promise });
+  await rail.select('map');
+  const opening = rail.select('late');
+  assert.deepEqual(stops(), ['map'], 'a pending import keeps the current visible Tab stop');
+  await rail.select('home');
+  code.resolve({ mount() {} });
+  assert.equal(await opening, false, 'the original selection race still rejects the old request');
+  assert.equal(rail.current, 'home'); assert.deepEqual(stops(), ['home']);
+  await rail.select('map'); await rail.select('late');
+  assert.equal(rail.current, 'late'); assert.deepEqual(stops(), ['map'], 'the resolved off-rail screen retains a visible fallback');
+
+  const mounting = deferred();
+  rail.register({ id: 'mounting', label: 'Mounting screen', inRail: false, mount: () => mounting.promise });
+  const pending = rail.select('mounting');
+  rail.unregister('map');
+  assert.deepEqual(stops(), ['home'], 'unregister repairs the fallback even while another screen mounts');
+  mounting.resolve(); assert.equal(await pending, true);
+  assert.equal(rail.current, 'mounting'); assert.deepEqual(stops(), ['home']);
+
+  const removedCode = deferred();
+  rail.register({ id: 'removed', label: 'Removed screen', inRail: false, load: () => removedCode.promise });
+  const removed = rail.select('removed');
+  rail.unregister('removed'); removedCode.resolve({ mount() { assert.fail('an unregistered app must not mount'); } });
+  assert.equal(await removed, false);
+  assert.equal(rail.current, 'mounting'); assert.deepEqual(stops(), ['home']);
+}
+console.log('NAVIGATOR VISIBLE TAB STOP PASS — off-rail screens, context loss, removal and asynchronous selection retain keyboard entry');
+
 // ---- the device, its Home and its apps -------------------------------------------------
 for (const phone of [true, false]) {
   const dom = miniDom();
@@ -470,7 +591,9 @@ for (const phone of [true, false]) {
   // T-2622: onto Home's screen, which shows its focus ring (the heading is visually hidden).
   assert.equal(dom.byId.get('nav-home').focused, 1, `${label}: focus moves into Home on open`);
   // 1904 has no people records and nothing within 40 m of the reticle yet: no People, no Inspect.
-  assert.deepEqual(nav.apps, ['home', 'jaunts', 'map', 'confidence', 'move', 'jump', 'guide', 'settings'], `${label}: the usual eight`);
+  // T-3629: Move and Jump are registered but left the rail (Home's tiles and the year chip).
+  assert.deepEqual(nav.apps, ['home', 'jaunts', 'map', 'confidence', 'guide', 'settings'], `${label}: the usual six`);
+  assert(nav.has('move') && nav.has('jump'), `${label}: Move and Jump still open by code and link`);
   const s = nav.snapshot();
   assert.match(s.where, /Prairie Avenue & East Eighteenth Street/, s.where);
   assert.equal(s.whereDetail, 'facing west · 10:30 am');
@@ -519,11 +642,14 @@ for (const phone of [true, false]) {
   assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'settings'], 'and its section is open');
   const visibleTabs = (d) => d.panel.children[0].children.filter((t) => !t.classList.contains('is-elsewhere')).map((t) => t.dataset.tab);
   assert.deepEqual(visibleTabs(dom), ['settings', 'whatsnew'], 'only its own tabs show — two, not eight');
+  // T-3563: Settings draws its own icon tabs (What's new among them), so the section row stands down.
+  assert(dom.panel.classList.contains('has-own-tabs'), 'Settings carries its own tab row');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 10 · SETTINGS');
   await nav.select('move');
   assert.equal(dom.panel.parent, dom.byId.get('nav-app-move'), 'Move takes #panel next');
   assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'travel']);
   assert(dom.panel.classList.contains('has-one-section'), 'one section, no tab row');
+  assert(!dom.panel.classList.contains('has-own-tabs'), 'and Settings\' own row stands down with it');
   await nav.select('home');
   assert.equal(fakeHud.open, false, 'Home closes the section');
   // T-3021: Home's MOVE tile opens Move, and Back from it returns to the app it came from.
@@ -609,10 +735,12 @@ for (const phone of [true, false]) {
   assert(jump && !jump.hidden, 'Jump opens in its own screen');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 08 · JUMP');
   const cards = jump.children[0].children;
-  // T-2655: all three destinations, in the Observatory's order (1812 is a link too).
-  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A'], '1835 and 1812 are links, 1904 (here) is not');
+  // All four built destinations, in the Observatory's order; HERE is not a link.
+  assert.deepEqual(cards.map((c) => c.tagName), ['A', 'DIV', 'A', 'A'], '1835, 1812 and 1871 are links, 1904 (here) is not');
   assert.equal(cards[1].getAttribute('aria-current'), 'page');
   assert.equal(cards[0].href, '../1835/');
+  assert.equal(cards[2].href, '../1812/');
+  assert.equal(cards[3].href, '../1871/');
   assert.equal(jump.children[1].href, '../', 'Recall goes back to the Observatory');
   await nav.select('home');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 01 · HOME');
@@ -724,13 +852,14 @@ for (const phone of [true, false]) {
   assert(list.hidden && !cardHost.hidden, 'a household opens its card over the list');
   const hh = cardHost.querySelector('.ppl-hh-card');
   const people = hh.querySelectorAll('.ppl-members .ppl-row');
-  // T-3258: the family first, then the staff (Mattie Williamson and the five the 1900 census names), by name.
+  // T-3258: the family first, then the staff (Mattie Williamson and those the 1900 census names), by name.
   // T-3382: their children, who lived here from 1887 until they married in 1898, after them.
+  // T-3590: Kate Ryan, the census's summer cook (Bill Tyre: one cook at a time), lived here only that summer.
   assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner',
-    'August Billings', 'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson',
-    'Mary Reynolds', 'Frances Glessner', 'George M. Glessner'], 'the family, then the staff, then the children of other years');
-  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 6, 8].includes(i)),
-    ['Head of the household \u00b7 Farm machinery executive', 'Wife', 'Cook', 'Daughter \u00b7 lived here 1887\u20131898'],
+    'August Billings', 'Charles Nelson', 'Christine Nelson', 'Martha L. (Mattie) Williamson',
+    'Mary Reynolds', 'Frances Glessner', 'George M. Glessner', 'Kate Ryan'], 'the family, then the staff, then those of other years');
+  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 5, 7, 9].includes(i)),
+    ['Head of the household \u00b7 Farm machinery executive', 'Wife', 'Cook', 'Daughter \u00b7 lived here 1887\u20131898', 'Cook \u00b7 lived here summer 1900'],
     'their place and work, and their years here');
   cardHost.dispatch('click', { target: hh.querySelector('[data-ppl-inspect]') });
   assert.deepEqual(inspected, ['glessner_house'], 'Inspect house takes you to the house they live in');
@@ -744,7 +873,7 @@ for (const phone of [true, false]) {
   // the People side pins that household's people, never a household row among the people.
   const dom5 = miniDom();
   const nav5 = createNavigator({ root: dom5.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
-    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie',
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie', scene: { id: '1904' },
       actions: { peopleDirectory: async () => dir, record: () => null } }) });
   await nav5.select('people');
   const list5 = dom5.byId.get('nav-app-people').children[0];
@@ -761,6 +890,21 @@ for (const phone of [true, false]) {
   const pplRows = list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen);
   assert(!pplRows.includes('pa1904_shortall_john_g') && pplRows.every((id) => !id.startsWith('hh_')), 'and they are not listed again under it');
   assert.equal(list5.querySelector('.ppl-rest').textContent, 'Everyone else');
+
+  // T-3673: Met N of M, the Met filter and the badge, from the browser's own list (never a card).
+  const metToggle = list5.querySelector('.ppl-met-toggle');
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'nobody met before any talk');
+  assert.equal(list5.querySelectorAll('.ppl-met-badge').length, 0);
+  metFound.record('1904', 'met', 'pa1904_shortall_john_g');
+  assert.equal(metToggle.textContent, 'Met 1 of 445', 'a talk in town counts, and the screen repaints');
+  assert.equal(pin.querySelectorAll('.ppl-met-badge').length, 1, 'the Met badge on their row');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metToggle.getAttribute('aria-pressed'), 'true');
+  assert.deepEqual(list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen), ['pa1904_shortall_john_g'], 'Met lists only who you met');
+  assert(pin.hidden, 'and drops the pin');
+  metToggle.dispatch('click', { target: metToggle });
+  assert.equal(metFound.clearYear('1904').ok, true);
+  assert.equal(metToggle.textContent, 'Met 0 of 445', 'Clear 1904 forgets them');
 }
 
 // ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
@@ -1176,7 +1320,7 @@ for (const phone of [true, false]) {
   const went = [];
   const navigation = { field: () => field, player, outlines: [yard, shed, far], drawView: (dest, view) => calls.push(['field', view.eMin]), drawMarker: (dest, x, y) => calls.push(['arrow', Math.round(x), Math.round(y)]), units: 'imperial' };
   const docked = [], opened = [];
-  const ctx = { api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }]]) },
+  const ctx = { scene: { id: '1904' }, api: { navigation, registry: new Map([['shed', { sidecar: { name: 'Tool shed' } }], ['far', { sidecar: { name: 'Far House' } }]]) },
     navigator: { level: 1, detent: 'half', dock: () => docked.push(1), open: (l) => opened.push(l) },
     actions: { goTo: (id) => { went.push(id); return true; }, jauntRoute: () => ({ stops: [[0, 0], [20, 10], [40, 0]], at: 1 }), travelRoute: () => [] } };
   mapView.mount(el, ctx);
@@ -1206,6 +1350,21 @@ for (const phone of [true, false]) {
   listeners.get('nav-key nav-map-go|click')();
   assert.deepEqual(went, ['shed'], 'Go travels there');
   assert.deepEqual(docked, [1], 'and on a phone the device steps down so the ride is in view');
+  // T-3673: the places you stood at, outlined, and their count; a shed is not a place.
+  const foundToggle = bar.children[3].children[0];
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
+  assert.equal(foundToggle.attrs['aria-pressed'], 'true', 'shown by default');
+  calls.length = 0;
+  metFound.record('1904', 'found', 'far');
+  assert.equal(foundToggle.textContent, 'Found 1 of 1 places');
+  el._mapApi.setZoom('field');
+  assert(calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'a found place is outlined');
+  calls.length = 0;
+  listeners.get('nav-map-toggle nav-map-found-toggle|click')();
+  assert.equal(foundToggle.attrs['aria-pressed'], 'false');
+  assert(!calls.some((c) => c[0] === 'set' && c[1] === 'strokeStyle' && c[2] === '#0b6e79'), 'and the toggle hides the outlines');
+  metFound.clearYear('1904');
+  assert.equal(foundToggle.textContent, 'Found 0 of 1 places');
   el._mapApi.setZoom('field');
   assert.equal(zoomBtn.textContent, 'Close up');
   assert.match(foot.textContent, /east to west/);
@@ -1376,13 +1535,16 @@ for (const phone of [false, true]) {
 
   // 1–9: the rail's apps in the order they show.
   const order = nav.apps;
-  const jumpAt = order.indexOf('jump') + 1;
-  assert.ok(jumpAt >= 1 && jumpAt <= 9, `${where}: Jump is within reach of a digit (${order.join(', ')})`);
-  assert.equal(press(String(jumpAt)), true);
+  // T-3629: Jump left the rail (the year chip opens it), so no digit reaches it; Map does.
+  assert.equal(order.includes('jump'), false, `${where}: Jump has no digit, being off the rail`);
+  const mapAt = order.indexOf('map') + 1;
+  assert.ok(mapAt >= 1 && mapAt <= 9, `${where}: Map is within reach of a digit (${order.join(', ')})`);
+  assert.equal(press(String(mapAt)), true);
   for (let i = 0; i < 5; i += 1) await Promise.resolve();
   await new Promise((r) => setTimeout(r, 0));
-  assert.equal(nav.app, 'jump', `${where}: ${jumpAt} opens the ${jumpAt}th app, Jump`);
-  assert.ok(dom.byId.get('nav-app-jump')?.focused >= 1, `${where}: focus moves into the app's screen`);
+  assert.equal(nav.app, 'map', `${where}: ${mapAt} opens the ${mapAt}th app, Map`);
+  assert.ok(dom.byId.get('nav-app-map')?.focused >= 1, `${where}: focus moves into the app's screen`);
+  await nav.select('home'); // the Map opens the device wider; the Escape checks below start from Home
   if (order.length < 9) assert.equal(press('9'), false, `${where}: a digit with no app behind it is not taken`);
   // Every rail app holds a screen now (Move and Settings since T-2620, the Confidence view
   // since T-2647), so a launch app is the test's own.

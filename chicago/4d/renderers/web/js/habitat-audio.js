@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Recorded habitat phrases, qualified by the scene's own fauna and flora records.
 // No animal is invented near the listener: audible-only insects are a broad bed;
-// the one bird proxy is a distant, offscreen habitat call with a fixed world anchor.
+// bird/mammal proxies are distant, offscreen calls with fixed world anchors.
+import { seasonalHabitatScene, seasonalHabitatPlacement, seasonalHabitatEligible, seasonalSourceProfile }
+  from './habitat-seasons.js';
+import { TOWN_HABITAT, townHabitatScene, townHabitatPlacement, townHabitatEligible, parkwayElms, nearestElm }
+  from './habitat-town.js';
 export const HABITAT_AUDIO_LIMITS = Object.freeze({
   voices: 1, decodedBytes: 24 * 48000 * 4, sourceSeconds: 24, sampleRate: 48000,
   birdNearMetres: 36, birdFarMetres: 96,
@@ -28,11 +32,17 @@ export function habitatPeriod(env) {
 }
 
 function validScene(env, year) {
-  return String(year) === '1835' && env?.time?.date === '1835-07-01'
-    && env.season === 'summer' && env.terrain?.loaded === true
-    && typeof env.flora?.zoneAt === 'function' && Array.isArray(env.faunaZones)
-    && finite(env.camera?.position?.x) && finite(env.camera?.position?.y) && finite(env.camera?.position?.z)
+  const dated1835 = String(year) === '1835' && env?.time?.date === '1835-07-01'
+    && env.season === 'summer' && Array.isArray(env.faunaZones)
     && (env.temperatureC == null || (finite(env.temperatureC) && env.temperatureC > 0));
+  const seasonal1812 = seasonalHabitatScene(env, year)
+    && (env.temperatureC == null || finite(env.temperatureC));
+  const camera = finite(env?.camera?.position?.x) && finite(env?.camera?.position?.y) && finite(env?.camera?.position?.z);
+  // T-3585: 1904's habitat is its parkway elms, not a flora zone; it needs no zone finder.
+  if (townHabitatScene(env, year)) return env.terrain?.loaded === true && camera
+    && (env.temperatureC == null || finite(env.temperatureC));
+  return (dated1835 || seasonal1812) && env?.terrain?.loaded === true
+    && typeof env.flora?.zoneAt === 'function' && camera;
 }
 
 function zoneAt(env, x, z) {
@@ -57,7 +67,19 @@ function behindListener(camera, x, y, z) {
 // Read the rendered surface API; missing measured ground remains silent.
 function groundAt(terrain, e, n) {
   const sample = typeof terrain?.surfaceHeight === 'function' ? terrain.surfaceHeight : terrain?.groundHeight;
-  return typeof sample === 'function' ? sample.call(terrain, e, n) : undefined;
+  try { return typeof sample === 'function' ? sample.call(terrain, e, n) : undefined; }
+  catch { return undefined; }
+}
+
+function dryGround(terrain, e, n) {
+  try {
+    const ground = groundAt(terrain, e, n);
+    return finite(ground) && ground > 0 && (typeof terrain?.isWater !== 'function' || !terrain.isWater(e, n));
+  } catch { return false; }
+}
+function profileFor(p) {
+  return p.scene_id === '1812' ? seasonalSourceProfile(p)
+    : { rings: [44, 64, 84], near: HABITAT_AUDIO_LIMITS.birdNearMetres, far: HABITAT_AUDIO_LIMITS.birdFarMetres, height: 1.5 };
 }
 
 function insectGain(env, placement) {
@@ -67,6 +89,8 @@ function insectGain(env, placement) {
 }
 
 function recordFor(env, placement, floraZone, period) {
+  if (placement.scene_id === '1812') return seasonalHabitatEligible(placement, env, floraZone, period, hourOf(env.time.hhmm))
+    ? { id: placement.id } : null;
   return env.faunaZones.find(zone => zone.scene_date === placement.scene_date
     && zone.in_modelled_extent === true && placement.zone_ids.includes(zone.id)
     && zone.extent_from?.flora_zone === floraZone
@@ -76,10 +100,12 @@ function recordFor(env, placement, floraZone, period) {
       && (placement.mode !== 'habitat-insects' || sp.july.presence.value === 'audible')));
 }
 
-function placementFor(asset, year) {
+function placementFor(asset, year, env) {
+  if (String(year) === '1812') return seasonalHabitatPlacement(asset, env, year);
+  if (String(year) === TOWN_HABITAT.scene) return townHabitatPlacement(asset, env, year);
   if (asset.runtime_enabled !== true || !asset.approved_eras?.includes(String(year))) return null;
   const p = asset.scene_placement;
-  if (!p || p.scene_date !== '1835-07-01' || !MODES.has(p.mode)
+  if (!p || (p.scene_id != null && p.scene_id !== '1835') || p.scene_date !== '1835-07-01' || !MODES.has(p.mode)
     || !Array.isArray(p.zone_ids) || !p.zone_ids.length || typeof p.species_id !== 'string'
     || !finite(p.gain) || p.gain <= 0 || p.gain > 0.2
     || !Array.isArray(p.gap_seconds) || p.gap_seconds.length !== 2
@@ -93,12 +119,15 @@ function placementFor(asset, year) {
  * At most 3 rings x 16 samples are asked for a bird, once per second while idle. */
 export function habitatCandidates(catalog, env, year, { birds = true, birdPhase = 0 } = {}) {
   if (!validScene(env, year)) return [];
+  if (String(year) === TOWN_HABITAT.scene) return townCandidates(catalog, env, year, { birds, birdPhase });
   const period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
   if (!period) return [];
   const eye = env.camera.position, here = zoneAt(env, eye.x, eye.z), result = [];
   for (const asset of catalog?.assets ?? []) {
-    const p = placementFor(asset, year);
+    const p = placementFor(asset, year, env);
     if (!p || (finite(p.from_hour) && hour < p.from_hour)) continue;
+    if (p.listener_flora_zone_ids && !p.listener_flora_zone_ids.includes(here)) continue;
+    if (p.require_dry_ground && !dryGround(env.terrain, eye.x, -eye.z)) continue;
     if (p.mode === 'habitat-insects') {
       const zone = recordFor(env, p, here, period);
       const gain = insectGain(env, p);
@@ -107,21 +136,22 @@ export function habitatCandidates(catalog, env, year, { birds = true, birdPhase 
     }
     if (!birds) continue;
     let candidate = null;
-    for (const radius of [44, 64, 84]) {
+    const spatial = profileFor(p);
+    for (const radius of spatial.rings) {
       for (let i = 0; i < 16 && !candidate; i++) {
         const angle = birdPhase + i * Math.PI / 8;
         const x = eye.x + Math.cos(angle) * radius, z = eye.z + Math.sin(angle) * radius;
         const zone = recordFor(env, p, zoneAt(env, x, z), period);
         if (!zone) continue;
         const ground = groundAt(env.terrain, x, -z);
-        if (!finite(ground)) continue;
+        if (!finite(ground) || (p.require_dry_ground && !dryGround(env.terrain, x, -z))) continue;
         // The model's water plane is Y=0: a marsh call must not sit underwater.
-        const sourceY = Math.max(0, ground) + 1.5;
+        const sourceY = Math.max(0, ground) + spatial.height;
         if (!behindListener(env.camera, x, sourceY, z)) continue;
         const distance = Math.hypot(x - eye.x, sourceY - eye.y, z - eye.z);
-        if (distance >= HABITAT_AUDIO_LIMITS.birdFarMetres) continue;
+        if (distance >= spatial.far || (p.scene_id === '1812' && distance < spatial.near)) continue;
         candidate = { asset, placement: p, zone: zone.id, mode: p.mode,
-          anchor: { x, y: sourceY, z }, gain: p.gain * (1 - distance / HABITAT_AUDIO_LIMITS.birdFarMetres) ** 2 };
+          anchor: { x, y: sourceY, z }, gain: p.gain * (1 - distance / spatial.far) ** 2 };
       }
       if (candidate) break;
     }
@@ -130,19 +160,81 @@ export function habitatCandidates(catalog, env, year, { birds = true, birdPhase 
   return result;
 }
 
+/** T-3585: 1904 robins sing from one real parkway elm's crown, 24-110 m away and
+ * behind the listener when the phrase begins; insect beds need the listener on
+ * the parkway, near its trees. At most 415 trees are read, once per second. */
+function townCandidates(catalog, env, year, { birds, birdPhase }) {
+  const period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
+  if (!period) return [];
+  const eye = env.camera.position, elms = parkwayElms(env), near = nearestElm(env, elms), result = [];
+  for (const asset of catalog?.assets ?? []) {
+    const p = placementFor(asset, year, env);
+    if (!p || !townHabitatEligible(p, env, period, hour)) continue;
+    if (p.mode === 'habitat-insects') {
+      const gain = near <= TOWN_HABITAT.insectReach ? insectGain(env, p) : 0;
+      if (gain > 0) result.push({ asset, placement: p, zone: TOWN_HABITAT.habitat, gain, mode: p.mode });
+      continue;
+    }
+    if (!birds) continue;
+    const perches = [];
+    for (const t of elms) {
+      const ground = groundAt(env.terrain, t.x, -t.z);
+      if (!finite(ground)) continue;
+      const y = Math.max(0, ground) + TOWN_HABITAT.crownHeight;
+      const distance = Math.hypot(t.x - eye.x, y - eye.y, t.z - eye.z);
+      if (distance < TOWN_HABITAT.birdNear || distance >= TOWN_HABITAT.birdFar) continue;
+      if (!behindListener(env.camera, t.x, y, t.z)) continue;
+      perches.push({ tree: t.id, x: t.x, y, z: t.z, distance });
+    }
+    if (!perches.length) continue;
+    const turn = ((birdPhase % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+    const perch = perches[Math.min(perches.length - 1, Math.floor(turn / (Math.PI * 2) * perches.length))];
+    result.push({ asset, placement: p, zone: TOWN_HABITAT.habitat, mode: p.mode, tree: perch.tree,
+      anchor: { x: perch.x, y: perch.y, z: perch.z },
+      gain: p.gain * (1 - perch.distance / TOWN_HABITAT.birdFar) ** 2 });
+  }
+  return result;
+}
+
+function townStillEligible(candidate, catalog, env, year) {
+  const asset = catalog?.assets?.find(a => a.id === candidate.asset.id);
+  const p = placementFor(asset, year, env), period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
+  if (!p || !period || p.id !== candidate.placement.id || asset.delivery?.sha256 !== candidate.asset.delivery?.sha256
+    || !townHabitatEligible(p, env, period, hour)) return false;
+  if (p.mode === 'habitat-insects') {
+    candidate.gain = nearestElm(env) <= TOWN_HABITAT.insectReach ? insectGain(env, p) : 0;
+    return candidate.gain > 0;
+  }
+  // A phrase that began out of sight keeps singing if the visitor turns toward
+  // its tree: the bird is in a crown the scene draws, never a body in the open.
+  const { x, y, z } = candidate.anchor, eye = env.camera.position;
+  const distance = Math.hypot(x - eye.x, y - eye.y, z - eye.z);
+  if (distance < TOWN_HABITAT.birdNear || distance >= TOWN_HABITAT.birdFar) return false;
+  candidate.gain = p.gain * (1 - distance / TOWN_HABITAT.birdFar) ** 2;
+  return true;
+}
+
 function stillEligible(candidate, catalog, env, year) {
   if (!validScene(env, year)) return false;
-  const p = placementFor(candidate.asset, year), period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
+  if (String(year) === TOWN_HABITAT.scene) return townStillEligible(candidate, catalog, env, year);
+  const currentAsset = String(year) === '1812'
+    ? catalog?.assets?.find(a => a.id === candidate.asset.id) : candidate.asset;
+  const p = placementFor(currentAsset, year, env), period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
   if (!p || !period || (finite(p.from_hour) && hour < p.from_hour)) return false;
+  if (p.scene_id === '1812' && (p.id !== candidate.placement.id
+    || currentAsset.delivery?.sha256 !== candidate.asset.delivery?.sha256)) return false;
+  if (p.listener_flora_zone_ids && !p.listener_flora_zone_ids.includes(zoneAt(env, env.camera.position.x, env.camera.position.z))) return false;
+  if (p.require_dry_ground && !dryGround(env.terrain, env.camera.position.x, -env.camera.position.z)) return false;
   if (p.mode === 'habitat-insects') {
     candidate.gain = insectGain(env, p);
     return candidate.gain > 0 && !!recordFor(env, p, zoneAt(env, env.camera.position.x, env.camera.position.z), period);
   }
   const { x, y, z } = candidate.anchor, eye = env.camera.position;
-  const distance = Math.hypot(x - eye.x, y - eye.y, z - eye.z);
-  if (distance < HABITAT_AUDIO_LIMITS.birdNearMetres || distance >= HABITAT_AUDIO_LIMITS.birdFarMetres
+  const distance = Math.hypot(x - eye.x, y - eye.y, z - eye.z), spatial = profileFor(p);
+  if (p.require_dry_ground && !dryGround(env.terrain, x, -z)) return false;
+  if (distance < spatial.near || distance >= spatial.far
     || !behindListener(env.camera, x, y, z) || !recordFor(env, p, zoneAt(env, x, z), period)) return false;
-  candidate.gain = p.gain * (1 - distance / HABITAT_AUDIO_LIMITS.birdFarMetres) ** 2;
+  candidate.gain = p.gain * (1 - distance / spatial.far) ** 2;
   return true;
 }
 
@@ -154,7 +246,7 @@ export function createHabitatAudio({ ctx, output, catalog, environment,
   now = () => performance.now(), random = Math.random, onError = () => {} } = {}) {
   let disposed = false, active = false, year = '', scope = '', generation = 0;
   let loading = null, controller = null, cached = null, voice = null, decoder = null, duck = 1, lastNow = 0;
-  let nextInspect = 0, nextPhraseAt = 0;
+  let nextInspect = 0, nextPhraseAt = 0, rareNextDue = 0, terrainScope = null;
   const nextDue = new Map(), failed = new Set(), errors = new Set();
   const jitter = (a, b) => a + clamp(random(), 0, 1) * (b - a);
   const error = message => { errors.add(message); onError(message); };
@@ -185,6 +277,11 @@ export function createHabitatAudio({ ctx, output, catalog, environment,
   }
   function start(candidate, buffer) {
     if (!active || disposed || voice || !stillEligible(candidate, catalog(), environment(), year)) return;
+    // A coyote whose decode finished late yields to already-due ordinary nature.
+    // The shared scheduler keeps those existing deadlines and the one voice.
+    if (year === '1812' && candidate.mode === 'distant-fauna'
+      && habitatCandidates(catalog(), environment(), year).some(c => c.mode !== 'distant-fauna'
+        && !failed.has(c.asset.id) && nextDue.get(c.asset.id) <= now())) return;
     const source = ctx.createBufferSource(), gain = ctx.createGain(), envelope = ctx.createGain();
     source.buffer = buffer; source.loop = false; gain.gain.value = candidate.gain * duck;
     envelope.gain.value = 0; source.connect(envelope); envelope.connect(gain);
@@ -210,6 +307,7 @@ export function createHabitatAudio({ ctx, output, catalog, environment,
     source.start(t); source.stop(t + duration);
     nextPhraseAt = now() + 1000 * (duration + jitter(12, 25));
     nextDue.set(candidate.asset.id, now() + 1000 * (duration + jitter(...candidate.placement.gap_seconds)));
+    if (year === '1812' && candidate.mode === 'distant-fauna') rareNextDue = nextDue.get(candidate.asset.id);
   }
   async function load(candidate) {
     if (loading || disposed || !active) return;
@@ -258,7 +356,10 @@ export function createHabitatAudio({ ctx, output, catalog, environment,
       const env = environment(), next = String(nextYear ?? ''), t = now();
       const nextScope = `${next}|${env?.time?.date ?? ''}|${env?.season ?? ''}`;
       const willRun = !!enabled && validScene(env, next);
-      if (nextScope !== scope || (!willRun && active) || t < lastNow) reset();
+      if (t < lastNow) rareNextDue = 0;
+      if (nextScope !== scope || (!willRun && active) || t < lastNow
+        || (next === '1812' && terrainScope !== env?.terrain)) reset();
+      terrainScope = env?.terrain;
       scope = nextScope; year = next; active = willRun; lastNow = t; duck = clamp(nextDuck, 0, 1);
       if (!active) return;
       updateVoice();
@@ -266,10 +367,15 @@ export function createHabitatAudio({ ctx, output, catalog, environment,
       // Nearby habitat lookups are bounded to once per second, not every frame.
       nextInspect = t + 1000;
       const candidates = habitatCandidates(catalog(), env, year, { birdPhase: jitter(0, Math.PI * 2) });
-      for (const c of candidates) if (!nextDue.has(c.asset.id))
-        nextDue.set(c.asset.id, t + jitter(c.mode === 'distant-bird' ? 12000 : 6000, 20000));
+      for (const c of candidates) if (!nextDue.has(c.asset.id)) {
+        const initial = c.placement.initial_gap_seconds
+          ? 1000 * jitter(...c.placement.initial_gap_seconds)
+          : jitter(c.mode === 'distant-bird' ? 12000 : 6000, 20000);
+        nextDue.set(c.asset.id, Math.max(t + initial, next === '1812' && c.mode === 'distant-fauna' ? rareNextDue : 0));
+      }
       const due = candidates.filter(c => !failed.has(c.asset.id) && nextDue.get(c.asset.id) <= t)
-        .sort((a, b) => nextDue.get(a.asset.id) - nextDue.get(b.asset.id));
+        .sort((a, b) => (next === '1812' ? Number(a.mode === 'distant-fauna') - Number(b.mode === 'distant-fauna') : 0)
+          || nextDue.get(a.asset.id) - nextDue.get(b.asset.id));
       if (due.length) void load(due[0]);
     },
     reset,

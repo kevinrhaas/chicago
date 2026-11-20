@@ -41,13 +41,60 @@ export function planUpdate(old, next, have = null) {
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 const mb = (n) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} GB` : `${Math.max(0.1, n / 1e6).toFixed(n >= 1e8 ? 0 : 1)} MB`);
 
-export function createYearPack({ year, mount, base = document.baseURI, dev = false }) {
+/**
+ * T-3675: what the control says, in each state. Pure: tools/check_chromebook.mjs reads it.
+ * `classroom` (a Chromebook) names the welcome line for the teacher readying a class set;
+ * the note says the same honest thing to everyone: the copy is this device's, so a class
+ * set is prepared one device at a time, and nothing is downloaded once for the room.
+ */
+export function packWords({ year, status = 'idle', size = '', progress = null, error = '', classroom = false } = {}) {
+  const sized = size ? ` (${size})` : '';
+  if (status === 'downloading') {
+    const p = progress || {};
+    const fraction = p.total ? Math.min(1, p.bytes / p.total) : 0;
+    const pct = `${Math.round(fraction * 100)} %`;
+    return {
+      line: classroom ? `Preparing for class · ${pct}` : `Offline copy · ${pct}`,
+      tip: `Saving ${year} on this device`,
+      note: p.total ? `Saving ${year}: ${mb(p.bytes)} of ${mb(p.total)}. Keep this page open.` : `Saving ${year}…`,
+      setting: `Saving ${year} · ${pct}`, keep: 'Download', fraction,
+    };
+  }
+  if (status === 'kept') {
+    return {
+      line: classroom ? 'Ready for class · works offline' : 'Offline copy · kept',
+      tip: `${year} is on this device and opens offline`,
+      note: `Ready: ${year} is on this device and opens with no connection. To check, turn Wi-Fi off and `
+        + 'reload this page. Updates fetch only what changed.',
+      setting: `${year} · ready offline`, keep: 'Download', fraction: 1,
+    };
+  }
+  if (status === 'error') {
+    return {
+      line: classroom ? 'Prepare for class · stopped' : 'Offline copy · stopped',
+      tip: `The offline copy stopped: ${error}`,
+      note: `Stopped: ${error}.`, setting: `${year} · stopped`, keep: 'Try again', fraction: 0,
+    };
+  }
+  return {
+    line: classroom ? `Prepare for class${size ? ` · ${size}` : ''}` : 'Offline copy',
+    tip: `Keep ${year} on this device${sized} so it opens with no connection`,
+    note: `Saves ${year}${sized} on this device so it opens with no connection. To prepare a class, do this `
+      + 'on each device before the lesson: every device keeps its own copy, and nothing is shared across '
+      + 'the room. It stays until you remove it.',
+    setting: `Offline copy of ${year}`,
+    keep: size ? `Download ${size}` : 'Download', fraction: 0,
+  };
+}
+
+export function createYearPack({ year, mount, base = document.baseURI, dev = false, classroom = false }) {
   const root = new URL('../', base);                       // the site root: /4d/ or /4d/dev/
   const cacheName = `c4d-pack ${root.pathname} ${year}`;   // sw.js names it the same way
   const supported = !dev && !!mount && 'serviceWorker' in navigator && 'caches' in globalThis
     && globalThis.isSecureContext !== false && !/[?&]nosw\b/.test(location.search);
   const state = { year, supported, status: 'idle', installed: null, published: null, last: null, error: null };
   let busy = null;
+  let shown = false;   // a pack is on offer here (start() found one published or kept)
 
   const url = (rel) => new URL(rel, root).href;
   const registration = () => navigator.serviceWorker.getRegistration(root.href).catch(() => null);
@@ -60,10 +107,6 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     if (!(await caches.has(cacheName))) return null;
     const res = await (await caches.open(cacheName)).match(url(MANIFEST));
     return res ? res.json() : null;
-  }
-
-  async function digest(bytes) {
-    return hex(await crypto.subtle.digest('SHA-256', bytes)).slice(0, 16);
   }
 
   /** The published list. Cache-busted, so a CDN copy older than the files it lists cannot answer. */
@@ -188,66 +231,83 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     return busy;
   }
 
-  // ---- the control on the welcome ------------------------------------------------
+  // ---- the control on the welcome, and its twin in Settings -------------------------
   // T-2947: one small mono line, not a button that shouts. Tapping it opens a short
   // explanation with the download in it (the phone has no hover for a tooltip), so
-  // 238 MB never starts from a stray tap.
-  let toggle = null, info = null, note = null, keep = null, drop = null, bar = null;
+  // 238 MB never starts from a stray tap. T-3675: on a Chromebook the line reads
+  // "Prepare for class" with the size, and Settings › Graphics carries the same
+  // download (attachSettings), so a teacher readying a class set finds it either way.
+  const views = [];
+  let lastProgress = null;
   function build() {
     mount.replaceChildren();
-    toggle = document.createElement('button');
+    const toggle = document.createElement('button');
     toggle.type = 'button'; toggle.className = 'welcome-pack-toggle';
     toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-controls', 'welcome-pack-info');
+    const info = document.createElement('div');
+    info.id = 'welcome-pack-info'; info.className = 'welcome-pack-info'; info.hidden = true;
     toggle.addEventListener('click', () => {
       info.hidden = !info.hidden;
       toggle.setAttribute('aria-expanded', String(!info.hidden));
     });
-    info = document.createElement('div');
-    info.id = 'welcome-pack-info'; info.className = 'welcome-pack-info'; info.hidden = true;
-    note = document.createElement('p'); note.className = 'welcome-pack-note';
-    keep = document.createElement('button');
-    keep.type = 'button'; keep.className = 'welcome-pack-keep';
-    keep.addEventListener('click', () => { void install(); });
-    drop = document.createElement('button');
-    drop.type = 'button'; drop.className = 'welcome-pack-remove'; drop.textContent = 'Remove';
-    drop.addEventListener('click', () => { void remove(); });
-    bar = document.createElement('i'); bar.className = 'welcome-pack-bar'; bar.setAttribute('aria-hidden', 'true');
-    info.append(note, keep, drop, bar);
+    const v = parts('welcome-pack');
+    info.append(v.note, v.keep, v.drop, v.bar);
     mount.append(toggle, info);
+    views.push({ ...v, kind: 'welcome', root: mount, toggle });
+  }
+  /** The note, the two buttons and the bar, which both views share. */
+  function parts(cls) {
+    const note = document.createElement('p');
+    note.className = cls === 'welcome-pack' ? 'welcome-pack-note' : 'legend-note pack-settings-note';
+    const keep = document.createElement('button');
+    keep.type = 'button'; keep.className = cls === 'welcome-pack' ? 'welcome-pack-keep' : 'setting-button pack-keep';
+    keep.addEventListener('click', () => { void install(); });
+    const drop = document.createElement('button');
+    drop.type = 'button'; drop.className = cls === 'welcome-pack' ? 'welcome-pack-remove' : 'setting-button pack-remove';
+    drop.textContent = 'Remove';
+    drop.addEventListener('click', () => { void remove(); });
+    const bar = document.createElement('i'); bar.className = `${cls}-bar`; bar.setAttribute('aria-hidden', 'true');
+    return { note, keep, drop, bar };
+  }
+  /** T-3675: the same download in Settings, as its own group after `anchor` (Graphics › Performance). */
+  let settingsAnchor = null;
+  function buildSettings() {
+    if (!settingsAnchor || views.some((v) => v.kind === 'settings')) return;
+    const group = document.createElement('div');
+    group.className = 'settings-group pack-settings'; group.id = 's-offline';
+    group.dataset.setPane = settingsAnchor.dataset.setPane || 'graphics';
+    group.hidden = settingsAnchor.hidden;          // the tab in view decides, as for every group
+    const head = document.createElement('h4'); head.textContent = 'Prepare for class';
+    const row = document.createElement('div'); row.className = 'field row';
+    const label = document.createElement('span');
+    const v = parts('pack-settings');
+    const actions = document.createElement('span'); actions.className = 'pack-settings-actions';
+    actions.append(v.keep, v.drop);
+    row.append(label, actions);
+    group.append(head, row, v.note, v.bar);
+    settingsAnchor.after(group);
+    views.push({ ...v, kind: 'settings', root: group, label });
   }
   function render(progress) {
-    if (!toggle) return;
-    const size = state.published ? mb(state.published.bytes) : '';
+    if (progress) lastProgress = progress;
+    if (!views.length) return;
     const s = state.status;
-    mount.dataset.state = s;
-    keep.hidden = s === 'downloading' || s === 'kept';
-    drop.hidden = s !== 'kept';
-    let line, tip;
-    if (s === 'downloading') {
-      const p = progress || {};
-      const frac = p.total ? Math.min(1, p.bytes / p.total) : 0;
-      line = `Offline copy · ${Math.round(frac * 100)} %`;
-      tip = `Saving ${year} on this device`;
-      note.textContent = p.total ? `Saving ${year}: ${mb(p.bytes)} of ${mb(p.total)}. Keep this page open.` : `Saving ${year}…`;
-      bar.style.setProperty('--f', String(frac));
-    } else if (s === 'kept') {
-      line = 'Offline copy · kept';
-      tip = `${year} is on this device and opens offline`;
-      note.textContent = `${year} is on this device and opens with no connection. Updates fetch only what changed.`;
-    } else if (s === 'error') {
-      line = 'Offline copy · stopped';
-      tip = `The offline copy stopped: ${state.error}`;
-      note.textContent = `Stopped: ${state.error}.`;
-      keep.textContent = 'Try again';
-    } else {
-      line = 'Offline copy';
-      tip = `Keep ${year} on this device${size ? ` (${size})` : ''} so it opens with no connection`;
-      note.textContent = `Saves ${year}${size ? ` (${size})` : ''} on this device so it opens with no connection. `
-        + 'The browser\'s own cache can be cleared at any time; this copy stays until you remove it.';
-      keep.textContent = size ? `Download ${size}` : 'Download';
+    const p = s === 'downloading' ? (progress || lastProgress || {}) : null;
+    const words = packWords({ year, status: s, size: state.published ? mb(state.published.bytes) : '',
+      progress: p, error: state.error, classroom });
+    for (const v of views) {
+      v.root.dataset.state = s;
+      v.keep.hidden = s === 'downloading' || s === 'kept';
+      v.drop.hidden = s !== 'kept';
+      v.keep.textContent = words.keep;
+      v.note.textContent = words.note;
+      v.bar.style.setProperty('--f', String(words.fraction));
+      if (v.toggle) {
+        v.toggle.innerHTML = `${iconSvg(s === 'kept' ? 'kept' : 'keep', 14)}<span>${words.line}</span>`;
+        v.toggle.title = words.tip;
+      }
+      if (v.label) v.label.textContent = words.setting;
     }
-    toggle.innerHTML = `${iconSvg(s === 'kept' ? 'kept' : 'keep', 14)}<span>${line}</span>`;
-    toggle.title = tip;
     mount.hidden = false;
   }
 
@@ -267,6 +327,7 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
       if (kept) state.installed = { id: kept.id, count: kept.count, bytes: kept.bytes };
       if (!state.published && !kept) { mount.hidden = true; return state; }   // nothing to keep for this year
       if (!mount.childElementCount) build();
+      shown = true; buildSettings();
       state.status = kept ? 'kept' : 'idle';
       render();
       // Updates by hash: a kept pack behind the published one fetches the difference.
@@ -278,7 +339,7 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
       }
     } catch (e) {
       state.status = 'error'; state.error = String(e?.message || e);
-      if (button) render(); else mount.hidden = true;
+      if (views.length) render(); else mount.hidden = true;
     }
     return state;
   }
@@ -292,6 +353,11 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
   }
   return {
     state, ready, install, remove,
+    /** T-3675: Settings' "Prepare for class" group, placed after `anchor` once a pack is on offer. */
+    attachSettings(anchor) {
+      settingsAnchor = anchor || null;
+      if (shown) { buildSettings(); render(); }
+    },
     /** Resolves when no download is running. */
     settled: () => Promise.resolve(ready).then(() => busy),
   };

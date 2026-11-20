@@ -1,0 +1,97 @@
+== premise
+Two rumors are going around the forks of the river. Carry them past the Exchange to the town's two newspaper offices. Read what the papers really said. Then decide what you will tell people.
+
+== opening
+JAUNT: GOSSIP OR PRINTED NOTICE? It is morning at the forks of the river. Two rumors are already going around. One says the land sale took in a million dollars. The other says a bank is opening in a brick house on the town square. In a town this excited, rumors travel faster than the mail. The mail is often late. When it does come, someone with a loud voice stands on a box and reads the news out loud.
+
+This summer there are two newspapers in town. Carry the rumors to both newspaper offices. Read what the papers really said before you repeat a word.
+
+== stop the-forks
+Start at the forks, under the Wolf Point Tavern's painted wolf sign. One story says William Walters ran the inn until 1836. Another says it stopped taking guests in 1834. At the door, all the talk is about money. People say a million dollars came in at the land sale. They say a bank will open on the square in a few weeks. Since the land office opened in May, nobody in town talks about anything else.
+
+== narrative the-forks
+Hear the rumors, but do not believe either one yet.
+
+== stop the-exchange
+Cross the river to the Exchange Coffee House at Lake and Wells Streets. Mark Beaubien built it, and Mr and Mrs Murphy have run it since August 1834. The rumors got here before you did. They grew bigger on the way. Somebody at the door wants to know if they are true.
+
+== narrative the-exchange
+Hear the rumors again, on the other side of the river.
+
+== label the-exchange promise
+Promise to find out
+
+== consequence the-exchange promise
+You owe someone an answer when you are done.
+
+== label the-exchange just-listen
+Just listen
+
+== consequence the-exchange just-listen
+You do not owe anyone anything.
+
+== stop the-democrat
+Go to South Water and Clark Streets, where the Democrat newspaper first had its office. Today it is printed over a hardware store down the street. Today's paper says it does not know how much the land office took in. It only guesses. The old copy that survives cannot be read at the top number. Either way, it is not a million dollars.
+
+== narrative the-democrat
+Find the first rumor in the paper.
+
+== label the-democrat note-the-guess
+Note the paper's guess, doubt and all
+
+== consequence the-democrat note-the-guess
+Not a million, and not certain. The paper says so itself.
+
+== label the-democrat skip-the-sale
+Leave the land sale to the talkers
+
+== consequence the-democrat skip-the-sale
+You write nothing down here.
+
+== stop the-american
+Near the drawbridge is the other paper, the American. It is only three weeks old. Its 27 June paper copied a story from another town's paper. It said the State Bank has decided to open a branch in Chicago. But nobody knows yet who will run it. The brick building on the square is in Springfield, not Chicago. Half of the rumor is true. That is the trickiest kind.
+
+== narrative the-american
+Decide what you will tell people.
+
+== label the-american carry-the-print
+Carry back what was printed, doubts and all
+
+== consequence the-american carry-the-print
+Only what you read, with the papers' own doubts.
+
+== label the-american not-settled
+Carry back that nothing is settled
+
+== consequence the-american not-settled
+You say out loud that nobody knows for sure.
+
+== label the-american say-nothing
+Carry back nothing for now
+
+== consequence the-american say-nothing
+The rumors travel without you.
+
+== leg 0
+Two rumors, moving faster than you can walk.
+
+== leg 1
+Find a paper to check each rumor against.
+
+== ending true-to-the-page
+You tell people both stories the way the papers printed them. The Democrat would only guess at the land sale money. The bank is planned, but nobody has been named to run it and there is no building in Chicago yet. That is less than the forks said, but it is true. Before the year ends, a count of the town will find one bank in Chicago, a branch of the State Bank.
+
+== ending one-checked
+You tell people what the paper said about the bank. You leave the land sale alone, because you did not write it down. You fixed half of the story, honestly.
+
+== ending not-yet-known
+You tell people that nothing is settled. One paper would only guess. The other names nobody to run the bank and no building. Saying you are not sure is an answer too.
+
+== ending owed-an-answer
+You promised an answer at the Exchange, but you bring none back. People there will keep repeating the rumors until the papers print more next week.
+
+== ending held-tongue
+You say nothing, and the rumors go around without you. The papers will print more next week. Until then, keeping quiet is a fair way to read the news.
+
+== keepsake text
+A made-up note of two rumors heard at the forks in July 1835, next to what the two newspapers printed. No real person said either rumor.

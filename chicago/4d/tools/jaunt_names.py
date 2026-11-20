@@ -8,7 +8,8 @@ Prairie, the Keith house": three styles from three places (the record's producti
 card title, this walk's own rule). So the names come from here, in one style:
 
     Marshall Field House, 1905 Prairie       a house whose family data/jaunts/_names/place-names.json names
-    Marshall Field coach house, 1905 Prairie its coach house (or alley/rear building, conservatory)
+    Marshall Field coach house, 1905 Prairie its coach house (or alley/rear building, conservatory,
+                                             frame house)
     1726 Prairie                             a house with no family named
     Coach house, 1736 Prairie                its coach house
 
@@ -27,7 +28,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TABLE = ROOT / 'data/jaunts/_names/place-names.json'
 PARTS = (('_coach_house', 'coach house'), ('_alley_building', 'alley building'),
-         ('_rear_building', 'rear building'), ('_conservatory', 'conservatory'), ('_front', None))
+         ('_rear_building', 'rear building'), ('_conservatory', 'conservatory'), ('_front', None),
+         ('_frame_house', 'frame house'))     # T-3566: 1721's 1863 house behind its brick front
 
 
 def table(scene):

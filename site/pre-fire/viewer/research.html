@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Evidence, scene requirements, and open questions for reconstructing Chicago immediately before the Great Fire of 1871.">
+  <title>Preparing 1871 — Chicago Before the Fire</title>
+  <link rel="stylesheet" href="research.css?v=2">
+  <script src="research.js?v=2" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#research">Skip to research</a>
+  <header class="masthead">
+    <a class="back-link" href="index.html">← Chicago Before the Fire · Year Explorer</a>
+    <p class="eyebrow">Research for the next reconstruction</p>
+    <h1>Preparing <em>1871</em></h1>
+    <p class="lede" id="scope">The city immediately before the Great Fire: its ground, buildings, people, vegetation, transport, and daily life.</p>
+    <p class="scope-note">A research dossier for building the scene. Documented findings, rendering inferences, and unresolved questions remain visible together.</p>
+    <nav class="page-nav" aria-label="Research sections">
+      <a href="notebook.html">Primary-source field notebook →</a>
+      <a href="geography.html">Geography &amp; accuracy audit →</a>
+      <a href="#research">Evidence &amp; rendering</a>
+      <a href="#other-years">Lessons from other years</a>
+      <a href="#next">Before we render</a>
+      <a href="research-1871.json" download>Download research JSON ↓</a>
+    </nav>
+    <p class="updated" id="updated"></p>
+  </header>
+
+  <main>
+    <aside class="notebook-entry" aria-label="New primary-source research">
+      <p class="eyebrow">Second research pass · Read the original pages</p>
+      <h2>The city in detail</h2>
+      <p>Explore named workplaces and residents, horsecar schedules, plank walks, hydrants, park planting and eight proposed scene studies. Each observation includes its historical location, source page and limits.</p>
+      <a href="notebook.html">Open the field notebook →</a>
+    </aside>
+    <aside class="notebook-entry" aria-label="Geography research update"><p class="eyebrow">Geography audit · 18 November 2026</p><h2>Putting the city in place</h2><p>Read the corrected 1870 map controls, inspect eight independent checks, and compare newly acquired harbor surveys with the October 1871 scene date.</p><a href="geography.html">Open the geography &amp; accuracy audit →</a></aside>
+    <div id="load-status" class="load-status" role="status">Loading the research dossier…</div>
+    <section id="research" aria-labelledby="research-heading" hidden>
+      <div class="section-heading">
+        <div><p class="eyebrow">Find the detail you need</p><h2 id="research-heading">Evidence &amp; rendering</h2></div>
+        <p class="inventory" id="inventory"></p>
+      </div>
+      <p class="reading-guide"><strong>Read each claim with its limits.</strong> “Documented” means a cited source supports the statement. It does not certify a complete model, a measured footprint, or an action at an exact hour. Rendering implications are proposals unless explicitly supported.</p>
+      <form id="filters" class="filters" role="search">
+        <div class="search-field"><label for="research-search">Search the dossier</label><input id="research-search" type="search" placeholder="Try lagoon, streetcars, clothing, or trees" autocomplete="off"></div>
+        <div><label for="category">Topic</label><select id="category"><option value="">All topics</option></select></div>
+        <div><label for="evidence">Evidence status</label><select id="evidence"><option value="">All statuses</option><option value="documented">Documented</option><option value="inferred">Inferred</option><option value="open">Open question</option></select></div>
+        <button type="button" id="clear-filters">Clear filters</button>
+      </form>
+      <div class="results-toolbar">
+        <p id="results-count" role="status" aria-live="polite"></p>
+        <div class="detail-controls"><button type="button" id="expand-all">Expand results</button><button type="button" id="collapse-all">Collapse results</button></div>
+      </div>
+      <div id="research-cards"></div>
+      <p class="empty-state" id="empty-state" hidden>No matching research. Try a broader phrase or clear the filters.</p>
+    </section>
+
+    <section id="other-years" aria-labelledby="years-heading" hidden>
+      <div class="section-heading"><div><p class="eyebrow">What the existing work teaches us</p><h2 id="years-heading">Lessons from other years</h2></div></div>
+      <p class="section-intro">Scene data, year coverage, and older planning notes serve different purposes. These findings distinguish implemented scenes from research and planned work.</p>
+      <p class="reading-guide" id="audit-snapshot"></p>
+      <p class="download-link"><a href="year-coverage.csv" download>Annual coverage CSV ↓</a> · Evidence-index counts for every year, 1674–1871.</p>
+      <div id="year-audit"></div>
+    </section>
+
+    <section id="next" aria-labelledby="next-heading" hidden>
+      <div class="section-heading"><div><p class="eyebrow">From research to a buildable scene</p><h2 id="next-heading">Before we render</h2></div></div>
+      <p class="section-intro">Each step names a concrete deliverable and the evidence needed to accept it.</p>
+      <ol id="readiness"></ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Chicago Before the Fire · Research preparation for 1871</p>
+    <p>Source dates, access limits, conflicts, and liberties travel with the evidence. Historical research is not an inventory of every person, plant, vehicle, or structure.</p>
+    <a href="index.html">Return to the Year Explorer</a>
+  </footer>
+</body>
+</html>

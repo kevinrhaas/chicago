@@ -2,14 +2,75 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a",
-  "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
+  "glb_sha256": "b561f8ec877a5e60cf2f40aad1fdaf83d0d4ab544f5baab21c22e349b71b528a",
+  "camera_sha256": "67792d35eba57dc3476456d66ae6c3b93f9b6ff9fa2aed952b89b79f1fcea2a3",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_2009",
+        "shrubs": 0,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 11,
+    "street_trees_m": 40
+  },
+  "flora_anchor": {
+    "local_e": 1448.216,
+    "local_n": -3504.619,
+    "rotation_deg": 179.389,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "4bfa561b413830e763fe85a1a2fc9ad218ce92ebc0f4b26142f0526eb2b47049",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.95 m)",
+      "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.42 m since T-3365; 11.95 m before)",
       "status": "fixed"
     },
     {
@@ -45,7 +106,7 @@
       "status": "fixed"
     },
     {
-      "what": "the oriel's frieze band about 0.15 m higher than the print's, and its carving drawn as a run of rings where the print's is foliage in three large cartouches",
+      "what": "the oriel's carved band 7.7-8.45 m against the print's frieze about 7.75-8.35 m under its moulded top at about 8.45-8.5 m (through the turned camera), and its carving drawn as a run of rings where the print's is foliage in three large cartouches",
       "status": "within tolerance"
     },
     {
@@ -129,11 +190,39 @@
       "status": "fixed"
     },
     {
+      "what": "the course at about 9.1 m and the paired light's group over it fall to the south in the print (the hood top y 545 to 590 px across x 650-935; the course from y 742 px at x 500 to y 818 px at x 1055) while the build lays them level: neither the building's nor a sheared print's, but the camera's. The print is a TURNED view (T-3365 re-solved the camera 22.4 degrees south of square: the coursing's fall is a straight line in its height, zero on the eye's level; 2011's flat front falls the same; the brick courses are 6.42 px apart at the north corner and 5.74 px at the party line). Through it the course reads 9.2 m at both ends and the hood's top 11.3 m at both ends, and the render falls with the print (0.16, 0.14, 0.12, 0.08 against the print's 0.15, 0.14, 0.12, 0.06 at the hood, the upper wall, the course and the oriel; level at the base)",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel's height, re-read through the turned camera (T-3365): the print's oriel stops at a moulded top about 8.45-8.5 m, with about 0.5 m of the front's brick between it and the course at 9.2 m (about 50 px on the print itself at x 560, whatever the camera), its lights about 5.65-7.45 m on a transom at about 7.0 m, its carved apron about 5.05-5.5 m; the build's ran its cap up into the course (9.2 m) on lights to 8.2 m. Built: its storey 2.8 m from the floor at 5.3 m (crown 8.45 m measured on the rectified render), its carved band 7.65-8.45 m, its lights 5.75-7.3 m, its apron 5.3-5.64 m (K01 lays it to the lights' sill stones, so it stands about 0.2 m over the print's)",
+      "status": "fixed"
+    },
+    {
+      "what": "the paired light's group, re-read through the turned camera (T-3365): the print's light 9.4-11.0 m (sill to head), its drip mould's top 11.3 m, its pendant to about 12.15 m; the build stood 0.2-0.8 m higher (9.6-11.45 m, hood to 11.85 m, pendant to 12.96 m). Built: the light 9.4-11.0 m, the hood 11.0-11.3 m with its stops 0.4 m down, the pendant 11.3-12.15 m (its four tiers kept in proportion)",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's attic light, re-read through the turned camera (T-3365): the print's two narrow lights 13.2-14.0 m, the build's 13.75-14.57 m. Built at 13.2 m, 0.78 m high",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's outline through the turned camera: from 13 m up its two slopes lie within 0.1 m (north) and 0.15-0.2 m (south, wider) of the print's, and its crest's top about 0.25-0.35 m over the print's (about 16.5 against 16.25 m)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the near tall stack's top, re-read through the turned camera (T-3365): the print's top (y 107 px, x 330-415 px) is about 16.3 m at the stack's place 2.4 m behind the front, where the square camera read about 17.8 m and the build stands it (1.7 m over a ridge set by the 11.95 m wall head): the render's runs past the frame's top, about 1.5 m high. It wants lowering with the wall head below, not alone — T-3365: taken down with the wall head and its top over the ridge cut from 1.7 m to 0.75 m: the render's cap top now at y 108-121 px against the print's 107 px (about 0.1 m), the shaft inside the frame",
+      "status": "fixed"
+    },
+    {
+      "what": "the north corner's wall head: through the turned camera the print's front north of the gable stops at about 11.3 m (sky over it from v 0.95 m at 11.5 m), and the gable's north coping comes down to it about 0.9 m in from the corner; the build's ledge and wall head stand at 11.97 m (the third storey's 2.75 m, which the flanks and the roof share), about 0.65 m high. The square camera's uniform 100 px a metre read this end of the front about 8% high — T-3365: the third storey taken down to 2.22 m, the wall head and ledge to 11.42 and 11.45 m (0.55 m lower): the render's corner now stops at y 480 px against the print's 505 px, about 0.15-0.2 m over it, under the bar. Not to 11.3 m because the paired light's top (11.0 m) must stand under the gable slab's foot, which K01 starts 0.3 m under the fascia. Read again at 3x with the contrast stretched: the grey between the stack and the coping over the kneeler (y 505-545 px, x 410-480) is smooth and coursed, unlike the front's rough brick, so it may be the north slope's slate, which would put the corner's head on the kneeler at about 10.8 m and the coping's foot down on it at the corner, about 0.5 m under the build's; Monroe's plate draws the coping landing at about the hood's level, within about 0.2 m of the build, so the two pictures disagree there (within tolerance)",
+      "status": "fixed"
+    },
+    {
       "what": "the stoop: a straight flight between stone cheek walls from the walk to the door at the south end, on the print's place and width",
       "status": "fixed"
     },
     {
-      "what": "the near tall stack on the north flank: built astride the north wall where the print centres it (the render's shaft x 327-410 px against the print's 331-409), its top within 0.1 m of the print's, and its head a thin band, a stage standing a little proud and a stone cap where the print's cap is weathered to a low point (about 0.1 m)",
+      "what": "the near tall stack on the north flank: built astride the north wall where the print centres it (the render's shaft x 327-410 px against the print's 331-409), its top within 0.1 m of the print's, and its head a thin band, a stage standing a little proud and a stone cap where the print's cap is weathered to a low point (about 0.1 m) — its PLACE; its top, read through the square camera, is re-read through the turned one below (T-3365)",
       "status": "fixed"
     },
     {
@@ -141,8 +230,8 @@
       "status": "not shown"
     },
     {
-      "what": "the stacks' brick: the side walls' buff, where the print draws both as dark as the front's rough brick (a tone, not a colour: the print is monochrome, so the brick wants a source that gives its colour)",
-      "status": "open"
+      "what": "the stacks' brick: built in the side walls' buff, where the print draws both stacks as dark as the front's rough brick (the near shaft's mean grey 111 and the far one's 133, against the front's 88-121, the brown sandstone dressings' 142 and the sky's 249). A buff brick cannot print darker than brown sandstone on a blue- or orthochromatic plate, so T-3365 lays the side and rear walls and the stacks they carry in the front's red-brown (service_wall_brick rough_red_brown_running, inferred, as 1700-1706 Prairie's, T-3244); the render's stacks now read with the front",
+      "status": "fixed"
     },
     {
       "what": "the north flank: its projection's front face and the tall light near the front corner, seen edge-on; the print's flank is mostly hidden by the parkway tree",
@@ -153,11 +242,23 @@
       "status": "not shown"
     },
     {
-      "what": "the two bare parkway trees: not this record's (the street's trees)",
-      "status": "open"
+      "what": "the two bare parkway trees (the print's trunks at x 247, foot y 1875, and x 1388, foot y 1830): the review drew none, and the scene's rule stood one grown elm at 30.0 m along Prairie's east parkway with a 0.6 m bole and a crown over the gable. T-3365 plants the two the print shows, read through this camera onto the planting line at 24.6 and 31.2 m (data/street_trees/pictured_1904.json), young trees on one leader clear to about 5 m under narrow heads to about 7.2-7.6 m, boles about 0.2-0.25 m (the high_head form at scale 0.4), bare; the rule's tree is withdrawn. The render's trunks stand within about 10 px of the print's and their tops within about 0.5 m",
+      "status": "fixed"
     },
     {
       "what": "colour: the print is monochrome; the brick is the register's rough red-brown and the basement its brownstone",
+      "status": "not shown"
+    },
+    {
+      "what": "the gable's north coping: the print and Monroe's plate both bring it down to about the corner, where the build's stops about 0.78 m in from it (the outline's foot at 3.0 m from the centre on a 3.78 m half-front), the ledge's brick between; an earlier reading put the print's 0.9 m in, so the readings disagree (T-3365)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the two trees' twigs: the render draws them as straight strokes in a fringe, where the print's are fine and forked, and the right tree's head a little wider; the places, heights, boles and the narrow heads agree, and a visitor sees two slender bare trees either side of the front in both",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the rule's grown elm at 20.3 m along the parkway, north of the print's left edge: outside the frame, its crown not reaching into it in the render",
       "status": "not shown"
     }
   ],

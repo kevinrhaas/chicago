@@ -1200,7 +1200,7 @@ Generated output of this repository's own Cycles bake (`generators/archetypes/ma
 
 ### Glessner House v4 original surface studies
 
-The following 43 files are original project material assets: eleven deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
+The following 44 files are original project material assets: twelve deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
 
 - `textures/glessner-v4/LICENSE.txt`
 - `textures/glessner-v4/README.md`
@@ -1208,6 +1208,7 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/brick_normal.png`
 - `textures/glessner-v4/brick_roughness.png`
 - `textures/glessner-v4/court_brick_basecolor.jpg`
+- `textures/glessner-v4/common_brick_basecolor.jpg`
 - `textures/glessner-v4/copper_basecolor.jpg`
 - `textures/glessner-v4/copper_normal.png`
 - `textures/glessner-v4/copper_roughness.png`
@@ -1488,6 +1489,85 @@ authored/humans/skin_mh_old_lightskinned_male/README.md
 authored/humans/skin_mh_old_lightskinned_male/SOURCE.json
 authored/humans/skin_mh_old_lightskinned_male/old_caucasian_male.mhmat
 authored/humans/skin_mh_old_lightskinned_male/old_lightskinned_male_bald_crown.png
+```
+
+
+### Face library — `authored/humans/face_library/` and `humans/web/faces/hm08_faces.jpg` (T-3553)
+
+The face of each of 22 skin atlases MakeHuman and its community publish as **CC0-1.0**, for
+the people who have no pictures of their own (owner, 2026-11-14: "MakeHuman skins only for
+now"; liberty `L-face-library-3553`). Three packs, each fetched on 2026-11-14 from the
+MakeHuman community's own server:
+<https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>
+(MakeHuman's own system skins; CC0 by the statement in each skin's material file,
+"explicitly released as CC0 in september 2020", Data Collection AB, Joel Palmius, Jonas
+Hauquier; the files kept unchanged in `materials/`),
+<https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip> and
+<https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip> (community
+skins; CC0 in each pack's own record of the asset, kept unchanged as
+`skins01.original.json` and `skins02.original.json`; the community material files are not
+kept and not used, but each is read once for a licence line of its own, and `SOURCE.json`
+keeps its hash and any line found). The system pack's own record is kept unchanged too, as
+`makehuman_system_assets.original.json`, so the three packs' 59 skins can be counted against
+the 22 kept and the 37 left out. `SOURCE.json` pins all three records by SHA-256. Each `faces/<id>.png` is the unchanged 512 by 512 pixel box
+`[1504, 800, 2016, 1312]` of its 2048 by 2048 atlas; the atlases are not kept, and
+`SOURCE.json` pins each by size, CRC-32 and SHA-256. No photograph of any person is among
+them. These components convey no historical likeness, and a pack's own name for a skin is
+not a fact about anyone who wears its face.
+
+| File | Creator and source | Rights |
+|---|---|---|
+| `authored/humans/face_library/faces/young_lightskinned_female.png` | MakeHuman system skin `young_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc` |
+| `authored/humans/face_library/faces/young_lightskinned_female_2.png` | MakeHuman system skin `young_caucasian_female2` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `8d1fb3ceedf142fad32a3504eca1feb4539aecca6de66acde1514b9a61fc7ba0` |
+| `authored/humans/face_library/faces/middleage_lightskinned_female.png` | MakeHuman system skin `middleage_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `bcb9c2c8ace23880bc4407602a249abbcf4608b6ba0894e423b031913012a363` |
+| `authored/humans/face_library/faces/middleage_lightskinned_female_2.png` | MakeHuman system skin `middleage_asian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `39c505ca224387bef0b20cd2bf513c3997c27c7e7434447228c9991b87cb8d01` |
+| `authored/humans/face_library/faces/old_lightskinned_female.png` | MakeHuman system skin `old_caucasian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d` |
+| `authored/humans/face_library/faces/old_lightskinned_female_2.png` | MakeHuman system skin `old_asian_female` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `e0c6317c2354ee54c16ad5f871293121e4eee697d16423536bb1db3641d56bc9` |
+| `authored/humans/face_library/faces/young_lightskinned_male.png` | MakeHuman system skin `young_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963` |
+| `authored/humans/face_library/faces/young_lightskinned_male_2.png` | MakeHuman system skin `young_caucasian_male2` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `03efe1f6b0ae52429649dcefc9dcaef6058032f874a251169cc3e2ed473c3874` |
+| `authored/humans/face_library/faces/middleage_lightskinned_male.png` | MakeHuman system skin `middleage_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `3f94f3f6a5cab92dedf5cce392a87332312fc435f1cb44c6e7b897daef9a5fbb` |
+| `authored/humans/face_library/faces/old_lightskinned_male.png` | MakeHuman system skin `old_caucasian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `dfb2310ed3e0ad024ea7a3ad321215e2e9e2994cca64043d9f3d07c6543ec847` |
+| `authored/humans/face_library/faces/old_lightskinned_male_2.png` | MakeHuman system skin `old_asian_male` (Data Collection AB, Joel Palmius, Jonas Hauquier) | CC0-1.0 by its material file's header, kept in `materials/`; atlas SHA-256 `8b3232676c5b271b4f44ead68845155d93f15de641b6819561781e16701a6c59` |
+| `authored/humans/face_library/faces/callharvey3d_midtoned_female.png` | callharvey3d, `callharvey3d_midtoned_female` (skins01), http://www.makehumancommunity.org/node/802 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `dd0e953bb1ec3eee3d4956853599372c8faf5ba69982f0b4c3cc220b70cb0be0`. The pack's material file for this skin (not kept, not used) is MakeHuman's 2016 material for its `young_african_female` skin reused with its header ("This file is licensed AGPLv3"); the atlas is read as CC0 on the pack's record and on MakeHuman's September 2020 CC0 release of the skin it was made from (`licence_note` in `data/humans/variation/face_library.json`) |
+| `authored/humans/face_library/faces/cutoff3d_female.png` | CutOff3D, `cutoff3d_indian_female_skin` (skins01), http://www.makehumancommunity.org/node/3013 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `09ec5071c5be9c3e1d36b52675eb053152796b3f75abc2e96853a277174856a8` |
+| `authored/humans/face_library/faces/onlytheghosts_young_female.png` | OnlyTheGhosts, `onlytheghosts_young_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1578 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `e4547a04bab2244d8ec6bcb1d239f4cddb83f145d4ce2a5c7734ec514c8bebcf` |
+| `authored/humans/face_library/faces/onlytheghosts_middleage_female.png` | OnlyTheGhosts, `onlytheghosts_middle_aged_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1579 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `621d572153231348c5ff1248a72721109f5b4855215c895cb15d2991a22fff84` |
+| `authored/humans/face_library/faces/onlytheghosts_old_female.png` | OnlyTheGhosts, `onlytheghosts_old_eurasian_female` (skins01), http://www.makehumancommunity.org/node/1580 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `ff3e6ceba012b6be73f168b01145aeb4925f7db45b4790ab71b33a28e7ce644b` |
+| `authored/humans/face_library/faces/toigo_freckles_female.png` | MargaretToigo, `toigo_light_skin_female_freckles` (skins01), http://www.makehumancommunity.org/node/1134 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `8d8b7dac34f97ebdd8605b51d527ac6863685054b33e1004b3e309599542beaf` |
+| `authored/humans/face_library/faces/toigo_ginger_female.png` | MargaretToigo, `toigo_light_skin_female_ginger` (skins01), http://www.makehumancommunity.org/node/1130 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `8b547a325983272838738b58a5992f032f3cb065ce137699f94211e96ead13b1` |
+| `authored/humans/face_library/faces/toigo_ginger_female_2.png` | MargaretToigo, `toigo_light_skin_female_ginger_2` (skins01), http://www.makehumancommunity.org/node/1132 | CC0-1.0 in the pack's own record, kept as `skins01.original.json`; atlas SHA-256 `6a644aa688dfe2451579533a578b63ee1d0785ab900b43d172d0f005f21d8a55` |
+| `authored/humans/face_library/faces/onlytheghosts_old_male.png` | OnlyTheGhosts, `onlytheghosts_old_eurasian_male` (skins02), http://www.makehumancommunity.org/node/1581 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `923dee56ac9527886ab8b0498566bea15442a37ea4b4adaf88e40138ab38a0d4` |
+| `authored/humans/face_library/faces/toigo_freckles_male.png` | MargaretToigo, `toigo_light_skin_male_freckles` (skins02), http://www.makehumancommunity.org/node/1137 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `32d33fab52bda1b6bc8cd134bb34f2980a77d2b51c9f048e8ea00c861b4da604` |
+| `authored/humans/face_library/faces/toigo_ginger_male.png` | MargaretToigo, `toigo_light_skin_male_ginger` (skins02), http://www.makehumancommunity.org/node/1135 | CC0-1.0 in the pack's own record, kept as `skins02.original.json`; atlas SHA-256 `795eec22b27ba5a2527d99e60a31be61e06a45a39250c39b24b36438e963c4aa` |
+
+`humans/web/faces/hm08_faces.jpg` is the sheet the app reads: those 22 cuts, each scaled to
+256 pixels and multiplied to one tone where it meets the skin round it, laid side by side by
+`tools/face_library.py` (a CC0-1.0 derivative of the CC0 cuts above; its SHA-256 is in
+`data/humans/variation/face_library.json`). SOURCE and README are project-authored CC0.
+`evidence/young_african_female.mhmat` is MakeHuman's own material file for a skin that is not
+used here, kept unchanged (CC0 by its own header) because the licence note for
+`callharvey3d_midtoned_female` cites it: that face's atlas was made from that skin.
+
+Additional exact covered CC0 source-metadata and documentary paths:
+
+```text
+authored/humans/face_library/README.md
+authored/humans/face_library/SOURCE.json
+authored/humans/face_library/evidence/young_african_female.mhmat
+authored/humans/face_library/makehuman_system_assets.original.json
+authored/humans/face_library/materials/middleage_asian_female.mhmat
+authored/humans/face_library/materials/middleage_caucasian_female.mhmat
+authored/humans/face_library/materials/middleage_caucasian_male.mhmat
+authored/humans/face_library/materials/old_asian_female.mhmat
+authored/humans/face_library/materials/old_asian_male.mhmat
+authored/humans/face_library/materials/old_caucasian_female.mhmat
+authored/humans/face_library/materials/old_caucasian_male.mhmat
+authored/humans/face_library/materials/young_caucasian_female.mhmat
+authored/humans/face_library/materials/young_caucasian_female2.mhmat
+authored/humans/face_library/materials/young_caucasian_male.mhmat
+authored/humans/face_library/materials/young_caucasian_male2.mhmat
+authored/humans/face_library/skins01.original.json
+authored/humans/face_library/skins02.original.json
 ```
 
 
@@ -2400,9 +2480,11 @@ The MakeHuman graphical targets below are **CC0-1.0**, each carrying its own CC0
 from the same pinned [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482);
 `SOURCE-variation.json` records each one's upstream URL, size and SHA-256 (the macro age targets it also
 lists are the ones `SOURCE.json` already pins, unchanged). No MakeHuman program code is copied.
-`hm08_variation_kit.bin`, `.json` and `hm08_variation_persons.json` are generated from them by `tools/human_variation_kit.py` (original,
+`hm08_variation_kit.bin`, `.json`, `hm08_variation_persons.json` and the 1835 town's own table `hm08_variation_persons_1835.json` (T-3556) are generated from them by `tools/human_variation_kit.py` (original,
 GPL-3.0-or-later code) and are CC0-1.0, like `prepared.json` they are carried onto. Every value a person
-draws from the kit is a reconstruction (L-human-variation-3412), not a likeness.
+draws from the kit is a reconstruction (L-human-variation-3412), not a likeness. The nine `expression/units/caucasian/mouth-*`
+targets (T-3553) are not axes of the kit: `tools/bake_likeness_skin.py` reads them to fit a person's smile
+to a picture (`data/humans/variation/smiles/`, L-grey-smile-3553, L-grey-sarah-smile-3553).
 
 ```text
 authored/humans/makehuman_hm08/SOURCE-variation.json
@@ -2440,12 +2522,25 @@ authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-decr.targe
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-depression.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-elevation.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-eversion.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-parling.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-part-later.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-retraction.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-upward-retraction.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-backward.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-forward.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/l-eye-eyefold-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/l-eye-eyefold-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/r-eye-eyefold-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/r-eye-eyefold-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-decr.target
@@ -2469,6 +2564,8 @@ authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-mal
 authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-height-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-height-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-decr.target
@@ -2486,6 +2583,8 @@ authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-concave.ta
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-convex.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-angle-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-angle-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-down.target
@@ -2498,12 +2597,17 @@ authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-decr
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-septumangle-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-septumangle-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-volume-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/stomach/stomach-pregnant-incr.target
 humans/web/hm08_variation_kit.bin
 humans/web/hm08_variation_kit.json
 humans/web/hm08_variation_persons.json
+humans/web/hm08_variation_persons_1835.json
 ```
 
 ### A named resident's portrait and fitted face — `humans/web/portraits/` (T-3413)
@@ -2562,6 +2666,29 @@ rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
 humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.jpg
 humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.json
 humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg
+```
+
+`pa1904_grey_w_l_portrait.jpg` and `pa1904_grey_mrs_w_l_portrait.jpg` (T-3553) are cut and scaled from two sepia portraits the project owner supplied on 2026-11-12 as the likenesses to use for William L. and Sarah Grey (source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the full pictures are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). They are STAND-INS, not the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). The stand-in label is burned on each picture. The crop boxes are recorded in
+`data/humans/variation/portraits/pa1904_grey_w_l.json` and `pa1904_grey_mrs_w_l.json`. The `_model.jpg` stills (and their `.json` sidecars) are
+rendered by `tools/portrait_still.mjs` as above, and are **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_grey_mrs_w_l_model.jpg
+humans/web/portraits/pa1904_grey_mrs_w_l_model.json
+humans/web/portraits/pa1904_grey_mrs_w_l_portrait.jpg
+humans/web/portraits/pa1904_grey_w_l_model.jpg
+humans/web/portraits/pa1904_grey_w_l_model.json
+humans/web/portraits/pa1904_grey_w_l_portrait.jpg
+```
+
+`pa1904_grey_w_l_skin.jpg` and `pa1904_grey_mrs_w_l_skin.jpg` (T-3553) are baked by `tools/bake_likeness_skin.py` from the head turnaround sheets the project owner supplied on 2026-11-13 of the same two stand-ins (front, both sides and behind, in colour; source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the sheets are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). Each is the four views of a stand-in's head laid onto the body's skin layout as the figure's skin, hair and eyes, with the tool's own small blocks beside them (where the sheet covers, how far the hair stands out and which way it faces, and each iris drawn from the front view). `pa1904_grey_w_l_front.jpg` and `pa1904_grey_mrs_w_l_front.jpg` are the same tool's cut of each sheet's front view alone (the head's square of it, its white ground and the clothing filled from the head beside them, and beside it a block saying where the renderer shows it), which the figure's skin shows to someone standing in front of it. `pa1904_grey_mrs_w_l_skin.jpg` also holds, in a patch of 64 by 160 pixels, the upper teeth of a photograph of the same stand-in smiling, which the owner supplied on 2026-11-14 (kept in the same evidence folder; the record's `smile_view`), brought to the sheet's light. They are pictures of STAND-INS, not of the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). No label can be burned on a skin: the stand-in label is on each person's card. The crops, cameras and what is left out are recorded in
+`data/humans/variation/skins/pa1904_grey_w_l.json` and `pa1904_grey_mrs_w_l.json`.
+
+```text
+humans/web/likeness/pa1904_grey_mrs_w_l_front.jpg
+humans/web/likeness/pa1904_grey_mrs_w_l_skin.jpg
+humans/web/likeness/pa1904_grey_w_l_front.jpg
+humans/web/likeness/pa1904_grey_w_l_skin.jpg
 ```
 
 `pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg` (T-3481) is cut and scaled from Bohusläns museum's copy of Ossian Berggren's cabinet card of the housemaid Anna Åkerman, 1890-1895 (UMFA53226:1855; source record `bhm_umfa53226_1855_hembitrade_anna_akerman`), a STAND-IN, not Christine Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
@@ -2645,7 +2772,8 @@ files; originals are never copied to the published site. The app's Audio library
 | Files | Rights and provenance |
 |---|---|
 | `audio/originals/1-Border-Ballad.m4a`, `audio/originals/2-Border-Ballad-2.m4a` | Owner-supplied Suno-generated score, assigned to 1835. Owner explicitly authorized use and app distribution in chat on 2026-11-10. No open asset license or archival performance is asserted. |
-| `audio/originals/3-Salon-Waltz.m4a`, `audio/originals/5-Elegant-Waltz.m4a` | Same owner authorization; assigned to 1904. |
+| `audio/originals/3-Salon-Waltz.m4a`, `audio/originals/5-Elegant-Waltz.m4a` | Same owner authorization; assigned to 1904, retired from playback 2026-11-12 (T-3569) and kept for provenance. |
+| `audio/originals/1904-ragtime/Brass-Trolley.mp3`, `audio/originals/1904-ragtime/Main-Street-Trot.mp3`, `audio/originals/1904-ragtime/Nickel-Stroll.mp3`, `audio/originals/1904-ragtime/Patent-Leather.mp3`, `audio/originals/1904-ragtime/Pocket-Change.mp3`, `audio/originals/1904-ragtime/Ragtime-Avenue.mp3`, `audio/originals/1904-ragtime/Sidewalk-Ticker.mp3`, `audio/originals/1904-ragtime/Sunday-Best.mp3`, `audio/originals/1904-ragtime/Tin-Pan-Stroll.mp3`, `audio/originals/1904-ragtime/Trolley-Hop.mp3` | Owner-supplied ragtime (file tags: artist Kevin R Haas, album "Made with Mozart"), the 1904 playlist since 2026-11-12 (T-3569). Owner asked for them in the app in chat that day. No open asset license or archival performance is asserted. |
 | `audio/originals/4-Reel-of-the-Frontier.m4a`, `audio/originals/6-Reel-of-the-Frontier-2.m4a`, `audio/originals/7-Reel-of-the-Frontier-3.m4a` | Same owner authorization; assigned to 1812. Separate collection from 1835, per owner. |
 | `audio/originals/475448_7009965-hq.mp3` | o_ciz, Wind(leaves).WAV, https://freesound.org/people/o_ciz/sounds/475448/ — CC0 1.0; HQ preview acquired 2026-11-10. |
 | `audio/originals/577323_97550-hq.mp3` | TRP, Waves, gentle lapping, river, water, close, PEI, 2011.wav, https://freesound.org/people/TRP/sounds/577323/ — CC0 1.0; HQ preview acquired 2026-11-10. |
@@ -2860,3 +2988,25 @@ Owner-selected calmer river recording (T-3544, 2026-11-11):
 | `audio/originals/575244_97550-hq.mp3` | TRP — water on rocks, calm, manitoulin.mp3 — https://freesound.org/people/TRP/sounds/575244/ | CC0-1.0; HQ MP3 preview, not original download. |
 
 `audio/evidence/calm-river-water.json` is project-authored acquisition/license and owner-selection metadata. Source SHA-256 `8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48`; the accepted `renderers/web/audio/river.mp3` derivative is `6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af`. The exact 22-second mono loop was selected as “Light water on rocks”; its crop and seam recipe are in the generated catalogue. The modern rocky-lake recording is a reconstructed river proxy. The previous TRP577323 source and its CC0 derivative remain under `river-held.mp3`, disabled in scenes; no existing rights are withdrawn.
+
+
+1812 seasonal audio and generated work kit (T-3551,2026-11-11):
+
+| Asset | Rights and provenance |
+|---|---|
+| `props/work_1812.glb` | CC0-1.0 original project geometry generated from `data/humans/work_1812.json` by `tools/generate_work_1812.py`. A reconstructed wooden packing chest/support and hand hammer, not an archival artifact scan. No third-party textures. |
+
+The six 1812 nature placements, two short dirt-hoof transients and hammer cue reuse the existing cleared recordings and immutable delivery bytes listed above. No newly downloaded audio or new audio license is asserted. Runtime crops/filtering retain the CC 0 source attribution; the snow treatment is a processed dirt-road recording. `data/sources/illinois_dnr_american_robin.json` is a textual ecological citation only; no Illinois DNR photograph or map is copied into an asset. Existing held recordings retain their licensing and review status.
+
+## V20 plate-matched Brougham (T-3558)
+
+`renderers/web/transport/parked-brougham/{brougham-v20-near.glb,brougham-v20-mid.glb,brougham-v20-far.glb,brougham-v20.json}`: original GPL-3.0-or-later project geometry derived by `tools/transport/brougham_v20/{produce.py,simplify_far.mjs,far-lods.json,discrepancies.json,check.py}` from the V19 masters above. Near SHA256 `34c14f142cadce1d89fc5ccb43a7d195ae287ab18258e9b1a8463e294e6ec2b7` (46,796 triangles), mid `69e3f8bfff45b03d5eb7e267de0d20dd6c8ea3ccadbc976c01e33d6dc5f4004d` (23,660), far `e0eda0a61eeb6e585282fcc913c04eb8a9b468bc847d513b79f6be3f37383748` (11,360). Every V19 part is carried over byte for byte except the four post/support beams and two rear mudguards it removes and the cab it lowers (below); it adds an original closed driving box, dash, iron rail and stays and swept box irons, drawn after the cleared public-domain 1893 Studebaker catalogue plate leaf 0095 (source `studebaker_1893_illustrated_souvenir`). Inside, the passengers' cushion, bench base and floor are lowered, the squab lengthened down to them, and the body's lower rear quarter brought down with them (T-3553), so a passenger sits upright under the roof. The far level's two body shells are simplified with meshoptimizer 1.2.0 (MIT, build tool only; no code shipped). No plate pixels, textures or outside geometry are embedded. Specimen, owner, dimensions and hidden construction remain reconstructed.
+
+
+### The 1871 city context kit — data/context/1871/
+
+The portable asset `data/context/1871/kit.glb` and its `kit.json` record are generated by `generators/city_context_emit.py` from `data/context/1871/kit-recipe.json`. Original procedural building geometry, three generic deciduous canopy forms and embedded base-colour, normal and ORM maps are covered by the project's license; no third-party image pixels are embedded or sampled. Ruger's 1868 public-domain panorama (`ruger_1868_chicago_panorama`) bounds generic form families only. The trees claim no identified species or observed leaf colour on that day. Every dimension, facade and colour is reconstructed and retains `_CONFIDENCE=1.0`. The recipe, generator-input SHA-256, GLB SHA-256, byte size, template node names and triangle inventories travel in `kit.json`. `python3 generators/city_context_emit.py --check` requires registered cleared sources, reconstructs both outputs and refuses any byte mismatch. These data-subtree assets are published with the context JSON and are not structure master/web derivatives.
+
+The city field and infrastructure are generated by `generators/city_1871_emit.py` from the explicitly graded map interpretation in `data/context/1871/plan.json`. The geometry and procedural surface colours are original project work. The 1869 ward map and 1870 Mitchell map are public-domain geographic references; their raster pixels are not embedded in the generated meshes. Terrain masters live in `assets/gltf/`, their published derivatives in `assets/web/`; portable infrastructure is under `data/context/1871/`. `generated-assets.json` records each output's digest and size. `python3 generators/city_1871_emit.py --check` rebuilds and checks the bytes. See L-1871-city-baseline for reconstruction limits.
+
+The research raster `../pre_fire_v1/maps/images/1869_usace_chicago_harbor.jpg` is the public-domain U.S. Army Engineers August 1869 harbor sheet, preserved from NARA NAID 86744439 via Wikimedia Commons. Its catalog title differs from the date printed on the sheet; the source record `usace_chicago_harbor_august_1869` retains that discrepancy. The original raster and manually read relative traces are research evidence, with absolute scene placement unresolved. Modern street-control primitives under `data/traces/gcp/mitchell_1870_*` credit OpenStreetMap contributors under ODbL 1.0; they establish control targets only, not historic street identity.

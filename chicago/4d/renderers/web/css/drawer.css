@@ -180,6 +180,9 @@
 /* T-2061: a thumb's 44 px. The icons stay 18 px; only the box round them grows. */
 body:is(.is-touch, .touch-first) :is(.panel-back, .panel-close) { width: 44px; height: 44px; }
 body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
+/* T-3629 (A8): one close key a screen. Inside the Navigator its own × closes the section too
+   (main.js), so the section's second × under it stands down; Back stays where there is one. */
+.nav-screen .panel-close { display: none; }
 
 /* ----------------------------------------------------------- the scroll --- */
 
@@ -250,10 +253,47 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 .seg-btn:last-child { border-right: 0; }
 .seg-btn:hover { color: var(--ink); background: var(--step); }
 .seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.seg-btn.is-on, .seg-btn[aria-checked="true"],
+.seg-btn.is-on, .seg-btn[aria-checked="true"], .seg-btn[aria-pressed="true"],
+.seg-btn[aria-pressed="true"]:hover,
 .seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover {
-  background: var(--accent);
-  color: var(--accent-ink, #17140c);
+  /* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  color: var(--lit-ink, var(--accent));
+  box-shadow: inset 0 0 0 1px var(--lit-edge, var(--accent));
+}
+
+/* T-3645: Settings › Display › Reading age, several keys pressed at once. */
+.reading-ages .seg-btn { min-width: 52px; }
+
+/* T-3645: a card's age tabs (reading-level.js § readingTabs). One quiet row of small keys
+   under the card's head; the age shown is lit, the reader's own ages carry a dot. */
+.reading-tabs {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  margin: 6px 0 8px; padding: 0;
+}
+.reading-tabs-label {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-dim); margin-right: 2px;
+}
+.reading-tab {
+  min-height: 28px; padding: 3px 9px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: transparent; color: var(--ink-dim);
+  font: inherit; font-size: 12px; font-weight: 600; white-space: nowrap; cursor: pointer;
+}
+.reading-tab:hover { color: var(--ink); background: var(--step); }
+.reading-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.reading-tab[aria-selected="true"] {
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  color: var(--lit-ink, var(--accent));
+  border-color: var(--lit-edge, var(--accent));
+}
+.reading-tab-yours::after {
+  content: ''; display: inline-block; width: 5px; height: 5px; margin-left: 5px; vertical-align: 2px;
+  border-radius: 50%; background: currentColor; opacity: .7;
+}
+@media (max-width: 620px) {
+  .reading-tab { min-height: 32px; padding: 4px 10px; }
 }
 
 /* --------------------------------------------------------- travel banner --- */
@@ -300,6 +340,15 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
   transition: filter .12s;
 }
 .tb-stop:hover { filter: brightness(1.08); }
+/* T-3557: aboard a team the bar sits in the left thumb's half of a phone, where the touch
+   stick starts wherever the thumb lands; only its Get down key takes a touch, the rest of the
+   bar lets it through to the stick (and to look, on the right). */
+.travel-banner[data-kind="ride"] { pointer-events: none; }
+.travel-banner[data-kind="ride"] .tb-stop { pointer-events: auto; }
+/* The team's short name is read whole; the note gives way (it is also on the Interact key),
+   so a "held: someone in the way" never pushes Get down off a 390 px screen. */
+.travel-banner[data-kind="ride"] strong { flex: none; }
+.travel-banner[data-kind="ride"] .tb-dist { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------------------------------------------------------- top-bar chips --- */
 /* Single-colour stroke glyphs in the pace chip: the same 16 px stroke family

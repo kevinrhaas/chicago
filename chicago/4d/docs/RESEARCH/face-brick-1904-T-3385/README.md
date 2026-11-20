@@ -135,3 +135,34 @@ Where it stops: the 1835 Cook County courthouse (`outbuilding`, 245 records on t
 Sauganash's brick stacks (`frame_tavern`) and the brick chimney heads of the town's framed houses
 (`frame_dwelling`, 272 records) still wear the flat sheet colour; each needs the same hook in its
 own builder and a rebake of every record on it.
+
+## Faced all round: 1905, 1923, 1945 (2026-11-13)
+
+The owner, looking at Field's (1905), Kellogg's (1923) and Armour/Corwith's (1945) houses in 1904,
+where a pressed red front stood over buff or salmon commons and a red brick bay stood out of a
+buff flank: *"consistent brick with the front, not necessarily red brick just cause ... the fields
+and armour house definitiely seem need to change for consistent brick all around"*. He also
+reported a reddish common, "not high end brick", on a brick side wall he saw at the Kimball
+house, and was unsure of the period's practice.
+
+What the pictures say, read again for the flanks:
+
+- **1905 (Field).** The Chicagology print (`chicagology_923_photo`) and the 1893 Rand McNally plate
+  (`pictorial_1893_plate`) both show the flank behind the conservatory. Its brick panels, between
+  the same stone dressings as the front's, print the same tone as the front's on both plates;
+  nothing on the house reads pale. The T-3385 ruling had left that flank in the common buff,
+  which the pictures do not support.
+- **1945 (Armour/Corwith).** The 1928 Tribune halftone is crushed and reads no colour, but the
+  south flank on Twentieth Street (a street front on a corner lot) and the canted corner print as
+  dark as the Prairie Avenue front, with no paler wall.
+- **1923 (Kellogg).** No picture shows a flank (the 1898 Tribune drawing and the c. 1914
+  elevations are fronts).
+
+Ruling: those three take `face_brick.all_round` (k01_frontage_params.py): every brick wall
+(flanks, rear, canted corner, wings, bays and stacks) in the front's pressed red, the walls and
+front then sharing the one material slot. Every other house keeps its common sides: the flanks
+photographed elsewhere on the street (1637, 1812, 1816's north flank, 1834, 1625, 1828, 1900,
+1612) read as pale commons, so a common side wall was the street's ordinary practice, and the
+owner's Kimball observation agrees. A red common recipe was considered for Kellogg and set
+aside: adding a recipe to the palette restales the thirteen Blender-baked fort buildings that
+read it (T-3387), for a flank no picture shows. Liberty L-k03-face-brick-all-round.

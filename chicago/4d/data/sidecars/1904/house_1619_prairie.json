@@ -10,11 +10,9 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "attested",
-    "why": "Pictured: a picture on the Images tab shows it.",
-    "pictures": [
-      "cgn-1619-1625-building-budget-hamline-farwell"
-    ]
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
   },
   "documented_range": {
     "from": "1904-07-01",

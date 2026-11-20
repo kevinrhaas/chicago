@@ -13,7 +13,8 @@ production.*
 
 
 > **2026-09-23: this project moved to its own repository, kevinrhaas/chicago,** served
-> at chicago.polecat.live (landing `/`, app `/4d/`, dev preview `/4d/dev/`). The
+> at chicago.polecat.live (landing `/`, app `/4d/`; the dev preview is
+> `dev.chicago.polecat.live/4d/dev/` since 2026-11-13, see § Two sites). The
 > pipeline below is unchanged; where it says "this monorepo" or "other tenants", read
 > it as the history of how it was built inside kevinrhaas/custom. Tickets moved to
 > kevinrhaas/chicago-tickets — see AGENTS.md § THE QUEUE.
@@ -22,13 +23,41 @@ production.*
 | tier | branch | URL | who moves it |
 |---|---|---|---|
 | production | `main` | `chicago.polecat.live/4d/` (year doors `/4d/1835/`) | the owner, by dispatch |
-| integration | `dev` | `chicago.polecat.live/4d/dev/` (year doors `/4d/dev/1835/`) | any green PR into `dev` |
+| integration | `dev` | `dev.chicago.polecat.live/4d/dev/` (year doors `/4d/dev/1835/`) | any green PR into `dev` |
 
 There is **no stage tier and no scheduled promotion**. The pilot has three tiers because it
 promotes on a nightly cron; this app promotes on a human asking, so the middle tier would be
 a queue with nobody in it.
 
 **Merging into `dev` is stage, not ship.** It publishes the preview and nothing else.
+
+### Two sites (T-3581, 2026-11-13)
+
+Until 2026-11-13 both tiers shared one Pages artifact, with the preview folded in at
+`/4d/dev/`. GitHub caps a Pages site at 1 GB, and two copies of the tree plus the landing
+films and older viewers had reached it. Each dev deploy also had to re-seed the exact
+live production artifact, and the preview froze whenever that artifact expired. Now:
+
+- **production**: `deploy.yml` here deploys `chicago.polecat.live` only when
+  `chicago-4d-promote-to-prod.yml` dispatches it with `mode=production`. A push to `main`
+  deploys nothing.
+- **the preview**: kevinrhaas/chicago-dev's `deploy-dev-preview.yml` clones this
+  repository at `dev`, runs `tools/publish.sh`, marks the tree (banner, `noindex`, DEV
+  stamp, `build.json`), re-lists the year packs and deploys `dev.chicago.polecat.live`.
+  A push to `dev` dispatches it (`refresh-previews`, secret `CHICAGO_DEV_DISPATCH`). Its
+  own 15-minute schedule is the fallback, and it skips when the preview already shows
+  dev's head. The path stays `/4d/dev/`, so `about.js`, `year-pack.js` and the
+  service-worker scopes below are unchanged.
+- **old links**: production's artifact keeps small pages at `/4d/dev/`, the doors and
+  `walk/`, plus a root `404.html`, that forward to the new host with path, query and
+  hash (`.github/chicago-4d-dev-redirect.mjs`). Its `/4d/dev/sw.js` unregisters the old
+  preview's worker.
+- **budget**: one tree per site, so `validate.py`'s allowance is set by production's
+  site alone (SITE-BUDGET.md § 19).
+
+The rows below about the shared artifact (`deploy.yml` assembling `site/4d/dev/`,
+`.github/chicago-4d-dev-preview.mjs`, the asset aliases) describe the pipeline before
+this split.
 
 ---
 

@@ -1,0 +1,152 @@
+{
+  "format": "chicago4d_visitor_person_v1",
+  "ticket": "T-3644",
+  "liberty": "L-visitor-person-3644",
+  "grade": "reconstructed",
+  "basis": "The visitor's own person (Kevin, 2026-11-17: \"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person\"). It is nobody of the town: an anonymous figure the visitor makes, from the bodies, dress, faces, complexions and hair the town's own people are drawn with. Each year offers only that year's dress (the bodies its townspeople already wear), so the choice can never put a visitor in clothes of another time. renderers/web/js/visitor-person.js reads this file; the Settings card's You tab writes the choice.",
+  "_doc": "Edit the lists to offer more; `sexes` are the body types (the stored field keeps its name): one with `of` wears the outfits and cuts of those it names, any library face, and its `build` (human-variation.js looks.build) on each body; every id must be one the renderer already draws: `outfits[].asset` a body in assets/humans/web (and one test_riding seats), `cuts` a key of human-hair-styles.js HAIR_CUTS, `facial` keys of FACIAL_HAIR, `hair_colours` keys of HAIR_COLOURS, `complexions` keys of human-looks.js COMPLEXION_TINT, `eyes` keys of EYE_COLOUR. tools/test_visitor_person.mjs holds every id to its table. `defaults` is the person every visitor starts as: the figure that rode before this choice existed.",
+  "storage_key": "chicago4d.person",
+  "years": ["1812", "1835", "1904"],
+  "body_label": "Body type",
+  "sexes": [
+    { "id": "male", "label": "Masculine" },
+    { "id": "female", "label": "Feminine" },
+    { "id": "neutral", "label": "Androgynous", "of": ["male", "female"],
+      "build": { "male": { "muscle": -0.4, "weight": -0.2, "neck_width": -0.35 }, "female": { "muscle": 0.25, "weight": -0.15 } },
+      "basis": "Kevin, 2026-11-19: a third body type, and the control named for the person's style rather than their gender. It wears either body (the dress of the year is any the town's men or women wear, and the hair of either), drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own build axes), with any of the library's faces. Riding follows the clothes: a skirt rides aside in 1835 and 1904." }
+  ],
+  "ages": [
+    { "id": "young", "label": "Young", "years": 25 },
+    { "id": "middle", "label": "Middle-aged", "years": 45 },
+    { "id": "older", "label": "Older", "years": 65 }
+  ],
+  "complexions": [
+    { "id": "fair", "label": "Fair" },
+    { "id": "light", "label": "Light" },
+    { "id": "ruddy", "label": "Ruddy" },
+    { "id": "olive", "label": "Olive" },
+    { "id": "tan", "label": "Tan" },
+    { "id": "dark", "label": "Medium brown" },
+    { "id": "brown", "label": "Brown" },
+    { "id": "copper", "label": "Deep brown" },
+    { "id": "deep_brown", "label": "Darkest brown" }
+  ],
+  "eyes": [
+    { "id": "blue", "label": "Blue" },
+    { "id": "grey", "label": "Grey" },
+    { "id": "hazel", "label": "Hazel" },
+    { "id": "brown", "label": "Brown" },
+    { "id": "dark_brown", "label": "Dark brown" }
+  ],
+  "hair_colours": [
+    { "id": "black", "label": "Black" },
+    { "id": "black_brown", "label": "Black-brown" },
+    { "id": "dark_brown", "label": "Dark brown" },
+    { "id": "mid_brown", "label": "Brown" },
+    { "id": "light_brown", "label": "Light brown" },
+    { "id": "ash_blond", "label": "Ash blond" },
+    { "id": "fair", "label": "Fair" },
+    { "id": "sandy", "label": "Sandy" },
+    { "id": "red", "label": "Red" },
+    { "id": "grey_brown", "label": "Greying" },
+    { "id": "white_grey", "label": "White" }
+  ],
+  "cuts": {
+    "1812": {
+      "male": [
+        { "id": "cropped_1812", "label": "Cropped short" },
+        { "id": "clubbed_behind_1812", "label": "Long, tied behind" },
+        { "id": "side_part_tied_1812", "label": "Side part, tied" }
+      ],
+      "female": [
+        { "id": "centre_part_clubbed_1812", "label": "Centre part, tied low" },
+        { "id": "centre_part_tied_high_1812", "label": "Centre part, tied high" },
+        { "id": "centre_part_low_1812", "label": "Centre part, worn low" }
+      ]
+    },
+    "1835": {
+      "male": [
+        { "id": "brushed_forward_1835", "label": "Brushed forward" },
+        { "id": "cropped_1812", "label": "Cropped short" }
+      ],
+      "female": [
+        { "id": "centre_part_knot_1835", "label": "Centre part, knot behind" },
+        { "id": "centre_part_clubbed_1812", "label": "Centre part, tied low" }
+      ]
+    },
+    "1904": {
+      "male": [
+        { "id": "short_side_part_1904", "label": "Short, side part" },
+        { "id": "swept_back_wavy_1904", "label": "Swept back" },
+        { "id": "bald_crown_fringe_1904", "label": "Balding" }
+      ],
+      "female": [
+        { "id": "drawn_back_bun_1904", "label": "Drawn back to a bun" },
+        { "id": "swept_up_knot_1904", "label": "Swept up to a knot" },
+        { "id": "swept_up_topknot_1904", "label": "Swept up to a topknot" }
+      ]
+    }
+  },
+  "facial": {
+    "male": [
+      { "id": "none", "label": "Clean-shaven", "wears": [] },
+      { "id": "side_whiskers", "label": "Side whiskers", "wears": ["side_whiskers"] },
+      { "id": "moustache", "label": "Moustache", "wears": ["moustache"] },
+      { "id": "beard", "label": "Short beard", "wears": ["beard_short", "moustache"] }
+    ],
+    "female": [
+      { "id": "none", "label": "None", "wears": [] }
+    ],
+    "neutral": [
+      { "id": "none", "label": "None", "wears": [] },
+      { "id": "moustache", "label": "Moustache", "wears": ["moustache"] }
+    ]
+  },
+  "brows": { "male": ["brows_full"], "female": ["brows_fine", "lashes_upper"], "neutral": ["brows_fine"] },
+  "outfits": {
+    "1812": {
+      "male": [
+        { "id": "settler", "label": "Settler", "asset": "settler_1812", "worn": "A coarse shirt, a neckerchief, a brown waistcoat and loose linen trousers." },
+        { "id": "engage", "label": "Engagé", "asset": "engage_1812", "worn": "A blue calico shirt, a red sash at the hip and deer-skin trousers." }
+      ],
+      "female": [
+        { "id": "working", "label": "Working dress", "asset": "woman_working_1812", "worn": "A short gown of a madder print over a blue homespun petticoat." },
+        { "id": "country", "label": "Country dress", "asset": "woman_country_1812", "worn": "A short gown of red calico over a dark stroud petticoat." },
+        { "id": "lady", "label": "Day dress", "asset": "lady_1812", "worn": "A high-waisted gown of a small blue print." }
+      ]
+    },
+    "1835": {
+      "male": [
+        { "id": "settler", "label": "Settler", "asset": "settler_1812", "worn": "A coarse shirt, a neckerchief, a brown waistcoat and loose linen trousers." },
+        { "id": "labourer", "label": "Labourer", "asset": "mahoney_patrick_1835", "worn": "An unbleached shirt, a red neckerchief and an open green waistcoat over brown trousers." },
+        { "id": "teamster", "label": "Teamster", "asset": "bardwell_otis_1835", "worn": "A wool waistcoat over a shirt, and high-waisted pantaloons." },
+        { "id": "engage", "label": "Boatman", "asset": "engage_1812", "worn": "A blue calico shirt, a red sash at the hip and deer-skin trousers." }
+      ],
+      "female": [
+        { "id": "plain", "label": "Plain dress", "asset": "flynn_mary_1835_dress_study", "worn": "A plain day dress of the 1830s, full-sleeved, to the ankle." },
+        {"id": "riding_habit", "label": "Riding habit", "asset": "flynn_mary_1835_dress_study", "worn": "A dark green wool riding habit, the bodice and its long skirt of one cloth, and a tall black hat.", "dress": {"colours": {"garment_upper__plain_dress": [0.016, 0.032, 0.022], "garment_lower__plain_dress": [0.016, 0.032, 0.022]}, "hide": ["separate_plain_apron"], "hat": {"kind": "round", "rgb": [0.012, 0.011, 0.011], "band": [0.004, 0.004, 0.004], "crown_m": 0.17, "brim_m": 0.035, "taper": 1.04, "roll": 0.5, "droop": 0}}}
+      ]
+    },
+    "1904": {
+      "male": [
+        { "id": "working", "label": "Working clothes", "asset": "anonymous_working_driver_1904", "worn": "A sack coat, a waistcoat and trousers, with a cap." },
+        { "id": "shirtsleeves", "label": "Shirtsleeves", "asset": "billings_august_1904_stable_helper", "worn": "A striped shirt in shirtsleeves, black braces, a leather belt and dark trousers." }
+      ],
+      "female": [
+        { "id": "errand", "label": "Shirtwaist and skirt", "asset": "nelson_christine_1904_errand", "worn": "A white shirtwaist with a tall collar and a dark walking skirt, with a straw hat." },
+        { "id": "maid", "label": "House dress", "asset": "reynolds_mary_1904_maid", "worn": "A black long-sleeved dress with a high neck, white collar and cuffs." },
+        {"id": "riding_habit", "label": "Riding habit", "asset": "nelson_christine_1904_errand", "worn": "A dark navy habit, its jacket over the collar and tie of a shirtwaist and its long safety skirt of one cloth, and a low black hard hat.", "dress": {"pieces": {"errand_shirtwaist": [0.011, 0.014, 0.03]}, "colours": {"garment_lower__errand_skirt_navy": [0.011, 0.014, 0.03]}, "hide": ["headwear_errand_boater", "headwear_errand_boater_ribbon", "market_basket", "basket_cloth"], "hat": {"kind": "round", "rgb": [0.01, 0.01, 0.01], "band": [0.004, 0.004, 0.004], "crown_m": 0.11, "brim_m": 0.045, "taper": 0.98, "roll": 0.9, "droop": 0}}}
+      ]
+    }
+  },
+  "defaults": {
+    "sex": "male",
+    "age": "middle",
+    "complexion": "light",
+    "eyes": "brown",
+    "hair_colour": "mid_brown",
+    "face": "auto",
+    "facial": "none",
+    "hands": false
+  }
+}

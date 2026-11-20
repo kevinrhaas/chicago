@@ -1,0 +1,28 @@
+{
+  "id": "chicagology_1612_prairie_occupants",
+  "type": "website",
+  "citation": "Chicagology, '1612 S. Prairie', the page's transcriptions of the city directories and of newspaper items about the house: Chicago Tribune 22 February 1884, Inter Ocean 2 January 1887, Chicago Tribune 11 March 1905 and 14 March 1905, Inter Ocean 15 October 1905. Read 15 November 2026.",
+  "author": "Chicagology (transcribing the Chicago Tribune and Inter Ocean)",
+  "date": "accessed 2026-11-15",
+  "describes_date": "1884-1905",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/1612prairie/",
+  "locator": "The Chicago Tribune of 11 March 1905, transcribed whole, on Mrs. Catherine G. Brown; the Tribune's transfer list of 14 March 1905; the Tribune of 22 February 1884 on the Studebaker-Innis wedding reception.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Cited in words only; nothing copied beyond short quoted fragments.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-15 (the 1904 story jaunts) from the page's own text, fetched whole: the newspaper items are transcribed there in full, and only those transcriptions are cited.",
+  "note": "The Tribune, 11 March 1905: Mrs. Catherine G. Brown, 'former wife of Charles E. Brown, 1612 Prairie avenue', 27, 'the daughter of Gen. Graves, a wealthy resident of Buffalo', first attracted notoriety in May 1904 when her husband filed for divorce; 'By a court order issued by Judge Tuley Mrs. Brown was given possession of the residence, 1612 Prairie avenue, where she and her husband and their son had lived, and was granted temporary alimony amounting to $200 a month while the suit was pending'; 'In November Mr. Brown appeared in court and charged that his wife had conducted herself in a disgraceful manner, had been habitually intoxicated, and had done many freakish things, such as playing a violin in a broken automobile while a man pushed the machine along a public highway, and dancing about the rear of their home clothed only in a nightrobe'; he charged her with 'receiving the attentions of E. C. Edsall, an automobile salesman', with whom she 'ran away to an eastern summer resort and later to New York City'; 'After a bitter fight Mr. Brown was granted a divorce about six weeks ago, and given possession of the Prairie avenue property, and the custody of the one son, Charles Edward Brown'. In March 1905 she was arrested at 3667 Wabash, where she lived 'under the name of Kittie Casey, according to the police', fined $85 ('I am penniless,' she said. 'I cannot pay the fine.'), and said 'It's all because a woman is jealous of me, I guess.' The 14 March 1905 transfers: 1612 Prairie, March 8, Chas. S. [sic] Brown to the Rt. Rev. Chas. Palmerston Anderson, bishop. The 22 February 1884 Tribune: a reception for about 200 at W. F. Studebaker's, No. 1612 Prairie, the house 'brilliantly illuminated', every room 'elaborately decorated with smilax and cut flowers'. The allegations in the divorce are one side's, and the arrest's charges the police's and the complainants'.",
+  "what_it_supplies": [
+    "the Brown divorce suit of May 1904, the court's order and the November charges",
+    "the divorce decree and its terms, early 1905",
+    "Catherine Brown's arrest in March 1905",
+    "the sale of 1612 Prairie to Bishop Anderson, 8 March 1905",
+    "the Studebaker wedding reception of 1884"
+  ],
+  "what_it_does_not_supply": [
+    "whether any of the charges was true",
+    "a picture of the house (that is chicagology_1612_prairie_photo)"
+  ]
+}

@@ -19,9 +19,10 @@ import { migratePaceDefaults, PACE_DEFAULTS_VERSION } from './travel-settings.js
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
-import { wireSettingsApp, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
+import { wireSettingsApp, wireSettingsTabs, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
+import { languageRow } from './language.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
 // beside its looks, so all three carry to the next page and year together.
 import { readChoices, keepChoices } from './confidence-store.js';
@@ -55,6 +56,9 @@ const DEFAULT_SETTINGS = {
   // § BASE_EXPOSURE and ROADMAP K24.
   brightness: 0,
   compass: true, overviewMap: true, streetNames: true, units: 'imperial',
+  // T-3601 (owner, 2026-11-14): the Today window, Google Street View from where you stand,
+  // turning with you. Off by default: nothing from Google loads until a visitor opens it.
+  todayView: false, todayViewBig: false,
   // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
   // and a visitor who finds it in the way turns it off under Settings › Show.
   lookTag: true,
@@ -75,6 +79,11 @@ const DEFAULT_SETTINGS = {
   // T-3439: the people (on foot and on the drivers' seats), and the carriages and horses,
   // 'shown' or 'hidden'. Viewing choices: hidden, a layer is neither drawn nor loaded.
   people: 'shown', vehicles: 'shown',
+  // T-3614 (owner, 2026-11-16): a small card hovering over each person with their name, on by
+  // default; a click or tap on it opens their card (name-cards.js).
+  nameCards: true,
+  // The owner, 2026-11-17: which name cards show, by grade, any mix (all three by default).
+  nameCardsAttested: true, nameCardsInferred: true, nameCardsReconstructed: true,
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
@@ -92,8 +101,15 @@ const DEFAULT_SETTINGS = {
   // it takes the getting-there choice where it can (js/getting-there.js § jauntChoice).
   // Replaces T-2652's hidden `arriveChosen` rule. Anything but a stored `true` reads as off.
   jauntsFollowChoice: false,
+  // The owner, 2026-11-15: Move › Adults-only jaunts (18 or over). The jaunts that stage the
+  // 1812 fighting graphically are listed only once a visitor turns this on. Anything but a
+  // stored `true` reads as off.
+  adultJaunts: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
+  // T-3563: Settings › Look › Mouse (on a touch screen, Look) sensitivity, a multiple of
+  // the app's own turn rate (settings-app.js § LOOK_SPEED). 1 is Standard, the turn it always had.
+  lookSpeed: 1,
   // T-2656: Settings › Display › Text size, the Navigator's text at 100-140 %.
   textScale: 1,
   // T-2656: Settings › Sound, master, effects and ambience (0..1), for T-2659's sounds.
@@ -391,6 +407,7 @@ export function createHud({
     try { n = await unseenCount(); } catch { return; }
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
+    $('settings-whatsnew-dot')?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
       btnHelp?.setAttribute('title', str('hud.menu.unread', { n }));
     }
@@ -436,6 +453,8 @@ export function createHud({
   panelBack?.addEventListener('click', () => backAction?.());
 
   const panelScroll = $('panel-scroll');
+  /** T-3563: the Settings card's own tab bar (settings-app.js § wireSettingsTabs), wired below. */
+  let settingsTabs = null;
   function selectTab(want, { fromHost = false } = {}) {
     // A section the scene does not carry (T-1740) is never selected, by any route.
     // T-2620: Go to retired with the drawer; asking for it opens the Jaunts app's own Go to.
@@ -448,6 +467,7 @@ export function createHud({
       const on = x.dataset.tab === want;
       x.classList.toggle('is-on', on);
       x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1; // T-3671: one Tab stop in the row; the arrows walk it
     });
     doc.querySelectorAll('.panel-body').forEach((s) => {
       s.toggleAttribute('hidden', s.dataset.panel !== want);
@@ -457,6 +477,7 @@ export function createHud({
     // Evidence list's depth must not carry over into Settings.
     if (panelScroll) panelScroll.scrollTop = 0;
     if (want === 'whatsnew') void openWhatsNew().catch(() => {});
+    settingsTabs?.paint(want);
     onTab?.(want);
     if (!fromHost && panelOpen()) host?.show?.(want);
   }
@@ -466,13 +487,14 @@ export function createHud({
 
   // The rail is a list of sections: the arrow keys walk it when one has focus.
   doc.querySelector('.panel-tabs')?.addEventListener('keydown', (e) => {
-    const tabs = [...doc.querySelectorAll('.panel-tab')].filter((t) => !t.hidden);
+    // T-3671: only this app's tabs (another app's would switch the screen on a key press).
+    const tabs = [...doc.querySelectorAll('.panel-tab')].filter((t) => !t.hidden && !t.classList.contains('is-elsewhere'));
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
-    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-    if (!step) return;
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1, Home: 0, End: 0 }[e.key];
+    if (step == null || e.altKey || e.ctrlKey || e.metaKey) return;
     e.preventDefault();
-    const next = tabs[(i + step + tabs.length) % tabs.length];
+    const next = e.key === 'Home' ? tabs[0] : e.key === 'End' ? tabs.at(-1) : tabs[(i + step + tabs.length) % tabs.length];
     next.focus();
     selectTab(next.dataset.tab);
   });
@@ -588,6 +610,19 @@ export function createHud({
     });
   }
 
+  function nameCardGradeRow(after) {
+    if (!after || $('row-name-card-grades')) return;
+    const row = document.createElement('div');
+    row.className = 'field row name-card-grades';
+    row.id = 'row-name-card-grades';
+    row.setAttribute('role', 'group');
+    row.setAttribute('aria-label', 'Which name cards');
+    row.innerHTML = '<span>Show cards for</span><span class="name-card-grade-picks">'
+      + ['Attested', 'Inferred', 'Reconstructed'].map((g) =>
+        `<label class="check-field"><input type="checkbox" id="s-name-cards-${g.toLowerCase()}"> ${g}</label>`).join('')
+      + '</span>';
+    after.after(row);
+  }
   function wireToggle(id, key) {
     const el = $(id);
     if (!el) return;
@@ -643,10 +678,21 @@ export function createHud({
   wireSelect('s-lot-lines', 'lotLines', 'hidden');
   wireSelect('s-people', 'people', 'shown');
   wireSelect('s-vehicles', 'vehicles', 'shown');
+  // Gap analysis item 15: Display › Language, English or Español (js/language.js).
+  languageRow(document.querySelector('#s-display .theme-row'));
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
+  wireToggle('s-today-view', 'todayView');
   wireToggle('s-look-tag', 'lookTag');
+  wireToggle('s-name-cards', 'nameCards');
+  // The owner, 2026-11-17: which name cards, by grade, any mix of the three. Built here, not in
+  // index.html: the page is copied to every year's door, and at 64 KiB a copy is a merge refusal
+  // (validate.py SITE_DUPE_FLOOR, T-0722), which index.html had 40 bytes left before.
+  nameCardGradeRow($('row-name-cards'));
+  wireToggle('s-name-cards-attested', 'nameCardsAttested');
+  wireToggle('s-name-cards-inferred', 'nameCardsInferred');
+  wireToggle('s-name-cards-reconstructed', 'nameCardsReconstructed');
   wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
   wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
   // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
@@ -663,7 +709,11 @@ export function createHud({
     saveTheme: (tone) => store(THEME_KEY, tone),
     onSetting,
     openWhatsNew: () => selectTab('whatsnew'),
+    isTouch: !!isTouch,
   });
+  settingsTabs = wireSettingsTabs({ doc, selectSection: (tab) => selectTab(tab), section: () => currentTab });
+  // The dot may have been painted before the bar drew its tab.
+  void paintUnseen();
 
   // ---- Move: how you move, its speed, and how Go to takes you there (T-2651) ----
   //
@@ -784,6 +834,16 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   }
+  // The owner, 2026-11-15: the adults-only jaunts, behind the visitor's own word that they are 18 or over.
+  const adultJaunts = $('s-adult-jaunts');
+  if (adultJaunts) {
+    adultJaunts.checked = settings.adultJaunts === true;
+    adultJaunts.addEventListener('change', () => {
+      settings.adultJaunts = adultJaunts.checked;
+      onSetting?.('adultJaunts', settings.adultJaunts);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
   moveSlider?.addEventListener('input', () => {
     const key = PACES[groundPace()].settingKey;
     settings[key] = Number(moveSlider.value);
@@ -804,8 +864,14 @@ export function createHud({
     if (!state) { banner.setAttribute('hidden', ''); return; }
     const verb = $('travel-verb'); const dest = $('travel-dest'); const dist = $('travel-dist');
     if (verb) verb.textContent = state.verb ?? str('hud.going');
-    if (dest) dest.textContent = state.dest ?? '';
-    if (dist) dist.textContent = Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
+    if (dest) { dest.textContent = state.dest ?? ''; dest.title = state.destTitle ?? ''; }
+    // T-3557: aboard a team the same bar says what the visitor is doing there (a short note in
+    // place of the distance) and its key gets them down.
+    if (dist) dist.textContent = typeof state.note === 'string' ? state.note
+      : Number.isFinite(state.dist_m) ? formatDistance(state.dist_m, settings.units) : '';
+    const stopKey = $('travel-stop');
+    if (stopKey) stopKey.textContent = state.stop ?? 'Stop';
+    banner.dataset.kind = state.kind ?? 'travel';
     banner.removeAttribute('hidden');
   }
   $('travel-stop')?.addEventListener('click', () => onTravelStop?.());
@@ -852,6 +918,8 @@ export function createHud({
     settings,
     /** T-2656: the Settings app's rows (light or dark, Auto) for a test to read. */
     settingsApp,
+    /** T-3563: the Settings card's tabs — `select('sound')`, `pane`, `paint()`. */
+    get settingsTabs() { return settingsTabs; },
     setPanel,
     selectTab,
     setTitle,
@@ -880,7 +948,7 @@ export function createHud({
      *  the checkbox, the stored choice and the scene all move together. */
     setToggle(key, on) {
       settings[key] = !!on;
-      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map' }[key];
+      const box = { streetNames: 's-street-names', compass: 's-compass', overviewMap: 's-overview-map', todayView: 's-today-view' }[key];
       if (box && $(box)) $(box).checked = !!on;
       onSetting?.(key, settings[key]);
       store(SET_KEY, JSON.stringify(settings));
@@ -888,6 +956,8 @@ export function createHud({
     setMoveMode,
     paintMove,
     /** The getting-there choice, for Go to, the Map and Jaunts (T-2652). */
+    /** The owner, 2026-11-15: whether the adults-only jaunts are listed (Move › Adults-only jaunts). */
+    get adultJaunts() { return settings.adultJaunts === true; },
     get gettingThere() { return { travelMode: settings.travelMode, pace: groundPace(), follow: settings.jauntsFollowChoice === true }; },
     /** Move's mode: 'fly' while flying, else the ground pace (T-2651). */
     get moveMode() { return flying ? 'fly' : groundPace(); },

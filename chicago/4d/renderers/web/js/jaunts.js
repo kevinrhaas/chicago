@@ -141,6 +141,19 @@ export function keptPeople(s) {
   const from = s.jaunt?.stops.find(stop => stop.id === s.fromStopId);
   return [...new Set([...here, ...hostIds(from)])];
 }
+/** T-3553: the people a stop's stage plays (jaunt-stage.js); their everyday figures stay held. */
+export const stagedIds = stop => (Array.isArray(stop?.stage?.cast) ? stop.stage.cast : []).map(c => c?.person).filter(id => typeof id === 'string' && id);
+/** T-3553: who the crowd keeps now: the stop's people, but never one its stage plays (their
+ *  staged figure is them), so nobody is drawn twice. */
+export const crowdKept = s => { const staged = new Set(stagedIds(currentStop(s))); return keptPeople(s).filter(id => !staged.has(id)); };
+/**
+ * T-3553 (the owner, 2026-11-16: "make sure there are people present and doing interactive works
+ * and daily activities and relevant actions and in scene of jaunt all eras"): a stop that plays
+ * no history of its own (no `stage`) and has nobody telling it (no `hosts`) keeps the town's own
+ * people about its stand, going about their day, where T-3495 held everyone out. The stop it is,
+ * or null where the stop's own people are the scene.
+ */
+export const localsStop = stop => (stop && !stop.stage?.cast?.length && !hostIds(stop).length ? stop : null);
 /** T-3459: the season a stop is shown in: its date's, else the jaunt's ambience, else null. */
 export const stopSeason = (jaunt, stop) => seasonOfDate(stop?.date) || jaunt?.ambience?.season || null;
 /** T-3459: the light a jaunt opens in, for its menu row and welcome: its ambience, else the
@@ -215,6 +228,15 @@ export function reduce(s, e) {
   if (e.type === 'CONTEXT' && s.phase === 'travelling') return { ...s, context: e.context };
   if (e.type === 'DISMISS_CONTEXT') return { ...s, contextDismissed: true };
   if (e.type === 'END') return emptyState();
+  // The owner, 2026-11-16: the closing scene (jaunt-pace.js) ends on its own clock, at the
+  // visitor's Finish Jaunt, or when they open the menu: then comes Outing complete.
+  if (s.phase === 'closing') {
+    if (['FINISH', 'NEXT', 'MENU'].includes(e.type)) return { ...s, phase: 'outcome' };
+    return s;
+  }
+  // …and the flight to the first stop, read to by its opening, can be skipped to the stop.
+  if (e.type === 'SKIP' && s.phase === 'opening')
+    return append({ ...s, phase: 'atStop', error: null }, 'arrival', { stop: currentStop(s).id, leg: s.leg });
   // T-3405: picking the mode the jaunt is already on still counts when the leg was going
   // its own way (the picker showed that leg's mode): from then on every leg takes it.
   if (e.type === 'MODE' && s.jaunt.allowed_modes?.includes(e.mode) && s.phase !== 'outcome'
@@ -260,7 +282,8 @@ export function reduce(s, e) {
   updated = append({ ...updated, visited: s.visited.map((v, i) => i === s.stopIndex ? { ...v, committed: true, choice: choice?.id, next } : v) },
     'decision', { stop: stop.id, choice: choice?.id ?? null }, eventId);
   const ending = next === '$end' || s.jaunt.endings.some(x => x.id === next) ? endingFor(updated, next) : null;
-  if (ending) return append({ ...updated, phase: 'outcome', outcome: ending, choice: null, leg: s.leg + 1,
+  // A runtime with a closing scene (`e.closing`) shows a real ending before Outing complete.
+  if (ending) return append({ ...updated, phase: e.closing && !ending.fallback ? 'closing' : 'outcome', outcome: ending, choice: null, leg: s.leg + 1,
     error: ending.fallback ? 'No declared ending matched this route.' : null }, 'complete', { ending: ending.id });
   if (!s.jaunt.stops.some(x => x.id === next)) throw new Error('Unknown validated stop');
   return move({ ...updated, visited: [...updated.visited, { id: next }] }, updated.visited.length);
@@ -279,6 +302,7 @@ export function replaySession(jaunt, saved, session = 1) {
     if (state.phase === 'outcome' || currentStop(state)?.id !== event.stop) throw new Error('corrupt');
     if (event.choice != null) state = reduce(state, { type: 'CHOOSE', id: event.choice });
     state = reduce(state, { type: 'NEXT', eventId: event.id });
+    if (state.phase === 'closing') state = reduce(state, { type: 'FINISH' });
     if (state.phase === 'travelling') state = reduce(state, { type: 'ARRIVE', session, leg: state.leg });
   }
   if (saved.events.some(e => e.type === 'complete') && state.phase !== 'outcome') throw new Error('corrupt');
@@ -306,15 +330,27 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   // spring, a night walk in the fall): its hour stands at every stop without one of its
   // own, its season for the whole outing, and both are given back when it ends.
   hour = null, season = null,
-  // T-3495: the everyday people. `crowd.hold(ids)` keeps only the people named (a stop's
-  // `stopPeople`) and holds everyone else out of the scene; `crowd.restore()` gives them all
+  // T-3495: the everyday people. `crowd.hold(ids, { locals })` keeps only the people named (a
+  // stop's `stopPeople`), and at a `localsStop` (T-3553) the town's people about its stand too,
+  // and holds everyone else out of the scene; `crowd.restore()` gives them all
   // back. Held from the flight to the first stop until the jaunt ends, completes or goes to
   // the menu. Optional: a harness without it plays the jaunt with whoever stands there.
   crowd = null,
   // T-3525: a stop's hosts (jaunt-hosts.js): `hosts.sync(stop, { arrived })` brings the people
   // who tell a stop to their marks on the way to it and greets the visitor on arrival;
   // `hosts.release()` lets them all go back about their day. Optional, like the crowd.
-  hosts = null }) {
+  hosts = null,
+  // T-3553: a stop's stage (jaunt-stage.js): `stage.sync(stop, { arrived })` builds the stop's
+  // history with its people while the visitor travels and plays it on arrival; `stage.replay()`
+  // plays it again; `stage.release()` takes it away. Optional, like the hosts.
+  stage = null,
+  // The owner, 2026-11-16: a jaunt opens and closes on its own words (jaunt-pace.js).
+  // `voiceover(jaunt, part, id)` resolves to the seconds the voice reading that part will
+  // take (null when nothing will be heard), so the flight to the start is flown for as long
+  // as its opening is read. `closing.begin(state, callbacks)` flies the eye to the jaunt's
+  // last view while its ending shows (and is read); with it, finishing the last stop opens a
+  // closing scene, and Outing complete comes after (`finish`). Both optional.
+  voiceover = null, closing = null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -377,10 +413,11 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   const syncCrowd = () => {
     if (!crowd) return;
     if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { restoreCrowd(); return; }
-    const ids = keptPeople(state), key = ids.join(' ');
+    const ids = crowdKept(state), locals = localsStop(currentStop(state));
+    const key = `${ids.join(' ')}${locals ? ` @${locals.id}` : ''}`;
     if (crowdHeld === key) return;
     crowdHeld = key;
-    try { crowd.hold(ids); } catch { /* the people stay as they were; the outing goes on */ }
+    try { crowd.hold(ids, { locals }); } catch { /* the people stay as they were; the outing goes on */ }
   };
   // T-3525: the stop whose hosts are out ('' = none), and whether the visitor has arrived.
   let hostsKey = null;
@@ -393,7 +430,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   const syncHosts = () => {
     if (!hosts) return;
     if (!state.jaunt || state.phase === 'outcome') { releaseHosts(); return; }
-    if (state.phase === 'menu') return; // pause keeps the existing host at their mark for Resume
+    if (state.phase === 'menu' || state.phase === 'closing') return; // pause keeps the existing host at their mark for Resume; the closing keeps the last
     const stop = currentStop(state), arrived = state.phase === 'atStop' || (state.phase === 'detail' && state.detailPhase === 'atStop');
     const key = `${state.session}:${stop?.id ?? ''}:${arrived ? 'here' : 'coming'}`;
     const cut = hostCut; hostCut = false;
@@ -409,6 +446,24 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     } catch { /* the outing goes on without them */ }
     state = { ...state, hostWaiting: arrived && waiting };
   };
+  // T-3553: the stop whose stage is up, and whether it is playing.
+  let stageKey = null;
+  const releaseStage = () => {
+    if (!stage || stageKey === null) return;
+    stageKey = null;
+    try { stage.release(); } catch { /* the outing goes on without it */ }
+  };
+  const syncStage = () => {
+    if (!stage) return;
+    if (!state.jaunt || ['outcome', 'menu'].includes(state.phase)) { releaseStage(); return; }
+    if (state.phase === 'closing') return; // the last scene stays up (a fort still burning) under the closing
+    const stop = currentStop(state), arrived = state.phase === 'atStop' || (state.phase === 'detail' && state.detailPhase === 'atStop');
+    if (!stop?.stage?.cast?.length) { releaseStage(); return; }
+    const key = `${state.session}:${stop.id}:${arrived ? 'here' : 'coming'}`;
+    if (stageKey === key) return;
+    stageKey = key;
+    try { stage.sync(stop, { arrived }); } catch { /* the outing goes on without it */ }
+  };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
   const dismissDetail = () => { detailRequest?.abort(); detailRequest = null; closeDetail(); };
@@ -417,7 +472,8 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     state = reduce(state, event);
     if (state === old) return false;
     // T-1258: the one moment an outing completes; the daybook's award is idempotent anyway.
-    if (state.phase === 'outcome' && old.phase !== 'outcome') {
+    const done = p => p === 'outcome' || p === 'closing';
+    if (done(state.phase) && !done(old.phase)) {
       countField('jauntFinished'); // T-2660
       try { onComplete(state); } catch { /* the outing still ends */ }
     }
@@ -427,6 +483,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     if (event.cut === true) hostCut = true;
     syncCrowd();
     syncHosts();
+    syncStage();
     render(state);
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
       applyHour(currentStop(state));
@@ -445,6 +502,10 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
           dispatch({ type: 'CONTEXT', ...token, context: contextForRoute(state, route) });
         } }))
         dispatch({ type: 'FAILED', ...token, message: 'This stop could not be reached. Try again, go back, or end the jaunt.' });
+    } else if (state.phase === 'closing' && old.phase !== 'closing') {
+      cancel('jaunt'); dismissDetail();
+      const token = { session: state.session, leg: state.leg };
+      try { closing?.begin(state, { token, onArrive: () => {}, onStop: () => {} }); } catch { /* the ending still shows */ }
     } else if (state.phase === 'detail') {
       cancel('detail');
     } else if (state.phase === 'paused') {
@@ -457,11 +518,18 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   }
   async function start(id, { mode, chosen } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); releaseStage(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
       if (!jaunt?.stops?.length || jaunt.review_required) throw new Error('Jaunt unavailable');
+      // The owner, 2026-11-16: the opening is read on the way, so the flight lasts as long
+      // (asked before the visitor is moved, so nothing is seen of the wait).
+      let seconds = null;
+      if (voiceover) {
+        try { seconds = await voiceover(jaunt, 'opening', 'opening'); } catch { seconds = null; }
+        if (destroyed || generation !== serial) return false;
+      }
       const target = resolve(jaunt.stops[0].destination);
       const flight = target ? approach?.(target) ?? null : null;   // T-3432: before the visitor is set down
       if (!target || !enter(target) || !place(target)) throw new Error('Starting place unavailable');
@@ -476,8 +544,8 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const token = { session: generation, leg: state.leg };
       const land = () => dispatch({ type: 'ARRIVE', ...token });
       if (state.mode !== 'instantly' && flight?.begin?.({ token, label: jaunt.places?.[jaunt.stops[0].destination.id] ?? target.label,
-        onArrive: land, onStop: land })) {
-        state = { ...state, estimate: estimate(state) }; syncCrowd(); syncHosts(); render(state); applyHour(currentStop(state)); persist();
+        seconds, onArrive: land, onStop: land })) {
+        state = { ...state, estimate: estimate(state) }; syncCrowd(); syncHosts(); syncStage(); render(state); applyHour(currentStop(state)); persist();
       } else land();
       countField('jauntStarted'); // T-2660
       return true;
@@ -506,12 +574,19 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); render(state); };
-  return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); releaseStage(); render(state); };
+  return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT', closing: !!closing }), prev: () => dispatch({ type: 'PREV' }),
+    finish: () => dispatch({ type: 'FINISH' }), skip: () => dispatch({ type: 'SKIP' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,
     setMode: mode => dispatch({ type: 'MODE', mode }), straight: () => dispatch({ type: 'INSTANT' }),
     resumeRide: () => dispatch({ type: 'RIDE' }),
+    // T-3553: Watch again: the stop's stage from the beginning.
+    replay() { if (!stage || state.phase !== 'atStop' || !currentStop(state)?.stage?.cast?.length) return false;
+      try { return !!stage.replay(); } catch { return false; } },
+    // The burning of the fort: the visitor puts their torch to the nearest building.
+    kindle() { if (!stage?.kindle || state.phase !== 'atStop' || !currentStop(state)?.stage?.fire?.visitor) return null;
+      try { return stage.kindle() ?? null; } catch { return null; } },
     end() { ++serial; request?.abort(); return dispatch({ type: 'END' }); }, menu: () => dispatch({ type: 'MENU' }),
     resume() { if (state.phase !== 'menu' || !state.jaunt) return false;
       const target = state.restored ? resolve(currentStop(state).destination) : null;

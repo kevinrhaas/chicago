@@ -163,6 +163,8 @@ GENERATOR_OF_PHASE = (
     ("phase2_west_wolf_point_approaches", "tools/generate_west_infill.py"),
     ("phase2_inferred_households", "tools/generate_inferred_households.py"),
     ("canal_approach_trade_1835", "tools/generate_canal_approach_trade.py"),
+    ("gifford_street_faces_1835", "tools/generate_gifford_street_faces.py"),
+    ("core_row_fill_1835", "tools/generate_core_row_fill_1835.py"),
     ("west_freight_forks_1835", "tools/generate_west_freight.py"),
     ("west_freight_bank_1835", "tools/generate_west_freight.py"),
     ("north_freight_bank_1835", "tools/generate_north_freight.py"),
@@ -1061,7 +1063,10 @@ def self_test() -> int:
     print()
     assert ROOF_FIXTURE.exists(), "tools/fixtures/substitution_candidate_roof.json is missing"
     found, _ = matches(candidate_read(load(ROOF_FIXTURE)))
-    assert [m["record"]["id"] for m in found] == ["recon_1835_blk_south_water_wells_d1_05"], \
+    # blk_south_water_dearborn lot 05 since T-3605: the commercial core's row fill raised
+    # stores on blk_south_water_wells lots 02 and 07 beside the dwellings the fixture used
+    # to retire, and an arrival is offered every roof on its lot
+    assert [m["record"]["id"] for m in found] == ["recon_1835_blk_south_water_dearborn_h1_03"], \
         "the shipped roof no longer retires the anonymous dwelling on its lot: %s" % found
     assert dry_run(ROOF_FIXTURE) == 0
     print()

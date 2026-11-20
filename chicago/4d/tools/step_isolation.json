@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-11-11",
+  "measured": "2026-11-19",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -2552,6 +2552,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/audit_1871_city_map.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/audit_businesses.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2604,6 +2608,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/bake_likeness_skin.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/bake_ref.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2641,6 +2649,10 @@
       "wrote_ignored": []
     },
     "tools/build_survey_tracts.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/build_tales.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2728,6 +2740,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_block_grow.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_brick_bond.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -2737,6 +2753,14 @@
       "wrote_ignored": []
     },
     "tools/check_chimney_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_chromebook.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_city_1871.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2892,6 +2916,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_onsite_tour.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_parked_wagon_fine_wood.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -3040,7 +3068,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_window_mode.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_wright_nara_registration.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_xr_mode.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4039,7 +4075,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/fergus_1839_street_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/fire_1871.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/fit_1871_city_map.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4064,6 +4112,10 @@
       "wrote_ignored": []
     },
     "tools/generate_canal_approach_trade.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_core_row_fill_1835.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4096,6 +4148,10 @@
       "wrote_ignored": []
     },
     "tools/generate_fruit_plantings_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_gifford_street_faces.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4303,6 +4359,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/jaunt_reading_level.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/jaunts_es.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/k01_contract.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -4315,7 +4379,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_driven_carriages_1904.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_driven_wagons_1812.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_driven_wagons_1835.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4332,6 +4404,14 @@
       "wrote_ignored": []
     },
     "tools/lay_prairie_1904_walk_joins.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_town_riders.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_vessels.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5010,6 +5090,10 @@
         "../prairie_1904_v1/tools/publish.py ../../site/4d/prairie-1904"
       ]
     },
+    "tools/qa_city_fire_1871.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/qualify_later_trades.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5175,6 +5259,10 @@
       "wrote_ignored": []
     },
     "tools/readable_text.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/reading_levels.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5456,7 +5544,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/site_films_ingest.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/smoke_budget.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/smoke_city_1871.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5658,6 +5754,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_board_climb.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_boot_forecast.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5698,7 +5798,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_city_context_depth.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_claim_value.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_coach_house.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_coachwork.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5735,6 +5847,10 @@
       "wrote_ignored": []
     },
     "tools/test_crossings.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_crowd.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5807,6 +5923,10 @@
       "wrote_ignored": []
     },
     "tools/test_field_log.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_field_notebook.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5890,6 +6010,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_glessner_ride.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_glessner_roof_envelope.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5946,6 +6070,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_habitat_audio_1812.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_habitat_audio_1904.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_habitat_audio_package.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5954,7 +6086,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_hoof_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_hoof_contact_events.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_horse_appearance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_horse_rig.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_house_barriers.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5963,6 +6111,10 @@
       "wrote_ignored": []
     },
     "tools/test_house_errands.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_house_floors.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6014,6 +6166,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_coat.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_collar.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_cook_1904.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6042,6 +6202,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_fight.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_fine.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_finery.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_fixture_scope.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6051,6 +6223,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_frame_time.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_frockcoat.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6067,6 +6243,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_gentleman_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_gown.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6142,6 +6322,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_mouth.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_natural_idle.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6166,7 +6350,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_regulars.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_rounds.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_seat.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6183,6 +6375,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_skirt.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_sleeve.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6206,6 +6402,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_tailor_1835.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_town_dress.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6215,6 +6415,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_variation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_waist.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6234,11 +6438,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_investigation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_stage.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_start_finish.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_jaunt_understanding.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6258,11 +6474,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_chamfer_return.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_crest_pinnacles.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_k01_cross_roof_hood.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_deck_crenellation.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_doane_crown_porch_roundel.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6275,6 +6503,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_front_crown.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_front_read_light.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6310,6 +6542,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_porch_balcony.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_porch_capitals_cheeks.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6335,6 +6571,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_side_read_windows.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_source_pitch.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6402,6 +6642,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k08_bay_crest.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k08_canted_bay_dormers.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6418,6 +6662,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k08_scrolled_pediment.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_stage_pilasters.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k08_tower_stage.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6430,6 +6682,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_keyboard_ownership.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_kinzie_end_door.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6439,6 +6695,10 @@
       "wrote_ignored": []
     },
     "tools/test_leg_notes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_lesson_guides.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6478,11 +6738,27 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_met_found.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_modern_streets.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_moment.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_name_cards.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_narration.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6602,6 +6878,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_photo_hunt.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_photo_match_enclosures.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6690,6 +6970,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_reading_level.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_recall.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6714,7 +6998,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_riding.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_roam_tip.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_route_unreachable.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_scene_selection.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6754,7 +7050,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_sign_in.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_sound.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_sound_keys.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6783,6 +7087,10 @@
       "wrote_ignored": []
     },
     "tools/test_standing_horse_upper_orbital.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_step_out.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6830,7 +7138,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_tales.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_teacher_handout.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_teacher_route.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_team_drive.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6902,6 +7222,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_today_view.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_tour.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6910,11 +7234,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_town_people_1835.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_transport_audio.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_transport_boarding.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_transport_clearance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_transport_crossings.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6942,11 +7278,43 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_vessels.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_viewport_accessibility.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_visitor_person.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_wait_for_function_args.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_walker_bodies.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_walker_passage.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_wind_gust.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_activity.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_day_source.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6986,6 +7354,14 @@
       "wrote_ignored": []
     },
     "tools/town_census.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/town_people_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/trace_harbor_1869.py": {
       "wrote": [],
       "wrote_ignored": []
     },

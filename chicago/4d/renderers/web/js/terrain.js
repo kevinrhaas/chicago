@@ -1763,6 +1763,8 @@ export function distantBaseGeometry(hf, footprints = []) {
 }
 
 function gridGeometry(hf, step = 1, footprints = []) {
+  // The 1871 context grades are wholly reconstructed, including the distant base.
+  const landConfidence = hf.meta?.epoch === 'e1871_prefire' ? 1 : 0.5;
   if (!hf.loaded) {
     const g = new THREE.PlaneGeometry(2400, 2400, 1, 1);
     g.rotateX(-Math.PI / 2);
@@ -1777,7 +1779,7 @@ function gridGeometry(hf, step = 1, footprints = []) {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(mesh.position, 3));
     const conf = new Float32Array(mesh.position.length / 3);
-    for (let i = 0; i < conf.length; i++) conf[i] = mesh.position[i * 3 + 1] < SHORE_Y ? 1 : 0.5;
+    for (let i = 0; i < conf.length; i++) conf[i] = mesh.position[i * 3 + 1] < SHORE_Y ? 1 : landConfidence;
     g.setAttribute('_confidence', new THREE.BufferAttribute(conf, 1));
     g.setIndex(new THREE.BufferAttribute(mesh.index, 1));
     g.computeVertexNormals();
@@ -1795,7 +1797,7 @@ function gridGeometry(hf, step = 1, footprints = []) {
   const outCols = sampleCols.length;
   const outRows = sampleRows.length;
   const pos = new Float32Array(outCols * outRows * 3);
-  const conf = new Float32Array(outCols * outRows).fill(0.5);
+  const conf = new Float32Array(outCols * outRows).fill(landConfidence);
   for (let rr = 0; rr < outRows; rr++) {
     const r = sampleRows[rr];
     for (let cc = 0; cc < outCols; cc++) {
@@ -2002,7 +2004,6 @@ function zoneGlsl(zones, lakeShore = null) {
   // lakeshore.js softExtentWeight gives the sward, so neither draws a beach.
   zones = zones.filter((z) => z.extent?.kind !== 'lake_shore' || lakeShore);
   if (!zones.length) return '';
-  const F = ZONE_EDGE_RAMP_M.toFixed(1);
   const f = (v) => (Number.isInteger(v) ? v.toFixed(1) : String(v));
   const v3 = (c) => `vec3(${c.r.toFixed(6)}, ${c.g.toFixed(6)}, ${c.b.toFixed(6)})`;
   const blocks = zones.map((z) => (softExtentGlsl(z.extent) ? `

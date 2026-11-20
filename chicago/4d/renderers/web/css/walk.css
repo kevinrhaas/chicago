@@ -472,8 +472,8 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   margin: 0; overflow: hidden; white-space: nowrap; text-overflow: clip;
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--ink);
 }
-.arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
-.arrival-readout dd[data-telemetry="years"] { color: var(--lamp, var(--accent)); }
+.arrival-readout dd[data-read="eta"] { color: var(--lamp-ink, var(--lamp, var(--accent))); }
+.arrival-readout dd[data-telemetry="years"] { color: var(--lamp-ink, var(--lamp, var(--accent))); }
 /* T-3539: the device panel — the Observatory's meter, then why it reads so and what this
    device draws. Two lines are held from first paint, so the device does not grow when the
    profile lands. */
@@ -496,7 +496,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .arrival-device-bar i.on { background: var(--lamp, var(--accent)); }
 .arrival-device-bar i.top { box-shadow: 0 0 6px color-mix(in srgb, var(--lamp, var(--accent)) 70%, transparent); }
 .arrival-device-head b {
-  flex: none; color: var(--lamp, var(--accent));
+  flex: none; color: var(--lamp-ink, var(--lamp, var(--accent)));
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums;
 }
 .arrival-device-head em {
@@ -623,7 +623,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .year-chip .badge-year { font-size: 17px; font-weight: 500; letter-spacing: .1em; }
 .year-chip .badge-sub { font-size: 13px; letter-spacing: .1em; }
-.year-chip .badge-dot { font-size: 13px; opacity: .7; }
+.year-chip .badge-dot { font-size: 13px; opacity: .8; }
 .year-chip :is(.badge-alt, .badge-version, .badge-version[data-tone]) { color: var(--amber, #E2A63F); border-left-color: rgba(255, 255, 255, .16); }
 .year-chip:hover { border-color: var(--amber, #E2A63F); }
 .year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -835,7 +835,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   background: var(--panel); color: var(--ink-dim);
   box-shadow: var(--shadow); cursor: pointer;
 }
-.street-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.street-toggle[aria-pressed="true"] { color: var(--accent); border-color: var(--lit-edge, color-mix(in srgb, var(--accent) 55%, var(--edge))); }
 .street-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2977 (owner, 2026-10-21): the Walk/Fly key, moved here from the right-edge column, where
    the Inspect key appearing over it pushed it up and down. A small round key left of the
@@ -859,6 +859,34 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .fly-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* A thumb still gets the 44 px touch floor: the key draws at 28, and answers 8 px past its rim. */
 body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+/* T-3575: the Enter VR key, the fly key's size and rim, a word instead of an arrow. Hidden
+   unless the browser offers a headset. */
+.vr-key {
+  pointer-events: auto;
+  display: inline-grid; place-items: center;
+  height: 28px; min-width: 34px; padding: 0 8px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: var(--panel); color: var(--ink);
+  font: 600 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .06em;
+  box-shadow: var(--shadow); cursor: pointer;
+}
+.vr-key[hidden] { display: none; }
+/* T-3597: the VR and Window keys, hung off the compass row's left end so the row stays the
+   fly key, the heading and the street switch: the round face is centred over that row, and
+   any key added to it walks the face in from the right edge (57 px on a 390 px phone). */
+.compass-row { position: relative; }
+.instrument-keys {
+  position: absolute; top: 0; right: calc(100% + 4px);
+  display: flex; flex-direction: row-reverse; align-items: center; gap: 4px;
+  pointer-events: none;
+}
+.instrument-keys .vr-key { position: relative; }
+/* T-3597: Window as a round icon key, the fly key's size, with the same 44 px touch floor. */
+.vr-key.icon-key { width: 28px; min-width: 28px; padding: 0; }
+body:is(.is-touch, .touch-first) .vr-key.icon-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+.vr-key[aria-pressed="true"] { color: var(--accent); border-color: var(--lit-edge, color-mix(in srgb, var(--accent) 55%, var(--edge))); }
+.vr-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.vr-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
    width never shifts the round face. Terse machine status: a year tag, the era street;
    a TODAY tag, today's street, corner or house number. */
@@ -924,6 +952,69 @@ body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absol
   font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+/* T-3601: the TODAY tag is the Today window's switch — the readout is a readout
+   (pointer-events: none), so the tag claims them back, and lights while the window shows. */
+.street-today-key {
+  pointer-events: auto;
+  display: inline-flex; align-items: center; gap: 3px;
+  flex: 0 0 auto;
+  min-width: 3.4em;
+  margin: -3px -4px; padding: 3px 4px;
+  border: 0; border-radius: 5px;
+  background: transparent; color: #60cdeb;
+  font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.street-today-key b { min-width: 0; }
+.street-today-key:hover, .street-today-key[aria-pressed="true"] { background: color-mix(in srgb, #60cdeb 18%, transparent); }
+.street-today-key:focus-visible { outline: 2px solid #60cdeb; outline-offset: 1px; }
+body:is(.is-touch, .touch-first) .street-today-key { position: relative; }
+body:is(.is-touch, .touch-first) .street-today-key::before { content: ""; position: absolute; inset: -8px -6px; }
+/* T-3601: the Today window, under the readout. Small by default, the readout's width;
+   big, most of a laptop's right half or a phone's whole width. */
+.today-view {
+  pointer-events: auto;
+  width: 248px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, #60cdeb 40%, var(--edge));
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+.today-view[hidden] { display: none; }
+.today-view[data-size="big"] { width: min(640px, calc(100vw - 440px)); min-width: min(420px, calc(100vw - 20px)); }
+.today-head { display: flex; align-items: center; gap: 5px; padding: 4px 5px 4px 9px; }
+.today-tag { color: #60cdeb; font: 700 8px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .09em; text-transform: uppercase; }
+.today-where {
+  flex: 1 1 auto; min-width: 0; overflow: hidden;
+  color: var(--ink-dim); font: 500 10px/1.2 var(--font-mono, ui-monospace, monospace);
+  text-overflow: ellipsis; white-space: nowrap;
+}
+.today-btn {
+  position: relative;
+  display: inline-grid; place-items: center; flex: 0 0 auto;
+  width: 22px; height: 22px; padding: 0;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.today-btn:hover { color: var(--ink); border-color: color-mix(in srgb, #60cdeb 55%, var(--edge)); }
+.today-btn:focus-visible { outline: 2px solid #60cdeb; outline-offset: 1px; }
+body:is(.is-touch, .touch-first) .today-btn::before { content: ""; position: absolute; inset: -6px -3px; border-radius: 50%; }
+.today-btn .today-shrink, .today-btn[aria-pressed="true"] .today-grow { display: none; }
+.today-btn[aria-pressed="true"] .today-shrink { display: inline; }
+.today-pano { width: 100%; aspect-ratio: 16 / 10; background: #0d0f12; }
+.today-pano[hidden] { display: none; }
+.today-view[data-size="big"] .today-pano { max-height: calc(100vh - 300px); min-height: 200px; }
+.today-note { margin: 0; padding: 3px 9px 6px; color: var(--ink-dim); font-size: 10px; line-height: 1.3; }
+.today-view[data-mode="link"] .today-note, .today-view[data-mode="none"] .today-note,
+.today-view[data-mode="error"] .today-note { padding-top: 1px; font-size: 11px; }
+@media (max-width: 560px) {
+  .today-view { width: 200px; }
+  .today-view[data-size="big"] { width: calc(100vw - 20px); min-width: 0; }
+  .today-view[data-size="big"] .today-pano { max-height: 42vh; min-height: 0; }
 }
 
 .chip {
@@ -1338,6 +1429,12 @@ body.is-touch .crosshair { display: none; }
   border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
 }
 .quick-interact[aria-disabled="true"] { opacity: .75; cursor: default; }
+/* T-3629: Inspect names its key too (E), as Interact names R: the game's own prompt. */
+.quick-inspect .ik-kbd {
+  font: inherit; font-size: 10px; line-height: 1; padding: 2px 4px; margin-left: 4px;
+  border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
+}
+@media (max-width: 560px), (pointer: coarse) { .quick-inspect .ik-kbd { display: none; } }
 .quick-column > .quick-interact {
   transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
 }
@@ -1902,6 +1999,10 @@ kbd {
 .field > span b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .field.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .field.row > span { margin: 0; }
+/* The owner, 2026-11-17: which name cards show, by grade; three boxes, any mix. */
+.field.name-card-grades { align-items: flex-start; }
+.field > .name-card-grade-picks { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; color: var(--ink); }
+.name-card-grade-picks .check-field { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
 .field[hidden] { display: none; }
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
 .field select {
@@ -2301,6 +2402,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-pack[data-state="downloading"] .welcome-pack-bar { visibility: visible; }
 .gate.welcome-compact .welcome-pack { margin-top: 0; }
 .gate.welcome-compact .welcome-pack-toggle { min-height: 30px; }
+/* T-3675: the same download in Settings › Performance, "Prepare for class". */
+.pack-settings-actions { display: inline-flex; gap: 6px; }
+.pack-settings-actions [hidden] { display: none; }
+.pack-settings-bar { display: block; height: 2px; margin-top: 6px; border-radius: 1px; visibility: hidden;
+  background: linear-gradient(90deg, var(--accent) calc(var(--f, 0) * 100%), var(--edge) 0); }
+.pack-settings[data-state="downloading"] .pack-settings-bar { visibility: visible; }
 /* Inside a choice: eyebrow and intro step aside, the title shrinks, the choices become tabs. */
 .gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
 .gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
@@ -2327,7 +2434,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
-#welcome-search, .jaunt-filters input {
+/* The jaunt search moved from the filters into the pinned row (T-3653); it keeps their shape. */
+#welcome-search, .jaunt-filters input, .jaunt-find-row input {
   box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px 8px 33px;
   font: inherit; font-size: 16px; color: var(--ink); background: var(--panel-solid);
   border: 1px solid var(--edge); border-radius: 999px;
@@ -2432,25 +2540,34 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
    colour, its length a small gauge; travel mode and the route fold out under the row. */
 :root {
   --fam-way: #6FB8CB; --fam-prov: #DDAA5C; --fam-neigh: #E2907A; --fam-live: #A2C47E; --fam-news: #B7A8EC;
+  --fam-story: #D98BB5; --fam-log: #9DAAB8; /* T-3584: the Stories and Build log groups */
 }
 :root[data-theme="light"] {
   --fam-way: #1C687C; --fam-prov: #87570E; --fam-neigh: #9A3D27; --fam-live: #476725; --fam-news: #58459A;
+  --fam-story: #8E2F63; --fam-log: #4A5866;
 }
 #welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
 #welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
-.jaunt-filters { display: grid; gap: 7px; margin: 0 0 8px; padding-bottom: 6px; position: sticky; top: 0; z-index: 1; background: var(--panel-solid); }
-.jaunt-find-row { display: flex; gap: 6px; align-items: center; }
+/* T-3653: only the search row stays pinned while the list scrolls. The whole filter block
+   used to be sticky, and once the age row joined it (T-3604/T-3645) it stood 208 px tall in a
+   Jaunts screen 233 px tall on a phone, covering nearly every row under it, Start buttons
+   included. The group and age rows now scroll away with the list, and a row scrolled to by
+   focus or a tap stops clear of the pinned search (scroll-margin-top). */
+.jaunt-find-row { display: flex; gap: 6px; align-items: center; position: sticky; top: 0; z-index: 1;
+  padding-bottom: 7px; background: var(--panel-solid); }
+.jaunt-filters { display: grid; gap: 7px; margin: 0 0 8px; padding-bottom: 6px; }
+.jaunt-list > *, .jaunt-window-nav > * { scroll-margin-top: 56px; }
 .jaunt-daybook-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 42px; padding: 0 11px; font-size: 12px; border-radius: 999px; white-space: nowrap; color: var(--ink-dim); }
 .jaunt-daybook-chip .menu-icon { color: var(--accent); }
-.jaunt-categories { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+/* T-3584: every group pill says its name (icons alone did not say what the groups were), and
+   the row wraps rather than hiding pills off the edge of a phone. */
+.jaunt-categories { display: flex; flex-wrap: wrap; gap: 5px; }
 .jaunt-pill { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; min-width: 40px; padding: 0 10px; justify-content: center;
   border: 1px solid var(--edge); border-radius: 999px; background: none; color: var(--ink-dim); font: inherit; font-size: 12px; cursor: pointer; }
 .jaunt-pill .menu-icon { color: var(--fam, var(--accent)); }
 .jaunt-pill[aria-pressed="true"] { color: var(--ink); border-color: var(--fam, var(--accent)); background: color-mix(in srgb, var(--fam, var(--accent)) 18%, transparent); }
 .jaunt-clear { flex: none; min-height: 34px; padding: 0 8px; font-size: 12px; border: 0; color: var(--accent); }
 .jaunt-clear[hidden], .jaunt-window-nav [hidden] { display: none; }
-/* The types are icons; the one chosen also shows its name. */
-.jaunt-pill:not([aria-pressed="true"]) span:not(:only-child) { display: none; }
 #welcome-search:focus, .jaunt-filters input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }
 .jaunt-list { display: flex; flex-direction: column; gap: 6px; }
 .jaunt-card {
@@ -2462,7 +2579,7 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 }
 .jaunt-type-way { --fam: var(--fam-way); } .jaunt-type-prov { --fam: var(--fam-prov); }
 .jaunt-type-neigh { --fam: var(--fam-neigh); } .jaunt-type-live { --fam: var(--fam-live); }
-.jaunt-type-news { --fam: var(--fam-news); }
+.jaunt-type-news { --fam: var(--fam-news); } .jaunt-type-story { --fam: var(--fam-story); } .jaunt-type-log { --fam: var(--fam-log); }
 .jaunt-type { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 9px; color: var(--fam);
   background: color-mix(in srgb, var(--fam) 15%, transparent); border: 1px solid color-mix(in srgb, var(--fam) 40%, transparent); }
 .jaunt-row-body { min-width: 0; }
@@ -2481,6 +2598,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
 .jaunt-length:empty { display: none; }
 .jaunt-light { white-space: nowrap; color: var(--accent, currentColor); }
+/* T-3604: the grade-level filter row, under the group pills. */
+.jaunt-grades { align-items: center; }
+.jaunt-grades[hidden] { display: none; }
+.jaunt-grades-label { font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); margin-right: 2px; }
+/* T-3590: the school grades a jaunt is written for. */
+/* The owner, 2026-11-15: an adults-only jaunt says so on its card, and what it shows. */
+.jaunt-adults { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--alert, #e0703a) 70%, transparent); color: var(--alert-ink, var(--alert, #e0703a)); border-radius: 999px; padding: 0 6px; font-weight: 600; }
+.jaunt-warning { margin: 4px 0 0; font-size: 12px; line-height: 1.35; color: var(--alert-ink, var(--alert, #e0703a)); }
+.jaunt-grade { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--ink-dim) 45%, transparent); border-radius: 999px; padding: 0 6px; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
 /* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
    in progress pinned on top with Continue. */
@@ -2609,8 +2735,21 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .gate:not([data-state="welcome"]) .gate-eyebrow { max-width:calc(100% - 48px); margin-inline-end:48px; }
 .gate[data-state="welcome"] .gate-code { padding-inline-end:48px; min-height:28px; }
 .gate[data-state="welcome"] .gate-eyebrow { padding-inline-end:44px; }
-.arrival-sound:focus-visible { outline:2px solid var(--signal, #f5bd59); outline-offset:3px; }
-.arrival-sound[aria-pressed="true"] { color:var(--signal, #f5bd59); }
+.arrival-sound:focus-visible { outline:2px solid var(--accent, #f5bd59); outline-offset:3px; }
+/* T-3578: Home's close key, at the upper right where the Navigator keeps its own; the speaker
+   steps left beside it. */
+.welcome-x { position:absolute; inset:10px 10px auto auto; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; min-height:44px; min-width:44px; margin:0; padding:10px;
+  color:var(--text, #eee); background:transparent; border:1px solid var(--edge, rgba(255,255,255,.18)); border-radius:8px; cursor:pointer; }
+.welcome-x[hidden] { display:none; }
+.welcome-x:hover { border-color:var(--accent, #f5bd59); }
+.welcome-x:focus-visible { outline:2px solid var(--accent, #f5bd59); outline-offset:3px; }
+.gate-card:has(#welcome-x:not([hidden])) .arrival-sound { right:58px; }
+.gate[data-state="welcome"] .gate-card:has(#welcome-x:not([hidden])) .gate-code { padding-inline-end:100px; }
+/* T-3571: lit is the quiet kind on every machine (skins.css § LIT), not the signal red. */
+.arrival-sound[aria-pressed="true"] { color:var(--lit-ink, #f5bd59);
+  background:var(--lit-wash, transparent); box-shadow:inset 0 0 0 1px var(--lit-edge, transparent); }
 
 .arrival-sound .sound-playing-icon { display:none; }
 .arrival-sound[aria-pressed="true"] .sound-playing-icon { display:initial; }
@@ -2621,3 +2760,139 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 #s-sound .sound-control { margin-bottom:18px; }
 #s-sound .sound-control > .field { margin-bottom:0; }
 #s-sound .sound-control > .legend-note { margin:2px 0 0; line-height:1.45; }
+
+/* T-3553: Tell me a story. The teller's story on a card at the left of the view; on a phone a
+   sheet along the bottom. Theme tokens only, so every Appearance dresses it. */
+.tale-card {
+  /* Right of centre, clear of the Navigator on the left and the quick keys on the right. */
+  position: fixed; z-index: 44; right: 232px; top: 50%; transform: translateY(-50%);
+  width: min(420px, calc(100vw - 32px)); max-height: min(72vh, 640px);
+  display: flex; flex-direction: column;
+  color: var(--ink); background: var(--panel-solid, var(--panel));
+  border: 1px solid var(--edge-strong, var(--edge)); border-radius: var(--r-screen, 10px);
+  box-shadow: var(--shadow); text-align: left; pointer-events: auto;
+}
+.tale-card[hidden] { display: none; }
+.tale-head { display: flex; align-items: center; gap: 8px; padding: 10px 8px 0 14px; }
+.tale-tag {
+  flex: none; color: var(--accent); font: var(--label-weight, 700) 9px/1 var(--font-label, var(--font-mono, monospace));
+  letter-spacing: var(--label-tracking, .12em); text-transform: uppercase;
+}
+.tale-who {
+  flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--ink-dim); font: 500 12px/1.3 var(--font-body, system-ui, sans-serif);
+}
+.tale-close {
+  flex: none; width: 32px; height: 32px; padding: 0; border: 1px solid var(--edge); border-radius: var(--r-control, 6px);
+  background: transparent; color: var(--ink); font: 400 20px/1 var(--font-body, system-ui, sans-serif); cursor: pointer;
+}
+.tale-close:hover, .tale-key:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.tale-close:focus-visible, .tale-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tale-title {
+  margin: 6px 14px 4px; color: var(--ink);
+  font: var(--display-weight, 600) 21px/1.15 var(--font-display, var(--font-body, system-ui, sans-serif));
+  letter-spacing: var(--display-tracking, -.01em);
+}
+.tale-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 14px; overscroll-behavior: contain; }
+.tale-body p { margin: 0 0 .7em; font: 400 15px/1.5 var(--font-body, system-ui, sans-serif); }
+.tale-note { margin: 2px 14px 0; color: var(--ink-faint); font: 400 11px/1.35 var(--font-body, system-ui, sans-serif); font-style: italic; }
+.tale-keys { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px 14px; }
+.tale-key {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px;
+  border: 1px solid var(--edge); border-radius: var(--r-control, 6px);
+  background: transparent; color: var(--ink); font: 600 13px/1.1 var(--font-body, system-ui, sans-serif); cursor: pointer;
+}
+.tale-key[hidden] { display: none; }
+.tale-key:disabled { opacity: .55; cursor: default; }
+.tale-find:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.tale-why { display: block; color: var(--ink-faint); font-weight: 400; font-size: 11px; }
+/* T-3553: Ask a question rides the same card; who they are, then their five questions. */
+.ask-persona[hidden] { display: none; }
+.ask-persona { margin: 4px 14px 2px; color: var(--ink-dim); font: 400 12px/1.4 var(--font-body, system-ui, sans-serif); }
+.ask-body { padding-top: 6px; }
+.ask-prompt { color: var(--ink-dim); font-size: 13px !important; }
+.ask-list { list-style: none; margin: 0 0 .5em; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ask-q {
+  display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 8px 12px; text-align: left;
+  border: 1px solid var(--edge); border-radius: var(--r-control, 6px); background: transparent; color: var(--ink);
+  font: 500 14px/1.3 var(--font-body, system-ui, sans-serif); cursor: pointer;
+}
+.ask-q:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.ask-q:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ask-q-text { flex: 1 1 auto; }
+.ask-done { color: var(--ink-dim); }
+.ask-tick { flex: none; color: var(--accent); font-weight: 700; }
+.ask-body .ask-you { color: var(--accent); font-weight: 600; }
+.ask-body .ask-manner { color: var(--ink-dim); font-style: italic; }
+.tale-body .ask-manner { color: var(--ink-dim); font-style: italic; }
+.ask-more { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin: 2px 0 10px; }
+.ask-follow { text-align: left; font-weight: 500; }
+.ask-reveal { margin-top: 4px; padding-left: 10px; border-left: 2px solid var(--edge-strong, var(--edge)); }
+@media (max-width: 900px), (pointer: coarse) and (max-width: 1100px) {
+  .tale-card {
+    left: 8px; right: 8px; top: auto; bottom: 8px; transform: none; width: auto;
+    max-height: 58vh; max-height: 58dvh; padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .tale-close { width: 40px; height: 40px; }
+  .tale-key { min-height: 44px; }
+  .tale-body p { font-size: 15px; }
+  .ask-q { min-height: 44px; }
+}
+
+/* ---- T-3671 (WCAG 1.4.4): Settings › Display › Text size reaches every part ------------
+   The Navigator's screens have scaled with --text-scale since T-2656 (navigator.css); from
+   100 % to 200 % the rest of the interface scales with them. Each part is magnified with
+   `zoom`, as the browser's own zoom would, so a part keeps its layout and its rows wrap: a
+   card or a panel whose place is fixed to the screen keeps that place and magnifies its
+   CONTENTS (its children), widened where the screen has room; a part that sizes itself is
+   magnified whole, with any length measured from the screen's edge divided back so it
+   lands where it did. Nothing here applies at 100 % (html[data-text-scale] is unset). */
+html[data-text-scale] :is(.hud-chips, .hud-instrument .compass-row, .instrument-below, .quick-column, .hud-bottom > :not(.roam-tip),
+  .popup > *, .jaunt-panel > *, .jaunt-context-card > *, .tale-card > *, .crash-notice > *, .tour-card > *,
+  .gate-card, .recall-card, .overview-full-head, .overview-full-foot) { zoom: var(--text-scale); }
+html[data-text-scale] :is(.nav-hint, .roam-tip, .look-tag, .target-tag[data-place="centre"]) { zoom: var(--text-scale); }
+html[data-text-scale] .target-tag[data-place="centre"] { max-width: min(440px, calc((100vw - 120px) / var(--text-scale))); }
+html[data-text-scale] .look-tag { white-space: normal; max-width: calc((100vw - 32px) / var(--text-scale)); text-align: center; }
+html[data-text-scale] .nav-hint { top: calc((64px + env(safe-area-inset-top, 0px)) / var(--text-scale));
+  max-width: min(420px, calc((100vw - 32px) / var(--text-scale))); }
+html[data-text-scale] .roam-tip { bottom: calc((92px + env(safe-area-inset-bottom, 0px)) / var(--text-scale));
+  max-width: calc((100vw - 32px) / var(--text-scale)); }
+/* A card's title row reaches into its side padding by 16 px; the padding grows with it. */
+html[data-text-scale] .popup { padding-left: calc(16px * var(--text-scale)); padding-right: calc(16px * var(--text-scale)); }
+/* Where the screen has room, a card and a panel widen with their words. */
+@media (min-width: 621px) {
+  html[data-text-scale] .popup { width: min(calc(440px * var(--text-scale)), calc(100vw - 24px), max(440px, 50vw)); }
+  html[data-text-scale] .tour-card { width: min(calc(360px * var(--text-scale)), calc(100vw - 32px)); }
+}
+@media (min-width: 901px) {
+  html[data-text-scale] .jaunt-panel { width: min(calc(350px * var(--text-scale)), calc(100vw - 28px), max(350px, 40vw)); }
+  html[data-text-scale] .jaunt-context-card { width: min(calc(430px * var(--text-scale)), calc(100vw - 28px), max(430px, 45vw)); }
+  html[data-text-scale] .tale-card { width: min(calc(420px * var(--text-scale)), calc(100vw - 264px), max(420px, 45vw)); }
+}
+/* Above 100 % a line that ends in an ellipsis at 100 % wraps, and a strip of tabs takes a second row. */
+html[data-text-scale] .jaunt-progress-title { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; overflow-wrap: anywhere; }
+html[data-text-scale] .pop-tabs { flex-wrap: wrap; overflow-x: visible; }
+/* A tall card or prompt scrolls in its overlay rather than past the screen's edge. */
+html[data-text-scale] :is(.gate, .recall-confirm, .overview-full) { overflow-y: auto; align-items: safe center; grid-template-columns: minmax(0, 1fr); }
+/* The arrival device on a phone, magnified: the year window over its lamps, the destination
+   wrapping, the readout one cell to a row. */
+html[data-text-scale] .gate[data-state="welcome"] .gate-code { flex-wrap: wrap; white-space: normal; }
+@media (max-width: 520px) {
+  html[data-text-scale] :is(.arrival-instrument, .arrival-deck) { grid-template-columns: minmax(0, 1fr); }
+  html[data-text-scale] .arrival-window .arrival-year { width: min(156px, 100%); }
+  html[data-text-scale] .arrival-destination { white-space: normal; overflow-wrap: anywhere; }
+  html[data-text-scale] .arrival-readout { grid-template-columns: minmax(0, 1fr); }
+  html[data-text-scale] .arrival-readout > div { border-left: 0; }
+  html[data-text-scale] .arrival-device-head { flex-wrap: wrap; }
+  html[data-text-scale] .arrival-device-bar { flex-basis: 100%; order: 1; }
+  html[data-text-scale] .arrival-readout > div + div { border-top: 1px solid var(--edge); }
+}
+
+/* T-3671 (WCAG 2.2.2, 2.3.3): Settings › Look › Motion, Reduce — or System on a device that
+   asks for less (js/motion.js puts html[data-motion]). Every transition and animation runs to
+   its end at once: nothing slides, pulses, blinks or rolls, and a blink stops lit. One rule,
+   last in the sheet, so no panel has to remember it. */
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
+}

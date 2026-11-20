@@ -102,6 +102,8 @@ const SHARED_GPU = [
   /\bradeon(?:\(tm\))? (?:\d{3}m|vega)\b/i,
   /\badreno\b/i,
   /\bmali\b/i,
+  // T-3675: the PowerVR in MediaTek's older Chromebook chips (MT8173: "PowerVR Rogue GX6250").
+  /\bpowervr\b/i,
 ];
 
 /** True when the renderer string names an integrated GPU that shares the system's memory. */
@@ -109,6 +111,34 @@ export function sharesSystemMemory(renderer) {
   const r = String(renderer || '');
   if (!r || isSoftwareRenderer(r) || /\bapple\b/i.test(r)) return false;
   return SHARED_GPU.some((re) => re.test(r));
+}
+
+/**
+ * T-3675: A CHROMEBOOK IS A COMPUTER. A classroom set is mostly low-end Chromebooks
+ * (a Celeron with Intel UHD 600/605 or HD Graphics, or a MediaTek / Snapdragon chip
+ * with Arm Mali, PowerVR or Adreno; 4 GB; 2-4 cores). Every Chromebook draws on
+ * graphics that share its memory, and the only thing it shares with a phone is an
+ * ARM GPU's name. So ChromeOS is read from the user agent ("CrOS") or Chrome's
+ * userAgentData ("Chrome OS"), and a Chromebook is profiled as a computer even with a
+ * touch screen or in tablet mode: `weak`, so Balanced at Sharpness Low, light
+ * textures and the memory diet, people, horses, carriages and wagons all drawn (the
+ * owner, 2026-11-10: Light is not a computer's floor). Its controls still follow its
+ * pointer (touchDefault below), and a touch on the screen switches to touch controls.
+ */
+export function isChromeOS(ua, platform) {
+  return /\bCrOS\b/.test(String(ua || '')) || /^chrome ?os$/i.test(String(platform || '').trim());
+}
+
+/**
+ * Whether the touch controls are the default. Pure; controls/touch.js `prefersTouch`
+ * reads the page into it. A coarse primary pointer, or a touch screen in a narrow window
+ * (a phone that reports a fine pointer). On ChromeOS only the primary pointer counts: a
+ * Chromebook with a touch screen in a half-screen window still has its keyboard and
+ * trackpad, and in tablet mode its pointer is coarse.
+ */
+export function touchDefault({ coarse = false, maxTouchPoints = 0, width = 1024, chromeos = false } = {}) {
+  if (chromeos) return !!coarse;
+  return !!coarse || (maxTouchPoints > 0 && width < 900);
 }
 
 /** `?device=weak|standard|strong` — HARNESS ONLY: forces the class, never cached. */
@@ -144,6 +174,11 @@ export function classify(signals, bench, { forced = null, stepDown = 0, touch = 
     cls = 'weak';
     why = `few resources (${signals.cores ?? '?'} cores, ${signals.memoryGB ?? '?'} GB, `
       + `${signals.maxTexture ?? '?'} px textures)`;
+  } else if (signals.chromeos) {
+    // T-3675: whatever the benchmark reads, a Chromebook's graphics memory is its 4-8 GB of RAM.
+    cls = 'weak';
+    why = `a Chromebook: graphics sharing the system's memory (${shortGpu(signals.renderer)}`
+      + `${signals.memoryGB ? `, ${signals.memoryGB} GB` : ''})`;
   } else if (!touch && sharesSystemMemory(signals.renderer)) {
     // T-3537: a phone keeps Light whatever its class, so only a computer is moved.
     cls = 'weak';
@@ -175,7 +210,9 @@ export function shortGpu(renderer) {
   const angle = s.match(/^ANGLE \((.*)\)$/);
   if (angle) { const parts = angle[1].split(', '); s = parts[1] || parts[0]; }
   s = s.replace(/^ANGLE Metal Renderer:\s*/, '').replace(/\s*\(0x[0-9a-f]+\)/gi, '')
-    .replace(/\s+Direct3D.*$/i, '').replace(/\/PCIe\/SSE2/i, '').trim();
+    .replace(/\s+Direct3D.*$/i, '').replace(/\/PCIe\/SSE2/i, '')
+    // T-3675: Mesa's prefix and chip codename on Linux and ChromeOS: "Mesa Intel(R) UHD Graphics 600 (GLK 2)".
+    .replace(/^Mesa (?:DRI )?/i, '').replace(/\s*\([A-Z]{2,4}(?: GT)?\s?\d?\)$/, '').trim();
   return s || 'GPU not reported';
 }
 
@@ -220,7 +257,8 @@ const SHARP_LABEL = { 1: 'Low', 1.5: 'Medium', 2: 'High' };
 /** "Your device: strong desktop, chosen Full detail at High sharpness." */
 export function describeProfile(profile) {
   if (!profile) return '';
-  const kind = profile.touch ? 'phone or tablet' : 'computer';
+  const kind = profile.headset ? 'VR headset' : profile.signals?.chromeos ? 'Chromebook'
+    : profile.touch ? 'phone or tablet' : 'computer';
   const d = DETAIL_LABEL[profile.choice.detail] ?? profile.choice.detail;
   const s = SHARP_LABEL[profile.choice.sharpness] ?? String(profile.choice.sharpness);
   return `Your device: ${CLASS_LABEL[profile.cls] ?? profile.cls} ${kind}, chosen ${d} detail at ${s} sharpness.`;
@@ -484,6 +522,8 @@ export async function profileDevice({
     gl = read.gl;
     const signals = {
       ...read.signals,
+      // T-3675: ChromeOS, so a touch-screen Chromebook is profiled as the computer it is.
+      chromeos: isChromeOS(nav?.userAgent, nav?.userAgentData?.platform),
       cores: Number(nav?.hardwareConcurrency) || null,
       memoryGB: Number(nav?.deviceMemory) || null,
       // T-3552: an automated browser (Playwright, WebDriver) says so; a visitor's does not.
@@ -491,6 +531,7 @@ export async function profileDevice({
       screen: win?.screen ? [win.screen.width, win.screen.height] : null,
       dpr: Number(win?.devicePixelRatio) || 1,
     };
+    if (signals.chromeos) touch = false;
     const key = cacheKey(signals.renderer, build);
     const hit = !forced && !forceBench && !stepDown ? readCached(storage, key) : null;
     if (hit) {

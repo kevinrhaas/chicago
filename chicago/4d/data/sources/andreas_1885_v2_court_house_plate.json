@@ -1,0 +1,26 @@
+{
+  "id": "andreas_1885_v2_court_house_plate",
+  "type": "illustration",
+  "citation": "'The Court-House before the fire', wood engraving, in A. T. Andreas, History of Chicago, vol. 2 (Chicago: A. T. Andreas, 1885), p. 65.",
+  "author": "Engraver unnamed (signed by the engraving company at lower left)",
+  "date": "1885",
+  "describes_date": "1870-1871, the Court House as enlarged, before the fire",
+  "repository": "Internet Archive, item historyofchicago02andr (scan leaf 67). The plate is committed at data/sources/assets/landmarks_1871_t3688/andreas_v2_p65_court_house_before_the_fire.jpg.",
+  "url": "https://archive.org/details/historyofchicago02andr/page/n66/mode/1up",
+  "locator": "Vol. 2, p. 65, the oval engraving at the head of the page: the Court House from the south-east (Clark and Washington Streets), the east wing nearest at right showing its south and east fronts, the 1853 house with its south portico and steps, the cupola under a flag, the west wing beyond at left.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) from the Internet Archive's page image of leaf 67 (2306 x 3299 px); the engraving cropped and committed, sha256 a6a2476a950e5cbdc5e5ff9d45736b78546a39b7c80125124a3cdcb2777c170d.",
+  "note": "An engraving made for the 1885 history, most likely from a photograph, fourteen years after the building burned; it agrees with the 1871 stereograph on the wings, crests and domes, and shows the south and east fronts the stereograph does not.",
+  "what_it_supplies": [
+    "the Court House's south and east fronts, drawn",
+    "the south portico and its steps"
+  ],
+  "what_it_does_not_supply": [
+    "measured proportions (an engraving)",
+    "the north and west fronts"
+  ]
+}

@@ -380,7 +380,7 @@ console.log(`transport loop: ${count} checks PASS`);
   const clockBody = required(main.match(/function tick\([^\n]*\) \{([\s\S]*?)\n    if \(!gateOpen\)/), 'tick clock')
     .replace(/^function tick[^\n]*\{\n/, '').replace(/\n    if \(!gateOpen\)$/, '');
   const latch = required(main.match(/  let visualClockReset = true;\n  const resetVisualClock = [^\n]+/), 'visible latch');
-  const media = required(main.match(/  const transportReducedMotion = window.matchMedia\([^\n]+\n  transportReducedMotion.addEventListener\([^\n]+/), 'motion preference binding');
+  const media = required(main.match(/  const transportReducedMotion = (?:window\.matchMedia\([^\n]+|motionQuery;[^\n]*)\n  transportReducedMotion.addEventListener\([^\n]+/), 'motion preference binding');
   const forwarding = required(main.match(/api\.townTransport\?\.update\(visualDt, camera.position, \{[\s\S]*?\n    \}\);/), 'elapsed town forwarding');
   const hide = required(main.match(/onHideLevel: \(level, hide\) => \{[^}]*\},/), 'confidence hide callback')
     .replace(/^onHideLevel: \(level, hide\) => \{/, '').replace(/\s*\},$/, '');
@@ -391,11 +391,12 @@ console.log(`transport loop: ${count} checks PASS`);
   // T-3439: Settings › Show › Carriages and horses hides the teams the way the Confidence view does.
   const shownLayers = { people: true, vehicles: true };
   const world = { sunTime: '12:30' }; // T-3497: the sun clock the teams' hours are read on
-  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', 'world', `
+  // T-3671: main reads Settings › Look › Motion through js/motion.js's MediaQueryList stand-in.
+  const native = new Function('motionQuery', 'clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', 'world', `
     let animationHold = false, gateOpen = false;
     ${latch}\n${media}
     return {tick() { ${clockBody}\n${forwarding} }, hide(level, hide) { ${hide} }};
-  `)(clock, { hidden: false }, { matchMedia: () => motion },
+  `)(motion, clock, { hidden: false }, { matchMedia: () => motion },
     { townTransport: { update(dt, camera, options) { assert.strictEqual(camera, eye); calls.push({dt, options}); } } },
     { position: eye }, confidence, { invalidate() {} }, shownLayers, world);
   const tick = delta => { clock.delta = delta; const reads = clock.reads; native.tick(); assert.equal(clock.reads, reads + 1); return calls.at(-1); };
@@ -495,4 +496,24 @@ console.log(`transport loop: ${count} checks PASS`);
   assert.equal(offHours([22, 6], 12), true); assert.equal(offHours(null, 3), false);
   assert.equal(offHours([5.5, 21], null), false); checks += 7;
   console.log(`T-3497 paths, stops and 1812 wagon roads: ${checks} checks PASS`);
+}
+{
+  // T-3558: a rough-road wagon leans and pitches with its wheels' ground, within its bounds.
+  const road = circleRoute({ center_enu_m: [0, 0], radius_m: 40 });
+  const base = { id: 'rough', name: 'rough', route: road, speed_m_s: 1.3, wheelbase_m: 2.35, track_m: 1.21,
+    root_ahead_of_rear_axle_m: 1.175, steering_limit_deg: 8, driver_local_m: [1.3, 0, 4.4],
+    wheel_radii_m: [.685, .685, .535, .535], clear: () => true, assembly: { pose() {} } };
+  const slope = (e, n) => .03 * e + .02 * n;
+  assert.throws(() => createTransportLoop({ ...base, heightAt: slope }).previewAt(0), /30mm/, 'a level-road wagon keeps its level bound');
+  const pose = createTransportLoop({ ...base, heightAt: slope, rough_road: true }).previewAt(0);
+  assert(pose.rough && pose.wheelGap < 1e-9 && Math.abs(pose.height - slope(pose.e, pose.n)) < 1e-9);
+  // On a plane the lean is the plane's own slope across and along the wagon.
+  const c = Math.cos(pose.yaw), s = Math.sin(pose.yaw);
+  near(Math.tan(pose.roll), .03 * c + .02 * s, 1e-9);
+  near(-Math.tan(pose.pitch), .03 * s - .02 * c, 1e-9);
+  const at = createTransportLoop({ ...base, heightAt: () => 0 }).previewAt(0);
+  const twisted = (e, n) => .1 * (e - at.e) * (n - at.n);
+  assert.throws(() => createTransportLoop({ ...base, heightAt: twisted, rough_road: true }).previewAt(0), /30mm/, 'a wagon cannot twist');
+  assert.throws(() => createTransportLoop({ ...base, heightAt: (e) => .1 * e, rough_road: true }).previewAt(0), /lean exceeds/);
+  console.log('T-3558 rough-road wagon: plane lean and pitch, 30 mm twist and lean bounds, level roads unchanged PASS');
 }

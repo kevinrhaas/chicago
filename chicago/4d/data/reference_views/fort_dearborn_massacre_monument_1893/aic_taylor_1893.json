@@ -1,0 +1,27 @@
+{
+ "structure_id": "fort_dearborn_massacre_monument_1893",
+ "source_id": "aic_taylor_1893_fort_dearborn_monument",
+ "library_image": "a16-aic-taylor-fort-dearborn-monument-1893",
+ "photo": "../../sources/assets/fort_dearborn_monument_t3568/taylor_1893_three_quarter.jpg",
+ "image_px": [
+  1200,
+  1551
+ ],
+ "principal_px": [
+  600,
+  789.1
+ ],
+ "focal_px": 3592.6,
+ "eye": [
+  -2.293,
+  -14.716,
+  2.438
+ ],
+ "yaw_deg": 14.872,
+ "sun_uvy": [
+  0.45,
+  -0.55,
+  0.7
+ ],
+ "solve": "Solved by T-3568 (2026-11-13) on the image store's 1200 x 1551 px copy of J. W. Taylor's 1893 print (album no. 1, p. 88), in the monument's footprint frame (u east along the front from the base's south-west corner, v north, the base's front at v 0). The print looks a little east of north at the lettered front from south-west of the monument, so the west faces of the base, plinth and die show narrowly at the left; its verticals are vertical (a view camera, level). READ OFF THE PRINT: the base's front, its foot from (217.7, 1398) to (1075, 1364) and the top of its upright face from (225, 1260) to (1075, 1245), its west face's back corner at (133, 1198); the plinth's front, its foot from x 329 to 925 at y 1180-1183, its top moulding at y 1106, its west face's back corner at (252, 1168); the die's front, x 352-898, from y 1064 to 798, its west face's back corners at (291, 802) and (291, 1048). FITTED (level, principal x at the centre), least squares over those fourteen corners together with the pedestal's three depths and its plinth's and die's widths, the base's front held at 3.8 m: the depths come out base 2.81-2.89 m, plinth 1.74-1.85, die 1.51-1.69 for any eye from 1.4 to 2.4 m (9.5-11.5 px rms), and are the record's form.base_d_m, plinth_d_m and die_d_m (2.85, 1.8, 1.6) since T-3568. Then refitted with the pedestal as built: eye u -2.293, v -14.716, 2.438 m, heading 14.87 degrees, focal 3592.6 px (a long lens, a 19 degree field), horizon y 789.1; 10.5 px rms, the largest residual 22 px (0.1 m on a die about 220 px a metre), on the plinth's and die's mouldings, whose profiles the print draws in more steps than the record builds. THE SCALE is the record's (form.base_w_m, 3.8 m, from ICHi-19208 and the die's 2.4 m), so this camera checks proportions and depths, not absolute size. LIGHT: sun from the south-east and high: the front and the west faces both lit, the tree's shadow thrown left across the estate wall."
+}

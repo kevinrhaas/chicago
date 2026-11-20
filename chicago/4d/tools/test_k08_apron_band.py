@@ -41,13 +41,15 @@ record = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
 p = KP.from_phase(record["phases"][0], record)
 oriel = next(b for b in p.bays if b["id"] == "front_oriel")
 ab = oriel["variant"]["apron_band"]
-check(ab["from_m"] == 0.25 and ab["to_m"] == 0.59 and ab["rosettes"]["rows"] == 2,
+check(ab["from_m"] == 0.0 and ab["to_m"] == 0.34 and ab["rosettes"]["rows"] == 2,
       f"the oriel's apron band resolves ({ab})")
 
 a = K1.build(p, SID)
 inst = a.components["k08.oriel"]["instances"][0]["params"]
 m = inst.get("apron_band") or {}
-check(m.get("y_m") == [5.55, 5.89], f"the band stands 5.55-5.89 m, under the lights' sills at 6.0 m ({m})")
+# T-3365 (2026-11-12): re-read through the photograph's turned camera, the lights' sills at
+# 5.75 m and the band from the oriel's floor (5.3 m) to 5 mm under their sill stones
+check(m.get("y_m") == [5.3, 5.64], f"the band stands 5.3-5.64 m, under the lights' sills at 5.75 m ({m})")
 check(m.get("rosettes") == 17, f"17 rosettes: 8 and 7 across the front, one on each cant ({m})")
 
 light = K8.Bay(oriel["variant"], K8.load(), "light").build(board=False)

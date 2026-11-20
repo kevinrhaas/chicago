@@ -2,6 +2,8 @@
   "schema_version": 1,
   "content_version": 2,
   "category": "River transportation",
+  "menu_group": "Places",
+  "grade_band": "6-8",
   "review_required": false,
   "id": "along-the-harbor",
   "scene": "1835",
@@ -75,8 +77,8 @@
         "kind": "structure",
         "id": "dearborn_street_drawbridge"
       },
-      "text": "East to Dearborn Street and the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Moses and Kirkland make it '300 feet in length, by sixteen in width', with 'a double draw'; Andreas gives a sixty-foot opening for craft and gallows frames at either end. Vessels kept striking it, and it was patched in 1834 and again this year. Stay on the south bank.",
-      "read_s": 21,
+      "text": "East to Dearborn Street and the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Moses and Kirkland make it '300 feet in length, by sixteen in width', with 'a double draw'; Andreas gives a sixty-foot opening for craft and gallows frames at either end. Vessels kept striking it, and it was patched in 1834 and again this year. This week the American's Marine Journal enters the schooners Hiram, in from Michigan with lumber, Philips, Whig and Jesse Smith; schooners like them lie at the wharves and work out to the lake through this draw. Stay on the south bank.",
+      "read_s": 29,
       "action_s": 10,
       "links": [
         {
@@ -101,7 +103,8 @@
         "draw-repairs",
         "draw-place",
         "errand",
-        "mk-draw"
+        "mk-draw",
+        "marine-journal"
       ],
       "next": "the-light",
       "narrative": "Where the river is crossed, and passed."
@@ -150,8 +153,8 @@
         "kind": "structure",
         "id": "south_pier"
       },
-      "text": "Out to the south pier's root. Across the cut stands the north pier, the weather pier that keeps the sand out. The Democrat printed the federal report: 180 vessels arrived and discharged here in 1834, and Congress has voted $32,800 more toward the harbour. Both piers grow all summer; by the season's end the north pier will reach 1,260 feet into the lake. Choose the mark for your route note.",
-      "read_s": 21,
+      "text": "Out to the south pier's root. Across the cut stands the north pier, the weather pier that keeps the sand out. The Democrat printed the federal report: 180 vessels arrived and discharged here in 1834, and Congress has voted $32,800 more toward the harbour. Both piers grow all summer; by the season's end the north pier will reach 1,260 feet into the lake. A vessel too deep for the bar still anchors in the offing: in May the brig Illinois lay off here while French Canadians in Mackinaw boats carried her people and cargo ashore. Choose the mark for your route note.",
+      "read_s": 29,
       "action_s": 10,
       "links": [
         {
@@ -177,7 +180,8 @@
         "pier-money",
         "pier-length",
         "sp-place",
-        "errand"
+        "errand",
+        "offing-lighters"
       ],
       "choices": [
         {
@@ -495,6 +499,24 @@
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-along-the-harbor"
+    },
+    {
+      "id": "marine-journal",
+      "text": "The Marine Journal of the Chicago American of 4 July 1835 enters at this port, across 27 June to 3 July, the schooners Hiram (Rathbourn, from Michigan, with lumber), Philips (Howe), Whig (Day) and Jesse Smith (Drurian, from Green Bay, with lumber), among others.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "4 July 1835, the Marine Journal (extracted claim chicago_american_1835_07_04#c008, read into data/reconstruction/1835_vessels_in_port.json). The schooners the scene draws, their berths, colours and the circuit two of them sail are reconstructed (L-vessels-3612)."
+    },
+    {
+      "id": "offing-lighters",
+      "text": "On 25 May 1835 the brig Illinois lay off Chicago unable to enter the harbour, and French Canadians in Mackinaw boats carried her passengers ashore and lightered her cargo up the river.",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911"
+      ],
+      "locator": "Hubbard, Autobiography (1911), the editor's introduction quoting E. O. Gale (extracted claim bk_hub_016). The schooner the scene anchors in the offing, and the boat alongside her, stand for such vessels and are reconstructed (L-vessels-3612)."
     }
   ],
   "liberties": [

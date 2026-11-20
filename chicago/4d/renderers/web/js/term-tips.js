@@ -38,7 +38,10 @@ function ensureBubble(doc) {
   doc.addEventListener('pointerdown', (e) => {
     if (!bubble.hidden && !bubble.contains(e.target) && e.target !== openFor) hideTerm();
   }, true);
-  doc.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !bubble.hidden) { hideTerm(); openFor?.focus?.(); } }, true);
+  // 1.4.13: Esc dismisses the meaning and nothing else — the card or panel under it stays open.
+  doc.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !bubble.hidden) { e.preventDefault(); e.stopPropagation(); hideTerm(); openFor?.focus?.(); }
+  }, true);
   return bubble;
 }
 

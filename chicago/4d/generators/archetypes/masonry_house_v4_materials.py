@@ -27,6 +27,7 @@ TILE_M = {
     "granite": (1.6, 1.6),
     "brick": (1.7272, 2.1336),
     "flat_brick": (1.7272, 2.1336),
+    "common_brick": (1.7272, 2.1336),
     "limestone": (1.2, 1.2),
     "mortar": (1.2, 1.2),
     "terracotta": (2.4384, 1.95072),
@@ -47,6 +48,11 @@ ALBEDO_TILE_M = {"granite": (0.22, 0.22), "turf": (4.0, 4.0)}
 # brick slots draw the albedo-only court_brick image over brick's relief, and every
 # limestone slot multiplies the cream study down to a grey. Linear, reconstructed hue.
 COURT_BRICK = "court_brick"
+# T-3564: the stable's south wall and the court wall's alley run are buff Chicago
+# common brick in the owner's photographs (his identification, 2026-11-12), not the
+# court's pink. Their own slots draw this albedo-only image over brick's relief.
+COMMON_BRICK = "common_brick"
+COMMON_BRICK_SLOTS = (31, 32, 33)
 LIMESTONE_GREY = (0.83, 0.88, 1.0)
 # T-2390: the fabrics whose normal map's height field also ships as an occlusion
 # map (generate.py `occluded`). It rides the normal map's UV and repeat, so a
@@ -85,6 +91,7 @@ SLOT_FABRIC = {
     # divided by the limestone repeat its albedo is drawn at (K01 contract metric_uv).
     24: "limestone",
     30: "flat_brick",
+    31: "brick", 32: "brick", 33: "brick",
 }
 
 
@@ -224,8 +231,9 @@ def vine_material(bpy):
     return material
 
 
-def build_materials(colours=None, rainwater=None, vines=None, surface_finish=None):
-    """Return 28 fabric slots, rainwater (28), vines (29), then plain brick (30).
+def build_materials(colours=None, rainwater=None, vines=None, surface_finish=None, common_brick=None):
+    """Return 28 fabric slots, rainwater (28), vines (29), plain brick (30), then
+    Chicago common brick (31-33).
 
     Textured fabrics carry reconstructed absolute albedo in their maps. Turf and
     pale compacted gravel preserve the record's courtyard material reading.
@@ -319,6 +327,15 @@ def build_materials(colours=None, rainwater=None, vines=None, surface_finish=Non
         mat=_pbr(bpy, "flat_brick", "flat_brick", normal_strength=.85)
         mat['texture_generator']='tools/generate_glessner_finish.py'
         mats.append(mat)
+    if common_brick:
+        if len(mats)!=31:
+            raise ValueError('Common brick follows the complete Glessner library')
+        # The court's 60/20/14/6 unit split carries over (masonry_house_v4_common_brick):
+        # buff body, salmon and dark-burnt units, every one on the same clay grain.
+        for name, tint in (("common_brick", (1.0, 1.0, 1.0)), ("common_brick_salmon", (1.0, 0.80, 0.70)),
+                           ("common_brick_dark", (0.70, 0.64, 0.58))):
+            mats.append(_pbr(bpy, name, "brick", tint=tint, normal_strength=0.85,
+                             albedo_fabric=COMMON_BRICK))
     return mats
 
 

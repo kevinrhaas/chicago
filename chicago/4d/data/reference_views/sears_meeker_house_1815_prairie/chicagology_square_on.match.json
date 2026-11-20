@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "glb_sha256": "08ac533219477f305a70fb5ab8a65dc1591a761f859c92bd3f2adcd0dafa41ad",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -26,16 +26,16 @@
     {
       "what": "the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted with one light, two narrow lights in its front, barred basement lights under them, a stone balcony of pierced panels on its deck",
       "status": "fixed",
-      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, flush with the south flank, under K08's stone balcony with one row of pierced panels"
+      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, set out 0.75 m past the south flank (T-3562), under K08's stone balcony with one row of pierced panels"
     },
     {
       "what": "the gabled dormer in the mansard over the window column (x 470-600 px)",
       "status": "fixed",
-      "how": "T-3155: a gabled dormer at 6.1 m on the street face"
+      "how": "T-3155: a gabled dormer at 6.1 m on the street face. T-3562 re-read its height: the print's light runs y 230-347 px (about 1.7 m on the mansard's face, 66.7 px/m) and its gable's foot and apex stand at y 187 and 135, where the build's light (1.35 m) had its head at y 257 and its apex at y 157; the light is now 1.65 m on a 0.05 m frieze under a 42-degree gable, and renders at y 233-347 with its gable's foot at y 197 and apex at y 143, within about 10 px. The print's gable rises through the curb's cresting: K01 holds a lower-face dormer's head 0.1 m under the curb, which is the last 0.12 m"
     },
     {
-      "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half; the build's is 2.2 m wide, 0.3 m in from the north corner and clear of the door, because K01 cannot cut a door through a projection; so the attic storey over it stands about 0.5-0.7 m north of the print's",
-      "status": "open"
+      "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half. T-3562: built so, 3.88 m from the north corner and 0.1 m proud, the door cut through its edge (cut_by_door) and the face in one plane with it as the print draws; its principal window (x 228-295 px), second-storey window (x 265-342 px) and attic pair (x 240-362 px) each render within about 10 px of the print's, and the crown's apex over the attic on the print's (y 75-85 px)",
+      "status": "fixed"
     },
     {
       "what": "the pavilion's attic storey: a stone wall carried up past the main cornice to its own eave at y 205 px (11.6 m), two paired lights in it (x 178-302 px, y 248-390 px), under its steep roof; the build's steep hipped crown starts at the main eave, so the paired lights and their wall are missing and the roof starts 2.4 m lower (its apex within 0.4 m of the print's)",
@@ -43,20 +43,42 @@
       "how": "T-3156: the pavilion carried up a 2.4 m attic storey past the main cornice, the main eave stopping at its cheeks, a mullioned and transomed pair of lights in it (1.5 m clear, 9.25-11.0 m over grade), and K01's hipped crown raised onto its wall head (mansard.crown.attic_m 2.35): the crown's eave and apex render within about 0.3 m of the print's heights"
     },
     {
-      "what": "the pavilion's own dentil band at the second storey's head (y 440-470 px), lower than the main cornice; the build carries the main cornice across the pavilion",
+      "what": "the pavilion's own dentil band at the second storey's head (y 440-470 px), lower than the main cornice; the build's pavilion carries no band there and its wall runs plain up to the attic's sill (T-3562 re-read: the main cornice now stops at the pavilion's south edge, as the print's does)",
       "status": "open"
     },
     {
       "what": "the door's pedimented hood on carved brackets (x 245-430 px, y 615-700 px) and the transom with the house number",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: K01's bracketed door hood takes a pediment in place of its railing, in the front's stone: a tympanum under a raking cornice, its apex 5.77 m over grade under a finial to 6.07 m (the print's 5.86 and 6.27 m), on two small carved brackets 0.4 m deep beside the transom; the transom's number not built"
     },
     {
-      "what": "the stoop's stone newels and cheek walls and the basement doorway under the landing",
-      "status": "open"
+      "what": "the pediment's width: the print's runs 2.55 m (x 305-487 px). T-3562: built 2.55 m, its ends within about 5 px of the print's, the hood run on across the shallow pavilion's face",
+      "status": "fixed"
     },
     {
-      "what": "the narrow light over the door's south jamb (x 388-416 px, about 0.4 m wide): built at the storey's 1.1 m sash width",
-      "status": "open"
+      "what": "the stoop's sides: the flight's steps show along both (the north side's against the dark of the basement doorway, x 285-305 px), under an iron hand rail each side curving down onto the newels' tops (x 265-300 and 440-470 px), each foot a square newel under a cap and a ball knob (x 230-265 and 445-480 px)",
+      "status": "fixed",
+      "how": "T-3562: K07's railed swept cheek: the cheeks were solid stone walls sweeping down to the newels; they are now stepped level with the treads under a 0.04 m iron rail each side, to the newels' caps, the rails straight where the print's curve down at the foot (within tolerance: under the bar)"
+    },
+    {
+      "what": "the south newel renders about 40 px south of the print's",
+      "status": "within tolerance",
+      "how": "the newels stand some 4 m before the front, read through a camera fitted on the front's plane (as the corner bay's edge); the stoop's 2.6 m width is the record's"
+    },
+    {
+      "what": "the basement doorway under the stoop's landing: the landing runs on north of the flight across the pavilion's front to a square stone post on its outer corner (x 142-172 px, from grade to about 0.5 m over the floor, under a cap), a level iron rail along its front edge from the post to the flight's head (y 890 px), its fascia down to y 945 px (about 1.3 m over grade), and under it the dark: the pavilion's face in shadow (x 170-220 px) and the doorway black beside it (x 220-267 px), behind the north newel",
+      "status": "fixed",
+      "how": "T-3562: K07's landing wing (cheek_form.wing): the landing carried 1.72 m north past the flight's north cheek to a 0.4 m stone post at its outer corner, from grade to 0.55 m over the floor under a cap, its fascia 0.45 m deep, open beneath back to the pavilion's face (0.45 m proud) with a 0.65 m doorway in it in the kit's dark, and the cheek's level rail carried on along the wing's front to the post; the pavilion's basement light, which the build had read in that dark (x 175-235 px), taken out. The post renders on x 142-175 px and its cap at y 870 px, the rail at y 876 px (0.48 m over the floor against the print's 0.4) and the fascia down to y 945 px; the void reads in shadow, the doorway behind the newel as in the print"
+    },
+    {
+      "what": "a short iron bar falling from the wing's rail toward the post (x 167-185 px, y 895-927 px), a stay or a rail's end",
+      "status": "within tolerance",
+      "how": "T-3562: about 0.45 m of bar a few centimetres thick beside the post, under the bar; the build's rail runs level into the post"
+    },
+    {
+      "what": "the narrow light over the door's south jamb (x 386-417 px, y 520-598 px: about 0.43 m across and 1.09 m high, its sill 6.19 m over grade)",
+      "status": "fixed",
+      "how": "T-3562: laid once at its own size and sill as one light under the storey's flat lintel (front_bays_by_storey takes a light read off the picture), where it stood at the storey's 1.1 m by 2.2 m sash; the render's light falls on the print's within a few pixels. The small gabled hood the print draws over it (about 0.5 m across) is under the 0.3 m bar and not built"
     },
     {
       "what": "the corner bay's south edge renders about 40 px (0.5 m) south of the print's",
@@ -65,11 +87,18 @@
     },
     {
       "what": "the north stack stands about 0.8 m south of the print's (x 145-190 px): K01 stands a stack inside the main footprint and the print's rises from the stair projection",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the stack stands on the north wall's cornice (on_cornice, v -0.075), astride the wall line over the stair projection, its outer face at the cornice's 0.45 m edge, the furthest out K01 stands a stack on a house without a side parapet; its centre renders at about x 182 px against the print's 168 px (x 145-192), about 0.2 m, inside the bar (it rendered about 0.8-1.0 m south before)"
     },
     {
-      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial (K01's deck cresting cannot stand on a mansard that carries a crown, k01_mansard_deck.resolve)",
-      "status": "open"
+      "what": "the north stack's head: the print draws it bare, a stone cap over its corbelled head and no pot on it (x 145-192 px, y 60-75 px); the build stood the house's two tall clay pots on it",
+      "status": "fixed",
+      "how": "T-3562: the stack names its own pots (pot: false, a K15 per-stack override), so it stands bare as the print draws it"
+    },
+    {
+      "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial",
+      "status": "fixed",
+      "how": "T-3562: K01's deck now stands on a mansard under a hipped crown (k01_mansard_deck.crown_gap stops each run short of the crown's slates where it stands through the curb): the K10 kit's iron cresting, 0.45 m, along the street curb and the south flank's, as the print's band from its rail at y 146-150 px to its foot at y 178; it renders at y 140-165, the curb's own height on this view (below). The crown carries a cross over a square block and a flared cap, 0.9 m (k01_mansard_deck.cross), rendering at y 23-87 against the print's 30-93; the street dormer's apex a 0.45 m turned finial where the print's is a fleur-de-lis of the same height and width, its three lobes under a foot (the cresting's hung trefoils are likewise the kit's pattern, L-k01-1815-roof-iron-3562)"
     },
     {
       "what": "the leaded upper lights of the principal-storey windows and the bay's lights",
@@ -91,10 +120,11 @@
     },
     {
       "what": "the main cornice: the print's is a deep bracketed one, a row of large stone consoles under a moulded crown (y 360-430 px); the build carries K10's moulded stone cornice with no consoles",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3561: K10's scrolled consoles (wall_head.blocks) under the corona, 0.45 m high, 0.17 m wide, no more than 0.5 m apart, on a 0.32 m frieze; they render at y 405-440 px against the print's 400-432 px; the print's crown over the corona stands about 0.3 m taller than K10's section, the massing's line"
     },
     {
-      "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic",
+      "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic; T-3562 slates the attic's outer 0.75 m from its foot (K08's storey cheeks), where the print stands a stone shoulder under the slate",
       "status": "open",
       "how": "one with the pavilion's width (above)"
     },
@@ -110,9 +140,51 @@
     },
     {
       "what": "a low iron fence set back on the north side",
-      "status": "open",
-      "how": "the print shows a low railing behind the coping north of the walk that no record explains; not built"
+      "status": "fixed",
+      "how": "T-3562 builds it (boundary.passage_fence): the K11 kit's spear fence on a 0.1 m curb, its top rail 0.45 m over it, on the line u 15.6 (1.9 m behind the front, where the solved camera puts the print's foot at y 1033 px) from inside the north lot line to the north stair projection's flank. It renders where the print draws it: its spear tips at y 980 px against the print's 983-985, its foot at about y 1027-1030 against 1033, running out of the frame past x 0 and meeting the projection's street end. The print's top band reads as a row of finials whose shape it does not resolve; the kit's spear heads stand for them, and its pickets stand at the kit's 0.125 m pitch where the print's look closer. The pale braced stakes before it are not built"
+    },
+    {
+      "what": "the rosettes over the cornice's consoles (y 388-398 px)",
+      "status": "within tolerance",
+      "how": "carved bosses about 0.12 m across in the cornice's bed, under the 0.3 m bar; not built"
+    },
+    {
+      "what": "the south stack (x 780-830 px, its cap at y 55-65 px, about 14.4 m)",
+      "status": "fixed",
+      "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, which T-3562 moved in onto the print's main wall (the corner bay's set-out); T-3562 stands K15's long pot (1.1 m) on its three flues, off the oblique, where the trees hide its head on this print"
+    },
+    {
+      "what": "the north stack's shaft under its head: the print's is the stack's pale stone up to the corbelled head (x 145-192 px), where the build's K15 soot band laid its top 0.45 m in a darker brick that rendered red",
+      "status": "fixed",
+      "how": "T-3562: a stone K15 stack keeps its own stone through the soot band (k15_chimneys.stack_solids), as on the oblique's south stack"
+    },
+    {
+      "what": "the deck over the curb: the print shows sky straight over the cresting's rail (y 146 px), where the build's deck rose dark through and over its cresting (y 105-165 px)",
+      "status": "fixed",
+      "how": "T-3562: the deck was built at 31.7 degrees, not its record's 10: k01_frontage_params read the door hood's pediment pitch into the roof's own `pitch` local, so its ridge stood at 15.09 m for 13.20 m. Parted (and the build now refuses a roof pitch other than the record's); at 10 degrees the deck falls behind the curb from this eye and the cresting stands against the sky, as the print draws it"
+    },
+    {
+      "what": "the curb's height on this view: the build's curb and cresting stand about 0.2 m over the print's",
+      "status": "within tolerance",
+      "how": "under the 1 ft line here; the oblique's record keeps the curb's height open (about 0.8 m low on that camera), one question across the two views"
+    },
+    {
+      "what": "the main front's south wall stands inside the corner bay's south edge: the upper storey's wall ends at x 834 px and the cornice at about 855 px, the bay running on to x 905 px",
+      "status": "fixed",
+      "how": "T-3562: the front block is 9.72 m along the front, the bay set out 0.75 m past its south wall (K01 bays[].set_out_m); the wall's south edge renders at x 854-868 px (it rendered at 907-919, flush with the bay) and the bay's at 925, as before"
+    },
+    {
+      "what": "the crown's cornice: the print's eave spans the attic's stone front alone (x 205-402 px, 2.75 m), the cheeks' slate sloping out beneath it to the shoulders; the build's cornice runs on across the slated cheeks, about 4.5 m (T-3562)",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's south edge renders about 9 px (0.12 m) north of the print's (x 438 against 447 px): built 3.88 m so the narrow light's lintel clears the junction (T-3562)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the attic's stone front between its slated cheeks renders 2.38 m against the print's 2.37 m (x 217-387 px), its paired lights 1.7 m across against the print's 1.75 m (T-3562)",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

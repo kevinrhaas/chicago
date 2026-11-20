@@ -1,0 +1,118 @@
+== title @27bbc48d
+Abastece la casa
+
+== premise @b2274c61
+Empieza una alacena propia en una cuadra de South Water Street, con una lista corta y una bolsa pequeña.
+
+== opening @0d45c08a
+PASEO: ABASTECE LA CASA. Acabas de conseguir un lugar en un cuarto compartido de una casa de huéspedes detrás de la tienda de Peck, y dos dólares para empezar una alacena propia. Eso no alcanza para mucho. Cuando el Democrat empezó en 1833, la harina costaba $6 el barril, la mantequilla 17 centavos la libra, el café 17 y el azúcar en pan 20.
+
+Cuatro paradas, todas en una cuadra de South Water Street: decide para qué es la lista y luego llénala en la tienda de abarrotes, en la botica y en la esquina de Peck.
+
+== stop the-room @afbcc137
+Empieza detrás de la tienda de Peck, en la casa de huéspedes de troncos de la señora Rufus Brown, donde compartes un cuarto. Andreas la menciona como encargada de una de las casas de huéspedes de primera clase. Un cuarto compartido no es una cocina, así que todo lo que guardes debe caber en un estante. Decide para qué es tu lista corta.
+
+== narrative the-room @eaa64a6f
+Elige para qué es la lista: la mesa o el cuarto.
+
+== label the-room table @1e67ce2f
+Una lista para la mesa
+
+== consequence the-room table @696d7aa1
+Algo para tomar en la mañana, y algo para hornear.
+
+== label the-room room @ebf5ec5e
+Una lista para el cuarto
+
+== consequence the-room room @719a617f
+Algo calientito para la noche, y algo para el lavabo.
+
+== stop provisions @da20bce2
+Al oeste por la cuadra, hasta la tienda de abarrotes y provisiones de Jones. Su anuncio de noviembre de 1833 dice que tiene a la mano 'té, café y azúcar' y la mayoría de las clases de provisiones. Ninguna fuente dice dónde estaba la tienda, y hasta su inicial, B o H, está en disputa. Los precios del Democrat de 1833 ponen el café a 17 centavos la libra y el té de 87 centavos a $1.25.
+
+== narrative provisions @cef3180d
+Compra algo para tomar, o ahorra la bolsa.
+
+== label provisions coffee @36910e2b
+Café y azúcar — 50¢
+
+== consequence provisions coffee @c151a908
+La cafetera de la mañana ya está cubierta.
+
+== label provisions tea @a6548e2c
+Un paquete de té — 40¢
+
+== consequence provisions tea @4923ef66
+Té para las noches, y un poco más en la bolsa.
+
+== stop the-druggist @df0c3122
+De vuelta al este, a la tienda de Philo Carpenter, el boticario del letrero del Golden Mortar. Abrió su botica en 1832 en 'una pequeña casa de troncos que estaba cerca del río', luego construyó aquí y agregó sal, azúcar y ferretería. Su aviso del 27 de junio de 1835 enumera crémor tártaro, jarabe de limón, plomo negro y polvo dental.
+
+== narrative the-druggist @7110656c
+Escoge una cosa pequeña de la lista del boticario, o déjala pasar.
+
+== label the-druggist tartar @28964bb0
+Crémor tártaro para hornear — 15¢
+
+== consequence the-druggist tartar @d7a8a44e
+Un paquetito para el estante de la alacena.
+
+== label the-druggist tooth-powder @913e11af
+Polvo dental para el lavabo — 20¢
+
+== consequence the-druggist tooth-powder @dc03c6b6
+Una cajita junto a la palangana.
+
+== stop the-corner @d7ce998a
+Termina en la esquina de Peck, en LaSalle y South Water, a unos pasos de donde empezaste. Su tienda fue el primer edificio de armazón de madera de dos pisos del poblado, hecho con madera 'traída de Detroit en un barco'. Su tarjeta enumera telas, ferretería, abarrotes y loza, y un aviso de diciembre de 1834 agrega franelas y percales.
+
+== narrative the-corner @f255b787
+Completa la canasta, o guarda lo que te queda, y luego llévala a la casa de huéspedes.
+
+== label the-corner crockery @4bd08ae6
+Una taza y un plato de loza — 30¢
+
+== consequence the-corner crockery @c3eba9e6
+Tu propia taza en una mesa compartida.
+
+== label the-corner flannel @c0ea2378
+Un corte de franela — 75¢
+
+== consequence the-corner flannel @8586d2a1
+Abrigo para las noches, y la mayor parte de lo que quedaba en la bolsa.
+
+== leg 0 @9b72bcb3
+Empieza con lo que la lista necesita más.
+
+== note 0 @a5fda5ba
+Da la vuelta hasta South Water Street y ve al oeste por su lado sur, hasta el extremo de la cuadra que da a Wells; toda la salida se queda en esta misma acera de la cuadra.
+
+== leg 1 @837262bb
+Algo pequeño para el estante o el lavabo.
+
+== note 1 @ded0d044
+De vuelta al este por la misma acera, hasta la mitad de la cuadra.
+
+== leg 2 @4e78b369
+Una última cosa, y la canasta ya está lo bastante llena para cargarla.
+
+== note 2 @8017f529
+Sigue al este hasta la esquina de Peck, en LaSalle, junto a la casa de huéspedes donde empezaste.
+
+== ending table-laid @318d9b5e
+Algo para tomar y una taza propia en la cual tomarlo. Tu lugar en la mesa de la casa de huéspedes ya está empezado, y la alacena también.
+
+== ending room-kept @5a924411
+Franela para las noches y polvo dental junto a la palangana. Tu parte del cuarto empieza a sentirse tuya.
+
+== ending purse-kept @91ef2b4e
+Compraste poco y guardaste casi toda la bolsa. Un hogar puede empezar con paciencia, y las tiendas de la cuadra seguirán ahí mañana.
+
+== ending basket-begun @d4094265
+Una canasta que no es exactamente la lista con la que saliste, que es como suelen ser los primeros días. La alacena está empezada, aunque todavía no terminada.
+
+== keepsake title @e304e079
+Una alacena empezada
+
+== keepsake text @c369a221
+Un recibo ficticio de una primera canasta de cosas para la casa, compradas a lo largo de una cuadra de South Water Street y llevadas a una casa de huéspedes.

@@ -52,9 +52,16 @@
     "tools/human_export.sh": "520bc004711e0125d7a2b231cc6fdb6be061aad4895a36f67b164b3e2a99a68e"
   },
   "runtime_sha256": {
-    "renderers/web/js/fabric.js": "0fa147af7b39a6fa748239d4a78aa50bf1097061d3f7d6679c8131d6b0d667e7",
-    "renderers/web/js/human-looks.js": "4350b1611df7b27a7c2dc08bbaac22b58eaa5d201cb8cd1ad358a09f51b46762"
+    "renderers/web/js/fabric.js": "cf602e7fcd66101679749245ddd8ef51abf9cd523156cfec22496c913d22cfe5",
+    "renderers/web/js/human-looks.js": "77607a2af12169e7b52ab1c118e1afedf94a9cd114f3e49eeec7be5cda21d00d"
   },
   "actual_reproduction_proof_sha256": "fc94f3a36c0631686be63299f4f073d1fda8b2ac9978aa9d850cbc0ef4d6cd6f",
-  "implementation_binding_basis": "Captured from the actual full integrated reproduction, whose four output bytes equal the previously validated children. Expected output hashes were not changed."
+  "implementation_binding_basis": "Captured from the actual full integrated reproduction, whose four output bytes equal the previously validated children. Expected output hashes were not changed.",
+  "runtime_rebinding": [
+    {
+      "ticket": "T-3553",
+      "date": "2026-11-14",
+      "basis": "fabric.js gained the finery uniforms (pattern, trims, silk, velvet) and human-looks.js dressInSeason; with no finery on a material (Charles's coat has none) every new term is zero and the second roughness clamp sits inside the first's 0.35..1 range, so the coat's cloth draws as before. tools/test_human_finery.mjs and test_fabric.mjs hold the plain path to the one program."
+    }
+  ]
 }

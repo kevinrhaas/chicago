@@ -159,9 +159,12 @@ def main():
     if canonical(logical)!=protected['town_wagons']['sha256'] or len(town['wagons'])!=protected['town_wagons']['record_count']:
         raise ValueError('Existing static wagon/cart records, dimensions or eligibility changed')
     parked=json.loads((ROOT/protected['fine_wood_selection']['path']).read_bytes())
-    logical={'model':parked['models']['wagon_w01'],'stands':[r for r in parked['scenes']['1835']if r['model']=='wagon_w01']}
-    if canonical(logical)!=protected['fine_wood_selection']['sha256'] or len(logical['stands'])!=3:
-        raise ValueError('Existing three fine-wood stands/model selection changed')
+    # T-3558 (Kevin, 2026-11-16: "replace any parked wagons with these photographic wagons"):
+    # the three fine-wood W01 stands are farm-box master stands now; the W01 model entry stays.
+    logical={'model':parked['models']['wagon_w01'],'stands':[r for r in parked['scenes']['1835']if r['model']=='farm_box_w01'],
+             'farm_box_model':parked['models'].get('farm_box_w01'),'retired':parked.get('retired_yard_wagons')}
+    if canonical(logical)!=protected['fine_wood_selection']['sha256'] or len(logical['stands'])!=protected['fine_wood_selection']['stand_count']:
+        raise ValueError('Existing parked farm-box stands/model selection changed')
     web=ROOT/'renderers/web/transport/farm-box-master'
     export=json.loads((web/'EXPORT-RECEIPT.json').read_bytes())
     if export['input_sha256']!=sha(master_path) or export['parameters_sha256']!=sha(recipe_path) or export['exporter_sha256']!=sha(ROOT/'tools/transport/farm_box/export_lods.mjs'):
@@ -182,7 +185,21 @@ def main():
         raise ValueError('Missing exact near/genuine LOD family')
     if not export['lods'][1]['triangles']<=export['lods'][0]['triangles']*.75 or not export['lods'][2]['triangles']<=export['lods'][0]['triangles']*.6:
         raise ValueError('Declared genuine LOD reductions lost')
-    print(json.dumps({'result':'PASS: exact licensed master/current exports/actual geometry contracts; photographic and world acceptance remain separate',
+    # T-3558: the web record's photographic acceptance stands only on its qualification record,
+    # which must describe these exact delivered levels and its two period references.
+    record = json.loads((web/'farm-box.json').read_bytes())
+    qualification = json.loads((web/'QUALIFICATION.json').read_bytes())
+    if record['photographic_acceptance'] is not qualification['photographic_acceptance']:
+        raise ValueError('farm-box.json photographic_acceptance must match QUALIFICATION.json')
+    if record['photographic_acceptance']:
+        if [(r['level'],r['sha256'],r['bytes']) for r in qualification['lods']]!=[(r['level'],r['sha256'],r['bytes']) for r in export['lods']]:
+            raise ValueError('Qualification describes other levels than the delivered ones; requalify')
+        for ref in qualification['references']:
+            if sha(ROOT.parent/ref['image'].removeprefix('chicago/'))!=ref['sha256']:
+                raise ValueError('Qualification reference image changed: '+ref['image'])
+        if not {'ground','trees','parked_stands_1835'}<=set(qualification['clearance']) or not qualification['matched_views']['images']:
+            raise ValueError('Qualification lacks matched views or clearance readings')
+    print(json.dumps({'result':'PASS: exact licensed master/current exports/actual geometry contracts'+('; photographic acceptance on QUALIFICATION.json (T-3558)' if record['photographic_acceptance'] else '; photographic and world acceptance remain separate'),
                       'source_sha256':SOURCE_SHA256,'master_sha256':sha(master_path),'clearances':clearances,'actual_joinery_surface_pairs':joins,
                       'web_bytes':sum(r['bytes']for r in export['lods']),'ground':ground,'actual_reach_surface_pairs':reach_joins,
                       'negative_controls':['actual body moved into wheel envelope rejected','actual pole disconnected from bearing rejected','actual reach detached from both axles rejected'],

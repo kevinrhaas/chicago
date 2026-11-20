@@ -124,10 +124,10 @@
     "face_brick": {
       "value": {
         "front": "pressed_red",
-        "sides": "common_dun"
+        "all_round": true
       },
       "confidence": "reconstructed",
-      "note": "T-3385: No picture of this house reads its brick. The front is the pressed_red (pressed red front brick) a brick front of its decade on Prairie Avenue wore, as the photographed fronts of the street read (Field, Henderson, Spalding, Jones, Wheeler: red fronts over paler common sides); the sides a chicago common brick, smoke-dulled run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+      "note": "T-3385: No picture of this house reads its brick. The front is the pressed_red (pressed red front brick) a brick front of its decade on Prairie Avenue wore, as the photographed fronts of the street read (Field, Henderson, Spalding, Jones, Wheeler: red fronts over paler common sides); the sides a chicago common brick, smoke-dulled run. 2026-11-13 (the owner, on the pale north flank round its red bay: the bay's faces \"would be red brick all around\"; \"consistent brick with the front\"): laid all round (`all_round`), the dun common withdrawn, so the flank, the rear and the north bay are the one red as the front. Like Field's and Armour's beside it, an 1870s house standing free on its lot with its north flank open to the side yard; no picture shows that flank, so the brick is the front's by the owner's ruling, not a reading. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385, L-k03-face-brick-all-round)."
     },
     "street_front_trim": {
       "value": {

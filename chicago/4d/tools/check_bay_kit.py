@@ -211,7 +211,30 @@ def _chamfer_cheek(b, v):
     pts = v["plan"]["points"]
     x, zb = (pts[2][0], pts[3][1]) if side == "right" else (pts[1][0], pts[0][1])
     top = b.meta["wall_top_m"]
+    rt = v["plan"].get("chamfer_return")
+    if rt is not None:
+        # T-1890 (2026-11-12): run back as a return to its back edge (k08_bays.Bay._cheek_return),
+        # where K01 sets the house's slate back behind it
+        zb = min(zb, -max(float(q) for q in rt["back_m"]))
     return lambda p: abs(p[0] - x) < 1e-6 and ct - 1e-6 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
+
+
+def _return_slab(b, v):
+    """T-1890 (2026-11-12): a chamfer's return (1801's, HABS photograph 1) and what stands on and
+    in it: the cap's course proud of its face, its light's recess and K06 kit behind it and the
+    slate hung a centimetre inside it, all within a slab about the cheek's plane as deep as the
+    light's recess (and 0.15 m out), back to the return's back edge and between the chamfer's
+    top and the wall top; K01 cuts the house's slate away behind it. None without a return."""
+    rt = v["plan"].get("chamfer_return")
+    if rt is None:
+        return None
+    pts = v["plan"]["points"]
+    x = pts[2][0]                                   # a return stands on a right chamfer only
+    ct, top = float(v["plan"]["chamfer_top_m"]), b.meta["wall_top_m"]
+    lt = v["plan"].get("chamfer_light") or {}
+    deep = float(lt.get("recess_m", b.meta["recess_m"])) + 0.05
+    zb = -max(float(q) for q in rt["back_m"])
+    return lambda p: x - deep - 1e-6 <= p[0] <= x + 0.15 and ct - 0.05 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
 
 
 def rule_keyed(b, v):
@@ -292,12 +315,17 @@ def rule_keyed(b, v):
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
     cant = _cant_inside(b)
     cheek = _chamfer_cheek(b, v)
+    slab = _return_slab(b, v)
     cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
            or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))
-           or (cheek is not None and cheek(p))) if corner else (lambda p: False)
+           or (cheek is not None and cheek(p)) or (slab is not None and slab(p))) if corner else (lambda p: False)
+    # T-3370: a square tower's whole stage stands clear of the wall plane, over the house's roof,
+    # from its lowest point (its corbel table under its foot) up
+    sg = b.meta.get("stage") or {}
+    clear = (lambda p: p[1] >= sg["bottom_m"] - 1e-6) if sg.get("whole") else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p)), default=(0.0, None))
+                if not cut(p) and not clear(p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
@@ -322,7 +350,7 @@ def rule_keyed(b, v):
     # the outer wall on the declared plan (T-1890: but a stopped cant's cheek, over it)
     off = 0.0
     for p in b.prims["wall"].pos:
-        if cheek is not None and cheek(p):
+        if (cheek is not None and cheek(p)) or (slab is not None and slab(p)):
             continue
         off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
@@ -463,8 +491,14 @@ def rule_recesses(b, v, data):
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
         inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         cant = _cant_inside(b)            # T-1890: a chamfer's light, inside its cant
+        slab = _return_slab(b, v)         # T-1890 (2026-11-12): or in its return
+        sg = b.meta.get("stage") or {}
+        if sg.get("whole") and w["storey"] >= sg["from_storey"]:
+            continue   # T-3370: a light in a whole stage, clear of the wall plane over the roof
         for p in w["footprint"]:
             if cant is not None and cant(p[0], p[1]):
+                continue
+            if slab is not None and w["run"] == -1 and slab((p[0], b.meta["wall_top_m"], p[1])):
                 continue
             if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
@@ -543,7 +577,12 @@ def rule_curves(b, data, tier):
 def rule_support(b, v, data):
     fails = []
     sg = b.meta.get("stage")
-    if sg is not None:
+    if sg is not None and sg.get("whole"):
+        # T-3370: a square tower's whole stage stands on its shaft's walls, its own ring the
+        # shaft's square carried whole: the shaft must reach the stage's foot
+        if abs(b.meta["levels_m"][0]) > 1e-6 or not any(abs(y - sg["base_m"]) < 1e-4 for y in b.meta["levels_m"]):
+            fails.append(f"support: the whole stage's foot at {sg['base_m']} m is none of the tower's storey lines")
+    elif sg is not None:
         # T-1890: a staged tower's corbel courses carry its stage back to its shaft
         cb = K.part(v, data, "corbel")
         if sg["step_m"] > cb["max_oversail_ratio"] * sg["course_height_m"] + 1e-6:
@@ -670,6 +709,9 @@ def rule_doubled(b):
 
 #: T-1890: a pier's whole budget, at either tier (a box, its floor bands, cap and plinth)
 PIER_MAX_TRIANGLES = 120
+#: T-1887: a blank projection's whole budget, at either tier (a block, its floor bands, its
+#: cornice, plinth and flat top): 1828's stone range costs 140, the kit's windowless projection 80
+BLANK_MAX_TRIANGLES = 200
 
 
 def rule_light(full, light, data, v=None):
@@ -705,6 +747,13 @@ def rule_light(full, light, data, v=None):
     # no window, curve or carving on it, so the light tier has nothing to drop: it keeps the full
     # tier's triangles, and is held instead to a box's own few
     pier = bool((v or {}).get("pier"))
+    # T-1887: and so is a BLANK projection (1828's stone range south of its front bay, plain and
+    # windowless in the automobile photograph): straight-sided, with no window in any storey, it
+    # too has nothing for the light tier to drop. Read off the bay itself, never declared, so a
+    # glazed or curved bay cannot claim it; held to a plain block's few triangles instead
+    blank = not pier and v is not None and v.get("kind") == "projection" \
+        and (v.get("plan") or {}).get("kind") == "polyline" \
+        and not any(st.get("windows") for st in v.get("storeys") or ()) and not v.get("masonry")
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
@@ -719,6 +768,10 @@ def rule_light(full, light, data, v=None):
         if tl > tf or tf > PIER_MAX_TRIANGLES:
             fails.append(f"light: a pier costs {tf} triangles at the full tier and {tl} at the light; a plain "
                          f"box keeps at most {PIER_MAX_TRIANGLES}, the light tier no more than the full")
+    elif blank:
+        if tl > tf or tf > BLANK_MAX_TRIANGLES:
+            fails.append(f"light: a blank projection costs {tf} triangles at the full tier and {tl} at the light; "
+                         f"a plain block keeps at most {BLANK_MAX_TRIANGLES}, the light tier no more than the full")
     elif tl > ratio * tf:
         fails.append(f"light: the light tier costs {tl} triangles, {tl / tf:.2f} of the full tier's {tf} "
                      f"(allowed {ratio})")
@@ -868,6 +921,11 @@ def self_test(data) -> int:
     def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
         _v(d, "k08.bay.canted")["pier"] = True
 
+    def m_light_blank(d):  # T-1887: a windowless projection keeps no light tier, but only as a plain block
+        v = _v(d, "k08.projection.full_height")
+        st = v["storeys"][0]
+        v["storeys"] = [{**copy.deepcopy(st), "windows": []} for _ in range(12)]
+
     cases = [
         ("a window off the end of its run", m_pier, "k08.bay.canted", "pier:"),
         ("two windows on one run, side by side into each other", m_overlap, "k08.bay.bowed", "overlap:"),
@@ -886,6 +944,8 @@ def self_test(data) -> int:
         ("a coped gable over two lights a storey stating its own ratio", m_light_gable,
          "k08.projection.full_height", "holds no open opening"),
         ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
+        ("a windowless projection twelve storeys high, past a plain block's budget", m_light_blank,
+         "k08.projection.full_height", "a blank projection costs"),
     ]
     bad = 0
     for name, mut, vid, want in cases:

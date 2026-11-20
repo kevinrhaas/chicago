@@ -12,11 +12,12 @@
  * recorded). It is an ESTIMATE — what a driver adds is not here, and shadow maps and
  * render targets are not textures of the scene — and it sits beside the measured meter
  * (tools/measure_memory.mjs) for exactly that reason. The black box reads it every
- * SAMPLE_MS (3 s), so it allocates two sets a call and nothing per object.
+ * SAMPLE_MS (3 s), walked a slice a frame (createResidentWalk, T-3639), so it allocates two
+ * sets a walk and nothing per object.
  */
 
-/** `{ geometry, textures }` in bytes, for `scene` as `renderer` has uploaded it. */
-export function residentEstimate(scene, renderer) {
+/** The running sums one walk of the scene adds to: `visit` each object once, then `result`. */
+function accumulator(renderer) {
   const seenGeo = new Set();
   const seenTex = new Set();
   let geometry = 0;
@@ -58,15 +59,60 @@ export function residentEstimate(scene, renderer) {
       if (v?.isTexture) texture(v);
     }
   };
-  scene.traverse((o) => {
-    const g = o.geometry;
-    if (g?.attributes) {
-      for (const name in g.attributes) geometry += attrBytes(g.attributes[name], false);
-      geometry += attrBytes(g.index, true);
-    }
-    if (o.isInstancedMesh) geometry += attrBytes(o.instanceMatrix, false) + attrBytes(o.instanceColor, false);
-    if (Array.isArray(o.material)) for (const m of o.material) material(m);
-    else material(o.material);
-  });
-  return { geometry, textures };
+  return {
+    visit(o) {
+      const g = o.geometry;
+      if (g?.attributes) {
+        for (const name in g.attributes) geometry += attrBytes(g.attributes[name], false);
+        geometry += attrBytes(g.index, true);
+      }
+      if (o.isInstancedMesh) geometry += attrBytes(o.instanceMatrix, false) + attrBytes(o.instanceColor, false);
+      if (Array.isArray(o.material)) for (const m of o.material) material(m);
+      else material(o.material);
+    },
+    result: () => ({ geometry, textures }),
+  };
+}
+
+/** `{ geometry, textures }` in bytes, for `scene` as `renderer` has uploaded it. */
+export function residentEstimate(scene, renderer) {
+  const acc = accumulator(renderer);
+  scene.traverse((o) => acc.visit(o));
+  return acc.result();
+}
+
+/**
+ * T-3639: the same estimate, walked a slice at a time. Read whole every SAMPLE_MS, the 1812
+ * town's scene took 10 to 37 ms of one frame every three seconds: a hitch on the clock, the
+ * owner's "jumpy from frame to frame". `step()` visits objects for at most `budgetMs` (asking
+ * the clock every 64), keeps the last whole walk in `last`, and starts the next walk only once
+ * `everyMs` has passed since the last one finished, so between walks a frame pays one clock
+ * read. A walk sees the scene as it is while it goes: an object added or removed mid-walk is
+ * counted or not, which is within what an estimate claims.
+ */
+export function createResidentWalk(scene, renderer, { budgetMs = 0.5, everyMs = 3000, now = () => performance.now() } = {}) {
+  let stack = null, acc = null, last = null, doneAt = -Infinity, walks = 0;
+  return {
+    step() {
+      const t0 = now();
+      if (!stack) {
+        if (t0 - doneAt < everyMs) return last;
+        stack = [scene];
+        acc = accumulator(renderer);
+      }
+      let n = 0;
+      while (stack.length) {
+        const o = stack.pop();
+        acc.visit(o);
+        const ch = o.children;
+        if (ch) for (let i = ch.length - 1; i >= 0; i--) stack.push(ch[i]);
+        if ((++n & 63) === 0 && now() - t0 >= budgetMs) return last;
+      }
+      last = acc.result();
+      stack = null; acc = null; doneAt = now(); walks++;
+      return last;
+    },
+    get last() { return last; },
+    get walks() { return walks; },
+  };
 }

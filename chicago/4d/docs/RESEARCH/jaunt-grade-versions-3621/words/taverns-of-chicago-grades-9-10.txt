@@ -1,0 +1,111 @@
+== premise
+Visit three taverns, gather local talk and decide where to conclude the evening.
+
+== opening
+JAUNT: TAVERNS OF CHICAGO. On this summer night in 1835 the town is bursting at the seams. The land office opened in May and, as one history put it, "added fuel to the already brilliant blaze of excitement". Every available bed is taken, the bar-rooms are noisy, and the entire town is discussing lots, banks and boats.
+
+Four public houses stand within a short ride of the forks, kept by some of the most colorful characters in town. Begin at the Sauganash, where the landlord plays the fiddle, ride over to the west bank, and finish wherever you prefer. The county has fixed the price of a drink since 1831, at "6¼ for a gill of whiskey". Whether you drink or abstain, keep your ears open throughout the evening.
+
+First, however, decide precisely how much money you are carrying.
+
+== stop purse
+The Sauganash, at Lake and Market, is the white two-story house with bright-blue shutters that Juliette Kinzie remembered, and in June the Democrat found it repaired, fitted up and furnished with neatness. Moses and Kirkland call it "the most attractive hostlery the city possessed", and its landlord, Mark Beaubien, "with his merry fiddle, the most popular of hosts". Judge Caton said Mark could "lift the sluggard from his seat, and set him whirling over the floor like mad".
+
+== narrative purse
+Before you ride on, determine how much of a purse this evening may spend.
+
+== label purse no-purse
+Bring no purse
+
+== consequence purse no-purse
+Conversation is free, so you will spend nothing tonight.
+
+== label purse modest
+A modest purse
+
+== consequence purse modest
+Twenty-five cents reserved for the evening's entertainment.
+
+== label purse fuller
+A fuller purse
+
+== consequence purse fuller
+Fifty cents reserved for a more generous evening's entertainment.
+
+== stop wolf-point
+Across the river at the forks stands the Wolf Point Tavern, recognizable by its painted wolf sign, where William Walters is named its landlord until 1836, although one chronology claims it stopped accepting guests in 1834, so whether you are served depends on whom you believe. At the bar the conversation echoes the newspapers: no house in Chicago is large enough, and a grand new one, the Lake House, is rising across the river, which "aimed to cater for only the highest class of guests". Wolf Point never pretended to such ambitions.
+
+== narrative wolf-point
+Listen carefully to the gossip: will you accept a glass with the conversation, or water?
+
+== label wolf-point glass
+Take a glass with the talk
+
+== consequence wolf-point glass
+Six cents for a gill, close to the county's 6¼, and the conversation continues.
+
+== label wolf-point water
+Listen over a cup of water
+
+== consequence wolf-point water
+Your purse and your judgment remain exactly as they were before you entered.
+
+== stop green-tree
+A short distance south stands the Green Tree, which James Kinzie built in 1833 as the first house here constructed for hotel purposes, "so called from an oak tree standing close by". Chester Ingersoll currently keeps it. Guests remembered a bar-room, whitewashed board partitions and chambers about twelve feet square. It is a plain house but an extraordinarily fortunate one, since it will outlive every tavern in this town, relocated to Milwaukee Avenue in 1880 as "the oldest memento of early taverns".
+
+== narrative green-tree
+Weigh its plain welcome against the Sauganash's celebrated hospitality.
+
+== label green-tree glass
+Another glass in the bar-room
+
+== consequence green-tree glass
+Six more cents spent, and a considerably slower ride onward.
+
+== label green-tree chambers
+Ask after the chambers instead
+
+== consequence green-tree chambers
+You examine the bedrooms instead and preserve a perfectly clear head.
+
+== stop western
+Conclude the circuit a block south at W. H. Stow's Western Hotel, Randolph and Canal, with a forty-foot front, a sixty-foot wing, a large stable and a yard into which the farmers' wagon trains drive. Not everyone approves of so much drinking: in 1832 Philo Carpenter, the druggist, "prepared and circulated the first temperance pledge among the convivial citizens" of the town. It has not caught on, since the census at the end of this year will count eight taverns, and soon the trustees will prohibit "the sale of liquors on Sunday".
+
+== narrative western
+Now choose the particular house where your evening concludes.
+
+== label western stay-western
+Stay among the teamsters
+
+== consequence western stay-western
+You conclude the evening at the Western among the teamsters.
+
+== label western back-green-tree
+Ride back to the Green Tree
+
+== consequence western back-green-tree
+You conclude the evening at the Green Tree, the house named for an oak tree.
+
+== label western back-sauganash
+Cross back to the Sauganash
+
+== consequence western back-sauganash
+You conclude the evening precisely where you began.
+
+== leg 0
+Ride over with your purse decided, while behind you the celebrated fiddle is tuning up.
+
+== ending talk-is-free
+You brought no purse and missed nothing: the conversation was free, the fiddle was free, and you carry home every word of a boom town's night.
+
+== ending clear-head
+You declined every glass and kept your purse intact, and Philo Carpenter would have you sign his pledge on the spot. A clear head carries the night's conversation home entirely undamaged.
+
+== ending two-houses
+A gill in two bar-rooms, at approximately the county's price, and still a modest evening. You let the gossip remain gossip and ride home slowly beneath the stars.
+
+== ending a-sensible-evening
+One glass, a great deal of conversation and a purse barely touched: a sensible evening, in a town that has lost its head over land.
+
+== keepsake text
+A fictional calling card from an evening's round of the public houses at the forks.

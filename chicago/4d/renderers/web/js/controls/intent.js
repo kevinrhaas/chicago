@@ -43,6 +43,18 @@
  * visitor ask for" is still answered by exactly one object.
  */
 
+/**
+ * T-3563: the look-sensitivity multiple a backend turns by — Settings › Look › Mouse (or,
+ * on a touch screen, Look) sensitivity, read through `read()` so a move of the slider takes at
+ * once. Kept to the slider's range (settings-app.js § LOOK_SPEED); anything unreadable is 1,
+ * the turn the app always had.
+ */
+export function lookScale(read) {
+  let v = 1;
+  try { v = Number(read?.()); } catch { v = 1; }
+  return Number.isFinite(v) && v > 0 ? Math.min(3, Math.max(0.2, v)) : 1;
+}
+
 export function createIntent() {
   const intent = {
     forward: 0,

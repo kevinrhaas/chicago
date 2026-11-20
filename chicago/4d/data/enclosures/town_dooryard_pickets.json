@@ -26,9 +26,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 2,
-      "runs_bounding_structures_only": 95,
+      "runs_bounding_structures_only": 87,
       "households_that_gained_a_fence": 2,
-      "lots_named": 97,
+      "lots_named": 89,
       "households": [
         "hh_harmon_elijah_d",
         "hh_heacock_russel_e"
@@ -134,350 +134,6 @@
           [276.73, -82.85],
           [276.74, -82.15],
           [277.37, -82.15]
-        ]
-      ]
-    },
-    {
-      "id": "blk_south_water_lasalle_lot1",
-      "path_local_enu_m": [
-        [473.65, -91.91],
-        [465.04, -91.84],
-        [465.11, -82.67],
-        [473.72, -82.74],
-        [473.65, -91.91]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_lasalle_lot1",
-          "structures": [
-            "lasalle_lake_house"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_south_water_lasalle lot 1 of the platted grid, holding lasalle_lake_house (dwelling) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'attested' on its own record, and the garden stands at that tier or below it. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 8.61 x 9.17 m behind the house, set along the lot right side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'centre_walk' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (dwelling), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.3,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.44,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "centre_walk",
-        "fence": "picket",
-        "frame": {
-          "origin": [473.65, -91.91],
-          "u": [-0.999967, 0.008077],
-          "v": [0.008077, 0.999967]
-        },
-        "size_m": [8.61, 9.17],
-        "beds": [
-          {
-            "plan": "bushes",
-            "poly": [
-              [0.3, 7.67],
-              [8.31, 7.67],
-              [8.31, 8.87],
-              [0.3, 8.87]
-            ]
-          },
-          {
-            "plan": "roots",
-            "poly": [
-              [0.3, 0.3],
-              [2.24, 0.3],
-              [2.24, 1.5],
-              [0.3, 1.5]
-            ]
-          },
-          {
-            "plan": "potato",
-            "poly": [
-              [0.3, 1.95],
-              [2.24, 1.95],
-              [2.24, 4.31],
-              [0.3, 4.31]
-            ]
-          },
-          {
-            "plan": "onion_salad",
-            "poly": [
-              [0.3, 4.76],
-              [2.24, 4.76],
-              [2.24, 5.88],
-              [0.3, 5.88]
-            ]
-          },
-          {
-            "plan": "corn",
-            "poly": [
-              [0.3, 6.33],
-              [2.24, 6.33],
-              [2.24, 7.22],
-              [0.3, 7.22]
-            ]
-          },
-          {
-            "plan": "potato",
-            "poly": [
-              [4.04, 0.3],
-              [8.31, 0.3],
-              [8.31, 2.71],
-              [4.04, 2.71]
-            ]
-          },
-          {
-            "plan": "onion_salad",
-            "poly": [
-              [4.04, 3.16],
-              [8.31, 3.16],
-              [8.31, 4.36],
-              [4.04, 4.36]
-            ]
-          },
-          {
-            "plan": "corn",
-            "poly": [
-              [4.04, 4.81],
-              [8.31, 4.81],
-              [8.31, 7.11],
-              [4.04, 7.11]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [470.96, -91.89],
-          [470.06, -91.88],
-          [470.12, -84.21],
-          [471.02, -84.22]
-        ]
-      ]
-    },
-    {
-      "id": "blk_south_water_lasalle_lot7",
-      "path_local_enu_m": [
-        [562.06, -87.17],
-        [553.6, -87.1],
-        [553.65, -81.27],
-        [562.11, -81.34],
-        [562.06, -87.17]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_lasalle_lot7",
-          "structures": [
-            "recon_1835_blk_south_water_lasalle_d3_03"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_south_water_lasalle lot 7 of the platted grid, holding recon_1835_blk_south_water_lasalle_d3_03 (one_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 8.46 x 5.83 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'centre_walk' (tools/dooryard_layouts.py) and closed with light, wide-set pales, 3 ft 6 in. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (one_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.07,
-          "confidence": "reconstructed"
-        },
-        "picket_gap_m": {
-          "value": 0.115,
-          "confidence": "reconstructed"
-        },
-        "picket_width_m": {
-          "value": 0.076,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.44,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "centre_walk",
-        "fence": "open_paled",
-        "frame": {
-          "origin": [562.06, -87.17],
-          "u": [-0.999964, 0.008481],
-          "v": [0.008481, 0.999964]
-        },
-        "size_m": [8.46, 5.83],
-        "beds": [
-          {
-            "plan": "roots",
-            "poly": [
-              [0.3, 0.3],
-              [6.21, 0.3],
-              [6.21, 1.59],
-              [0.3, 1.59]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [0.3, 2.04],
-              [6.21, 2.04],
-              [6.21, 4.44],
-              [0.3, 4.44]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [555.4, -87.11],
-          [554.5, -87.11],
-          [554.55, -81.58],
-          [555.45, -81.59]
-        ]
-      ]
-    },
-    {
-      "id": "blk_south_water_clark_lot3",
-      "path_local_enu_m": [
-        [628.36, -85.85],
-        [616.78, -85.76],
-        [616.83, -79.51],
-        [628.41, -79.61],
-        [628.36, -85.85]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_clark_lot3",
-          "structures": [
-            "recon_1835_blk_south_water_clark_d4_02"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_south_water_clark lot 3 of the platted grid, holding recon_1835_blk_south_water_clark_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 11.58 x 6.25 m behind the house, centred on it, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'side_walk' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.14,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.74,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "side_walk",
-        "fence": "picket",
-        "frame": {
-          "origin": [628.36, -85.85],
-          "u": [-0.999967, 0.008117],
-          "v": [0.008117, 0.999967]
-        },
-        "size_m": [11.58, 6.25],
-        "beds": [
-          {
-            "plan": "potato",
-            "poly": [
-              [0.3, 1.38],
-              [9.93, 1.38],
-              [9.93, 3.71],
-              [0.3, 3.71]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [0.3, 4.16],
-              [9.93, 4.16],
-              [9.93, 5.95],
-              [0.3, 5.95]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [617.98, -85.77],
-          [617.08, -85.76],
-          [617.13, -79.81],
-          [618.03, -79.82]
-        ],
-        [
-          [621.8, -85.8],
-          [617.08, -85.76],
-          [617.08, -84.83],
-          [621.8, -84.87]
-        ]
-      ]
-    },
-    {
-      "id": "blk_south_water_clark_lot5",
-      "path_local_enu_m": [
-        [650.87, -86.71],
-        [644.54, -86.66],
-        [644.58, -81.82],
-        [650.91, -81.88],
-        [650.87, -86.71]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_clark_lot5",
-          "structures": [
-            "recon_1835_blk_south_water_clark_d3_03"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_south_water_clark lot 5 of the platted grid, holding recon_1835_blk_south_water_clark_d3_03 (one_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 6.33 x 4.83 m behind the house, centred on it, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'new_ground' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (one_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.22,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.44,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "new_ground",
-        "fence": "picket",
-        "frame": {
-          "origin": [650.87, -86.71],
-          "u": [-0.999964, 0.008522],
-          "v": [0.008522, 0.999964]
-        },
-        "size_m": [6.33, 4.83],
-        "beds": [
-          {
-            "plan": "potato",
-            "poly": [
-              [0.3, 0.7],
-              [6.03, 0.7],
-              [6.03, 2.39],
-              [0.3, 2.39]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [0.3, 2.84],
-              [6.03, 2.84],
-              [6.03, 4.53],
-              [0.3, 4.53]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [648.6, -86.69],
-          [647.97, -86.69],
-          [647.98, -85.99],
-          [648.61, -85.99]
         ]
       ]
     },
@@ -1004,19 +660,19 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE HOUSE LOT: blk_lake_market lot 4 of the platted grid, holding recon_1835_blk_lake_market_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 10.23 x 8.32 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'new_ground' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
+      "note": "THE HOUSE LOT: blk_lake_market lot 4 of the platted grid, holding recon_1835_blk_lake_market_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 10.23 x 8.32 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'long_beds' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
       "form": {
         "height_m": {
           "value": 1.22,
           "confidence": "reconstructed"
         },
         "post_spacing_m": {
-          "value": 2.74,
+          "value": 2.44,
           "confidence": "reconstructed"
         }
       },
       "garden": {
-        "style": "new_ground",
+        "style": "long_beds",
         "fence": "picket",
         "frame": {
           "origin": [147.78, -143.42],
@@ -1026,40 +682,73 @@
         "size_m": [10.23, 8.32],
         "beds": [
           {
-            "plan": "potato",
+            "plan": "bushes",
             "poly": [
-              [0.3, 0.7],
-              [9.93, 0.7],
-              [9.93, 2.84],
-              [0.3, 2.84]
+              [0.3, 6.82],
+              [9.93, 6.82],
+              [9.93, 8.02],
+              [0.3, 8.02]
+            ]
+          },
+          {
+            "plan": "roots",
+            "poly": [
+              [0.3, 1.39],
+              [1.63, 1.39],
+              [1.63, 6.37],
+              [0.3, 6.37]
             ]
           },
           {
             "plan": "potato",
             "poly": [
-              [0.3, 3.29],
-              [9.93, 3.29],
-              [9.93, 5.43],
-              [0.3, 5.43]
+              [2.08, 1.39],
+              [4.01, 1.39],
+              [4.01, 6.37],
+              [2.08, 6.37]
+            ]
+          },
+          {
+            "plan": "onion_salad",
+            "poly": [
+              [4.46, 1.39],
+              [5.63, 1.39],
+              [5.63, 6.37],
+              [4.46, 6.37]
+            ]
+          },
+          {
+            "plan": "corn",
+            "poly": [
+              [6.08, 1.39],
+              [7.98, 1.39],
+              [7.98, 6.37],
+              [6.08, 6.37]
             ]
           },
           {
             "plan": "cabbage",
             "poly": [
-              [0.3, 5.88],
-              [9.93, 5.88],
-              [9.93, 8.02],
-              [0.3, 8.02]
+              [8.43, 1.39],
+              [9.93, 1.39],
+              [9.93, 6.37],
+              [8.43, 6.37]
             ]
           }
         ]
       },
       "walks_local_enu_m": [
         [
-          [156.34, -143.49],
-          [156.97, -143.49],
-          [156.96, -144.19],
-          [156.33, -144.19]
+          [148.07, -143.82],
+          [157.7, -143.9],
+          [157.7, -144.62],
+          [148.07, -144.54]
+        ],
+        [
+          [156.21, -143.49],
+          [157.11, -143.49],
+          [157.1, -143.89],
+          [156.2, -143.89]
         ]
       ]
     },
@@ -1246,179 +935,6 @@
       ]
     },
     {
-      "id": "blk_lake_lasalle_lot2",
-      "path_local_enu_m": [
-        [500.81, -154.57],
-        [512.27, -154.67],
-        [512.16, -168.04],
-        [500.69, -167.94],
-        [500.81, -154.57]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_lasalle_lot2",
-          "structures": [
-            "recon_1835_south_d1_010"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_lake_lasalle lot 2 of the platted grid, holding recon_1835_south_d1_010 (older_log_dwelling) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 11.47 x 13.37 m behind the house, set along the lot right side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'patch' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (older_log_dwelling), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.3,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.74,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "patch",
-        "fence": "picket",
-        "frame": {
-          "origin": [500.81, -154.57],
-          "u": [0.999964, -0.008481],
-          "v": [-0.008481, -0.999964]
-        },
-        "size_m": [11.47, 13.37],
-        "beds": [
-          {
-            "plan": "bushes",
-            "poly": [
-              [0.3, 11.87],
-              [11.17, 11.87],
-              [11.17, 13.07],
-              [0.3, 13.07]
-            ]
-          },
-          {
-            "plan": "herb",
-            "poly": [
-              [2.16, 0.3],
-              [11.17, 0.3],
-              [11.17, 1.52],
-              [2.16, 1.52]
-            ]
-          },
-          {
-            "plan": "field_corn",
-            "poly": [
-              [0.3, 2.27],
-              [6.2, 2.27],
-              [6.2, 11.42],
-              [0.3, 11.42]
-            ]
-          },
-          {
-            "plan": "potato",
-            "poly": [
-              [6.65, 2.27],
-              [11.17, 2.27],
-              [11.17, 11.42],
-              [6.65, 11.42]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [501.8, -154.58],
-          [502.52, -154.59],
-          [502.5, -156.56],
-          [501.78, -156.55]
-        ]
-      ]
-    },
-    {
-      "id": "blk_lake_lasalle_lot4",
-      "path_local_enu_m": [
-        [514.36, -155.02],
-        [521.75, -155.08],
-        [521.68, -163.82],
-        [514.29, -163.76],
-        [514.36, -155.02]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_lasalle_lot4",
-          "structures": [
-            "recon_1835_south_d5_011"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_lake_lasalle lot 4 of the platted grid, holding recon_1835_south_d5_011 (deep_plan_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 7.39 x 8.73 m behind the house, set along the lot left side line, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'new_ground' (tools/dooryard_layouts.py) and closed with pickets cut to a point. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (deep_plan_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.3,
-          "confidence": "reconstructed"
-        },
-        "point_height_m": {
-          "value": 0.07,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.74,
-          "confidence": "reconstructed"
-        },
-        "top_shape": {
-          "value": "pointed",
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "new_ground",
-        "fence": "picket_pointed",
-        "frame": {
-          "origin": [514.36, -155.02],
-          "u": [0.999967, -0.008077],
-          "v": [-0.008077, -0.999967]
-        },
-        "size_m": [7.39, 8.73],
-        "beds": [
-          {
-            "plan": "potato",
-            "poly": [
-              [0.3, 0.7],
-              [7.09, 0.7],
-              [7.09, 2.98],
-              [0.3, 2.98]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [0.3, 3.43],
-              [7.09, 3.43],
-              [7.09, 5.71],
-              [0.3, 5.71]
-            ]
-          },
-          {
-            "plan": "potato",
-            "poly": [
-              [0.3, 6.16],
-              [7.09, 6.16],
-              [7.09, 8.43],
-              [0.3, 8.43]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [519.09, -155.06],
-          [519.72, -155.06],
-          [519.71, -155.76],
-          [519.08, -155.76]
-        ]
-      ]
-    },
-    {
       "id": "blk_lake_lasalle_lot7",
       "path_local_enu_m": [
         [561.16, -228.87],
@@ -1525,203 +1041,6 @@
           [554.64, -228.81],
           [554.64, -228.41],
           [555.54, -228.42]
-        ]
-      ]
-    },
-    {
-      "id": "blk_lake_dearborn_lot2",
-      "path_local_enu_m": [
-        [737.13, -156.23],
-        [746.22, -156.3],
-        [746.14, -166.18],
-        [737.05, -166.1],
-        [737.13, -156.23]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_dearborn_lot2",
-          "structures": [
-            "recon_1835_south_d1_018"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_lake_dearborn lot 2 of the platted grid, holding recon_1835_south_d1_018 (older_log_dwelling) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 9.09 x 9.88 m behind the house, centred on it, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'patch' (tools/dooryard_layouts.py) and closed with light, wide-set pales, 3 ft 6 in. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (older_log_dwelling), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.07,
-          "confidence": "reconstructed"
-        },
-        "picket_gap_m": {
-          "value": 0.115,
-          "confidence": "reconstructed"
-        },
-        "picket_width_m": {
-          "value": 0.076,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.74,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "patch",
-        "fence": "open_paled",
-        "frame": {
-          "origin": [737.13, -156.23],
-          "u": [0.999967, -0.008102],
-          "v": [-0.008102, -0.999967]
-        },
-        "size_m": [9.09, 9.88],
-        "beds": [
-          {
-            "plan": "raspberry",
-            "poly": [
-              [0.3, 8.38],
-              [8.79, 8.38],
-              [8.79, 9.58],
-              [0.3, 9.58]
-            ]
-          },
-          {
-            "plan": "roots",
-            "poly": [
-              [0.3, 0.3],
-              [4.28, 0.3],
-              [4.28, 1.52],
-              [0.3, 1.52]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [5.9, 0.3],
-              [8.79, 0.3],
-              [8.79, 1.52],
-              [5.9, 1.52]
-            ]
-          },
-          {
-            "plan": "field_corn",
-            "poly": [
-              [0.3, 2.27],
-              [5.26, 2.27],
-              [5.26, 7.93],
-              [0.3, 7.93]
-            ]
-          },
-          {
-            "plan": "potato",
-            "poly": [
-              [5.71, 2.27],
-              [8.79, 2.27],
-              [8.79, 7.93],
-              [5.71, 7.93]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [741.86, -156.26],
-          [742.58, -156.27],
-          [742.57, -158.24],
-          [741.85, -158.23]
-        ]
-      ]
-    },
-    {
-      "id": "blk_lake_dearborn_lot4",
-      "path_local_enu_m": [
-        [763.14, -156.87],
-        [773.84, -156.96],
-        [773.77, -166.22],
-        [763.07, -166.13],
-        [763.14, -156.87]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_dearborn_lot4",
-          "structures": [
-            "recon_1835_south_d4_019"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_lake_dearborn lot 4 of the platted grid, holding recon_1835_south_d4_019 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE PLOT IS THIS HOUSE'S OWN (T-3476): 10.70 x 9.26 m behind the house, centred on it, at least 0.914 m inside the lot lines and 3.048 m or more clear of the house's own back face, laid out 'side_walk' (tools/dooryard_layouts.py) and closed with flat-topped pickets a pale's width apart, the record's own form. Its lines come from data/traces/vectors/thompson_lots.json and this building's committed footprint; its SIZE, which follows the house's class (two_room_frame_cottage), its layout and its fence are the invention, read off a hash of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, L-t3476-dooryard-gardens its size, beds and fence.",
-      "form": {
-        "height_m": {
-          "value": 1.22,
-          "confidence": "reconstructed"
-        },
-        "post_spacing_m": {
-          "value": 2.44,
-          "confidence": "reconstructed"
-        }
-      },
-      "garden": {
-        "style": "side_walk",
-        "fence": "picket",
-        "frame": {
-          "origin": [763.14, -156.87],
-          "u": [0.999967, -0.008102],
-          "v": [-0.008102, -0.999967]
-        },
-        "size_m": [10.7, 9.26],
-        "beds": [
-          {
-            "plan": "bushes",
-            "poly": [
-              [0.3, 7.76],
-              [10.4, 7.76],
-              [10.4, 8.96],
-              [0.3, 8.96]
-            ]
-          },
-          {
-            "plan": "roots",
-            "poly": [
-              [0.3, 1.38],
-              [9.05, 1.38],
-              [9.05, 2.71],
-              [0.3, 2.71]
-            ]
-          },
-          {
-            "plan": "cabbage",
-            "poly": [
-              [0.3, 3.16],
-              [9.05, 3.16],
-              [9.05, 5.47],
-              [0.3, 5.47]
-            ]
-          },
-          {
-            "plan": "onion_salad",
-            "poly": [
-              [0.3, 5.92],
-              [9.05, 5.92],
-              [9.05, 7.21],
-              [0.3, 7.21]
-            ]
-          }
-        ]
-      },
-      "walks_local_enu_m": [
-        [
-          [772.64, -156.95],
-          [773.54, -156.96],
-          [773.48, -164.27],
-          [772.58, -164.26]
-        ],
-        [
-          [768.09, -156.91],
-          [773.54, -156.96],
-          [773.53, -157.89],
-          [768.08, -157.84]
         ]
       ]
     },
@@ -9676,38 +8995,6 @@
       "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
     },
     {
-      "id": "blk_south_water_lasalle_lot1_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [470.51, -91.89],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_south_water_lasalle_lot7_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [554.8, -87.11],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_south_water_clark_lot3_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [621.35, -85.8],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_south_water_clark_lot5_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [648.29, -86.69],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
       "id": "blk_south_water_dearborn_lot5_gate",
       "on": "dooryard",
       "at_local_enu_m": [774.53, -84.07],
@@ -9804,30 +9091,6 @@
       "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
     },
     {
-      "id": "blk_lake_lasalle_lot2_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [502.01, -154.58],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_lake_lasalle_lot4_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [519.4, -155.06],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "gate": {
-        "kind": "foot_gate",
-        "leaves": 1,
-        "leaf_stock": "picket",
-        "hinge": "a",
-        "swing_deg": 0.0
-      },
-      "opens_into_local_enu_m": [518.02, -159.42],
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
       "id": "blk_lake_lasalle_lot7_gate",
       "on": "dooryard",
       "at_local_enu_m": [554.94, -228.82],
@@ -9841,30 +9104,6 @@
         "swing_deg": 37.0
       },
       "opens_into_local_enu_m": [557.48, -225.58],
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_lake_dearborn_lot2_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [742.23, -156.27],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
-    },
-    {
-      "id": "blk_lake_dearborn_lot4_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [768.54, -156.92],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "gate": {
-        "kind": "foot_gate",
-        "leaves": 1,
-        "leaf_stock": "picket",
-        "hinge": "a",
-        "swing_deg": 0.0
-      },
-      "opens_into_local_enu_m": [768.46, -161.55],
       "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is in the side that faces the back door, under the house; 3 ft 6 in is a person with a hoe or a basket, not a team. SINCE T-3476 about two gardens in three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the rest are a plain gap."
     },
     {

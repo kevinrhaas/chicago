@@ -8,6 +8,19 @@
  * Retain that already-adopted3760000 allowance during integration. Both pricing
  * receipts remain valid; this is not a new frame-time guarantee. The allowance
  * changes no geometry or submitted work.
+ * T-3556 (2026-11-15), a conscious re-budget: the 1835 townspeople now come out of their
+ * doors about the visitor, and the desktop smoke's Full X-RAY stand read 3764962 with two of
+ * them out at their far rung (Peck's and Mahoney's bodies, 13836 + 13811 = 27647 triangles,
+ * exactly the rise over 3737315). That reading + the same defended 18059 margin, rounded up
+ * to 5000 => 3785000. People are core on every device (owner, 2026-11-10), so the
+ * allowance moves rather than the town. Receipt: PR #2088.
+ * T-3655 (2026-11-18), a conscious re-budget: the gate's own stand (desktop smoke part 13,
+ * after the people card's ride to Hogan's) read 3842482 on dev aadceb658 — identically on
+ * PRs #2111 and #2192 — and 3847921 on PR #2150's head; desktop 13 was last green on
+ * 0f819ff86. The rise over 3764962 arrived with the range's people work (1835 clothes,
+ * riders and tack, the visitor's own ridden person), owner-asked and core on every device.
+ * Highest reading 3847921 + the same defended 18059 margin, rounded up to 5000 => 3870000.
+ * Draws unchanged (8188 read <= 8900). Receipt: docs/measurements/T-3655-xray-budget.json.
  * Normal/Tint, Balanced and Light retain their own existing ceilings; a higher
  * inspection allowance is never reduced. confidence.ghosting supplies the
  * active-view/visible-ghost condition, including hidden-grade restoration.
@@ -16,6 +29,6 @@ export function renderBudget(base, detail, ghosting) {
   if (detail !== 'full' || ghosting !== true) return base;
   return { ...base,
     drawCalls: Math.max(base.drawCalls, 8900),
-    triangles: Math.max(base.triangles, 3760000),
+    triangles: Math.max(base.triangles, 3870000),
   };
 }

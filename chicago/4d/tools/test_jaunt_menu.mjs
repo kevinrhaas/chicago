@@ -57,14 +57,15 @@ try {
     await click(page.locator('#welcome-jaunts'));
     await page.waitForSelector('.jaunt-list .jaunt-card');
     assert.equal(await page.locator('.jaunt-card').count(), 30, 'one bounded window, no repeated featured block');
-    // T-2944: the list is grouped by kind (Wayfinding first), featured outings leading each kind.
+    // T-2944/T-3584: the list is grouped (Places first; a fixture row without a menu_group is read
+    // from its family, Wayfinding to Places), featured outings leading each group.
     assert.equal(await page.locator('.jaunt-list .jaunt-card:first-child .jaunt-star').count(), 1, 'featured outings lead their kind');
-    assert.match(await page.locator('.jaunt-list .jaunt-card:first-child').getAttribute('class'), /jaunt-type-way/, 'the first kind is Wayfinding');
+    assert.match(await page.locator('.jaunt-list .jaunt-card:first-child').getAttribute('class'), /jaunt-type-way/, 'the first group is Places');
     assert(await page.locator('#welcome-back').isVisible(), 'a way back from Jaunts');
     console.log(`MENU ${viewport.width}: catalog ready`);
     await page.locator('#jaunt-menu-search').fill('tavern');
     assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 11);
-    await click(page.getByRole('button', { name: 'Wayfinding', exact: true }));
+    await click(page.getByRole('button', { name: 'Places', exact: true }));
     assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 11);
     await click(page.getByRole('button', { name: 'Clear filters', exact: true }));
     assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 30);

@@ -147,6 +147,6 @@ assert.equal(Object.fromEntries(card.rows).Dress, 'A straw hat; a tow shirt', 't
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressHat \} from '\.\/human-hats\.js';/.test(humans) && /dressHat\(scene, dress\.hat, \{ person: this\.personId, lod \}\)/.test(humans), 'humans.js builds the hat');
 const mainJs = await fs.readFile(new URL('renderers/web/js/main.js', here), 'utf8');
-assert(/worn: r\?\.dress\?\.worn/.test(mainJs), 'the card reads the dress');
+assert(/worn: \(?r\?\.dress\?\./.test(mainJs), 'the card reads the dress');
 hooks.deregister();
 console.log(`town dress: ${Object.keys(town.persons).length} townspeople, ${drawn} drawn on town bodies, ${hats.length} hats made, none alike: PASS`);

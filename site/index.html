@@ -1,557 +1,330 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>4D Chicago — walk the city as the record describes it</title>
-<meta name="description" content="A walkable, source-cited reconstruction of early Chicago: Prairie Avenue in 1904, the river town of 1835 and Fort Dearborn in 1812 — with a building atlas from 1674 through the Great Fire and the rebuilding decade.">
-<meta name="theme-color" content="#07090f">
-<meta property="og:title" content="4D Chicago — walk the city as the record describes it">
-<meta property="og:description" content="Prairie Avenue in 1904, the river town of 1835, Fort Dearborn in 1812. Every surface carries its evidence.">
+<title>4D Chicago — walk into the city's past</title>
+<meta name="description" content="A walkable, source-cited 3-D reconstruction of early Chicago: Fort Dearborn in 1812, the river town of 1835 and Prairie Avenue in 1904, full of people, horse teams, boats and stories you can follow. In the browser, on a phone or in a VR headset.">
+<meta name="theme-color" content="#0A1426">
+<meta property="og:title" content="4D Chicago — walk into the city's past">
+<meta property="og:description" content="Fort Dearborn in 1812, the river town of 1835, Prairie Avenue in 1904. Thousands of people on record, horses, carriages and boats, and every building carrying its sources.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://chicago.polecat.live/media/hero.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2307090f'/%3E%3Cpath fill='%23ff3b4f' d='M24 7l3.4 10.4L38.2 15l-7.3 8.2 7.3 8.2-10.8-2.3L24 39.5l-3.4-10.4L9.8 31.4l7.3-8.2-7.3-8.2 10.8 2.4z'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="css/home.css">
-<link rel="stylesheet" href="/notes/notes.css">
-<script>
-/* Pre-paint: the saved theme (chicago.theme, the key this page has always used), else dark. */
-(function () { var r = document.documentElement, t = null; r.classList.add('js');
-  try { t = localStorage.getItem('chicago.theme'); } catch (e) {}
-  r.setAttribute('data-theme', t === 'light' ? 'light' : 'dark'); })();
-</script>
-<script src="/notes/notes.js" data-page="home" defer></script>
+<meta property="og:image" content="https://chicago.polecat.live/media/films/1904-glessner.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='17' fill='%230A1426' stroke='%238CF5A8'/%3E%3Cpath d='M30 20H20L10 10M20 20L10 30' fill='none' stroke='%238CF5A8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/barlow-semi-condensed-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/show.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="js/films.js" defer></script>
+<script src="js/show.js" defer></script>
 </head>
-<body>
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
+<div class="field" aria-hidden="true"></div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-star" viewBox="0 0 48 48"><path d="M24 4l4.2 12.7L41.3 14l-8.9 10 8.9 10-13.1-2.7L24 44l-4.2-12.7L6.7 34l8.9-10-8.9-10 13.1 2.7z"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9z"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
-    <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5L15 20l-6-2.5L3 20zM9 4v13.5M15 6.5V20"/></symbol>
-    <symbol id="i-crane" viewBox="0 0 24 24"><path d="M7 21V3.5M3 3.5h18M7 3.5l-4 3M7 7.5l3.5-4M17.5 3.5v6M15.5 9.5h4v3.5h-4zM3.5 21h7"/></symbol>
-    <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 21V10.5l8-6.5 8 6.5V21M3 21h18M9.5 21v-5.5h5V21M7 12.5h2.5M14.5 12.5H17M15.5 6.8V3.5h2v4.9"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7l-5 5 5 5M15.5 7l5 5-5 5"/></symbol>
-  </defs>
-</svg>
-
-<div class="progress" aria-hidden="true"></div>
-
-<nav class="nav" id="nav" aria-label="Primary">
-  <div class="wrap nav-in">
-    <a class="brand" href="./" aria-label="4D Chicago, home"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
-    <div class="nav-links">
-      <a href="#films">Films</a>
-      <a href="#jaunts">Jaunts</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#matched">Photo-matched</a>
+<header class="bar" id="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="./" aria-label="4D Chicago, home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="menu" id="menu" aria-label="Site">
+      <a href="eras/">Eras</a>
+      <a href="jaunts/">Jaunts</a>
+      <a href="people/">People</a>
+      <a href="rides/">Horses &amp; boats</a>
+      <a href="world/">World</a>
+      <a href="evidence/">Evidence</a>
       <a href="research/">Research</a>
-      <a href="contact/">Contact</a>
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch between light and dark">
-        <svg class="ic theme-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      </button>
-      <a class="btn btn-light" href="4d/">Enter <span class="long">4D Chicago</span><svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <video class="hero-video" id="heroVideo" poster="media/hero.jpg?v=3" muted loop playsinline preload="metadata" aria-hidden="true">
-    <source src="media/hero.mp4?v=3" type="video/mp4">
-  </video>
-  <div class="wrap hero-in">
-    <span class="rec"><i></i>Filmed in the app · a walkable reconstruction</span>
-    <h1>
-      <span class="line"><span class="w" style="--i:0">Walk</span> <span class="w" style="--i:1">Chicago</span></span>
-      <span class="line"><em class="w" style="--i:2">as</em> <em class="w" style="--i:3">the</em> <em class="w" style="--i:4">record</em> <span class="nw"><em class="w" style="--i:5">describes</em> <em class="w" style="--i:6">it.</em></span></span>
-    </h1>
-    <p class="hero-sub">4D Chicago rebuilds the city at fixed moments in time — Prairie Avenue in 1904, the river town of 1835,
-    Fort Dearborn in 1812 — from maps, directories, memoirs and photographs. Every building carries its sources, and shows
-    you how sure they are.</p>
-    <div class="hero-cta">
-      <a class="btn btn-light" href="4d/">Enter 4D Chicago <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <button class="btn btn-glass" type="button" data-film="chicago-walk"><span class="play-dot" style="background:#fff"><svg class="ic fill" aria-hidden="true" style="color:#07090f"><use href="#i-play"/></svg></span>Watch the film <small>1:20</small></button>
-    </div>
-    <nav class="years" aria-label="Go straight to a year">
-      <a class="year" href="4d/1904/"><b>1904</b><span>Prairie Avenue</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-      <a class="year" href="4d/1835/"><b>1835</b><span>The river town</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-      <a class="year" href="4d/1812/"><b>1812</b><span>Fort Dearborn</span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
+    <span class="status" aria-hidden="true"><i></i>3 ERAS ONLINE</span>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-<!-- PRAIRIE AVENUE ----------------------------------------------------------------- -->
-<section class="prairie" id="prairie">
-  <img src="media/still-glessner.jpg" alt="" loading="lazy" id="prairieImg">
-  <div class="wrap prairie-in reveal">
-    <div class="kick">Prairie Avenue · 1904</div>
-    <h2>The grandest street in Chicago, <em>house by house.</em></h2>
-    <p>A research library behind the 1904 scene: every house's construction and demolition dates, its owners and
-    occupants, fire-insurance maps to 1911, and a dedicated Glessner House collection.</p>
-    <div class="stats">
-      <div class="stat"><b data-count="62">62</b><span>buildings researched</span></div>
-      <div class="stat"><b data-count="138">138</b><span>sources</span></div>
-      <div class="stat"><b data-count="38">38</b><span>maps</span></div>
+<!-- HERO: a reel cut from the app, no way in up here — the way in is at the bottom. -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media film-bg" data-film="hero" data-cover>
+    <img src="media/films/hero.jpg" alt="">
+  </div>
+  <div class="viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="rec" aria-hidden="true"><i></i>REC · FILMED IN THE APP</div>
+  <div class="hero-in">
+    <span class="label">Temporal observatory · Wolf Point aperture open</span>
+    <h1 id="hero-title">Walk into Chicago's <em>past.</em></h1>
+    <p class="lede">A walkable 3-D reconstruction of the city at three moments: Fort Dearborn in 1812, the river town of
+    1835 and Prairie Avenue in 1904. The streets are full of people going about their day, horse teams you can
+    drive, boats you can row, and stories played out where they happened. Every building carries its sources.</p>
+    <div class="readouts" aria-label="At a glance">
+      <span class="readout">ERAS <b>1812 · 1835 · 1904</b></span>
+      <span class="readout">PEOPLE ON RECORD <b>5,100+</b></span>
+      <span class="readout">JAUNTS <b>51</b></span>
+      <span class="readout">RUNS ON <b>PHONE · LAPTOP · VR</b></span>
     </div>
-    <div class="hero-cta" style="opacity:1;animation:none;margin-top:0">
-      <a class="btn btn-light" href="prairie-1904/viewer/">Open the Prairie Avenue library <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-glass" href="4d/1904/">Walk it in 4D</a>
+    <div class="acts">
+      <button class="btn go" type="button" data-play="reel" data-title="4D Chicago · the reel"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor" stroke="none"/></svg>Watch the reel</button>
+      <a class="btn ghost" href="#inside">See what's inside</a>
     </div>
   </div>
 </section>
 
-<!-- THE FILMS ---------------------------------------------------------------- -->
-<section class="sec" id="films">
+<!-- AT A GLANCE ---------------------------------------------------------------------- -->
+<section class="sec tight" aria-label="By the numbers">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">Three eras · filmed in the app</div>
-      <h2>Ninety-two years of one city, <em>walkable.</em></h2>
-      <p>Each film is shot inside 4D Chicago itself, frame by frame: the scene date first, then the same streets at other
-      hours and seasons. Press play — or step through and walk it yourself.</p>
-    </div>
-
-    <article class="film-row" style="--fc:#c9a46a">
-      <button class="film-media reveal" type="button" data-film="chicago-1904" aria-label="Play the 1904 film: Prairie Avenue">
-        <img src="media/film-1904.jpg" alt="Glessner House on the corner of Prairie Avenue and Eighteenth Street under the elms" loading="lazy">
-        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:53</span>
-      </button>
-      <div class="film-copy reveal" style="--d:1">
-        <div class="yr">1904</div>
-        <h3>Prairie Avenue</h3>
-        <div class="date">1 July 1904 · Prairie and Eighteenth</div>
-        <p>In from over the lake, around the granite corner of Glessner House and up out of its courtyard, past the
-        Pullman, Field and Kimball houses to the church spire — then the elms turning gold, Glessner House in snow, the
-        avenue at dusk and the sun going down over the district.</p>
-        <div class="acts">
-          <button class="btn btn-solid" type="button" data-film="chicago-1904"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:53</small></button>
-          <a class="btn btn-ghost" href="4d/1904/">Walk 1904 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-        </div>
-      </div>
-    </article>
-
-    <article class="film-row flip" style="--fc:#7ec8e3">
-      <button class="film-media reveal" type="button" data-film="chicago-1835" aria-label="Play the 1835 film: the river town">
-        <img src="media/film-1835.jpg" alt="South Water Street and the wharves along the river, seen from above" loading="lazy">
-        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:36</span>
-      </button>
-      <div class="film-copy reveal" style="--d:1">
-        <div class="yr">1835</div>
-        <h3>The river town</h3>
-        <div class="date">1 July 1835 · the forks to the lake</div>
-        <p>In over the lake at daybreak and up the river, around the second Fort Dearborn at its mouth, rising over the
-        wharves of South Water Street, the town in snow, the lighthouse lit at dusk and the Sauganash Hotel at Lake and
-        Market.</p>
-        <p class="note">The final removal of the Potawatomi from Chicago came in August 1835, weeks after this scene date. The
-        project researches it carefully, flags every record that touches it, and does not stage events the scene date has not reached.</p>
-        <div class="acts">
-          <button class="btn btn-solid" type="button" data-film="chicago-1835"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:36</small></button>
-          <a class="btn btn-ghost" href="4d/1835/">Walk 1835 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-        </div>
-      </div>
-    </article>
-
-    <article class="film-row" style="--fc:#e0a050">
-      <button class="film-media reveal" type="button" data-film="chicago-1812" aria-label="Play the 1812 film: Fort Dearborn">
-        <img src="media/film-1812.jpg" alt="Fort Dearborn at sunrise, the stockade and barracks against the sky over the lake" loading="lazy">
-        <span class="big-play"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span><span class="dur">0:34</span>
-      </button>
-      <div class="film-copy reveal" style="--d:1">
-        <div class="yr">1812</div>
-        <h3>Fort Dearborn</h3>
-        <div class="date">14 August 1812 · the eve of the evacuation</div>
-        <p>The fort at sunrise with the sun coming up out of the lake, then around the stockade from the air, onto the
-        parade ground under the flagstaff, across the river to the Kinzie house, the fort in snow and the barracks lamps
-        lit at dusk.</p>
-        <div class="acts">
-          <button class="btn btn-solid" type="button" data-film="chicago-1812"><span class="play-dot"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg></span>Watch <small>0:34</small></button>
-          <a class="btn btn-ghost" href="4d/1812/">Walk 1812 <svg class="ic go" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- GALLERY: hours and seasons --------------------------------------------------- -->
-<section class="sec gallery" id="gallery">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">Any hour · any season</div>
-      <h2>Set the clock. <em>Change the weather.</em></h2>
-      <p>Pick the time of day and the season and the whole town answers: the sun moves, the lamps and windows light at dusk,
-      the elms turn and drop their leaves, and snow settles on the roofs. Every picture here is a frame from the app.</p>
-    </div>
-
-    <div class="seasons reveal" id="seasons">
-      <div class="seasons-frame">
-        <img class="on" src="media/gallery/glessner-summer.jpg" alt="Glessner House in summer, under full elms" loading="lazy">
-        <img src="media/gallery/glessner-fall.jpg" alt="Glessner House in the fall, the elms turning" loading="lazy">
-        <img src="media/gallery/glessner-winter.jpg" alt="Glessner House in winter, snow on the roofs and the elms bare" loading="lazy">
-        <img src="media/gallery/glessner-spring.jpg" alt="Glessner House in spring, new leaves" loading="lazy">
-        <span class="seasons-tag" id="seasonTag">Summer</span>
-      </div>
-      <div class="seasons-tabs" role="group" aria-label="Season">
-        <button type="button" data-s="0" aria-pressed="true">Summer</button>
-        <button type="button" data-s="1" aria-pressed="false">Fall</button>
-        <button type="button" data-s="2" aria-pressed="false">Winter</button>
-        <button type="button" data-s="3" aria-pressed="false">Spring</button>
-      </div>
-      <p class="seasons-cap">Glessner House, Prairie Avenue and Eighteenth Street. Same spot, same camera, four seasons.</p>
-    </div>
-
-    <div class="gal">
-      <figure class="gtile reveal wide"><img src="media/gallery/fort-sunrise.jpg" alt="Fort Dearborn at daybreak, the sun coming up over the lake" loading="lazy"><figcaption><b>Fort Dearborn at daybreak</b><span>1812 · the sun up out of the lake</span></figcaption></figure>
-      <figure class="gtile reveal" style="--d:1"><img src="media/gallery/prairie-dusk.jpg" alt="Prairie Avenue at dusk, windows lit under the elms" loading="lazy"><figcaption><b>Prairie Avenue at dusk</b><span>1904 · gas lamps and lit windows</span></figcaption></figure>
-      <figure class="gtile reveal" style="--d:2"><img src="media/gallery/lighthouse-dusk.jpg" alt="The 1832 lighthouse at the river mouth at dusk, its lamp lit" loading="lazy"><figcaption><b>The light at the river mouth</b><span>1835 · dusk</span></figcaption></figure>
-      <figure class="gtile reveal" style="--d:1"><img src="media/gallery/sauganash-night.jpg" alt="The Sauganash Hotel at night" loading="lazy"><figcaption><b>The Sauganash after dark</b><span>1835 · night, Lake and Market</span></figcaption></figure>
-      <figure class="gtile reveal" style="--d:3"><img src="media/gallery/prairie-fall.jpg" alt="Prairie Avenue in the fall from above, elms turning gold" loading="lazy"><figcaption><b>Millionaire’s Row in the fall</b><span>1904 · fall</span></figcaption></figure>
-      <figure class="gtile reveal wide" style="--d:2"><img src="media/gallery/fort-winter.jpg" alt="Fort Dearborn in winter, snow on the ground and the stockade" loading="lazy"><figcaption><b>The fort in snow</b><span>1812 · winter</span></figcaption></figure>
-      <figure class="gtile reveal" style="--d:3"><img src="media/gallery/town-winter.jpg" alt="The 1835 town from above in winter, snow on the plat and the streets" loading="lazy"><figcaption><b>The town in snow</b><span>1835 · winter</span></figcaption></figure>
-
+    <div class="telemetry rv">
+      <div><b data-count="1000">1,000+</b><span>Buildings, each with its record</span></div>
+      <div><b data-count="5170">5,170</b><span>People named in the sources</span></div>
+      <div><b data-count="705">705</b><span>Catalogued sources</span></div>
+      <div><b data-count="51">51</b><span>Guided jaunts, many read aloud</span></div>
     </div>
   </div>
 </section>
 
-<!-- JAUNTS ------------------------------------------------------------------------ -->
-<section class="sec jaunts" id="jaunts">
+<!-- WHAT IT IS ---------------------------------------------------------------------------- -->
+<section class="sec" id="inside" aria-labelledby="what-title">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">Jaunts · history where it happened</div>
-      <h2>Stories you walk <em>through.</em></h2>
-      <p>A jaunt is a story told stop by stop, on the ground where it happened. A battle on the beach. A murder at the fort
-      gate. A ghost walk down Millionaire’s Row. You walk, ride or fly between the stops, and at each one the clock, the
-      date and the season jump to the moment the story needs.</p>
-    </div>
-
-    <ol class="how-jaunt reveal">
-      <li><b>01</b><h4>Pick a story</h4><p>Open Jaunts in any year. Battles, murders, ghosts, architects, the women the record names.</p></li>
-      <li><b>02</b><h4>Travel to each stop</h4><p>On foot, on horseback or flying. Long legs can jump straight there.</p></li>
-      <li><b>03</b><h4>The scene changes with it</h4><p>Each stop sets its own hour, day and season. Sunset on 14 August 1812. A fall night in 1904.</p></li>
-      <li><b>04</b><h4>Read the record</h4><p>The story quotes its sources word for word. At the end, a keepsake goes into your daybook.</p></li>
-    </ol>
-
-    <div class="jgrid">
-      <a class="jcard reveal feature" href="4d/1812/" style="--jc:#e0a050">
-        <div class="jimg"><img src="media/jaunts/battle.jpg" alt="Fort Dearborn and the bend of the river from above, the summer of 1812" loading="lazy"><span class="jera">1812</span></div>
-        <div class="jbody"><span class="jcat">Fort Dearborn</span><h3>The Battle of Fort Dearborn</h3>
-        <p>April to August 1812 in twelve stops: the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.</p>
-        <div class="jmeta"><span>12 stops</span><span>Fly</span><span>Sunset to morning</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1812/" style="--jc:#e0a050;--d:1">
-        <div class="jimg"><img src="media/jaunts/murder.jpg" alt="The main gate of the first Fort Dearborn at sunset" loading="lazy"><span class="jera">1812</span></div>
-        <div class="jbody"><span class="jcat">Fort Dearborn</span><h3>Chicago’s First Murder</h3>
-        <p>17 June 1812, sunset, the fort gate. The victim, interpreter Jean Lalime. The killer, John Kinzie, “the Father of Chicago”.</p>
-        <div class="jmeta"><span>8 stops</span><span>Fly</span><span>1804 to 1812</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1904/" style="--jc:#9a8cff;--d:2">
-        <div class="jimg"><img src="media/jaunts/ghosts.jpg" alt="Prairie Avenue on a fall night, the houses dark behind the gas lamps" loading="lazy"><span class="jera">1904</span></div>
-        <div class="jbody"><span class="jcat">Legends</span><h3>Ghosts of Prairie Avenue</h3>
-        <p>A night walk down Millionaire’s Row: a battlefield underfoot, a tycoon in concrete, a rattling widow, a drowned brother and the gunshot at 1919.</p>
-        <div class="jmeta"><span>7 stops</span><span>Walk</span><span>Fall · night</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1904/" style="--jc:#7ec8a0;--d:1">
-        <div class="jimg"><img src="media/jaunts/women-1904.jpg" alt="Prairie Avenue on a spring morning" loading="lazy"><span class="jera">1904</span></div>
-        <div class="jbody"><span class="jcat">Residents</span><h3>Women of Prairie Avenue</h3>
-        <p>Six houses tied to women who changed Chicago: nursing, forensic science, a forty-year journal, suffrage, a famous fountain and the street’s last great lady.</p>
-        <div class="jmeta"><span>6 stops</span><span>Walk</span><span>Spring · morning</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1904/" style="--jc:#c9a46a;--d:2">
-        <div class="jimg"><img src="media/jaunts/architects.jpg" alt="The Kimball house on Prairie Avenue on an autumn afternoon, the elms gold" loading="lazy"><span class="jera">1904</span></div>
-        <div class="jbody"><span class="jcat">Architecture</span><h3>Architects of Prairie Avenue</h3>
-        <p>An autumn afternoon with the architects who rebuilt Chicago: Jenney, Richardson, Cobb &amp; Frost, Burnham &amp; Root, Beman and Hunt.</p>
-        <div class="jmeta"><span>7 stops</span><span>Walk</span><span>Fall · afternoon</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1904/" style="--jc:#f2a65a;--d:3">
-        <div class="jimg"><img src="media/jaunts/famous.jpg" alt="The Pullman house at dusk" loading="lazy"><span class="jera">1904</span></div>
-        <div class="jbody"><span class="jcat">Residents</span><h3>Famous Names of Prairie Avenue</h3>
-        <p>A summer dusk on Millionaire’s Row: Pullman, Glessner, Kimball, the two Marshall Fields and Armour, and how each made a fortune in one lifetime.</p>
-        <div class="jmeta"><span>6 stops</span><span>Walk</span><span>Summer · dusk</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1835/" style="--jc:#7ec8e3;--d:1">
-        <div class="jimg"><img src="media/jaunts/women-1835.jpg" alt="Wolf Point across the river on a summer afternoon" loading="lazy"><span class="jera">1835</span></div>
-        <div class="jbody"><span class="jcat">Residents</span><h3>Women of 1835 Chicago</h3>
-        <p>Ride from Wolf Point to the fort past the places of six women the record names: an author, two hotel keepers, a teacher and the women of two founding families.</p>
-        <div class="jmeta"><span>7 stops</span><span>Ride</span><span>Summer · afternoon</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1835/" style="--jc:#7ec8e3;--d:2">
-        <div class="jimg"><img src="media/jaunts/taverns.jpg" alt="The Sauganash Hotel at dusk, Lake and Market" loading="lazy"><span class="jera">1835</span></div>
-        <div class="jbody"><span class="jcat">Taverns</span><h3>Taverns of Chicago</h3>
-        <p>Visit three taverns by night, collect the local talk and decide where to finish the evening.</p>
-        <div class="jmeta"><span>4 stops</span><span>Ride</span><span>Summer · night</span></div></div>
-      </a>
-      <a class="jcard reveal" href="4d/1812/" style="--jc:#e0a050;--d:0">
-        <div class="jimg"><img src="media/jaunts/fort-tour.jpg" alt="The parade ground of Fort Dearborn, the officers’ quarters and the flagstaff" loading="lazy"><span class="jera">1812</span></div>
-        <div class="jbody"><span class="jcat">Fort Dearborn</span><h3>Fort Dearborn, Building by Building</h3>
-        <p>The fort’s last full day, daybreak to sunset: every building on Captain Whistler’s 1808 drawing, while the garrison packs to leave.</p>
-        <div class="jmeta"><span>12 stops</span><span>Walk</span><span>Daybreak to sunset</span></div></div>
-      </a>
-      <a class="jcard reveal feature" href="4d/1904/" style="--jc:#c9a46a;--d:1">
-        <div class="jimg"><img src="media/jaunts/glessner-tour.jpg" alt="The Glessner House courtyard" loading="lazy"><span class="jera">1904</span></div>
-        <div class="jbody"><span class="jcat">Orientation</span><h3>Meet the Glessner House</h3>
-        <p>All the way round Richardson’s last house, from the street that stared at it to the sunny courtyard it hid, in ten stops on foot.</p>
-        <div class="jmeta"><span>10 stops</span><span>Walk</span><span>Summer · morning</span></div></div>
-      </a>
-    </div>
-    <p class="jmore reveal">Plus three architectural style walks, a walk past every Prairie Avenue house modelled so far, and two dozen shorter outings in the 1835 town: a bed for the night, freight off the wharf, a letter home, the Sunday circuit.</p>
-  </div>
-</section>
-
-<!-- INSIDE THE APP ----------------------------------------------------------------- -->
-<section class="sec inside" id="inside">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">Inside the app</div>
-      <h2>Not a diorama. <em>A town.</em></h2>
-      <p>The streets have people in them, the houses have records behind them, and every old photograph is a place you
-      can stand. The point of all of it: to step into the past and understand it.</p>
-    </div>
-    <div class="feat">
-      <figure class="fcard reveal big">
-        <div class="fimg duo"><img src="media/inside/people-coachman.jpg" alt="A coachman on the box of a brougham on Prairie Avenue, 1904" loading="lazy"><img src="media/inside/people-maid.jpg" alt="A woman in service standing in a Prairie Avenue back garden, 1904" loading="lazy"></div>
-        <figcaption><span class="fk">People</span><h3>The record, walking about</h3>
-        <p>Coachmen drive the avenue, the people in service keep the yards, and the households of 1904 are named in
-        their houses. The coachman and the woman here were each held up against period photographs of people doing the
-        same work, down to the livery and the apron.</p></figcaption>
+    <div class="feature">
+      <figure class="rv">
+        <div class="film" data-film="1904-carriage"><img src="media/films/1904-carriage.jpg" alt="A brougham and its pair drive down Prairie Avenue under the elms, 1904" loading="lazy"><span class="tag"><i></i>1904 · Prairie Ave</span></div>
       </figure>
-      <figure class="fcard reveal" style="--d:1">
-        <div class="fimg"><img src="media/inside/from-this-spot.jpg" alt="Glessner House’s Photos tab open beside the street view it leads to: the stable wing on Eighteenth Street, seen from where the photographer stood in 1887–88" loading="lazy"></div>
-        <figcaption><span class="fk">From this spot</span><h3>Stand where the photographer stood</h3>
-        <p>Open any building’s Photos and press From this spot under a picture. The app glides you to the place the
-        camera stood and turns you to face the same way. Here, Glessner House’s stable wall on Eighteenth Street.</p></figcaption>
-      </figure>
-      <figure class="fcard reveal" style="--d:2">
-        <div class="fimg"><img src="media/ui-panel-1904.jpg" alt="Glessner House's record in the app" loading="lazy"></div>
-        <figcaption><span class="fk">Every building</span><h3>Click it and it tells you</h3>
-        <p>Who built it, who lived there, what it looked like and how we know: each fact cited, each one graded.</p></figcaption>
-      </figure>
-      <figure class="fcard reveal" style="--d:1">
-        <div class="fimg"><img src="media/ui-confidence-1835.jpg" alt="The confidence view over the 1835 town" loading="lazy"></div>
-        <figcaption><span class="fk">Confidence view</span><h3>See how sure we are</h3>
-        <p>One switch paints the whole town by its evidence: what a source shows, what is reasoned, what is rebuilt.</p></figcaption>
-      </figure>
-      <figure class="fcard reveal" style="--d:2">
-        <div class="fimg"><img src="media/gallery/prairie-dusk.jpg" alt="Prairie Avenue at dusk" loading="lazy"></div>
-        <figcaption><span class="fk">Time &amp; season</span><h3>Daybreak to night, summer to snow</h3>
-        <p>Settings › Time of day and Season. Jaunts set them for you, stop by stop.</p></figcaption>
-      </figure>
-      <figure class="fcard reveal" style="--d:3">
-        <div class="fimg"><img src="media/flow/w04.jpg" alt="Prairie Avenue in the walkthrough" loading="lazy"></div>
-        <figcaption><span class="fk">Anywhere</span><h3>In the browser, on a phone</h3>
-        <p>No install. Walk, ride or fly. Save a year for offline and take it into a classroom with no Wi-Fi.</p></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- PHOTO-MATCHED ------------------------------------------------------------ -->
-<section class="sec matched" id="matched">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">Photo-matched · then and the model</div>
-      <h2>Held up against <em>the original.</em></h2>
-      <p>For every archival photograph or engraving of a building, we solve the camera that took it — the lens, the
-      standpoint, the bearing — then stand inside 4D Chicago at exactly that spot and look. The streets, the neighbours and
-      the ground come with it.</p>
-    </div>
-    <div class="era-tabs reveal" role="group" aria-label="Filter by year">
-      <button type="button" data-era="all" aria-pressed="true">All</button>
-      <button type="button" data-era="1904" aria-pressed="false">1904</button>
-      <button type="button" data-era="1835" aria-pressed="false">1835</button>
-      <button type="button" data-era="1812" aria-pressed="false">1812</button>
-      <span class="era-note">Over 120 archival views solved so far</span>
-    </div>
-    <div class="matches">
-      <figure class="match reveal" data-era="1904" style="--d:0">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:1000/939"><img src="media/match/g2135-a.jpg" alt="Glessner House, from the north-east: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:1000/939"><img src="media/match/g2135-r.jpg" alt="Glessner House, from the north-east: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1904</span><b>Glessner House, from the north-east</b><span class="place">Prairie Avenue &amp; Eighteenth · with the Keith house beyond</span>
-          <p>The granite north front, the Keith house beyond it and Prairie Avenue running south — taken from the photographer’s standpoint across the corner.</p><small>J. W. Taylor photograph no. 2135, c. 1887–1889 — Art Institute of Chicago, Ryerson &amp; Burnham Archives</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1835" style="--d:1">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:1000/884"><img src="media/match/wolfpoint-a.jpg" alt="Wolf Point: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:1000/884"><img src="media/match/wolfpoint-r.jpg" alt="Wolf Point: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1835</span><b>Wolf Point</b><span class="place">The forks of the Chicago River</span>
-          <p>The tavern on the point between the North Branch and the main stem, and the buildings across the water.</p><small>“Wolf’s Point in 1833”, lithograph by Rufus Blanchard and Chas. Shober &amp; Co., 1867 — New York Public Library</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1904" style="--d:0">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:1000/612"><img src="media/match/field923-a.jpg" alt="The Marshall Field house: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:1000/612"><img src="media/match/field923-r.jpg" alt="The Marshall Field house: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1904</span><b>The Marshall Field house</b><span class="place">1905 S. Prairie Avenue · Richard Morris Hunt</span>
-          <p>The mansard and its dormers, the canted corner, the glass conservatory on the south flank, the scroll fence and the gas lamp on the parkway.</p><small>Photograph from the west side of the avenue, unknown photographer, undated — reproduced on Chicagology, Prairie Avenue</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1835" style="--d:1">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:860/508"><img src="media/match/saug1902-a.jpg" alt="The Sauganash Hotel: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:860/508"><img src="media/match/saug1902-r.jpg" alt="The Sauganash Hotel: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1835</span><b>The Sauganash Hotel</b><span class="place">Lake &amp; Market · with the log cabin at its side</span>
-          <p>Mark Beaubien’s tavern, its log cabin and the open ground of Lake Street in front, with the town beyond.</p><small>W. E. S. Trowbridge, “Mark Beaubien’s Tavern, the Sauganash, in 1835”, in Edwin O. Gale, Reminiscences of Early Chicago, 1902</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1904" style="--d:0">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:981/673"><img src="media/match/ream98-a.jpg" alt="The Ream house: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:981/673"><img src="media/match/ream98-r.jpg" alt="The Ream house: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1904</span><b>The Ream house</b><span class="place">1901 S. Prairie Avenue · home of Norman B. Ream</span>
-          <p>The pale stone front, the porch and balcony, the mansard and the canted south-west corner, seen from across the avenue.</p><small>Photograph by 1893, unknown photographer (the plate in Rand McNally’s Pictorial Chicago) — reproduced on Chicagology</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1812" style="--d:1">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:656/391"><img src="media/match/kinzie12-a.jpg" alt="The Kinzie house: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:656/391"><img src="media/match/kinzie12-r.jpg" alt="The Kinzie house: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1812</span><b>The Kinzie house</b><span class="place">North bank, opposite the fort</span>
-          <p>The porch house behind its paling fence, the poplars, the outbuildings and the river bank in front.</p><small>“Residence of John Kinzie”, lithograph by Napoleon Sarony after a sketch by Juliette Kinzie, in J. Seymour Currey, The Story of Old Fort Dearborn, 1912</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1904" style="--d:0">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:674/953"><img src="media/match/keith88-a.jpg" alt="The Keith house: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:674/953"><img src="media/match/keith88-r.jpg" alt="The Keith house: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1904</span><b>The Keith house</b><span class="place">1808 S. Prairie Avenue · Cobb &amp; Frost, 1887</span>
-          <p>The bay, the porch and the parapet as the plate shows them, with Glessner House’s red roof next door.</p><small>“Residence for O. R. Keith”, The Inland Architect, February 1888</small></figcaption>
-      </figure>
-      <figure class="match reveal" data-era="1904" style="--d:1">
-        <div class="match-pair">
-          <div class="match-img" style="aspect-ratio:679/1000"><img src="media/match/firstpres-a.jpg" alt="First Presbyterian Church: the archival picture" loading="lazy"><span class="tag">Archive</span></div>
-          <div class="match-img" style="aspect-ratio:679/1000"><img src="media/match/firstpres-r.jpg" alt="First Presbyterian Church: 4D Chicago, seen through the same camera" loading="lazy"><span class="tag live">4D Chicago · same camera</span></div>
-        </div>
-        <figcaption><span class="era">1904</span><b>First Presbyterian Church</b><span class="place">Indiana Avenue &amp; Twenty-first Street</span>
-          <p>The spire, the gabled front and the nave down Twenty-first Street, among the row of brick houses beside it.</p><small>Plate in Philo A. Otis, The First Presbyterian Church, 1833–1913 (1913), showing the church in 1887</small></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- THE RECORD ------------------------------------------------------------------ -->
-<section class="sec evidence" id="record">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">The record</div>
-      <h2>Every surface <em>carries its evidence.</em></h2>
-      <p>This is a research dataset with a renderer attached. Each building is broken into facts — its walls, its roof, its
-      date, its occupants — and every fact is graded by what stands behind it.</p>
-    </div>
-    <div class="ev-grid">
-      <div class="tiers">
-        <div class="tier reveal"><div class="n">i</div><div><h4>Attested</h4><p>A source speaks to it at the scene date — a map, a directory, a letter, a photograph — and the citation is one click away.</p></div></div>
-        <div class="tier reveal" style="--d:1"><div class="n">ii</div><div><h4>Inferred</h4><p>Reasoned from the evidence, with the reasoning written down beside it. You can read why.</p></div></div>
-        <div class="tier reveal" style="--d:2"><div class="n">iii</div><div><h4>Reconstructed</h4><p>No source speaks to it, so it is built to the most defensible standard and declared as such — never passed off as evidence.</p></div></div>
-      </div>
-      <div class="shots reveal" style="--d:1">
-        <div class="shot-tabs" role="tablist" aria-label="Screens from the app">
-          <button type="button" role="tab" aria-selected="true" data-shot="0">A building's record</button>
-          <button type="button" role="tab" aria-selected="false" data-shot="1">The confidence view</button>
-          <button type="button" role="tab" aria-selected="false" data-shot="2">1812, graded</button>
-        </div>
-        <div class="shot-frame">
-          <img class="on" src="media/ui-panel-1904.jpg" alt="Glessner House's record in the app, with its c. 1889 photograph" loading="lazy">
-          <img src="media/ui-confidence-1835.jpg" alt="The Sauganash Hotel's record over the confidence view of 1835" loading="lazy">
-          <img src="media/ui-confidence-1812.jpg" alt="The commanding officer's barracks at Fort Dearborn, 14 facts graded" loading="lazy">
-        </div>
-        <p class="shot-cap" id="shotCap">Glessner House, 1904: still standing, built 1887 — with the archival photograph the record cites.</p>
+      <div class="copy rv" style="--d:1">
+        <span class="label">What it is</span>
+        <h2 class="h sm" id="what-title">A game-like world <em>built from the record.</em></h2>
+        <p>4D Chicago looks and plays like a game: walk or fly, open any door, climb aboard a carriage, follow a
+        stranger home. Underneath it is a research dataset. Every wall, roof and resident comes from maps,
+        censuses, directories, memoirs and photographs, and each one shows how sure the record is.</p>
+        <ul class="specs">
+          <li><b>Walk</b>Any street, any yard, through the doors of 1904 houses and up their stoops.</li>
+          <li><b>Meet</b>Thousands of people from the records, at home, at work and in the street: greet them, ask for their story.</li>
+          <li><b>Ride</b>Carriages and wagons you can board and drive; boats you can paddle across the river.</li>
+          <li><b>Learn</b>Guided jaunts for grades 3 to 10, read aloud by narrators and the people themselves.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT'S MADE ----------------------------------------------------------------- -->
-<section class="sec how" id="how">
+<!-- MEET THEM ------------------------------------------------------------------------------ -->
+<section class="sec" aria-labelledby="meet-title" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kick">How it’s made</div>
-      <h2>From a census page <em>to a street you can walk.</em></h2>
-      <p>Five stages, all of them on the record. Watch a few sources make the trip.</p>
+    <div class="feature flip">
+      <figure class="rv">
+        <div class="film" data-film="1904-host"><img src="media/films/1904-host.jpg" alt="John Glessner at the door of his house on Prairie Avenue, waiting to welcome visitors" loading="lazy"><span class="tag"><i></i>1904 · John Glessner at his door</span></div>
+        <figcaption class="cap"><b>1800 Prairie Avenue.</b> John Glessner comes to his door to meet you.</figcaption>
+      </figure>
+      <div class="copy rv" style="--d:1">
+        <span class="label sky">Meet them</span>
+        <h2 class="h sm" id="meet-title">Walk up to history <em>and say hello.</em></h2>
+        <p>The people of 4D Chicago are the people the records name: the soldiers, traders and Potawatomi families
+        of Fort Dearborn, the shopkeepers and boarders of the 1835 town, the Glessners, the Pullmans and the cooks,
+        maids and coachmen who worked for them. Walk up to any of them. Greet them and they stop, turn to you and
+        touch a hat brim, and their card tells you who they are. Ask for a story and they tell you one. Knock at a
+        door and ask for someone by name, and if they are home they come out to meet you.</p>
+        <ul class="specs">
+          <li><b>Greet</b>Anyone in the street stops and turns to you; their card shows their name, family, home and work.</li>
+          <li><b>Tell me a story</b>Ask anyone, in any year, for a story: their own first, then the town's.</li>
+          <li><b>Knock</b>Ask at a door for someone who lives there, and they come out to you.</li>
+          <li><b>Follow</b>Walk with them to work, to the store and home again, through their day.</li>
+          <li><b>How we know</b>Every line on a card shows its source: a census, a directory, a letter or a memoir.</li>
+        </ul>
+        <a class="btn ghost" href="people/" style="margin-top:18px;justify-self:start;width:max-content;max-width:100%">Meet the people of every year <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE BURNING OF THE FORT: 16 August 1812, filmed in the student telling --------------------- -->
+<section class="hero short blaze" aria-labelledby="blaze-title">
+  <div class="hero-media film-bg" data-film="1812-burning" data-cover>
+    <img src="media/films/1812-burning.jpg" alt="Fort Dearborn's barracks and pickets ablaze on the morning of 16 August 1812, black smoke rolling over the parade" loading="lazy">
+  </div>
+  <div class="hero-in">
+    <span class="label red">New · 16 August 1812</span>
+    <h2 class="h" id="blaze-title">Watch Fort Dearborn <em>burn.</em></h2>
+    <p class="lede">The morning after the battle, the young men come up from the camps with brands from their fires and
+    the empty fort goes up: the pickets first, then the barracks and the blockhouses, roof after roof, until only
+    the little brick magazine stands in the ashes. Then take a brand and put it to the logs yourself.</p>
+    <div class="acts"><a class="btn go" href="jaunts/#burning">Join the Battle of Fort Dearborn jaunt <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+<section class="sec" aria-label="The burning, three more shots" style="padding-top:28px">
+  <div class="wrap">
+    <div class="shots blaze-shots">
+      <figure class="rv"><div class="film" data-film="1812-torches"><img src="media/films/1812-torches.jpg" alt="Young men carrying burning brands across the field to the fort's open gate" loading="lazy"><span class="tag"><i></i>08:00 · the brands go in</span></div>
+        <figcaption class="cap"><b>The brands go in.</b> Walk up to the open gate behind them.</figcaption></figure>
+      <figure class="rv" style="--d:1"><div class="film" data-film="1812-fire-river"><img src="media/films/1812-fire-river.jpg" alt="The whole fort burning, seen from across the Chicago River, smoke climbing into the morning sky" loading="lazy"><span class="tag"><i></i>From across the river</span></div>
+        <figcaption class="cap"><b>From across the river.</b> The smoke the whole prairie could see.</figcaption></figure>
+      <figure class="rv" style="--d:2"><div class="film" data-film="1812-ashes"><img src="media/films/1812-ashes.jpg" alt="Fort Dearborn seen from above, its roofs fallen in and the whole fort burning inside its pickets, people watching from the field" loading="lazy"><span class="tag"><i></i>From above</span></div>
+        <figcaption class="cap"><b>From above.</b> The roofs are down and the fort burns inside its pickets.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE INDEX -------------------------------------------------------------------------- -->
+<section class="sec" aria-labelledby="tiles-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label">Explore the features</span>
+      <h2 class="h" id="tiles-title">Six ways <em>into the town.</em></h2>
+    </div>
+    <div class="tiles">
+      <a class="tile big rv" href="eras/">
+        <div class="film" data-film="1812-dawn"><img src="media/films/1812-dawn.jpg" alt="Fort Dearborn at sunrise, seen from the west over the river" loading="lazy"><span class="tag"><i></i>Coord 03 · 1812</span></div>
+        <div class="tile-body"><span class="mono">01 / Eras</span><h3>Three moments in time</h3><p>Fort Dearborn on the eve of 1812's battle, the boom town of 1835, and Millionaire's Row in 1904. What stands in each, and how it was rebuilt.</p><span class="more">Open the eras <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile big rv" style="--d:1" href="jaunts/">
+        <div class="film" data-film="1812-order"><img src="media/films/1812-order.jpg" alt="The garrison drawn up on the parade of Fort Dearborn as the order to leave is read, 10 August 1812" loading="lazy"><span class="tag"><i></i>Jaunt · 1812 parade</span></div>
+        <div class="tile-body"><span class="mono">02 / Jaunts</span><h3>Stories that play out where they happened</h3><p>Guided walks and story jaunts, voiced by narrators and by the people who lived them, filtered by school grade.</p><span class="more">Open the jaunts <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" href="people/">
+        <div class="film" data-film="1904-stoops"><img src="media/films/1904-stoops.jpg" alt="A coachman and his pair waiting on Eighteenth Street beside the houses" loading="lazy"><span class="tag"><i></i>1904 · Eighteenth St</span></div>
+        <div class="tile-body"><span class="mono">03 / People</span><h3>A living town</h3><p>The people the records name, going about their day. Greet them, ask for their story, knock and ask for them by name.</p><span class="more">Meet them <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" style="--d:1" href="rides/">
+        <div class="film" data-film="1812-crossing"><img src="media/films/1812-crossing.jpg" alt="Paddling a dugout across the river toward Fort Dearborn" loading="lazy"><span class="tag"><i></i>1812 · crossing</span></div>
+        <div class="tile-body"><span class="mono">04 / Horses &amp; boats</span><h3>Climb aboard</h3><p>Drive a brougham down Prairie Avenue, ride a freight wagon, paddle a dugout across the river.</p><span class="more">Take the reins <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile rv" style="--d:2" href="world/">
+        <div class="film" data-film="1904-winter"><img src="media/films/1904-winter.jpg" alt="Prairie Avenue in snow" loading="lazy"><span class="tag"><i></i>Season · winter</span></div>
+        <div class="tile-body"><span class="mono">05 / World</span><h3>Any hour, any season</h3><p>Seasons, sunsets, birdsong and wind, a live window onto today's street, and a VR headset mode.</p><span class="more">Change the weather <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile big rv" href="evidence/">
+        <div class="film" data-film="1835-lake"><img src="media/films/1835-lake.jpg" alt="Lake Street in 1835 at the Tremont House corner" loading="lazy"><span class="tag"><i></i>1835 · Lake St</span></div>
+        <div class="tile-body"><span class="mono">06 / Evidence</span><h3>Every surface carries its evidence</h3><p>Photographs matched camera to camera, three grades of certainty, and every liberty written down.</p><span class="more">See how it's built <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="tile big rv" style="--d:1" href="eras/#y1835">
+        <div class="film" data-film="1835-town"><img src="media/films/1835-town.jpg" alt="The town of 1835 at the forks of the river, from above" loading="lazy"><span class="tag"><i></i>Coord 01 · 1835</span></div>
+        <div class="tile-body"><span class="mono">Destination · 1835</span><h3>The river town at the forks</h3><p>Taverns, wharves and the second Fort Dearborn, with the whole town of 1835 coming and going from its homes and shops.</p><span class="more">Go to 1835 <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT'S MADE: sources travel the five stages ------------------------------------------- -->
+<section class="sec how" aria-labelledby="how-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label amber">How it's made</span>
+      <h2 class="h" id="how-title">From a census page <em>to a street you can walk.</em></h2>
+      <p>Five stages, every one of them on the record. Watch a few sources make the trip.</p>
     </div>
     <div class="flow" id="flow">
       <svg class="flow-wire" aria-hidden="true"><path id="flowPath"/><path id="flowGlow"/></svg>
-      <div class="stage reveal" data-n="1">
-        <div class="st-n">01</div><div class="st-media"><img src="media/flow/gt-a.jpg" alt="The Green Tree Inn, engraved for Andreas, 1884" loading="lazy" class="on"><img src="media/flow/g-a.jpg" alt="Glessner House, HABS photograph" loading="lazy"><img src="media/flow/kz-a.jpg" alt="The Kinzie house, Chicago Magazine, 1857" loading="lazy"></div><h3>Gather</h3><div class="st-tech">517 catalogued sources</div>
-        <p>Maps — the 1830 Thompson plat, Rees &amp; Rucker 1849, Robinson 1886, Sanborn 1911. Manuscript censuses for
-        1830, 1840 and 1900. City directories from 1839 to 1911. HABS photographs, the Art Institute’s Taylor prints,
-        <i>Inland Architect</i>, Andreas, and Juliette Kinzie’s <i>Wau-Bun</i>.</p>
-        <div class="chips"><span>maps</span><span>census</span><span>directories</span><span>photos</span><span>memoirs</span></div>
+      <div class="stage rv">
+        <div class="st-n">01</div><div class="st-media"><img src="media/flow/gt-a.jpg" alt="The Green Tree Inn, engraved for Andreas, 1884" loading="lazy" class="on"><img src="media/flow/g-a.jpg" alt="Glessner House, HABS photograph" loading="lazy"><img src="media/flow/kz-a.jpg" alt="The Kinzie house, Chicago Magazine, 1857" loading="lazy"></div>
+        <h3>Gather</h3><div class="st-tech">705 catalogued sources</div>
+        <p>Maps from the 1830 Thompson plat to the 1911 Sanborn sheets. Manuscript censuses, city directories,
+        HABS photographs, engravings, and memoirs like Juliette Kinzie's <i>Wau-Bun</i>.</p>
+        <div class="st-chips"><span>maps</span><span>census</span><span>directories</span><span>photos</span><span>memoirs</span></div>
       </div>
-      <div class="stage reveal" data-n="2" style="--d:1">
-        <div class="st-n">02</div><div class="st-media"><img src="media/flow/sanborn-28.jpg" alt="Sanborn fire-insurance map, 1911, sheet 28" loading="lazy" class="on"><img src="media/flow/robinson-1886.jpg" alt="Robinson atlas, 1886" loading="lazy"></div><h3>Read &amp; place</h3><div class="st-tech">georeference · trace · transcribe</div>
-        <p>Maps are pinned to the federal land-survey grid, then the river, the shoreline and every footprint are traced.
-        Elevation benchmarks build the ground for each era. Census sheets are read line by line, and each name is matched
-        to a directory entry and a lot.</p>
-        <div class="chips"><span>terrain epochs</span><span>footprints</span><span>residents</span></div>
+      <div class="stage rv" style="--d:1">
+        <div class="st-n">02</div><div class="st-media"><img src="media/flow/sanborn-28.jpg" alt="Sanborn fire-insurance map, 1911, sheet 28" loading="lazy" class="on"><img src="media/flow/robinson-1886.jpg" alt="Robinson atlas, 1886" loading="lazy"></div>
+        <h3>Read &amp; place</h3><div class="st-tech">georeference · trace · transcribe</div>
+        <p>Maps are pinned to the land-survey grid; the river, the shore and every footprint are traced. Census sheets
+        are read line by line, and each name is matched to a directory entry and a lot.</p>
+        <div class="st-chips"><span>terrain</span><span>footprints</span><span>residents</span></div>
       </div>
-      <div class="stage reveal" data-n="3" style="--d:2">
-        <div class="st-n">03</div><div class="st-media"><img src="media/flow/sm-a.jpg" alt="St. Mary’s Church, Andreas engraving" loading="lazy" class="on"><img src="media/flow/sm-r.jpg" alt="St. Mary’s Church, the model from the fitted camera" loading="lazy"></div><h3>Match &amp; grade</h3><div class="st-tech">AI-assisted research · camera solve</div>
-        <p>AI research agents propose the links — this name, that house, this photograph — and every one lands with
-        its citation. For each picture we solve the photographer’s camera and compare. Each fact is graded attested,
-        inferred or reconstructed, and the gaps stay visible.</p>
-        <div class="chips"><span>source_id</span><span>confidence</span><span>photo match</span></div>
+      <div class="stage rv" style="--d:2">
+        <div class="st-n">03</div><div class="st-media"><img src="media/flow/sm-a.jpg" alt="St. Mary's Church, Andreas engraving" loading="lazy" class="on"><img src="media/flow/sm-r.jpg" alt="St. Mary's Church, the model seen from the engraver's fitted camera" loading="lazy"></div>
+        <h3>Match &amp; grade</h3><div class="st-tech">camera solve · confidence</div>
+        <p>For each picture the photographer's camera is solved and the model compared to it. Every fact is graded
+        attested, inferred or reconstructed, and the gaps stay visible.</p>
+        <div class="st-chips"><span>citations</span><span>confidence</span><span>photo match</span></div>
       </div>
-      <div class="stage reveal" data-n="4" style="--d:3">
-        <div class="st-n">04</div><div class="st-media"><img src="media/flow/g-r.jpg" alt="Glessner House, baked model" loading="lazy" class="on"><img src="media/flow/k-r.jpg" alt="Kimball house, baked model" loading="lazy"></div><h3>Build</h3><div class="st-tech">Python → Blender → glTF</div>
-        <p>Python generators drive a pinned Blender to turn each record into geometry — walls, roofs, porches,
-        fences, trees. The bake writes glTF models with compressed KTX2 textures, plus a JSON sidecar that carries every
-        source along with the mesh.</p>
-        <div class="chips"><span>bpy</span><span>glTF</span><span>KTX2</span><span>sidecars</span></div>
+      <div class="stage rv" style="--d:3">
+        <div class="st-n">04</div><div class="st-media"><img src="media/flow/g-r.jpg" alt="Glessner House, the built model" loading="lazy" class="on"><img src="media/flow/k-r.jpg" alt="Kimball house, the built model" loading="lazy"></div>
+        <h3>Build</h3><div class="st-tech">record → model</div>
+        <p>Each record is turned into geometry: walls, roofs, porches, fences, trees. Every model carries its
+        sources with it, so the town can always say where a wall came from.</p>
+        <div class="st-chips"><span>models</span><span>textures</span><span>sources attached</span></div>
       </div>
-      <div class="stage reveal" data-n="5" style="--d:4">
-        <div class="st-n">05</div><div class="st-media"><img src="media/flow/w04.jpg" alt="Prairie Avenue in the walkthrough" loading="lazy" class="on"><img src="media/flow/w35.jpg" alt="The 1835 town in the walkthrough" loading="lazy"></div><h3>Walk</h3><div class="st-tech">three.js, in the browser</div>
-        <p>The walkthrough streams one year at a time into a three.js renderer on a phone or a laptop. Click a building and
-        its record opens. Switch on the confidence view and the whole town shows how sure it is.</p>
-        <div class="chips"><span>no install</span><span>offline copy</span><span>confidence view</span></div>
+      <div class="stage rv" style="--d:4">
+        <div class="st-n">05</div><div class="st-media"><img src="media/flow/w04.jpg" alt="Prairie Avenue in 4D Chicago" loading="lazy" class="on"><img src="media/flow/w35.jpg" alt="The 1835 town in 4D Chicago" loading="lazy"></div>
+        <h3>Walk</h3><div class="st-tech">in the browser</div>
+        <p>The year streams into the browser on a phone, a laptop or a headset. Click a building and its record
+        opens; switch on the confidence view and the whole town shows how sure it is.</p>
+        <div class="st-chips"><span>no install</span><span>offline copy</span><span>confidence view</span></div>
       </div>
       <div class="packets" id="packets" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH ------------------------------------------------------------------------ -->
-<section class="sec" id="research">
-  <div class="wrap research-cta">
-    <div class="reveal">
-      <div class="kick">Research</div>
-      <h2 class="rh2">Read the sources <em class="h-em">yourself.</em></h2>
-      <p style="color:var(--text-2);margin:16px 0 0;max-width:560px">Everything behind the model is open: the building atlas from the first cabins to the
-      rebuilding after the fire, the Prairie Avenue library, every source record with its rights, and the scans we have
-      put on the Internet Archive.</p>
-      <div class="acts">
-        <a class="btn btn-solid" href="research/">Open the research <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-ghost" href="https://github.com/kevinrhaas/chicago/tree/main/chicago/reference">/reference on GitHub</a>
+<!-- NEW IN THE TOWN -------------------------------------------------------------------------- -->
+<section class="sec" aria-labelledby="new-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="feature flip">
+      <figure class="rv">
+        <div class="film" data-film="1812-column"><img src="media/films/1812-column.jpg" alt="The garrison's column leaves Fort Dearborn on the morning of 15 August 1812" loading="lazy"><span class="tag"><i></i>1812 · staged jaunt</span></div>
+        <figcaption class="cap"><b>15 August 1812, 9 a.m.</b> The garrison, the wagons and the families march out of the fort, staged with the people who were there.</figcaption>
+      </figure>
+      <div class="copy rv" style="--d:1">
+        <span class="label amber">Recently added</span>
+        <h2 class="h sm" id="new-title">The town keeps <em>growing.</em></h2>
+        <div class="manifest" data-head="CHANGELOG · LATEST" style="--mh:248px;--md:46s">
+          <ul>
+            <li>Watch Fort Dearborn burn, and carry a brand yourself</li>
+            <li>1812 jaunts staged with the people who were there</li>
+            <li>Ten new 1904 story jaunts, played by the street</li>
+            <li>Jaunts read aloud in chosen voices</li>
+            <li>Hosts talk with their own voices</li>
+            <li>Tell me a story: ask anyone in town for theirs</li>
+            <li>1835 townspeople come and go from homes and shops</li>
+            <li>Today window: the same spot in Street View</li>
+            <li>Climb aboard any carriage or wagon and drive</li>
+            <li>Ride inside the Glessner brougham</li>
+            <li>Two more carriages give way at crossings</li>
+            <li>Paddle a boat across the 1812 river</li>
+            <li>Walk the town in a VR headset</li>
+            <li>Birds, insects and wind in every season</li>
+            <li>Jaunts filtered by school grade</li>
+          </ul>
+        </div>
+        <p>Something new lands most days. The app's own What's New panel lists every change, newest first.</p>
       </div>
     </div>
-    <ul class="reveal" style="--d:1">
-      <li><a href="pre-fire/viewer/"><span><b>Chicago Before the Fire</b><small>1674–1871 · 324 records · 14 maps</small></span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
-      <li><a href="rebuilding-1870s/viewer/"><span><b>Chicago Rebuilds</b><small>1872–1879 · 312 records · 9 maps</small></span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
-      <li><a href="prairie-1904/viewer/"><span><b>The Prairie Avenue library</b><small>62 buildings · 138 sources · 38 maps</small></span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
-      <li><a href="research/#reference"><span><b>The research library</b><small>Images, census, newspapers, source records</small></span><svg class="ic" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
-    </ul>
   </div>
 </section>
 
-<!-- CONTACT ----------------------------------------------------------------------- -->
-<section class="sec closer" id="contact">
-  <div class="wrap reveal">
-    <div class="kick" style="justify-content:center">Get in touch</div>
-    <h2>Bring us <em>a place.</em></h2>
-    <p>A building with a photograph, a family in a census line, an archive, a classroom, a museum wall. Write to us —
-    we read every message.</p>
-    <div class="acts">
-      <a class="btn btn-solid" href="contact/">Contact us <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-ghost" href="4d/">Enter 4D Chicago</a>
+<!-- CLASSROOMS ------------------------------------------------------------------------------------- -->
+<section class="sec" aria-labelledby="class-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="panel" style="padding:clamp(24px,4vw,44px)">
+      <div class="feature" style="align-items:start">
+        <div class="copy rv">
+          <span class="label sky">For students and teachers</span>
+          <h2 class="h sm" id="class-title">History you can <em>stand inside.</em></h2>
+          <p>Every jaunt is measured for reading level and tagged by grade, so a class can pick the right one in the
+          Jaunts menu. The narrator reads each stop aloud, and the people of the town tell their own part. The hard
+          parts of the city's history are told honestly and with care.</p>
+          <div class="chips" aria-label="Grade bands"><span class="chip static">Grades 3–5</span><span class="chip static">Grades 6–8</span><span class="chip static">Grades 9–10</span><span class="chip static">Read aloud</span><span class="chip static">Sources one tap away</span></div>
+        </div>
+        <ul class="specs rv" style="--d:1">
+          <li><b>Glessner House</b>The household's own tour, for grades 3–5 and 6–8.</li>
+          <li><b>Fort Dearborn</b>The Battle of 1812 told as the build-up and the aftermath, for students.</li>
+          <li><b>Architecture</b>Italianate, Second Empire and Romanesque walks down Prairie Avenue.</li>
+          <li><b>Errands of 1835</b>Buy a coat, find a bed, ship freight: daily life in a frontier town.</li>
+        </ul>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- LAUNCH ------------------------------------------------------------------------------------------- -->
+<section class="sec launch" id="launch" aria-labelledby="launch-title">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="label">Destination controls · all cleared for entry</span>
+      <h2 class="h" id="launch-title">Choose a year. <em>Step through.</em></h2>
+      <p>4D Chicago runs in your browser: no install, on a computer, a phone or a VR headset. Sign in once and every year is open.</p>
+    </div>
+    <div class="launch-years rv">
+      <a class="launch-year" href="4d/1812/"><b>1812</b><span>Fort Dearborn<em>14 Aug 1812</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="launch-year" href="4d/1835/"><b>1835</b><span>The river town<em>1 Jul 1835</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      <a class="launch-year" href="4d/1904/"><b>1904</b><span>Prairie Avenue<em>1 Jul 1904</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    </div>
+    <div class="launch-main rv">
+      <a class="btn go" href="4d/">Enter 4D Chicago <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <p class="launch-fine">Opens the Temporal Observatory · pick a destination · W A S D to walk, or the thumb stick on a phone</p>
   </div>
 </section>
 
@@ -560,50 +333,21 @@
 <footer class="foot">
   <div class="wrap foot-in">
     <div>
-      <a class="brand" href="#top"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
-      <p class="foot-meta">A source-cited reconstruction of early Chicago. Historical maps keep their source credits and rights
-      statements in each dataset.</p>
+      <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
+      <p>A researched reconstruction of early Chicago. The machine is fiction; the town is real research.</p>
     </div>
     <div class="foot-cols">
-      <div><h5>Walk</h5><ul>
-        <li><a href="4d/">The observatory</a></li>
-        <li><a href="4d/1904/">1904 · Prairie Avenue</a></li>
-        <li><a href="4d/1835/">1835 · The river town</a></li>
-        <li><a href="4d/1812/">1812 · Fort Dearborn</a></li>
-      </ul></div>
-      <div><h5>Atlas</h5><ul>
-        <li><a href="pre-fire/viewer/">Before the Fire</a></li>
-        <li><a href="rebuilding-1870s/viewer/">Chicago Rebuilds</a></li>
-        <li><a href="prairie-1904/viewer/">Prairie Avenue library</a></li>
-      </ul></div>
-      <div><h5>More</h5><ul>
-        <li><a href="contact/">Contact us</a></li>
-        <li><a href="research/">Research</a></li>
-        <li><a href="https://github.com/kevinrhaas/chicago/tree/main/chicago/reference">/reference on GitHub</a></li>
-        <li><a href="https://custom.polecat.live/">Custom workshop</a></li>
-        <li><a href="https://polecat.live/">polecat.live</a></li>
-      </ul></div>
+      <div><h5>Explore</h5><ul><li><a href="eras/">Eras</a></li><li><a href="jaunts/">Jaunts</a></li><li><a href="people/">People</a></li><li><a href="rides/">Horses &amp; boats</a></li><li><a href="world/">World</a></li></ul></div>
+      <div><h5>The record</h5><ul><li><a href="evidence/">Evidence</a></li><li><a href="research/">Research</a></li><li><a href="prairie-1904/viewer/">Prairie Avenue library</a></li><li><a href="pre-fire/viewer/">Before the Fire</a></li><li><a href="rebuilding-1870s/viewer/">Chicago Rebuilds</a></li></ul></div>
+      <div><h5>More</h5><ul><li><a href="4d/">Enter 4D Chicago</a></li><li><a href="contact/">Contact</a></li><li><a href="https://polecat.live/">polecat.live</a></li></ul></div>
     </div>
+    <div class="lab"><span>Confluence Laboratory · Wolf Point aperture</span><span>Every surface carries its evidence</span></div>
   </div>
 </footer>
 
-<dialog class="film" id="film" aria-label="4D Chicago film">
-  <div class="film-bar">
-    <span id="filmTitle">4D Chicago</span>
-    <button class="icon-btn" type="button" id="closeFilm" aria-label="Close the film"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
-  </div>
-  <video id="filmVideo" controls playsinline preload="none"></video>
-  <div class="film-foot">
-    <div class="film-tabs" role="group" aria-label="Choose a film">
-      <button type="button" data-tab="chicago-walk">All three · 1:20</button>
-      <button type="button" data-tab="chicago-1904">1904</button>
-      <button type="button" data-tab="chicago-1835">1835</button>
-      <button type="button" data-tab="chicago-1812">1812</button>
-    </div>
-    <a class="btn btn-light" id="filmWalk" href="4d/">Walk it yourself <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-  </div>
+<dialog class="player" id="player" aria-label="Film">
+  <div class="player-bar"><span id="player-title">4D Chicago</span><button type="button" data-close aria-label="Close the film"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <video controls playsinline preload="none"></video>
 </dialog>
-
-<script src="js/home.js" defer></script>
 </body>
 </html>

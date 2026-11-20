@@ -6,6 +6,7 @@
  */
 import * as THREE from 'three';
 import { LEAF_SKY } from './time-of-day.js';
+import { GUST_GLSL, uGustClock } from './wind-gust.js';
 
 export const TREE_ALPHA_CUTOFF = 0.38;
 const TILE = 512;
@@ -254,7 +255,10 @@ export async function createTreeAtlasSliced(checkpoint = () => null, { bare = fa
 export function patchTreeWind(material, uWind, { surface = false } = {}) {
   material.onBeforeCompile = (shader) => {
     shader.uniforms.uWind = uWind;
-    shader.vertexShader = `attribute float aFlex;\nuniform float uWind;\n`
+    // T-3586: the shared gust rhythm (wind-gust.js) scales the sway; 1 at a gust's top
+    // is the sway every plant had before, so nothing swings farther than it did.
+    shader.uniforms.uGustClock = uGustClock;
+    shader.vertexShader = `attribute float aFlex;\nuniform float uWind;\nuniform float uGustClock;\n${GUST_GLSL}`
       + shader.vertexShader.replace('#include <begin_vertex>', `
 #include <begin_vertex>
 vec3 chiW = (modelMatrix * vec4(transformed, 1.0)).xyz;
@@ -266,6 +270,7 @@ chiW = (modelMatrix * batchingMatrix * vec4(transformed, 1.0)).xyz;
 #endif
 float chiS = sin(uWind * 0.85 + chiW.x * 0.055 + chiW.z * 0.041) * 0.62
            + sin(uWind * 1.63 + chiW.x * 0.113 - chiW.z * 0.087) * 0.28;
+chiS *= chiTownGust(chiW);
 // T-3383: a wall vine's leaves carry their flex NEGATIVE (buildWallVineTemplate).
 // Its +x is out of the wall it is held flat on, 2-16 cm off the stone, and a
 // two-way sway of up to 19 cm carried the mat into the masonry on every gust.

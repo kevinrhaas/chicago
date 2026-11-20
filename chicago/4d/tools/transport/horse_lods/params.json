@@ -1,0 +1,25 @@
+{
+  "schema": "chicago4d_horse_lod_params_v1",
+  "ticket": "T-3559",
+  "input": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+  "input_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+  "why": "Engineering choices for distance, not appearance claims. Mid is drawn from about 22 m, far from about 55 m (driven-assembly-loader.js HORSE_LOD); at those distances a 1024 px coat map covers fewer screen pixels than 512 / 256 px, and the error bounds are under a pixel there on a phone.",
+  "levels": {
+    "mid": {
+      "texture_size": 512, "quality": 92,
+      "primitives": {
+        "Material_HorseMain4k00.png": { "ratio": 0.4, "error": 0.004, "normal_weight": 0.05, "uv_weight": 0.1 },
+        "Material.003_Hair12Main2k.png": { "ratio": 0.4, "error": 0.006, "normal_weight": 0.02, "uv_weight": 0.05 },
+        "Eye_brown": { "ratio": 0.5, "error": 0.004, "normal_weight": 0.05, "uv_weight": 0.1 }
+      }
+    },
+    "far": {
+      "texture_size": 256, "quality": 90,
+      "primitives": {
+        "Material_HorseMain4k00.png": { "ratio": 0.12, "error": 0.02, "normal_weight": 0.02, "uv_weight": 0.04 },
+        "Material.003_Hair12Main2k.png": { "ratio": 0.12, "error": 0.03, "normal_weight": 0.01, "uv_weight": 0.02 },
+        "Eye_brown": { "ratio": 0.15, "error": 0.02, "normal_weight": 0.02, "uv_weight": 0.04 }
+      }
+    }
+  }
+}

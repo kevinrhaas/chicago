@@ -25,9 +25,12 @@ delta on a straightened arm turns with the arm. No MakeHuman program logic is us
     python3 tools/human_variation_kit.py --vendor DIR   # copy the targets from a MakeHuman
                                                         # checkout at the pinned commit
 """
-import argparse, hashlib, json, pathlib, sys
+import argparse, functools, hashlib, json, pathlib, sys
 
 import numpy as np
+
+import face_library
+import finery_words  # T-3553: a dress's own words drawn as its cloth
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 MH = ROOT / 'assets/authored/humans/makehuman_hm08'
@@ -36,8 +39,14 @@ MANIFEST = MH / 'SOURCE-variation.json'
 OUT_BIN = ROOT / 'assets/humans/web/hm08_variation_kit.bin'
 OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
+# T-3556: a scene whose townspeople are thousands keeps their rows in a table of its own, which only
+# that scene fetches (humans.js SCENE_PERSONS): everyone drawn only from its inside file.
+SCENE_PERSONS = {'1835': ROOT / 'assets/humans/web/hm08_variation_persons_1835.json'}
 FITS = ROOT / 'data/humans/variation/fits'
+TRACES = ROOT / 'data/humans/variation/traces'   # T-3553
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
+SKINS = ROOT / 'data/humans/variation/skins'   # T-3553: a stand-in's pictures baked as the fitted face's own skin
+WEB = ROOT / 'assets/humans/web'
 DRESS = ROOT / 'data/humans/variation'   # T-3506/T-3522: dress_1812_*.json, each person's own dress, hat and hair
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
@@ -54,6 +63,9 @@ def target_files(axes):
             files += a.get(k, [])
         for o in a.get('options', []):
             files += o
+    # T-3553: the expression units a smile is fitted with (tools/bake_likeness_skin.py); pinned
+    # with the axes' targets, not built into the kit.
+    files += (axes.get('expressions') or {}).get('units', [])
     return sorted(set(files))
 
 
@@ -142,8 +154,11 @@ def local_frames(src, posed_by_source, faces):
     return frames
 
 
-def build():
-    axes = json.loads(AXES.read_text())
+def target_deltas():
+    """How a pinned target moves the kit's vertices: a function of a list of target files giving
+    their summed delta (metres, the engineering T-pose, the kit's vertex order), with the kit's
+    own positions and the prepared mesh they came from. The kit is built with it, and
+    tools/bake_likeness_skin.py reads the expression units through it (T-3553)."""
     manifest = json.loads(MANIFEST.read_text())
     pins = {r['path']: r for r in manifest['files']}
     src, faces = read_obj(MH / 'makehuman/data/3dobjs/base.obj')
@@ -174,6 +189,12 @@ def build():
         # into the T-pose, metres, over the UV-split vertices
         return S[:, None] * np.einsum('kij,kj->ki', R, total[source_of])
 
+    return delta, positions, prepared
+
+
+def build():
+    axes = json.loads(AXES.read_text())
+    delta, positions, prepared = target_deltas()
     chunks, offset = [], 0
 
     def put(arr):
@@ -228,6 +249,10 @@ def build():
         'assets': {k: {kk: vv for kk, vv in v.items() if kk != 'basis'} for k, v in axes['assets'].items()},
         **toc, 'axes': out_axes,
     }
+    # T-3553: the library of faces for people with no pictures of their own (tools/face_library.py).
+    faces = face_library.kit_block()
+    if faces:
+        header['faces'] = faces
     return blob, (json.dumps(header, indent=1) + '\n').encode()
 
 
@@ -237,17 +262,23 @@ def drawn_people():
     for path in sorted((ROOT / 'data/humans/instances').glob('*/hi_*.json')):
         inst = json.loads(path.read_text())
         if inst.get('person_id'):
-            out.setdefault(inst['person_id'], {'scene': str(inst['scene']), 'drawn_as': []})['drawn_as'].append(str(path.relative_to(ROOT)))
+            d = out.setdefault(inst['person_id'], {'scene': str(inst['scene']), 'drawn_as': []})
+            d['drawn_as'].append(str(path.relative_to(ROOT)))
+            d.setdefault('bodies', []).append((inst.get('appearance') or {}).get('asset_id'))
     loops = json.loads((ROOT / 'data/transport/driven/loops.json').read_text())
     for row in loops.get('rows', []):
         if row.get('person_id'):
-            out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
+            d = out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})
+            d['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
+            d.setdefault('bodies', []).append(row.get('driver_asset'))
     # Carded people drawn only when asked for at their door (T-3500): their figure is built
     # then, from the same row as anyone's.
     for scene in RESIDENTS:
         inside = ROOT / f'data/humans/inside_{scene}.json'
         for row in json.loads(inside.read_text()).get('people', []) if inside.exists() else []:
-            out.setdefault(row['person'], {'scene': scene, 'drawn_as': []})['drawn_as'].append(f"data/humans/inside_{scene}.json#{row['person']}")
+            d = out.setdefault(row['person'], {'scene': scene, 'drawn_as': []})
+            d['drawn_as'].append(f"data/humans/inside_{scene}.json#{row['person']}")
+            d.setdefault('bodies', []).append(row.get('asset_id'))
     for path in sorted(FITS.glob('*.json')) if FITS.exists() else []:
         fit = json.loads(path.read_text())
         # A fitted face is carried for the person whether or not a figure draws them yet.
@@ -262,14 +293,38 @@ def drawn_people():
     return out
 
 
+_ROWS, _HOUSEHOLDS = {}, {}
+
+
 def person_record(pid, scene):
-    people = json.loads((ROOT / f'data/sidecars/{scene}/people.json').read_text())
-    rows = people['people'] if isinstance(people, dict) else people
-    row = next((r for r in rows if r['id'] == pid), None)
+    if scene not in _ROWS:
+        people = json.loads((ROOT / f'data/sidecars/{scene}/people.json').read_text())
+        _ROWS[scene] = {r['id']: r for r in (people['people'] if isinstance(people, dict) else people)}
+    row = _ROWS[scene].get(pid)
     if row is None:
         raise SystemExit(f'{pid}: not in data/sidecars/{scene}/people.json')
-    hh = json.loads((RESIDENTS[scene] / row['file']).read_text())
-    return next(p for p in hh['persons'] if p['id'] == pid), row['file']
+    key = (scene, row['file'])
+    if key not in _HOUSEHOLDS:
+        _HOUSEHOLDS[key] = json.loads((RESIDENTS[scene] / row['file']).read_text())
+    return next(p for p in _HOUSEHOLDS[key]['persons'] if p['id'] == pid), row['file']
+
+
+_LOOK_SETS = None
+
+
+def look_sets():
+    """T-3556: looks written a set to a file (data/humans/variation/looks_<scene>_*.json, the 1835
+    town's), each row with the set's own basis where it gives none."""
+    global _LOOK_SETS
+    if _LOOK_SETS is None:
+        _LOOK_SETS = {}
+        for f in sorted(DRESS.glob('looks_[0-9][0-9][0-9][0-9]_*.json')):
+            doc = json.loads(f.read_text())
+            for pid, rec in doc['persons'].items():
+                if pid in _LOOK_SETS:
+                    raise SystemExit(f'{pid} has looks in two files ({f.name} and another)')
+                _LOOK_SETS[pid] = (rec, f, doc.get('basis'))
+    return _LOOK_SETS
 
 
 _DRESSES = None
@@ -287,6 +342,34 @@ def dresses():
                     raise SystemExit(f'{pid} is dressed by two files ({f.name} and another dress file)')
                 _DRESSES[pid] = rec
     return _DRESSES
+
+
+@functools.lru_cache(maxsize=None)
+def kit_assets():
+    return json.loads(AXES.read_text())['assets']
+
+
+@functools.lru_cache(maxsize=None)
+def library():
+    return face_library.kit_block() or {}
+
+
+def skin_of(bodies, sex):
+    """T-3553: the body whose skin a person drawn on bodies of more than one skin wears on all of them.
+
+    Kevin, 2026-11-15, of the three 1904 coachmen, each drawn on the box of his carriage and at
+    his own door on another body of a lighter skin: one skin on both bodies. It is the skin most
+    bodies of the person's sex wear, which the face library reads the person's tone from
+    (tools/face_library.py person_tone), where one of their bodies wears it; else their first
+    body's. None for a person drawn on one skin, or on a body the library does not know.
+    human-variation.js brings each other body's skin to it (libraryFace `even`).
+    """
+    lib = library()
+    known = [b for b in dict.fromkeys(bodies) if b and b in lib.get('bodies', {})]
+    if len({tuple(lib['bodies'][b]['gain']) for b in known}) < 2:
+        return None
+    tone = (lib.get('person_tone_rgb') or {}).get('male' if sex == 'male' else 'female')
+    return next((b for b in known if lib['bodies'][b]['tone_rgb'] == tone), known[0])
 
 
 def persons():
@@ -315,17 +398,92 @@ def persons():
             f = json.loads(fit.read_text())
             rec['face'] = {k: f[k] for k in ('grade', 'sources', 'basis', 'values', 'liberty', 'not_modelled', 'card') if f.get(k) is not None}
             rec['face']['fit'] = str(fit.relative_to(ROOT))
+            # T-3553: the face traced onto its portrait beyond the axes (tools/trace_portrait_face.py),
+            # only on the fit it was traced on.
+            trace = TRACES / f'{pid}.json'
+            if trace.exists():
+                t = json.loads(trace.read_text())
+                if t['fit_sha256'] != hashlib.sha256(fit.read_text().encode()).hexdigest():
+                    raise SystemExit(f'{trace.relative_to(ROOT)} was traced on another fit: run tools/trace_portrait_face.py again')
+                if t['unit_m'] != 1e-5:
+                    raise SystemExit(f'{trace.relative_to(ROOT)}: unit_m must be the kit delta unit')
+                rec['face']['trace'] = {'file': str(trace.relative_to(ROOT)), 'vertices': t['vertices'], 'delta': t['delta']}
+        # T-3553: their own skin sheet (tools/bake_likeness_skin.py), on the fit it was baked on.
+        skin = SKINS / f'{pid}.json'
+        if skin.exists():
+            k = json.loads(skin.read_text())
+            t = k.get('texture')
+            if not t or 'face' not in rec:
+                raise SystemExit(f'{skin.relative_to(ROOT)}: no texture baked, or no fitted face to wear it: run tools/bake_likeness_skin.py')
+            if k['fit_values_sha256'] != hashlib.sha256(json.dumps(rec['face']['values'], sort_keys=True).encode()).hexdigest():
+                raise SystemExit(f'{skin.relative_to(ROOT)} was baked on another fit: run tools/bake_likeness_skin.py again')
+            rec['skin'] = {'map': str((ROOT / t['file']).relative_to(WEB)), 'size_px': t['size_px'],
+                           'rects': [{'uv': r['uv'], 'px': r['px']} for r in t['rects']], 'mask': t['mask'],
+                           'tint': t['tint'], 'gain': k.get('gain', 1),
+                           'grade': k['grade'], 'sources': [k['source']], 'liberty': k.get('liberty'),
+                           'record': str(skin.relative_to(ROOT))}
+            g = t.get('grow') or {}
+            if g.get('reach_m', 0) > 0:
+                # ...and how far its hair stands out from the fitted skin (the sheet's mask says where).
+                # `axis_m`: the upright line it stands out from; `fine`: the cells of the sheet it stands
+                # out in, where the near levels draw the skin finer (renderers/web/js/human-fine.js).
+                rec['skin']['grow'] = {'reach_m': g['reach_m'], 'from_m': g['from_m'], 'normal_px': g['normal_px'],
+                                       **{k: g[k] for k in ('axis_m', 'fine') if g.get(k)}}
+            if (t.get('lids') or {}).get('rest', 0) > 0:
+                rec['skin']['lid'] = t['lids']['rest']   # ...and how far its lids rest shut, as its front picture's do
+            if t.get('teeth'):
+                # ...and the teeth behind the lips: a strip of points, each where it stands (metres)
+                # and where on the body's map its colour is (renderers/web/js/human-mouth.js).
+                rec['skin']['teeth'] = {k: t['teeth'][k] for k in ('grid', 'bone', 'at_m', 'uv')}
+            if t.get('smile'):
+                # ...and the smile its front picture shows (tools/bake_likeness_skin.py fit_smile): the
+                # kit's vertices it moves and each one's move, in the kit's delta unit. The face rests
+                # as fitted and moves into it (renderers/web/js/human-variation.js), only as baked.
+                smile = ROOT / t['smile']['file']
+                if hashlib.sha256(smile.read_bytes()).hexdigest() != t['smile']['sha256']:
+                    raise SystemExit(f'{smile.relative_to(ROOT)} is not the smile {skin.relative_to(ROOT)} was baked with: run tools/bake_likeness_skin.py again')
+                sm = json.loads(smile.read_text())
+                if sm['unit_m'] != DELTA_UNIT_M:
+                    raise SystemExit(f'{smile.relative_to(ROOT)}: unit_m must be the kit delta unit')
+                rec['skin']['smile'] = {'file': str(smile.relative_to(ROOT)), 'vertices': sm['vertices'], 'delta': sm['delta']}
+            if t.get('front'):
+                # ...and its front picture as a picture, which the renderer shows from the front where
+                # the sheet took another picture (renderers/web/js/human-skin.js FRONT_VIEW).
+                front = ROOT / t['front']['file']
+                if hashlib.sha256(front.read_bytes()).hexdigest() != t['front']['sha256']:
+                    raise SystemExit(f'{front.relative_to(ROOT)} is not the front picture {skin.relative_to(ROOT)} was baked with: run tools/bake_likeness_skin.py again')
+                rec['skin']['front'] = {'map': str(front.relative_to(WEB)), **{k: t['front'][k] for k in ('size_px', 'colour_px', 'shown_px', 'kind_px', 'u', 'v', 'toward')}}
+            if t.get('eyes'):
+                # ...and its own irises (two squares of the sheet) and the colour of its eyes' whites.
+                rec['skin']['eyes'] = {'px': t['eyes']['px'], 'size': t['eyes']['size'], 'white_srgb': t['eyes']['white_srgb']}
         looks = LOOKS / f'{pid}.json'
-        if looks.exists():
-            lk = json.loads(looks.read_text())
+        in_set = None if looks.exists() else look_sets().get(pid)
+        if looks.exists() or in_set:
+            lk = json.loads(looks.read_text()) if not in_set else in_set[0]
+            if in_set:
+                looks = in_set[1]
+            # `drawn_age` (T-3553): a stand-in drawn at the age its pictures show. It was written by
+            # tools/prairie_people.py and read by human-variation.js but left out here, so the two
+            # Greys were drawn at 64 and 54, not the 50 and 45 their faces were fitted at.
             rec['looks'] = {k: lk[k] for k in ('complexion', 'hair', 'eyes', 'stature', 'height_scale', 'build', 'heritage', 'basis',
-                                               'reference', 'grade', 'liberty') if lk.get(k) is not None}
+                                               'reference', 'grade', 'liberty', 'drawn_age') if lk.get(k) is not None}
             rec['looks']['heritage'] = {'origin': lk['heritage']['origin']}
             rec['looks']['file'] = str(looks.relative_to(ROOT))
+            if in_set and own_table(drawn) and in_set[2] and rec['looks'].get('basis') in (None, in_set[2]):
+                # The set's one basis, said once at the head of the scene's table (humans.js).
+                rec['looks'].pop('basis', None)
+            elif in_set and in_set[2] and not rec['looks'].get('basis'):
+                rec['looks']['basis'] = in_set[2]
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
-            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn', 'garrison') if dress.get(k)}
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn', 'garrison', 'collar', 'finery', 'seasons') if dress.get(k)}
+            # T-3553: a record's own words drawn as its cloth: a calico's figure, a check, a
+            # stripe (tools/finery_words.py), where the dress file did not set its finery itself.
+            if not rec['dress'].get('finery'):
+                words = finery_words.finery_from_worn(pid, dress)
+                if words:
+                    rec['dress']['finery'] = words
             rec['dress']['grade'] = 'reconstructed'
             # T-3522: a townsperson's handkerchief round the head is their dress's, not their hair's.
             if isinstance(dress.get('headcloth'), list):
@@ -337,11 +495,52 @@ def persons():
                 rec['dress']['headcloth'] = hair['headcloth']['rgb']
             if rec.get('looks', {}).get('hair'):
                 rec['looks']['hair'] = {**rec['looks']['hair'], **{k: hair[k] for k in ('cut', 'drawn') if hair.get(k)}}
+        # The sex the app draws them as: their record's, else their first body's (a body the kit
+        # does not list is a man's, as human-variation.js takes it).
+        bodies = drawn.get('bodies', [])
+        sex = rec.get('sex') or (kit_assets().get(bodies[0], {}).get('sex', 'male') if bodies else 'male')
+        skin = skin_of(bodies, sex)
+        if skin:
+            rec['skin_of'] = skin
+        if own_table(drawn):
+            # Their row in the scene's own table: the age's basis is the record's band, said
+            # once there; where they are drawn is that scene's inside file.
+            rec.pop('drawn_as', None)
+            rec.get('age', {}).pop('basis', None)
         out[pid] = rec
-    return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
-                        'generated_by': 'tools/human_variation_kit.py',
-                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
-                        'persons': out}, indent=1) + '\n').encode()
+    return out
+
+
+def own_table(drawn):
+    """Whether a person's row goes to their scene's own table (SCENE_PERSONS)."""
+    return drawn['scene'] in SCENE_PERSONS and bool(drawn['drawn_as']) and all(
+        d.startswith(f"data/humans/inside_{drawn['scene']}.json#") for d in drawn['drawn_as'])
+
+
+def persons_text(out, head, extra=None):
+    lines = [f' {json.dumps(k)}: {json.dumps(v, separators=(",", ":"), ensure_ascii=False)}' for k, v in out.items()]
+    text = json.dumps({**head, **(extra or {})}, indent=1, ensure_ascii=False)[:-2] + ',\n "persons": {\n' + ',\n'.join(lines) + '\n }\n}\n'
+    json.loads(text)
+    return text.encode()
+
+
+def persons_tables():
+    """{path: bytes}: the persons table, and each SCENE_PERSONS scene's own."""
+    drawn = drawn_people()
+    out = persons()
+    # T-3553: one person a line, each compact. With every woman's season dresses the indented
+    # file grew past 3.8 MB of whitespace the renderer fetches and a phone parses; a line a
+    # person keeps a diff readable person by person at 2.6 MB.
+    head = {'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
+            'generated_by': 'tools/human_variation_kit.py',
+            '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), any looks (complexion, hair, eyes, stature; T-3491), their dress (T-3506, T-3553), and for a person drawn on bodies of more than one skin the body whose skin they wear on all of them (`skin_of`, T-3553). One person a line. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.'}
+    tables = {PERSONS: persons_text({k: v for k, v in out.items() if not own_table(drawn[k])}, head)}
+    for scene, path in SCENE_PERSONS.items():
+        rows = {k: v for k, v in out.items() if own_table(drawn[k]) and drawn[k]['scene'] == scene}
+        bases = {lk[2] for pid, lk in look_sets().items() if pid in rows and lk[2]}
+        tables[path] = persons_text(rows, {**head, 'scene': scene, '_doc': head['_doc'] + f' This is the {scene} scene\'s own table: its townspeople drawn only from data/humans/inside_{scene}.json, fetched by that scene alone (renderers/web/js/humans.js SCENE_PERSONS). An age is its record\'s band; `looks_basis` is every row\'s looks basis.'},
+                                    {'looks_basis': ' '.join(sorted(bases))} if bases else None)
+    return tables
 
 
 def main():
@@ -353,9 +552,9 @@ def main():
         vendor(args.vendor, json.loads(AXES.read_text()))
         return 0
     blob, header = build()
-    people = persons()
+    tables = persons_tables()
     if args.check:
-        bad = [p.relative_to(ROOT) for p, b in ((OUT_BIN, blob), (OUT_JSON, header), (PERSONS, people)) if not p.exists() or p.read_bytes() != b]
+        bad = [p.relative_to(ROOT) for p, b in ((OUT_BIN, blob), (OUT_JSON, header), *tables.items()) if not p.exists() or p.read_bytes() != b]
         if bad:
             print('FAIL human variation kit is stale:', *bad, '— run python3 tools/human_variation_kit.py')
             return 1
@@ -363,7 +562,8 @@ def main():
         return 0
     OUT_BIN.write_bytes(blob)
     OUT_JSON.write_bytes(header)
-    PERSONS.write_bytes(people)
+    for path, b in tables.items():
+        path.write_bytes(b)
     print(f'wrote {OUT_BIN.relative_to(ROOT)} ({len(blob)} bytes) and {OUT_JSON.name}')
     return 0
 

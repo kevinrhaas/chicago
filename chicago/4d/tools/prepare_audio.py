@@ -42,6 +42,65 @@ def encode_pinned_river(loop, mp3):
         candidate.unlink(missing_ok=True)
 
 
+RAGTIME = ORIGINALS / '1904-ragtime'
+RAGTIME_LUFS = -17.5     # one listening level across the shuffled set (sources span -15.0..-17.9)
+RAGTIME_TAIL_S = .4      # trailing silence kept before the next shuffled track
+RAGTIME_OPUS = '64k'     # stereo Opus VBR; one streamed cue at a time, never decoded whole
+RAGTIME_AAC = '112k'     # AAC-LC fallback for browsers without Ogg/Opus (older iPhone Safari)
+
+
+def integrated_lufs(path):
+    log = subprocess.run(['ffmpeg', '-nostdin', '-hide_banner', '-i', str(path), '-map', '0:a', '-af', 'ebur128',
+        '-f', 'null', '-'], capture_output=True, text=True, check=True).stderr
+    summary = log[log.rindex('Summary:'):]
+    return float(summary.split('I:', 1)[1].split('LUFS', 1)[0])
+
+
+def ragtime_1904(encode=True):
+    """T-3569: the owner's ten ragtime MP3s are the whole 1904 playlist, played shuffled.
+
+    Each is decoded once, given one static gain to a shared integrated loudness (no
+    compression or limiting), trimmed of trailing silence beyond RAGTIME_TAIL_S, and
+    encoded to a small Opus stream with an AAC fallback. Cover art and tags are dropped.
+    """
+    sr, out = 48000, []
+    folder = OUT / '1904'
+    folder.mkdir(parents=True, exist_ok=True)
+    for file in sorted(RAGTIME.glob('*.mp3')):
+        key = 'ragtime-' + file.stem.lower()
+        title = file.stem.replace('-', ' ')
+        opus, aac = folder / (key + '.ogg'), folder / (key + '.m4a')
+        source_lufs = integrated_lufs(file)
+        gain_db = round(RAGTIME_LUFS - source_lufs, 2)
+        raw = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', str(file), '-map', '0:a',
+            '-ac', '2', '-ar', str(sr), '-f', 'f32le', '-'])
+        pcm = np.frombuffer(raw, dtype='<f4').reshape(-1, 2) * np.float32(10 ** (gain_db / 20))
+        loud = np.flatnonzero(np.max(np.abs(pcm), axis=1) > 10 ** (-50 / 20))
+        end = min(len(pcm), int(loud[-1]) + 1 + int(RAGTIME_TAIL_S * sr))
+        pcm = pcm[:end].copy()
+        fade = int(.25 * sr)
+        pcm[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)[:, None]
+        peak = float(np.max(np.abs(pcm)))
+        if peak > .99: raise ValueError(f'{file.name}: loudness match would clip ({peak:.3f})')
+        if encode:
+            pipe = ['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '1', '-f', 'f32le', '-ar', str(sr), '-ac', '2',
+                '-i', '-', '-map_metadata', '-1', '-metadata', f'title={title}']
+            subprocess.run([*pipe, '-c:a', 'libopus', '-b:a', RAGTIME_OPUS, '-vbr', 'on', '-application', 'audio',
+                str(opus)], input=pcm.tobytes(), check=True)
+            subprocess.run([*pipe, '-c:a', 'aac', '-b:a', RAGTIME_AAC, '-movflags', '+faststart',
+                str(aac)], input=pcm.tobytes(), check=True)
+        out.append({'id': key, 'kind': 'music', 'era': '1904', 'title': title,
+            'duration_s': round(len(pcm) / sr, 3), 'original': str(file.relative_to(ROOT)),
+            'original_integrity': fingerprint(file),
+            'provenance': 'Owner-supplied MP3 (artist tag Kevin R Haas; album tag "Made with Mozart"). Period-style ragtime written for the app, not an archival performance or recording.',
+            'rights': 'Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.',
+            'processing': f'MP3 decoded to 48 kHz stereo; static gain {gain_db:+.2f} dB from {source_lufs:.1f} to {RAGTIME_LUFS} LUFS integrated; trailing silence trimmed to {RAGTIME_TAIL_S} s with 250 ms fade; Opus {RAGTIME_OPUS} VBR, AAC-LC {RAGTIME_AAC} fallback. No compression, limiting or EQ.',
+            'opus': str(opus.relative_to(OUT)), 'aac': str(aac.relative_to(OUT)),
+            'delivery': {'opus': fingerprint(opus), 'aac': fingerprint(aac)}})
+    if len(out) != 10: raise ValueError(f'1904 ragtime: expected the owner\'s ten tracks, found {len(out)}')
+    return out
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     assets = []
@@ -63,6 +122,11 @@ def main():
             'rights': 'Owner authorized use and distribution in the app, 2026-11-10; no open asset licence asserted.',
             'opus': str(opus.relative_to(OUT)), 'aac': str(aac.relative_to(OUT)),
             'delivery': {'opus': fingerprint(opus), 'aac': fingerprint(aac)}})
+        if era == '1904':
+            # T-3569: the owner replaced the 1904 waltzes with his ragtime set.
+            assets[-1].update(runtime_enabled=False,
+                review_note='Retired from 1904 playback by the owner, 2026-11-12, for the ten-track ragtime playlist. Original and verified deliveries retained.')
+    assets += ragtime_1904('--effects-only' not in sys.argv and '--library-only' not in sys.argv)
     for key, name, creator, source, start in [
         ('wind', '475448_7009965-hq.mp3', 'o_ciz', 'https://freesound.org/people/o_ciz/sounds/475448/', 15),
         ('river-held', '577323_97550-hq.mp3', 'TRP', 'https://freesound.org/people/TRP/sounds/577323/', 10),
@@ -168,11 +232,31 @@ def main():
                         'line': [[round(e-datum['origin_utm_e'],2),round(n-datum['origin_utm_n'],2)] for e,n,*_ in g['coordinates']],
                         'source_path': str(path.relative_to(ROOT))})
         zones[year] = {'epoch': epoch, 'features': rows}
-    catalog = {'version': 1, 'music_eras_separate': True, 'water_zones': zones, 'assets': assets}
+    catalog = {'version': 1, 'music_eras_separate': True, 'music_shuffle_eras': ['1904'], 'water_zones': zones, 'assets': assets}
     (OUT / 'catalog.json').write_text(json.dumps(catalog, indent=2) + '\n')
     (ROOT / 'assets/audio/catalog.json').write_text(json.dumps(catalog, indent=2) + '\n')
     print(f'Audio: {len(assets)} catalogued assets; alternatives are fetched only when needed.')
 
 
+def ragtime_only():
+    """T-3569: rebuild only the 1904 playlist inside the committed catalogue.
+
+    Every other delivery is hash-pinned to verified R2 objects and stays byte-for-byte;
+    a full regeneration on a different ffmpeg build would re-encode them."""
+    paths = [OUT / 'catalog.json', ROOT / 'assets/audio/catalog.json']
+    catalog = json.loads(paths[0].read_text())
+    rows = [a for a in catalog['assets'] if not a['id'].startswith('ragtime-')]
+    for a in rows:
+        if a['kind'] == 'music' and a['era'] == '1904':
+            a.update(runtime_enabled=False,
+                review_note='Retired from 1904 playback by the owner, 2026-11-12, for the ten-track ragtime playlist. Original and verified deliveries retained.')
+    at = max(i for i, a in enumerate(rows) if a['kind'] == 'music') + 1
+    catalog['assets'] = rows[:at] + ragtime_1904() + rows[at:]
+    catalog = {'version': catalog['version'], 'music_eras_separate': True, 'music_shuffle_eras': ['1904'],
+        **{k: v for k, v in catalog.items() if k not in ('version', 'music_eras_separate', 'music_shuffle_eras')}}
+    for path in paths: path.write_text(json.dumps(catalog, indent=2) + '\n')
+    print('Audio: 1904 ragtime playlist rebuilt; other deliveries untouched.')
+
+
 if __name__ == '__main__':
-    main()
+    ragtime_only() if '--ragtime-only' in sys.argv else main()

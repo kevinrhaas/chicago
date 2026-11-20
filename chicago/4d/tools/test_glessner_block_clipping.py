@@ -405,7 +405,8 @@ def check_frontage_ground():
         for i in range(101):
             x=f['wall_x']+(f['walk_x']-f['wall_x'])*i/100
             z,mat=height(surfaces,x,y)
-            assert f['walk_z']-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+            # 2026-11-13: the street end falls to meet the public walk flush.
+            assert min(f['walk_z'],f.get('street_end_z',f['walk_z']))-.004<=z<=f['door_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
         assert abs(height(surfaces,params.width_m+.017,y)[0]-f['door_z'])<1e-8
         # HABS5's broad inset tread now owns the bottom reveal. It continues
         # behind the facade; the old narrow opening-floor face is omitted by

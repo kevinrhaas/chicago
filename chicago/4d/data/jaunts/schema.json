@@ -38,6 +38,70 @@
     "featured": {
       "type": "boolean"
     },
+    "menu_group": {
+      "enum": [
+        "Places",
+        "People",
+        "Architecture",
+        "Stories",
+        "Errands",
+        "Work",
+        "Build log"
+      ],
+      "description": "T-3584: the Jaunts menu's filter this jaunt sits under, the same seven in every year: Places (tours of buildings, streets and the river), People (the people who lived there), Architecture (styles and architects), Stories (legends and events told as a story), Errands (an everyday task in town), Work (a trade or a job of work), Build log (the project's own progress walk, listed last). Distinct from the keepsake family, which is the daybook's."
+    },
+    "grade_band": {
+      "enum": [
+        "K-2",
+        "3-5",
+        "6-8",
+        "9-10",
+        "11-12"
+      ],
+      "description": "T-3590: the US school grades the jaunt's words are written for, in the Common Core bands (K-2, 3-5, 6-8, 9-10, 11-12). Measured, not guessed: tools/jaunt_reading_level.py (the mean of five grade-level formulas over every word the visitor reads) must put a jaunt for grades K-2 or 3-5 inside its band, and any other within one band."
+    },
+    "version_of": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "T-3590: this jaunt retells another of the same scene for a different grade band (the same walk in other words); the menu lists it beside the jaunt it retells."
+    },
+    "audience": {
+      "enum": [
+        "all",
+        "adults"
+      ],
+      "description": "Who the jaunt is for. `adults` (the owner, 2026-11-15: \"this one is targeted at adults and shows everything incredibly graphically\") stages the fighting itself, blows, shots and the wounded (stage beats `arm` and `act`), and is listed only for a visitor who has turned on Settings › Move › Adults-only jaunts (18 or over); it never appears in a teacher handout. Absent means all."
+    },
+    "content_warning": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 120,
+      "description": "Required when audience is adults: a few words on what the visitor will see, the tooltip of the card's 18+ tag. The owner, 2026-11-16: no warning text on the card or in the telling."
+    },
+    "menu_rank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "description": "T-3584: leads the menu, in this order, ahead of every group (owner, 2026-11-13: the household tour first, then the other Glessner jaunt)."
+    },
+    "plate": {
+      "type": "object",
+      "properties": {
+        "structure": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "picture": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        }
+      },
+      "required": [
+        "structure"
+      ],
+      "additionalProperties": false,
+      "description": "T-3584: the building whose held picture heads the card when the stops are anchors rather than buildings, and optionally which of its pictures."
+    },
     "opening": {
       "type": "object",
       "properties": {
@@ -383,6 +447,8 @@
     "title",
     "premise",
     "category",
+    "menu_group",
+    "grade_band",
     "scene",
     "opening",
     "default_mode",
@@ -796,6 +862,531 @@
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "stage": {
+          "description": "T-3553: this stop's history played by its people (renderers/web/js/jaunt-stage.js): the cast, each a person of the scene or an unnamed figure in a dress, at a mark (local ENU metres), turned, in a pose, with beats timed in seconds from the visitor's arrival (walk a way, turn or face, take a pose, talk, greet, go out of sight or come back). Built while the visitor travels, played on arrival; Watch again replays it. The owner's ruling for students (2026-11-14): build-up and aftermath, never a blow, a shot or blood; only an `audience: adults` jaunt (2026-11-15) stages the fighting, with `arm` and `act`. `tier: desktop` castmates are left out at the Light tier (phones keep the rest). The staging is reconstruction: `liberty` names its record.",
+          "type": "object",
+          "properties": {
+            "caption": {
+              "type": "string",
+              "minLength": 8,
+              "maxLength": 220
+            },
+            "liberty": {
+              "type": "string",
+              "pattern": "^L[-A-Za-z0-9_]+$",
+              "maxLength": 90
+            },
+            "cast": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "person": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                    "maxLength": 90
+                  },
+                  "extra": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                    "maxLength": 90
+                  },
+                  "dress": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 80
+                  },
+                  "dress_of": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                    "maxLength": 90
+                  },
+                  "name": {
+                    "type": "string",
+                    "maxLength": 120
+                  },
+                  "about": {
+                    "type": "string",
+                    "maxLength": 160,
+                    "description": "An unnamed figure given a name of ours (T-3553): what it stands for, said with its name when it is clicked."
+                  },
+                  "at": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "heading": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  "pose": {
+                    "enum": [
+                      "stand",
+                      "kneel",
+                      "kneel2",
+                      "crouch",
+                      "sit",
+                      "prone",
+                      "lie",
+                      "fallen"
+                    ]
+                  },
+                  "arm": {
+                    "enum": [
+                      "none",
+                      "tomahawk",
+                      "club",
+                      "knife",
+                      "pistol",
+                      "musket",
+                      "rifle"
+                    ],
+                    "description": "Adults jaunts only: what the castmate holds in the right hand from the start (a musket in both, at the port). Reconstructed, as the accounts arm them."
+                  },
+                  "tier": {
+                    "enum": [
+                      "desktop"
+                    ]
+                  },
+                  "hidden": {
+                    "type": "boolean"
+                  },
+                  "talk": {
+                    "type": "boolean"
+                  },
+                  "beats": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "t": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 900
+                        },
+                        "walk": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "minItems": 1,
+                          "maxItems": 40
+                        },
+                        "pace": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0.4,
+                              "maximum": 9.0
+                            },
+                            {
+                              "enum": [
+                                "walk",
+                                "brisk",
+                                "hurry",
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
+                              ]
+                            }
+                          ]
+                        },
+                        "heading": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 360
+                        },
+                        "face": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                              "maxLength": 90
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              },
+                              "minItems": 2,
+                              "maxItems": 2
+                            }
+                          ]
+                        },
+                        "pose": {
+                          "enum": [
+                            "stand",
+                            "kneel",
+                            "kneel2",
+                            "crouch",
+                            "sit",
+                            "prone",
+                            "lie",
+                            "fallen"
+                          ]
+                        },
+                        "ease": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 10
+                        },
+                        "talk": {
+                          "type": "boolean"
+                        },
+                        "greet": {
+                          "type": "boolean"
+                        },
+                        "arm": {
+                          "enum": [
+                            "none",
+                            "tomahawk",
+                            "club",
+                            "knife",
+                            "pistol",
+                            "musket",
+                            "rifle"
+                          ],
+                          "description": "Adults jaunts only: take up (or put down: none) what the right hand holds."
+                        },
+                        "act": {
+                          "enum": [
+                            "strike",
+                            "stab",
+                            "fire",
+                            "aim",
+                            "lower",
+                            "struck"
+                          ],
+                          "description": "Adults jaunts only: a blow with what the hand holds (strike: overhand, a tomahawk or club; stab: a knife thrust), a shot (aim brings a pistol or musket up and holds it; fire shoots it, with its flash and smoke), lower puts it down again; struck is the jolt of being hit. Turned toward `face` when it is given."
+                        },
+                        "wound": {
+                          "enum": [
+                            "body",
+                            "head",
+                            "neck",
+                            "shoulder",
+                            "scalp"
+                          ],
+                          "description": "Adults jaunts only: the castmate is hit here, now (a blow lands, a ball strikes, a scalping knife cuts): the blood thrown, a stain where it struck, and a pool under them once they are down (human-blood.js). Never on a child."
+                        },
+                        "torch": {
+                          "type": "boolean",
+                          "description": "The burning of the fort (2026-11-16): take up a burning brand in the right hand (true) or throw it down (false). Any jaunt: burning an empty building is not a blow."
+                        },
+                        "ignite": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9_]*$",
+                          "maxLength": 90,
+                          "description": "The burning of the fort: put the torch to this structure (one of the stage's `fire.burns`); it catches where the torch touches it (renderers/web/js/fort-fire.js)."
+                        },
+                        "hide": {
+                          "type": "boolean"
+                        },
+                        "show": {
+                          "type": "boolean"
+                        },
+                        "place": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 2,
+                          "maxItems": 2
+                        },
+                        "cross": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9_]*$",
+                          "maxLength": 90,
+                          "description": "T-3553: step into this drawn boat (data/boats/crossings_1812.json) and cross in it to its other bank, seated (renderers/web/js/crossings.js carry); the next beat `place`s the castmate on the far bank."
+                        },
+                        "dismount": {
+                          "const": true,
+                          "description": "T-3560: a castmate who `mount`s gets down here on the horse's near side; the horse stands where it is, and the castmate's next beats start beside it."
+                        },
+                        "borne": {
+                          "oneOf": [
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9_:]*$",
+                                "maxLength": 90
+                              },
+                              "minItems": 2,
+                              "maxItems": 6
+                            },
+                            {
+                              "const": false
+                            }
+                          ],
+                          "description": "T-3553: the dead carried on a bier by these castmates (person or extra ids, the front pair first), at their hands; false sets the bier down where it is."
+                        }
+                      },
+                      "required": [
+                        "t"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 24
+                  },
+                  "mount": {
+                    "description": "T-3560: this castmate is on a saddle horse (renderers/web/js/riding.js stageHorse) from the beginning, which goes where their beats take them, at their pace, until a `dismount` beat. `horse` names the horse (its coat); `tack` a saddle_horses.json tack variant (the year's tack when none).",
+                    "type": "object",
+                    "properties": {
+                      "horse": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 60
+                      },
+                      "tack": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 40
+                      }
+                    },
+                    "required": [
+                      "horse"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "ride": {
+                    "description": "T-3553: this castmate rides one of the stage's teams, sitting at `seat` (vehicle-local metres: x to the left, y up from the vehicle root, z ahead), turned `heading` degrees from the team's facing.",
+                    "type": "object",
+                    "properties": {
+                      "team": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9_]+$",
+                        "maxLength": 90
+                      },
+                      "seat": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      },
+                      "heading": {
+                        "type": "number",
+                        "minimum": -180,
+                        "maximum": 360
+                      }
+                    },
+                    "required": [
+                      "team",
+                      "seat"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "at"
+                ],
+                "additionalProperties": false,
+                "oneOf": [
+                  {
+                    "required": [
+                      "person"
+                    ],
+                    "not": {
+                      "required": [
+                        "extra"
+                      ]
+                    }
+                  },
+                  {
+                    "required": [
+                      "extra",
+                      "dress",
+                      "name"
+                    ],
+                    "not": {
+                      "required": [
+                        "person"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 200
+            },
+            "open_gates": {
+              "description": "T-3553: the fort's gates (fort-gates.js ids, `<structure>:<side>`) that stand open while the stage plays (a column marching out, a sally port in use); given back shut when it ends.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+:[nesw]$"
+              },
+              "maxItems": 8
+            },
+            "teams": {
+              "description": "T-3553: the town's horse teams (data/transport/driven/loops.json rows, by id) this stage takes from their rounds for the scene: each team's vehicle root stands `at` a mark, faces `heading`, and walks its beats (`walk`, `pace`) as a castmate does; its own driver drives it. Given back to its round when the stage ends.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "team": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 90
+                  },
+                  "at": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                  },
+                  "heading": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  "beats": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "t": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 900
+                        },
+                        "walk": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2
+                          },
+                          "minItems": 1,
+                          "maxItems": 40
+                        },
+                        "pace": {
+                          "anyOf": [
+                            {
+                              "type": "number",
+                              "minimum": 0.4,
+                              "maximum": 6.0
+                            },
+                            {
+                              "enum": [
+                                "walk",
+                                "brisk",
+                                "hurry",
+                                "slow",
+                                "jog",
+                                "run",
+                                "flee",
+                                "sprint"
+                              ]
+                            }
+                          ]
+                        },
+                        "heading": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 360
+                        }
+                      },
+                      "required": [
+                        "t"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 24
+                  }
+                },
+                "required": [
+                  "team",
+                  "at"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 6
+            },
+            "fire": {
+              "description": "T-3553, the burning of the first fort (the owner, 2026-11-16: 'witness and also join the party and help light Fort Dearborn on fire'): the structures that burn (`burns`), catching where a castmate's `ignite` or the visitor's torch puts them, or from the heat of a neighbour, each blackening, falling in and lying as a heap of ash (renderers/web/js/fort-fire.js); those that stand through it (`stands`), smoked. `lit` are already burning `start_s` seconds before the visitor comes (a fire seen from the next stop). `visitor`: the visitor holds a brand and may set a building alight. `open_gates`: the fort's gates stand open while it burns; `strike_colours`: no flag flies. How it burns is reconstruction: `liberty` names its record.",
+              "type": "object",
+              "properties": {
+                "burns": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40,
+                  "minItems": 1
+                },
+                "stands": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40
+                },
+                "lit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9_]*$",
+                    "maxLength": 90
+                  },
+                  "maxItems": 40
+                },
+                "start_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 900
+                },
+                "visitor": {
+                  "type": "boolean"
+                },
+                "open_gates": {
+                  "type": "boolean"
+                },
+                "strike_colours": {
+                  "type": "boolean"
+                },
+                "liberty": {
+                  "type": "string",
+                  "pattern": "^L[-A-Za-z0-9_]+$",
+                  "maxLength": 90
+                }
+              },
+              "required": [
+                "burns",
+                "liberty"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "caption",
+            "liberty",
+            "cast"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [

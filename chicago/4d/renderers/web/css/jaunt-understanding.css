@@ -1,0 +1,30 @@
+.jaunt-understanding { margin: .75rem 0; border-top: 1px solid var(--edge, #64716e); padding-top: .5rem; }
+.jaunt-understanding > summary { cursor: pointer; min-height: 44px; padding: .5rem 0; font-weight: 600; }
+.jaunt-check-question { padding: .75rem 0; border-top: 1px solid var(--edge, #64716e); min-width: 0; }
+.jaunt-check-question h4 { line-height: 1.4; margin: 0 0 .5rem; }
+.jaunt-check-question blockquote { margin: .5rem 0; padding: .5rem .75rem; border-left: 3px solid var(--accent, #ead09e); }
+.jaunt-check-question label { display: block; }
+.jaunt-check-question textarea { display: block; box-sizing: border-box; width: 100%; min-height: 5rem; max-width: 100%;
+  margin: .4rem 0; padding: .6rem; resize: vertical; font: inherit; color: var(--ink, #edf0ec); background: var(--panel-solid, #182326);
+  border: 1px solid var(--edge, #64716e); border-radius: .4rem; }
+.jaunt-check-review { margin-top: .5rem; padding: .5rem; border: 1px solid var(--edge, #64716e); }
+.jaunt-check-review[hidden] { display: none; }
+.jaunt-check-review ul { padding-left: 1.2rem; }
+.jaunt-check-review li { margin: .6rem 0; }
+.jaunt-check-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.jaunt-understanding button, .jaunt-understanding a { min-height: 44px; }
+.jaunt-understanding a { display: inline-flex; align-items: center; color: var(--accent, #ead09e); }
+.jaunt-understanding :is(button, a, textarea, summary):focus-visible { outline: 3px solid var(--accent, #ead09e); outline-offset: 3px; }
+.jaunt-understanding p, .jaunt-understanding li, .jaunt-understanding blockquote { overflow-wrap: anywhere; }
+/* T-3670: the guide's choices. Right and not-yet are told by a mark and a border style as
+   well as colour, so they read without colour vision (and the feedback line says so). */
+.jaunt-check-choices { display: flex; flex-direction: column; gap: .4rem; margin: .5rem 0; }
+.jaunt-check-choice { text-align: left; white-space: normal; max-width: 100%; padding: .55rem .75rem; font: inherit;
+  color: var(--ink, #edf0ec); background: var(--panel-solid, #182326); border: 1px solid var(--edge, #64716e); border-radius: .4rem; cursor: pointer; }
+.jaunt-check-choice:disabled { cursor: default; opacity: 1; }
+.jaunt-check-choice.is-right { border: 2px solid var(--accent, #ead09e); font-weight: 600; }
+.jaunt-check-choice.is-right::before { content: "\2713\00a0" / ""; }
+.jaunt-check-choice.is-wrong { border-style: dashed; color: var(--ink-dim, #b9c2bf); }
+.jaunt-check-choice.is-wrong::before { content: "\2717\00a0" / ""; }
+.jaunt-check-feedback { min-height: 1.4em; margin: .25rem 0; font-weight: 600; }
+.jaunt-check-reveal[hidden] { display: none; }

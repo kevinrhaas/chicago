@@ -1,0 +1,42 @@
+{
+ "structure_id": "fort_dearborn_massacre_monument_1893",
+ "source_id": "loc_det_4a08066_pullman_residence",
+ "library_image": "a16-pullman-det-4a08066",
+ "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08066_pullman_residence.jpg",
+ "image_px": [
+  1024,
+  809
+ ],
+ "principal_px": [
+  512,
+  491.9
+ ],
+ "focal_px": 1118.7,
+ "near_m": 5,
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie",
+  "pullman_house_1729_prairie_ranges",
+  "pullman_house_1729_prairie_conservatory"
+ ],
+ "flora": {
+  "front_yards": [
+   "prairie_1729"
+  ],
+  "street_furniture_m": 70,
+  "season": "winter",
+  "creeper_in_leaf": true
+ },
+ "eye": [
+  27.721,
+  -44.698,
+  1.6
+ ],
+ "yaw_deg": 316.311,
+ "sun_uvy": [
+  -0.9999,
+  -0.8002,
+  1.0
+ ],
+ "solve": "The Pullman house's camera on the Detroit Publishing print LC-D4-12552 (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08066.json, T-1881, fitted on the house at 2.4-2.6 px rms; its solve says how), carried by T-3568 (2026-11-13) into the monument's footprint frame through the two structures' scene placements: the eye at local E 1527.42, N -3244.70, 1.6 m (u 27.721, v -44.698 here), heading 136.32 degrees in the house's frame, 316.31 here; the focal length, principal point and light unchanged. Nothing is refitted to the monument, so the print checks its PLACE: the pedestal's centre stands at x 800 px of the print, and the base's centre line (N -3198.76) is set where that bearing crosses it (the structure record's position note); the render draws it at x 787. It does not check its size: fitted on the house 80-90 m off, the camera trades its distance against its focal length, and it draws the pedestal at about 0.57 of the size the print shows (the base 105 px wide where the print's is 184), which no place on the walk the other pictures allow would cure. The house, its ranges and the conservatory are drawn with the monument, and the front yard's planting and the street furniture; the parkway trees are left out, because about the monument they stand between it and the camera where the print has one young tree."
+}

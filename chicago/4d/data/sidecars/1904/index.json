@@ -31,9 +31,9 @@
     },
     {
       "id": "buckingham_house_2036_prairie",
-      "name": "2036 Prairie Avenue — Buckingham map-led corner mansion (district draft; refined by T-1911)",
+      "name": "2036 Prairie Avenue — the Ebenezer Buckingham house, a Second Empire corner house on 21st Street (K01; refined by T-3631, piece 1 of T-1911)",
       "sidecar": "sidecars/1904/buckingham_house_2036_prairie.json",
-      "asset": "gltf/buckingham_house_2036_prairie__draft_1904.glb"
+      "asset": "gltf/buckingham_house_2036_prairie__as_mapped_1904.glb"
     },
     {
       "id": "buckingham_house_2036_prairie_coach_house",
@@ -70,6 +70,12 @@
       "name": "1721 Prairie Avenue: the two-storey brick stable by the tracks, K12 on a slanting plan",
       "sidecar": "sidecars/1904/dexter_house_1721_prairie_coach_house.json",
       "asset": "gltf/dexter_house_1721_prairie_coach_house__as_standing_1904.glb"
+    },
+    {
+      "id": "dexter_house_1721_prairie_frame_house",
+      "name": "1721 Prairie Avenue: Wirt Dexter's frame house of 1863 behind Little's brick front, K16 clapboard",
+      "sidecar": "sidecars/1904/dexter_house_1721_prairie_frame_house.json",
+      "asset": "gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb"
     },
     {
       "id": "doane_house_1827_prairie",
@@ -136,6 +142,12 @@
       "name": "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house) (district draft; refined by T-2443)",
       "sidecar": "sidecars/1904/forsyth_house_1635_prairie.json",
       "asset": "gltf/forsyth_house_1635_prairie__draft_1904.glb"
+    },
+    {
+      "id": "fort_dearborn_massacre_monument_1893",
+      "name": "The Fort Dearborn Massacre monument (Carl Rohl-Smith, 1893), 18th Street at Calumet Avenue",
+      "sidecar": "sidecars/1904/fort_dearborn_massacre_monument_1893.json",
+      "asset": "gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb"
     },
     {
       "id": "george_glessner_house_1706_prairie",
@@ -211,9 +223,9 @@
     },
     {
       "id": "high_house_2021_prairie",
-      "name": "2021 Prairie Avenue — High brick gabled/turret house (district draft; refined by T-1917)",
+      "name": "2021 Prairie Avenue — the Adams/High house, brick under a steep front gable with a round corner turret (T-3633)",
       "sidecar": "sidecars/1904/high_house_2021_prairie.json",
-      "asset": "gltf/high_house_2021_prairie__draft_1904.glb"
+      "asset": "gltf/high_house_2021_prairie__as_mapped_1904.glb"
     },
     {
       "id": "high_house_2021_prairie_coach_house",
@@ -931,9 +943,9 @@
     },
     {
       "id": "house_2011_prairie",
-      "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer (district draft; refined by T-1915)",
+      "name": "2011 Prairie Avenue — the Romanesque house beside Mayer, rock-faced ashlar under a round corner turret (T-1915)",
       "sidecar": "sidecars/1904/house_2011_prairie.json",
-      "asset": "gltf/house_2011_prairie__draft_1904.glb"
+      "asset": "gltf/house_2011_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2011_prairie_coach_house",
@@ -979,9 +991,9 @@
     },
     {
       "id": "house_2017_prairie",
-      "name": "2017 Prairie Avenue — Stone-front masonry (district draft; refined by T-1917)",
+      "name": "2017 Prairie Avenue — the William Armour house, a stone front under a mansard with a gabled south projection and a columned porch (T-3634)",
       "sidecar": "sidecars/1904/house_2017_prairie.json",
-      "asset": "gltf/house_2017_prairie__draft_1904.glb"
+      "asset": "gltf/house_2017_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2017_prairie_coach_house",
@@ -991,9 +1003,9 @@
     },
     {
       "id": "house_2018_prairie",
-      "name": "2018 Prairie Avenue — Stone-front masonry (district draft; refined by T-1910)",
+      "name": "2018 Prairie Avenue — three-storey brick house with a stone front and a two-storey stone bow, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2018_prairie.json",
-      "asset": "gltf/house_2018_prairie__draft_1904.glb"
+      "asset": "gltf/house_2018_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2018_prairie_coach_house",
@@ -1039,9 +1051,9 @@
     },
     {
       "id": "house_2026_prairie",
-      "name": "2026 Prairie Avenue — Stone-front masonry (district draft; refined by T-1910)",
+      "name": "2026 Prairie Avenue — the Louis Wahl house: Second Empire, stone front under a mansard, its tower over the north end, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2026_prairie.json",
-      "asset": "gltf/house_2026_prairie__draft_1904.glb"
+      "asset": "gltf/house_2026_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2026_prairie_coach_house",
@@ -1063,9 +1075,9 @@
     },
     {
       "id": "house_2027_prairie",
-      "name": "2027 Prairie Avenue — Cobb-associated map-led villa (district draft; refined by T-1917)",
+      "name": "2027 Prairie Avenue — brick villa of two and a half storeys with a front bay, a canted north bay and a two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2027_prairie.json",
-      "asset": "gltf/house_2027_prairie__draft_1904.glb"
+      "asset": "gltf/house_2027_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2027_prairie_coach_house",
@@ -1363,9 +1375,9 @@
     },
     {
       "id": "mark_kimball_house_2108_prairie",
-      "name": "2108 Prairie Avenue — Mark Kimball compact brick house (district draft; refined by T-1921)",
+      "name": "2108 Prairie Avenue — the Mark Kimball house, two storeys of brick behind a pale stone front over a high basement, its round-arched door at the head of an iron-railed stoop",
       "sidecar": "sidecars/1904/mark_kimball_house_2108_prairie.json",
-      "asset": "gltf/mark_kimball_house_2108_prairie__draft_1904.glb"
+      "asset": "gltf/mark_kimball_house_2108_prairie__as_mapped_1904.glb"
     },
     {
       "id": "mark_kimball_house_2108_prairie_coach_house",
@@ -1429,9 +1441,9 @@
     },
     {
       "id": "moulton_lowden_house_1912_prairie_coach_house",
-      "name": "1912 S. Prairie Avenue — the alley building of the house at 1912 (district draft; refined by T-1935)",
+      "name": "1912 Prairie Avenue (the Moulton/Lowden house): the brick barn on the alley under a hip and deck, K12",
       "sidecar": "sidecars/1904/moulton_lowden_house_1912_prairie_coach_house.json",
-      "asset": "gltf/moulton_lowden_house_1912_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/moulton_lowden_house_1912_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "murdoch_house_2130_prairie",
@@ -1447,9 +1459,9 @@
     },
     {
       "id": "otis_house_2033_prairie",
-      "name": "2033 Prairie Avenue — Otis Italianate rowhouse (district draft; refined by T-1918)",
+      "name": "2033 Prairie Avenue — the Otis house (Italianate stone-front rowhouse, 1869), K01 frontage assembly",
       "sidecar": "sidecars/1904/otis_house_2033_prairie.json",
-      "asset": "gltf/otis_house_2033_prairie__draft_1904.glb"
+      "asset": "gltf/otis_house_2033_prairie__as_mapped_1904.glb"
     },
     {
       "id": "otis_house_2033_prairie_coach_house",
@@ -1525,9 +1537,9 @@
     },
     {
       "id": "reid_house_2013_prairie",
-      "name": "2013 Prairie Avenue — Reid classical/fireproof townhouse (district draft; refined by T-1916)",
+      "name": "2013 Prairie Avenue — William H. Reid house (Beers, Clay & Dutton, 1894), K01 frontage assembly",
       "sidecar": "sidecars/1904/reid_house_2013_prairie.json",
-      "asset": "gltf/reid_house_2013_prairie__draft_1904.glb"
+      "asset": "gltf/reid_house_2013_prairie__as_mapped_1904.glb"
     },
     {
       "id": "reid_house_2013_prairie_coach_house",
@@ -1591,9 +1603,9 @@
     },
     {
       "id": "shed_1834_1900_prairie",
-      "name": "The shed on the strip between 1834 and 1900 Prairie Avenue (district draft; refined by T-1935)",
+      "name": "The strip between 1834 and 1900 Prairie Avenue: the one-storey open frame shed on the alley, K16",
       "sidecar": "sidecars/1904/shed_1834_1900_prairie.json",
-      "asset": "gltf/shed_1834_1900_prairie__draft_1904.glb"
+      "asset": "gltf/shed_1834_1900_prairie__as_standing_1904.glb"
     },
     {
       "id": "sherman_house_2100_prairie",
@@ -1633,9 +1645,9 @@
     },
     {
       "id": "stone_house_2035_prairie",
-      "name": "2035 Prairie Avenue — Corner of limestone row (district draft; refined by T-1918)",
+      "name": "2035 Prairie Avenue — Mrs. H. O. Stone's house, the 21st Street corner of the 1869 limestone row, K01 frontage assembly",
       "sidecar": "sidecars/1904/stone_house_2035_prairie.json",
-      "asset": "gltf/stone_house_2035_prairie__draft_1904.glb"
+      "asset": "gltf/stone_house_2035_prairie__as_mapped_1904.glb"
     },
     {
       "id": "stone_house_2035_prairie_rear_building",
@@ -1645,9 +1657,9 @@
     },
     {
       "id": "tolman_house_2031_prairie",
-      "name": "2031 Prairie Avenue — Lemont-limestone Italianate row (district draft; refined by T-1918)",
+      "name": "2031 Prairie Avenue — Lemont-limestone row house of three storeys with a full-height canted bay and a two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/tolman_house_2031_prairie.json",
-      "asset": "gltf/tolman_house_2031_prairie__draft_1904.glb"
+      "asset": "gltf/tolman_house_2031_prairie__as_mapped_1904.glb"
     },
     {
       "id": "tolman_house_2031_prairie_coach_house",
@@ -1721,6 +1733,7 @@
     "burns_house_1812",
     "caldwell_agency_log_house",
     "carpenter_south_water_store",
+    "chamber_of_commerce_1871",
     "chappel_infant_school",
     "chicago_american_office",
     "chicago_democrat_office",
@@ -1729,6 +1742,7 @@
     "clybourn_cabins",
     "clybourn_slaughterhouse",
     "cobweb_castle",
+    "cook_county_court_house_1871",
     "cook_county_courthouse_1835",
     "council_house",
     "coursoll_field_1812",
@@ -2235,7 +2249,85 @@
     "recon_1835_canal_trade_c4_002",
     "recon_1835_canal_trade_w1_003",
     "recon_1835_canal_trade_w2_004",
+    "recon_1835_core_c1_004",
+    "recon_1835_core_c1_008",
+    "recon_1835_core_c1_012",
+    "recon_1835_core_c1_015",
+    "recon_1835_core_c1_019",
+    "recon_1835_core_c1_023",
+    "recon_1835_core_c1_027",
+    "recon_1835_core_c1_031",
+    "recon_1835_core_c1_035",
+    "recon_1835_core_c1_039",
+    "recon_1835_core_c1_043",
+    "recon_1835_core_c1_047",
+    "recon_1835_core_c1_051",
+    "recon_1835_core_c1_055",
+    "recon_1835_core_c1_059",
+    "recon_1835_core_c2_001",
+    "recon_1835_core_c2_005",
+    "recon_1835_core_c2_007",
+    "recon_1835_core_c2_010",
+    "recon_1835_core_c2_014",
+    "recon_1835_core_c2_017",
+    "recon_1835_core_c2_020",
+    "recon_1835_core_c2_022",
+    "recon_1835_core_c2_025",
+    "recon_1835_core_c2_028",
+    "recon_1835_core_c2_030",
+    "recon_1835_core_c2_033",
+    "recon_1835_core_c2_036",
+    "recon_1835_core_c2_038",
+    "recon_1835_core_c2_041",
+    "recon_1835_core_c2_044",
+    "recon_1835_core_c2_046",
+    "recon_1835_core_c2_049",
+    "recon_1835_core_c2_052",
+    "recon_1835_core_c2_054",
+    "recon_1835_core_c2_057",
+    "recon_1835_core_c3_002",
+    "recon_1835_core_c3_006",
+    "recon_1835_core_c3_009",
+    "recon_1835_core_c3_011",
+    "recon_1835_core_c3_013",
+    "recon_1835_core_c3_016",
+    "recon_1835_core_c3_018",
+    "recon_1835_core_c3_021",
+    "recon_1835_core_c3_024",
+    "recon_1835_core_c3_026",
+    "recon_1835_core_c3_029",
+    "recon_1835_core_c3_032",
+    "recon_1835_core_c3_034",
+    "recon_1835_core_c3_037",
+    "recon_1835_core_c3_040",
+    "recon_1835_core_c3_042",
+    "recon_1835_core_c3_045",
+    "recon_1835_core_c3_048",
+    "recon_1835_core_c3_050",
+    "recon_1835_core_c3_053",
+    "recon_1835_core_c3_056",
+    "recon_1835_core_c3_058",
+    "recon_1835_core_h3_003",
     "recon_1835_forks_freight_f2_001",
+    "recon_1835_gifford_c1_010",
+    "recon_1835_gifford_c2_001",
+    "recon_1835_gifford_c2_009",
+    "recon_1835_gifford_c2_011",
+    "recon_1835_gifford_c2_016",
+    "recon_1835_gifford_c3_002",
+    "recon_1835_gifford_c3_003",
+    "recon_1835_gifford_c3_005",
+    "recon_1835_gifford_c3_006",
+    "recon_1835_gifford_c3_007",
+    "recon_1835_gifford_c3_008",
+    "recon_1835_gifford_c3_012",
+    "recon_1835_gifford_c3_013",
+    "recon_1835_gifford_c3_014",
+    "recon_1835_gifford_c3_015",
+    "recon_1835_gifford_c3_017",
+    "recon_1835_gifford_h3_004",
+    "recon_1835_gifford_h3_018",
+    "recon_1835_gifford_h3_019",
     "recon_1835_north_a1_008",
     "recon_1835_north_a1_032",
     "recon_1835_north_a1_036",
@@ -2443,6 +2535,7 @@
     "robinson_caldwell_cabins",
     "sauganash_hotel",
     "sauganash_hotel_stable",
+    "sherman_house_1871",
     "slough_log_bridge",
     "south_bank_shed_dearborn_e2",
     "south_branch_raft_bridge",

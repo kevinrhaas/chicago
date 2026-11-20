@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Primary-source field observations for pre-fire Chicago: historical addresses, people, plants, vehicles, public works and proposed 1871 scene studies, with original page scans.">
+  <title>The city in detail — 1871 Field Notebook</title>
+  <link rel="stylesheet" href="research.css?v=2">
+  <link rel="stylesheet" href="notebook.css?v=1">
+  <script src="notebook.js?v=1" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#observations">Skip to field observations</a>
+<header class="masthead">
+  <a class="back-link" href="research.html">← Preparing 1871 · Research dossier</a>
+  <p class="eyebrow">Chicago before the fire · Primary-source field notebook</p>
+  <h1>The city <em>in detail.</em></h1>
+  <p class="lede">A waiter’s address. A pine-plank walk. A florist, a horsecar interval, a park’s elm trees. Read the small pieces of evidence that can make the 1871 city specific.</p>
+  <p class="scope-note">Drawn from the 1871 city directory and 1870–1871 municipal reports. Each observation keeps its source, reporting date, historical location and limits.</p>
+  <div id="notebook-stats" class="notebook-stats" aria-label="Notebook coverage"></div>
+  <nav class="page-nav" aria-label="Notebook sections">
+    <a href="#scenes">Explore scene studies</a><a href="#observations">Search observations</a><a href="#sources">Original sources</a><a href="#revisions">What changed</a><a href="research.html#other-years">Lessons from other years</a><a href="geography.html">Geography &amp; accuracy</a>
+  </nav>
+  <p class="downloads"><a href="field-observations-1871.csv" download>Observations CSV ↓</a> · <a href="field-notebook-1871.json" download>Full notebook JSON ↓</a> · <a href="notebook-reading.html">Complete reading edition</a></p>
+</header>
+<main>
+  <div id="notebook-status" class="load-status" role="status">Loading the field notebook…</div>
+  <noscript><p class="load-status">JavaScript is disabled. <a href="notebook-reading.html">Read all observations, scene studies and source references in the complete reading edition.</a></p></noscript>
+  <section id="scenes" hidden aria-labelledby="scenes-heading">
+    <p class="eyebrow">Put the pieces together</p><h2 id="scenes-heading">Eight places to investigate</h2>
+    <p class="section-intro">These proposed scenes connect evidence to people, objects and actions. They are research studies, with unresolved placement and timing made explicit.</p>
+    <div id="scene-list" class="scene-grid"></div>
+  </section>
+  <section id="observations" hidden aria-labelledby="observations-heading">
+    <div class="section-heading"><div><p class="eyebrow">Read the evidence at street level</p><h2 id="observations-heading">Field observations</h2></div><p id="notebook-updated" class="updated"></p></div>
+    <details class="method-note"><summary>How to read the evidence</summary><p id="notebook-method"></p><p><strong>Listed</strong> is a directory entry; <strong>scheduled</strong> is an advertised timetable; <strong>reported built</strong> is work the report says was done; <strong>measured</strong> preserves a specific observation and its interval. Proposals remain proposals. None alone proves an object or action was present at a particular hour on October 8.</p></details>
+    <form id="notebook-filters" class="filters notebook-filters" role="search">
+      <div class="search-field"><label for="notebook-search">Place, person, material or action</label><input id="notebook-search" type="search" autocomplete="off" placeholder="Try elm, Quincy, hydrant, waiter…"></div>
+      <div><label for="notebook-topic">Topic</label><select id="notebook-topic"><option value="">All topics</option></select></div>
+      <div><label for="notebook-basis">Evidence type</label><select id="notebook-basis"><option value="">All types</option></select></div>
+      <div><label for="notebook-book">Publication</label><select id="notebook-book"><option value="">All publications</option></select></div>
+      <button id="notebook-clear" type="button">Clear filters</button>
+    </form>
+    <div class="results-toolbar"><p id="notebook-count" role="status" aria-live="polite"></p><div class="detail-controls"><button id="notebook-expand" type="button">Expand results</button><button id="notebook-collapse" type="button">Collapse results</button></div></div>
+    <div id="observation-list"></div><p id="notebook-empty" class="empty-state" hidden>No matching observations. Try a broader phrase or clear the filters.</p>
+  </section>
+  <section id="sources" hidden aria-labelledby="sources-heading"><p class="eyebrow">Return to the original page</p><h2 id="sources-heading">The source shelf</h2><p class="section-intro">Printed page numbers and archive scan numbers are both recorded. Selected scans are preserved locally; every page links to its archive copy. These are source pages, not photographs of the reconstructed scene.</p><div id="source-list"></div></section>
+  <section id="revisions" hidden aria-labelledby="revisions-heading"><p class="eyebrow">Evidence that changes the first pass</p><h2 id="revisions-heading">What we can now say</h2><div id="revision-list"></div></section>
+</main>
+<footer><p>Chicago Before the Fire · Selective primary-source research for 1871.</p><p>Historical addresses have not been converted into modern coordinates. Scene actions remain proposals until place, time and form are corroborated.</p><a href="index.html">Year Explorer</a> · <a href="research.html">Research dossier</a> · <a href="notebook-reading.html">Complete reading edition</a></footer>
+</body>
+</html>

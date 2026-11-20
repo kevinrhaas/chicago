@@ -1,0 +1,91 @@
+== premise
+Count a made-up load of packages off the dock. Load the wagon and drop them at two stores. Then take your count back to George Dole's warehouse with nothing lost.
+
+== opening
+JAUNT: FREIGHT FOR THE STORE. It is sunrise at the dock. Everything this town eats, wears and builds with comes in by boat across the lake. Somebody has to carry it from the boat to the store. Today that is you. A list from the ship shows three packages left at Newberry and Dole's dock. Two are for Peck's store. One is for Thomas Church's store on Lake Street.
+
+Count them, load the wagon and drop them off. Then take your count to George Dole's old warehouse. A wagon driver who loses a package does not get hired again.
+
+== stop wharf
+Newberry and Dole have put ads in the paper since its very first issue in November 1833. They take in goods off the lake for other men's stores. In June they were named the town's agents for the steamboat Michigan. Nobody is sure which side of the river their warehouse stood on. But this is where the town's goods begin. Three packages are waiting.
+
+== narrative wharf
+How will you load the three?
+
+== label wharf count-all
+Count all three, then load them
+
+== consequence wharf count-all
+Three packages counted and loaded. The list and the wagon match.
+
+== label wharf two-now
+Count, and take only Peck's two
+
+== consequence wharf two-now
+A lighter load. Church's package waits at the dock for a second trip.
+
+== label wharf trust
+Load all three on the bill's word
+
+== consequence wharf trust
+It is faster, but nobody has checked the list.
+
+== stop store
+Go east to Peck's corner of LaSalle and South Water Streets. His ads list cloth, tools, food, dishes and flour. He built the town's first two-story wooden building with boards brought from Detroit by boat. He has been unloading boats ever since. His two packages fit with the things he sells.
+
+== narrative store
+Check his list, or unload right away?
+
+== label store check
+Check the marks against his card
+
+== consequence store check
+Cloth and tools, both things his ad lists. Two packages dropped off.
+
+== label store unload
+Unload both packages and go
+
+== consequence store unload
+Two packages off the wagon, not checked.
+
+== stop church
+Go up to Lake Street, where the town's business is moving. In 1834, a history book says, stores began to spread from South Water Street to Lake Street. Thomas Church came that year. A modern note says he built the first store on this street, a two-story wooden building. It does not say what he sold or when he built it.
+
+== narrative church
+Is Church's package on the wagon?
+
+== label church deliver
+Leave Church's package
+
+== consequence church deliver
+The wagon is empty.
+
+== label church note
+Note the store for the second trip
+
+== consequence church note
+Church's package is still at the dock.
+
+== stop tally
+A history book puts George Dole's 1832 warehouse near Lake and Dearborn Streets. Dole is one of the owners of Newberry and Dole. In 1832 he started the town's meat packing business here. It grew into one of the giant businesses Chicago became famous for. By 1834 the work had moved to the river's South Branch, so this old yard is quiet now. Turn in your count here.
+
+== narrative tally
+Hand in your count.
+
+== leg 0
+The wagon creaks east with its load.
+
+== ending second-trip
+Your count matches two packages and says so. Church's package waits at the dock for a second, lighter trip. You are a careful driver with an honest count. You will be hired again.
+
+== ending taken-on-trust
+All three packages were dropped off. But your count only copies the list. Nobody counted at the dock. If a store finds one missing, nobody can say where it went. Count first next time.
+
+== ending checked-and-counted
+You counted at the dock, checked against Peck's own ad and dropped them off one by one. Two packages went to Peck's and one to Church's. Your count matches the list down to the last package.
+
+== ending cargo-accounted-for
+Three packages counted at the dock, two left at Peck's and one at Church's. Your count matches the list. Every package is safe.
+
+== keepsake text
+A made-up count of three packages from Newberry and Dole's dock, and where each one went. No real list, price or cost is written on it.

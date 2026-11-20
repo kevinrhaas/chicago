@@ -39,6 +39,12 @@
  */
 
 import { gradeTerm } from './strings/terms.js';
+import { t } from './strings/index.js';
+import './strings/notebook.js';
+import { fieldNotebook } from './field-notebook.js';
+import { metFound } from './met-found.js';
+import { metFoundRow, dayWords } from './met-found-view.js';
+import { personModel } from './person-card.js';
 import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
@@ -46,6 +52,19 @@ import { householdHtml, loadResidentJoins, sayJoins, words } from './residents.j
 import { seatHtml, goTarget } from './seat.js';
 import { readHouseholdRecord } from './letter-list-roster.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+
+/** The legacy directory saves the same person summary as the unified card. The selected
+ * household must contain this exact person; its other residents are never copied as theirs. */
+export function notebookPersonEntry(row, household, citations, sceneId) {
+  const person = household?.persons?.find(p => p.id === row?.id);
+  if (!person) return null;
+  const m = personModel({ row, person, household,
+    citations: citations instanceof Map ? Object.fromEntries(citations) : citations,
+    sceneYear: Number(sceneId) });
+  return { kind: 'person', person: m.id, title: m.name, year: String(sceneId),
+    place: m.household, grade: m.grade, sources: m.sources,
+    excerpt: [m.storyMark?.text, m.lead, ...m.story, m.why?.text].filter(Boolean).join('\n\n') };
+}
 
 const PAGE = 80;
 
@@ -339,9 +358,11 @@ function filterSpecs(people) {
  * @param {string} o.sceneId              which scene's citation join to read
  * @param {(target: object) => void} o.onGoTo   travel to a person's building
  * @param {(id: string) => boolean} [o.inTown]  T-3404: is this person placed in town now
+ * @param {(id: string) => boolean} [o.atHome]  T-3573: in town and at home now (they come out)
  *                                             (a driver on their round)? Their card then
  *                                             offers Find in town and Follow.
  * @param {(id: string) => void} [o.onFollow]   walk alongside them
+ * @param {(id: string, name: string) => void} [o.onPersonSelected] retain an explicit card selection
  * @param {(text: string|null, onBack?: Function) => void} [o.onTitle]
  *   the drawer head's title hook (hud.setTitle), when the lead passes one: the
  *   open card puts the person's name in the head with a back arrow, and the
@@ -355,7 +376,8 @@ function filterSpecs(people) {
  */
 export async function mountPeople({
   mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null,
-  firmsByPerson = null, onBusiness = null, problems = [], inTown = null, onFollow = null,
+  firmsByPerson = null, onBusiness = null, problems = [], inTown = null, atHome = null, onFollow = null,
+  onPersonSelected = null, notebook = fieldNotebook, metStore = metFound,
 } = {}) {
   const idle = { search() {}, open() { return Promise.resolve(false); }, close() {}, filter() {}, get state() { return null; } };
   if (!mount) return { people: 0, error: 'no mount', ...idle };
@@ -417,7 +439,10 @@ export async function mountPeople({
     shown: PAGE,
     open: null,
     matched: 0,
-    filtersOpen: !(compact && compact.matches),
+    // T-3629: folded under Filters on every screen, since the Navigator's column is narrow
+    // on a desktop too and eleven rows of pills pushed the first name below the fold (1835).
+    filtersOpen: false,
+    metOnly: false,
   };
 
   // ---- markup ----------------------------------------------------------- //
@@ -453,6 +478,28 @@ export async function mountPeople({
   const moreBtn = $('#people-more');
   const cardEl = $('#people-card');
 
+  // T-3673: the people you talked with here in town this year: a Met filter with its
+  // count, and a badge on their rows and card. Opening a card here never adds anyone.
+  const year = String(sceneId ?? '').slice(0, 4);
+  let met = metStore.year(year).met;
+  const isMet = (id) => Object.prototype.hasOwnProperty.call(met, id);
+  const metRow = metFoundRow(document, { year, cls: 'people-met', toggleCls: 'pill people-met-toggle', store: metStore,
+    text: () => t('metfound.filter', { n: n(rows.reduce((c, r) => c + (isMet(r.id) ? 1 : 0), 0)), total: n(rows.length) }),
+    title: t('metfound.filter.title'), pressed: () => state.metOnly,
+    onToggle: () => { state.metOnly = !state.metOnly; state.shown = PAGE; paint(); } });
+  home.insertBefore(metRow.el, filtersEl);
+  const metHtml = (id) => `<p class="people-card-met"><span class="person-met">${escapeHtml(t('metfound.badge'))}</span> ${
+    escapeHtml(t('metfound.card.met', { day: dayWords(met[id]) }))}</p>`;
+  metStore.subscribe(() => {
+    met = metStore.year(year).met;
+    if (!home.hidden) paintList();
+    // A greeting opens the person's card as it ends, a beat before the talk is counted.
+    else if (state.open && isMet(state.open) && !cardEl.querySelector('.people-card-met')) {
+      cardEl.querySelector('.people-card-meta')?.insertAdjacentHTML('afterend', metHtml(state.open));
+    }
+    metRow.paint();
+  });
+
   // ---- filtering -------------------------------------------------------- //
 
   /** The row tests currently active, keyed by filter, so the per-pill counts can
@@ -485,6 +532,7 @@ export async function mountPeople({
     const tests = activeTests(except);
     const out = [];
     for (const r of rows) {
+      if (state.metOnly && !isMet(r.id)) continue;
       let ok = true;
       for (const t of tests) if (!t(r)) { ok = false; break; }
       if (!ok) continue;
@@ -571,7 +619,7 @@ export async function mountPeople({
   compact?.addEventListener?.('change', (ev) => {
     // Widen to a desktop and the rows unfold; narrow to a phone and they fold
     // unless a filter is on, which a visitor would then lose sight of.
-    state.filtersOpen = !ev.matches || Object.keys(state.filters).length > 0;
+    state.filtersOpen = state.filtersOpen || Object.keys(state.filters).length > 0; // T-3629: never unfolds by itself
     paintFilters();
   });
 
@@ -659,7 +707,8 @@ export async function mountPeople({
         data-household="${escapeHtml(r.household)}" aria-selected="false">
       <i class="grade-dot grade-${escapeHtml(r.grade)}" title="${escapeHtml(r.grade)}: ${
         GRADE_TITLE[r.grade] || GRADE_TITLE.inferred}"></i>
-      <span class="person-main"><span class="person-name">${escapeHtml(r.name)}</span>${
+      <span class="person-main"><span class="person-name">${escapeHtml(r.name)}${isMet(r.id)
+        ? ` <span class="person-met" title="${escapeHtml(t('metfound.badge.title'))}">${escapeHtml(t('metfound.badge'))}</span>` : ''}</span>${
         sub ? `<small class="person-sub">${escapeHtml(sub)}</small>` : ''}</span>${mark}</button>`;
   }
 
@@ -668,7 +717,10 @@ export async function mountPeople({
     current = matches();
     state.matched = current.length;
     const shown = current.slice(0, state.shown);
-    if (!current.length) {
+    if (!current.length && state.metOnly) {
+      resultsEl.innerHTML = `<p class="people-empty">${escapeHtml(t(state.q.trim() || Object.keys(state.filters).length
+        ? 'metfound.filter.empty' : 'metfound.filter.none'))}</p>`;
+    } else if (!current.length) {
       resultsEl.innerHTML = `<p class="people-empty">No one by that name. Try a surname alone — ${
         n(counts.letter_list_only)} of this town's people are only a name on a post-office letter list.</p>`;
     } else {
@@ -677,7 +729,7 @@ export async function mountPeople({
     const left = current.length - shown.length;
     moreBtn.hidden = left <= 0;
     moreBtn.textContent = left > 0 ? `Show ${n(Math.min(PAGE, left))} more · ${n(left)} left` : '';
-    const anyNarrowing = state.q.trim() || Object.keys(state.filters).length;
+    const anyNarrowing = state.q.trim() || Object.keys(state.filters).length || state.metOnly;
     noteEl.textContent = anyNarrowing
       ? `${n(current.length)} of ${n(rows.length)} people${state.q.trim() ? ` match “${state.q.trim()}”` : ''}`
       : `Everyone, by surname. ${n(rows.length)} people.`;
@@ -754,7 +806,9 @@ export async function mountPeople({
     }
     const follow = typeof onFollow === 'function'
       ? '<button type="button" class="people-go people-follow" data-follow=""><span class="people-go-verb">Follow</span><span class="people-go-title">Walk alongside them</span></button>' : '';
-    return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">Where they are in town now</span></button>${follow}`;
+    // T-3573: at home now, Find goes to their door and out they come on a walk.
+    const where = typeof atHome === 'function' && atHome(r.id) ? 'At home now: they come out to meet you' : 'Where they are in town now';
+    return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">${where}</span></button>${follow}`;
   }
 
   function actionsHtml(r) {
@@ -870,6 +924,7 @@ export async function mountPeople({
     if (!r) return false;
     const seq = ++openSeq;
     state.open = id;
+    onPersonSelected?.(id, r.name);
     const known = knownKey(r);
     const knownTitle = KNOWN_TITLE[known] || '';
     cardEl.innerHTML = `
@@ -890,11 +945,26 @@ export async function mountPeople({
               : ''}`
             : ''}</span>
       </p>
+      ${isMet(r.id) ? metHtml(r.id) : ''}
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
       <div class="people-card-row-notes"></div>
       ${firmsHtml(r.id)}
       <div class="people-card-body" aria-busy="true"><p class="legend-note">Loading the household record…</p></div>`;
+    const save = document.createElement('button'); save.type = 'button';
+    save.className = 'setting-button people-notebook-save';
+    save.textContent = t('notebook.personSave'); save.disabled = true;
+    const saveStatus = document.createElement('p'); saveStatus.className = 'people-notebook-status';
+    saveStatus.setAttribute('role', 'status');
+    let notebookEntry = null;
+    save.addEventListener('click', event => {
+      event.stopPropagation();
+      if (!notebookEntry || seq !== openSeq) return;
+      const result = notebook.add(notebookEntry);
+      saveStatus.textContent = t(result.ok ? (result.duplicate ? 'notebook.duplicate' : 'notebook.personSaved')
+        : `notebook.error.${result.reason}`);
+    });
+    cardEl.querySelector('.people-card-actions')?.append(save, saveStatus);
     home.hidden = true;
     cardEl.hidden = false;
     section?.classList.add('people-card-open');
@@ -911,6 +981,8 @@ export async function mountPeople({
       const wasOpen = new Set([...body.querySelectorAll('details[open] > summary')]
         .map((s) => s.textContent.replace(/\s+/g, ' ').trim()));
       const said = sayJoins(joins, reader);
+      notebookEntry = notebookPersonEntry(readerCopy(r, reader), readerCopy(hh, reader), said.citationsById, sceneId);
+      save.disabled = !notebookEntry;
       body.innerHTML = '<h4 class="people-card-h">The household record</h4>'
         + householdHtml(hh, said.citationsById, said.researchByPerson, said.directoryByPerson, said.ladderRules,
           said.agencies, said.withheldByPerson);

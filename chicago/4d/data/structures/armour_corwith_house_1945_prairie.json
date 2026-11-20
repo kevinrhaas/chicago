@@ -125,10 +125,13 @@
         "face_brick": {
           "value": {
             "front": "pressed_red",
-            "sides": "common_salmon"
+            "all_round": true
           },
           "confidence": "reconstructed",
-          "note": "T-3385: The 1928 Tribune halftone is crushed to black and reads no tone. A Second Empire brick front of 1872 on Prairie: the pressed red front of its decade, as Field's and Henderson's photographs read; the sides a salmon common run. Both picks are the period's, not this house's reading. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+          "sources": [
+            "chicago_tribune_1928_07_29_famous_homes_corwith"
+          ],
+          "note": "T-3385: The 1928 Tribune halftone is crushed to black and reads no tone. A Second Empire brick front of 1872 on Prairie: the pressed red front of its decade, as Field's and Henderson's photographs read; Both picks are the period's, not this house's reading. 2026-11-13 (the owner, on its salmon flanks and canted corner: \"consistent brick with the front ... the fields and armour house definitely seem need to change for consistent brick all around\"): laid all round (`all_round`), the salmon common withdrawn. The house stands on the corner of Twentieth Street, so its south flank is a street front, and in the Tribune's halftone that flank and the corner print as dark as the Prairie Avenue front, with no paler wall anywhere on the house (the halftone reads no colour, only that nothing is pale). Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385, L-k03-face-brick-all-round)."
         },
         "roof_form": {
           "value": "mansard",

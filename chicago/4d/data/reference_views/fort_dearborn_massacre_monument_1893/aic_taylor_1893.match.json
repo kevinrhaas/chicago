@@ -1,0 +1,89 @@
+{
+  "structure_id": "fort_dearborn_massacre_monument_1893",
+  "view": "aic_taylor_1893",
+  "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
+  "glb_sha256": "e9117c04d3ebb784dbec3112814faa76e0f96d594df0c457f6082cd4fe32e626",
+  "camera_sha256": "7b063a09f2205f420cce6176a8c7382a45287add0bdab32956f5b5b330a11419",
+  "photo_sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029",
+  "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/aic_taylor_1893-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the pedestal's front and west faces: the base, plinth and die at the camera's fourteen fitted corners, 10.5 px rms, the largest residual 22 px (0.1 m) on the mouldings",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the pedestal's depths: the west faces show the base 2.85 m, the plinth 1.8 m and the die 1.6 m deep; built 3.3, 2.3 and 1.9 m (reconstructed) until this camera measured them [T-3568: the record's depths set to the reading and the monument rebuilt]",
+      "status": "fixed"
+    },
+    {
+      "what": "the die's west panel, a narrow bronze plate on the west face: drawn in the render in place",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the cap's profile: two stepped washes and a fillet in the print, one slab over a cove in the render, its overhang within 0.15 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the plinth's top moulding and the die's base moulding: drawn in more steps in the print than the render's single fillet, under 0.1 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the front panel's tone: fresh dark bronze, darker than the new granite, in this 1893 print; since T-3589 the render draws the panels pale, as ICHi-19208 shows them about 1900 with their relief weathered light. The two pictures disagree because seven years of weather stand between them, and the 1904 scene takes the later one",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the lettering under the front panel, three lines of pale cut letters: not cut in the render [T-3589: cut since, three lines read on ICHi-19208, which fall here under the panel at the print's place and size]",
+      "status": "fixed"
+    },
+    {
+      "what": "the warrior (left): in the print he lunges to the left, crouched, his weight on a bent right leg with the left stretched back, his body twisted toward the woman and his head at Black Partridge's shoulder, the tomahawk raised over his head in his right hand and a feather in his hair; the render stands him upright on straight legs, so his head and the tomahawk's head stand about 0.35-0.4 m higher than the sculpture's and his stride is lost [T-3582: re-posed joint by joint on this picture: the lunge to the left on the bent right knee with the left leg stretched back to the rock's west edge, the body twisted to the woman with the head down at Black Partridge's shoulder, the tomahawk raised in the right hand with its head below the grip, the left arm across to her, the feather in his hair and the fringed ornament at his left hip]",
+      "status": "fixed"
+    },
+    {
+      "what": "Margaret Helm (centre): in the print she staggers, leaning back against Black Partridge, her head turned, her right arm reaching across to the warrior, her dress falling in folds to the rock with a cloak loose behind; the render is an upright figure in a smooth cone of skirt with her arms out to the sides [T-3582: re-posed on this picture: leaning back against Black Partridge, the right arm across to the warrior's waist, the left hand back at Black Partridge's chest, the hair in a knot, the skirt falling to the rock and the cloak hanging from the right arm; the folds themselves are T-3583's]",
+      "status": "fixed"
+    },
+    {
+      "what": "Black Partridge (behind her, right): in the print his left arm is raised high and out to the upper left with the palm open against the blow, his head in a headdress with a long feather streaming back, the musket slanting down past his right side; the render raises a straight arm ending in a long bar and carries a stick at his right, without the open hand, the headdress or the musket's shape [T-3582: re-posed on this picture: the left arm raised high and out to the upper left ending in an open hand, the feather standing from the headband and the long one streaming back, the right arm round Mrs. Helm, the musket slanting from behind the left shoulder past the right hip to its butt, the stride to the right]",
+      "status": "fixed"
+    },
+    {
+      "what": "the post surgeon (under them): in the print he lies across the front of the rock under the woman's skirt, his legs out toward the child; the render is a low lump with a ball for a head at the woman's left [T-3582: re-posed on this picture: half-lying back across the rock under Mrs. Helm's skirt, his head at the warrior's bent knee, propped on one arm, one leg stretched out to the west edge (the second picture shows it reaching the foot beside the warrior's; the reading 'legs toward the child' was the old record's)]",
+      "status": "fixed"
+    },
+    {
+      "what": "the child (right front): in the print he kneels at the rock's right edge reaching out with both arms; the render stands him upright in a cone with one arm out [T-3582: re-posed on this picture: kneeling at the rock's edge, both arms reaching out to the right]",
+      "status": "fixed"
+    },
+    {
+      "what": "the rock: a rough, broken mound rising under the figures' feet in the picture; a low smooth swell in the render [T-3582: a broken field of many small lumps over a few large ones, every point knocked up or down a few centimetres, rising under the feet; its ledges are the generator's, not the cast's stone by stone]",
+      "status": "fixed"
+    },
+    {
+      "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: since T-3588 the bodies are the people rigs (hm08, posed to the joints read here), so each figure has a body, hands, feet and a head with the rig's neutral face and short hair, and the warrior and Black Partridge their rigs' breechcloths, Black Partridge his leggings, Mrs. Helm her rig's gown, the surgeon his coat and pantaloons and the child his jacket and trousers, all cast in the one bronze; none of it is yet modelled to the sculpted faces, hair, drapery, ornaments and weapons (T-3589, L-fort-dearborn-monument-3567) [T-3594: Mrs. Helm's drapery modelled since: her skirt falls from the waist in long folds over the knee she sinks on and spreads on the rock, folds deepening to the hem; an overskirt is caught up over her left hip, its hem slanting down across the front to below her right knee; and the cloak hangs off her right forearm in a heavy fold gathered at its foot, in place of the cone and the two members the poses kept.] [T-3594, the weapons and ornaments, read on ICHi-19208 for their outline and on this print for their depth, and hung on the posed bodies: the warrior's pipe tomahawk (a haft through his fist with a short butt above it, the flat blade flaring to the right on its lower half and the bowl opposite), his broad feather off the back of his head to the upper right, and the fringed pouch off his belt at the hip, its end cut into four tails; Black Partridge's wide headband with its knot at the crown, the broad feather rising out of it to the upper left and the thin one streaming back and down to the right, its end hooked; and his musket, a slim barrel, the lock, a narrow wrist with the trigger guard, and the butt to its comb and toe, outside his left thigh. Still to model: the faces, the hair, and the dress of the warrior, Black Partridge, the surgeon and the child] [T-3594, the heads turned as both plates show: the warrior's face bowed to Mrs. Helm's shoulder, Black Partridge's in profile to the warrior, each head turned and nodded on its neck with its centre where it was read; on this picture Black Partridge's profile falls on the plate's. Still to model: the faces themselves, the hair (Black Partridge's falling back behind his head is the plate's and not the render's), and the dress of the warrior, Black Partridge, the surgeon and the child] [T-3594, the dress of Black Partridge and the child: Black Partridge's breechcloth is the plates' short apron off his belt, falling over the tops of his thighs and cut at its foot into a ragged fringe (it ends a quarter of the way down his thigh in this print, as the render's does), where the rig's hung to his knee; and the child wears the smock both plates show, from the shoulders to the middle of his thighs, his arms, shins and feet bare, in place of the rig's jacket, trousers and shoes. Still to model: the faces themselves, the hair (Black Partridge's falling back behind his head is the plate's and not the render's), and the dress of the warrior (the fringed sash at his belt) and the surgeon] [T-3594, the hair: Black Partridge's long hair falls from under the back of his band behind his neck to the back of his left shoulder (this print, x 705-750, y 235-305, puts it further back than ICHi-19208 does: about 0.6 m behind the head's centre against about 0.2; it is built at 0.35 m, within 23 px of this print across), and the warrior's lock hangs from under his band past his cheek, curled at its end (x 465-482, y 275-300, built within 4 px of it). Still to model: the faces themselves, and the dress of the warrior (the fringed sash at his belt) and the surgeon] [T-3594, the warrior's sash: a broad band about 0.12 m deep wrapped round his hips with folds across it, as this print draws it (x 410-470, y 395-428), its foot sloping down to his right hip, the fringed ends flying west out of it (the pouch), and the cloth hanging from it at his right hip with strands at its foot. Through this camera the whole sash falls about 40 px lower on the body than the print's, the two fits' known disagreement on the group's height (its heights are ICHi-19208's), and the hanging cloth reads narrower than the print's bunched fold. Still to model: the faces themselves, and the surgeon's dress] [T-3594, the surgeon's pantaloons: in place of his rig's tight ones, loose heavy cloth on both legs from the hip past the knee to the boot's top, rumpled in creases round and across the leg and gathered wider over the boot, where this print shows the leg he stretches west (x 400-470, y 560-640) creased and thick to the boot; the shin is built about 0.15 m through, the print's reading. The render's group stands about 25 px lower on this print than the plate's (the two fits' known disagreement), so the leg is compared by its width and its creases, not its height. Still to model: the faces themselves] [T-3594, the faces turned: Mrs. Helm's face, which looked straight out to the street over a level head, is turned to the warrior and bowed, three-quarter on and down through this camera as the print draws it (x 625-660, y 300-335), the profile ICHi-19208 shows square-on; the child's face, which looked straight out, is lifted up and to the right after his hands, the chin up and three-quarter on as the print draws it (x 745-780, y 555-585). The render's group stands lower on this print than the plate's (the two fits' known disagreement), so the faces are compared by their turn, not their height. Still to model: the sculpted features of the faces themselves (the brows, noses and mouths the print draws stronger than the rig's neutral face)] [T-3594, the faces' features: the rig's neutral face, its nose 7-10 mm proud of the lip and its brow and lips barely cut, is re-cut on every figure toward the faces this print draws stronger: the nose drawn out along its bridge to the tip (Black Partridge's bridge highest, as his profile here, x 657-692, y 235-275, shows it), the brow ridge brought forward over eyes set back in their sockets, the cheekbones raised, the line between the lips cut in, the hollow under the lower lip and the chin brought out (monument_figures.FEATURES: full on the two men, less on the surgeon, finer on Mrs. Helm, least on the child). The render's Black Partridge now shows the profile's nose and brow standing out and the warrior's bowed face a heavy brow over it; the faces are under 40 px here, so the depths are read as stronger than the rig's, not measured (L-fort-dearborn-monument-3567). Nothing of the faces, hair, dress, ornaments and weapons is left at the rigs' starting shapes]",
+      "status": "fixed"
+    },
+    {
+      "what": "the group's outline as a whole: the print's rises from the rock at about y 690 to the tomahawk at y 175 (orig. px) and spans x 350-830; the render's spans x 330-900 and its tomahawk stands at y 135, the warrior's upright stance and Black Partridge's long bar (above) [T-3582: the five figures re-posed (above), so the render's outline now follows the print's figure by figure; what is left is the group's height, below]",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the estate wall and its coped pier behind at right, and the young street tree: not drawn by this review",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: a toned monochrome print",
+      "status": "not shown"
+    },
+    {
+      "what": "the group's height through this camera: every joint of the figures reads 25-85 px higher in the print than in the render, and the rock's top 25-30 px, at any depth a joint could stand at (T-3582 tried them all), so through this camera the group is about 10 per cent taller than through ICHi-19208 (about 2.35 m of figures against 2.13). The two camera fits disagree: this one is fitted on the base, plinth and die alone, below the group; ICHi-19208 is the square-on view the record takes (form.group_h_m says both)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the figures' masses: since T-3588 each figure is a posed people rig, not tapered limbs and balls; the warrior's long lunge, Black Partridge's raised hand and the child's kneel read through this camera as bodies. Still open (T-3589): Mrs. Helm's dress is the rig's slim gown inside the cone of skirt the poses kept, the folds and the cloak smooth masses; Black Partridge reads straighter and squarer than the print's [T-3594: Mrs. Helm's dress is no longer a smooth cone: the skirt, overskirt and cloak are drapery in folds (above), the skirt's hem at the plate's place and width. Black Partridge's straightness and the warrior's upright torso stay open] [T-3594, the turns: the warrior's chest now faces Mrs. Helm, about 30 degrees right of the street, over hips that face his lunge about 15 degrees left, the spine carrying the twist a third at a time, so his chest and belly read turned to her and the breechcloth to the left as the plate's do; Black Partridge's chest is turned a third of the way to the warrior and his face is in profile to him. on ICHi-19208 his pelvis-to-neck line leans 11 degrees to the left from his belt (x 665, y 289) to the root of his neck (x 648, y 199), on the plate's own belt and neck, so his height and lean are the plate's; what read as straight was the square chest and the face to the street. The shoulders keep their read x and height]",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

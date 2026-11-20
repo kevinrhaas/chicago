@@ -133,7 +133,9 @@ const sampledClear = (blockedAt) => (ae, an, be, bn) => {
  *   default `blockedAt` sampled along it
  * @param {{ speed: number, sprintSpeed: number }} o.walk   the walker's own paces
  * @param {() => boolean} [o.busy]     true while something else steers (a Go to ride)
- * @param {(state: object|null, why: string) => void} [o.onChange]
+ * @param {(state: object|null, why: string) => void} [o.onChange]   why: 'start' (state.waitLeft
+ *   > 0 while the person is not there yet), 'found' (a waited-for person is there now), or
+ *   with null: 'button', 'input', 'travel', 'gone', 'switched'
  */
 export function createFollow({ walker, locate, blockedAt = () => false, clearBetween = null, walk, busy = () => false, onChange = () => {} }) {
   if (!walker?.state || typeof locate !== 'function' || !(walk?.speed > 0)) throw Error('follow: a walker, a locate() and the walk paces are required');
@@ -292,7 +294,8 @@ export function createFollow({ walker, locate, blockedAt = () => false, clearBet
       if (current.waitLeft > 0) { current.waitLeft -= dt; return false; }
       stop('gone'); return false;
     }
-    current.waitLeft = 0;
+    // Waited for (a figure loading, or someone still in their doorway): here now.
+    if (current.waitLeft > 0) { current.waitLeft = 0; onChange({ ...current }, 'found'); }
     const person = observe(seen, dt);
     if (current.side === null) current.side = sideFor(person);
     if (!current.name && person.name) current.name = person.name;

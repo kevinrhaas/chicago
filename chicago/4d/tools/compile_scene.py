@@ -43,6 +43,7 @@ from common.materials import fabric_tone  # noqa: E402
 from grade_structures import grade_street  # noqa: E402
 import readable_text  # noqa: E402
 from flag_form_contract import compiled_form_attributes  # noqa: E402
+from scene_selection import selection_errors, structure_is_selected  # noqa: E402
 
 
 CHECK = False
@@ -1433,6 +1434,13 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 row["present"] = "uncertain"
         if person.get("own_card"):
             row["own_card"] = person["own_card"]
+        # A NAME GRADED BELOW ITS PERSON (T-3553, the owner 2026-11-17): a real person no source
+        # names, given a name of ours, is attested and their name reconstructed. The name card's
+        # edge shows the weaker of the two, so the name never reads as the record's.
+        name_grade = (person.get("name_basis") or {}).get("grade")
+        rank = {"attested": 0, "inferred": 1, "reconstructed": 2}
+        if rank.get(name_grade, -1) > rank.get(row["grade"], 9):
+            row["name_grade"] = name_grade
         seat = seat_for.get(person.get("id"))
         if seat is not None and not row["lives_at"]:
             # THE SEAT IS THE ONLY PLACE THIS PERSON IS GIVEN A ROOF, and it is written
@@ -2966,10 +2974,14 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     scene = load(DATA / "scenes" / f"{scene_id}.json")
     target = dt.date.fromisoformat(scene["target_date"])
     datum = load(DATA / "datum.json")
+    records = [load(p) for p in sorted((DATA / "structures").glob("*.json"))]
+    errors = selection_errors(scene, (st["id"] for st in records))
+    if errors:
+        raise ValueError(f"scene {scene_id}: " + "; ".join(errors))
     outdir = DATA / "sidecars" / scene_id
     outdir.mkdir(parents=True, exist_ok=True)
 
-    written, skipped = 0, []
+    written, skipped, scoped_out = 0, [], []
     index = []
     residents = compile_residents()
     trade_roofs_path = DATA / "reconstruction" / "1835_trade_roof_seats.json"
@@ -3292,10 +3304,15 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
             sidecar["lodging"] = lodging[st["id"]]
         return sidecar
 
-    for path in sorted((DATA / "structures").glob("*.json")):
-        st = load(path)
+    for st in records:
+        if not structure_is_selected(scene, st["id"]):
+            scoped_out.append(st["id"])
+            continue
         phase = resolve_phase(st, target)
         if phase is None:
+            if "structure_ids" in scene:
+                raise ValueError(f"scene {scene_id}: selected structure '{st['id']}' has no "
+                                 f"phase covering {target}")
             skipped.append(st["id"])
             continue
         sidecar = build_sidecar(st, phase)
@@ -3317,6 +3334,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         "streets": streets,
         "structures": index,
         "excluded_by_date": skipped,
+        **({"excluded_by_scope": scoped_out} if "structure_ids" in scene else {}),
     })
 
     versions_written = compile_versions(scene_id, target, outdir, build_sidecar, resolved)
@@ -3383,7 +3401,8 @@ def main() -> int:
 
     scenes = ([p.stem for p in sorted((DATA / "scenes").glob("*.json"))]
               if args.all or not args.scene else [args.scene])
-    total = sum(compile_scene(s, sources, exclusions) for s in scenes)
+    for scene_id in scenes:
+        compile_scene(scene_id, sources, exclusions)
     if CHECK:
         for d in DRIFT:
             print(f"   DRIFT: {d}")
@@ -3392,7 +3411,9 @@ def main() -> int:
                   f"run: python3 tools/compile_scene.py --all")
             return 1
         print("OK: every committed sidecar is what the dataset compiles to")
-    return 0 if total else 1
+    # A scene can deliberately consist of terrain and generic context before any
+    # named structure is admitted. Zero named sidecars is not a failed compile.
+    return 0 if scenes else 1
 
 
 if __name__ == "__main__":

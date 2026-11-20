@@ -21,7 +21,7 @@
  * `?data=` and `?assets=` override either.
  */
 
-import { fetchPublishedAssetBytes, registerPublishedTextureBuffers } from './published-assets.js';
+import { fetchPublishedAssetBytes, registerPublishedTextureBuffers, sheetRetries } from './published-assets.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources, releaseSharedImage } from './shared-images.js';
@@ -223,6 +223,81 @@ async function fetchAsset(url) {
 }
 
 /**
+ * WHICH OF A GLB'S PICTURES CAME BACK EMPTY — T-3617.
+ *
+ * GLTFLoader turns a texture that fails (its bytes did not arrive, or the KTX2
+ * transcoder refused them) into `null` and builds the material without it, so the
+ * slot draws its plain base colour: the owner's 1904 boot of 2026-11-16 had Glessner
+ * and its neighbours in white stone under white roofs. The parse itself succeeds, so
+ * nothing upstream knew. This counts, per parse, every texture the file asked for that
+ * came back null; `loadDetailAsset` reads it, lets the parse go and reads the file again
+ * (TEXTURE_REREADS_MS apart), and a house that still lacks a picture after that is
+ * reported by name and flagged `texturesLost` for the page to say so.
+ */
+export const TEXTURE_REREADS_MS = Object.freeze([1000, 4000]);
+
+/**
+ * WHY A PICTURE CAME BACK EMPTY — T-3647 (a piece of T-3637).
+ *
+ * GLTFLoader's `loadTextureImage` ends in `.catch(() => null)`, and the only trace it
+ * leaves is `console.error("Couldn't load texture", <blob or sheet URL>)`, which names
+ * no file, no picture and no cause. Dev's mobile smoke stage 15 went red on exactly that
+ * line in four of six content builds (2026-11-17) and nobody could say whether the
+ * bytes were refused, the transcoder refused them, or the page was going away; four
+ * local tries never reproduced it. So the reason is kept where the null is made:
+ * `c4dLostTextureWhy[i]` is why `c4dLostTextures[i]` was lost, it rides into the
+ * problem list beside the name, and each loss is also a `console.warn` beginning
+ * `4D Chicago: picture lost`, so a page that is gone a moment later (a Jump, a
+ * reload) has still said why. Nothing is retried or hidden here that was not before.
+ */
+export const LOST_PICTURE_WARNING = '4D Chicago: picture lost';
+const reasonOf = (error) => String((error && (error.message || error.error)) || error || 'no reason given')
+  .replace(/\s+/g, ' ').slice(0, 160);
+
+export function trackLostTextures(loader) {
+  loader.register((parser) => {
+    const lost = [];
+    const why = [];
+    const refused = new Map();
+    parser.c4dLostTextures = lost;
+    parser.c4dLostTextureWhy = why;
+    const own = parser.loadTextureImage.bind(parser);
+    parser.loadTextureImage = function loadCountedTextureImage(textureIndex, sourceIndex, imageLoader) {
+      return own(textureIndex, sourceIndex, imageLoader).then((texture) => {
+        if (!texture) {
+          const image = parser.json.images?.[sourceIndex];
+          const buffer = parser.json.buffers?.[parser.json.bufferViews?.[image?.bufferView]?.buffer];
+          const name = image?.name || buffer?.uri || image?.uri || `image ${sourceIndex}`;
+          const reason = refused.get(sourceIndex) ?? 'no reason given';
+          lost.push(name);
+          why.push(reason);
+          console.warn(`${LOST_PICTURE_WARNING}: ${name} — ${reason}`);
+        }
+        return texture;
+      });
+    };
+    return {
+      name: 'chicago_lost_textures',
+      // Wrapped here, not above: plugins are built in registration order and the
+      // shared-image cache (shared-images.js), registered after this one, replaces
+      // `loadImageSource` too. A parser it hands a cached rejection never reaches the
+      // inner function, so only the outermost one sees every refusal. `beforeRoot`
+      // runs once every plugin of this parse has been built.
+      beforeRoot() {
+        const source = parser.loadImageSource;
+        parser.loadImageSource = function loadReasonedImageSource(sourceIndex, imageLoader) {
+          const p = source.call(parser, sourceIndex, imageLoader);
+          p.catch?.((error) => { if (!refused.has(sourceIndex)) refused.set(sourceIndex, reasonOf(error)); });
+          return p;
+        };
+        return null;
+      },
+    };
+  });
+  return loader;
+}
+
+/**
  * HOW MANY STRUCTURES LOAD AT ONCE — T-2597. Every one, still, and on purpose.
  *
  * `loadScene` starts every structure of the year together: 686 sidecars and GLB
@@ -293,7 +368,7 @@ export async function loadScene(year, bases = resolveBases(), {
   keepEncodedImages = false,
   encodedImagesAsBlobs = false,
 } = {}) {
-  const { dataBase, assetBase } = bases;
+  const { dataBase } = bases;
   const problems = [];
 
   const [scene, datum] = await Promise.all([
@@ -361,7 +436,7 @@ export async function loadScene(year, bases = resolveBases(), {
   };
 
   // The shared KTX2 loader (T-2582), so a KHR_texture_basisu derivative decodes.
-  const loader = registerPublishedTextureBuffers(registerKTX2(new GLTFLoader()));
+  const loader = trackLostTextures(registerPublishedTextureBuffers(registerKTX2(new GLTFLoader())));
   // T-2464: houses built on one kit embed the same maps; decode each once.
   // T-2598: a phone keeps each picture's encoded bytes, so texture residency can
   // decode one again after the decoded copy was closed (texture-residency.js).
@@ -402,9 +477,28 @@ export async function loadScene(year, bases = resolveBases(), {
       // T-3232: GLTFLoader resolves a buffer's URI by appending it to this path, so
       // it is the GLB's directory, not its URL: a published GLB that shares a texture
       // sheet names it as `sheets/<hash>.ktx2` beside it (tools/share_glb_sheets.mjs).
-      const gltf = await new Promise((resolve, reject) => {
+      const parse = () => new Promise((resolve, reject) => {
         loader.parse(got.buffer, new URL('.', assetUrl).href, resolve, reject);
       });
+      let gltf = await parse();
+      // T-3617: a picture that did not arrive is a null texture, not an error. Read
+      // the file again (its sheets are asked for afresh) before settling for a white wall.
+      let texturesLost = gltf.parser?.c4dLostTextures ?? [];
+      // T-3647: why each was lost — the first read's reasons, kept even when a re-read
+      // recovers, and the last read's for a picture that never arrived.
+      const firstWhy = [...(gltf.parser?.c4dLostTextureWhy ?? [])];
+      let texturesWhy = firstWhy;
+      let texturesReread = 0;
+      for (const pause of TEXTURE_REREADS_MS) {
+        if (!texturesLost.length) break;
+        gltf.parser = null;
+        disposeLoadedAsset(gltf);
+        await new Promise((r) => { setTimeout(r, pause); });
+        texturesReread += 1;
+        gltf = await parse();
+        texturesLost = gltf.parser?.c4dLostTextures ?? [];
+        texturesWhy = [...(gltf.parser?.c4dLostTextureWhy ?? [])];
+      }
       // T-2464: nothing here reads the parser once the scene is built, and it holds
       // the file's whole binary chunk and every buffer view it sliced (embedded
       // images included) for as long as the building is loaded. Let it go.
@@ -414,7 +508,9 @@ export async function loadScene(year, bases = resolveBases(), {
       if (bank(record)) assetBytes.set(key, got);
       return { gltf, assetUrl: key, assetDetail: level,
         assetIsPlaceholder: !!header?.asset?.extras?.placeholder,
-        assetRetried: got.retried, loadFailed: null };
+        assetRetried: got.retried, loadFailed: null,
+        texturesLost: texturesLost.length ? [...texturesLost] : null, texturesReread,
+        texturesWhy: texturesLost.length ? texturesWhy : (texturesReread ? firstWhy : null) };
     } catch (error) {
       assetBytes.delete(key);
       throw error;
@@ -495,10 +591,16 @@ export async function loadScene(year, bases = resolveBases(), {
     let assetIsPlaceholder = false;
     let loadFailed = null;
     let assetRetried = false;
+    let texturesLost = null;
+    let texturesReread = 0;
+    let texturesWhy = null;
     try {
       const got = await loadDetailAsset(assetRecord, detail);
       gltf = got.gltf;
       assetRetried = got.assetRetried;
+      texturesLost = got.texturesLost;
+      texturesReread = got.texturesReread;
+      texturesWhy = got.texturesWhy ?? null;
       if (got.assetIsPlaceholder) {
         assetIsPlaceholder = true;
         problems.push(`${id}: rendering a PLACEHOLDER asset (${sidecar.asset}) — `
@@ -520,6 +622,17 @@ export async function loadScene(year, bases = resolveBases(), {
       problems.push(`${id}: its asset ${sidecar.asset} failed on the first ask and `
         + 'loaded on the second — a dropped request, not a bad file');
     }
+    // T-3617: say which house is drawing without a picture, and which pictures.
+    if (texturesLost) {
+      problems.push(`${id}: ${texturesLost.length} of its pictures did not arrive after `
+        + `${texturesReread + 1} reads (${texturesLost.slice(0, 3).join(', ')}`
+        + `${texturesLost.length > 3 ? ', …' : ''}) — those surfaces draw untextured`
+        + `${texturesWhy?.length ? `; the last read said: ${texturesWhy[0]}` : ''}`);
+    } else if (texturesReread) {
+      problems.push(`${id}: a picture of its asset did not arrive on the first read and `
+        + `did on read ${texturesReread + 1} — a dropped request, not a bad file`
+        + `${texturesWhy?.length ? `; the first read said: ${texturesWhy[0]}` : ''}`);
+    }
 
     registry.set(id, {
       id,
@@ -529,6 +642,10 @@ export async function loadScene(year, bases = resolveBases(), {
       assetIsPlaceholder,
       loadFailed,
       assetRetried,
+      /** T-3617: names of the pictures still missing after every read, or null. */
+      texturesLost,
+      /** T-3647: why each was lost, in the same order (or, recovered, why the first read failed). */
+      texturesWhy,
       assetUrl: String(assetUrl),
       assetDetail: detail,
       sidecarUrl: String(sidecarUrl),
@@ -546,6 +663,8 @@ export async function loadScene(year, bases = resolveBases(), {
   });
   return { year, scene, datum, registry, problems, get bytes() { return bytes; },
     index, versionState, loadDetailAsset, sharedImages: sharedImages.stats,
+    /** T-3617: shared-sheet asks that needed a second try, and any that never arrived. */
+    get sheetRetries() { return { recovered: sheetRetries.recovered, failed: [...sheetRetries.failed] }; },
     /** T-2548: how many GLBs are banked for a detail switch — the harness reads it. */
     get bankedAssets() { return assetBytes.size; },
     /** T-2597: the pool size, and the most GLB bytes (and files) held unparsed at once. */

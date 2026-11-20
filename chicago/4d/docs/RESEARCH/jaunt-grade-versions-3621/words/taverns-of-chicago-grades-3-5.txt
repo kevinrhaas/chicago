@@ -1,0 +1,111 @@
+== premise
+Visit three inns, listen to what people in town are saying, and decide where to end the evening.
+
+== opening
+JAUNT: TAVERNS OF CHICAGO. It is a summer night in 1835, and the town is bursting at the seams. The land office opened in May, and everyone got even more excited. Every bed is taken. The inns are loud. The whole town is talking about land, banks and boats.
+
+Four inns stand a short ride from the forks of the river. Some of the most interesting people in town run them. Start at the Sauganash, where the owner plays the fiddle. Ride over to the west bank, and finish wherever you like. Grown-ups at these inns drink whiskey. Since 1831 the county has set the price of a small cup at about six cents. You can drink or not. Either way, keep your ears open.
+
+First, decide how much money you are carrying.
+
+== stop purse
+Start at the Sauganash, at Lake and Market Streets. Juliette Kinzie remembered it as a white two-story house with bright blue shutters. In June the paper said it was fixed up and neatly furnished. A history book calls it the nicest inn the city had. Its owner, Mark Beaubien, played a happy fiddle and was the most popular host in town. A judge said Mark's music could pull a lazy person out of his seat and send him spinning across the floor.
+
+== narrative purse
+Before you ride on, decide how much money you will spend this evening.
+
+== label purse no-purse
+Bring no purse
+
+== consequence purse no-purse
+Talking is free. You will spend nothing tonight.
+
+== label purse modest
+A modest purse
+
+== consequence purse modest
+Twenty-five cents for the evening.
+
+== label purse fuller
+A fuller purse
+
+== consequence purse fuller
+Fifty cents for the evening.
+
+== stop wolf-point
+Across the river at the forks stands the Wolf Point Tavern, with its painted wolf sign. One story says William Walters ran it until 1836. Another says it stopped taking guests in 1834. So if you get served depends on which story you believe. Everyone here is saying the same thing as the papers. No inn in Chicago is big enough. A grand new hotel, the Lake House, is going up across the river. It is meant only for the richest guests. Wolf Point never was.
+
+== narrative wolf-point
+Listen in. A drink with the talk, or water?
+
+== label wolf-point glass
+Take a glass with the talk
+
+== consequence wolf-point glass
+Six cents for a small cup, about the county's price, and the talk goes on.
+
+== label wolf-point water
+Listen over a cup of water
+
+== consequence wolf-point water
+Your money and your head stay just as they were.
+
+== stop green-tree
+Ride a short way south to the Green Tree. James Kinzie built it in 1833. It was the first house here built to be a hotel. It was named for an oak tree standing close by. Chester Ingersoll runs it. Guests remembered a bar room, white walls made of boards, and small bedrooms about twelve feet across. It is a plain house and a lucky one. It will last longer than every other inn in this town. In 1880 it will be moved to a new street.
+
+== narrative green-tree
+Compare how welcome you feel here with how you felt at the Sauganash.
+
+== label green-tree glass
+Another glass in the bar-room
+
+== consequence green-tree glass
+Six more cents, and a slower ride on.
+
+== label green-tree chambers
+Ask after the chambers instead
+
+== consequence green-tree chambers
+You look at the rooms and keep a clear head.
+
+== stop western
+End your trip a block south at the Western Hotel, at Randolph and Canal Streets. It has a big front, a long side wing, a large stable and a yard where farmers drive in their wagons. Not everyone likes all this drinking. In 1832 Philo Carpenter, the druggist, wrote the town's first promise to stay away from alcohol. He asked people to sign it. Not many did. At the end of this year the town will count eight taverns. Soon the town leaders will ban selling alcohol on Sundays.
+
+== narrative western
+Now choose the inn where your evening ends.
+
+== label western stay-western
+Stay among the teamsters
+
+== consequence western stay-western
+You finish the evening at the Western, with the wagon drivers.
+
+== label western back-green-tree
+Ride back to the Green Tree
+
+== consequence western back-green-tree
+You finish the evening at the Green Tree.
+
+== label western back-sauganash
+Cross back to the Sauganash
+
+== consequence western back-sauganash
+You finish the evening where you started.
+
+== leg 0
+Ride over with your money decided. Behind you, the fiddle is tuning up.
+
+== ending talk-is-free
+You brought no money and missed nothing. The talk was free, the fiddle was free, and you carry home every word of a busy town's night.
+
+== ending clear-head
+You said no to every drink and kept all your money. Philo Carpenter would want you to sign his promise right away. A clear head carries the night's talk home safely.
+
+== ending two-houses
+A small drink at two inns, at about the county's price, and still a calm evening. You let the gossip stay gossip and ride home slowly under the stars.
+
+== ending a-sensible-evening
+One drink, a lot of talk, and almost all of your money left. A sensible evening in a town that has gone crazy over land.
+
+== keepsake text
+A made-up calling card from an evening's visit to the inns at the forks of the river.

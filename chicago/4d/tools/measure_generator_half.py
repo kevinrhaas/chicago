@@ -695,16 +695,35 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # restaling on none of the shared rows.
 # 1043 -> 1044 on 2026-11-09 (T-3528): the 1812 Potawatomi lodges by the river, one asset on
 # the pure-Python `lodge_camp`, restaling on none of the shared rows.
+# 1044 -> 1045 on 2026-11-12 (T-3566): Wirt Dexter's 1863 frame house behind 1721 Prairie, one
+# asset on the pure-Python `k16_timber`, restaling on none of the shared rows.
+# 1045 -> 1046 on 2026-11-12 (T-3567): the Fort Dearborn Massacre monument of 1893 on 18th
+# Street, the first record of the new pure-Python `monument` archetype
+# (generators/monument_emit.py), restaling on none of the shared rows.
+# 1046 -> 1065, 742 -> 761 and 736 -> 755 on 2026-11-15 (T-3605): the nineteen stores and
+# boarding blocks on Lake and Dearborn built to Gifford's drawing of the first Tremont
+# House, each on the shared `frame_storefront` / `frame_tavern` path.
+# 1065 -> 1124, 761 -> 820 and 755 -> 814 on 2026-11-16 (T-3605 phase 2): the commercial
+# core's fifty-nine row-fill stores and boarding block on South Water, Lake and the cross
+# streets' corners, on the same shared path.
 #
+# 1124 -> 1126 on 2026-11-18 (T-3654): the pre-fire 1871 ground and water use
+# city_1871_emit.py's independent standard-library recipe. That recipe hashes its
+# own module, plan and datum; neither terrain_gen.py nor common/*.py is an input.
+# Their reaches therefore remain 6 and 820; the new emitter's reach is 2.
+# 1126 -> 1129 on 2026-11-19 (T-3688): the Court House, the Chamber of Commerce and the
+# Sherman House in 1871, the first records of the new pure-Python `landmark_1871`
+# archetype (generators/landmark_1871_emit.py), restaling on none of the shared rows.
 STATED = {
-    "assets": 1044,
+    "assets": 1129,
     "restales": {
-        "generators/common/*.py": 742,
+        "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 736,
+        "generators/emit.py": 814,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
+        "generators/city_1871_emit.py": 2,
         "generators/archetypes/pier_crib.py": 3,
     },
     "layers_drawn_at_load": 10,
@@ -775,6 +794,9 @@ def restale_reach() -> tuple[dict, int, list]:
         covers: `emit.py`, that archetype's builder, and `common/*.py`.
       * `terrain_inputs._code_shas()` names what a TERRAIN asset's covers:
         `terrain_gen.py` and `common/*.py`.
+      * The independent `city_1871_emit.inputs_sha()` recipe hashes its own
+        module as code, plus the plan and datum as data. Its terrain must not
+        be attributed to the legacy terrain recipe merely because it is ground.
 
     So a site's reach is the count of assets whose recipe names it.
     """
@@ -802,6 +824,8 @@ def restale_reach() -> tuple[dict, int, list]:
             except Exception as e:                        # noqa: BLE001
                 problems.append(f"archetype {arch}: {e}")
                 continue
+        elif entry.get("generator") == "generators/city_1871_emit.py":
+            names = ("city_1871_emit.py",)
         elif entry.get("terrain_epoch"):
             names = terrain_inputs._code_shas()           # noqa: SLF001
         else:

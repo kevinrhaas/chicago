@@ -34,6 +34,22 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 9, back: 9 }),
     lift_mm: Object.freeze({ root: 2.5, tip: 4 }), density: 1.3, curl: .05, hang: false,
   }),
+  // T-3553: Sarah Grey's hair as the owner's stand-in portrait shows it (a reconstructed
+  // likeness, not a picture of her): the cleared bun hair drawn up from the face all round, its
+  // bun turned up over the back of the head to sit as a knot high on the crown
+  // (`bun_to_crown_deg`, human-hair.js bunToCrown). Like drawn_back_bun_1904 the cap carries its
+  // own fine strands and grows no scalp cards; brows and lashes still grow from her face. Its
+  // `cap_tint` takes the cap's brown to the sheet's ash: set by the hair's tone against the
+  // forehead's on the sheet and on a render (2026-11-13), where the cap had read dark and violet,
+  // then once more beside the sheet's four views, where it read a light sand: an ash brown.
+  // `cap_puff` stands the cap, its patch and the knot off the skull (bunToCrown), as the sheet's
+  // full updo stands at the sides and back (owner, 2026-11-13: fuller hair at her sides), the
+  // knot larger (`bun_knot_scale`) as the sheet's is.
+  swept_up_topknot_1904: Object.freeze({
+    flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 6, side: 5, back: 4 }),
+    knot_cm: Object.freeze({ up: 10, back: 8 }), scalp_cards: false, bun_to_crown_deg: 62, bun_knot_scale: .9, cap_puff: .15, cap_tint: Object.freeze([.95, 1.25, 1.3]),
+    lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
+  }),
   // A woman's hair of the 1900s worn as a real bun (T-3434): her cap is a cleared bun hair
   // (hair_bun_brown) drawn back from the face to a bun at the back of the head, whose own
   // painted strands read finer than cards would, so it grows no scalp cards (brows and lashes
@@ -52,6 +68,24 @@ export const HAIR_CUTS = Object.freeze({
     flow: 'side_part', part_cm: 3, lengths_cm: Object.freeze({ top: 1.4, side: 1.8, back: 1.5 }),
     bald: Object.freeze({ side_cm: 3.6, back_cm: 3.9, front_z_cm: -2.8 }), card_mm: 2.6,
     lift_mm: Object.freeze({ root: .5, tip: 1.4 }), density: 3.2, curl: .06, hang: false,
+    // T-3553: the plate's crown is not bare: a thin cover of short hair, combed across from the
+    // part and back, shows over it, the scalp through it; the forehead is high and clear.
+    crown: Object.freeze({ density: .9, share: .3, length_cm: 4.2, card_mm: 1.1, front_z_cm: 3.5, lift_mm: Object.freeze({ root: .2, tip: .35 }) }),
+  }),
+  // T-3553: William L. Grey's hair as the owner's stand-in portrait shows it (a reconstructed
+  // likeness, not a picture of him): thick and wavy, worn long over the ears to the collar and
+  // swept straight back off a high forehead, with no parting, standing full at the sides.
+  // T-3553, 2026-11-13: re-read from the owner's turnaround sheet of the stand-in: swept back
+  // from the brow and falling in loose waves over the ears to below the jaw and the collar
+  // behind, full at the sides. Drawn beside the sheet's four views (owner, 2026-11-13, the
+  // gaps to his sheet: "all of them"): the strands wave (`wave`, human-hair.js layCard), stand
+  // fuller off the head (lift) and end at the collar, not in long wisps below it. Owner,
+  // 2026-11-13: "his looks very unkempt": the waves now run together, 6 cm crest to crest
+  // (`wave_cm`), with less curl and lift, closer cards, a deeper ash brown, and no strand hangs
+  // past the cap's edge (`hang: false`), so the cut ends cleanly at the collar.
+  swept_back_wavy_1904: Object.freeze({
+    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 10, side: 8.5, back: 9 }),
+    lift_mm: Object.freeze({ root: 4, tip: 13 }), density: 7, curl: .05, wave: .5, wave_cm: 6, hang: false, card_mm: 10, cap_tint: 16,
   }),
   // A soldier's crop of 1812 (T-3491, a reconstructed choice): short all round, a little
   // longer on top and brushed forward to the brow, close over the ears and at the nape.
@@ -154,6 +188,45 @@ export const FACIAL_HAIR = Object.freeze({
     region_cm: Object.freeze({ x: [0, 6.8], y: [-14, -8.5], z_min: -2.5 }), facing: 'front',
     length_cm: 2.1, fall: 1, outward: .25, lift_mm: Object.freeze({ root: 1, tip: 3 }), width_mm: 2.2, cover: 8, spread: .55,
   }),
+  // T-3553: the full beard of William L. Grey's stand-in portrait, trimmed to about 2.5 cm and
+  // rounded at the chin, over the chin, the jaw and the lower cheeks (`beard_full_1904`), over
+  // the front of the cheeks (`beard_cheeks_front_1904`), and up the sides of the face to the
+  // hair (`beard_cheeks_1904`). The owner (2026-11-13: "the beards in particular could be
+  // improved significantly"): fine hairs in their thousands, not slabs, each turned its own
+  // way and curling (`jitter_deg`, `curl`), standing off the skin to the beard's depth
+  // (`loft`), a share of them grey (`grey`, the portrait's paler streaks), and thinning to
+  // stubble up the cheeks and down the throat (`feather_cm`) as the portrait's does. And
+  // (2026-11-13: "his lips are covered with hair and there is no space around his chin … look
+  // at the beard line"): the lower lip and the skin under it stay clear, the beard's roots
+  // starting below them (`top`), and its line runs up the cheek on the portrait's diagonal,
+  // from the moustache's ends at the corners of the mouth to the sideburns before the ears.
+  beard_full_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [0, 6.4], y: [-15, -6.4], z_min: -3.8, top: [[0, -9.2], [1.9, -9.15], [2.8, -8.5], [3.3, -8.1], [4.5, -7.1], [6.4, -5.4]] }), facing: 'front',
+    length_cm: 3.8, fall: 1, outward: .03, lift_mm: Object.freeze({ root: 1.1, tip: 3.2 }), width_mm: 1, cover: 20, spread: .6, curl: .5,
+    jitter_deg: 28, loft: 1.4, grey: .22, feather_cm: Object.freeze({ top: .5, bottom: 1.6 }),
+  }),
+  // The sides: from the jaw up the cheek's diagonal line to the sideburns before the ears,
+  // where the long hair hangs over them.
+  beard_cheeks_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [5, 8.6], y: [-13.5, 1], z_min: -7.6, z_max: -.3, top: [[5, -6.6], [6, -5.6], [7, -4.4], [7.8, -2.4], [8.6, -1]] }), facing: 'side',
+    length_cm: 1.1, fall: 1, outward: .06, lift_mm: Object.freeze({ root: .7, tip: 2.2 }), width_mm: .9, cover: 16, spread: .6, curl: .45,
+    jitter_deg: 32, loft: 1, grey: .2, feather_cm: Object.freeze({ top: 1.8, out: 1.4 }),
+  }),
+  // The front of the cheeks, below the line from the corners of the moustache out and up
+  // toward the ears, where the face still looks forward and the side piece takes no roots.
+  beard_cheeks_front_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [3, 6.6], y: [-10, -5.6], z_min: -3, top: [[3.3, -8.1], [4.5, -7.1], [6, -5.6], [6.6, -5]] }), facing: 'front',
+    length_cm: 1.5, fall: 1, outward: .2, lift_mm: Object.freeze({ root: .9, tip: 3 }), width_mm: .9, cover: 16, spread: .6, curl: .45,
+    jitter_deg: 32, loft: 1, grey: .18, feather_cm: Object.freeze({ top: 1.8 }),
+  }),
+  // His moustache, as the portrait shows it: thick and bristling, rooted between the nose and
+  // the lip and falling over the upper lip to the line of the mouth (the lower lip shows
+  // under it), its ends past the corners of the mouth into the beard, sandy with grey.
+  moustache_heavy_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [0, 3.9], y: [-7.6, -6.2], z_min: .1, droop: .9 }), facing: 'front',
+    length_cm: 1.05, fall: 1, outward: .35, lift_mm: Object.freeze({ root: 1.4, tip: 3.6 }), width_mm: .9, cover: 24, spread: .5, curl: .3,
+    jitter_deg: 20, loft: .7, grey: .15, feather_cm: Object.freeze({ top: .5 }),
+  }),
   // An older man's brows (T-3440): fuller and coarser than brows_fine, a few hairs straying.
   brows_full: Object.freeze({
     region_cm: Object.freeze({ x: [1.1, 5], y: [1.45, 2.2], z_min: -1.8, droop: .6 }), facing: 'front',
@@ -171,6 +244,24 @@ export const FACIAL_HAIR = Object.freeze({
     region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.5, 1.9], z_min: -1.5, droop: .55 }), facing: 'front',
     length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
+  }),
+  // T-3553: the brows as the Greys' stand-in sheets set them, measured from the pupils on the
+  // owner's square-on turnaround views (the eyes' centres are the face frame's origin): Sarah's
+  // fine brows 1 to 1.5 cm above them, 0.45 cm lower than brows_fine draws them on the lady's
+  // body, and William's full brows 0.8 to 1.4 cm, on the brow bone close over the eyes. (Owner,
+  // 2026-11-13, of a lower placement: "her eyebrows are on her lids", "a little higher", and of
+  // his: "double eyebrows", a band so tall it ran over the brow bone's fold in two rows.)
+  brows_fine_low_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [1.3, 4.6], y: [1, 1.5], z_min: -1.5, droop: .55 }), facing: 'front',
+    length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
+    lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
+  }),
+  // His are drawn hair by hair, spaced evenly and lying flatter (`even`, `exact`), so they read
+  // as the portrait's soft sandy brows rather than a painted band.
+  brows_full_high_1904: Object.freeze({
+    region_cm: Object.freeze({ x: [1.1, 5], y: [.8, 1.4], z_min: -1.8, droop: .6 }), facing: 'front',
+    length_cm: .7, fall: -.05, fall_ends: Object.freeze([-.8, .4]), outward: 1, taper: .3, curl: .08, even: .7, exact: true,
+    lift_mm: Object.freeze({ root: .15, tip: .45 }), width_mm: .5, cover: 3.2, spread: .45, jitter_deg: 10,
   }),
   // Upper lashes (T-3434): a short dark fringe along the upper lid, swept out and up. At 3 m
   // it reads as the dark line that makes an eye look open and soft rather than bare.
@@ -216,6 +307,27 @@ export const HAIR_COLOURS = Object.freeze({
   white_grey: Object.freeze([.44, .41, .36]),
   // Brown going grey at 56 (T-3483, Charles Nelson): mid brown with grey through it.
   grey_brown: Object.freeze([.15, .12, .095]),
+  // Sandy brown going grey (T-3553, William L. Grey's stand-in): a light brown with red in it
+  // and grey through it, as the sepia portrait's mid tone with paler streaks reads.
+  sandy_grey: Object.freeze([.2, .135, .085]),
+  // Re-read from the owner's turnaround sheets (T-3553, 2026-11-13), which are in colour: his
+  // hair a mid-to-dark brown, grey through it and at the temples; his beard a grizzled russet,
+  // the moustache warmest and the chin greyest.
+  ash_brown_grey: Object.freeze([.12, .095, .078]),
+  grizzled_russet: Object.freeze([.3, .2, .14]),
+  // Matched to the sheets' colour once more (T-3553, owner 2026-11-13: "keep going so they match
+  // perfectly"): drawn beside them, his hair read too dark and hers too dark and warm. His is a
+  // light ash going silver at the sides; hers an ash brown with fair and grey streaks through it.
+  // Beside the four views (2026-11-13) his cards read near silver: taken to the sheet's ash brown,
+  // and once more darker (the owner the same day: "his looks very unkempt"; pale cards read as frizz).
+  light_ash_grey: Object.freeze([.11, .08, .055]),
+  ash_fair_grey: Object.freeze([.2, .16, .125]),
+  // His beard and moustache (T-3553): warmer than his hair, a reddish sand, as the portrait's
+  // beard reads a shade redder and lighter than the hair above it.
+  sandy_red: Object.freeze([.26, .14, .075]),
+  // Light brown going grey (T-3553, Sarah Grey's stand-in): a light brown with grey through it,
+  // as the sepia portrait's hair reads, paler streaks in a mid tone.
+  light_grey_brown: Object.freeze([.2, .14, .095]),
   // Ash fair (T-3484, August Billings): a Swede's light brown-blond, cool rather than golden.
   ash_blond: Object.freeze([.24, .18, .11]),
 });
@@ -232,10 +344,16 @@ export const PEOPLE_HAIR = Object.freeze({
     cut: 'short_side_part_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
   }),
+  // T-3553: William Grey's beard is warmer and greyer than his hair, as the owner's colour turnaround sheet
+  // of the stand-in shows; the looks record (tools/prairie_people.py) gives his cut, beard and hair colour.
+  pa1904_grey_w_l: Object.freeze({
+    cut: 'swept_back_wavy_1904', facial: Object.freeze([]), colour: 'light_ash_grey', brow_colour: 'grizzled_russet', grade: 'reconstructed',
+    basis: 'Read from the owner\'s colour turnaround sheet of his stand-in (2026-11-13): hair a light ash going silver at the sides, beard and moustache a grizzled russet. Colours of a stand-in, not a record.',
+  }),
   glessner_john_j: Object.freeze({
     cut: 'bald_crown_fringe_1904', facial: Object.freeze(['moustache_full', 'brows_full']), colour: 'white_grey', grade: 'attested',
     source_id: 'glessner_commercial_club_1910_presidents_plate',
-    basis: 'His 1897 portrait plate (The Commercial Club of Chicago, 1910, p. 81) shows the crown bald, short white hair at the sides and back, a full moustache over the upper lip and full brows. The colour, white going grey, is read from the plate\'s light tone (a monochrome halftone) and his age; lengths and fullness are fitted to the plate by eye. Seven years on, in 1904, he is drawn as the plate shows him.',
+    basis: 'His 1897 portrait plate (The Commercial Club of Chicago, 1910, p. 81) shows the crown going bald, a thin cover of short hair combed back over it with the scalp showing through, short white hair fuller at the sides and back, a full moustache over the upper lip and full brows. The colour, white going grey, is read from the plate\'s light tone (a monochrome halftone) and his age; lengths and fullness are fitted to the plate by eye. Seven years on, in 1904, he is drawn as the plate shows him.',
   }),
   glessner_williamson_martha_l: Object.freeze({
     cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',

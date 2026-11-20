@@ -135,13 +135,13 @@ The location limit is how far a firm's own evidence places it, published and the
 
 | Adjudicated grade | Businesses |
 | --- | ---: |
-| `street_only_adopted` | 45 |
-| `street_only_unseated` | 7 |
+| `street_only_adopted` | 47 |
+| `street_only_unseated` | 5 |
 | `structure_committed` | 53 |
 | `structure_pending` | 11 |
 | `unplaceable` | 60 |
 
-Businesses whose published limit moved during the spend: **0** — the spend seated what the evidence already reached and promoted nothing, so there is no firm to name here and no source to name it on. Seats a later reading may displace: **45**.
+Businesses whose published limit moved during the spend: **0** — the spend seated what the evidence already reached and promoted nothing, so there is no firm to name here and no source to name it on. Seats a later reading may displace: **47**.
 
 And the other direction — the people. **138** persons hold a trade, profession, employment or office that reaches 1835-07-01. Every one of them either resolves to a workplace or carries the printed reason none is resolvable (C6):
 
@@ -230,7 +230,7 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 118 |
 | `refused` | 8,791 |
 
-The same rule over the gate itself: of **390** tools carrying a `--check`, **378** are run by `tools/check.sh` and **12** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **403** tools carrying a `--check`, **390** are run by `tools/check.sh` and **13** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |
@@ -241,6 +241,7 @@ The same rule over the gate itself: of **390** tools carrying a `--check`, **378
 | `tools/measure_boot_payload.mjs` | T-1156 | yes |
 | `tools/measure_boot_phases.mjs` | T-1246 | yes |
 | `tools/measure_street_widths.py` | — | yes |
+| `tools/photo_face.py` | T-3553 | yes |
 | `tools/rename_household_ids.py` | — | yes |
 | `tools/test_published_assets_browser.mjs` | T-2795 | yes |
 | `tools/trace_shoreline.py` | — | yes |

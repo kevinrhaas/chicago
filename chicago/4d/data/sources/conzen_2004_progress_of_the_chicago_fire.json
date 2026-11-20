@@ -1,0 +1,25 @@
+{
+  "id": "conzen_2004_progress_of_the_chicago_fire",
+  "type": "map",
+  "citation": "Conzen, Michael P. 'Progress of the Chicago Fire of 1871' (map). In The Encyclopedia of Chicago, ed. James R. Grossman, Ann Durkin Keating and Janice L. Reiff, plate C2. Chicago: University of Chicago Press and the Newberry Library, 2004.",
+  "author": "Michael P. Conzen",
+  "date": "2004",
+  "describes_date": "1871-10-08/1871-10-10",
+  "repository": "The Newberry Library / Encyclopedia of Chicago",
+  "url": "https://chicagoreference.com/books/grossman/images/c2-c3_fireprogress.pdf",
+  "locator": "Plate C2: the burnt district coloured by the hours it burned (8 October 8:30 p.m.-midnight; 9 October midnight-6 a.m., 6 a.m.-noon, noon-6 p.m.; 9-10 October 6 p.m.-4 a.m.), the origins of separate fires (the barn 8:30 p.m.; Bateham's mills 10:00 p.m.; 11:30 p.m. and midnight across the South Branch; the Court House 1:30 a.m.; 2:30 a.m. north of the river and south of Harrison; 7:00 a.m. at the river by Wells Street and at the lake shore), 'Mahlon Ogden residence not burned', 'Water Tower not burned', 'Area burned by fire on October 7', and 'fire burned out during rainfall early October 10'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A copyrighted modern map (2004 The Newberry Library). Read as a cross-check of where and when the fire burned; the outline in data/fire/1871.json is our own, drawn on the 1871 streets and the scene's river, and no part of the map is copied into any asset.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3687) from the PDF named in url (two pages, plates C2-C3).",
+  "note": "A modern synthesis of the 1871 accounts into hour bands. Used to place the burnt district's edges between the street lines the accounts name (the North Side's west edge, its stop at Clark Street and Lincoln Park, the South Division's south edge along the railroad tracks and Congress Street) and to bound the hours of places no account times.",
+  "what_it_supplies": [
+    "the outline of the burnt district by street, as a cross-check",
+    "hour bands for the North Division's burning"
+  ],
+  "what_it_does_not_supply": [
+    "a stated hour for any single building beyond its marked origins"
+  ]
+}

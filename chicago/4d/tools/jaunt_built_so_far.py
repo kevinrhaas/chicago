@@ -52,6 +52,7 @@ import zlib
 from pathlib import Path
 
 import jaunt_names
+import jaunt_reading_level
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -70,6 +71,7 @@ LEVELS = {
 }
 NAMES = jaunt_names.table(SCENE)
 # The owner, 2026-11-07: a stop at a house that was later torn down says so, briefly.
+NOT_PICTURED = json.loads((DATA / 'structure_grades.json').read_text()).get('not_pictured', [])
 RAZED = json.loads((DATA / 'jaunts/_names/demolished.json').read_text())['houses']
 
 
@@ -106,6 +108,17 @@ def centre(record):
     return (p['local_e'] + u * math.cos(r) - v * math.sin(r), p['local_n'] + u * math.sin(r) + v * math.cos(r))
 
 
+def ruled_out(structure_id, match_file):
+    """A solved picture data/structure_grades.json rules OUT of this structure (`not_pictured`:
+    it pictures the building this one replaced) is not "its picture" on the walk either. Its
+    camera is kept to record that reading (1620's coach house, T-1932; 1619 Prairie, T-1868),
+    and without this the stop would say "matched to its picture" beside "no picture of it"."""
+    camera = read(Path(str(match_file).replace('.match.json', '.json')))
+    names = {camera.get('library_image'), camera.get('source_id')} - {None}
+    return any(r['scene'] == SCENE and r['structure'] == structure_id and r['picture'] in names
+               for r in NOT_PICTURED)
+
+
 def rows():
     index = read(DATA / f'sidecars/{SCENE}/index.json')
     out = []
@@ -113,7 +126,8 @@ def rows():
         record = read(DATA / entry['sidecar'])
         if not worked(record):
             continue
-        verdicts = [read(p).get('verdict') for p in sorted((DATA / 'reference_views' / record['id']).glob('*.match.json'))]
+        verdicts = [read(p).get('verdict') for p in sorted((DATA / 'reference_views' / record['id']).glob('*.match.json'))
+                    if not ruled_out(record['id'], p)]
         e, n = centre(record)
         row = dict(id=record['id'], record=record, archetype=record['archetype'], views=len(verdicts),
                    matches=verdicts.count('matches'), attrs=len(record.get('attributes', {})), e=e, n=n,
@@ -239,7 +253,7 @@ def build():
     opening = (f'WALK: BUILT SO FAR. {scope} Most detailed first, one area at a time, so the route does not double back. '
                'It is rewritten from the building records whenever one gains detail.')
     ending = 'End of the walk so far. As more buildings are built out they join it, in their place by detail and area.'
-    doc = dict(schema_version=1, content_version=1, category='Build log', featured=True, review_required=False,
+    doc = dict(schema_version=1, content_version=1, category='Build log', menu_group='Build log', grade_band='6-8', featured=False, review_required=False,
                id='prairie-built-so-far', scene=SCENE, title='Every building modelled so far',  # T-2944: the distinctive words first
                premise='Walk every building on Prairie Avenue modelled in detail so far, most detailed first, kept area by area. It grows as buildings are built out.',
                default_mode='walk', allowed_modes=['walk', 'fly', 'instantly'],
@@ -252,6 +266,8 @@ def build():
                              text='A note of the buildings modelled in detail when you walked it; a project record, not a historical artifact.'),
                evidence=evidence, liberties=[LIBERTY])
     # A saved walk resumes only on the same content_version, so the version follows the route.
+    # T-3590: the school grades its words read at, measured from them.
+    doc['grade_band'] = jaunt_reading_level.band_of(jaunt_reading_level.measure(doc)['grade'])
     doc['content_version'] = zlib.crc32(json.dumps(stops, sort_keys=True).encode()) % 900_000_000 + 1
     return doc, order
 

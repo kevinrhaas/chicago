@@ -41,7 +41,7 @@ try{
   assert(await page.evaluate(()=>!sound.state.recorded.voices.includes('wind')),'winter stops leafy wind');
   assert(!audioRequests.some(u=>u.includes('/1812/')||u.includes('/1904/')),'only selected era requested');
   await page.evaluate(()=>{year='1812';sound.sync();});await page.waitForFunction(()=>sound.state.recorded?.track==='Reel of the Frontier'&&sound.state.recorded?.playing);
-  await page.evaluate(()=>{year='1904';sound.sync();});await page.waitForFunction(()=>sound.state.recorded?.track==='Salon Waltz'&&sound.state.recorded?.playing);
+  await page.evaluate(()=>{year='1904';sound.sync();});await page.waitForFunction(titles=>titles.includes(sound.state.recorded?.track)&&sound.state.recorded?.playing,catalog.assets.filter(a=>a.id.startsWith('ragtime-')).map(a=>a.title));
   await page.evaluate(()=>{levels.soundMusic=0;sound.sync();});assert.equal(await page.evaluate(()=>sound.state.recorded.playing),false);
   assert(!audioRequests.some(u=>u.includes('/candidates/')),'no candidate media is scheduled without qualified habitat context');
   await page.evaluate(()=>{levels.soundMusic=.4;sound.sync();});await page.waitForFunction(()=>sound.state.recorded?.playing);
@@ -52,7 +52,8 @@ try{
   await page.evaluate(()=>sound.dispose());
   await page.goto(base+'/audio/credits.html');await page.waitForSelector('article');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
-  for(const [era,n] of [['1812',3],['1835',2],['1904',2]]){await page.selectOption('#era',era);assert.equal(await page.locator('article').count(),n);}
+  // Era views also list that era's approved nature/effects; count the playing score (T-3569: 1904 = ten ragtime, waltzes held).
+  for(const [era,n,held] of [['1812',3,0],['1835',2,0],['1904',10,2]]){await page.selectOption('#era',era);assert.equal(await page.locator('article').filter({hasText:`${era} · Music`}).count(),n);assert.equal(await page.locator('article').filter({hasText:'Retired from 1904 playback'}).count(),held);}
   await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),catalog.assets.filter(a=>a.kind==='candidate'&&!a.runtime_enabled).length);
   await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),3);
   await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),2);

@@ -161,6 +161,17 @@ def as_was(recs):
         stone = [cid for cid in walls_of(a) if cid not in ("k01.wall.street_front", "k01.wall.round_corner",
                                                           "k01.wall.front_pier")
                  and a.components[cid]["instances"][0]["params"].get("fabric")]
+        # T-3562: a flank the record itself lays in the front's stone (`stone_front.flanks`) is
+        # stone by its own record, and exactly those flanks, in the dressing it names
+        sf = (phase["form"].get("stone_front") or {}).get("value") or {}
+        named = sorted(f"k01.wall.side.{w}" for w in (sf.get("flanks") or {}).get("walls", ()))
+        if named:
+            dress = {a.components[cid]["instances"][0]["params"].get("dressing") for cid in named
+                     if cid in stone}
+            ok = sorted(stone) == named and dress == {sf["flanks"]["dressing"]}
+            out.append((ok, f"{sid} as-was", f"stone-coursed side walls {sorted(stone)} are the record's "
+                        f"stone_front.flanks {named}, laid {sorted(d or '?' for d in dress)}"))
+            continue
         out.append((not stone, f"{sid} as-was", f"stone-coursed side walls: {stone or 'none'}"))
     return out
 

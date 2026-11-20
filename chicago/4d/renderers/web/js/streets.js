@@ -1598,12 +1598,6 @@ function addRecord(buffers, record, terrain, stats, ridge = true, fades = null) 
   }
 }
 
-function hash(x, y) {
-  let h = Math.imul(x + 17, 374761393) ^ Math.imul(y + 31, 668265263);
-  h = Math.imul(h ^ (h >>> 13), 1274126177);
-  return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
-}
-
 /**
  * T-1811. The one grit tile every street shares — T-1797's `gritTilePixels`,
  * 256 px over 1.6 m: R is height read as grain, G/B the OpenGL normal. It
@@ -2187,6 +2181,9 @@ export async function createStreets({ terrain, records = [], confidence = null, 
       bytes: replay.index.bins[replay.layout].bytes, surfaces: resources.length });
     replay.bin = null;
     replay.index = null;
+    // T-3595: and the pieces, each a view over that buffer, which `surfaces` (kept by
+    // this scope's closures) would otherwise hold, and the whole buffer with them.
+    for (const [, buf] of surfaces) buf.pieces = null;
   }
   // Which change of detail is the latest; an older one still on the pool when a
   // newer one is asked for is dropped when it lands rather than drawn.

@@ -83,7 +83,11 @@ try {
 const loops = json('data/transport/driven/loops.json');
 const standing = json('data/transport/parked/standing-horses.json');
 const parked = json('data/transport/parked/placements.json');
-const individuals = loops.rows.flatMap(row => ['left', 'right'].map(individual => ({ scene: row.scene, row: row.id, individual })));
+// T-3557: a driven row that stands in for a parked team (the Glessner brougham) drives that
+// team's own two horses (`horse_coat_row`), not two more.
+const parkedTeams = Object.entries(parked.scenes).flatMap(([scene, rows]) => rows.filter(r => r.stationary_team).map(r => `${scene}:${r.id}`));
+for (const row of loops.rows) if (row.horse_coat_row) assert(parkedTeams.includes(`${row.scene}:${row.horse_coat_row}`), `${row.id} drives a parked team of its scene`);
+const individuals = loops.rows.filter(row => !row.horse_coat_row).flatMap(row => ['left', 'right'].map(individual => ({ scene: row.scene, row: row.id, individual })));
 for (const [scene, rows] of Object.entries(standing.scenes)) for (const row of rows) individuals.push({ scene, row: row.id, individual: 'single' });
 for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of rows) if (row.stationary_team) {
   assert.equal(row.stationary_team.horse_appearance.scene, scene);
@@ -91,9 +95,9 @@ for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of row
 }
 assert.equal(loops.horse_appearance.recipe_file, 'transport/horse-coats.json');
 assert.equal(standing.horse_appearance, undefined, 'frozen selected placement metadata is not an appearance configuration');
-assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 3, 1904: 4 });
+assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 21, 1904: 8 }); // T-3558: ten 1835 teams
 const identities = individuals.map(i => horseIdentity(recipe, i));
-assert.equal(new Set(identities.map(i => i.key)).size, 11);
+assert.equal(new Set(identities.map(i => i.key)).size, 33);
 for (let n = 0; n < identities.length; n++) {
   assert.deepEqual(horseIdentity(clone(recipe), individuals[n]), identities[n], 'reload changes no marking');
   assert.equal(identities[n].historical_individual, false);
@@ -101,7 +105,7 @@ for (let n = 0; n < identities.length; n++) {
 }
 for (const scene of recipe.scenes) assert(new Set(identities.filter(i => i.key.startsWith(scene+':')).map(i => i.palette)).size >= 2, 'each era has coat diversity');
 for (const row of loops.rows) {
-  const pair = identities.filter(i => i.key.startsWith(row.scene+':'+row.id+':'));
+  const pair = identities.filter(i => i.key.startsWith(row.scene+':'+(row.horse_coat_row ?? row.id)+':'));
   assert.equal(pair[0].palette, pair[1].palette, 'matched team palette');
   assert.notDeepEqual(pair[0].phase, pair[1].phase, 'individual pattern differs');
   assert.notDeepEqual([pair[0].socks_m, pair[0].blaze], [pair[1].socks_m, pair[1].blaze]);
@@ -113,7 +117,7 @@ for (const mutate of [r => r.grade = 'attested', r => r.body_material = 'renamed
   const bad = clone(recipe); mutate(bad); assert.throws(() => validateHorseRecipe(bad), /horse appearance:/);
 }
 assert.throws(() => horseIdentity(recipe, { scene: '2000', row: 'row', individual: 'left' }), /stable scene/);
-console.log('Coat identities PASS: 11 source-routed individuals, three eras, stable matched palettes/distinct markings; invalid contracts refused');
+console.log('Coat identities PASS: 33 source-routed individuals, three eras, stable matched palettes/distinct markings; invalid contracts refused');
 
 const vendor = new URL('renderers/web/vendor/three-0.185.1/', root).href;
 register(`data:text/javascript,${encodeURIComponent(`export async function resolve(s,c,n){

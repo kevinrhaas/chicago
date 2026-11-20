@@ -28,7 +28,7 @@ h1 em{font-family:var(--font-accent);font-weight:400;color:var(--accent)}
 .telemetry-cell span{font-family:var(--font-label);font-weight:var(--label-weight);letter-spacing:var(--label-tracking);color:var(--ink-dim);font-size:9px}
 .telemetry-cell b{font:500 15px/1.1 var(--font-mono);color:var(--ink);font-variant-numeric:tabular-nums}.telemetry-cell[data-state="warn"] b{color:var(--lamp)}.telemetry-cell[data-state="ok"] b{color:var(--accent)}
 .section-line{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;color:var(--ink-dim)}.section-line h2{font:inherit;margin:0}.section-line b{font-weight:400;color:var(--accent);padding-left:12px}.section-line a{color:var(--accent)}
-.era-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.era-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .era{position:relative;display:flex;flex-direction:column;border:1px solid var(--edge);border-radius:var(--skin-radius);padding:23px 25px 18px;overflow:hidden;background:var(--panel);color:var(--ink);transition:transform .4s var(--ease-machine),border-color .4s,box-shadow .4s,opacity .8s;min-width:0}
 .era:hover,.era:focus-visible{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 12px 50px var(--skin-glow)}
 .era-primary{border-color:color-mix(in srgb,var(--accent) 55%,var(--edge))}
@@ -287,3 +287,34 @@ html.booting .era:not(.resolved) .era-hold b{color:var(--ink-faint)}
 .device-meter[data-state="failed"] .dm-bar i{animation:none}
 @media(max-width:620px){.machine-page .telemetry .device-meter{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--edge);padding:9px 12px 8px}.machine-page .telemetry-cell:nth-child(n+5){display:none}.machine-page .telemetry-cell:nth-child(4){display:grid;border-right:0}.machine-page .telemetry-cell:nth-child(3){border-right:1px solid var(--edge)}.device-meter .dm-read b,.device-meter .dm-read{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.device-meter[data-state="assessing"] .dm-bar i{animation:none}}
+/* Owner, 2026-11-15: each destination lists what stands in its year as a scrolling technical
+   manifest, and on a phone the destinations come first, all on the first screen, with the device meter
+   (T-2901) right under them so it stays on the first screen too. */
+.era-manifest{position:relative;height:96px;overflow:hidden;margin:2px 0 14px;border-radius:4px;background:var(--screen);box-shadow:var(--inset-bezel);font:400 9.5px/1.25 var(--font-mono);letter-spacing:.07em;color:var(--screen-ink);text-transform:uppercase}
+.era-manifest::before{content:attr(data-head);position:absolute;z-index:1;left:0;right:0;top:0;padding:6px 9px 5px;background:var(--screen);border-bottom:1px solid color-mix(in srgb,var(--screen-ink) 18%,transparent);font-size:8.5px;letter-spacing:.14em;opacity:.7}
+.era-manifest::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(transparent 68%,var(--screen)),repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px)}
+.era-manifest-roll{padding-top:20px;animation:era-manifest 52s linear infinite}
+.era-calibrating .era-manifest-roll{animation-duration:46s}
+.era:hover .era-manifest-roll,.era:focus-visible .era-manifest-roll{animation-play-state:paused}
+.era-manifest ul{list-style:none;margin:0;padding:0 9px}
+.era-manifest li{padding:2.5px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.era-manifest li::before{content:'> ';opacity:.5}
+@keyframes era-manifest{to{transform:translateY(-50%)}}
+@media(prefers-reduced-motion:reduce){.era-manifest{overflow-y:auto}.era-manifest-roll ul[aria-hidden]{display:none}}
+@media(max-width:620px){
+  .machine-page main{display:flex;flex-direction:column}
+  .machine-page .destinations{order:-1;margin-top:4px}
+  .machine-page .telemetry{order:0}.machine-page .console{order:1}
+  .machine-page .section-line{padding-bottom:8px}
+  .machine-page .era-grid{gap:8px}
+  .machine-page .era{display:grid;grid-template-columns:40% minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:11px;padding:9px 11px 11px}
+  .machine-page .era:hover,.machine-page .era:focus-visible{transform:none}
+  .machine-page .era-top{grid-column:1/-1;font-size:8px}
+  .machine-page .era-plate{grid-column:1;grid-row:2/5;height:auto;min-height:0;margin:7px 0 0}
+  .machine-page .era-title{grid-column:2;grid-row:2;margin-top:4px}
+  .machine-page .era .year{font-size:34px;line-height:1}
+  .machine-page .era-arrow{font-size:20px}
+  .machine-page .era h3{grid-column:2;grid-row:3;margin:1px 0 5px;font-size:13px}
+  .machine-page .era-manifest{grid-column:2;grid-row:4;height:44px;margin:0}
+  .machine-page .era-hold,.machine-page .era-checks,.machine-page .era-foot{display:none}
+}

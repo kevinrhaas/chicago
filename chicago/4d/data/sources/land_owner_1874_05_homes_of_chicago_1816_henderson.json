@@ -1,0 +1,30 @@
+{
+ "id": "land_owner_1874_05_homes_of_chicago_1816_henderson",
+ "type": "illustration",
+ "citation": "'C. M. Henderson.' Wood engraving of the Charles M. Henderson residence, 1816 Prairie Avenue, Chicago, from the oblique front, in 'The Homes of Chicago', The Land Owner (Chicago: J. M. Wing), May 1874; unknown engraver. Reproduced on chicagology.com, Prairie Avenue, 1816 S. Prairie.",
+ "author": "unknown engraver for The Land Owner (J. M. Wing, publisher)",
+ "date": "1874-05",
+ "describes_date": "1874-05",
+ "repository": "chicagology.com (secondary reproduction of the plate; the issue is held by the Chicago History Museum). Prairie library image cgn-1816-landowner-1874-henderson (chicago/prairie_1904_v1/data/images.json), its file in the image store (STORE.json); the same file is committed at data/sources/assets/henderson_1816_photo_t2963/henderson_1816_landowner_1874.jpg.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1816prairie/",
+ "locator": "The whole vignette: the house from the walk south-east of it, its street front from the south corner to the north end behind the parkway trees, the south flank back to its canted bay, the mansard over both, the rear range beyond the flank bay, the stoop and the lawn to the walk. The camera solve (data/reference_views/henderson_house_1816_prairie/landowner_1874.json) locates every feature read off it.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US periodical illustration published in 1874, in the public domain; the web reproduction is a faithful copy of a two-dimensional work and adds no right of its own. Read for forms, counts and proportions; no texture or other asset is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-15 (T-1886) from the image store's copy, 928 x 827 px, sha256 27f5d5eb4c4da9feb36b835eb4e3698f09c99f869569263ffa8e51fa07df9ece (the library's fetch of 2026-10-02 from chicagology, the store's file byte for byte). chicagology.com is not reachable from the build containers, so this copy is the one read.",
+ "note": "The earliest located view of 1816, engraved the year after the house was built (1873). From the walk south-east of it, the same side the undated photograph (chicagology_1816_henderson_photo) is taken from, it shows a Second Empire house of two tall storeys over a raised basement under a slated mansard: the south flank in shadow (the engraver's convention for the turned face) with one light on its upper storey only and a canted bay near its rear carried up into a mansard of its own with a dormer, a tall stack rising from the flank's cornice up the main mansard's south face, a bracketed cornice round both faces, three pedimented dormers in the street face, the entrance under a bracketed entablature on pilasters with a stoop down to the east between solid parapets, and the rear range beyond the flank bay, lower than the house, under a moulded cornice. It draws the main mansard as one continuous roof: no raised crown over the front's south end, no cresting, no balcony railing over the entrance, and no fence on the street line, where the later photograph shows each. The street front between the corner and the entrance is hidden behind a parkway tree. The camera is solved from the 1911 sheet's plan points, so each height read off it is a measurement through that solve.",
+ "what_it_supplies": [
+  "the rear range's height and its upper storey's lights, the only picture of it",
+  "the house as first built: the mansard without the raised front crown, cresting, balcony or fence the later photograph shows",
+  "the south flank's single upper-storey light and its canted bay's mansard and dormer, against the photograph's",
+  "the south stack's place on the flank"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the engraving is monochrome",
+  "the front between the corner and the entrance, behind a tree",
+  "the north wall and the rear",
+  "what changed between 1874 and 1904: the later photograph and the 1911 sheet are read for that"
+ ]
+}

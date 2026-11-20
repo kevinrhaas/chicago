@@ -35,9 +35,10 @@ try{
   assert.equal(requests.length,0);await page.click('#on');
   await page.waitForFunction(()=>sound.state.recorded?.playing&&sound.state.recorded.voices.includes('wind'),{},{timeout:30000});
   assert.equal(await page.evaluate(()=>sound.state.recorded.track),'Border Ballad');
-  for(const [era,title] of [['1812','Reel of the Frontier'],['1904','Salon Waltz']]){
+  const ragtime=catalog.assets.filter(a=>a.id.startsWith('ragtime-')).map(a=>a.title);
+  for(const [era,titles] of [['1812',['Reel of the Frontier']],['1904',ragtime]]){
    await page.evaluate(era=>{year=era;sound.sync();},era);
-   await page.waitForFunction(title=>sound.state.recorded?.playing&&sound.state.recorded.track===title,title);
+   await page.waitForFunction(titles=>sound.state.recorded?.playing&&titles.includes(sound.state.recorded.track),titles);
   }
   assert(requests.every(u=>/^https:\/\/[^/]+\/media\/[a-f0-9]{64}\.(ogg|m4a|mp3)$/.test(u)));
   const candidateURLs=new Set(catalog.assets.filter(a=>a.kind==='candidate').map(a=>a.url));
@@ -46,10 +47,13 @@ try{
   assert(await page.evaluate(()=>sound.state.silent&&!sound.state.recorded.playing&&sound.state.recorded.decodedBytes===0));
   await page.evaluate(()=>sound.dispose());
   await page.goto(origin+'/audio/credits.html');await page.waitForSelector('article');
-  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),18);
-  await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),3);
-  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),2);
+  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),13);
+  await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),6);
+  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),3);
   assert((await page.locator('article small').allTextContents()).every(t=>t.includes('Moving team')&&t.includes('reconstructed proxy')));
+  await page.selectOption('#era','work'); assert.equal(await page.locator('article').count(),1);
+  assert((await page.locator('article small').innerText()).includes('1812 · Visible work'));
+  await page.selectOption('#era','1812'); assert.equal(await page.locator('article').count(),16);
   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
   assert.deepEqual(errors,[]);
   console.log(`HOSTED AUDIO BROWSER PASS ${width}px: published modules, real R2 music/decoded wind, era changes, mute cleanup, no candidate autoplay, catalogue layout`);

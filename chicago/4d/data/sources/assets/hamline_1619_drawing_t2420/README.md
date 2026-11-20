@@ -15,3 +15,9 @@ proportions are read from it; no asset is derived from it.
 **Camera.** `data/reference_views/house_1621_prairie/building_budget_front.json` (at `house_1619_prairie` until T-2440 moved the build to 1621); its `solve`
 field says how it was fitted and how far it can be trusted. `node tools/photo_match.mjs <camera>`
 renders the committed GLB beside the picture.
+
+**1619's camera** (T-1868): `data/reference_views/house_1619_prairie/building_budget_front.json` is the same
+station point carried two houses north. At its left edge the plate draws the front that stood at 1619 in
+1886, which the 1911 sheet's four-storey stone front replaced; the match record says so, and
+`data/structure_grades.json` rules the plate out of 1619's grade (it pictures the house the 1904 one
+replaced, not that house).

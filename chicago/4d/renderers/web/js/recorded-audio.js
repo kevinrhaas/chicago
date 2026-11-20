@@ -2,6 +2,8 @@
 // T-3532. Small decoded environmental loops; one streamed music cue at a time.
 import { createHabitatAudio } from './habitat-audio.js';
 import { createTransportAudio } from './transport-audio.js';
+import { createWorkAudio } from './work-audio.js';
+import { gustAtScene, windGustGain } from './wind-gust.js';
 
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 export const MUSIC_YEARS = Object.freeze(['1812', '1835', '1904']);
@@ -28,7 +30,25 @@ export function nearbyWater(terrain, eye) {
 }
 
 export function musicFor(catalog, year) {
-  return catalog.assets.filter(a => a.kind === 'music' && a.era === String(year));
+  // A retired cue (runtime_enabled false) stays catalogued for provenance, never played.
+  return catalog.assets.filter(a => a.kind === 'music' && a.era === String(year) && a.runtime_enabled !== false);
+}
+
+/** T-3569: shuffled eras (catalog.music_shuffle_eras) start at a random track and
+ * play every track once before any repeats; a fresh shuffle never reopens with the
+ * track that just ended. Other eras keep their catalogue order. */
+export function playlistOrder(n, shuffle, random = Math.random, avoid = -1) {
+  const order = [...Array(n).keys()];
+  if (!shuffle) return order;
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  if (n > 1 && order[0] === avoid) {
+    const j = 1 + Math.floor(random() * (n - 1));
+    [order[0], order[j]] = [order[j], order[0]];
+  }
+  return order;
 }
 
 /** Listening mix, not simulated weather: town leaf rustle stays subdued, with
@@ -72,12 +92,12 @@ export function waterKind(wet, terrain, zone) {
   return null; // Unknown water remains quiet until classified, never generic surf.
 }
 
-export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}),
+export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}), workEnvironment = () => ({}),
   fetcher = globalThis.fetch?.bind(globalThis), media = () => new Audio(),
-  base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now() } = {}) {
+  base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now(), random = Math.random } = {}) {
   let disposed = false, enabled = false, effectsOn = false, musicOn = false, catalog = null, pending = null;
   let year = '', generation = 0, controller = null, musicFailed = false;
-  let player = null, mediaNode = null, track = null, trackIndex = 0, fallback = false;
+  let player = null, mediaNode = null, track = null, trackIndex = 0, order = null, fallback = false;
   let decoder = null;
   const buffers = new Map(), loads = new Map(), voices = new Map(), failed = new Set();
   const errors = new Set();
@@ -87,9 +107,11 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
   const transport = createTransportAudio({ ctx, output: effects, catalog: () => catalog, environment,
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
+  const work = createWorkAudio({ ctx, output: effects, catalog: () => catalog,
+    fetcher, base, decodeAudio: decode, onError: message => report(message) });
   function report(message) { if (message) errors.add(message); onStatus(state()); }
-  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes,
-    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading, habitat: habitat.state, transport: transport.state }; }
+  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices, ...work.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes + work.state.decodedBytes,
+    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading + work.state.loading, habitat: habitat.state, transport: transport.state, work: work.state }; }
   function fade(param, value) { param.setTargetAtTime(value, ctx.currentTime, 0.3); }
   function stopVoice(id) {
     const v = voices.get(id); if (!v) return;
@@ -102,12 +124,12 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     mediaNode?.disconnect(); player = null; mediaNode = null; track = null;
   }
   function reset() {
-    habitat.reset(); transport.reset();
+    habitat.reset(); transport.reset(); work.reset();
     generation++; controller?.abort(); controller = null; pending = null;
     loads.clear(); targets.clear(); failed.clear(); buffers.clear();
     decoder = null;
     for (const id of [...voices.keys()]) stopVoice(id);
-    stopMusic(); trackIndex = 0; musicFailed = false;
+    stopMusic(); trackIndex = 0; order = null; musicFailed = false;
   }
   async function readCatalog() {
     if (catalog || pending || disposed || (!enabled && !musicOn && !effectsOn) || failed.has('catalog')) return;
@@ -180,7 +202,9 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
   function playMusic() {
     if (disposed || !musicOn || !catalog || player || musicFailed) return;
     const list = musicFor(catalog, year); if (!list.length) return;
-    track = list[trackIndex % list.length]; player = media(); player.preload = 'none';
+    const shuffle = (catalog.music_shuffle_eras ?? []).includes(String(year));
+    if (order?.length !== list.length) { order = playlistOrder(list.length, shuffle, random); trackIndex = 0; }
+    track = list[order[trackIndex % order.length]]; player = media(); player.preload = 'none';
     player.crossOrigin = 'anonymous'; fallback = !player.canPlayType('audio/ogg; codecs="opus"');
     mediaNode = ctx.createMediaElementSource(player); mediaNode.connect(music);
     const own = generation, element = player;
@@ -208,8 +232,10 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       if (disposed || !musicOn || own !== generation || player !== element) return;
       // Keep the gesture-unlocked streaming element and its graph connection.
       // Advance immediately, then wrap within this era; no full-playlist preload.
-      trackIndex = (trackIndex + 1) % list.length;
-      track = list[trackIndex];
+      // A shuffled era deals a new order at the wrap, never repeating the last track.
+      trackIndex = (trackIndex + 1) % order.length;
+      if (!trackIndex && shuffle) order = playlistOrder(list.length, true, random, order.at(-1));
+      track = list[order[trackIndex]];
       fallback = !element.canPlayType('audio/ogg; codecs="opus"');
       attempt(); report();
     };
@@ -239,7 +265,9 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       targets = new Map();
       const wet = nearbyWater(env.terrain, eye);
       const kind = waterKind(wet, env.terrain, catalog.water_zones?.[year]);
-      const wind = windGain(year, env.season, kind, wet?.distance);
+      // T-3586: the leaf rustle swells with the gust where the listener stands, the
+      // same gust that bends the crowns and grass round them; never above its old level.
+      const wind = windGain(year, env.season, kind, wet?.distance) * windGustGain(gustAtScene(eye.x, eye.z));
       if (wind > 0) targets.set('wind', { gain: wind });
       // A recording rejected in listening review remains auditionable in the
       // library, but cannot imply water movement absent from the scene.
@@ -264,15 +292,23 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       const nextEffects = !!active && !!wantsEffects && !!effects;
       if ((!nextEnabled && !nextMusic && !nextEffects) && (enabled || musicOn || effectsOn)) reset();
       enabled = nextEnabled; musicOn = nextMusic; effectsOn = nextEffects; musicLevel = level;
+      if (!effectsOn) work.reset();
       fade(music.gain, Math.min(1, Math.max(0, level)) ** 2 * .5 * duck);
       if (!enabled) { targets.clear(); for (const id of [...voices.keys()]) stopVoice(id); }
       if (!musicOn) { stopMusic(); musicFailed = false; }
       update();
     },
     update,
+    transportFrame({ active = true } = {}) {
+      transport.frame?.({ enabled: active && effectsOn && !disposed, year });
+    },
+    workFrame({ active = true } = {}) {
+      if (!active || !effectsOn || disposed) { work.frame({ enabled: false }); return; }
+      work.frame({ ...workEnvironment(), enabled: true });
+    },
     // Future narration can duck both buses without coupling to a voice provider.
-    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); transport.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
+    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); transport.setDuck(duck); work.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
     get state() { return state(); },
-    dispose() { disposed = true; enabled = false; musicOn = false; effectsOn = false; reset(); habitat.dispose(); transport.dispose(); },
+    dispose() { disposed = true; enabled = false; musicOn = false; effectsOn = false; reset(); habitat.dispose(); transport.dispose(); work.dispose(); },
   };
 }

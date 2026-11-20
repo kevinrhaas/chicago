@@ -347,6 +347,9 @@ cp -f data/datum.json "$SITE/data/"
 # tools/build_modern_streets.py), which the compass readout and the maps show in every year.
 mkdir -p "$SITE/data/modern"
 cp -f data/modern/streets.json "$SITE/data/modern/"
+# T-3674: the on-site tour (js/onsite.js), fetched only when Window mode starts in its year.
+mkdir -p "$SITE/data/onsite"
+cp -f data/onsite/*.json "$SITE/data/onsite/"
 # T-2200 frozen metric/photo comparison, consumed by the isolated review page.
 mkdir -p "$SITE/data/comparisons/glessner"
 cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
@@ -546,6 +549,17 @@ if [ -d data/night_lights ]; then
   rm -rf "$SITE/data/night_lights"
   cp -a data/night_lights "$SITE/data/night_lights"
 fi
+# T-3645: every card's words at the reader's other ages, one file per scene
+# (tools/reading_levels.py), fetched the first time a card opens (js/reading-level.js).
+if [ -d data/reading ]; then
+  rm -rf "$SITE/data/reading"
+  cp -a data/reading "$SITE/data/reading"
+fi
+# T-3553: the "Tell me a story" library, one file per scene, fetched on the first story asked for.
+if [ -d data/tales ]; then
+  rm -rf "$SITE/data/tales"
+  cp -a data/tales "$SITE/data/tales"
+fi
 
 # The signage layer — the boards on the town's business frontages, drawn by
 # renderers/web/js/signage.js straight from these numbers. Same argument as the
@@ -586,6 +600,11 @@ mkdir -p "$SITE/data/transport/driven"
 cp -f data/transport/driven/loops.json data/transport/driven/hitch-bindings-v2.json \
   data/transport/driven/current26-hoof-support-domain.json \
   data/transport/driven/current26-walk-v2-hoof-domain.json "$SITE/data/transport/driven/"
+# T-3560: the saddle horses a visitor may ride (riding.js reads their rows, tack and fit).
+if [ -d data/transport/riding ]; then
+  rm -rf "$SITE/data/transport/riding"
+  cp -a data/transport/riding "$SITE/data/transport/riding"
+fi
 
 # The wharf layer — the river docks at the two forwarding warehouses whose own
 # records state one, drawn by renderers/web/js/wharves.js straight from these
@@ -670,6 +689,13 @@ fi
 if [ -d data/context ]; then
   rm -rf "$SITE/data/context"
   cp -a data/context "$SITE/data/context"
+fi
+
+# The Great Fire's map and clock (T-3687): where and when the 1871 city burned, read by
+# renderers/web/js/city-fire.js the first time a jaunt stop (or api.fire.set) names an hour.
+if [ -d data/fire ]; then
+  rm -rf "$SITE/data/fire"
+  cp -a data/fire "$SITE/data/fire"
 fi
 
 # ...and the surfaces it is paved with (T-1728): the authored materials file, and
@@ -838,6 +864,13 @@ if [ -d assets/humans/web ]; then
   node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
 
+# Generated activity props are not human skeletons or structural building assets.
+rm -rf "$SITE/data/props"
+if [ -d assets/props ]; then
+  mkdir -p "$SITE/data/props"
+  cp -a assets/props/. "$SITE/data/props/"
+fi
+
 # T-3548: keep the larger neighborhood roster within the existing delivery budget.
 # Only JSON whitespace changes; check_published compares complete parsed values,
 # alongside the existing household-note and boot-sidecar transformations.
@@ -904,22 +937,21 @@ p.write_text(s)
 PYEOF
   # THE DEVELOPER NOTES STAY IN THE SOURCE. renderers/web/index.html carries about
   # 13 KB of HTML comments — why each line is the way it is, for the next editor —
-  # and the doors below ship this page five times over. They are byte-identical on
-  # purpose, so validate.py's site check (T-0722) refuses them once they reach its
-  # 64 KB floor, which PR #1030's markup did. The shipped page drops its comments
-  # instead: placeholders and conditional comments stay, and nothing inside
+  # which add no value to the shipped page. Comment stripping first reduced the
+  # old copied doors below validate.py's 64 KB duplicate floor (PR #1030); the
+  # doors now share one canonical page. Placeholders and conditional comments
+  # stay, and nothing inside
   # <script>, <style>, <textarea> or <pre> is touched. It runs after the stamp and
-  # before the doors, so every door is a copy of the stripped page.
+  # before the doors, so the shared page carries no developer notes.
   # `strip_page_comments.mjs --check` (check.sh) holds the shipped form to the source.
   node tools/strip_page_comments.mjs "$SITE/walk/index.html"
 fi
 # THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
-# sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a
-# <base href> into walk/, so the address bar keeps the short path and every relative
-# URL still resolves from walk/. This replaces the old opener page that bounced /4d/
-# to walk/?year=1835. It runs after the stamp so every door shows the same build.
-# Each door keeps walk/index.html's <head> and </body>, which is what
-# .github/chicago-4d-dev-preview.mjs marks (robots meta, DEV PREVIEW banner).
+# sent there: /4d/ is the Observatory and /4d/<year>/ is a small stamped loader of
+# the one shared walk/index.html. It adds <base href> before parsing that page at
+# the same short URL, so path-based year selection and relative assets are kept.
+# Both the loader and shared page have ordinary head/body elements for preview
+# marking; the loaded page carries its own DEV stamp, noindex and banner.
 rm -f "$SITE/index.html"
 node tools/write_entry_pages.mjs "$SITE"
 

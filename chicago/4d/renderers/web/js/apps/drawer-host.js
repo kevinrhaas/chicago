@@ -13,7 +13,8 @@
  *   Move      Travel
  *   People    People · Businesses         (1835; 1904 has its own People screen)
  *   Guide     Controls · Evidence         (Evidence is About this destination, T-2667)
- *   Settings  Settings · What's new       (What's new's dot rides the Settings icon)
+ *   Settings  Settings · What's new       (What's new's dot rides the Settings icon; T-3563:
+ *                                         the card's own icon tabs, What's new among them)
  *
  * Go to is not among them: it is the Jaunts app's own segment (T-2630), the arrival's
  * search lent to the device, so the drawer's Go to list retires with the drawer. Asking
@@ -35,6 +36,8 @@ export const APP_SECTIONS = Object.freeze(Object.entries(SECTION_HOME).reduce((m
 }, {}));
 
 const panelEl = (doc) => doc.getElementById('panel');
+/** The apps whose screen draws its own tab row over the sections (T-3563). */
+const OWN_TABS = new Set(['settings']);
 
 /** The tabs this app shows; the others are left in place but out of sight. */
 function paintTabs(doc, appId) {
@@ -47,6 +50,28 @@ function paintTabs(doc, appId) {
   }
   // One section needs no tab row of its own: the app's header already names it.
   panelEl(doc)?.classList.toggle('has-one-section', shown < 2);
+  // T-3563: Settings carries its own row of tabs (#settings-tabs, js/settings-app.js), What's
+  // new among them, so the section row stands down for it.
+  panelEl(doc)?.classList.toggle('has-own-tabs', OWN_TABS.has(appId));
+}
+
+/**
+ * T-3671 (WCAG 4.1.2): the sections' tab row names what each tab controls, and each section
+ * is a tabpanel named by its tab. Settings and What's new are named by the Settings card's
+ * own tabs instead (settings-app.js), which leave a name already given alone.
+ */
+export function wireSectionTabs(doc) {
+  for (const tab of doc.querySelectorAll?.('.panel-tab[data-tab]') ?? []) {
+    const key = tab.dataset.tab;
+    const body = doc.querySelector?.(`.panel-body[data-panel="${key}"]`);
+    if (!body) continue;
+    tab.id ||= `panel-tab-${key}`;
+    body.id ||= `panel-body-${key}`;
+    tab.setAttribute('aria-controls', body.id);
+    tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+    body.setAttribute('role', 'tabpanel');
+    if (!body.getAttribute('aria-labelledby')) body.setAttribute('aria-labelledby', tab.id);
+  }
 }
 
 /**
@@ -120,6 +145,21 @@ export function install({ hud, navigator, doc = globalThis.document, openGoTo = 
     openGoTo?.();
   };
   const appFor = (tab) => SECTION_HOME[tab] ?? null;
+  wireSectionTabs(doc);
+  // T-3671 (WCAG 2.4.3): the HUD puts a section away by taking focus off it first (hud.js
+  // setPanel), so when its close key or Escape docks the device, focus would fall to the
+  // page. A blur out of #panel with nowhere to go, in the same task as the close, means the
+  // visitor closed it from inside: the device closes as by its own key and hands focus back.
+  const panel = panelEl(doc);
+  let blurredOut = false;
+  panel?.addEventListener?.('focusout', (e) => {
+    if (e.relatedTarget) return;
+    blurredOut = true;
+    queueMicrotask(() => { blurredOut = false; });
+  });
+  const dockFromHud = () => {
+    if (blurredOut && navigator.close) { blurredOut = false; navigator.close(); } else navigator.dock();
+  };
   // An app opened for the first time may mount asynchronously (People loads a module): a
   // close that arrives before it has finished must still win, so every open and close
   // is counted, and an open that finishes after a later close is put away again.
@@ -140,7 +180,7 @@ export function install({ hud, navigator, doc = globalThis.document, openGoTo = 
     },
     close() {
       closes++;
-      if (APP_SECTIONS[navigator.app]) navigator.dock();
+      if (APP_SECTIONS[navigator.app]) dockFromHud();
     },
     show(tab) {
       if (tab === 'goto') return goTo();

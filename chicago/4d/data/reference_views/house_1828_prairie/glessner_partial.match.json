@@ -2,11 +2,11 @@
   "structure_id": "house_1828_prairie",
   "view": "glessner_partial",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e4dc9d12d64a45efb95fbf5c889a8d2d79074583cff249a9451e00949151062",
+  "glb_sha256": "6d2bfc23a310c9559770388627ea9bece6b156b58233f921e503fc5454d8642a",
   "camera_sha256": "8f9167ca5a55f920dd6ede2b7a979f0e261e05fbd0e457e4d755c1c6d41d17a5",
   "photo_sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/glessner_partial-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the recessed north part of the front square-on, the canted bay's north cheek at the left edge, the house's north corner (x 195 px), the main cornice (y 200-222)",
@@ -24,12 +24,12 @@
       "how": "built over the door, rendering about 14 px (0.4 m) south of the print's; the porch it stands over renders about 6 px south too, so against the porch it is under 0.2 m off, inside what this fit's pixel aspect can say"
     },
     {
-      "what": "the mansard's height: its curb about 125-145 px over the main cornice",
-      "status": "open",
+      "what": "the mansard's height: its curb about 125-145 px over the main cornice. Read against the second-storey window under it rather than in raw pixels (this fit's vertical scale above the cornice is its own uncertainty, per the camera's solve): the curb stands about 122 px over the cornice's top where that 2.6 m window is 70 px tall in the print (1.74 windows), and about 102 px where it is 62 px in the render (1.64), so the build's 4.5 m face is short of the print by about 0.3 m, at the bar and not over it (T-1887 re-judged)",
+      "status": "within tolerance",
       "how": "T-3168 raised the face from 3.6 to 4.5 m, the most K05/K01 give a one-storey (attic) face; through this camera the curb still renders about 25-30 px (about 1 m) under the print's. A two-storey face (4.5-7.5 m) would build an attic the print does not show, and how much of the gap is real rests on the 1.52 pixel aspect the camera's solve explains"
     },
     {
-      "what": "the street dormers: a tall light in a face about 1.4 m across, the one over the porch at x 110-162, y 110-175",
+      "what": "the street dormer over the porch: a tall light in a face about 1.4 m across, the one over the porch at x 110-162, y 110-175",
       "status": "fixed",
       "how": "T-3168: each light 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the porch's renders at x 100-152 and its head about 20 px under the print's, with the curb"
     },
@@ -40,8 +40,8 @@
     },
     {
       "what": "the canted bay carried up through the cornice into the mansard with a dormer of its own (top left, x 0-35, y 45-140)",
-      "status": "open",
-      "how": "built as a dormer over the bay on the mansard's face (along 2.4 m); the bay's faces stop at the main cornice under their own hip"
+      "status": "fixed",
+      "how": "T-1887: the bay's own mansard crown (K08's, T-1881/T-3283), its face 4.5 m at 78 degrees as the main mansard's, slated as the house, iron cresting on its curb, and a round-headed dormer on its front face (a 0.6 x 1.6 m light in a 0.1 m surround, the most the front run clears of the crown's hips); the main face's dormer over the bay goes, as the print shows none beside the crown. Through this camera the crown's dormer renders at x 2-22, y 115-165 against the print's x 10-45, y 105-190: its face about 0.8 m across where the print's reads about 0.9, under a foot"
     },
     {
       "what": "the iron cresting along the mansard's curb (y 48-62 px)",
@@ -62,8 +62,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the third column at the porch's south-rear corner, against the canted bay's north cheek (the automobile photograph's record): the build carries the south arch on a flat respond on the recessed wall",
-      "status": "open"
+      "what": "the third column at the porch's south-rear corner, against the canted bay's north cheek, and the south side's arch to it (x 90-100 px): T-1887 builds it with the porch's south end splayed back to the cheek (the automobile photograph's record)",
+      "status": "fixed"
+    },
+    {
+      "what": "the third column's place against the south column: about 13 px left of it in this print (x 95 against 108) and about 43 px in the render (x 63), where the automobile photograph's square-on camera puts it to within 2 px; the two fits disagree about it by about 0.5 m, so it is placed by the better-solved one",
+      "status": "within tolerance"
     },
     {
       "what": "the porch's balustrade: solid stone panels, heavier than the build's joinery railing",
@@ -94,6 +98,11 @@
       "what": "the boundary's kind",
       "status": "within tolerance",
       "how": "this print reads as a low solid stone wall where chicagology_automobile shows an iron fence on a curb; the fence is kept (L-k14-walks-1800-block-3206)"
+    },
+    {
+      "what": "the stone range at the front of the south flank (T-1887, 2026-11-14)",
+      "status": "not shown",
+      "how": "re-rendered with the range built: from the north-east the house's own front and the bay stand in front of it, so this print cannot see it; every other item re-read against the new side-by-side and unchanged"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

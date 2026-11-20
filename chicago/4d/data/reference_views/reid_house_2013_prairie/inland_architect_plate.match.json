@@ -1,0 +1,149 @@
+{
+  "structure_id": "reid_house_2013_prairie",
+  "view": "inland_architect_plate",
+  "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
+  "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d",
+  "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
+  "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
+  "rendered_members": [
+    {
+      "structure_id": "reid_house_2013_prairie",
+      "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1440.883,
+        "local_n": -3520.093,
+        "rotation_deg": 179.383,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d"
+    },
+    {
+      "structure_id": "house_2011_prairie",
+      "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1435.256,
+        "local_n": -3512.268,
+        "rotation_deg": 179.383,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        5.542410433024977,
+        0,
+        7.885140492844279
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "5096fd7422a6227a38c42790b0b0961f2e8e8d5d11f8e1ef86650105768585af"
+    },
+    {
+      "structure_id": "house_2017_prairie",
+      "glb": "assets/gltf/house_2017_prairie__draft_1904.glb",
+      "placement": {
+        "local_e": 1441.061,
+        "local_n": -3530.462,
+        "rotation_deg": 179.389,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        -0.06633137903880316,
+        0,
+        -10.370315576112317
+      ],
+      "rotation_y": -0.00010471975511966374,
+      "glb_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
+    }
+  ],
+  "group_sha256": "76aac937ecd2d46ce865ae39cac282a494b06310945d8601d6c81594bd24a2e9",
+  "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a narrow three-storey front over a raised basement filling its lot between 2011 and 2017, flat behind a cornice and a roof balustrade, where the draft stood a 5.5 m body 2 m south of the sheet's",
+      "status": "fixed",
+      "how": "T-3625: the 1911 sheet's '3B' block read at full size, 18.2 by 7.62 m; the front's corners at x 330 and 640 px in the render against the plate's 322 and 640"
+    },
+    {
+      "what": "the portico at the north end: two columns at its front, an entablature at about 4-4.6 m and a balustraded balcony on it, where the draft had a plain central door",
+      "status": "fixed",
+      "how": "T-3625: K07's stoop under a K01 hood 2.1 m wide and 1.6 m out on columns, with a stone railing; its columns at x 1185 and 1240 px of the render's half against the plate's 257 and 335 px"
+    },
+    {
+      "what": "the ground floor's two tall lights beside the portico under moulded caps",
+      "status": "fixed",
+      "how": "T-3625: two named street sash at 4.0 and 5.8 m, sills 2.45 m, under K09's corniced lintel"
+    },
+    {
+      "what": "the upper storeys' three lights each, a broad one between two narrow ones, and the third storey's broad light carried up under a round arch",
+      "status": "fixed",
+      "how": "T-3625: named street sash at 2.36, 3.7 and 4.97 m on both floors, the third's broad one K06's round-headed fanlight sash to 12.6 m"
+    },
+    {
+      "what": "the belt under the second floor's sills, the cornice over the whole front and the balustrade over it",
+      "status": "fixed",
+      "how": "T-3625: a front belt at 5.7-5.95 m, K10's moulded stone cornice and the flat roof's balustrade along the whole front; the balustrade's top at y 150-280 px of the render against the plate's 95-235 px at the two ends"
+    },
+    {
+      "what": "the basement's two square lights under the ground floor's and the iron fence on its curb before the house",
+      "status": "fixed",
+      "how": "T-3625: basement lights at 4.0 and 5.8 m, heads 1.33 m; K11's spear fence on a curb along the street line"
+    },
+    {
+      "what": "the two oval lights in the upper wall, at the frame's two sides about 7.3 m up (x 340-370 and 575-600 px)",
+      "status": "open",
+      "how": "not cut: K01 cuts no oval in a plain wall (L-k01-2013-reid-3625); T-3626"
+    },
+    {
+      "what": "the frame round the three-light storeys: pilasters at 1.85 and 5.27 m from the second floor's belt to the frieze, sunk panels between the two floors' lights and a corniced hood over each storey's lights",
+      "status": "open",
+      "how": "not built (L-k01-2013-reid-3625); T-3626"
+    },
+    {
+      "what": "the entablature's frieze of garlands and wreaths and the dentils under the cornice's corona (x 300-615 px, y 160-335)",
+      "status": "open",
+      "how": "K10's moulded section stands for them uncarved (L-k01-2013-reid-3625); T-3626"
+    },
+    {
+      "what": "the front's tone: the plate prints it the palest front on the block, near white beside 2011's pale stone, where the render's cream brick reads a warm tan",
+      "status": "open",
+      "how": "K03's palest front recipe is cream_sooted, smoke-greyed; the register's 'cream textured brick' of 1894 wants a cleaner, paler face; T-3626"
+    },
+    {
+      "what": "the portico's entablature and the door",
+      "status": "within tolerance",
+      "how": "built 0.2 m higher than the plate reads (soffit 4.2 m against about 4.0) so it clears K01's door lintel; the door 2.2 m clear against about 2.3"
+    },
+    {
+      "what": "the stone basement's top",
+      "status": "within tolerance",
+      "how": "laid at the principal floor (1.65 m), about 0.1 m under the plate's water table, where K01 turns a stone basement to brick"
+    },
+    {
+      "what": "colour of the brick, the stone, the sash and the ironwork",
+      "status": "not shown",
+      "how": "the plate is monochrome"
+    },
+    {
+      "what": "the flanks, the rear and the roof",
+      "status": "not shown",
+      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck; T-3626 reads the 2003 photographs"
+    },
+    {
+      "what": "2011 and 2017 themselves",
+      "status": "not shown",
+      "how": "rendered as the 1904 scene's own records for context only; their pictures are their own tickets'; 2011's K01 turret (T-3615, built off the Chicagology photograph's camera) falls where the plate draws it, its cone at x 90-290 px of the render against the plate's 160-320 px, an independent check on this camera"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "2026-11-17"
+}

@@ -94,6 +94,14 @@
         "hmdb_prairie_lost_houses_1800_1900_east",
         "chicago_blue_book_1904"
       ]
+    },
+    "dexter_house_1721_prairie_frame_house": {
+      "text": "Wirt Dexter's frame house of 1863, the first house on this lot. Arthur Little's brick front on Prairie Avenue was built onto its street end; the old house's own front, porch and bay windows, faces the side yard.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700",
+        "inland_architect_1891_06_dexter_plate",
+        "loc_det_4a08065_pullman_residence"
+      ]
     }
   }
 }

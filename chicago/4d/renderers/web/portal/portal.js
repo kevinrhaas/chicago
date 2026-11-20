@@ -17,6 +17,7 @@
   const aperture = $('.aperture'), apertureState = $('#aperture-state'), log = $('#machine-log');
   const monitor = $('.monitor'), readout = $('#readout'), lock = $('.core .lock');
   const cards = $$('.era');
+  const total = String(cards.length).padStart(2, '0');
   const states = cards.map(card => card.querySelector('.era-state'));
   const settled = states.map(s => s && s.lastChild.textContent);
   const coords = Object.fromEntries($$('.coord').map(c => [c.dataset.coord, c]));
@@ -24,7 +25,7 @@
   const gauges = Object.fromEntries($$('.gauge').map(g => [g.dataset.gauge, g]));
   const tele = Object.fromEntries($$('.telemetry-cell[data-t]').map(c => [c.dataset.t, c]));
   const holds = cards.map((card, i) => {
-    // 1835 holds at lock nominal; 1904 and 1812 are only partly built, so they are cleared for
+    // 1835 holds at lock nominal; 1904, 1812 and 1871 are partly built, so they are cleared for
     // entry but calibrating: a lower hold that wanders more and slips more often.
     const calibrating = card.classList.contains('era-calibrating');
     const base = calibrating ? (card.dataset.year === '1904' ? 86 : 71) : 99.4;
@@ -58,7 +59,7 @@
   function telemetry(name, text, state) { const c = tele[name]; if (!c) return; c.querySelector('b').textContent = text; if (state) c.dataset.state = state; }
 
   // The destination readout and the reticle follow whichever coordinate you point at.
-  const PLACES = { 1835: 'RIVER SETTLEMENT', 1904: 'PRAIRIE AVENUE', 1812: 'FORT DEARBORN' };
+  const PLACES = { 1835: 'RIVER SETTLEMENT', 1904: 'PRAIRIE AVENUE', 1812: 'FORT DEARBORN', 1871: 'PRE-FIRE CHICAGO' };
   let shown = '1835', rollTimer;
   function roll(year) {
     if (!readout || year === shown) return; shown = year;
@@ -92,7 +93,9 @@
     });
     if (monitor) monitor.classList.remove('noisy');
     cards.forEach((c, i) => found(i));
-    status.textContent = '3 destinations online · 1 nominal · 2 calibrating'; count.textContent = '03 / 03';
+    const calibrating = holds.filter(h => h.calibrating).length;
+    status.textContent = `${cards.length} destinations online · ${cards.length - calibrating} nominal · ${calibrating} calibrating`;
+    count.textContent = `${total} / ${total}`;
     station.textContent = 'HOLDING'; setAperture('open', 'OPEN');
     lamp('time', true); lamp('map', true); lamp('archive', true, true); lamp('field', true); lamp('recall', true, true); lamp('drift', false);
     gauge('flux', .72); gauge('coherence', .86); gauge('drift', .28);
@@ -102,12 +105,12 @@
     if (reduced.matches) { clearInterval(ticker); ticker = 0; }
   }
 
-  // The cold start, about three seconds: tubes, sweep, three signatures, matrix stable.
+  // The cold start, about four seconds: tubes, sweep, four signatures, matrix stable.
   function boot() {
     root.classList.add('booting'); document.body.classList.add('acquiring');
     if (log) log.replaceChildren();
     say('APPARATUS MK II · COLD BOOT'); setAperture('sealed', 'SEALED');
-    status.textContent = 'Scanning the interval…'; count.textContent = '00 / 03'; station.textContent = 'COLD START';
+    status.textContent = 'Scanning the interval…'; count.textContent = `00 / ${total}`; station.textContent = 'COLD START';
     Object.keys(lamps).forEach(n => lamp(n, false)); Object.keys(gauges).forEach(n => gauge(n, 0));
     cards.forEach((card, i) => setState(i, 'SCANNING…'));
     holds.forEach(h => { h.value = 0; paintHold(h); });
@@ -119,16 +122,16 @@
     const stages = cards.map(c => `${c.dataset.year} found`);
     cards.forEach((card, i) => later(1400 + i * 450, () => {
       found(i); holds[i].value = holds[i].target; paintHold(holds[i]);
-      say(lines[i] || `${card.dataset.year} · resolved`); status.textContent = stages[i] || status.textContent; count.textContent = `0${i + 1} / 03`;
+      say(lines[i] || `${card.dataset.year} · resolved`); status.textContent = stages[i] || status.textContent; count.textContent = `${String(i + 1).padStart(2, '0')} / ${total}`;
     }));
-    later(2650, () => { say('STABILIZING…'); setAperture('opening', 'OPENING'); gauge('coherence', .86); gauge('drift', .28); });
-    later(3050, () => { say('MATRIX STABLE · 3 COORDS HELD'); lamp('recall', true, true); finish(); });
+    later(1400 + cards.length * 450, () => { say('STABILIZING…'); setAperture('opening', 'OPENING'); gauge('coherence', .86); gauge('drift', .28); });
+    later(1800 + cards.length * 450, () => { say(`MATRIX STABLE · ${cards.length} COORDS HELD`); lamp('recall', true, true); finish(); });
   }
 
   const LINES = [
-    'SYNCING TIME MESH… OK', 'MATRIX STABLE', 'RETICULATING SPLINES…', 'SCANNING INTERVAL… 3 SIGNALS',
+    'SYNCING TIME MESH… OK', 'MATRIX STABLE', 'RETICULATING SPLINES…', `SCANNING INTERVAL… ${cards.length} SIGNALS`,
     'RE-CENTERING ON WOLF POINT… OK', 'COMPENSATING LAKE DRIFT', 'DOSIMETRY NOMINAL', 'CACHE WARM',
-    'PING 1835… 12 MS', 'PING 1904… 31 MS', 'PING 1812… 44 MS', 'CALIBRATING 1904 MESH…', 'SURVEYING 1812 PRAIRIE…',
+    'PING 1835… 12 MS', 'PING 1904… 31 MS', 'PING 1812… 44 MS', 'CALIBRATING 1904 MESH…', 'SURVEYING 1812 PRAIRIE…', 'RESTORING 1871 CITY BLOCKS…',
     'RETURN WINDOW OPEN', 'DAMPING NORTH BRANCH HARMONIC', 'EVIDENCE INDEX LINKED', 'SWEEP 4.0 S · STEADY', 'BUFFERING 1904 STREETSCAPE…',
   ];
   function chatter() {

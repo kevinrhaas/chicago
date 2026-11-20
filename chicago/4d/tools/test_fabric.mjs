@@ -50,13 +50,15 @@ assert.equal(patchFabric(wool), CLOTHS.wool, 'a second patch is a no-op');
 const shader = compile(wool);
 assert.equal(priorRan, 1, 'the prior hook runs once, first');
 assert(shader.fragmentShader.includes('// prior'));
-for (const marker of ['chiFabricPerturb( - vViewPosition', 'roughnessFactor = clamp( roughnessFactor - chiFabricGloss',
-  'reflectedLight.indirectDiffuse += diffuseColor.rgb * chiFabricWear.x', 'float chiFabricH = 0.0']) {
+for (const marker of ['chiFabricPerturb( - vViewPosition', 'roughnessFactor = clamp( roughnessFactor - chiFabricGloss', 'chiFin.w ) - chiFinGloss',
+  'reflectedLight.indirectDiffuse += diffuseColor.rgb * chiShe', 'float chiFabricH = 0.0', 'float chiFinGloss = 0.0']) {
   assert.equal(shader.fragmentShader.split(marker).length, 2, `spliced once: ${marker}`);
 }
 assert(shader.vertexShader.includes('vChiFabricP = position;'));
-assert.deepEqual(Object.keys(shader.uniforms).sort(), ['chiFabric', 'chiFabricWear']);
-assert.equal(wool.customProgramCacheKey(), 'chicago4d-confidence|chicago-fabric-v1', 'the key names the chain');
+assert.deepEqual(Object.keys(shader.uniforms).sort(), ['chiFabric', 'chiFabricWear', 'chiFin', 'chiFinBand', 'chiFinBandRgb', 'chiFinPat', 'chiFinPatRgb']);
+// T-3553: a plain cloth's finery is all zeros (drawn exactly as before).
+assert(shader.uniforms.chiFin.value.toArray().every(v => v === 0) && shader.uniforms.chiFinPat.value.x === 0, 'no finery by default');
+assert.equal(wool.customProgramCacheKey(), 'chicago4d-confidence|chicago-fabric-v2', 'the key names the chain');
 
 // A hook chained above (as confidence.js chains) still sees the anchors it needs.
 for (const anchor of ['#include <begin_vertex>']) assert(shader.vertexShader.includes(anchor));

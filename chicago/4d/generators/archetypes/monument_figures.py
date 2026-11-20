@@ -1,0 +1,619 @@
+"""monument_figures — the Fort Dearborn group's five figures on the people rigs (T-3583).
+
+The owner, 2026-11-13, on T-3583: *"if there are a bumch of people in that monument maybe
+you can use some of the existing people harness"*. So each figure's BODY is a portable-human
+rig (`assets/humans/*.lodN.glb`, MakeHuman hm08, the 56-joint skeleton), posed to the joints
+T-3582 read on ICHi-19208 and J. W. Taylor's 1893 print (`TARGETS` below, the same pose units
+as `monument.FIGURES`), skinned, and baked to a static mesh in the monument's frame. T-3565's
+ruling stands: the rigs are an ARMATURE and a body only. Of each rig's dress only the pieces
+the sculpture also shows are kept, as starting shapes cast in the same bronze (the belts,
+Black Partridge's leggings, Mrs. Helm's gown, the surgeon's coat and boots; since
+T-3594 Black Partridge's breechcloth, the child's smock and the warrior's sash, in place of
+his rig's breechcloth, are drapery modelled to the plates, `DRAPED`, and the surgeon's loose
+pantaloons, in place of his rig's tight ones, are cloth hung on his legs,
+`monument.ORNAMENTS`); the project's dress and variation rules do
+not apply to a sculpture (`dress_1812_native.json` is not read), and no face is fitted to a
+portrait of anyone — each face is the rig's neutral hm08 face, re-cut since T-3594 to the
+stronger brows, noses and mouths both plates draw (`FEATURES`, `_sculpt`).
+
+## The pose, bone by bone
+
+Pure numpy, no Blender. The rig's rest pose is read from its inverse bind matrices (a T
+pose facing +z in glTF, i.e. facing the street once turned z-up). Each figure is placed as
+the photographs read it:
+
+- the TORSO (pelvis, spine, clavicles) is turned so its rest axis, pelvis to neck, lies
+  along the figure's pelvis-to-neck reading and its shoulder line along the shoulders
+  read, and stretched along that axis to reach the neck. Where a figure twists (`hips`,
+  T-3594: the warrior's hips face his lunge while his chest turns to Mrs. Helm) the
+  pelvis takes the hips' line instead and the spine carries the turn up to the
+  shoulders a third at a time, every piece about the same pelvis-to-neck axis, so the
+  pelvis and neck stay where they were read;
+- the NECK and HEAD are aimed at the head's centre, unstretched (a stretched head is a
+  different face). Where the plates show what a figure looks at (`look`, T-3594) the
+  face is turned about the neck's own axis toward it and the head nodded on the neck's
+  top to face it: the warrior bowed to Mrs. Helm, Black Partridge in profile to the
+  warrior, Mrs. Helm bowed to the warrior and the child looking up after his hands;
+- each ARM and LEG is a chain from where the torso puts its root: the upper bone aimed at
+  the elbow or knee and stretched along itself to reach it, the lower one aimed at the
+  wrist or ankle and stretched to it, the hand carried rigid with the forearm and the foot
+  aimed at the toe, unstretched.
+
+A vertex is moved by the weighted sum of its bones' transforms (linear blend skinning),
+its normal by their rotations. Fingers, jaw, eyes and toes ride on their parents. Mrs.
+Helm's legs, under the skirt in both photographs, are set standing under her hem, and the
+surgeon's left arm, which neither photograph shows, lies along his side; both are said in
+the liberty.
+
+## Determinism
+
+`monument_emit.py --check` holds the committed GLB to these bytes, so nothing here reaches
+BLAS: every product is an elementwise multiply and an ordered sum, and the emitter rounds
+every coordinate to 0.1 mm.
+"""
+
+from __future__ import annotations
+
+import json
+import struct
+from pathlib import Path
+
+import numpy as np
+
+ROOT = Path(__file__).resolve().parents[2]
+HUMANS = ROOT / "assets" / "humans"
+
+#: The rig LOD the monument's master is built from. LOD2 is the people's walking-distance
+#: level (about 6,000 body triangles); the monument is seen 5-15 m off from the walk.
+LOD = 2
+
+#: figure -> (rig, the dress pieces kept as the sculpture's starting shapes)
+RIGS = {
+    "warrior": ("potawatomi_man_1812",
+                ("body_0", "short04_hair", "leather_belt", "closed_shoes", "eyes__sclera")),
+    "helm": ("lady_1812",
+             ("body_0", "short04_hair", "gown_bodice", "gown_skirt", "gown_waist_band", "closed_shoes",
+              "eyes__sclera")),
+    "black_partridge": ("potawatomi_man_1812",
+                        ("body_0", "short04_hair", "stroud_leggings", "leather_belt", "closed_shoes",
+                         "eyes__sclera")),
+    "surgeon": ("surgeons_mate_first_infantry_1812",
+                ("body_0", "short04_hair", "black_leather_stock", "coat_collar", "coat_body",
+                 "coat_cuffs_scarlet", "coat_skirts", "coat_turnbacks_white", "white_waistcoat",
+                 "boot_shafts", "closed_shoes", "eyes__sclera")),
+    "child": ("child_boy_1812", ("body_0", "short04_hair", "eyes__sclera")),
+}
+
+# The joints, in monument.FIGURES' pose units (x along the front to the right as the street
+# sees it, y back from the front, z up off the rock). P pelvis, C the neck's root, H the
+# head's centre; sh/el/wr shoulder, elbow, wrist; kn/an/to knee, ankle, toe; _r and _l the
+# figure's own right and left. Every figure faces the street, so its right is at -x: the
+# side each limb is put on is the one its root stands on in the photographs.
+TARGETS = {
+    # tomahawk in the right hand, over his head; the right leg stretched back to the west edge.
+    # T-3594: his shoulders' depths turned so the chest faces Mrs. Helm (both plates show
+    # his chest and belly turned to her; the 0.13 m the old depths put his right shoulder
+    # behind his left is inside Taylor's 0.15 m depth resolution, and their x and height,
+    # read on ICHi-19208, are unchanged), his hips facing the lunge, front and a little left
+    # as the breechcloth and belt face in both plates, and his face bowed to her shoulder
+    "warrior": {
+        "P": (-0.60, -0.10, 0.93), "C": (-0.52, -0.38, 1.25), "H": (-0.36, -0.28, 1.42),
+        "look": (0.03, -0.72, 1.10), "hips": (-0.97, 0.26, 0.0),
+        "sh_r": (-0.62, -0.425, 1.31), "el_r": (-0.71, -0.34, 1.60), "wr_r": (-0.50, -0.03, 1.80),
+        "sh_l": (-0.44, -0.205, 1.19), "el_l": (-0.29, -0.47, 1.11), "wr_l": (-0.12, -0.60, 1.07),
+        "kn_r": (-0.73, 0.30, 0.53), "an_r": (-0.86, 0.39, 0.17), "to_r": (-0.93, 0.36, 0.10),
+        "kn_l": (-0.44, -0.60, 0.44), "an_l": (-0.43, -0.11, 0.11), "to_l": (-0.49, -0.17, 0.05),
+    },
+    # the right arm across to the warrior; her legs, unseen, stand under the hem. T-3594:
+    # her face turned to the warrior and bowed, as both plates show it: ICHi-19208 draws
+    # her head in profile to the west, the brow, nose and chin at its lower left (x 575-590,
+    # y 222-242) and the knot of hair at its upper right (x 606-618, y 205-216), the face
+    # about 30 degrees below level; Taylor's print, from the west of the front, shows the
+    # same face three-quarter on and bowed (x 625-660, y 300-335), so it is turned a
+    # little to the street from profile
+    "helm": {
+        "P": (0.03, -0.72, 0.85), "C": (0.03, -0.72, 1.14), "H": (-0.01, -0.72, 1.31),
+        "look": (-0.43, -0.87, 1.06),
+        "sh_r": (-0.06, -0.72, 1.11), "el_r": (-0.21, -0.64, 1.01), "wr_r": (-0.45, -0.45, 0.98),
+        "sh_l": (0.11, -0.72, 1.13), "el_l": (0.16, -0.62, 1.01), "wr_l": (0.22, -0.52, 1.14),
+        "kn_r": (-0.03, -0.80, 0.47), "an_r": (-0.01, -0.70, 0.08), "to_r": (-0.02, -0.82, 0.03),
+        "kn_l": (0.11, -0.78, 0.47), "an_l": (0.12, -0.66, 0.08), "to_l": (0.13, -0.78, 0.03),
+    },
+    # the open hand raised to the upper left (his right, as he faces the street); the other
+    # arm round her; striding to the right. T-3594: his chest turned a third of the way to
+    # the warrior (square-on to Taylor's print, three-quarter on ICHi-19208; the shoulders'
+    # x and height unchanged) and his face in profile to the warrior's head, as both show
+    "black_partridge": {
+        "P": (0.42, -0.62, 0.93), "C": (0.32, -0.53, 1.49), "H": (0.27, -0.55, 1.63),
+        "look": (-0.36, -0.28, 1.42),
+        "sh_r": (0.16, -0.405, 1.49), "el_r": (-0.09, -0.63, 1.57), "wr_r": (-0.31, -0.65, 1.69),
+        "sh_l": (0.56, -0.635, 1.39), "el_l": (0.63, -0.13, 1.26), "wr_l": (0.27, -0.55, 1.18),
+        "kn_r": (0.30, -0.47, 0.47), "an_r": (0.34, -0.32, 0.05), "to_r": (0.34, -0.40, 0.01),
+        "kn_l": (0.58, -0.44, 0.50), "an_l": (0.83, 0.26, 0.12), "to_l": (0.92, 0.20, 0.05),
+    },
+    # half lying back, propped on his right arm; the left, unseen, along his side
+    "surgeon": {
+        "P": (-0.04, 0.12, 0.21), "C": (-0.22, -0.10, 0.35), "H": (-0.30, -0.15, 0.39),
+        "face": (0.0, -0.45, 0.89),
+        "el_r": (-0.18, -0.35, 0.17), "wr_r": (-0.22, -0.42, 0.02),
+        "el_l": (-0.06, 0.10, 0.36), "wr_l": (0.08, 0.06, 0.30),
+        "kn_r": (-0.49, -0.05, 0.26), "an_r": (-0.73, -0.25, 0.08), "to_r": (-0.81, -0.28, 0.04),
+        "kn_l": (0.16, -0.10, 0.32), "an_l": (0.28, -0.22, 0.05), "to_l": (0.30, -0.30, 0.03),
+    },
+    # kneeling at the rock's right edge, both arms out to the right. T-3594: his face lifted
+    # up and to the right, after his hands, as Taylor's print shows it (the face
+    # three-quarter on, the chin up, x 745-780, y 555-585) and ICHi-19208's tilted head
+    # agrees (x 688-715, y 360-385)
+    "child": {
+        "P": (0.56, -0.72, 0.11), "C": (0.56, -0.72, 0.31), "H": (0.55, -0.72, 0.37),
+        "look": (0.83, -0.95, 0.72),
+        "sh_r": (0.52, -0.72, 0.28), "el_r": (0.65, -0.72, 0.34), "wr_r": (0.75, -0.72, 0.39),
+        "sh_l": (0.60, -0.72, 0.29), "el_l": (0.79, -0.51, 0.33), "wr_l": (1.00, -0.30, 0.39),
+        "kn_r": (0.53, -0.80, 0.02), "an_r": (0.52, -0.50, 0.03), "to_r": (0.52, -0.44, 0.00),
+        "kn_l": (0.60, -0.80, 0.02), "an_l": (0.64, -0.45, 0.04), "to_l": (0.62, -0.39, 0.00),
+    },
+}
+
+#: The parts of monument.FIGURES the rigs do not have, kept as they were: Mrs. Helm's knot of
+#: hair. (Her cloak and her skirt's fall to the rock were members here too until T-3594
+#: modelled them as drapery, `DRAPED` below; so were the feathers, the tomahawk, the hip
+#: ornament, Black Partridge's headdress and musket, until T-3594 modelled them as the
+#: plates show them, `monument.ORNAMENTS`, hung on `anchors`.) Indices into each
+#: figure's list there.
+PROPS = {
+    "warrior": (),
+    "helm": (1,),
+    "black_partridge": (),
+    "surgeon": (),
+    "child": (),
+}
+
+#: The drapery modelled to the sculpture (T-3594): `monument.DRAPERY` pieces per figure. Mrs.
+#: Helm's skirt, overskirt and cloak replace the cone of skirt and the cloak's two members
+#: the poses had kept (her `FIGURES` parts 4, 5 and 6); Black Partridge's short fringed
+#: breechcloth replaces his rig's knee-length one, the child's smock his rig's jacket,
+#: collar, trousers and shoes, and the warrior's sash with the cloth hanging from it his
+#: rig's thin breechcloth (`RIGS` no longer keeps them).
+DRAPED = {
+    "warrior": ("warrior_sash", "warrior_hip_flap", "warrior_front_flap"),
+    "helm": ("helm_skirt", "helm_overskirt", "helm_cloak"),
+    "black_partridge": ("black_partridge_breechcloth",),
+    "child": ("child_smock",),
+}
+
+#: The rest pose's head centre over the `head` joint (hm08: the joint is at the skull's
+#: base, the crown about 0.15 m above it).
+HEAD_CENTRE_UP_M = 0.08
+
+_DTYPES = {5120: "i1", 5121: "u1", 5122: "<i2", 5123: "<u2", 5125: "<u4", 5126: "<f4"}
+_COMPS = {"SCALAR": 1, "VEC2": 2, "VEC3": 3, "VEC4": 4, "MAT4": 16}
+
+
+def rig_files() -> list[Path]:
+    """Every rig file a figure is built from — inputs to the monument's mesh."""
+    return sorted({HUMANS / f"{rig}.lod{LOD}.glb" for rig, _ in RIGS.values()})
+
+
+_CACHE: dict = {}
+
+
+def _load(path: Path):
+    if path in _CACHE:
+        return _CACHE[path]
+    raw = path.read_bytes()
+    jlen = struct.unpack("<I", raw[12:16])[0]
+    gltf = json.loads(raw[20:20 + jlen])
+    blen = struct.unpack("<I", raw[20 + jlen:24 + jlen])[0]
+    blob = raw[28 + jlen:28 + jlen + blen]
+    _CACHE[path] = (gltf, blob)
+    return gltf, blob
+
+
+def _acc(gltf, blob, i) -> np.ndarray:
+    a = gltf["accessors"][i]
+    bv = gltf["bufferViews"][a["bufferView"]]
+    dt = np.dtype(_DTYPES[a["componentType"]])
+    n = _COMPS[a["type"]]
+    off = bv.get("byteOffset", 0) + a.get("byteOffset", 0)
+    stride = bv.get("byteStride") or dt.itemsize * n
+    if stride == dt.itemsize * n:
+        out = np.frombuffer(blob, dtype=dt, count=a["count"] * n, offset=off).reshape(a["count"], n)
+    else:
+        rows = [np.frombuffer(blob, dtype=dt, count=n, offset=off + k * stride) for k in range(a["count"])]
+        out = np.stack(rows)
+    out = out.astype(np.float64)
+    if a.get("normalized"):
+        out = out / float(np.iinfo(dt).max)
+    return out
+
+
+def _zup(v: np.ndarray) -> np.ndarray:
+    """glTF y-up (x, y, z) to the archetype's z-up (x, -z, y)."""
+    return np.stack([v[:, 0], -v[:, 2], v[:, 1]], axis=1)
+
+
+def _rest(rig: str, keep):
+    gltf, blob = _load(HUMANS / f"{rig}.lod{LOD}.glb")
+    skin = gltf["skins"][0]
+    names = [gltf["nodes"][j]["name"] for j in skin["joints"]]
+    ibm = _acc(gltf, blob, skin["inverseBindMatrices"]).reshape(-1, 4, 4)
+    heads = {}
+    for name, m in zip(names, ibm):
+        world = np.linalg.inv(m.T)          # glTF stores the matrix column-major
+        heads[name] = _zup(world[None, :3, 3])[0]
+    meshes = []
+    for mesh in gltf["meshes"]:
+        part = next((k for k in keep if mesh["name"] == f"{rig}_{k}_lod{LOD}"), None)
+        if part is None:
+            continue
+        for prim in mesh["primitives"]:
+            at = prim["attributes"]
+            meshes.append({
+                "part": part,
+                "pos": _zup(_acc(gltf, blob, at["POSITION"])),
+                "nrm": _zup(_acc(gltf, blob, at["NORMAL"])),
+                "jnt": _acc(gltf, blob, at["JOINTS_0"]).astype(np.int64),
+                "wgt": _acc(gltf, blob, at["WEIGHTS_0"]),
+                "idx": _acc(gltf, blob, prim["indices"]).astype(np.int64).reshape(-1),
+            })
+    return names, heads, meshes
+
+
+def _unit(v):
+    v = np.asarray(v, dtype=np.float64)
+    n = np.sqrt(float(np.sum(v * v)))
+    return v / n if n else v
+
+
+def _cross(a, b):
+    return np.array([a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]])
+
+
+def _mat(a, b):
+    """a @ b for 3x3 matrices, elementwise (no BLAS)."""
+    return np.array([[float(np.sum(a[i, :] * b[:, j])) for j in range(3)] for i in range(3)])
+
+
+def _apply(m, v):
+    return np.array([float(np.sum(m[i, :] * v)) for i in range(3)])
+
+
+def _rot_between(a, b):
+    """The least rotation taking direction a onto direction b (Rodrigues)."""
+    a, b = _unit(a), _unit(b)
+    v = _cross(a, b)
+    c = float(np.sum(a * b))
+    if c < -0.999999:
+        axis = _unit(_cross(a, np.array([1.0, 0.0, 0.0]) if abs(a[0]) < 0.9 else np.array([0.0, 1.0, 0.0])))
+        return 2.0 * np.outer(axis, axis) - np.eye(3)
+    k = np.array([[0.0, -v[2], v[1]], [v[2], 0.0, -v[0]], [-v[1], v[0], 0.0]])
+    return np.eye(3) + k + _mat(k, k) / (1.0 + c)
+
+
+def _spin_to(axis, have, want):
+    """The rotation about `axis` taking direction `have` onto `want`, both seen across the
+    axis (Rodrigues)."""
+    a = _unit(axis)
+    h = _unit(have - float(np.sum(have * a)) * a)
+    w = _unit(want - float(np.sum(want * a)) * a)
+    sin = float(np.sum(a * _cross(h, w)))
+    cos = float(np.sum(h * w))
+    k = np.array([[0.0, -a[2], a[1]], [a[2], 0.0, -a[0]], [-a[1], a[0], 0.0]])
+    return np.eye(3) + sin * k + (1.0 - cos) * _mat(k, k)
+
+
+def _spin(axis, ang):
+    """The rotation by `ang` radians about `axis` (Rodrigues)."""
+    a = _unit(axis)
+    k = np.array([[0.0, -a[2], a[1]], [a[2], 0.0, -a[0]], [-a[1], a[0], 0.0]])
+    return np.eye(3) + float(np.sin(ang)) * k + (1.0 - float(np.cos(ang))) * _mat(k, k)
+
+
+def _twist(rot_a, rot_b, axis):
+    """The angle about `axis` from the right-hand side `rot_a` turns to the one `rot_b` turns
+    (both share the axis as their up)."""
+    a = _unit(axis)
+    x = np.array([-1.0, 0.0, 0.0])
+    h, w = _apply(rot_a, x), _apply(rot_b, x)
+    h, w = h - float(np.sum(h * a)) * a, w - float(np.sum(w * a)) * a
+    return float(np.arctan2(float(np.sum(a * _cross(h, w))), float(np.sum(h * w))))
+
+
+def _frame(r, u):
+    u = _unit(u)
+    r = _unit(r - float(np.sum(r * u)) * u)
+    f = _cross(u, r)
+    return np.stack([r, f, u], axis=1)     # columns: right, forward, up
+
+
+def _axial(d0, sigma):
+    """Stretch by sigma along direction d0, unchanged across it."""
+    d = _unit(d0)
+    return np.eye(3) + (sigma - 1.0) * np.outer(d, d)
+
+
+class _Bones:
+    """Each bone's transform v -> L v + t (on rest positions) and its rotation R."""
+
+    def __init__(self):
+        self.L, self.t, self.R = {}, {}, {}
+
+    def set(self, name, rot, lin, root_rest, root_to):
+        self.R[name] = rot
+        self.L[name] = lin
+        self.t[name] = np.asarray(root_to) - _apply(lin, root_rest)
+
+    def copy(self, name, frm):
+        self.R[name], self.L[name], self.t[name] = self.R[frm], self.L[frm], self.t[frm]
+
+    def at(self, name, v):
+        return _apply(self.L[name], v) + self.t[name]
+
+
+def _chain(b: _Bones, J, parent_rot, bones, targets, root_to, stretch):
+    """Aim each bone of `bones` at the next target, from `root_to`; return the end rotation."""
+    rot, here = parent_rot, np.asarray(root_to, dtype=np.float64)
+    for k, (name, nxt) in enumerate(zip(bones[:-1], bones[1:])):
+        d0 = J[nxt] - J[name]
+        want = np.asarray(targets[k]) - here
+        r = _mat(_rot_between(_apply(rot, d0), want), rot)
+        sigma = (np.sqrt(float(np.sum(want * want))) / np.sqrt(float(np.sum(d0 * d0)))) if stretch[k] else 1.0
+        b.set(name, r, _mat(r, _axial(d0, sigma)), J[name], here)
+        here = b.at(name, J[nxt])
+        rot = r
+    return rot, here
+
+
+#: The faces modelled to the sculpture (T-3594). The rigs' hm08 face is a neutral, smoothed
+#: one (its nose stands 7-10 mm proud of the upper lip, its brow and the line of the lips
+#: barely there), and both plates draw Rohl-Smith's faces cut deeper than that: Taylor's
+#: print shows Black Partridge's face in profile with a high-bridged nose standing well out
+#: from the brow and lip, a heavy brow over a sunk eye and a set mouth, the warrior's bowed
+#: face under its hair the same, and ICHi-19208 draws Mrs. Helm's brow, nose and chin
+#: standing out of her profile (x 575-590, y 222-242). So each face is re-cut on the rig's
+#: own head: the nose drawn out along its bridge to the tip, the brow ridge brought forward
+#: over eyes set back into their sockets, the cheekbones raised, the line between the lips
+#: cut in with the lips standing either side of it, the hollow under the lower lip and the
+#: chin brought out. Every move is a smooth field in the head's rest frame (metres, the
+#: face looking -y, `dz` above the nose's tip, `ax` off the face's midline), measured from
+#: the face's own landmarks so it lands on each rig's nose and mouth, and scaled by
+#: `FEATURES` per figure: full on the two men, whose faces both plates show strongest
+#: (Black Partridge's bridge highest, as Taylor's profile draws it); less on the surgeon,
+#: whose face neither plate shows clearly; Mrs. Helm's finer; the child's least, his face
+#: a small round one in both. The plates are under 40 px a face, so the depths are read
+#: as "stronger than the rig's", not measured (L-fort-dearborn-monument-3567).
+FEATURES = {
+    "warrior": {"strength": 1.0, "bridge": 0.002},
+    "black_partridge": {"strength": 1.0, "bridge": 0.004},
+    "surgeon": {"strength": 0.8, "bridge": 0.0},
+    "helm": {"strength": 0.6, "bridge": 0.0},
+    "child": {"strength": 0.35, "bridge": 0.0},
+}
+
+#: The bones a head's vertices ride on: only these are re-cut, by the weight they carry.
+_HEAD_BONES = ("head", "jaw", "eye_l", "eye_r")
+
+
+def _bump(v, at, width):
+    """A smooth bump, 1 at `at` and falling off over `width` (a Gaussian)."""
+    d = (v - at) / width
+    return np.exp(-(d * d))
+
+
+def _ramp(v, lo, hi):
+    """0 at or below lo, 1 at or above hi, smooth between."""
+    t = np.clip((v - lo) / (hi - lo), 0.0, 1.0)
+    return t * t * (3.0 - 2.0 * t)
+
+
+def _landmarks(J, body, head_w):
+    """The face's nose tip and the line between its lips, off the rig's midline profile."""
+    hj = J["head"]
+    p = body["pos"]
+    mid = (np.abs(p[:, 0]) < 0.008) & (head_w > 0.5)
+    rel_z = p[:, 2] - hj[2]
+    near = mid & (rel_z > -0.03) & (rel_z < 0.03)
+    i = int(np.flatnonzero(near)[np.argmin(p[near, 1])])
+    tip = p[i].copy()
+    # the lips' line: the 2 mm band under the nose where the midline's vertices crowd (the
+    # rig closes the mouth with both lips' edges meeting there), taken on the face's
+    # surface (the mouth's inside, further back, is left out)
+    surf = mid & (p[:, 1] < tip[1] + 0.02) & (p[:, 2] < tip[2] - 0.015) & (p[:, 2] > tip[2] - 0.05)
+    zs = p[surf, 2]
+    bins = np.floor((zs - (tip[2] - 0.05)) / 0.002).astype(np.int64)
+    counts = np.bincount(bins, minlength=25)
+    b = int(np.argmax(counts))
+    seam = float(np.sum(np.where(bins == b, zs, 0.0)) / counts[b])
+    return tip, seam
+
+
+def _sculpt(figure, names, J, meshes):
+    """The figure's face re-cut toward the sculpture's (T-3594, `FEATURES`): every kept
+    mesh's head vertices moved in the rest pose, and the body's normals there re-derived
+    from the moved surface so the light reads the new forms."""
+    feat = FEATURES[figure]
+    s = feat["strength"]
+    head_ids = np.array([names.index(n) for n in _HEAD_BONES], dtype=np.int64)
+    weights = []
+    for m in meshes:
+        w = m["wgt"] / np.maximum(np.sum(m["wgt"], axis=1, keepdims=True), 1e-9)
+        weights.append(np.sum(np.where(np.isin(m["jnt"], head_ids), w, 0.0), axis=1))
+    body = next(k for k, m in enumerate(meshes) if m["part"] == "body_0")
+    tip, seam = _landmarks(J, meshes[body], weights[body])
+    # the face's size against the adult rig's (nose tip to the lips' line, 27 mm there)
+    f = max((tip[2] - seam) / 0.027, 0.6)
+    fwd = np.array([0.0, -1.0, 0.0])
+    for m, hw in zip(meshes, weights):
+        p = m["pos"]
+        ax = np.abs(p[:, 0] - tip[0])
+        dz = p[:, 2] - tip[2]
+        ds = p[:, 2] - seam
+        # how far forward each feature is drawn out (metres; negative sets it back)
+        out = np.zeros(len(p))
+        # the nose: drawn out along the bridge, most at the tip, nothing at the root
+        along = (_ramp(dz, -0.014 * f, -0.006 * f) * (1.0 - _ramp(dz, 0.006 * f, 0.036 * f))
+                 * (0.6 + 0.4 * (1.0 - _ramp(dz, -0.004 * f, 0.006 * f))))
+        out += (0.009 * along + feat["bridge"] * _bump(dz, 0.018 * f, 0.008 * f)) * _bump(ax, 0.0, 0.011 * f)
+        # the brow ridge brought forward over the eyes, most above their centres
+        out += 0.005 * _bump(dz, 0.050 * f, 0.008 * f) * _bump(ax, 0.022 * f, 0.030 * f)
+        # the eyes set back into their sockets, under the brow
+        out -= 0.004 * _bump(dz, 0.030 * f, 0.009 * f) * _bump(ax, 0.031 * f, 0.011 * f)
+        # the lips' line cut in, the lips either side of it standing out
+        lips = _bump(ax, 0.0, 0.020 * f)
+        out -= 0.003 * _bump(ds, 0.0, 0.0025 * f) * lips
+        out += 0.002 * (_bump(ds, 0.006 * f, 0.004 * f) + _bump(ds, -0.006 * f, 0.004 * f)) * lips
+        # the hollow under the lower lip, and the chin brought out
+        out -= 0.002 * _bump(ds, -0.014 * f, 0.004 * f) * _bump(ax, 0.0, 0.018 * f)
+        out += 0.004 * _bump(ds, -0.030 * f, 0.007 * f) * _bump(ax, 0.0, 0.016 * f)
+        move = (s * out * hw)[:, None] * fwd[None, :]
+        # the cheekbones raised along the surface's own normal
+        cheek = 0.003 * _bump(dz, 0.012 * f, 0.010 * f) * _bump(ax, 0.045 * f, 0.012 * f)
+        move = move + (s * cheek * hw)[:, None] * m["nrm"]
+        m["pos"] = p + move
+        m["moved"] = np.sqrt(np.sum(move * move, axis=1))
+    _renormal(meshes[body])
+    return names, J, meshes
+
+
+def _renormal(m):
+    """The body's normals re-derived where its face was re-cut: each vertex's the
+    area-weighted sum of its triangles' (shared by every vertex at the same place, so the
+    rig's seams do not show), eased into the rig's own over the first 1.5 mm moved."""
+    p, tri = m["pos"], m["idx"].reshape(-1, 3)
+    a, b, c = p[tri[:, 0]], p[tri[:, 1]], p[tri[:, 2]]
+    e1, e2 = b - a, c - a
+    fn = np.stack([e1[:, 1] * e2[:, 2] - e1[:, 2] * e2[:, 1],
+                   e1[:, 2] * e2[:, 0] - e1[:, 0] * e2[:, 2],
+                   e1[:, 0] * e2[:, 1] - e1[:, 1] * e2[:, 0]], axis=1)
+    key = np.round(p * 1e5).astype(np.int64)
+    _u, place = np.unique(key, axis=0, return_inverse=True)
+    place = place.reshape(-1)
+    acc = np.zeros((int(place.max()) + 1, 3))
+    for corner in range(3):
+        np.add.at(acc, place[tri[:, corner]], fn)
+    new = acc[place]
+    new = new / np.maximum(np.sqrt(np.sum(new * new, axis=1, keepdims=True)), 1e-12)
+    # the rig's normals point the way its triangles wind; keep to them
+    flip = np.sum(new * m["nrm"], axis=1) < 0.0
+    new[flip] = -new[flip]
+    w = np.clip(m["moved"] / 0.0015, 0.0, 1.0)[:, None]
+    n = w * new + (1.0 - w) * m["nrm"]
+    m["nrm"] = n / np.maximum(np.sqrt(np.sum(n * n, axis=1, keepdims=True)), 1e-12)
+
+
+def _posed(figure: str, k: float):
+    """The figure's bones posed to its joints: (bone names, rest joints, rest meshes, bones)."""
+    rig, keep = RIGS[figure]
+    names, J, meshes = _sculpt(figure, *_rest(rig, keep))
+    T = {key: np.array(v, dtype=np.float64) * k for key, v in TARGETS[figure].items()}
+    b = _Bones()
+
+    # the torso: rest pelvis-to-neck onto P-to-C, the shoulder line onto the shoulders read
+    u0 = J["neck_01"] - J["pelvis"]
+    F0 = _frame(J["upperarm_r"] - J["upperarm_l"], u0)
+    up = T["C"] - T["P"]
+    if "sh_r" in T:
+        right = T["sh_r"] - T["sh_l"]
+    else:
+        right = _cross(_unit(T["face"]), _unit(up))
+    Ft = _frame(right, up)
+    rot_t = _mat(Ft, F0.T)
+    sig_t = np.sqrt(float(np.sum(up * up))) / np.sqrt(float(np.sum(u0 * u0)))
+    # the hips' own line where the figure twists (T-3594): the pelvis turned to it about
+    # P-to-C, the spine carrying the twist up to the shoulders a third at a time; every
+    # piece turns about the same axis, so P and C stay where they were read
+    rot_h = _mat(_frame(T["hips"], up), F0.T) if "hips" in T else rot_t
+    phi = _twist(rot_h, rot_t, up)
+    for n, frac in (("pelvis", 0.0), ("spine_01", 1.0 / 3.0), ("spine_02", 2.0 / 3.0)):
+        rot = _mat(_spin(up, phi * frac), rot_h)
+        b.set(n, rot, _mat(rot, _axial(u0, sig_t)), J["pelvis"], T["P"])
+    b.copy("root", "pelvis")
+    b.set("spine_03", rot_t, _mat(rot_t, _axial(u0, sig_t)), J["pelvis"], T["P"])
+    for n in ("clavicle_l", "clavicle_r"):
+        b.copy(n, "spine_03")
+
+    # the neck and head, aimed at the head's centre and not stretched
+    hc0 = J["head"] + np.array([0.0, 0.0, HEAD_CENTRE_UP_M])
+    neck_at = b.at("spine_03", J["neck_01"])
+    r = _mat(_rot_between(_apply(rot_t, hc0 - J["neck_01"]), T["H"] - neck_at), rot_t)
+    if "look" in T:
+        # the face turned about the neck's own axis to what the figure looks at (T-3594);
+        # the axis runs through the head's centre, so the head stays where it was read
+        r = _mat(_spin_to(T["H"] - neck_at, _apply(r, np.array([0.0, -1.0, 0.0])), T["look"] - T["H"]), r)
+    b.set("neck_01", r, r, J["neck_01"], neck_at)
+    b.copy("head", "neck_01")
+    if "look" in T:
+        # and the head nodded on the neck's top to face it, the neck left aimed as read
+        rh = _mat(_rot_between(_apply(r, np.array([0.0, -1.0, 0.0])), T["look"] - T["H"]), r)
+        b.set("head", rh, rh, J["head"], b.at("neck_01", J["head"]))
+    for n in ("jaw", "eye_l", "eye_r"):
+        b.copy(n, "head")
+
+    for s in ("l", "r"):
+        rot, here = _chain(b, J, rot_t, [f"upperarm_{s}", f"lowerarm_{s}", f"hand_{s}"],
+                           [T[f"el_{s}"], T[f"wr_{s}"]], b.at("spine_03", J[f"upperarm_{s}"]), (True, True))
+        b.set(f"hand_{s}", rot, rot, J[f"hand_{s}"], here)
+        for n in names:
+            if n.endswith(f"_{s}") and n.split("_")[0] in ("thumb", "index", "middle", "ring", "pinky"):
+                b.copy(n, f"hand_{s}")
+        rot, here = _chain(b, J, rot_h, [f"thigh_{s}", f"calf_{s}", f"foot_{s}"],
+                           [T[f"kn_{s}"], T[f"an_{s}"]], b.at("pelvis", J[f"thigh_{s}"]), (True, True))
+        _chain(b, J, rot, [f"foot_{s}", f"ball_{s}"], [T[f"to_{s}"]], here, (False,))
+        b.copy(f"ball_{s}", f"foot_{s}")
+
+    missing = [n for n in names if n not in b.L]
+    if missing:
+        raise ValueError(f"{figure}: bones with no transform: {missing}")
+    return names, J, meshes, b
+
+
+def anchors(figure: str, k: float) -> dict:
+    """Where the posed figure's head and hands are, in metres off the rock's centre, for
+    what the sculpture hangs on them (`monument.ORNAMENTS`, T-3594): the head's centre and
+    its frame (up, forward to the face, and the figure's right), each hand's grip (the
+    middle finger's root) and its frame (along the hand, and toward its thumb), and each
+    leg's hip, knee and ankle."""
+    _names, J, _meshes, b = _posed(figure, k)
+    out = {}
+    rot = b.R["head"]
+    out["head"] = b.at("head", J["head"] + np.array([0.0, 0.0, HEAD_CENTRE_UP_M]))
+    out["head_up"] = _unit(_apply(rot, np.array([0.0, 0.0, 1.0])))
+    out["head_fwd"] = _unit(_apply(rot, np.array([0.0, -1.0, 0.0])))
+    out["head_right"] = _unit(_apply(rot, np.array([-1.0, 0.0, 0.0])))
+    for s in ("l", "r"):
+        out[f"grip_{s}"] = b.at(f"hand_{s}", J[f"middle_01_{s}"])
+        out[f"hand_{s}_along"] = _unit(_apply(b.R[f"hand_{s}"], J[f"middle_01_{s}"] - J[f"hand_{s}"]))
+        out[f"hand_{s}_thumb"] = _unit(_apply(b.R[f"hand_{s}"], J[f"thumb_01_{s}"] - J[f"pinky_01_{s}"]))
+        # the legs' joints, for the cloth `monument.ORNAMENTS` hangs on them (T-3594)
+        for key, bone in (("hip", "thigh"), ("knee", "calf"), ("ankle", "foot")):
+            out[f"{key}_{s}"] = b.at(f"{bone}_{s}", J[f"{bone}_{s}"])
+    return {key: tuple(float(x) for x in v) for key, v in out.items()}
+
+
+def pose(figure: str, k: float):
+    """The figure posed in metres off the rock's centre: (positions, normals, triangles)."""
+    names, J, meshes, b = _posed(figure, k)
+    L = np.stack([b.L[n] for n in names])
+    t = np.stack([b.t[n] for n in names])
+    R = np.stack([b.R[n] for n in names])
+
+    pos_out, nrm_out, tri_out, base = [], [], [], 0
+    for m in meshes:
+        w = m["wgt"] / np.maximum(np.sum(m["wgt"], axis=1, keepdims=True), 1e-9)
+        p, nr = m["pos"], m["nrm"]
+        acc_p = np.zeros_like(p)
+        acc_n = np.zeros_like(nr)
+        for slot in range(4):
+            j = m["jnt"][:, slot]
+            ws = w[:, slot][:, None]
+            Lj, tj, Rj = L[j], t[j], R[j]
+            moved = np.sum(Lj * p[:, None, :], axis=2) + tj
+            turned = np.sum(Rj * nr[:, None, :], axis=2)
+            acc_p = acc_p + ws * moved
+            acc_n = acc_n + ws * turned
+        acc_n = acc_n / np.maximum(np.sqrt(np.sum(acc_n * acc_n, axis=1, keepdims=True)), 1e-9)
+        pos_out.append(acc_p)
+        nrm_out.append(acc_n)
+        tri_out.append(m["idx"] + base)
+        base += len(p)
+    return np.concatenate(pos_out), np.concatenate(nrm_out), np.concatenate(tri_out)

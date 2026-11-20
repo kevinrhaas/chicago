@@ -1,6 +1,6 @@
 /** Destination-scoped arrival copy. Historical cards cite the existing research layer. */
 import { EARLY_ENTRIES } from './loading-early.js';
-import { t } from './strings/index.js';
+import { t, LANG } from './strings/index.js';
 import './strings/arrival.js';
 export function arrivalTitles(year) {
   return Array.from({ length: 8 }, (_, i) => t(`arrival.title.${i}`, { year }));
@@ -21,19 +21,23 @@ export function scenePresentation(value, targetDate) {
   const year = /^\d{4}$/.test(String(value)) ? Number(value) : 1835;
   const date = /^\d{4}-\d{2}-\d{2}$/.test(targetDate || '') ? targetDate : null;
   const summer = date ? ['06', '07', '08'].includes(date.slice(5, 7)) : [1835, 1904].includes(year);
-  const when = `${summer ? 'summer ' : ''}${year}`;
-  const dated = date ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`)) : when;
+  // Gap analysis item 15: the place, season and date said in the visitor's language.
+  const es = LANG === 'es';
+  const when = es ? `${summer ? 'verano de ' : ''}${year}` : `${summer ? 'summer ' : ''}${year}`;
+  const dated = date ? new Intl.DateTimeFormat(es ? 'es' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`)) : when;
   // T-2613: where the Navigator lands, said the same way on its Home, in its ARRIVED
   // stamp and in the line a screen reader hears.
-  const place = year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'Fort Dearborn' : 'Chicago';
-  const where = year === 1904 ? `on ${place}` : year === 1812 ? `at ${place}` : `in ${place}`;
+  const place = es
+    ? (year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'el fuerte Dearborn' : year === 1871 ? 'el Chicago de antes del incendio' : 'Chicago')
+    : (year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'Fort Dearborn' : year === 1871 ? 'Pre-fire Chicago' : 'Chicago');
+  const where = es ? `en ${place}` : year === 1904 ? `on ${place}` : year === 1812 ? `at ${place}` : `in ${place}`;
   return { year, place,
     arrivalLine: t('arrival.arrived', { when }),
     welcomeTitle: t('arrival.welcome.title', { where, when }),
     announce: t('arrival.announce', { place, dated }),
     stamp: t('arrival.stamp', { date: date ? date.replace(/-/g, '.') : year }),
-    eyebrow: t(`arrival.eyebrow.${[1835, 1904, 1812].includes(year) ? year : 'other'}`),
-    intro: t('arrival.intro', { place: year === 1904 ? 'Prairie Avenue' : 'Chicago', dated }),
+    eyebrow: t(`arrival.eyebrow.${[1835, 1904, 1812, 1871].includes(year) ? year : 'other'}`),
+    intro: t(year === 1871 ? 'arrival.intro.1871' : 'arrival.intro', { place: year === 1904 ? 'Prairie Avenue' : 'Chicago', dated }),
     entries: year === 1835 ? EARLY_ENTRIES : year === 1904 ? prairieCards :
       ['assess', 'collect', 'prepare', 'resolve'].map(phase => ({ id: `scene_${year}_${phase}`, phase,
         kind: 'operational', text: t('arrival.preparing', { year }), weight: 1, min_dwell_ms: 2400 })),

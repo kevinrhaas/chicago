@@ -54,6 +54,8 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   // T-2741: today's streets, for the compass readout and the maps in every year.
   ['data/modern/', 'data/modern/'],
+  // T-3674: the on-site tour, fetched when Window mode starts in 1904.
+  ['data/onsite/', 'data/onsite/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
@@ -86,16 +88,22 @@ const COPIES = [
   ['data/enclosures/', 'data/enclosures/'],
   // T-3332: a scene's night lights (lit windows by the hour, the lamps outside); night-lights.js reads them.
   ['data/night_lights/', 'data/night_lights/'],
+  ['data/tales/', 'data/tales/'],
+  ['data/reading/', 'data/reading/'], // T-3645: the cards' words at other ages
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
   ['data/transport/horse-coats.json', 'data/transport/horse-coats.json'],
   ['data/transport/parked/', 'data/transport/parked/'],
   ['data/transport/driven/', 'data/transport/driven/'],
+  // T-3560: the saddle horses a visitor may ride (riding.js).
+  ['data/transport/riding/', 'data/transport/riding/'],
   ['data/wharves/', 'data/wharves/'],
   ['data/boats/', 'data/boats/'],
   ['data/wells/', 'data/wells/'],
   ['data/street_grid/', 'data/street_grid/'],
   ['data/context/', 'data/context/'],
+  // T-3687: the Great Fire's district and hours, read by city-fire.js once a fire time is set.
+  ['data/fire/', 'data/fire/'],
   ['data/street_surfaces/', 'data/street_surfaces/'],
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],
@@ -106,6 +114,7 @@ const COPIES = [
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
+  ['data/props/', 'assets/props/'],
   ['data/humans/web/', 'assets/humans/web/'],
   ['data/humans/', 'data/humans/'],
   ['data/fauna/', 'data/fauna/'],
@@ -150,10 +159,10 @@ const TRANSFORMED = [
     verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
-        + 'copies the temporal observatory to the root and writes year doors as the stamped renderer plus a base into walk/, so the address '
+        + 'copies the temporal observatory to the root and writes small stamped year doors that load one shared renderer, adding a base into walk/ before parsing, so the address '
         + 'bar keeps the short path and every relative URL resolves from walk/',
-    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the <base> is the first child of '
-        + '<head>, exact root-template copying, working year doors and the honest 1812 status; the deploy URL smoke '
+    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the inserted <base>, exact root-template copying, small shared doors, build markers and the honest 1812 status; '
+        + 'strip_page_comments.mjs --check holds every door to its canonical loader; the deploy URL smoke '
         + '(.github/chicago-4d-url-check.json) requests /4d/, /4d/1835/ and /4d/dev/1835/ live.' },
   { re: /^(?:prairie-1904|pre-fire)\/viewer\/root-served\.js$/,
     what: 'tools/serve_from_root.py (T-1828) names the asset directories it removed from the mirror because '
@@ -385,13 +394,25 @@ if (existsSync(transportPolicyFile)) {
 
 // The driven layer fetches these at runtime. Checking only existing mirror
 // files would let an entirely omitted data family pass (and the app fetch 404).
+const workConfig = 'data/humans/work_1812.json';
+if (existsSync(path.join(REPO, workConfig))) {
+  const work = JSON.parse(readFileSync(path.join(REPO, workConfig), 'utf8'));
+  if (typeof work.asset !== 'string' || !/^props\/[a-z0-9_-]+\.glb$/.test(work.asset)) {
+    problems.push('The visible work kit must name a generated prop asset.');
+  } else {
+    for (const rel of [workConfig, `data/${work.asset}`]) {
+      if (!existsSync(path.join(SITE, rel))) problems.push(`${rel} is missing from the published visible-work kit.`);
+    }
+    if (!existsSync(path.join(REPO, 'assets', work.asset))) problems.push('The visible work prop source is missing.');
+  }
+}
 const coatRecipe = 'data/transport/horse-coats.json';
 if (existsSync(path.join(REPO, coatRecipe)) && !existsSync(path.join(SITE, coatRecipe))) {
   problems.push(`${coatRecipe} is missing from the published mirror; publish.sh must copy the horse appearance recipe.`);
 }
 for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
   'data/transport/driven/current26-hoof-support-domain.json',
-  'data/transport/driven/current26-walk-v2-hoof-domain.json']) {
+  'data/transport/driven/current26-walk-v2-hoof-domain.json', 'data/transport/riding/saddle_horses.json']) {
   if (existsSync(path.join(REPO, rel)) && !existsSync(path.join(SITE, rel))) {
     problems.push(`${rel} is missing from the published mirror; publish.sh must copy the driven runtime data.`);
   }

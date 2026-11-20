@@ -32,7 +32,11 @@
  *             the kind, the material, the grade, the note and the liberty; `_confidence` is each
  *             item's own grade;
  *   plants    the back lots' shrubs grow through front-yards.js with their own `<parcel>.back`
- *             card ids and back-yard words, and front-yards.js with no `back` is unchanged.
+ *             card ids and back-yard words, and front-yards.js with no `back` is unchanged;
+ *   passages  (T-3554) each house's back door with a leaf and a stoop is a passage: its leaf is
+ *             lifted out of the fixtures onto a hinge and swings out over the landing, the
+ *             doorway dark behind it, and its way climbs from the ground beyond the stoop's foot
+ *             up every tread, a riser at a time, to the landing and over the sill.
  *
  *   node tools/test_back_yards.mjs
  */
@@ -234,8 +238,9 @@ ok(fixtures.length === 2 && lines.length === 1, `${fixtures.length} fixture mesh
 }
 const crops = g.children.filter((o) => o.isBatchedMesh);
 ok(crops.length === 2, `${crops.length} crop batches (want leaves and solids)`);
-ok(yard.stats.drawCalls === surfaces.length + fixtures.length + lines.length + crops.length,
-  `the layer counts ${yard.stats.drawCalls} draws for ${surfaces.length + fixtures.length + lines.length + crops.length} objects`);
+const hungLeaves = g.children.filter((o) => o.isInstancedMesh && o.name.startsWith('back-yards-door-leaves:'));
+ok(yard.stats.drawCalls === surfaces.length + fixtures.length + lines.length + crops.length + hungLeaves.length,
+  `the layer counts ${yard.stats.drawCalls} draws for ${surfaces.length + fixtures.length + lines.length + crops.length + hungLeaves.length} objects`);
 ok(yard.stats.drawCalls <= 6 * 2 * 2 + 2 + 1 + 2, 'the layer draws more than materials x orders x chunks + fixtures + lines + crops');
 
 // steps: the fixtures reach from under the ground at a stoop's foot to the sill and the head
@@ -390,6 +395,47 @@ let real = '';
       + `${all.stats.fixtureBoxes} fixture boxes, ${all.stats.plants} crop plants, ${all.stats.drawCalls} draws whole`;
     all.dispose();
   }
+}
+
+// passages (T-3554): the back doors open and shut, and their ways climb the stoops
+{
+  const ids = yard.passages.map((x) => x.id).sort();
+  ok(JSON.stringify(ids) === JSON.stringify(['test_house_101:back', 'test_house_105:back']),
+    `one passage per house's back door with a leaf and a stoop, the model's own side door not one (${ids})`);
+  const leaves = g.children.filter((o) => o.isInstancedMesh && o.name.startsWith('back-yards-door-leaves:'));
+  ok(leaves.length === 1 && leaves[0].count === 2, 'the two leaves are one instanced draw');
+  const corner = new THREE.Vector3(), m = new THREE.Matrix4();
+  for (const x of yard.passages) {
+    const d = x.door;
+    const f = by.frameAt(d.e, d.n, d.facing_deg);
+    const sill = BEDS[d.structure] + d.sill_m;
+    const w = x.way();
+    ok(w[0].y === null && w.at(-1).y === sill && w[w.door].y === sill, `${x.id}: from the ground to the landing and over the sill`);
+    const ys = w.map((p) => p.y ?? terrain.surfaceHeight(p.e, p.n));
+    for (let i = 1; i <= w.door; i += 1) {
+      ok(ys[i] >= ys[i - 1] - 0.13, `${x.id}: the way in climbs (${i}: ${ys[i - 1]} -> ${ys[i]})`);
+      if (w[i - 1].y !== null && w[i].y - w[i - 1].y > 1e-4) {
+        ok(w[i].y - w[i - 1].y <= 0.21 && Math.hypot(w[i].e - w[i - 1].e, w[i].n - w[i - 1].n) <= 0.25, `${x.id}: a riser at a time (${i})`);
+      }
+    }
+    const sOf = (p) => (p.e - d.e) * f.o[0] + (p.n - d.n) * f.o[1];
+    ok(Math.abs(sOf(w[w.door]) - 0.95) < 1e-6 && sOf(w.at(-1)) < 0, `${x.id}: waits on the landing clear of the leaf, ends indoors`);
+    // The free edge's foot, shut and open, from the instance's pose.
+    const edge = (t) => {
+      x.setSwing(t);
+      leaves[0].getMatrixAt(x.slot, m);
+      corner.set(d.width_m, 0, 0).applyMatrix4(m);
+      return { s: (corner.x - d.e) * f.o[0] + (-corner.z - d.n) * f.o[1], w: (corner.x - d.e) * f.t[0] + (-corner.z - d.n) * f.t[1], y: corner.y };
+    };
+    const shut = edge(0), open = edge(1);
+    ok(Math.abs(shut.s) < 1e-6 && Math.abs(shut.w - d.width_m / 2) < 1e-6 && Math.abs(shut.y - sill) < 1e-6, `${x.id}: shut, the leaf fills its opening`);
+    ok(open.s > 0.9 && Math.abs(open.w + d.width_m / 2) < 0.15, `${x.id}: open, it stands out over the landing at its hinge (${open.s.toFixed(2)}, ${open.w.toFixed(2)})`);
+    x.hold('k'); ok(x.holders.size === 1, `${x.id}: held`); x.release('k'); ok(x.holders.size === 0, `${x.id}: let go`); x.setSwing(0);
+  }
+  // The hung leaf is not baked again: the fixtures carry the doorway's dark where it shuts.
+  const doorway = new THREE.Color(0x0b0a09);
+  const darks = fixtures.some((mesh) => { const c = mesh.geometry.attributes.color; for (let i = 0; i < c.count; i += 1) if (Math.abs(c.getX(i) - doorway.r) < 0.01 && Math.abs(c.getY(i) - doorway.g) < 0.01) return true; return false; });
+  ok(darks, 'the doorway behind a hung leaf is dark');
 }
 
 globalThis.fetch = realFetch;

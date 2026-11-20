@@ -327,6 +327,9 @@ const COVERAGE = [
   ['renderers/web/js/wharves.js', [2], 'the river wharves (T-0041) and walking one (T-0058)'],
   ['renderers/web/js/working-bank.js', [2], 'the worked river bank and its landing aprons (T-1771)'],
   ['renderers/web/js/boats.js', [2], 'the boats on the river (T-0063)'],
+  ['renderers/web/js/vessels.js', [2], 'the vessels on the river and the lake, their crews and circuits (T-3612)'],
+  ['renderers/web/js/vessel-model.js', [2], 'the planked and rigged hulls of the vessels (T-3612)'],
+  ['renderers/web/js/boat-pilot.js', [2], 'taking the helm of a vessel or a crossing boat (T-3612)'],
   ['renderers/web/js/confidence.js', [2, 3, 6], 'the confidence view, its card and its menu'],
   ['data/frontage/', [2], 'the frontage records'],
   ['data/wharves/', [2], 'the wharf records'],
@@ -458,6 +461,10 @@ const COVERAGE = [
   // T-2741: today's street and house number under the compass, and the street names'
   // record of where you are in the scene's year, read where the street readout is.
   ['renderers/web/js/modern-streets.js', [7], 'today\'s street and house number, under the compass'],
+  ['renderers/web/js/today-view.js', [7], 'the Today window under the compass readout (T-3601)'],
+  ['renderers/web/js/today-view-config.js', [7], 'the Today window\'s key and hosts (T-3601)'],
+  ['renderers/web/js/today-geo.js', [7], 'the Today window\'s latitude, longitude and heading (T-3601)'],
+  ['renderers/web/js/today-register.js', [7], 'the Today window\'s registration onto today\'s ground, year by year (T-3618, T-3682)'],
   ['data/modern/', [7], 'today\'s streets (the City\'s centrelines), under the compass and on the maps'],
 
   // --- PART 9: what the light does to the town
@@ -713,6 +720,14 @@ const COVERAGE = [
   // reads from it, and parts all over the body assert those words, so a change to it is
   // priced at the whole gate. tools/check_strings.py holds it in check.sh.
   ['renderers/web/js/strings/', ALL, 'the words every panel and part reads (T-2624)'],
+  // T-3687: the Great Fire is drawn only in 1871, and only once a fire time is set (a jaunt
+  // stop dated in the fire, or api.fire.set); the smoke body walks 1835 and never sets one.
+  // tools/qa_city_fire_1871.mjs drives it at both viewports; tools/fire_1871.py holds the data.
+  ['renderers/web/js/city-fire.js', NONE, 'the 1871 Great Fire as drawn: qa_city_fire_1871.mjs'],
+  ['renderers/web/js/fire-map.js', NONE, 'the 1871 Great Fire\u2019s map and clock: qa_city_fire_1871.mjs, fire_1871.py --check'],
+  ['data/fire/', NONE, 'the 1871 Great Fire\u2019s district and hours: fire_1871.py --check'],
+  // The fort's burning (T-3553) and the city's share these flames; a jaunt stage loads them.
+  ['renderers/web/js/fort-fire.js', [15], 'the flames, smoke and sparks a jaunt stage burns with'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than

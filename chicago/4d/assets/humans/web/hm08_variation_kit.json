@@ -9,10 +9,10 @@
  "ref_unit_m": 0.0001,
  "delta_unit_m": 1e-05,
  "bin": "hm08_variation_kit.bin",
- "bin_bytes": 927482,
- "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "c2b1f87d191fbd6a3ea73c429ac3bc74a2763230af3f5197b48db1e853f7accc",
- "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
+ "bin_bytes": 939418,
+ "bin_sha256": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
+ "axes_sha256": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
+ "manifest_sha256": "4ba2a9f00d17ee9e9beb6d328c6811118731659248eedd43ab2158824734db28",
  "limit": 0.6,
  "height": {
   "spread": 0.035,
@@ -968,20 +968,115 @@
    }
   },
   {
+   "id": "nose_septum",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 291,
+    "index": 262410,
+    "delta": 262992,
+    "max_m": 0.00428
+   },
+   "neg": {
+    "count": 326,
+    "index": 264738,
+    "delta": 265390,
+    "max_m": 0.0047
+   }
+  },
+  {
+   "id": "nose_volume",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 121,
+    "index": 267346,
+    "delta": 267588,
+    "max_m": 0.00538
+   },
+   "neg": {
+    "count": 48,
+    "index": 268314,
+    "delta": 268410,
+    "max_m": 0.00804
+   }
+  },
+  {
+   "id": "nostril_angle",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 196,
+    "index": 268698,
+    "delta": 269090,
+    "max_m": 0.00453
+   },
+   "neg": {
+    "count": 164,
+    "index": 270266,
+    "delta": 270594,
+    "max_m": 0.00522
+   }
+  },
+  {
+   "id": "lid_fold",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 108,
+    "index": 271578,
+    "delta": 271794,
+    "max_m": 0.00413
+   },
+   "neg": {
+    "count": 48,
+    "index": 272442,
+    "delta": 272538,
+    "max_m": 0.0022
+   }
+  },
+  {
+   "id": "lip_lower_height",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 64,
+    "index": 272826,
+    "delta": 272954,
+    "max_m": 0.00637
+   },
+   "neg": {
+    "count": 126,
+    "index": 273338,
+    "delta": 273590,
+    "max_m": 0.0048
+   }
+  },
+  {
    "id": "brow_ridge",
    "scope": "face",
    "spread": 0.227,
    "kind": "signed",
    "pos": {
     "count": 292,
-    "index": 262410,
-    "delta": 262994,
+    "index": 274346,
+    "delta": 274930,
     "max_m": 0.01714
    },
    "neg": {
     "count": 177,
-    "index": 264746,
-    "delta": 265100,
+    "index": 276682,
+    "delta": 277036,
     "max_m": 0.00471
    }
   },
@@ -992,14 +1087,14 @@
    "kind": "signed",
    "pos": {
     "count": 290,
-    "index": 266162,
-    "delta": 266742,
+    "index": 278098,
+    "delta": 278678,
     "max_m": 0.06157
    },
    "neg": {
     "count": 280,
-    "index": 268482,
-    "delta": 269042,
+    "index": 280418,
+    "delta": 280978,
     "max_m": 0.04661
    }
   },
@@ -1010,14 +1105,14 @@
    "kind": "signed",
    "pos": {
     "count": 258,
-    "index": 270722,
-    "delta": 271238,
+    "index": 282658,
+    "delta": 283174,
     "max_m": 0.00679
    },
    "neg": {
     "count": 90,
-    "index": 272786,
-    "delta": 272966,
+    "index": 284722,
+    "delta": 284902,
     "max_m": 0.00846
    }
   },
@@ -1028,14 +1123,14 @@
    "kind": "signed",
    "pos": {
     "count": 1028,
-    "index": 273506,
-    "delta": 275562,
+    "index": 285442,
+    "delta": 287498,
     "max_m": 0.01133
    },
    "neg": {
     "count": 1022,
-    "index": 281730,
-    "delta": 283774,
+    "index": 293666,
+    "delta": 295710,
     "max_m": 0.01099
    }
   },
@@ -1046,14 +1141,14 @@
    "kind": "signed",
    "pos": {
     "count": 566,
-    "index": 289906,
-    "delta": 291038,
+    "index": 301842,
+    "delta": 302974,
     "max_m": 0.01734
    },
    "neg": {
     "count": 526,
-    "index": 294434,
-    "delta": 295486,
+    "index": 306370,
+    "delta": 307422,
     "max_m": 0.00721
    }
   },
@@ -1064,14 +1159,14 @@
    "kind": "signed",
    "pos": {
     "count": 52,
-    "index": 298642,
-    "delta": 298746,
+    "index": 310578,
+    "delta": 310682,
     "max_m": 0.01002
    },
    "neg": {
     "count": 78,
-    "index": 299058,
-    "delta": 299214,
+    "index": 310994,
+    "delta": 311150,
     "max_m": 0.00743
    }
   },
@@ -1082,14 +1177,14 @@
    "kind": "signed",
    "pos": {
     "count": 769,
-    "index": 299682,
-    "delta": 301220,
+    "index": 311618,
+    "delta": 313156,
     "max_m": 0.01487
    },
    "neg": {
     "count": 790,
-    "index": 305834,
-    "delta": 307414,
+    "index": 317770,
+    "delta": 319350,
     "max_m": 0.00776
    }
   },
@@ -1100,14 +1195,14 @@
    "kind": "signed",
    "pos": {
     "count": 2670,
-    "index": 312154,
-    "delta": 317494,
+    "index": 324090,
+    "delta": 329430,
     "max_m": 0.00342
    },
    "neg": {
     "count": 3451,
-    "index": 333514,
-    "delta": 340416,
+    "index": 345450,
+    "delta": 352352,
     "max_m": 0.0057
    }
   },
@@ -1119,44 +1214,44 @@
    "options": [
     {
      "count": 1942,
-     "index": 361122,
-     "delta": 365006,
+     "index": 373058,
+     "delta": 376942,
      "max_m": 0.01355
     },
     {
      "count": 1843,
-     "index": 376658,
-     "delta": 380344,
+     "index": 388594,
+     "delta": 392280,
      "max_m": 0.01259
     },
     {
      "count": 529,
-     "index": 391402,
-     "delta": 392460,
+     "index": 403338,
+     "delta": 404396,
      "max_m": 0.01153
     },
     {
      "count": 484,
-     "index": 395634,
-     "delta": 396602,
+     "index": 407570,
+     "delta": 408538,
      "max_m": 0.01525
     },
     {
      "count": 598,
-     "index": 399506,
-     "delta": 400702,
+     "index": 411442,
+     "delta": 412638,
      "max_m": 0.01384
     },
     {
      "count": 2021,
-     "index": 404290,
-     "delta": 408332,
+     "index": 416226,
+     "delta": 420268,
      "max_m": 0.00836
     },
     {
      "count": 550,
-     "index": 420458,
-     "delta": 421558,
+     "index": 432394,
+     "delta": 433494,
      "max_m": 0.01766
     }
    ]
@@ -1168,14 +1263,14 @@
    "kind": "signed",
    "pos": {
     "count": 146,
-    "index": 424858,
-    "delta": 425150,
+    "index": 436794,
+    "delta": 437086,
     "max_m": 0.03959
    },
    "neg": {
     "count": 146,
-    "index": 426026,
-    "delta": 426318,
+    "index": 437962,
+    "delta": 438254,
     "max_m": 0.02277
    }
   },
@@ -1186,14 +1281,14 @@
    "kind": "signed",
    "pos": {
     "count": 574,
-    "index": 427194,
-    "delta": 428342,
+    "index": 439130,
+    "delta": 440278,
     "max_m": 0.01232
    },
    "neg": {
     "count": 470,
-    "index": 431786,
-    "delta": 432726,
+    "index": 443722,
+    "delta": 444662,
     "max_m": 0.01034
    }
   },
@@ -1204,8 +1299,8 @@
    "kind": "positive",
    "pos": {
     "count": 209,
-    "index": 435546,
-    "delta": 435964,
+    "index": 447482,
+    "delta": 447900,
     "max_m": 0.01381
    }
   },
@@ -1217,14 +1312,14 @@
    "kind": "signed",
    "pos": {
     "count": 3941,
-    "index": 437218,
-    "delta": 445100,
+    "index": 449154,
+    "delta": 457036,
     "max_m": 0.02995
    },
    "neg": {
     "count": 3804,
-    "index": 468746,
-    "delta": 476354,
+    "index": 480682,
+    "delta": 488290,
     "max_m": 0.02655
    }
   },
@@ -1237,14 +1332,14 @@
    "kind": "signed",
    "pos": {
     "count": 3493,
-    "index": 499178,
-    "delta": 506164,
+    "index": 511114,
+    "delta": 518100,
     "max_m": 0.02217
    },
    "neg": {
     "count": 4312,
-    "index": 527122,
-    "delta": 535746,
+    "index": 539058,
+    "delta": 547682,
     "max_m": 0.03145
    }
   },
@@ -1256,14 +1351,14 @@
    "kind": "signed",
    "pos": {
     "count": 4156,
-    "index": 561618,
-    "delta": 569930,
+    "index": 573554,
+    "delta": 581866,
     "max_m": 0.04184
    },
    "neg": {
     "count": 3768,
-    "index": 594866,
-    "delta": 602402,
+    "index": 606802,
+    "delta": 614338,
     "max_m": 0.05221
    }
   },
@@ -1276,14 +1371,14 @@
    "kind": "signed",
    "pos": {
     "count": 4002,
-    "index": 625010,
-    "delta": 633014,
+    "index": 636946,
+    "delta": 644950,
     "max_m": 0.02843
    },
    "neg": {
     "count": 2871,
-    "index": 657026,
-    "delta": 662768,
+    "index": 668962,
+    "delta": 674704,
     "max_m": 0.03563
    }
   },
@@ -1294,8 +1389,8 @@
    "kind": "positive",
    "pos": {
     "count": 346,
-    "index": 679994,
-    "delta": 680686,
+    "index": 691930,
+    "delta": 692622,
     "max_m": 0.10239
    }
   },
@@ -1306,14 +1401,14 @@
    "kind": "signed",
    "pos": {
     "count": 679,
-    "index": 682762,
-    "delta": 684120,
+    "index": 694698,
+    "delta": 696056,
     "max_m": 0.02089
    },
    "neg": {
     "count": 877,
-    "index": 688194,
-    "delta": 689948,
+    "index": 700130,
+    "delta": 701884,
     "max_m": 0.02089
    }
   },
@@ -1325,8 +1420,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 695210,
-    "delta": 724244,
+    "index": 707146,
+    "delta": 736180,
     "max_m": 0.07593
    }
   },
@@ -1339,10 +1434,677 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 811346,
-    "delta": 840380,
+    "index": 823282,
+    "delta": 852316,
     "max_m": 0.0859
    }
   }
- ]
+ ],
+ "faces": {
+  "map": "faces/hm08_faces.jpg",
+  "size_px": [
+   1280,
+   1280
+  ],
+  "tile_px": 256,
+  "cols": 5,
+  "box": [
+   0.734375,
+   0.390625,
+   0.984375,
+   0.640625
+  ],
+  "mask": {
+   "centre": [
+    0.8875,
+    0.515625
+   ],
+   "half": [
+    0.096875,
+    0.125
+   ],
+   "round": 0.07,
+   "feather": 0.025
+  },
+  "ages": {
+   "middle_from": 36,
+   "old_from": 60,
+   "child_under": 13
+  },
+  "lines": {
+   "young": 1,
+   "middle": 0.6,
+   "old": 0.3
+  },
+  "younger_likelier": 0.5,
+  "nearer_tone_likelier": 1.0,
+  "never_darker_than": 1.0,
+  "light_only_for": [
+   "fair",
+   "light",
+   "ruddy"
+  ],
+  "seed": "chicago4d:face-library:v1:",
+  "liberty": "L-face-library-3553",
+  "faces": [
+   {
+    "id": "young_lightskinned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5046
+   },
+   {
+    "id": "young_lightskinned_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4858
+   },
+   {
+    "id": "middleage_lightskinned_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4526
+   },
+   {
+    "id": "middleage_lightskinned_female_2",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4913
+   },
+   {
+    "id": "old_lightskinned_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4451
+   },
+   {
+    "id": "old_lightskinned_female_2",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.3849
+   },
+   {
+    "id": "young_lightskinned_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4616
+   },
+   {
+    "id": "young_lightskinned_male_2",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.3983
+   },
+   {
+    "id": "middleage_lightskinned_male",
+    "sex": "male",
+    "age": "middle",
+    "tone": 0.4122
+   },
+   {
+    "id": "old_lightskinned_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.468
+   },
+   {
+    "id": "old_lightskinned_male_2",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.2608
+   },
+   {
+    "id": "callharvey3d_midtoned_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.2139
+   },
+   {
+    "id": "cutoff3d_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.342
+   },
+   {
+    "id": "onlytheghosts_young_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.5089
+   },
+   {
+    "id": "onlytheghosts_middleage_female",
+    "sex": "female",
+    "age": "middle",
+    "tone": 0.4758
+   },
+   {
+    "id": "onlytheghosts_old_female",
+    "sex": "female",
+    "age": "old",
+    "tone": 0.4174
+   },
+   {
+    "id": "toigo_freckles_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4163,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4421,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_female_2",
+    "sex": "female",
+    "age": "young",
+    "tone": 0.4441,
+    "light_only": true
+   },
+   {
+    "id": "onlytheghosts_old_male",
+    "sex": "male",
+    "age": "old",
+    "tone": 0.3578
+   },
+   {
+    "id": "toigo_freckles_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4582,
+    "light_only": true
+   },
+   {
+    "id": "toigo_ginger_male",
+    "sex": "male",
+    "age": "young",
+    "tone": 0.4477,
+    "light_only": true
+   }
+  ],
+  "bodies": {
+   "anonymous_working_driver_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "bardwell_otis_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "billings_august_1904_stable_helper": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "child_toddler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "child_toddler_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "engage_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "flynn_mary_1835_dress_study": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "glessner_frances_m_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "glessner_john_j_1904": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "lady_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "mahoney_patrick_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "nelson_charles_1904_coachman": {
+    "gain": [
+     1.3923,
+     1.8607,
+     2.4331
+    ],
+    "tone_rgb": [
+     0.7667,
+     0.404,
+     0.2277
+    ]
+   },
+   "nelson_christine_1904_errand": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "officer_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "officer_first_infantry_1812_lieutenant": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "peck_philip_1835": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_boy_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_girl_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "potawatomi_man_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "potawatomi_woman_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "private_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "reynolds_mary_1904_maid": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "ryan_kate_1904_cook": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "settler_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "surgeons_mate_first_infantry_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_boy_1904": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "teen_girl_1904": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "trader_1812": {
+    "gain": [
+     1.2493,
+     1.2497,
+     1.2581
+    ],
+    "tone_rgb": [
+     0.6692,
+     0.2687,
+     0.1201
+    ]
+   },
+   "williamson_mattie_1904_cook_study": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_country_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   },
+   "woman_working_1812": {
+    "gain": [
+     1.3564,
+     1.4346,
+     1.578
+    ],
+    "tone_rgb": [
+     0.795,
+     0.3313,
+     0.1648
+    ]
+   }
+  },
+  "complexions": {
+   "fair": [
+    1.04,
+    1.0,
+    0.97
+   ],
+   "light": [
+    1.0,
+    0.95,
+    0.9
+   ],
+   "ruddy": [
+    1.03,
+    0.86,
+    0.8
+   ],
+   "dark": [
+    0.84,
+    0.74,
+    0.64
+   ],
+   "brown": [
+    0.76,
+    0.63,
+    0.5
+   ],
+   "olive": [
+    0.9,
+    0.79,
+    0.65
+   ],
+   "tan": [
+    0.8,
+    0.65,
+    0.49
+   ],
+   "copper": [
+    0.62,
+    0.46,
+    0.33
+   ],
+   "deep_brown": [
+    0.43,
+    0.3,
+    0.21
+   ]
+  },
+  "person_tone_rgb": {
+   "male": [
+    0.6692,
+    0.2687,
+    0.1201
+   ],
+   "female": [
+    0.795,
+    0.3313,
+    0.1648
+   ]
+  }
+ }
 }

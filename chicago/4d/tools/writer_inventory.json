@@ -2248,6 +2248,19 @@
       "finding": "Reproduces: ran bare after staging all 294 generated JSON files and the coverage report; git diff --exit-code over those outputs reported no changed byte. Two independent in-memory builds also matched byte-for-byte.",
       "placed": "after compile_scene.py, whose current-scene membership and cited-structure sidecars it reads (T-1248)"
     },
+    "jaunt_reading_level.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-11-13",
+      "finding": "Run bare it prints each jaunt's measured reading grade, its band and its tag; --check refuses a jaunt whose grade_band is too far from its words; both write nothing (git status --porcelain identical before and after). It declares no write mode: the grade_band it gates is written by hand in data/jaunts/*.json, and by tools/jaunt_built_so_far.py, which imports its measure (T-3590)."
+    },
+    "reading_levels.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-17",
+      "finding": "Reproduces: two bare writes rewrote data/reading/1904.json with identical bytes (git status unchanged after the second); the file cut short fails --check and the bare write restores it byte for byte. It never reads its own output.",
+      "placed": "Reads data/residents_<scene>/stories.json and data/tales/<scene>.json (written by build_tales.py) and the hand-written docs/RESEARCH/reading-levels-3645/words; nothing reads its output at build time. Not yet in the full rederive manifest (T-3645)."
+    },
     "jaunt_built_so_far.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -2281,6 +2294,20 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: the write mode rewrote all five settled outputs (mtime advanced), with identical SHA-256 for every file. Check and self-test modes were independently measured to write nothing in-tree. The complete 169-step manifest proof also exercised this writer.",
       "placed": "Immediately after canal_approach_occupancy and before compile_businesses/reconcile_665/compile_scene; geometry and occupants therefore precede downstream scene readers."
+    },
+    "generate_core_row_fill_1835.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-16",
+      "finding": "Reproduces: run bare on the T-3605 phase 2 tree it rewrote its fifty-eight recon_1835_core_* records with identical SHA-256 and moved no cottage (the five moves are held by the block-infill recipe and generate_inferred_infill's CORE_ROW_MOVES); --check and --self-test write nothing in-tree.",
+      "placed": "Immediately after generate_gifford_street_faces and before compile_businesses/reconcile_665/compile_scene; it writes structure records only, which those read."
+    },
+    "generate_gifford_street_faces.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-15",
+      "finding": "Reproduces: run bare twice on the T-3605 tree it rewrote its nineteen recon_1835_gifford_* records with identical SHA-256; --check and --self-test write nothing in-tree.",
+      "placed": "Immediately after generate_canal_approach_trade and before compile_businesses/reconcile_665/compile_scene; it writes structure records only, which those read."
     },
     "place_landing_camps_1835.py": {
       "placement": "pending",
@@ -2345,6 +2372,12 @@
       "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/variation/fits/glessner_john_j.json with identical bytes; git status stayed clean (T-3413). It does not write the card's still; tools/portrait_still.mjs does, and --check refuses a still whose sidecar names another fit.",
       "placed": "not yet \u2014 measured to reproduce. It reads the portrait records, data/sources/, axes.json, the variation kit and base.obj; tools/human_variation_kit.py reads its output (persons.json carries the fitted face), so its slot precedes that tool's, and the manifest's order is its own measured pass, so it is not appended blind (T-3413)."
     },
+    "bake_likeness_skin.py": {
+      "placement": "not_derivable",
+      "write_mode": "<person> --sheet <the owner's turnaround sheet>",
+      "measured": "2026-11-14",
+      "finding": "Cannot rebuild from this repository alone: its write mode reads the owner's turnaround sheet, which is held in kevinrhaas/chicago-evidence (evidence/grey-likenesses-2026-11-12/, commit 70d839be) and not here, so a run without --sheet stops before it writes. With each sheet supplied, a write run for pa1904_grey_mrs_w_l and pa1904_grey_w_l rewrote assets/humans/web/likeness/<person>_skin.jpg (150,516 and 160,767 bytes) and data/humans/variation/skins/<person>.json with identical bytes, and tools/human_variation_kit.py after it rewrote hm08_variation_persons.json with identical bytes (T-3553). --check holds the committed sheet to the sha256 its record names instead."
+    },
     "derive_doors_1812.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2378,6 +2411,74 @@
       "measured": "2026-11-11",
       "finding": "In an isolated fixture, two actual writes retained all 5 output hashes and advanced mtimes; a deliberately damaged output was restored. Application output hashes remained unchanged. Exact tool and output hashes are in docs/RESEARCH/prairie-portraits-3546/writer-measurement.json.",
       "placed": "Prairie people follows compile_scene.py and portrait records and precedes human_variation_kit.py. Child recipes follow authored prepared bodies and precede remote canonical exports. These new ordering edges have not yet been inserted into the full rederive manifest."
+    },
+    "face_library.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-15",
+      "finding": "Reproduces: two bare writes on the tree rewrote assets/humans/web/faces/hm08_faces.jpg (280493 bytes) and the `texture` block of data/humans/variation/face_library.json (with `person_tone`, read from each body's sex in data/humans/variation/axes.json) with identical bytes; both files' mtimes advanced and the SHA-256 of every one of the tree's 21896 tracked and untracked files was unchanged. A sheet with 400 bytes flipped and its last 5000 cut off, beside a record naming a wrong sheet hash and the two sexes' tones exchanged, failed --check and was restored byte for byte by the bare write. One thing in the record the bare write neither writes nor restores, by design: `source_sha256`, the hash of SOURCE.json as --ingest wrote it. A record naming a wrong one failed --check, was left byte for byte as damaged by the bare write and failed --check again; SOURCE.json with one face's licence changed by hand failed --check, the bare write left the record byte for byte as it was, and --check failed again (before 2026-11-15 the bare write took the hash again, and so accepted such a change). --self-test breaks a copy of what --check reads in the system's temporary folder (120 cases), refuses to start when that folder lies inside the tree and clears its copy away when stopped by SIGTERM or SIGHUP; the same 21896 hashes were unchanged after a run of it (tools/step_isolation.json: both of the tool's gate commands measured again, wrote nothing in-tree). The second write mode, --ingest, takes the three unpacked MakeHuman packs, which are not in the repository, so it cannot run here and is not a rebuild: run from the packs on 2026-11-14 it wrote the 22 cuts and SOURCE.json again with identical bytes. It is the only mode that writes `source_sha256`; that was measured on 2026-11-15 in a copy of what the tool reads, from a made-up pack (the kept cuts pasted into blank atlases, so not the real packs' bytes): over SOURCE.json as --ingest wrote it, it wrote the file and its hash together; over a SOURCE.json changed by hand it refused, since not every pack was named (T-3553).",
+      "placed": "not yet \u2014 measured to reproduce. It reads its own record, the 22 cuts and SOURCE.json under assets/authored/humans/face_library/, each body's sex in data/humans/variation/axes.json, the complexions in renderers/web/js/human-looks.js, the mask in human-skin.js, the vendored MakeHuman skin it measures tones against and the GLB of every hm08 body under assets/humans/web/. tools/human_variation_kit.py imports it and writes its sheet's layout into hm08_variation_kit.json, so its slot follows whatever exports the bodies and precedes human_variation_kit.py, itself pending; the manifest's order is its own measured pass, so it is not appended blind (T-3553)."
+    },
+    "town_people_1835.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-15",
+      "finding": "Reproduces: two bare writes on the tree rewrote data/humans/inside_1835.json, data/humans/doors_1835.json, data/humans/variation/dress_1835_town.json and data/humans/variation/looks_1835_town.json with identical bytes (SHA-256 of all four unchanged, git status unchanged). Each of the four cut to its first 5000 bytes failed --check and was restored byte for byte by the bare write; the tool never reads its own inside_1835.json (derive_doors_scene.wheres(scene, inside_file=False)), so a damaged one does not stop it.",
+      "placed": "Follows compile_scene.py (data/sidecars/1835/people.json), house_the_present_1835.py (the housing seats), the business register (data/businesses/) and every 1835 model the doors are read off; precedes derive_doors_scene.py --check (which reads the homes and places of business back out of inside_1835.json) and human_variation_kit.py (looks and dress into hm08_variation_persons_1835.json). These ordering edges are not yet in the full rederive manifest."
+    },
+    "build_tales.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-16",
+      "finding": "Reproduces: two bare writes on the tree rewrote data/tales/1812.json, data/tales/1835.json and data/tales/1904.json with identical bytes (the SHA-256 of all 22008 tracked and untracked files unchanged, git status unchanged). data/tales/1835.json cut to its first 5000 bytes failed --check and was restored byte for byte by the bare write. The tool never reads its own outputs.",
+      "placed": "Follows compile_scene.py (data/sidecars/<scene>/people.json), the household files (data/residents*/households), town_people_1835.py (data/humans/inside_1835.json) and every tool that writes data/humans/instances/<scene> or data/humans/inside_<scene>.json, whose drawn people it reads as the tellers; reads its stories from docs/RESEARCH/tales-3553. Nothing reads its outputs at build time. These ordering edges are not yet in the full rederive manifest."
+    },
+    "lay_vessels.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-16",
+      "finding": "Reproduces: ran `(bare)` twice on the working tree in 0.5 s, rewrote data/boats/vessels_1835.json and vessels_1812.json byte for byte (sha256 8fb8e170\u2026 and 2882ecd1\u2026 both runs), changed no other file (git status hash unchanged); a damaged vessels_1812.json made --check exit 1 and the writer restored the same bytes; --check writes nothing in-tree.",
+      "placed": "not yet: it reads the e1834_harbor_cut and e1830_natural heightfields, data/boats/era_boats.json and crossings_1812.json, and the 1835 pier, bridge and wharf sidecars (data/sidecars/1835/) and the 1812 first fort wharf's, so its slot is after the terrain writers, lay_crossing_boats_1812.py and the sidecar compile (T-3612)."
+    },
+    "site_films_ingest.mjs": {
+      "placement": "not_derivable",
+      "write_mode": "DIR [id ...]",
+      "measured": "2026-11-16",
+      "finding": "Cannot rebuild from the tree: its write mode ingests films that tools/site_films.mjs rendered outside the repository (DIR/<id>.mp4 and DIR/<id>.jpg), interpolates any film under 20 fps to 24 with ffmpeg, and writes site-films/<id>.<sha8>.mp4, site/media/films/<id>.jpg and site/js/films.js. Run bare it prints its usage, exits 2 and writes nothing; --check reads films.js, site-films/ and the posters (20 films) and writes nothing (git status --porcelain identical before and after both)."
+    },
+    "fit_1871_city_map.py": {
+      "placement": "not_a_writer",
+      "write_mode": "(bare; also measured --check)",
+      "measured": "2026-11-18",
+      "finding": "Writes nothing: bare and --check runs of the exact current root tool in an isolated 15-file Git index fixture changed no file bytes or mtimes and created no files. Both exited 0. The fixture matched its own index; no application index or HEAD commit was used. Python bytecode generation was explicitly disabled. T-3654."
+    },
+    "fire_1871.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: --write on the committed tree rewrote data/fire/1871.json byte for byte. Shifting one zone's derived local vertex by 1.0 m made --check exit 1, and --write then restored the exact committed bytes. --check and --self-test write nothing. T-3687.",
+      "placed": "Only the `local` and `acres` fields of data/fire/1871.json and the `conversion` block are derived. It reads data/context/1871/plan.json's modern controls and river.geojson/shoreline.geojson, and the authored outlines, controls and model are its inputs. Before it can be placed in the manifest, its order after the 1871 plan and geography writers (fit_1871_city_map.py, city_1871_emit.py) has to be settled."
+    },
+    "audit_1871_city_map.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-11-18",
+      "finding": "Reproduces in the measured root Python runtime: two --write runs in an isolated 15-file Git index fixture advanced only data/traces/mitchell_1870_fit_audit.json mtime while retaining all bytes. Adding 1.0 m to its reserved-check RMSE made --check exit 1; --write restored the exact indexed output, then --check passed. Bare and --check modes wrote nothing. Final fixture had zero changed, added or deleted files. T-3654.",
+      "placed": "Only the fit-audit JSON is derived; manual control annotations, original registration, portable OSM primitives and the authored scene plan are inputs, never conflict-resolution outputs. Before manifest placement, establish the source-control/audit/consumer ordering and measure the numerical writer under the CI runtime: --check permits small platform float differences, while --write serializes the current runtime. Full-manifest ordering/prove was not run in this bounded gate repair."
+    },
+    "trace_harbor_1869.py": {
+      "placement": "pending",
+      "write_mode": "(bare); optional --audit-svg PATH writes an explicit review artifact",
+      "measured": "2026-11-18",
+      "finding": "Reproduces: two bare runs in an isolated 15-file Git index fixture advanced only data/traces/harbor_1869/metric_trace.geojson mtime with identical bytes. Perturbing its first coordinate by 1.0 m made --check exit 1; a bare run restored the exact indexed output. --check alone wrote nothing. Separately measured --check --audit-svg optional-audit.svg created exactly the requested SVG and did not rewrite the metric trace. After removing that explicit artifact, all 15 fixture files matched their index. T-3654.",
+      "placed": "Only metric_trace.geojson is the default derived output. The inspected image_trace.json, metric controls and SHA-verified source raster are authored evidence inputs; optional SVG output is caller-selected. Place the metric writer after any future source-trace/control writer and before absolute-registration consumers, which are not yet adopted into the scene. A full-manifest ordering/prove pass was not run here, so no conflict-resolving manifest step is appended blindly."
+    },
+    "jaunts_es.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: hashed the 249 overlay files under data/sidecars/{1812,1835,1904}/jaunts/es/, ran the bare writer twice, hashes identical. Appended a byte to 1835/a-decent-coat.json: --check exited 1 naming it; the bare writer restored the identical bytes (T-3681).",
+      "placed": "after compile_jaunts.py (it reads the same data/jaunts/*.json the compiler does, and the words files in data/jaunts/_es/); writes only jaunts/es/ under each scene's sidecars, which compile_jaunts leaves alone (T-3681)"
     }
   }
 }

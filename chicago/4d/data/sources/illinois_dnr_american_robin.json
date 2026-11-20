@@ -1,0 +1,28 @@
+{
+  "id": "illinois_dnr_american_robin",
+  "type": "website",
+  "citation": "Illinois Department of Natural Resources. \"American robin.\" Wild About Illinois Birds, Thrushes. Accessed 11 November 2026.",
+  "author": "Illinois Department of Natural Resources",
+  "date": "accessed 2026-11-11",
+  "url": "https://dnr.illinois.gov/education/wildaboutpages/wildaboutbirds/wildaboutbirdsthrushes/wabamericanrobin.html",
+  "locator": "BEHAVIORS section; first paragraph, sentences on statewide occurrence, nesting April-July, spring/summer residential habitat, and several different calls.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "State of Illinois copyright footer; no reuse license investigated. Textual citation only; no page photograph or range-map asset is proposed. Audio has its own existing CC0 provenance.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Retrieved HTTP 200 and BEHAVIORS read on 2026-11-11. Downloaded HTML sha256 0fa9a63c1fc4c9ce61aa6cdc2ff63bf6cb0f7489b7bc3c2a65ebda409b9a0d03. No publication date established and no archived URL asserted. Page located through the official birds index and Thrushes page.",
+  "carries_no_document": "Official modern educational species account with FEATURES, BEHAVIORS, taxonomy and habitat headings; no period document or 1904 testimony is transcribed.",
+  "what_it_supplies": [
+    "Modern statewide Illinois American-robin seasonal occurrence.",
+    "Nesting April-July and spring/summer use of residential areas, woodlands, orchards, parks and open areas.",
+    "Several different calls; song described separately as a loud caroling noise."
+  ],
+  "what_it_does_not_supply": [
+    "An observed robin at a specific Chicago location or date in1812 or1904.",
+    "A precise Chicago arrival date, weather/temperature or number of birds on that day.",
+    "Identification or suitability of the existing Spokane recording, its call type or regional acoustic match.",
+    "Exact calling hours, repetition rate, perch height or source position."
+  ],
+  "note": "Modern regional ecological bound for explicitly reconstructed seasonal encounters in the 1812 natural timber habitat. April15 lies inside the stated April-July nesting window; the historical backcast is a declared reconstruction, not a statement this source makes. A possible later1904 use requires its own placement; this change activates only1812."
+}

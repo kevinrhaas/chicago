@@ -65,7 +65,8 @@ const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 /** The bones this layer moves. A rig missing any CORE bone is left alone (null). */
 const CORE = ['pelvis', 'spine_01', 'spine_02', 'spine_03', 'neck_01', 'head', 'clavicle_l', 'clavicle_r'];
 const LEGS = ['thigh_l', 'thigh_r', 'calf_l', 'calf_r', 'foot_l', 'foot_r'];
-const OPTIONAL = [...LEGS, 'eye_l', 'eye_r'];
+const ARMS = ['upperarm_l', 'upperarm_r', 'lowerarm_l', 'lowerarm_r', 'hand_l', 'hand_r'];
+const OPTIONAL = [...LEGS, ...ARMS, 'eye_l', 'eye_r'];
 
 /** What each behaviour state gets. `working` and `seated` keep their clip's body. */
 export const LIFE_MODES = Object.freeze({
@@ -75,6 +76,68 @@ export const LIFE_MODES = Object.freeze({
   working: { breath: 0.8, sway: 0.4, weight: false, gaze: 0.5, visitor_m: 4 },
   seated: { breath: 0.9, sway: 0.5, weight: false, gaze: 0.8, visitor_m: 5 },
 });
+
+/**
+ * T-3553 (owner, 2026-11-14, of the 1812 jaunts: "for the natives they can be in groups
+ * collected, laying down or kneeling in preparation for the attack"): a body held off its
+ * feet, over whatever its clip plays. Each leg is pitched at the hip (`thigh`), the knee
+ * (`calf`, negative bends it) and the ankle (`foot`), degrees, a positive pitch swinging a
+ * hanging bone's lower end forward; `lean` pitches the spine (negative forward), `look` the
+ * neck and head (positive up). The pelvis comes down to where the `planted` leg holds it,
+ * worked out from this body's own thigh, shin and ankle at bind. `root` tips the whole
+ * figure (humans.js): +90 lies it face down along its heading, -90 face up, head to its
+ * heading; `still` stills breath, sway, gaze and the eyes (someone lying lifeless, shown
+ * only as the aftermath: the owner's ruling for students, 2026-11-14, "Build-up and
+ * aftermath"). Nothing here is a clip: it is a pose held, as a person kneels.
+ */
+export const POSTURES = Object.freeze({
+  stand: null,
+  // On the right knee, the left foot planted before him: a man waiting, or kneeling to listen.
+  kneel: { l: { thigh: 100, calf: -100, foot: 0 }, r: { thigh: 'knee', calf: 'flat', foot: -80 }, planted: 'l', lean: -6, look: 4 },
+  // On both knees, upright.
+  kneel2: { l: { thigh: 'knee', calf: 'flat', foot: -80 }, r: { thigh: 'knee', calf: 'flat', foot: -80 }, planted: 'knees', lean: -3, look: 2 },
+  // Low on the heels, the knees up before him: crouched, out of sight behind a bank.
+  crouch: { l: { thigh: 108, calf: -128, foot: 22 }, r: { thigh: 104, calf: -122, foot: 20 }, planted: 'l', lean: -24, look: 14 },
+  // Sitting on the ground, the knees a little up, the legs before him.
+  sit: { l: { thigh: 84, calf: -28, foot: 6 }, r: { thigh: 80, calf: -18, foot: 4 }, planted: 'seat', lean: -6, look: 0 },
+  // Lying face down, the head up, watching ahead: the elbows out and the forearms on the
+  // ground before the head, the legs a little apart (the owner, 2026-11-16, of a figure lying
+  // in wait on the beach: "they would have their arms and legs in a different position").
+  prone: {
+    root: 90, lift: 0.12, look: 34,
+    limbs: {
+      upperarm_l: { out: 70, twist: -90 }, lowerarm_l: { flex: 95 },
+      upperarm_r: { out: 70, twist: -90 }, lowerarm_r: { flex: 95 },
+      thigh_l: { roll: 8 }, thigh_r: { roll: 8 },
+    },
+  },
+  // Lying face up and still, as someone lies who has fallen or been laid down: one knee up and
+  // fallen out, the other leg out a little, one arm out on the ground, the other hand on the
+  // body, the head turned (the owner, 2026-11-16: the stiff straight figure floated).
+  lie: {
+    root: -90, lift: 0.08, look: 0, still: true,
+    limbs: {
+      thigh_a: { pitch: 34, roll: 26 }, calf_a: { pitch: -62 }, foot_a: { pitch: -20 },
+      thigh_b: { roll: 9 }, foot_b: { pitch: -30 },
+      upperarm_a: { out: 45 }, lowerarm_a: { flex: 12 }, hand_a: { flex: -60 },
+      upperarm_b: { out: 8, twist: 60 }, lowerarm_b: { flex: 80 },
+      head: { yaw: 24 },
+    },
+  },
+  // Fallen face down and still, the head down on the ground and turned on its cheek: one arm
+  // up by the head, the other out from the side, one leg drawn out (the adults jaunts,
+  // 2026-11-15; the owner's word on the stiff figures, 2026-11-16).
+  fallen: {
+    root: 90, lift: 0.1, look: -6, still: true,
+    limbs: {
+      upperarm_a: { out: 130, twist: -90 }, lowerarm_a: { flex: 35 },
+      upperarm_b: { out: 25 }, lowerarm_b: { flex: 5 },
+      thigh_a: { roll: 22 }, calf_a: { pitch: -12 }, thigh_b: { roll: 6 },
+      head: { yaw: 62 },
+    },
+  },
+});
+export const POSTURE_NAMES = Object.freeze(Object.keys(POSTURES));
 
 /**
  * The trunk over the gait layer's pelvis. Walking at 1.2-1.4 m/s the pelvis turns a few
@@ -96,6 +159,12 @@ export const TRUNK = Object.freeze({
   lean: { at1: 2, perMS: 3.3, min: 1.5, max: 4.5 }, // degrees of forward lean, by speed
   fixation_m: 2,
 });
+/**
+ * T-3553: running, the trunk leans forward from the ankles more than on the walk, the more the
+ * faster: degrees at a jog (2.5 m/s) and at a sprint (6 m/s). Reconstructed (liberty
+ * L-human-gait-3472): the running dataset the legs come from measured no trunk.
+ */
+export const RUN_LEAN = Object.freeze({ at25: 8, at60: 15 });
 const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
 /** One natural blink, 0..1..0 over its duration: a fast close and a slower open. */
@@ -161,12 +230,18 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     pelvisUpLocal = up.clone().applyQuaternion(toParent);
     pelvisRightLocal = right.clone().applyQuaternion(toParent);
     legLen = found.thigh_l && found.foot_l ? at('thigh_l').distanceTo(at('foot_l')) : 0.86;
+    // T-3553: this body's own thigh, shin and ankle, for a posture's pelvis.
+    if (found.thigh_l && found.calf_l && found.foot_l) {
+      hipY0 = at('thigh_l').y; thighLen = at('thigh_l').distanceTo(at('calf_l'));
+      shinLen = at('calf_l').distanceTo(at('foot_l')); ankleY = Math.max(0.04, at('foot_l').y);
+    } else { hipY0 = legLen + 0.08; thighLen = legLen * 0.52; shinLen = legLen * 0.48; ankleY = 0.08; }
     pelvisUpScale = 1 / pelvis.parent.getWorldScale(new THREE.Vector3()).y;
     bones = found;
     bound = true;
     return true;
   }
   let hipHalf = 0.1, legLen = 0.86, pelvisUpScale = 1;
+  let hipY0 = 0.94, thighLen = 0.45, shinLen = 0.41, ankleY = 0.08;
   let pelvisUpLocal = new THREE.Vector3(0, 1, 0), pelvisRightLocal = new THREE.Vector3(-1, 0, 0);
 
   const rebase = () => {
@@ -178,6 +253,70 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     const hp = held.__pelvisPos, p = bones.pelvis.position;
     if (p.equals(hp.out)) p.copy(hp.base); else hp.base.copy(p);
   };
+  // T-3553: the pelvis's height off the ground in a posture, and the legs that put it there.
+  const hipIn = (def) => {
+    const leg = (L) => ankleY + shinLen * Math.cos((L.thigh + L.calf) * DEG) + thighLen * Math.cos(L.thigh * DEG);
+    if (def.planted === 'l' || def.planted === 'r') return leg(def[def.planted]);
+    if (def.planted === 'seat') return 0.12;
+    if (def.planted === 'knees') return thighLen + 0.07;
+    return hipY0;
+  };
+  // T-3553: how far a held posture has brought the pelvis down this frame (metres, the
+  // figure's frame), for the arms (human-actions.js) to reach from where the body now is.
+  let sunk = 0;
+  // T-3553: a lying figure's limbs (POSTURES `limbs`). `_a` is this figure's own side, drawn
+  // once from its id, so the fallen do not all lie alike (`_l` / `_r` name a side outright).
+  // A leg takes `pitch` as in a posture's legs and `roll` out from the body. An arm takes
+  // `flex` (forward, as raising it before you), `out` (away from the side) and `twist` (inward),
+  // turned in that order: out, then forward, then about its own length.
+  // `head` takes `yaw`, turned to the figure's `_a` side.
+  const aSide = seededRandom(`lie:${id}`)() < 0.5 ? 'l' : 'r';
+  const headSign = aSide === 'l' ? 1 : -1;
+  function layLimbs(limbs, w) {
+    for (const [key, L] of Object.entries(limbs)) {
+      if (key === 'head') {
+        const y = (L.yaw ?? 0) * headSign * DEG * w;
+        turn('neck_01', y * 0.6, 0, 0); turn('head', y * 0.4, 0, 0);
+        continue;
+      }
+      const [part, which] = key.split('_');
+      const s = which === 'a' ? aSide : which === 'b' ? (aSide === 'l' ? 'r' : 'l') : which;
+      const m = s === 'l' ? 1 : -1;
+      if (part === 'upperarm' || part === 'lowerarm' || part === 'hand') {
+        // Out from the side first, then forward, then turned about its own length.
+        const name = `${part}_${s}`;
+        turn(name, 0, 0, (L.out ?? 0) * m * DEG * w);
+        turn(name, 0, (L.flex ?? 0) * DEG * w, 0);
+        turn(name, -(L.twist ?? 0) * m * DEG * w, 0, 0);
+      }
+      else turn(`${part}_${s}`, 0, (L.pitch ?? 0) * DEG * w, (L.roll ?? 0) * m * DEG * w);
+    }
+  }
+  function postureOn(def, w) {
+    sunk = 0;
+    if (def.root) {   // lying: the whole figure is tipped in humans.js; the look and the limbs here
+      if (def.look) { turn('neck_01', 0, def.look * 0.55 * DEG * w, 0); turn('head', 0, def.look * 0.45 * DEG * w, 0); }
+      if (def.limbs) layLimbs(def.limbs, w);
+      return;
+    }
+    const h = hipIn(def);
+    for (const s of ['l', 'r']) {
+      const L = def[s];
+      if (!L) continue;
+      // 'knee': the thigh hangs back from the hip to put the knee on the ground; 'flat': the
+      // shin then lies back along it.
+      const thigh = L.thigh === 'knee' ? -Math.acos(clamp((h - 0.07) / thighLen, 0, 1)) / DEG : L.thigh;
+      const calf = L.calf === 'flat' ? -90 - thigh : L.calf;
+      turn(`thigh_${s}`, 0, thigh * DEG * w, 0);
+      turn(`calf_${s}`, 0, calf * DEG * w, 0);
+      turn(`foot_${s}`, 0, L.foot * DEG * w, 0);
+    }
+    const drop = Math.max(0, hipY0 - h) * w;
+    sunk = drop;
+    bones.pelvis.position.addScaledVector(pelvisUpLocal, -drop * pelvisUpScale);
+    if (def.lean) { turn('spine_01', 0, def.lean * 0.5 * DEG * w, 0); turn('spine_02', 0, def.lean * 0.3 * DEG * w, 0); turn('spine_03', 0, def.lean * 0.2 * DEG * w, 0); }
+    if (def.look) { turn('neck_01', 0, def.look * 0.5 * DEG * w, 0); turn('head', 0, def.look * 0.5 * DEG * w, 0); }
+  }
   const settle = () => {
     for (const [n, h] of Object.entries(held)) {
       if (n === '__pelvisPos') h.out.copy(bones.pelvis.position); else h.out.copy(bones[n].quaternion);
@@ -223,6 +362,8 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
 
   const life = {
     get bound() { return bound; },
+    /** T-3553: the pelvis's drop under a held posture this frame (0 standing). */
+    get sink() { return sunk; },
     get bones() { return Object.keys(bones); },
     bind,
     /** A small nod, as with a greeting (human-actions.js asks for it). */
@@ -239,8 +380,11 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
      * heading); `viewer` the visitor's eye in world space, or null; `gait` the gait
      * layer's state this frame (phase, weight, speed, pelvisYaw, pelvisRoll, bob), or null.
      */
-    apply(dt, { state = 'standing', root = null, viewer = null, gait = null } = {}) {
+    apply(dt, { state = 'standing', root = null, viewer = null, gait = null, posture = null } = {}) {
       if (!bound) return;
+      // T-3553: a held posture ({ kind, w }), and how much of a lifeless stillness it asks.
+      const pose = posture && POSTURES[posture.kind] && posture.w > 0 ? { def: POSTURES[posture.kind], w: clamp(posture.w, 0, 1) } : null;
+      const calm = pose?.def.still ? 1 - pose.w : 1;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
       const mode = LIFE_MODES[state] ?? LIFE_MODES.standing;
       const walking = state === 'walking';
@@ -296,15 +440,15 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
       }
       // The gait layer owns the pelvis and the legs while it drives: what is left of a
       // weight shift (its springs settle over a second after the walk starts) yields to it.
-      const own = 1 - gw;
+      const own = (1 - gw) * (pose ? 1 - pose.w : 1);
       const side = spring(weight.side, mode.weight ? weightTarget.side : 0, 1.3, dt) * own; // +1: weight on the RIGHT leg
       const wYaw = spring(weight.yaw, mode.weight ? weightTarget.yaw : 0, 1.1, dt) * own;
 
       // Breathing and sway.
       const rate = breathRate * mode.breath;
       const ph = time * 2 * Math.PI * rate;
-      const breath = Math.sin(ph) + 0.18 * Math.sin(2 * ph + 0.6); // a quicker in, a longer out
-      const sw = mode.sway;
+      const breath = (Math.sin(ph) + 0.18 * Math.sin(2 * ph + 0.6)) * calm; // a quicker in, a longer out
+      const sw = mode.sway * calm;
       const swayRoll = sw * (0.35 * Math.sin(time * 0.37 + swayPhase[0]) + 0.2 * Math.sin(time * 0.71 + swayPhase[1])) * DEG;
       const swayPitch = sw * (0.3 * Math.sin(time * 0.29 + swayPhase[2]) + 0.15 * Math.sin(time * 0.83 + swayPhase[0])) * DEG;
 
@@ -356,7 +500,11 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
         rollBack = -TRUNK.roll * pRoll;
       }
       const l = TRUNK.lean;
-      const trunkLean = spring(walkLean, gw * clamp(l.at1 + l.perMS * (speed - 1), l.min, l.max) * DEG, 3, dt);
+      // T-3553: a runner leans further into the pace (RUN_LEAN), by the gait's run share.
+      const rr = gait ? clamp(fin(gait.run), 0, 1) : 0, vNow = gait ? fin(gait.speedNow, speed) : 0;
+      const walkLeanDeg = clamp(l.at1 + l.perMS * (Math.min(vNow > 0.3 ? vNow : speed, 2) - 1), l.min, l.max);
+      const runLeanDeg = RUN_LEAN.at25 + (RUN_LEAN.at60 - RUN_LEAN.at25) * clamp((vNow - 2.5) / 3.5, 0, 1);
+      const trunkLean = spring(walkLean, gw * (walkLeanDeg + (runLeanDeg - walkLeanDeg) * rr) * DEG, 3 + 5 * rr, dt);
       // The spine counters the hips so the shoulders sit level; the chest breathes. The
       // walk's lean is a forward (negative) pitch, mostly low in the back.
       turn('spine_01', -wYaw * 0.4, swayPitch * 0.4 - trunkLean * 0.45, -tip * 0.45 + swayRoll * 0.3 + rollBack * 0.45);
@@ -370,15 +518,19 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
       // the eyes keep the same point of the way ahead (all 0 with no gait).
       const steadyRoll = -swayRoll * 0.6 - (pRoll + rollBack);
       const steadyPitch = -(breath * 1.1 * DEG + swayPitch) + trunkLean - Math.atan2(bob, TRUNK.fixation_m);
-      const headTurn = headYaw - torso - twist - pYaw;
-      turn('neck_01', headTurn * 0.4, headPitch * 0.35 + steadyPitch * 0.5 - nod * 0.4, steadyRoll * 0.5);
-      turn('head', headTurn * 0.6, headPitch * 0.65 + steadyPitch * 0.5 - nod * 0.6, steadyRoll * 0.5 + headTurn * -0.05);
+      const headTurn = (headYaw - torso - twist - pYaw) * calm;
+      turn('neck_01', headTurn * 0.4, (headPitch * 0.35 + steadyPitch * 0.5 - nod * 0.4) * calm, steadyRoll * 0.5 * calm);
+      turn('head', headTurn * 0.6, (headPitch * 0.65 + steadyPitch * 0.5 - nod * 0.6) * calm, (steadyRoll * 0.5 + headTurn * -0.05) * calm);
       // The eyes make what is left of the turn.
-      const ey = clamp(eyeYaw - headYaw, -28 * DEG, 28 * DEG), ep = clamp(eyePitch - headPitch, -18 * DEG, 18 * DEG);
+      const ey = clamp(eyeYaw - headYaw, -28 * DEG, 28 * DEG) * calm, ep = clamp(eyePitch - headPitch, -18 * DEG, 18 * DEG) * calm;
       turn('eye_l', ey, ep); turn('eye_r', ey, ep);
       // The shoulders lift with each breath.
       turn('clavicle_l', 0, 0, -breath * 0.8 * DEG * mode.breath);
       turn('clavicle_r', 0, 0, breath * 0.8 * DEG * mode.breath);
+
+      // T-3553: a held posture over all of it: the legs folded and the pelvis brought down to
+      // where the planted leg (or the knees, or the seat) holds it; the spine and the look.
+      if (pose) postureOn(pose.def, pose.w); else sunk = 0;
 
       // Blinks: irregular, sometimes doubled, and one when the gaze jumps.
       blinkNext -= dt;

@@ -98,7 +98,8 @@
         "gate_sides": {
           "value": [
             "s",
-            "w"
+            "w",
+            "e"
           ],
           "confidence": "attested",
           "sources": [
@@ -106,7 +107,7 @@
             "quaife_1913",
             "currey_1912_first_fort_birdseye"
           ],
-          "note": "Whistler's index no. 7, 'Main Gate', drawn in the middle of the south range. Quaife: 'The main gateway of the stockade was at the middle of the south side'. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 8.6 ft west of this row's centre. WEST WICKET (T-3041): the earlier omission recorded above is superseded. The retrospective Currey birdseye labels western gateway 3 immediately south of northwest blockhouse 4; Quaife locates a wicket near that blockhouse. This supports the west-side occurrence and adjacency, not a precise location on Whistler's draught or a historical width. The south gate and its measured passage remain unchanged."
+          "note": "Whistler's index no. 7, 'Main Gate', drawn in the middle of the south range. Quaife: 'The main gateway of the stockade was at the middle of the south side'. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 8.6 ft west of this row's centre. WEST WICKET (T-3041): the earlier omission recorded above is superseded. The retrospective Currey birdseye labels western gateway 3 immediately south of northwest blockhouse 4; Quaife locates a wicket near that blockhouse. This supports the west-side occurrence and adjacency, not a precise location on Whistler's draught or a historical width. The south gate and its measured passage remain unchanged. SALLY PORT (T-3553, the owner 2026-11-16): a reconstructed 1.50 m postern in this row's east curtain between the commanding officer's quarters and the north-east small house, the parade's way out to the passage between the rows and on to the outer row's north-east postern and the covered way; its place, width and leaf are liberties (docs/LIBERTIES.md L-1812-sally-port)."
         },
         "gate_width_m": {
           "value": 1.89,
@@ -130,14 +131,20 @@
               "offset_m": 10.53,
               "width_m": 1.5,
               "kind": "wicket"
+            },
+            "e": {
+              "offset_m": 8.5,
+              "width_m": 1.5,
+              "kind": "wicket"
             }
           },
           "confidence": "reconstructed",
           "sources": [
             "currey_1912_first_fort_birdseye",
-            "quaife_1913"
+            "quaife_1913",
+            "kinzie_waubun_1856"
           ],
-          "note": "WEST WICKET TRIAL (T-3041): a reconstructed 1.50 m cut aligned through both rows in the existing clearance just south of the northwest blockhouse and north of the west officers' range. The offset is chosen from those model neighbors, not measured from the historical drawing. No range, blockhouse, stockade footprint or surveyed placement moves. The single pale-and-rail leaf and posts reuse the generic wicket kit at the existing stockade height; its 1.18 m clear span, details and inward swing are liberties. This does not establish a completion date. Native and picture acceptance remain pending."
+          "note": "WEST WICKET TRIAL (T-3041): a reconstructed 1.50 m cut aligned through both rows in the existing clearance just south of the northwest blockhouse and north of the west officers' range. The offset is chosen from those model neighbors, not measured from the historical drawing. No range, blockhouse, stockade footprint or surveyed placement moves. The single pale-and-rail leaf and posts reuse the generic wicket kit at the existing stockade height; its 1.18 m clear span, details and inward swing are liberties. This does not establish a completion date. Native and picture acceptance remain pending. SALLY PORT (T-3553, the owner 2026-11-16): a reconstructed 1.50 m postern in this row's east curtain between the commanding officer's quarters and the north-east small house, the parade's way out to the passage between the rows and on to the outer row's north-east postern and the covered way; its place, width and leaf are liberties (docs/LIBERTIES.md L-1812-sally-port)."
         }
       }
     }

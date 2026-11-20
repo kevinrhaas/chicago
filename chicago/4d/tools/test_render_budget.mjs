@@ -7,8 +7,12 @@ const vendor = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', 
 const confidenceSource = fs.readFileSync(new URL('../renderers/web/js/confidence.js', import.meta.url), 'utf8')
   .replace("from 'three'", `from '${vendor}'`);
 const { createConfidenceView } = await import('data:text/javascript;base64,' + Buffer.from(confidenceSource).toString('base64'));
-const full = Object.freeze({ drawCalls: 7800, triangles: 3470000 });
-const expectedGhost = { drawCalls: 8900, triangles: 3760000 };
+// T-3605: ordinary Full 3,470,000 -> 3,495,000 (main.js, the Gifford street faces).
+// T-3622: Full 3,495,000 -> 3,605,000, Balanced 2,675,000 -> 2,750,000, Light
+// 1,190,000 -> 1,305,000 (main.js, the owner's answer a; West prairie re-priced).
+// T-3656: owner-authorized ordinary Full 3,630,000 (measured peak plus standing margin).
+const full = Object.freeze({ drawCalls: 7800, triangles: 3630000 });
+const expectedGhost = { drawCalls: 8900, triangles: 3870000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 check('Full active Ghost uses independently measured draw and triangle pins', () => {
@@ -20,7 +24,13 @@ check('Full active Ghost uses independently measured draw and triangle pins', ()
   assert.equal(priorBAllowance, 3750000);
   assert.equal(priorBAllowance - 3737315, 12685);
   assert.equal(Math.ceil((3737315 + 18059) / 5000) * 5000, 3760000);
-  assert.equal(expectedGhost.triangles - 3737315, 22685);
+  // T-3556: the reading with two 1835 townspeople out at their far rung, + the same margin.
+  assert.equal(3737315 + 13836 + 13811, 3764962);
+  assert.equal(Math.ceil((3764962 + 18059) / 5000) * 5000, 3785000);
+  // T-3655: the gate's stand re-read at 3842482 (dev aadceb658) and 3847921 (PR #2150);
+  // the highest + the same margin. The T-3556 allowance is kept in the arithmetic as history.
+  assert.equal(Math.ceil((3847921 + 18059) / 5000) * 5000, 3870000);
+  assert.equal(expectedGhost.triangles - 3847921, 22079);
   assert.deepEqual(renderBudget(full, 'full', true), expectedGhost);
 });
 check('the resolver does not mutate or drop other base policy fields', () => {
@@ -35,12 +45,12 @@ check('Normal, Tint and inactive Ghost keep the original base object and limits'
   for (const active of [false, undefined, null, 0, 'true']) assert.equal(renderBudget(full, 'full', active), full);
 });
 check('Balanced and Light preserve their exact ceilings with Ghost enabled', () => {
-  for (const [detail, triangles] of [['balanced', 2675000], ['light', 1190000]]) {
+  for (const [detail, triangles] of [['balanced', 2750000], ['light', 1305000]]) {
     const base = Object.freeze({ drawCalls: 7800, triangles });
     assert.equal(renderBudget(base, detail, true), base);
     assert.deepEqual(base, { drawCalls: 7800, triangles });
   }
-  const floor = Object.freeze({ drawCalls: 5900, triangles: 1190000 });
+  const floor = Object.freeze({ drawCalls: 5900, triangles: 1305000 });
   assert.equal(renderBudget(floor, 'light', true), floor, 'an existing lower floor cannot be raised');
 });
 check('a higher inspection allowance is preserved in either dimension', () => {
@@ -81,7 +91,7 @@ check('multiple Ghost grades restore only when the last visible Ghost ends', () 
 });
 check('detail transitions return to the original lower-tier and ordinary policies', () => {
   const c = createConfidenceView(); c.set(true); c.setGrade('inferred', { mode: 'ghost' });
-  const balanced = Object.freeze({ drawCalls: 7800, triangles: 2675000 });
+  const balanced = Object.freeze({ drawCalls: 7800, triangles: 2750000 });
   assert.deepEqual(renderBudget(full, 'full', c.ghosting), expectedGhost);
   assert.equal(renderBudget(balanced, 'balanced', c.ghosting), balanced);
   assert.deepEqual(renderBudget(full, 'full', c.ghosting), expectedGhost);
@@ -96,14 +106,19 @@ check('the actual smoke pin rejects stale, inflated and public/stat-divergent al
   const predicate = new Function('return (' + smoke.slice(begin + 'const confidenceBudgetPinned = '.length, end + 6).trim().replace(/;$/, '') + ')')();
   const row = (detail, ghosting, budget, publicBudget = budget) => ({ year: '1835', detail, ghosting, budget, publicBudget });
   assert.equal(predicate(row('full', true, expectedGhost)), true);
-  for (const triangles of [3675000, 3750000, 3750001, 3760001]) {
+  for (const triangles of [3675000, 3750000, 3750001, 3760001, 3785000, 3870001]) {
     assert.equal(predicate(row('full', true, { drawCalls: 8900, triangles })), false);
   }
-  assert.equal(predicate(row('full', true, expectedGhost, { ...expectedGhost, triangles: 3760001 })), false);
+  assert.equal(predicate(row('full', true, expectedGhost, { ...expectedGhost, triangles: 3785000 })), false);
   assert.equal(predicate(row('full', true, { ...expectedGhost, drawCalls: 8901 })), false);
   assert.equal(predicate(row('full', false, full)), true);
+  for (const triangles of [3605000, 3630001]) {
+    assert.equal(predicate(row('full', false, { drawCalls: 7800, triangles })), false);
+  }
+  assert.equal(predicate(row('full', false, full, { ...full, triangles: 3605000 })), false);
+  assert.equal(predicate(row('full', false, { ...full, drawCalls: 7801 })), false);
   assert.equal(predicate(row('full', false, expectedGhost)), false);
-  for (const [detail, triangles] of [['balanced', 2675000], ['light', 1190000]]) {
+  for (const [detail, triangles] of [['balanced', 2750000], ['light', 1305000]]) {
     assert.equal(predicate(row(detail, true, { drawCalls: 7800, triangles })), true);
     assert.equal(predicate(row(detail, true, expectedGhost)), false);
   }

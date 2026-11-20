@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Independent expected pins applied to the ACTUAL main.js declaration/selector.
 // The native gate fixes the measured Full policy; it accepts no override.
+// T-3605: ordinary Full re-priced 3,470,000 -> 3,495,000 in main.js (Gifford street faces).
+// T-3622: ordinary Full 3,495,000 -> 3,605,000, Balanced 2,675,000 -> 2,750,000, Light
+// 1,190,000 -> 1,305,000 in main.js (owner answer a, West prairie re-priced).
+// T-3656: owner-authorized Full re-price to 3,630,000 from the new measured
+// 3,607,087 plus the standing 18,059 margin, rounded up to 5,000.
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
@@ -18,9 +23,9 @@ async function load(s){
 function check(m){
  const base=m.ordinary,off=m.select(false),on=m.select(true);
  assert.equal(m.driverBudget.drawCalls,7800,'General driver draw-call ceiling unchanged');
- assert.equal(m.driverBudget.triangles,3470000,'Ordinary driver triangle ceiling unchanged');
+ assert.equal(m.driverBudget.triangles,3630000,'Owner-authorized ordinary driver triangle ceiling');
  assert.equal(off,base,'No inspection uses exact original table');
- assert.equal(base.full.triangles,3470000,'Ordinary Full unchanged');assert.equal(base.balanced.triangles,2675000,'Measured Balanced policy');assert.equal(base.light.triangles,1190000,'Ordinary Light unchanged');
+ assert.equal(base.full.triangles,3630000,'Owner-authorized ordinary Full');assert.equal(base.balanced.triangles,2750000,'Measured Balanced policy');assert.equal(base.light.triangles,1305000,'Ordinary Light unchanged');
  assert.equal(on.full.triangles,expectedFull,'Only measured selected Full allowance');assert.equal(on.full.declared,expectedFull,'Declaration matches runtime Full');
  assert.equal(on.light.triangles,1270000,'Selected Light floor unchanged');assert.equal(on.light.declared,1270000,'Selected Light declaration unchanged');
  assert.equal(on.balanced,base.balanced,'Inspection cannot replace Balanced policy');
@@ -37,9 +42,9 @@ const policy=check(await load(source)),controls=[];
 for(const[name,mutate]of[
  ['Inspection Full unauthorized extra triangle',s=>s.replace(/const GLESSNER_V4_FULL_TRIANGLES = \d+;/,`const GLESSNER_V4_FULL_TRIANGLES = ${expectedFull+1};`)],
  ['Inspection Light increase',s=>s.replace('const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;','const GLESSNER_V4_LIGHT_TRIANGLES = 1270001;')],
- ['Ordinary Light increase',s=>s.replace('light:    { triangles: 1190000,','light:    { triangles: 1190001,')],
- ['Balanced unauthorized increase',s=>s.replace('balanced: { triangles: 2675000,','balanced: { triangles: 2675001,')],
- ['Ordinary Full increase',s=>s.replace('full:     { triangles: 3470000,','full:     { triangles: 3470001,')],
+ ['Ordinary Light increase',s=>s.replace('light:    { triangles: 1305000,','light:    { triangles: 1305001,')],
+ ['Balanced unauthorized increase',s=>s.replace('balanced: { triangles: 2750000,','balanced: { triangles: 2750001,')],
+ ['Ordinary Full increase',s=>s.replace('full:     { triangles: 3630000,','full:     { triangles: 3630001,')],
  ['Selected Full shadow reach',s=>s.replace('full: { ...DETAIL.full, triangles:', 'full: { ...DETAIL.full, shadowReachM: 241, triangles:')],
  ['Selected Light shadow reach',s=>s.replace('light: { ...DETAIL.light, triangles:', 'light: { ...DETAIL.light, shadowReachM: 121, triangles:')],
  ['Selected Full furniture shadows',s=>s.replace('full: { ...DETAIL.full, triangles:', 'full: { ...DETAIL.full, furnitureCastsShadow: false, triangles:')],

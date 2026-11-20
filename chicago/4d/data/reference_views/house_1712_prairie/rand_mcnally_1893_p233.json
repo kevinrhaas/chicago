@@ -1,0 +1,29 @@
+{
+ "structure_id": "house_1712_prairie",
+ "source_id": "rand_mcnally_1893_views_prairie_west_1702_1812",
+ "library_image": "st-randmcnally-1893-p233-west-1700-1800",
+ "photo": "../../sources/assets/rand_mcnally_1893_p233_west_t1872/p233_west_1702_1812_upright.jpg",
+ "image_px": [
+  2400,
+  864
+ ],
+ "principal_px": [
+  851.0,
+  -676.7
+ ],
+ "focal_px": 5376.0,
+ "pixel_aspect": 0.6551,
+ "eye": [
+  312.24,
+  -84.675,
+  70.8
+ ],
+ "yaw_deg": 270.0,
+ "near_m": 250,
+ "sun_uvy": [
+  0.8,
+  0.4,
+  1.0
+ ],
+ "solve": "Fitted by T-1872 to the drawing alone: the front over '1712' on the left-hand strip of p. 233 of Rand, McNally & Co.'s 1893 Bird's-Eye Views and Guide to Chicago ('Prairie Avenue (Looking North West)'), the image store's 864 x 2400 px copy turned upright (2400 x 864 px; the unturned copy beside it). The footprint frame's u runs toward Prairie Avenue (east) from the main body's rear wall and v along the front from its south wall (v 0) to its north wall (v 10.65); the front stands at u 12.24. A GUIDEBOOK DRAWING IN OBLIQUE PROJECTION, NOT A PHOTOGRAPH, solved as T-1877 solved its companion east strip, mirrored: every front is drawn square to the page (its storey lines and cornice run level), while depth recedes up and to the LEFT (the stoops run down and right toward the street; the south face of each house shows, hatched, past its south corner). So the camera is LEVEL and SQUARE TO THE FRONT (yaw 270, looking west in the house's frame, -u), set far off (300 m) with a long lens and its principal point shifted far off the frame. TWO SCALES, AND WHY: the strip is not drawn to one horizontal scale (1720's front is drawn about half again as wide for its width as 1712's, and 1712's front is drawn taller than wide where its 1911 plan is wider than its walls are high), so one scale cannot hold both the plan's width and the drawing's heights. Horizontally the front runs from x 1845 to x 1970 px at its foot, 125 px, set to the 1911 Sanborn sheet's 10.65 m front (the record's footprint, a measured plan): 11.74 px/m. Heightwise the front's foot stands at y 592 px, the principal floor's string course at y 549 px, the second floor's line under the balcony and the upstairs sills at about y 485 px, and the cornice's crown at y 400 px with its brackets hanging to y 420 px: 43, 107 and 192 px. The scale is 17.92 px/m (f = 17.92 x 300 = 5376 px), at which those are 2.4, 6.0 and 10.7 m, the record's 2.3 m principal floor, 6.0 m second floor and 10.7 m wall head (K01's wall head is its bracketed cornice's crown, the brackets and frieze hanging under it); pixel_aspect 11.74 / 17.92 = 0.6551 is the drawing's own narrowing of this front, NOT a resampled copy (the copy is the Internet Archive crop scaled evenly, 905 x 2514 to 864 x 2400). No measurement of the house fixes the height scale, so the drawing checks the PROPORTIONS of the front's heights, not their size; the record's heights are read from these proportions at this scale. The bays checked across: the principal floor's paired lights centred at x 1868 and 1948 px and the door at x 1910 px, which the record's 1.95, 5.325 and 8.7 m bays put at x 1868, 1907 and 1947 px. THE RECEDING RATES are T-1877's, mirrored: 0.30 m left and 0.22 m up a metre of depth at the front's scale, checked only against the walks (the front's foot at y 592 px, the curb about 35 px below it, about 13 m out); the strip's stoops are drawn steeper than its walks, and depth is drawn, not measured, so a difference behind the front plane is read against the 1911 sheet's plan, not the drawing. The principal point is where those rates put the vanishing direction: the front's point v 5.325 m, 4.8 m over grade projects to x 1907.5, y 506.0 px. UNCERTAINTY: about 3 px (0.25 m) along the front, 3 px (0.17 m) in height. LIGHT: the fronts are drawn lit and the south faces hatched, so the light comes from in front and north of it, high (sun_uvy)."
+}

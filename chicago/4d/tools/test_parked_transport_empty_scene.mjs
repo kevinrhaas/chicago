@@ -92,9 +92,16 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     assert.deepEqual(globalThis.__townLazyTools, { imports: 0, loader: 0, hitch: 0, factory: 0 });
     assert.equal(directoryReads, 0); assert.equal(assetReads, 0); assert.equal(heightReads, 0);
     await town.ready(); town.ensureNear(new THREE.Vector3(1335, 5, 3340), true); await town.ready();
-    assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: 1 });
-    assert.equal(directoryReads, 1); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
-    assert.equal(cardPreparations, 1, 'eligible near assembly prepares its existing person card at Light too');
+    // One factory call (and one card preparation) per 1904 carriage: Hans's and the two more (T-3555).
+    // The Glessner brougham (T-3557) is on call: not made until it is asked for.
+    const rows1904 = JSON.parse(readFileSync(new URL('transport/driven/loops.json', configRoot))).rows.filter(r => r.scene === '1904');
+    assert.equal(rows1904.length, 4); assert.deepEqual(rows1904.filter(r => r.on_call).map(r => r.id), ['prairie_driven_brougham_glessner_1904']);
+    const carriages1904 = rows1904.filter(r => !r.on_call).length;
+    assert.equal(carriages1904, 3);
+    assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: carriages1904 });
+    // Each assembly asks the scene's own directory loader (main.js's caches it).
+    assert.equal(directoryReads, carriages1904); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
+    assert.equal(cardPreparations, carriages1904, 'eligible near assembly prepares its existing person card at Light too');
     town.dispose();
 
     // Real supported-scene metadata with no eligible rows remains empty at every tier.
@@ -177,7 +184,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           { add: (g) => added.push(g) }, supportsTownTransport,
           async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; },
           draws, prepareSceneDirectoryPerson,
-          // T-3497: 1812's wheels and hooves read the same ground through its smoothing.
+          // T-3497: 1812's wheels and hooves read the same ground through its smoothing; T-3558: 1835's too.
           async () => ({ createSmoothedGround: ({ sample, grid }) => { assert.equal(grid, terrain.grid); return (e, n) => ['smooth', ...sample(e, n)]; } }));
         const supported = supportsTownTransport(year);
         assert.equal(imports, supported ? 1 : 0);
@@ -193,7 +200,21 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         assert.equal(calls.length, 1); const options = calls[0];
         assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'preparePersonCard', 'humans', 'confidence',
           'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems',
-          'blockedAt', 'placeVisitor'].sort());
+          'blockedAt', 'placeVisitor',
+          // T-3557: the ride's readers (where the eye is, the ground to get down to, the standing
+          // eye, reduced motion, the reins' words) and the boarding hook (ends a Go to / follow).
+          'visitorEye', 'groundAt', 'walkEye', 'reducedMotion', 'reinsHint', 'onBoard',
+          // T-3560: the pace word said as the visitor urges a driven team on.
+          'say',
+          // T-3557: the Glessner ride's parked twin, coach house and off-road floor.
+          'parked', 'coachHouse', 'pathHeightAt',
+          // T-3560: the horses a team waits for (riding.js obstacles; none until riding mounts).
+          'obstacles',
+          // T-3644: the climb into a seat shows the visitor's own person.
+          'visitorFigure'].sort());
+        assert.deepEqual(options.obstacles(), [], 'no horses yet: nothing for a team to wait for');
+        assert.equal(options.parked, null, 'no parked layer in this boot: the ride has no stand-in');
+        assert.equal(options.coachHouse(), undefined); assert.equal(typeof options.pathHeightAt, 'function');
         // T-3475: Step back reads the router's walkable grid (none yet: nothing blocks) and moves the walker.
         assert.equal(typeof options.placeVisitor, 'function'); assert.equal(options.blockedAt(0, 0), false);
         assert.equal(options.preparePersonCard, year === '1835' ? null : prepareSceneDirectoryPerson,
@@ -203,7 +224,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false, 'T-3542: lighter teams follow the memory diet or Light, not the touch screen');
         assert.equal(options.problems, problems); assert.equal(options.footprints(), footprints); assert.equal(options.visitor(), walker.state);
         assert.equal(options.getPeople(), directory); assert.equal(directoryCalls, 1);
-        assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : year === '1812' ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
+        assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : ['1812', '1835'].includes(year) ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
       }
     }
   } finally { globalThis.fetch = previousFetch; }

@@ -2,7 +2,7 @@
  * Guide › For teachers: the teacher handout (T-2666, NAV-806; design doc section 11,
  * "Teacher mode ... shows the same 7 steps as a printable one-page handout").
  *
- * One page a teacher prints for a class: the Field Check's nine steps, read from the tour
+ * One page a teacher prints for a class: the Field Check's ten steps, read from the tour
  * engine's own STEPS (js/tour.js) and never copied, and three suggested Jaunts for each
  * destination, read from that destination's compiled Jaunt catalog. The suggestion is one
  * stated rule, printed on the page and pinned by tools/test_teacher_handout.mjs:
@@ -27,7 +27,10 @@ export const PRINT_CLASS = 'is-printing-handout';
 
 /** The suggested Jaunts from one catalog, by the rule above. */
 export function suggestJaunts(rows, n = SUGGESTED) {
-  const list = (Array.isArray(rows) ? rows : []).filter((r) => r && r.title && r.availability !== 'unavailable');
+  // The owner, 2026-11-15: an adults-only jaunt (the 1812 fighting shown) is never suggested to a class.
+  // A grade-band version (version_of) is the same Jaunt retold, so the handout names each Jaunt once (T-3621).
+  const list = (Array.isArray(rows) ? rows : []).filter((r) => r && r.title && r.availability !== 'unavailable'
+    && r.audience !== 'adults' && !r.version_of);
   const stops = (r) => (Number.isFinite(r.stop_count) ? r.stop_count : Infinity);
   return list.slice().sort((a, b) => (b.featured === true) - (a.featured === true)
     || stops(a) - stops(b)

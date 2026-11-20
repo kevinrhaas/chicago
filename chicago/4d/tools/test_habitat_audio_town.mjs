@@ -17,7 +17,7 @@ for (const a of catalog.assets) for (const key of a.kind === 'music' ? ['opus', 
  const hash = a.kind === 'music' ? a.delivery[key].sha256 : a.delivery.sha256;
  a[key] = new URL(`media/${hash}${path.extname(a[key])}`, policy.public_base).href;
 }
-const overlayNames = ['main.js', 'fauna.js', 'recorded-audio.js', 'habitat-audio.js'];
+const overlayNames = ['main.js', 'fauna.js', 'recorded-audio.js', 'habitat-audio.js', 'habitat-seasons.js'];
 const overlays = new Map(await Promise.all(overlayNames.map(async name =>
  ['/walk/js/' + name, await fs.readFile(path.join(root, 'renderers/web/js', name))])));
 overlays.set('/walk/audio/catalog.json', Buffer.from(JSON.stringify(catalog)));

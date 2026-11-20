@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 44.9 MB**, consciously re-budgeted on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 49.6 MB**, consciously re-budgeted on 2026-11-18 by T-3651 for three owner-requested parcels that now stand in the first view: the photographic farm-box wagon (T-3558), the riding horse and its levels (T-3559, T-3560) and a townsperson's figure with its cloth sheets (the people work of T-3553, T-3555 and T-3644), plus the people's code past § 4q's room (§ 4r). It had been set at 46.6 MB on 2026-11-16 by T-3624 for the 1835 commercial core's row of stores and the ground behind them (T-3605) and a day of the walk's code past § 4o's room (§ 4p). It had been set at 45.7 MB earlier the same day by T-3609 for the 1835 townspeople's comings and goings (T-3556) and two days of the people's code past § 4n's room (§ 4o). It had been set at 45.2 MB on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n), and before that at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,9 +188,9 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.9 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
-                                           # what grew since § 4l's reading, file by file
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 49.6 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3651-boot-payload-entries.json
+                                           # what grew since § 4r's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -797,10 +797,189 @@ Under the standing measured re-budget authority, **Full with active Ghost now al
 
 The shared resolver, independent policy tests and smoke pin all use the same new Full Ghost ceiling. Ordinary Full remains3,470,000, Balanced2,675,000, Light1,190,000, the inspection allowance remains4,700,000, and all existing draw-call limits, tier reaches and Light's floor remain unchanged. Leaving Ghost or hiding its last visible grade restores the original tier policy. Negative controls reject the old ceiling, an unauthorized extra triangle/call, divergent public/stat ceilings, and applying this allowance to ordinary or lower-tier views.
 
+### 4n. Four days past § 18's room, re-measured 2026-11-14 (T-3599), and the budget is 45.2 MB
+
+The content build's desktop `1-2` leg went red on PR #2045 (run 43612125928): **BOOT PAYLOAD OVER
+BUDGET, 44.907 MB > 44.900 MB**, on a diff that only touches the 1893 monument. Re-read on dev
+`d775bba81`, published by `publish.sh` and measured by `--check`, it is **44.936 MB across 1,227
+requests**. The same tree with #2045's diff applied reads the same to the byte (`--against`:
++0.000 MB), so the breach is dev's own, and every PR's content build carries it. Measured against
+§ 18's committed per-URL reading (T-3341's `BOOT-ENTRIES.json`, 46,888,266 wire bytes, 44.716 MB,
+1,207 requests), it is **+0.220 MB and 20 requests in four days**:
+
+| | on the wire | where it came from |
+|---|---|---|
+| walk code | +0.152 MB | 20 new modules, most of them the people's (human-mouth, human-waist, human-fine, human-silver) and the visitor's (sign-in and its config and CSS, narration, the window and XR controls, visitor-store, arrival-device), with transport-crossings, block-walk, house-floors and house-barriers; and growth in human-days, human-skin, human-variation, human-hair and main.js |
+| the people's records | +0.063 MB | `data/humans/web/hm08_variation_persons.json`, 0.125 → 0.188 MB: T-3553's run of pictures on the Greys and the people round them (skins, fits, hair, teeth and smiles) |
+| everything else | +0.004 MB | the variation kit +0.004 MB and the other people's files +0.002 MB, against the sidecars −0.004 MB |
+
+**Nothing in it is a careless import or an unmetered fetch** — § 4b's test. The largest single
+arrival is `human-mouth.js` at 0.010 MB, every arrival is code or a record the 1835 street runs
+where the visitor stands, and nothing new is a texture, a mesh or a prebuilt layer. Cutting any of
+it is a choice about how the town's people look and move and how the visitor signs in, and that
+is the owner's, not a budget's. So this re-argues the number the way § 4l did, under AGENTS.md's
+standing ruling on budgets: **44.936 MB measured plus 0.264 MB of room, 45.2 MB.** This is a
+conscious re-budget, not an assertion weakened to clear a red: the check, its unit (MiB, read off
+the line above) and the measurement are unchanged.
+
+**Said plainly, what 45.2 surrenders.** At this week's pace (0.055 MB a day) the room lasts about
+five days, so this is still a rate meter, not a ceiling. Every movement since § 4l has been code
+and people's records, not the town's geometry, so the next lever is in `walk/js/` rather than
+the prebuilt layers: modules the 1835 street imports eagerly that a first visit does not run
+(sign-in, the XR controls, narration) could load on first use. That is a cut, so it is a separate
+ticket, and the reading to beat is this one:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json`.
+
+### 4o. Two days past § 4n's room, re-measured 2026-11-16 (T-3609), and the budget is 45.7 MB
+
+The content build's desktop `1-2` leg went red on PR #2062 (run 43782254713) and PR #2080 (run
+43781261707), two 1904-only diffs, at the same reading to the byte: **BOOT PAYLOAD OVER BUDGET,
+45.429 MB > 45.200 MB, 1237 requests**. dev's own content build at 23:26Z on 2026-11-15 (run
+43774799715) had read 45.092 MB, within budget, so the breach is dev's own and every PR's content
+build carries it, as with T-3599. Re-read on dev `e6334be4c`, published by `publish.sh` and measured
+by `--check --against` § 4n's committed entries, it is **45.437 MB across 1,238 requests**:
+**+0.501 MB and 11 requests in two days**:
+
+| | on the wire | where it came from |
+|---|---|---|
+| the 1835 townspeople's days | +0.334 MB | T-3556 (#2088), 1835's townspeople come and go from their homes and places of business: `data/humans/inside_1835.json` arrives at 0.173 MB (the people carded inside a house or shop, read by `main.js` beside the days), `data/humans/web/hm08_variation_persons_1835.json` arrives at 0.129 MB (the 1835 persons' variation records), and `data/humans/doors_1835.json` grows 0.032 MB (the doors and ways they use) |
+| the people's records | +0.058 MB | `data/humans/web/hm08_variation_persons.json`: T-3553's skins and dress (a coachman's one skin on his carriage and at his door) |
+| walk code | +0.108 MB | 9 new modules — the Glessner carriage ride and any horse team to drive (`coach-house.js`, 0.015 MB, and `team-drive`, T-3557), the story jaunts' staging and the 18+ tellings' fighting and wounds (`jaunt-stage`, `human-fight`, `human-blood`, T-3553 #2083/#2092), the women's finery (`human-finery`) and the Today window (`today-view`, its config and `today-geo`, T-3601) — and growth in the driven transport (`transport-loop`, `transport-interactions`, `town-transport-scene`), `fabric`, `main.js` and the people's modules |
+| everything else | +0.001 MB | `loops.json`, the variation kit's index and the walk's CSS and page, against 12 files a few bytes smaller |
+
+**Nothing in it is a careless import or an unmetered fetch** — § 4b's test. The largest single
+arrival is `inside_1835.json` at 0.173 MB, and every arrival is a record or code the 1835 street
+runs where the visitor stands: the townspeople's days are read at boot because the people are on
+the street, going in and out of their doors, from the first frame. Nothing new is a texture, a mesh
+or a prebuilt layer. Making the 1835 doors, inside and persons records load on first use, the
+ticket's other route, would change how and when the townspeople appear — a figure that is not yet
+read cannot be standing in its doorway when the visitor arrives — and that is the owner's choice,
+not a budget's (§ 4n's caution). So this re-argues the number the way § 4n did, under AGENTS.md's
+standing ruling on budgets: **45.437 MB measured plus 0.263 MB of room, 45.7 MB.** This is a
+conscious re-budget, not an assertion weakened to clear a red: the check, its unit (MiB, read off
+the line above) and the measurement are unchanged.
+
+**Said plainly, what 45.7 surrenders.** Two-thirds of this growth is one parcel (T-3556) arriving
+whole; without it the pace is § 4n's, about 0.08 MB a day, and the room lasts about three days.
+§ 4n's lever is still the right one and still unpulled: modules the 1835 street imports eagerly
+that a first visit does not run (sign-in, the XR controls, narration, and now `human-fight` and
+`human-blood`, which only an 18+ telling reaches) could load on first use. That is a
+cut, so it is a separate ticket, and the reading to beat is this one:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3609-boot-payload-entries.json`.
+
+### 4p. A day past § 4o's room, re-measured 2026-11-16 (T-3624), and the budget is 46.6 MB
+
+The content build's desktop `1-2` leg went red on PR #2125 (run 43974971949), a 1904-only diff the
+1835 first visit never loads, at **BOOT PAYLOAD OVER BUDGET, 46.268 MB > 45.700 MB**. So the breach
+is dev's own and every PR's content build inherits it, as it did under T-3599 and T-3609. Re-read on
+dev `ab89e903c`, published by `publish.sh` and measured by `--against` § 4o's committed entries, it
+is **46.341 MB across 1,331 requests**, and a second boot read the same figure. That is **+0.905 MB
+and 93 requests in one day**. The new reading is committed as
+`docs/measurements/T-3624-boot-payload-entries.json`.
+
+| | on the wire | where it came from |
+|---|---|---|
+| the 1835 commercial core | +0.786 MB | T-3605, owner-requested: the row of 59 stores up Wells, LaSalle, Clark and Dearborn (#2110, 59 new boot GLBs, 0.359 MB), the Lake and Dearborn faces rebuilt to Gifford's Tremont drawing (#2093, 19 new GLBs, 0.122 MB), the ground behind each store laid out as stable, workshop or storehouse (#2124, `prebuilt/1835/yards.bin.gz` +0.257 MB), the boot sidecars carrying the new structures (two new parts, +0.029 MB net after the existing parts shrank 0.136 MB), and the town's fence, path and street-edge records that follow them (+0.019 MB) |
+| walk code | +0.099 MB | 12 new modules (0.076 MB): the boats you can take the helm of (`vessel-model`, `vessels`, `boat-pilot`, T-3612 #2107), the burning of Fort Dearborn (`fort-fire`, T-3553 #2109/#2122), the name cards over every person (`name-cards`, T-3614 #2117), *Tell me a story* and *Ask a question* (`tales`, `tale-teller`, `tale-card`, `asks`, `ask-card`, T-3553), `today-register` and `stage-props`. Plus growth in 22 existing modules (+0.023 MB, led by `main.js`, `jaunt-stage`, `crossings` and `human-days`) |
+| everything else | +0.020 MB | `data/boats/vessels_1835.json` (T-3612, 0.011 MB), `doors_1835.json` (+0.006 MB), and a few bytes across the prebuilt indices and the walk's CSS |
+
+**Nothing in it is a careless import or an unmetered fetch** (§ 4b's test). Most of it, 0.786 of
+0.905 MB, is one parcel the owner asked for: the store row and its back lots, which stand in the
+street where the first visit opens. They arrive at boot because the visitor is standing among them,
+and a store that loads late is a gap in the row. Under AGENTS.md's standing ruling on budgets (when
+a parcel the owner asked for needs more room, the number moves and the parcel stays whole), this
+re-argues the number the way § 4o did: **46.341 MB measured plus 0.259 MB of room, 46.6 MB.** This
+is a conscious re-budget, not an assertion weakened to clear a red. The check, its unit (MiB, read
+off the line above) and the measurement method are unchanged.
+
+**Said plainly, what 46.6 surrenders.** Without T-3605's parcel the day's growth is the walk's
+code, about 0.12 MB a day, so the room lasts about two days of that, or less if another parcel
+arrives whole. § 4n and § 4o both named the lever, and it is still unpulled: modules the 1835 street
+imports eagerly that a first visit does not run (sign-in, the XR controls, narration, the 18+
+telling's `human-fight` and `human-blood`, and now the boat helm and the story teller) could load on
+first use. It was named twice and never filed, so T-3624 files it as its own ticket, a cut measured
+against this reading:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3624-boot-payload-entries.json`.
+
+### 4q. The lever § 4n named, pulled: what the first visit imports and never runs loads on first use (T-3627, 2026-11-17)
+
+§ 4n, § 4o and § 4p each named the same lever and left it unpulled: modules the 1835 street
+imports eagerly that a first visit never runs. T-3627 pulls it. Measured on dev `46b34642`, both
+trees published by `publish.sh` and read by `measure_boot_payload.mjs` one after the other on the
+same machine, dev's own head reads **46.347 MB across 1,331 requests** and this change reads
+**46.276 MB across 1,321 requests**: **−0.071 MB (74,419 wire bytes) and 10 requests fewer**,
+every byte of it walk code. The reading is committed as
+`docs/measurements/T-3627-boot-payload-entries.json`.
+
+| left the boot | on the wire | loads now |
+|---|---|---|
+| the stage of an outing: `jaunt-stage`, `fort-fire`, `human-fight`, `human-blood`, `stage-props` | 0.046 MB | with the outing's own modules (`ensureJaunts`), the first time a jaunt is opened; the people's hands read the fight motions through `humans.js useFightMotions`, which that load calls |
+| the story teller: `tale-teller`, `tales`, `asks`, `tale-card`, `ask-card` | 0.013 MB | when a visitor first chooses Tell me a story or Ask a question, which are still offered beside Greet from the start (`tale-actions.js`) |
+| the narration player, `narration.js` | 0.007 MB | with the outing, as before; Settings offers the narrators from `narrators.js`, a copy `test_narration.mjs` holds equal, because `narration.js` must import nothing (the voicing workflow checks it out alone) |
+| the headset session, `controls/xr.js` | 0.005 MB | only where the browser offers immersive VR, before the VR key is shown, so Enter VR still starts from the click; boot keeps the headset test and scale (`controls/xr-detect.js`) |
+| the boat helm, `boat-pilot.js` | 0.004 MB | when a visitor first takes a boat (Take her, Stepping in); until then a boat sees nobody at the helm |
+| *came back* | +0.003 MB | the three small boot halves above (0.002 MB) and the wiring in `main.js`, `humans.js`, `human-actions.js` and `settings-app.js` (0.001 MB) |
+
+**Sign-in is not in the cut, on purpose.** § 4n listed it, but the gate is on at
+chicago.polecat.live (`js/sign-in-config.js`), so a real first visitor runs `sign-in.js`; only a
+local serve and automation (the measurement among them) skip it. Deferring it would lower this
+meter and not what a visitor downloads, which is the thing § 4 exists to count.
+
+**The budget stays 46.6 MB.** The cut is room, not a reason to tighten the number under every
+open PR: against dev's reading the room goes from 0.253 MB to 0.324 MB, about two and a half days
+of the walk's code at § 4p's pace. What remains eager is code the first frame runs. The next
+reading to beat:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3627-boot-payload-entries.json`.
+
+### 4r. Three parcels arrive in the first view, re-measured 2026-11-18 (T-3651), and the budget is 49.6 MB
+
+Every content build's desktop `1-2` leg went red at **Enforce the first-visit boot payload budget**:
+#2174 (run 44269017428) and #2149 (run 44266061718) both read **49.253 MB > 46.6 MB** on diffs the
+1835 first visit never loads (a 1904 Prairie house each). So the breach is dev's own, and every PR
+inherits it, as under T-3599, T-3609 and T-3624. Re-read on dev `9a36087ff`, published by
+`publish.sh` and measured by `--against` § 4q's committed entries, it is **49.332 MB across 1,363
+requests**, and a second boot read the same figure to the byte. That is **+3.056 MB and 42 requests
+since T-3627's reading the day before**. Nothing left the boot. The new reading is committed as
+`docs/measurements/T-3651-boot-payload-entries.json`.
+
+| | on the wire | where it came from |
+|---|---|---|
+| a townsperson in the first view | +1.275 MB | 16 files. Philip Peck's `lod1` figure (0.210 MB) and the cloth and face sheets it shares with Bardwell, Mahoney and Mary Flynn: one 1020×1024 RGBA PNG (`sheets/a1b15bfceb53f2c5.png`, 0.801 MB), two JPEGs (0.153 MB) and eleven small `.bin` sheets (0.111 MB). T-3627's reading drew no named figure's GLB at all. The figure's files have not changed since 11-16, so what changed is that a person now stands where the first visit opens. The people work that landed in the window is the owner's T-3553 (clothes cut like their period pictures, #2165, #2171), T-3555 (distant people handed over as whole figures, #2161, #2179) and T-3644 (your own person). This reading does not bisect which of them put Peck in the first view |
+| the 1835 town's wagon | +0.963 MB | `walk/transport/farm-box-master/farm-box-far.glb`, the far level of the photographic farm box the 1835 town's standing and moving wagons now are (T-3558, owner: "of course there would be more wagons all over the place in a frontier town"; 76dd37994, 2f7fca6fa). Only the far level loads at boot. Its near (5.1 MB on disk) and mid (2.2 MB) are not in the boot reading |
+| the riding horse | +0.626 MB | `walk/transport/driven/horse-current26-mid.glb` (0.566 MB, the horse's mid level, T-3559/T-3560 #2134, Kevin 2026-11-17: "gallop, run") and the riding code that seats a rider: `riding`, `saddlery`, `rider-drape`, `rider-pose`, `human-seat`, `horse-rig`, `transport-ground` and `data/transport/riding/saddle_horses.json` (0.060 MB) |
+| the people's code | +0.123 MB | 14 new modules and records: the clothing cutters (`human-collar`, `human-tailor-1835`, `human-frockcoat`, `human-gown`, `human-coat`, `human-sleeve`, `human-regulars`, `human-skeletons`, T-3553), the distant crowd (`crowd`, T-3555), your own person (`visitor-person`, `person-settings`, `person-portrait`, `data/humans/visitor_person.json`, T-3644) and `traffic-cards` |
+| everything else | +0.069 MB | growth in 58 existing files (+0.039 MB, led by `main.js`, `transport/driven/loops.json` and `town-transport`), the walk's Barlow 600 face (`fonts/barlow-600.woff2`, 0.022 MB) and `reading-level` (0.008 MB, T-3645) |
+
+**Nothing in it is a careless import or an unmetered fetch** (§ 4b's test), and the § 4q cut still
+holds: none of the ten modules it deferred came back. Of the 3.056 MB, 2.864 MB is three parcels
+the owner asked for, standing where the first visit opens: a person, a wagon and a horse in the
+street. They arrive at boot because the visitor is standing among them, and a wagon or a horse that
+pops in late is a gap in the scene. Under AGENTS.md's standing ruling on budgets (when a parcel the
+owner asked for needs more room, the number moves and the parcel stays whole), this re-argues the
+number the way § 4p did: **49.332 MB measured plus 0.268 MB of room, 49.6 MB.** This is a
+conscious re-budget, not an assertion weakened to clear a red. The check, its unit (MiB, read off
+the line above) and the measurement method are unchanged.
+
+**Said plainly, what 49.6 surrenders.** Without the three parcels the window's growth is the
+people's and the walk's code, about 0.19 MB, so the room lasts about a day and a half of that, or
+less if another parcel arrives whole. The re-budget is now the third in three days (§ 4o, § 4p,
+this one), so the next breach should go to a cut first. The heaviest candidates on this reading
+were measured but not cut:
+
+- **the wagon's far level**: 1.190 MB on disk for 10,178 triangles, of which only 0.261 MB is its
+  six 256² WebP maps, even though the file is already meshopt-compressed. A far level a visitor sees
+  from more than a street away should be a fraction of that.
+- **the people's shared cloth sheet**: a 1020×1024 RGBA PNG, 0.801 MB on the wire, where the town's
+  other figure sheets are JPEG and the library's own sheets are KTX2 (`tools/ktx2_sheets.py`).
+
+Each is a change to an asset its own ticket qualified, so each is a cut for its owner's ticket,
+measured against this reading:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3651-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 44.1 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 49.6 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
@@ -1296,3 +1475,75 @@ the surface-disposition ruling and exact generation commands.
 ## Approved younger Prairie residents — T-3550 (2026-11-11)
 
 The five owner-approved child and teen roles add about 5.26 MiB to the published tree after shared texture extraction. The preparation checkpoint measures 440.883 MiB against the adult rollout at 435.62 MiB. The storage allowance moves from 436 to 443 MiB for these exports and their younger-resident records. Using the existing allowance accounting, two 443 MiB trees plus the last measured 132.233 MiB of other content total 1018.233 MiB, below 1024 MiB. This is a storage allowance, not a new runtime load: figures remain lazy and the ordinary rotation remains bounded. Boot, Light, frame, memory, warning and duplicate checks retain their limits. The integrated publication with dev 62da0f4, all 35 younger figures and five care records measures 441.14 MiB; site validation passes with 1.86 MiB remaining under the allowance.
+
+## Glessner's common brick — T-3564 (2026-11-13)
+
+The owner identified the stable's south wall and the court wall's tall alley run as buff Chicago common brick in his 2026-11-12 photographs, so Glessner gained one albedo-only 2048 study beside the court's pink one (`textures/glessner-v4/common_brick_basecolor.jpg`): 623,490 B of KTX2 in the web master and 166,557 B in Light. A local part-2 gate measured the published tree at 443.1 MiB, over the 443 MiB allowance, so the allowance moves to 444 MiB. Two 444 MiB trees plus the last measured 132.233 MiB of other content total 1020.233 MiB, below 1024 MiB. Boot, Light, frame, memory, warning and duplicate checks keep their limits.
+
+## Dev's growth under a waiting PR, 444 -> 445 MiB (2026-11-13, pending the owner's go)
+
+#1964 waited through nine merges into dev. Merged onto dev 9af90330e, its published tree measured 444.2 MiB (local `publish.sh` + `validate.py --all`; CI gate part 7/8 read the same on 7a03e0db2), so the allowance moves to 445 MiB. Two 445 MiB trees plus the last measured 132.233 MiB of other content total 1022.233 MiB, 1.767 MiB under 1024 MiB. This is the last whole-MiB raise that fits under the accounting ceiling: the next growth needs a cut first, and the largest measured lever is still each KTX2 kit sheet shipped once instead of embedded in every house's GLB (T-3232). Boot, Light, frame, memory, warning and duplicate checks keep their limits.
+
+## 19. One tree per site: the dev preview moves out, 445 -> 740 MiB (T-3581, 2026-11-13)
+
+Every allowance since §8 was set by `2 x cap + other content <= 1 GiB`, because one GitHub
+Pages site carried two copies of this tree: production at `/4d/` and the `dev` preview at
+`/4d/dev/`. At 445 MiB that arithmetic was spent, and the dev preview had also frozen
+twice in two days. Each dev deploy re-downloaded the live production artifact so it
+could leave production untouched, and when that artifact expired every dev deploy
+failed at `Ambiguous baseline artifacts`.
+
+The owner chose to give the preview its own Pages site (thread "Lift the site size limit
+on hosting"; Cloudflare Pages is the later step, compared in the project's hosting
+plan):
+
+| site | repository | serves | deployed by |
+|---|---|---|---|
+| `chicago.polecat.live` | kevinrhaas/chicago | `/4d/` production, the landing page, `/pre-fire/`, `/prairie-1904/`, `/rebuilding-1870s/` | `deploy.yml`, on an owner promotion only (#1994) |
+| `dev.chicago.polecat.live` | kevinrhaas/chicago-dev | `/4d/dev/`, the `dev` branch's tree | that repository's `deploy-dev-preview.yml`, after each dev push and every 15 minutes |
+
+**The ceiling, measured 2026-11-13.** Production's site carries this tree once plus
+190.935 MiB of other content:
+
+| other content | MiB |
+|---|---:|
+| landing films `site/media/` (#1829, 2026-11-07; the earlier 132.233 never counted them) | 58.589 |
+| `/pre-fire/` | 47.880 |
+| `/prairie-1904/` as `deploy.yml` republishes it | 46.974 |
+| `/rebuilding-1870s/` | 37.333 |
+| landing page, css, js, notes, research | 0.159 |
+
+The deploy refuses an artifact over 1,000,000,000 bytes (953.674 MiB), so this tree can
+be at most 762.7 MiB. **The allowance is 740 MiB**, which leaves 22.7 MiB for the landing
+page to grow. The dev site carries only this tree, so it is never the binding one. On
+2026-11-13 (`dev` e81a3106d) the tree measured 444.6 MiB in 7,083 files. At the last
+two weeks' net rate of about 7.5 MiB a day, the room lasts about six weeks.
+
+Storage only: the boot payload budget, the frame, Light and memory limits, the 90 %
+warning and the duplicate guard are unchanged. A tree over 740 MiB needs a cut or the
+host move, not another raise.
+
+## 20. The public site's films leave Pages, 58.8 -> 6.3 MiB (T-3611, 2026-11-16)
+
+§19 left the landing page 22.7 MiB of room on production's site, and the landing films
+(`site/media/*.mp4`, #1829) were most of the landing's 58.8 MiB. The owner asked for a
+multi-page public site with many more films (thread "Rebuild the public site", 2026-11-16).
+Those films would not fit, so they no longer ship on Pages at all:
+
+- The MP4s live in `site-films/` at the repository root, which `deploy.yml` never
+  publishes. `.github/workflows/chicago-site-films.yml` uploads them to the media bucket
+  the narration already uses (§16), under `site/films/`, on every push that changes them.
+- Each file is named `<id>.<sha8>.mp4`, so a re-cut is a new URL and the bucket can cache
+  forever. `site/js/films.js` (written by `tools/site_films_ingest.mjs`) names the exact
+  files; the pages fall back to their poster stills when a film cannot load.
+- The old landing films and stills nothing linked to any more were deleted.
+
+Measured on this branch: the landing (everything under `site/` except `4d/` and the three
+atlas viewers) is **6.3 MiB**, down from 58.755 MiB on `dev`. Of that, the film posters
+(`site/media/films/`) are 2.6 MiB and the self-hosted fonts 0.18 MiB. The 740 MiB allowance
+for this tree is unchanged; production's other content falls from 190.9 to about 138.5 MiB, so
+the room left under the 1,000,000,000-byte deploy limit grows by the same 52 MiB.
+
+The Observatory's year clips (`renderers/web/portal/clips/`, inside this tree) are now cut
+from those same films by `tools/portal_clips.mjs` (`"film"` shots): fourteen clips, 1.34 MB,
+inside `test_portal_clips.mjs`'s 5 MB cap.

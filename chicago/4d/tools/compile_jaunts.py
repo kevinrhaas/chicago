@@ -12,6 +12,7 @@ from jsonschema import Draft202012Validator
 from compile_scene import cite
 import jaunt_names
 import jaunt_place_facts
+import jaunt_reading_level
 
 ROOT = Path(__file__).resolve().parents[1]
 # Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
@@ -100,6 +101,13 @@ def stop_moment(stop):
         minutes = (math.ceil(event / 10) if at == 'rise' else math.floor(event / 10) if at == 'set' else round(event / 10)) * 10
     return dt.datetime.combine(day, dt.time()) + dt.timedelta(minutes=minutes)
 
+def crossing_boats():
+    """The drawn boats a castmate may cross in (T-3553), by id."""
+    if not hasattr(crossing_boats, 'ids'):
+        path = Path(__file__).resolve().parents[1] / 'data/boats/crossings_1812.json'
+        crossing_boats.ids = {b['id'] for b in json.loads(path.read_text())['boats']} if path.exists() else set()
+    return crossing_boats.ids
+
 def since_fits(phrase, before, after):
     """Whether a lead such as 'Four hours later' says the gap between two stop clocks.
     The vocabulary is small on purpose: a count of minutes, hours, days, weeks, months or
@@ -151,6 +159,21 @@ def leg_mode(doc, i):
 
 # T-3525: how far from a stop's stand its host may stand: near enough to meet, clear of the visitor.
 HOST_REACH_M = 12
+# T-3553: how far from a stop's stand its stage may reach: a column seen coming from a distance.
+STAGE_REACH_M = 260
+
+def figure_ids(root):
+    """T-3606: every figure a staged extra can wear, by asset id: each recipe's own name, its
+    `asset_id`, and the ids of the variants it builds (data/humans/recipes; no GLB is read)."""
+    ids = set()
+    for f in sorted((root / 'data/humans/recipes').glob('*.json')):
+        ids.add(f.stem)
+        try: r = json.loads(f.read_text())
+        except ValueError: continue
+        if isinstance(r.get('asset_id'), str): ids.add(r['asset_id'])
+        for v in r.get('proof_variants') or []:
+            if isinstance(v, dict) and isinstance(v.get('id'), str): ids.add(v['id'])
+    return ids
 
 def unique(rows, label):
     result = {r['id']: r for r in rows}
@@ -177,6 +200,21 @@ class Compiler:
             (self.root / 'docs/LIBERTIES.md').read_text(errors='replace'), re.M))
         html = (self.root / 'renderers/web/index.html').read_text()
         self.refs['topic'] = {key: {} for key in re.findall(r'data-topic="([a-z-]+)"', html)}
+
+    def figures(self):
+        if not hasattr(self, '_figures'): self._figures = figure_ids(self.root)
+        return self._figures
+
+    def instance_asset(self, pid):
+        """T-3560: the figure (asset id) a person of the scene is drawn in (data/humans/instances)."""
+        if not hasattr(self, '_assets'):
+            self._assets = {}
+            for f in sorted((self.data / f'humans/instances/{self.scene_id}').glob('*.json')):
+                try: r = json.loads(f.read_text())
+                except ValueError: continue
+                if isinstance(r, dict) and r.get('person_id'):
+                    self._assets.setdefault(r['person_id'], (r.get('appearance') or {}).get('asset_id'))
+        return self._assets.get(pid)
 
     def resolve(self, ref, destination=False):
         kind, key = ref['kind'], ref['id']
@@ -216,6 +254,15 @@ class Compiler:
         require(not errors, 'schema: ' + (errors[0].message if errors else ''))
         require(doc['scene'] == self.scene_id, 'jaunt belongs to another scene')
         require(doc['default_mode'] in doc['allowed_modes'], 'default mode not allowed')
+        require(not doc.get('plate') or doc['plate']['structure'] in self.refs['structure'], f"plate names an unknown structure {doc.get('plate', {}).get('structure')}")
+        # T-3590: the grade band is measured from the jaunt's own words (tools/jaunt_reading_level.py).
+        level = jaunt_reading_level.problem(doc)
+        require(not level, level)
+        require(doc.get('version_of') != doc['id'], 'a jaunt cannot be a version of itself')
+        # The owner, 2026-11-15: an adults jaunt stages the fighting; it says so before it starts.
+        adults = doc.get('audience') == 'adults'
+        require(not adults or doc.get('content_warning'), 'an adults jaunt needs its content_warning')
+        require(adults or 'content_warning' not in doc, 'a content_warning belongs to an adults jaunt')
         stops, ends = unique(doc['stops'], 'stop'), unique(doc['endings'], 'ending')
         require(not (set(stops) & set(ends) or {'Previous', '$end'} & (set(stops) | set(ends))), 'duplicate/reserved node id')
         claims = unique(doc['evidence'], 'evidence')
@@ -287,6 +334,115 @@ class Compiler:
                     far = math.hypot(h['local_e'] - a['local_e'], h['local_n'] - a['local_n'])
                     require(0.8 <= far <= HOST_REACH_M, f'{stop["id"]}: host {h["person"]} stands {far:.1f} m from the stand; '
                             f'a host stands 0.8-{HOST_REACH_M:g} m from it')
+            # T-3553: a stop's stage is played by people of this scene, each once, and by unnamed
+            # figures in a dress that exists; within STAGE_REACH_M of an anchor's stand; its
+            # reconstruction declared among the jaunt's liberties. A stop is hosted or staged.
+            stage = stop.get('stage')
+            if stage:
+                require(not hosts, f'{stop["id"]}: a stop has hosts or a stage, not both')
+                require(stage['liberty'] in doc['liberties'], f'{stop["id"]}: the stage\'s liberty {stage["liberty"]} is not declared by the jaunt')
+                cast = stage['cast']
+                unique([{'id': c.get('person') or 'extra:' + c['extra']} for c in cast], f'{stop["id"]} stage cast')
+                d = stop['destination']
+                a = self.refs['anchor'].get(d['id']) if d['kind'] == 'anchor' else None
+                for c in cast:
+                    who = c.get('person') or c['extra']
+                    # Students see build-up and aftermath (2026-11-14): no weapon raised, no blow, no shot, no blood.
+                    fights = [k for k in ('arm', 'act', 'wound') if k in c or any(k in b for b in c.get('beats', []))]
+                    require(adults or not fights, f'{stop["id"]}: {who} has {"/".join(fights)}; only an adults jaunt stages the fighting')
+                    if c.get('person'): self.resolve({'kind': 'person', 'id': c['person']})
+                    else:
+                        # A figure is its recipe (the GLB is built from it); the changelog fold's
+                        # sparse checkout carries no GLBs, so the recipe is what it can see. T-3606:
+                        # the dress is the figure's asset id, which is the recipe's own name (1812's
+                        # figures, 1904's children) or the asset a recipe builds (1904's adult
+                        # dresses build `glessner_frances_m_1904` and the like: figures().
+                        require(c['dress'] in self.figures(), f'{stop["id"]}: {who} wears {c["dress"]}, which is not a figure')
+                        if c.get('dress_of'): self.resolve({'kind': 'person', 'id': c['dress_of']})
+                    marks = [c['at']] + [p for b in c.get('beats', []) for p in b.get('walk', []) + ([b['place']] if 'place' in b else [])]
+                    if a:
+                        for m in marks:
+                            far = math.hypot(m[0] - a['local_e'], m[1] - a['local_n'])
+                            require(far <= STAGE_REACH_M, f'{stop["id"]}: {who} goes {far:.0f} m from the stand; a stage reaches {STAGE_REACH_M} m')
+                    for b in c.get('beats', []):
+                        if isinstance(b.get('face'), str):
+                            require(any(b['face'] in (x.get('person'), x.get('extra')) for x in cast), f'{stop["id"]}: {who} faces {b["face"]}, who is not in the cast')
+                # T-3553: the town teams a stage takes are the scene's own (loops.json rows), each
+                # once, within reach like any castmate; a rider rides one of them.
+                rows = {r['id']: r for r in json.loads((self.root / 'data/transport/driven/loops.json').read_text())['rows']}
+                taken = stage.get('teams', [])
+                unique([{'id': t['team']} for t in taken], f'{stop["id"]} stage teams')
+                for t in taken:
+                    row = rows.get(t['team'])
+                    require(row is not None, f'{stop["id"]}: the stage takes {t["team"]}, which is not a town team')
+                    require(str(row['scene']) == str(doc['scene']), f'{stop["id"]}: {t["team"]} is a team of {row["scene"]}, not {doc["scene"]}')
+                    marks = [t['at']] + [p for b in t.get('beats', []) for p in b.get('walk', [])]
+                    if a:
+                        for m in marks:
+                            far = math.hypot(m[0] - a['local_e'], m[1] - a['local_n'])
+                            require(far <= STAGE_REACH_M, f'{stop["id"]}: {t["team"]} goes {far:.0f} m from the stand; a stage reaches {STAGE_REACH_M} m')
+                    require(row.get('person_id') not in [c.get('person') for c in cast], f'{stop["id"]}: {row.get("person_id")} drives {t["team"]}; he is not cast as well')
+                for c in cast:
+                    if 'ride' in c:
+                        require(c['ride']['team'] in [t['team'] for t in taken], f'{stop["id"]}: {c.get("person") or c.get("extra")} rides {c["ride"]["team"]}, which the stage does not take')
+                # T-3560: a castmate on a saddle horse rides it in their own walks; nothing but a walk,
+                # a turn or talk while up (no pose, no weapon, no door, no boat) until they get down.
+                saddle = json.loads((self.root / 'data/transport/riding/saddle_horses.json').read_text())
+                for c in cast:
+                    who = c.get('person') or c.get('extra')
+                    downs = [b['t'] for b in c.get('beats', []) if b.get('dismount')]
+                    if 'mount' not in c:
+                        require(not downs, f'{stop["id"]}: {who} gets down from a horse they are not on')
+                        fast = [b['t'] for b in c.get('beats', []) if isinstance(b.get('pace'), (int, float)) and b['pace'] > 6.0]
+                        require(not fast, f'{stop["id"]}: {who} goes faster than a man can run at t={fast[:1]}; only a rider gallops')
+                        continue
+                    require('ride' not in c and c.get('pose', 'stand') == 'stand' and not c.get('hidden'), f'{stop["id"]}: {who} is mounted, so stands at the start, shown, on no team')
+                    require(len(downs) <= 1, f'{stop["id"]}: {who} gets down more than once')
+                    require(str(doc['scene']) in saddle['tack'], f'{stop["id"]}: no tack for {doc["scene"]}')
+                    tk = c['mount'].get('tack')
+                    require(tk is None or tk in saddle.get('tack_variants', {}), f'{stop["id"]}: {who} rides on {tk}, which is no tack variant')
+                    asset = (self.instance_asset(c['person']) if c.get('person') else c.get('dress'))
+                    riders = {saddle['rider']['assets'].get(str(doc['scene']))} | {r['asset'] for r in saddle.get('riders', [])} | set(saddle['rider'].get('also', {}).get(str(doc['scene']), []))
+                    require(asset in riders, f'{stop["id"]}: {who} ({asset}) is not a figure tools/test_riding.mjs seats on a horse (saddle_horses.json rider.also)')
+                    up_to = downs[0] if downs else float('inf')
+                    fast = [b['t'] for b in c.get('beats', []) if b['t'] >= up_to and isinstance(b.get('pace'), (int, float)) and b['pace'] > 6.0]
+                    require(not fast, f'{stop["id"]}: {who} is down from the horse at t={fast[:1]}, so cannot gallop')
+                    for b in sorted(c.get('beats', []), key=lambda b: b['t']):
+                        if b['t'] >= up_to: break
+                        bad = sorted(k for k in b if k in ('pose', 'arm', 'act', 'hide', 'place', 'cross', 'borne', 'torch', 'ignite', 'wound', 'door'))
+                        require(not bad, f'{stop["id"]}: {who} is on the horse at t={b["t"]}, so cannot {", ".join(bad)}')
+                # T-3553: a stage's open gates are gates a structure of this scene builds.
+                for gid in stage.get('open_gates', []):
+                    sid, side = gid.rsplit(':', 1)
+                    self.resolve({'kind': 'structure', 'id': sid})
+                    sides = ((self.refs['structure'].get(sid) or {}).get('attributes') or {}).get('gate_sides')
+                    sides = sides.get('value') if isinstance(sides, dict) else sides
+                    if sides is not None:
+                        require(side in sides, f'{stop["id"]}: {sid} has no {side} gate to open')
+                # T-3553, the burning of the fort (2026-11-16): what burns and what stands are
+                # structures of this scene, each once; its liberty is declared; a castmate puts a
+                # torch only to what burns, and has taken one up first. Not a blow: any audience.
+                fire = stage.get('fire')
+                if fire:
+                    require(fire['liberty'] in doc['liberties'], f'{stop["id"]}: the fire\'s liberty {fire["liberty"]} is not declared by the jaunt')
+                    named = fire['burns'] + fire.get('stands', [])
+                    require(len(set(named)) == len(named), f'{stop["id"]}: a structure both burns and stands, or is named twice')
+                    for sid in named: self.resolve({'kind': 'structure', 'id': sid})
+                    for sid in fire.get('lit', []): require(sid in fire['burns'], f'{stop["id"]}: {sid} is lit but does not burn')
+                for c in cast:
+                    held = False
+                    for b in sorted(c.get('beats', []), key=lambda x: x['t']):
+                        if 'torch' in b: held = b['torch']
+                        if 'ignite' in b:
+                            who = c.get('person') or c.get('extra')
+                            require(fire is not None and b['ignite'] in fire['burns'], f'{stop["id"]}: {who} sets {b["ignite"]} alight, which the stage does not burn')
+                            require(held, f'{stop["id"]}: {who} sets {b["ignite"]} alight with no torch in hand')
+                        # T-3553: a boat crossed in is a drawn one; a bier's bearers are on the stage.
+                        if 'cross' in b:
+                            require(b['cross'] in crossing_boats(), f'{stop["id"]}: {c.get("person") or c.get("extra")} crosses in {b["cross"]}, which is not a drawn boat (data/boats/crossings_1812.json)')
+                        if isinstance(b.get('borne'), list):
+                            ids = {x.get('person') or x.get('extra') for x in cast}
+                            for who in b['borne']: require(who in ids, f'{stop["id"]}: {who} bears the bier but is not on the stage')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])
@@ -389,6 +545,9 @@ class Compiler:
                 # openingLight), so a story jaunt of dated stops says its first scene's season.
                 light = opening_light(doc)
                 if light: row['ambience'] = light
+                # T-3584: the menu's group, the jaunts that lead it, and a card picture for an anchor-only route.
+                # T-3590: the school grades it is written for, and the jaunt it retells for them.
+                row.update(menu_group=doc['menu_group'], grade_band=doc['grade_band'], **{k: doc[k] for k in ('menu_rank', 'plate', 'version_of', 'audience', 'content_warning') if k in doc})
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
@@ -399,6 +558,14 @@ class Compiler:
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
         errors.extend(errors_facts)
+        # T-3590: a version retells a jaunt of this scene, never another version, in another grade
+        # band, or (2026-11-15) for another audience: the adults telling of a student jaunt.
+        by_id = {row['id']: row for row in catalog}
+        for row in catalog:
+            base = by_id.get(row.get('version_of')) if row.get('version_of') else None
+            other = base and (base['grade_band'] != row['grade_band'] or base.get('audience', 'all') != row.get('audience', 'all'))
+            if row.get('version_of') and not (base and not base.get('version_of') and other):
+                errors.append(f"{row['id']}.json: version_of {row['version_of']} must name another grade band's or audience's jaunt of this scene")
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         files['daybook.json'] = packed(self.daybook())
         return files, errors

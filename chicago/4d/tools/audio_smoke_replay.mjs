@@ -73,3 +73,32 @@ export function createAudioReplay({ site, root = ROOT, fetcher = globalThis.fetc
     },
   };
 }
+
+// T-3579: the narration index is the one hosted file the published app reads that
+// cannot be replayed from verified bytes. The voicer rewrites it in place (no-cache;
+// docs/AUDIO.md § Narration), so there is no receipt to hold it to, and the bucket
+// refuses localhost, so every boot logged a CORS console.error and failed part 15's
+// zero-page-errors check on both viewports. The smoke checks no narration, so it
+// stands in the index as an EMPTY one — the app's own "a jaunt not yet voiced" path
+// (js/narration.js: nothing offered, nothing fails) — rather than widening bucket
+// CORS or trusting unverified bytes. The path is js/narration.js's INDEX_PATH; it is
+// written here because the bake smoke checks out only tools/.
+export const NARRATION_INDEX_PATH = 'narration/index.json';
+export const EMPTY_NARRATION_INDEX = Object.freeze({ version: 1, clips: Object.freeze({}) });
+
+export function narrationIndexUrl({ root = ROOT } = {}) {
+  const policy = read(path.join(root, 'tools/audio-hosting.json'));
+  return new URL(NARRATION_INDEX_PATH, policy.public_base).href;
+}
+
+/** Route the hosted narration index on a Playwright browser context to an empty index. */
+export async function standInNarrationIndex(context, { origin, root = ROOT } = {}) {
+  const url = narrationIndexUrl({ root });
+  await context.route(u => u.href.split('?')[0] === url, route => route.fulfill({
+    status: 200,
+    contentType: 'application/json',
+    headers: { 'Access-Control-Allow-Origin': origin, 'Cache-Control': 'no-store' },
+    body: JSON.stringify(EMPTY_NARRATION_INDEX),
+  }));
+  return url;
+}

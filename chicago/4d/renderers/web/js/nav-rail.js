@@ -8,6 +8,7 @@
  *   {
  *     id: 'inspect',                 // also data-app on its rail button and its panel
  *     label: 'Inspect',              // the button's name (aria-label, title)
+ *     railLabel: 'Inspect',          // optional (T-3629): a shorter name under the rail icon
  *     code: 'SCR 03 · INSPECT',      // the screen header while it is open
  *     icon: '<svg …>',               // a 24-unit, stroke="currentColor" icon (static markup)
  *     order: 20,                     // place in the rail, low first
@@ -15,6 +16,9 @@
  *     when: (ctx) => bool,           // optional: absent means always
  *     linger: 300,                   // optional: ms an app stays after `when` turns false
  *     badge: (ctx) => bool,          // optional: a lamp dot (e.g. unread What's new)
+ *     inRail: false,                 // optional (T-3629): registered and opened by code or
+ *                                    // a link (Jump from the year chip, Move from Settings),
+ *                                    // but no icon of its own on the rail
  *     glow: (ctx) => bool,           // optional: the icon glows (the Confidence view is on)
  *     // Then ONE of:
  *     panel: 'nav-home',             // an element already in the page (Home)
@@ -38,6 +42,10 @@
  * the device's `context()` returns at that moment, so an app reads the page through
  * it and never imports main.js.
  */
+import { t as str } from './strings/index.js';
+import './strings/navigator.js';
+import { reducedMotion } from './motion.js';
+
 export const MAX_ICONS = 10;
 export const SLIDE_MS = 240;
 export const WARM_MS = 160;
@@ -84,7 +92,7 @@ export function createRail({
   before = null,                 // the element new buttons go in front of (the collapse key)
   onOpen = () => {},             // the device opens to show an app's screen
   onLaunch = () => {},           // a launch stub ran: the device docks
-  reduced = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = () => reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
   wait = (fn, ms) => setTimeout(fn, ms),
@@ -108,6 +116,18 @@ export function createRail({
   let current = null;
   let switching = 0;
   let dockedSelection = -1;
+  let tabStop = null;
+
+  // Jump and Move have screens but no rail icon. Keep the rail reachable by Tab
+  // while either is open, without calling its visible fallback the selected app.
+  // A contextual icon that leaves, or an app that unregisters, must not strand it.
+  function syncTabStop() {
+    const eligible = (s) => s?.shown && s.app.inRail !== false && !s.button.hidden;
+    const next = [apps.get(current), apps.get(tabStop), apps.get('home'),
+      ...railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id))].find(eligible);
+    tabStop = next?.app.id ?? null;
+    for (const s of apps.values()) s.button.tabIndex = s === next ? 0 : -1;
+  }
 
   function makeButton(app) {
     const b = doc.createElement('button');
@@ -118,17 +138,24 @@ export function createRail({
     b.setAttribute('role', 'tab');
     b.setAttribute('aria-label', app.label);
     b.setAttribute('aria-selected', 'false');
-    // Roving focus: Tab reaches the rail once, at the open app; the arrows move along it.
+    // Tab reaches one visible rail icon; the arrows move along it without opening an app.
     b.tabIndex = -1;
     b.title = app.label;
     if (app.pin === 'bottom') b.classList.add('nav-app-foot');
     if (typeof app.icon === 'string') b.insertAdjacentHTML?.('beforeend', app.icon);
     else if (app.icon) b.append(app.icon);
+    // T-3629: every icon carries its name under it, as a game's tab bar does.
+    const name = doc.createElement('span');
+    name.className = 'nav-app-label';
+    name.setAttribute('aria-hidden', 'true');
+    name.textContent = app.railLabel ?? app.label;
+    b.append(name);
     const dot = doc.createElement('span');
     dot.className = 'nav-app-dot';
     dot.setAttribute('aria-hidden', 'true');
     b.append(dot);
-    b.hidden = !!app.when;
+    b.hidden = !!app.when || app.inRail === false;
+    if (app.inRail === false) b.classList.add('nav-app-off-rail');
     b.addEventListener('click', () => { void select(app.id, { by: 'hand' }); });
     return b;
   }
@@ -157,6 +184,7 @@ export function createRail({
     const s = { app, button: makeButton(app), shown: !app.when, leaveAt: null, panel: null, mounted: false, module: null, loading: null };
     apps.set(app.id, s);
     place();
+    syncTabStop();
     return () => unregister(app.id);
   }
 
@@ -168,19 +196,21 @@ export function createRail({
     if (s.panel && !s.app.panel) s.panel.remove?.();
     apps.delete(id);
     if (current === id) current = null;
+    syncTabStop();
     return true;
   }
 
   function slide(s, on) {
     const b = s.button;
     b.classList.remove('is-entering', 'is-leaving');
+    if (s.app.inRail === false) { b.hidden = true; return; }
     if (on) {
       b.hidden = false;
       if (!reduced()) {
         b.classList.add('is-entering');
         wait(() => b.classList.remove('is-entering'), SLIDE_MS);
       }
-      if (s.app.when && !seen.has(s.app.id)) b.classList.add('is-new');
+      if (s.app.when && !seen.has(s.app.id)) { b.classList.add('is-new'); describe(s); }
     } else if (reduced()) {
       b.hidden = true;
     } else {
@@ -215,10 +245,42 @@ export function createRail({
       try { glow = !!s.app.glow?.(ctx); } catch { /* so is a glow */ }
       s.button.classList.toggle('is-badged', badge);
       s.button.classList.toggle('is-glowing', glow);
+      describe(s);
     }
     // An open app whose `when` let go closes back to Home.
     if (current && !apps.get(current)?.shown && apps.has('home')) void select('home', { by: 'quiet' });
+    syncTabStop();
     return [...show];
+  }
+
+  // T-3671 (WCAG 1.3.1, 1.4.1): what the lamp dot and the glow say by colour alone, said in
+  // words too. A description, not a change of name, so the name stays the label you see.
+  function describe(s) {
+    const b = s.button;
+    const words = [b.classList.contains('is-glowing') && str('nav.a11y.on'),
+      b.classList.contains('is-new') && str('nav.a11y.new'),
+      b.classList.contains('is-badged') && str('nav.a11y.unread')].filter(Boolean).join(', ');
+    if (words) b.setAttribute('aria-description', words);
+    else b.removeAttribute?.('aria-description');
+  }
+
+  // T-3671 (1.3.1): every app's screen opens on a heading that names it (visually hidden:
+  // the device's header already shows the name). Home's is in the markup. Some screens
+  // redraw themselves whole, so it is put back each time the screen shows.
+  function headScreen(s) {
+    const panel = s.panel;
+    if (!panel || s.app.panel || !panel.prepend) return;
+    const id = `nav-app-${s.app.id}-title`;
+    let h = doc.getElementById?.(id) ?? null;
+    // A screen that carries a top heading of its own (the sections' head, a building's
+    // name) needs no second one.
+    if ([...(panel.querySelectorAll?.('h1, h2') ?? [])].some((x) => x !== h)) { h?.remove?.(); return; }
+    if (h && h.parentElement === panel && panel.firstElementChild === h) return;
+    h ??= doc.createElement('h2');
+    h.id = id;
+    h.className = 'visually-hidden nav-screen-title';
+    h.textContent = s.app.label;
+    panel.prepend(h);
   }
 
   function panelFor(s) {
@@ -268,6 +330,7 @@ export function createRail({
     const ctx = context();
     if (s.app.when && !seen.has(id)) { seen.add(id); writeSeen(storage, seen); }
     s.button.classList.remove('is-new');
+    describe(s);
     // Await only what is asynchronous: an app already mounted (or mounted synchronously)
     // switches in the same task, so a caller can focus into it at once (G and Go to).
     const settle = (v) => (v && typeof v.then === 'function' ? v : null);
@@ -287,6 +350,7 @@ export function createRail({
       s.mounted = true;
       if (ticket !== switching) return false;
     }
+    headScreen(s);
     const was = current;
     const prev = was && was !== id ? apps.get(was) : null;
     if (prev?.mounted) (prev.module ?? prev.app).hidden?.(prev.panel, ctx);
@@ -295,15 +359,16 @@ export function createRail({
       const on = other.app.id === id;
       other.button.classList.toggle('is-on', on);
       other.button.setAttribute('aria-selected', String(on));
-      other.button.tabIndex = on ? 0 : -1;
       if (other.panel) other.panel.hidden = !on;
     }
+    syncTabStop();
     if (codeEl && s.app.code) codeEl.textContent = s.app.code;
     if (was !== id && was !== null) warm(panel);
     // Docking while this selection loads keeps its eventual screen pocketed.
     // A later selection has its own ticket and retains its ordinary opening.
     onOpen(id, ticket === dockedSelection ? 'quiet' : by);
     (s.module ?? s.app).shown?.(panel, ctx);
+    headScreen(s);
     return true;
   }
 
@@ -322,7 +387,8 @@ export function createRail({
   // Enter or Space opens one, as the button it is. Moving focus never opens an app on
   // its own: some apps are launches that dock the device.
   list?.addEventListener?.('keydown', (e) => {
-    const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown).map((s) => s.button);
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const tabs = railOrder([...apps.values()].map((s) => s.app)).map((a) => apps.get(a.id)).filter((s) => s.shown && s.app.inRail !== false).map((s) => s.button);
     const at = tabs.indexOf(e.target);
     if (at < 0) return;
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -357,7 +423,7 @@ export function createRail({
     tab: (id) => apps.get(id)?.button ?? null,
     /** For the harness: what the rail shows, in order. */
     shown() {
-      return railOrder([...apps.values()].map((s) => s.app)).filter((a) => apps.get(a.id).shown).map((a) => a.id);
+      return railOrder([...apps.values()].map((s) => s.app)).filter((a) => apps.get(a.id).shown && a.inRail !== false).map((a) => a.id);
     },
     snapshot() {
       return railOrder([...apps.values()].map((s) => s.app)).map((a) => {

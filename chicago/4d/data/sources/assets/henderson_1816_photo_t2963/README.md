@@ -18,6 +18,7 @@ no traced mesh), and the copy is unaltered.
 |---|---|
 | `henderson_1816_photo.jpg` | the photograph, 1444 x 1148 px greyscale, sha256 `6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8` |
 | (camera) | `data/reference_views/henderson_house_1816_prairie/chicagology_photo.json`, solved from the photograph and the 1911 Sanborn sheet's plan; its `solve` field says how and how far |
+| `henderson_1816_landowner_1874.jpg` | *The Land Owner*, May 1874, "C. M. Henderson" (T-1886): 928 x 827 px, sha256 `27f5d5eb4c4da9feb36b835eb4e3698f09c99f869569263ffa8e51fa07df9ece` (the image store's `prairie-1904/files/cgn-1816-landowner-1874-henderson.jpg`, byte for byte). **Public domain** (a US periodical engraving of 1874). Source record `land_owner_1874_05_homes_of_chicago_1816_henderson`; camera `data/reference_views/henderson_house_1816_prairie/landowner_1874.json`. Forms, counts and proportions are read from it; nothing is derived from it as an asset. |
 
 **How it is used.** `node tools/photo_match.mjs data/reference_views/henderson_house_1816_prairie/chicagology_photo.json`
 renders the committed GLB from that camera and writes it beside the photograph, with the match

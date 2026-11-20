@@ -364,6 +364,16 @@ console.log(`human days: dates, spans, talk, work, walk, doors and asking hold (
   assert(layer.doors.some((door) => door.actions.shut.some((action) => action.id === 'ask:glessner_john_j')), 'the house door offers to recall him');
   assert(layer.ask(a.id).ok, 'a visitor can recall him from office work');
   assert(layer.request(a.id, activities[0].id).ok, 'then request an outdoor activity');
+  // Kevin, 2026-11-17: "john is riding in the carriage with no driver". The Glessner coachman on
+  // his box is his carriage's (humans.external): his day never sends him indoors off the seat.
+  {
+    const coachman = actorOf(records.find((r) => r.person_id === 'pa1904_glessner_john_j_c1900_charles_nelson'), 'Charles Nelson');
+    let hh = 23;
+    const seated = createHumanDays({ humans: { actors: [coachman], external: (pid) => (pid === coachman.personId ? coachman : null) },
+      hour: () => hh, date: () => '1904-07-01', interactions: createInteractions(), doors: doorData });
+    for (const at of [23, 3, 8, 12, 17, 21]) { hh = at; for (let i = 0; i < 20; i++) seated.update(0.25); }
+    assert(!coachman.indoors && coachman.walks.length === 0, 'a coachman on his box is never sent indoors or walked off it by his day');
+  }
 }
 console.log('1904 seasonal coverage, door calls, temporary activities and jaunt priority hold');
 
@@ -418,6 +428,15 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert.equal([asker, worker].filter((a) => a.actions.talking).length, 1);
   assert(Math.hypot(asker.e - worker.e, asker.n - worker.n) <= 2.2, 'partners actually meet');
   assert(asker.looks && worker.looks, 'both attend to each other');
+  // T-3554 (owner, 2026-11-12: "people can come out of the house and have a conversation and
+  // not face each other"): each turns to the other, and turns back if turned away mid-chat.
+  const facing = (a, b) => {
+    const want = (Math.atan2(b.e - a.e, b.n - a.n) * 180 / Math.PI + 360) % 360;
+    return Math.abs((((want - a.heading) % 360) + 540) % 360 - 180) <= days.FACE.slack_deg;
+  };
+  assert(facing(asker, worker) && facing(worker, asker), 'the two face each other');
+  worker.heading = (worker.heading + 150) % 360; tick(0.5);
+  assert(facing(worker, asker), 'turned away mid-chat, they turn back to the other');
   const participant = layer.people.find(p => p.actor === asker), session = participant.social;
   const passerby = actorOf(rec('passing_driver', {}), 'Passing driver');
   actors.push(passerby); tick(0.25);

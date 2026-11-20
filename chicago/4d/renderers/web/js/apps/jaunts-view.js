@@ -11,7 +11,12 @@
  * Free roam pockets the Navigator: it docks the device (its one-time tip is T-2634).
  * The segment control is a tablist; the rail, the Navigator Home's choices and a deep
  * link can each open a given segment (`segment(name)`).
+ *
+ * T-3672: a route from a teacher (a route link, or Guide's Try it here) is pinned at the top
+ * of the Jaunts segment, above the lent list, for as long as it is open
+ * (teacher-route-view.js § mountRoutePanel).
  */
+import { mountRoutePanel } from '../teacher-route-view.js';
 
 export const SEGMENTS = [
   { id: 'jaunts', label: 'Jaunts' },
@@ -20,6 +25,7 @@ export const SEGMENTS = [
 ];
 
 let view = null;
+let routePanel = null;
 
 /** Lend a node to `into`, remembering where it lives, so restore() can hand it back. */
 function lend(node, into, lent) {
@@ -83,6 +89,13 @@ export function mount(el, ctx = {}) {
   panels.roam.append(roamText, roamKey);
 
   el.append(tabs, ...Object.values(panels));
+  // T-3672: the teacher's route, if one is open, leads the Jaunts segment.
+  const routeHost = doc.createElement('div');
+  routeHost.className = 'nav-route-host';
+  routeHost.hidden = true;
+  panels.jaunts.append(routeHost);
+  routePanel?.destroy();
+  routePanel = mountRoutePanel(routeHost, ctx);
 
   function show(id, { by = 'code' } = {}) {
     if (!panels[id]) return false;
@@ -127,11 +140,14 @@ export function mount(el, ctx = {}) {
 export function shown(el, ctx = {}) {
   if (!view) return;
   if (ctx.api) ctx.api.jauntsApp = view;
+  routePanel?.refresh(ctx);
   view.segment(view.current);
 }
 
 export function unmount(el) {
   view?.restore();
   view = null;
+  routePanel?.destroy();
+  routePanel = null;
   el.replaceChildren();
 }

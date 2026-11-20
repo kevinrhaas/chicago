@@ -24,6 +24,7 @@ OUT = Path(__file__).resolve().parent
 SIZE = 2048
 DETAIL_SIZE = 1024
 TILE_M = {"granite": (1.6, 1.6), "brick": (1.7272, 2.1336), "court_brick": (1.7272, 2.1336),
+          "common_brick": (1.7272, 2.1336),
           "limestone": (1.2, 1.2), "mortar": (1.2, 1.2), "terracotta": (2.4384, 1.95072),
           "copper": (2.4, 2.4), "oak": (0.8, 2.4), "painted_wood": (0.8, 2.4),
           "turf": (2.4, 2.4), "gravel": (2.0, 2.0)}
@@ -246,6 +247,39 @@ def court_brick():
                            "bounded reconstruction, not a measured sample."}
 
 
+def common_brick():
+    """T-3564: Chicago common brick, an albedo-only fabric over brick's own relief.
+
+    The owner's photographs of 2026-11-10 (chicago-evidence glessner-kevin-photos-2026-11-10,
+    nos. 20-22) show the stable's south wall and the tall alley run of the court wall in a
+    buff-tan common brick with salmon and darker units, which he identified as Chicago
+    common brick (2026-11-12). Built as court_brick() is: brick()'s clay grain from the same
+    seed, so brick's normal and roughness maps serve unchanged and only the body colour
+    moves. The buff body follows the lit brick's channel ratios in photograph 22 (red :
+    green : blue about 1 : 0.90 : 0.71); its value is reconstructed, not a measured sample.
+    """
+    seed = 190402
+    rng = np.random.default_rng(seed)
+    grit = field(rng, .8)
+    soft = field(rng, 7)
+    roughclay = field(rng, 2.1)
+    shifts = .018 * field(rng, 35)
+    bodycolour = np.array([.640, .565, .440]) + shifts[..., None]
+    bodycolour += (.012 * grit + .021 * soft + .012 * roughclay)[..., None]
+    fired = smoothstep(.8, 2.0, field(rng, 20))
+    bodycolour -= fired[..., None] * np.array([.040, .034, .026])
+    rgb = np.clip(bodycolour, 0.02, .94)
+    Image.fromarray(np.uint8(rgb * 255 + .5)).save(OUT / "common_brick_basecolor.jpg", quality=92,
+                                                   subsampling=0, optimize=True)
+    return {"name": "common_brick", "albedo_size_px": int(rgb.shape[0]), "tile_m": TILE_M["common_brick"],
+            "seed": seed, "confidence": "reconstructed", "albedo_colour_space": "sRGB",
+            "albedo_only": True, "normal_and_roughness_from": "brick", "source_pixels": "none",
+            "description": "Reconstructed buff Chicago common-brick body for the stable's south wall and "
+                           "the court wall's alley run (owner's photographs 20-22, 2026-11-10; his "
+                           "identification 2026-11-12), on brick's clay grain. Hue follows the photograph's "
+                           "channel ratios; value is bounded reconstruction, not a measured sample."}
+
+
 def mortar():
     seed = 190409
     rng = np.random.default_rng(seed)
@@ -342,11 +376,18 @@ def oak(painted=False):
     broad = gaussian_filter(a, (150, 12), mode="wrap")
     broad /= max(float(broad.std()), 1e-6)
     if painted:
-        rgb = np.array([.160, .230, .195]) + (.0045 * grain + .004 * broad)[..., None]
+        # T-3564 (owner, 2026-11-12, his photographs of 2026-11-10): the loft door
+        # over the coach-house doors, "that green should be what is represented".
+        # The coach-house doors, loft door and the 18th Street sash all wear it: a
+        # sage grey-green, read off the shaded doors and the sash (sRGB about
+        # 104/108/91 under the lintel, 109/127/128 on the loft door in skylight).
+        # It replaces the T-2211 dark green (.160/.230/.195). Reconstructed: the
+        # 1904 paint is not recorded; the owner chose today's colour.
+        rgb = np.array([.380, .440, .375]) + (.0045 * grain + .004 * broad)[..., None]
         h = .000025 * grain
         rough = .46 + .025 * grain
-        note = "Reconstructed muted dark green painted sash and carriage joinery; a thin "
-        note += "smooth coating with restrained grain telegraphing, not a sampled modern finish."
+        note = "Reconstructed sage grey-green painted sash, loft and carriage joinery (the owner's "
+        note += "2026-11-10 photographs); a thin smooth coating with restrained grain telegraphing."
     else:
         rgb = np.array([.380, .275, .165]) + (.014 * grain + .011 * broad)[..., None]
         h = .00006 * grain
@@ -419,7 +460,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     recipes = {"granite": lambda: stone("granite", 190400),
                "limestone": lambda: stone("limestone", 190401, True), "mortar": mortar,
-               "brick": brick, "court_brick": court_brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
+               "brick": brick, "court_brick": court_brick, "common_brick": common_brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
                "oak": oak, "painted_wood": lambda: oak(True), "turf": turf, "gravel": gravel}
     existing = OUT / "material-library.json"
     old = {m["name"]: m for m in json.loads(existing.read_text())["materials"]} if existing.exists() else {}

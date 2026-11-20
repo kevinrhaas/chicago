@@ -1,0 +1,117 @@
+{
+  "id": "1871",
+  "title": "Chicago before the fire, 8 October 1871",
+  "target_date": "1871-10-08",
+  "terrain_epoch": "e1871_prefire",
+  "structure_ids": [
+    "chamber_of_commerce_1871",
+    "cook_county_court_house_1871",
+    "sherman_house_1871"
+  ],
+  "lighting": {
+    "local_time": "16:00",
+    "note": "A reconstructed afternoon viewpoint before the fire: 16:00 local mean solar time. Sun position follows the date and datum; weather, visibility and surface colours are visual reconstructions, not an observation of that hour. The analytic sky uses a declared 6x presentation exposure, shared by its environment fill and sampled haze, to keep this afternoon legible at the renderer’s fixed camera exposure. This is a reconstruction grade, not measured 1871 sky radiance.",
+    "sky_exposure_multiplier": 6
+  },
+  "spawn": {
+    "local_e": 900,
+    "local_n": -534,
+    "yaw_deg": 0
+  },
+  "anchors": [
+    {
+      "id": "downtown",
+      "label": "State and Madison, in the commercial centre",
+      "short": "Commercial centre",
+      "glyph": "street",
+      "local_e": 900,
+      "local_n": -534,
+      "yaw_deg": 0
+    },
+    {
+      "id": "river_crossing",
+      "label": "Near the river crossings at the centre of the city",
+      "short": "River crossings",
+      "glyph": "street",
+      "local_e": 120,
+      "local_n": -30,
+      "yaw_deg": 80
+    },
+    {
+      "id": "north_residential",
+      "label": "The residential streets north of the river",
+      "short": "North Side",
+      "glyph": "street",
+      "local_e": -772,
+      "local_n": 1062,
+      "yaw_deg": 90
+    },
+    {
+      "id": "west_working",
+      "label": "Working streets west of the South Branch",
+      "short": "West Side",
+      "glyph": "street",
+      "local_e": -2435,
+      "local_n": -558,
+      "yaw_deg": 90
+    },
+    {
+      "id": "south_residential",
+      "label": "Residential streets south of the commercial centre",
+      "short": "South Side",
+      "glyph": "street",
+      "local_e": 883,
+      "local_n": -3750,
+      "yaw_deg": 0
+    },
+    {
+      "id": "whole_city",
+      "label": "Above the lake, facing the whole pre-fire city",
+      "short": "City from above",
+      "glyph": "aerial",
+      "local_e": 3000,
+      "local_n": -1400,
+      "yaw_deg": 270,
+      "altitude_m": 4200,
+      "pitch_deg": -53
+    },
+    {
+      "id": "river_from_above",
+      "label": "Above the Chicago River, looking toward the lake",
+      "short": "River from above",
+      "glyph": "aerial",
+      "local_e": -400,
+      "local_n": 200,
+      "yaw_deg": 100,
+      "altitude_m": 350,
+      "pitch_deg": -22
+    }
+  ],
+  "layers": [
+    "terrain",
+    "water",
+    "context"
+  ],
+  "released": false,
+  "note": "T-3654: a complete municipal context baseline, within the reconstructed 1869 city boundary. The 1870 Mitchell map and 1869 ward map guide the geography, with explicit reconstructed extensions. Building instances are anonymous period types, differentiated by district, not identified historical properties. The explicit empty structure_ids allowlist prevents broad phases from importing named buildings authored for other years. Each researched 1871 property can later replace context. See data/context/1871/plan.json and docs/LIBERTIES.md L-1871-city-baseline.",
+  "cards": [
+    {
+      "id": "city_baseline",
+      "kind": "project",
+      "title": "A whole city to build on",
+      "text": "This is the first citywide baseline for 8 October 1871. Explore the commercial centre, residential districts, working riverfront and outskirts. Generic buildings vary in form, height and material by district. Streets, walks, bridges, rail corridors and wharves provide the city around them. These are reconstructed surroundings; individual houses and businesses have not yet been identified."
+    },
+    {
+      "id": "map_and_limits",
+      "kind": "project",
+      "title": "What the map can tell us",
+      "text": "The intact 1870 Mitchell map guides the river, shoreline, streets and open ground. Eight independent check points put the corrected map alignment at about 16 metres RMS error. Banks and individual properties have additional uncertainty. An 1869 ward map guides the city boundary. Beyond the mapped detail, the grid and lots are reconstructed. Heights, facades, surface finishes, bridge details, planting and this afternoon’s atmosphere remain stated liberties."
+    },
+    {
+      "id": "research_next",
+      "kind": "project",
+      "title": "From context to researched places",
+      "text": "The next work replaces these generic blocks with identified buildings, documented businesses and researched daily activity. The pre-fire field notebook keeps the directory and public-works evidence separate from scene choices. This baseline does not yet claim a photographic reconstruction, a complete population, or a record of what each person was doing before the fire."
+    }
+  ]
+}

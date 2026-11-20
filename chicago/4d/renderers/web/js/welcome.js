@@ -54,6 +54,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   photos = null }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
+  const closeX = $('welcome-x'); // T-3578: the upper-right close key
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
   const search = $('welcome-search'), list = $('welcome-results'), message = $('welcome-message');
   const roam = $('home-roam'), back = $('welcome-back');
@@ -245,6 +246,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     // third choice, straight into the town.
     gate.querySelector('.gate-eyebrow').textContent = presentation.stamp;
     close.hidden = !hasEntered();
+    if (closeX) closeX.hidden = close.hidden;
     if (tourOffer) { let due = false; try { due = !!offer?.due?.(); } catch { due = false; } tourOffer.hidden = !due; }
     if (focus) title.focus({ preventScroll: true });
   }
@@ -288,6 +290,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   });
   $('btn-start').addEventListener('click', show);
   close.addEventListener('click', returnToWorld);
+  closeX?.addEventListener('click', returnToWorld);
   search.addEventListener('input', () => { limit = 40; render(); });
   window.addEventListener('keydown', event => {
     if (gate.hidden) return;

@@ -1,0 +1,2381 @@
+{
+ "_doc": "T-3684: today's street names in data/context/1871/modern_clip.json carried to their 1871 names, read by tools in generators/city_1871_emit.py. Each rule names the evidence. Rules are tried in order; 'where' limits a rule to segments whose midpoint lies in the given local e/n ranges. name null = no 1871 street is drawn on this line (basis later/made_land) or its 1871 name could not be read (basis unread: drawn, unnamed). The emitter adds the division prefix the 1871 directory uses (West Lake Street, North Clark Street, South Canal Street).",
+ "bases": {
+  "edwards_1871": {
+   "sources": [
+    "edwards_chicago_directory_1871"
+   ],
+   "grade": "attested",
+   "means": "the 1871 directory prints the name (records in chicago/pre_fire_v1/data/field_notebook_1871.json)"
+  },
+  "mitchell_1870": {
+   "sources": [
+    "mitchell_1870_chicago_map"
+   ],
+   "grade": "attested",
+   "means": "lettered on the 1870 map at this line, read through the map_control affine"
+  },
+  "plat": {
+   "sources": [
+    "thompson_plat_1830",
+    "mitchell_1870_chicago_map"
+   ],
+   "grade": "inferred",
+   "means": "the plat name, unchanged, on a line the 1870 map draws"
+  },
+  "unread": {
+   "sources": [
+    "mitchell_1870_chicago_map"
+   ],
+   "grade": "reconstructed",
+   "means": "the 1870 map draws a street here; its name is not legible at the scan's resolution"
+  },
+  "later": {
+   "sources": [
+    "chicago_street_center_lines"
+   ],
+   "grade": "attested",
+   "means": "the street post-dates 1871; not drawn"
+  },
+  "made_land": {
+   "sources": [
+    "chicago_street_center_lines"
+   ],
+   "grade": "attested",
+   "means": "on made land east of the 1871 shore or later park ground; not drawn"
+  },
+  "city_limits_1869": {
+   "sources": [
+    "chicago_evening_post_1869_city_limits"
+   ],
+   "grade": "attested",
+   "means": "named on the 1869 city-limits diagram, beyond the 1870 map's sheet"
+  }
+ },
+ "arterials": {
+  "reuben_street___ashland_avenue": {
+   "name": "Reuben Street",
+   "basis": "mitchell_1870",
+   "note": "the 1870 map letters this line 'Reuben' and 'N. Reuben' along its length; Ashland is its later name"
+  },
+  "egan_avenue": {
+   "name": "Egan Avenue",
+   "basis": "city_limits_1869",
+   "note": "Thirty-ninth Street is its later name"
+  },
+  "fortieth_avenue": {
+   "name": "Fortieth Avenue",
+   "basis": "city_limits_1869",
+   "note": "later Crawford, now Pulaski"
+  },
+  "rush_bridge_approaches": {
+   "name": "Rush Street",
+   "basis": "mitchell_1870",
+   "note": "the plan trace includes the bridge approach"
+  }
+ },
+ "rules": [
+  {
+   "modern": "W Lake St",
+   "name": "Lake Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Lake Blvd",
+   "name": "Lake Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Lake St",
+   "name": "Lake Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Lake Blvd",
+   "name": "Lake Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Randolph St",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Randolph Blvd",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Randolph St",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Randolph Blvd",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Washington St",
+   "name": "Washington Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Washington Blvd",
+   "name": "Washington Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Washington St",
+   "name": "Washington Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Washington Blvd",
+   "name": "Washington Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Madison St",
+   "name": "Madison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Madison Blvd",
+   "name": "Madison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Madison St",
+   "name": "Madison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Madison Blvd",
+   "name": "Madison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Monroe St",
+   "name": "Monroe Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Monroe Blvd",
+   "name": "Monroe Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Monroe St",
+   "name": "Monroe Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Monroe Blvd",
+   "name": "Monroe Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Adams St",
+   "name": "Adams Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Adams Blvd",
+   "name": "Adams Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Adams St",
+   "name": "Adams Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Adams Blvd",
+   "name": "Adams Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Jackson St",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Jackson Blvd",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Jackson St",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Jackson Blvd",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Van Buren St",
+   "name": "Van Buren Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Van Buren Blvd",
+   "name": "Van Buren Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Van Buren St",
+   "name": "Van Buren Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Van Buren Blvd",
+   "name": "Van Buren Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Harrison St",
+   "name": "Harrison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Harrison Blvd",
+   "name": "Harrison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Harrison St",
+   "name": "Harrison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Harrison Blvd",
+   "name": "Harrison Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Polk St",
+   "name": "Polk Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Polk Blvd",
+   "name": "Polk Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Polk St",
+   "name": "Polk Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Polk Blvd",
+   "name": "Polk Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Taylor St",
+   "name": "Taylor Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Taylor Blvd",
+   "name": "Taylor Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Taylor St",
+   "name": "Taylor Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Taylor Blvd",
+   "name": "Taylor Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Kinzie St",
+   "name": "Kinzie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Kinzie Blvd",
+   "name": "Kinzie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Kinzie St",
+   "name": "Kinzie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Kinzie Blvd",
+   "name": "Kinzie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Fulton St",
+   "name": "Fulton Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Fulton Blvd",
+   "name": "Fulton Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Fulton St",
+   "name": "Fulton Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Fulton Blvd",
+   "name": "Fulton Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Carroll St",
+   "name": "Carroll Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Carroll Blvd",
+   "name": "Carroll Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Carroll St",
+   "name": "Carroll Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Carroll Blvd",
+   "name": "Carroll Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Ohio St",
+   "name": "Ohio Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Ohio Blvd",
+   "name": "Ohio Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Ohio St",
+   "name": "Ohio Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Ohio Blvd",
+   "name": "Ohio Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Ontario St",
+   "name": "Ontario Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Ontario Blvd",
+   "name": "Ontario Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Ontario St",
+   "name": "Ontario Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Ontario Blvd",
+   "name": "Ontario Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Erie St",
+   "name": "Erie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Erie Blvd",
+   "name": "Erie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Erie St",
+   "name": "Erie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Erie Blvd",
+   "name": "Erie Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Huron St",
+   "name": "Huron Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Huron Blvd",
+   "name": "Huron Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Huron St",
+   "name": "Huron Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Huron Blvd",
+   "name": "Huron Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Superior St",
+   "name": "Superior Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Superior Blvd",
+   "name": "Superior Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Superior St",
+   "name": "Superior Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Superior Blvd",
+   "name": "Superior Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Illinois St",
+   "name": "Illinois Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "W Illinois Blvd",
+   "name": "Illinois Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Illinois St",
+   "name": "Illinois Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "E Illinois Blvd",
+   "name": "Illinois Street",
+   "basis": "plat",
+   "note": "Same name on the 1830-1850s plats and lettered or listed in 1870-71; the line is unchanged."
+  },
+  {
+   "modern": "N LaSalle St",
+   "name": "LaSalle Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Clark St",
+   "name": "Clark Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Clark St",
+   "name": "Clark Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Dearborn St",
+   "name": "Dearborn Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N State St",
+   "name": "State Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S State St",
+   "name": "State Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Franklin St",
+   "name": "Franklin Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Franklin St",
+   "name": "Franklin Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Canal St",
+   "name": "Canal Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Canal St",
+   "name": "Canal Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Clinton St",
+   "name": "Clinton Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Clinton St",
+   "name": "Clinton Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Jefferson St",
+   "name": "Jefferson Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Jefferson St",
+   "name": "Jefferson Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Desplaines St",
+   "name": "Desplaines Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Desplaines St",
+   "name": "Desplaines Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Union St",
+   "name": "Union Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Union St",
+   "name": "Union Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Halsted St",
+   "name": "Halsted Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Halsted St",
+   "name": "Halsted Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Rush St",
+   "name": "Rush Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Rush St",
+   "name": "Rush Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Larrabee St",
+   "name": "Larrabee Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Larrabee St",
+   "name": "Larrabee Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Kingsbury St",
+   "name": "Kingsbury Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Kingsbury St",
+   "name": "Kingsbury Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Sedgwick St",
+   "name": "Sedgwick Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "S Sedgwick St",
+   "name": "Sedgwick Street",
+   "basis": "plat",
+   "note": "Same name on the plats and the 1870 map; the line is unchanged."
+  },
+  {
+   "modern": "N Wells St",
+   "name": "Fifth Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 4, 10 and 24 ('Fifth avenue and S. Water', 'Randolph street and Fifth avenue', 'Polk street and Fifth avenue'); renamed from Wells in 1870, back in 1916. Mitchell's 1870 sheet, printed before the change, still letters 'Wells'.",
+   "where": {
+    "n": [
+     -9999,
+     55
+    ]
+   }
+  },
+  {
+   "modern": "N Wells St",
+   "name": "Wells Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'N. Wells' north of the river on the 1870 map; the 1870 renaming was of the South Division street."
+  },
+  {
+   "modern": "S Wells St",
+   "name": "Fifth Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 4, 10 and 24; Wells south of the river was Fifth Avenue 1870-1916."
+  },
+  {
+   "modern": "N LaSalle Dr",
+   "name": "LaSalle Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'N. La Salle' on the 1870 map."
+  },
+  {
+   "modern": "S LaSalle St",
+   "name": "Griswold Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm box 18 'Van Buren and Griswold streets'; lettered 'Griswold' on the 1870 map between Van Buren and Taylor. Later Pacific Avenue, then LaSalle.",
+   "where": {
+    "n": [
+     -9999,
+     -1100
+    ]
+   }
+  },
+  {
+   "modern": "S LaSalle St",
+   "name": null,
+   "basis": "unread",
+   "note": "Between Jackson and Van Buren the 1870 map draws no street on this line that can be read; left out.",
+   "where": {
+    "n": [
+     -1100,
+     -960
+    ]
+   }
+  },
+  {
+   "modern": "S LaSalle St",
+   "name": "LaSalle Street",
+   "basis": "plat",
+   "note": "On the plats and lettered 'La Salle' on the 1870 map."
+  },
+  {
+   "modern": "S Dearborn St",
+   "name": "Third Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 church register: Bethel AME on 'Third avenue'; the 1870 map letters 'Third Av.' on this line south of Van Buren.",
+   "where": {
+    "n": [
+     -9999,
+     -960
+    ]
+   }
+  },
+  {
+   "modern": "S Dearborn St",
+   "name": "Dearborn Street",
+   "basis": "plat",
+   "note": "On the 1830 plat and the 1870 map."
+  },
+  {
+   "modern": "S Federal St",
+   "name": "Fourth Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Quinn Chapel 'Jackson, corner Fourth avenue', Olivet Baptist 'Fourth avenue between Taylor and Polk'; lettered 'Fourth' on the 1870 map."
+  },
+  {
+   "modern": "S Plymouth Ct",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map draws two streets between Clark and State south of Van Buren (Fourth and Third Avenues), not this third line."
+  },
+  {
+   "modern": "S Financial Pl",
+   "name": "Sherman Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Sherman' on the 1870 map between Van Buren and Taylor."
+  },
+  {
+   "modern": "N Wacker Dr",
+   "name": "Market Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 7, 13 and 19 ('Lake and Market', 'Madison and Market', 'Van Buren and Market'); Wacker Drive was built on Market Street's line (1926)."
+  },
+  {
+   "modern": "S Wacker Dr",
+   "name": "Market Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 13 and 19; lettered 'Market' on the 1870 map south of Adams."
+  },
+  {
+   "modern": "W Wacker Dr",
+   "name": null,
+   "basis": "later",
+   "note": "Wacker Drive (1926) replaced South Water Street, whose 1871 line is drawn from its 1835 record (data/streets/1835.json south_water) instead."
+  },
+  {
+   "modern": "E Wacker Dr",
+   "name": null,
+   "basis": "later",
+   "note": "Wacker Drive (1926) replaced South Water Street, whose 1871 line is drawn from its 1835 record (data/streets/1835.json south_water) instead."
+  },
+  {
+   "modern": "E Wacker Pl",
+   "name": "South Water Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 2-4 ('State and S. Water'...); the 1870 map letters 'Water' south of the river east to Michigan Avenue. This short modern place keeps the old street's line east of State."
+  },
+  {
+   "modern": "E South Water St",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land of the Illinois Central air rights (Illinois Center); east of the 1871 shore."
+  },
+  {
+   "modern": "W Haddock Pl",
+   "name": "Haddock Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered '...addock' between South Water and Lake on the 1870 map."
+  },
+  {
+   "modern": "E Haddock Pl",
+   "name": "Haddock Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered '...addock' between South Water and Lake on the 1870 map."
+  },
+  {
+   "modern": "E Benton Pl",
+   "name": "Benton Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Benton Pl.' on the 1870 map."
+  },
+  {
+   "modern": "W Couch Pl",
+   "name": "Eagle Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Eagle St' west of the river on the 1870 map.",
+   "where": {
+    "e": [
+     -9999,
+     -100
+    ]
+   }
+  },
+  {
+   "modern": "W Couch Pl",
+   "name": "Couch Place",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 livery: 'Couch place between Clark and Dearborn, Randolph and Lake'."
+  },
+  {
+   "modern": "W Court Pl",
+   "name": "Center Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Center' west of the river on the 1870 map.",
+   "where": {
+    "e": [
+     -9999,
+     -100
+    ]
+   }
+  },
+  {
+   "modern": "W Court Pl",
+   "name": "Court House Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Court Ho. Place' beside the court-house square on the 1870 map."
+  },
+  {
+   "modern": "W Calhoun Pl",
+   "name": "Calhoun Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Calhoun Pl.' on the 1870 map."
+  },
+  {
+   "modern": "W Marble Pl",
+   "name": "Marble Place",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Marble Pl.' on the 1870 map.",
+   "where": {
+    "e": [
+     -100,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "W Marble Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "West of the river the 1870 map's lettering on this line cannot be read."
+  },
+  {
+   "modern": "W Arcade Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering on this line."
+  },
+  {
+   "modern": "W Quincy St",
+   "name": "Quincy Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Quincy' and 'W. Quincy' on the 1870 map."
+  },
+  {
+   "modern": "E Monroe St",
+   "name": "Monroe Street",
+   "basis": "plat",
+   "note": "On the plats."
+  },
+  {
+   "modern": "W Washington St",
+   "name": "Washington Street",
+   "basis": "plat",
+   "note": "On the 1830 plat."
+  },
+  {
+   "modern": "W Washington Blvd",
+   "name": "Washington Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Hose 1 at '49 W. Washington street'."
+  },
+  {
+   "modern": "W Jackson Blvd",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Jackson Street on the plats; boulevard only from the 1880s."
+  },
+  {
+   "modern": "E Jackson Blvd",
+   "name": "Jackson Street",
+   "basis": "plat",
+   "note": "Jackson Street on the plats."
+  },
+  {
+   "modern": "W Walnut St",
+   "name": "Lydia Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Lydia St' on the 1870 map."
+  },
+  {
+   "modern": "W Wayman St",
+   "name": "Wayman Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Wayman' on the 1870 map."
+  },
+  {
+   "modern": "W Fulton Market",
+   "name": "Fulton Street",
+   "basis": "plat",
+   "note": "The same street as Fulton Street (data/streets/1835.json fulton); 'Fulton Market' is a later name."
+  },
+  {
+   "modern": "W Warren Ave",
+   "name": "Meridian Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Meridian' on the 1870 map."
+  },
+  {
+   "modern": "W Gladys Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "The 1870 map draws the street but letters only 'St.'."
+  },
+  {
+   "modern": "W Tilden St",
+   "name": "Pierce Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Pierce' on the 1870 map."
+  },
+  {
+   "modern": "W Congress Pkwy",
+   "name": "Depuyster Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Depuyster' on the 1870 map; the parkway cut of the 1950s followed it."
+  },
+  {
+   "modern": "W Ida B. Wells Dr",
+   "name": null,
+   "basis": "later",
+   "note": "Congress Parkway's cut west of State (1950s); the 1870 map shows no through street here.",
+   "where": {
+    "e": [
+     -9999,
+     840
+    ]
+   }
+  },
+  {
+   "modern": "E Ida B. Wells Dr",
+   "name": "Congress Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Congress' east of State on the 1870 map."
+  },
+  {
+   "modern": "W Vernon Park Pl",
+   "name": "Sebor Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Sebor' on the 1870 map."
+  },
+  {
+   "modern": "W Lexington St",
+   "name": "Mathers Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Mathers' on the 1870 map."
+  },
+  {
+   "modern": "W Cabrini St",
+   "name": "Ewing Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Ewing' on the 1870 map (renamed Cabrini in the 1940s)."
+  },
+  {
+   "modern": "W Dekoven St",
+   "name": "DeKoven Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'DeKoven' on the 1870 map."
+  },
+  {
+   "modern": "W Grenshaw St",
+   "name": "Bunker Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Bunker' on the 1870 map."
+  },
+  {
+   "modern": "W Roosevelt Rd",
+   "name": "Twelfth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twelfth' on the 1870 map (Roosevelt Road from 1919)."
+  },
+  {
+   "modern": "E Roosevelt Rd",
+   "name": "Twelfth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twelfth' on the 1870 map."
+  },
+  {
+   "modern": "W 12th Pl",
+   "name": "Dusseldorf Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Dusseld...' on the 1870 map."
+  },
+  {
+   "modern": "W James M Rochford St",
+   "name": "O'Brien Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'O'Brien' on the 1870 map."
+  },
+  {
+   "modern": "W 13th St",
+   "name": "Kramer Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Kramer' on the 1870 map.",
+   "where": {
+    "e": [
+     -9999,
+     -450
+    ]
+   }
+  },
+  {
+   "modern": "W 13th St",
+   "name": "Thirteenth Street",
+   "basis": "plat",
+   "note": "Numbered street of the South Division; the 1870 map letters its neighbours 'Twelfth' and 'Fourteenth'."
+  },
+  {
+   "modern": "E 13th St",
+   "name": "Thirteenth Street",
+   "basis": "plat",
+   "note": "Numbered street; neighbours lettered 'Twelfth' and 'Fourteenth' on the 1870 map."
+  },
+  {
+   "modern": "W Maxwell St",
+   "name": "Maxwell Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 6 at '147 Maxwell street'."
+  },
+  {
+   "modern": "W Liberty St",
+   "name": "Liberty Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'W. Liberty' on the 1870 map."
+  },
+  {
+   "modern": "W 14th St",
+   "name": "Mitchell Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Mitchell' on the 1870 map.",
+   "where": {
+    "e": [
+     -9999,
+     -450
+    ]
+   }
+  },
+  {
+   "modern": "W 14th St",
+   "name": "Fourteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Fourteenth' on the 1870 map."
+  },
+  {
+   "modern": "E 14th St",
+   "name": "Fourteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Fourteenth' on the 1870 map."
+  },
+  {
+   "modern": "W 15th St",
+   "name": "Fifteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Fifteenth' on the 1870 map."
+  },
+  {
+   "modern": "E 15th St",
+   "name": "Fifteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Fifteenth' on the 1870 map."
+  },
+  {
+   "modern": "W 16th St",
+   "name": "Sixteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Sixteenth' on the 1870 map."
+  },
+  {
+   "modern": "E 16th St",
+   "name": "Sixteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Sixteenth' on the 1870 map."
+  },
+  {
+   "modern": "W 17th St",
+   "name": "Seventeenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Seventeenth' on the 1870 map."
+  },
+  {
+   "modern": "E 17th St",
+   "name": "Seventeenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Seventeenth' on the 1870 map."
+  },
+  {
+   "modern": "W 18th St",
+   "name": "Eighteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Eighteenth' on the 1870 map."
+  },
+  {
+   "modern": "E 18th St",
+   "name": "Eighteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Eighteenth' on the 1870 map."
+  },
+  {
+   "modern": "W 19th St",
+   "name": "Nineteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Nineteenth' on the 1870 map."
+  },
+  {
+   "modern": "E 19th St",
+   "name": "Nineteenth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Nineteenth' on the 1870 map."
+  },
+  {
+   "modern": "W 21st St",
+   "name": "Twenty-first Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twenty-first' on the 1870 map."
+  },
+  {
+   "modern": "E 21st St",
+   "name": "Twenty-first Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twenty-first' on the 1870 map."
+  },
+  {
+   "modern": "W Cullerton St",
+   "name": "Twentieth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twentieth' on the 1870 map (Cullerton from 1933)."
+  },
+  {
+   "modern": "W Cermak Rd",
+   "name": "Twenty-second Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 8 at '284 Twenty-second street'; Cermak Road from 1933."
+  },
+  {
+   "modern": "E Cullerton St",
+   "name": "Twentieth Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Twentieth' on the 1870 map (Cullerton from 1933)."
+  },
+  {
+   "modern": "E Cermak Rd",
+   "name": "Twenty-second Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 8 at '284 Twenty-second street'; Cermak Road from 1933."
+  },
+  {
+   "modern": "W 14th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "E 14th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 15th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "E 15th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 16th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 17th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 18th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 19th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 20th Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 21st Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "W 22nd Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "A 1909 numbered place; its 1871 name on the map cannot be read."
+  },
+  {
+   "modern": "E 8th St",
+   "name": "Peck Court",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm box 25 'Peck Court and Wabash avenue'; lettered 'Peck Ct.' on the 1870 map."
+  },
+  {
+   "modern": "E 9th St",
+   "name": "Eldridge Court",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Eldridge' on the 1870 map."
+  },
+  {
+   "modern": "W 9th St",
+   "name": "Eldridge Court",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Eldridge' on the 1870 map."
+  },
+  {
+   "modern": "E 11th St",
+   "name": "Harmon Court",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Harmon' on the 1870 map."
+  },
+  {
+   "modern": "E Balbo Ave",
+   "name": "Hubbard Court",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Hubbard Ct.' on the 1870 map (Balbo from 1934)."
+  },
+  {
+   "modern": "S Wabash Ave",
+   "name": "Wabash Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm boxes 12, 17 and 25 ('Madison street and Wabash avenue'...); lettered 'Wabash' on the 1870 map."
+  },
+  {
+   "modern": "N Wabash Ave",
+   "name": "Cass Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Cass' north of the river on the 1870 map.",
+   "where": {
+    "n": [
+     150,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "N Wabash Ave",
+   "name": "Wabash Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm box 12."
+  },
+  {
+   "modern": "S Michigan Ave",
+   "name": "Michigan Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm box 5 'Lake street and Michigan avenue'; lettered 'Michigan' on the 1870 map."
+  },
+  {
+   "modern": "N Michigan Ave",
+   "name": "Pine Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrant 'Chicago avenue and Pine street'; lettered 'Pine' on the 1870 map.",
+   "where": {
+    "n": [
+     240,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "N Michigan Ave",
+   "name": "Michigan Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 alarm box 5."
+  },
+  {
+   "modern": "N Michigan Ave W",
+   "name": null,
+   "basis": "later",
+   "note": "A modern service drive."
+  },
+  {
+   "modern": "S Indiana Ave",
+   "name": "Indiana Avenue",
+   "basis": "plat",
+   "note": "Platted in the 1850s; drawn on the 1870 map east of Michigan."
+  },
+  {
+   "modern": "S Prairie Ave",
+   "name": "Prairie Avenue",
+   "basis": "plat",
+   "note": "Platted in the 1850s; drawn on the 1870 map."
+  },
+  {
+   "modern": "S Calumet Ave",
+   "name": "Calumet Avenue",
+   "basis": "plat",
+   "note": "Platted in the 1850s; drawn on the 1870 map."
+  },
+  {
+   "modern": "S Holden Ct",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map letters 'Hubbard Ct.' straight across this line; not a street in 1871."
+  },
+  {
+   "modern": "N Holden Ct",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Garland Ct",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Garvey Ct",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Post Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Beaubien Ct",
+   "name": null,
+   "basis": "made_land",
+   "note": "Illinois Central ground east of Michigan Avenue in 1871."
+  },
+  {
+   "modern": "N Stetson Ave",
+   "name": null,
+   "basis": "made_land",
+   "note": "Illinois Central ground in 1871."
+  },
+  {
+   "modern": "N Mac Chesney Ct",
+   "name": null,
+   "basis": "later",
+   "note": "A modern ramp street."
+  },
+  {
+   "modern": "W Merchandise Mart Plz",
+   "name": null,
+   "basis": "later",
+   "note": "A twentieth-century drive."
+  },
+  {
+   "modern": "W Carroll Ave",
+   "name": "North Water Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 horse-railway routes from 'the foot of North Water'; the street between Kinzie and the river, lettered 'Water St.' on the 1870 map.",
+   "where": {
+    "e": [
+     -100,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "E North Water St",
+   "name": "North Water Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 horse-railway routes from 'the foot of North Water'."
+  },
+  {
+   "modern": "W Hubbard St",
+   "name": "Michigan Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 11 at '225 Michigan street', Mariners' Bethel 'Michigan, corner Market'; lettered 'Michigan' on the 1870 map.",
+   "where": {
+    "e": [
+     -80,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "E Hubbard St",
+   "name": "Michigan Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 11 at '225 Michigan street'."
+  },
+  {
+   "modern": "W Hubbard St",
+   "name": null,
+   "basis": "unread",
+   "note": "West of the river the 1870 lettering on this line cannot be read."
+  },
+  {
+   "modern": "W Grand Ave",
+   "name": "Indiana Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Mary Buckley at '368 W. Indiana'; lettered 'Indiana' on the 1870 map."
+  },
+  {
+   "modern": "E Grand Ave",
+   "name": "Indiana Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Indiana' on the 1870 map."
+  },
+  {
+   "modern": "N Orleans St",
+   "name": "Market Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrants 'Market street and Chicago avenue', 'Market and Huron'; lettered 'N. Market' on the 1870 map."
+  },
+  {
+   "modern": "N St Clair St",
+   "name": "St. Clair Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'St. Clair' on the 1870 map."
+  },
+  {
+   "modern": "W Chicago Ave",
+   "name": "Chicago Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 3 at '235 W. Chicago avenue', Engine 14 at '86 Chicago avenue'."
+  },
+  {
+   "modern": "E Chicago Ave",
+   "name": "Chicago Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871: Engine 14 at '86 Chicago avenue'."
+  },
+  {
+   "modern": "W Pearson St",
+   "name": "Pearson Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Pearson' on the 1870 map."
+  },
+  {
+   "modern": "W Chestnut St",
+   "name": "Hinsdale Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrant 'Market and Hinsdale streets'; lettered 'Hinsdale' on the 1870 map."
+  },
+  {
+   "modern": "W Delaware Pl",
+   "name": "White Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'White' on the 1870 map."
+  },
+  {
+   "modern": "W Oak St",
+   "name": "Oak Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Oak' on the 1870 map."
+  },
+  {
+   "modern": "W Elm St",
+   "name": "Elm Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Elm' on the 1870 map."
+  },
+  {
+   "modern": "W Division St",
+   "name": "Division Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 sidewalk assessments on 'Division street'."
+  },
+  {
+   "modern": "E Pearson St",
+   "name": "Pearson Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Pearson' on the 1870 map."
+  },
+  {
+   "modern": "E Chestnut St",
+   "name": "Hinsdale Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrant 'Market and Hinsdale streets'; lettered 'Hinsdale' on the 1870 map."
+  },
+  {
+   "modern": "E Delaware Pl",
+   "name": "White Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'White' on the 1870 map."
+  },
+  {
+   "modern": "E Oak St",
+   "name": "Oak Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Oak' on the 1870 map."
+  },
+  {
+   "modern": "E Elm St",
+   "name": "Elm Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Elm' on the 1870 map."
+  },
+  {
+   "modern": "E Division St",
+   "name": "Division Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 sidewalk assessments on 'Division street'."
+  },
+  {
+   "modern": "W Walton St",
+   "name": "Whiting Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrant 'Market and Whiting streets'; lettered 'Whiting' on the 1870 map."
+  },
+  {
+   "modern": "E Walton St",
+   "name": "Whitney Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Whitney' east of Dearborn on the 1870 map (the same line is 'Whiting' further west)."
+  },
+  {
+   "modern": "E Walton Pl",
+   "name": null,
+   "basis": "made_land",
+   "note": "East of the 1871 shore."
+  },
+  {
+   "modern": "E Bellevue Pl",
+   "name": "Oakwood Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Oakwood' on the 1870 map."
+  },
+  {
+   "modern": "E Cedar St",
+   "name": "Cedar Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Cedar' on the 1870 map."
+  },
+  {
+   "modern": "W Maple St",
+   "name": "Maple Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Maple' on the 1870 map."
+  },
+  {
+   "modern": "W Wendell St",
+   "name": "Wendell Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Wendell' on the 1870 map."
+  },
+  {
+   "modern": "W Hill St",
+   "name": "Hill Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Hill' on the 1870 map."
+  },
+  {
+   "modern": "W Locust St",
+   "name": "Locust Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 hydrant 'La Salle and Locust streets'."
+  },
+  {
+   "modern": "W Hobbie St",
+   "name": "Hobbie Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Hobbie' on the 1870 map."
+  },
+  {
+   "modern": "N Crosby St",
+   "name": "Crosby Street",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 sidewalk assessment 'Crosby street, between Larrabee street and Division street'."
+  },
+  {
+   "modern": "N Hudson Ave",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "N Cleveland Ave",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "W Elm St",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "W Hobbie St",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "W Maple St",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "W Wendell St",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "W Hill St",
+   "name": null,
+   "basis": "later",
+   "note": "The 1870 map shows this ground between Larrabee and Sedgwick, Oak to Division, as one unplatted tract (the 18th Ward's open block); its streets came later.",
+   "where": {
+    "e": [
+     -420,
+     -70
+    ],
+    "n": [
+     1530,
+     1895
+    ]
+   }
+  },
+  {
+   "modern": "N Cambridge Ave",
+   "name": "Wesson Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Wesson' on the 1870 map."
+  },
+  {
+   "modern": "N Cleveland Ave",
+   "name": "Bremer Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Bremer' on the 1870 map."
+  },
+  {
+   "modern": "N Hudson Ave",
+   "name": "Townsend Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Townsend' on the 1870 map."
+  },
+  {
+   "modern": "N Rush St",
+   "name": "Green Bay Road",
+   "basis": "mitchell_1870",
+   "note": "The 1870 map letters the diagonal north of Chicago Avenue 'Gr. Bay'.",
+   "where": {
+    "n": [
+     1150,
+     9999
+    ]
+   }
+  },
+  {
+   "modern": "N Milwaukee Ave",
+   "name": "Milwaukee Avenue",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 horse-railway route 'for Milwaukee avenue'."
+  },
+  {
+   "modern": "S Archer Ave",
+   "name": "Archer Road",
+   "basis": "edwards_1871",
+   "note": "Edwards 1871 horse-railway route 'Archer road to State/Randolph'."
+  },
+  {
+   "modern": "S Lumber St",
+   "name": "Lumber Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Lumber' on the 1870 map."
+  },
+  {
+   "modern": "S Canalport Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "S Ruble St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "S Union Ave",
+   "name": "Union Street",
+   "basis": "plat",
+   "note": "The West Division's Union Street, drawn on the 1870 map."
+  },
+  {
+   "modern": "N Union Ave",
+   "name": "Union Street",
+   "basis": "plat",
+   "note": "The West Division's Union Street, drawn on the 1870 map."
+  },
+  {
+   "modern": "W Institute Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "W Tooker Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "W Campbell Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Ernst Ct",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Howe St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N North Branch St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Hooker St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "W Haines St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "W Ancona St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "N Academy Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "S Academy Pl",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering."
+  },
+  {
+   "modern": "S Park Ter",
+   "name": null,
+   "basis": "later",
+   "note": "Dearborn Park (1970s), on railway ground in 1871."
+  },
+  {
+   "modern": "S Wentworth Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "South of Eighteenth the 1870 lettering on this line cannot be read."
+  },
+  {
+   "modern": "S Grove St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Normal Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Princeton Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Stewart Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Shields Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Emerald Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Jourdan Ct",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Ford Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "W Alexander St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "W 23rd St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "E 23rd St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Newberry Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Peoria St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N Green St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Green St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Dr Martin Luther King Jr Dr",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Indiana Pkwy",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S Prairie Pkwy",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "W Scott St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N Burling St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N Clybourn Ave",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N Astor St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N State Pkwy",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "N Stone St",
+   "name": null,
+   "basis": "unread",
+   "note": "No legible 1870 lettering read for this line."
+  },
+  {
+   "modern": "S China Pl",
+   "name": null,
+   "basis": "later",
+   "note": "Chinatown's later streets."
+  },
+  {
+   "modern": "S Tan Ct",
+   "name": null,
+   "basis": "later",
+   "note": "Chinatown's later streets."
+  },
+  {
+   "modern": "S Cta Bus Ln",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Eisenhower Canal Er",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Eisenhower Canal Xr",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "W Eisenhower Expy IB",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "W Eisenhower Expy OB",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Dan Ryan Expy IB",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Dan Ryan Expy OB",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Lsd Sb Stevenson Ob Er",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "S Stevenson Ib Lsd Nb Er",
+   "name": null,
+   "basis": "later",
+   "note": "An expressway of the 1950s-60s."
+  },
+  {
+   "modern": "N DuSable Lake Shore Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N DuSable Lake Shore Dr NB",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N DuSable Lake Shore Dr SB",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S DuSable Lake Shore Dr NB",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S DuSable Lake Shore Dr SB",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E DuSable Lake Shore Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Columbus Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Columbus Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Field Blvd",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Harbor Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Waterside Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E River Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Cityfront Plaza Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Park Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N New St",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Peshtigo Ct",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Streeter Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Mcclurg Ct",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Fairbanks Ct",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Mies Van Der Rohe Way",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "N Dewitt Pl",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Balbo Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Jackson Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Monroe Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Congress Plaza Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Roosevelt Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Solidarity Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Mcfetridge Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Mcfetridge Dr N",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "E Mcfetridge Dr S",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Museum Campus Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Linn White Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Moe Dr",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "S Old Lake Shore Dr E",
+   "name": null,
+   "basis": "made_land",
+   "note": "Made land east of the 1871 shore, or a drive of the later lakefront parks."
+  },
+  {
+   "modern": "W Randolph St N",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "The split carriageways of Randolph Street west of the river."
+  },
+  {
+   "modern": "W Randolph St S",
+   "name": "Randolph Street",
+   "basis": "plat",
+   "note": "The split carriageways of Randolph Street west of the river."
+  },
+  {
+   "modern": "W Superior St",
+   "name": "Superior Street",
+   "basis": "mitchell_1870",
+   "note": "Lettered 'Superior' on the 1870 map."
+  }
+ ]
+}

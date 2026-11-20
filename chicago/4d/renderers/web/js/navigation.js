@@ -655,10 +655,6 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     }
   }
 
-  function joined(items, key) {
-    return [...new Set(items.map((s) => s[key]).filter(Boolean))].join(' & ');
-  }
-
   /**
    * T-2741: the readout under the compass — the street in the scene's own year, and the
    * street and house number there today. 1812 has no streets; it says so and still gives

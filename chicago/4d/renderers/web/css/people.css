@@ -47,8 +47,9 @@
 
 .people-filters { display: grid; gap: 5px; margin: 0 0 10px; }
 .people-filters[hidden] { display: none; }
-/* The fold control, for phones; a desktop drawer has room for the rows. */
-.people-toolbar { display: none; margin: 0 0 8px; }
+/* The fold control. T-3629: on every screen, for the Navigator's column is narrow on a
+   desktop too, and the rows start folded (people.js, businesses.js). */
+.people-toolbar { display: flex; margin: 0 0 8px; }
 .people-filters-toggle.is-active { border-color: var(--accent); color: var(--accent); }
 .people-filters-toggle[aria-expanded="true"] { background: var(--step-2); border-color: transparent; color: var(--ink); }
 .people-frow { display: flex; align-items: center; gap: 6px; min-width: 0; }
@@ -101,10 +102,11 @@
 }
 .pill:hover { color: var(--ink); background: var(--step); }
 .pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
 .pill[aria-pressed="true"], .pill[aria-pressed="true"]:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #17140c;
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  border-color: var(--lit-edge, var(--accent));
+  color: var(--lit-ink, var(--accent));
 }
 /* "All" pressed is the resting state of every row, so it is quiet — a surface
    step, not the accent — and the accent means a visitor chose something. */
@@ -214,8 +216,10 @@
 /* Scoped to the dot: unscoped, these filled the card's `.grade` text chips too
    (walk.css), and an ATTESTED chip read as gold text on a gold slab. */
 .grade-dot.grade-attested { background: var(--grade-attested); }
-.grade-dot.grade-inferred { background: var(--grade-inferred); }
-.grade-dot.grade-reconstructed { background: transparent; border: 1px solid var(--grade-reconstructed); }
+.grade-dot.grade-inferred { background: linear-gradient(90deg, var(--grade-inferred) 0 50%, transparent 50%); box-shadow: inset 0 0 0 1.5px var(--grade-inferred); }
+.grade-dot.grade-reconstructed { background: transparent; border: 1.5px solid var(--grade-reconstructed); box-sizing: border-box; }
+/* T-3671 (WCAG 1.4.1): the shape says the grade too — full, half, empty
+   (css/confidence-overlays.css § grade marks). */
 
 /* A static mark saying which KIND of person a row is. The letter-list and
    projected marks take the conjectural colour, the same way the household
@@ -482,13 +486,6 @@
 }
 
 /* ---------------------------------------------------------- light theme --- */
-/* The pressed pill's dark text is on an amber fill in both themes, and every
-   other colour is a token, so the only thing light mode needs is the fill of a
-   control that used a white veil in walk.css. */
-[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]),
-[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]):hover {
-  color: #fff;
-}
 
 /* THE FIRMS A PERSON KEPT (T-1325). A block on the person's card, between what
    kind of person they are and the household record below: one row a firm, the

@@ -14,7 +14,7 @@ const ids = list => list.map(c => c.asset.id).sort();
 const selected = catalog.assets.filter(a => a.runtime_enabled === true && ['habitat-insects', 'distant-bird'].includes(a.scene_placement?.mode));
 assert.deepEqual(selected.map(a => a.id).sort(), ['redwing-call', 'summer-cicada-proxy', 'summer-crickets']);
 for (const a of selected) {
-  assert.deepEqual(a.approved_eras, ['1835']);
+  assert(a.approved_eras.includes('1835'), 'the existing July placement remains approved for 1835');
   assert.equal(a.scene_placement.scene_date, index.scene_date);
   for (const id of a.scene_placement.zone_ids) {
     const z = zones.find(z => z.id === id), sp = z.species.find(s => s.id === a.scene_placement.species_id);

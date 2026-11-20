@@ -22,7 +22,8 @@ export function validateHorseRecipe(recipe) {
       && recipe.sources?.some(input => input.file === s.file && input.sha256 === s.sha256)
       && s.joint_names?.length === 26 && new Set(s.joint_names).size === 26), 'two immutable canonical26 sources required');
   need(recipe.palettes?.length >= 3 && recipe.palettes.every(p => rgb(p.linear_rgb)
-    && (p.mane_linear_rgb === null || rgb(p.mane_linear_rgb)) && p.dapple_strength >= 0 && p.dapple_strength <= .1), 'bounded natural palette required');
+    && (p.mane_linear_rgb === null || rgb(p.mane_linear_rgb)) && p.dapple_strength >= 0 && p.dapple_strength <= .1
+    && (p.points_linear_rgb == null || rgb(p.points_linear_rgb))), 'bounded natural palette required');
   need(recipe.mask_choices && Array.isArray(recipe.scenes) && recipe.group_palettes, 'mask and stable group definitions required');
   for (const value of Object.values(recipe.mask_choices)) if (typeof value !== 'string') {
     need((Array.isArray(value) ? value : [value]).every(Number.isFinite), 'finite mask parameters required');
@@ -30,6 +31,9 @@ export function validateHorseRecipe(recipe) {
   need(Object.keys(recipe.foot_centres_m ?? {}).sort().join(',') === 'fore_l,fore_r,hind_l,hind_r', 'four source-derived feet required');
   need(Object.values(recipe.foot_centres_m).every(p => Array.isArray(p) && p.length === 3 && p.every(Number.isFinite)), 'finite source-derived feet required');
   const m = recipe.mask_choices;
+  // T-3559: a bay's black points reach from the hoof to about the knee and hock.
+  need(m.points_top_range_m == null || (Array.isArray(m.points_top_range_m) && m.points_top_range_m.length === 2
+    && m.points_top_range_m[0] > m.protect_below_y_m && m.points_top_range_m[1] > m.points_top_range_m[0] && m.points_top_range_m[1] <= .7), 'ordered points range required');
   for (const key of ['sock_top_range_m', 'face_y_range_m', 'muzzle_protect_z_m', 'muzzle_protect_y_m', 'dapple_body_y_m', 'dapple_front_fade_z_m', 'hair_upper_y_m', 'hair_tail_z_m']) {
     need(Array.isArray(m[key]) && m[key].length === 2 && m[key][1] > m[key][0], 'ordered painting ranges required');
   }
@@ -67,6 +71,7 @@ export function horseIdentity(recipe, { scene, row, individual, team = row }) {
   const [lo, hi] = recipe.mask_choices.sock_top_range_m;
   return { key, palette: palette.id, linear_rgb: [...palette.linear_rgb],
     mane_linear_rgb: palette.mane_linear_rgb && [...palette.mane_linear_rgb], dapple_strength: palette.dapple_strength,
+    points_linear_rgb: palette.points_linear_rgb ? [...palette.points_linear_rgb] : null,
     socks_m: [0, 1, 2, 3].map(i => sample(channels.sock_enabled.replace('{index}', i)) < choices.sock_absent_probability
       ? recipe.mask_choices.protect_below_y_m : lo+(hi-lo)*sample(channels.sock_height.replace('{index}', i))),
     blaze: [sample(channels.blaze_enabled) < choices.blaze_absent_probability ? 0 : range(choices.blaze_halfwidth_range_m, channels.blaze_width), range(choices.blaze_offset_range_m, channels.blaze_offset)],
@@ -82,8 +87,21 @@ export function prepareHorseTemplate(asset, variant) {
   asset.scene.traverse(node => {
     if (!node.isMesh) return;
     const copy = material => {
-      if (material.metalness === 0) return material;
-      if (!copies.has(material)) { const clone = material.clone(); clone.metalness = 0; copies.set(material, clone); }
+      const eye = material.name === 'Eye_brown';
+      if (material.metalness === 0 && !eye) return material;
+      if (!copies.has(material)) {
+        const clone = material.clone(); clone.metalness = 0;
+        if (eye) {
+          // Kevin, 2026-11-17: "the horses eyes look a little black". The eye sits deep in its
+          // socket, in the lids' shade, so its brown iris read as a black hole. A wet eye: its own
+          // picture lit a little from within (the iris's brown, never a colour of ours), and a
+          // glossy surface that takes a catch-light.
+          clone.roughness = .12;
+          if (clone.map && clone.emissive) { clone.emissiveMap = clone.map; clone.emissive.setScalar(.32); }
+          clone.userData = { ...clone.userData, chicagoHorseEye: 'wet_v1' };
+        }
+        copies.set(material, clone);
+      }
       return copies.get(material);
     };
     node.material = Array.isArray(node.material) ? node.material.map(copy) : copy(node.material);
@@ -98,6 +116,7 @@ uniform vec4 chiHorseStyle;
 uniform vec4 chiHorseSocks;
 uniform vec4 chiHorseFace;
 uniform vec3 chiHorsePhase;
+uniform vec4 chiHorsePoints;
 float chiHorseHash(vec3 p) {
   p=fract(p*.1031); p+=dot(p,p.yzx+33.33); return fract((p.x+p.y)*p.z);
 }
@@ -130,13 +149,16 @@ function colourCode(recipe) {
     vec3 coat=chiHorseColor.rgb*detail;
     float fade=clamp(1.0-length(fwidth(p))/${f(m.dapple_pitch_m)}*2.0,0.0,1.0);
     coat*=1.0+chiHorseColor.a*(n-.5)*2.0*fade*smoothstep(${f(m.dapple_body_y_m[0])},${f(m.dapple_body_y_m[1])},p.y)*(1.0-smoothstep(${f(m.dapple_front_fade_z_m[0])},${f(m.dapple_front_fade_z_m[1])},p.z));
+    ${m.points_top_range_m ? `coat=mix(coat,chiHorsePoints.rgb*detail,chiHorsePoints.a*(1.0-smoothstep(${f(m.points_top_range_m[0])},${f(m.points_top_range_m[1])},p.y+(n-.5)*.04)));` : ''}
     float sock=0.0,edge=(n-.5)*.008;
     ${feet}
     float face=${band('p.y', m.face_y_range_m)}*smoothstep(${f(m.face_z_min_m)},${f(m.face_z_min_m+.05)},p.z)*(1.0-smoothstep(${f(m.face_halfwidth_m)},${f(m.face_halfwidth_m+.01)},abs(p.x)));
     float blaze=step(.0001,chiHorseFace.x)*face*(1.0-smoothstep(chiHorseFace.x,chiHorseFace.x+.012,abs(p.x-chiHorseFace.y-(n-.5)*.008)));
     coat=mix(coat,vec3(.58,.56,.51)*detail,max(sock,blaze));
     if(chiHorseStyle.x>0.5) {
-      paint=max(smoothstep(${f(m.hair_upper_y_m[0])},${f(m.hair_upper_y_m[1])},p.y),1.0-smoothstep(${f(m.hair_tail_z_m[0])},${f(m.hair_tail_z_m[1])},p.z))*(1.0-smoothstep(.15,.3,lum));
+      // T-3559: the whole mane and tail take the palette's hair, strands' light ends too: a bay's
+      // mane read as the source's light chestnut wherever a strand caught the light.
+      paint=max(smoothstep(${f(m.hair_upper_y_m[0])},${f(m.hair_upper_y_m[1])},p.y),1.0-smoothstep(${f(m.hair_tail_z_m[0])},${f(m.hair_tail_z_m[1])},p.z))*(1.0-smoothstep(.45,.7,lum));
       coat=chiHorseColor.rgb*clamp(lum/${f(m.hair_reference_luminance)},.4,1.8);
     }
     diffuseColor.rgb=mix(source,coat,paint);
@@ -158,14 +180,19 @@ export function applyHorseAppearance(root, { recipe, sourceSha, scene, row, indi
   }
   identity.source_sha256 = sourceSha;
   const materials = new Map(), changes = [], owned = new Set();
-  let bodies = 0;
+  let bodies = 0, lods = 0;
   try {
     root.traverse(node => {
       if (!node.isMesh || Array.isArray(node.material)) return;
       const original = node.material, body = original.name === recipe.body_material;
       const hair = original.name === recipe.hair_material && identity.mane_linear_rgb;
       if (!body && !hair) return; // Eye material is never decorated or tinted.
-      if (body) { bodies++; need(node.geometry.attributes.position.count === 5595 && node.skeleton?.bones.length === 26, 'BODY/rig differs'); }
+      // T-3559: a mid or far body (horse-lods.js) is the same source simplified, declared by its
+      // loader; the coat reads object-space position, which the simplifier keeps. It is coated
+      // with the near body and is not a second classified BODY.
+      const lod = node.userData.chicagoHorseLod;
+      if (body && lod) { lods++; need(lod.source_sha256 === sourceSha && node.skeleton?.bones.length === 26, 'LOD BODY/rig differs'); }
+      else if (body) { bodies++; need(node.geometry.attributes.position.count === 5595 && node.skeleton?.bones.length === 26, 'BODY/rig differs'); }
       let material = materials.get(original);
       if (!material) {
         material = ownedMaterials?.has(original) ? original : original.clone();
@@ -177,7 +204,8 @@ export function applyHorseAppearance(root, { recipe, sourceSha, scene, row, indi
         const priorKey = hadKey ? String(material.customProgramCacheKey()) : prior.toString();
         const uniforms = { chiHorseColor: { value: [...(hair ? identity.mane_linear_rgb : identity.linear_rgb), hair ? 0 : identity.dapple_strength] },
           chiHorseStyle: { value: [hair ? 1 : 0, 0, 0, 0] }, chiHorseSocks: { value: identity.socks_m },
-          chiHorseFace: { value: [...identity.blaze, 0, 0] }, chiHorsePhase: { value: identity.phase } };
+          chiHorseFace: { value: [...identity.blaze, 0, 0] }, chiHorsePhase: { value: identity.phase },
+          chiHorsePoints: { value: identity.points_linear_rgb && !hair ? [...identity.points_linear_rgb, 1] : [0, 0, 0, 0] } };
         material.onBeforeCompile = function(shader, renderer) {
           prior.call(this, shader, renderer);
           need(shader.vertexShader.includes('#include <begin_vertex>') && shader.fragmentShader.includes('#include <map_fragment>'), 'shader anchors missing');
@@ -186,13 +214,13 @@ export function applyHorseAppearance(root, { recipe, sourceSha, scene, row, indi
           shader.fragmentShader = noise+shader.fragmentShader.replace('#include <map_fragment>', '#include <map_fragment>\n'+colourCode(recipe));
         };
         const codeKey = hashHorse(JSON.stringify([recipe.mask_choices, recipe.foot_centres_m]));
-        material.customProgramCacheKey = () => `${priorKey}|chicago-horse-coat-v1:${codeKey}`;
+        material.customProgramCacheKey = () => `${priorKey}|chicago-horse-coat-v2:${codeKey}`;
         material.userData.chicagoHorseCoat = { ...identity, source_sha256: sourceSha };
         material.needsUpdate = true;
       }
       node.material = material; changes.push([node, original]);
     });
-    need(bodies === 1, 'one actual classified BODY is required');
+    need(bodies === 1 || (bodies === 0 && lods > 0), 'one actual classified BODY is required');
   } catch (error) {
     for (const [node, material] of changes) node.material = material;
     for (const material of owned) material.dispose();

@@ -111,6 +111,45 @@ want "$(_part_ran 2/3 4 | tr '\n' ' ')" "prerequisite gate 1 gate 4 gate 7 " \
      "a part deals the steps out in declared order, every N-th from its own (the prerequisite holds ordinal 1)"
 want "$(_part_ran 1/1 4 | sort)" "$whole" "--part 1/1 is the whole gate"
 
+# T-3654. Splitting one slow slot must preserve the complete gate, including
+# prerequisite ordinals. Exercise real step/selftest dispatch over more than two
+# 32-way cycles, with an every_part prerequisite both before and within the work.
+_split_fixture='
+  every_part step "start prerequisite" printf "ran prerequisite start\n"
+  for ((i=1;i<=70;i++)); do
+    if [ "$i" -eq 35 ]; then
+      every_part step "middle prerequisite" printf "ran prerequisite middle\n"
+    fi
+    if [ $((i % 2)) -eq 0 ]; then
+      selftest "gate $i" printf "ran gate $i\n"
+    else
+      step "gate $i" printf "ran gate $i\n"
+    fi
+  done
+  check_summary
+'
+_split_ran() { # <k/N> <jobs> -> the actual work and prerequisite labels
+  CHECK_PART="$1" CHECK_JOBS="$2" bash -c '
+    set -uo pipefail
+    source tools/check_harness.sh
+    '"$_split_fixture" 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | sed -n 's/^.*ran \(.*\)$/\1/p'
+}
+for jobs in 1 4; do
+  for ((k=1;k<=16;k++)); do
+    original="$(_split_ran "$k/16" "$jobs")"
+    first="$(_split_ran "$k/32" "$jobs")"
+    second="$(_split_ran "$((k + 16))/32" "$jobs")"
+    want "$(printf '%s\n%s\n' "$first" "$second" | grep '^gate ' | sort)" \
+         "$(printf '%s\n' "$original" | grep '^gate ' | sort)" \
+         "part $k/16 equals its two 32-way halves, without missing or duplicate work (CHECK_JOBS=$jobs)"
+    for selected in "$original" "$first" "$second"; do
+      want "$(printf '%s\n' "$selected" | grep '^prerequisite ' | sort)" \
+           "$(printf 'prerequisite middle\nprerequisite start')" \
+           "each split run keeps both every_part prerequisites (k=$k, CHECK_JOBS=$jobs)"
+    done
+  done
+done
+
 part_out="$(CHECK_PART=2/3 bash -c '
   set -uo pipefail
   source tools/check_harness.sh
@@ -134,7 +173,7 @@ case "$(printf '%s' "$part_red" | sed 's/\x1b\[[0-9;]*m//g')" in
 esac
 CHECK_PART=2/2 bash -c 'source tools/check_harness.sh; step "red in part one" false; step "green in part two" true; check_summary' >/dev/null 2>&1
 want "$?" "0" "…and only that part: the other part is green"
-for spec in 0/3 4/3 3 a/b 1/17 -1/2; do
+for spec in 0/3 4/3 3 a/b 1/33 -1/2; do
   CHECK_PART="$spec" bash -c 'source tools/check_harness.sh; echo started' >/dev/null 2>&1
   want "$?" "2" "a malformed part \"$spec\" stops the gate before any step runs"
 done
@@ -418,6 +457,8 @@ want "$(CHECK_JOBS=1 bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK
      "…and an explicit CHECK_JOBS still wins, which is the escape hatch"
 
 # The CI partition keeps the same required gate and refuses incomplete verdicts.
+# T-3656: the owner-authorized CI completion allowance is 900s; the matrix and
+# assertions remain mandatory, and the timeout itself may not be removed.
 if python3 - ../../.github/workflows/chicago-4d-check.yml <<'PY_GATE_PARTITION'
 from pathlib import Path
 import json, re, sys
@@ -440,7 +481,7 @@ def valid(text):
         '          fetch-depth: 0', '          filter: blob:none',
         "          C4D_GATE_REQUIRE_READERS: '1'", "          C4D_GATE_REQUIRE_BASE: '1'",
         '          CHECK_JOBS: ${{ steps.jobs.outputs.n }}',
-        '        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"',
+        '        run: timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}/8"',
         '          node chicago/4d/tools/check-changelog-entry.mjs',
         '          "${{ github.event.pull_request.base.sha }}"',
         '          "${{ github.event.pull_request.head.sha }}"',
@@ -459,9 +500,9 @@ def valid(text):
 assert valid(source), 'native CI partition or final required gate changed'
 controls = [
     source.replace('part: [1, 2, 3, 4, 5, 6, 7, 8]', 'part: [1, 2, 3, 4, 5, 6, 7]'),
-    source.replace('600s ./tools/check.sh', '601s ./tools/check.sh'),
+    source.replace('900s ./tools/check.sh', '901s ./tools/check.sh'),
     source.replace('/8"', '/4"'),
-    source.replace('timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"', 'true'),
+    source.replace('timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}/8"', 'true'),
     source.replace("C4D_GATE_REQUIRE_READERS: '1'", "C4D_GATE_REQUIRE_READERS: '0'"),
     source.replace("C4D_GATE_REQUIRE_BASE: '1'", "C4D_GATE_REQUIRE_BASE: '0'"),
     source.replace('fetch-depth: 0', 'fetch-depth: 1'),
@@ -474,6 +515,7 @@ controls = [
     source.replace('    if: ${{ always() }}\n', '    if: ${{ always() }}\n    if: false\n'),
 ]
 for i, broken in enumerate(controls, 1):
+    assert broken != source, f'CI shape control {i} did not alter the workflow'
     assert not valid(broken), f'unsafe CI shape control {i} passed'
 print(f'CI partition: required gate and all eight native parts; {len(controls)} refusal controls pass')
 PY_GATE_PARTITION

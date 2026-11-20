@@ -33,6 +33,12 @@
  * the hand and its hold in the GLB's wardrobe extras (`carry`): that arm is held there,
  * a little out from the skirt, in every state, and does not swing or take a pose.
  *
+ * T-3553: a person whose face has a smile to move into gives it with the greeting and to a
+ * visitor near in front of them, and moves their jaw as they talk; everyone else talks with
+ * their jaw and smiles at nobody. The mouth's play is human-mouth.js's, left on the figure by
+ * human-skin.js (`userData.chiMouth`); this layer knows when the person greets and talks, and
+ * tells it each frame (`mouth`).
+ *
  * Deterministic (seeded from the person id), additive over the clip, rebuilt each frame.
  * Reconstructed motion: liberty L-human-actions-3415.
  */
@@ -112,6 +118,20 @@ export const ARM_SWING = Object.freeze({
   person: Object.freeze({ range: [0.85, 1.15], mean_deg: [-3, 3], elbow_deg: [-4, 4], side: [0.92, 1.08] }),
   inward: 0.25, skirt: { scale: 0.5, inward: -0.2 },
 });
+/**
+ * T-3553: the arms of a runner (the gait layer's `run` share, human-gait.js). A runner carries
+ * the elbows bent near a right angle and swings the arms from the shoulder, further the faster,
+ * each with the opposite leg as on the walk: furthest back as its own foot lands, furthest
+ * forward as the other does, the elbow opening a little behind and closing in front, the hands
+ * loosely closed and coming in toward the middle of the chest as they come forward. No arm
+ * motion was in the running dataset the legs come from: these numbers are reconstructed
+ * (liberty L-human-gait-3472), from 28 degrees each way at a jog to 42 at a sprint, about a mean 10 degrees back. A woman in a
+ * full skirt swings less.
+ */
+export const RUN_ARM = Object.freeze({
+  mean_deg: -10, amp_deg: Object.freeze([28, 42]), at_m_s: Object.freeze([2.5, 6.0]),
+  elbow_deg: Object.freeze([82, 94]), elbowSwing_deg: 12, lag: 0.03, curl: 0.55, inward: 0.35, skirt: 0.7,
+});
 /** A periodic table of 21 values (0..100 % of the cycle, the last repeating the first) at cycle fraction `c`. */
 function cycleAt(table, c) {
   const x = (((c % 1) + 1) % 1) * 20, i = Math.floor(x), t = x - i;
@@ -124,7 +144,12 @@ const UPPER_MEAN = tableMean(ARM_SWING.upper), UPPER_ROM = Math.max(...ARM_SWING
 const ELBOW_MEAN = tableMean(ARM_SWING.elbow);
 const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
-export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null } = {}) {
+export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null, fightMotions = null } = {}) {
+  // The adults jaunts' motions (human-fight.js), handed in by humans.js so this module stays
+  // free of imports beyond three; with none, nothing here ever holds a weapon.
+  // T-3627: or a function answering them, since they load with the first outing.
+  const fightOf = typeof fightMotions === 'function' ? fightMotions : () => fightMotions;
+  const motions = () => { const m = fightOf(); return m && typeof m.fightTargets === 'function' ? m : null; };
   const rand = seededRandom(`actions:${id}`);
   // This person's own arm swing (ARM_SWING.person), from its own stream so it moves no other draw.
   const own = (() => {
@@ -134,6 +159,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   })();
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
+  let mouth = null; // T-3553: the figure's mouth (its smile and talking jaw), where its face has one
   let brim = null; // the worn hat's brim where the greeting touches it, head bone's frame (hatBrim)
   // The greeting hand as it is shaped for the greeting, from its wrist in its own axes (metres
   // along the fingers, toward the palm, and across): its leading fingertip pad and the balls
@@ -214,6 +240,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       } else local[`curl_${s}`] = 1;
     }
     L.handLen = found.middle_03_r ? at('middle_03_r').distanceTo(at('hand_r')) + 0.025 : 0.17;
+    // The shoulder joints, where a fight's hand targets are measured from (human-fight.js).
+    L.shR = at('upperarm_r'); L.shL = at('upperarm_l');
     const hipL = at('thigh_l'), hipR = at('thigh_r');
     L.hipHalf = hipL.distanceTo(hipR) / 2;
     L.pelvisY = at('pelvis').y;
@@ -238,7 +266,10 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   // Figure-frame vector → world, and the scene's world frame.
   const sceneQ = new THREE.Quaternion(), sceneM = new THREE.Matrix4();
   const toWorldDir = (v) => v.clone().applyQuaternion(sceneQ);
-  const toWorldPos = (v) => v.clone().applyMatrix4(sceneM);
+  // T-3553: kneeling, crouched or seated (human-life.js POSTURES), the body is `sink` metres
+  // lower than the landmarks the hands are placed from, so every reach is taken down with it.
+  let sink = 0;
+  const toWorldPos = (v) => v.clone().setY(v.y - sink).applyMatrix4(sceneM);
   const qa = new THREE.Quaternion(), qb = new THREE.Quaternion(), va = new THREE.Vector3(), vb = new THREE.Vector3();
 
   /**
@@ -543,6 +574,9 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   let time = rand() * 50;
   let pose = skirt ? 'clasp' : 'rest', poseW = 1, prevPose = pose, poseHold = between(6, 14);
   let greet = -1, greetCool = 0, nodRequest = 0;
+  // The adults-only jaunts (owner, 2026-11-15): what the right hand holds, the motion under way
+  // and how far into it, the fight's share of the arms, and shots gone off and not yet taken.
+  const fight = { arm: 'none', act: null, t: 0, w: 0, from: null, last: null, shots: 0 };
   // T-3490: a pose held by a duty (a man in a rank, hands at his sides), and the talking hand.
   let heldPose = null, talking = false, talkW = 0;
   const talkSide = rand() < 0.8 ? 'r' : 'l';
@@ -601,15 +635,47 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     /** T-3490: talking, one hand comes up before him and moves with what he says (no words: L1). */
     setTalk(on) { talking = !!on; return api; },
     get talking() { return talking; },
+    /** T-3553: the figure's mouth (human-mouth.js) or null: `mouth.say(level)` is where a voice goes. */
+    get mouth() { return mouth ?? body?.userData?.chiMouth ?? null; },
     /** Greet now with the right hand to the hat (or the brow), unless a greeting is under way. */
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
     greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
+    /** Adults jaunts: take up `kind` in the right hand (human-fight.js WEAPON_KINDS; 'none' puts it down). */
+    wield(kind) { fight.arm = typeof kind === 'string' && kind ? kind : 'none'; return api; },
+    /** Adults jaunts: begin a fight motion (strike, stab, aim, fire, lower, struck), or null to let go. */
+    act(kind) {
+      if (kind && !motions()?.MOTIONS[kind]) return api;
+      fight.from = fight.last; fight.act = kind || null; fight.t = 0;
+      return api;
+    },
+    /** One-shot: the shots gone off since last asked (a fire motion's moment), for the flash and smoke. */
+    takeShot() { const n = fight.shots; fight.shots = 0; return n; },
+    get fight() { return { arm: fight.arm, act: fight.act, t: +fight.t.toFixed(2), w: +fight.w.toFixed(3) }; },
+    /**
+     * Where hand `s` grips now, in the world: the point the fist closes on and its axes (`a`
+     * out of the thumb side, `f` along the hand from wrist to knuckles, `p` the palm's facing),
+     * read off the posed hand bone, so a weapon laid on it goes where the hand went.
+     */
+    gripFrame(s = 'r') {
+      if (!bound || !bones[`hand_${s}`]) return null;
+      const h = bones[`hand_${s}`], ax = local[`hand_${s}`];
+      h.updateWorldMatrix(true, false);
+      const q = h.getWorldQuaternion(new THREE.Quaternion());
+      const f = ax.along.clone().applyQuaternion(q).normalize(), p = ax.palm.clone().applyQuaternion(q).normalize();
+      const a = s === 'r' ? f.clone().cross(p).normalize() : p.clone().cross(f).normalize();
+      const k = va.setFromMatrixColumn(sceneM, 0).length() || 1;
+      const pos = h.getWorldPosition(new THREE.Vector3()).addScaledVector(f, L.handLen * 0.42 * k).addScaledVector(p, 0.02 * k);
+      return { pos, a, f, p, scale: k };
+    },
     /** One-shot: true once after a greeting starts, for the life layer to nod. */
     takeNod() { const n = nodRequest; nodRequest = 0; return n > 0; },
-    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null } = {}) {
+    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null, sink: down = 0, posed = 0 } = {}) {
       if (!bound) return;
       root = r;
+      sink = Number.isFinite(down) && down > 0 ? down : 0;
+      // T-3553: a held posture lets the standing hand poses go (the arms hang from the body).
+      const still = Number.isFinite(posed) ? Math.min(1, Math.max(0, posed)) : 0;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
       time += dt;
       rebase();
@@ -675,7 +741,12 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       if (gait && gw > 1e-4) {
         const A = ARM_SWING, phase = fin(gait.phase), P = gait.profile ?? {};
         const [rom, at] = A.rom[P.female === true || skirt ? 'female' : P.female === false ? 'male' : 'all'];
-        const speed = fin(gait.speed, at);
+        // T-3553: the speed it is going now where the gait says (a brisk walk swings further), and its run share.
+        const speed = Math.min(2.0, Number.isFinite(gait.speedNow) && gait.speedNow > 0.3 ? gait.speedNow : fin(gait.speed, at));
+        const rr = clamp(fin(gait.run), 0, 1), vRun = fin(gait.speedNow, 3);
+        const runT = clamp((vRun - RUN_ARM.at_m_s[0]) / (RUN_ARM.at_m_s[1] - RUN_ARM.at_m_s[0]), 0, 1);
+        const runAmp = (RUN_ARM.amp_deg[0] + (RUN_ARM.amp_deg[1] - RUN_ARM.amp_deg[0]) * runT) * (skirt ? RUN_ARM.skirt : 1);
+        const runElbow = RUN_ARM.elbow_deg[0] + (RUN_ARM.elbow_deg[1] - RUN_ARM.elbow_deg[0]) * runT;
         // How far this walker swings against the measured mean, by speed (the swing grows
         // about in proportion to it) and age, and half that in a skirt.
         const k = clamp((rom / UPPER_ROM) * (speed / at) * (1 - A.older * clamp(fin(P.old), 0, 1)), 0.2, 1.6) * (skirt ? A.skirt.scale : 1);
@@ -683,8 +754,12 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         for (const s of SIDES) {
           if (s === hold?.side) { gaitArm[s] = 0; continue; } // T-3481: the carrying arm is held, not swung
           const sx = s === 'l' ? 1 : -1, ks = k * own.range * own[s];
-          const shoulderAt = (c) => (UPPER_MEAN + own.mean + (cycleAt(A.upper, c) - UPPER_MEAN) * ks) * DEG;
-          const elbowAt = (c) => Math.max(6, ELBOW_MEAN - A.elbowOffset_deg + own.elbow + (cycleAt(A.elbow, c) - ELBOW_MEAN) * ks) * DEG;
+          const shoulderW = (c) => (UPPER_MEAN + own.mean + (cycleAt(A.upper, c) - UPPER_MEAN) * ks) * DEG;
+          const elbowW = (c) => Math.max(6, ELBOW_MEAN - A.elbowOffset_deg + own.elbow + (cycleAt(A.elbow, c) - ELBOW_MEAN) * ks) * DEG;
+          // A run's swing: back as this side's foot lands (c = 0), forward as the other's does.
+          const wave = (c) => Math.cos(2 * Math.PI * (c - RUN_ARM.lag));
+          const shoulderAt = rr > 0 ? (c) => shoulderW(c) + ((RUN_ARM.mean_deg + own.mean - runAmp * own.range * own[s] * wave(c)) * DEG - shoulderW(c)) * rr : shoulderW;
+          const elbowAt = rr > 0 ? (c) => elbowW(c) + ((runElbow + own.elbow - RUN_ARM.elbowSwing_deg * wave(c)) * DEG - elbowW(c)) * rr : elbowW;
           // The tables run from the same side's heel strike: the left at phase 0, the right at 0.5.
           const c = phase + (s === 'l' ? 0 : 0.5);
           const th = shoulderAt(c), elbow = elbowAt(c);
@@ -692,7 +767,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           // The upper arm: down, swung about the figure's right, a little out from the side
           // (in a skirt, out over the bell), and in toward the front of the thigh as it comes forward.
           upDir.copy(fig.up).multiplyScalar(-Math.cos(th)).addScaledVector(fig.fwd, Math.sin(th))
-            .addScaledVector(fig.left, sx * (abd - inK * Math.max(0, th))).normalize();
+            .addScaledVector(fig.left, sx * (abd - (inK + (RUN_ARM.inward - inK) * rr) * Math.max(0, th))).normalize();
           // The elbow bends about the figure's right, square to the upper arm.
           bend.copy(fig.left).negate().addScaledVector(upDir, upDir.dot(fig.left)).normalize();
           foreDir.copy(upDir).applyAxisAngle(bend, elbow).addScaledVector(fig.left, sx * carry).normalize();
@@ -711,7 +786,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           orientHand(s, handDir, palmDir, gw);
           // Fingers loosely closed and the thumb in along the index, as a walking hand is
           // carried (the clip holds them open, which reads as a hand held out).
-          curl(s, A.curl, gw);
+          curl(s, A.curl + (RUN_ARM.curl - A.curl) * rr, gw);
           thumbIn(s, 0.9, gw);
         }
       } else { gaitArm.l = 0; gaitArm.r = 0; }
@@ -724,8 +799,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const wIn = smooth(poseW), wOut = 1 - wIn;
         for (const s of SIDES) {
           if ((greet >= 0 && s === 'r') || s === hold?.side) continue;
-          for (const [name, w] of [[prevPose, wOut], [pose, wIn]]) {
-            const t = poseTargets(name, s);
+          for (const [name, w0] of [[prevPose, wOut], [pose, wIn]]) {
+            const t = poseTargets(name, s), w = w0 * (1 - still);
             if (!t || !(w > 1e-3)) continue;
             reach(s, toWorldPos(t.wrist), toWorldDir(t.pole), w);
             bones[`lowerarm_${s}`].updateMatrixWorld(true);
@@ -807,9 +882,74 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         orientHand(s, toWorldDir(hold.fingers), toWorldDir(hold.palm), 1);
         curl(s, hold.curl);
       }
+      // Adults jaunts (owner, 2026-11-15): the weapon in the hand, and the blow, the thrust or the
+      // shot it makes (human-fight.js), over everything above; both hands for a long gun.
+      {
+        const FM = motions();
+        const busy = !!FM && (fight.arm !== 'none' || (fight.act && FM.MOTIONS[fight.act]?.empty));
+        fight.w += ((busy ? 1 : 0) - fight.w) * (1 - Math.exp(-7 * dt));
+        if (fight.act && FM) {
+          const before = fight.t;
+          fight.t += dt;
+          const at = FM.shotTime(fight.act, fight.arm);
+          if (at !== null && before < at && fight.t >= at) fight.shots++;
+          if (!FM.MOTIONS[fight.act].hold && fight.t >= FM.motionLength(fight.act, fight.arm)) { fight.from = fight.last; fight.act = null; }
+        }
+        const targets = FM && fight.w > 1e-3 ? FM.fightTargets({ arm: fight.arm, act: fight.act, t: fight.t, from: fight.from }, { r: L.shR, l: L.shL }) : null;
+        if (targets) {
+          fight.last = targets;
+          const w = smooth(fight.w), barrel = fight.arm === 'pistol';
+          for (const s of SIDES) {
+            const k = targets[s];
+            if (!k) continue;
+            const axis = new THREE.Vector3(...k.axis).normalize();
+            const palm = new THREE.Vector3(...k.palm).addScaledVector(axis, -new THREE.Vector3(...k.palm).dot(axis));
+            if (palm.lengthSq() < 1e-6) continue;
+            palm.normalize();
+            // The fingers from the axis and the palm: a = f x p on the right hand, p x f on the left.
+            const f = barrel && s === 'r' ? axis.clone() : (s === 'r' ? palm.clone().cross(axis) : axis.clone().cross(palm)).normalize();
+            const grip = new THREE.Vector3(...k.at).add(s === 'r' ? L.shR : L.shL);
+            const wrist = grip.clone().addScaledVector(f, -L.handLen * 0.42).addScaledVector(palm, -0.02);
+            reach(s, toWorldPos(wrist), toWorldDir(new THREE.Vector3(...k.pole)), w);
+            bones[`lowerarm_${s}`].updateMatrixWorld(true);
+            orientHand(s, toWorldDir(f), toWorldDir(palm), w);
+            const empty = targets.empty || (s === 'l' ? false : fight.arm === 'none');
+            curl(s, empty ? 0.35 : 0.88, w); thumbIn(s, empty ? 0.6 : 0.95, w);
+          }
+        }
+      }
       for (const s of SIDES) shapeHand(s);
       if (greet >= 0 && brim?.touch) fingertip();
       settle();
+      // T-3553: the mouth, where this level's figure has one: it carries on from the last
+      // level's, and is told of the greeting, the talk and where the visitor stands.
+      const made = body.userData?.chiMouth ?? null;
+      if (made !== mouth) { made?.follow?.(mouth); mouth = made; }
+      mouth?.apply?.(dt, { greeting: greet >= 0, talk: talkW, viewer, root });
+    },
+    /** A visible generated work tool asks for two world-space hand holds AFTER
+     * the ordinary arm pass. Only a loaded working actor's controller calls this.
+     * Return the measured grip; the tool follows the hand, never an invented emitter. */
+    poseWorkHands({ rightGrip, leftWrist, fingers, palm } = {}) {
+      const valid = v => v && [v.x, v.y, v.z].every(Number.isFinite);
+      if (!bound || hold || ![rightGrip, leftWrist, fingers, palm].every(valid)) return null;
+      const f = fingers.clone().normalize(), p = palm.clone().normalize();
+      if (f.lengthSq() < .9 || p.lengthSq() < .9 || Math.abs(f.dot(p)) > .1) return null;
+      body.updateWorldMatrix(true, false);
+      body.getWorldQuaternion(sceneQ); sceneM.copy(body.matrixWorld);
+      const offset = f.clone().multiplyScalar(L.handLen * .4).addScaledVector(p, .015);
+      reach('r', rightGrip.clone().sub(offset), toWorldDir(new THREE.Vector3(-1, -.3, -.4)), 1);
+      bones.lowerarm_r.updateMatrixWorld(true);
+      orientHand('r', f, p, 1); curl('r', .75); thumbIn('r', .9);
+      reach('l', leftWrist, toWorldDir(new THREE.Vector3(1, -.3, -.4)), 1);
+      bones.lowerarm_l.updateMatrixWorld(true);
+      orientHand('l', f, toWorldDir(new THREE.Vector3(0, -1, 0)), 1);
+      curl('l', .12); thumbIn('l', .7);
+      for (const side of SIDES) shapeHand(side);
+      // Keep the next ordinary pass additive: do not bank this pose as its base.
+      settle(); body.updateMatrixWorld(true);
+      return { rightGrip: bones.hand_r.getWorldPosition(new THREE.Vector3()).add(offset),
+        leftWrist: bones.hand_l.getWorldPosition(new THREE.Vector3()) };
     },
     snapshot() {
       return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, carrying: hold?.side ?? null, held: heldPose, talking, talk_w: +talkW.toFixed(3), swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2),

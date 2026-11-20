@@ -12,6 +12,8 @@
  *   - Cross runs its five steps in order and lands the boat on the far bank, where it stays;
  *     the visitor is on the seat over open water mid-way, and set down on dry ground at the
  *     far bank's stand, on foot, at the end; Cross from there brings boat and visitor back;
+ *   - a boat waits turned round, heading out, and is pushed straight off with no swing of its
+ *     bow; run ashore bow first, it is turned round again only once it is out of the view;
  *   - while one boat is crossing, another refuses ("Already in a boat");
  *   - the layer adds no texture of its own: its materials hold only sheets other layers
  *     loaded (none here, so the hulls fall back to their vertex colour).
@@ -31,6 +33,7 @@ const { createCrossings, buildBoat, buildWharfDeck } = await import('../renderer
 const { createInteractions } = await import('../renderers/web/js/interact.js');
 const { createWalker, WALK } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
+const { enuToWorld } = await import('../renderers/web/js/terrain.js');
 
 const ROOT = new URL('../', import.meta.url);
 const read = (p) => JSON.parse(fs.readFileSync(new URL(p, ROOT), 'utf8'));
@@ -168,6 +171,11 @@ function cross(entry, from, to) {
   const res = interactions.act(thing);
   ok(res.ok, `${entry.boat.id}: Cross refused at ${from}: ${res.why}`);
   const labels = [];
+  // The owner, 2026-11-17: no "odd movement spin around when boarding". A boat waiting heading
+  // out is pushed straight off; its bow never swings while the visitor shoves off.
+  const headingOut = entry.facing[from] === 'out' && !entry.boat.banks[from].rest.afloat;
+  if (headingOut) outCrossings += 1;
+  const offBearings = [];
   let midWater = false, t = 0, maxGap = 0, last = null;
   const total = 2 + (entry.boat.crossing.seconds ?? 30) + 12;
   while (thing.running && t < total + 30) {
@@ -175,6 +183,7 @@ function cross(entry, from, to) {
     t += 0.05;
     const r = thing.running;
     if (r && labels[labels.length - 1] !== r.action.steps[r.index].label) labels.push(r.action.steps[r.index].label);
+    if (r && r.index <= 1) offBearings.push(crossings.hulls().find((x) => x.id === entry.boat.id).bearing);
     if (r && r.index === 2 && r.t > 0.4 && r.t < 0.6) {
       midWater = midWater || terrain.isWater(walker.state.e, walker.state.n);
       const y = walker.state.eyeY;
@@ -186,6 +195,10 @@ function cross(entry, from, to) {
   stepWorld(0.05);
   ok(!thing.running, `${entry.boat.id}: Cross did not finish in ${t.toFixed(1)} s`);
   ok(labels.length === 5, `${entry.boat.id}: steps ${labels.join(' > ')}`);
+  if (headingOut) {
+    const swing = Math.max(...offBearings.map((b) => Math.abs(((b - offBearings[0] + 540) % 360) - 180)));
+    ok(swing < 3, `${entry.boat.id}: heading out from ${from}, the bow swung ${swing.toFixed(1)} degrees pushing off`);
+  }
   ok(midWater, `${entry.boat.id}: the visitor was not over the water mid-way`);
   ok(maxGap < 0.6, `${entry.boat.id}: the eye jumped ${maxGap.toFixed(2)} m in a frame`);
   ok(thing.state === to, `${entry.boat.id}: the boat is not left at bank ${to}`);
@@ -196,10 +209,13 @@ function cross(entry, from, to) {
   ok(crossings.riding === null, `${entry.boat.id}: still riding`);
 }
 
+let outCrossings = 0;
 for (const entry of crossings.boats) {
+  ok(entry.facing[entry.bank] === 'out', `${entry.boat.id}: it does not wait heading out`);
   cross(entry, 'a', 'b');
   cross(entry, 'b', 'a');
 }
+ok(outCrossings >= crossings.boats.length - 1, `only ${outCrossings} crossings set out heading out`);
 ok(rides.length === 4 * crossings.boats.length, `onRide told ${rides.length} times`);
 
 // Two at once: the second refuses.
@@ -228,5 +244,42 @@ ok((doc.wharves ?? []).length === 1, 'the fort wharf has no deck row');
 // A card for a boat at rest.
 const cardEntry = crossings.boats.find((e) => e.boat.existence.confidence === 'attested');
 ok(!!cardEntry, 'no attested boat to card');
+
+// T-3553: a jaunt stage's castmate crosses in a boat on their own (the owner, 2026-11-16, of
+// Kinzie's flight: "I would think he might take a boat across?"). It sets out from the bank asked,
+// goes across with the seat moving over the water, lands on the other bank, and is laid back
+// where it was when the stop lets it go; the visitor cannot take it while it is crossing.
+{
+  const entry = crossings.boats.find((e) => e.boat.id === 'kinzie_pirogue_1812_b');
+  ok(!!entry, 'the Kinzies\' second pirogue is drawn');
+  const home = entry.bank;
+  const h = crossings.carry('kinzie_pirogue_1812_b', { from: 'b' });
+  ok(!!h && !h.done && h.seconds > 20, 'carry gives a handle for a crossing of some seconds');
+  ok(crossings.carry('kinzie_pirogue_1812_b') === null, 'a boat already crossing is not taken twice');
+  const s0 = h.seat(), far = entry.boat.banks.a.stand;
+  let seats = 0;
+  for (let t = 0; t < h.seconds + 2 && !h.done; t += 0.2) { crossings.update(0.2, null); seats += 1; }
+  ok(h.done, 'the crossing ends on its own');
+  ok(entry.bank === 'a', 'the boat lies on the other bank once over');
+  const [se, sn] = h.stand();
+  ok(Math.hypot(se - far[0], sn - far[1]) < 1e-9, 'its rider steps ashore at that bank\'s stand');
+  ok(Math.abs(s0.n - entry.rest.b.n) < 3 && seats > 50, `the seat set out on the fort side (${s0.n.toFixed(1)})`);
+  // Run ashore bow first, it lies so while it is in sight, and is turned round to head out again
+  // once the view is away from it: the same place on the bank, the other way about.
+  ok(entry.facing.a === 'in' && Math.abs(entry.pose.bearing - entry.boat.banks.a.rest.bearing) < 1e-6, 'it lies as it ran ashore, bow on the bank');
+  const eye = new THREE.PerspectiveCamera(62, 1.6, 0.1, 3000);
+  const at = enuToWorld(far[0], far[1], height(far[0], far[1]) + 1.6, new THREE.Vector3());
+  const hull = enuToWorld(entry.pose.e, entry.pose.n, entry.pose.y, new THREE.Vector3());
+  eye.position.copy(at); eye.lookAt(hull); eye.updateMatrixWorld();
+  crossings.update(0.05, eye);
+  ok(entry.facing.a === 'in', 'it was turned round while the visitor looked at it');
+  eye.lookAt(at.clone().multiplyScalar(2).sub(hull)); eye.updateMatrixWorld();
+  crossings.update(0.05, eye);
+  ok(entry.facing.a === 'out' && Math.abs(((entry.pose.bearing - entry.boat.banks.a.rest.bearing + 540) % 360) - 180) > 179
+    && entry.pose.e === entry.boat.banks.a.rest.e && entry.pose.n === entry.boat.banks.a.rest.n, 'out of sight, it is not turned round to head out on the same spot');
+  h.restore();
+  ok(entry.bank === home, 'let go, it is laid back where it was');
+  ok(crossings.boats.every((e) => !e.boat.id || e.pose), 'every boat keeps a pose');
+}
 
 console.log(`test_crossings: ${checks} checks pass — ${crossings.boats.length} boats crossed both ways`);

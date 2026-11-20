@@ -268,10 +268,12 @@ def main() -> int:
                 if all(on(q) for q in tri) and sum(q[1] for q in tri) / 3 > top + 0.01:
                     stone.append(tri)
         mu, mv = (un + ub) / 2 - 0.3 * nu, (sn + sb_) / 2 - 0.3 * nv   # 0.3 m behind the cant's middle
-        pr = asm.prims["mansard_slate"]
+        # T-1890 (2026-11-12): or the flat floor of the cut behind the round's balustrade, which
+        # K01 covers as it covers a deck
+        tris_ = [[pr.pos[i] for i in pr.idx[k:k + 3]] for name in ("mansard_slate", "slate_covering")
+                 if name in asm.prims for pr in (asm.prims[name],) for k in range(0, len(pr.idx), 3)]
         slate = False
-        for k in range(0, len(pr.idx), 3):
-            p0, p1, p2 = (pr.pos[i] for i in pr.idx[k:k + 3])
+        for p0, p1, p2 in tris_:
             x0, z0 = p1[0] - p0[0], p1[2] - p0[2]
             x1, z1 = p2[0] - p0[0], p2[2] - p0[2]
             det = x0 * z1 - x1 * z0
@@ -279,7 +281,10 @@ def main() -> int:
                 continue
             wx, wz = mu - p0[0], -mv - p0[2]
             b1, b2 = (wx * z1 - x1 * wz) / det, (x0 * wz - wx * z0) / det
-            if b1 >= 0.0 and b2 >= 0.0 and b1 + b2 <= 1.0 and p0[1] + b1 * (p1[1] - p0[1]) + b2 * (p2[1] - p0[1]) > top:
+            # T-1890 (2026-11-12): over the corner the slate is set back behind the return, its cut's
+            # floor a centimetre under the cant's top (k01_frontage.return_setback)
+            if b1 >= 0.0 and b2 >= 0.0 and b1 + b2 <= 1.0 \
+                    and p0[1] + b1 * (p1[1] - p0[1]) + b2 * (p2[1] - p0[1]) > top - 0.02:
                 slate = True
                 break
         return stone, slate
@@ -288,7 +293,8 @@ def main() -> int:
                                f"mansard's slate covers it ({slate})")
     st_, ph_ = load(SID)
     e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
-    e_["plan"]["chamfer"].pop("top_m")
+    for k_ in ("top_m", "return", "light"):   # T-1890: a return and its light stand over the top
+        e_["plan"]["chamfer"].pop(k_, None)
     stone, _ = over_cant(K1.build(KP.from_phase(ph_, st_), SID), ct)
     check(bool(stone), f"without its top the cant's wall stands over {ct} m in front of that slate "
                        f"({len(stone)} faces): the check bites")
@@ -307,6 +313,8 @@ def main() -> int:
         st_, ph_ = load(SID)
         e_ = next(x for x in ph_["form"]["bays"]["value"] if x["id"] == "p_south")
         e_["plan"]["chamfer"]["top_m"] = LIT_TOP
+        for k_ in ("return", "light"):   # T-1890 (2026-11-12): the return is its own case
+            e_["plan"]["chamfer"].pop(k_, None)
         e_["storeys"][storey].setdefault("windows", []).append(
             {"opening": "k06.opening.sash_2over2_flat", "clear_width_m": 0.65, "clear_height_m": 1.0,
              "sill_m": sill, "at": [round(f_mid, 4)],

@@ -1,15 +1,34 @@
 /** Lazy catalog, route preview and session handoff. */
+import { addTable, tellingTable } from './reading-level.js';
+import { understandingQuestions, createUnderstandingDraft } from './jaunt-understanding.js';
+import { renderUnderstandingCheck } from './jaunt-understanding-view.js';
+import { jauntInvestigation, createInvestigationDraft } from './jaunt-investigation.js';
+import { renderInvestigation } from './jaunt-investigation-view.js';
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
 import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
+import { localCatalog, localJaunt } from './jaunt-language.js';
 
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null, allowAdults = () => false }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
+  let checkSession = null, checkDraft = null, investigationDraft = null;
+  const doc = root.ownerDocument ?? globalThis.document;
+  if (doc?.head && !doc.getElementById('jaunt-understanding-style')) {
+    const checkStyle = doc.createElement('link'); checkStyle.id = 'jaunt-understanding-style';
+    checkStyle.rel = 'stylesheet';
+    checkStyle.href = new URL('../css/jaunt-understanding.css', import.meta.url);
+    doc.head.append(checkStyle);
+  }
+  if (doc?.head && !doc.getElementById('jaunt-investigation-style')) {
+    const style = doc.createElement('link'); style.id = 'jaunt-investigation-style';
+    style.rel = 'stylesheet'; style.href = new URL('../css/jaunt-investigation.css', import.meta.url);
+    doc.head.append(style);
+  }
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
   const node = (tag, text, className) => {
@@ -25,6 +44,10 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const backButton = action => {
     const el = button('Back to Jaunts', action); el.classList.add('jaunt-back'); el.prepend(icon('back', 16)); return el;
   };
+  // The owner, 2026-11-15: an adults jaunt (audience adults, the 1812 fighting shown) is listed,
+  // previewed and started only for a visitor who has turned on Move › 18+ jaunts.
+  const allowed = (row) => row?.audience !== 'adults' || allowAdults() === true;
+  const shown = (rows) => (Array.isArray(rows) ? rows.filter(allowed) : rows);
   async function json(name, options) {
     const response = await fetcher(new URL(name, base), options);
     if (name === 'catalog.json' && response.status === 404) return { scene: String(scene), jaunts: [] };
@@ -32,9 +55,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     return response.json();
   }
   function catalog() {
-    if (!catalogPromise) catalogPromise = json('catalog.json').then(data => {
+    if (!catalogPromise) catalogPromise = json('catalog.json').then(async data => {
       if (data.scene !== String(scene) || !Array.isArray(data.jaunts)) throw new Error('Invalid catalog');
-      api.catalog = data.jaunts; return data.jaunts;
+      // Gap analysis item 15: titles and premises in the visitor's language (js/jaunt-language.js).
+      const rows = await localCatalog(data.jaunts, base, fetcher);
+      api.catalog = rows; return rows;
     }).catch(error => { catalogPromise = null; throw error; });
     return catalogPromise;
   }
@@ -125,6 +150,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       entry.dataset.action = 'daybook'; entry.classList.add('jaunt-daybook-chip'); entry.prepend(icon('News & Knowledge', 15)); prefix.push(entry);
     }
     const session = getSession();
+    if (session?.phase !== 'outcome' || checkSession !== session.session) {
+      checkSession = session?.phase === 'outcome' ? session.session : null;
+      checkDraft = checkSession ? createUnderstandingDraft() : null;
+      investigationDraft = checkSession ? createInvestigationDraft() : null;
+    }
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
@@ -149,11 +179,31 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         const more = node('details', '', 'jaunt-outcome-more');
         const summary = node('summary', ''); summary.append(node('span', fallback ? 'What happened' : 'The ending and keepsake'), icon('more', 16));
         // T-3355: a long ending is told in paragraphs, split at blank lines.
-        more.append(summary, ...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
+        more.append(summary);
+        // T-3578: a voiced ending can be heard again (it starts by itself as the outing finishes).
+        if (narration?.clip(session.jaunt, 'ending', session.outcome.id)) {
+          const hear = button('', () => { void narration.toggle(session.jaunt, 'ending', session.outcome.id); });
+          hear.className = 'jaunt-listen'; hear.dataset.action = 'listen';
+          const paint = () => {
+            const on = narration.isPlaying(session.jaunt, 'ending', session.outcome.id);
+            hear.setAttribute('aria-pressed', String(on)); hear.replaceChildren(icon(on ? 'stop' : 'listen', 15), node('span', on ? 'Stop' : 'Listen'));
+            hear.title = on ? 'Stop the narration' : 'Listen: read aloud in a synthetic voice';
+            // T-3671 (WCAG 1.2.1): an ending read aloud here is on screen while it is read.
+            if (on) more.open = true;
+          };
+          paint();
+          const off = narration.on(() => { if (!hear.isConnected) off(); else paint(); });
+          more.append(hear);
+        }
+        more.append(...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
         const awarded = !fallback && awardNote(session);
         if (awarded) more.append(awarded);
         else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         note.append(head, more);
+        const check = checkDraft && renderUnderstandingCheck(doc, understandingQuestions(session, { placeOf: stop => destinations?.byId?.(stop.destination?.kind, stop.destination?.id)?.label }), checkDraft);
+        if (check) note.append(check);
+        const investigation = renderInvestigation(doc, jauntInvestigation(session), investigationDraft);
+        if (investigation) note.append(investigation);
         const row = node('div', '', 'jaunt-outcome-actions');
         if (journal) {
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
@@ -175,16 +225,37 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       // In progress, it leads the list; an outcome follows the daybook chip as before.
       if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
-    menu.show(rows, prefix, returnId, focusStart);
+    menu.show(shown(rows), prefix, returnId, focusStart);
     // T-3432: a fresh Outing complete is seen at the top, with the list right under it.
     if (session?.phase === 'outcome' && outcomeSeen !== session.session) {
       outcomeSeen = session.session; const scroller = root.closest('.welcome-region') || root; scroller.scrollTop = 0;
     }
   }
 
-  async function load(id, options) {
+  // T-3645: the jaunt last loaded reads its other tellings' words at the reader's other ages
+  // (reading-level.js § tellingTable): its siblings are fetched alongside, once, and their
+  // table takes the place of the one before.
+  let dropTellings = null, tellingsFor = null;
+  async function tellings(content) {
+    if (tellingsFor === content.id) return;
+    tellingsFor = content.id;
     const rows = await catalog();
-    if (!rows.some(row => row.id === id && row.availability === 'available') || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
+    const baseOf = (r) => r?.version_of || r?.id;
+    const own = rows.find((r) => r.id === content.id);
+    const ids = rows.filter((r) => r.id !== content.id && baseOf(r) === baseOf(own) && r.audience !== 'adults' && r.availability === 'available').map((r) => r.id);
+    const others = (await Promise.all(ids.map((sid) => fetchContent(sid).catch(() => null)))).filter(Boolean);
+    if (tellingsFor !== content.id) return;
+    dropTellings?.();
+    dropTellings = addTable(tellingTable(content, others));
+  }
+  async function load(id, options) {
+    const content = await fetchContent(id, options);
+    void tellings(content).catch((err) => console.warn('[4D Chicago] jaunt tellings for reading ages', err));
+    return content;
+  }
+  async function fetchContent(id, options) {
+    const rows = await catalog();
+    if (!rows.some(row => row.id === id && row.availability === 'available' && allowed(row)) || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');
     let content = contents.get(id);
     if (!content) {
       content = await json(`${id}.json`, options);
@@ -192,6 +263,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       // T-2825: a stop's evidence (its locator, its reasoning, its citations) said for a
       // reader, by the overlay the gate lints; the story itself is already a visitor's text.
       content = readerCopy(content, await loadReaderText(dataBase, `jaunts_${scene}`));
+      // Gap analysis item 15: the words in the visitor's language, over the English the reader
+      // overlay just cleaned (its keys are the English strings').
+      content = await localJaunt(content, base, fetcher);
       contents.set(id, content);
     }
     return content;
@@ -205,7 +279,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview', 'jaunt-meta'), ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
+        node('p', 'Route preview', 'jaunt-meta'),
+        ...(content.quotesNote ? [node('p', content.quotesNote, 'jaunt-meta')] : []),
+        ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
         const item = node('li', '');

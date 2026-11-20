@@ -1,0 +1,950 @@
+{
+ "ticket": "T-3553",
+ "what": "The face of each CC0 MakeHuman skin atlas the face library uses (data/humans/variation/face_library.json), cut from the same box of the hm08 map, and where each atlas came from. The atlases themselves are not kept: each is pinned here by size, CRC-32 and SHA-256 and can be fetched again from its pack.",
+ "packs": {
+  "makehuman_system_assets": {
+   "url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+   "page": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/ (MakeHuman's own system assets, released CC0)",
+   "archive_bytes": 280737770,
+   "etag": "\"10bbb7ea-6160e7c0d7996\"",
+   "archive_sha256": null,
+   "fetched": "2026-11-14: the pack's directory and each chosen entry by HTTP range, each entry's size and CRC-32 checked against the directory",
+   "licence_evidence": "the header of each atlas's material file, kept unchanged in materials/: \"This asset was explicitly released as CC0 in september 2020.\"",
+   "record": "packs/makehuman_system_assets.json, the pack's own list of what it holds, kept as makehuman_system_assets.original.json"
+  },
+  "skins01": {
+   "url": "https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip",
+   "page": "https://files2.makehumancommunity.org/asset_packs/skins01/ (\"Natural female skins, shared under CC0\")",
+   "archive_bytes": 104227958,
+   "etag": "\"6366476-6160e7f028bce\"",
+   "archive_sha256": "7495ab99287053bd19ff1636114e64b608994d9f7437fea6cc75ea387f96dba9",
+   "fetched": "2026-11-14: the whole pack, hashed, unpacked",
+   "licence_evidence": "the pack's own record of each asset (packs/skins01.json, kept as skins01.original.json): \"license\": \"CC0\""
+  },
+  "skins02": {
+   "url": "https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip",
+   "page": "https://files2.makehumancommunity.org/asset_packs/skins02/ (\"Natural male skins, shared under CC0\")",
+   "archive_bytes": 76112708,
+   "etag": "\"4896344-6160e7915e6c0\"",
+   "archive_sha256": "1613f1ef3afca53094511d26620ed7cf1d2dedc29ed3d384d60bdebe250698ae",
+   "fetched": "2026-11-14: the whole pack, hashed, unpacked",
+   "licence_evidence": "the pack's own record of each asset (packs/skins02.json, kept as skins02.original.json): \"license\": \"CC0\""
+  }
+ },
+ "uv_check": "Every atlas is laid out on the hm08 base mesh's own map, as the three atlases the bodies wear are; each cut was looked at upright (tools/face_library.py --preview) and on built figures.",
+ "pack_records": {
+  "makehuman_system_assets": {
+   "in": "makehuman_system_assets.original.json",
+   "sha256": "e86f1572432cfd062f372adddba4eb7c2e2e31280e96c29291a970320e0a5df0"
+  },
+  "skins01": {
+   "in": "skins01.original.json",
+   "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c"
+  },
+  "skins02": {
+   "in": "skins02.original.json",
+   "sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705"
+  }
+ },
+ "not_used": "The other 37 skins of these packs, each with its reason in the record's `left_out`; and each pack's name for an atlas as a fact about its wearer.",
+ "faces": {
+  "young_lightskinned_female": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+    "size": 4391156,
+    "crc32": 4200317813,
+    "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/young_lightskinned_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "08b554c11d7732c074a208bfeef6ebfa2ad83df59c64ef7178aa15f420472ea7",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/young_caucasian_female/young_caucasian_female.mhmat",
+    "sha256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f",
+    "kept_in_repo": "materials/young_caucasian_female.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "young_lightskinned_female_2": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/young_caucasian_female2/young_lightskinned_female_diffuse2.png",
+    "size": 3724137,
+    "crc32": 4100891070,
+    "sha256": "8d1fb3ceedf142fad32a3504eca1feb4539aecca6de66acde1514b9a61fc7ba0",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/young_lightskinned_female_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "ecf4f8919b5fcb74b3edfc8e8f3cfc8b532af43e78423a71d6c8c7a4c1d88ab9",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/young_caucasian_female2/young_caucasian_female2.mhmat",
+    "sha256": "8934dd8d8f3beccc1b212c12116a88b3a88d6265e0a5c8fe42eb62e3fb281ab6",
+    "kept_in_repo": "materials/young_caucasian_female2.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "middleage_lightskinned_female": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/middleage_caucasian_female/middleage_lightskinned_female_diffuse.png",
+    "size": 4363877,
+    "crc32": 2790367363,
+    "sha256": "bcb9c2c8ace23880bc4407602a249abbcf4608b6ba0894e423b031913012a363",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/middleage_lightskinned_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "143985554224220e1d72bc0a2cb804d10a2cafe9036c6fb7648430e8b3be3d70",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/middleage_caucasian_female/middleage_caucasian_female.mhmat",
+    "sha256": "c01a42ea64ca4207558f5af8eb0991794934e3aaadebba1613c0a6e90d2afa29",
+    "kept_in_repo": "materials/middleage_caucasian_female.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "middleage_lightskinned_female_2": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/middleage_asian_female/middleage_lightskinned_female_diffuse2.png",
+    "size": 3810424,
+    "crc32": 3755238026,
+    "sha256": "39c505ca224387bef0b20cd2bf513c3997c27c7e7434447228c9991b87cb8d01",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/middleage_lightskinned_female_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "cb92a449e4805746397c0f9a4e4d667bba1b44e27ec84b71c7f5453aba1afe09",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/middleage_asian_female/middleage_asian_female.mhmat",
+    "sha256": "d002c338239d2aeeeec037e21f9dd22cd484ba8a955aee22aa0fe279ad6a3960",
+    "kept_in_repo": "materials/middleage_asian_female.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "old_lightskinned_female": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/old_caucasian_female/old_lightskinned_female_diffuse.png",
+    "size": 4716109,
+    "crc32": 1090924874,
+    "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/old_lightskinned_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "a8c37b3852d2aa11ee7350d4182b54f438babbe27681b004544cc5820692b198",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+    "sha256": "a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387",
+    "kept_in_repo": "materials/old_caucasian_female.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "old_lightskinned_female_2": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/old_asian_female/old_lightskinned_female_diffuse2.png",
+    "size": 4766265,
+    "crc32": 3997556989,
+    "sha256": "e0c6317c2354ee54c16ad5f871293121e4eee697d16423536bb1db3641d56bc9",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/old_lightskinned_female_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "7b5c27ca49339fcf3d1b7d29ca22506f5cf3e48ee40e2045a633d072d363e8e6",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/old_asian_female/old_asian_female.mhmat",
+    "sha256": "e38e458d8cb8bed61237776c61b8039aee293387e3d82fda19017a3784a660c3",
+    "kept_in_repo": "materials/old_asian_female.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "young_lightskinned_male": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/young_caucasian_male/young_lightskinned_male_diffuse.png",
+    "size": 3693828,
+    "crc32": 3877881233,
+    "sha256": "862a26e335e958b70534cb5f0d7c47ef30ab148a56c42b3e9da969cf76f12963",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/young_lightskinned_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "98104ccc50f99c215a0532c47c71552220d189c45e2a752f12d80af22ac4fb32",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/young_caucasian_male/young_caucasian_male.mhmat",
+    "sha256": "6eda60b07ff2afbde078a2535ef3913593d84e9de92b2eb76c30f396a181fe2e",
+    "kept_in_repo": "materials/young_caucasian_male.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "young_lightskinned_male_2": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/young_caucasian_male2/young_lightskinned_male_diffuse2.png",
+    "size": 3595270,
+    "crc32": 873875478,
+    "sha256": "03efe1f6b0ae52429649dcefc9dcaef6058032f874a251169cc3e2ed473c3874",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/young_lightskinned_male_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "2c608a79c1e4aa85c668036e4f83c1a92da56b4445d327b4d6c3a7a3ea878939",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/young_caucasian_male2/young_caucasian_male2.mhmat",
+    "sha256": "60022513803f7b68f30c4f91235b827ace9d36757dc07bdac157d58b7cbc226d",
+    "kept_in_repo": "materials/young_caucasian_male2.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "middleage_lightskinned_male": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/middleage_caucasian_male/middleage_lightskinned_male_diffuse.png",
+    "size": 3668589,
+    "crc32": 1696652457,
+    "sha256": "3f94f3f6a5cab92dedf5cce392a87332312fc435f1cb44c6e7b897daef9a5fbb",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/middleage_lightskinned_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "fdc437749c4c20d2fe8dda23259f0a74a8726359faceefd6dfeb4cde9b6a4884",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/middleage_caucasian_male/middleage_caucasian_male.mhmat",
+    "sha256": "113326b7670cb273610314b91e2597b228711adf5f0666660b16fef269bfbe72",
+    "kept_in_repo": "materials/middleage_caucasian_male.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "old_lightskinned_male": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/old_caucasian_male/old_lightskinned_male_diffuse.png",
+    "size": 4306141,
+    "crc32": 3588778234,
+    "sha256": "dfb2310ed3e0ad024ea7a3ad321215e2e9e2994cca64043d9f3d07c6543ec847",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/old_lightskinned_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "f47a806566f836878274a1645d7dcb1663d21b6a07ac03305d9f66c6150e85c8",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/old_caucasian_male/old_caucasian_male.mhmat",
+    "sha256": "001eccec34180d4eb7369933360116a7ea1022c72674c1b012b988af65002600",
+    "kept_in_repo": "materials/old_caucasian_male.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "old_lightskinned_male_2": {
+   "pack": "makehuman_system_assets",
+   "entry": {
+    "path": "skins/old_asian_male/old_lightskinned_male_diffuse2.png",
+    "size": 4485072,
+    "crc32": 1638043283,
+    "sha256": "8b3232676c5b271b4f44ead68845155d93f15de641b6819561781e16701a6c59",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/old_lightskinned_male_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "850f7a829e39caced8b3ff34a545cfc9097f0bd4b2a69f52be639f7a7c43b9a7",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "material": {
+    "path": "skins/old_asian_male/old_asian_male.mhmat",
+    "sha256": "2a65f6268555f9cbe0b8824aa2113a60aa706993d45e6ed6d84ac05ab1d54066",
+    "kept_in_repo": "materials/old_asian_male.mhmat (unchanged)"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "its material file's header: \"This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.\""
+  },
+  "callharvey3d_midtoned_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/callharvey3d_midtoned_female/harvey_midtoned_female_diffuse.png",
+    "size": 4629462,
+    "crc32": 1403985931,
+    "sha256": "dd0e953bb1ec3eee3d4956853599372c8faf5ba69982f0b4c3cc220b70cb0be0",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/callharvey3d_midtoned_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "c5afd5144ceba142df3333b30312f0677bb454dfe7bac2f8c75d6fbb4730320f",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "callharvey3d_midtoned_female",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "callharvey3d",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/802",
+    "description": "this is a test medium toned female skin works well with harvey_proxy1 bastardized MH young african female skin with some added detail",
+    "created": "2017-04-27",
+    "changed": "2017-04-27"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/callharvey3d_midtoned_female/callharvey3d_midtoned_female.mhmat",
+    "sha256": "806a323f06c50b687908ff29a82e82eb99442f7563f4b2806bd4c5e8665cc636",
+    "kept_in_repo": false,
+    "licence_lines": [
+     "# Copyright (C) 2016 Data Collection AB, https://www.datacollection.se",
+     "# Copyright (C) 2016 Joel Palmius",
+     "# Copyright (C) 2016 Jonas Hauquier",
+     "# This file is licensed AGPLv3",
+     "#    it under the terms of the GNU Affero General Public License as",
+     "#    License, or (at your option) any later version.",
+     "#    GNU Affero General Public License for more details.",
+     "#    You should have received a copy of the GNU Affero General Public License",
+     "#    along with this program.  If not, see <http://www.gnu.org/licenses/>."
+    ]
+   },
+   "licence_note": "The pack's material file for this skin (not kept, not used) is MakeHuman's own 2016 material for its young_african_female skin, reused with its header: \"Copyright (C) 2016 Data Collection AB ... This file is licensed AGPLv3\"; and the pack's record calls the atlas a changed copy of that MakeHuman skin. The atlas is read as CC0 all the same, on two statements: the pack's record of this asset says \"license\": \"CC0\" (its author's choice at upload, kept in skins01.original.json), and MakeHuman released the skin it was made from as CC0 in September 2020 (the system assets pack's skins/young_african_female/young_african_female.mhmat, SHA-256 f7e0726cb1c4f1f3dd23e5143f2d91a7c69ddd782a8b1de153a36e1549028b5c: \"This asset was explicitly released as CC0 in september 2020\"). The 2016 header is that of a settings file copied as a template, older than both.",
+   "licence_note_evidence": {
+    "pack": "makehuman_system_assets",
+    "path": "skins/young_african_female/young_african_female.mhmat",
+    "says": "explicitly released as CC0",
+    "sha256": "f7e0726cb1c4f1f3dd23e5143f2d91a7c69ddd782a8b1de153a36e1549028b5c",
+    "kept_in_repo": "evidence/young_african_female.mhmat (unchanged)"
+   }
+  },
+  "cutoff3d_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/cutoff3d_indian_female_skin/indian_skin2e.png",
+    "size": 4894776,
+    "crc32": 334337166,
+    "sha256": "09ec5071c5be9c3e1d36b52675eb053152796b3f75abc2e96853a277174856a8",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/cutoff3d_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "9563659904dfc1aeb352c23a04ca3e14e6bff49bbc25b5868a9884baeaadcefd",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "cutoff3d_indian_female_skin",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "CutOff3D",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/3013",
+    "description": "Indian Female Skin With Dark Nipples Genitalia Hair and More",
+    "created": "2022-01-09",
+    "changed": "2022-01-09"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/cutoff3d_indian_female_skin/cutoff3d_indian_female_skin.mhmat",
+    "sha256": "1f6be8ed6e4c64101f3c3dd82ff26e547946360def7d22ec49949716dcbcedb8",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "onlytheghosts_young_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/onlytheghosts_young_eurasian_female/young_eurasian_female_diffuse.png",
+    "size": 3716441,
+    "crc32": 3660987451,
+    "sha256": "e4547a04bab2244d8ec6bcb1d239f4cddb83f145d4ce2a5c7734ec514c8bebcf",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/onlytheghosts_young_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "11057ae378e30cb67203534774585f8ccaee4806fe8a22c31b8500b96219f779",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "onlytheghosts_young_eurasian_female",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "OnlyTheGhosts",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1578",
+    "description": "This is a combination of the young Asian and young Caucasian female skins with only minimal editing. Offshoot from a project of mine that required Central Asian characters.",
+    "created": "2018-08-31",
+    "changed": "2018-08-31"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/onlytheghosts_young_eurasian_female/onlytheghosts_young_eurasian_female.mhmat",
+    "sha256": "90f77f4d2a62cd8faaec0df3370c73ebd3efe1fb9f07e9a6228613dcf505b8be",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "onlytheghosts_middleage_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/onlytheghosts_middle_aged_eurasian_female/middleage_eurasian_female_diffuse.png",
+    "size": 3645237,
+    "crc32": 1191924688,
+    "sha256": "621d572153231348c5ff1248a72721109f5b4855215c895cb15d2991a22fff84",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/onlytheghosts_middleage_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "8fbca55431f2f4d7902c814753cf2247fa73fdf745ff36317f06eebfe52cc9ac",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "onlytheghosts_middle_aged_eurasian_female",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "OnlyTheGhosts",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1579",
+    "description": "This is a combination of the middleage Asian and middleage Caucasian female skins with only minimal editing. Offshoot from a project of mine that required Central Asian characters.",
+    "created": "2018-08-31",
+    "changed": "2018-08-31"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/onlytheghosts_middle_aged_eurasian_female/onlytheghosts_middle_aged_eurasian_female.mhmat",
+    "sha256": "00764fcd556a1cbaf5ca510f08ab978199dd5942896938342d2d1cc1695e5825",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "onlytheghosts_old_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/onlytheghosts_old_eurasian_female/old_eurasian_female_diffuse.png",
+    "size": 4129568,
+    "crc32": 1039518747,
+    "sha256": "ff3e6ceba012b6be73f168b01145aeb4925f7db45b4790ab71b33a28e7ce644b",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/onlytheghosts_old_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "a184788f9e8695c33d67c3602366fb777e36ca2cbb20fb2b40cd00d9ba38c813",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "onlytheghosts_old_eurasian_female",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "OnlyTheGhosts",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1580",
+    "description": "This is a combination of the old Asian and old Caucasian female skins with only minimal editing. Offshoot from a project of mine that required Central Asian characters.",
+    "created": "2018-08-31",
+    "changed": "2018-08-31"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/onlytheghosts_old_eurasian_female/onlytheghosts_old_eurasian_female.mhmat",
+    "sha256": "384870765440a9270d869441ab3d855d3bcdfe16ba7f59587950853b837b7434",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "toigo_freckles_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/toigo_light_skin_female_freckles/young_lightskinned_female_diffuse_freckles.png",
+    "size": 5153644,
+    "crc32": 508746521,
+    "sha256": "8d8b7dac34f97ebdd8605b51d527ac6863685054b33e1004b3e309599542beaf",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/toigo_freckles_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "e9ce38331860ad006875d0fae244f0fab3f310aa7c8d6afe94bacbc254589ae3",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "toigo_light_skin_female_freckles",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "MargaretToigo",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1134",
+    "description": "A variation of the young light skinned female with freckles.",
+    "created": "2017-11-13",
+    "changed": "2019-02-12"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/toigo_light_skin_female_freckles/toigo_light_skin_female_freckles.mhmat",
+    "sha256": "5fa7b61141f0ab88a7e9368781ac5111403bd92dcf06e8fd08240930c6665f4a",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "toigo_ginger_female": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/toigo_light_skin_female_ginger/young_lightskinned_female_diffuse_ginger.png",
+    "size": 5862054,
+    "crc32": 685171772,
+    "sha256": "8b547a325983272838738b58a5992f032f3cb065ce137699f94211e96ead13b1",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/toigo_ginger_female.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "a68ff473f35d9bd995711d0305eef4c3c5861b13cfe57a43fed25c9880b19455",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "toigo_light_skin_female_ginger",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "MargaretToigo",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1130",
+    "description": "A variation of the young light skinned female ginger skin.",
+    "created": "2017-11-13",
+    "changed": "2019-02-12"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/toigo_light_skin_female_ginger/toigo_light_skin_female_ginger.mhmat",
+    "sha256": "784eeb2f5c245d1317405a8bd14a88bb96dbb52b4e857eeab479b7faeb5b05b9",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "toigo_ginger_female_2": {
+   "pack": "skins01",
+   "entry": {
+    "path": "skins/toigo_light_skin_female_ginger_2/young_lightskinned_female_diffuse_Ginger2.png",
+    "size": 6655573,
+    "crc32": 2004667723,
+    "sha256": "6a644aa688dfe2451579533a578b63ee1d0785ab900b43d172d0f005f21d8a55",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/toigo_ginger_female_2.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "e929bc26da44850abf64bfa10c0cb5efebd0141d955d73401a7ff226bc77bb34",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "toigo_light_skin_female_ginger_2",
+    "in": "skins01.original.json",
+    "sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+    "author": "MargaretToigo",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1132",
+    "description": "A variation of the young light skinned female ginger variation.",
+    "created": "2017-11-13",
+    "changed": "2019-02-12"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins01.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/toigo_light_skin_female_ginger_2/toigo_light_skin_female_ginger_2.mhmat",
+    "sha256": "ec0717f8df46260f3c76c7fd792bbd3cdde6065ab0d5f8463915c9d618e17938",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "onlytheghosts_old_male": {
+   "pack": "skins02",
+   "entry": {
+    "path": "skins/onlytheghosts_old_eurasian_male/old_eurasian_male_diffuse.png",
+    "size": 3955408,
+    "crc32": 4127653380,
+    "sha256": "923dee56ac9527886ab8b0498566bea15442a37ea4b4adaf88e40138ab38a0d4",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGB"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/onlytheghosts_old_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "8c9e73ff45467ef57c4d7694f71e52307000d4cbbf72da3744970385fa21024e",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "onlytheghosts_old_eurasian_male",
+    "in": "skins02.original.json",
+    "sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705",
+    "author": "OnlyTheGhosts",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1581",
+    "description": "This is a combination of the old Asian and old Caucasian Male skins with only minimal editing. Offshoot from a project of mine that required Central Asian characters.",
+    "created": "2018-08-31",
+    "changed": "2018-08-31"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins02.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/onlytheghosts_old_eurasian_male/onlytheghosts_old_eurasian_male.mhmat",
+    "sha256": "74bac75fced47972c27c1ac2fb56e4e3770be957ff239c576888cd7e5a8f7969",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "toigo_freckles_male": {
+   "pack": "skins02",
+   "entry": {
+    "path": "skins/toigo_light_skin_male_freckles/young_lightskinned_male_diffuse_Freckles.png",
+    "size": 5175767,
+    "crc32": 2137830396,
+    "sha256": "32d33fab52bda1b6bc8cd134bb34f2980a77d2b51c9f048e8ea00c861b4da604",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/toigo_freckles_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "25d03fda245361479eb3b231e538152c62db19f0eeab99576c9a88d7f2057a39",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "toigo_light_skin_male_freckles",
+    "in": "skins02.original.json",
+    "sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705",
+    "author": "MargaretToigo",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1137",
+    "description": "This is a freckled variation on the young light skinned male.",
+    "created": "2017-11-13",
+    "changed": "2019-02-12"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins02.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/toigo_light_skin_male_freckles/toigo_light_skin_male_freckles.mhmat",
+    "sha256": "a4b38e203fba3fc3cfcbf40fad2b25dcb59ba5d4bb8456949e39363b517b9529",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  },
+  "toigo_ginger_male": {
+   "pack": "skins02",
+   "entry": {
+    "path": "skins/toigo_light_skin_male_ginger/young_lightskinned_male_diffuse_Ginger.png",
+    "size": 6764307,
+    "crc32": 1894196045,
+    "sha256": "795eec22b27ba5a2527d99e60a31be61e06a45a39250c39b24b36438e963c4aa",
+    "image": {
+     "width": 2048,
+     "height": 2048,
+     "mode": "RGBA"
+    },
+    "kept_in_repo": false
+   },
+   "cut": {
+    "file": "faces/toigo_ginger_male.png",
+    "box_px": [
+     1504,
+     800,
+     2016,
+     1312
+    ],
+    "of_map_px": 2048,
+    "sha256": "f83ac3c1abee15bbe491a1fb4a2e4ab8a2e39342cd77457d18431c62859e35a4",
+    "change": "none: the pixels of the box, as the atlas has them"
+   },
+   "pack_record": {
+    "key": "toigo_light_skin_male_ginger",
+    "in": "skins02.original.json",
+    "sha256": "35c4e7d05d882537b6312cbbc95830347eb547941248dbdb5f5595e6d9e1e705",
+    "author": "MargaretToigo",
+    "license": "CC0",
+    "source": "http://www.makehumancommunity.org/node/1135",
+    "description": "This is a ginger variation on the young light skinned male.",
+    "created": "2017-11-13",
+    "changed": "2019-02-12"
+   },
+   "license": "CC0-1.0",
+   "license_evidence": "the pack's own record of the asset in skins02.original.json (\"license\": \"CC0\"); its material file is not kept and not used",
+   "pack_material": {
+    "path": "skins/toigo_light_skin_male_ginger/toigo_light_skin_male_ginger.mhmat",
+    "sha256": "a776df8287b57eb74d9d0594033c5e8f49f31ae6a4234e6bc45dcea25d006f22",
+    "kept_in_repo": false,
+    "licence_lines": []
+   }
+  }
+ }
+}

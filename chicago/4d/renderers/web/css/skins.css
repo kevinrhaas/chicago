@@ -35,9 +35,9 @@ html[data-skin] {
 /* Control Room — the 1960s standard machine: console blue, ivory enamel, signal red, phosphor green. */
 html[data-skin="control-room"] { color-scheme:dark;
   --page:#0A1426;--panel:rgba(16,32,58,.94);--panel-solid:#12233F;--panel-raised:#1A3052;
-  --ink:#ECE6D8;--ink-dim:#A7B4C8;--ink-faint:#6C7C96;--edge:#2A3F63;--edge-strong:#3E5A86;
+  --ink:#ECE6D8;--ink-dim:#A7B4C8;--ink-faint:#949DAA;--edge:#2A3F63;--edge-strong:#3E5A86;
   --accent:#8CF5A8;--accent-ink:#0A1426;--brass:#8CF5A8;
-  --signal:#D6352B;--signal-ink:#FFF1EC;--signal-deep:#8E1F18;
+  --signal:#D6352B;--signal-ink:#FFFFFF;--signal-deep:#8E1F18;
   --lamp:#F3A43B;--hazard:#E8C547;--alert:#E0457B;--ok:#8CF5A8;
   --screen:#07130F;--screen-ink:#8CF5A8;--skin-glow:rgba(90,140,230,.16);
   --font-display:'Barlow Semi Condensed',ui-sans-serif,system-ui,sans-serif;--font-body:'Barlow',ui-sans-serif,system-ui,sans-serif;--font-accent:'Instrument Serif',Georgia,serif;
@@ -45,13 +45,13 @@ html[data-skin="control-room"] { color-scheme:dark;
 }
 html[data-skin="control-room"][data-theme="light"] { color-scheme:light;
   --page:#E4DED0;--panel:rgba(244,240,231,.96);--panel-solid:#F4F0E7;--panel-raised:#FFFFFF;
-  --ink:#10203A;--ink-dim:#4A5A74;--ink-faint:#7D8899;--edge:#B9BDBF;--edge-strong:#8FA3BF;
+  --ink:#10203A;--ink-dim:#4A5A74;--ink-faint:#576478;--edge:#B9BDBF;--edge-strong:#8FA3BF;
   --accent:#1E5A8A;--accent-ink:#FFFFFF;--brass:#1E5A8A;--skin-glow:rgba(30,58,102,.12);
 }
 /* Precision Brass — brass, walnut, ivory, verdigris, amber; engraved serif. */
 html[data-skin="brass"] { color-scheme:dark;
   --page:#17120E;--panel:rgba(42,30,21,.96);--panel-solid:#2A1E15;--panel-raised:#36271B;
-  --ink:#F4E6CD;--ink-dim:#C4AE8E;--ink-faint:#8C7556;--edge:#705537;--edge-strong:#9C7A4C;
+  --ink:#F4E6CD;--ink-dim:#C4AE8E;--ink-faint:#A79275;--edge:#705537;--edge-strong:#9C7A4C;
   --accent:#F2B154;--accent-ink:#2A1606;--brass:#D4A85A;
   --signal:#D4A85A;--signal-ink:#2A1E15;--signal-deep:#7A5A2A;
   --lamp:#7CC86A;--hazard:#F2B154;--alert:#B8612F;--ok:#7CC86A;
@@ -63,15 +63,15 @@ html[data-skin="brass"] { color-scheme:dark;
 }
 html[data-skin="brass"][data-theme="light"] { color-scheme:light;
   --page:#E9DCC4;--panel:rgba(247,235,214,.97);--panel-solid:#F7EBD6;--panel-raised:#FFF7E8;
-  --ink:#382819;--ink-dim:#6D5035;--ink-faint:#94785A;--edge:#AD8B57;--edge-strong:#8E6A33;
+  --ink:#382819;--ink-dim:#6D5035;--ink-faint:#765E45;--edge:#AD8B57;--edge-strong:#8E6A33;
   --accent:#805213;--accent-ink:#FFF5E4;--brass:#8E6A33;--skin-glow:rgba(128,82,19,.12);
 }
 /* Retro Future (id worlds-fair) — ivory, turquoise, orange, graphite; geometric sans; pill controls. */
 html[data-skin="worlds-fair"] { color-scheme:light;
   --page:#EFE9DC;--panel:rgba(248,244,234,.97);--panel-solid:#F8F4EA;--panel-raised:#FFFFFF;
-  --ink:#1E3A3D;--ink-dim:#4F6767;--ink-faint:#7F8E8B;--edge:#B9C2B8;--edge-strong:#8EA19A;
-  --accent:#138A92;--accent-ink:#FFFFFF;--brass:#138A92;
-  --signal:#EC6A1E;--signal-ink:#FFFFFF;--signal-deep:#B04A0E;
+  --ink:#1E3A3D;--ink-dim:#445A5A;--ink-faint:#566B6A;--edge:#B9C2B8;--edge-strong:#8EA19A;
+  --accent:#0F7178;--accent-ink:#FFFFFF;--brass:#0F7178;
+  --signal:#EC6A1E;--signal-ink:#1A1006;--signal-deep:#B04A0E;
   --lamp:#F59A2B;--hazard:#F2B21C;--alert:#D23C24;--ok:#2E9B6A;
   --screen:#10201F;--screen-ink:#9FE4DE;--skin-glow:rgba(19,138,146,.16);
   --font-display:'League Spartan','Jost',ui-sans-serif,sans-serif;--font-body:'Jost',ui-sans-serif,sans-serif;--font-accent:'League Spartan','Jost',sans-serif;
@@ -82,13 +82,13 @@ html[data-skin="worlds-fair"] { color-scheme:light;
 }
 html[data-skin="worlds-fair"][data-theme="dark"] { color-scheme:dark;
   --page:#11282C;--panel:rgba(24,51,55,.96);--panel-solid:#183337;--panel-raised:#21434A;
-  --ink:#F4EBD8;--ink-dim:#C3C8B9;--ink-faint:#8A9A94;--edge:#5B7778;--edge-strong:#7E9A97;
+  --ink:#F4EBD8;--ink-dim:#C3C8B9;--ink-faint:#A8B1A7;--edge:#5B7778;--edge-strong:#7E9A97;
   --accent:#5CC8CF;--accent-ink:#10201F;--brass:#5CC8CF;--skin-glow:rgba(92,200,207,.12);
 }
 /* Deep Space — obsidian, ceramic, cyan, amber; thin precise sans; chamfered corners. */
 html[data-skin="deep-space"] { color-scheme:dark;
   --page:#07090C;--panel:rgba(17,20,26,.92);--panel-solid:#11141A;--panel-raised:#181C23;
-  --ink:#E4E2DC;--ink-dim:#98A0AB;--ink-faint:#5B636E;--edge:#262C35;--edge-strong:#3A4350;
+  --ink:#E4E2DC;--ink-dim:#98A0AB;--ink-faint:#8F9398;--edge:#262C35;--edge-strong:#3A4350;
   --accent:#7AD7F6;--accent-ink:#07090C;--brass:#7AD7F6;
   --signal:#F5A742;--signal-ink:#160E02;--signal-deep:#9A6214;
   --lamp:#F5A742;--hazard:#F5A742;--alert:#F2645A;--ok:#6BE3B0;
@@ -100,8 +100,8 @@ html[data-skin="deep-space"] { color-scheme:dark;
 }
 html[data-skin="deep-space"][data-theme="light"] { color-scheme:light;
   --page:#E4E2DC;--panel:rgba(240,239,235,.95);--panel-solid:#F0EFEB;--panel-raised:#FFFFFF;
-  --ink:#11141A;--ink-dim:#4E5560;--ink-faint:#7A818B;--edge:#B8BCC2;--edge-strong:#8D949E;
-  --accent:#0E6F92;--accent-ink:#FFFFFF;--brass:#0E6F92;--skin-glow:rgba(14,111,146,.12);
+  --ink:#11141A;--ink-dim:#4E5560;--ink-faint:#5C616A;--edge:#B8BCC2;--edge-strong:#8D949E;
+  --accent:#0B6386;--accent-ink:#FFFFFF;--brass:#0B6386;--skin-glow:rgba(14,111,146,.12);
 }
 /* Aliases every machine derives from its own tokens. */
 html[data-skin] {
@@ -110,7 +110,58 @@ html[data-skin] {
   --shadow-button:0 2px 0 var(--signal-deep),0 6px 18px color-mix(in srgb,var(--signal) 35%,transparent);
   --glow-phosphor:0 0 12px var(--accent);
 }
+/* T-3571: LIT, the quiet kind, on every machine and in both tones. The owner, 2026-11-12:
+   "when lit don't make it too dark red ... more subtle so its noticeable but not shouty".
+   A chosen segment, a pressed pill and a lit key wear the accent as their word on a 12 %
+   wash of it with a hairline of it, not a solid fill and never the signal red. The ink is
+   the accent, deepened where it falls under 4.5:1 on that wash (the same two the Navigator
+   deepens, navigator.css § contrast); every pair clears 4.5:1 at 12 %. */
+html[data-skin] {
+  /* T-3671: the word is the accent drawn 30 % toward the ink, and the hairline the accent at 70 %
+     (the whole accent in a light tone, below), so the word clears 4.5:1 and the hairline 3:1. */
+  --lit-ink:color-mix(in srgb,var(--accent) 70%,var(--ink));
+  --lit-wash:color-mix(in srgb,var(--accent) 12%,transparent);
+  --lit-edge:color-mix(in srgb,var(--accent) 70%,transparent);
+}
 html[data-skin="deep-space"] { --shadow-button:0 0 0 1px var(--signal),0 0 22px color-mix(in srgb,var(--signal) 40%,transparent); }
+
+/* T-3671: WCAG 2.1 AA, the visual half (tools/test_a11y_visual.mjs measures every pair).
+   1.4.3: every text token clears 4.5:1 on its machine's panel, the panel laid over a white
+   sky and over a black night (the panels are 92-97 % glass): --ink-faint was raised for
+   that above, and the two light accents deepened to the Navigator's own. The lamp, alert
+   and ok colours are lights on a dark screen; as words on a light panel they read in their
+   -ink twin. 1.4.11: a lit key's hairline and a field's edge clear 3:1 on the panel
+   (--lit-edge, --control-edge); the hairlines between panels stay quiet. */
+html[data-skin] {
+  --lamp-ink:var(--lamp);--alert-ink:var(--alert);--ok-ink:var(--ok);--signal-text:var(--signal);
+  --control-edge:var(--edge-strong);
+  --focus-ring:var(--accent);--focus-halo:var(--panel-solid);
+}
+html[data-skin][data-theme="light"],html[data-skin="worlds-fair"]:not([data-theme="dark"]) { --lit-edge:var(--accent); }
+html[data-skin="control-room"] { --control-edge:#6B7E9B;--alert-ink:#E8749C; }
+html[data-skin="control-room"][data-theme="light"] { --control-edge:#6E819C;--lamp-ink:#865A20;--alert-ink:#AF3660;--ok-ink:#3E6C4A; }
+html[data-skin="brass"] { --alert-ink:#C8855F; }
+html[data-skin="brass"][data-theme="light"] { --lamp-ink:#436C39;--alert-ink:#975027;--ok-ink:#436C39; }
+html[data-skin="worlds-fair"] { --control-edge:#728783;--lamp-ink:#915B19;--alert-ink:#BD3620;--ok-ink:#237450;--signal-text:#A84B15; }
+html[data-skin="worlds-fair"][data-theme="dark"] { --control-edge:var(--edge-strong);--lamp-ink:var(--lamp);--alert-ink:#E58E80;--ok-ink:#64B591;--signal-text:#F08B50; }
+html[data-skin="deep-space"] { --control-edge:#70767D; }
+html[data-skin="deep-space"][data-theme="light"] { --control-edge:#777D86;--lamp-ink:#825923;--alert-ink:#A2433C;--ok-ink:#326B53;--signal-text:#825923; }
+/* 1.4.11: a field (a search box, a list box) is found by its edge; focused, its own rule colours it. */
+html[data-skin] :is(input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="color"]), select, textarea):not(:focus) { border-color:var(--control-edge); }
+/* 2.4.7: ONE focus ring for every key, link, tab, field and tile, on every machine and in both
+   tones. The ring is the accent (4.5:1 or better on the panel) in a halo of the panel's own
+   colour, so it reads over the panel, over a white sky and over a night alike. A part's own
+   rule keeps its offset (a tab in a strip draws it inside, -2 px, so the strip cannot clip it);
+   a container that only takes focus to be read (tabindex -1) is not a control and wears none. */
+:where(html[data-skin]) :focus-visible { outline-offset:2px; }
+html[data-skin] :is(a[href], button, input, select, textarea, summary, [contenteditable="true"], [tabindex]:not([tabindex="-1"]),
+  [role="button"], [role="tab"], [role="radio"], [role="checkbox"], [role="switch"], [role="menuitem"], [role="menuitemradio"],
+  [role="menuitemcheckbox"], [role="option"], [role="slider"], [role="link"], [role="treeitem"]):focus-visible:not(.nav-tile-open) {
+  outline:2px solid var(--focus-ring) !important;
+  box-shadow:0 0 0 6px var(--focus-halo) !important;
+}
+/* A tile whose key is unset text over the whole tile (navigator.css .nav-tile-open) wears it on the tile. */
+html[data-skin] .nav-tile:has(> .nav-tile-open:focus-visible) { outline:2px solid var(--focus-ring) !important;outline-offset:2px;box-shadow:0 0 0 6px var(--focus-halo) !important; }
 
 /* ---- the renderer, under any machine ---- */
 html[data-skin] body,html[data-skin] .hud-panel,html[data-skin] .popup,html[data-skin] dialog { font-family:var(--skin-font); }
@@ -140,7 +191,7 @@ html[data-skin="brass"] .arrival-digit,html[data-skin="brass"] .arrival-digit-fl
 html[data-skin="worlds-fair"] .gate-card { border-top:5px solid var(--signal); }
 html[data-skin="worlds-fair"] .gate:not([data-state="welcome"]) .gate-btn { border-radius:999px;font-family:var(--font-label);font-weight:600; }
 html[data-skin="deep-space"] .gate-card { clip-path:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer)); }
-html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn { background:color-mix(in srgb,var(--signal) 10%,transparent);color:var(--signal);border-color:var(--signal);box-shadow:inset 0 0 18px color-mix(in srgb,var(--signal) 25%,transparent);letter-spacing:.24em; }
+html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn { background:color-mix(in srgb,var(--signal) 10%,transparent);color:var(--signal-text);border-color:var(--signal);box-shadow:inset 0 0 18px color-mix(in srgb,var(--signal) 25%,transparent);letter-spacing:.24em; }
 html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):hover { background:var(--signal);color:var(--signal-ink); }
 /* T-2616: BACK TO THE OBSERVATORY is the second way out of a stalled jump — an outline, so TRY AGAIN stays the one signal. */
 html[data-skin] .gate:not([data-state="welcome"]) .gate-btn.gate-btn-secondary { background:transparent;color:var(--ink);border-color:var(--edge-strong);box-shadow:none;text-shadow:none; }

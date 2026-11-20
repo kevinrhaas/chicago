@@ -1,0 +1,25 @@
+{
+  "id": "chicago_evening_post_1869_city_limits",
+  "type": "map",
+  "citation": "A New Map of Chicago. Chicago Evening Post, April 9, 1869. Reproduced with publication attribution on Chicagology, Ward Map – 2 February 1869.",
+  "author": "Chicago Evening Post; individual draughtsman unidentified",
+  "date": "1869-04-09",
+  "describes_date": "1869",
+  "repository": "Chicagology reproduction ofperiod newspapergraphic",
+  "url": "https://chicagology.com/population/ward-map-1869/",
+  "locator": "Historical graphic: https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagoeveningpostgraphic9apr1869wardmap.jpg . Inspected at 1646 × 2172 pixels. The modern ward table on the same page is excluded.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "The original graphic is attributed to an 1869 United States newspaper issue, public domain by publication age. Only the historical geographic facts and geometry are derived; the modern host text and table design are not copied as assets.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Downloaded and visually inspected the historical graphic on 2026-11-18. The stated newspaper issue has not been independently checked against a second holding. The host’s modern ward table contains contradictory bounds and was not used.",
+  "what_it_supplies": [
+    "Stepped municipal shape: Fullerton east of Western, North Avenue toward the new western limit, the canal southwest edge and Egan Avenue south.",
+    "A proposed Jefferson addition north of North Avenue and west of Western, distinguished from present city limits."
+  ],
+  "what_it_does_not_supply": [
+    "Surveyed legal-boundary vertices, precise street positions or a reliable population count from the modern host paragraph."
+  ],
+  "note": "Period city-shape evidence, not a legal survey. The approximate local-coordinate boundary is reconstructed. Fortieth/Crawford/Pulaski name equivalence is used for orientation; the modern table is not treated as period evidence."
+}

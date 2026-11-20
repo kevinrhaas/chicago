@@ -1,0 +1,2700 @@
+{
+  "title": "Chicago immediately before the fire — 1871 reconstruction research",
+  "updated": "2026-11-19",
+  "scope": "Prepare Chicago for October 8, 1871 before the evening outbreak, with the exact local hour still open. An October 7 intact-city baseline is a separate state: Sunday already includes damage from the Saturday Night Fire.",
+  "cards": [
+    {
+      "id": "chamber-verified-dimensions",
+      "category": "structures",
+      "title": "Original Chamber: source images and conflicting dimensions",
+      "statement": "The acquired Chicago Illustrated plate and companion text identify the original 1865 building. The contemporary text gives 93 × 181 feet and 100 feet in height without a height datum. Andreas’s retrospective 1885 account gives 93 × 180 feet and prints both the roof extreme and cornice at 99 feet above the basement floor while also giving a 23-foot roof rise. This is a real printed contradiction, not an OCR error. A newly inspected John Carbutt stereograph, card 140 in Views of Chicago, depicts the same original building. Its photographed basement apertures are rectangular, and its central roof roundel has a pale face with dark marks; no clock time can be read with confidence.",
+      "evidence_status": "open",
+      "applies_to": "Original Chamber completed August 28 and dedicated August 30, 1865; destroyed in October 1871. Exact destruction time is not established here.",
+      "render_implication": "The reusable plate is now inspectable in the notebook with its full margins and scan provenance. Reconstruct the visible portal, upper arch rhythm, quoins, cornice and mansard through a solved camera; make any selected height/depth an explicit inference or reconstruction. Compare the actual photograph as a separate view: it clarifies basement apertures and stone courses, while upper-window brightness may reflect glare rather than opaque fabric.",
+      "limits": "Andreas wrote retrospectively in 1885; the plate and companion text were published in 1866–67. The engraving caption “CHAMBER OF COMMERCE.” does not date its creation; surrounding text and the matching facade identify the original phase. Neither image is a survey or October 8 witness. The CHM digital poster remains restricted; the displayed plate was independently obtained from the PD HathiTrust/University of Michigan scan through Commons. These sources do not yet supply a completed reconstruction. The Carbutt card’s catalogue span is 1865?–1885?; architectural identification of the original building does not date the exposure or surviving print exactly. Its signs and street scene establish no October 8 tenancy or activity. The linked current NYPL record was inaccessible during acquisition; this copy’s rights declaration comes from the specific Commons file record.",
+      "next_step": "Choose a working depth and vertical profile with stated bounds and confidence, preserving both source reports. Reconcile the period parcel; unpictured faces and uncertain details may be reconstructed with their reasoning recorded.",
+      "sources": [
+        {
+          "title": "Chicago Illustrated — Chamber plate and English text",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_Illustrated_by_Sheahan,_Jevne_%26_Almini,_1866-67.pdf",
+          "locator": "PDF pages 8–10, one-based positions; full pages retained locally",
+          "source_date": "1866–67 catalogue edition",
+          "source_kind": "primary lithograph and contemporary description",
+          "access": "read"
+        },
+        {
+          "title": "Andreas, History of Chicago II",
+          "url": "https://archive.org/download/historyofchicago02andr/page/358_w1600.jpg",
+          "locator": "Printed p.358, engraving and right-column dimension/height paragraph; p.357 supplies 1865–66 context",
+          "source_date": "1885, retrospective account of the 1865 building",
+          "source_kind": "retrospective history; original scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "John Carbutt — Chamber of Commerce, Views of Chicago, no. 140",
+          "url": "https://commons.wikimedia.org/w/index.php?title=File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png&oldid=1120193839",
+          "locator": "Full stereo card; printed “Views of Chicago”, “J. Carbutt, Photographer”, and “140.—Chamber of Commerce.” NYPL digital ID G90F172_009F; catalogue record 653332.",
+          "source_date": "Catalogue span 1865?–1885?; exact exposure and surviving-card publication dates unresolved",
+          "source_kind": "photograph; original-building phase identified visually, distinct from catalogue dating",
+          "access": "read",
+          "reference_image": {
+            "local_image": "../media/research/carbutt-nypl-G90F172_009F.png",
+            "alt": "Full yellow-mounted Carbutt stereo card with paired photographs of the original Chamber of Commerce, showing its north facade and receding west side.",
+            "caption": "John Carbutt, Views of Chicago, no. 140, “Chamber of Commerce.” Catalogue span: 1865?–1885?. The photograph depicts the original pre-fire building; that identification does not supply an exact exposure or card-publication date.",
+            "credit": "New York Public Library, Robert N. Dennis collection of stereoscopic views; digital ID G90F172_009F. Unaltered full card acquired through Wikimedia Commons.",
+            "rights": "Public-domain original and mechanical scan: Commons file-specific PD-US / PD-scan (PD-US) declaration. No CC0 license is asserted.",
+            "sha256": "14406b8c30a955da8431e505e518067b84ed54010f3e7cd6bdf31706f0e45e7e",
+            "bytes": 4864514,
+            "width": 2737,
+            "height": 1360
+          }
+        }
+      ],
+      "notebook_ids": [
+        "chamber-contemporary-dimensions",
+        "chamber-contemporary-view",
+        "building-chamber"
+      ]
+    },
+    {
+      "id": "utility-verified-corner",
+      "category": "ground & utilities",
+      "title": "Chicago & Pine: hydrant and street-lamp evidence",
+      "statement": "The re-read report names one new hydrant at the northeast Chicago/Pine corner and a separate hydrant at the Gund Engine House. Its street-name-on-lamps passage describes a citywide practice, not a lamp documented at that corner.",
+      "evidence_status": "documented",
+      "applies_to": "New hydrants in the year ending April 1, 1871; Streets and Bridges report dated April 1, covering the year ending March 31.",
+      "render_implication": "Use the exact historical corner identification while separately reconstructing curb setback, hydrant casting and finish. Treat a lamp and street label at this corner as a distinct evidence question.",
+      "limits": "Continued presence on October 8 is an inference. No pressure, casting, lamp fuel/burner, lettering, operating state or action at 16:00 is established. Historic Pine does not inherit modern widened Michigan Avenue curb geometry. The inspected CHM Pine Street photograph is restricted and is not published here.",
+      "next_step": "Match the historic curb and find a usable period fixture reference before placement.",
+      "sources": [
+        {
+          "title": "Board of Public Works, Tenth Annual Report",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "locator": "Printed pp.48–49, 79, 84, 112–113 and 116; each claim names its pages",
+          "source_date": "1871, year ending March 31; hydrant section says April 1",
+          "source_kind": "primary municipal report",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "utility-corner-evidence-scope",
+        "hydrant-chicago-pine",
+        "hydrant-gund",
+        "lamp-streetnames"
+      ]
+    },
+    {
+      "id": "bridge-count-reconciled",
+      "category": "water & transport",
+      "title": "Municipal bridge inventory and baseline crossings",
+      "statement": "The report’s 27 named rows reconcile with its 16 iron-chord/wooden-brace, one all-iron and ten wooden-bridge categories. The current foundation plan represents 21 of those rows and explicitly omits Erie, Twenty-second, Main, Fuller, Archer and Western. Its separately map-backed Division Street canal crossing makes 22 rendered road crossings. The difference follows the baseline’s documented scope.",
+      "evidence_status": "documented",
+      "applies_to": "Report evidence through spring 1871; baseline plan inspected November 19, 2026.",
+      "render_implication": "Keep rendered crossings, dated report inventory and explicit omissions separate. Preserve stable identities when resolving an omitted crossing.",
+      "limits": "Erie and Twenty-second were “Not in use” in the March traffic-count context; October openings remain unresolved. Four other rows lack confidently matched period-map placements. Western’s 1869 “W. fork of S. Branch” table row and the narrative’s new canal bridge require identity work; “No account” is not “Not in use”. Traffic arithmetic and the complete private/railway/October inventory were not verified.",
+      "next_step": "Resolve the six existing omissions individually; do not change placements or operational status from counts alone.",
+      "sources": [
+        {
+          "title": "Board of Public Works, Tenth Annual Report",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "locator": "Printed pp.48–49, 79, 84, 112–113 and 116; each claim names its pages",
+          "source_date": "1871, year ending March 31; hydrant section says April 1",
+          "source_kind": "primary municipal report",
+          "access": "read"
+        },
+        {
+          "title": "Baseline crossing plan, inspected November 19, 2026",
+          "url": "https://github.com/kevinrhaas/chicago/blob/6409dda1222e1284e111ab0efde1c471f3284d60/chicago/4d/data/context/1871/plan.json",
+          "locator": "bridge inventory note, 21 report-backed rows, six explicit omissions and separately map-backed Division crossing",
+          "source_date": "2026 reconstruction checkpoint",
+          "source_kind": "project model inventory, not a historical source",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "bridge-report-count",
+        "bridge-spring-conditions"
+      ]
+    },
+    {
+      "id": "person-alexander-jc",
+      "category": "people & daily life",
+      "title": "J. C. Alexander, a carpenter linked to McVicker’s",
+      "statement": "Edwards’ 1871 directory lists J. C. Alexander as a carpenter associated with McVicker’s Theatre, residing at historical 75 Huron. The theatre list puts McVicker’s on Madison between Dearborn and State. This is a distinct entry from the William Alexander waiter and drayman.",
+      "evidence_status": "documented",
+      "applies_to": "1871 directory compilation; no exact canvass date, October 8 presence or 16:00 activity is established.",
+      "render_implication": "Use the listed identity and occupation for a future evidence card. Appearance, clothing, exact position and any exterior routine require separate reconstructed choices and clear walk support.",
+      "limits": "Do not expand the initials or infer age, race, tools, household, payroll status, exact duties, shift, commute, stage work or a performance. Neither the historic residence number nor the workplace corridor supplies modern coordinates. No person, portrait or routine is created by this research pass.",
+      "next_step": "Match the historical theatre frontage and street surfaces before proposing an explicitly reconstructed depiction.",
+      "sources": [
+        {
+          "title": "Edwards’ Fourteenth Annual Directory, 1871",
+          "url": "https://archive.org/details/edwardsannualdir141871chic",
+          "locator": "Printed p.72 left-column J. C. entry; p.54 upper-left theatre list. Local scans retained.",
+          "source_date": "1871",
+          "source_kind": "primary commercial directory",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "worker-alexander-jc-carpenter",
+        "mcvicker-directory-corridor"
+      ]
+    },
+    {
+      "id": "method-1871-date-contract",
+      "category": "scene design",
+      "title": "Choose the hour before choosing the scenery",
+      "statement": "Working target: Sunday, October 8, 1871, before the evening outbreak. Local hour remains undecided. An October 7 daytime intact-city baseline is a separate state. The existing terrain epochs end the grade-raise interval on October 7 and begin the postfire interval on October 10; October 8–9 is not covered.",
+      "evidence_status": "open",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Create an explicit prefire day/time contract and a separate Saturday Night Fire overlay. Preserve source dates and historical local-time assumptions before calculating sunlight. Do not relabel the existing summer scenes as October.",
+      "limits": "This dossier chooses a research window, not a released scene or an exact eyewitness moment. No 1871 terrain has been built by this work.",
+      "next_step": "Set scene extent, hour, weather scenario and event cutoff; resolve the epoch gap before adding a scene file.",
+      "sources": [
+        {
+          "title": "Terrain epoch intervals",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/terrain/epochs.json",
+          "locator": "chicago/4d/data/terrain/epochs.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Example exact-date scene",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1835.json",
+          "locator": "chicago/4d/data/scenes/1835.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-coverage",
+      "category": "scene design",
+      "title": "Audit every year without confusing index coverage with a city census",
+      "statement": "The prefire index holds 324 source-identifiable records, 214 marked for review, 15 with point coordinates and 8 with linked media in the inspected snapshot. The generated annual coverage CSV audits every year 1674–1871 using the existing viewer rule. In 1871 that rule yields 269 records; it includes same-year losses and does not establish October 8 occupancy.",
+      "evidence_status": "documented",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Use the year explorer to find candidates, then apply day-level entity phases. Measure named structures, inferred ordinary stock, components, people and visible instances separately.",
+      "limits": "An inclusive demolition-year filter intentionally keeps 1871 fire losses visible. Unknown demolition dates are not positive survival evidence. Coordinates locate a vicinity, not measured corners. These counts are version-specific.",
+      "next_step": "Resolve exact-day presence on selected pilot blocks and retain anonymous stock totals separately.",
+      "sources": [
+        {
+          "title": "Year-level active-record logic",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/viewer/app.js",
+          "locator": "chicago/pre_fire_v1/viewer/app.js",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Compiled source inventory",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/viewer/data.json",
+          "locator": "chicago/pre_fire_v1/viewer/data.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-building-contract",
+      "category": "scene design",
+      "title": "A renderable building needs more than a name and an address",
+      "statement": "The existing model separates identity, dated phases, position, footprint, architectural form, and source confidence; compiled sidecars carry those decisions to renderers.",
+      "evidence_status": "inferred",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Record footprint polygon and units; number of floors and heights; wall/roof material; roof pitch and parapets; windows, doors and thresholds; stoops, rear additions, sheds, fences, privies, stables, signs and service circulation. Cite each attribute, not just the whole building.",
+      "limits": "A floor count or address cannot supply exact dimensions, color, rear geometry, tenant sign or interior layout. Procedural repetition remains a declared liberty.",
+      "next_step": "Complete one ordinary mixed-use block as well as a landmark. Keep absent dimensions null and add a reasoned reconstruction only when necessary.",
+      "sources": [
+        {
+          "title": "Identity, phases and sidecar architecture",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/docs/PLAN.md",
+          "locator": "chicago/4d/docs/PLAN.md",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Atlas provenance and incomplete-building limitations",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/docs/methodology.md",
+          "locator": "chicago/pre_fire_v1/docs/methodology.md",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-street-section",
+      "category": "land",
+      "title": "Resolve streets, yards and walking surfaces together",
+      "statement": "The earlier scenes show why streets, enclosures, front yards, rear yards, terrain and transport paths need to agree. The 1871 city requires new evidence for raised grades, paving, drainage, rails, curbs, sidewalks and basement relationships.",
+      "evidence_status": "inferred",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Author street cross-sections with width, datum, carriageway, track envelope, sidewalk, gutter, threshold and rear access. Keep render mesh, collision surface and navigation heightfield on the same source geometry.",
+      "limits": "Modern pavement, postfire grades and the 1835 natural surface are not safe defaults. Citywide street-material totals cannot locate a particular pavement.",
+      "next_step": "Choose survey control points and record residuals; resolve at least one grade transition and one bridge/tunnel approach before wider procedural expansion.",
+      "sources": [
+        {
+          "title": "1904 urban street layers",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1904.json",
+          "locator": "chicago/4d/data/scenes/1904.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "1835 ground and street layers",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1835.json",
+          "locator": "chicago/4d/data/scenes/1835.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-utility-inventory",
+      "category": "structures",
+      "title": "Research the small infrastructure that makes streets believable",
+      "statement": "The existing urban scene separates street furniture and night lights. For 1871, gas lamps, hydrants, water access, sewers, telegraph poles and wires, fire-alarm boxes, station apparatus and refuse systems remain a distinct acquisition task.",
+      "evidence_status": "open",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Link utilities to dated network plans and street edges. Model lamp construction and light source separately from invented brightness and operating hours; resolve apparatus type, station and horse/crew requirements before animating an emergency response.",
+      "limits": "This is an open research inventory, not evidence that each listed device stood on every street. Electric street lighting, telephone distribution, later fire engines and postfire hydrant layouts cannot be imported by analogy.",
+      "next_step": "Extract Board of Public Works and Fire Department 1870–71 reports, gas-company records, street photographs and equipment inventories with page-level locators.",
+      "sources": [
+        {
+          "title": "Evidence and liberties in night-light records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/night_lights/1835.json",
+          "locator": "chicago/4d/data/night_lights/1835.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Separate street-furniture and light layers",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1904.json",
+          "locator": "chicago/4d/data/scenes/1904.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-fauna-senses",
+      "category": "plants",
+      "title": "Track animals, traces and sound separately from visible placement",
+      "statement": "The 1835 fauna system separates visible, audible, trace-only, absent and deliberately undepicted presence; its ecology is dated to a different season and landscape.",
+      "evidence_status": "inferred",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "For 1871 distinguish workhorses, household livestock, market animals, dogs, birds and pests by local evidence. Treat hoof sounds, bells, steam, dock activity, odors, manure and dust as independently justified sensory layers.",
+      "limits": "A regional species list does not establish a nest, flock, pest infestation, sound level or odor at a chosen address. Do not carry July abundance or pristine marsh habitat into an October industrial district.",
+      "next_step": "Join animal and sensory observations to dated photographs, newspapers, household records and sanitary reports; mark sound design and population compression as liberties.",
+      "sources": [
+        {
+          "title": "Fauna evidence categories",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/fauna/index.json",
+          "locator": "chicago/4d/data/fauna/index.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Habitat and seasonal flora inventory",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/flora/index.json",
+          "locator": "chicago/4d/data/flora/index.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "method-1871-pilot-sequences",
+      "category": "actions",
+      "title": "Build three complete place–person–prop sequences before scaling",
+      "statement": "A full city reconstruction needs compatible places, actors, props, paths and schedules. The existing scenes offer machinery for routines and transport, but their identities, clothing, vehicle designs and calendar states belong to their own dates.",
+      "evidence_status": "inferred",
+      "applies_to": "Preparation for a separately dated 1871 scene",
+      "render_implication": "Pilot a retail street with deliveries, a river crossing with a vessel and waiting road users, and a residential/service yard with household work. For each, record source, local time window, actor role, prop, origin/destination, door, collision envelope and confidence.",
+      "limits": "These pilots are authoring proposals, not observed October 8 episodes. Sunday business hours, named-person presence, appearance and exact motions remain separate claims.",
+      "next_step": "Accept each pilot only after geometry, evidence cards, animation constraints and mobile performance agree; then expand the covered blocks.",
+      "sources": [
+        {
+          "title": "Shared daily-routine engine",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/renderers/web/js/human-days.js",
+          "locator": "chicago/4d/renderers/web/js/human-days.js",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        },
+        {
+          "title": "Dated actors and transport context",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1812.json",
+          "locator": "chicago/4d/data/scenes/1812.json",
+          "source_date": "Repository snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369",
+          "source_kind": "Project implementation inspected for this audit",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-temporal-baseline",
+      "category": "land",
+      "title": "October 8 is a distinct terrain state",
+      "statement": "An October 8 pre-outbreak scene already follows the destructive Saturday Night Fire. A fully intact summer city and Sunday afternoon cannot share the same damage mask.",
+      "evidence_status": "documented",
+      "applies_to": "1871-10-08 before the evening Great Fire outbreak",
+      "render_implication": "Give the scene an explicit date and local hour; support separate intact-city and October 8 damaged-area states.",
+      "limits": "The proposed baseline time is an editorial choice. Sources establish earlier damage, not every surviving object or cleanup operation.",
+      "next_step": "Choose the local scene hour and acquire a map of the October 7–8 burn perimeter.",
+      "sources": [
+        {
+          "title": "A Fiery Prelude",
+          "url": "https://greatchicagofire.org/timeline/item/1871-10-07/",
+          "locator": "Saturday, October 7, 1871 timeline entry",
+          "source_date": "2011 site copyright",
+          "source_kind": "museum/university historical synthesis",
+          "access": "read"
+        },
+        {
+          "title": "Saturday Night Fire",
+          "url": "https://greatchicagofire.org/landmarks/saturday-night-fire/",
+          "locator": "Main two paragraphs and Andreas illustration caption",
+          "source_date": "2011 site copyright",
+          "source_kind": "museum/university historical synthesis",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-saturday-fire",
+      "category": "land",
+      "title": "Saturday Night Fire damage polygon",
+      "statement": "The museum timeline bounds the earlier fire area by the South Branch, Van Buren, Clinton, and Adams streets. It burned from late October 7 into Sunday afternoon.",
+      "evidence_status": "documented",
+      "applies_to": "Near West Side, October 8 afternoon onward",
+      "render_implication": "Create a separate earlier-burn layer for damaged industrial lots and streets; limited cleanup or residual smoke may be reconstructed only with explicit uncertainty.",
+      "limits": "The broad bounds do not establish parcel-level damage. Modern locator 209 South Canal Street must not be used as an 1871 facade address.",
+      "next_step": "Inspect the Andreas fire illustration and period insurance sheets; record parcel survival separately.",
+      "sources": [
+        {
+          "title": "A Fiery Prelude",
+          "url": "https://greatchicagofire.org/timeline/item/1871-10-07/",
+          "locator": "Saturday, October 7, 1871 timeline entry",
+          "source_date": "2011 site copyright",
+          "source_kind": "museum/university historical synthesis",
+          "access": "read"
+        },
+        {
+          "title": "Saturday Night Fire",
+          "url": "https://greatchicagofire.org/landmarks/saturday-night-fire/",
+          "locator": "Main two paragraphs and Andreas illustration caption",
+          "source_date": "2011 site copyright",
+          "source_kind": "museum/university historical synthesis",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "weather-1871-drought",
+      "category": "weather",
+      "title": "Use the NWS drought reconstruction",
+      "statement": "NWS gives 3.55 inches of precipitation for July 7–October 8, 0.74 inches during September, and no precipitation September 29–October 8.",
+      "evidence_status": "documented",
+      "applies_to": "Chicago, days before the October 8 outbreak",
+      "render_implication": "Use dry exposed surfaces and drought-affected vegetation; do not add recent-rain puddles without local evidence.",
+      "limits": "These totals do not determine water content of every yard, wetland, lagoon, or irrigated garden.",
+      "next_step": "Replace conflicting shorthand drought claims with these explicit date intervals and attribution.",
+      "sources": [
+        {
+          "title": "NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871",
+          "url": "https://www.weather.gov/lot/1871fire",
+          "locator": "Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph",
+          "source_date": "2021-10-08",
+          "source_kind": "institutional reconstruction using historical weather observations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "weather-1871-wind",
+      "category": "weather",
+      "title": "Southwest wind, with estimated peaks",
+      "statement": "NWS reports October 8 regional southwest wind peaks estimated around 35–45 mph, including Chicago.",
+      "evidence_status": "documented",
+      "applies_to": "October 8, 1871; regional to city scale",
+      "render_implication": "Wind may drive foliage, loose litter, clothes, flags, and ordinary smoke toward the northeast; represent gust variation.",
+      "limits": "Estimated peak range is not constant street-level speed, and no exact chosen-hour wind measurement is established.",
+      "next_step": "Make the animation parameter a bounded reconstruction with sheltering by buildings.",
+      "sources": [
+        {
+          "title": "NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871",
+          "url": "https://www.weather.gov/lot/1871fire",
+          "locator": "Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph",
+          "source_date": "2021-10-08",
+          "source_kind": "institutional reconstruction using historical weather observations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "weather-1871-temperature",
+      "category": "weather",
+      "title": "Warm October conditions, without false precision",
+      "statement": "NWS describes low-to-middle-80s Fahrenheit highs across much of northern Illinois on October 8. Its 35–40 percent afternoon/evening humidity estimate comes from Aurora.",
+      "evidence_status": "documented",
+      "applies_to": "October 8 afternoon and evening regional context",
+      "render_implication": "Avoid cold-weather breath, frost, or universally heavy winter clothing; preserve variation in individual attire.",
+      "limits": "Neither regional high temperature nor Aurora humidity is a measured downtown Chicago value at the chosen scene hour.",
+      "next_step": "Label any numeric environmental controls as regional estimates or render assumptions.",
+      "sources": [
+        {
+          "title": "NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871",
+          "url": "https://www.weather.gov/lot/1871fire",
+          "locator": "Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph",
+          "source_date": "2021-10-08",
+          "source_kind": "institutional reconstruction using historical weather observations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "weather-1871-record-loss",
+      "category": "sources",
+      "title": "Weather records have a survival limit",
+      "statement": "The Chicago observation station had to be abandoned and its records were lost in the fire; NWS reconstructed conditions using surviving observer material.",
+      "evidence_status": "documented",
+      "applies_to": "Weather-source provenance for 1871",
+      "render_implication": "Retain uncertainty for exact temperature, visibility, cloud, and gust timing; do not present a synthetic hourly dashboard as an original observation.",
+      "limits": "Regional smoke reports do not establish a measured haze opacity for a particular Chicago view.",
+      "next_step": "Attach provenance to each chosen weather parameter and keep October 9 rain/cold-front conditions out of the October 8 daytime scene.",
+      "sources": [
+        {
+          "title": "NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871",
+          "url": "https://www.weather.gov/lot/1871fire",
+          "locator": "Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph",
+          "source_date": "2021-10-08",
+          "source_kind": "institutional reconstruction using historical weather observations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-lake-park-lagoon",
+      "category": "land",
+      "title": "Lake Park includes water behind the railroad",
+      "statement": "CPL describes the 1852 Illinois Central trestle approximately 300 feet east of Michigan Avenue, a farther-out breakwater, and a lagoon extending south to 12th Street.",
+      "evidence_status": "documented",
+      "applies_to": "Downtown lakefront south of Randolph, before postfire filling",
+      "render_implication": "Model separate inland ground, lagoon, railroad support, breakwater, and open-lake polygons.",
+      "limits": "The approximate offset is not a uniform measured 1871 geometry. Modern Grant Park's broad land extent is unsuitable.",
+      "next_step": "Trace a period shoreline and railroad map, then compare it with dated photographs.",
+      "sources": [
+        {
+          "title": "Chicago Public Library: History of Grant Park, 1830–1871",
+          "url": "https://www.chipublib.org/blogs/post/history-of-grant-park-1830-1871/",
+          "locator": "Final paragraphs beginning The State of Illinois owned the lakebed; 1865 train and 1868 map captions",
+          "source_date": "2014-11-03",
+          "source_kind": "library historical synthesis with period illustrations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-depot-fill",
+      "category": "land",
+      "title": "Railroad depot fill north of Randolph",
+      "statement": "CPL distinguishes the lagoon to the south from railroad-created land and freight/passenger depots north of Randolph.",
+      "evidence_status": "documented",
+      "applies_to": "Illinois Central lakefront depot district",
+      "render_implication": "Use a separate depot-fill polygon and working rail zone; do not extend the southern lagoon continuously through the depot grounds.",
+      "limits": "Footprints, tracks, quay edges, and shoreline position require map-level inspection.",
+      "next_step": "Acquire a prefire depot plan and dated exterior views.",
+      "sources": [
+        {
+          "title": "Chicago Public Library: History of Grant Park, 1830–1871",
+          "url": "https://www.chipublib.org/blogs/post/history-of-grant-park-1830-1871/",
+          "locator": "Final paragraphs beginning The State of Illinois owned the lakebed; 1865 train and 1868 map captions",
+          "source_date": "2014-11-03",
+          "source_kind": "library historical synthesis with period illustrations",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-river-regime",
+      "category": "land",
+      "title": "An earlier river reversal preceded 1900",
+      "statement": "IDNR describes Bridgeport pumping and 1867–1871 canal deepening that established gravity flow from the lake toward Lockport, with a reported 160–550 cubic feet per second range.",
+      "evidence_status": "documented",
+      "applies_to": "Main river, South Branch, and I&M Canal context in 1871",
+      "render_implication": "Treat river reaches separately; do not force all pre-1900 flow toward Lake Michigan.",
+      "limits": "The range is not an October 8 measurement and does not establish every reach's current. Drought, wind, and low lake levels complicate inference.",
+      "next_step": "Verify the completion chronology and seek engineering observations for late summer/autumn 1871.",
+      "sources": [
+        {
+          "title": "IDNR: History of Flood Control & Drainage in Northeastern Illinois",
+          "url": "https://dnr.illinois.gov/waterresources/historyoffloodcontroldrainageinnortheasternillinois.html",
+          "locator": "Opening historical section; Bridgeport pumps and 1867–1871 canal-deepening paragraphs",
+          "source_date": "undated page",
+          "source_kind": "state water-resources historical synthesis by Arlan Juhl",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-river-opening-lead",
+      "category": "sources",
+      "title": "The Board report dates the canal opening to July 15",
+      "statement": "The 1871 Board of Public Works report, printed p. 17, says that the canal opened on the afternoon of July 15 and reports an exchange of the river’s stagnant contents within 36 hours. The same passage proposes pumping lake water through Fullerton avenue for the North Branch and describes some offal scows already in use.",
+      "evidence_status": "documented",
+      "applies_to": "1871 canal chronology",
+      "render_implication": "Potential exact epoch boundary, pending inspection.",
+      "limits": "This is the Board’s report, not a flow-gauge series or proof of uniformly clear water. The Fullerton proposal is not evidence of completed pumping works in 1871.",
+      "next_step": "Use this dated change in the water-state chronology; seek measurements, harbor reports and imagery for local flow, color, level and working-vessel conditions.",
+      "sources": [
+        {
+          "title": "Annual Report of the Board of Public Works to the Common Council",
+          "url": "https://books.google.com/books/about/Annual_Report_of_the_Board_of_Public_Wor.html?id=QgsAAAAAMAAJ",
+          "locator": "Search excerpt for page 17, opening the temporary dam at Bridgeport",
+          "source_date": "volume identity and date require scan confirmation",
+          "source_kind": "primary-report discovery lead",
+          "access": "lead"
+        },
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 17",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n27/mode/1up",
+          "locator": "July 15 canal opening, North Branch proposal and offal scows; printed page 17, scan n27",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "canal-july15",
+        "northbranch-proposal",
+        "offal-scows"
+      ]
+    },
+    {
+      "id": "land-1871-raised-grades",
+      "category": "land",
+      "title": "Street and building levels need block-level evidence",
+      "statement": "Archive and encyclopedia search excerpts describe raised streets, owner-controlled building raising, and surviving below-grade structures; the Archives identifies new grading requirements in 1855–1856.",
+      "evidence_status": "open",
+      "applies_to": "Built-up Chicago before 1871",
+      "render_implication": "Research stairs, retaining edges, exposed basements, yard depressions, and sidewalk transitions rather than applying one citywide elevation increment.",
+      "limits": "Direct source retrieval failed in this pass; no exact block elevation or universal lift height is established.",
+      "next_step": "Inspect archived pages and municipal grade profiles, then tie elevations to a stated vertical datum.",
+      "sources": [
+        {
+          "title": "Encyclopedia of Chicago: Street Grades, Raising",
+          "url": "https://www.encyclopedia.chicagohistory.org/pages/1202.html",
+          "locator": "Search excerpt on owner-controlled building raising",
+          "source_date": "2005 encyclopedia",
+          "source_kind": "scholarly encyclopedia; direct open timed out",
+          "access": "lead"
+        },
+        {
+          "title": "Illinois State Archives: Estimate for Street Construction",
+          "url": "https://www.ilsos.gov/departments/archives/teaching-packages/early-chicago/doc32.html",
+          "locator": "Search excerpt on grading requirements in 1855–1856",
+          "source_date": "document and teaching-page dates require inspection",
+          "source_kind": "state archive teaching page; direct open returned 403",
+          "access": "lead"
+        },
+        {
+          "title": "Chicago Public Library: Chicago Sewers Collection",
+          "url": "https://www.chipublib.org/fa-chicago-sewers-collection/",
+          "locator": "Search excerpt on Chesbrough's grade proposal and river dredgings",
+          "source_date": "undated finding aid",
+          "source_kind": "archival collection guide; direct open returned bot verification",
+          "access": "lead"
+        }
+      ]
+    },
+    {
+      "id": "land-1871-wood-pavements",
+      "category": "land",
+      "title": "Wooden streets are not interchangeable with plank walks",
+      "statement": "The Library of Congress account reports more than 50 miles of wooden street paving and wooden sidewalks.",
+      "evidence_status": "documented",
+      "applies_to": "Citywide street-material context before the fire",
+      "render_implication": "Keep wooden block pavement, plank sidewalks, unpaved ground, and locally evidenced stone paving as separate material classes.",
+      "limits": "Citywide mileage does not locate each surface or establish block dimensions. Do not texture all streets as long wooden planks.",
+      "next_step": "Extract street-by-street paving from municipal reports and photographs, recording repairs and mixed surfaces.",
+      "sources": [
+        {
+          "title": "Library of Congress: The City Which Would Not Be Cowed",
+          "url": "https://blogs.loc.gov/maps/2021/10/the-city-which-would-not-be-cowed-the-great-chicago-fire-of-1871/",
+          "locator": "Discussion of wooden streets and sidewalks",
+          "source_date": "2021-10",
+          "source_kind": "library historical synthesis",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "landscape-1871-cemetery",
+      "category": "landscape",
+      "title": "Lincoln Park and uncleared cemetery coexist",
+      "statement": "Northwestern's archival research shows that older cemetery grounds were not comprehensively cleared in 1871; subsequent 1874 condemnation and 1872 potter's-field disinterments demonstrate continuing burial parcels.",
+      "evidence_status": "documented",
+      "applies_to": "Lincoln Park and former City Cemetery, October 1871",
+      "render_implication": "Separate improved park, surviving cemetery, partially cleared parcels, and road/shore works.",
+      "limits": "The research pages have conflicting removal-date details and one damaged sentence; exact lot conditions and monument density remain unresolved.",
+      "next_step": "Inspect original plats, commissioners' resolutions, and dated cemetery photographs before placing graves or buildings.",
+      "sources": [
+        {
+          "title": "Northwestern Hidden Truths: The Chicago Fire",
+          "url": "https://hiddentruths.northwestern.edu/lincoln_park/chicago_fire.html",
+          "locator": "Paragraphs on the old cemetery, potter's field, and 1871 commissioners' report",
+          "source_date": "2008 site copyright",
+          "source_kind": "archival research by Pamela Bannos, linking/reproducing original records",
+          "access": "read"
+        },
+        {
+          "title": "Northwestern Hidden Truths: The Condemnations",
+          "url": "https://hiddentruths.northwestern.edu/lincoln_park/condemnations.html",
+          "locator": "April 1871 report; April 28, 1874 condemnation; September 1872 disinterment paragraphs",
+          "source_date": "2008 site copyright",
+          "source_kind": "archival research by Pamela Bannos, linking/reproducing original records",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "actions-1871-lincoln-cattle",
+      "category": "plants",
+      "title": "Cattle and browsing along the developing drive",
+      "statement": "Bryan's 1899 commissioners' history, transcribed by Chicagology, reports an April 1871 expense for watching cows and cattle using the new drive while returning from northern grazing grounds.",
+      "evidence_status": "documented",
+      "applies_to": "Lincoln Park and lakeshore-drive vicinity in 1871",
+      "render_implication": "Cattle driving and localized browsing are supported activity types; animal paths can affect vegetation near the drive.",
+      "limits": "This is retrospective compilation, not a ledger inspected here. A cattle procession at a precise October 8 time is not attested.",
+      "next_step": "Locate the cited expense entry and route; represent any chosen occurrence as inferred.",
+      "sources": [
+        {
+          "title": "Chicagology: Lincoln Park",
+          "url": "https://chicagology.com/parksystem/lincolnpark/",
+          "locator": "Bryan commissioners' history: April 1871 cows, shore works, later maintenance and police passages",
+          "source_date": "1899 history transcribed on modern page; other excerpts separately dated",
+          "source_kind": "retrospective commissioners' compilation in modern transcription",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "landscape-1871-lincoln-exclusions",
+      "category": "landscape",
+      "title": "Do not borrow later Lincoln Park features",
+      "statement": "The same historical compilation dates park police to 1872, maintenance arrangements to 1873, and reported flower/plant spending to 1874; its gallery mixes much later maps and views.",
+      "evidence_status": "documented",
+      "applies_to": "Lincoln Park reconstruction source selection",
+      "render_implication": "Keep later uniformed park police, documented later flowerbeds, monuments, conservatory-era scenery, and later shoreline works out of the 1871 layer unless independently dated earlier.",
+      "limits": "First recorded spending does not prove absence of every flower before 1874.",
+      "next_step": "Assign each image and feature its own depicted date instead of inheriting the page's broad title.",
+      "sources": [
+        {
+          "title": "Chicagology: Lincoln Park",
+          "url": "https://chicagology.com/parksystem/lincolnpark/",
+          "locator": "Bryan commissioners' history: April 1871 cows, shore works, later maintenance and police passages",
+          "source_date": "1899 history transcribed on modern page; other excerpts separately dated",
+          "source_kind": "retrospective commissioners' compilation in modern transcription",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "landscape-1871-south-park-existing",
+      "category": "landscape",
+      "title": "South Park begins as sparsely settled ground",
+      "statement": "The March 1871 report describes the park tract beyond city limits, about six miles from the business center, in largely uncultivated and sparsely inhabited surroundings; the thousand-acre site contained no more than about a dozen small dwellings.",
+      "evidence_status": "documented",
+      "applies_to": "South Park site in March 1871; continuity to October requires checking",
+      "render_implication": "Preserve rural openness and avoid extending downtown density into the southern park study area.",
+      "limits": "The report is seven months before the fire and does not establish a complete October inventory.",
+      "next_step": "Check construction progress and property acquisitions between March and October.",
+      "sources": [
+        {
+          "title": "Olmsted, Vaux & Co.: Report Accompanying Plan for Laying Out the South Park",
+          "url": "https://rotunda.upress.virginia.edu/founders/default.xqy?keys=OLMS-print-02-01-02-0008",
+          "locator": "Printed pp. 206–207, 211–213, 228–229; descriptions of existing site distinguished from proposals",
+          "source_date": "1871-03",
+          "source_kind": "primary landscape report in scholarly digital edition",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "plants-1871-south-park-condition",
+      "category": "plants",
+      "title": "Existing groves and wet soils, not finished park planting",
+      "statement": "Olmsted and Vaux describe sizable but often struggling trees, wet/cold soils, and lake-wind exposure. They say about one-third of the Lower Division lay below high-water lake level.",
+      "evidence_status": "documented",
+      "applies_to": "South Park's existing landscape, March 1871",
+      "render_implication": "Use distinct groves, low wet ground, and coastal sandy areas; varying tree vigor is supported, but species and exact condition maps need evidence.",
+      "limits": "The report's high-water comparison does not establish October inundation, and no parcel-specific species list was found.",
+      "next_step": "Inspect survey contours and vegetation descriptions before assigning water depth, species, or density.",
+      "sources": [
+        {
+          "title": "Olmsted, Vaux & Co.: Report Accompanying Plan for Laying Out the South Park",
+          "url": "https://rotunda.upress.virginia.edu/founders/default.xqy?keys=OLMS-print-02-01-02-0008",
+          "locator": "Printed pp. 206–207, 211–213, 228–229; descriptions of existing site distinguished from proposals",
+          "source_date": "1871-03",
+          "source_kind": "primary landscape report in scholarly digital edition",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "landscape-1871-south-park-proposal",
+      "category": "landscape",
+      "title": "The 1871 park drawing is a proposal",
+      "statement": "The Olmsted–Vaux report presents proposed lagoons, avenues, boating connections, lawns, structures, and activities; the LOC account confirms that fire delayed construction.",
+      "evidence_status": "documented",
+      "applies_to": "South Park plan and 1871 reconstruction",
+      "render_implication": "Tag proposed features separately from existing land. Use the plan to guide research, not as completed terrain.",
+      "limits": "A feature's presence on the drawing does not prove construction. Exact implemented works need progress records.",
+      "next_step": "Create an as-built versus proposed feature checklist; use South Park as the period label and modern Washington/Jackson names only for orientation.",
+      "sources": [
+        {
+          "title": "Olmsted, Vaux & Co.: Report Accompanying Plan for Laying Out the South Park",
+          "url": "https://rotunda.upress.virginia.edu/founders/default.xqy?keys=OLMS-print-02-01-02-0008",
+          "locator": "Printed pp. 206–207, 211–213, 228–229; descriptions of existing site distinguished from proposals",
+          "source_date": "1871-03",
+          "source_kind": "primary landscape report in scholarly digital edition",
+          "access": "read"
+        },
+        {
+          "title": "Library of Congress: Chicago's South Park by Fredrick Law Olmsted",
+          "url": "https://blogs.loc.gov/maps/2022/05/olmsted-bicentennial/",
+          "locator": "1871 plan identification and construction-delay discussion",
+          "source_date": "2022-05-05",
+          "source_kind": "library collection commentary",
+          "access": "read"
+        },
+        {
+          "title": "National Park Service: Washington Park",
+          "url": "https://www.nps.gov/places/washington-park.htm",
+          "locator": "Search excerpt identifying 1871 proposal, delayed construction, and 1881 naming",
+          "source_date": "undated page",
+          "source_kind": "institutional history; search excerpt only",
+          "access": "lead"
+        }
+      ]
+    },
+    {
+      "id": "plants-1871-distribution-gaps",
+      "category": "plants",
+      "title": "Vegetation needs habitat evidence before species precision",
+      "statement": "Verified sources establish broad land use, wetness, disturbance, drought, cemetery retention, and tree condition, but not a citywide 1871 species or planting-density inventory. The 1870 Board report now provides specific local planting evidence: large elms and shrubbery in Lincoln Park, and deciduous and evergreen trees in Union Park. The 1871 directory identifies florists and a market-garden business, without supplying a citywide planting map.",
+      "evidence_status": "open",
+      "applies_to": "Street trees, yards, gardens, cemeteries, industrial lots, parks, and outskirts",
+      "render_implication": "Separate street/front-yard trees, gardens, cemetery vegetation, improved park, disturbed banks, rural groves, and sandy/wet habitats; keep species, height, diameter, density, pruning, and leaf color unfilled until supported.",
+      "limits": "Modern inventories cannot be backdated. A photograph may attest tree presence and silhouette without proving species.",
+      "next_step": "Place documented plant categories only after matching a park plan or image; seek individual species, seasonal appearance, planting positions and survival records. Distinguish a garden company’s office from its growing site.",
+      "sources": [
+        {
+          "title": "Olmsted, Vaux & Co.: Report Accompanying Plan for Laying Out the South Park",
+          "url": "https://rotunda.upress.virginia.edu/founders/default.xqy?keys=OLMS-print-02-01-02-0008",
+          "locator": "Printed pp. 206–207, 211–213, 228–229; descriptions of existing site distinguished from proposals",
+          "source_date": "1871-03",
+          "source_kind": "primary landscape report in scholarly digital edition",
+          "access": "read"
+        },
+        {
+          "title": "Northwestern Hidden Truths: The Chicago Fire",
+          "url": "https://hiddentruths.northwestern.edu/lincoln_park/chicago_fire.html",
+          "locator": "Paragraphs on the old cemetery, potter's field, and 1871 commissioners' report",
+          "source_date": "2008 site copyright",
+          "source_kind": "archival research by Pamela Bannos, linking/reproducing original records",
+          "access": "read"
+        },
+        {
+          "title": "NWS Chicago: 150th Anniversary of the Great Chicago Fire of 1871",
+          "url": "https://www.weather.gov/lot/1871fire",
+          "locator": "Weather Prior to the Fire; Weather During the Fire—October 8th; Overview observation-record paragraph",
+          "source_date": "2021-10-08",
+          "source_kind": "institutional reconstruction using historical weather observations",
+          "access": "read"
+        },
+        {
+          "title": "Ninth Annual Report of the Board of Public Works — p. 75",
+          "url": "https://archive.org/details/annualreportofbo09chic/page/n90/mode/1up",
+          "locator": "Elm planting, Union Park evergreens, animal enclosures, fountains and public conveniences; printed page 75, scan n90",
+          "source_date": "1870",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1016",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1013/mode/1up",
+          "locator": "Florists, fish wholesalers, mills and feed dealers; printed page 1016, scan n1013",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 161",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n152/mode/1up",
+          "locator": "Budlong market garden; women’s occupations; service trades; printed page 161, scan n152",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "park-lincoln-elms",
+        "park-union-tree-mix",
+        "florist-goode",
+        "budlong-garden"
+      ]
+    },
+    {
+      "id": "sources-1871-map-control",
+      "category": "sources",
+      "title": "Map publication date and depicted date differ",
+      "statement": "Rumsey catalog 4220.001 identifies a Blanchard publication of 1869 with an inset titled 1868, scale 1:25,344. Chicago's university catalog also lists 1863 and 1868 maps separately from postfire 1871 maps.",
+      "evidence_status": "documented",
+      "applies_to": "Map acquisition and georeferencing",
+      "render_implication": "Retain publication and depicted dates; use maps for networks and boundaries only after image inspection, and distinguish planned streets or parks from completed ones.",
+      "limits": "Catalog metadata was read, not map geometry. The digital-image rights statement needs review before redistribution.",
+      "next_step": "Obtain scans, inspect marginalia and revisions, select control points, and record georeferencing residuals.",
+      "sources": [
+        {
+          "title": "David Rumsey: Guide Map of Chicago, Blanchard, 1869",
+          "url": "https://www.davidrumsey.com/maps1877.html",
+          "locator": "Catalog 4220.001; full title, publication description, scale and rights notice",
+          "source_date": "1869 publication; inset title dated 1868",
+          "source_kind": "period-map catalog; scan not geometrically inspected",
+          "access": "catalog_only"
+        },
+        {
+          "title": "University of Chicago: Before and After the Fire",
+          "url": "https://www.lib.uchicago.edu/e/collections/maps/chifire/home.html",
+          "locator": "Map inventory rows for Flower/Van Vechten 1863, Shober 1868, and 1871 burned-district maps",
+          "source_date": "catalog covers 1860s–1880s",
+          "source_kind": "institutional map catalog; images not inspected",
+          "access": "catalog_only"
+        }
+      ]
+    },
+    {
+      "id": "sources-1871-insurance-atlases",
+      "category": "sources",
+      "title": "Acquire genuinely prefire parcel sheets",
+      "statement": "Newberry's guide search result identifies Chicago History Museum fire-insurance holdings from 1869 onward; many readily available digital Chicago series are later.",
+      "evidence_status": "open",
+      "applies_to": "Building footprints, yards, alleys, materials, and parcel evidence",
+      "render_implication": "Do not import a later Sanborn or Rascher sheet as 1871 geometry merely because its title says Chicago.",
+      "limits": "The collection guide was inspected in the structures research pass; exact 1869 sheet coverage, legend and revision state were not inspected. Holdings dates do not establish a usable prefire sheet for every block.",
+      "next_step": "Locate and inspect the prefire sheets, record edition and pasted revisions, and compare individual parcels against directories and photos.",
+      "sources": [
+        {
+          "title": "Newberry Library: Fire Insurance Maps",
+          "url": "https://www.newberry.org/collection/research-guide/fire-insurance-maps",
+          "locator": "Search excerpt describing Chicago History Museum holdings from 1869 onward",
+          "source_date": "undated guide",
+          "source_kind": "institutional collection-discovery lead",
+          "access": "read"
+        },
+        {
+          "title": "Chicago History Museum: Maps research guide",
+          "url": "https://libguides.chicagohistory.org/research/maps",
+          "locator": "Fire-insurance-map and Sanborn holdings section discovered in search",
+          "source_date": "undated guide",
+          "source_kind": "institutional collection-discovery lead",
+          "access": "lead"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-courthouse",
+      "category": "structures",
+      "title": "Court House and City Hall: the enlarged pre-fire building",
+      "statement": "The 1853 combined Court House and City Hall occupied the block bounded by Randolph, Clark, Washington and LaSalle, with landscaped grounds around its relatively small footprint. By the fire it had a third floor, cupola, east and west wings, a new clock and a bronze alarm bell. Earlier images do not show every alteration.",
+      "evidence_status": "documented",
+      "applies_to": "1871-10-08 before the Great Fire",
+      "render_implication": "Build the enlarged 1871 massing, landscaped square, boundary fence, entrances and raised relationship between street grade and basement. Use the Lovejoy & Foster 1871 view to check the wings against the earlier lithograph.",
+      "limits": "Museum interpretation identifies building phases; dimensions and exact landscape placement remain unmeasured. The 1885 and 1911 courthouses are different buildings.",
+      "next_step": "Inspect ichi-64281 and ichi-62080 side by side; extract wings, roof profile, clock, openings, fence and paths into separately sourced attributes.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Court House",
+          "url": "https://greatchicagofire.org/landmarks/court-house/",
+          "locator": "Captions 'Courthouse Square' (ichi-62080) and 'The Court House Shortly Before the Fire' (ichi-64281)",
+          "source_date": "Museum interpretation, 2011; referenced images 1866–67 and 1871",
+          "source_kind": "museum interpretation with identified primary images",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-chamber-commerce",
+      "category": "structures",
+      "title": "Chamber of Commerce: distinguish the 1865 building from its replacements",
+      "statement": "The Chamber of Commerce dedicated Edward Burling's building at the southeast corner of Washington and LaSalle on August 30, 1865. The Board of Trade conducted its commodities exchange there. A replacement accommodated the Board by October 9, 1872; the Board's later Jackson-and-LaSalle building belongs to 1885.",
+      "evidence_status": "documented",
+      "applies_to": "1865 through the October 1871 fire",
+      "render_implication": "Use the 1866–67 Jevne & Almini view for exterior research; connect entrances and interior commercial functions without importing later Board of Trade architecture.",
+      "limits": "The lithograph is pictorial evidence, not a measured elevation. Its street figures do not establish a particular 1871 day's activity.",
+      "next_step": "Inspect ichi-63073; reconcile footprint and entry positions with a pre-fire map and directory.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Chamber of Commerce",
+          "url": "https://greatchicagofire.org/landmarks/chamber-of-commerce/",
+          "locator": "Caption 'Chamber of Commerce' (ichi-63073); dedication and rebuilding paragraphs",
+          "source_date": "Museum interpretation, 2011; lithograph 1866–67",
+          "source_kind": "museum interpretation with primary visual reference",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-sherman",
+      "category": "structures",
+      "title": "Sherman House: six-story pre-fire hotel",
+      "statement": "The pre-fire replacement Sherman House was a six-story hotel designed by W. W. Boyington and faced with local limestone described as Athens Marble. Its main entrance faced Clark Street through a two-story portico. The museum identifies a John Carbutt stereograph, circa 1870, as the pre-fire reference; the hotel completed in 1873 was another building.",
+      "evidence_status": "documented",
+      "applies_to": "1871-10-08 before the Great Fire",
+      "render_implication": "Research the portico, stone stair, façade rhythm and relationship to Court House Square using ichi-00761. Hotel loading, luggage and carriage arrivals are possible action systems but need their own evidence.",
+      "limits": "Do not use the 1858 predecessor, 1873 rebuilding, circa-1890 photograph or 1911 hotel as interchangeable façade references.",
+      "next_step": "Inspect the circa-1870 stereograph and resolve footprint, roof profile and ground-floor business frontage.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Sherman House",
+          "url": "https://greatchicagofire.org/landmarks/sherman-house/",
+          "locator": "'Sherman House before the Fire' (ichi-00761), contrasted with the final rebuilding paragraph",
+          "source_date": "Museum interpretation, 2011; stereograph circa 1870",
+          "source_kind": "museum interpretation with primary photograph",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-first-methodist",
+      "category": "structures",
+      "title": "First Methodist Episcopal Church Block: church above shops and offices",
+      "statement": "At the southeast corner of Washington and Clark, Edward Burling's pre-fire building combined retail on the first floor, offices on the second, and a sanctuary on the third and fourth. The exterior was faced in local limestone. The museum identifies a Lovejoy & Foster stereograph from circa 1871; the 1873 replacement is separately illustrated.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Model a mixed-use commercial-looking block, not a freestanding church surrounded by lawn. Keep ground-floor commerce, upper-floor worship and their circulation distinct.",
+      "limits": "The floor functions are documented, but a full floor plan and the exact placement of stairs are not established by the summary.",
+      "next_step": "Inspect ichi-22330 and locate contemporary tenant listings before assigning signage and doors.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: First Methodist Church",
+          "url": "https://greatchicagofire.org/landmarks/first-methodist-church/",
+          "locator": "'First Methodist Episcopal Church Block before the Fire' (ichi-22330)",
+          "source_date": "Museum interpretation, 2011; stereograph circa 1871",
+          "source_kind": "museum interpretation with primary photograph",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-palmer-conflict",
+      "category": "structures",
+      "title": "Palmer House: operating location corroborated; opening and image questions remain",
+      "statement": "The original 1871 directory p. 1031 lists Palmer House, W. P. F. Meserve proprietor, at State, northwest corner Quincy. The same volume lists William Alexander as its waiter and John Tucker with the wording “elevator, Palmer House.” This corroborates the State/Quincy directory identity. The museum’s State/Monroe image identification and March 1871 opening account still require comparison with the September 27, 1870 opening account reproduced by Chicagology.",
+      "evidence_status": "open",
+      "applies_to": "1870–1871 Palmer properties; especially the October 1871 snapshot",
+      "render_implication": "Maintain separate candidate physical entities for State/Quincy and State/Monroe. Do not attach all Palmer photographs, floor counts and opening dates to a single hotel.",
+      "limits": "Directory location and worker entries do not identify the Greene photograph, resolve floor counts or establish the opening day. Keep State/Quincy and State/Monroe as distinct entities pending image and chronology reconciliation.",
+      "next_step": "Read the original September 27, 1870 newspaper page; compare intersection geometry in the Greene photograph and Land Owner engraving. Document each entity separately before attaching a facade model.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Palmer House",
+          "url": "https://greatchicagofire.org/landmarks/palmer-house/",
+          "locator": "'The Palmer House before the Fire' (ichi-39580) and 'The Palmer House after the Fire' (ichi-26749)",
+          "source_date": "Museum interpretation, 2011; images cataloged 1871",
+          "source_kind": "museum interpretation and image captions",
+          "access": "read"
+        },
+        {
+          "title": "Chicagology: Palmer House I & II",
+          "url": "https://chicagology.com/prefire/prefire061/",
+          "locator": "1871 Edwards directory entry; Chicago Tribune September 27, 1870; The Land Owner October 1870; opening editorial paragraph",
+          "source_date": "Period documents 1870–1871, hosted in a modern compilation",
+          "source_kind": "transcribed period documents mixed with modern editorial interpretation",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up",
+          "locator": "Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up",
+          "locator": "Alexander and Allan: workers and women physicians; printed page 72, scan n63",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up",
+          "locator": "Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "hotel-palmer",
+        "worker-alexander-waiter",
+        "worker-tucker"
+      ]
+    },
+    {
+      "id": "structure-1871-field-leiter",
+      "category": "structures",
+      "title": "Field & Leiter store: pre-fire six-story retail landmark",
+      "statement": "The pre-fire Field & Leiter store stood at the northeast corner of State and Washington. The museum describes six stories and almost 150 feet of State Street frontage and identifies a P. B. Greene stereograph from circa 1871. Its earlier Lake Street premises, the post-fire rebuilding, and the later Marshall Field complex are distinct physical states.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Use the pre-fire stereograph to establish the façade, entrance hierarchy and storefront scale. Preserve the wide street geometry as a separate spatial question.",
+      "limits": "Almost 150 feet is approximate. The museum's 1868–69 Charles Tobey photograph shows a building removed for the new store and must not be instantiated simultaneously on the same site.",
+      "next_step": "Inspect ichi-64398; verify lot limits and correlate signage with the 1871 directory.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Field & Leiter",
+          "url": "https://greatchicagofire.org/landmarks/field-leiter/",
+          "locator": "'Field & Leiter Store before the Fire' (ichi-64398); 'Charles Tobey Furniture and Bedding' (ichi-64383)",
+          "source_date": "Museum interpretation, 2011; photograph circa 1871 and predecessor image 1868–69",
+          "source_kind": "museum interpretation with primary photographs",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-crosby",
+      "category": "structures",
+      "title": "Crosby's Opera House: mixed-use frontage and a closed theater awaiting reopening",
+      "statement": "Crosby's stood on the north side of Washington between State and Dearborn. The five-story Italianate front with a mansard roof housed shops, offices and an art gallery; the auditorium was behind it. Renovations occurred in summer 1871 and a reopening concert was scheduled for October 9, after the fire began.",
+      "evidence_status": "documented",
+      "applies_to": "October 8, 1871 before ignition",
+      "render_implication": "Separate the street-front block from the rear auditorium. The October 8 scene should not casually show a normal evening opera performance; any workers, preparations or visitors require separate evidence.",
+      "limits": "The exterior sources do not settle the revised 1871 interior. A 1866–67 lithograph cannot automatically supply the summer-1871 renovation state.",
+      "next_step": "Compare ichi-62079 and ichi-64360; locate renovation reports and the October 9 program before authoring interiors or event actions.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Crosby's Opera House",
+          "url": "https://greatchicagofire.org/landmarks/crosbys-opera-house/",
+          "locator": "'Crosby's Opera House' (ichi-62079), renovation paragraph, and 'View ... before the Fire' (ichi-64360)",
+          "source_date": "Museum interpretation, 2011; images 1866–67 and circa 1871",
+          "source_kind": "museum interpretation with primary visual references",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-tremont",
+      "category": "structures",
+      "title": "Tremont House III: raised brick hotel, not the 1833 or 1873 building",
+      "statement": "The Tremont standing in 1871 was the third hotel of that name, on the southeast corner of Lake and Dearborn. The museum describes a five-story brick building with 260 rooms, designed by John M. Van Osdel and raised during the city's grade changes. Its six-story post-fire successor opened in 1873.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Use the third hotel's massing and its altered street-level relationship. Maintain independent identities for all four Tremont buildings.",
+      "limits": "A known raising does not establish that raising machinery or exposed foundations remained visible in October 1871.",
+      "next_step": "Inspect the 1866–67 lithograph ichi-61955; find a later photograph or renovation record to test unchanged façade assumptions.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Tremont House",
+          "url": "https://greatchicagofire.org/landmarks/tremont-house/",
+          "locator": "'Tremont House' (ichi-61955), contrasted with 'Rebuilt Chicago—The New Tremont House' (ichi-00772)",
+          "source_date": "Museum interpretation, 2011; lithograph 1866–67; rebuilding image circa 1873",
+          "source_kind": "museum interpretation with primary visual references",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-post-office",
+      "category": "structures",
+      "title": "Post Office and Custom House: pre-fire federal building",
+      "statement": "The pre-fire federal building stood at the northwest corner of Dearborn and Monroe, with its main entrance on Dearborn. Postal functions occupied the main floor and basement; customs and other federal offices occupied the second floor; courts used the upper floor. The museum identifies both a 1866–67 lithograph and a Greene pre-fire stereograph.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Research postal circulation, street entrance, basement access and shutters. Do not substitute the post-fire federal complex farther south.",
+      "limits": "The museum catalogs the stereograph as 1871 but suggests it may have been taken shortly after the earlier lithograph; capture date needs review. Descriptions calling buildings fireproof are contemporary claims, not a material-performance guarantee.",
+      "next_step": "Inspect the imagery and period federal reports; separate shutter location, construction material and interior layout claims.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Post Office and Custom House",
+          "url": "https://greatchicagofire.org/landmarks/post-office-and-custom-house/",
+          "locator": "'Custom House' (ichi-61956), pre-fire Greene stereograph caption, and Francis William Test letter excerpt",
+          "source_date": "Museum interpretation, 2011; lithograph 1866–67 and stereograph cataloged 1871",
+          "source_kind": "museum interpretation, identified images and transcribed eyewitness letter",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-nixon",
+      "category": "structures",
+      "title": "Nixon Block: construction in progress at the snapshot",
+      "statement": "The Nixon Block near the northeast corner of Monroe and LaSalle was under construction when the fire struck and was completed afterward. Its surviving structure should not be rendered as a fully occupied, finished pre-fire office block. Two additional stories belonged to a later phase.",
+      "evidence_status": "documented",
+      "applies_to": "October 8, 1871 before the Great Fire",
+      "render_implication": "Represent the documented unfinished state, while leaving the exact work stage, scaffolding and worker arrangement unresolved until supported.",
+      "limits": "The post-fire Hansen stereograph documents survival and a later visible state, not automatically the exact October 8 construction condition. The boast painted on the building after the fire must be excluded.",
+      "next_step": "Inspect ichi-39576 and locate dated construction reports to establish roof, glazing, doors and finishing work present by October 8.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Nixon Block",
+          "url": "https://greatchicagofire.org/landmarks/nixon-block/",
+          "locator": "'Nixon Building after the Fire' (ichi-39576) and accompanying construction-state account",
+          "source_date": "Museum interpretation, 2011; stereograph 1871 after the fire",
+          "source_kind": "museum interpretation with post-event primary photograph",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-lind",
+      "category": "structures",
+      "title": "Lind Block: occupied wholesale building with later alterations",
+      "statement": "The five-story Lind Block, built in 1852 at the northwest corner of Randolph and Market, survived the fire. Its principal tenant was wholesale grocer Z. M. Hall. A later twentieth-century photograph shows an altered building that had lost part of its eastern end to street widening.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Use the 1871 post-fire stereograph as evidence of surviving fabric, with an explicit post-event date. Recover the original extent before applying later photographic detail.",
+      "limits": "A popular fire illustration appears to show the building burning even though it survived; dramatic pictures cannot determine destruction or fabric condition by themselves.",
+      "next_step": "Inspect Greene stereograph ichi-64152; reconcile the river edge and Market Street footprint with an earlier map.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Lind Block",
+          "url": "https://greatchicagofire.org/landmarks/lind-block/",
+          "locator": "'The Lind Block after the Fire' (ichi-64152); 'The Sergeant Building' (ichi-64373)",
+          "source_date": "Museum interpretation, 2011; images 1871 and 1951",
+          "source_kind": "museum interpretation with primary photographs",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-waterworks",
+      "category": "structures",
+      "title": "Waterworks: tower, pumping station, lake tunnel and intake",
+      "statement": "The Chicago Avenue waterworks combined the limestone Water Tower and Pumping Station on opposite sides of Pine Street with a two-mile lake tunnel and offshore intake crib. The museum's pre-fire lithograph places the pumping station close to the contemporary lake shore.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Treat the waterworks as a connected infrastructure system. Research the original shoreline and Pine Street width independently of the surviving buildings' modern surroundings.",
+      "limits": "The museum page conflates the 1867 cornerstone/system celebration with building dedication language; verify construction chronology separately. Modern Michigan Avenue widening and Streeterville fill are unsuitable spatial defaults.",
+      "next_step": "Inspect ichi-06859 and the 1871 Pine Street view ichi-39581; obtain dated engineering plans and the Board of Public Works report for measured dimensions.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Water Tower",
+          "url": "https://greatchicagofire.org/landmarks/water-tower/",
+          "locator": "'Chicago Water Works' (ichi-06859), infrastructure description, and later Michigan Avenue comparison captions",
+          "source_date": "Museum interpretation, 2011; lithograph 1866–67",
+          "source_kind": "museum interpretation with primary visual reference",
+          "access": "read"
+        },
+        {
+          "title": "Chicago History Museum / Northwestern: Before and After",
+          "url": "https://greatchicagofire.org/ruined-city/and-after/",
+          "locator": "'View North on Pine Street ... to the Water Tower before the Fire' (ichi-39581)",
+          "source_date": "Greene stereograph cataloged 1871",
+          "source_kind": "museum primary-image catalog",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-lasalle-tunnel",
+      "category": "structures",
+      "title": "LaSalle Street Tunnel: newly opened, originally for people and horse traffic",
+      "statement": "The LaSalle Street Tunnel opened July 4, 1871, with entrances at Randolph and Kinzie. The museum's account describes two directional passages for horse-drawn traffic and a separate pedestrian passage. Its sectional illustration comes from an 1877 guidebook. Cable operation and later enlargement belong to subsequent periods.",
+      "evidence_status": "documented",
+      "applies_to": "July 4–October 8, 1871",
+      "render_implication": "Include portals, approach gradients, gas lighting and distinct circulation channels as research targets. Do not render a cable-car or electric streetcar tunnel for 1871.",
+      "limits": "The section is six years later than the snapshot. Exact portal design, grade and internal dimensions need original engineering evidence.",
+      "next_step": "Find the 1871 opening report and engineering drawings; corroborate the later section before turning it into measured geometry.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: LaSalle Street Tunnel",
+          "url": "https://greatchicagofire.org/landmarks/lasalle-street-tunnel/",
+          "locator": "'Sectional View ... from J. M. Wing, Seven Days in Chicago, 1877'; opening and later-conversion paragraphs",
+          "source_date": "Museum interpretation, 2011; sectional illustration 1877; opening described as 1871-07-04",
+          "source_kind": "museum interpretation with later primary engineering illustration",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-south-water",
+      "category": "structures",
+      "title": "South Water Street and Clark Street swing bridge",
+      "statement": "The 1866–67 Jevne & Almini view of Clark and Water shows the bridge turned for vessels and road traffic waiting. The museum describes pre-fire riverfront businesses including commission merchants, insurance firms and brokers; the later central produce-market district should not be projected backward wholesale.",
+      "evidence_status": "documented",
+      "applies_to": "1866–67 visual baseline for 1871",
+      "render_implication": "Link bridge rotation to boat clearance and queues of carts, wagons, carriages and pedestrians. Research working wharves, commercial frontages and waiting space together.",
+      "limits": "The illustration supports a type of action and spatial relationship, not an exact traffic count or bridge-opening schedule on October 8.",
+      "next_step": "Inspect ichi-62077; resolve the 1871 bridge identity, dimensions and adjacent tenants before implementing movement paths.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: South Water Street",
+          "url": "https://greatchicagofire.org/landmarks/south-water-street/",
+          "locator": "'Corner of Clark and Water Streets' (ichi-62077)",
+          "source_date": "Museum interpretation, 2011; lithograph 1866–67",
+          "source_kind": "museum interpretation with primary visual reference",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-terrace-row",
+      "category": "structures",
+      "title": "Terrace Row: contiguous luxury houses and rear service buildings",
+      "statement": "Terrace Row comprised eleven contiguous four-story limestone-faced houses erected in 1856 along Michigan Avenue south of Van Buren. The museum identifies a Copelin & Melander stereograph from 1871. Its account of William Bross's escape also identifies stables behind the row.",
+      "evidence_status": "documented",
+      "applies_to": "1871 before the Great Fire",
+      "render_implication": "Research repeated house bays, stoops, rooflines, rear yards and stables rather than treating the row as an undifferentiated palace. Preserve the contemporary lakefront relationship.",
+      "limits": "The later Auditorium, Fine Arts Building and Art Institute-related buildings are replacements, not pre-fire neighbors. The source does not determine each home's interior.",
+      "next_step": "Inspect ichi-64156 and locate property plans; distinguish confirmed individual entrances from inferred repetition.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Michigan Avenue and Terrace Row",
+          "url": "https://greatchicagofire.org/landmarks/michigan-avenue-and-terrace-row/",
+          "locator": "'Terrace Row' (ichi-64156) and 'Terrace Row after the Fire' (ichi-64279)",
+          "source_date": "Museum interpretation, 2011; photographs 1871",
+          "source_kind": "museum interpretation, primary photographs and eyewitness excerpt",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-oleary-cottage",
+      "category": "structures",
+      "title": "O'Leary property: double cottage, rented frontage and rear working yard",
+      "statement": "The museum describes a double cottage: the O'Learys and their five children occupied the rear section, while the McLaughlin family rented the front. A barn behind the dwelling held animals connected to Catherine O'Leary's local milk business. The cottage survived the fire, unlike the barn.",
+      "evidence_status": "documented",
+      "applies_to": "October 8, 1871 before ignition",
+      "render_implication": "Treat the property as domestic and working space with separate households, a service yard, dairy animals and outbuildings. The surviving cottage image can support fabric research with its post-event date retained.",
+      "limits": "The exact ignition cause is not established by this property evidence. Do not animate a cow kicking a lamp as fact. The page warns that purported barn relics have uncertain authenticity.",
+      "next_step": "Inspect Abbott stereograph ichi-02741 and the inquiry testimony; derive property geometry and animal inventory from explicit locators.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: O'Leary Home",
+          "url": "https://greatchicagofire.org/landmarks/oleary-home/",
+          "locator": "'The Cottage of Patrick and Catherine O'Leary' (ichi-02741); relic-authenticity discussion",
+          "source_date": "Museum interpretation, 2011; stereograph 1871 after the fire",
+          "source_kind": "museum interpretation with primary photograph",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-ordinary-lake-street",
+      "category": "structures",
+      "title": "144–146 Lake Street: ordinary commercial frontage with changing tenants",
+      "statement": "Chicagology reproduces directory entries for druggists, photographer Charles Mosher and map publisher Rufus Blanchard at 144–146 Lake, between Clark and LaSalle. Its January 27, 1870 Western Rural transcription places Blanchard at 146 Lake. The page also identifies an 1860 image and an 1869 insurance-map crop.",
+      "evidence_status": "documented",
+      "applies_to": "1850s–1870 evidence baseline; 1871 occupancy still to verify",
+      "render_implication": "Use this as a test case for ordinary shopfronts, upper-floor professional rooms, signs and mixed occupancy rather than filling every street with landmark architecture.",
+      "limits": "Earlier tenants do not automatically persist into October 1871. Map-crop attribution and image dates are host captions not yet checked against originals. Geometry has not been extracted.",
+      "next_step": "Read the 1871 directory entries and inspect the full 1869 sheet; retain historical addresses without substituting modern numbering.",
+      "sources": [
+        {
+          "title": "Chicagology: 144–146 Lake Street",
+          "url": "https://chicagology.com/prefire/prefire458/",
+          "locator": "Directory transcriptions 1855–1867; Western Rural January 27, 1870; image captions '1860' and 'Sanborn Fire Insurance Map 1869'",
+          "source_date": "Documents 1855–1870, reproduced in a modern compilation",
+          "source_kind": "transcribed period documents and image-discovery page",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-ic-land-office",
+      "category": "structures",
+      "title": "Illinois Central Land Department: measured commercial-office candidate",
+      "statement": "Transcribed Tribune reports of July 21, 1864 and January 2, 1865 describe an Illinois Central Land Department building north of the Adams House, extending from Michigan to Central Avenue, 30 feet wide and 130 feet deep, with three stories, basement and an elaborate roof. The 1870 directory places it east of Michigan Avenue between Lake and South Water.",
+      "evidence_status": "documented",
+      "applies_to": "1865–1871 building state, pending later-change check",
+      "render_implication": "A strong candidate for a narrow mixed-use block with documented dimensions, principal-floor store and offices above. Record the reported roof descriptions separately before resolving their terminology.",
+      "limits": "These are transcriptions, not checked newspaper scans. Contemporary fireproof claims proved unreliable; they do not justify noncombustible interiors everywhere.",
+      "next_step": "Verify original newspaper pages, inspect the January 1866 Chicago Illustrated plate, and resolve the 1869 map crop to a full sheet.",
+      "sources": [
+        {
+          "title": "Chicagology: Illinois Central Land Department",
+          "url": "https://chicagology.com/prefire/prefire209/",
+          "locator": "Chicago Tribune July 21, 1864 and January 2, 1865; Edwards 1870; Chicago Illustrated January 1866; map caption 1869",
+          "source_date": "Period evidence 1864–1870",
+          "source_kind": "transcribed period documents and primary-image references",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "structure-1871-aetna",
+      "category": "structures",
+      "title": "Aetna Building: dated office occupancy and insurance-company signage",
+      "statement": "The Aetna Building page identifies 84–86 LaSalle between Randolph and Washington. Its reproduced 1871 Edwards entry places Aetna Insurance Company's agents Goodwin & Pasco at 86 LaSalle. An 1865 Tribune notice places a meeting in room 28 of Boyington & Foster's new building at 84 LaSalle, opposite the Court House.",
+      "evidence_status": "documented",
+      "applies_to": "1865 construction reference and 1871 directory occupancy",
+      "render_implication": "An ordinary office-building target with evidence for numbered rooms and contemporary business identity; useful for distinguishing office entrances from hotel and retail frontage.",
+      "limits": "Directory evidence confirms a listed office, not its precise floor, window sign, or presence on a particular October day. The page's 1869 map crop remains an acquisition lead.",
+      "next_step": "Verify the directory scan and historical address range; inspect full-block imagery before assigning façade dimensions or signage.",
+      "sources": [
+        {
+          "title": "Chicagology: Aetna Building",
+          "url": "https://chicagology.com/prefire/prefire473/",
+          "locator": "Edwards 1871 entry; Chicago Tribune November 1, 1865; 'Sanborn Fire Insurance Map 1869' caption",
+          "source_date": "Documents 1865 and 1871; map caption 1869",
+          "source_kind": "transcribed period documents with image-discovery references",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "source-1871-photo-register",
+      "category": "sources",
+      "title": "Primary photograph acquisition register: fabric, ordinary houses and street sections",
+      "statement": "The museum's Before and After gallery identifies Greene's pre-fire Pine Street/Water Tower view (ichi-39581), George F. Rumsey house (ichi-29595), St. James Episcopal Church (ichi-22327), and Lovejoy & Foster's Booksellers' Row (ichi-29598). These are concrete catalog targets for pre-fire streetscape and building research.",
+      "evidence_status": "documented",
+      "applies_to": "Images cataloged 1871 or circa 1871",
+      "render_implication": "Use distinct image records to investigate setbacks, fences, paving, rooflines, storefront depth and scale. Link each observation to the specific image and visible region.",
+      "limits": "This pass read the catalog captions, not full-resolution images. No species, colors, measurements or individual identities should be inferred from the titles alone. Asset rights require separate checks.",
+      "next_step": "Retrieve authorized high-resolution copies and record creator, catalog ID, depicted date, capture-date uncertainty, camera direction, rights and a crop locator for every extracted claim.",
+      "sources": [
+        {
+          "title": "Chicago History Museum / Northwestern: Before and After",
+          "url": "https://greatchicagofire.org/ruined-city/and-after/",
+          "locator": "Six-item gallery list beneath 'The fire makes quick work of the city that was'",
+          "source_date": "Museum catalog, 2011; primary images 1871 or circa 1871",
+          "source_kind": "primary-image catalog",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "source-1871-planimetric-map-register",
+      "category": "sources",
+      "title": "Survey-map baselines: 1863 and 1868, followed by dated change extraction",
+      "statement": "The University of Chicago catalog lists Flower and Van Vechten's 1863 Chicago map drawn from Davie's atlas at 1:6,000, Shober's 1868 guide map at about 1:24,000, and Van Vechten and Snyder's 1868 Chicago and Environs at about 1:12,000 in seven sheets. It also separately identifies circa-1871 burned-district maps.",
+      "evidence_status": "documented",
+      "applies_to": "1863–1868 spatial baselines; changes through October 1871 must be reconciled",
+      "render_implication": "Prioritize the larger-scale maps for street/block control and use 1871 directory, construction and shoreline evidence to update them. Keep post-fire damage overlays distinct from the pre-fire base.",
+      "limits": "Catalog scales are not proof of parcel-level accuracy. No map in this entry has been georeferenced or digitized in this pass. Pictorial and planimetric sources need different treatment.",
+      "next_step": "Acquire original scans through the library's Luna access, record control points and residuals, and create a dated change ledger for 1868–1871.",
+      "sources": [
+        {
+          "title": "University of Chicago Library: Before and After the Fire",
+          "url": "https://www.lib.uchicago.edu/e/collections/maps/chifire/",
+          "locator": "Map table, first three entries; subsequent circa-1871 burned-district entries; use/credit statement",
+          "source_date": "Catalog of original maps dated 1863, 1868 and circa 1871",
+          "source_kind": "holding-library catalog",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "source-1871-insurance-map-controls",
+      "category": "sources",
+      "title": "Insurance maps: verify edition and revisions before using footprints",
+      "statement": "The Newberry guide explains that insurance maps can identify footprints, materials and uses, but individual atlas copies contain different dated revisions. It lists Chicago History Museum holdings extending back to 1869; its description of freely digitized Library of Congress Chicago volumes concerns 1894–1897 material, not an automatic 1871 baseline.",
+      "evidence_status": "documented",
+      "applies_to": "All proposed insurance-map evidence for 1871",
+      "render_implication": "Extract only from a verified pre-fire sheet or a clearly labeled later source with a reasoned continuity argument. Separate publication date, revision date, depicted state and scan date.",
+      "limits": "The statewide database title '1867–1970' does not establish that a particular Chicago block is documented in 1867. Small web crops often omit title, sheet number, legend and revision marks.",
+      "next_step": "Resolve the Chicagology 1869 crops to holding institution, atlas title, volume, sheet, legend and revision state before tracing geometry.",
+      "sources": [
+        {
+          "title": "Newberry Library: Fire Insurance Maps",
+          "url": "https://www.newberry.org/collection/research-guide/fire-insurance-maps",
+          "locator": "Introduction; 'Chicago Fire Insurance Maps at Other Institutions'; Chicago History Museum and Library of Congress entries",
+          "source_date": "Current library research guide; holdings include atlases dated 1869–1928 and 1894–1897",
+          "source_kind": "holding-library research guide",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "source-1871-ruger-panorama",
+      "category": "sources",
+      "title": "Ruger's 1868 panorama: visual baseline with a three-year gap",
+      "statement": "The Library of Congress catalogs A. Ruger's Chicago in 1868 from Schiller Street north side to 12th Street south side. Its geographic coverage and date make it a useful city-form reference preceding the target snapshot.",
+      "evidence_status": "documented",
+      "applies_to": "1868, with explicit reconciliation required for 1871",
+      "render_implication": "Use as a visual cross-check for prominent structures and broad urban form, not as an unqualified measured parcel map.",
+      "limits": "Catalog metadata was available through search; direct item retrieval returned 403 in this pass. The full image was not inspected here, and later additions must not be omitted merely because absent in 1868.",
+      "next_step": "Open the existing project copy or retrieve the cataloged resource, inspect the image and register individual observations with locations.",
+      "sources": [
+        {
+          "title": "Library of Congress: Chicago in 1868",
+          "url": "https://www.loc.gov/item/73693350/",
+          "locator": "Catalog title and creator; resource g4104c.pm001480",
+          "source_date": "1868",
+          "source_kind": "primary-map catalog",
+          "access": "catalog_only"
+        }
+      ]
+    },
+    {
+      "id": "source-1871-edwards-directory",
+      "category": "sources",
+      "title": "Edwards' 1871 directory: extracted addresses, occupations and uses",
+      "statement": "The original 1871 Edwards directory has now been read selectively: apparatus, alarm locations, congregations, railway schedules, street numbering, public buildings, residents, florists, stables, food and ice businesses. Page-level observations and original scans are available in the field notebook.",
+      "evidence_status": "documented",
+      "applies_to": "Directory publication and canvass period in 1871; not a guaranteed October 8 census",
+      "render_implication": "Connect listed businesses and residents to evidence-backed building entities; use listings to prioritize signage and activity research without treating every listing as a separate structure.",
+      "limits": "A directory is neither a complete population census nor proof of construction date. Modern address numbers and same-name post-fire businesses cannot be substituted without a crosswalk.",
+      "next_step": "Join selected historical addresses to period parcel maps; independently resolve footprint, elevation, facade and exact-date occupancy. Expand extraction by block, preserving omissions and conflicting listings.",
+      "sources": [
+        {
+          "title": "University of Illinois: Edwards' annual directory of Chicago, volume 14",
+          "url": "https://libsysdigi.library.illinois.edu/oca/Books2008-03/edwardsannualdir/edwardsannualdir141871chic/",
+          "locator": "Catalog title and volume field: 14 (1871)",
+          "source_date": "1871",
+          "source_kind": "digitized-primary-book catalog",
+          "access": "catalog_only"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up",
+          "locator": "Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up",
+          "locator": "Alexander and Allan: workers and women physicians; printed page 72, scan n63",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 56",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n47/mode/1up",
+          "locator": "Street and avenue guide: numbering rules (unnumbered opening page; indexed as 56); printed page 56, scan n47",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "hotel-palmer",
+        "worker-alexander-waiter",
+        "address-south"
+      ]
+    },
+    {
+      "id": "life-1870-population-baseline",
+      "category": "people",
+      "title": "Population: use the census as a baseline, not a street crowd count",
+      "statement": "The 1870 federal census counted 298,977 Chicago residents. Illinois State Archives reports 144,557 foreign-born residents, or 48.35 percent. These are citywide counts from the year before the fire, not a count of people present on October 8, 1871.",
+      "evidence_status": "documented",
+      "applies_to": "Citywide population context; 1870 census baseline for the 1871 scene",
+      "render_implication": "Build a varied population rather than a uniform frontier-town crowd. Separate resident population, commuters, visitors, street occupancy, indoor occupancy, and time of day. Citywide demographic proportions do not determine the composition of every block.",
+      "limits": "The census does not directly specify October 1871 street density, clothing, spoken language, or the appearance of particular people.",
+      "next_step": "Extract ward-level census tables and selected household schedules; pair them with dated addresses before assigning local population weights.",
+      "sources": [
+        {
+          "title": "History and the Census: 1871 Great Chicago Fire",
+          "url": "https://www.census.gov/about/history/stories/monthly/2021/october-2021.html",
+          "locator": "Opening paragraph and section 'History and the Census: 1871 Great Chicago Fire'",
+          "source_date": "2021-10-01; describes the 1870 census",
+          "source_kind": "Federal statistical agency historical summary",
+          "access": "read"
+        },
+        {
+          "title": "Illinois State Archives, Document 48: Invitation to a Columbus Day Celebration",
+          "url": "https://www.ilsos.gov/departments/archives/teaching-packages/early-chicago/doc48.html",
+          "locator": "Explanation following the October 11, 1869 document; foreign-born population table",
+          "source_date": "Document 1869-10-11; explanatory table describes 1870",
+          "source_kind": "State archives interpretation accompanying a primary document",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1870-demographic-discrepancies",
+      "category": "people",
+      "title": "Resolve demographic classifications before creating exact quotas",
+      "statement": "Published summaries disagree on some detailed counts. The Illinois Archives table lists Germany as 59,299, while the Ninth Census Compendium's indexed Germany column reports 52,318; other birthplaces have their own columns. Such differences must be reconciled against the actual table headings and definitions rather than silently combined.",
+      "evidence_status": "open",
+      "applies_to": "Foreign-birth classifications and demographic documentation",
+      "render_implication": "Keep birthplace, nationality, language, race, occupation, and costume as distinct fields. Do not infer a person's ethnicity from clothing or apply a modern national boundary to a historical census category.",
+      "limits": "The Compendium PDF text was read, but its dense table OCR is unreliable and screenshot extraction failed. The detailed counts are not approved for production quotas.",
+      "next_step": "Read page images of Compendium Table XX, printed pages 448–449, Chicago row 5, including all column headings; document any regrouping.",
+      "sources": [
+        {
+          "title": "A Compendium of the Ninth Census, Table XX",
+          "url": "https://www2.census.gov/library/publications/decennial/1870/compendium/1870e-21.pdf",
+          "locator": "Printed pages 448–449; PDF pages 5–6; Table XX; Chicago row 5",
+          "source_date": "1870 census; subsequent published compendium",
+          "source_kind": "Primary federal census tabulation",
+          "access": "read"
+        },
+        {
+          "title": "Illinois State Archives, Document 48",
+          "url": "https://www.ilsos.gov/departments/archives/teaching-packages/early-chicago/doc48.html",
+          "locator": "Explanation: birthplace table",
+          "source_date": "Describes 1870",
+          "source_kind": "State archives explanatory table",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-black-chicago",
+      "category": "people",
+      "title": "Include Black Chicagoans without importing the later Great Migration city",
+      "statement": "The National Park Service reports a Black population of 3,691 in Chicago in 1870. Other historical summaries round this to about 3,700 or 4,000. This establishes an existing community before the fire, not a population that arrived only in the twentieth century. The original 1871 directory additionally locates Quinn Chapel at Jackson/Fourth avenue, Bethel on Third avenue, and Olivet on Fourth between Taylor and Polk, with named ministers and Sunday schedules.",
+      "evidence_status": "open",
+      "applies_to": "People and community research for 1871",
+      "render_implication": "Include Black residents in the research and actor inventory. Determine households, businesses, institutions, and occupations through specific records rather than assigning generic servant roles or importing twentieth-century Bronzeville geography.",
+      "limits": "The exact census count needs page-level reconciliation because some other summaries report 3,696. This source does not establish a particular person's street location or appearance on October 8.",
+      "next_step": "Use these institution-specific pages to resolve pre-fire parcels and images, then trace named households and businesses through census and directory records. Keep the unresolved population-table discrepancy separate from these documented institutions.",
+      "sources": [
+        {
+          "title": "Chicago's Black Metropolis: Understanding History Through a Historic Place",
+          "url": "https://www.nps.gov/articles/chicago-s-black-metropolis-understanding-history-through-a-historic-place-teaching-with-historic-places.htm",
+          "locator": "Historical background; paragraph beginning 'By 1870'",
+          "source_date": "Modern NPS historical interpretation; describes 1870",
+          "source_kind": "National Park Service historical education resource",
+          "access": "lead"
+        },
+        {
+          "title": "African Americans, Encyclopedia of Chicago",
+          "url": "https://www.encyclopedia.chicagohistory.org/pages/27.html",
+          "locator": "Post-Civil War population and civil-rights discussion",
+          "source_date": "2005; describes nineteenth-century Chicago",
+          "source_kind": "Scholarly historical encyclopedia",
+          "access": "lead"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 43",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n34/mode/1up",
+          "locator": "Methodist, AME, Scandinavian Lutheran and Presbyterian congregations; printed page 43, scan n34",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 41",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n32/mode/1up",
+          "locator": "Baptist congregations, missions and Mariners’ Bethel; printed page 41, scan n32",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "church-quinn",
+        "church-bethel",
+        "church-olivet"
+      ]
+    },
+    {
+      "id": "life-1871-directory-primary-backbone",
+      "category": "people",
+      "title": "Named people connect occupations to premises and residences",
+      "statement": "Selective reading of the 1871 directory identifies named waiters, a drayman, women physicians, a washerwoman, a milliner, grocer and dressmaker, alongside business and institution entries. Two William Alexander entries have different occupations and residences and are retained as separate identities.",
+      "evidence_status": "documented",
+      "applies_to": "Residents, occupations, businesses, institutions, addresses, advertisements, and transport",
+      "render_implication": "Use directory entries to connect named activities to particular premises: a shopkeeper needs a shop, a stable needs access, and a transporter needs a destination. Preserve the historical address string before geocoding.",
+      "limits": "This is a selective extraction, not a complete census of residents, occupations, women, children, lodgers or poorer households. A listing does not establish race, appearance, work shift or presence on October 8.",
+      "next_step": "Cross-check selected people against the census and other contemporary records, then research actual workplace access, tools and schedules before populating a scene.",
+      "sources": [
+        {
+          "title": "Edwards' annual directory of Chicago, volume 14 (1871)",
+          "url": "https://archive.org/details/edwardsannualdir141871chic",
+          "locator": "Catalog metadata, volume, contributor, scan notes, download options",
+          "source_date": "1871",
+          "source_kind": "Digitized primary city directory",
+          "access": "catalog_only"
+        },
+        {
+          "title": "Chicago History Museum: Directories and Census Data",
+          "url": "https://libguides.chicagohistory.org/familyhistory/directories",
+          "locator": "City directories and their contents",
+          "source_date": "Current research guide",
+          "source_kind": "Museum collection research guide",
+          "access": "lead"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up",
+          "locator": "Alexander and Allan: workers and women physicians; printed page 72, scan n63",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up",
+          "locator": "Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "worker-alexander-waiter",
+        "worker-alexander-drayman",
+        "physician-alexander",
+        "worker-tully",
+        "worker-tubbs"
+      ]
+    },
+    {
+      "id": "life-1870-horsecar-routes",
+      "category": "vehicles",
+      "title": "1871 horsecar schedules refine the earlier route baseline",
+      "statement": "The 1871 directory p. 53 supplies a contemporary timetable: State/Randolph to 22d every minute, Cottage Grove services every four minutes, Archer every eight, selected North Side services every twelve or fifteen, Graceland hourly, and several West Side services every five. These are nominal service descriptions; the earlier 1870 comparison must retain its own date.",
+      "evidence_status": "documented",
+      "applies_to": "Transport network baseline immediately preceding 1871",
+      "render_implication": "Create route-constrained vehicle paths, terminals and waiting locations. The same source lists a 2½-minute State Street headway to Twenty-second Street; treat that as a dated timetable attribute, not a universal spawning interval.",
+      "limits": "A nominal timetable does not establish Sunday frequency, actual October 8 headways, complete track geometry, simultaneous vehicle totals or car capacity.",
+      "next_step": "Resolve named route endpoints and track alignments on period maps and seek Sunday service notices; retain the 1870 source only as a dated comparison.",
+      "sources": [
+        {
+          "title": "1859–1871—Chicago City Railroad Company",
+          "url": "https://chicagology.com/prefire/prefire372/",
+          "locator": "Section 'Edwards’ Annual Directory in the City of Chicago, for 1870'; 'CITY RAILWAY AND OMNIBUS ROUTES'",
+          "source_date": "Transcribes 1870",
+          "source_kind": "Modern transcription of primary directory material",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up",
+          "locator": "Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "route-south-state",
+        "route-south-archer",
+        "route-north-graceland",
+        "route-west-madison"
+      ]
+    },
+    {
+      "id": "life-1870-omnibus-transfer",
+      "category": "vehicles",
+      "title": "Hotel–depot omnibuses continued alongside street railways",
+      "statement": "The 1871 directory p. 53 states that Frank Parmelee & Co.’s omnibuses run between principal hotels and railroad depots on the arrival and departure of trains. Earlier transfer evidence is now supplemented by the original 1871 timetable.",
+      "evidence_status": "documented",
+      "applies_to": "Hotel entrances, depot forecourts, transfer traffic",
+      "render_implication": "Add luggage handling, boarding and unloading at verified endpoints as reconstructed actions. Omnibus movements should respond to a train schedule rather than circulate like horsecars.",
+      "limits": "Vehicle dimensions, liveries, precise stops, train times and October 1871 operations remain unverified.",
+      "next_step": "Locate contemporary depots, entrances and hotel stops; obtain vehicle images, luggage arrangements and dated train timetables before setting transfers.",
+      "sources": [
+        {
+          "title": "1859–1871—Chicago City Railroad Company",
+          "url": "https://chicagology.com/prefire/prefire372/",
+          "locator": "1870 directory section; final paragraph headed 'Omnibus Line'",
+          "source_date": "Transcribes 1870",
+          "source_kind": "Modern transcription of primary directory material",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up",
+          "locator": "Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "omnibus-parmelee"
+      ]
+    },
+    {
+      "id": "life-1859-horsecar-measured-reference",
+      "category": "vehicles",
+      "title": "A surviving Chicago horsecar provides a measured comparison",
+      "statement": "Illinois Railway Museum records North Chicago Street Railroad 8 as a single-truck, Bombay-roof horsecar with 18 seats, hand brakes, and listed dimensions of 12 feet long, 7 feet 5 inches wide, and 9 feet 6 inches high. Its driver stood on the front platform; one or two horses hauled it.",
+      "evidence_status": "documented",
+      "applies_to": "Horsecar asset research",
+      "render_implication": "Use this compact vehicle as a dimensional comparison and model the exposed driver, horse coupling and hand-brake operation. Confirm what the listed length measures before building a complete envelope.",
+      "limits": "The museum prints its construction year as '1859?' and says the car was rebuilt for the 1933 Century of Progress exhibition. Current fabric and dimensions cannot automatically certify its exact 1871 condition or the whole fleet.",
+      "next_step": "Compare the museum photographs and dimensions against dated Chicago street photographs and builder drawings; record any reconstruction explicitly.",
+      "sources": [
+        {
+          "title": "North Chicago Street Railroad 8",
+          "url": "https://www.irm.org/player/ncsr8/",
+          "locator": "Equipment Information; Details; final paragraph under Horse Cars",
+          "source_date": "Object catalog; construction date recorded as 1859?",
+          "source_kind": "Museum collection record for a surviving vehicle",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-horse-support-system",
+      "category": "actions",
+      "title": "Horse traffic requires stables and care, not just moving animals",
+      "statement": "The museum's horsecar history describes the support burden of horse traction: food, water, hostlers, veterinary care and manure. Exact stable operations in an 1871 Chicago block need separate records.",
+      "evidence_status": "inferred",
+      "applies_to": "Street railways, drayage, omnibuses, private carriages and service yards",
+      "render_implication": "Create linked care actions: harnessing, unhitching, watering, feeding, grooming, resting and cleaning. Place them only where an appropriate yard, stable, water source and access route exist.",
+      "limits": "These are proposed behavior systems, not witnessed actions at a particular time or proof of stable locations. Do not model all horses as identical or make every horse continuously work.",
+      "next_step": "Use the notebook’s named stables and feed dealers as address anchors; locate yards, doors, water and manure access from parcel sheets. The 1870 report attests public animal troughs but does not locate each one.",
+      "sources": [
+        {
+          "title": "North Chicago Street Railroad 8",
+          "url": "https://www.irm.org/player/ncsr8/",
+          "locator": "Horse Cars discussion of operational support",
+          "source_date": "Modern museum interpretation",
+          "source_kind": "Museum technical history",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1044",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1041/mode/1up",
+          "locator": "Livery stables and livestock commissions; printed page 1044, scan n1041",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1016",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1013/mode/1up",
+          "locator": "Florists, fish wholesalers, mills and feed dealers; printed page 1016, scan n1013",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Ninth Annual Report of the Board of Public Works — p. 75",
+          "url": "https://archive.org/details/annualreportofbo09chic/page/n90/mode/1up",
+          "locator": "Elm planting, Union Park evergreens, animal enclosures, fountains and public conveniences; printed page 75, scan n90",
+          "source_date": "1870",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "stable-schall",
+        "stable-brady",
+        "trade-nye",
+        "park-public-conveniences"
+      ]
+    },
+    {
+      "id": "life-1871-sailing-freight",
+      "category": "vehicles",
+      "title": "The river needs commercial schooners as well as steam vessels",
+      "statement": "Chicago Maritime Museum describes the city's grain and lumber trades as heavily dependent on schooners, with lumber arriving from Michigan and Wisconsin. It identifies Wolf Point as a location where arriving lumber cargoes were inspected and sold.",
+      "evidence_status": "documented",
+      "applies_to": "River, docks, grain elevators, lumber yards and harbor approaches",
+      "render_implication": "Distinguish inbound lumber cargo, outbound grain, docked vessels, and vessels under way. Represent the commercial chain with cargo-specific berths and destinations rather than distributing decorative boats uniformly.",
+      "limits": "The museum gives broad traffic magnitudes, not an October 8 vessel manifest. Its port-ranking claims should not become exact simultaneous vessel counts.",
+      "next_step": "Acquire dated arrival/clearance columns, vessel registers, berth photographs and insurance-map waterfront facilities; name ships only after confirming their presence.",
+      "sources": [
+        {
+          "title": "Grain and Lumber Trade",
+          "url": "https://www.chicagomaritimemuseum.org/maritime-history/grain-and-lumber-trade",
+          "locator": "Opening four paragraphs",
+          "source_date": "Modern museum interpretation; describes the nineteenth century and 1870–1871",
+          "source_kind": "Maritime museum historical synthesis",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-schooner-form",
+      "category": "vehicles",
+      "title": "Use Great Lakes schooner forms rather than ocean-ship defaults",
+      "statement": "Chicago Public Library describes wooden centerboard schooners with fore-and-aft rigs as characteristic Lake Michigan cargo craft. Centerboards helped them navigate shallow harbor bars; the fore-and-aft rig could be handled by comparatively small crews.",
+      "evidence_status": "documented",
+      "applies_to": "Comparative vessel morphology",
+      "render_implication": "Research hull proportions, centerboard cases, masts, booms, rigging, cargo stowage and working decks. Distinguish furled sails at a berth from a sailing configuration and obtain specific evidence for towing or maneuvering.",
+      "limits": "This is a regional type description, not proof of a named vessel, exact hull dimensions, sail state or berth on October 8.",
+      "next_step": "Choose a documented vessel or narrowly defined class and connect its plan to a dated Chicago image.",
+      "sources": [
+        {
+          "title": "Schooners: Technology That Changed Chicago",
+          "url": "https://www.chipublib.org/blogs/post/technology-that-changed-chicago-schooners/",
+          "locator": "Introductory paragraphs defining schooners and centerboards",
+          "source_date": "2014-02-24",
+          "source_kind": "Public library historical interpretation with bibliographic references",
+          "access": "read"
+        },
+        {
+          "title": "Grain Elevators and Cargo Ships on Chicago River, c.1865",
+          "url": "https://encyclopedia.chicagohistory.org/pages/3387.html",
+          "locator": "Image title and caption",
+          "source_date": "Cataloged c.1865 / before 1871",
+          "source_kind": "Historical image catalog",
+          "access": "catalog_only"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-commercial-labor-actions",
+      "category": "actions",
+      "title": "Animate commodity handling as linked tasks",
+      "statement": "The documented grain, lumber, hotel-transfer and livestock economies support a research program for freight labor. The precise motions below are reconstruction proposals until matched to a workplace and period technique.",
+      "evidence_status": "inferred",
+      "applies_to": "Wharves, warehouses, freight depots, lumber yards and commercial streets",
+      "render_implication": "Create task sequences with props and destinations: inspect cargo, handle lines, move a load, stack material, receive delivery, record a transaction, and return equipment. Each sequence should require a compatible cart, load, doorway, platform, ramp or berth.",
+      "limits": "Do not assume every task occurred on Sunday, every commodity used sacks or barrels, every dock had the same lifting machinery, or every worker had the same occupation and clothing.",
+      "next_step": "Attach each proposed action to a dated image, trade manual, newspaper description, business record or surviving tool before marking it documented.",
+      "sources": [
+        {
+          "title": "Grain and Lumber Trade",
+          "url": "https://www.chicagomaritimemuseum.org/maritime-history/grain-and-lumber-trade",
+          "locator": "Commodity and Wolf Point discussion",
+          "source_date": "Modern synthesis of nineteenth-century trade",
+          "source_kind": "Museum historical context",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-stockyards-boundary",
+      "category": "actions",
+      "title": "Separate livestock-market activity from downtown street life",
+      "statement": "The Union Stock Yard and Transit Company was incorporated in 1865 to consolidate stockyard operations. This is a major economic system to research, but its site and transport links must be represented separately from downtown commerce.",
+      "evidence_status": "documented",
+      "applies_to": "Southern industrial and livestock districts; regional economic context",
+      "render_implication": "If the modeled extent reaches the stockyards, investigate pens, gates, watering, feeding, weighing, rail loading and animal movement. For a downtown-only extent, show only locally evidenced supply and transport connections.",
+      "limits": "Published summaries describe different acreages for different dates or definitions. Do not project the later, much-expanded stockyards, later gate, or mature refrigerated-meat system backward into 1871.",
+      "next_step": "Read the incorporating act and a dated 1871 yard plan; establish the scene boundary before commissioning yard assets.",
+      "sources": [
+        {
+          "title": "An Act to Incorporate the Union Stock Yard and Transit Company of Chicago",
+          "url": "https://www.ilsos.gov/departments/archives/online-exhibits/100-documents/1865-incorp-stock-transit-chicago.html",
+          "locator": "Document 41; Background",
+          "source_date": "1865",
+          "source_kind": "State archives presentation of a primary incorporating act",
+          "access": "catalog_only"
+        },
+        {
+          "title": "Union Stock Yard, Encyclopedia of Chicago",
+          "url": "https://encyclopedia.chicagohistory.org/pages/2218.html",
+          "locator": "Opening description",
+          "source_date": "2005; describes opening in 1865 and later development",
+          "source_kind": "Scholarly historical encyclopedia",
+          "access": "lead"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-household-dairy",
+      "category": "people",
+      "title": "A documented household dairy links residents, animals and work",
+      "statement": "Chicago History Museum identifies Catherine O'Leary as a local milk seller whose barn held five cows and a horse. The O'Learys and five children occupied the rear of a double cottage; the McLaughlin family rented the front.",
+      "evidence_status": "documented",
+      "applies_to": "O'Leary property on DeKoven Street; comparative household-economy research",
+      "render_implication": "Research shared occupancy, rear-yard access, dairy animals, storage and household work. Milk handling, animal care and deliveries are possible reconstructed routines, requiring separately verified implements and timing.",
+      "limits": "This establishes a specific household economy, not that every urban yard kept cows. The museum explicitly identifies the cow-and-lamp origin scene as mythic; do not depict it as witnessed fact. The cited cottage stereograph is from 1871 after the fire.",
+      "next_step": "Compare the cottage image, lot records, census household and inquiry testimony; distinguish surviving cottage evidence from speculative barn geometry.",
+      "sources": [
+        {
+          "title": "O'Leary Home",
+          "url": "https://greatchicagofire.org/landmarks/oleary-home/index.html",
+          "locator": "Caption for J. H. Abbott stereograph ichi-02741; discussion of the ca.1872 origin lithograph",
+          "source_date": "2011 interpretation; 1871 stereograph and ca.1872 lithograph",
+          "source_kind": "Museum interpretation with cataloged historical images",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-clothing-comparative-objects",
+      "category": "people",
+      "title": "Date clothing from object records and distinguish comparison from local proof",
+      "statement": "The Metropolitan Museum catalogs an American wool-and-cotton suit dated 1870–73, object 2009.300.7719a–e, and an American silk dress dated 1870–73, object 1979.346.113a,b. Both records provide public-domain collection images.",
+      "evidence_status": "documented",
+      "applies_to": "Comparative clothing materials, cut and construction",
+      "render_implication": "Build reference sheets with front, side and back views, garment components, fabric and provenance. Use the records as period comparators, then match attire to role, wealth, age, weather and activity through local evidence.",
+      "limits": "Neither catalog establishes a Chicago wearer in October 1871. Date ranges can include later manufacture. The suit's garment type and intended wearer require visual inspection before assigning it to an actor. Museum survival favors certain garments over ordinary working clothes.",
+      "next_step": "Inspect all object photographs and local dated portraits or street images; source working clothes, headwear, footwear, children's clothing and repairs separately.",
+      "sources": [
+        {
+          "title": "Suit, American, 1870–73",
+          "url": "https://www.metmuseum.org/art/collection/search/174758",
+          "locator": "Artwork Details; object 2009.300.7719a–e",
+          "source_date": "Object dated 1870–73",
+          "source_kind": "Museum collection object",
+          "access": "read"
+        },
+        {
+          "title": "Dress, American, 1870–73",
+          "url": "https://www.metmuseum.org/art/collection/search/107603",
+          "locator": "Artwork Details; object 1979.346.113a,b",
+          "source_date": "Object dated 1870–73",
+          "source_kind": "Museum collection object",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-walking-dress-silhouette",
+      "category": "people",
+      "title": "Early bustle silhouettes differ from the later 1880s form",
+      "statement": "The Met's American walking dress, dated 1870–75, is a silk ensemble with an overskirt contributing decoration and bustle fullness. The museum describes it as clothing for promenading and visiting.",
+      "evidence_status": "documented",
+      "applies_to": "Fashionable walking and visiting clothing as a comparative type",
+      "render_implication": "Study the early bustle profile, layered skirt construction and movement envelope. Keep this as one wardrobe option; do not dress an entire population in a single fashionable silhouette.",
+      "limits": "The 1870–75 range overlaps but does not prove manufacture before the fire. This is not Chicago provenance or evidence of ordinary labor clothing. A separately found summer dress, Met 2002.252a,b, is dated 1872–75 and should remain a later comparison, not a prefire exemplar.",
+      "next_step": "Pair the object with 1870–71 fashion plates and Chicago-specific portraits, identifying which features are directly observed and which are reconstructed.",
+      "sources": [
+        {
+          "title": "Walking dress, American, 1870–75",
+          "url": "https://www.metmuseum.org/art/collection/search/156667",
+          "locator": "Curatorial description; object 2009.300.1900a–c",
+          "source_date": "Object dated 1870–75",
+          "source_kind": "Museum collection object and interpretation",
+          "access": "read"
+        },
+        {
+          "title": "Dress, American, 1872–75",
+          "url": "https://www.metmuseum.org/art/collection/search/85161",
+          "locator": "Artwork Details; object 2002.252a,b",
+          "source_date": "Object dated 1872–75",
+          "source_kind": "Later comparative museum object",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-retail-location",
+      "category": "actions",
+      "title": "Retail activity was moving toward State Street before the fire",
+      "statement": "The museum's State and Madison page identifies Booksellers' Row, on State north of Madison, as a five-story marble-front retail building associated with the late-1860s shift of upscale shopping from Lake Street to State.",
+      "evidence_status": "documented",
+      "applies_to": "State and Madison retail district",
+      "render_implication": "Research shops, window displays, signs and entrances from the ca.1871 Lovejoy & Foster stereograph. Shopping, browsing and deliveries can then be attached to specific premises as reconstructed actions.",
+      "limits": "The same webpage also contains postfire and much later images. Its photograph with four horsecars is explicitly after the fire; its 1878–79 carriage-trade view cannot certify prefire façades, traffic or attire.",
+      "next_step": "Inspect prefire image ichi-29598 at high resolution, transcribe legible signs and cross-check businesses against the 1871 directory.",
+      "sources": [
+        {
+          "title": "State & Madison",
+          "url": "https://greatchicagofire.org/landmarks/state-madison/",
+          "locator": "Caption 'View of Booksellers’ Row before the Fire'; ichi-29598, contrasted with later image captions",
+          "source_date": "Prefire stereograph cataloged ca.1871; 2011 interpretation",
+          "source_kind": "Museum interpretation and historical image catalog",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-sunday-and-event-scheduling",
+      "category": "actions",
+      "title": "October 8 was Sunday: schedules need a date, not just a year",
+      "statement": "The museum timeline dates the fire's beginning to Sunday, October 8, 1871. Crosby's Opera House was scheduled to reopen on October 9 after refurbishment; that planned concert never took place.",
+      "evidence_status": "documented",
+      "applies_to": "Scene calendar and cultural activity",
+      "render_implication": "Make weekday/Sunday, hour and event status explicit inputs. Worship, visiting, recreation and transport should be researched against Sunday schedules. Do not populate Crosby's with an audience for the unrealized October 9 reopening.",
+      "limits": "Sunday does not prove all shops were closed or that all residents attended church. Churchgoing, visiting and leisure actions remain reconstruction choices until tied to local services or testimony.",
+      "next_step": "Use the extracted Sunday service times as schedule evidence, then consult October 8 notices to verify actual events. A timetable or monthly society rule is not an eyewitness record of attendance.",
+      "sources": [
+        {
+          "title": "Timeline: Chicago in 1871",
+          "url": "https://greatchicagofire.org/timeline/index.html",
+          "locator": "The Great Conflagration; Sunday, October 8, 1871",
+          "source_date": "2011 interpretation of 1871 events",
+          "source_kind": "Museum historical chronology",
+          "access": "read"
+        },
+        {
+          "title": "Crosby's Opera House",
+          "url": "https://greatchicagofire.org/landmarks/crosbys-opera-house/",
+          "locator": "Discussion of refurbishment and planned October 9 reopening",
+          "source_date": "2011 interpretation; describes 1871",
+          "source_kind": "Museum landmark history",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 43",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n34/mode/1up",
+          "locator": "Methodist, AME, Scandinavian Lutheran and Presbyterian congregations; printed page 43, scan n34",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 41",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n32/mode/1up",
+          "locator": "Baptist congregations, missions and Mariners’ Bethel; printed page 41, scan n32",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 53",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n44/mode/1up",
+          "locator": "Horse railway timetable, omnibus transfers and societies; printed page 53, scan n44",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "church-quinn",
+        "church-immanuel",
+        "church-mariners",
+        "hand-in-hand"
+      ]
+    },
+    {
+      "id": "life-1871-saturday-fire-state",
+      "category": "actions",
+      "title": "Immediately before the Great Fire was already after another major fire",
+      "statement": "The museum timeline places the Saturday Night Fire on October 7 in the area bounded by Van Buren, Clinton, Adams and the South Branch. It reports twenty destroyed buildings and firefighting continuing into October 8 afternoon, leaving crews exhausted and equipment needing repair.",
+      "evidence_status": "documented",
+      "applies_to": "October 8 scene cutoff; Near West Side; firefighting readiness",
+      "render_implication": "A scene late on October 8 must account for this earlier burn area. Research surviving fire crews, damaged apparatus, blocked access and spectators before adding them as actions.",
+      "limits": "The chronology does not provide parcel-level damage, exact surviving structures, smoke opacity or the location of each crew at a chosen hour.",
+      "next_step": "Digitize the earlier fire footprint from contemporary reporting and compare it with the intended scene time; distinguish this damage from the subsequent Great Fire.",
+      "sources": [
+        {
+          "title": "Timeline: Chicago in 1871",
+          "url": "https://greatchicagofire.org/timeline/index.html",
+          "locator": "A Fiery Prelude; Saturday, October 7, 1871",
+          "source_date": "2011 interpretation of October 7–8, 1871",
+          "source_kind": "Museum historical chronology",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-rail-and-fire-watch",
+      "category": "actions",
+      "title": "Operational rules offer behavior constraints without proving compliance",
+      "statement": "The museum timeline records a January 30, 1871 request to enforce the six-mile-per-hour city train-speed limit, and a January 24 order extending station-tower fire watches from nightfall until 9:30 p.m., when the regular night watch began.",
+      "evidence_status": "documented",
+      "applies_to": "Rail crossings, stations and fire-watch behavior",
+      "render_implication": "Treat rail crossings as shared conflict points and investigate watchtower sightlines. Store legal speed limits separately from reconstructed movement speed and actual observed compliance.",
+      "limits": "A rule documents an intended practice, not universal obedience or the exact roster on October 8. This does not specify locomotive type, track elevation or every watchtower's geometry.",
+      "next_step": "Find the original council and fire-commission records, dated track maps, apparatus inventories and station locations.",
+      "sources": [
+        {
+          "title": "Timeline: Chicago in 1871",
+          "url": "https://greatchicagofire.org/timeline/index.html",
+          "locator": "Extending the Fire Watch, January 24; Intracity Train Speed Limits, January 30",
+          "source_date": "2011 interpretation of January 1871 records",
+          "source_kind": "Museum chronology summarizing municipal actions",
+          "access": "read"
+        }
+      ]
+    },
+    {
+      "id": "life-1871-action-evidence-contract",
+      "category": "actions",
+      "title": "Every populated scene needs an action-and-prop evidence record",
+      "statement": "The researched sources establish people, vehicles, commodities, premises and dated events at different levels of specificity. They do not jointly establish a fully observed street scene at a single moment. Animation requires an explicit reconstruction layer.",
+      "evidence_status": "inferred",
+      "applies_to": "All people, animals and moving vehicles",
+      "render_implication": "For each action record actor role, location, time window, destination, required props, motion constraints, source, confidence and exclusions. Useful candidate routines include walking, waiting, boarding, alighting, carrying luggage, receiving goods, tending animals, shopping, visiting, handling dock lines and recording transactions.",
+      "limits": "These are proposed authoring requirements and candidate actions, not a claim that each occurred at the chosen location and moment. Keep named historical people separate from anonymous reconstructed actors.",
+      "next_step": "Choose one documented block, wharf and residential lot as pilots. Build complete actor–prop–place chains and expose unresolved evidence before expanding crowd density.",
+      "sources": [
+        {
+          "title": "Edwards' annual directory of Chicago, volume 14 (1871)",
+          "url": "https://archive.org/details/edwardsannualdir141871chic",
+          "locator": "Directory extraction target for people, businesses and locations",
+          "source_date": "1871",
+          "source_kind": "Primary directory; catalog inspected",
+          "access": "catalog_only"
+        },
+        {
+          "title": "State & Madison",
+          "url": "https://greatchicagofire.org/landmarks/state-madison/",
+          "locator": "Prefire Booksellers' Row stereograph ichi-29598",
+          "source_date": "ca.1871",
+          "source_kind": "Dated local visual reference",
+          "access": "catalog_only"
+        }
+      ]
+    },
+    {
+      "id": "primary-1871-small-infrastructure",
+      "category": "land",
+      "title": "Small infrastructure now has specific materials and locations",
+      "statement": "The Board report supplies North Division pine-plank sidewalk work by corridor and newly erected hydrants by intersection, including Chicago avenue at Pine. It also describes street names displayed on lamps.",
+      "evidence_status": "documented",
+      "applies_to": "Primary publication reporting dates are retained in the linked field observations.",
+      "render_implication": "Create separate sidewalk, hydrant and lamp layers with evidence attached to each candidate.",
+      "limits": "Work footage is not necessarily a full corridor length; corner listings do not specify exact casting position or form.",
+      "next_step": "Join the selected corridors and intersections to 1871 street geometry before modeling.",
+      "sources": [
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 44",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n54/mode/1up",
+          "locator": "Sidewalks assessed and built by contractors; pine plank; printed page 44, scan n54",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 84",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n94/mode/1up",
+          "locator": "New North Division hydrants; printed page 84, scan n94",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 79",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n89/mode/1up",
+          "locator": "New hydrants: date definition and South Division; printed page 79, scan n89",
+          "source_date": "1871",
+          "source_kind": "primary publication; OCR text read; scan available",
+          "access": "read"
+        },
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 116",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n126/mode/1up",
+          "locator": "Street names displayed on lamps; printed page 116, scan n126",
+          "source_date": "1871",
+          "source_kind": "primary publication; OCR text read; scan available",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "walk-clark",
+        "walk-clybourn-division",
+        "hydrant-chicago-pine",
+        "lamp-streetnames"
+      ]
+    },
+    {
+      "id": "primary-1871-park-fabric",
+      "category": "landscape",
+      "title": "Municipal records describe built park features",
+      "statement": "The 1871 report describes Lincoln Park rock fountains, drinking hydrants and a rustic carriage bridge; Union Park gas lamps, rustic houses and a Washington street entrance; and Jefferson Park lakes, rustic bridges, music pavilion and fountain basin.",
+      "evidence_status": "documented",
+      "applies_to": "Primary publication reporting dates are retained in the linked field observations.",
+      "render_implication": "Build a feature register separating reported work from proposed park designs.",
+      "limits": "A prose report does not supply form, dimensions, position or proof every feature operated on October 8.",
+      "next_step": "Match the features to period plans, images and maintenance records.",
+      "sources": [
+        {
+          "title": "Tenth Annual Report of the Board of Public Works — p. 52",
+          "url": "https://archive.org/details/annualreportboa06workgoog/page/n62/mode/1up",
+          "locator": "Completed Lincoln, Union and Jefferson Park improvements; printed page 52, scan n62",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "park-lincoln-fountains",
+        "park-lincoln-bridge",
+        "park-union-lamps",
+        "park-union-entrance",
+        "park-jefferson-bridges"
+      ]
+    },
+    {
+      "id": "primary-1871-fire-network",
+      "category": "actions",
+      "title": "Fire protection is a distributed network of stations, horses and alarms",
+      "statement": "The directory lists named engine, hose and ladder companies, alarm-box locations and a repeated digit-group bell code. Its aggregate inventory is 17 steamers, 23 hose carts, seven ladder trucks, 194 men and 91 horses.",
+      "evidence_status": "documented",
+      "applies_to": "Primary publication reporting dates are retained in the linked field observations.",
+      "render_implication": "Research station access, stabling, crew work and alarm sounds as connected systems.",
+      "limits": "Named companies, apparatus totals and October 8 serviceability are different measures. The previous night’s fire affects readiness.",
+      "next_step": "Cross-check the roster with duty and repair records and contemporary apparatus images.",
+      "sources": [
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 34",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n25/mode/1up",
+          "locator": "Fire apparatus, personnel, alarm code and South Division boxes; printed page 34, scan n25",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "fire-roster",
+        "engine-09",
+        "engine-14",
+        "alarm-code",
+        "alarm-03"
+      ]
+    },
+    {
+      "id": "primary-1871-food-and-ice",
+      "category": "people",
+      "title": "Food, ice and service work connect people to street activity",
+      "statement": "The directory advertises ice-cream rooms, family packs carried in ice, and ice dealers’ offices. Named hotel workers and independent trades provide anchors for service research.",
+      "evidence_status": "documented",
+      "applies_to": "Primary publication reporting dates are retained in the linked field observations.",
+      "render_implication": "Construct short tasks with goods, containers, doorways and transport rather than unconnected pedestrians.",
+      "limits": "An advertisement is an offer, not proof of sales, a supplier contract or opening on Sunday.",
+      "next_step": "Research container forms, cold storage, delivery vehicles, access and dated business activity.",
+      "sources": [
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 1031",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n1028/mode/1up",
+          "locator": "Hotels, ice dealers, ice-cream makers and advertisements; printed page 1031, scan n1028",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 72",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n63/mode/1up",
+          "locator": "Alexander and Allan: workers and women physicians; printed page 72, scan n63",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        },
+        {
+          "title": "Edwards’ Annual Directory of the City of Chicago, 1871 — p. 898",
+          "url": "https://archive.org/details/edwardsannualdir141871chic/page/n893/mode/1up",
+          "locator": "Tucker, Tully, Tubbs and Tullis: work and household listings; printed page 898, scan n893",
+          "source_date": "1871",
+          "source_kind": "primary publication; scan inspected",
+          "access": "read"
+        }
+      ],
+      "notebook_ids": [
+        "icecream-brazelton",
+        "ice-smith",
+        "worker-alexander-waiter",
+        "worker-tully"
+      ]
+    }
+  ],
+  "year_audit": [
+    {
+      "year": "1812",
+      "date": "1812-08-14",
+      "status": "Implemented scene; released flag remains false",
+      "summary": "First Fort Dearborn on natural ground before the harbor cut. Current indexes contain 68 structure/component entries, 834 people records and 284 standalone human instances; these are dataset units, not simultaneous visible counts.",
+      "lessons": [
+        "Use an exact day and independent terrain state. The pre-cut mouth, sand spit and natural banks have their own derived geometry; remove later streets, piers and bridges explicitly.",
+        "Keep buildings, outer compounds, gardens, enclosures, yard goods and crossings separately inspectable. Camera anchors let reviewers test the same places repeatedly.",
+        "Current routines support 284 drawn and 520 callable residents, with dates, seasons, duties, work, conversations, play, meals and indoor periods. These schedules and rendering limits are declared liberties.",
+        "Keep identity, presence, appearance and action separate. A named person is not evidence for their exact face, outfit or minute-by-minute behavior.",
+        "Reuse the day engine, door access, spacing and route systems for 1871; research new households, occupations, clothes and routes. Do not carry 1812 ground or individual placements forward.",
+        "The scene note mentioning only one soldier is stale. Current human indexes and the routines dossier establish the later implementation."
+      ],
+      "references": [
+        {
+          "title": "1812 scene",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1812.json"
+        },
+        {
+          "title": "Structure index",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/sidecars/1812/index.json"
+        },
+        {
+          "title": "Current routines",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/docs/RESEARCH/1812-routines-3540/README.md"
+        },
+        {
+          "title": "Human day engine",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/renderers/web/js/human-days.js"
+        }
+      ]
+    },
+    {
+      "year": "1835",
+      "date": "1835-07-01",
+      "status": "Implemented scene; released flag remains false",
+      "summary": "The broadest existing settlement layer inventory: 687 structure/component sidecars and 3,891 people-directory entries, including 307 transients. Four standalone instances and a wagon route demonstrate actors; the directory is not a street crowd.",
+      "lessons": [
+        "Research all layers: land, water, ordinary buildings, streets, fences, signs, goods, gardens, frontage, wharves, boats, wells, businesses, people, horses and lights.",
+        "Use slow terrain epochs and faster dated structure phases. Resolve exactly one phase on the target date and compile that historical decision into the sidecar.",
+        "Preserve natural habitat, planted ground, bare soil and strata separately. Areal cover and stems per square metre are different units.",
+        "Fauna distinguish seen, heard, trace-only, absent and undepicted presence. July species/activity records cannot automatically represent October 1871.",
+        "People records distinguish home, work, presence, dated roles, reconstructed households and transients. Apply new 1871 sources rather than carrying old trade shares and names.",
+        "Use aggregate totals to constrain explicitly reconstructed ordinary fabric; never turn them into individually documented addresses.",
+        "Night-light records separate evidence for candles/oil from reconstructed brightness, window-hour shares and exact placements."
+      ],
+      "references": [
+        {
+          "title": "1835 scene",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1835.json"
+        },
+        {
+          "title": "Structure index",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/sidecars/1835/index.json"
+        },
+        {
+          "title": "Flora manifest",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/flora/index.json"
+        },
+        {
+          "title": "Fauna manifest",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/fauna/index.json"
+        },
+        {
+          "title": "Asset and evidence contract",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/docs/GLB-CONTRACT.md"
+        }
+      ]
+    },
+    {
+      "year": "1904",
+      "date": "1904-07-01",
+      "status": "Implemented Prairie Avenue scene; released flag remains false",
+      "summary": "A parcel-scale urban model with 284 structure/component sidecars, 445 directory records and eight standalone human instances. The separate research library has 63 named building records, 138 sources, 38 maps and 73 occupancy candidates.",
+      "lessons": [
+        "Distinguish source map date from scene date: 1911 frontage readings are explicitly adjudicated for 1904, and the 1886/1911 shoreline bounds remain visible.",
+        "Count front buildings, wings, rear buildings, shared coach houses and service parcels separately. Name continuity does not prove unchanged fabric.",
+        "Use street sections, curbs, walks, alleys, front and rear yards, railways, trees, lamps, hydrants, poles and wires as dated urban infrastructure.",
+        "Combine rule-based tree placement with picture-specific overrides; an empty photographed interval can rule a tree out.",
+        "Use independent camera and façade evidence, preserving uncertainty in ground and shoreline. A reconstructed line is not a surveyed line.",
+        "The parked Brougham follows an 1893 catalogue while its owner and exact stop remain reconstructed. That exact design is too late to substantiate an 1871 vehicle.",
+        "Reuse urban rendering machinery; re-research 1871 parcels, materials, occupants, utilities, rails and plants.",
+        "The scene note saying only one building is stale; current compiled indexes contain 284 components."
+      ],
+      "references": [
+        {
+          "title": "1904 scene",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/scenes/1904.json"
+        },
+        {
+          "title": "Structure index",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/sidecars/1904/index.json"
+        },
+        {
+          "title": "Prairie research library",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/prairie_1904_v1/README.md"
+        },
+        {
+          "title": "Shoreline bounds",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/terrain/shoreline_states.json"
+        },
+        {
+          "title": "Vehicle evidence",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/transport/parked/placements.json"
+        }
+      ]
+    },
+    {
+      "year": "1880 / 1888",
+      "date": null,
+      "status": "Planned door / superseded research date; no separate implemented scene",
+      "summary": "The 1880 URL is deliberately generated as a pending year. The 1888 representative date survives in research records after the Prairie Avenue target moved to 1904.",
+      "lessons": [
+        "Do not count a navigable year URL as an existing reconstruction.",
+        "Do not treat a historical representative date as evidence that geometry exists for it.",
+        "For 1871, the grade-raise epoch is a placeholder ending 7 October; the postfire epoch starts 10 October. An 8 October pre-fire instant needs an explicit terrain/date decision.",
+        "Current 1904 ground must not be backdated to fill that gap."
+      ],
+      "references": [
+        {
+          "title": "Year-door generator",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/tools/write_entry_pages.mjs"
+        },
+        {
+          "title": "Epoch registry",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/4d/data/terrain/epochs.json"
+        }
+      ]
+    },
+    {
+      "year": "1674–1871 Atlas",
+      "date": null,
+      "status": "Research viewer coverage, not annual 3D reconstructions",
+      "summary": "Six pre-fire research tranches supply 324 named/source-identifiable records. Only 15 have point coordinates; 214 are flagged for review. The current map inventory has 15 references, although the older statistics page says 14.",
+      "lessons": [
+        "The year slider filters known spans and nearby reference maps; it does not certify every selected day.",
+        "1830 plat: planned parcels and streets. The 1833 Conley–Stelzer map is a 1933 reconstruction. The 1834 Wright/Hathaway maps, 1836 Mesier map, 1839 harbor plan, 1849 Rees–Rucker map and 1853 Hart map have distinct purposes and dates.",
+        "1857 Palmatary and 1868 Ruger views help with appearance and massing, not measured footprint coordinates.",
+        "1870 Mitchell and four 1871 references support the near-fire study, but pre-fire views, city plans and burnt-district evidence must remain separate.",
+        "Preserve named structures separately from unnamed stock totals, and unknown fire fate as unknown.",
+        "Resolve addresses and georeference sources before claiming parcel placement."
+      ],
+      "references": [
+        {
+          "title": "Pre-fire buildings",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/data/buildings.csv"
+        },
+        {
+          "title": "Map inventory",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/maps/map_references.csv"
+        },
+        {
+          "title": "Evidence methodology",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/pre_fire_v1/docs/methodology.md"
+        }
+      ]
+    },
+    {
+      "year": "1872",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "89 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1873",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "53 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1874",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "25 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building.",
+        "The 1874 fire is a separate event; do not combine its losses or footprint with the 1871 disaster."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1875",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "38 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1876",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "28 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1877",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "26 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1878",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "28 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    },
+    {
+      "year": "1879",
+      "date": null,
+      "status": "Independently researched postfire tranche; no scene file",
+      "summary": "25 named/source-identifiable project records assigned to this research year within the 312-record postfire package. These are not annual building-stock or completion counts.",
+      "lessons": [
+        "Keep research-year assignment distinct from start, completion and opening dates. A directory appearance or reopening is not automatically new construction.",
+        "Use this tranche to exclude later construction from the 1871 scene and to identify explicit predecessor/rebuild relationships.",
+        "Do not merge buildings by surviving institutional names or import later elevations and materials into the pre-fire building."
+      ],
+      "references": [
+        {
+          "title": "Annual statistics",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/statistics.md"
+        },
+        {
+          "title": "Annual method",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/docs/methodology.md"
+        },
+        {
+          "title": "Project records",
+          "url": "https://github.com/kevinrhaas/chicago/blob/137da5c8aef6152195d46fd569fc80c48f9ea369/chicago/postfire_1870s_v1/data/buildings.csv"
+        }
+      ]
+    }
+  ],
+  "readiness": [
+    {
+      "title": "Fix the date, hour and modeled extent",
+      "priority": "P0 · Scene contract",
+      "deliverable": "An explicit October 8 pre-ignition scene specification, with a separate October 7 intact-city comparison if useful.",
+      "acceptance": "Day, local time convention, bounding extent, Saturday Night Fire state and terrain interval agree; no scene is called rendered by this dossier."
+    },
+    {
+      "title": "Acquire and register primary sheets and photographs",
+      "priority": "P0 · Evidence",
+      "deliverable": "Verified map editions, uncropped image masters, 1871 directory and municipal-report page records.",
+      "acceptance": "Every extracted attribute has a source, date, locator, access status and rights decision; catalog-only leads remain distinct from inspected pixels."
+    },
+    {
+      "title": "Build the 1871 ground state",
+      "priority": "P0 · Terrain",
+      "deliverable": "Georeferenced shoreline, lagoon, depot fill, river reaches, street grades, bridge/tunnel approaches and earlier-burn footprint.",
+      "acceptance": "Control points and residuals recorded; terrain, water and walking heights agree; neither natural 1835 ground nor 1904 fill is silently reused."
+    },
+    {
+      "title": "Resolve physical building identities and date conflicts",
+      "priority": "P0 · Structures",
+      "deliverable": "Dated parcel/structure register with original and replacement hotels, churches and institutions kept separate.",
+      "acceptance": "Palmer conflict is ruled on or visibly unresolved; Nixon construction state and Crosby closure are honored; every included phase covers the cutoff."
+    },
+    {
+      "title": "Complete a landmark and an ordinary block",
+      "priority": "P1 · Urban fabric",
+      "deliverable": "Measured/reconstructed footprints, heights, roofs, openings, storefronts, rear buildings, yards and service access.",
+      "acceptance": "Attribute-level confidence survives compilation; no anonymous citywide total is expanded into invented named buildings."
+    },
+    {
+      "title": "Prepare people and clothing evidence",
+      "priority": "P1 · People",
+      "deliverable": "Household/business address joins, role inventory, comparative garment sheets and dated local image readings.",
+      "acceptance": "Identity, presence, location, occupation, appearance and action confidence are separate; aggregate census counts never masquerade as street density."
+    },
+    {
+      "title": "Connect vehicles, paths and infrastructure",
+      "priority": "P1 · Transport",
+      "deliverable": "Verified horsecar routes, omnibus transfers, dray/rail/boat types, bridge opening rules and stable support.",
+      "acceptance": "Vehicle dates precede cutoff; dimensions and route provenance are explicit; no cable cars, elevated trains or later catalogue assets slip in."
+    },
+    {
+      "title": "Map plants, animals and October conditions",
+      "priority": "P1 · Living landscape",
+      "deliverable": "Plantable habitat masks, cemetery/park phases, photographed trees, drought condition and independently sourced fauna.",
+      "acceptance": "No mature proposed park or modern tree inventory; species, density, phenology and weather uncertainty remain exposed."
+    },
+    {
+      "title": "Author dated activity pilots",
+      "priority": "P1 · Actions",
+      "deliverable": "Retail, waterfront and household pilots with actor–prop–place records and Sunday/hour constraints.",
+      "acceptance": "Each motion has compatible paths and objects; documented activities remain separate from reconstructed timing, crowd density and named-person performance."
+    },
+    {
+      "title": "Review the reconstruction at street and city scale",
+      "priority": "P2 · Acceptance",
+      "deliverable": "Named camera anchors, source-image comparisons, mobile/desktop checks, evidence cards and visible liberties.",
+      "acceptance": "Zero missing assets or page errors, no terrain/footprint collisions, inspectable provenance, reproducible builds and an explicit list of unresolved gaps."
+    }
+  ],
+  "audit_snapshot": "Implementation audit: published/main snapshot 137da5c8aef6152195d46fd569fc80c48f9ea369, inspected November 18, 2026. Development may be ahead; counts describe this audited snapshot, not the latest dev build or a historical census."
+}

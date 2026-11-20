@@ -25,6 +25,9 @@
  */
 
 import { sourceTitle } from './inspect-sources.js';
+import { fieldNotebook } from './field-notebook.js';
+import { t } from './strings/index.js';
+import './strings/notebook.js';
 
 const GRADE_WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
 const PLACE = {
@@ -267,6 +270,7 @@ export function personModel({ row, person = null, household = null, citations = 
 
   return {
     id: p.id ?? row?.id ?? null,
+    year,
     name: p.name ?? row?.name ?? '',
     grade,
     place: PLACE[relationship] ?? capital(words(relationship)),
@@ -311,6 +315,9 @@ export function notFoundWhy(m) {
   if (m.present === 'uncertain') return 'Not in town now: where they were that day is not known';
   return 'Not out in town at this hour or season';
 }
+
+/** T-3573: under Find and Follow for someone at home now. */
+export const AT_HOME_LINE = 'At home now: they come out to meet you';
 
 /**
  * T-3521: a line on what the work meant in a house like this one, for a census servant whose
@@ -399,6 +406,13 @@ function livedWhy({ grade, census, year, lived }) {
       text: `The sources below place them in this house as a child of the family${lived.years ? `, ${String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2')}` : ''}.${then}` };
   }
   if (grade === 'inferred') {
+    // T-3590: someone the 1900 census found here who was gone by the scene (Kate Ryan, the
+    // Glessners' summer cook) is known from that census line, like the staff who stayed.
+    const gap = census && year ? year - (yearOf(census.date) ?? year) : 0;
+    if (census && gap > 0 && on === 'no') {
+      return { grade, title: 'Inferred: worked out from clues',
+        text: `The 1900 census lists them in this house on 1 June 1900, ${NUMBER[gap] ?? gap} year${gap === 1 ? '' : 's'} before this scene.${then}` };
+    }
     const later = census && census.year > (Number(year) || 0)
       ? `The ${census.year} census lists them in this house${on === 'yes' ? `; their age and the family's listings put them at home in ${when}, which no record of that year states` : ''}.`
       : 'No source prints the relationship outright; it is read from the listings below.';
@@ -414,8 +428,9 @@ function el(doc, tag, cls, text) {
   return n;
 }
 
+let cardSeq = 0;
 /** Draw a model. `dot(doc, grade)` is Inspect's grade dot. */
-export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null } = {}) {
+export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null, atHome = null } = {}) {
   const card = el(doc, 'article', 'insp-person-card');
   card.dataset.personId = m.id ?? '';
   const back = el(doc, 'button', 'insp-person-back');
@@ -428,6 +443,9 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
 
   const head = el(doc, 'header', 'insp-person-head');
   const name = el(doc, 'h2', 'insp-name insp-person-name', m.name);
+  // T-3671 (1.3.1, 4.1.2): the card is named by the person's name.
+  name.id = `person-card-name-${++cardSeq}`;
+  card.setAttribute('aria-labelledby', name.id);
   head.append(name);
   const chips = el(doc, 'ul', 'insp-chips');
   const chip = (text, grade) => { const li = el(doc, 'li', 'insp-chip', text); if (grade) li.append(dot(doc, grade)); chips.append(li); };
@@ -436,6 +454,19 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
+  if (m.read) {
+    const save = el(doc, 'button', 'setting-button insp-person-notebook', t('notebook.personSave'));
+    save.type = 'button';
+    const status = el(doc, 'p', 'nav-sub'); status.setAttribute('role', 'status');
+    save.addEventListener('click', e => {
+      e?.stopPropagation?.();
+      const result = fieldNotebook.add({ kind: 'person', person: m.id, title: m.name, year: m.year,
+        place: m.household, grade: m.grade, sources: m.sources,
+        excerpt: [m.storyMark?.text, m.lead, ...m.story, m.why?.text].filter(Boolean).join('\n\n') });
+      status.textContent = t(result.ok ? (result.duplicate ? 'notebook.duplicate' : 'notebook.personSaved') : `notebook.error.${result.reason}`);
+    });
+    card.append(save, status);
+  }
   // T-3531 (the owner, 2026-11-09: "if somebody is looked for and you try to find them and
   // they cant be found because they are not in the area you should not be able to select the
   // find this person or follow and where those buttons are you should know they cant be found
@@ -461,6 +492,8 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
       card.append(follow);
     }
     if (!here) card.append(el(doc, 'p', 'nav-k insp-person-unfound', notFoundWhy(m)));
+    // T-3573: at home now: Find or Follow goes to their door, and out they come on a walk.
+    else if (typeof atHome === 'function' && atHome(m.id)) card.append(el(doc, 'p', 'nav-k insp-person-unfound insp-person-home', AT_HOME_LINE));
   }
   if (m.ownCard) {
     // T-3382: a grown child with a house of their own in the scene year has a card there too.

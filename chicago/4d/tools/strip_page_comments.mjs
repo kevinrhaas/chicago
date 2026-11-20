@@ -7,13 +7,12 @@
 //
 // WHY. renderers/web/index.html carries about 13 KB of HTML comments: the reasons a
 // line is the way it is, written for whoever edits it next. They are the source's
-// documentation and they stay there. A visitor downloads none of them usefully, and
-// publish.sh ships that page five times over — walk/ and the year doors, which are
-// the stamped page plus one <base href> (write_entry_pages.mjs). Those doors are
-// deliberately byte-identical, so tools/validate.py's site check (T-0722) refuses
-// them once they reach SITE_DUPE_FLOOR (64 KB); on 2026-10-18 the door was 64,208
-// bytes and PR #1030's markup put it over. Taking the notes out of the SHIPPED page
-// is the honest fix: the floor stays where it is and the doors stay identical.
+// documentation and they stay there. A visitor downloads none of them usefully.
+// Originally publish.sh copied that page into every year door; on 2026-10-18 the
+// 64,208-byte door approached SITE_DUPE_FLOOR (64 KB), and PR #1030 put it over.
+// This tool removed the developer notes from the shipped page. T-3654 now shares
+// that canonical page through small year loaders, so adding years no longer
+// copies the renderer. The floor remains unchanged and comments remain stripped.
 //
 // THE RULES. Only real `<!-- … -->` comments in markup go, and the rest of the page is
 // passed through byte for byte:
@@ -32,9 +31,11 @@
 // (the gate's build stamp and the c4d-releases meta are put back to their source form
 // and the rest must match byte for byte), so every script, style and textarea body is
 // the source's; every placeholder the source carries survives the strip; and every
-// year door is walk/index.html plus its <base>, so the doors carry no notes either.
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+// year door is the small stamped loader of that shared page, so doors carry no
+// renderer copies or developer notes either.
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT4D = path.resolve(HERE, '..');
@@ -180,19 +181,20 @@ export async function problems(site, sourcePath = path.join(ROOT4D, 'renderers/w
       }
     });
   }
-  const { door } = await import('./write_entry_pages.mjs');
+  const { sharedDoor } = await import('./write_entry_pages.mjs');
   for (const year of readdirSync(site).filter((d) => /^\d{4}$/.test(d)).sort()) {
     const p = path.join(site, year, 'index.html');
     if (!existsSync(p)) continue;
     const html = readFileSync(p, 'utf8');
-    if (!html.includes('<base href="../walk/">')) continue; // a planned year's pending page
-    if (html !== door(published, '../walk/')) bad.push(`${year}/index.html is not walk/index.html plus its <base>`);
+    if (year === '1812' && !existsSync(path.join(ROOT4D, 'data/scenes/1812.json'))
+      && html === readFileSync(path.join(ROOT4D, 'renderers/web/portal/pending.html'), 'utf8')) continue;
+    if (html !== sharedDoor(published, '../walk/')) bad.push(`${year}/index.html is not the small loader of the shared walk page`);
     if (stripComments(html).removed.length) bad.push(`${year}/index.html ships developer comments`);
   }
   return bad;
 }
 
-function selfTest() {
+async function selfTest() {
   const fail = [];
   const ok = (cond, what) => { if (!cond) fail.push(what); };
   const page = [
@@ -244,6 +246,27 @@ function selfTest() {
   ok(rr.html.includes(GATE_PLACEHOLDER), 'the source page\'s gate placeholder survives the strip whole');
   ok(rr.html.includes(RELEASES_PLACEHOLDER), 'the source page\'s release-number meta survives the strip');
   ok(stripComments(rr.html).removed.length === 0, 'the stripped source page carries no comment');
+  // A malformed built-year door must not be mistaken for a pending year.
+  const fixture = mkdtempSync(path.join(os.tmpdir(), 'temporal-door-contract-'));
+  try {
+    const { sharedDoor } = await import('./write_entry_pages.mjs');
+    mkdirSync(path.join(fixture, 'walk'));
+    mkdirSync(path.join(fixture, '1871'));
+    writeFileSync(path.join(fixture, 'walk/index.html'), rr.html);
+    const entry = path.join(fixture, '1871/index.html');
+    const loader = sharedDoor(rr.html, '../walk/');
+    writeFileSync(entry, loader);
+    ok((await problems(fixture)).length === 0, 'an exact shared door passes the mirror contract');
+    for (const [label, html] of [
+      ['missing base', loader.replace('<base href="../walk/">', '')],
+      ['wrong base', loader.replace('<base href="../walk/">', '<base href="../wrong/">')],
+      ['pending template for a built year', readFileSync(path.join(ROOT4D, 'renderers/web/portal/pending.html'), 'utf8')],
+    ]) {
+      writeFileSync(entry, html);
+      ok((await problems(fixture)).some(b => b.includes('1871/index.html is not the small loader')),
+        `${label} fails the exact shared-door contract`);
+    }
+  } finally { rmSync(fixture, { recursive: true, force: true }); }
   for (const f of fail) console.error(`FAIL  ${f}`);
   if (!fail.length) console.log(`strip_page_comments self-test: ok (the source page sheds ${rr.removed.length} comments, ${real.length - rr.html.length} bytes)`);
   return fail.length ? 1 : 0;
@@ -252,7 +275,7 @@ function selfTest() {
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
   const arg = process.argv[2];
   if (arg === '--self-test') {
-    process.exitCode = selfTest();
+    process.exitCode = await selfTest();
   } else if (arg === '--check') {
     const site = path.resolve(process.argv[3] || path.join(ROOT4D, '../../site/4d'));
     const bad = await problems(site);

@@ -8,6 +8,7 @@ import { loadHorseRecipe, applyHorseAppearance } from './horse-appearance.js';
 import { createPlantedStandingHorseIdle, validatePlantedStandingHeader } from './standing-horse-planted-idle.js';
 import { standingHorseCard as card } from './standing-horse-card.js';
 import { createQuietHeadNeckStandingContract, QUIET_MODE } from './standing-horse-quiet-head-neck-idle.js';
+import { motionQuery } from './motion.js';
 // Trusted code pin: exact newly executed finite129 certificate, never sidecar-derived.
 const quietContract = createQuietHeadNeckStandingContract({ qualificationSha256: 'badca71fb2ab7596be9447adaf01b3d035d5a59c7b844bc27b500d0a004d78a6' });
 const idleContract = spec => spec.runtime_asset.source_qualification_mode === QUIET_MODE
@@ -185,7 +186,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
   problems = [], hostMissing = () => false, groundHeight = null, recipeFile = null } = {}) {
   const group = new THREE.Group(); group.name = 'standing-horses';
   const ray = new THREE.Raycaster(), eye = new THREE.Vector3();
-  const motionPreference = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const motionPreference = motionQuery; // T-3671: Settings › Look › Motion (js/motion.js)
   let tier = detail, disposed = false, revision = 0, pending = null, active = null, abort = null;
   let manifest = null, rows = [], lastCamera = null, attemptedRevision = -1;
   const resetIdleClock = () => { if (active) active.idleWasActive = false; };

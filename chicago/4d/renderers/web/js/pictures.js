@@ -49,9 +49,10 @@ function heldOf(doc, id) {
  * without it. Null where none of them has a held picture: the card keeps its family
  * icon, never a stand-in picture.
  */
-export function plateFor(doc, ids = []) {
+export function plateFor(doc, ids = [], picture = null) {
   for (const id of ids) {
-    const p = heldOf(doc, id)[0];
+    // T-3584: a jaunt may name which of its building's held pictures heads its card.
+    const held = heldOf(doc, id), p = (picture && held.find((h) => h.id === picture)) || held[0];
     if (!p) continue;
     const holder = String(p.holder ?? '').split(' — ')[0].trim();
     return {
@@ -169,14 +170,17 @@ export function hydratePictures(root) {
 let viewer = null;
 function viewerEl() {
   if (viewer) return viewer;
-  viewer = document.createElement('div');
+  // A native modal isolates the rest of the page without rewriting its existing
+  // inert/aria-hidden state. Closing it restores that state automatically.
+  viewer = document.createElement('dialog');
   viewer.className = 'pic-viewer';
   viewer.setAttribute('role', 'dialog');
   viewer.setAttribute('aria-modal', 'true');
   viewer.setAttribute('aria-label', 'Picture');
+  viewer.tabIndex = -1;
   viewer.hidden = true;
   viewer.innerHTML = `<div class="pic-viewer-bar">
-      <span class="pic-viewer-count" data-pv-count></span>
+      <span class="pic-viewer-count" data-pv-count aria-live="polite"></span>
       <a class="pic-viewer-full" data-pv-full target="_blank" rel="noopener">FULL SIZE ↗</a>
       <button type="button" class="pic-viewer-close" data-pv-close aria-label="Close">✕</button>
     </div>
@@ -192,13 +196,38 @@ function viewerEl() {
     const step = e.target.closest('[data-pv-step]');
     if (step) viewerShow(viewer._at + Number(step.dataset.pvStep));
   });
-  document.addEventListener('keydown', (e) => {
+  viewer.addEventListener('cancel', (e) => { e.preventDefault(); closePictureViewer(); });
+  viewer.addEventListener('close', () => { if (!viewer.open) releaseViewer(); });
+  viewer.addEventListener('keydown', (e) => {
     if (viewer.hidden) return;
-    if (e.key === 'Escape') { e.stopPropagation(); closePictureViewer(); }
-    else if (e.key === 'ArrowRight') { e.stopPropagation(); viewerShow(viewer._at + 1); }
-    else if (e.key === 'ArrowLeft') { e.stopPropagation(); viewerShow(viewer._at - 1); }
-  }, true);
+    // Modal keys must not reach the Navigator or the world's movement shortcuts.
+    // Browser commands (including zoom) retain their ordinary default action.
+    e.stopPropagation();
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'Escape') { e.preventDefault(); closePictureViewer(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); viewerShow(viewer._at + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); viewerShow(viewer._at - 1); }
+    else if (e.key === 'Tab') {
+      const keys = [...viewer.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')]
+        .filter((el) => !el.closest('[hidden], [inert]') && el.getClientRects().length
+          && getComputedStyle(el).visibility !== 'hidden');
+      const first = keys[0] ?? viewer, last = keys.at(-1) ?? viewer;
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === viewer)) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || document.activeElement === viewer)) {
+        e.preventDefault(); first.focus();
+      }
+    }
+  });
+  // Let key releases reach the world so a key held before opening cannot stick.
   return viewer;
+}
+
+function releaseLoading(v) {
+  if (!v._loading) return;
+  v._loading.onload = v._loading.onerror = null;
+  v._loading.removeAttribute('src');
+  v._loading = null;
 }
 
 function viewerShow(i) {
@@ -207,10 +236,13 @@ function viewerShow(i) {
   if (!list?.length) return;
   const at = (i + list.length) % list.length;
   const p = list[at];
+  const replacingFocus = v.querySelector('[data-pv-credit]').contains(document.activeElement);
   v._at = at;
+  v.setAttribute('aria-label', `Picture: ${p.title ?? p.id}`);
   const img = v.querySelector('[data-pv-img]');
   const thumb = storeUrl(v._doc, p.held.t);
   const full = storeUrl(v._doc, p.held.f) ?? thumb;
+  releaseLoading(v);
   // The thumbnail first (already loaded by the grid), then the full copy over it once it
   // has arrived, so a slow link shows the picture at once and sharpens. One full copy at
   // a time: a step away abandons the one still loading.
@@ -218,14 +250,20 @@ function viewerShow(i) {
   img.alt = `${p.kind ?? 'Picture'}: ${p.title ?? p.id}`;
   if (full !== thumb) {
     const pre = new Image();
+    v._loading = pre;
     pre.decoding = 'async';
-    pre.onload = () => { if (!v.hidden && v._list?.[v._at] === p) img.src = full; };
+    pre.onload = () => {
+      if (v._loading === pre && !v.hidden && v._list?.[v._at] === p) img.src = full;
+      if (v._loading === pre) releaseLoading(v);
+    };
+    pre.onerror = () => { if (v._loading === pre) releaseLoading(v); };
     pre.src = full;
   }
   v.querySelector('[data-pv-full]').href = full;
   v.querySelector('[data-pv-count]').textContent = `${at + 1} / ${list.length}`;
   v.querySelector('[data-pv-credit]').innerHTML = creditHtml(v._doc, p);
   for (const b of v.querySelectorAll('[data-pv-step]')) b.hidden = list.length < 2;
+  if (replacingFocus) v.querySelector('[data-pv-close]').focus({ preventScroll: true });
 }
 
 /** Open the viewer on held picture `i` of a building. */
@@ -233,19 +271,35 @@ export function openPictureViewer(doc, id, i) {
   const list = heldOf(doc, id);
   if (!list.length) return;
   const v = viewerEl();
+  if (!v.open) v._returnFocus = document.activeElement;
   v._doc = doc;
   v._list = list;
   v.hidden = false;
   document.documentElement.classList.add('pic-viewer-open');
   viewerShow(Number(i) || 0);
+  if (document.pointerLockElement) document.exitPointerLock?.();
+  if (!v.open) v.showModal();
   v.querySelector('[data-pv-close]').focus({ preventScroll: true });
 }
 
-/** Close it and let the full-size copy go. */
-export function closePictureViewer() {
+function releaseViewer() {
   if (!viewer || viewer.hidden) return;
+  const returnFocus = viewer._returnFocus;
   viewer.hidden = true;
   viewer._list = null;
+  viewer._doc = null;
+  viewer._returnFocus = null;
+  releaseLoading(viewer);
   viewer.querySelector('[data-pv-img]').removeAttribute('src');
+  viewer.querySelector('[data-pv-full]').removeAttribute('href');
+  viewer.querySelector('[data-pv-credit]').replaceChildren();
   document.documentElement.classList.remove('pic-viewer-open');
+  if (returnFocus?.isConnected && !returnFocus.closest('[inert]')) returnFocus.focus?.({ preventScroll: true });
+}
+
+/** Close it and let the full-size copy and any pending decode go. */
+export function closePictureViewer() {
+  if (!viewer || viewer.hidden) return;
+  if (viewer.open) viewer.close();
+  releaseViewer();
 }

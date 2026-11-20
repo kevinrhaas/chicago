@@ -58,6 +58,15 @@ build, which sloped the walk down inside the parkway instead: "they dont go down
 like the photos").
 The two pictured corners are attested; the rest stand by that rule, reconstructed
 (docs/LIBERTIES.md L-prairie-corner-crossings-3200).
+
+THE CARRIAGE DRIVES (T-3564). The owner, 2026-11-12, of the Glessner coach house's 18th Street
+doors: "a horse and carriage can enter according to normal standards of how that would work ...
+i imagine there would be like a driveway to the coach house as well that should exist". So before
+a coach-house doorway that opens on a street (DRIVES below) the walk's paving is carried from the
+lot line across the margin, the walk and the parkway, over the curb at the doorway's width, and
+down a stone slab onto the roadway, exactly as a corner crossing runs (same slab, run and lip).
+Where it stands is the doorway's own (the structure record); the paving and slab are
+reconstructed by that rule (docs/LIBERTIES.md L-glessner-coach-drive-3564).
 """
 from __future__ import annotations
 
@@ -175,6 +184,61 @@ def corner_end(face, c):
         m = (-m[0], -m[1])
     return t, m
 
+
+# T-3564: coach-house doorways on a street, each with its carriage drive. `along_m` is the
+# doorway's centre from the parcel corner `from` along the face's street line: Glessner's
+# house stands 14.7 ft (4.481 m) behind Prairie's line (glessner_house.json, position), its
+# carriage doorway at W 134.9-147.0 ft (openings_stable_doors), so W 140.95 ft.
+DRIVES = [
+    {"parcel": "prairie_1800", "face": "e18th__indiana_prairie_18_20", "from": "NE_street",
+     "along_m": round(4.481 + 140.95 * 0.3048, 3), "width_ft": 12.0,
+     "structure": "glessner_house", "doorway": "openings_stable_doors",
+     "note": "Before the Glessner coach house's carriage doorway on 18th Street, its 12-ft width: the "
+             "owner's ruling of 2026-11-12 that a carriage enters there and a driveway should exist "
+             "(T-3564)."},
+]
+
+
+def lay_drives(grid, xs):
+    """A carriage drive before each street doorway of DRIVES: paving from the lot line to the curb,
+    then the corner crossings' stone slab down onto the roadway."""
+    faces = {f["id"]: f for f in grid["faces"]}
+    parcels = {p["id"]: p for p in grid["parcels"]}
+    out = []
+    for d in DRIVES:
+        face = faces[d["face"]]
+        p = parcels[d["parcel"]]
+        c0 = p["corners_local_m"][d["from"]]
+        _, t0, _ = local_side(face, c0)
+        # Along the face away from the corner, toward the lot's other street-line corner.
+        other = next(v for k, v in p["corners_local_m"].items() if k != d["from"]
+                     and abs((v[0] - c0[0]) * t0[0] + (v[1] - c0[1]) * t0[1]) > 1.0
+                     and abs((v[0] - c0[0]) * (-t0[1]) + (v[1] - c0[1]) * t0[0]) < 5.0)
+        sgn = 1 if (other[0] - c0[0]) * t0[0] + (other[1] - c0[1]) * t0[1] > 0 else -1
+        q = (c0[0] + sgn * t0[0] * d["along_m"], c0[1] + sgn * t0[1] * d["along_m"])
+        c, t, n = local_side(face, q)
+        bands = {b["band"]: b for b in xs[face["cross_section"]]["bands"]}
+        curb = bands["curb"]["to_ft"] * FT
+        foot = curb + RAMP_RUN_M
+        half = d["width_ft"] * FT / 2
+
+        def at(off, along):
+            return [round(c[0] + n[0] * off + t[0] * along, 3), round(c[1] + n[1] * off + t[1] * along, 3)]
+        out.append({
+            "id": f"{d['parcel']}.carriage_drive", "kind": "carriage_drive",
+            "face": face["id"], "parcel": d["parcel"],
+            "structure": d["structure"], "doorway": d["doorway"],
+            "origin": [round(c[0], 3), round(c[1], 3)],
+            "out": [round(n[0], 5), round(n[1], 5)],
+            "flat": [at(0.0, -half), at(0.0, half), at(curb, half), at(curb, -half)],
+            "ramp": [at(curb, -half), at(curb, half), at(foot, half), at(foot, -half)],
+            "ramp_from_m": round(curb, 3), "ramp_to_m": round(foot, 3),
+            "width_m": round(2 * half, 3), "run_m": round(RAMP_RUN_M, 3),
+            "slab_m": RAMP_SLAB_M, "lip_m": RAMP_LIP_M,
+            "tier": "reconstructed", "note": d["note"],
+        })
+    out.sort(key=lambda x: x["id"])
+    return out
 
 def lay_crossings(grid, xs):
     """Two crossings at every corner: each face's walk carried on across the other's parkway."""
@@ -377,6 +441,16 @@ def build():
                      "that rule."),
             "crossings": lay_crossings(grid, xs),
         },
+        "carriage_drives": {
+            "ticket": "T-3564",
+            "liberty": "L-glessner-coach-drive-3564",
+            "note": ("A coach house's carriage doorway on a street gets a drive: the walk's paving from the lot "
+                     "line across the margin, walk and parkway at the doorway's width, over the curb, and the "
+                     "corner crossings' stone slab down onto the roadway. The owner, 2026-11-12: a carriage "
+                     "enters the Glessner coach house there, and 'there would be like a driveway to the coach "
+                     "house as well that should exist'."),
+            "drives": lay_drives(grid, xs),
+        },
     }
 
 
@@ -428,7 +502,8 @@ def lay_posts(grid, faces, xs, walk_of):
 
 def dump(doc):
     """indent=1, with each list of placed things one record per line."""
-    lists = (("carriage_walks", "walks"), ("carriage_posts", "posts"), ("corner_crossings", "crossings"))
+    lists = (("carriage_walks", "walks"), ("carriage_posts", "posts"), ("corner_crossings", "crossings"),
+             ("carriage_drives", "drives"))
     held = {}
     for key, sub in lists:
         held[key] = doc[key][sub]
@@ -451,17 +526,20 @@ def main():
     n = len(doc["carriage_walks"]["walks"])
     m = len(doc["carriage_posts"]["posts"])
     x = len(doc["corner_crossings"]["crossings"])
+    dr = len(doc["carriage_drives"]["drives"])
     if a.check:
         have = OUT.read_text() if OUT.exists() else ""
         if have != text:
             print(f"street section: {OUT.relative_to(ROOT)} is not what the tool writes -- re-run "
                   "python3 tools/lay_prairie_1904_street_section.py")
             return 1
-        print(f"street section: {n} carriage walks, {m} carriage posts, {x} corner crossings, as written")
+        print(f"street section: {n} carriage walks, {m} carriage posts, {x} corner crossings, "
+              f"{dr} carriage drives, as written")
         return 0
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text)
-    print(f"wrote {OUT.relative_to(ROOT)}: {n} carriage walks, {m} carriage posts, {x} corner crossings")
+    print(f"wrote {OUT.relative_to(ROOT)}: {n} carriage walks, {m} carriage posts, {x} corner crossings, "
+          f"{dr} carriage drives")
     return 0
 
 

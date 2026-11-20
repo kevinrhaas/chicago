@@ -12,7 +12,7 @@
   ],
   "focal_px": 728.738452410013,
   "eye": [
-    30.068137953281262,
+    46.767138,
     -8.966953159845357,
     1.7
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-2845 re-solve (tools/keith_loggia_plan_rule.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-plan-rule.json): T-2764's level camera (roll fitted, prior 0 +/- 1.5 degrees; eye height 1.7 m kept; principal x 337) on all 29 of its coordinates, read off the slide by luminance profile, with two changes. The bow's three principal heads are paired with the middle light's head, 4.70 m, where this slide stops the glass (T-2831: 0.664 of the sill-to-string-course span; the top lights are blind by 1965), not the 5.30 m head the 1888 plate glazes. The loggia's world points stand at the first-floor plan's place (T-2836's ruling): its front pedestals about 0.6 m across at v 6.75-7.35 and 9.60-10.20, the pairs over their middles, where the GLB now builds them (T-2845), each pair's shafts 0.36 m apart; re-fitted by tools/keith_loggia_built_read.py on the rebuilt loggia. Free: u, v, yaw, roll, f, cy. Coordinate RMS 3.66 px, max 7.6 px (south pair capital top). On the as-built loggia the same controls fit at 4.66 px RMS (max 10.2). Replaces T-2764's fit (3.47 px on the 5.30 m heads). 1965 colour photograph, Glessner House Museum. The print is blue-cast and the fa\u00e7ade in shade; ratios constrain a pale neutral granite, not a calibrated quarry colour. Later iron infill and ivy are not copied into 1904."
+  "solve": "T-2845 re-solve (tools/keith_loggia_plan_rule.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-plan-rule.json): T-2764's level camera (roll fitted, prior 0 +/- 1.5 degrees; eye height 1.7 m kept; principal x 337) on all 29 of its coordinates, read off the slide by luminance profile, with two changes. The bow's three principal heads are paired with the middle light's head, 4.70 m, where this slide stops the glass (T-2831: 0.664 of the sill-to-string-course span; the top lights are blind by 1965), not the 5.30 m head the 1888 plate glazes. The loggia's world points stand at the first-floor plan's place (T-2836's ruling): its front pedestals about 0.6 m across at v 6.75-7.35 and 9.60-10.20, the pairs over their middles, where the GLB now builds them (T-2845), each pair's shafts 0.36 m apart; re-fitted by tools/keith_loggia_built_read.py on the rebuilt loggia. Free: u, v, yaw, roll, f, cy. Coordinate RMS 3.66 px, max 7.6 px (south pair capital top). On the as-built loggia the same controls fit at 4.66 px RMS (max 10.2). Replaces T-2764's fit (3.47 px on the 5.30 m heads). 1965 colour photograph, Glessner House Museum. The print is blue-cast and the façade in shade; ratios constrain a pale neutral granite, not a calibrated quarry colour. Later iron infill and ivy are not copied into 1904. T-3564: the eye's u is moved +16.699 m with the footprint frame, whose origin (the SW corner) went back that far when the house was deepened to its 1911 rear; the front, and so the camera's place in the world, did not move."
 }

@@ -1,0 +1,106 @@
+== title @f73abade
+Botas, cuero y el camino
+
+== premise @19dcbb57
+Equipa a un jinete para el viaje de mañana: botas en la tienda de Holbrook en South Water Street, una vista desde Wolf Point hacia la curtiduría de Miller, donde se originó el cuero del pueblo, el talabartero de Lake y Canal, y el Green Tree para reunirlo todo.
+
+== opening @b6bfdb13
+PASEO: BOTAS, CUERO Y EL CAMINO. En esta tarde de primavera el lodo por fin se está secando, y tú partes mañana. Los forasteros fluyen por este asentamiento "por tierra y por agua", y la mayoría de ellos, como tú, tienen la intención de "establecerse más al oeste". Antes de unirte a ellos necesitas un equipo, y un equipo significa, en esencia, cuero: botas para el jinete y arreos para el caballo.
+
+Aquí está la complicación: en este pueblo esos constituyen dos oficios distintos, ejercidos en dos establecimientos separados en orillas opuestas del río. Compra botas en South Water Street, observa la curtiduría donde se originó la manufactura del cuero en Chicago, consulta al talabartero de Lake y Canal, y reúnelo todo esta noche en el Green Tree.
+
+== stop ready-made @77d67058
+Comienza una puerta al este de Dearborn, en South Water Street. En junio de 1835 John Holbrook anunciaba sombreros, ropa, botas y zapatos, al por mayor y al por menor, como agente de los fabricantes, con nuevas existencias que llegaban cada quince o veinte días. Son mercancías manufacturadas, enviadas desde talleres del Este y vendidas del inventario, porque en un asentamiento que se expande tan rápidamente, nadie puede darse el lujo de esperar el trabajo por encargo de un zapatero.
+
+== narrative ready-made @1a56d514
+¿Serán botas para el viaje, o un sombrero?
+
+== label ready-made boots @91bda3a7
+Un par de botas del estante
+
+== consequence ready-made boots @156c17e5
+Manufacturadas en otra parte e importadas, como todo lo que figura en su anuncio, así que tus pies están preparados para el viaje.
+
+== label ready-made hat @d4598eb8
+Un sombrero para el camino
+
+== consequence ready-made hat @5a930cde
+La versión del anuncio que imprimió el American enumera primero los sombreros, así que los zapatos con los que llegaste tendrán que bastar.
+
+== stop tannery @3207c771
+Cruza el brazo sur hasta Wolf Point. Del otro lado del brazo norte, en 1831, John Miller construyó una casa de troncos en la punta y la operó como curtiduría, considerada la primera fábrica registrada de Chicago, y Andreas identifica a Benjamin Hall, curtidor, como su socio desde 1832. Antes de que las embarcaciones entregaran botas por cajas, el cuero aquí se originaba como pieles remojándose en un foso. Ninguna fuente que se conserve revela si todavía se procesaban pieles este verano.
+
+== narrative tannery @1c67686d
+El cuero tiene que originarse como pieles en algún lugar, y aquí se originó en la punta.
+
+== stop saddler @8ac63176
+Hacia el sur por la orilla occidental hasta Lake y Canal, donde Goss and Cobb establecieron su taller en 1833, el año en que llegó Silas B. Cobb, y fabricaban por encargo sillas de montar, arneses, bridas, gamarras y baúles, garantizando que las reparaciones se atenderían de inmediato. La sociedad se disolvió en febrero de 1835, y el anuncio de Cobb de junio declara que él continuará por su cuenta. Ninguno de los anuncios impresos menciona botas ni zapatos.
+
+== narrative saddler @6be93d98
+¿Comprarás cuero para el caballo, o para el equipaje?
+
+== label saddler bridle @5ccf36dd
+Encargar una brida nueva
+
+== consequence saddler bridle @8d079ff7
+Las bridas aparecen en el anuncio, y Cobb te garantiza una para la mañana.
+
+== label saddler trunk @2bf497ff
+Encargar un baúl
+
+== consequence saddler trunk @004bff03
+Los baúles también aparecen en el anuncio, aunque un baúl viaja en una carreta y no en una silla de montar.
+
+== label saddler ask-boots @3118a51f
+Pedirle botas al talabartero
+
+== consequence saddler ask-boots @8f78a9fa
+Eso queda fuera de su oficio: su anuncio especifica sillas de montar, arneses, bridas, gamarras y baúles, mientras que las botas y los zapatos eran la mercancía de Holbrook, al otro lado del río.
+
+== stop road @5ebb41c1
+Hacia el este por Lake hasta West Water y el Green Tree, que James Kinzie construyó en 1833 como el primer edificio de aquí levantado para servir de hotel, "llamado así por un roble que estaba muy cerca". Los primeros colonos recordaban que Chester Ingersoll lo administró de 1834 a 1837, y perduró hasta 1880, cuando fue trasladado a Milwaukee Avenue. Acomoda el equipo en el piso para la mañana.
+
+== narrative road @da1c2423
+¿Partirás con la primera luz, o te demorarás otro día?
+
+== label road ride @d5e26616
+Salir con la primera luz
+
+== consequence road ride @46549c28
+El equipo es lo que es, completo o, si no, incompleto.
+
+== label road wait @72f4847a
+Quedarse un día y completar el equipo
+
+== consequence road wait @3bda7399
+Otra noche en el Green Tree, y otro día de aprovisionamiento.
+
+== leg 0 @39d59adf
+Lo que compraste va delante de ti, atravesado sobre la silla.
+
+== note 0 @1555673b
+Hacia el oeste por South Water Street y cruzando el brazo sur hasta Wolf Point.
+
+== note 1 @f02bd34d
+Hacia el sur por la orilla oeste hasta Lake y Canal.
+
+== note 2 @6d01a113
+Hacia el este por Lake Street hasta West Water, en la orilla oeste del brazo sur.
+
+== ending another-day @b38f3b6c
+Otro día en el pueblo, entonces. Lo que le falte al equipo se anuncia en algún lugar de estas calles, y el camino esperará, porque un día de demora no equivale a no estar preparado.
+
+== ending equipped @65ae0aca
+Botas del ropero y una brida del talabartero: cuero para el jinete y cuero para el caballo, de dos oficios especializados que nunca invadieron el trabajo del otro. Partes con la primera luz, equipado para viajar.
+
+== ending trunk-bound @7c71f4bb
+Un baúl no viaja en una silla de montar, así que la mañana comienza con la búsqueda de una carreta que vaya en tu dirección: el equipaje está preparado, pero el medio para transportarlo no.
+
+== ending half-ready @bdc6d26d
+Partes con lo que tienes. Botas para el jinete y una brida para el caballo constituían los dos cueros del equipo, uno de cada oficio, y lo que sea que falte, el camino inevitablemente te lo exigirá.
+
+== keepsake title @ad9ef2fc
+Equipado para viajar
+
+== keepsake text @d6ece57c
+Un recuento ficticio del equipo de un jinete: lo que vino del ropero, lo que vino del talabartero y lo que se quedó atrás. No lleva registrada ninguna venta, precio ni cliente auténtico de ninguna de las dos tiendas.

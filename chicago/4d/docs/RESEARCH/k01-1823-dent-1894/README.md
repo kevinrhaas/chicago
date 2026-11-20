@@ -97,3 +97,155 @@ ticket is released with the records saying so (T-3153: no photo follow-up ticket
 - before: `before-t3162-chicagology_engraving.jpg` (T-3162's build through T-3162's camera)
 - after: `../photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg` and
   `album_1883-side-by-side.jpg`
+
+## T-1894 (reopened) — the rear stack and the door's narrow light
+
+Two of the six open differences, each a small addition to K01:
+
+- **The stack over the rear range.** A flat-decked wing may now carry `rear_wings[].stacks`
+  (until now only a slated wing could, T-1890): T-2302's plain prism under its cap, standing on
+  the tin deck 0.3 m or more inside the wing's walls. Read through the engraving's camera at
+  x 170-235 px with its top at y 188 px: u -4.8 m, v 0.7 m, 0.9 x 0.75 m (the main stack's plan,
+  which the same camera puts within 10 px of its own reading), 16.6 m high. The vignette draws it
+  at the flank's rear corner, in the same place. Its band about two-thirds up and its corbelled
+  cap are not modelled.
+- **The narrow light beside the door on the principal storey** (x 960-980 px). `front_bays_by_storey`
+  may now name the principal storey, provided the door's bay stays among its centres; the light is
+  laid at v 7.4 m on the storey's sash, as the chamber storey's above it.
+
+Still open, each needing K01 to do something it does not: the triple group's broad dormer whose
+pediment rises over the curb, the grilled arched doorway under the landing, the box bay's
+corbelled foot, and (on the vignette) the slated cheeks either side of the pavilion's attic.
+
+## T-1894, 2026-11-15 — the grilled arched doorway under the landing
+
+K01's side stoop (`entrance_kit.side_stoop`) takes an optional `arch` — `v_m`, `span_m`, `spring_m`,
+`depth_m`, and an optional `grille` of `bars`, `set_back_m` and `ring_radius_m` — and K07 cuts a
+round-headed basement arch in the landing's street face (`Entrance._arch_face`, T-2500's terrace arch,
+now taking the face's role) with iron in its void (`Entrance._arch_grille`, after K08's basement
+grille, T-2525). The Dent house carries one: 1.05 m across under the door at v 6.2 m, jambs 0.6 m over
+grade under a half-round head, a 0.4 m void, five uprights and a ring in the head.
+
+Read through the engraving's camera against the render: the print's arch at x 925-980 px, its crown at
+y 938 px. A first bake with the jambs at 0.8 m put the crown 15 px (about 0.27 m) high; at 0.6 m it
+lands at y 935 px. The 1883 vignette draws the arch a little larger, which its half-metre scale does
+not resolve. Both pictures draw the landing's face about 1 m longer to the north than the build's
+1.8 m, the flight shorter and the landing's top lower: recorded open on both match records, not built
+here (it would move the stoop that both records mark fixed).
+
+The other open items (the broad dormer through the curb, the box bay's corbelled foot, the pavilion
+attic's slated cheeks) are unchanged.
+
+## T-1894, 2026-11-15 (second piece) — the box bay on its corbels, and the flank's basement lights
+
+Both pictures stand the north flank's box bay on a corbelled block under its broad light, with a
+basement light in the flank's wall beneath it; the build had carried the bay to grade 0.5 m proud
+with that light in its own foot, because K08's corbelled oriel stood only on an upper floor.
+
+- **K01** (`k01_frontage_params.resolve_bays`) now lets an oriel stand on the principal floor too,
+  when its corbel courses (or its apron's foot) still clear grade by a metre. Nothing else changes:
+  every other K01 house's resolved parameters are as they were, and `validate.py --stale` reads 0
+  stale.
+- **The Dent house**: the bay is `k08.oriel.canted_corbelled` on the principal floor at 2.35 m, its
+  plan the bay's own 2.4 m by 0.5 m, its one storey the principal one with its paired light, on three
+  0.2 m courses, so its foot stands at 1.75 m. Through the engraving's camera the build's block is at
+  y 865-900 px against the print's 857-895 px.
+- **The flank's basement lights**, read off the engraving at y 915-965 px (0.45-1.45 m over grade),
+  square-headed in the brick: under the bay (x 404-438 px, laid at u 6.05 m where the print puts it
+  under the bay's front, 1.15 m across), under the 2.15 m column (x 310-332 px) and under the 11.0 m
+  column (x 530-565 px). The render's land within about 8 px of each. The print draws two more,
+  under the 0.25 m column (x 265-285 px) and under the rear range's column (x 230-250 px); K01 lays
+  a read window no nearer than 0.45 m to a wall's end, and a rear wing's basement lights only
+  round-headed, so those two are recorded open.
+
+Still open, as before: the triple group's broad pedimented dormer over the curb, the pavilion attic's
+slated cheeks, and the landing's length.
+
+## T-1894, 2026-11-15 (third piece) — the flank's last two basement lights
+
+The engraving draws five basement lights along the north flank's foot, all square-headed in the
+brick. The second piece laid three; the other two needed K01 to do two things it would not.
+
+- **K01, a flush wing's end** (`k01_frontage_params._flush_wing_end`). A light read off a picture
+  keeps 0.45 m off its wall's ends, so that a corner keeps its pier. At 1823 the main body's north
+  flank (K01's `side.south`) does not end at its rear: the rear range carries it on flush, past the
+  light's head, as the 1911 sheet's unbroken north wall gives it. Where a rear wing carries a flank
+  on flush like that, past the light's head plus 0.45 m, that end is no corner, and a read light may
+  stand 0.1 m inside it, still in the main body's own wall. Every other end still keeps 0.45 m.
+- **K01, a wing's square basement lights** (`rear_wings[].basement_lights.<side>.head: "plain"`).
+  A wing's basement lights were only round-headed (1811's, T-3133). They may now be square, a plain
+  hole as the main body's read lights are, at least 0.3 m high.
+- **The Dent house**: the light under the 0.25 m column (x 265-285 px) at s 0.48 m, its south edge
+  0.1 m inside the main body's rear (the print centres it about 0.2 m further south, within the
+  bar); the light under the rear range's flank column (x 230-250 px) at the range's s 5.25 m. Both
+  are 0.75 m across and 0.45-1.45 m over grade, the size of the other three. Through the engraving's
+  camera the render's land at about x 275-288 and 232-245 px. The reconstructed north downpipe,
+  which the first would have crossed, moves from s 0.6 m to the blank pier at 1.2 m.
+
+Both match records mark the flank's basement lights fixed. Still open: the triple group's broad
+pedimented dormer over the curb, the pavilion attic's slated cheeks, and the landing's length.
+
+## T-1894, 2026-11-15 (fourth piece) — the landing a few risers under the door, drawn to its length
+
+Both pictures draw the stoop's landing about 1 m longer to the north than the build's 1.8 m, and
+the engraving draws three more things that go with it: its flight is shorter (its foot about
+x 760 px against the build's 743), the landing's top edge stands lower (y 905 px against 865), and
+the iron rail turns level along the landing at y 870 px, about 0.9 m over it. Read along the
+flight's line at about 51 px a metre, the print's flight runs from x 760 to x 897-907 px: nine
+treads of 0.3 m. So the landing does not stand at the 2.35 m hall floor; the door opens a few
+risers under it, on a vestibule, as 1612's does (T-2369).
+
+No new generator capability was needed: K01 already takes `entrance_floor_m`, the door's floor
+between 1.0 m and the hall less 0.5 m, read from a source.
+
+- **`entrance_floor_m` 1.7** — ten risers of 0.17 m, the print's nine treads. The landing drops
+  0.65 m.
+- **`side_stoop.landing_v_m` [4.4, 7.1]** — 2.7 m, from the flight's head to the pavilion. The
+  flight's foot falls at v 1.7 m.
+- **The arch re-read** — with the face at the print's length, the 1.05 m arch under the door
+  rendered at x 952-995 px against the print's 925-980: about 0.45 m south and 0.25 m narrow. It is
+  now 1.25 m across, centred at v 5.8 m (the face's middle is 5.75 m, and the vignette draws it a
+  little south of the middle), on 0.5 m jambs, so its crown stays at about 1.13 m.
+- **`door_clear_height_m` 3.2** — the print's doorway is the leaves (y 757-887 px) under a
+  transom light to y 697 px and a cornice hood. A 2.70 m door on the lowered floor put its head at
+  4.4 m, 0.65 m under T-3163's. 3.2 m is K01's tallest principal door (head 4.9 m, y 730 px).
+
+Through the engraving's camera the render's landing top edge lands at y 905 px, its face's north
+end at about x 900 px, the flight's foot at about x 763 px, the door's foot at about y 900 px, and
+the arch's jambs at x 927-978 px. Through the vignette's camera the landing's top, its length to the
+pavilion and the arch's place land within 1-2 px. The vignette draws the arch broader (about 22 px
+against 13), where the engraving is after a photograph at four times the scale: recorded on the
+vignette's arch line, which the two pictures do not agree on.
+
+Both match records mark the landing's length fixed, and the engraving's record marks the arch's
+width fixed. Newly recorded open on the engraving's record: the doorway's height. The print's hole,
+with its transom, is about 3.8 m from the landing against the build's 3.2 m, and has no transom
+glazing and no hood. The door stood about as far under the print's transom before this change
+(its head at about y 721 px), and nothing recorded it. Still open, as before: the triple group's
+broad pedimented dormer over the curb and the pavilion attic's slated cheeks.
+
+## T-1894, sixth revision (2026-11-18): the pavilion's crown
+
+The 1883 New Chicago Album vignette draws the pavilion over the main cornice as an attic front of
+paired lights, a scroll at either side, under a pediment with a finial, standing between slated
+cheeks under a steep slated crown that rises behind the pediment. The build had carried the
+pavilion's stone up a full-width attic under a coped gable, so its cheeks were stone. Read through
+the vignette's camera at its half-metre scale (the pavilion's front is about 55 px for 5.74 m):
+the stone front about 39 px, the pediment's base about 42 px, the paired lights about 26 px, the
+cornice-to-apex height about 65 px, and the scrolls from about the lights' sill toward the attic's
+cornice.
+
+Built: the attic storey 2.9 m, its front's outer 0.8 m at each end and both its returns slated
+(K08's storey `cheeks`, 1827's), so the stone front is 4.1 m; its lights 2.3 m by 1.9 m; a scrolled
+stone console against each cheek from the lights' sill, 2.3 m high (K08 `cheeks.consoles`, new: the
+form of K10's dormer console); the coped gable inset 0.8 m to the stone front, its kneelers on its
+own corners (K08 `kneeler.on: gable`, new), rising 1.2 m a metre in; and K01's hipped crown
+(`mansard.crown`, form hip, attic_m 3.09) over the attic, its cornice across the attic's top and its
+slates closed to a point just over and about 1.0 m behind the pediment's apex (about 16.0 m). Through
+the vignette's camera the render's stone front, pediment and cornice-to-apex height land within a
+few px of the vignette's; through the engraving's, the attic's lights land within about 15 px of
+the print's x 1070-1190 px, and the crown's top is behind the trees there as before.
+
+Both match records now read `matches`. Invented (L-k01-1823-dent-1894): the crown's pitches,
+ledge, cornice and depth back, the pediment's pitch, the consoles' depth and rolls, and the slate on
+the returns, which neither picture sees square.

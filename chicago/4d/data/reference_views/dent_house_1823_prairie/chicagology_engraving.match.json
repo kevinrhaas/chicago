@@ -2,11 +2,11 @@
   "structure_id": "dent_house_1823_prairie",
   "view": "chicagology_engraving",
   "glb": "assets/gltf/dent_house_1823_prairie__as_mapped_1904.glb",
-  "glb_sha256": "34c34abaa54f519cc003dd9cdc75fc9d37a1a55bd9a9c898c90b44e313bf7d11",
+  "glb_sha256": "33a2fbe58feb53052bd89db89643a0e846997c3bda5d42b0a2527539b09beba5",
   "camera_sha256": "2a2bc061e8cab56a2fdc01a696a638d330188106d263058ad63d7546b3f97355",
   "photo_sha256": "ef58522d4ac8f90422e4ebf253aec05a27bc06f7b47a255829684a2a2bc5bd0e",
   "side_by_side": "docs/RESEARCH/photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a stone front and brick north flank two storeys over a raised basement under a slated mansard, the front's north corner at x 581 px, the north flank running back to x 140 px, the cornice's top at y 323 px on the corner",
@@ -35,7 +35,8 @@
     },
     {
       "what": "the box bay's foot: the print corbels it out at about 1.8 m (y 895 px); the build carries it to grade 0.5 m proud: K08's corbelled oriel stands only on an upper floor, and the bay's 0.5 m is the least K08's window recesses fit in",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894: the bay stands on its corbels: K08's corbelled oriel on the principal floor at 2.35 m (K01 now lets an oriel stand there when its courses clear grade by a metre), three 0.2 m courses stepped back into the wall, its foot at 1.75 m; the render's foot at y 900 px, the print's y 895 px, its block y 865-900 px against the print's 857-895 px"
     },
     {
       "what": "the mansard's lower faces, the curb and the cresting on it (y 60-170 px)",
@@ -59,7 +60,8 @@
     },
     {
       "what": "the triple group's dormer: the print draws it broad, its carved pediment x 620-800 px rising to about 16.3 m (y 85 px), 1.3 m over the curb, between scrolled consoles; the build's is K05's paired-light gabled dormer at v 3.1 m, 2.0 m wide (K05's widest) and stopping under the curb",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894: built as the print draws it: K01's gabled street dormer may now rise over the curb (over_curb, its body carried 1.0 m back over the deck, slated at its back, the deck's cresting stopping either side), and K10's dressed pediment carries a scrolled console against each side of the face (dress.consoles). The dormer stands at v 2.7 m over the triple group, its paired lights 1.5 m by 2.4 m (x 700-770 px, y 205-345 px in the render, the print's 700-770 and 200-345), its entablature's cornice at 14.5-14.8 m and its dressed apex at about 16.0 m (y 80 px, the print's y 80), 0.95 m over the curb; its consoles 0.55 m out at their rolls, x 650-820 px with the face, where the print's scrolls reach about x 625-820 px"
     },
     {
       "what": "the tall stack on the north flank (x 455-520 px, its top at y 20 px)",
@@ -67,13 +69,13 @@
       "how": "T-3163: a K01 stack on the mansard's cornice at u 7.8 m, 17.5 m to its top; it renders on those pixels"
     },
     {
-      "what": "the stack at the north flank's rear (x 170-235 px), over the rear range, where K01 stands no stack: not built",
-      "status": "open"
+      "what": "the stack at the north flank's rear (x 170-235 px, its top at y 188 px), over the rear range: T-1894 stands it on the range's deck at u -4.8 m, 0.9 x 0.75 m and 16.6 m high; its band two-thirds up and its corbelled cap are not modelled (within the 1 ft bar)",
+      "status": "fixed"
     },
     {
       "what": "the pavilion's crown: its top is behind the trees (x 1000-1230 px, y 150-300 px); what shows is an attic over the cornice with paired lights (x 1070-1190 px, y 280-410 px) under a pediment",
       "status": "within tolerance",
-      "how": "T-3163: the pavilion's attic storey with its paired lights under a coped gable and finial, its top near y 150 px; the vignette is the picture that shows the crown whole"
+      "how": "T-3163: the pavilion's attic storey with its paired lights under a coped gable and finial, its top near y 150 px; the vignette is the picture that shows the crown whole; T-1894 (sixth revision): the attic raised to 2.9 m with its lights 2.3 m across (the print's x 1070-1190 px, about 2.2 m at 54 px a metre, which the render's land on within about 15 px), between slated cheeks and consoles under a hipped crown and an inset pediment, as the 1883 vignette draws it whole; through the trees the print's attic cornice and pediment stand where the render's do"
     },
     {
       "what": "the stoop climbs from the north to the landing before the door (x 740-930 px)",
@@ -87,11 +89,12 @@
     },
     {
       "what": "the grilled round-arched basement doorway under the landing (x 925-975 px, y 935-990 px): not built",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1894: K01's side stoop takes an arch in its landing's street face (K07's basement arch, T-2500's, with K08's basement-grille iron in it), a half-round head and a 0.4 m void; the fourth revision re-read it against the landing's face drawn to its length: 1.25 m across centred at v 5.8 m on jambs 0.5 m over grade, so its jambs land at x 927-978 px against the print's 925-980 and its crown at about 1.13 m as before"
     },
     {
-      "what": "the narrow light beside the door on the principal storey (x 960-980 px, v 7.7-8.2 m): not built; the chamber storey's is laid at v 7.4 m",
-      "status": "open"
+      "what": "the narrow light beside the door on the principal storey (x 960-980 px): T-1894 lays it at v 7.4 m at the storey's sash, as the chamber storey's",
+      "status": "fixed"
     },
     {
       "what": "the moulded heads and surrounds of the front's windows",
@@ -130,6 +133,40 @@
       "what": "the dormers' paired casements: only the first light of each pair was cut through the dormer's face, the second standing glazed behind it",
       "status": "fixed",
       "how": "T-3297: each of K06's lights is cut through the face now (k01_frontage.round_dormer_body), so both lights of each pair open as the picture draws them"
+    },
+    {
+      "what": "the arch's width: the print draws it 55 px across, the build's 1.05 m reads about 45 px, because the print's landing face is drawn wider (x 897-1010 px against the build's 943-1015); the arch is the same 0.57 of the face in both",
+      "status": "fixed",
+      "how": "T-1894 (fourth revision): with the landing's face drawn to the print's length the arch reads narrow and south (x 952-995 px against 925-980) and is re-read: 1.25 m across at v 5.8 m, about 51 px, its jambs on the print's"
+    },
+    {
+      "what": "the landing's length: the print's landing face runs north to about x 897 px, the build's to x 943 px (landing v 5.3-7.1 m), about 1 m short, while the print's flight is shorter (its foot about x 760 px, the build's x 743 px) and its landing's top edge stands lower (y 905 px against the build's 865 px), as if the landing stood a few risers under the door; the 1883 vignette also draws the landing longer",
+      "status": "fixed",
+      "how": "T-1894 (fourth revision): the door opens a few risers under the hall, at 1.7 m (entrance_floor_m; ten risers of 0.17 m, the print's nine treads), and the landing runs v 4.4-7.1 m, so the landing's top edge lands at y 905 px, its face's north end at about x 900 px and the flight's foot at about x 763 px, each on the print's within a few px"
+    },
+    {
+      "what": "the doorway's height: the print draws the door's leaves (y 757-887 px) under a transom light to y 697 px, beneath a cornice hood (y 677-697 px), the hole about 3.5 m from the landing at the render's 54 px a metre on that face; T-1894 builds the hole to 3.5 m from its 1.7 m floor with its top 1.05 m glazed as the transom (entrance_kit.transom, two lights) and K09's cornice hood over it (street_front_trim.entrance): through the camera the hole renders y 712-900 px against the print's 697-887 (188 px against 190), the transom y 712-770 px against 697-757 (58 against 60), the hood y 695-712 px; the whole doorway sits about 13 px (0.24 m) under the print's, the landing's own reading",
+      "status": "fixed"
+    },
+    {
+      "what": "the flank's basement lights under the 2.15 m and 11.0 m columns and under the box bay (x 310-332, 530-565 and 404-438 px, y 915-965 px): the build laid none in the flank's wall, only the one in the bay's foot",
+      "status": "fixed",
+      "how": "T-1894: square-headed lights in the brick, 0.45-1.45 m over grade, read off the print (side_bays): the render's at about x 312-325, 545-565 and 405-430 px; the one under the bay at u 6.05 m, under the bay's front where the print puts it"
+    },
+    {
+      "what": "the width of the light under the box bay: the print draws it about 35 px across, the build's 1.15 m (the contract's widest sash) reads about 25 px",
+      "status": "within tolerance",
+      "how": "the print draws every opening on this flank broader than the camera puts them (the chamber window beside it reads 22 px against the build's 12 px), so the light stands in the same proportion to its neighbours as the print's; the camera's foreshortening of the flank, not the light"
+    },
+    {
+      "what": "two more basement lights in the print, under the 0.25 m column (x 265-285 px) and under the rear range's flank column (x 230-250 px)",
+      "status": "fixed",
+      "how": "T-1894: both laid square-headed in the brick, 0.75 m across and 0.45-1.45 m over grade as the other three are: under the 0.25 m column at s 0.48 m, its south edge 0.1 m inside the main body's rear, since the rear range carries the flank on flush there (K01's new flush-wing end; the print's light at x 265-285 px, the render's about x 275-288), and under the rear range's flank column at its s 5.25 m (a wing's basement_lights now take head: plain; the print's x 230-250 px, the render's about x 232-245). The reconstructed downpipe that would have crossed the first moved to the blank pier at s 1.2 m"
+    },
+    {
+      "what": "the door's head against the lights beside it: the print draws the door's transom head (y 697 px) level with the narrow light's head beside it (y 702 px) and its cornice running on over both, the narrow light reaching down to about y 865 px, near the landing; the build lays the principal storey's lights 0.9 m over the 2.35 m floor, 2.6 m tall, so their heads stand at 5.85 m, 0.65 m over the door's 5.2 m head (the light's at y 682 px, the door's at 712 px), each under its own hood. The disagreement is in the principal storey's lights, which the print draws lower and longer than the build, not in the doorway, whose hole now matches the print's over its landing",
+      "status": "fixed",
+      "how": "T-1894: the street front's principal-storey lights laid on the principal floor to the door's head (sash_by_storey[0].street_front: sill 2.35 m, 2.85 m of light, heads at 5.2 m): through the camera the triple group's and the narrow light's heads render at about y 700 px against the print's 697-702, their sills about y 865 px against the print's 858, and the door's hood and the narrow light's run on side by side as the print's cornice does; the flank's principal lights keep their own 3.25-5.85 m, which this print draws on that face"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -54,6 +54,8 @@ export function actionStyle(action) {
   if (action.id === 'go_inside') return { icon: 'enter', tone: 'return', order: 1 };
   if (action.id === 'go_home') return { icon: 'Neighbors', tone: 'return', order: 2 };
   if (action.id === 'greet') return { icon: 'greet', tone: 'social', order: 0 };
+  if (action.id === 'tale') return { icon: 'story', tone: 'social', order: 0 };
+  if (action.id === 'ask') return { icon: 'chat', tone: 'social', order: 0 };
   const text = `${action.label ?? ''} ${action.detail ?? ''}`;
   if (/chat|talk|discuss|conversation/i.test(text)) return { icon: 'chat', tone: 'social', order: 0 };
   if (/garden|plant|flower/i.test(text)) return { icon: 'garden', tone: 'task', order: 0 };
@@ -72,8 +74,13 @@ export function createInteractions({ onChange = () => {} } = {}) {
   const listeners = new Set([onChange]);
   const tell = (thing, event) => { for (const fn of listeners) fn(thing, event); };
 
+  // T-3553: actions every thing of a kind shares (Tell me a story, after a person's Greet),
+  // added to its own: fn(thing, actions) returns the list to offer.
+  const extensions = [];
   function actionsOf(thing) {
-    return thing?.actions?.[thing.state] ?? [];
+    let list = thing?.actions?.[thing.state] ?? [];
+    for (const fn of extensions) list = fn(thing, list) ?? list;
+    return list;
   }
 
   /** What one press of Interact does at this thing now: { label, action, waiting, busy }. */
@@ -142,6 +149,8 @@ export function createInteractions({ onChange = () => {} } = {}) {
     },
     remove(id) { return things.delete(id); },
     actionsOf,
+    /** T-3553: offer more actions on every thing a rule picks; returns a remover. */
+    extend(fn) { extensions.push(fn); return () => { const i = extensions.indexOf(fn); if (i >= 0) extensions.splice(i, 1); }; },
     offer,
     /**
      * The thing a visitor at (e, n) facing `bearing` (compass degrees) would work: the
@@ -151,7 +160,13 @@ export function createInteractions({ onChange = () => {} } = {}) {
       let best = null, score = Infinity;
       for (const thing of things.values()) {
         if (!thing.at) continue;
-        const de = thing.at[0] - e, dn = thing.at[1] - n;
+        // A thing may be worked from more than one place (`spots`: a door from the foot of its
+        // stoop and from every tread up to it); the nearest of them is its distance.
+        let [ae, an] = thing.at;
+        for (const q of thing.spots ?? []) {
+          if (Math.hypot(q[0] - e, q[1] - n) < Math.hypot(ae - e, an - n)) [ae, an] = q;
+        }
+        const de = ae - e, dn = an - n;
         const d = Math.hypot(de, dn);
         if (d > (thing.reach ?? 5)) continue;
         let s = d;
@@ -225,7 +240,7 @@ export function createInteractions({ onChange = () => {} } = {}) {
  * @param {Document} [o.doc]             makes those keys (document)
  */
 export function createInteractKey({ interactions, keyEl = null, where, say = () => {}, enabled = () => true,
-  keys = null, isTyping = () => false, moreEl = null, onExpand = () => {},
+  keys = null, isTyping = () => false, moreEl = null, onExpand = () => {}, onPress = () => {},
   now = () => performance.now() / 1000, doc = globalThis.document ?? null } = {}) {
   let near = null;
   let selected = null, lastReach = -Infinity, releaseAttention = null;
@@ -335,6 +350,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     expand(false);
     const res = interactions.act(thing, actionId);
     if (res.refused) say(res.why);
+    else if (res.ok) { try { onPress(thing, res); } catch { /* a watcher never stops the key */ } }
     paint();
     return res;
   }

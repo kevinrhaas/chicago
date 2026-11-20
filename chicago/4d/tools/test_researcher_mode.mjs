@@ -90,9 +90,13 @@ function fakeStorage() {
 // ---- the page and the stylesheet --------------------------------------------------------
 {
   const page = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
-  // T-3022: the switch is Expert research, the first group of Settings.
+  // T-3022: the switch is Expert research. T-3563 (the owner, 2026-11-12: "the research mode
+  // should be at the end"): its group is the Settings card's last, on its own last tab.
   const group = page.slice(page.indexOf('id="s-research"'), page.indexOf('</div>', page.indexOf('id="s-researcher"')));
-  assert(page.indexOf('id="s-research"') < page.indexOf('id="s-display"'), 'its group leads Settings, ahead of Display');
+  const settingsEnd = page.indexOf('</section>', page.indexOf('data-panel="settings"'));
+  assert(page.indexOf('id="s-research"') > page.indexOf('id="s-about"') && page.indexOf('id="s-research"') < settingsEnd,
+    'its group closes Settings, after About');
+  assert.match(group, /data-set-pane="research"/, 'on the Research tab');
   assert.match(group, /<input type="checkbox" id="s-researcher">/, 'the switch is in Settings › Research');
   assert.match(group, /data-str="research.switch">Expert research</, 'named Expert research');
   assert.doesNotMatch(group, /id="s-researcher"[^>]*checked/, 'and is not checked in the markup');

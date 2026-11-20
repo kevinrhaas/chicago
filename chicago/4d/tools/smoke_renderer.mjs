@@ -86,11 +86,11 @@
  *   a wharf carries a walker .... and since T-0058 the planks are a floor: off
  *                                 the bank, up the boarding stair and out over
  *                                 the water at every one of the seven docks
- *   the boats on the river ...... the first layer that RIDES the water: every
- *                                 afloat hull floats in its own depth, beached
- *                                 hulls sit at the bank, the drawbridge's
- *                                 navigation span stays clear, and a boat
- *                                 answers a pick with its own card
+ *   the vessels on the water .... the first layer that RIDES the water: every
+ *                                 afloat hull lies in its own depth, clear of the
+ *                                 piers and the drawbridge's span, two schooners
+ *                                 sail, a vessel answers a pick with its own card,
+ *                                 and the visitor takes a schooner's helm (T-3612)
  *   one terrain surface ......... walker, structures and flora share the rendered land
  *   streets drape + identify .... earth tracks share the heightfield and dated names
  *   the roads reach the screen .. and are distinguishable from the ground they
@@ -118,7 +118,7 @@
 
 import http from 'node:http';
 import fs from 'node:fs';
-import { createAudioReplay } from './audio_smoke_replay.mjs';
+import { createAudioReplay, standInNarrationIndex } from './audio_smoke_replay.mjs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -1217,13 +1217,65 @@ const stamp = () => {
 // text nobody reads, so a name list is reported as a tally: `frontage x1,
 // frontage-chunk x60`. Order is first-appearance, so the shared mesh stays at
 // the head where the layer puts it.
+//
+// T-3628 — WHAT THE FRONTAGE RECORDS DEAL, read from the records the page
+// itself loaded (`data/frontage/index.json` and the files it names, under the
+// same ROOT). The frontage checks used to type their counts in, sixty posts
+// and sixty-one fittings, and T-3605 stated those before its own last two
+// commits grew the Gifford row from nine stores to fifty-nine. Dev then read
+// 97 and 97 against a check still asking for 60 and 61, and every PR's part 2
+// went red over a line nobody had changed. The layer is now held to exactly
+// what the records deal, entry for entry, so a laid count can neither fall
+// short of its record nor run past it. The records themselves are held by
+// check.sh, which regenerates the street edge and refuses a stale one.
+// Counted the way frontage.js counts: a `board_crossing` walk is a crossing,
+// every other walk a walk; posts of every kind, hitching ones apart; refusals
+// are each record's own `refused` list.
+function frontageRecordCensus(root) {
+  const dir = path.join(root, 'data', 'frontage');
+  const out = { ids: [], walks: 0, crossings: 0, posts: 0, hitching: 0,
+    hitchingStreet: 0, hitchingOwnGround: 0, fences: 0, refused: 0,
+    fittings: 0, fittingKinds: {}, error: null };
+  try {
+    const index = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
+    for (const entry of index.frontage ?? []) {
+      const rec = JSON.parse(fs.readFileSync(path.join(dir, entry.file), 'utf8'));
+      out.ids.push(entry.id);
+      for (const w of rec.walks ?? []) {
+        if (w.kind === 'board_crossing') out.crossings += 1; else out.walks += 1;
+      }
+      out.fences += (rec.fences ?? []).length;
+      out.refused += (rec.refused ?? []).length;
+      for (const p of rec.posts ?? []) {
+        out.posts += 1;
+        if (p.kind !== 'hitching_post') continue;
+        out.hitching += 1;
+        if (p.street) out.hitchingStreet += 1; else out.hitchingOwnGround += 1;
+      }
+      for (const q of rec.fittings ?? []) {
+        out.fittings += 1;
+        out.fittingKinds[q.kind] = (out.fittingKinds[q.kind] ?? 0) + 1;
+      }
+    }
+  } catch (err) { out.error = err.message; }
+  return out;
+}
+// Two kind tallies are the same tally when they name the same kinds with the
+// same counts, in whatever order each was built.
+function sameKinds(a, b) {
+  const norm = (o) => JSON.stringify(Object.entries(o ?? {}).sort(([x], [y]) => (x < y ? -1 : 1)));
+  return norm(a) === norm(b);
+}
 function tallyNames(names) {
   const counts = new Map();
   for (const n of names ?? []) counts.set(n, (counts.get(n) ?? 0) + 1);
   return [...counts].map(([n, c]) => (c === 1 ? n : `${n} x${c}`)).join(', ');
 }
 
+// T-3647: the last check taken, so a page error can say which step it came after.
+let lastCheckName = '(before the first check)';
 function check(name, cond, detail = '', show = false) {
+  lastCheckName = name;
   if (inStageWork) stageWorkChecks += 1;
   const t = TIMING ? stamp() : '';
   if (cond) {
@@ -1231,6 +1283,149 @@ function check(name, cond, detail = '', show = false) {
     console.log(`  pass  ${t}${name}${show && detail ? ` — ${detail}` : ''}`);
   } else { failures.push(name); console.log(`  FAIL  ${t}${name}${detail ? ` — ${detail}` : ''}`); }
 }
+
+/**
+ * T-3648 (a piece of T-3637): WHY THE BROWSER REFUSED A PICTURE, for every loader.
+ *
+ * GLTFLoader's `Couldn't load texture blob:…` names only an object URL, and by then the
+ * bytes HAD arrived (the URL is made from the GLB's own bufferView), so the refusal is
+ * the browser's: the blob read, the decode, or a KTX2 worker's transcode. T-3647 kept
+ * the reason for the scene loader's GLBs only; people, horses, wagons, carriages and the
+ * ground load through GLTFLoaders of their own and drop a picture without a word. Eight
+ * local boots on Chromium 141 and on the newer one (2026-11-18) never refused one, so
+ * the reason has to come from the CI run that does. Installed before any page script:
+ * a refusal from any of the three is said once as a console WARNING beginning
+ * `4D Chicago: picture refused`, collected beside the red like `picture lost`, and
+ * then rethrown untouched — nothing is retried, swallowed or counted differently.
+ */
+const pictureRefusalProbe = () => {
+  // T-3650: and how much picture work is IN FLIGHT, so the harness can let a page finish
+  // its pictures before it parks or closes that page (`settlePictureWork`). A side
+  // branch counts; the promise the page holds is the same one it held before.
+  const work = { decoding: 0, reading: 0, transcoding: 0 };
+  Object.defineProperty(globalThis, '__c4dPictureWork', { value: work, enumerable: false });
+  const during = (key, p) => {
+    work[key]++;
+    const done = () => { work[key]--; };
+    p.then(done, done);
+    return p;
+  };
+  const say = (what, e) => {
+    try {
+      console.warn(`4D Chicago: picture refused (smoke probe): ${what} — ${e?.name ?? ''} ${e?.message ?? e}`
+        .replace(/\s+/g, ' ').slice(0, 260));
+    } catch { /* a console that refuses is no reason to change the page */ }
+  };
+  const decode = globalThis.createImageBitmap;
+  if (typeof decode === 'function') {
+    globalThis.createImageBitmap = function createImageBitmap(...args) {
+      const src = args[0];
+      return during('decoding', Reflect.apply(decode, globalThis, args)).catch((e) => {
+        say(`createImageBitmap(${src?.type || src?.constructor?.name || typeof src}, ${src?.size ?? src?.width ?? '?'})`, e);
+        throw e;
+      });
+    };
+  }
+  const read = globalThis.fetch;
+  if (typeof read === 'function') {
+    globalThis.fetch = function fetch(...args) {
+      const p = Reflect.apply(read, globalThis, args);
+      const url = String(args[0]?.url ?? args[0] ?? '');
+      return url.startsWith('blob:') ? during('reading', p).catch((e) => { say(`fetch ${url.slice(0, 70)}`, e); throw e; }) : p;
+    };
+  }
+  const W = globalThis.Worker;
+  if (typeof W === 'function') {
+    // three's KTX2 transcoder answers a refusal as { type: 'error', error } (KTX2Loader).
+    globalThis.Worker = class Worker extends W {
+      constructor(...args) {
+        super(...args);
+        this.addEventListener('message', (ev) => {
+          if (this.c4dTranscoding > 0 && (ev.data?.type === 'transcode' || ev.data?.type === 'error')) {
+            this.c4dTranscoding--;
+            work.transcoding--;
+          }
+          if (ev.data?.type === 'error') say('worker transcode', ev.data.error ?? ev.data.message ?? 'no message');
+        });
+      }
+
+      postMessage(message, ...rest) {
+        // KTX2Loader asks `{ type: 'transcode' }` and is answered once, by `transcode` or `error`.
+        // Counted once the post is taken: a post that throws is never answered.
+        const sent = super.postMessage(message, ...rest);
+        if (message?.type === 'transcode') { this.c4dTranscoding = (this.c4dTranscoding ?? 0) + 1; work.transcoding++; }
+        return sent;
+      }
+    };
+  }
+};
+const PICTURE_WARNING = /^4D Chicago: picture (lost|refused)/;
+
+/**
+ * T-3650 (the fix T-3637 asked for): LET A PAGE FINISH ITS PICTURES BEFORE IT IS PUT DOWN.
+ *
+ * `Couldn't load texture blob:…` has come only from part 15, at both widths: in content
+ * builds 44205895786 and 44242219312, no other leg of the 60 logged it once. Part 15 is the
+ * one place the harness puts a page down seconds after its boot. It parks the body's page
+ * on about:blank straight after the boot checks, and it closes its own context straight
+ * after the `?nav=jump` reload lands. A booted town is not idle at that moment. Measured on
+ * the published 1835 at 390x780 (2026-11-18): about a second after `ready` the page starts
+ * a fresh run of embedded-picture decodes (16 object URLs, 6 `createImageBitmap` calls in
+ * flight at once, 11 picture files still on the wire), and it is quiet again about 4 s
+ * after `ready`. So the GLTFLoader errors are pictures cut off mid-decode by the harness
+ * leaving, not pictures the town fails to show. That reading is circumstantial: no local
+ * run has made the browser log the error. The probe's `picture refused` reasons and the
+ * step/time/page tags on each error will confirm or overturn it on the next red.
+ *
+ * So before either page is put down, wait (at most SETTLE_CAP_MS) until it has had
+ * SETTLE_QUIET_MS with no decode, no blob read, no KTX2 transcode and no picture file in
+ * flight. Nothing is filtered: an error the page logs while it settles is still a page
+ * error, `zero page errors` is unchanged, and a page that never settles is put down anyway
+ * after a line saying so.
+ *
+ * T-3662: THE NEXT RED NAMED A THIRD PUT-DOWN. After #2190 both widths still went red,
+ * and the tags put every refusal on /1904/, in the seconds after the Confidence check:
+ * the far year's page, walked into at the Jump's landing and still loading, which the
+ * `?nav=jump` reload replaces. It settles before that reload too.
+ */
+const SETTLE_QUIET_MS = 3000;
+const SETTLE_CAP_MS = 60_000;
+const PICTURE_FILE = /\.(glb|ktx2|bin|png|jpe?g|webp)$/i;
+/** Count the picture-bearing files a page has on the wire. Install it when the page is made. */
+function trackPictureFiles(p) {
+  const open = new Set();
+  const gone = (r) => { open.delete(r); };
+  p.on('request', (r) => {
+    try { if (PICTURE_FILE.test(new URL(r.url()).pathname)) open.add(r); } catch { /* not a URL a file has */ }
+  });
+  p.on('requestfinished', gone);
+  p.on('requestfailed', gone);
+  return () => open.size;
+}
+async function settlePictureWork(p, filesOnWire) {
+  const from = Date.now();
+  const peak = { decoding: 0, reading: 0, transcoding: 0, files: 0 };
+  let quietSince = null;
+  let last = null;
+  while (Date.now() - from < SETTLE_CAP_MS) {
+    const w = await p.evaluate(() => ({ ...(globalThis.__c4dPictureWork ?? {}) })).catch(() => null);
+    if (!w) return { ms: Date.now() - from, settled: false, why: 'the page would not answer', peak };
+    w.files = filesOnWire();
+    for (const k of Object.keys(peak)) peak[k] = Math.max(peak[k], w[k] ?? 0);
+    last = w;
+    if (!(w.decoding > 0) && !(w.reading > 0) && !(w.transcoding > 0) && w.files === 0) {
+      quietSince ??= Date.now();
+      if (Date.now() - quietSince >= SETTLE_QUIET_MS) return { ms: Date.now() - from, settled: true, peak };
+    } else {
+      quietSince = null;
+    }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+  return { ms: Date.now() - from, settled: false, why: `still busy at ${SETTLE_CAP_MS / 1000} s: ${JSON.stringify(last)}`, peak };
+}
+const settledLine = (who, s) => `        ${who} ${s.settled ? `finished its pictures in ${(s.ms / 1000).toFixed(1)} s`
+  : `did not finish its pictures (${s.why}); put down anyway`} — peak ${s.peak.decoding} decode(s), `
+  + `${s.peak.reading} blob read(s), ${s.peak.transcoding} transcode(s), ${s.peak.files} picture file(s) on the wire (T-3650)`;
 
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent(req.url.split('?')[0]);
@@ -1291,6 +1486,8 @@ function signatureDistance(a, b) {
  * Read before the baseline and after restoration; counters can identify a changed
  * scene, but a changed bracket alone does not attribute a pixel residual. */
 async function captureWithRestoreState(page, grid, when) {
+  // T-3630: the pair's baseline holds the people out of frame (holdPairPeople).
+  if (when === 'before') await holdPairPeople(page);
   return page.evaluate(async ({ grid, when }) => {
     const a = window.__chicago4d;
     // SPDX-License-Identifier: GPL-3.0-or-later
@@ -1299,11 +1496,14 @@ async function captureWithRestoreState(page, grid, when) {
      // T-3300: a parked vehicle is fetched as the eye nears its stand, so one
      // still in flight would land between the baseline and the restored frame.
      return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0)&&(state.parkedTransport===null||state.parkedTransport===0);
+     // T-3630: people are NOT waited on here. A held pair keeps the people's layer out of
+     // the frame instead (holdPairPeople), because a figure 18 m off was measured taking
+     // 115 s from its level's fetch to its build on a loaded runner, far past any settle.
     }
     function advanceSceneSettle(previous,state){
      if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
      // Only semantic counters: never frame/timing counters which advance forever.
-     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport});
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency,parkedTransport:state.parkedTransport,riding:state.riding});
      const unchanged=previous?.key===key?previous.unchanged+1:1;
      return{key,unchanged,settled:unchanged>=4};
     }
@@ -1343,6 +1543,12 @@ async function captureWithRestoreState(page, grid, when) {
           residentBytes: textures.residentBytes, uploads: textures.uploads,
           evictions: textures.evictions, redecodes: textures.redecodes } : null,
         parkedTransport: Number.isInteger(a.parkedTransport?.pending) ? a.parkedTransport.pending : null,
+        // Figures with a level still loading or waiting for its turn to build (humans.js setLod);
+        // not a readiness condition (the pair holds people out of frame), only the receipt.
+        humans: Array.isArray(a.humans?.actors) ? a.humans.actors.filter((h) => h?.pending).length : null,
+        // T-3560: a saddle horse or town rider is fetched as the eye nears it; held out of frame with the people,
+        // so this too is only the receipt.
+        riding: Number.isInteger(a.riding?.pending) ? a.riding.pending : null,
       };
     };
     let settleReceipt = null;
@@ -1371,6 +1577,57 @@ async function captureWithRestoreState(page, grid, when) {
     const image = await a.capture(grid);
     return { image, state: when === 'before' ? before : fingerprint(), settle: settleReceipt };
   }, { grid, when });
+}
+
+/** T-3630. THE PEOPLE ARE HELD OUT OF A HELD PAIR, NOT WAITED ON — the T-3613 rule.
+ * A held on/off/restore pair measures one setting (road aid, roughness, facade tones,
+ * shadow reach, brightness), and a figure standing up between its baseline and its restored
+ * frame reads as a residual the toggle never left: desktop 9-12's facade tones, worst cell
+ * 29-33 at the held boot pose. Waiting for no level to be in flight was tried first (#2142's
+ * first head) and could not hold: two figures 18 m off asked for their level at 89 s and its
+ * file arrived at 204.5 s, so the 60 s settle timed out and the leg passed its 600 s cap. A
+ * level already asked for lands from its own promise (Actor.setLod -> show), so holding
+ * `update` alone is not enough either (T-3613 measured that). So from the baseline to the
+ * restored frame the people's layer is not drawn (no figure in any of the three captures,
+ * none casting a shadow) and `update` is held (no level asked for or let go); every pair's own
+ * `setAnimationHold(false)` is followed by letGoPairPeople (the yards and confidence pairs
+ * too, which take their baseline from captureWithRestoreState directly). None of these checks reads a person. */
+async function holdPairPeople(page) {
+  await page.evaluate(() => {
+    const h = window.__chicago4d.humans;
+    if (h && !h.heldByPair) { h.heldByPair = h.update; h.update = () => {}; }
+    if (h?.group && h.hiddenByPair == null) { h.hiddenByPair = h.group.visible; h.group.visible = false; }
+    // T-3560: the town's riders and saddle horses are people too, fetched as the eye nears them.
+    const r = window.__chicago4d.riding;
+    if (r && !r.heldByPair) { r.heldByPair = r.update; r.update = () => {}; }
+    if (r?.group && r.hiddenByPair == null) { r.hiddenByPair = r.group.visible; r.group.visible = false; }
+  }).catch(() => {});
+}
+async function letGoPairPeople(page) {
+  await page.evaluate(() => {
+    const h = window.__chicago4d.humans;
+    if (h?.heldByPair) { h.update = h.heldByPair; delete h.heldByPair; }
+    if (h?.group && h.hiddenByPair != null) { h.group.visible = h.hiddenByPair; delete h.hiddenByPair; }
+    const r = window.__chicago4d.riding;
+    if (r?.heldByPair) { r.update = r.heldByPair; delete r.heldByPair; }
+    if (r?.group && r.hiddenByPair != null) { r.group.visible = r.hiddenByPair; delete r.hiddenByPair; }
+  }).catch(() => {});
+}
+
+/** T-3630. The baseline of a held on/off/restore pair, taken once the scene has settled.
+ * Those checks used to capture the instant they held the clock, often one step after a
+ * teleport, so a load still in flight (flora, a house picture, a parked team, a build slice)
+ * landed between the baseline and the restored frame and read as a residual the toggle never
+ * left: on dev 6b6bfa169 the same five checks failed and passed run to run (worst 1 to 35).
+ * A scene that will not settle is reported and the plain capture taken, so the pair is still
+ * read and the reason is in the log rather than an exception ending the part. */
+async function settledBaseline(page, grid, what) {
+  try {
+    return (await captureWithRestoreState(page, grid, 'before')).image;
+  } catch (err) {
+    console.log(`        ${what}: baseline taken unsettled — ${String(err?.message ?? err).slice(0, 4000)}`);
+    return page.evaluate((g) => window.__chicago4d.capture(g), grid);
+  }
 }
 
 // The gate is both viewports and nothing less. SMOKE_VIEWPORT exists because a
@@ -1531,11 +1788,16 @@ for (const [label, viewport, touch] of [
     });
     console.log(`  audio: ${audioReplay.mode}; live R2/CORS is a separate browser check`);
   }
+  // T-3579: the hosted narration index is mutable and the bucket refuses localhost, so
+  // the published app's boot logged a CORS console.error; stand in an empty one.
+  if (wantPublished) await standInNarrationIndex(ctx, { origin: `http://127.0.0.1:${PORT}` });
   const page = await ctx.newPage();
+  const bodyPictureFiles = trackPictureFiles(page); // T-3650: read before part 15 parks this page
   // A few checks import an app module directly to exercise a pure function. The
   // path to those modules differs between the source tree and the published
   // mirror, so it is handed to the page rather than written into each call.
   await page.addInitScript((b) => { window.__MODULE_BASE = b; }, MODULE_BASE);
+  await page.addInitScript(pictureRefusalProbe); // T-3648
   // Playwright's default 30 s action timeout is not an assertion, and on this
   // scene it had quietly become one. A click waits for the element to be stable
   // across animation frames and then hit-tests it, and every one of those steps
@@ -1768,13 +2030,19 @@ for (const [label, viewport, touch] of [
     }, sel);
     if (why) throw new Error(`clickChrome: ${why}`);
   };
+  // T-3629 (A8): inside the Navigator the section has no × of its own; the Navigator's closes it.
+  const closePanel = async () => clickChrome(await page.evaluate(() => !!document.getElementById('panel')?.closest('.nav-screen'))
+    ? '#nav-close' : '#panel-close');
   // T-2620: the drawer and its hamburger are gone; each of the drawer's sections is held by
   // a Navigator app (apps/drawer-host.js). A visitor reaches one by the app's rail icon —
   // on a phone the rail shows once the sheet is open, so the handle comes first — and,
   // where the app holds two sections, by the section's own tab. Each is a hit-tested click.
   const SECTION_APP = { travel: 'move', people: 'people', businesses: 'people',
     controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
-  const openSection = async (tab) => {
+  // T-3563: Settings draws its own icon tabs (#settings-tabs), What's new among them, and only
+  // the chosen tab's groups are drawn, so a check that hit-tests a Settings row names its tab
+  // (`pane`: display, show, look, graphics, sound, about, research) and it is clicked here.
+  const openSection = async (tab, pane = null) => {
     const opened = () => page.waitForFunction(() => {
       const r = document.getElementById('navigator')?.getBoundingClientRect();
       return r && (innerWidth > 620 ? r.width >= 380 : r.height >= innerHeight * 0.4);
@@ -1783,10 +2051,21 @@ for (const [label, viewport, touch] of [
       await clickChrome('#nav-grip');
       await opened();
     }
-    await clickChrome(`#nav-rail [data-app="${SECTION_APP[tab]}"]`);
+    // T-3629: Move left the rail; a visitor reaches it from Home's Move tile.
+    if (SECTION_APP[tab] === 'move') {
+      await clickChrome('#nav-rail [data-app="home"]');
+      await clickChrome('#nav-tile-move');
+    } else await clickChrome(`#nav-rail [data-app="${SECTION_APP[tab]}"]`);
     await opened();
     await page.waitForFunction(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); },
       null, { timeout: 60_000, polling: 100 });
+    if (SECTION_APP[tab] === 'settings') {
+      const want = tab === 'whatsnew' ? 'whatsnew' : (pane ?? await page.evaluate(() => window.__chicago4d.hud.settingsTabs?.pane ?? 'display'));
+      if (await page.evaluate(() => window.__chicago4d.hud.tab) !== tab || (pane && await page.evaluate(() => window.__chicago4d.hud.settingsTabs?.pane) !== pane)) {
+        await clickChrome(`#settings-tabs [data-set-tab="${want}"]`);
+      }
+      return;
+    }
     if (await page.evaluate(() => window.__chicago4d.hud.tab) !== tab) await clickChrome(`.panel-tab[data-tab="${tab}"]`);
   };
   // T-2613: Home appears halfway through the landing's flip, not at ready (the old
@@ -1820,10 +2099,21 @@ for (const [label, viewport, touch] of [
     const why = r.failure()?.errorText || '';
     if (!/ERR_ABORTED/.test(why)) errors.push(`request failed (${why}) ${r.url()}`);
   });
+  // T-3648: the body's own page says when and where, as part 15's does (T-3647). Dev's
+  // mobile stage-15 reds were all this page's — no `part 15` prefix on any of the four
+  // `Couldn't load texture blob:` lines of 44242219312 — and this listener said neither
+  // which step nor which document, nor kept the scene loader's `picture lost` reason.
+  const atMain = () => {
+    let where = page.url();
+    try { where = new URL(where).pathname || where; } catch { /* about:blank */ }
+    return `after "${lastCheckName.replace(/^[^:]*: /, '').slice(0, 60)}", ${TIMING ? stamp() : ''}${where}`;
+  };
+  const lostPictures = [];
   page.on('console', (m) => {
     const t = m.text();
+    if (m.type() === 'warning' && PICTURE_WARNING.test(t)) lostPictures.push(`(${atMain()}) ${t}`);
     if (m.type() === 'error' && !t.startsWith('Failed to load resource')) {
-      errors.push(`console.error: ${t}`);
+      errors.push(`console.error (${atMain()}): ${t}`);
     }
   });
 
@@ -1958,10 +2248,16 @@ for (const [label, viewport, touch] of [
     const humanShown = humanExpectedRecords.filter(r => r.display === 'shown');
     const humanEligible = humanL1 ? [] : humanShown.map(r => ({ id: r.id,
       personId: r.person_id ?? null, assetId: r.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id));
+    // T-3555: a carded townsperson built for the moment, out near the visitor (a resident's turn
+    // at their door, or the crowd handing over someone the visitor walks up to), is no record:
+    // it is `hi_inside_<their person>` and is let go again. Every other actor is a record's.
+    const humanDynamic = (humans?.actors ?? []).filter(a => a.id.startsWith('hi_inside_'));
+    const humanRecorded = (humans?.actors ?? []).filter(a => !a.id.startsWith('hi_inside_'));
     check(`${label}: the human layer mounts exactly the scene's eligible records`,
-      !!humans && humans.inScene && humans.count === humanEligible.length
+      !!humans && humans.inScene && humans.count - humanDynamic.length === humanEligible.length
+      && humanDynamic.every(a => a.personId && a.id === `hi_inside_${a.personId}` && a.assetId)
       && JSON.stringify(humans.records) === JSON.stringify(humanExpectedRecords.map(r => r.id).sort())
-      && JSON.stringify(humans.actors) === JSON.stringify(humanEligible)
+      && JSON.stringify(humanRecorded) === JSON.stringify(humanEligible)
       && JSON.stringify(humans.withheld) === JSON.stringify(humanExpectedRecords.filter(r => r.display !== 'shown').map(r => r.id).sort())
       && JSON.stringify(humans.refused) === JSON.stringify(humanL1 ? humanShown.map(r => r.id).sort() : []),
       JSON.stringify({ declared: humanDeclared, l1: humanL1, expected: humanEligible, actual: humans }));
@@ -2967,6 +3263,7 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
     const { image: yardRestored, state: yardStateAfter } = await captureWithRestoreState(page, 96, 'after');
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     const dYard = signatureDistance(yardWith, yardWithout);
     const dYardRestored = signatureDistance(yardWith, yardRestored);
     check(`${label}: the yard fence reaches the screen from inside the yard`,
@@ -4877,17 +5174,59 @@ for (const [label, viewport, touch] of [
             slewSteps: typeof w.slew_steps === 'number' ? w.slew_steps : null })),
         wagonsRefused: (y?.records ?? []).reduce(
           (t, r) => t + (r.wagons_refused ?? []).length, 0),
+        // T-3636. What T-3558 retired, and the whole list it retired them from.
+        // The owner, 2026-11-16: "replace any parked wagons with these photographic
+        // wagons, you may not need to keep all of the parked wagons given the ones in
+        // motion". The parked record names the yard wagons no longer drawn
+        // (`retired_yard_wagons`) and parked-transport.js hands them to the layer as
+        // `retiredIds`; the yard records themselves still carry every wagon the T-0064
+        // rule dealt. So the checks below read BOTH halves: the deal off the record,
+        // and what is drawn as exactly the deal minus the retired list.
+        retiredWagons: [...(api.parkedTransport?.retiredIds ?? [])],
+        recordWagons: (y?.records ?? []).flatMap((r) => (r.wagons ?? []).map((w) => ({
+          id: w.id, kind: w.kind ?? 'farm_box', town: !!(w.stands_on || w.in_enclosure),
+          belongsTo: w.belongs_to ?? null, underShed: !!w.under_shed,
+          clearance: w.clearance_m, bearing: w.bearing_deg, confidence: w.confidence,
+          dealt: typeof w.slew_deg === 'number' }))),
+        drawnWagonIds: wagons.map((w) => w.id),
       };
     });
+    // ---- T-3636: the wagon ledger, after T-3558 --------------------------- //
+    // Every wagon the yard records deal is either DRAWN or RETIRED, never both and
+    // never neither, and the retired list names only wagons the records hold (a
+    // stale id there would retire nothing and read as a silent pass). These are
+    // exact clauses, not floors: the floors they replace (60 wagons, 55 in the town,
+    // 55 dealt) were T-0064's "more wagons" (2026-08-18), which the owner's T-3558
+    // ruling has since thinned on purpose, so a count read off a green run would
+    // only be the last number written down again.
+    const retiredWagons = new Set(goods.retiredWagons ?? []);
+    const recordWagons = goods.recordWagons ?? [];
+    const recordIds = new Set(recordWagons.map((w) => w.id));
+    const keptWagons = recordWagons.filter((w) => !retiredWagons.has(w.id));
+    const keptTown = keptWagons.filter((w) => w.town);
+    const drawnWagonIds = new Set(goods.drawnWagonIds ?? []);
+    const retiredDrawn = [...drawnWagonIds].filter((id) => retiredWagons.has(id));
+    const keptUndrawn = keptWagons.filter((w) => !drawnWagonIds.has(w.id)).map((w) => w.id);
+    const retiredStale = [...retiredWagons].filter((id) => !recordIds.has(id));
+    const wagonLedger = recordWagons.length > 0 && retiredDrawn.length === 0
+      && keptUndrawn.length === 0 && retiredStale.length === 0
+      && drawnWagonIds.size === keptWagons.length
+      && goods.census?.wagons === keptWagons.length;
+    const ledgerNote = `${recordWagons.length} wagon(s) in the records, `
+      + `${retiredWagons.size} retired (T-3558), ${keptWagons.length} kept; `
+      + `${retiredDrawn.length} retired drawn [${retiredDrawn.slice(0, 4).join(', ')}], `
+      + `${keptUndrawn.length} kept undrawn [${keptUndrawn.slice(0, 4).join(', ')}], `
+      + `${retiredStale.length} retired id(s) naming no record wagon`;
     check(`${label}: the yard layer stands the record's goods`,
       goods.census?.frontages >= 20 && goods.items >= 120 && goods.verts > 0
-        && goods.census?.wagons >= 60 && goods.census?.benches === 1
+        && wagonLedger && goods.census?.benches === 1
         && goods.census?.sheds === (goods.mode.enclosed === true ? 0 : 1)
         && greenTreeYardMode(goods.mode),
       `${goods.items} object(s) on ${goods.census?.frontages} frontage(s) from `
       + `${goods.census?.records} record(s), ${goods.census?.wagons} wagon(s), `
       + `${goods.census?.benches} bench(es), ${goods.census?.sheds} shed(s), `
-      + `${goods.verts} vertices, ${goods.census?.refused} frontage(s) refused; reading ${JSON.stringify(goods.mode)}`);
+      + `${goods.verts} vertices, ${goods.census?.refused} frontage(s) refused; reading ${JSON.stringify(goods.mode)}; `
+      + ledgerNote);
     // T-0064. The layer was ONE draw call while it was barrels on twenty-six
     // frontages; sixty-four more wagons spread over a square kilometre made a
     // single town-wide geometry the thing T-0115 item 2 measured and named — a
@@ -4962,13 +5301,27 @@ for (const [label, viewport, touch] of [
     // to the inn's rear wall — the bearing is the facade's own plus 180 — and
     // every one of them cleared the committed walls by the margin a parked wagon
     // is given, or the generator would have refused it in writing instead.
+    // T-3636: T-3558 retired both (the yard's ground is not level enough for the
+    // photographic farm box, and the moving teams carry the traffic), so what is
+    // DRAWN is the record's two minus the retired list — none today — and the
+    // stand the record still holds for each is asked the same question, so a wagon
+    // that comes back comes back clear and square.
+    const greenTreeRecord = recordWagons.filter((w) => w.belongsTo === 'green_tree_tavern'
+      && !w.underShed);
+    const greenTreeKept = greenTreeRecord.filter((w) => !retiredWagons.has(w.id));
     check(`${label}: the Green Tree's yard wagons stand clear, square to its rear wall`,
-      goods.greenTreeWagons?.length === 2
-        && goods.greenTreeWagons.every((w) => w.clearance_m >= 1.6
-          && w.bearing_deg === 90 && w.confidence === 'reconstructed'),
-      `${goods.greenTreeWagons?.length} wagon(s), clearances `
-      + `${goods.greenTreeWagons?.map((w) => w.clearance_m).join(', ')}, bearings `
-      + `${goods.greenTreeWagons?.map((w) => w.bearing_deg).join(', ')}`);
+      greenTreeRecord.length === 2
+        && greenTreeRecord.every((w) => w.clearance >= 1.6
+          && w.bearing === 90 && w.confidence === 'reconstructed')
+        && goods.greenTreeWagons?.length === greenTreeKept.length
+        && goods.greenTreeWagons.every((w) => !retiredWagons.has(w.id)
+          && w.clearance_m >= 1.6 && w.bearing_deg === 90
+          && w.confidence === 'reconstructed'),
+      `${greenTreeRecord.length} in the record (clearances `
+      + `${greenTreeRecord.map((w) => w.clearance).join(', ')}, bearings `
+      + `${greenTreeRecord.map((w) => w.bearing).join(', ')}), `
+      + `${greenTreeRecord.length - greenTreeKept.length} retired by T-3558, `
+      + `${goods.greenTreeWagons?.length} drawn`);
     // And the bench is drawn, against the wall rather than through it. Its
     // furthest corner is hypot(1.83/2, 0.36/2) = 0.93 m from its anchor, and the
     // record stands that anchor half the seat's depth off the facade plane, so
@@ -5141,9 +5494,13 @@ for (const [label, viewport, touch] of [
     const spanN = townWagons.length
       ? Math.max(...townWagons.map((w) => w.n)) - Math.min(...townWagons.map((w) => w.n))
       : 0;
+    // T-3636: the count is the record's town wagons less T-3558's retired list,
+    // exactly; the spread is unchanged, and is what this check was for.
     check(`${label}: the town's wagons are spread across its streets, not at two doors`,
-      townWagons.length >= 55 && streets.size >= 14 && spanE >= 1000 && spanN >= 700,
-      `${townWagons.length} town wagon(s) on ${streets.size} street(s) plus the `
+      townWagons.length === keptTown.length && townWagons.length > 0
+        && streets.size >= 14 && spanE >= 1000 && spanN >= 700,
+      `${townWagons.length} town wagon(s) (${keptTown.length} kept of `
+      + `${recordWagons.filter((w) => w.town).length} the rule dealt) on ${streets.size} street(s) plus the `
       + `working yards, spanning ${spanE.toFixed(0)} m east-west and `
       + `${spanN.toFixed(0)} m north-south`);
     // VARIED, in type and in the way they are drawn up. Three kinds, and no one
@@ -5151,11 +5508,25 @@ for (const [label, viewport, touch] of [
     // farm wagons is one wagon repeated, which is what the ticket asked against.
     const kindCounts = {};
     for (const w of townWagons) kindCounts[w.kind] = (kindCounts[w.kind] ?? 0) + 1;
-    const commonest = Math.max(0, ...Object.values(kindCounts));
+    // T-3636. THE THREE-QUARTERS BOUND IS ON THE DEAL, since T-3558. That ruling
+    // retired farm-box and covered wagons only — "carts are not wagons and are
+    // untouched" — so the drawn town is now mostly carts BY THE OWNER'S CHOICE, and a
+    // bound on the drawn mix would be asking his ruling to undo itself. What the
+    // T-0064 rule decides is the deal, and that is where the bound still bites: a
+    // rule dealing sixty identical wagons fails it as before. What is drawn must
+    // still carry all three kinds, and (by the ledger above) be exactly the deal
+    // minus the retired list, so no kind can vanish or swell unannounced.
+    const dealtTown = recordWagons.filter((w) => w.town);
+    const dealtKinds = {};
+    for (const w of dealtTown) dealtKinds[w.kind] = (dealtKinds[w.kind] ?? 0) + 1;
+    const commonestDealt = Math.max(0, ...Object.values(dealtKinds));
     check(`${label}: the town's wagons vary in type`,
       kinds.size >= 3 && kinds.has('covered') && kinds.has('cart')
-        && kinds.has('farm_box') && commonest <= townWagons.length * 0.75,
-      `${Object.entries(kindCounts).map(([k, v]) => `${v} ${k}`).join(', ')}`);
+        && kinds.has('farm_box') && Object.keys(dealtKinds).length >= 3
+        && commonestDealt <= dealtTown.length * 0.75 && wagonLedger,
+      `drawn ${Object.entries(kindCounts).map(([k, v]) => `${v} ${k}`).join(', ')}; `
+      + `dealt ${Object.entries(dealtKinds).map(([k, v]) => `${v} ${k}`).join(', ')} `
+      + `(commonest ${commonestDealt} of ${dealtTown.length}, bound 0.75)`);
     // AND IN THE WAY THEY STAND — T-0688, and this clause measures THE WAGON
     // RULE, which the one it replaces did not. It used to count distinct
     // `bearing_deg` to the nearest five degrees against a floor of 8. A town
@@ -5184,9 +5555,9 @@ for (const [label, viewport, touch] of [
     const envelopes = new Set(dealt.map((w) => w.slewEnvelope));
     // AND THE DEAL HAS TO BE DEALING. The slew is `sha1(id) mod steps` walked
     // end to end over the envelope, which is a uniform deal into `slewSteps`
-    // buckets; with sixty-odd wagons over nine steps every step is expected to
-    // carry about seven, and the chance a uniform deal leaves even one step
-    // empty is well under a percent. So the floor is `slewSteps - 1`: the deal's
+    // buckets; with the forty-five dealt wagons T-3558 kept over nine steps every
+    // step is expected to carry about five (seven, at sixty-odd, before it), and
+    // the chance a uniform deal leaves two steps empty is under a percent. So the floor is `slewSteps - 1`: the deal's
     // own step count, with one step of slack for the town gaining or losing a
     // wagon — derived from the rule, not read off a green run. And no step may
     // carry more than a quarter, which is more than double the uniform share.
@@ -5200,7 +5571,8 @@ for (const [label, viewport, touch] of [
       .map((w) => w.slew.toFixed(1)));
     const commonestStep = Math.max(0, ...Object.values(stepCounts));
     check(`${label}: the town's wagons stand at the slew the rule dealt them`,
-      dealt.length >= 55 && undealt.length <= 2 && escaped.length === 0
+      dealt.length === keptTown.filter((w) => w.dealt).length && dealt.length > 0
+        && undealt.length <= 2 && escaped.length === 0
         && envelopes.size === 3 && steps > 0 && alongSlews.size >= steps - 1
         && commonestStep <= dealt.length * 0.25,
       `${dealt.length} dealt and ${undealt.length} held by hand; `
@@ -5305,8 +5677,12 @@ for (const [label, viewport, touch] of [
     // stand where a person walking past them stands, 3.2 m off the wall, and
     // hold the clock so the grass cannot supply the difference. Same bar as the
     // two fence gates and the signboard: worst >= 6 and mean >= 0.3.
+    // T-3605 — the first Tremont turned to Gifford's drawing, and its facade now
+    // looks west into a 0.55 m gap at the next store's wall, so its casks are
+    // refused in writing. The stand moves two blocks east to the Mansion House,
+    // the next inn on Lake Street's north face, with the same seven-piece group.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 684.9, local_n: -104.3, yaw_deg: 0, pitch_deg: -10 }));
+      { local_e: 749.3, local_n: -104.5, yaw_deg: 0, pitch_deg: -10 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const goodsWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -5333,7 +5709,7 @@ for (const [label, viewport, touch] of [
     });
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     check(`${label}: aiming at a barrel opens the business it stands at`,
-      goodsPick.includes('tremont_house_1'),
+      goodsPick.includes('mansion_house'),
       `25 aims returned [${[...new Set(goodsPick)].join(', ') || 'nothing'}]`);
 
     // --- the frontage layer: the Green Tree (T-0082) and the Sauganash (T-0090) ---
@@ -5416,10 +5792,27 @@ for (const [label, viewport, touch] of [
       // so the exclusion is gone and the wharf decks are back in this probe: if
       // a board ever returns under a dock the band reads it as sunk half a
       // metre, and `underWharf` below names the dock it is under.
+      //
+      // A MERGED DECK IS ASKED, NOT READ AS A SLAB (T-3598). T-3553 (#2034)
+      // files every stoop, porch top and mounting block in town as ONE walker
+      // deck, `stairs:floors` (house-floors.js mergeDecks): its `pts` are the
+      // box round all of them and its `y` the lowest stoop's top, 0.78 m in
+      // 1835, and only its own `heightAt` says where a tread actually stands
+      // (null off every one). Read as a polygon at `y`, it laid a floor 0.78 m
+      // up across the whole town, and every board measured against it read as
+      // sunk 0.60 m, red on dev from 8372852a2. The walker asks it the same way
+      // (deck-surface.js deckHeightAt), and turns back at the walls deck,
+      // `stairs:walls`, which nobody stands on and no board ties into.
       const deckAt = (e, n) => {
         let y = null;
         for (const d of a.decks ?? []) {
           if (/__footway_\d+$/.test(d.id)) continue;
+          if (d.wall) continue;
+          if (typeof d.heightAt === 'function') {
+            const h = d.heightAt(e, n);
+            if (typeof h === 'number' && (y === null || h > y)) y = h;
+            continue;
+          }
           if (y !== null && d.y <= y) continue;
           let hit = false;
           const pts = d.pts;
@@ -5868,7 +6261,14 @@ for (const [label, viewport, touch] of [
     // carry 119 walks, 100 crossings, 53 posts, 37 fences and 184 refusals.
     // Authored meshes 124, derived top faces 108376, laid faces 95, bare fronts 7.
     // These are exact scope readings, not relaxed minima; geometry bars remain.
-    check(`${label}: the frontage layer lays all five records' walks and stands their posts`,
+    // T-3628 — every count below is now the records' own (frontageRecordCensus,
+    // at the head of this file): the history above and beside each clause says
+    // how the records came to deal what they deal, and the check says the layer
+    // laid all of it. T-3605's last two commits took the row to fifty-nine
+    // stores and the records to 97 posts, 34 fences and 234 refusals while this
+    // still read 60, 37 and 197.
+    const frontageDealt = frontageRecordCensus(ROOT);
+    check(`${label}: the frontage layer lays every walk, post and fence its five records deal`,
       // T-0241 laid Washington's seven block faces on top of Randolph's
       // thirteen: 42 walks to 49, 28 crossings to 33, 26 fence runs to 35 and
       // 74 refusals to 83. The post count does NOT move — Washington's
@@ -6044,8 +6444,10 @@ for (const [label, viewport, touch] of [
       // T-3360 — six buildings stepped back off the walk line: two runs that each stopped
       // at a wall join the run beyond (-2), St. Mary's front lays a Lake run of its own
       // (+1), and six corners take the crossing the stopped walks refused: 125 and 111.
-      frontage.census?.records === 5 && frontage.census?.walks === 125
-        && frontage.census?.crossings === 111
+      frontageDealt.error === null && frontageDealt.ids.length === 5
+        && frontage.census?.records === 5 && frontage.census?.walks === frontageDealt.walks
+        && frontage.census?.crossings === frontageDealt.crossings
+        && frontage.census?.orphaned === 0
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -6112,7 +6514,13 @@ for (const [label, viewport, touch] of [
         // north fences renumbered round them) and T-2130 (#466) the Dearborn
         // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
         // T-2195 — the wedge's two improved lots each take a street fence run: 37 to 39.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 39
+        // T-3605 — Gifford's Lake Street row: nine of its stores front Lake on a
+        // lot and take a post each (+9), the turned Tremont's two Lake posts retire
+        // because its facade now looks west (-2): 53 to 60. Two lot fences become
+        // the stores' own street wall, 39 to 37.
+        // T-3628 — the records deal 97 posts and 34 fences once the row is
+        // fifty-nine stores; read from them, not typed here.
+        && frontage.census?.posts === frontageDealt.posts && frontage.census?.fences === frontageDealt.fences
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -6198,17 +6606,27 @@ for (const [label, viewport, touch] of [
         // Diffed 6e5a9ec2d -> facae8d01: -1, nothing added, walks/fences/posts/fittings
         // unchanged; #586 moved no refusal. 5+2+2+1 records' rows + 180 = 190.
         // T-3360 — four corner-crossing refusals retire as their crossings are laid: 186.
-        && frontage.census?.refused === 186
+        // T-3605 — +11 refusals: three lot fences behind the new street wall, the
+        // seven Dearborn-facing stores and the turned Tremont, whose doors do not
+        // look onto the Lake Street lot they stand on.
+        // T-3628 — 234 once the row is fifty-nine stores, from the records.
+        && frontage.census?.refused === frontageDealt.refused
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
+        && frontage.recordIds.join(',') === frontageDealt.ids.join(',')
         && frontage.verts > 0 && frontage.problems.length === 0,
       `${frontage.census?.records} record(s) [${frontage.recordIds.join(', ')}], `
       + `${frontage.census?.walks} walk(s), ${frontage.census?.crossings} crossing(s), `
       + `${frontage.census?.posts} post(s), ${frontage.census?.fences} fence run(s), `
       + `${frontage.verts} vertices, `
       + `${frontage.census?.refused} wall(s) refused, `
-      + `problems [${frontage.problems.join(' | ') || 'none'}]`);
+      + `${frontage.census?.orphaned} orphaned; the records deal `
+      + (frontageDealt.error ? `nothing readable (${frontageDealt.error})`
+        : `${frontageDealt.walks} walk(s), ${frontageDealt.crossings} crossing(s), ${frontageDealt.posts} post(s), `
+          + `${frontageDealt.fences} fence run(s), ${frontageDealt.refused} refusal(s) in `
+          + `[${frontageDealt.ids.join(', ')}]`)
+      + `; problems [${frontage.problems.join(' | ') || 'none'}]`);
     // NO BOARD UNDER A LANDING (T-0228). Found by T-0058, which made the wharf
     // decks walk surfaces and so made it matter: Carpenter's and Jones's decks
     // tie their heels 2.0 m back into the bank the riverside plank walk runs
@@ -6631,11 +7049,18 @@ for (const [label, viewport, touch] of [
     // not move.
     // T-1823 makes it FIFTY-THREE: the fronts-only faces beyond the covered
     // streets stand the Western Hotel's two posts and three stores' one each.
-    check(`${label}: the fifty-three hitching posts stand on their own ground, carrying nothing`,
-      frontage.hitching.length === 53
-        && frontage.census?.hitching === 53
-        && frontage.hitching.filter((h) => !h.street).length === 2
-        && frontage.hitching.filter((h) => h.street).length === 51
+    // T-3605 makes it SIXTY: nine of the stores built to Gifford's drawing front
+    // Lake Street on a lot (+9), and the first Tremont, turned to the drawing so
+    // its facade looks west, no longer fronts its Lake lot (-2).
+    // T-3628 — and the rest of T-3605's row makes it NINETY-SEVEN, 95 at the
+    // street edge and the Sauganash's two on its own ground: read from the
+    // records (frontageRecordCensus), no longer typed here.
+    check(`${label}: every hitching post the records deal stands on its own ground, carrying nothing`,
+      frontageDealt.error === null && frontageDealt.hitching > 0
+        && frontage.hitching.length === frontageDealt.hitching
+        && frontage.census?.hitching === frontageDealt.hitching
+        && frontage.hitching.filter((h) => !h.street).length === frontageDealt.hitchingOwnGround
+        && frontage.hitching.filter((h) => h.street).length === frontageDealt.hitchingStreet
         && postsBad.length === 0
         // T-1580 — the clause this carried was `lettered === 1`, and what it is
         // FOR is that none of these eighteen is the boarded post: the layer's
@@ -6644,7 +7069,9 @@ for (const [label, viewport, touch] of [
         // corner stands, and it still fails if one of the eighteen grows a board.
         && frontage.census?.lettered === frontage.signPosts
         && frontage.noBoardHere === false,
-      `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}`
+      `${frontage.hitching.length} post(s) read, census says ${frontage.census?.hitching}, `
+      + `records deal ${frontageDealt.hitching} (${frontageDealt.hitchingOwnGround} own ground, `
+      + `${frontageDealt.hitchingStreet} street edge)${frontageDealt.error ? ` [${frontageDealt.error}]` : ''}`
       + ` — ${frontage.hitching.filter((h) => !h.street).length} on a record's own`
       + ` ground, ${frontage.hitching.filter((h) => h.street).length} at the street edge`
       + `; ${postsBad.length} bad: `
@@ -6683,12 +7110,19 @@ for (const [label, viewport, touch] of [
     // thirty-eight stoops.
     // T-3360 — a church takes a stoop at its door (St. Mary's and First Presbyterian,
     // both onto Lake Street): 54, forty stoops.
-    check(`${label}: the fifty-four business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 54 && (frontage.fittings ?? []).length === 54
-        && fitKinds.stoop === 40 && fitKinds.mounting_block === 6
-        && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
+    // T-3605 — nine Gifford stores' stoops on Lake Street (+9); the turned Tremont's
+    // stoop and mounting block retire with its Lake frontage (-2): 61, forty-eight
+    // stoops, five mounting blocks.
+    // T-3628 — and the rest of the row makes it NINETY-SEVEN, eighty-four
+    // stoops: every count read from the records, kind for kind.
+    check(`${label}: every business-front fitting the records deal is drawn at its own front`,
+      frontageDealt.error === null && frontageDealt.fittings > 0
+        && frontage.census?.fittings === frontageDealt.fittings
+        && (frontage.fittings ?? []).length === frontageDealt.fittings
+        && sameKinds(fitKinds, frontageDealt.fittingKinds)
         && fitBad.length === 0,
-      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
+      `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}, records deal `
+      + `${frontageDealt.fittings} ${JSON.stringify(frontageDealt.fittingKinds)}; `
       + `${fitBad.length} bad: `
       + fitBad.slice(0, 6).map((q) => `${q.id} [` + q.parts.map((p) => `${p.part} `
         + `${p.found} vert, top ${p.top?.toFixed(2)}/${p.recorded} m`).join(', ') + ']')
@@ -7784,121 +8218,81 @@ for (const [label, viewport, touch] of [
       dBank.worst >= 6 && dBank.mean >= 0.3,
       `signature distance worst ${dBank.worst?.toFixed(1)}, mean ${dBank.mean?.toFixed(2)}`);
 
-    // --- the boats on the river (T-0063) ---------------------------------
+    // --- the vessels on the river and the lake (T-0063, T-3612) -----------
     //
-    // The first layer that RIDES the water rather than standing in it, and its
-    // failure modes are new: an afloat hull whose keel is not under the water
-    // plane is flying, one whose bed is nearer than its own draft is aground,
-    // and a hull inside the drawbridge's clearance is a rule change nobody
-    // reviewed. All of it is decided at load out of the record and a terrain
-    // sample, so it is measured here against the terrain the browser actually
-    // loaded, and nowhere else.
-    const flotilla = await page.evaluate(() => {
-      const b = window.__chicago4d.boats;
-      const terrain = window.__chicago4d.terrain;
-      const mesh = b?.group?.children?.[0] ?? null;
-      const g = mesh?.geometry ?? null;
-      let ungraded = 0;
-      let notReconstructed = 0;
-      const conf = g?.getAttribute('_confidence');
-      if (conf) {
-        for (let i = 0; i < conf.count; i++) {
-          const v = conf.getX(i);
-          if (!(v >= 0 && v <= 1)) ungraded++;
-          else if (v < 1) notReconstructed++;
-        }
-      }
-      const rec = (b?.records ?? [])[0] ?? {};
-      const clearance = rec.clearances?.drawbridge_span_m?.value ?? 30;
-      const form = rec.form ?? {};
-      const stands = (b?.boats ?? []).map((boat) => {
-        const [e, n] = boat.position_local_enu_m;
-        const draft = form[boat.type]?.draft_m?.value ?? 0;
-        const bed = terrain.surfaceHeight(e, n);
-        return {
-          id: boat.id,
-          type: boat.type,
-          afloat: boat._drawn?.afloat ?? null,
-          keelY: boat._drawn?.keel_y_m ?? null,
-          wet: terrain.isWater(e, n),
-          bed,
-          draft,
-          clearOfSpan: n >= 120 || Math.abs(e - 699.17) >= clearance,
-        };
+    // The first layer that RIDES the water rather than standing in it. T-3612 put
+    // the T-0063 boats under data/boats/vessels_1835.json: the five schooners the
+    // American's Marine Journal of 4 July 1835 enters at this port, planked and
+    // rigged, one anchored in the offing with a Mackinaw boat lightering her, and
+    // the rowboats and canoes of the landings — and the visitor can take the helm
+    // of any of them. Its failure modes: an afloat hull out of its own water (aground
+    // or flying), a berth across the drawbridge's span or a pier, a sailing loop that
+    // stalls, a helm that will not take or will not give the visitor back ashore.
+    // All of it is decided at load from the record and the terrain the browser
+    // loaded, so it is measured here and nowhere else.
+    const flotilla = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const v = a.vessels;
+      const { blockedAt } = await import(new URL('js/boat-pilot.js', location.href).href);
+      const nav = v?.nav ?? null;
+      const stands = (v?.vessels ?? []).map((x) => {
+        const beached = x.rec.mode === 'beached';
+        const why = beached || !nav ? null
+          : blockedAt(nav, { id: x.id, kind: x.rec.kind, masted: x.model.masted, length: x.L, beam: x.B, draft: x.rec.hull.draft_m },
+            x.pose.e, x.pose.n, x.pose.bearing, { ground: (e, n) => v.bed(e, n) });
+        return { id: x.id, state: x.state, beached, y: x.pose.y, why,
+          bed: v.bed(x.pose.e, x.pose.n), draft: x.rec.hull.draft_m };
       });
-      return {
-        census: b?.census ?? null,
-        keepOut: (b?.keepOut ?? []).length,
-        meshes: b?.group?.children?.length ?? 0,
-        verts: g?.getAttribute('position')?.count ?? 0,
-        hasConfidence: !!conf,
-        ungraded,
-        notReconstructed,
-        stands,
-      };
+      return { census: v?.census ?? null, keepOut: (v?.keepOut ?? []).length, stands,
+        beached: stands.filter((s) => s.beached).length, oldBoats: a.boats?.census?.boats ?? null,
+        crew: v?.crewState?.() ?? null };
     });
-    // Thirteen boats since T-0140 — three schooners in the reach below the
-    // drawbridge and TWO AT THE WOLF POINT LANDINGS, four rowboats at the South
-    // Water bank and two more at the west bank at the forks, two canoes at the
-    // fort landing — and ZERO refused: every authored position was chosen
-    // against the committed heightfield, so a refusal appearing here means the
-    // terrain moved under the record and the record was not re-read. FIVE
-    // planting keep-outs, one per BEACHED hull (the two South Water skiffs, the
-    // Wolf Point skiff and the two fort canoes); an afloat hull needs none.
-    check(`${label}: every authored boat is on the water`,
-      flotilla.census?.boats === 13 && flotilla.census?.refused === 0
-        && flotilla.census?.schooners === 5 && flotilla.census?.rowboats === 6
-        && flotilla.census?.canoes === 2 && flotilla.verts > 0
-        && flotilla.keepOut === 5,
-      `${flotilla.census?.boats} boat(s) (${flotilla.census?.schooners} schooner(s), `
-      + `${flotilla.census?.rowboats} rowboat(s), ${flotilla.census?.canoes} canoe(s)), `
-      + `${flotilla.census?.refused} refused, ${flotilla.verts} vertices, `
-      + `${flotilla.keepOut} planting keep-out(s)`);
-    check(`${label}: the whole boat layer is one draw call`,
-      flotilla.meshes === 1, `${flotilla.meshes} mesh(es) in the group`);
-    check(`${label}: every boat vertex is graded reconstructed`,
-      flotilla.hasConfidence && flotilla.ungraded === 0 && flotilla.notReconstructed === 0,
-      `attribute ${flotilla.hasConfidence ? 'present' : 'MISSING'}, ${flotilla.ungraded} out `
-      + `of range, ${flotilla.notReconstructed} claiming better than reconstructed`);
-    // An afloat hull floats: keel below the water plane by its own draft, bed
-    // below the keel by the record's under-keel margin, real water at the
-    // position. A beached hull sits on ground at the water's edge — not out on
-    // open water, not up on the prairie.
-    check(`${label}: every afloat hull floats in its own water`,
-      flotilla.stands.filter((s) => s.afloat).every((s) => s.wet
-        && s.keelY !== null && Math.abs(s.keelY + s.draft) < 1e-6
-        && s.bed <= s.keelY - 0.25),
-      flotilla.stands.filter((s) => s.afloat).map((s) => `${s.id} keel `
-        + `${s.keelY?.toFixed(2)} m, bed ${s.bed?.toFixed(2)} m`).join('; '));
-    check(`${label}: every beached hull sits on the bank, at the water`,
-      flotilla.stands.filter((s) => !s.afloat).every((s) => s.keelY !== null
-        && s.keelY >= -0.6 && s.keelY <= 1.5),
-      flotilla.stands.filter((s) => !s.afloat).map((s) => `${s.id} keel `
-        + `${s.keelY?.toFixed(2)} m`).join('; '));
-    check(`${label}: the drawbridge's navigation span stays clear`,
-      flotilla.stands.every((s) => s.clearOfSpan),
-      flotilla.stands.filter((s) => !s.clearOfSpan).map((s) => s.id).join(', ') || 'all clear');
+    // Fifteen vessels: five named schooners, the schooner in the offing and her
+    // lighter, six rowboats and two bark canoes, and ZERO refused — every berth was
+    // laid by tools/lay_vessels.py against the committed heightfield, so a refusal
+    // means the terrain moved under the record. One planting keep-out per beached
+    // hull. The T-0063 boat layer draws nothing now: every record names its
+    // successor.
+    check(`${label}: every vessel is laid and none refused`,
+      flotilla.census?.vessels === 15 && flotilla.census?.refused === 0
+        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached
+        && flotilla.beached === 5 && flotilla.oldBoats === 0,
+      `${flotilla.census?.vessels} vessel(s) (${flotilla.census?.schooners} schooner(s)), `
+      + `${flotilla.census?.refused} refused, ${flotilla.keepOut} keep-out(s) for `
+      + `${flotilla.beached} beached hull(s), ${flotilla.oldBoats} drawn by the old boat layer`);
+    // An afloat hull floats on the plane in its own water: clear of the bed by its
+    // draft (the harbour's dredged channel by its own depth), of every pier and
+    // wharf, and of the drawbridge's span. The pilot's own
+    // rule (boat-pilot.js blockedAt) is what answers, so the record and the helm
+    // cannot disagree about where a schooner may lie.
+    check(`${label}: every afloat vessel lies in its own water, clear of piers and the draw`,
+      flotilla.stands.filter((s) => !s.beached).every((s) => s.why === null && Math.abs(s.y) < 0.3),
+      flotilla.stands.filter((s) => !s.beached && (s.why !== null || Math.abs(s.y) >= 0.3))
+        .map((s) => `${s.id} ${s.why ?? ''} y ${s.y?.toFixed(2)} bed ${s.bed?.toFixed(2)}`).join('; ') || 'all afloat');
+    check(`${label}: two schooners are under sail on a summer day`,
+      flotilla.census?.sailing === 2, `${flotilla.census?.sailing} sailing`);
+    check(`${label}: the crews can come aboard`,
+      flotilla.crew && flotilla.crew.kit !== 'none', `crew kit ${flotilla.crew?.kit}`);
 
     // AND THE REACH READS AS A HARBOUR, which is what the owner asked for.
     // Stand on the south bank looking down the reach at the moored schooners
     // and hold the clock, so the water and the grass cannot supply the
-    // difference. Same bar as the fences, the boards, the goods and the docks.
+    // difference.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
       { local_e: 765, local_n: 15, yaw_deg: 353, pitch_deg: -2 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const boatWith = await page.evaluate(() => window.__chicago4d.capture());
-    await page.evaluate(() => { window.__chicago4d.boats.group.visible = false; });
+    await page.evaluate(() => { window.__chicago4d.vessels.group.visible = false; });
     const boatWithout = await page.evaluate(() => window.__chicago4d.capture());
-    await page.evaluate(() => { window.__chicago4d.boats.group.visible = true; });
+    await page.evaluate(() => { window.__chicago4d.vessels.group.visible = true; });
     const dBoat = signatureDistance(boatWith, boatWithout);
     check(`${label}: the schooners reach the screen from the bank`,
       dBoat.worst >= 6 && dBoat.mean >= 0.3,
       `cell delta mean ${dBoat.mean?.toFixed(2)}, worst ${dBoat.worst} (need worst>=6)`);
 
-    // A boat belongs to no structure, so aiming at one has to open its OWN
-    // card — the type, the size and what bounded the invention — rather than
-    // answering nothing or answering for a building behind it.
+    // A vessel belongs to no structure, so aiming at one has to open its OWN
+    // card — what the Marine Journal says of her and what was reconstructed.
     const boatPick = await page.evaluate(() => {
       const hits = [];
       for (const x of [-0.3, -0.15, 0, 0.15, 0.3]) {
@@ -7911,10 +8305,36 @@ for (const [label, viewport, touch] of [
       return { hits, title };
     });
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
-    check(`${label}: aiming at a schooner opens the boat's own card`,
-      boatPick.hits.some((id) => id.startsWith('boat_schooner')),
+    check(`${label}: aiming at a schooner opens the vessel's own card`,
+      boatPick.hits.some((id) => id.startsWith('vessel_schr')),
       `25 aims returned [${[...new Set(boatPick.hits)].join(', ') || 'nothing'}] `
       + `(last card: "${boatPick.title}")`);
+
+    // THE OWNER'S ASK: "Would be nice if I can board and pilot the schooners and
+    // all boats." Take the Hiram's helm, put way on her, step the helm by hand (the
+    // frame clock is the browser's, not the smoke's), and go ashore: she moves, she
+    // stays in her water, and the visitor lands on ground.
+    const helm = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const craft = a.vessels.craftOf('vessel_schr_hiram');
+      // T-3627: the helm loads on first use, as Take her loads it.
+      const unloaded = a.pilot == null;
+      const took = (await a.loadPilot()).take(craft);
+      const p0 = { ...craft.pose };
+      a.pilot.drive({ forward: 1, strafe: 0 });
+      for (let i = 0; i < 120; i++) a.pilot.update(0.1);
+      const p1 = { ...craft.pose };
+      const banner = document.body.innerText.includes('At the helm of');
+      const said = a.pilot.leave();
+      return { took, unloaded, moved: Math.hypot(p1.e - p0.e, p1.n - p0.n), blocked: a.pilot.blocked ?? null,
+        wet: a.terrain.isWater(p1.e, p1.n), banner, said, active: a.pilot.active,
+        landed: a.terrain.isWater(a.walker.state.e, a.walker.state.n) === false };
+    });
+    check(`${label}: the visitor can take a schooner's helm and bring her back ashore`,
+      helm.took && helm.moved > 3 && helm.wet && helm.landed && !helm.active,
+      `took ${helm.took}, moved ${helm.moved?.toFixed(1)} m (blocked: ${helm.blocked ?? 'no'}), `
+      + `${helm.wet ? 'in' : 'OUT OF'} the water, ashore: ${helm.landed} ("${helm.said}"; helm loaded on first use: ${helm.unloaded})`);
+
 
     // --- the scene actually draws ----------------------------------------
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
@@ -7952,6 +8372,7 @@ for (const [label, viewport, touch] of [
     const { image: back, state: confidenceStateAfter } = await captureWithRestoreState(page, 12, 'after');
     const dBack = signatureDistance(off, back);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     // With the clock held these are two captures of one unchanged scene, so the
     // restored frame should be the SAME frame. The residual left is readback
     // noise, not weather; a confidence tint left enabled changes the mean
@@ -12288,7 +12709,7 @@ for (const [label, viewport, touch] of [
     // share: at 390×780 a 48² cell dilutes the roadway until the aid's worst cell
     // reads 3 against a floor of 4, and the same frame at 96² reads 7. Its box
     // carries the sweep both readings come from.
-    const aidOff = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_REACH_GRID);
+    const aidOff = await settledBaseline(page, ROAD_AID_REACH_GRID, 'road aid');
     const aidOff12 = await page.evaluate(() => window.__chicago4d.capture());
     const aidSet = await page.evaluate(() => window.__chicago4d.setRoadAid(1));
     // K24. The raised READING, which until now this suite never took: both of
@@ -12305,6 +12726,7 @@ for (const [label, viewport, touch] of [
     const dAidBack = signatureDistance(aidOff, aidBack);
     const aidRestored = await page.evaluate(() => window.__chicago4d.roadAid);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: raising the road-legibility aid reaches the render`,
       aidSet === 1 && aidLive === 1
@@ -12416,7 +12838,7 @@ for (const [label, viewport, touch] of [
       + `${batchCensus.min}–${batchCensus.max} (want >=${ROUGHNESS_VALUES_MIN} spanning 0.30–0.95)`);
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const roughFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const roughFull = await settledBaseline(page, ROAD_AID_GRID, 'roughness');
     await page.evaluate(() => {
       // T-3408: every batch laid with the first one's material (a phone lays a big one as several).
       const bs = window.__chicago4d.buildings.batches;
@@ -12437,6 +12859,7 @@ for (const [label, viewport, touch] of [
     const roughBack = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dRoughBack = signatureDistance(roughFull, roughBack);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: the per-vertex roughness channel reaches the render`,
       dRough.worst >= ROUGHNESS_MIN_WORST,
@@ -12515,7 +12938,7 @@ for (const [label, viewport, touch] of [
     // part of the assertion and is taken here, not inherited.
     await standAtBootPose();
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const toneOn = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const toneOn = await settledBaseline(page, ROAD_AID_GRID, 'facade tones');
     const toneOff = await page.evaluate(() => window.__chicago4d.setFacadeWeathering(0));
     const flatFacades = await page.evaluate(() => {
       const t = window.__chicago4d.buildings.facadeTones();
@@ -12529,6 +12952,7 @@ for (const [label, viewport, touch] of [
     });
     const toneBackShot = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
     const dTone = signatureDistance(toneOn, toneOffShot);
     const dToneBack = signatureDistance(toneOn, toneBackShot);
 
@@ -12624,7 +13048,7 @@ for (const [label, viewport, touch] of [
       window.__chicago4d.step();
     }, shadowPose);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const reachFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
+    const reachFull = await settledBaseline(page, ROAD_AID_GRID, 'shadow reach');
     const woundBack = await page.evaluate(() => window.__chicago4d.world.setShadowReach(60));
     const reachOld = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dReach = signatureDistance(reachFull, reachOld);
@@ -12633,6 +13057,7 @@ for (const [label, viewport, touch] of [
     const reachBack = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dReachBack = signatureDistance(reachFull, reachBack);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     check(`${label}: the shadow reach reaches the render`,
       woundBack === 60 && dReach.worst >= SHADOW_REACH_MIN_WORST,
@@ -12768,7 +13193,7 @@ for (const [label, viewport, touch] of [
       + `(calibrated ${BASE_EXPOSURE}) with no stored preference`);
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const brightOff = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
+    const brightOff = await settledBaseline(page, BRIGHT_AID_GRID, 'brightness aid');
     const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(2));
     const brightOn = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
     const exposureOn = await page.evaluate(() => window.__chicago4d.exposure);
@@ -12783,6 +13208,7 @@ for (const [label, viewport, touch] of [
     const brightRestored = await page.evaluate(() => window.__chicago4d.brightness);
     const exposureRestored = await page.evaluate(() => window.__chicago4d.exposure);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
+    await letGoPairPeople(page);
 
     // T-3428: the top is two stops, of which the exposure takes half (world.js
     // § BASE_EXPOSURE) — so the exposure at the top is still the old one-stop 2x.
@@ -14473,8 +14899,8 @@ for (const [label, viewport, touch] of [
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await openSection('settings');
-    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
+    await openSection('settings', 'look');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator (Look tab, T-3563).
     await clickChrome('#s-show-control-help');
     // T-2620: the switch to Guide is immediate; its sheet is a lazy module that fills in
     // behind it, which on a starved desktop runner took longer than 10 s on a first open.
@@ -14556,7 +14982,7 @@ for (const [label, viewport, touch] of [
       && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's ten steps, read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -14578,7 +15004,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 9 && rows.length === 9 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 10 && rows.length === 10 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -14625,14 +15051,15 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the nine tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the ten tour steps, available Jaunts and the empty 1871 baseline on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
-      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
-      // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
-      && handoutRead.dests.every((d) => d.jaunts === 3 && d.empty === null)
+      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
+      // The new 1871 baseline has no authored Jaunts; all three earlier destinations retain theirs.
+      && handoutRead.dests.every((d) => d.name.startsWith('1871')
+        ? d.jaunts === 0 && d.empty === 'No Jaunts here yet.' : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 9 && s.jaunts === 9)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10 && s.jaunts === 9)
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -14965,7 +15392,9 @@ for (const [label, viewport, touch] of [
       const all = [...document.querySelectorAll('.panel-tab')];
       const out = { order: all.map((el) => el.dataset.tab), homeless: [], rows: {}, overflow: 0, squeezed: [], boxless: [] };
       for (const el of all) {
-        if (!el.hidden && !api.navigator.apps.includes(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
+        // T-3629: Move is registered off the rail (`inRail: false`, opened from Home's tile),
+        // so `has`, not the rail's `apps`, says whether a section has an app.
+        if (!el.hidden && !api.navigator.has(HOME[el.dataset.tab])) out.homeless.push(el.dataset.tab);
       }
       for (const app of ['people', 'guide', 'settings']) {
         if (!api.navigator.apps.includes(app)) continue;
@@ -14984,7 +15413,7 @@ for (const [label, viewport, touch] of [
       out.strayViewpointList = document.querySelectorAll('[data-panel="settings"] .anchor-btn, #anchors').length;
       return out;
     });
-    check(`${label}: every section the drawer had is held by a Navigator app on the rail`,
+    check(`${label}: every section the drawer had is held by a Navigator app`,
       // Go to's tab retired with the drawer (T-2620): Go to is the Jaunts app's own segment.
       tabStrip.order.join(',') === 'goto,travel,people,businesses,evidence,settings,controls,whatsnew' && !tabStrip.homeless.length
       && tabStrip.gotoRetired,
@@ -14998,7 +15427,7 @@ for (const [label, viewport, touch] of [
       tabStrip.strayViewpointList === 0, `${tabStrip.strayViewpointList} stray node(s)`);
 
     // G, from the walk, with the panel shut.
-    await clickChrome('#panel-close');
+    await closePanel();
     await page.keyboard.press('g');
     await page.waitForFunction(() => window.__chicago4d.jauntsApp?.current === 'goto' && window.__chicago4d.navigator.app === 'jaunts',
       null, { timeout: 15_000, polling: 100 }).catch(() => {});
@@ -16442,9 +16871,16 @@ for (const [label, viewport, touch] of [
     check(`${label}: Back returns to the hub`,
       hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
-    await holdDraws(false); // T-3455: the draws come back before the drawer closes
+    // T-3600: the hold is NOT lifted here any more. Everything from here to the
+    // recorded-sound block below is Settings' own DOM too — the navigation aids,
+    // Show, the DEV pill, Display, Machine, Sound's sliders, text size 140 % across
+    // every app, the field log and Researcher — and none of it reads a pixel, a
+    // program or `renderer.info`, so the draws stay HELD until that block's
+    // `finally` lifts them before the Confidence budgets. Unheld, this stretch
+    // cost 7 m 38 s of desktop part 13 on CI (6:05 to 13:43 in content build
+    // 43614283619, whose part 13 was then killed at its 40-minute leg cap).
     // The chrome as the next block expects it: drawer closed.
-    await clickChrome('#panel-close');
+    await closePanel();
 
     await openSection('settings');
     const toggles = await page.evaluate(() => {
@@ -16487,6 +16923,7 @@ for (const [label, viewport, touch] of [
     // not drawn at a phone's width and still are on a desktop; the arrival card's build
     // stamp likewise (kept on a stalled arrival). Settings › About carries the stamp, and
     // the DEV mark exactly while the page is a dev build.
+    await openSection('settings', 'about'); // T-3563: About is its own tab
     const devChrome = await page.evaluate(() => {
       const api = window.__chicago4d;
       const planted = [];
@@ -16529,7 +16966,7 @@ for (const [label, viewport, touch] of [
     // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
     // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
     // marked, and a tap on another switches the machine and its tone; Auto names this device's
-    // levels; Sound has four levels and examples beside their own controls; About opens What's new;
+    // levels; Sound has five levels and examples beside their own controls; About opens What's new;
     // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
     // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
     // a starved runner takes seconds between frames.
@@ -16545,9 +16982,11 @@ for (const [label, viewport, touch] of [
         skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
         auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
         autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
-        sound: ['master', 'effects', 'ambience', 'music'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        // T-3597: five sliders since T-3578 put Narration (the jaunt voices) under Music, with its
+        // own example line like Effects and Ambience.
+        sound: ['master', 'effects', 'ambience', 'music', 'narration'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
         soundTotal: document.querySelectorAll('#s-sound input[type="range"]').length,
-        soundHelp: Object.fromEntries(['effects', 'ambience'].map((key) => {
+        soundHelp: Object.fromEntries(['effects', 'ambience', 'narration'].map((key) => {
           const slider = document.getElementById(`s-sound-${key}`);
           const help = document.getElementById(`s-sound-${key}-help`);
           const group = slider?.closest('.sound-control');
@@ -16629,12 +17068,13 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has four sliders with their own Ambience/Effects examples and no extra notes, About opens What's new (T-2656, T-3544)`,
+    check(`${label}: Auto names this device's levels, Sound has five sliders with their own Ambience/Effects/Narration examples and no extra notes, About opens What's new (T-2656, T-3544, T-3578)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
+      && settingsApp.sound === 5 && settingsApp.soundTotal === 5 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
-      && /wagon wheels and harness jingles from moving teams/.test(settingsApp.soundHelp.effects.text)
+      && /^Nearby actions: hoofbeats, wagon wheels and hammering\.$/.test(settingsApp.soundHelp.effects.text)
+      && /read aloud/.test(settingsApp.soundHelp.narration.text)
       && settingsApp.whatsNew,
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
         total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
@@ -16663,8 +17103,11 @@ for (const [label, viewport, touch] of [
       const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
       const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
       const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
+      // T-3563 / T-3629: the field log is on Settings' Research tab.
+      document.querySelector('#settings-tabs [data-set-tab="research"]')?.click();
+      await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 10000);
       const section = document.getElementById('s-field-log');
-      const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
+      const out = { inAbout: !!section?.closest('#s-research'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
         labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
       document.getElementById('s-field-log-clear')?.click();
       await wait(100);
@@ -16687,6 +17130,7 @@ for (const [label, viewport, touch] of [
       await n.select('settings');
       await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
       if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      api.hud.settingsTabs?.select('research');
       await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
       out.after = cells();
       out.afterStore = stored();
@@ -16703,7 +17147,7 @@ for (const [label, viewport, touch] of [
     const fieldSent = fieldRequests.filter((r) => !['GET', 'HEAD'].includes(r.method) || r.body || ['beacon', 'ping'].includes(r.type)
       || /fieldLog|field_log|firstInspect|confidencePreset/i.test(decodeURIComponent(r.url)));
     const zeroes = (c) => ['landed', 'firstInspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'].every((k) => c?.[k] === '0');
-    check(`${label}: Settings › About has the field log in plain words, and Clear empties it (T-2660)`,
+    check(`${label}: Settings › Research has the field log in plain words, and Clear empties it (T-2660, T-3629)`,
       fieldLogRun.inAbout && fieldLogRun.shown && fieldLogRun.labels.length === 9 && fieldLogRun.labels.every((l) => !/_|[a-z][A-Z]/.test(l))
       && zeroes(fieldLogRun.cleared) && fieldLogRun.cleared.time === 'Not yet' && fieldLogRun.clearedStore === null
       && /^Cleared\./.test(fieldLogRun.status),
@@ -16720,7 +17164,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
     // <<< T-2660
     // >>> T-2657: Researcher mode, the Settings switch (T-3022: Expert research, Settings ›
-    // Research, the first group; it was in About). Off by default: no RESEARCHER
+    // Research, the last tab since T-3563; it was in About). Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
     // and never aborts the part) turns it on: the label sits at the top, clear of the year
@@ -16751,10 +17195,12 @@ for (const [label, viewport, touch] of [
       };
     });
     const researchOff = await researchRead();
+    // T-3563: Expert research is the Settings card's last tab (the owner: "at the end").
+    await openSection('settings', 'research');
     const researchClick = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
     await page.waitForFunction(() => document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
     const researchOn = await researchRead();
-    await openSection('settings');
+    await openSection('settings', 'research');
     const researchClick2 = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
     await page.waitForFunction(() => !document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
     const researchBack = await researchRead();
@@ -16791,9 +17237,10 @@ for (const [label, viewport, touch] of [
     // DOM/audio state only: keep simulation and browser layout live, but avoid
     // software WebGL draws blocking trusted-input acknowledgement. Restore the
     // real renderer before the Confidence budgets and graphical checks below.
+    // (T-3600: already held since the directories above; the call is idempotent.)
     await holdDraws(true);
     try {
-    await openSection('settings').catch(() => {});
+    await openSection('settings', 'display').catch(() => {});
     const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
     const soundTap = await page.evaluate(async (s) => {
       const el = document.querySelector(s);
@@ -16901,7 +17348,7 @@ for (const [label, viewport, touch] of [
       soundRead.musicOff && soundRead.muted && soundRead.hidden, JSON.stringify(soundRead));
     // <<< T-2659
     await openSection('settings');
-    await clickChrome('#panel-close');
+    await closePanel();
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
@@ -16936,12 +17383,17 @@ for (const [label, viewport, touch] of [
         budget: { ...st.budget }, publicBudget: { ...a.budget } };
     });
     const confidenceBudgetPinned = (st) => {
-      const ordinary = { full: 3470000, balanced: 2675000, light: 1190000 }[st.detail];
+      // T-3605: ordinary Full re-priced 3,470,000 -> 3,495,000 for the Gifford street faces.
+      // T-3622: all three re-priced at West prairie (owner answer a): 3,605,000 / 2,750,000 / 1,305,000.
+      // T-3656: owner-authorized ordinary Full 3,630,000; retain exact public/stat pins.
+      const ordinary = { full: 3630000, balanced: 2750000, light: 1305000 }[st.detail];
       const fullGhost = st.detail === 'full' && st.ghosting === true;
       const draws = fullGhost ? 8900 : 7800;
       // T-3535: current published X-RAY 3,737,315 + retained 18,059 margin,
       // rounded to 5,000; ordinary and lower-tier limits remain pinned.
-      const triangles = fullGhost ? 3760000 : ordinary;
+      // T-3556: re-read at 3,764,962 with two 1835 townspeople out (render-budget.js).
+      // T-3655: re-read at 3,842,482 / 3,847,921 at this part's own stand -> 3,870,000.
+      const triangles = fullGhost ? 3870000 : ordinary;
       return String(st.year) === '1835' && ordinary !== undefined
         && st.budget.drawCalls === draws && st.budget.triangles === triangles
         && st.publicBudget.drawCalls === draws && st.publicBudget.triangles === triangles;
@@ -17157,12 +17609,54 @@ for (const [label, viewport, touch] of [
           streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
       });
       const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
+      // T-3613: the town is held STILL across the two readings, not waited on. T-3556 waited for
+      // no figure to have a level in flight and then held `humans.update`, and dev stayed red on
+      // it (+19 geometries and +19 draws desktop, every content build from f90dc7d7d on): a level
+      // already asked for lands from its own promise (Actor.setLod -> show), not from `update`,
+      // and that wait gave up silently after 20 s on a slow runner, holding nothing. So from the
+      // first reading to the second: the people's layer is not drawn at all (a figure that lands
+      // or comes out meanwhile is never uploaded, so it cannot be counted as the overlays'), its
+      // `update` is held (no level is asked for or let go), and the frame clock is held
+      // (setAnimationHold: traffic, the sun and every walk stand where they are). The overlays
+      // are a DOM layer with their own frame loop and read none of it. Held only after the
+      // teleport has settled, so the camera is already where the labels are read from.
+      const townHeld = () => page.evaluate(() => {
+        const a = window.__chicago4d, h = a.humans;
+        a.setAnimationHold(true);
+        if (h && !h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
+        if (h?.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
+      }).catch(() => {});
+      const townLetGo = () => page.evaluate(() => {
+        const a = window.__chicago4d, h = a.humans;
+        a.setAnimationHold(false);
+        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+        if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+      }).catch(() => {});
+      // What each top-level layer of the scene draws, read beside the stats, so a red reading
+      // names the layer whose geometry it was instead of leaving it to be guessed.
+      const sceneCensus = () => page.evaluate(() => {
+        const out = {};
+        for (const c of window.__chicago4d.scene3d?.children ?? []) {
+          let n = 0;
+          c.traverseVisible((o) => { if (o.geometry) n++; });
+          const k = c.name || c.type;
+          out[k] = (out[k] ?? 0) + n;
+        }
+        return out;
+      }).catch(() => null);
+      const censusMoved = (off, on) => (off && on ? Object.fromEntries([...new Set([...Object.keys(off), ...Object.keys(on)])]
+        .filter((k) => off[k] !== on[k]).map((k) => [k, [off[k] ?? 0, on[k] ?? 0]])) : null);
       const ovSwitch = async (id, want) => {
         const now = await page.evaluate((i) => document.getElementById(`cv-ov-${i}`)?.checked ?? null, id);
         if (now !== want) await clickChrome(`#cv-ov-${id}`);
       };
       const pose0 = await page.evaluate(() => { const p = window.__chicago4d.player; return { local_e: p.e, local_n: p.n, yaw_deg: p.bearingDeg }; });
       const standFacing = (e, n, back) => page.evaluate(([pe, pn]) => { window.__chicago4d.walker.teleport({ local_e: pe, local_n: pn, yaw_deg: 0 }); }, [e, n - back]);
+      // T-3556: the 1835 townspeople come out of their doors about the visitor, and a figure built
+      // between the two readings below is the town's, not the overlays'. Their day is held still
+      // here (the frame loop calls `days.update`) and let go in the finally; a body already loading
+      // has the seconds before the first reading to land.
+      await page.evaluate(() => { const d = window.__chicago4d.days; if (d && !d.heldBySmoke) { d.heldBySmoke = d.update; d.update = () => {}; } }).catch(() => {});
       try {
         await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
         await page.waitForTimeout(1500);
@@ -17195,7 +17689,9 @@ for (const [label, viewport, touch] of [
         await page.evaluate(() => window.__chicago4d.navigator.dock());
         if (named) await standFacing(named.e, named.n, 35);
         await page.waitForTimeout(800);
+        await townHeld();
         const statsOff = await ovStats();
+        const censusOff = await sceneCensus();
         await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
         await page.waitForTimeout(800);
         await ovSwitch('labels', true);
@@ -17208,13 +17704,15 @@ for (const [label, viewport, touch] of [
         await page.waitForTimeout(300);
         const ovOn = await ovRead();
         const statsOn = await ovStats();
+        const censusOn = await sceneCensus();
+        await townLetGo();
         const cap = (await page.evaluate(() => innerWidth)) <= 620 ? 6 : 12;
         check(`${label}: Building labels float named buildings in sight over the town — at least one, at most ${cap} (T-2650)`,
           !!named && ovOn.layerShown && ovOn.running === true && ovOn.labels >= 1 && ovOn.labels <= cap && ovOn.rows.labels.checked,
           JSON.stringify({ named, labels: ovOn.labels, drawn: ovOn.drawn, running: ovOn.running }));
         check(`${label}: three overlays on add no shader program and no geometry (T-2650)`,
           statsOn.programs === statsOff.programs && statsOn.geometries === statsOff.geometries,
-          JSON.stringify({ statsOff, statsOn }));
+          JSON.stringify({ statsOff, statsOn, layersMoved: censusMoved(censusOff, censusOn) }));
         // People pins: stand 60 m south of the first pinned address, facing it; its pin lists
         // who is there, and a name opens that person (People, in the Navigator).
         const pinAt = await page.evaluate(() => window.__chicago4d.confidenceOverlays.pinPlaces[0] ?? null);
@@ -17259,7 +17757,11 @@ for (const [label, viewport, touch] of [
         check(`${label}: the overlay checks ran to their end (T-2650)`, false, String(err?.message ?? err));
       } finally {
         await page.evaluate(async (pose) => {
-          const a = window.__chicago4d, o = a.confidenceOverlays;
+          const a = window.__chicago4d, o = a.confidenceOverlays, d = a.days, h = a.humans;
+          if (d?.heldBySmoke) { d.update = d.heldBySmoke; delete d.heldBySmoke; }
+          if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+          if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+          a.setAnimationHold(false);
           for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
           a.walker.teleport(pose);
           await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
@@ -17267,6 +17769,19 @@ for (const [label, viewport, touch] of [
       }
     }
     // <<< T-2650
+    // T-3600: from here to the telemetry strip's reading below, every check reads the
+    // chrome's own DOM — the HUD's top row and its footprint, the Confidence legend chip,
+    // the Navigator docked, opened, by keyboard, Jump and its ring, Home's choices, a held
+    // card, the Field Check, the tour offer, Go to's chips and sorts and Free roam's tip —
+    // and none reads a pixel, a program or `renderer.info` (the overlay and Confidence
+    // budgets above are why the hold starts here and not sooner). So the draws are HELD
+    // (`holdDraws`, T-2337), and the telemetry block's own `holdDraws(false)` lifts them
+    // before QA-11's reload. Unheld, this stretch was 21:42 to the leg's kill at 39:44 of
+    // desktop part 13 on CI (content build 43614283619) and still had the Field Check to
+    // go: its waits poll every 100-250 ms, and each poll waited behind a 1280x800 frame
+    // drawn in software. The tick keeps running, and the held draw keeps the camera's
+    // matrix current (T-3489), so picks, walks and Show me behave as they do drawn.
+    await holdDraws(true);
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -17279,6 +17794,8 @@ for (const [label, viewport, touch] of [
       const device = document.getElementById('navigator');
       const inside = async (app, sel) => {
         await n.select(app);
+        // T-3563: light or dark is on Settings' Display tab.
+        if (app === 'settings') window.__chicago4d.hud.settingsTabs?.select('display');
         for (let i = 0; i < 40; i++) {
           const el = device.querySelector(sel);
           if (el && el.getBoundingClientRect().width > 0) return true;
@@ -17636,7 +18153,8 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(350);
     const keyOpen = { level: await page.evaluate(() => window.__chicago4d.navigator.level), focus: await visibleFocus() };
     const order = await page.evaluate(() => window.__chicago4d.navigator.apps);
-    const jumpAt = order.indexOf('jump') + 1;
+    // T-3629: Jump left the rail (the year chip opens it), so the digit check opens Map.
+    const jumpAt = order.indexOf('map') + 1;
     if (jumpAt >= 1 && jumpAt <= 9) await page.keyboard.press(String(jumpAt));
     await page.waitForTimeout(500);
     const keyJump = { app: await page.evaluate(() => window.__chicago4d.navigator.app), focus: await visibleFocus() };
@@ -17652,13 +18170,13 @@ for (const [label, viewport, touch] of [
     check(`${label}: the Navigator's rail is a tablist of labelled tabs, and the device opens, switches and closes by keyboard with focus always visible (T-2622)`,
       aria.list && aria.label === 'Navigator apps' && aria.tabs >= 2 && aria.labelled && aria.selected === 1 && aria.stray === 0 && aria.panels
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
-      && keyJump.app === 'jump' && keyJump.focus.id === 'nav-app-jump' && keyJump.focus.visible
+      && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
       && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
-    // The chip is hit-tested like any chrome. The screen shows the three destinations with
+    // The chip is hit-tested like any chrome. The screen shows the four destinations with
     // HERE on this one only, and RECALL as its one signal-red key. Picking another runs
     // the transfer ring and writes the Observatory's stamp; Escape aborts it here, so this
     // page stays (part 15 makes a real jump and lands).
@@ -17709,8 +18227,8 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(1300);
     const stayed = await page.evaluate(() => location.href);
     await page.evaluate(() => window.__chicago4d.navigator.dock());
-    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
-      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
+    check(`${label}: the year chip opens Jump — four era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
+      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812,1871' && jumpScreen.here.join() === String(YEAR)
       && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
       // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
       // ring that is aborted leaves none: part 15's real jump reads it on arrival.
@@ -17774,7 +18292,7 @@ for (const [label, viewport, touch] of [
     const restored = await page.evaluate(() => ({ list: document.getElementById('welcome-jaunts-content')?.parentElement?.id ?? null,
       picker: document.getElementById('welcome-picker')?.parentElement?.id ?? null, pickerHidden: document.getElementById('welcome-picker')?.hidden }));
     check(`${label}: Navigator Home's three choices open the Jaunts app on their segment; the rail opens it; Free roam docks it; the Welcome card gets its list and search back (T-2630)`,
-      segGoto.choices.join() === 'jaunts,goto,roam' && segGoto.app === 'jaunts'
+      segGoto.choices.join() === 'goto,roam' && segGoto.app === 'jaunts' /* T-3629: Take a Jaunt is the labelled rail tab now */
       && segGoto.tabs.join() === 'Jaunts:false,Go to:true,Free roam:false' && segGoto.pickerInApp && segGoto.pickerShown && segGoto.rows > 0
       && segJaunts.current === 'jaunts' && segJaunts.listInApp && viaRail === 'jaunts' && roamed === 0
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
@@ -17830,7 +18348,8 @@ for (const [label, viewport, touch] of [
     // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
-    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 People, 08 Settings.
+    // release (Esc with a keyboard, the card's Close on touch); T-3642: 06 Interact, 07 Jaunts,
+    // 08 Move, 09 Settings.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -17838,6 +18357,8 @@ for (const [label, viewport, touch] of [
     const tourView = () => page.evaluate(() => ({ shown: !document.getElementById('tour').hidden,
       count: document.getElementById('tour-count')?.textContent.trim(), bubble: document.getElementById('tour-bubble')?.textContent.trim(),
       waiting: !document.getElementById('tour-status').hidden, ring: !document.querySelector('#tour .tour-hole').hidden,
+      // T-3642: the row of step segments, and how many are lit.
+      pips: document.querySelectorAll('#tour-pips i').length, lit: document.querySelectorAll('#tour-pips i.done, #tour-pips i.now').length,
       step: window.__chicago4d.tour.step }));
     // Each wait must END IN the step it names before the next action is taken. A step
     // reads its starting point when it is entered (where the visitor stands, the counters),
@@ -17892,8 +18413,9 @@ for (const [label, viewport, touch] of [
     await clickChrome('#tour-skip');
     const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
-    // Replay, and a full pass to Finish: 06 on Move, 07 on People (T-3445), 08 on Settings,
-    // 09 on Finish.
+    // Replay, and a full pass to Finish: 06 on the Interact key's use (T-3642; its press is
+    // counted by main.js's onPress, driven here through the key's own module), 07 on Jaunts,
+    // 08 on Move, 09 on Settings, 10 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -17904,15 +18426,20 @@ for (const [label, viewport, touch] of [
     await tourWait(4);
     await page.evaluate(() => window.__chicago4d.popup.close());
     await tourWait(5);
+    const interactStep = await tourView();
+    // A person, gate or horse in reach is not certain where the smoke stands, so the key's
+    // own hook is fired as a press of it would (tools/test_fort_gates.mjs holds the key).
+    await page.evaluate(() => window.__chicago4d.tourInteracted());
+    await tourWait(6);
+    const jauntsStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('jaunts'); });
+    await tourWait(7);
     const moveStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('move'); });
-    await tourWait(6);
-    const peopleStep = await tourView();
-    await page.evaluate(async () => { await window.__chicago4d.navigator.select('people'); });
-    await tourWait(7);
+    await tourWait(8);
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
-    await tourWait(8);
+    await tourWait(9);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -17925,18 +18452,19 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, People, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445)`,
-      t1.shown && t1.count === 'Field check · 1 / 9' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642)`,
+      t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
-      && released.step === 5 && releasedCard === null && /^Open (the Navigator, then )?Move/.test(released.bubble ?? '')
+      && released.step === 5 && releasedCard === null && /^Walk up to .*(R to interact|Tap Interact)\.$/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
-      && moveStep.step === 5 && peopleStep.step === 6 && /People/.test(peopleStep.bubble ?? '')
-      && settingsStep.step === 7 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 8 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, peopleStep, settingsStep, last, done }));
+      && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
+      && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
+      && settingsStep.step === 8 && /Settings/.test(settingsStep.bubble ?? '')
+      && last.step === 9 && /^Ready\./.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
@@ -18010,7 +18538,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
     // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
-    // which is read first. Then, the license set aside, the Field Check is put back at step 08 (its last since T-2954)
+    // which is read first. Then, the license set aside, the Field Check is put back at step 10 (its last since T-3642)
     // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
     // for, since on the desktop runner its few seconds can pass inside one frame). A second
     // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
@@ -18030,7 +18558,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 8, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -18047,7 +18575,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 8, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -18089,7 +18617,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 8 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 9 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
@@ -18249,6 +18777,8 @@ for (const [label, viewport, touch] of [
     // at all while it is docked, the tab is hidden, or the visitor asks for reduced motion (QA-06).
     // The draws are held while it is timed (holdDraws above): on a software rasteriser a
     // frame can hold the main thread for seconds, and no timer could fire through it.
+    // (T-3600: already held since T-2625 above; the call is idempotent, and the
+    // `holdDraws(false)` after it ends that hold too.)
     await holdDraws(true);
     const strip = await page.evaluate(async () => {
       const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
@@ -19819,7 +20349,7 @@ for (const [label, viewport, touch] of [
     // and is the topmost thing at its own centre — and fails in one round trip
     // naming what covered it. T-0215 made that argument and this is the same
     // control on the same page; the trusted-event clicks it names stay as they are.
-    await clickChrome('#panel-close');
+    await closePanel();
 
     // --- free-fly -----------------------------------------------------------
     // Three properties worth pinning, all of which would rot silently:
@@ -19917,11 +20447,72 @@ for (const [label, viewport, touch] of [
       // down the crosshair, so a test that has not aimed is testing the prairie.
       window.__chicago4d.frame('sauganash_hotel', 26);
     });
+    // T-3614: a floating name card in the crosshair opens that person, which is right — and
+    // the Sauganash's own household now stands at its door, Fullerton's card on the
+    // crosshair. This check is about the key, not about who stands in front of the hotel,
+    // so the name cards are put away for it and brought back after the toggle below.
+    const namesShown = await page.evaluate(() => {
+      const cards = window.__chicago4d.nameCards;
+      const was = !!cards?.shown;
+      cards?.setShown(false);
+      return was;
+    });
     // T-3022: what a visitor opens on a building opens in the Navigator's Inspect, not the
     // card; `api.inspecting` names the building on screen either way.
-    await page.evaluate(() => window.__chicago4d.closeBuilding());
-    await page.keyboard.press('Space');
-    await page.waitForTimeout(250);
+    // T-3638: a key is consumed inside a frame (main.js tick → intent.takeInteract), and the
+    // crosshair it inspects down is the camera the LAST frame left. Under SwiftShader a frame
+    // can take seconds, so a fixed wait read the scene before any frame had run — or had the
+    // raycast fired from the camera before `frame()` aimed it — and the check went red on
+    // whichever viewport the runner happened to starve (dev 44076624959 mobile and desktop,
+    // 44193370202 desktop only). One forced frame settles the aim, and one after each key
+    // consumes it, so what is read is what the key did. `stepKey` is the same `api.step()`
+    // the click check below has always used; it never waits any less than before.
+    const stepKey = async (key, ms, worldFocus = '') => {
+      if (worldFocus) {
+        // T-3658: closing a reader focuses its reopening control. Camera-only
+        // goTo/frame calls do not return the keyboard to the world. Establish
+        // this precondition explicitly; focused UI must retain its native keys.
+        const focus = await page.evaluate(() => {
+          const before = document.activeElement;
+          const from = `${before?.tagName ?? 'none'}#${before?.id ?? ''}`;
+          before?.blur?.();
+          const after = document.activeElement;
+          return { from, to: `${after?.tagName ?? 'none'}#${after?.id ?? ''}`,
+            world: after === document.body || after?.tagName === 'CANVAS' };
+        });
+        check(`${label}: ${worldFocus} has world keyboard focus`, focus.world,
+          `${focus.from} → ${focus.to}`);
+      }
+      await page.keyboard.press(key);
+      await page.waitForTimeout(ms);
+      await page.evaluate(() => window.__chicago4d.step());
+    };
+    await page.evaluate(() => { window.__chicago4d.closeBuilding(); window.__chicago4d.step(); });
+    // The complementary UI case is real native activation, not a swallowed key:
+    // Space on the focused Navigator handle opens it without inspecting/moving.
+    const uiSpaceBefore = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      await a.navigator.select('home');
+      a.navigator.dock();
+      const handle = ['nav-grip', 'nav-collapse'].map(id => document.getElementById(id))
+        .find(el => el?.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+      handle?.focus({ preventScroll: true });
+      return { e: a.player.e, n: a.player.n, focused: !!handle && document.activeElement === handle,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
+    await stepKey('Space', 250);
+    const uiSpaceAfter = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      return { e: a.player.e, n: a.player.n, flying: a.player.flying, inspected: !!a.inspecting,
+        focus: document.activeElement?.id, level: a.navigator.level };
+    });
+    check(`${label}: Space activates a focused Navigator control without inspecting or moving`,
+      uiSpaceBefore.focused && uiSpaceBefore.level === 0 && uiSpaceAfter.level > 0
+      && !uiSpaceAfter.flying && !uiSpaceAfter.inspected
+      && Math.hypot(uiSpaceAfter.e - uiSpaceBefore.e, uiSpaceAfter.n - uiSpaceBefore.n) < 0.05,
+      `${uiSpaceBefore.focus} → ${uiSpaceAfter.focus}, level ${uiSpaceAfter.level}, inspected ${uiSpaceAfter.inspected}`);
+    await page.evaluate(() => window.__chicago4d.navigator.dock());
+    await stepKey('Space', 250, 'on-foot Space');
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
@@ -19946,28 +20537,27 @@ for (const [label, viewport, touch] of [
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
-    await page.keyboard.press('Space');            // same crosshair, reopens
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300, 'Space reopening the card'); // same crosshair, reopens
     const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(300);
+    await stepKey('KeyE', 300);
     const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: the inspect key closes the card it opened`,
       reopened && keyToggled,
       `reopened ${reopened}, closed by the same key ${keyToggled}`);
+    await page.evaluate((was) => window.__chicago4d.nameCards?.setShown(was), namesShown);
 
     // And neither fires from inside the Go-to box: typing is not a command.
     // (Escape in the box still shuts the Go-to PANEL — that is the panel's own
     // long-standing binding — but the card must not be collateral.)
-    await page.keyboard.press('Space');            // card open again
-    await page.waitForTimeout(300);
+    await stepKey('Space', 300, 'Space before the typing check'); // card open again
     // T-2620: Go to is the Jaunts app's own segment (T-2630); its box is #welcome-search.
     await page.evaluate(async () => {
       await window.__chicago4d.openJaunts('goto');
       document.getElementById('welcome-search')?.focus();
     });
-    await page.keyboard.press('KeyE');
-    await page.waitForTimeout(150);
+    // Stepped too, so an E that leaked out of the box as a command would have had its frame
+    // to inspect in before this reads — without it, "nothing inspected" passed by being early.
+    await stepKey('KeyE', 150);
     // Read the box BEFORE Escape: Chromium natively clears a type=search
     // input on Escape, so reading after would show empty even though the
     // keystroke typed rather than fired.
@@ -20285,6 +20875,8 @@ for (const [label, viewport, touch] of [
         // T-2352 added its east side: thirty-three more.
         // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
         // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
+        // T-3566 stood Dexter's 1863 frame house behind 1721's brick front, and its PRs
+        // (#1962, #1968) left it off this list too, so stage 14 was red on dev until T-3579.
         const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
@@ -20356,6 +20948,7 @@ for (const [label, viewport, touch] of [
           'walker_house_1720_prairie_coach_house',
           'wheeler_house_1812_prairie_coach_house',
           'dexter_house_1721_prairie',
+          'dexter_house_1721_prairie_frame_house',
           'dexter_house_1721_prairie_coach_house',
           'hibbard_house_1701_prairie',
           'hibbard_house_1701_prairie_coach_house',
@@ -20584,7 +21177,10 @@ for (const [label, viewport, touch] of [
           // T-3269 (#1519) stood 1905 Prairie's conservatory as a record of its own on the
           // house's stone bow and left it off this list, so this check was red at both
           // viewports on every branch off dev until T-3275 added it.
-          'marshall_field_house_1905_prairie_conservatory'].sort();
+          'marshall_field_house_1905_prairie_conservatory',
+          // T-3567 stood Rohl-Smith's Fort Dearborn Massacre group (1893) on its pedestal at the
+          // east end of 18th Street's north walk.
+          'fort_dearborn_massacre_monument_1893'].sort();
         // T-3275: this list has drifted four times (T-2331, T-2468, T-3164, T-3275), and each time the
         // only clue was the whole placed list printed beside this one. Name the difference.
         const missing1904 = PLACED_1904.filter((id) => !at.placed.includes(id));
@@ -21271,8 +21867,19 @@ for (const [label, viewport, touch] of [
           && Object.values(about1904.tiles).every((t) => t.length > 0) && about1904.tiles.living?.includes('ground'),
           JSON.stringify(about1904));
         // <<< T-2667
-        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
-          at.problems.slice(0, 3).join(' | '));
+        // T-3567: the Fort Dearborn Massacre monument is the 1904 scene's first record carrying
+        // `review_required`. The loader retains that annotation as a problem line (owner ruling
+        // 2026-10-16: it does not block release), so — as the 1835 boot does — pin the exact
+        // annotated records first, and only then hold everything else to zero.
+        const REVIEWED_1904 = ['fort_dearborn_massacre_monument_1893'];
+        const reviews1904 = at.problems.filter((p) => /review_required is set/.test(p))
+          .map((p) => p.split(':', 1)[0]).sort();
+        check(`${label}: the 1904 scene declares its exact review annotations (T-3567)`,
+          JSON.stringify(reviews1904) === JSON.stringify(REVIEWED_1904),
+          `reported ${JSON.stringify(reviews1904)}, expected ${JSON.stringify(REVIEWED_1904)}`);
+        const hard1904 = at.problems.filter((p) => !/review_required is set/.test(p));
+        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, hard1904.length === 0,
+          hard1904.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
           `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
           + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
@@ -21300,10 +21907,16 @@ for (const [label, viewport, touch] of [
     // in software at a few frames a second.
     if (stageOn(15)) {
     inStageWork = true;
+    // T-3650: not mid-picture. The body's boot is seconds old here, and still decoding.
+    console.log(settledLine("the body's page", await settlePictureWork(page, bodyPictureFiles)));
     await page.goto('about:blank');
     const ctx14 = await browser.newContext({
       viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
     });
+    await ctx14.addInitScript(pictureRefusalProbe); // T-3648: this context's refusals say why too
+    // T-3579: this context counts every console.error, and the hosted narration index
+    // is CORS-refused at localhost; the same empty stand-in the main context has.
+    if (wantPublished) await standInNarrationIndex(ctx14, { origin: `http://127.0.0.1:${PORT}` });
     // Every change of the arrival's year, with whether the scene was ready when it
     // showed. Recorded from the first byte, before any page script can run.
     await ctx14.addInitScript(() => {
@@ -21344,17 +21957,28 @@ for (const [label, viewport, touch] of [
       } catch { /* storage refused: the default tier stands */ }
     });
     const p14 = await ctx14.newPage();
+    const p14PictureFiles = trackPictureFiles(p14); // T-3650: read before ctx14 closes
     p14.setDefaultTimeout(90_000);
     // Polled on an interval, not on animation frames: Playwright's default waits a
     // frame per poll, and a frame of this town in software costs seconds at 1280x800,
     // so the first desktop run spent a minute or more on each step and was killed at
     // the ceiling with the mode change still running.
     const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
-    p14.on('pageerror', (e) => errors.push(`part 15 pageerror: ${e.message || e}`));
-    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} ${r.url()}`); });
+    // T-3647 (a piece of T-3637): each error says which step it came after, when, and
+    // on which page, because this stage loads three documents (1835, the Jump's year,
+    // 1835 again with ?nav=jump) and its red named only a blob URL. A picture the scene
+    // loader lost also leaves a `picture lost` WARNING with its reason (scene-loader.js
+    // trackLostTextures); those are not errors and fail nothing, they are printed
+    // beside a red so the error has its cause next to it.
+    const at15 = () => `after "${lastCheckName.replace(/^[^:]*: /, '').slice(0, 60)}", ${TIMING ? stamp() : ''}`
+      + `${new URL(p14.url(), 'http://x').pathname}`;
+    const lostPictures15 = [];
+    p14.on('pageerror', (e) => errors.push(`part 15 pageerror (${at15()}): ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 15 HTTP ${r.status()} (${at15()}) ${r.url()}`); });
     p14.on('console', (m) => {
       const t = m.text();
-      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error: ${t}`);
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 15 console.error (${at15()}): ${t}`);
+      if (m.type() === 'warning' && PICTURE_WARNING.test(t)) lostPictures15.push(`(${at15()}) ${t}`);
     });
     const jaunt = () => p14.evaluate(() => {
       const s = window.__chicago4d.jaunts.state;
@@ -21621,7 +22245,9 @@ for (const [label, viewport, touch] of [
       });
       const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));
       await p14.waitForURL(new RegExp(`/${to}/`), { timeout: 30_000 });
-      await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 240_000, polling: 500 });
+      // T-3669: a Jump lands on the ground you stood on when the far year has it, straight
+      // into the town ('world'); where it does not, the year's own Welcome stays ('welcome').
+      await p14.waitForFunction(() => ['welcome', 'world'].includes(window.__chicago4d?.welcome?.state), null, { timeout: 240_000, polling: 500 });
       // The Welcome shows at the flip's midpoint and the journey reads `landed` half a flip
       // (260 ms of timers) later; on a runner whose frames take seconds the read fell between
       // the two (T-2649's local run: "journey":"landing"). Wait for it; the check still asks.
@@ -21632,6 +22258,21 @@ for (const [label, viewport, touch] of [
         !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
         && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
         JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+      // T-3669: and the far page says what it did with the ground: kept (perhaps a few metres
+      // off a house), or outside this year's town with its Welcome left in place.
+      await p14.waitForFunction(() => !!window.__chicago4d?.jumpLanding, null, { timeout: 60_000, polling: 250 }).catch(() => {});
+      const jumpLanding = await p14.evaluate(() => ({ landing: window.__chicago4d.jumpLanding ?? null,
+        query: Object.fromEntries(new URLSearchParams(location.search)), state: window.__chicago4d.welcome?.state ?? null,
+        at: window.__chicago4d.walker?.state ? { e: Math.round(window.__chicago4d.walker.state.e * 100) / 100, n: Math.round(window.__chicago4d.walker.state.n * 100) / 100 } : null }));
+      {
+        const L = jumpLanding.landing, q = jumpLanding.query;
+        const kept = L?.kept === true && jumpLanding.state === 'world' && L.moved <= 24
+          && Math.hypot(jumpLanding.at.e - Number(q.e), jumpLanding.at.n - Number(q.n)) <= L.moved + 1.5;
+        const outside = L?.outside === true && jumpLanding.state === 'welcome';
+        check(`${label}: Jump carries the ground you stood on to the far year, or says this year's town does not reach it (T-3669)`,
+          q.via === 'jump' && !!q.from && q.from !== to && (kept || outside),
+          JSON.stringify(jumpLanding));
+      }
       // >>> T-2649: walking in at the far year, the choices made before the Jump are in force.
       await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
       await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 120_000, polling: 250 }).catch(() => {});
@@ -21659,6 +22300,16 @@ for (const [label, viewport, touch] of [
     // the visitor is set down in the town with Jump open on the Navigator; Back closes
     // the app and stays on this page; a link to an app the rail does not have would have
     // been dropped quietly (test_nav_link.mjs, test_navigator.mjs).
+    // T-3662: this reload is part 15's third put-down, and the one T-3650 left unsettled.
+    // On the published mirror the page it replaces is the far year's, walked into seconds
+    // ago and still loading its pictures. Every red dev logged after #2190 falls in that
+    // window: the refusals are stamped /1904/, 3-16 s after the Confidence check and
+    // before this load commits (runs 44340476884 desktop [18:51 -> 19:07], 44385234168
+    // mobile [9:25 -> 9:28] and desktop [14:09 -> 14:20]), and none comes from the
+    // pages part 15 had already settled. So the page finishes its pictures first, as
+    // the body's page does before its park; an error it logs meanwhile still counts.
+    console.log(settledLine(`part 15's ${new URL(p14.url()).pathname} page before the ?nav=jump reload`,
+      await settlePictureWork(p14, p14PictureFiles)));
     await p14.goto(`${base}&nav=jump`, { waitUntil: 'domcontentloaded' });
     await p14.waitForFunction(() => window.__chicago4d?.navLinkOpened?.app === 'jump' && window.__chicago4d.navigator?.app === 'jump',
       null, { timeout: 240_000, polling: 500 });
@@ -21672,6 +22323,13 @@ for (const [label, viewport, touch] of [
       linked.app === 'jump' && linked.level > 0 && linked.gate && linked.held === true
       && backed.same && backed.href === linked.href && backed.app === 'home' && backed.level === 0,
       JSON.stringify({ linked, backed }));
+    // T-3650: the `?nav=jump` reload above landed seconds ago; let its pictures finish
+    // before the context closes (and before the list below, so a loss meanwhile is in it).
+    console.log(settledLine("part 15's page", await settlePictureWork(p14, p14PictureFiles)));
+    if (lostPictures15.length) {
+      console.log(`        part 15: ${lostPictures15.length} picture(s) lost or refused, with the reasons (T-3647, T-3648):`);
+      for (const l of lostPictures15.slice(0, 6)) console.log(`          ${l}`);
+    }
     await ctx14.close();
     inStageWork = false;
     } // end PART 15 (T-2044; renumbered from 14 by T-2337)
@@ -21725,7 +22383,13 @@ for (const [label, viewport, touch] of [
   check(`${label}: the suite body ran to completion`, thrown === null,
     String(thrown ?? ''));
   check(`${label}: zero page errors`, errors.length === 0,
-    errors.slice(0, 4).join(' | '));
+    `${errors.length > 4 ? `${errors.length} errors, the first 4: ` : ''}${errors.slice(0, 4).join(' | ')}`);
+  // T-3648: beside a red, the reasons the scene loader gave for any picture it lost on
+  // this page (part 15's own page prints its list where that part ends).
+  if (errors.length && lostPictures.length) {
+    console.log(`        ${lostPictures.length} picture(s) lost or refused on the body's page, with the reasons (T-3648):`);
+    for (const l of lostPictures.slice(0, 6)) console.log(`          ${l}`);
+  }
   await ctx.close();
   await browser.close();
   console.log('');

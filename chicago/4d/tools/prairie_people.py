@@ -12,6 +12,8 @@ import json
 import math
 from pathlib import Path
 
+import finery_1904
+
 ROOT = Path(__file__).resolve().parents[1]
 LIBERTY = 'L-prairie-people-3548'
 CHILD_LIBERTY = 'L-prairie-younger-3550'
@@ -89,7 +91,25 @@ ASSETS = {'gentleman': 'glessner_john_j_1904', 'lady': 'glessner_frances_m_1904'
 CHILD_HEIGHT = {'child_boy_1904': 1.208, 'child_girl_1904': 1.205, 'child_toddler_1904': .905, 'teen_boy_1904': 1.65, 'teen_girl_1904': 1.59}
 ASSETS.update({k: k for k in CHILD_HEIGHT})
 
-def dress_for(pid, role):
+def dress_for(pid, role, age=None):
+    # T-3553: the women and girls of the houses each dressed as her own, by season, with the
+    # trimming, cloth and hats of the years (tools/finery_1904.py, liberty L-finery-3553).
+    fine = None
+    if role == 'lady':
+        fine = finery_1904.lady(pid, age)
+    elif role == 'cook':
+        fine = finery_1904.cook(pid, None)
+    elif role == 'companion':
+        fine = finery_1904.companion(pid, None)
+    elif role == 'maid':
+        fine = finery_1904.maid(pid, None)
+    elif role in ('teen_girl_1904', 'child_girl_1904'):
+        fine = finery_1904.girl(pid, role)
+    if fine:
+        rec = {'asset': ASSETS[role], **fine}
+        rec['hide'] = sorted(set(rec.get('hide', []) + (['market_basket', 'basket_cloth'] if role == 'companion' else [])))
+        rec.update(grade='reconstructed', liberty=finery_1904.LIBERTY, sources=finery_1904.SOURCES)
+        return rec
     if role in CHILD_HEIGHT:
         palette = PALETTE + [('cream', [.40, .36, .28]), ('blue', [.13, .20, .28]), ('rose', [.30, .16, .18])]
         name, rgb = choose(pid, 'cloth', palette)
@@ -118,14 +138,21 @@ def looks_for(p, sex, portrait):
         hair = choose(pid, 'grey', ['white_grey', 'grey_brown'])
     cut = ('swept_up_knot_1904' if draw(pid, 'cut') > .5 else 'drawn_back_bun_1904') if sex == 'female' else 'short_side_part_1904'
     facial = []
+    stand_in = bool(portrait and portrait.get('stand_in'))
     if portrait:
-        cut = portrait['hair_cut']; facial = [portrait['facial']] if portrait.get('facial') else []
+        cut = portrait['hair_cut']
+        facial = list(portrait['facial']) if isinstance(portrait.get('facial'), list) else [portrait['facial']] if portrait.get('facial') else []
         hair = portrait.get('hair_tone', hair)
     elif sex == 'male' and (age is None or age > 25) and draw(pid, 'moustache') > .65:
         facial = ['moustache']
-    facial += ['brows_fine', 'lashes_upper'] if sex == 'female' else ['brows_full']
+    if not any(f.startswith('brows_') for f in facial):   # a portrait's own brows stand in for the default
+        facial += ['brows_fine'] if sex == 'female' else ['brows_full']
+    if sex == 'female' and 'lashes_upper' not in facial:
+        facial += ['lashes_upper']
     skin = choose(pid, 'skin', ['fair', 'light', 'ruddy', 'olive'])
     eyes = choose(pid, 'eyes', ['blue', 'grey', 'hazel', 'brown'])
+    if stand_in:
+        skin = portrait.get('complexion', skin); eyes = portrait.get('eyes', eyes)
     inches = round((64 if sex == 'female' else 68) + (draw(pid, 'height') - .5) * 6, 1)
     young = age is not None and age < 18
     if young:
@@ -138,7 +165,8 @@ def looks_for(p, sex, portrait):
         hi = min((x for x in anchors if x[0] >= age), key=lambda x: x[0])
         metres = lo[1] if lo[0] == hi[0] else lo[1] + (hi[1] - lo[1]) * (age - lo[0]) / (hi[0] - lo[0])
         inches = round(metres * (1 + (draw(pid, 'height') - .5) * .035) / .0254, 1)
-    basis = ('Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. ' if portrait else
+    basis = ('No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (' + portrait['source'] + '); it is not a picture of them. ' if stand_in else
+             'Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. ' if portrait else
              'No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. ')
     basis += 'Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.'
     if young:
@@ -149,21 +177,83 @@ def looks_for(p, sex, portrait):
             'generated_by': 'tools/prairie_people.py', 'heritage': {'origin': 'not found'},
             'complexion': {'value': skin, 'drawn': skin, 'grade': 'reconstructed'},
             'hair': {'value': hair.replace('_', ' '), 'drawn': hair, 'cut': cut, 'facial': facial,
-                     'grade': 'inferred' if portrait else 'reconstructed',
+                     'grade': 'inferred' if portrait and not stand_in else 'reconstructed',
                      **({'basis': portrait['hair_tone_basis']} if portrait and portrait.get('hair_tone_basis') else {})},
             'eyes': {'value': eyes, 'drawn': eyes, 'grade': 'reconstructed'},
             'stature': {'inches': inches, 'grade': 'reconstructed', 'basis': 'Artistic body variation; no personal measurement located.'},
             'height_scale': round(inches * .0254 / (CHILD_HEIGHT[role_of(p, sex)] if young else (1.65 if sex == 'female' else 1.75)), 4),
+            **({'build': portrait['build']} if stand_in and portrait.get('build') else {}),
+            **({'drawn_age': portrait['drawn_age']} if stand_in and portrait.get('drawn_age') else {}),
             'grade': 'reconstructed', 'basis': basis, 'liberty': CHILD_LIBERTY if young else LOOKS_LIBERTY}
 
 
-def routine(pid, home, door, role, age=None):
-    # All outdoor points are beyond the answering place, along its frontage.
+# T-3554 (owner, 2026-11-12: "people should not be able to walk through walls or barriers"): a
+# day's outdoor place stands STAND_M off every house wall and every barrier a house builds outside
+# them (stoop, area walls, railings, bays: tools/prairie_barriers.py), and the walks out to it and
+# along the frontage keep a skirt's half-width (prairie_barriers.SKIRT_M) off them the whole way.
+STAND_M = 0.55       # human-days.js clearWayOf stands a body 0.5 m off a wall; a hair more here
+OUT_M = (0.8, 1.2, 1.6, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0)   # how far out from the answering place
+SIDE_M = tuple(x / 2 for x in range(-6, 7))                    # and along the frontage
+WALK_M = (3.0, 2.0)                                             # the length of a frontage walk
+CORE_M = 0.15        # where no walk keeps a skirt's width (a narrow front gate), the body itself still clears
+
+
+def outdoor_points(pid, door, rings):
+    """Where `pid`'s outdoor spans stand and walk to: (at, end) in local E/N, the seeded
+    first choice (0.8 m out, up to 1.5 m along, a 3 m walk along the frontage) where it is clear,
+    else the nearest clear one; where no way out from the door keeps a skirt's width (a narrow
+    gate in a front railing), the nearest whose way out keeps the body itself clear (CORE_M);
+    None when the frontage has none."""
     angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
-    base = door['step']; side = (draw(pid, 'side') - .5) * 3
-    at = {'local_e': round(base['local_e'] + .8 * de + side * dn, 2),
-          'local_n': round(base['local_n'] + .8 * dn - side * de, 2), 'heading_deg': door['outward_deg']}
-    end = {'local_e': round(at['local_e'] + 3 * dn, 2), 'local_n': round(at['local_n'] - 3 * de, 2)}
+    base = (door['step']['local_e'], door['step']['local_n'])
+    side = (draw(pid, 'side') - .5) * 3
+    pt = lambda o, s: (round(base[0] + o * de + s * dn, 2), round(base[1] + o * dn - s * de, 2))
+    sides = sorted({round(side, 6), *SIDE_M}, key=lambda s: (abs(s - side), s))
+    for r in (None, CORE_M):
+        leg = (lambda a, b: rings.clear_leg(a, b)) if r is None else (lambda a, b: rings.clear_leg(a, b, r))
+        for o in OUT_M:
+            for s in sides:
+                at = pt(o, s)
+                if not rings.clear_point(at, STAND_M) or not leg(base, at):
+                    continue
+                for length in WALK_M:
+                    for sign in (1, -1):
+                        end = (round(at[0] + sign * length * dn, 2), round(at[1] - sign * length * de, 2))
+                        if rings.clear_point(end, STAND_M) and rings.clear_leg(at, end):
+                            return at, end
+    return None
+
+
+def scene_rings(door_data):
+    """Every 1904 building's walls and every Prairie house's barriers, as prairie_barriers.Rings."""
+    import prairie_barriers as pb
+    rings = []
+    for f in sorted((ROOT / 'data/sidecars/1904').glob('*.json')):
+        try:
+            sc = json.loads(f.read_text())
+        except ValueError:
+            continue
+        poly = (sc.get('footprint') or {}).get('polygon') if isinstance(sc, dict) else None
+        pl = sc.get('placement') if isinstance(sc, dict) else None
+        if poly and len(poly) >= 3 and pl and pl.get('vertical_anchor') != 'water':
+            rings.append([pb.d1812.to_world(float(u), float(v), pl) for u, v in poly])
+    for row in door_data['structures'] + door_data.get('barriers', []):
+        rings += pb.rings_from_plan(row.get('barrier'), row['placement'])
+    return pb.Rings(rings)
+
+
+def routine(pid, home, door, role, age=None, rings=None):
+    # All outdoor points are beyond the answering place, along its frontage, clear of what is built there.
+    got = outdoor_points(pid, door, rings) if rings is not None else None
+    if got is None and rings is not None:
+        raise ValueError(f'{pid}: no clear outdoor place before {door["id"]}')
+    if got is None:
+        angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
+        base = door['step']; side = (draw(pid, 'side') - .5) * 3
+        got = ((round(base['local_e'] + .8 * de + side * dn, 2), round(base['local_n'] + .8 * dn - side * de, 2)), None)
+        got = (got[0], (round(got[0][0] + 3 * dn, 2), round(got[0][1] - 3 * de, 2)))
+    at = {'local_e': got[0][0], 'local_n': got[0][1], 'heading_deg': door['outward_deg']}
+    end = {'local_e': got[1][0], 'local_n': got[1][1]}
     if role in CHILD_HEIGHT:
         def inside(a, b, doing):
             return {'from': a, 'to': b, 'indoors': True, 'where': home, 'doing': doing}
@@ -214,6 +304,14 @@ def generate():
     rows = read('data/sidecars/1904/people.json')['people']
     originals = {read(str(f.relative_to(ROOT)))['person_id'] for f in (ROOT / 'data/humans/instances/1904').glob('hi_*.json')}
     portraits = {x['person_id']: x for x in read('docs/RESEARCH/prairie-portraits-3546/portraits.json')['portraits']}
+    # T-3553: a stand-in the owner chose as someone's likeness where no photograph of them is
+    # known (data/humans/variation/portraits/<id>.json `stand_in` + `likeness`): its hair, facial
+    # hair, colouring and dress, labelled everywhere as not them.
+    stand_ins = {}
+    for f in sorted((ROOT / 'data/humans/variation/portraits').glob('pa1904_*.json')):
+        rec = json.loads(f.read_text())
+        if rec.get('stand_in') and rec.get('likeness') and rec['person_id'] not in portraits:
+            stand_ins[rec['person_id']] = {**rec['likeness'], 'stand_in': True, 'source': rec['source']}
     catalog, inside, care, dresses, outputs = [], [], [], {}, {}
     records = {}
     for row in rows:
@@ -224,13 +322,20 @@ def generate():
                   'absent' if row['present'] == 'absent' or p.get('lived_here', {}).get('on_scene_date') == 'no' else
                   'existing' if pid in originals else 'household_care' if age is not None and age < 2 else 'ready')
         item = {'person': pid, 'home': row['lives_at'], 'status': status, 'age_1904': age,
-                'portrait': 'verified' if pid in portraits or p.get('portrait') or (ROOT / f'data/humans/variation/fits/{pid}.json').exists() else 'not_identified'}
+                'portrait': 'stand_in' if pid in stand_ins else 'verified' if pid in portraits or p.get('portrait') or (ROOT / f'data/humans/variation/fits/{pid}.json').exists() else 'not_identified'}
         if status == 'alias':
             item['canonical'] = p['own_card']
         elif status not in ('collective', 'existing', 'household_care') and (age is None or age >= 2):
             item.update(asset_id=ASSETS[role], body_presentation=sex, casting_grade='reconstructed', role=role)
-            outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid))
-            dresses[pid] = dress_for(pid, role)
+            outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid) or stand_ins.get(pid))
+            dresses[pid] = dress_for(pid, role, age)
+            if pid in stand_ins and stand_ins[pid].get('dress'):
+                # The stand-in portrait's own dress, all year: no dealt finery or season dresses
+                # over it (T-3553); her hat is still the made one.
+                own = stand_ins[pid]['dress']
+                dealt = {k: v for k, v in dresses[pid].items() if k not in ('finery', 'seasons')}
+                dresses[pid] = {**dealt, 'colours': {**dealt['colours'], **own['colours']}, 'worn': own['worn'],
+                                **({'collar': own['collar']} if own.get('collar') else {})}
         if status == 'ready':
             inside.append({'person': pid, 'name': p['name'], 'home': row['lives_at'], 'door': row['lives_at'] + ':front',
                            'asset_id': ASSETS[role], 'ask_order': 10 if p['relationship'] != 'servant' else 30,
@@ -268,6 +373,7 @@ def generate():
     if errors:
         raise ValueError(errors)
     byhome = {x['structure']: x['doors'] for x in door_data['structures']}
+    rings = scene_rings(door_data)
     roles = {x['person']: x.get('role') for x in catalog}
     for entry in inside + care:
         ds = byhome[entry['home']]
@@ -276,7 +382,7 @@ def generate():
         if entry.get('care_only'):
             entry['day'] = [{'spans': [{'from': a, 'to': b, 'indoors': True, 'where': entry['home'], 'doing': doing} for a, b, doing in [(0, 7, 'sleeping in household care'), (7, 10, 'being fed and cared for'), (10, 12, 'playing quietly in household care'), (12, 15, 'being fed or taking a nap'), (15, 18, 'awake with a household caregiver'), (18, 24, 'receiving evening care or sleeping')]]}]
         else:
-            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'))
+            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'), rings)
         entry.setdefault('routine_liberty', LIBERTY)
     # Keep the door compiler's canonical byte representation as well as its values.
     outputs['data/humans/doors_1904.json'] = json.dumps(door_data, indent=1) + '\n'

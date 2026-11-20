@@ -578,6 +578,38 @@
   ],
   "lodging_outside_the_programme": [
     {
+      "id": "recon_1835_core_h3_003",
+      "name": "Reconstructed H3 boarding house #003",
+      "function": "large_boarding_house",
+      "beds_ordinary": null,
+      "beds_crowded": null,
+      "why_no_beds": "Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist."
+    },
+    {
+      "id": "recon_1835_gifford_h3_004",
+      "name": "Reconstructed H3 boarding house #004",
+      "function": "large_boarding_house",
+      "beds_ordinary": null,
+      "beds_crowded": null,
+      "why_no_beds": "Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist."
+    },
+    {
+      "id": "recon_1835_gifford_h3_018",
+      "name": "Reconstructed H3 boarding house #018",
+      "function": "large_boarding_house",
+      "beds_ordinary": null,
+      "beds_crowded": null,
+      "why_no_beds": "Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist."
+    },
+    {
+      "id": "recon_1835_gifford_h3_019",
+      "name": "Reconstructed H3 boarding house #019",
+      "function": "large_boarding_house",
+      "beds_ordinary": null,
+      "beds_crowded": null,
+      "why_no_beds": "Raised to a drawing of the street (the inventory's pictured_roofs, T-3605), not to house the town model's people, so the bed bracket does not count it and no beds are dealt here. Its rooms are recorded so a seating pass knows they exist."
+    },
+    {
       "id": "temple_lake_st_building",
       "name": "Dr Temple's Building, Lake Street",
       "function": "office_and_lodging",

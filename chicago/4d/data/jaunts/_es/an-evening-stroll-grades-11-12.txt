@@ -1,0 +1,76 @@
+== title @67807d23
+Una caminata al anochecer
+
+== premise @9a54ea84
+Un recorrido contemplativo por las calles conocidas, pasando por una tienda, la esquina donde se originó el periódico del asentamiento y dos posadas, sin nada que contabilizar ni que transportar.
+
+== opening @3a1e2c46
+PASEO: UNA CAMINATA AL ANOCHECER. Anochecer del 1 de julio de 1835: los especuladores de tierras se han retirado a cenar, el río se ha sumido en el silencio y, por una vez, no hay nada que estés obligado a lograr. Chicago existe como pueblo constituido desde hace menos de dos años, y en su constitución, en agosto de 1833, solo "trece votos emitieron los veintiocho electores legales". Ahora los forasteros desembarcan por barcadas, una transformación de una velocidad casi desconcertante.
+
+Emprende un recorrido pausado por las calles conocidas, desde el Sauganash, pasando por la primera tienda de madera del poblado y la esquina donde se imprimió su periódico inaugural, hasta el hotel donde el pueblo convoca sus reuniones. Luego determina dónde concluye la velada.
+
+== stop the-sauganash @16141d78
+Comienza en el Sauganash, en la esquina de Lake y Market, sobre el brazo sur del río, blanco y de dos pisos, con postigos azul brillante y recién renovado este junio. Lo construyó Mark Beaubien, y su trayectoria en este pueblo ha sido extraordinariamente variada. Moses y Kirkland lo caracterizan como "la diversión de cada funeral y el alma de cada velorio", y lo catalogan "Como violinista, posadero, comerciante, balsero y aficionado a las carreras de caballos". En mayo de 1833, el padre St. Cyr "celebró su primera misa en una cabaña de troncos que pertenecía a Mark Beaubien".
+
+== narrative the-sauganash @a0359189
+Sal desde el umbral de una posada.
+
+== stop the-shopfront @fd7e2de8
+Cruza hasta el río y avanza al este por South Water Street hasta LaSalle y la tienda de P. F. W. Peck, la primera estructura de madera de dos pisos del poblado, construida con tablas "aserradas de árboles de nogal negro". Peck vende al menudeo telas, ferretería, abarrotes, loza, botas, zapatos y sombreros, y es un hombre notoriamente prudente. Dentro de muchos años se le atribuirá "tener $40,000 en efectivo guardados bajo llave en una caja fuerte de hierro en su vivienda", y se le tendrá por "casi tan rico como John Jacob Astor", una reputación extraordinaria para un tendero de la frontera.
+
+== narrative the-shopfront @1bd992c7
+Una tienda en la vía comercial.
+
+== stop the-printing-office @ebeb12d0
+Una cuadra al este, en South Water y Clark, John Calhoun comenzó a imprimir el Chicago Democrat en 1833; para el 20 de mayo su oficina se había trasladado encima de la ferretería de Jones y King, calle abajo. Aparece los miércoles, y el número de hoy es el n.º 11 de su segundo volumen. Cuando llegaba el correo, el pueblo contaba con otro medio para difundir las noticias: "alguien con buena voz se subía a un cajón de géneros" y las leía en voz alta, y siempre que se intensificaban las pasiones políticas, había dos cajones y dos lectores rivales.
+
+== narrative the-printing-office @fd9d9ea5
+Donde se originó el periódico del asentamiento.
+
+== stop the-exchange @9b7904d8
+Al sur hasta Lake Street y al oeste hasta Wells se levanta el Exchange Coffee House, otra de las construcciones de Mark Beaubien, que el señor y la señora Murphy administran como hotel desde agosto de 1834. Los demócratas del pueblo se reunieron aquí en abril y otra vez en junio para nominar a sus candidatos, y el invierno pasado un maestro de baile registraba aquí las direcciones de sus alumnos, prueba de las aspiraciones refinadas de un asentamiento todavía tosco. Determina dónde concluye la velada.
+
+== narrative the-exchange @747746a3
+Una segunda posada, y una decisión sobre dónde parar.
+
+== label the-exchange end-here @67b80a14
+Termina en el Exchange
+
+== consequence the-exchange end-here @a08aafe0
+Concluye el recorrido en la esquina de los Murphy, en Lake y Wells.
+
+== label the-exchange walk-back @45027496
+Regresa caminando al Sauganash
+
+== consequence the-exchange walk-back @b2285dac
+Regresa hacia el oeste por Lake Street hasta el umbral del que partiste.
+
+== leg 0 @ac3f90de
+De la posada a la vía comercial, mientras se cierran los postigos.
+
+== note 0 @0509d80d
+Al norte desde la esquina de Market Street hasta el río y al este por South Water Street hasta LaSalle, unos 0.35 km.
+
+== leg 1 @322eec94
+Varias puertas más allá, hasta la esquina original del impresor.
+
+== note 1 @c62376fa
+Una cuadra al este por South Water Street, de LaSalle a Clark.
+
+== leg 2 @071ec718
+Da la vuelta hacia la conclusión de la velada.
+
+== note 2 @9e920b85
+Al sur por Clark hasta Lake Street y al oeste hasta la esquina de Wells Street, unos 0.25 km.
+
+== ending at-the-exchange @77610dae
+Concluyes la caminata en la esquina de Lake y Wells con la luz que se desvanece, después de pasar por la primera tienda de madera del poblado, la esquina de su periódico inaugural y dos de las casas de Mark Beaubien, un inventario considerable de primicias para un pueblo que aún no cumple dos años de constituido.
+
+== ending where-you-began @55bd8aa6
+Regresas hacia el oeste por Lake Street hasta el Sauganash y completas el recorrido exactamente donde comenzó. Si las ventanas están abiertas, quizá oigas el violín.
+
+== keepsake title @c276630f
+Un recorrido agradable
+
+== keepsake text @1bb8ca7b
+Una nota ficticia que conmemora una caminata contemplativa al anochecer, pasando por una tienda, la esquina original de una imprenta y dos posadas.

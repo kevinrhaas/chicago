@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "glb_sha256": "08ac533219477f305a70fb5ab8a65dc1591a761f859c92bd3f2adcd0dafa41ad",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -19,33 +19,52 @@
       "how": "T-3156: the shallow pavilion's attic storey and K01's hipped crown raised onto it"
     },
     {
-      "what": "the pavilion and its attic stand about 0.5-0.7 m north of the print's, because K01 cannot cut the door through a projection (as on the square-on)",
-      "status": "open"
+      "what": "the pavilion and its attic stood about 0.5-0.7 m north of the print's, because K01 could not cut the door through a projection. T-3562: the pavilion now runs from the north corner across the door's north half, 0.1 m proud, and on this view its attic stands over the print's by the same measure the square-on reads: the attic's centre about 92-95 px north of the door's in both, the pavilion's south edge beside the narrow light as the print draws it, and no cheek beside the door",
+      "status": "fixed"
     },
     {
       "what": "the corner bay runs about 0.75 m south of the main front's south corner: the print's cornice turns onto the flank at x 1605 px and the bay's south face shows at x 1745-1790 px; the build sets the bay flush with the flank (its corner at x 1618 px, the main corner at 1711)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the bay is set out 0.75 m past the main front's south wall (K01 bays[].set_out_m), the bay kept at its 9.43 m centre and the front block narrowed to 9.72 m, so the main wall stands inside the bay's south face as the print draws it: the cornice now turns onto the flank at about x 1660 px against the print's 1605-1650 (it rendered at 1711), and the bay's south cheek shows past the main corner, beyond it, in the front's stone"
     },
     {
       "what": "the south flank is rock-faced random ashlar, dark against the smooth front; the build lays it in buff common brick",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the flank laid in the front's K02 stone on the front's own beds, rock-faced to the profile's 25 mm (stone_front.flanks), its windows under flat arches and seated on stone sills; it renders as a broken stone face against the smooth front where it rendered buff brick. The print's broken-coursed random ashlar is laid as even courses on the front's lines: the joint pattern, under a visitor's notice"
     },
     {
       "what": "the south flank's tall stack, carried up from the flank wall past the mansard with a panelled shaft and a corbelled head of flues (x 1740-1820 px)",
-      "status": "open",
-      "how": "the build's two stacks stand inside the main footprint; neither is this one"
+      "status": "fixed",
+      "how": "T-3561: rebuilt as the print's: K15's stone stack standing on the south cornice about 1.6 m back from the front, rising past the mansard to a corbelled head and cap at 14.45 m, with three tall pots in a row back from the street to about 15.2 m; measured from the cornice's corner it renders 83 px along the flank against the print's 73 px, and its pots' tops at y 75 px against 72 px"
     },
     {
-      "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's, and the gabled dormer on the south flank's mansard (x 1820-1880 px) is not built",
-      "status": "open"
+      "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's; and the gabled dormer on the south flank's mansard (x 1820-1880 px), built by T-3562 just behind the stack (13.9 m from the rear, where it stood out of frame at 9.0 m), its sash and gable about 1 m lower than the print's with the curb. T-3562, under the T-3153 bar: the two prints disagree about the curb, the square-on putting the build's 0.2 m OVER the print's and this view 0.8 m under it, and this view's camera fits no better than 40-60 px at the house's far end (T-3562's 30-point solve, 14-16 px rms); a gap two pictures disagree about is within tolerance, and the flank dormer, read with the curb, goes with it",
+      "status": "within tolerance",
+      "how": "T-3562 lays the K10 kit's 0.45 m iron cresting on the street and south flank curbs and the cross on the pavilion's crown (the square-on's record); they render on the build's curb and crown, so the curb's height stays the open question here and on the square-on (its deck); T-3562 rebuilt the deck at its record's 10 degrees (it had been built at the door pediment's 31.7, a shared local), so its slates no longer rise dark behind the cresting on this view and the cresting reads against the sky as in the print; the curb itself did not move"
     },
     {
       "what": "the main cornice's stone consoles, round the corner onto the flank",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3561: K10's scrolled consoles (wall_head.blocks) under the corona, 0.45 m high, 0.17 m wide, no more than 0.5 m apart, on a 0.32 m frieze; they render at y 405-440 px against the print's 400-432 px, and carry round the south-west corner and along the south flank as the oblique draws them"
     },
     {
-      "what": "the door's pedimented hood, the stoop's stone newels, its arched underside and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
-      "status": "open"
+      "what": "the door's pedimented hood and the stoop's stone cheeks",
+      "status": "fixed",
+      "how": "T-3562: the stone pediment on its brackets over the door, and the swept cheeks with a newel at each foot, as on the square-on (whose print shows both whole); here the tree's trunk crosses the hood"
+    },
+    {
+      "what": "the stoop's open south side (x 1080-1340 px, y 980-1160 px): the landing on a square pier at its outer corner and open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight carried off the pier on a rampant arch from 0.82 m over grade down to grade about 0.9 m along the run; built by T-3562 (K07's arched swept cheek), the void closed in the kit's dark backing",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement doorway in the wall under the landing (x 1045-1260 px, y 960-1150 px): the build's void under the landing is closed at the wall in the kit's dark backing, with no doorway in it",
+      "status": "not shown",
+      "how": "T-3562: the square-on print shows the basement doorway, under the landing's north side, behind the flight's north newel, and the build stands it there (K07's landing wing, in that view's record); from this camera the wing stands behind the flight, and under the landing's south side the print shows the dark between the pier and the wall and no doorway that can be read in it, as the build's void shows it"
+    },
+    {
+      "what": "the stoop's south cheek stepped level with its treads under an iron hand rail (x 1100-1290 px): the rail leaving a square stone post on the landing's outer corner over the pier (its cap at about 0.75 m over the landing) at about 0.37 m, falling to the foot newel's top on one bar part way down, and a level iron rail from the post back to the wall over the landing's edge",
+      "status": "fixed",
+      "how": "T-3562: K07's railed swept cheek (cheek_form.railed): both cheeks stepped, the rail 0.45 m over the landing at its head and 0.12 m over the newel's cap at its foot, one bar between, the post 0.35 m square and 0.65 m high on the south side, the level rail to the wall on one bar; the rail's head about 0.08 m higher than the print's and the post's cap about 0.1 m lower, both under the bar"
     },
     {
       "what": "the stone balcony's pierced panels on the bay's deck",
@@ -66,7 +85,50 @@
       "what": "the coping, posts and walk T-3206 lays",
       "status": "within tolerance",
       "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on"
+    },
+    {
+      "what": "the stack's sunk panels on its south face (x 1765-1825 px, about 11.35-13.45 m)",
+      "status": "fixed",
+      "how": "T-3562: built. Three narrow panels (0.15 m across, 0.05 m deep) sunk in the stack's south face from 11.35 m to 13.45 m, 0.3 m under the corbelled head, where the print draws three dark lines evenly across the shaded face (x 1765-1825 px). The stack stands on the flank's cornice clear of the mansard, so its panels run below the roof's highest covering under it (panel_foot_m); K15 now sinks a stone stack's panel in its own stone, so they read as stone and not as brick strips. The render draws the three beside the print's within a few pixels in height and run; the build's stack stands right of the print's with the south wall's open set-out, as before"
+    },
+    {
+      "what": "the stack's pots: the print's stand about 1.0-1.2 m over the cap, slender and fluted, in a row back from the street",
+      "status": "fixed",
+      "how": "T-3562: K15 gains a long pot, 1.1 m high and slimmer than the tall one (0.12 m at its foot, 0.08 m in its shaft, a 0.1 m lip), and the south stack names it (pot: long) on its three flues; all 52 K01 houses were rebuilt, 51 of them byte-identical, only their input hashes moved. Against the head (cap's top to the corbels' foot, 0.7 m) the build's pots now stand 1.24 times its height and the print's about 1.4 times, about 0.1-0.15 m apart, inside the bar (the kit's 0.72 m tall pot stood 0.3-0.5 m short). Their fluting is under the bar"
+    },
+    {
+      "what": "a fourth pot: a pale shape nearest the street on the stack's head (x 1717-1740 px, y 72-130 px), lit on its west side with a rim at its top, may be a fourth pot in the row or the head's lit side",
+      "status": "fixed",
+      "how": "T-3562: read as a fourth pot. Enlarged, the pale shape carries a rolled lip at its top (y 70-77 px) and its top continues the row's perspective (the three dark pots' tops at y 82, 90 and 98 px, about 8-10 px a pot; this one's at 72, the next step nearer). It is pale where they are dark because, with the sun and the camera both south-west, the nearest pot is the one seen whole, its lit west side to the camera, while each pot behind it shows only the shaded sliver it leaves past the one in front. Built: the stack widened along the flank from 1.1 m to 1.26 m (the least that holds four of K15's 0.21 m flues with 0.1 m of stone between, made a whole 12 half-bricks), its west face kept at u 15.86, and four long pots on its head; the 1.1 m had been read through this camera, whose scale on the bay's side of the house is not settled (below). The flank's dormer moved 0.07 m back with it (13.83 m), still 1.4 m behind the stack's centre. The render now draws four pots in the row, its tops stepping down as the print's do."
+    },
+    {
+      "what": "the band under the stack's head: the build's K15 soot band lays the top 0.45 m of the shaft under the corbels in dark brick, which renders red on this stone stack; the print shows the head's pale stone and its shadowed mouldings there (x 1730-1830 px, y 140-185 px)",
+      "status": "fixed",
+      "how": "T-3562: K15's soot band is a brick stack's; a stone stack now keeps its own stone up to its corbelled head (k15_chimneys.stack_solids), so the top 0.45 m of the shaft renders in the stack's stone where the brick band rendered red; the print's shadowed mouldings are the head's corbel courses, which the build carries. 1815 is the only K01 house on a stone K15 stack: the other 51 were rebuilt byte-identical, only their input hashes moved"
+    },
+    {
+      "what": "the rosettes over the cornice's consoles",
+      "status": "within tolerance",
+      "how": "carved bosses about 0.12 m across in the cornice's bed, under the 0.3 m bar; not built"
+    },
+    {
+      "what": "the south flank's tone: the print draws the rock-faced flank darker than the front; a monochrome print cannot say whether that is another stone, soot or the light",
+      "status": "not shown",
+      "how": "T-3562 lays it in the front's Lemont stone (L-k01-1815-sears-1893)"
+    },
+    {
+      "what": "the corner bay's front renders about 100-170 px west of the print's on this view (its two lights at x 1515-1585 px against the print's 1565-1740, its south edge at 1615 against 1790), and narrower. T-3562, under the T-3153 bar: no single pinhole camera fits this print (30 points from both prints, 14-16 px rms, 40-60 px at the bay, T-3562's 2026-11-18 solve), and the square-on, whose camera fits within 2-20 px, places the bay within 25 px; a gap two camera fits disagree about is within tolerance",
+      "status": "within tolerance",
+      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled T-3562 (2026-11-18) measured both prints to see whether a better camera could settle it, and no single pinhole camera can: on the oblique the bay's two front lights stand 121 px apart (centres x 1590 and 1711 px) and 188 px tall (y 775-963), where the square-on places them 0.9 m apart and 2.37 m tall; so on the bay's face the print's horizontal scale is about 1.7 times its vertical (135 against 79 px/m), while on the front behind it, at about the same depth (the light right of the door, 78 px/m tall), it is under 0.8 times, and on the attic lights 0.8 times. For a level camera the ratio on a plane parallel to the front is its distance from the eye across the front over its depth along the view, which cannot rise from under 0.8 to 1.7 between two planes 0.75 m apart at the same depth; least-squares fits on 30 points from both prints (attic, pavilion and principal-storey lights, the narrow light, the right window, the bay's lights and corner, the main south corner at x 1656) left 14-16 px rms and 40-60 px at the bay with every parameter free, the eye pulled to the street line in front of the house. So either the oblique print is not a single undistorted exposure of this front (a copy, a crop of a distorted plate) or the bay as the square-on reads it is not the bay this print shows; the camera alone does not settle it, and it is left as it was."
+    },
+    {
+      "what": "the crown's cornice runs on across the attic's slated cheeks, where the print's spans the attic front alone (as on the square-on) (T-3562)",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's own dentil band at the second storey's head and the stone shoulders beside the attic (the band at x 1085-1300 px, y 513-533 px; the shoulders at y 340-410 px), as on the square-on (T-3562)",
+      "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

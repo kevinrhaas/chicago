@@ -61,8 +61,22 @@ export function parseLivery(text) {
  * Dress a loaded human body ({ scene, meshes }) in a parsed livery. The pieces are
  * added beside the body's own skinned meshes and pushed onto `body.meshes`, so the
  * actor's shadow and teardown handling covers them. Returns an undo.
+ *
+ * `colours` (Kevin, 2026-11-13: each coachman his own): a driven row's own dye for the
+ * livery's materials and the body garments it re-dyes, by material name, in linear RGB.
+ * One draped file then dresses several coachmen in their own house colours. A body
+ * material dyed this way is this coachman's own clone, never the shared one.
  */
-export function dressInLivery(body, livery) {
+export function dressInLivery(body, livery, { colours = null } = {}) {
+  const dye = name => {
+    const rgb = colours?.[name];
+    if (rgb == null) return null;
+    if (!Array.isArray(rgb) || rgb.length !== 3 || !rgb.every(n => Number.isFinite(n) && n >= 0 && n <= 1)) throw Error(`driver livery: colour for ${name} must be three linear channels in [0, 1]`);
+    return rgb;
+  };
+  if (colours) for (const name of Object.keys(colours)) {
+    if (!livery.materials?.[name] && !livery.recolor_body_materials?.[name]) throw Error(`driver livery: no material ${name} to colour`);
+  }
   const reference = body?.meshes?.find(m => m.isSkinnedMesh && m.skeleton);
   if (!reference) throw Error('driver livery: no skinned body to dress');
   const byName = new Map(reference.skeleton.bones.map(b => [b.name, b]));
@@ -93,16 +107,29 @@ export function dressInLivery(body, livery) {
     if (!materials.has(name)) {
       const m = livery.materials[name];
       materials.set(name, new THREE.MeshStandardMaterial({ name,
-        color: new THREE.Color().setRGB(...m.color, THREE.LinearSRGBColorSpace),
+        color: new THREE.Color().setRGB(...(dye(name) ?? m.color), THREE.LinearSRGBColorSpace),
         roughness: m.roughness, metalness: m.metalness, side: m.double_sided ? THREE.DoubleSide : THREE.FrontSide }));
     }
     return materials.get(name);
   };
   // Livery trousers: the body's own garment re-dyed, restored on undo.
-  const dyed = [];
+  const dyed = [], owned = new Map();
   for (const mesh of body.meshes) {
-    const colour = livery.recolor_body_materials?.[mesh.material?.name];
-    if (!colour || dyed.some(d => d.material === mesh.material)) continue;
+    const name = mesh.material?.name, colour = livery.recolor_body_materials?.[name];
+    if (!colour) continue;
+    const own = dye(name);
+    if (own) {
+      // This coachman's own dye goes on his own copy of the garment's material.
+      if (!owned.has(mesh.material)) {
+        const copy = mesh.material.clone();
+        copy.color.setRGB(...own, THREE.LinearSRGBColorSpace);
+        owned.set(mesh.material, { copy, meshes: [] });
+      }
+      const entry = owned.get(mesh.material);
+      entry.meshes.push(mesh); mesh.material = entry.copy;
+      continue;
+    }
+    if (dyed.some(d => d.material === mesh.material)) continue;
     dyed.push({ material: mesh.material, color: mesh.material.color.clone() });
     mesh.material.color.setRGB(...colour, THREE.LinearSRGBColorSpace);
   }
@@ -176,7 +203,11 @@ export function dressInLivery(body, livery) {
     }
     for (const m of materials.values()) m.dispose();
     for (const d of dyed) d.material.color.copy(d.color);
-    added.length = 0; dyed.length = 0;
+    for (const [shared, { copy, meshes }] of owned) {
+      for (const mesh of meshes) if (mesh.material === copy) mesh.material = shared;
+      copy.dispose();
+    }
+    added.length = 0; dyed.length = 0; owned.clear();
   };
   undo.update = update;
   undo.tails = tails;

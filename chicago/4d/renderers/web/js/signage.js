@@ -1541,7 +1541,7 @@ function cutToLetters(ctx, x, y, cellW, L) {
  * (the canvas plus the GPU copy with its mip chain). At a phone's screen size a
  * board seen from the footway samples well below this resolution anyway.
  */
-function shrinkForPhone(canvas, factor = 2) {
+export function shrinkForPhone(canvas, factor = 2) {
   const small = document.createElement('canvas');
   small.width = Math.max(1, Math.round(canvas.width / factor));
   small.height = Math.max(1, Math.round(canvas.height / factor));

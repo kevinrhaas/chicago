@@ -1,0 +1,106 @@
+== title @f73abade
+Botas, cuero y el camino
+
+== premise @feff503f
+Equipa a un jinete para el camino de mañana: botas en la tienda de Holbrook en South Water Street, una mirada al otro lado de la confluencia desde Wolf Point hacia la curtiduría de Miller, donde empezó el cuero del pueblo, el talabartero de Lake y Canal, y el Green Tree para extenderlo todo.
+
+== opening @f60535f5
+PASEO: BOTAS, CUERO Y EL CAMINO. Una tarde de primavera, el lodo por fin secándose, y mañana sales a caballo. Los forasteros llegan en tropel a este pueblo 'por tierra y por agua', y la mayoría, como tú, van a 'establecerse más al oeste'. Antes de unirte a ellos necesitas un equipo, y un equipo es cuero: botas para el jinete y arreos para el caballo.
+
+Aquí está el detalle. En este pueblo esos son dos oficios distintos en dos tiendas distintas a los dos lados del río. Compra botas en South Water Street, mira al otro lado de la confluencia hacia la curtiduría donde empezó el cuero de Chicago, visita al talabartero de Lake y Canal, y extiéndelo todo esta noche en el Green Tree.
+
+== stop ready-made @c91f699d
+Empieza una puerta al este de Dearborn, en South Water Street. En junio de 1835 John Holbrook anunciaba sombreros, ropa, botas y zapatos, al por mayor y al por menor, como agente de los fabricantes. Son artículos hechos, enviados desde el Este y vendidos directamente del estante: en un pueblo que crece así de rápido, nadie tiene tiempo para esperar a un zapatero.
+
+== narrative ready-made @75aa6ed2
+¿Botas para el camino, o un sombrero?
+
+== label ready-made boots @91bda3a7
+Un par de botas del estante
+
+== consequence ready-made boots @3e494b64
+Hechas en otra parte y enviadas hasta aquí, como todo lo que hay en su anuncio. Tus pies están listos para el camino.
+
+== label ready-made hat @d4598eb8
+Un sombrero para el camino
+
+== consequence ready-made hat @7eb5c6bd
+La versión del anuncio que imprimió el American pone los sombreros primero. Los zapatos con los que llegaste tendrán que bastar.
+
+== stop tannery @605e7d9d
+Cruza el brazo sur hasta Wolf Point. Al otro lado del brazo norte, en 1831, John Miller construyó una casa de troncos en la punta y la usó como curtiduría, la primera fábrica registrada de Chicago. Antes de que los barcos trajeran botas por cajas, el cuero aquí empezaba como pieles remojándose en un foso. Ninguna fuente dice si todavía se trabajaban pieles este verano.
+
+== narrative tannery @551ce8fd
+El cuero empieza como pieles, en algún lugar. Aquí, empezó en la punta.
+
+== stop saddler @e4f39efb
+Hacia el sur por la orilla oeste hasta Lake y Canal. Goss & Cobb abrió aquí en 1833, el año en que llegó Silas B. Cobb, y hacía por encargo sillas de montar, arneses, bridas, gamarras y baúles. Los socios se separaron en febrero de 1835, y el anuncio de Cobb de junio dice que él seguirá. Ninguno de los dos anuncios menciona botas.
+
+== narrative saddler @ba79a0f9
+¿Cuero para el caballo, o para el equipaje?
+
+== label saddler bridle @5ccf36dd
+Encargar una brida nueva
+
+== consequence saddler bridle @ea6d06d4
+Las bridas están en el anuncio. Cobb te la promete para la mañana.
+
+== label saddler trunk @2bf497ff
+Encargar un baúl
+
+== consequence saddler trunk @f5114ac6
+Los baúles también están en el anuncio. Un baúl viaja en una carreta, no en una silla de montar.
+
+== label saddler ask-boots @3118a51f
+Pedirle botas al talabartero
+
+== consequence saddler ask-boots @e8d9fd57
+No es su oficio. Su anuncio dice sillas de montar, arneses, bridas, gamarras y baúles; las botas y los zapatos eran el ramo de Holbrook, al otro lado del río.
+
+== stop road @18f92def
+Hacia el este por Lake hasta West Water y el Green Tree, que James Kinzie construyó en 1833 como la primera casa de aquí levantada para servir de hotel, 'llamado así por un roble que estaba muy cerca'. Los antiguos colonos recordaban que Chester Ingersoll lo llevó de 1834 a 1837. Extiende el equipo en el piso para la mañana.
+
+== narrative road @29742307
+¿Salir con la primera luz, o esperar un día?
+
+== label road ride @d5e26616
+Salir con la primera luz
+
+== consequence road ride @93c4093c
+El equipo es lo que es.
+
+== label road wait @72f4847a
+Quedarse un día y completar el equipo
+
+== consequence road wait @06339eb8
+Otra noche en el Green Tree.
+
+== leg 0 @ffc5dd49
+Lo que compraste va delante de ti.
+
+== note 0 @1555673b
+Hacia el oeste por South Water Street y cruzando el brazo sur hasta Wolf Point.
+
+== note 1 @f02bd34d
+Hacia el sur por la orilla oeste hasta Lake y Canal.
+
+== note 2 @6d01a113
+Hacia el este por Lake Street hasta West Water, en la orilla oeste del brazo sur.
+
+== ending another-day @8b36e288
+Otro día en el pueblo, entonces. Lo que le falta al equipo está en un anuncio en alguna parte de estas calles, y el camino puede esperar. Llegar un día tarde no es lo mismo que no estar listo.
+
+== ending equipped @52502c80
+Botas del ropero y una brida del talabartero: cuero para el jinete y cuero para el caballo, de dos oficios que no hacían el trabajo del otro. Sales con la primera luz equipado para viajar.
+
+== ending trunk-bound @17463886
+Un baúl no viaja en una silla de montar. La mañana empieza buscando una carreta que vaya en tu dirección: el equipaje está listo y la manera de llevarlo no.
+
+== ending half-ready @1fe7be92
+Sales con lo que tienes. Botas para el jinete y una brida para el caballo eran los dos cueros del equipo, uno de cada oficio; lo que sea que falte, el camino te lo pedirá dentro de poco.
+
+== keepsake title @ad9ef2fc
+Equipado para viajar
+
+== keepsake text @d1cdb9b9
+Un recuento ficticio del equipo de un jinete: lo que vino del ropero, lo que vino del talabartero y lo que se quedó atrás. No lleva escrita ninguna venta, precio ni cliente real de ninguna de las dos tiendas.

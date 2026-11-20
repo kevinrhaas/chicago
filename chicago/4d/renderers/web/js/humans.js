@@ -32,7 +32,7 @@
  */
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
-import { createHumanLife } from './human-life.js';
+import { createHumanLife, POSTURES } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
 import { createHumanGait } from './human-gait.js';
 import { createHumanSkirt } from './human-skirt.js';
@@ -40,17 +40,34 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources } from './shared-images.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
-import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
+import { shareSkeletons } from './human-skeletons.js';
+import { loadVariationKit, personVariation, applyVariationSteps, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
-import { dressHair, dressHeadcloth } from './human-hair.js';
+import { dressHairSteps, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
+import { dressFinery } from './human-finery.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
+import { fitWaist } from './human-waist.js';
+import { engraveSilver } from './human-silver.js';
+import { easeSeats } from './human-seat.js';
+import { dressCollars } from './human-collar.js';
+import { fitCoats } from './human-coat.js';
+import { fitSleeves } from './human-sleeve.js';
+import { tailor1835 } from './human-tailor-1835.js';
+import { fitRegulars } from './human-regulars.js';
+import { fitFrockCoat } from './human-frockcoat.js';
+import { fitGown } from './human-gown.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
+// T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
+// town; main.js hands them in with useFightMotions, and every hand reads them as it moves.
+let fightModule = null;
+const fightMotions = () => fightModule;
+export function useFightMotions(motions) { fightModule = motions ?? null; }
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -62,6 +79,22 @@ export const LOD_HYSTERESIS = 0.12;
 export const FACE_M = 20;
 export const SHADOW_M = 30;
 export const ANIMATE_M = 70;
+/**
+ * T-3639: how often a figure past these distances is posed, in frames: every second frame
+ * beyond 30 m, every third beyond 50 m, out to ANIMATE_M. The pose (clip, gait, life, hands,
+ * skirt) is computed on that frame with all the time since the last one, so a far figure
+ * moves exactly as far and as fast, in fewer, larger steps; at 30 m a person is some fifty
+ * pixels tall on a 1280 x 800 window. Its place still moves every frame. The owner's rule
+ * (2026-11-10) is lower resolution, never fewer people: this is resolution in time. Figures
+ * are staggered by their id, so a crowd's posing is spread over the frames, not bunched.
+ */
+export const ANIMATE_STRIDE_M = Object.freeze([Object.freeze([30, 2]), Object.freeze([50, 3])]);
+/** Frames between poses at `distance` metres (1 = every frame). */
+export function animateEvery(distance) {
+  let every = 1;
+  for (const [m, n] of ANIMATE_STRIDE_M) if (distance >= m) every = n;
+  return every;
+}
 export const DRAW_M = 140;
 /**
  * T-3463: how far the `light` tier (a phone's) draws a figure. 1812's town put some 160 people
@@ -71,6 +104,19 @@ export const DRAW_M = 140;
 export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: DRAW_M });
 /** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
 export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
+/**
+ * T-3553 (owner, 2026-11-14, walking into a man at Prairie and 18th: "you should not see
+ * inside people's heads and bodies"). A drawn figure is solid to the walker: a standing disc
+ * BODY_R_M round where they stand, BODY_TALL_M high (a top hat included), which walker.js
+ * keeps its capsule off (`bodiesNear`). And wherever the eye is put by anything else (a
+ * flight, a Follow or Find landing, a crowd pressed against a wall), a figure whose body
+ * holds the eye is not drawn that frame (`hideAtEye`): EYE_CLEAR_M round them, from a little
+ * below their feet to the top of a hat. A figure the walker is held off never comes nearer
+ * than WALK.radius + BODY_R_M (0.64 m), so on foot the second rule only ever catches a squeeze.
+ */
+export const BODY_R_M = 0.3;
+export const BODY_TALL_M = 2.05;
+export const EYE_CLEAR_M = 0.45;
 export const RECHECK_S = 0.5;
 /** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
 export const PARK_S = 180;
@@ -85,6 +131,10 @@ const FADE_S = 0.25;
  *  slows to a stand while it turns further than PATH_STAND_TURN_DEG, so it turns, then goes. */
 export const PATH_TURN_DEG_S = 220;
 const PATH_STAND_TURN_DEG = 75;
+/** T-3553: a path walked faster than this (a run) is gathered over about RUN_GATHER_S (the time
+ *  constant) from a walking pace, and run down at RUN_STOP_M_S2 into its end (reconstructed:
+ *  a few strides to get up to a run, a couple of metres to pull up). */
+export const RUN_GATHER_FROM = 2.0, RUN_GATHER_S = 0.45, RUN_STOP_M_S2 = 3.5;
 const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
 
 /**
@@ -124,7 +174,10 @@ function findClip(clips, want) {
  * Refcounted loads of `<asset_id>.lod<N>.glb`. One parse per file however many people wear
  * it; the parsed source is disposed when the last actor wearing it lets it go.
  */
-export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
+/** T-3556: the scenes whose townspeople's variation rows are a table of their own. */
+export const SCENE_PERSONS = Object.freeze(['1835']);
+
+export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch, sceneId = null } = {}) {
   // T-3453: every figure carries the same hair, skin and eye pictures (published once under
   // humans/web/sheets/, T-3453); decode each once and hand every figure a clone of it, as
   // the houses do (T-2464). disposeLoadedAsset closes a bitmap only when its last user goes.
@@ -145,7 +198,25 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       decoder ??= loadMeshoptDecoder();
       loader.setMeshoptDecoder(await decoder);
     }
-    return loader.parseAsync(buf, String(new URL('.', href)));
+    const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
+    // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
+    // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
+    // edge, five bodies are tailored to their period pictures (1830s trousers and shirt, the
+    // 1812 regular's coat, a 1904 frock coat and gown), a belted waist sits on the body, and
+    // trade silver is engraved, once per parse, before any figure is cloned (human-collar.js,
+    // human-seat.js, human-coat.js, human-sleeve.js, human-tailor-1835.js, human-regulars.js,
+    // human-frockcoat.js, human-gown.js, human-waist.js, human-silver.js).
+    dressCollars(gltf.scene);
+    easeSeats(gltf.scene);
+    fitCoats(gltf.scene);
+    fitSleeves(gltf.scene);
+    tailor1835(gltf.scene);
+    fitRegulars(gltf.scene, { sceneId });
+    fitFrockCoat(gltf.scene);
+    fitGown(gltf.scene);
+    fitWaist(gltf.scene);
+    engraveSilver(gltf.scene);
+    return gltf;
   }
 
   return {
@@ -175,11 +246,20 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
      * face), fetched once. Never rejects: without them every figure is the asset as drawn.
      */
     variation() {
+      const persons = (name) => Promise.resolve(fetchImpl(new URL(`humans/web/${name}`, assetBase)))
+        .then((r) => (r.ok ? r.json() : null)).catch(() => null);
       variation ??= Promise.all([
         loadVariationKit(new URL('humans/web/', assetBase), fetchImpl),
-        Promise.resolve(fetchImpl(new URL('humans/web/hm08_variation_persons.json', assetBase)))
-          .then((r) => (r.ok ? r.json() : null)).catch(() => null),
-      ]).then(([kit, persons]) => (kit ? { kit, persons: persons?.persons ?? {} } : null), () => null);
+        persons('hm08_variation_persons.json'),
+        // T-3556: a scene's own townspeople (the 1835 town's thousands) in their own table, so
+        // the other years never fetch or hold them (tools/human_variation_kit.py SCENE_PERSONS).
+        SCENE_PERSONS.includes(String(sceneId)) ? persons(`hm08_variation_persons_${sceneId}.json`) : null,
+      ]).then(([kit, main, own]) => {
+        if (!kit) return null;
+        // The scene's table says its looks' one basis once (`looks_basis`), for every row of it.
+        if (own?.looks_basis) for (const r of Object.values(own.persons ?? {})) if (r.looks && !r.looks.basis) r.looks.basis = own.looks_basis;
+        return { kit, persons: { ...(own?.persons ?? {}), ...(main?.persons ?? {}) } };
+      }, () => null);
       return variation;
     },
     get loaded() { return [...entries.keys()]; },
@@ -191,10 +271,73 @@ const PROXY_GEOMETRY = new THREE.BoxGeometry(0.6, 1, 0.45).translate(0, 0.5, 0);
 const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
 
 /**
+ * T-3572: FIGURES ARE BUILT IN TURN, NEAREST FIRST, a few milliseconds of building a frame.
+ *
+ * The owner, 2026-11-12, on foot in 1812 by the factor's house and the officers' garden
+ * gate: jumpy frames and slow walking, in the same places every time, gone in flight. A
+ * level's build (its clone, the person's own body, hair, hat and looks) runs on the main
+ * thread, and it ran the moment its GLB was parsed — and one parse serves every wearer of
+ * that source, so the fort's Potawatomi men, or its privates, all built in the same task
+ * when their level's file came in: ten builds of 60 ms are a 600 ms frame. Now each
+ * waits its turn here; a frame runs builds until BUILD_SLICE_MS has gone (always at least
+ * one), the nearest figure first, and the rest wait for the next frame. A walk brings
+ * figures through their bands one at a time instead of a crowd at once.
+ *
+ * T-3639: and one build is no longer one frame. Standing by the Kinzie household (2026-11-17)
+ * the garrison walking into its 140 m range built a figure every two seconds, 10-21 ms each in
+ * a single frame. A build is now its steps (buildSteps: the clone, the person's own body, their
+ * looks and dress, the skin, the hair, the hat and arms, the cloth), and a frame takes steps
+ * until BUILD_SLICE_MS has gone; the figure under way keeps its turn until it is done.
+ */
+export const BUILD_SLICE_MS = 6;
+const buildQueue = [];
+let buildPumpDue = false;
+function pumpBuilds() {
+  buildPumpDue = false;
+  if (!buildQueue.length) return;
+  // T-3639: a build under way keeps its turn; the rest wait nearest first.
+  const going = buildQueue[0].steps ? buildQueue.shift() : null;
+  buildQueue.sort((a, b) => (a.actor.distance ?? Infinity) - (b.actor.distance ?? Infinity));
+  if (going) buildQueue.unshift(going);
+  const t0 = performance.now();
+  do {
+    const job = buildQueue[0];
+    try {
+      if (!job.steps) {
+        const out = job.run();
+        if (!isSteps(out)) { buildQueue.shift(); job.resolve(out); continue; }
+        job.steps = out;
+      }
+      const step = job.steps.next();
+      if (step.done) { buildQueue.shift(); job.resolve(step.value); }
+    } catch (err) { buildQueue.shift(); job.reject(err); }
+  } while (buildQueue.length && performance.now() - t0 < BUILD_SLICE_MS);
+  if (buildQueue.length) duePump();
+}
+/** T-3639: a build handed in as its steps (HumanActor.buildSteps), taken a step at a time. */
+const isSteps = (v) => !!v && typeof v.next === 'function' && typeof v[Symbol.iterator] === 'function';
+function duePump() {
+  if (buildPumpDue) return;
+  buildPumpDue = true;
+  // A hidden page draws no frames; its builds go on a timer, which the browser slows.
+  if (typeof requestAnimationFrame === 'function' && !globalThis.document?.hidden) requestAnimationFrame(pumpBuilds);
+  else setTimeout(pumpBuilds, 16);
+}
+/** Run `run()` (one level's build) in this figure's turn; resolves to what it returned. */
+function queueBuild(actor, run) {
+  return new Promise((resolve, reject) => { buildQueue.push({ actor, run, resolve, reject }); duePump(); });
+}
+/** T-3572: how many builds wait for their turn (the console and the walk probe read it). */
+export function pendingBuilds() { return buildQueue.length; }
+
+/**
  * One figure: an instance record (§ 11) bound to its person, drawn from one asset.
  * `heightAt(e, n)` stands it on the ground; `clipLibrary` (AnimationClips on the contract
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
+/** T-3553: the season people are dressed for (Settings › Season), set by the layer. */
+let dressSeason = 'summer';
+
 export class HumanActor {
   constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null }) {
     this.instance = instance;
@@ -236,7 +379,8 @@ export class HumanActor {
     // T-3472: the walk itself (human-gait.js): pelvis, legs and feet while walking, before
     // the life and arm layers, which read its phase.
     this.gait = null;
-    // T-3472: a woman's skirt hangs as one bell over the legs (human-skirt.js); null for men.
+    // T-3472 / T-3553: hanging cloth (a skirt, a coat's skirts, tails, a capote, a breechcloth)
+    // hangs as one bell over the legs (human-skirt.js); null for a figure with none (trousers).
     this.skirt = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     // T-3439: levels drawn before and kept for a swap back (lod -> body), on this clock.
@@ -249,6 +393,10 @@ export class HumanActor {
     this.counters = { updates: 0, animated: 0, faced: 0, swaps: 0, reused: 0 };
     this.expression = {};
     this.blinkClock = hashPhase(instance.id) * 4;
+    // T-3639: a far figure's posing stride (animateEvery): its turn, and the time and ground saved up.
+    this.animTurn = Math.floor(hashPhase(`${instance.id}:pose`) * 6);
+    this.animDt = 0;
+    this.animMoved = 0;
     this.distance = Infinity;
     this.inRange = false;
     this.recheck = 0;
@@ -270,7 +418,40 @@ export class HumanActor {
     // T-3504: a step aside from whoever else stands here, local metres (human-spacing.js).
     this.spaceE = 0;
     this.spaceN = 0;
+    // T-3553: a posture held off the feet (human-life.js POSTURES): { kind, w, to, rate }, w
+    // easing toward `to` (1 in it, 0 back on the feet). `animateM` lets a jaunt's staged
+    // figure hold a kneel beyond ANIMATE_M, where nobody else is animated.
+    this.posture = null;
+    this.animateM = null;
+    this.root.rotation.order = 'YXZ';
     this.place();
+  }
+
+  /**
+   * T-3553: kneel, crouch, sit, lie down (prone or face up) or stand again, easing into it
+   * over `seconds` (0: at once). Returns false for a posture this layer does not know.
+   */
+  setPosture(kind = 'stand', { seconds = 0.9 } = {}) {
+    if (kind !== 'stand' && !POSTURES[kind]) return false;
+    if (kind === 'stand') {
+      if (!this.posture) return true;
+      this.posture.to = 0; this.posture.rate = seconds > 0 ? 1 / seconds : Infinity;
+    } else {
+      const was = this.posture?.kind === kind ? this.posture.w : 0;
+      this.posture = { kind, w: seconds > 0 ? was : 1, to: 1, rate: seconds > 0 ? 1 / seconds : Infinity };
+    }
+    if (seconds <= 0 && kind === 'stand') this.posture = null;
+    this.place();
+    return true;
+  }
+
+  /** T-3553: one frame of a posture's easing; the root's tip follows its weight. */
+  stepPosture(dt) {
+    const p = this.posture;
+    if (!p) return;
+    const step = Number.isFinite(p.rate) ? p.rate * Math.max(0, dt) : 1;
+    p.w = p.to > p.w ? Math.min(p.to, p.w + step) : Math.max(p.to, p.w - step);
+    if (p.to === 0 && p.w <= 0) this.posture = null;
   }
 
   /** Where it stands, in local ENU metres, with its feet on the ground. */
@@ -287,7 +468,14 @@ export class HumanActor {
       const e = this.e + (this.spaceE ?? 0), n = this.n + (this.spaceN ?? 0);
       enuToWorld(e, n, this.heightAt(e, n), this.root.position);
     }
-    this.root.rotation.y = headingToYaw(this.heading);
+    // T-3553: lying down tips the whole figure about its feet, face down along its heading
+    // (+90) or face up with its head to its heading (-90), lifted by the body's depth.
+    const lying = this.posture && POSTURES[this.posture.kind]?.root ? POSTURES[this.posture.kind] : null;
+    const w = lying ? this.posture.w : 0;
+    const face = lying && lying.root < 0 ? 180 : 0;
+    this.root.rotation.y = headingToYaw((this.heading + face * (w > 0 ? 1 : 0)) % 360);
+    this.root.rotation.x = lying ? lying.root * (Math.PI / 180) * w : 0;
+    if (lying) this.root.position.y += lying.lift * w;
   }
 
   /**
@@ -317,7 +505,11 @@ export class HumanActor {
     const assetId = this.instance.appearance.asset_id;
     const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(async ([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
-      const next = this.build(gltf, lod, variation);
+      // T-3572: built in its turn (queueBuild), and not at all if it is no longer wanted then.
+      const next = await queueBuild(this, () => (this.disposed || this.wanted !== lod ? null
+        // T-3639: in steps a frame at a time, unless a subclass builds its own way.
+        : this.build === HumanActor.prototype.build ? this.buildSteps(gltf, lod, variation) : this.build(gltf, lod, variation)));
+      if (!next) { this.assets.release(assetId, lod); return this.body; }
       if (this.prepare) {
         // Shadows as the level will be drawn, so the programs compiled are the ones it uses.
         for (const m of [...next.meshes, ...next.extras]) { m.castShadow = this.distance < SHADOW_M && lod <= 1; m.receiveShadow = this.distance < SHADOW_M; }
@@ -355,7 +547,7 @@ export class HumanActor {
     // T-3523: a soldier's musket is carried in a held hand, as a basket is.
     carry ??= garrisonCarry(next.garrison);
     if (this.actions) this.actions.bind(next.scene);
-    else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
+    else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry, fightMotions });
     if (this.gait) this.gait.bind(next.scene);
     else {
       // Who walks: this person's sex and age where the variation kit drew them (T-3412).
@@ -365,12 +557,26 @@ export class HumanActor {
     }
     if (this.skirt) this.skirt.bind(next.scene);
     else this.skirt = createHumanSkirt({ id: this.personId ?? this.id, scene: next.scene });
-    if (prev) { this.counters.swaps++; this.park(prev); }
+    // T-3553: a level dressed for another season is let go, never kept for a swap back.
+    if (prev) { this.counters.swaps++; if (prev.season && prev.season !== dressSeason) this.teardown(prev); else this.park(prev); }
     this.costs = '';
     this.applyCosts();
     this.applyFace(this.expression);
     this.prune();
     return next;
+  }
+
+  /**
+   * T-3553: the Season setting changed and this figure dresses by season: let go of the levels
+   * kept for a swap back and load the level drawn now again, in the new season's dress.
+   */
+  redress() {
+    if (!this.body?.season || this.body.season === dressSeason) return false;
+    this.prune(true);
+    this.lod = -1;
+    this.wanted = -1;
+    this.recheck = 0;
+    return true;
   }
 
   /** Take `body` out of the scene and keep it for a swap back (T-3439). */
@@ -396,18 +602,28 @@ export class HumanActor {
     }
   }
 
-  /** T-3412: this person's own face, height and build, from the shared kit, on the clone. */
-  vary(scene, variation) {
+  /** T-3412: this person's own face, height and build, from the shared kit, on the clone (in steps). */
+  *vary(scene, variation) {
     if (!variation?.kit || this.variationScope === 'none') return;
     const assetId = this.instance.appearance.asset_id;
     this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
       record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
-    this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
+    // T-3639: a body or a garment a step (applyVariationSteps).
+    this.varied = yield* applyVariationSteps(scene, variation.kit, this.variation, { scope: this.variationScope });
   }
 
+  /** One level's build, whole (the harness and a subclass call this; setLod takes buildSteps). */
   build(gltf, lod, variation = null) {
-    const scene = cloneSkinned(gltf.scene);
-    this.vary(scene, variation);   // before dressSkin, which reads the varied rest pose
+    const steps = this.buildSteps(gltf, lod, variation);
+    let r = steps.next();
+    while (!r.done) r = steps.next();
+    return r.value;
+  }
+
+  /** T-3639: the same build, yielding between its steps so a frame can stop between them. */
+  *buildSteps(gltf, lod, variation = null) {
+    const scene = cloneSkinned(gltf.scene); yield;
+    yield* this.vary(scene, variation); // before dressSkin, which reads the varied rest pose
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;
@@ -418,9 +634,13 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
-    // T-3506: their own cloth colours and the pieces they wear today (human-looks.js).
-    const dress = variation?.persons?.[this.personId]?.dress ?? null;
+    // T-3506: their own cloth colours and pieces worn (human-looks.js); T-3553: for the
+    // season, with its pattern and trimming (human-finery.js) on their own clones. A jaunt's
+    // unnamed staged figure may wear a carded person's dress (`dress_of`).
+    const recorded = variation?.persons?.[this.instance.appearance?.dress_of ?? this.personId]?.dress ?? null;
+    const dress = dressInSeason(recorded, dressSeason);
     if (dress) looked.push(...dressCloth(scene, dress));
+    if (dress?.finery) looked.push(...dressFinery(scene, dress.finery, looked));
     // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
@@ -428,14 +648,18 @@ export class HumanActor {
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
     dressSkin(scene, { age: this.variation?.age ?? null, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    yield;
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
+    yield;
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
-    const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
+    // T-3639: a near level's first head of hair grows over a few frames (dressHairSteps).
+    const hair = yield* dressHairSteps(scene, { lod, person: this.personId ?? null, year, style });
+    yield;
     // T-3506: a handkerchief tied round the head, at every level.
     if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
     // T-3522: their own hat (human-hats.js).
@@ -447,6 +671,7 @@ export class HumanActor {
     // his height. The wearer's own fitted geometries go with the level.
     const armed = dress?.garrison ? dressGarrison(scene, dress.garrison, { lod }) : null;
     if (armed) looked.push(...armed.owned);
+    yield;
     // The same reconstructed linen/wool weave and wear as the drivers, after
     // each resident's colours and any replacement uniform materials are chosen.
     // No texture or material is allocated; a driver's later call is idempotent.
@@ -460,9 +685,13 @@ export class HumanActor {
     const faces = meshes.filter((m) => m.morphTargetDictionary && Object.keys(m.morphTargetDictionary).length);
     // T-3493: brows and lashes that move with the face (a lash shuts with its lid).
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
+    // T-3639: the pieces skinned to the same bones share one skeleton, so each figure's bone
+    // matrices are computed and uploaded once a frame, not once per piece (human-skeletons.js).
+    shareSkeletons(scene);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id,
+      season: recorded?.seasons ? dressSeason : null };
   }
 
   teardown(body) {
@@ -644,6 +873,7 @@ export class HumanActor {
   stopPath() {
     if (!this.path) return false;
     this.path = null;
+    this.pathV = 0;
     this.setState('standing');
     return true;
   }
@@ -669,7 +899,22 @@ export class HumanActor {
     }
     const clip = this.body && findClip(this.body.clips, 'walk');
     // T-3472: at the person's own pace (human-gait.js), gathered over the first step.
-    const speed = p.speed ?? (this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3);
+    let speed = p.speed ?? (this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3);
+    // T-3553: a run is got up to over the first steps and run down to a stop over the last,
+    // as people do (a runner standing still is not at 4 m/s on the next frame): it gathers from
+    // a walking pace (or the pace it was already going) and eases off a couple of metres short.
+    if (p.speed !== null && p.speed > RUN_GATHER_FROM) {
+      p.v ??= Math.min(p.speed, Math.max(1.2, this.pathV ?? 0));
+      p.v += (p.speed - p.v) * (1 - Math.exp(-dt / RUN_GATHER_S));
+      let ahead = 0;
+      for (let i = p.leg; i < p.pts.length - 1; i++) {
+        const a = p.pts[i], b = p.pts[i + 1], len = Math.hypot(b.e - a.e, b.n - a.n);
+        ahead += i === p.leg ? len * (1 - p.t) : len;
+        if (ahead > 8) break;
+      }
+      speed = Math.min(p.v, 1.3 + Math.sqrt(2 * RUN_STOP_M_S2 * ahead));
+    }
+    this.pathV = speed;
     const a0 = p.pts[p.leg], b0 = p.pts[p.leg + 1];
     const off = turnToward((Math.atan2(b0.e - a0.e, b0.n - a0.n) * 180 / Math.PI + 360) % 360);
     // A figure facing well away from its way turns before it walks on.
@@ -688,6 +933,7 @@ export class HumanActor {
     this.standY = a.y !== null && b.y !== null ? a.y + (b.y - a.y) * p.t : null;
     if (p.leg >= p.pts.length - 1) {
       p.arrived = true;
+      this.pathV = 0;
       this.setState('standing');
     }
     this.place();
@@ -763,19 +1009,33 @@ export class HumanActor {
     // T-3472: the ground covered this frame, which is what the gait's phase advances by.
     const moved = Math.hypot(this.e - e0, this.n - n0);
     const b = this.body;
+    if (this.posture) { this.stepPosture(dt); this.place(); }
     if (!b) { this.visualIdleBody = null; return true; }
-    if (this.distance < ANIMATE_M) {
+    const every = animateEvery(this.distance);
+    // T-3639: past 30 m a figure is posed every second or third frame, with the time between.
+    const poseNow = this.distance < (this.animateM ?? ANIMATE_M) && (every === 1 || (this.animTurn = (this.animTurn | 0) + 1) % every === 0);
+    if (this.distance < (this.animateM ?? ANIMATE_M) && !poseNow) {
       const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
       const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
-      const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
+      this.animDt = (this.animDt || 0) + (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt);
+      this.animMoved = (this.animMoved || 0) + moved;
+      this.counters.strided = (this.counters.strided ?? 0) + 1;
+    } else if (poseNow) {
+      const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
+      const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
+      const clipDt = (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt) + (this.animDt || 0);
+      const stepped = moved + (this.animMoved || 0);
+      this.animDt = 0; this.animMoved = 0;
       b.mixer.update(clipDt);
       // The walk first (pelvis and legs), then life and the arms over it, reading its phase.
       const gait = this.gait?.bound && !b.oneShot ? this.gait : null;
-      if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved });
+      if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved: stepped });
       // Life rides the clip's own clock, so a held clip holds it too.
-      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
+      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, posture: this.posture });
       if (this.actions?.bound && !b.oneShot) {
-        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
+        // T-3553: kneeling or seated, the hands reach from where the body is, and leave their standing poses.
+        const posed = this.posture ? this.posture.w : 0;
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait, sink: this.life?.sink ?? 0, posed });
         if (this.actions.takeNod()) this.life?.nod();
       }
       // Last, the skirt over wherever the legs went.
@@ -790,7 +1050,8 @@ export class HumanActor {
       const t = this.blinkClock % 4;
       // T-3493: an older face's upper lids rest a little lower (restingLid), and blink from there.
       const rest = restingLid(this.variation?.age);
-      const w = rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0);
+      const still = this.posture && POSTURES[this.posture.kind]?.still ? this.posture.w : 0;
+      const w = Math.max(still, rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0));
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }
@@ -828,7 +1089,7 @@ function hashPhase(id) {
  * resident_card`). Nothing here is a conversation: L1 allows no invented dialogue, and the
  * card is the person record's own.
  */
-export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null } = {}) {
+export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null, sceneId = null } = {}) {
   const group = new THREE.Group();
   group.name = 'humans';
   const events = new EventTarget();
@@ -836,8 +1097,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   // A vehicle temporarily owns a person's depiction, never a second copy in town.
   const withheld = new Map();
   let disposed = false;
-  const store = assets ?? createHumanAssets({ assetBase });
+  const store = assets ?? createHumanAssets({ assetBase, sceneId });
   const raycaster = new THREE.Raycaster();
+  const eyeProbe = new THREE.Vector3();
   const near = new Set();
   let hovered = null;
   // T-3439: Settings › Show › People. Hidden, nobody is drawn, updated, loaded or picked,
@@ -846,7 +1108,18 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   // T-3495: a jaunt's hold on the everyday people. null, nobody is held; a Set, only the
   // people it names (by person id or instance id) are drawn, advanced, met or picked.
   let keep = null;
-  const kept = (a) => !keep || keep.has(a.personId) || keep.has(a.id);
+  // T-3553 (the owner, 2026-11-16: "make sure there are people present ... in scene of jaunt
+  // all eras"): at a stop with no stage or hosts of its own, the town's own people about its
+  // stand stay in it (`area`: { e, n, r }, local ENU metres), going about their day; only those
+  // further off are held.
+  let area = null;
+  const inArea = (e, n) => !!area && Number.isFinite(e) && Number.isFinite(n) && Math.hypot(e - area.e, n - area.n) <= area.r;
+  const kept = (a) => !keep || keep.has(a.personId) || keep.has(a.id) || inArea(a.e, a.n);
+  const hide = (a) => {
+    a.root.visible = false;
+    if (near.delete(a)) emit('leave', a);
+    if (hovered === a) hovered = null;
+  };
 
   const detail = (actor) => ({
     personId: actor.personId, instanceId: actor.id, state: actor.state,
@@ -868,6 +1141,46 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     // alone advances, places and chooses the LOD of the seated body.
     external(personId) { return withheld.get(personId)?.externalActor ?? null; },
 
+    /**
+     * T-3553: the drawn figures about (e, n) whose bodies reach the heights y0..y1, as
+     * standing discs `{ e, n, r, id }` in local ENU. Only the layer's own, on foot or seated:
+     * a driver on his box goes with his vehicle. `reach` is a box half-width, metres.
+     */
+    bodiesNear(e, n, reach = 2.5, y0 = -Infinity, y1 = Infinity) {
+      const out = [];
+      if (!shown || disposed) return out;
+      for (const a of actors.values()) {
+        if (a.disposed || a.indoors || !a.inRange || !a.body || !kept(a)) continue;
+        const p = a.root.position, be = p.x, bn = -p.z;
+        if (Math.abs(be - e) > reach || Math.abs(bn - n) > reach) continue;
+        if (p.y > y1 || p.y + BODY_TALL_M < y0) continue;
+        out.push({ e: be, n: bn, r: BODY_R_M, id: a.id });
+      }
+      return out;
+    },
+
+    /**
+     * T-3553: not drawn this frame, any figure whose body holds the eye (a world point).
+     * Call after everything that moves figures or the camera, before the draw; each figure's
+     * own update draws it again next frame. Returns how many were hidden.
+     */
+    hideAtEye(eye) {
+      let hid = 0;
+      if (!shown || disposed || !eye) return hid;
+      for (const a of layer.actors) {
+        if (a.disposed || !a.root.visible) continue;
+        // A seated driver's root hangs on his vehicle; the layer's own stand in the scene.
+        const p = actors.has(a.id) ? a.root.position : a.root.getWorldPosition(eyeProbe);
+        const dx = eye.x - p.x, dz = eye.z - p.z;
+        if (dx * dx + dz * dz >= EYE_CLEAR_M * EYE_CLEAR_M) continue;
+        const dy = eye.y - p.y;
+        if (dy < -0.3 || dy > BODY_TALL_M) continue;
+        a.root.visible = false;
+        hid++;
+      }
+      return hid;
+    },
+
     get shown() { return shown; },
     /** T-3439: show or hide every figure, drivers on their seats included. */
     setShown(on) {
@@ -888,27 +1201,34 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
      * and are not held. Settings › Show › People stays the master switch: hidden there,
      * nobody is drawn, held or not.
      */
-    holdCrowd(ids = []) {
+    holdCrowd(ids = [], { area: about = null } = {}) {
       keep = new Set(Array.from(ids ?? [], String));
+      area = about && [about.e, about.n, about.r].every(Number.isFinite) && about.r > 0
+        ? { e: about.e, n: about.n, r: about.r, structure: typeof about.structure === 'string' ? about.structure : null } : null;
       for (const a of actors.values()) {
-        if (kept(a)) { a.recheck = 0; continue; }
-        a.root.visible = false;
-        if (near.delete(a)) emit('leave', a);
-        if (hovered === a) hovered = null;
+        a.areaHeld = !kept(a);
+        if (!a.areaHeld) { a.recheck = 0; continue; }
+        hide(a);
       }
       return keep.size;
     },
     /** T-3495: give every held figure back to the scene. */
     releaseCrowd() {
       if (!keep) return false;
-      keep = null;
-      for (const a of actors.values()) a.recheck = 0;
+      keep = null; area = null;
+      for (const a of actors.values()) { a.recheck = 0; a.areaHeld = false; }
       return true;
     },
     /** T-3495: the person ids a jaunt keeps, or null when nobody is held. */
     get crowdKept() { return keep ? [...keep] : null; },
+    /** T-3553: the stand whose neighbourhood a jaunt keeps ({ e, n, r, structure }), or null. */
+    get crowdArea() { return keep && area ? { ...area } : null; },
+    /** T-3553: whether the jaunt lets person `id`, at (e, n), be about: true with nobody held. */
+    keeps(id, e = NaN, n = NaN) { return !keep || keep.has(String(id)) || inArea(e, n); },
     /** T-3495: whether a jaunt is holding this figure out of the scene. */
-    isHeld(actor) { return !!actor && actors.has(actor.id) && !kept(actor); },
+    // T-3557: and a standing figure whose person a vehicle has taken (withhold: a coachman on
+    // his box, Mr. Glessner in his cab) is held too: not drawn, advanced, met or asked for.
+    isHeld(actor) { return !!actor && ((actors.has(actor.id) && !kept(actor)) || [...withheld.values()].some(t => t.actor === actor)); },
 
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
     add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
@@ -980,6 +1300,18 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       return true;
     },
 
+    /** T-3553: the detail tier the figures are drawn at now. */
+    get tier() { return tier; },
+
+    /** T-3553: dress everyone for `season` (summer, spring, fall, winter). */
+    setSeason(season) {
+      if (typeof season !== 'string' || season === dressSeason) return false;
+      dressSeason = season;
+      for (const a of actors.values()) a.redress();
+      return true;
+    },
+    get season() { return dressSeason; },
+
     setTier(next) {
       if (!HUMAN_TIERS[next]) return false;
       tier = next;
@@ -997,7 +1329,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
       for (const a of actors.values()) {
-        if (!kept(a)) continue;
+        // T-3553: one who walks out of a stop's neighbourhood is held; one who walks in is drawn.
+        if (!kept(a)) { if (!a.areaHeld) { a.areaHeld = true; hide(a); } continue; }
+        if (a.areaHeld) { a.areaHeld = false; a.recheck = 0; }
         a.update(dt, eye, visualDt);
         const r = a.instance.interaction?.radius_m;
         if (!r || !a.inRange) continue;
@@ -1075,7 +1409,7 @@ export async function mountHumans({
   problems = [], fetchImpl = fetch, contract = null, groundHeight = null, prepare = null,
 } = {}) {
   const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
-  const layer = createHumanLayer({ assetBase, assets, heightAt, tier, prepare });
+  const layer = createHumanLayer({ assetBase, assets, heightAt, tier, prepare, sceneId });
   const out = Object.assign(layer, { records: [], withheld: [], refused: [] });
   if (!dataBase) return out;
 

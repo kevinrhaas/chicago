@@ -1,12 +1,14 @@
 /**
  * Jump (SCR 08), loaded the first time it opens (T-2618; T-2655, DESIGN §07 "Jump").
  *
- * The three destinations as small era cards — the Observatory's own plates, the
+ * The four destinations as small era cards — the Observatory's own plates, the
  * destination, its date — with the one you are in marked HERE. Picking another runs the
  * short in-world jump: the transfer ring closes over the town (1.2 s; at once with reduced
  * motion), the Observatory's transfer stamp is written, and the destination's page takes
  * it from there with its own time-stream and landing (T-2610, T-2611, T-2613), the ring's
  * tail on screen as it would be from the Observatory (skin.js, `chicago4d.transfer`).
+ * Since T-3669 the page lands where you stood (same spot, another year): the far page
+ * checks the ground against its own town and says so when it cannot keep it.
  * Escape, or Abort, during the ring stays put. A plain pick asks first (T-3390): the page's
  * DEPART / CANCEL prompt, the one Recall uses, and the ring starts only on DEPART.
  *
@@ -15,6 +17,8 @@
  * choice that changes nothing would be a fake one.
  */
 import { scenePresentation } from '../scene-presentation.js';
+import { jumpHref } from '../moment.js';
+import { reducedMotion } from '../motion.js';
 
 /** The Observatory's destinations, in its order, with the plate each card wears there
  * (portal/plates/SOURCES.md says where each came from). */
@@ -22,6 +26,7 @@ export const DESTINATIONS = [
   { year: 1835, date: '1835-07-01', href: '../1835/', plate: 'portal/plates/dearborn-drawbridge-1834.jpg' },
   { year: 1904, date: '1904-07-01', href: '../1904/', plate: 'portal/plates/glessner-house-habs.jpg' },
   { year: 1812, date: '1812-08-14', href: '../1812/', plate: 'portal/plates/fort-dearborn-1812.jpg' },
+  { year: 1871, date: '1871-10-08', href: '../1871/', plate: 'portal/plates/chicago-1871-baseline.jpg' },
 ];
 export const RING_MS = 1200;
 const TRANSFER_KEY = 'chicago4d.transfer';
@@ -35,7 +40,7 @@ let pending = null;   // the jump under way: { timer, overlay, onKey }
 /** Run the in-world jump to `d`: the ring, the transfer stamp, then the page. */
 export function jumpTo(d, {
   doc = globalThis.document,
-  reduced = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  reduced = reducedMotion(), // T-3671: Settings › Look › Motion (js/motion.js)
   go = (href) => globalThis.location?.assign(href),
   wait = (fn, ms) => setTimeout(fn, ms),
   cancel = (id) => clearTimeout(id),
@@ -105,7 +110,9 @@ export function mount(el, ctx = {}, opts = {}) {
         // T-3390: and asks first, as Recall does: one tap must not leave the year. The page's
         // prompt (js/recall.js `askJump`) runs the ring only on DEPART; without one (a
         // harness with no page), the jump goes as before.
-        const go = () => jumpTo(d, opts);
+        // T-3669: and lands on the ground you stand on, where the far year has it. The pose
+        // is read as the ring starts, so a prompt left open does not send a stale spot.
+        const go = () => jumpTo({ ...d, href: jumpHref(d.href, ctx.actions?.jumpPose?.(), { year: d.year, from: here }) }, opts);
         const ask = opts.confirm ?? ctx.actions?.confirmJump;
         if (ask) ask({ year: d.year, date: d.date, when: dateWords(d.date) }, go);
         else go();

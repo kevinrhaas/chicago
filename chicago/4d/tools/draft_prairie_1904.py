@@ -440,6 +440,10 @@ def build_records(rules=None) -> dict:
                     fr = polys.get(b["census_ids"][0], (None,))[0]
                     if b["kind"] == "front" and named and fr and parcel.get("frontage_shares"):
                         house_by_fid[fr["frontage_id"]] = named.group(1)
+                    elif b["kind"] == "front" and named and not parcel.get("frontage_shares") and not house_sid:
+                        # T-3608: and on a lot of its own (2026's), its stable keeps the house's
+                        # name, where it fell back to the lot's and took the refined house's id
+                        house_sid = named.group(1)
                     continue
                 f, cp = polys[b["census_ids"][0]]
                 fid = f["frontage_id"] if f else None

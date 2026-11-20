@@ -113,6 +113,9 @@ from block_faces import project as face_project  # noqa: E402
 # here rather than retyped, so the ceiling the schedule deals against and the ceiling
 # the generator enforces cannot become two numbers.
 from reconcile_665 import ROW_UNITS_PER_LOT  # noqa: E402
+# The clearance the commercial-core fill holds to every roof it did not lay (T-3605);
+# kept equal to `generate_core_row_fill_1835.OTHER_GAP_M` less its 1 cm rounding.
+CORE_GAP_M = 0.49
 from reconcile_665 import ROW_LOT_GRANTS  # noqa: E402  (T-2196)
 # T-1610. The inventory class and the adoption test are one derivation, in the module
 # that owns the family-to-group mapping, so this generator and the redeal executor
@@ -2172,8 +2175,17 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # what now refuses a lot the programme has already filled.
     parcel = {sid for sid, _ in footprints(datum)
               if sid.startswith(f"{PREFIX}{block['block_id'][len('blk_'):]}_")}
+    # T-3605: the stores raised to Gifford's drawing stand at the street on Lake and
+    # Dearborn lots this parcel also deals, and a store at the street with a dwelling
+    # behind it on one lot is the owner's 2026-08-27 business-front clause. So they do not
+    # bar a lot here; the separation gate below still holds every roof clear of them.
+    # The commercial core's street-front stores (T-3605 phase 2) stand at the street the
+    # same way, filling the gaps of those fronts, and are read the same way.
+    core = {sid for sid, _ in footprints(datum) if sid.startswith("recon_1835_core_")}
+    drawn = {sid for sid, _ in footprints(datum)
+             if sid.startswith("recon_1835_gifford_")} | core
     occupied = exclusive_lots({"blocks": [grid]}, datum,
-                              exclude=mine_ids | parcel).get(block["block_id"], {})
+                              exclude=mine_ids | parcel | drawn).get(block["block_id"], {})
     # The lots the owner's clause is HOLDING OPEN on this block — a documented store at
     # the street on a declared business-front lot, which `occupied` therefore does not
     # report. T-1053: while every declared front lot was also ground the run was dealt,
@@ -2182,7 +2194,8 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # lot that is neither built on, occupied nor open would otherwise fail that audit
     # for carrying a store the clause itself says does not exhaust it.
     front_held = shared_business_fronts({"blocks": [grid]}, datum,
-                                        exclude=mine_ids | parcel).get(block["block_id"], {})
+                                        exclude=mine_ids | parcel | core
+                                        ).get(block["block_id"], {})
     for index in (frontage["lots"] if frontage else []):
         holder = occupied.get(index)
         if holder is not None:
@@ -2288,8 +2301,14 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
             # how tightly a frontage packs, and a privy behind the row does not pack it.
             # A building this programme did not write carries no inventory class and is
             # counted: Frederick Thomas's shop stands in this row whoever built it.
+            # T-3605: the commercial core's street-front stores are not counted here.
+            # They are a separate fill at the street, packed to the density Gifford drew
+            # on Lake Street (seven stores and the Tremont House on one lot of
+            # blk_south_water_clark), and their own generator holds their party lines;
+            # this ceiling stays a statement about what THIS programme packs on a lot.
             already = sum(1 for sid in standing.get(index, ())
-                          if not is_ancillary_record(sid))
+                          if not is_ancillary_record(sid)
+                          and not sid.startswith("recon_1835_core_"))
             # T-2196: a lot the owner ruled a short row holds that row's units, no more.
             grant = row_lot_grant(block)
             units = (grant["row_units"] if grant and grant["lot_index"] == index
@@ -2401,7 +2420,13 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
             if (sid, other_id) in abutted:
                 continue
             gap = polygon_gap(poly, other)
-            if gap < MIN_SEPARATION_M:
+            # T-3605: a commercial-core store was laid after this programme's roofs, into
+            # the street-front gap beside them, at the half metre its own generator
+            # (`generate_core_row_fill_1835.py`, OTHER_GAP_M) holds to every roof it did
+            # not lay. A store beside a store at the street is a row, not two records in
+            # one yard, so that half metre is the floor here too, and no closer.
+            floor = CORE_GAP_M if other_id in core else MIN_SEPARATION_M
+            if gap < floor:
                 raise SystemExit(f"{sid} stands {gap:.2f} m from {other_id}")
         for other_id, ell in rear_ells(datum):
             if other_id == sid:

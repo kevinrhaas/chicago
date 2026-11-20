@@ -2,11 +2,11 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a9fab1bc33e69d1ec007ee345879669ad9d1afc8f8c830617daa3f1f778557d3",
-  "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
+  "glb_sha256": "377c7f4a591632d2c991d83be024ce7c5207b2137e96b71b1233b3f9083336e3",
+  "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a two-storey brick block over a raised stone basement under a mansard, the street front and the south flank both seen, the corner at x 588 px",
@@ -69,9 +69,54 @@
       "how": "T-1886: one pedimented dormer on each crown's front face (K08 mansard_dormers, the main dormers' 40-degree gabled head, a 0.7 by 1.4 m sash); through the camera they render where the print's stand, the front crown's about 1 m north of the print's with the porch and bay (the within-tolerance item above)"
     },
     {
-      "what": "the flank crown's second dormer, in its south-east canted face (x 230-290 px)",
-      "status": "open",
-      "how": "T-1886: K08 lays a bay's mansard dormers on its front face only; a dormer on a canted face is a kit change (L-k01-1816-henderson-1886)"
+      "what": "the flank crown's south-east canted face: plain slate in the print between its two hips (x 248 and 330 px, from under the curb at y 220-240 down to the crown's cornice at 395), with no dormer in it; the dormer to its right (x 335-385 px, its pediment's apex at about y 250) stands east of the crown, on the main mansard's south face. Recorded until 2026-11-13 as a second crown dormer wanted in that face (x 230-290 px)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): re-read at 2.6x over a pixel grid; no build change was needed: the crown's SE canted face renders as plain slate, as the print's, and its one dormer stands in the crown's south face. The main mansard's south dormer is the item below"
+    },
+    {
+      "what": "the main mansard's south dormer: in the print just east of the flank crown, at x 335-385 px with its sill on the cornice; through the corrected camera the build's (mansard.dormers[2], along_m 7.4) renders at about x 385-415 px. The bay's junction with the flank is itself about 25 px east of the print's (the plan against the print, the camera's solve), so measured from the bay the dormer stands about 15-25 px (0.3-0.5 m) too far east",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the dormer moved to u 6.6 from 7.4 (0.8 m west, splitting the 1.0 m the south-east corner, the camera's anchor, asks and the 0.4 m the flank bay asks) and, with the street dormers, brought down onto the cornice (face 0.05 m in from the fascia, sash on a 0.1 m sill; the print stands each one's sill on the cornice, the build's had stood about 1 m over it). Through the camera it now renders at x 355-390 px with its foot at about y 345, the print's at 335-385 on the cornice at 370"
+    },
+    {
+      "what": "the south flank bay's windows: through the corrected camera, with the bay's water table (y 885-890) and crown eave (y 395) both on the print's, the print draws the principal storey's lights from a sill at about y 872 to a head at about 735 px and the upper storey's from about 652 (on the belt course) to 525 px, lower in their storeys and shorter than the build's (sills about 850 and 590, heads about 695 and 440 px: some 0.4-0.9 m higher sills and 0.8-1.7 m higher heads at the bay's 50 px/m); and the bay's face turned most toward the camera (x 250-300 px) carries a light about 1.0 m wide where the build has a 0.6 m cant light and the 1.05 m light in its oblique south face",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the bay's plan re-read (the item below) puts the wide light in the south-east cant, 0.8 m (the print's about 1.0 m: wider, its recess runs behind the house wall on so shallow a cant, within tolerance), and a 0.75 m one in the front; both storeys' lights set from the print against the bay's own water table (y 900 px) at 51 px/m: the principal storey's 2.8 m from a 0.5 m sill, the upper's 2.35 m from a 0.1 m sill on the floor line. Through the camera the cant light renders about 0.2 m narrower than the print's and each light's head and sill within about 5 px of the print's, measured from each picture's own water table (the render's stands 15-20 px over the print's at the bay, the item on the camera below)"
+    },
+    {
+      "what": "the flank bay's plan: the print draws its south-east cant 91 px wide (x 233-324) and its south face 34 px (x 199-233); the 1911 sheet's 1.085 m cant and 2.68 m front drew them about equal (76 and 75 px)",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): re-planned on the sheet's 4.85 m at the wall and 1.0 m out with a 1.65 m cant and a 1.55 m front, the narrowest front on which K08 can stand the crown's dormer (it clears a crown's hips by 0.3 m at the curb); the print's widths want about 1.25 m. It renders the cant about 89 px and the front about 44: the front some 0.3 m wider than the print's and 1.1 m narrower than the sheet's, a width the sheet and the print disagree about (T-3153)"
+    },
+    {
+      "what": "the flank crown's height: its curb's top at y 205 px in the print, the 4.0 m crown's about 40 px higher",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the crown's lower face rises 3.25 m; its curb renders at about y 195-200 and its cresting's top within about 10 px of the print's"
+    },
+    {
+      "what": "the flank crown's curb: a moulded cornice about 0.7 m deep (y 205-245 px) under the cresting, round the crown's faces; built as K08's thin curb, the slate running up to it",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-14): K08's roof.mansard.curb_mould (new) round both crowns' curbs: a fascia hanging 0.7 m from the curb 0.3 m out from the curb line, closed underneath back to the slate, under a cap 0.25 m high and 0.12 m further out, its top level with the curb, mitred round every hip; the cresting stands on the deck behind it. Through the camera at x 260 px the flank crown's band draws from about y 193 (the cap's lip) to 238 (the shadow under the fascia), the print's from about 205 to 255: the same depth and profile about 15 px (0.25-0.3 m) higher, the crown's rise as fitted before it (the item on its height above), within tolerance. The front crown, whose curb the print draws the same through the trees, takes the same band"
+    },
+    {
+      "what": "the crowns' dormers standing on the crowns' cornices (the flank one's foot at y 400 px); built about 0.6 m over them",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): both crowns' dormers' faces 0.05 m in from the fascia and their sashes on a 0.1 m sill, as the main mansard's; the flank crown's renders with its foot at about y 385, its sash 0.5 m (the front it stands on is narrow, the plan item above)"
+    },
+    {
+      "what": "the floor band round the flank bay at the upper floor line: the print shows the upper lights' sill blocks on corbels there and plain brick between them",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): K08's floor band, under 0.2 m high, lies at the sills' height across the faces whose sills the print draws there"
+    },
+    {
+      "what": "the south flank's own window between the bay and the corner (x 365-385 px): the print draws only the upper storey's light there (y 510-645), under the crested hood, and plain brick under it to the water table; the build has a principal-storey light under it too (y 680-850) and its upper light's head about 60 px higher than the print's",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-14): read once as a picture's window (side_bays 6.4 as {s_m, sill_m, width_m, height_m}), its sill 6.5 m and head 9.0 m over grade measured up from the water table under it, 0.75 m wide to the print's opening about 23 px between its jambs; the principal storey's light under it gone, plain brick to the water table. Through the camera the render's opening now draws from y about 512 to 642 (the print's 507-647) and its glazing about 19 px across (the print's 20), its crested hood about 46 px across with its consoles (the print's 37, about 0.28 m). It stands about 20 px east of the print's, as the flank bay beside it does: the plan and the print's disagreement along the flank, recorded above, not the window's place"
+    },
+    {
+      "what": "the camera at the flank bay: the bay's water table draws at y 900 px in the print and 880-885 in the render, and the water table falls from y 885 at the corner to 897 at the bay in the print where it runs level in the render",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): a camera-fit residual of about 0.3 m, not a building difference; the bay's heights above are read from each picture's own water table"
     },
     {
       "what": "both crowns' lower faces slated as the main mansard, the print drawing all three alike; built in a plain grey sheet",
@@ -94,8 +139,24 @@
       "how": "T-2964: carving under a foot deep on a dormer 1.1 m wide; the dormers' size, place and pediment are built"
     },
     {
-      "what": "the window hoods carved, with a scrolled crest over each; built as K09's plain cornice-hood lintels",
-      "status": "open"
+      "what": "the window hoods carved, with a scrolled crest over each, on the flat front's windows; built as K09's plain cornice-hood lintels",
+      "status": "fixed",
+      "how": "T-1886: K09's carved crest (street_front_trim.crest, T-3270's palmette between two volutes, 1.0 m wide and 0.35 m high) stands on every cornice hood of both storeys; through the camera each renders over its hood where the print's raised crest stands"
+    },
+    {
+      "what": "the south flank's window under the front's crested hood, its consoles hanging past the jambs (x 350-385 px); built under a K03 brick segmental arch",
+      "status": "fixed",
+      "how": "T-1886: the flank window named in street_front_trim.lights on both storeys, so it wears its storey's K09 hood and crest in the brick (K01 now lets a brick side wall's named light take its K09 head)"
+    },
+    {
+      "what": "the crested hoods over the two canted bays' windows (x 140-215 and 490-560 px); built with K08's own plain hoods",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-12): K08 now stands K09's carved crest on a bay light's lintel (bays[].storeys[].windows[].crest, the front hoods' own palmette between two volutes, 1.0 m wide or the lintel's top, 0.35 m high, 0.1 m proud), on every light of both bays' two storeys over the basement; through the camera each renders over its light's head where the print's raised, scrolled crown stands (the flank bay's at x 140-215 px, the front bay's at 490-560)"
+    },
+    {
+      "what": "the bays' hoods drawn as shouldered carved heads, their ends dropping about 0.25 m past the jambs beside the lights' heads and a medallion in the crown; built as K06's square lintel under the kit's crest",
+      "status": "within tolerance",
+      "how": "T-1886: the hood, its crown and its height over the light stand where the print's do; the ears' drop is under a foot and the medallion is carving inside a crest of the right size and place (T-3153 bar)"
     },
     {
       "what": "the porch columns' carved capitals",
@@ -104,8 +165,13 @@
     },
     {
       "what": "the balcony's railing about 1 m high with pierced iron panels, and the window over the door opening onto it as a door; built as a 0.6 m railing of square balusters in front of a window",
-      "status": "open",
-      "how": "T-2964 tried the railing at 0.95 m: K01's door hood then runs into the sill of the window over the door (7.5 m), so the two are one change — that window made a door to the balcony floor, which K01 does not yet build"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the light over the door made a door onto the deck (K01 entrance_kit hood.door_over, new here): K06's French window from the second floor, 0.05 m over the deck, to the storey's own head, under the storey's crested cornice hood (K09 dresses it as the storey's lights), so the guard no longer meets a sill; the guard raised to 0.95 m. Through the camera the guard now stands about as high over the deck as the print's (its top before the light's lower glass, the light running down behind it), where the 0.6 m railing stood about half the print's height"
+    },
+    {
+      "what": "the balcony guard's pierced scroll panels; built as the kit's square iron balusters, set close (0.08 m) so the guard reads as a dense dark band",
+      "status": "within tolerance",
+      "how": "T-1886: a pattern inside an iron guard of the right height, place and line, as the fence's scrollwork is ruled (T-3153 bar)"
     },
     {
       "what": "the fence's scrolled cast-iron panels and its tall posts; built as the kit's spears",
@@ -119,7 +185,8 @@
     },
     {
       "what": "the brick's tone: dark in the print on the street front and the south flank alike; built red on the front and the bays (T-3385's pressed red) and buff on the flank between them",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1886: the south flank between the bays laid in the front's pressed red (face_brick.returns ['south'], a K01 key new here), with no brick string course on it, as the print draws none; through the camera the flank, the bays and the front now render one brick, as the print's median greys do (flank 169-184, bays 174-200). The red's depth against the print's grey is the palette's (T-3385)"
     },
     {
       "what": "the tall chimney stack behind the front's south end",
@@ -134,6 +201,16 @@
       "what": "the walk and the entrance gate",
       "status": "fixed",
       "how": "T-3206 adds the K14 flagged walk from the stair to the public walk and stands the entrance gate open; the scroll fence on its curb is kept"
+    },
+    {
+      "what": "the south stack: its shaft over the main mansard's south face behind the flank crown (x about 450-500 px, its top about y 30), cut by the print's top edge; built on the south wall's inner face at u 9.0, v 1.2 (rendering about x 503-561)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-15): read with the 1874 Land Owner engraving, which draws it rising from the flank's cornice up the slate: it stands on the cornice astride the south wall at u 8.6, v 0.1 (chimneys.stacks[0].on_cornice), and renders at about x 431-495 here and on the engraving's shaft there"
+    },
+    {
+      "what": "the rear range beyond the flank bay's west side (x 90-215 px): the print shows sky over it down to about y 720 and a low cornice along it at about y 740-760 (about 5.5 m over grade through this camera), where the build's range, lowered from 9.6 m to the 1874 engraving's 7.5 m, draws its top at about y 660",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-15): this camera sees only the range's far 4 m, and the engraving, the one picture of the range's face, closes the range about 8 m back at 7.5 m and does not see that end; the two pictures disagree about the range's far end (a lower section there, or the low cornice a veranda's) and neither is read past the other (T-3153). The 9.6 m reconstruction stood against both, its top here about y 570 into the print's sky"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

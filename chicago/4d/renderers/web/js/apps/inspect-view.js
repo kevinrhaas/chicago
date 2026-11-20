@@ -36,6 +36,8 @@ import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
 import { builtPhrase } from '../range-words.js';
 import { hydratePictures } from '../pictures.js';
+// T-3671: the tab strip's arrow keys, and each "why" saying what it opens.
+import { rovingTabs, wireToggles, flipToggle } from '../card-a11y.js';
 import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml, detailsPaneHtml } from '../inspect-sources.js';
@@ -45,6 +47,7 @@ import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 import { MODE_ATTR } from '../researcher.js';
 import { personModel, renderPersonCard } from '../person-card.js';
+import { readingTabs } from '../reading-level.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -296,10 +299,13 @@ function render(root, ctx) {
     sec.append(heading(doc, 'Notable facts'));
     const track = el(doc, 'div', 'insp-swipe');
     track.setAttribute('role', 'list');
-    notable.forEach((n, i) => {
+    // T-3671: the track scrolls sideways, so a keyboard can stand on it and scroll it with the
+    // arrows (2.1.1); the list says "1 of 3" itself, so a fact is read by its words, not its number.
+    track.setAttribute('aria-label', 'Notable facts');
+    if (notable.length > 1) track.tabIndex = 0;
+    notable.forEach((n) => {
       const card = line(doc, 'p', 'insp-fact', n.text, n.grade);
       card.setAttribute('role', 'listitem');
-      card.setAttribute('aria-label', `${i + 1} of ${notable.length}`);
       track.append(card);
     });
     sec.append(track);
@@ -395,6 +401,8 @@ function render(root, ctx) {
   head.append(bar);
   root.append(head, panes);
   root._insp = { id, sum, ctx, person, photo };
+  // T-3645: Overview's words at the reader's age, where they are written at more than one.
+  readingTabs(page, { after: page.querySelector('h2, h1') });
   selectTab(root, tab);
   drawnFor = id;
 }
@@ -499,6 +507,9 @@ async function fillPane(root, pane, key) {
     pane.append(html(sec[key]));
   }
   pane.dataset.filled = 'yes';
+  wireToggles(pane);
+  // T-3645: this tab's words at the reader's age (a person's card keeps its own tabs).
+  readingTabs(pane, { into: pane });
 }
 
 /** People: the card's own "who was here" where the record seats anyone, with a way into the
@@ -583,13 +594,17 @@ async function openPersonCard(pane, personId, ctx) {
   const row = pane._people?.get(personId);
   const home = pane.querySelector('.insp-people-home');
   if (!row || !home) return false;
+  ctx?.actions?.onPersonSelected?.(personId, row.name);
   pane.querySelector('.insp-person-card')?.remove();
   const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
   const draw = (m) => {
     const card = renderPersonCard(doc, m, { dot, onFind: ctx?.actions?.findPerson ?? null,
-      onFollow: ctx?.actions?.followPerson ?? null, inTown: ctx?.actions?.inTown ?? null });
+      onFollow: ctx?.actions?.followPerson ?? null, inTown: ctx?.actions?.inTown ?? null,
+      atHome: ctx?.actions?.atHome ?? null });
     const was = pane.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else pane.append(card);
+    // T-3645: the card's age tabs, over the story they change (under the name if it has none).
+    readingTabs(card, { after: card.querySelector('.insp-person-story > h3') ?? card.querySelector('.insp-person-head') });
     return card;
   };
   home.hidden = true;
@@ -652,11 +667,7 @@ function onClick(e) {
   if (go) { selectTab(root, go.dataset.inspGo); root.scrollTop = 0; return; }
   const toggle = e.target.closest('[data-toggle-note]');
   if (toggle) {
-    const note = toggle.parentElement.querySelector('[data-note]');
-    if (!note) return;
-    const shown = !note.hasAttribute('hidden');
-    note.toggleAttribute('hidden', shown);
-    toggle.textContent = shown ? 'why' : 'hide';
+    flipToggle(toggle);
     return;
   }
   const pic = e.target.closest('[data-pic]');
@@ -690,6 +701,7 @@ async function refresh(root, ctx) {
 export async function mount(el, ctx = {}) {
   host = el;
   el.addEventListener('click', onClick);
+  rovingTabs(el);
   await refresh(el, ctx);
 }
 

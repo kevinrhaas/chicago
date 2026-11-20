@@ -1,0 +1,147 @@
+{
+  "id": "chicago_harbor_absolute_registration_audit",
+  "status": "diagnostic_only_not_accepted_for_scene",
+  "review_date": "2026-11-18",
+  "source_ids": [
+    "usace_chicago_harbor_1865",
+    "usace_chicago_harbor_august_1869",
+    "lake_survey_chicago_1872"
+  ],
+  "decision": "Preserve the August 1869 relative metric trace. Do not assign project ENU coordinates from this diagnostic until street continuity, cross-sheet feature identification and historic datum are resolved.",
+  "image_1865": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Map_of_Chicago_Harbor,_Illinois_-_NARA_-_122206806.jpg",
+    "pixels": [
+      5612,
+      7282
+    ],
+    "sha256": "f8a2214d79ed4ce0550538d5e1c580930d733d2e859b76dc53a6d66ea4537a75"
+  },
+  "modern_control_evidence": {
+    "retrieval": {
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=-87.6240,41.8880,-87.6205,41.8970",
+      "retrieved_at": "2026-11-18T15:33:42.878340+00:00",
+      "bytes": 2480833
+    },
+    "raw_sha256": "9763e64c057b6ebed75bd6631d7401e4ab9a73fa0158e1e4652d5ede194c182d",
+    "rights": "OpenStreetMap contributors, ODbL1.0.",
+    "crs": "EPSG:26916",
+    "origin_utm_m": [
+      447072.7,
+      4637395.8
+    ],
+    "limits": "These are modern centreline coordinates, not historic surveyed positions. Check historic right-of-way alignment/widening separately; 0.001m rounding preserves arithmetic, not positional survey accuracy."
+  },
+  "candidate_controls": [
+    {
+      "id": "saint_clair_ontario",
+      "image_pixel_1865": [
+        1123,
+        3470
+      ],
+      "modern_local_m": [
+        1267.746,
+        727.928
+      ],
+      "osm_node_ids": [
+        262173158
+      ],
+      "identification": "Ontario is named on the sheet. Ohio and historic Indiana/modern Grand are candidates by street sequence; independent continuity adjudication remains pending."
+    },
+    {
+      "id": "saint_clair_ohio",
+      "image_pixel_1865": [
+        1129,
+        3762
+      ],
+      "modern_local_m": [
+        1269.139,
+        639.758
+      ],
+      "osm_node_ids": [
+        262173155
+      ],
+      "identification": "Ontario is named on the sheet. Ohio and historic Indiana/modern Grand are candidates by street sequence; independent continuity adjudication remains pending."
+    },
+    {
+      "id": "saint_clair_grand",
+      "image_pixel_1865": [
+        1136,
+        4053
+      ],
+      "modern_local_m": [
+        1270.564,
+        549.188
+      ],
+      "osm_node_ids": [
+        262173156
+      ],
+      "identification": "Ontario is named on the sheet. Ohio and historic Indiana/modern Grand are candidates by street sequence; independent continuity adjudication remains pending."
+    }
+  ],
+  "similarity_diagnostic": {
+    "model": "w = alpha * (pixel_x - i*pixel_y) + offset, where w=project_e + i*project_n; alpha is centered least-squares complex similarity. This diagnostic is NOT adopted.",
+    "alpha_real_imag": [
+      0.30653906188736063,
+      -0.002004173789620643
+    ],
+    "offset_real_imag": [
+      930.5039198471641,
+      1794.3191513993665
+    ],
+    "scale_metres_per_pixel": 0.30654561353143206,
+    "independent_check_rms_m": null,
+    "ground_accuracy_m": null,
+    "reason_not_accepted": "The three controls lie on one street corridor. They do not test lateral sheet distortion or historic/modern centreline continuity; the lighthouse is roughly 700m east of the control corridor."
+  },
+  "lighthouse_cross_identification": {
+    "1865_pixel": [
+      3378,
+      5077
+    ],
+    "1869_pixel": [
+      3400,
+      1454
+    ],
+    "identification": "Circular tower symbol within matching angular pier enclosure; relative feature identity is strong.",
+    "1865_similarity_diagnostic_project_m": [
+      1955.818,
+      231.25
+    ],
+    "1872_printed_coordinate_for_diagnostic_only": {
+      "latitude_dms": [
+        41,
+        53,
+        22.88
+      ],
+      "longitude_west_dms": [
+        87,
+        36,
+        49.2
+      ],
+      "accepted_as_wgs84": false,
+      "naive_wgs84_projection_project_m": [
+        2017.0976545053418,
+        314.869511638768
+      ],
+      "projection_command": "pyproj.Transformer.from_crs(4326,26916,always_xy=True); subtract origin_utm_m"
+    },
+    "difference_between_unvalidated_candidates_m": 103.67,
+    "interpretation": "The disagreement is a warning, not a measured map error: historic geodetic datum, cross-identification and lateral map distortion remain unresolved."
+  },
+  "rejected_controls": [
+    {
+      "id": "saint_clair_illinois",
+      "reason": "No unique shared modern surface road node; lower-level tunnel and spur nodes must not be averaged as a historic intersection."
+    },
+    {
+      "id": "rush_street_bridge_modern",
+      "reason": "Historical bridge removed and approach alignment changed; a present bridge cannot stand in for the old structure."
+    }
+  ],
+  "next_required_evidence": [
+    "At least one independently identified persistent control east or west of St Clair to test lateral scale and rotation.",
+    "Historic street width/alignment evidence for the accepted modern control candidates.",
+    "Historic Lake Survey datum conversion or independently registered 1872 chart before treating its printed coordinate as an absolute anchor.",
+    "Reconcile 1869 shoreline and construction with the target date of 8 October 1871."
+  ]
+}

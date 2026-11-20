@@ -2,7 +2,7 @@
 // T-2666 (NAV-806): Guide › For teachers, the teacher handout. Mounts the real Guide screen
 // (apps/guide-view.js) over a small hand-made DOM, with each destination's committed Jaunt
 // catalog (data/sidecars/<year>/jaunts/catalog.json), and holds:
-//   - the nine steps are the tour engine's own (js/tour.js STEPS), in order, never copied;
+//   - the ten steps are the tour engine's own (js/tour.js STEPS), in order, never copied;
 //   - three suggested Jaunts per destination, by the one stated rule — available only,
 //     featured first, then the fewest stops, then the title A to Z — on a fixture exactly,
 //     and on the real catalogs as an ordering no unpicked Jaunt beats;
@@ -95,6 +95,10 @@ assert.deepEqual(suggestJaunts(fixture).map((r) => r.id), ['Alpha', 'Zeta', 'Mid
   'featured first, then the fewest stops, then A to Z; an unavailable Jaunt is never suggested');
 assert.deepEqual(suggestJaunts(fixture.filter((r) => !r.featured)).map((r) => r.id), ['Short'], 'fewer than three: all there are');
 assert.deepEqual(suggestJaunts(null), [], 'no catalog, no Jaunts');
+assert.deepEqual(suggestJaunts([row('Grim', true, 2, { audience: 'adults', content_warning: 'For adults.' }), ...fixture]).map((r) => r.id), ['Alpha', 'Zeta', 'Mid'],
+  'an adults telling is never put in a teacher\'s handout (owner, 2026-11-15)');
+assert.deepEqual(suggestJaunts([row('Alpha-easy', true, 1, { title: 'Alpha', version_of: 'Alpha', grade_band: '3-5' }), ...fixture]).map((r) => r.id), ['Alpha', 'Zeta', 'Mid'],
+  'a grade-band version is the same Jaunt retold, so it is never suggested beside its base (T-3621)');
 assert.deepEqual(fixture.map((r) => r.id), ['Zeta', 'Alpha', 'Long', 'Short', 'Broken', 'Mid'], 'the catalog itself is left in its order');
 
 // ---- the rule, on the committed catalogs ------------------------------------------------
@@ -112,7 +116,7 @@ for (const d of DESTINATIONS) {
   const rows = catalogOf(d.year);
   const chosen = suggestJaunts(rows);
   picks[d.year] = chosen.map((r) => r.title);
-  const open = rows.filter((r) => r.availability !== 'unavailable');
+  const open = rows.filter((r) => r.availability !== 'unavailable' && r.audience !== 'adults' && !r.version_of);
   assert.equal(chosen.length, Math.min(3, open.length), `${d.year}: three, or all there are`);
   for (const c of chosen) assert.notEqual(c.availability, 'unavailable');
   for (let i = 1; i < chosen.length; i++) assert(beats(chosen[i - 1], chosen[i]), `${d.year}: in the rule's order`);
@@ -120,19 +124,20 @@ for (const d of DESTINATIONS) {
     for (const c of chosen) assert(!beats(r, c), `${d.year}: ${r.title} is not suggested, so it cannot beat ${c.title}`);
   }
 }
+assert.equal(picks[1871].length, 0, '1871 has no authored Jaunts yet; the baseline does not borrow another year’s');
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
 assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');
 assert.equal(picks[1812].length, 3, '1812 has three to suggest (the Fort Dearborn jaunts, T-3325..T-3327)');
 
 // ---- the steps are the tour's own ------------------------------------------------------------
-for (const scene of ['1835', '1904', '1812']) {
+for (const scene of ['1835', '1904', '1812', '1871']) {
   const m = handoutModel({ steps: STEPS, scene, destinations: DESTINATIONS, catalogs: {} });
-  assert.equal(m.steps.length, 9);
-  assert.deepEqual(m.steps.map((s) => s.n), ['01', '02', '03', '04', '05', '06', '07', '08', '09']);
+  assert.equal(m.steps.length, 10);
+  assert.deepEqual(m.steps.map((s) => s.n), ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']);
   assert.deepEqual(m.steps.map((s) => s.task), STEPS.map((s) => s.task), 'each step\'s task, as the tour has it');
   assert.deepEqual(m.steps.map((s) => s.bubble), STEPS.map((s) => s.bubble({ scene, front: null })), 'each bubble, as the tour says it there');
-  assert.deepEqual(m.destinations.map((d) => d.year), [1835, 1904, 1812], 'the Observatory\'s destinations, in its order');
+  assert.deepEqual(m.destinations.map((d) => d.year), [1835, 1904, 1812, 1871], 'the Observatory\'s destinations, in its order');
   assert.equal(m.destinations.filter((d) => d.here).map((d) => String(d.year)).join(), scene, 'the destination in hand is marked');
   assert(m.destinations.every((d) => d.state === 'reading'));
 }
@@ -153,17 +158,17 @@ assert.equal(screen.children.at(-1), block, '…last, under the glossary and the
 assert.equal(byClass(block, 'nav-k')[0].textContent, 'For teachers');
 assert.match(byId(block, 'guide-handout').textContent, /Reading the Jaunts…/, 'while the catalogs are read, it says so');
 await settle(); await settle();
-assert.deepEqual(asked, [1835, 1904, 1812], 'every destination\'s catalog, asked once each');
+assert.deepEqual(asked, [1835, 1904, 1812, 1871], 'every destination\'s catalog, asked once each');
 const handout = byId(block, 'guide-handout');
 const words = handout.textContent;
 const stepEls = byClass(handout, 'handout-step');
-assert.equal(stepEls.length, 9, 'nine steps');
+assert.equal(stepEls.length, 10, 'ten steps');
 STEPS.forEach((s, i) => {
   assert.equal(byClass(stepEls[i], 'handout-task')[0].textContent, s.task);
   assert.equal(byClass(stepEls[i], 'handout-bubble')[0].textContent, s.bubble({ scene: '1904', front: null }));
 });
 const dests = byClass(handout, 'handout-dest');
-assert.deepEqual(dests.map((d) => byClass(d, 'handout-dest-name')[0].textContent), ['1835 · Chicago', '1904 · Prairie Avenue', '1812 · Fort Dearborn']);
+assert.deepEqual(dests.map((d) => byClass(d, 'handout-dest-name')[0].textContent), ['1835 · Chicago', '1904 · Prairie Avenue', '1812 · Fort Dearborn', '1871 · Pre-fire Chicago']);
 assert.equal(dests[1].dataset.here, 'true', 'the destination in hand');
 for (const d of dests) {
   const titles = byClass(d, 'handout-jaunt-title').map((e) => e.textContent);
@@ -214,7 +219,7 @@ await settle(); await settle();
 const off = byClass(byId(offline, 'guide-handout'), 'handout-dest');
 assert.equal(byClass(off[1], 'handout-empty')[0]?.textContent, 'The Jaunts could not be read just now.');
 assert.equal(byClass(off[0], 'handout-jaunt-title').length, 3, 'the others still list theirs');
-assert.equal(byClass(byId(offline, 'guide-handout'), 'handout-step').length, 9);
+assert.equal(byClass(byId(offline, 'guide-handout'), 'handout-step').length, 10);
 assert.equal(off[0].dataset.here, 'true');
 unmount(offline);
 // A destination whose catalog is read and holds no Jaunts says so (1812 did, until T-3325).
@@ -229,7 +234,7 @@ unmount(empty);
 const bare = doc.createElement('div');
 mount(bare, { controls: 'pointerlock', actions: {} });
 await settle(); await settle();
-assert.equal(byClass(byId(bare, 'guide-handout'), 'handout-empty').length, 3);
+assert.equal(byClass(byId(bare, 'guide-handout'), 'handout-empty').length, 4);
 unmount(bare);
 
 // ---- the page: the print stylesheet, the catalog read, the link -----------------------------
@@ -245,4 +250,4 @@ const main = read('renderers/web/js/main.js');
 assert(/jauntCatalog: \(year\) => \(jauntCatalogs\[year\] \?\?= fetch\(new URL\(`sidecars\/\$\{encodeURIComponent\(year\)\}\/jaunts\/catalog\.json`/.test(main),
   'each destination\'s catalog is read when Guide asks, never at boot');
 
-console.log(`test_teacher_handout: nine tour steps and three Jaunts each for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);
+console.log(`test_teacher_handout: ten tour steps and available Jaunts for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);

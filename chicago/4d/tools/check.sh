@@ -57,6 +57,15 @@
 # Making the K-kit checks share their builds is the cut that would bring the WHOLE
 # gate back down, and it is a ticket of its own.
 #
+# T-3654, 2026-11-18: this sandbox's part 1/16 timed out at 590 s twice,
+# with two jobs beside browser acceptance and then four jobs without a browser.
+# The hanging-garment step took 262/211 s and publishing took 204/139 s. The
+# existing raise-N rule therefore needs a parser allowance through 32. A costly
+# k/16 slot can be replaced by k/32 and (k+16)/32: those two ordinal sets are its
+# exact partition, with every prerequisite repeated. The harness fixture checks
+# that equivalence for every k, including a prerequisite in the middle. No
+# assertion or timeout changes; CI keeps all eight parts and its required gate.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
@@ -240,6 +249,20 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A classroom Chromebook boots as a computer on the memory diet, people and teams kept, and is offered Prepare for class (T-3675)" \
+  node tools/check_chromebook.mjs
+
+step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
+  node tools/check_xr_mode.mjs
+
+step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
+  node tools/check_window_mode.mjs
+
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
@@ -263,6 +286,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
+  node tools/test_sign_in.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
@@ -297,14 +322,34 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
+step "The Navigator's MUTE ALL, MUTE MUSIC and MUTE NARRATION keys flip their levels, and lit is the quiet kind on every machine (T-3571)" \
+  node tools/test_sound_keys.mjs
 step "Recorded audio: era isolation, terrain water types, silent defaults, bounded memory, stale requests, mute and hidden-tab cleanup (T-3532)" \
   node tools/test_sound.mjs
 step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \
   node tools/test_audio_hosting.mjs
+step "Jaunt narration: one script for app and voicer keyed by its words, only changed words or voices voiced, the player follows, queues, ducks and mutes (T-3578)" \
+  node tools/test_narration.mjs
 step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
   node tools/test_habitat_audio.mjs
 step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
   node tools/test_transport_audio.mjs
+step "1812 nature follows actual seasonal habitats with sparse wildlife and cold-season silence (T-3551)" \
+  node tools/test_habitat_audio_1812.mjs
+step "1904 nature sounds perch in the parkway elms by season: robins, afternoon cicadas, dusk crickets, silent winter (T-3585)" \
+  node tools/test_habitat_audio_1904.mjs
+step "One gust rhythm: trees, vines and grass sway with the wind you hear, never past their old sway, seamless clock (T-3586)" \
+  node tools/test_wind_gust.mjs
+step "1812 hoof events follow actual gait crossings without paused-frame catch-up (T-3551)" \
+  node tools/test_hoof_contact_events.mjs
+step "Recorded dirt and snow hoof proxies preserve mechanics and bounded decode/voice budgets (T-3551)" \
+  node tools/test_hoof_audio.mjs
+step "The actual 1812 portable rig meets its generated visible work tool and contact markers (T-3551)" \
+  node tools/test_work_activity.mjs
+step "1812 visible work follows real normalized primary day jobs and historical presence (T-3551)" \
+  node tools/test_work_day_source.mjs
+step "1812 work impacts require real dated visible contacts and release stale audio safely (T-3551)" \
+  node tools/test_work_audio.mjs
 step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
   python3 tools/test_habitat_audio_package.py
 step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \
@@ -362,6 +407,28 @@ step "Each Jaunt card shows a credited plate of its own stops or none, its keeps
   node tools/test_nav_jaunt_cards.mjs
 step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
   node tools/test_nav_link.mjs
+step "Moment links contain only bounded public scene state and photos release their temporary raster (T-3656)" \
+  node tools/test_moment.mjs
+step "Field notebook preserves evidence and notes, bounds storage, and reports failed writes (T-3656)" \
+  node tools/test_field_notebook.mjs
+step "A teacher's route travels whole in one bounded link or file, degrades with a message, and shows the teacher's words as text (T-3672)" \
+  node tools/test_teacher_route.mjs
+step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
+  node tools/test_jaunt_understanding.mjs
+step "Make your case: every case table row uses its telling's cited claims, refuses gaps, saves only on request (T-3663, T-3678)" \
+  node tools/test_jaunt_investigation.mjs
+step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
+  node tools/test_lesson_guides.mjs
+step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
+  node tools/test_photo_hunt.mjs
+step "Watch a block grow shows each year only the buildings recorded standing by then, never guesses an undated one, and Leave restores the town exactly (T-3676)" \
+  node tools/check_block_grow.mjs
+step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
+  node tools/test_viewport_accessibility.mjs
+step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
+  node tools/test_keyboard_ownership.mjs
+step "People met and places found count only talks and footsteps in town, per year, bounded and local (T-3673)" \
+  node tools/test_met_found.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
@@ -420,6 +487,8 @@ step "Jaunts hold the everyday people out but for those each stop calls for, and
   node tools/test_jaunt_crowd.mjs
 step "A stop's hosts come to their marks, greet the visitor and go back about their day (T-3525)" \
   node tools/test_jaunt_hosts.mjs
+step "A jaunt stop's history is played by its people: the column passes, the warriors wait, nobody fallen is a child (T-3553)" \
+  node tools/test_jaunt_stage.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
@@ -430,20 +499,40 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
+  node tools/test_city_context_depth.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
+  node tools/test_route_unreachable.mjs
+step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
+  python3 tools/build_tales.py --check
+step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
+  node tools/test_tales.mjs
+# T-3645: the reader's ages (Settings, the Jaunts menu, the account) and every card's age tabs;
+# each card's words at another age measured inside that age's band, and the scene tables fresh.
+step "a reader picks one or more ages; the Jaunts menu and every card follow, kept on the account (T-3645)" \
+  node tools/test_reading_level.mjs
+step "every card's words at another age read inside that age's band, and data/reading is fresh (T-3645)" \
+  python3 tools/reading_levels.py --check --quiet
 step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
   node tools/test_second_fort_posterns.mjs
 step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
   python3 tools/test_second_fort_commandants_gallery.py
 step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
   node tools/test_house_doors.mjs
+step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
+  node tools/test_coach_house.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
   node tools/test_person_interactions.mjs
-step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+step "Glessner's court and side doors, and every built 1904 front door, open and shut as people pass, up and down their stairs (T-3524, T-3554)" \
   node tools/test_house_passages.mjs
+step "Nobody walks through a 1904 house's stoop, area wall, railing or bay: every resident's outdoor place and walk keep a skirt's width off what the house builds outside its walls (T-3554)" \
+  node tools/test_house_barriers.mjs
+step "The visitor climbs every stair: each 1904 front stoop with a hung door to the door, every back stoop to its landing, a tread at a time, and rails and cheeks turn one back (owner, 2026-11-14)" \
+  node tools/test_house_floors.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -640,16 +729,34 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
+  node tools/lay_driven_wagons_1835.mjs --check
+step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
+  node tools/lay_town_riders.mjs --check
+step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
+  node tools/lay_driven_carriages_1904.mjs --check
+step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
+  node tools/test_transport_crossings.mjs
+step "Every driven team can be taken by the reins: eased speed and steering within its lock, pulls up at a wall, a kerb or another team, handed back onto its round, saved on its road (T-3557)" \
+  node tools/test_team_drive.mjs
+step "Each 1904 carriage its own paint, wear and marks on one program, no texture, glass and the inside clean (T-3558)" \
+  node tools/test_coachwork.mjs
 step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
   python3 tools/lay_crossing_boats_1812.py --check
 step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
   node tools/test_crossings.mjs
+step "The vessels' rows are what their layer writes: the 1835 schooners of the Marine Journal and the 1812 boats, berthed in their own water clear of piers and the draw, the harbour loop sailable (T-3612)" \
+  python3 tools/lay_vessels.py --check
+step "Every vessel kind builds and rigs, the boom clears the helmsman, the helm's rule stops a schooner at a pier, the draw and the bank, crews' vessels sail by day, rest at night and lie up in winter, and the visitor takes the helm and goes ashore (T-3612)" \
+  node tools/test_vessels.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
   node tools/test_human_life.mjs
 step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
   node tools/test_human_actions.mjs
+step "The adults jaunts' fighting: a tomahawk, a knife, a pistol and a musket held in the hand, the blow, the thrust, the aim and one shot, and the hands to the body when struck, on the real figures; a figure handed no fight motions is unchanged (T-3553)" \
+  node tools/test_human_fight.mjs
 step "The 1812 garrison is at its duties: knots that talk, break up and come back together, sentries walking their posts, a rank before its sergeant, nobody standing loose on the parade, deterministic (T-3490)" \
   node tools/test_human_duties.mjs
 step "The 1812 garrison's instance records are what place.py writes (T-3462, T-3490)" \
@@ -658,6 +765,10 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "The town at a distance: every person has one tier at every distance, middle bodies and far cards handed over without a gap or a double, a templated day read one span at a time is its whole day's, only people out and not built are read, a shared body folds inner layers under outer ones and walks, and every team has a card to bake (T-3555)" \
+  node tools/test_crowd.mjs
+step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
+  node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
   python3 tools/test_prairie_people.py
 step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \
@@ -666,12 +777,18 @@ step "Prairie Avenue child source recipes match their pinned bodies (T-3548)" \
   python3 tools/prairie_children_source.py --check
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
+step "The visitor on foot never walks into a person: held off every drawn figure, sliding round them, never tunnelling at a sprint on a slow device, a wall winning over a person, and passers-by stepping round the visitor (T-3553)" \
+  node tools/test_walker_bodies.mjs
 step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
   node tools/test_human_rounds.mjs
 step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
   python3 docs/RESEARCH/people-days-1835-1904/days.py --check
 step "The 1835 and 1904 buildings a day goes into are entered where the models and Glessner's record say (T-3516)" \
   python3 tools/derive_doors_scene.py --check
+step "The 1835 town's people, their homes, places of business, doors, days, dress and looks are what town_people_1835.py writes from their records (T-3556)" \
+  python3 tools/town_people_1835.py --check
+step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
+  node tools/test_town_people_1835.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
@@ -692,10 +809,30 @@ step "Every 1812 settler, trader, engagé and townswoman is dressed as their own
   python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
 step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
   node tools/test_human_town_dress.mjs
+step "Every Prairie Avenue lady her own dress, trims and hat for summer, spring/fall and winter, none alike, from the finery sources; the cook's print and check, and 1812's calico, checks and stripes, drawn at their recorded mean colour, in the one cloth program (T-3553)" \
+  node tools/test_human_finery.mjs
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
   node tools/test_human_gait.mjs
-step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breechcloth) swings off the legs on the walk and never parts between them, no leg through the cloth, trousers left on the leg, the rest pose exact (T-3472, T-3553)" \
   node tools/test_human_skirt.mjs
+step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
+  node tools/test_human_waist.mjs
+step "Trousers, breeches, pantaloons and overalls bridge the seat from cheek to cheek, standing and striding, at every level; nothing else on them moves (T-3553)" \
+  node tools/test_human_seat.mjs
+step "Collars, straps and crossbelts sit on the cloth beneath with clean edges, nothing through them standing, walking or turning the head, at every level (T-3553)" \
+  node tools/test_human_collar.mjs
+step "A coat closes under the arm on every sleeved body and its back vent laps shut, standing and walking, at every level (T-3553)" \
+  node tools/test_human_coat.mjs
+step "Sleeve hems and cuffs bend with the wrist as one band, no ragged edge; the soldiers' cuffs never through or parted; a gloved hand shows no skin in the sleeve's mouth, walking, bending, carrying, at every level (T-3553)" \
+  node tools/test_human_sleeve.mjs
+step "Townsmen's 1830s trousers are full at the waistband, pleated, tapered to the ankle and strapped under the shoe; the shirt is white linen gathered into a wristband, nothing through, standing and walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_tailor_1835.mjs
+step "The 1812 private wears the regulars' coat: skirts below the coatee's and tape on his breast button holes, at every level, standing and walking; the 1835 garrison as drawn (T-3553)" \
+  node tools/test_human_regulars.mjs
+step "John J. Glessner's frock coat stops at the knee, is taken in at the waist, opens on the shirt front, has a white standing collar and a back vent, standing and walking, at every level (T-3553)" \
+  node tools/test_human_frockcoat.mjs
+step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
+  node tools/test_human_gown.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
@@ -704,12 +841,22 @@ step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
 step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
   node tools/test_human_garrison.mjs
-step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
+step "The driven team's generated walk and trot and their hoof-support domains reproduce byte for byte, hooves planted without slide (T-2803, T-3559)" \
   node tools/horse_walk_v2.mjs --check
+step "The driven horse's mid and far levels ride its own bones through the trot, bound by bytes and swapped with a band; walk and trot blend by pace (T-3559)" \
+  node tools/test_horse_rig.mjs
+step "Ride a horse: each year's saddle horse, its tack on the coat, the rider seated at walk and trot without going into the horse, the reins, holds and getting down (T-3560)" \
+  node tools/test_riding.mjs
+step "The visitor's own person: every choice one the renderer draws and a body the saddle seats, kept per year and sex, the chosen face drawn, kept with the account (T-3644)" \
+  node tools/test_visitor_person.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
+step "Where a person's hair stands out of their skin the near levels draw it finer: the body's rows kept, closed across seams, freed with its source (T-3553)" \
+  node tools/test_human_fine.mjs
+step "A mouth that opens: the teeth a strip of their own behind the lips, the smile given to a visitor in front, the jaw moving with talk (T-3553)" \
+  node tools/test_human_mouth.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
@@ -720,6 +867,12 @@ step "Every person gets their own face, height and build: no two of 400 alike, a
   node tools/test_human_variation.mjs
 step "A named resident's face fitted to a cited portrait reproduces from its marks, and the card's still is of this fit (T-3413)" \
   python3 tools/fit_portrait_face.py --check
+step "A pictured stand-in's skin, hair and eyes sheet is the bytes its record names, laid out as the app reads it, under a liberty and a source cleared for use as a texture (T-3553)" \
+  python3 tools/bake_likeness_skin.py --check
+step "The face library's cuts are the bytes its source record pins, each under CC0 evidence and in the licence register; its sheet, tones and gains rebuild as the record and the kit hold them, under the mask the app draws (T-3553)" \
+  python3 tools/face_library.py --check
+selftest "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)" \
+  python3 tools/face_library.py --self-test
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
@@ -736,8 +889,16 @@ step "A figure's distance levels are parked and reused, not reloaded; People hid
   node tools/test_human_lod_park.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
+step "A visitor climbs up beside any driver, takes and hands back the reins, and gets down beside the team (T-3557)" \
+  node tools/test_transport_boarding.mjs
+step "Ask the Glessner coachman for a ride: in beside Mr. Glessner, round the block, home to the coach house and out (T-3557)" \
+  node tools/test_glessner_ride.mjs
+step "Climb up and get down are drawn: the year's figure walks over, climbs by the hub and the rail and sits, its holds on the real vehicles, both sides, the eye watching (T-3560)" \
+  node tools/test_board_climb.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
   node tools/test_person_interaction.mjs
+step "Every person's name fits their floating name card; on by default, a tap opens their card (T-3614)" \
+  node tools/test_name_cards.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -855,6 +1016,10 @@ step "the haystacks are the bytes their records build (T-2510)" \
   python3 generators/haystack_emit.py --check
 step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
   python3 generators/lodge_camp_emit.py --check
+step "the monuments are the bytes their records build (T-3567)" \
+  python3 generators/monument_emit.py --check
+step "the 1871 fire landmarks are the bytes their records build (T-3688)" \
+  python3 generators/landmark_1871_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -1286,6 +1451,13 @@ step "today's streets clip holds its shape and lands on the OSM control corners 
 step "today's street and house number read off the City's block ranges, both sides' parity (T-2741)" \
   node tools/test_modern_streets.mjs
 
+# T-3601. The Today window: Google Street View, today, from where you stand. The scene's metres
+# go back to latitude/longitude (UTM 16N less the datum origin, checked against pyproj and the
+# Prairie & 18th control corner) and grid bearings to true headings; the window loads nothing
+# while hidden, asks for a panorama only every few metres, and keeps to a keyless link with no key.
+step "the Today window's spot and heading match the datum, and it stays quiet while hidden (T-3601)" \
+  node tools/test_today_view.mjs
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
@@ -1419,6 +1591,21 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
   python3 tools/test_k08_tower_stage.py
 
+# T-3370. ...and a K08 bay's pilasters stand in some storeys alone, on a whole stage's ring, and
+# a K08 architrave stands on colonnettes (1936 Prairie's belvedere, off the Chicagology
+# photograph): eight shafts at its four corners between its floor line and its eaves, its four
+# frames on columns; storeys out of range or under the stage, and columns under no impost or no
+# prouder than their band, refused.
+step "a K08 belvedere carries corner pilasters and colonnetted frames (T-3370)" \
+  python3 tools/test_k08_stage_pilasters.py
+
+# T-3370. ...and a K08 architrave carries a scrolled pediment (1936 Prairie's dining range pairs,
+# off the Chicagology photograph): two arms curling in to volutes and a capped cartouche, its
+# cap rise_m over the lights' heads, past the floor band but never onto the light over it; a
+# pediment beside a keystone, too flat, too low or rising into the storey over it, refused.
+step "a K08 architrave carries a scrolled pediment over a pair (T-3370)" \
+  python3 tools/test_k08_scrolled_pediment.py
+
 # T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
 # (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
 # under the storey line in place of its floor band, the corbels hung from it, the light tier
@@ -1461,6 +1648,18 @@ step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-3634. 2017 Prairie's mansard curb carries a row of square merlons in Chicagology's
+# photograph, not the K10 kit's scroll cresting.
+step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
+  python3 tools/test_k01_deck_crenellation.py
+
+# T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
+# the slate with a light in it and a capped top, and the house's slate set back behind it over
+# the corner: bad returns and lights refused, no slate left in front of the return's back edge,
+# a chamfer without either as before.
+step "a K08 chamfer's cheek may run back as a return with a light, the K01 slate set back behind it (T-1890)" \
+  python3 tools/test_k01_chamfer_return.py
+
 # T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
 # than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
 # K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
@@ -1489,6 +1688,18 @@ step "a K01 brick front's door may be cut round-headed under its round lights' a
 step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
   python3 tools/test_k08_canted_bay_dormers.py
 
+# T-1886. 1816 Prairie's canted bays' lights crested as the front's hoods are (Chicagology's
+# photograph): K09's carved crest on a bay light's lintel, in the front's ranges; refused on a
+# round head, over voussoirs, on a frame bay or past its storey; one per light, on its lintel.
+step "a bay light's lintel may carry the front's carved crest (T-1886)" \
+  python3 tools/test_k08_bay_crest.py
+
+# T-3370. 1936 Prairie's balconies as Chicagology's photograph draws them: a corner porch's
+# cornice on modillions down to its arches' crowns, its entablature and balustrade (and a stone
+# hood's railing) in the front's trim stone; refused past the crowns or out past the cornice.
+step "a corner porch's cornice may stand on modillions, its balcony in the trim stone (T-3370)" \
+  python3 tools/test_k01_porch_balcony.py
+
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
 # on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
@@ -1496,6 +1707,12 @@ step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
 # cut, too short, across a hip, over the cut, with a stack in it.
 step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
   python3 tools/test_k01_front_crown.py
+
+# T-1896. 1827 Prairie's sign-off against the Doane photograph: a hipped crown on a ledge of its
+# cornice, closed to one point; a carved roundel on a K08 storey over its lights; an arched porch
+# end on a column against the wall with a low parapet; each refused where it would not fit.
+step "a hipped crown may close to a point, K08 carves roundels, a porch end stands on a column (T-1896)" \
+  python3 tools/test_k01_doane_crown_porch_roundel.py
 
 # T-1890. 1801 Prairie's street face leans back further than its side faces (the Taylor print
 # and HABS photograph 2 put its curb's north-west corner about 1 m further back): the K05 ring
@@ -1534,6 +1751,13 @@ step "a K01 light named in street_front_trim.lights wears its storey's head and 
 # facing no side and two slates on one house refused; every committed wing still flat.
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
+
+# T-1872. ...and a K01 hip or gable whose pitch a source reads may stand below the ordinary
+# band as well as above it (1712 Prairie's low hip, 18 degrees off the 1893 Rand McNally
+# strip), down to the top of the flat band; a reconstructed pitch keeps the 25-degree floor,
+# and an unsourced, a deck-low or a past-steep one is refused.
+step "a K01 hip a source reads may stand below the ordinary pitch band, to the flat band's top (T-1872)" \
+  python3 tools/test_k01_source_pitch.py
 
 # T-3063. ...and a K01 gable roof's rear slope falls steeply to a flat deck under a level
 # coped wall head (1811 Prairie's south wall behind its tall stack, level in both its
@@ -1689,6 +1913,11 @@ step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T
 # stands in the coursing under no flat arch, its spandrels in the wall's stone.
 step "side_bays take read windows; a read round head on a stone side face has no flat arch (T-3097)" \
   python3 tools/test_k01_side_read_windows.py
+
+# T-3562. ...and the street front's upper storeys the same way: 1815 Prairie's narrow light
+# over the door, read off the square-on photograph, laid once at its own sill and size.
+step "front_bays_by_storey takes a light read off the picture on an upper storey (T-3562)" \
+  python3 tools/test_k01_front_read_light.py
 
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
@@ -2319,6 +2548,18 @@ step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
   python3 tools/generate_canal_approach_trade.py --self-test
+# T-3605: the Lake and Dearborn street faces round the first Tremont House, built to the
+# Gifford drawing the Tremont was photo-matched to (L-number in docs/LIBERTIES.md).
+step "Gifford street-face roofs match their photo-matched recipe" \
+  python3 tools/generate_gifford_street_faces.py --check
+selftest "…and its validator refuses overlaps and roofs off the frontage" \
+  python3 tools/generate_gifford_street_faces.py --self-test
+# T-3605 phase 2: the commercial core's block fronts filled toward 70 % at the density the
+# Gifford drawing shows (L-core-row-fill-3605).
+step "Commercial-core row-fill stores match their measured fronts" \
+  python3 tools/generate_core_row_fill_1835.py --check
+selftest "…and its validator refuses stores on one spot or off the frontage" \
+  python3 tools/generate_core_row_fill_1835.py --self-test
 step "Canal trade roofs have existing keepers without invented homes" \
   python3 tools/canal_approach_occupancy.py --check
 selftest "Canal trade occupancy preserves identities and lodging constraints" \
@@ -4497,6 +4738,46 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+step "scene membership prevents another year's reconstructions from being backcast (T-3654)" \
+  python3 tools/test_scene_selection.py
+
+# T-3654: a citywide context is generated from a graded map plan and portable kit.
+step "1871 map controls still match the historical raster" \
+  python3 tools/fit_1871_city_map.py --check
+
+step "1871 registration comparison and independent checks reproduce" \
+  python3 tools/audit_1871_city_map.py --check
+
+step "1871 research overlay preserves the original map pixels and current plan" \
+  python3 ../pre_fire_v1/tools/build_geography_overlay.py --check
+
+step "1869 harbor relative traces retain their verified raster and unregistered status" \
+  python3 tools/trace_harbor_1869.py --check
+
+step "1871 portable period kit is reproducible" \
+  python3 generators/city_context_emit.py --check
+
+step "1871 city, infrastructure and terrain are reproducible" \
+  python3 generators/city_1871_emit.py --check
+
+step "1871 buildings, crossings and generated surfaces are spatially coherent" \
+  python3 tools/check_city_1871.py
+
+selftest "1871 browser acceptance harness rejects broken contracts" \
+  node tools/smoke_city_1871.mjs --self-test
+
+# T-3687: the Great Fire's map and clock. Every timed place cites a source and lies in the
+# burnt district, every hour falls inside the fire, and the local outlines are re-derived
+# from the scene's rivers and shoreline, so a moved river is red here, not a wrong fire.
+step "1871 Great Fire district and hours are sourced and current (T-3687)" \
+  python3 tools/fire_1871.py --check
+
+selftest "…and its own checks fire when broken" \
+  python3 tools/fire_1871.py --self-test
+
+selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
+  node tools/qa_city_fire_1871.mjs --self-test
+
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
 step "1904 built-so-far walk matches the building records (T-2747)" \
@@ -4507,6 +4788,18 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3681: each jaunt's Spanish telling (data/jaunts/_es/<id>.txt) compiles to the overlay beside
+# its English (sidecars/<scene>/jaunts/es/). Each passage carries the mark of the English it was
+# translated from, and the app shows it only while that English stands, so a change to a jaunt's
+# English never stales this step.
+step "Spanish jaunt overlays are as built from their words files (T-3681)" \
+  python3 tools/jaunts_es.py --check
+
+# T-3590: every jaunt's school grade band is measured from its own words (the mean of five
+# grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.
+step "Jaunt grade bands match the reading level of their words (T-3590)" \
+  python3 tools/jaunt_reading_level.py --check
 
 # T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
 # priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks
@@ -4589,6 +4882,11 @@ step "source browser counts and filters" \
 # page itself; no smoke part loads the Observatory.
 step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
   node tools/test_portal_clips.mjs
+
+# The public site's films (T-3611) live in site-films/ and on the media host, never on Pages;
+# site/js/films.js names each by the hash of its bytes, and every film has its poster.
+step "public site films: films.js, site-films/ and the posters agree (T-3611)" \
+  node tools/site_films_ingest.mjs --check
 
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs

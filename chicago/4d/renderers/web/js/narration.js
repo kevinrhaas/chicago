@@ -1,0 +1,361 @@
+/**
+ * T-3578 — jaunt narration: a jaunt's opening, each stop and each ending read aloud in the
+ * owner's ElevenLabs voices (the owner, 2026-11-13: "I have some voices in eleven labs and I
+ * want to begin using those and having them read/play the narration or scripts like the meet
+ * the Glessner household").
+ *
+ * Two halves share this file so they can never disagree about what is spoken:
+ *
+ *  - `narrationScripts(jaunt)` and `textKey(text)` are pure. tools/narrate_jaunts.mjs reads
+ *    them in Node to decide which scripts need voicing; the app reads them to find the clip
+ *    for what it shows. A clip is keyed by the SHA-256 of the exact words spoken, so a stop
+ *    whose text changed after it was voiced never plays the old recording: it is silent until
+ *    the workflow voices the new words.
+ *  - `createNarration(...)` is the player: one gesture-primed media element streaming the
+ *    clip through Settings › Sound's Narration bus (js/sound.js), ducking music and ambience
+ *    while it speaks. It follows the outing: with sound on and Narration up, each stop's
+ *    voice starts when you arrive (after the one still speaking finishes).
+ *
+ * T-3553 — and the person a clip speaks for moves their mouth with it: `voice()` says who is
+ * speaking now and how loud (jaunt-hosts.js `speak` gives it to that host's jaw and hand).
+ *
+ * The clips and their index live with the other recorded audio on the media host
+ * (tools/audio-hosting.json; docs/AUDIO.md § Narration). With no index — a local build, an
+ * unreachable host, a jaunt not yet voiced — nothing is offered and nothing fails.
+ */
+// The app's own audio folder, as js/recorded-audio.js names it (not imported: this file stays light and Node-readable).
+export const AUDIO_BASE = new URL('../audio/', import.meta.url);
+
+export const NARRATOR = 'narrator';
+export const INDEX_PATH = 'narration/index.json';
+/** The narrators a visitor chooses between in Settings › Sound (the owner, 2026-11-13: "i have
+ *  two narrators, people should be able to select which one they use the essayist is the
+ *  default"). The voicer voices every narrator script once for each; data/narration/voices.json
+ *  binds each to an ElevenLabs voice, and tools/test_narration.mjs holds the two lists equal.
+ *  T-3627: narrators.js carries the same three for Settings, which must not load this player;
+ *  this file imports nothing (the voicing workflow checks it out alone), so the test holds
+ *  that copy equal to this one too. */
+export const NARRATORS = Object.freeze([
+  { id: 'essayist', label: 'Cultivated Essayist' },
+  { id: 'storyteller', label: 'Midwestern Storyteller' },
+]);
+export const DEFAULT_NARRATOR = 'essayist';
+export const normalNarrator = v => (NARRATORS.some(n => n.id === v) ? v : DEFAULT_NARRATOR);
+/** The index key of a script's clip: its words' key, and for the narrator's words, which narrator. */
+export const clipKey = (textSha, speaker, narrator = DEFAULT_NARRATOR) =>
+  textSha && (speaker === NARRATOR ? `${textSha}~${normalNarrator(narrator)}` : textSha);
+
+/** A jaunt's opening as it is read: the title, then the welcome's paragraphs (without the
+ *  "JAUNT: ITS TITLE." its first paragraph leads with, which the title replaces). */
+export function openingScript(jaunt) {
+  const paragraphs = String(jaunt?.opening?.text ?? '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^(?:JAUNT|PASEO):\s*[^.!?]*[.!?]\s*/, '');
+  const body = paragraphs.filter(Boolean).join('\n\n');
+  return body ? `${String(jaunt.title ?? '').trim()}.\n\n${body}`.replace(/^\.\n\n/, '') : '';
+}
+
+/** Every script of a jaunt, in the order an outing meets them. A stop is read by its first
+ *  host (the person waiting there), or by the narrator; its `since` lead is read with it. */
+export function narrationScripts(jaunt) {
+  const out = [];
+  const add = (part, id, speaker, text) => { text = String(text ?? '').trim(); if (text) out.push({ part, id, speaker, text }); };
+  add('opening', 'opening', NARRATOR, openingScript(jaunt));
+  for (const stop of jaunt?.stops ?? []) {
+    add('stop', stop.id, stop.hosts?.[0]?.person ?? NARRATOR, `${stop.since ? `${stop.since}. ` : ''}${stop.text ?? ''}`);
+  }
+  for (const ending of jaunt?.endings ?? []) add('ending', ending.id, NARRATOR, ending.text);
+  return out;
+}
+
+const hex = buffer => [...new Uint8Array(buffer)].map(b => b.toString(16).padStart(2, '0')).join('');
+/** The clip key for some spoken words: SHA-256 of their UTF-8 bytes, as hex. Null where the
+ *  page has no Web Crypto (an insecure origin), which simply offers no narration. */
+export async function textKey(text, subtle = globalThis.crypto?.subtle) {
+  if (!subtle) return null;
+  return hex(await subtle.digest('SHA-256', new TextEncoder().encode(String(text))));
+}
+
+/** The index's clip for these words in this speaker's voice, or null. A narrator script takes
+ *  the chosen narrator, else the default one. Only an entry that names these words' key is
+ *  returned: changed words never play the old recording. */
+export function clipFor(index, textSha, speaker = null, narrator = DEFAULT_NARRATOR) {
+  if (!textSha) return null;
+  const keys = speaker === NARRATOR ? [clipKey(textSha, speaker, narrator), clipKey(textSha, speaker, DEFAULT_NARRATOR)] : [textSha];
+  for (const key of keys) {
+    const clip = index?.clips?.[key];
+    if (clip && clip.text_sha256 === textSha && typeof clip.file === 'string') return clip;
+  }
+  return null;
+}
+
+/**
+ * T-3553: how loud a voice is now, for the mouth of the person it speaks for. `window`: the
+ * samples listened to (about a fiftieth of a second, so a low voice's own beat does not show
+ * in it); a level under `floor` (the root mean square of the samples, of 1) is a shut mouth
+ * and one at `full` a jaw as far open as a voice turns it (human-mouth.js `say_deg`). Ours,
+ * set on the household tour's first two voices as they were recorded (John and Frances
+ * Glessner, in windows of this length, counting only those over the floor: the middle of
+ * John's is 0.13 and of Frances's 0.12, nine tenths of each lie under 0.20 and ninety-nine
+ * in a hundred under 0.27), so that a syllable opens the jaw about as far as the talk without
+ * a voice does and only the loudest opens it wide. `deaf_s`: an ear that has heard nothing
+ * at all this long into a clip is taken to be unable to listen (the level is then not known).
+ */
+export const VOICE = Object.freeze({ window: 1024, floor: 0.012, full: 0.3, deaf_s: 2 });
+/** A window of a voice's samples (bytes, 128 at rest) as a level, 0..1. */
+export function voiceLevel(samples) {
+  let sum = 0;
+  for (let i = 0; i < samples.length; i++) { const x = (samples[i] - 128) / 128; sum += x * x; }
+  const rms = Math.sqrt(sum / Math.max(1, samples.length));
+  return Math.min(1, Math.max(0, (rms - VOICE.floor) / (VOICE.full - VOICE.floor)));
+}
+
+/** A 1/10 s silent WAV: played inside a tap, it lets the element speak later without one
+ *  (WebKit, so iPhone Chrome, counts a media element as allowed once it has played in a gesture). */
+export function silentWav(rate = 8000, samples = 800) {
+  const bytes = new Uint8Array(44 + samples), v = new DataView(bytes.buffer);
+  const text = (at, s) => [...s].forEach((c, i) => { bytes[at + i] = c.charCodeAt(0); });
+  text(0, 'RIFF'); v.setUint32(4, 36 + samples, true); text(8, 'WAVE'); text(12, 'fmt ');
+  v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+  v.setUint32(24, rate, true); v.setUint32(28, rate, true); v.setUint16(32, 1, true); v.setUint16(34, 8, true);
+  text(36, 'data'); v.setUint32(40, samples, true); bytes.fill(128, 44);
+  return bytes;
+}
+
+/** Where the narration index is: beside the hosted media when the published catalogue names
+ *  its host, else beside the app's own audio (a local build, or a test's fixture). */
+export async function indexLocation({ fetcher, base = AUDIO_BASE } = {}) {
+  try {
+    const r = await fetcher(new URL('catalog.json', base));
+    const host = r.ok ? (await r.json())?.hosting?.public_base : null;
+    if (typeof host === 'string' && /^https:\/\//.test(host)) return new URL(INDEX_PATH, host);
+  } catch { /* fall through to the local copy */ }
+  return new URL(INDEX_PATH, base);
+}
+
+/**
+ * The player. `speech()` is js/sound.js's `{ ctx, bus, audible }` (null until the page's first
+ * gesture); `wake()` is called inside a Listen tap to make sure sound is on and loaded, and
+ * resolves once it is; `duck(on)` lowers music and ambience while a voice speaks.
+ */
+/** T-3619: a clip's length in seconds from the narration index: its bytes at its constant bitrate
+ *  (`mp3_44100_64` is 64 kbit/s), else about 15 characters a second, else null. */
+export function clipSeconds(clip) {
+  if (!clip) return null;
+  const kbps = Number(/^mp3_\d+_(\d+)$/.exec(clip.output_format ?? '')?.[1]);
+  if (kbps > 0 && clip.bytes > 0) return clip.bytes / (kbps * 125);
+  return clip.chars > 0 ? clip.chars / 15 : null;
+}
+
+export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), base = AUDIO_BASE,
+  speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
+  subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
+  let index = null, indexUrl = null, loading = null, failed = false;
+  let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
+  let heard = false;               // the part `at` names has been played or queued once
+  let paused = false;              // T-3671: the visitor paused the voice speaking (WCAG 1.4.2); it keeps its place
+  let ended = null;                // the last clip that played to its end
+  let opening = null;              // an outing's opening it showed that has not been heard yet
+  const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
+  const prepared = new Map();      // jaunt id → the content it was prepared for
+  const listeners = new Set([onChange]);
+  const changed = () => { for (const fn of listeners) { try { fn(); } catch { /* a listener's own problem */ } } };
+  const slot = (jaunt, part, id) => `${jaunt?.id}:${part}:${id}`;
+
+  async function readIndex() {
+    if (index || failed) return index;
+    loading ??= (async () => {
+      try {
+        indexUrl = await (location ?? indexLocation({ fetcher, base }));
+        const r = await fetcher(indexUrl, { cache: 'no-cache' });
+        if (!r.ok) throw Error(`HTTP ${r.status}`);
+        const value = await r.json();
+        if (value?.version !== 1 || typeof value.clips !== 'object') throw Error('unknown narration index');
+        index = value;
+      } catch { failed = true; }
+      loading = null; return index;
+    })();
+    return loading;
+  }
+  /** Look up every script of a jaunt once (per content), then repaint. Every caller waits
+   *  for the same lookup (the flight to the start waits on it to know the opening's length). */
+  function prepare(jaunt) {
+    if (!jaunt?.id) return Promise.resolve();
+    const content = `${jaunt.content_version ?? ''}:${jaunt.stops?.length ?? 0}`;
+    const had = prepared.get(jaunt.id);
+    if (had?.content === content) return had.done;
+    const done = lookUp(jaunt);
+    prepared.set(jaunt.id, { content, done });
+    return done;
+  }
+  async function lookUp(jaunt) {
+    const found = await readIndex();
+    if (!found) return;
+    let any = false;
+    for (const script of narrationScripts(jaunt)) {
+      const words = { sha: await textKey(script.text, subtle), speaker: script.speaker };
+      keys.set(slot(jaunt, script.part, script.id), words);
+      any ||= !!clipFor(found, words.sha, words.speaker, narrator());
+    }
+    if (any) changed();
+  }
+  const clipAt = key => { const w = keys.get(key); return w ? clipFor(index, w.sha, w.speaker, narrator()) : null; };
+  const clip = (jaunt, part, id) => clipAt(slot(jaunt, part, id));
+
+  function element() {
+    if (el) return el;
+    el = media(); el.preload = 'auto'; el.crossOrigin = 'anonymous';
+    el.addEventListener?.('ended', () => { ended = playing; finish(true); });
+    el.addEventListener?.('error', () => { if (playing) { error = 'Narration could not play.'; finish(false); } });
+    // Muting Narration or all sound, or leaving the page, ends the voice rather than leaving it speaking silently.
+    el.addEventListener?.('timeupdate', () => { if (playing && speech()?.audible === false) stop(); if (starved && el.readyState >= 3) starved = false; });
+    // T-3553: a clip whose data stops arriving waits, unpaused and silent (`voice()`).
+    el.addEventListener?.('waiting', () => { starved = true; });
+    el.addEventListener?.('playing', () => { starved = false; });
+    return el;
+  }
+  /** Call inside a trusted tap: the element plays a moment of silence, so a later stop's voice may start unprompted. */
+  function prime() {
+    const a = element();
+    if (primed || playing) return;
+    primed = true;
+    try {
+      const url = URL.createObjectURL(new Blob([silentWav()], { type: 'audio/wav' }));
+      a.src = url;
+      const done = () => { try { URL.revokeObjectURL(url); } catch {} };
+      a.play()?.then?.(() => { if (!playing) a.pause(); done(); }, done);
+    } catch { /* a page without Blob URLs still plays clips from a tap */ }
+  }
+  function route() {
+    const out = speech(); if (!out?.ctx || !out.bus) return false;
+    if (routed?.ctx !== out.ctx) {
+      try { routed?.node.disconnect(); } catch {}
+      const node = out.ctx.createMediaElementSource(element());
+      node.connect(out.bus);
+      // T-3553: and an ear on the voice before the bus's volume, for the speaker's mouth
+      // (`voice()`). It feeds nothing; a page whose audio has no analyser simply has none.
+      let ear = null;
+      try { if (typeof out.ctx.createAnalyser === 'function') { ear = out.ctx.createAnalyser(); ear.fftSize = VOICE.window; node.connect(ear); } } catch { ear = null; }
+      routed = { ctx: out.ctx, node, ear, samples: ear ? new Uint8Array(VOICE.window) : null, heard: false };
+    }
+    return true;
+  }
+  function start(key) {
+    const c = clipAt(key); if (!c || !route()) return false;
+    if (key === opening) opening = null;
+    const a = element(); queued = null; error = null;
+    // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
+    a.src = new URL(c.file, new URL('../', indexUrl)).href;
+    playing = key; paused = false; if (ended === key) ended = null; duck(true); changed();
+    routed.heard = false;   // the ear has heard nothing of this clip yet (`voice()`)
+    starved = false;
+    const own = key;
+    a.play()?.catch?.(e => { if (playing === own) { error = e?.name === 'NotAllowedError' ? 'Tap Listen to hear the narration.' : 'Narration could not play.'; finish(false); } });
+    return true;
+  }
+  function finish(next) {
+    playing = null; paused = false; duck(false);
+    const then = next ? queued : null; queued = null;
+    if (!(then && start(then))) changed();
+  }
+  function stop() {
+    queued = null;
+    if (!playing) return;
+    try { el.pause(); el.removeAttribute('src'); el.load?.(); } catch {}
+    playing = null; paused = false; duck(false); changed();
+  }
+  /** T-3671 (WCAG 1.4.2): hold the voice where it is, or let it go on from there. A held voice
+   *  is still the part's own (`isPlaying`), so the closing scene waits for it, and nobody's
+   *  mouth moves (`voice()` reads a paused element as silence). */
+  function pause() {
+    if (!playing || paused) return false;
+    try { el.pause(); } catch {}
+    paused = true; duck(false); changed(); return true;
+  }
+  function resume() {
+    if (!playing || !paused) return false;
+    paused = false; duck(true); changed();
+    const own = playing;
+    try { el.play()?.catch?.(() => { if (playing === own) { paused = true; duck(false); changed(); } }); } catch {}
+    return true;
+  }
+  return {
+    prepare, clip, prime,
+    get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, paused, queued, at, error, primed }; },
+    pause, resume,
+    /** T-3671: whether a voice of this jaunt is speaking (or held), and held: for the panel's Pause key. */
+    speaking: jaunt => !!playing && !!jaunt?.id && playing.startsWith(`${jaunt.id}:`),
+    get paused() { return !!playing && paused; },
+    on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+    isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
+    /** The owner, 2026-11-16: how far this part's voice has spoken, for the stop's meter:
+     *  { t, d } seconds while it plays, { done: true } once it has played to its end, else null. */
+    position(jaunt, part, id) {
+      const key = slot(jaunt, part, id);
+      if (playing === key && el) {
+        const d = Number.isFinite(el.duration) && el.duration > 0 ? el.duration : clipSeconds(clipAt(key));
+        return { t: el.currentTime || 0, d };
+      }
+      return ended === key ? { done: true } : null;
+    },
+    /** The owner, 2026-11-16: the closing scene waits for its ending's voice to finish. */
+    ended: (jaunt, part, id) => ended === slot(jaunt, part, id),
+    /** How long this part's voice will speak if it plays now (sound on, Narration up, a clip
+     *  for its words), in seconds; null when nothing would be heard. */
+    seconds(jaunt, part, id) {
+      const c = clip(jaunt, part, id);
+      return c && speech()?.audible ? clipSeconds(c) : null;
+    },
+    /**
+     * T-3553: who is speaking now, and how loud: { speaker, level } while a clip sounds, else
+     * null. `speaker` is the person the clip speaks for (a stop's first host) or NARRATOR;
+     * `level` is 0..1 (VOICE), or null where the page cannot listen to the clip (no analyser,
+     * one that throws, or one that has heard nothing at all `deaf_s` into a clip that is
+     * playing), so the mouth keeps its own run of syllables. A clip held paused (a media key,
+     * a call, a play the browser refused), or waiting for data that has stopped arriving, is
+     * nobody's voice until it sounds again.
+     */
+    voice() {
+      if (!playing || el?.paused || starved) return null;
+      const speaker = keys.get(playing)?.speaker ?? NARRATOR;
+      if (!routed?.ear) return { speaker, level: null };
+      try {
+        routed.ear.getByteTimeDomainData(routed.samples);
+        // An ear that listens reads something other than rest within the clip's first moments.
+        if (!routed.heard && !(routed.heard = routed.samples.some(x => x !== 128))) return { speaker, level: el?.currentTime > VOICE.deaf_s ? null : 0 };
+        return { speaker, level: voiceLevel(routed.samples) };
+      } catch { return { speaker, level: null }; }
+    },
+    /** The part an outing now shows. Arriving at a new one with narration audible plays it,
+     *  or queues it behind a voice still speaking. Null (travelling) changes nothing. */
+    at(jaunt, part, id) {
+      if (!jaunt) { at = null; opening = null; stop(); return; }
+      if (part == null) return;
+      const key = slot(jaunt, part, id);
+      if (key === at && heard) return;
+      if (key !== at) { at = key; heard = false; }
+      if (part === 'opening') opening = key;
+      else if (opening && !opening.startsWith(`${jaunt.id}:`)) opening = null;
+      // Not decided yet when the clip is still being looked up (a jaunt's first Start: the index
+      // loads while the flight begins) or sound has not woken: the repaint that follows asks again.
+      if (!clipAt(key) || !speech()?.audible) return;
+      heard = true;
+      // The owner (2026-11-13): the narrator reads the title and Background, then the first host
+      // speaks. A flight shorter than the index's load lands before the opening could start, so
+      // the first stop plays the unheard opening first and its own voice after it.
+      const first = part === 'stop' && opening && clipAt(opening) ? opening : null;
+      if (playing) { if (playing !== key) { queued = key; changed(); } }
+      else if (first && start(first)) { queued = key; changed(); }
+      else start(key);
+    },
+    /** A Listen tap: stop this voice, or start it now (waking sound if it is off). */
+    toggle(jaunt, part, id) {
+      const key = slot(jaunt, part, id);
+      if (playing === key) { stop(); return Promise.resolve(false); }
+      prime();
+      return Promise.resolve(wake()).then(() => { if (playing) stop(); return start(key); });
+    },
+    /** Stop the voice; the visitor moving on (Next, Previous, End) also passes over an unheard opening. */
+    stop() { opening = null; stop(); },
+    end() { at = null; opening = null; stop(); },
+  };
+}

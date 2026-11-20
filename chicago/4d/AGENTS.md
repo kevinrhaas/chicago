@@ -203,6 +203,28 @@ participants"*.
   his sources, the unnamed as "likely" (reconstructed). This supersedes the rule that no
   individual is given a part in the fighting. **The fighting is still not staged in any scene.**
 
+**Owner request, 2026-11-14, verbatim** (thread "Stage 1812 jaunt events with people", T-3553): *"For the
+1812 jaunts would like you to place all the right people at the right scenes from history so we can witness
+the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch
+the event unfold, like the argument between la lime and kiznie, you should see the column coming down the
+shore and they can come from the distance and pass you, for the natives they can be in groups collected,
+laying down or kneeling in preparation for the attack"*; and his pick on a card the same day, for an audience
+of students: **"Build-up and aftermath"** (the lead-up is watched, then the fallen lie still; no blows, shots
+or blood shown).
+- A jaunt stop may stage its history with its people (`stage`, renderers/web/js/jaunt-stage.js): each castmate
+  their own carded figure, or an unnamed figure labelled as such. Where they stand, when they move and how they
+  hold themselves is reconstruction, declared under L-1812-staged-jaunts-3553.
+- **No blow, shot or blood is ever staged in a jaunt for students** (any jaunt without `audience: "adults"`).
+  The moment itself is left to the stop's text; the dead are shown only lying still afterwards. The owner,
+  2026-11-15, for the adults tellings of the 1812 battle and the Lalime killing: *"this one is targeted at
+  adults and shows everything incredibly graphically"*, *"We can alter some of these internal rules to
+  accomplish this goal"*. An adults jaunt (hidden until the visitor says in Settings they are 18 or over,
+  warned before it starts, never in a teacher's handout; shown to the visitor as "18+") may stage the fighting
+  from its accounts (L-1812-adult-jaunts), and the scalping of the dead (owner, 2026-11-15: *"Yes scalpings did
+  occur so we want to be honest about it"*), and their blood and wounds (`wound` beats, human-blood.js), but still
+  shows no child struck or wounded; other mutilation of the dead is told. Native men waiting before the attack are each their own card, the unnamed
+  graded "likely" as their card already says.
+
 The owner's 2026-10-18 transport request includes period-clothed drivers, riders,
 people standing near horses/carriages and walking streets at photographic quality.
 Later steering prioritizes existing attested, inferred or reconstructed people as
@@ -790,7 +812,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     corrupted it on five consecutive merges in one day. So expect to rebase, and **finish
     the PR you open inside your own run** rather than leaving it to be swept.
 - **Merging into `dev` is STAGE, not ship.** It publishes only the integration preview at
-  `chicago.polecat.live/4d/dev/` — noindex, banner-marked, `build.json` says
+  `dev.chicago.polecat.live/4d/dev/` (its own Pages site since 2026-11-13, kevinrhaas/chicago-dev)
+  — noindex, banner-marked, `build.json` says
   `tier: dev`. Production is untouched.
 - **Production moves ONLY when the owner dispatches `chicago-4d-promote-to-prod.yml`.**
   No schedule, no agent. `walk/` changes reach `main` by that dispatch and no other route.

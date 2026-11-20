@@ -24,7 +24,8 @@ OR, since T-2357, a WHOLE small frame house closed on every face from the kit:
                  boxed, bracketed eave and a hip or flat roof; the kit porch on the street
                  wall with its steps; one brick stack
     roof_covering optional: the roof's colour
-    (a block's `brackets: false`, T-1932, gives an outbuilding a plain boxed eave)
+    (a block's `brackets: false`, T-1932, gives an outbuilding a plain boxed eave; its
+    `open` sides, T-1935, stand on posts under a plate, with no wall, for an open shed)
     boundary     optional (T-3205): a `stone_coping_wall` on the street line, its kerb runs,
                  posts and openings (archetypes/k16_yard.py)
     yard         optional (T-3205): the front walk and service walk through those openings
@@ -443,6 +444,20 @@ def frame_house_errors(fh: dict) -> list[str]:
             out.append(f"{bid}: a later block names the side it stands against")
         sides = [w.get("side") for w in b.get("walls") or []]
         want = list(SIDES) if not against else [SIDES[(SIDES.index(against) + k) % 4] for k in (1, 2, 3)]
+        op = b.get("open")      # T-1935: sides left open on posts under a plate, walled by nothing
+        if op is not None:
+            if (b.get("roof") or {}).get("kind") != "gable":
+                out.append(f"{bid}: only a gabled block stands open on posts")
+            if not (isinstance(op, list) and op and all(x in want for x in op) and len(set(op)) == len(op)
+                    and len(op) < len(want)):
+                out.append(f"{bid}: open lists sides the block would wall, each once, and leaves one walled")
+            else:
+                want = [x for x in want if x not in op]
+            pp = b.get("post_pitch_m")
+            if pp is not None and not (_num(pp) and 1.5 <= pp <= 4.0):
+                out.append(f"{bid}: post_pitch_m (the most an open side's plate spans between posts) must lie in 1.5-4.0 m")
+        elif "post_pitch_m" in b:
+            out.append(f"{bid}: post_pitch_m belongs to a block with open sides")
         if sides != want:
             out.append(f"{bid}: walls must run {', '.join(want)} in that order, not {', '.join(map(str, sides))}")
     po = fh.get("porch")
@@ -464,6 +479,20 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    for k, c in enumerate(fh.get("chimneys") or []):     # T-3566: a house of several stacks
+        if not all(_num(c.get(x)) for x in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
+            out.append(f"chimneys[{k}] needs u_m, v_m, width_m, depth_m and above_ridge_m")
+        if "block" in c and c["block"] not in ids:
+            out.append(f"chimneys[{k}]: block names no block of this house")
+    for b in blocks:     # T-3566: louvred blinds beside a window
+        for w in b.get("walls") or []:
+            for x in w.get("windows") or []:
+                sh = x.get("shutters")
+                if sh is not None and not (_num(sh.get("width_m")) and 0.2 <= sh["width_m"] <= 0.8
+                                           and _num(sh.get("louvre_m")) and 0.04 <= sh["louvre_m"] <= 0.12
+                                           and set(sh) <= {"width_m", "louvre_m", "frame_m"}):
+                    out.append(f"{b.get('id')}.{w.get('side')}: shutters need width_m 0.2-0.8 and louvre_m 0.04-0.12 "
+                               "(frame_m optional)")
     out += _frame_upper_errors(fh)
     return out
 

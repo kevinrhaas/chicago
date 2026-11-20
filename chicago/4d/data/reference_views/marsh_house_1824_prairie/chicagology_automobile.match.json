@@ -2,16 +2,16 @@
   "structure_id": "marsh_house_1824_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/marsh_house_1824_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8f4b0524f399f95c2bf818427d6929c5c6b4c38ea111089a5efaebb0d40b5094",
+  "glb_sha256": "c50e58a26b74911e4e60c2cc8f9aefe60df72e30f2e0195d9ad84ad35010bc81",
   "camera_sha256": "e77f48605f00878ec01bfab6e225d92ea34c01a141a18abe2a5955a0c78bec36",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/marsh_house_1824_prairie/chicagology_automobile-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "where the house stands against 1828: through T-3166's camera carried over by the 1904 scene's placements, 1824's front lands off the print's right edge and its brick south flank fills x 650-1100, where the print has the stone front's bay",
-      "status": "open",
-      "how": "the print puts the bay where this camera (fitted to 1824 alone) renders it, 5.8 m further from the street and 3.5 m further south than the 1911 sheet's traces place 1824 against 1828 (the gap between the two houses about 5 m, not the sheet's 8.8 m, and 1824's front about 7 m behind 1828's, not 1.6 m). Built to the sheet (the plan's documented basis); the print alone cannot say which house's plan or which fit is off, and moving a house off its sheet trace is a placement ruling this record does not make"
+      "status": "within tolerance",
+      "how": "the print puts the bay where this camera (fitted to 1824 alone) renders it, 5.8 m further from the street and 3.5 m further south than the 1911 sheet's traces place 1824 against 1828 (the gap between the two houses about 5 m, not the sheet's 8.8 m, and 1824's front about 7 m behind 1828's, not 1.6 m). Built to the sheet (the plan's documented basis); the print alone cannot say which house's plan or which fit is off, and moving a house off its sheet trace is a placement ruling this record does not make. T-1887 asked the second picture: the Glessner House Museum's partial view (glessner_partial.json, solved by T-3168 on 1828 alone, from the south-east) rendered with 1824 placed by the scene beside 1828 puts 1824's south flank, receding, at x 220-390 of that print, where the print shows the flank with its frieze at x 195-385; the same render with 1824 moved 5.8 m back and 3.5 m south, as this camera asks, turns 1824's front square to that camera where the print shows the flank. So the two pictures disagree about where 1824 stands, and the partial view sides with the 1911 sheet: kept on the sheet, a gap two pictures disagree about (T-3153)"
     },
     {
       "what": "the canted bay through two storeys: its place, width and heights; the front window (x 875-915) and the north cheek's (950-975), each storey's sills and heads (y 450/294, 225/95)",
@@ -40,13 +40,13 @@
     },
     {
       "what": "south of the bay, a light street-facing wall about 4 m across (x 580-770) to a cornice about 11 m up (y 40-90) carrying a frieze of small panels between brackets, the street trees' shadows on it",
-      "status": "open",
-      "how": "nothing of 1824 stands there through this camera: the sheet's main block starts the bay 0.3 m inside its south corner, so the build shows the south flank's brick obliquely at x 550-755. Whether the wall is 1824's own front run south of the bay (as 1828's print shows front wall south of its bay, which the sheet does not draw either) or its rear range's street face is the placement question above"
+      "status": "within tolerance",
+      "how": "nothing of 1824's front stands there through this camera: the sheet's main block starts the bay 0.3 m inside its south corner, so the build shows the south flank obliquely at x 550-755, light since T-1887 painted it, and since T-1887 under its frieze on paired brackets, as this print, the partial view and the Pomeroy photograph show the eaves. Still open: in this print the wall is blank across about 200 px, where the build's flank shows two columns of windows, and its frieze runs at about 45 degrees to the front (its foot falls about 37 px over x 585-785, so it meets the horizon near x -1490), neither level like a front nor converging on this camera's principal point like a flank; which wall of 1824 that is, the placement question above, the partial view does not settle. T-1887 (2026-11-13) reads it in both pictures that show it, and the two camera fits disagree about which wall it is, so it is within tolerance (T-3153: a gap two pictures or two camera fits disagree about). WHAT WAS READ. In this print, the foot of the band's shadow, traced every 10 px across x 590-780, runs from y 113 to 78 (slope 0.186), so it reaches the horizon (y 496) at x -1473, inside the -1380 to -1760 the four lines read before. Square to the fronts, a flank runs to the principal point and a wall at 45 degrees runs to the principal point less f. This camera's principal point at x 0 was put there by T-3166 (\"the principal point therefore stands at the print's left edge\") and was not measured: level fronts fix the horizon but not where along it the point stands. So this print alone reads a 45-degree wall only through an assumed point; with the point at about x -1470 the same line is the south flank. In the partial view (glessner_partial, solved by T-3168: principal point x -50, horizontal focal 836 px, yaw -80), 1828's porch, cornice and corner render within about 10 px. There the same band's foot, traced every 10 px across x 245-365, runs from y 323 to 283 and reaches that camera's horizon (y 489) between x -250 and -320. Its south flank runs to x -197 (at yaw -80) or about x -376 (at the yaw 1828's mansard curb gives, x 50-175 at y 48-75). A 45-degree south-east face would run to about x -1244 or -1955. So the solved camera reads the wall as 1824's south flank, the one the sheet places and the build stands. Rendered through that camera (carried into 1824's frame by the 1904 placements, eye u 34.66, v -19.07), the build's flank eave falls along the band within about 15-20 px. WINDOWS: the partial view shows openings in that flank's upper storey (about x 250-262 and 300-317, round-headed, with a third doubtful at the damaged edge x 365-385), where the build has its two columns (x 280 and 363). This print shows the stretch next to the bay blank under the band, with three dark arch-topped shapes at x 700-755, y 356-436 that may be openings or the trees' shadows. So the two pictures disagree on the flank's openings as well as on its direction, and the build keeps the sheet's flank with its windows (L-k01-1824-marsh-1887)."
     },
     {
       "what": "the flanks' finish: light, painted or stuccoed",
-      "status": "open",
-      "how": "K01 lays the flanks in brick (T-3167's open list)"
+      "status": "fixed",
+      "how": "T-1887 paints the flanks, the rear range and the stacks an opaque light stone colour over their brick (K01's wall_finish, opened to a stone-fronted house), the stone front left as cut, as the Pomeroy photograph shows the 1857 villa's walls and this print the south flank; through this camera the flank at x 650-760 now renders light where the build had laid buff brick"
     },
     {
       "what": "the roof, the cupola question and the upper storey's head",
@@ -74,5 +74,5 @@
       "how": "T-3206 adds the K14 walk, stands the entrance gate open and narrows the 5.45 m single side leaf no picture shows to a 1.6 m gate, with a cinder walk down the passage"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

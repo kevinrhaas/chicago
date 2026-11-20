@@ -152,8 +152,19 @@ def add_frontage(b, params, reduced=False):
         low,high=f['entry_y'];wall=params.width_m;front=entry['threshold_front_x']
         half=entry['recess_base_width_m']/2;mid=entry['centre_u']
         # One broad tread meets the recessed door, with only one front riser.
-        _paving(b,(f['walk_x'],low),(f['walk_x'],high),(front,high),(front,low),
-                f['walk_z'],f['walk_z'],f,TRIM)
+        start, start_z = street_end(f)
+        if start_z != f['walk_z']:
+            # The street end falls across the public margin to the walk and runs on under
+            # its edge, so the two meet flush (owner, 2026-11-13); the field stays level.
+            fall = max(front, start - f.get('street_end_run_m', start - outer))
+            _paving(b,(start,low),(start,high),(fall,high),(fall,low),
+                    start_z,f['walk_z'],f,TRIM)
+            _paving(b,(fall,low),(fall,high),(front,high),(front,low),
+                    f['walk_z'],f['walk_z'],f,TRIM)
+            _street_skirt(b,start,low,high,start_z,front,f['conf'])
+        else:
+            _paving(b,(f['walk_x'],low),(f['walk_x'],high),(front,high),(front,low),
+                    f['walk_z'],f['walk_z'],f,TRIM)
         _slab(b,[(entry['threshold_back_x'],mid-half),(front,mid-half),
                  (front,mid+half),(entry['threshold_back_x'],mid+half)],
               entry['sill_z'],entry['conf'],TRIM)
@@ -174,8 +185,11 @@ def add_frontage(b, params, reduced=False):
               f['door_z'],f['conf'],TRIM)
     p,q,inner_p,inner_q = _passage_mouth(params)
     low,high = f['porte_y']
-    _paving(b,(f['walk_x'],high),(f['walk_x'],low),q,p,
-            f['walk_z'],f['passage_front_z'],f,DRIVE)
+    start, start_z = street_end(f)
+    _paving(b,(start,high),(start,low),q,p,
+            start_z,f['passage_front_z'],f,DRIVE)
+    if start_z != f['walk_z']:
+        _street_skirt(b,start,low,high,start_z,p[0],f['conf'],DRIVE)
     # The threshold's inner half lies between the passage's own reveals; only the
     # half outside the facade needs its sides closed (T-2976).
     _paving(b,p,q,inner_q,inner_p,f['passage_front_z'],f['passage_front_z'],f,TRIM,edges=False)
@@ -183,6 +197,28 @@ def add_frontage(b, params, reduced=False):
     mid = ((p[0]+inner_p[0])/2, (p[1]+q[1])/2)
     for a in (p, q):
         _edge(b, a, (wall, a[1]), f['passage_front_z'], f['passage_front_z'], mid, f['conf'], TRIM)
+
+
+def street_end(f):
+    """Where the house's paving meets the public walk: (x, height).
+
+    Without the record's `street_end_z` the paving ends level at `walk_x`, as T-2202 laid it.
+    With it (owner, 2026-11-13: the front walk stood a few centimetres over the public walk at
+    its end, with a hard edge and grass showing under it), the end runs `street_end_tuck_m`
+    on under the public walk's edge at that height, just under the walk's drawn top, so the
+    renderer's walk band lies over the seam and the two read as one paved way. The front
+    walk falls to it over its last `street_end_run_m`; the carriage approach already falls.
+    """
+    z = f.get('street_end_z')
+    if z is None:
+        return f['walk_x'], f['walk_z']
+    return f['walk_x'] + f.get('street_end_tuck_m', 0.0), z
+
+
+def _street_skirt(b, x, low, high, z, inward_x, conf, material=TRIM):
+    """Close the paving's street end down into grade, so no ground shows under its lip."""
+    mid = (inward_x, (low + high) / 2)
+    _edge(b, (x, low), (x, high), z, z, mid, conf, material)
 
 
 def _passage_mouth(params):
@@ -221,9 +257,10 @@ def passage_ground(params):
     p,q,inner_p,inner_q = _passage_mouth(params)
     _,_,r,s = u['pts']
     low,high = f['porte_y']
-    zf, zc, zw = f['passage_front_z'], f['passage_court_z'], f['walk_z']
+    zf, zc = f['passage_front_z'], f['passage_court_z']
+    start, zw = street_end(f)
     pieces = [
-        ([(f['walk_x'],high),(f['walk_x'],low),q,p], [zw,zw,zf,zf]),
+        ([(start,high),(start,low),q,p], [zw,zw,zf,zf]),
         ([p,q,inner_q,inner_p], [zf]*4),
         ([inner_p,inner_q,r,s], [zf,zf,zc,zc]),
     ]
