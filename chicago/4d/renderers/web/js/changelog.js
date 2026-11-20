@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3171, ts: '2026-11-20T19:45:01.981Z', date: 'Nov 20, 2026, 1:45 PM CT', title: '1815 Prairie\'s pavilion gets its dentil band and stone shoulders', kind: 'improvement',
+    items: [
+      '1815 Prairie\'s front pavilion now carries its own dentil band under the attic, as the old photograph shows it, and the attic\'s sides stand on capped stone shoulders with the slate rising from them, instead of slate running all the way down.',
+    ] },
   { v: 3170, ts: '2026-11-20T17:30:24.610Z', date: 'Nov 20, 2026, 11:30 AM CT', title: '2112 Prairie, the Rothschild house, built from its map and photograph', kind: 'feature',
     items: [
       '2112 Prairie now stands as the Rothschild house instead of a draft box. It has a pale stone front with a canted stone bay at the south end, and a round-arched door at the head of a broad stoop between solid stone cheeks. Over two tall storeys and a high basement rises a slated mansard with two dormers, and a two-storey range stands behind.',
