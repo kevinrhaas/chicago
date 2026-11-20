@@ -3,7 +3,11 @@
   "title": "Chicago before the fire, 8 October 1871",
   "target_date": "1871-10-08",
   "terrain_epoch": "e1871_prefire",
-  "structure_ids": [],
+  "structure_ids": [
+    "chamber_of_commerce_1871",
+    "cook_county_court_house_1871",
+    "sherman_house_1871"
+  ],
   "lighting": {
     "local_time": "16:00",
     "note": "A reconstructed afternoon viewpoint before the fire: 16:00 local mean solar time. Sun position follows the date and datum; weather, visibility and surface colours are visual reconstructions, not an observation of that hour. The analytic sky uses a declared 6x presentation exposure, shared by its environment fill and sampled haze, to keep this afternoon legible at the renderer’s fixed camera exposure. This is a reconstruction grade, not measured 1871 sky radiance.",

@@ -1,0 +1,26 @@
+{
+ "structure_id": "chamber_of_commerce_1871",
+ "source_id": "nypl_carbutt_140_chamber_of_commerce",
+ "photo": "../../sources/assets/landmarks_1871_t3688/carbutt_140_chamber_of_commerce_left.jpg",
+ "image_px": [
+  1368,
+  1360
+ ],
+ "principal_px": [
+  684.0,
+  852.0
+ ],
+ "focal_px": 1636.7,
+ "eye": [
+  -14.921,
+  125.75,
+  2.031
+ ],
+ "yaw_deg": 153.628,
+ "solve": "Solved by T-3688 (2026-11-19) on the left half of Carbutt's card (1368 x 1360 px), in the footprint frame (u east from the south-west corner, v north; the Washington Street front at v 55.17). A level camera (the walls' verticals are vertical in the print). READ OFF THE PRINT: the front's two corners at the belt under the hall storey, east (540, 701) and west (1100, 690); the sills of the four outer hall windows at (597, 683), (668, 683), (941, 668) and (1022, 666); the LaSalle side's far end at the belt, (1268, 770). The horizon is held at y 852, where LaSalle Street's carriages vanish. FITTED, least squares: eye u -14.92, v 125.75, 2.03 m, heading 153.63 degrees, focal 1636.7 px; 8.3 px rms, the largest residual 15 px at the side's far end (its corner is read under a telegraph pole). So the camera stands in the Court House square about 70 m north of the front and 15 m west of the building's west line, at a person's height. THE SCALE is the front's 93 feet (Chicago Illustrated). Heights were then read through it: the main cornice's crown at y 402 at the west corner puts the wall head about 24 m over the street, the hall windows' heads about 10 m over the belt; the record's storeys were set to them. LIGHT: the north front and the west side both lit, the cornice's shadow short on both: a summer evening's sun from the west-north-west.",
+ "sun_uvy": [
+  -0.7,
+  0.5,
+  0.6
+ ]
+}
