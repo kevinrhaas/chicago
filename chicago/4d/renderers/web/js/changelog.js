@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3155, ts: '2026-11-20T02:43:25.135Z', date: 'Nov 19, 2026, 8:43 PM CT', title: '1871\'s streets carry their 1871 names, meet cleanly and curve smoothly', kind: 'improvement',
+    items: [
+      'Downtown and the near North and West Sides now carry the names the 1871 directory and the 1870 map use: Fifth Avenue for Wells, Market, Griswold, Third and Fourth Avenues, Sherman, Pine, Cass, Michigan Street, Indiana Street and the rest.',
+      'The platted downtown grid sits on its surveyed lines, and the streets beyond meet it at real junctions instead of stopping short or running in pairs.',
+      'Clybourn, Milwaukee, Blue Island, Ogden and North Clark bend on smooth curves, with their plank walks following the curve and wrapping each street corner.',
+      'The THEN line names where you stand: "State and Madison streets" at a corner, or "Clark Street, between Washington and Randolph" along a block.',
+    ] },
   { v: 3154, ts: '2026-11-20T02:18:23.091Z', date: 'Nov 19, 2026, 8:18 PM CT', title: 'Play a part: three new jaunts where your choices change the story', kind: 'feature',
     items: [
       '1812: be a young runner at Fort Dearborn in the week the order to leave arrives.',
