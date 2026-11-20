@@ -1,0 +1,121 @@
+== title @be4381f6
+Noticias antes del desayuno
+
+== premise @37072b19
+Lee los dos periódicos del pueblo antes del desayuno, distingue una noticia de un anuncio y guarda un recorte útil.
+
+== opening @433960bf
+PASEO: NOTICIAS ANTES DEL DESAYUNO. Amanecer del 1 de julio de 1835. Este verano Chicago imprime dos periódicos semanales, uno de ellos con apenas tres semanas de vida. El cólera ha estado en el estado, y todo el mundo quiere saber qué tan cerca está; los periódicos, sin embargo, también quieren venderte cosas. Aprender a distinguir lo uno de lo otro es la habilidad más valiosa que puede adquirir un recién llegado.
+
+Elige tu pregunta, cabalga desde el Sauganash hasta las dos imprentas, decide qué columnas informan y cuáles venden, y lleva un recorte al desayuno en la Tremont House.
+
+== stop question @b5011c3a
+Comienza en el Sauganash, la casa blanca de dos pisos con postigos azul brillante que recordaba Juliette Kinzie; el Democrat del 10 de junio informó que había sido reparada, acondicionada y amueblada con esmero. Los dos periódicos se imprimen a un corto trayecto a caballo al este, junto al río. Antes de que el pueblo tuviera periódico, las noticias llegaban con el correo, "a menudo irregular y muy retrasado", y alguien las leía en voz alta parado sobre "un cajón de géneros". Ahora puedes leerlas tú mismo.
+
+== narrative question @82100dbf
+Elige la pregunta que esperas que respondan los periódicos.
+
+== label question cholera @0d3600da
+¿Está cerca el cólera?
+
+== consequence question cholera @2b20c127
+Leerás buscando cualquier noticia de la epidemia.
+
+== label question today @e8721abd
+¿Qué hay de nuevo hoy en el pueblo?
+
+== consequence question today @1ffb3255
+Leerás buscando cualquier cosa programada para hoy.
+
+== stop democrat @6651872c
+John Calhoun imprimía el Chicago Democrat en esta esquina desde 1833, aunque para el 20 de mayo su oficina estaba encima de la ferretería de Jones y King, en South Water Street. El número del 24 de junio, el más reciente antes de hoy, reúne informes sobre el cólera de Alton y Springfield, admite que no puede rastrear un rumor de Ottawa y declara que Chicago está excepcionalmente sano.
+
+== narrative democrat @c3bbfdd1
+¿Esto es una noticia, o un anuncio?
+
+== label democrat report @06f7d115
+Considéralo noticia
+
+== consequence democrat report @99a35275
+Lo archivas con las noticias.
+
+== label democrat advert @0d15e2cb
+Considéralo anuncio
+
+== consequence democrat advert @45428aaf
+Lo archivas con los avisos comerciales.
+
+== stop american @1f44b400
+Cerca del puente levadizo, el Chicago American de T. O. Davis tiene tres semanas de vida. Su número del 27 de junio trae el Cholera Elixir de Frederick Thomas, el Fire King's Specific, ofrecido como preventivo y cura segura de la enfermedad maligna, en un aviso fechado el 24 de junio, el mismo día en que el Democrat imprimió su párrafo.
+
+== narrative american @c3bbfdd1
+¿Esto es una noticia, o un anuncio?
+
+== label american report @06f7d115
+Considéralo noticia
+
+== consequence american report @99a35275
+Lo archivas con las noticias.
+
+== label american advert @0d15e2cb
+Considéralo anuncio
+
+== consequence american advert @45428aaf
+Lo archivas con los avisos comerciales.
+
+== stop tremont @9f66db8f
+Desayuno en la Tremont House, el edificio de madera de Alanson Sweet de 1833 en Lake y Dearborn, atendido desde 1834 por Ira Couch. Moses y Kirkland lo llaman "el núcleo de la actual Tremont House": su sucesora de ladrillo de 1850 se consideró tan "absurdamente grande" que la gente la apodó la Locura de Couch. La tercera página del Democrat anuncia una nueva casa de subastas en South Water Street, con su primera venta pública programada para el 1 de julio, que es hoy.
+
+== narrative tremont @7a568077
+Elige un recorte para llevarte contigo.
+
+== label tremont clip-report @b2851f34
+Recorta el párrafo del Democrat sobre el cólera
+
+== consequence tremont clip-report @15dd34c7
+El párrafo del Democrat entra en tu bolsillo.
+
+== label tremont clip-elixir @7a4fa9ff
+Recorta el aviso del Cholera Elixir
+
+== consequence tremont clip-elixir @1fc5d605
+El aviso del elixir entra en tu bolsillo.
+
+== label tremont clip-auction @5fe9abb5
+Recorta el aviso de la subasta
+
+== consequence tremont clip-auction @7fdedaa6
+El aviso de la subasta entra en tu bolsillo.
+
+== leg 0 @58a5e4d5
+Cabalga al este con tu pregunta en mente.
+
+== note 0 @e4633cf5
+Al este desde la bifurcación del río, por la orilla sur, hasta la esquina de Clark Street.
+
+== note 1 @de53166e
+Una cuadra al este por South Water Street, hacia el puente levadizo de Dearborn Street.
+
+== note 2 @d0a5812f
+Desde cerca del puente levadizo, una cuadra al sur hasta la esquina de Lake y Dearborn.
+
+== ending cholera-answered @42a2375f
+Preguntaste si el cólera estaba cerca y te llevas una noticia en lugar de una promesa: novedades sopesadas de otros pueblos, un rumor que no se pudo rastrear y la garantía del editor de que Chicago está sano.
+
+== ending sale-today @18242339
+Preguntaste qué había de nuevo hoy y te llevas una venta: la primera de una sala de subastas, en South Water Street, esta misma mañana. Qué se venderá, el aviso lo deja en manos de quien traiga la mercancía.
+
+== ending one-fooled-you @0bb8a94d
+Uno de los dos avisos te engañó, y eso también vale la pena saberlo. El Democrat identificó los periódicos de donde venían sus noticias del cólera, mientras que el aviso del elixir lo firmó, lo fechó y lo vendió el boticario, así que vuelve a leerlos durante el desayuno.
+
+== ending cure-kept @c23245fa
+Te quedaste con el anuncio. Promete una cura segura, pero una promesa es todo lo que ofrece: firmada por el vendedor, sin que ningún editor la informe. Es algo útil de reconocer, y te lo llevas.
+
+== ending a-useful-clipping @6fbece60
+Dos periódicos comparados antes del desayuno y un recorte en tu bolsillo, y la lección de la mañana viaja con él: una noticia identifica de dónde vino su información, mientras que un anuncio identifica quién vende.
+
+== keepsake title @abc5b752
+Un recorte útil
+
+== keepsake text @1a8cf350
+Un recorte ficticio de una mañana de lectura de los dos periódicos semanales de Chicago, guardado por lo que te enseñó.

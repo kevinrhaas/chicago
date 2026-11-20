@@ -2472,6 +2472,13 @@
       "measured": "2026-11-18",
       "finding": "Reproduces: two bare runs in an isolated 15-file Git index fixture advanced only data/traces/harbor_1869/metric_trace.geojson mtime with identical bytes. Perturbing its first coordinate by 1.0 m made --check exit 1; a bare run restored the exact indexed output. --check alone wrote nothing. Separately measured --check --audit-svg optional-audit.svg created exactly the requested SVG and did not rewrite the metric trace. After removing that explicit artifact, all 15 fixture files matched their index. T-3654.",
       "placed": "Only metric_trace.geojson is the default derived output. The inspected image_trace.json, metric controls and SHA-verified source raster are authored evidence inputs; optional SVG output is caller-selected. Place the metric writer after any future source-trace/control writer and before absolute-registration consumers, which are not yet adopted into the scene. A full-manifest ordering/prove pass was not run here, so no conflict-resolving manifest step is appended blindly."
+    },
+    "jaunts_es.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: hashed the 249 overlay files under data/sidecars/{1812,1835,1904}/jaunts/es/, ran the bare writer twice, hashes identical. Appended a byte to 1835/a-decent-coat.json: --check exited 1 naming it; the bare writer restored the identical bytes (T-3681).",
+      "placed": "after compile_jaunts.py (it reads the same data/jaunts/*.json the compiler does, and the words files in data/jaunts/_es/); writes only jaunts/es/ under each scene's sidecars, which compile_jaunts leaves alone (T-3681)"
     }
   }
 }

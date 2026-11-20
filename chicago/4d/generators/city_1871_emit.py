@@ -35,7 +35,43 @@ EPOCH = ROOT / "data/terrain/epochs/e1871_prefire"
 GENERATOR = "generators/city_1871_emit.py"
 SOURCES = ["mitchell_1870_chicago_map", "ruger_1868_chicago_panorama",
            "chicago_public_works_1871", "edwards_chicago_directory_1871",
-           "chicago_evening_post_1869_city_limits"]
+           "chicago_evening_post_1869_city_limits",
+           "colbert_chamberlin_1871_great_conflagration"]
+# T-3683: the city was built of wood. Colbert and Chamberlin (1871, pp. 146-147)
+# count 35,654 wooden buildings to 3,712 of brick and stone in spring 1868, and
+# call the West Side's burned blocks "nearly all frame" (p. 286); the costly
+# masonry stood in the South Division's business centre. Each masonry form
+# drawn outside the centre is turned to its frame counterpart with the
+# district's share below. The recipe draws are unchanged, so every footprint,
+# height draw and yard keeps its place; only the building type changes.
+FRAME_OF = {"brick_cottage": "timber_cottage", "brick_rowhouse": "timber_house",
+            "brick_mansard": "timber_hip", "villa_hip": "timber_hip",
+            "commercial_2": "frame_shop", "commercial_3": "frame_shop",
+            "warehouse": "industrial_shed", "factory": "industrial_shed"}
+FRAME_SHARE = {"central_business": 0., "south_residential": .45, "river_industry": .75,
+               "north_residential": .85, "mixed_neighborhood": .8,
+               "west_residential": .92, "outer_settlement": 1.}
+# T-3686: the business district and the shop streets built wall to wall. The
+# pre-fire stereographs (Carbutt's Lake Street east from Clark, Clark Street
+# north from Washington, Booksellers' Row on State Street; NYPL Dennis
+# collection) and Ruger's 1868 view show continuous rows of three- to
+# five-storey fronts with shared party walls, and no side yards. A face of a
+# block on one of these streets, or any face in the business centre, is laid
+# out as an attached row; residential faces keep their yards and side gaps.
+ATTACHED_STREETS = ("lake_street", "randolph_street", "clark_street", "wells_street",
+                    "madison_street", "canal_street", "milwaukee_avenue", "north_clark_street")
+# Front bays of each commercial form (kit-recipe.json). A front is sized to
+# 2.2-3.3 m a bay, so a window is never stretched into a shop-wide opening.
+HOUSE_KITS = ("timber_cottage","timber_house","timber_hip","brick_cottage","brick_rowhouse","brick_mansard","villa_hip")
+FRONT_BAYS = {"commercial_2": 3, "commercial_3": 3, "commercial_4": 4, "commercial_5": 5,
+              "commercial_6": 6, "frame_shop": 3}
+# 20 to 80 ft frontages. Storeys: three to five downtown, two or three on the strips.
+ROW_KITS = {"central_business": (("commercial_3", .30), ("commercial_4", .38), ("commercial_5", .29), ("commercial_6", .03)),
+            "strip": (("commercial_2", .55), ("commercial_3", .45))}
+# Face material of an attached front: brick, the cream "Athens marble" (Lemont
+# and Joliet limestone), painted brick, or a frame store where T-3683 turns one.
+ROW_FACADES = {"central_business": (("brick", .42), ("stone", .36), ("painted", .22)),
+               "strip": (("brick", .55), ("painted", .30), ("stone", .15))}
 BOUNDS = (-7300., 3500., -7100., 4350.)
 GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.34
 # T-3685: the street walks are raised plank walks, a step above the roadway
@@ -91,6 +127,16 @@ def segdist(p, a, b):
 
 def distance(p, pts):
     return min(segdist(p, a, b) for a, b in zip(pts, pts[1:]))
+
+
+def extent_uv(b):
+    """A footprint's extent along the grid's (u, v) axes.
+
+    T-3686: a front on a north-south street is turned a quarter, so its
+    frontage (width_m) runs along v and its depth along u.
+    """
+    turned = abs(((b["bearing_deg"]+math.degrees(ANGLE)) % 180)-90) < 1
+    return (b["depth_m"], b["width_m"]) if turned else (b["width_m"], b["depth_m"])
 
 
 def intersection(a, b, c, d):
@@ -1206,16 +1252,18 @@ class City:
         out=[];rng=self.rng
         occupied=collections.defaultdict(list)
         self.placement_overlap_omissions=0
-        def place(rec):
+        def place(rec,probe=False):
             # Mapped frontage rows can shift within their generic blocks. Keep
             # the first valid parcel, and leave space where two resulting lots
             # would otherwise overlap; never move a mapped street to fit them.
+            # Attached fronts share a party wall: touching is not overlapping.
             u,v=uv(rec["e"],rec["n"]);w,d=extents(rec)
             ix,iy=math.floor(u/100),math.floor(v/100)
             for x in range(ix-1,ix+2):
                 for y in range(iy-1,iy+2):
                     if any(abs(u-ou)<(w+ow)/2-.02 and abs(v-ov)<(d+od)/2-.02 for ou,ov,ow,od in occupied[x,y]):
-                        self.placement_overlap_omissions+=1
+                        # A probe tries a shallower front next; it is not an omission.
+                        if not probe:self.placement_overlap_omissions+=1
                         return False
             occupied[ix,iy].append((u,v,w,d));out.append(rec)
             return True
@@ -1227,9 +1275,92 @@ class City:
             "west_residential":(.72,["timber_cottage","timber_cottage","timber_house","timber_hip","brick_cottage","commercial_2"]),
             "mixed_neighborhood":(.78,["timber_house","timber_cottage","brick_rowhouse","commercial_2","commercial_3","stable"]),
             "outer_settlement":(.19,["timber_cottage","timber_house","timber_hip","industrial_shed","stable"])}
-        heights={"timber_cottage":3.3,"timber_house":6.3,"timber_hip":5.8,"brick_cottage":3.7,"brick_rowhouse":7.3,"brick_mansard":7.6,"villa_hip":7.4,"commercial_2":7.5,"commercial_3":11.2,"commercial_4":14.7,"commercial_5":18.3,"commercial_6":21.6,"warehouse":12.1,"factory":10.5,"industrial_shed":4.6,"stable":4.4}
+        heights={"timber_cottage":3.3,"timber_house":6.3,"timber_hip":5.8,"brick_cottage":3.7,"brick_rowhouse":7.3,"brick_mansard":7.6,"villa_hip":7.4,"commercial_2":7.5,"commercial_3":11.2,"commercial_4":14.7,"commercial_5":18.3,"commercial_6":21.6,"warehouse":12.1,"factory":10.5,"industrial_shed":4.6,"stable":4.4,"frame_shop":7.0}
+        # T-3686: the street a block face fronts, the generic grid's own
+        # half-widths, and the walk edge, all read from the generated network
+        # so attached rows follow whatever line the street takes.
+        generic={}
+        for s in self.streets:
+            axis=s.get("grid_axis")
+            if axis and len(s.get("points",[]))>=2:
+                p=uv(*s["points"][0]);generic[axis,round(p[1] if axis=="ew" else p[0],1)]=s
+        def fronting(axis,u,v):
+            """(street record or None, front line, walk-edge offset) for a face."""
+            best=None
+            for r,low,high in self.parallel[axis]:
+                along=u if axis=="ew" else v
+                if not low<=along<=high:continue
+                pts=[uv(*p) for p in r["points"]]
+                k,j=(0,1) if axis=="ew" else (1,0)
+                for a,b in zip(pts,pts[1:]):
+                    if min(a[k],b[k])<=along<=max(a[k],b[k]) and abs(b[k]-a[k])>.01:
+                        at=a[j]+(b[j]-a[j])*(along-a[k])/(b[k]-a[k])
+                        if abs(at-(v if axis=="ew" else u))<45 and (best is None or abs(at-(v if axis=="ew" else u))<best[0]):
+                            best=(abs(at-(v if axis=="ew" else u)),r,at)
+            if best:
+                _,r,at=best
+                line,edge=(self.row_frontage(u,v) if axis=="ew" else self.column_frontage(u,v))
+                # lot_clear wants a front strictly outside the corridor's margin.
+                return r,line,edge+.05,r.get("width_m",14)/2+r.get("walk_m",2.3)
+            s=generic.get((axis,round(v if axis=="ew" else u,1)))
+            if s:
+                walk=s.get("width_m",14)/2+s.get("walk_m",2.3)
+                return None,(v if axis=="ew" else u),walk+.3,walk
+            line,edge=(self.row_frontage(u,v) if axis=="ew" else self.column_frontage(u,v))
+            return None,line,edge,edge-.3
+        def strip(r):
+            if r is None:return False
+            keys={str(r.get(k,"")).lower().replace(" ","_") for k in ("id","source_id","street_id","name")}
+            return any(k==s or k.startswith(s) for k in keys for s in ATTACHED_STREETS)
+        def front_at(axis,street,lo,hi,sign):
+            """The building line over a span: the furthest of its ends and middle.
+
+            A slanting or bending street is closer at one end of a lot; the
+            front stands clear of the corridor along its whole width.
+            """
+            reads=[fronting(axis,x,street) if axis=="ew" else fronting(axis,street,x) for x in (lo,(lo+hi)/2,hi)]
+            fronts=[r[1]+sign*r[2] for r in reads]
+            r=reads[1]
+            return (max(fronts) if sign>0 else min(fronts)),r[2]-r[3]+abs((max(fronts) if sign>0 else min(fronts))-(r[1]+sign*r[2]))
+        def settle(build,front,sign):
+            """Push a front back off a corridor it still grazes; None if it cannot stand."""
+            for push in (0.,.3,.8,1.5,2.5):
+                pts,rec=build(front+sign*push)
+                if self.lot_clear(pts):
+                    rec["walk_gap_m"]=round(max(0.,rec["walk_gap_m"]+push),2)
+                    return rec
+            return None
+        def pick(table,draw):
+            x=draw.random()
+            for key,share in table:
+                x-=share
+                if x<0:return key
+            return table[-1][0]
+        def fronts(length,kind,draw,district,key):
+            """Frontages that fill `length` exactly: party wall to party wall.
+
+            A front is sized to its bays (2.2-3.3 m each); now and then two or
+            three identical fronts make one block, as Booksellers' Row did.
+            """
+            lots=[];total=0.
+            while total<length-.5:
+                kit=pick(ROW_KITS[kind],draw)
+                facade=pick(ROW_FACADES[kind],draw)
+                if kit in FRAME_OF and random.Random(f"1871-fabric-{key}-{len(lots)}").random()<FRAME_SHARE[district]:
+                    kit=FRAME_OF[kit];facade="frame"
+                width=FRONT_BAYS[kit]*draw.uniform(2.2,3.3)
+                eave=heights[kit]*draw.uniform(.95,1.05);tone=draw.randrange(12)
+                for _ in range(1+(draw.random()<.22)+(draw.random()<.07)):
+                    if lots and total+width>length+width/2:break
+                    lots.append([width,kit,facade,eave,tone]);total+=width
+                else:continue
+                break
+            if not lots:return []
+            scale=length/total
+            for lot in lots:lot[0]*=scale
+            return lots
         # Platted frontage first: a generic lattice lot never takes its place.
-        self.core_lots(place,recipes,heights)
+        self.core_lots(place,recipes,heights,fronts,strip)
         self.curve_lots(place,recipes,heights)
         for bi,(u0,u1) in enumerate(zip(us,us[1:])):
             for bj,(v0,v1) in enumerate(zip(vs,vs[1:])):
@@ -1240,15 +1371,70 @@ class City:
                 district=self.district(e,n);density,kits=recipes[district]
                 commercial=district=="central_business"; industrial=district=="river_industry"
                 lot=14 if commercial else 23 if industrial else 17.5 if district=="south_residential" else 15.5
+                um,vm=(u0+u1)/2,(v0+v1)/2
+                faces={"w":fronting("ns",u0,vm),"e":fronting("ns",u1,vm),"s":fronting("ew",um,v0),"n":fronting("ew",um,v1)}
+                # The shop streets ran out into houses and yards: rows stop about
+                # 2.6 km (the city's built shopping reach) from State and Madison.
+                near=math.hypot(um,vm)<2600
+                attached={k:district=="central_business" or (near and strip(f[0]) and district!="outer_settlement") for k,f in faces.items()}
+                kind="central_business" if commercial else "strip"
+                draw=random.Random(f"1871-row-{bi}-{bj}")
+                # Fronts on the north-south faces run the block's full length,
+                # corner to corner; the east-west rows then start at their backs.
+                back={"w":None,"e":None}
+                w_line=front_at("ns",u0,v0,v1,1)[0];e_line=front_at("ns",u1,v0,v1,-1)[0]
+                s_line=front_at("ew",v0,w_line,e_line,1)[0];n_line=front_at("ew",v1,w_line,e_line,-1)[0]
+                width_u=e_line-w_line
+                for side in ("w","e"):
+                    if not attached[side] or n_line-s_line<16 or width_u<30:continue
+                    sign=1 if side=="w" else -1
+                    reach=min(36.,width_u/2-1 if attached["w"] and attached["e"] else width_u-20)
+                    depth_draw=(draw.uniform(.66,1.) if kind=="strip" else draw.uniform(.72,1.))
+                    v=s_line;deepest=0.
+                    for j,(width,kit,facade,eave,tone) in enumerate(fronts(n_line-s_line,kind,draw,district,f"{bi}-{bj}-{side}")):
+                        vc=v+width/2;v+=width
+                        front,gap=front_at("ns",u0 if side=="w" else u1,vc-width/2,vc+width/2,sign)
+                        depth=max(10.,min(reach,(draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26))*depth_draw))
+                        def build(front,vc=vc,width=width,depth=depth,kit=kit,facade=facade,eave=eave,tone=tone,j=j,gap=gap):
+                            uc=front+sign*depth/2;ee,nn=en(uc,vc)
+                            return ([en(uc+du,vc+dv) for du,dv in [(-depth/2,-width/2),(depth/2,-width/2),(depth/2,width/2),(-depth/2,width/2),(0,0)]],
+                                    {"id":f"context1871_{bi:02}_{bj:02}_{side}_{j:02}","e":round(ee,2),"n":round(nn,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round((270 if side=="w" else 90)-math.degrees(ANGLE),2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":gap})
+                        rec=settle(build,front,sign)
+                        if rec and place(rec):deepest=max(deepest,depth+abs(uv(rec["e"],rec["n"])[0]-(front+sign*depth/2)))
+                    if deepest:back[side]=(w_line if side=="w" else e_line)+sign*deepest
+                left=back["w"] if back["w"] is not None else (w_line if attached["s"] or attached["n"] else None)
+                right=back["e"] if back["e"] is not None else (e_line if attached["s"] or attached["n"] else None)
+                for side,key in ((0,"s"),(1,"n")):
+                    if not attached[key] or left is None or right is None or right-left<6:continue
+                    sign=1 if side==0 else -1
+                    reach=(n_line-s_line)/2-1 if attached["s"] and attached["n"] else n_line-s_line-24
+                    u=left
+                    for j,(width,kit,facade,eave,tone) in enumerate(fronts(right-left,kind,draw,district,f"{bi}-{bj}-{key}")):
+                        uc=u+width/2;u+=width
+                        front,gap=front_at("ew",v0 if side==0 else v1,uc-width/2,uc+width/2,sign)
+                        depth=max(10.,min(reach,draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26)))
+                        def build(front,uc=uc,width=width,depth=depth,kit=kit,facade=facade,eave=eave,tone=tone,j=j,gap=gap):
+                            vc=front+sign*depth/2;ee,nn=en(uc,vc)
+                            return ([en(uc+du,vc+dv) for du,dv in [(-width/2,-depth/2),(width/2,-depth/2),(width/2,depth/2),(-width/2,depth/2),(0,0)]],
+                                    {"id":f"context1871_{bi:02}_{bj:02}_{side}_{j:02}","e":round(ee,2),"n":round(nn,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(-math.degrees(ANGLE)+(180 if side==0 else 0),2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":gap})
+                        rec=settle(build,front,sign)
+                        if rec:place(rec)
+                if commercial:continue
+                # Detached lots, as before, on the faces that keep their yards.
                 left,edge_l=self.column_frontage(u0,(v0+v1)/2)
                 right,edge_r=self.column_frontage(u1,(v0+v1)/2)
                 left=max(u0+14,left+edge_l+1);right=min(u1-14,right-edge_r-1)
+                if back["w"] is not None:left=max(left,back["w"]+1)
+                if back["e"] is not None:right=min(right,back["e"]-1)
                 if right-left<16:continue
                 count=max(1,int((right-left)/lot));pitch=(right-left)/count
                 for side in (0,1):
+                    if attached["s" if side==0 else "n"]:continue
                     for j in range(count):
                         if rng.random()>density:continue
                         kit=rng.choice(kits)
+                        if kit in FRAME_OF and random.Random(f"1871-fabric-{bi}-{bj}-{side}-{j}").random()<FRAME_SHARE[district]:
+                            kit=FRAME_OF[kit]
                         width=pitch*rng.uniform(.65,.93)
                         depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
                         setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)
@@ -1259,6 +1445,11 @@ class City:
                         if not self.lot_clear(pts):continue
                         e,n=en(u,v);h=heights[kit]*rng.uniform(.91,1.09)
                         rec={"id":f"context1871_{bi:02}_{bj:02}_{side}_{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(-math.degrees(ANGLE)+(180 if side==0 else 0),2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE}
+                        if kit in HOUSE_KITS:
+                            # T-3686: the depth of the front yard, house front to the
+                            # walk's outer edge, where a fence and its gate stand.
+                            yard=setback+edge-fronting("ew",u,v0 if side==0 else v1)[3]
+                            if yard>=1.5:rec["yard_m"]=round(yard,1)
                         if not place(rec):continue
                         # Yard dependencies follow their parent parcel, never a later
                         # named outbuilding or an independent invented address.
@@ -1267,7 +1458,7 @@ class City:
                             v2=v+depth/2+7 if side==0 else v-depth/2-7
                             p2=[en(u+du,v2+dv) for du,dv in [(-w2/2,-3),(w2/2,-3),(w2/2,3),(-w2/2,3)]]
                             if abs(v2-(v0+v1)/2)>5 and self.lot_clear(p2):
-                                e2,n2=en(u,v2);place(dict(rec,id=rec["id"]+"_yard",e=round(e2,2),n=round(n2,2),width_m=round(w2,2),depth_m=d2,eave_m=round(rng.uniform(2.8,4.0),2),kit="stable"))
+                                e2,n2=en(u,v2);place(dict({k:v for k,v in rec.items() if k!="yard_m"},id=rec["id"]+"_yard",e=round(e2,2),n=round(n2,2),width_m=round(w2,2),depth_m=d2,eave_m=round(rng.uniform(2.8,4.0),2),kit="stable"))
         return out
 
     def curve_lots(self,place,recipes,heights):
@@ -1308,6 +1499,8 @@ class City:
                     (_,t0),(_,t1)=at(mid-width/2),at(mid+width/2)
                     if t0[0]*t1[0]+t0[1]*t1[1]<math.cos(math.radians(12)):continue
                     kit=rng.choice(kits)
+                    if kit in FRAME_OF and random.Random(f"1871-fabric-curve-{si}-{side}-{k}").random()<FRAME_SHARE[district]:
+                        kit=FRAME_OF[kit]
                     depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
                     setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)
                     back=edge+setback+depth/2
@@ -1318,13 +1511,15 @@ class City:
                     h=heights[kit]*rng.uniform(.91,1.09)
                     place({"id":f"context1871_curve_{si:04}_{'l' if side>0 else 'r'}_{k:03}","e":round(e,2),"n":round(n,2),"width_m":round(w,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE})
 
-    def core_lots(self,place,recipes,heights):
+    def core_lots(self,place,recipes,heights,fronts,strip):
         """T-3684: inside the platted city, lots front the streets themselves.
 
         Each straight block face of a grid-aligned street is divided into
         generic lots facing it, set back exactly as the lattice rows are; a
         corner keeps the first lot placed. Diagonal streets take no frontage
-        here (their neighbours' lots fill the blocks).
+        here (their neighbours' lots fill the blocks). Downtown, and on the shop
+        streets within the city's shopping reach, a face is one attached row
+        (T-3686): fronts party wall to party wall, built to the walk.
         """
         rng=random.Random(18711884)
         for si,street in enumerate(self.core):
@@ -1336,6 +1531,10 @@ class City:
                 elif abs(du)<=L*.07:axis="ns"
                 else:continue
                 for side in (-1,1):
+                    mid=(ua+du*.5,va+dv*.5);district=self.district(*en(*mid))
+                    if district=="central_business" or (math.hypot(*mid)<2600 and strip(street) and district!="outer_settlement"):
+                        self.core_row(place,street,si,gi,side,axis,(ua,va),(du,dv),L,edge,district,fronts)
+                        continue
                     s0=9.;k=0
                     while s0<L-9:
                         mid=(ua+du*(s0/L),va+dv*(s0/L))
@@ -1347,6 +1546,8 @@ class City:
                         s0+=width;k+=1
                         if rng.random()>density:continue
                         kit=rng.choice(kits)
+                        if kit in FRAME_OF and random.Random(f"1871-fabric-core-{si}-{gi}-{side}-{k}").random()<FRAME_SHARE[district]:
+                            kit=FRAME_OF[kit]
                         depth=rng.uniform(23,39) if commercial or industrial else rng.uniform(13,23)
                         setback=rng.uniform(0.8,2.5) if commercial else rng.uniform(3,9)
                         at=s0-width/2;c=(ua+du*at/L,va+dv*at/L)
@@ -1360,7 +1561,46 @@ class City:
                         pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
                         if not self.lot_clear(pts4):continue
                         e,n=en(u,v);h=heights[kit]*rng.uniform(.91,1.09)
-                        place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_{k:02}","e":round(e,2),"n":round(n,2),"width_m":round(width*.94,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE})
+                        rec={"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_{k:02}","e":round(e,2),"n":round(n,2),"width_m":round(width*.94,2),"depth_m":round(depth,2),"eave_m":round(h,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":rng.randrange(12),"district":district,"base_m":GRADE}
+                        # T-3686: a house's front yard, its front to the walk's outer edge.
+                        if kit in HOUSE_KITS:rec["yard_m"]=round(setback+5,1)
+                        place(rec)
+
+    def core_row(self,place,street,si,gi,side,axis,a,d,L,edge,district,fronts):
+        """T-3686 on a platted face: attached fronts fill the face from corner
+        to corner at the building line, with the gap to the walk paved
+        (walk_gap_m); a front a cross street's lot already holds is left out."""
+        (ua,va),(du,dv)=a,d
+        kind="central_business" if district=="central_business" else "strip"
+        draw=random.Random(f"1871-core-row-{si}-{gi}-{side}")
+        gap=edge+.05-street.get("width_m",14)/2-street.get("walk_m",2.3)
+        # The row runs from one cross street's building line to the next; the
+        # front stands just outside the corridor margin lot_clear keeps.
+        s0=edge+.05
+        if L-2*s0<16:return
+        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-2*s0,kind,draw,district,f"core-{si}-{gi}-{side}")):
+            at=s0+width/2;s0+=width
+            full=max(10.,draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26))
+            c=(ua+du*at/L,va+dv*at/L)
+            # A wider mapped corridor or a shallow block: set the front back a
+            # little, or build shallower, before leaving the lot empty.
+            for push in (0.,.3,.8,1.5,2.5):
+                for depth in dict.fromkeys((full,max(10.,full*.7),max(10.,full*.5),10.)):
+                    back=edge+.05+push+depth/2
+                    if axis=="ew":
+                        u,v=c[0],c[1]+side*back;eu,ev=width,depth
+                        bearing=-math.degrees(ANGLE)+(180 if side>0 else 0)
+                    else:
+                        u,v=c[0]+side*back,c[1];eu,ev=depth,width
+                        bearing=-math.degrees(ANGLE)+(-90 if side>0 else 90)
+                    pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
+                    if not self.lot_clear(pts4):continue
+                    # Backs meeting the row behind (a half block between two
+                    # platted streets) build shallower rather than leave a gap.
+                    e,n=en(u,v)
+                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(gap+push,2)},probe=True):break
+                else:continue
+                break
 
     def infrastructure(self):
         roads=Mesh("city1871");bridges=Mesh("city1871_bridge");rail=Mesh("city1871_rail")
@@ -1765,6 +2005,8 @@ def generate():
     names={"central_business":"Central business district","river_industry":"River warehouses and industrial yards","south_residential":"South Side residential streets","north_residential":"North Division mixed residential streets","west_residential":"West Division working neighborhoods","mixed_neighborhood":"Mixed shops and dwellings","outer_settlement":"Sparse outer settlement and platted streets"}
     stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"trees":len(trees),"street_segments":len(segments),"named_street_segments":sum(1 for x in segments if x.get("name")),"junctions":len(city.junctions),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
     doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":PLANK_Y,"crossing":CROSSING_Y,"bridge":DECK_Y,"quay":WALK_Y},"paving":{"rules":"data/context/1871/paving_1871.json","liberty":SURFACE_LIBERTY,"lengths_m":city.paving_lengths,"unlocated":city.paving_unlocated,"note":"T-3685. surface_basis on each segment: report_1871 = a stretch the Board of Public Works' 1871 report names as wooden-block paved; principal_thoroughfare = wood block drawn to make up the report's per-division wooden-block mileage, which it does not list by street; river_street = boulder pavement on the river streets, bounded by the report's lineal feet of boulders; unpaved = dirt. Walks are raised plank walks with a kerb board; crossings are planks laid across dirt streets."}}
+    # T-3686: where the fronts are built at full detail (a list the jaunt stops extend).
+    doc["detail_rings"]="context/1871/detail-rings.json"
     outputs={ROOT/"data/context/1871.json":encoded(doc),OUT/"streets.glb":roads.glb(digest),OUT/"bridges.glb":bridges.glb(digest),OUT/"rail.glb":rail.glb(digest)}
     outputs.update(terrain(city,digest))
     manifest={p.name:{"kind":"generated","generator":GENERATOR,"terrain_epoch":"e1871_prefire","inputs_sha256":digest,"bytes":len(content),"baked_ao":False} for p,content in outputs.items() if p.parent==ROOT/"assets/gltf"}

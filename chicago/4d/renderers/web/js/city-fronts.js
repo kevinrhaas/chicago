@@ -1,0 +1,424 @@
+/**
+ * city-fronts.js — T-3686: the 1871 city's fronts, and their full detail around
+ * the jaunt stops.
+ *
+ * Two halves, one look.
+ *
+ *  * The COLOUR of a front (`facadeTint`): brick, cream stone ("Athens marble",
+ *    Joliet and Lemont stone), painted brick or painted weatherboard. The cheap
+ *    instanced stand-in (city-context.js) and the detail built here wear the same
+ *    tint, so a front keeps its colour as it crosses the ring's edge.
+ *  * The DETAIL (`buildFronts`): within `radius_m` of a ring in
+ *    data/context/1871/detail-rings.json, each street front is built over its
+ *    stand-in from the kit's own wall textures (the 1835 brick and white-lead
+ *    clapboard, the 1904 Lemont limestone, the 1835 brick under paint) and a
+ *    parts atlas: cast-iron storefronts with plate glass and a door in every
+ *    shop, painted signboards and awnings, window openings with sills, hoods
+ *    and keystones, string courses, a bracketed cornice; houses get their door,
+ *    and where a front yard was laid out, a picket fence with a gate on the
+ *    1835 town's dimensions (gates.js). Proportions follow the 1904 kit: K10
+ *    cornices, K09 hoods and keystones, K06 sills, K07 doors and steps.
+ *
+ * Everything here is reconstructed (L-1871-city-baseline, Fronts): generic period fronts on
+ * generated lots, never a record of a particular building. Sign words are the
+ * trades legible in pre-fire street views, never a firm's name.
+ *
+ * Cost. The detail is merged per 100 m cell and per material (five draws a
+ * cell at most) and shown only within `show_m` of the camera; the stand-ins
+ * beneath keep drawing, so a hidden cell costs nothing but its memory.
+ */
+import * as THREE from 'three';
+import { gateBoxes } from './gates.js';
+
+/** Atlas rows of the kit's facade families (city_context_emit.py). */
+export const FAMILY_ROW = { brick: 0, timber: 1, stone: 2, weathered: 3 };
+/** Which atlas row a front's facade wears: painted brick is the stone row, tinted. */
+export const FACADE_ROW = { brick: 0, frame: 1, stone: 2, painted: 2 };
+
+// Reconstructed palettes (L-1871-city-baseline, Fronts). Multipliers over the atlas row.
+// Stone: the cream and buff of new-cut Athens marble and Joliet stone.
+const STONE_TINT = [[1.02, 1.01, .99], [1, .99, .95], [.98, .97, .95], [1.02, .99, .92], [.96, .95, .92], [1.01, .98, .9]];
+// Painted brick: stone colour, cream, buff, drab, grey, olive drab, brown.
+const PAINTED_TINT = [[1.08, 1.06, 1.02], [1.08, 1.03, .9], [1.02, .95, .8], [.9, .86, .76], [.9, .9, .9], [.86, .86, .74], [.78, .68, .58]];
+// Brick: red, brown and salmon kilns.
+const BRICK_TINT = [[1, 1, 1], [1.05, 1.02, .98], [.92, .88, .88], [1.04, .97, .9], [.88, .82, .8], [1.08, 1.06, 1.02]];
+// T-3683: a frame house's paint over the pale weatherboard: mostly white,
+// some buff, grey or drab, a few unpainted or barn red.
+export const FRAME_PAINT = [[.98, .97, .94], [.98, .97, .94], [.96, .95, .91], [.98, .97, .94], [.95, .94, .90],
+  [.97, .88, .70], [.83, .83, .81], [.80, .76, .64], [.76, .80, .72], [.62, .55, .45], [.66, .58, .48], [.72, .50, .40]];
+const AWNING_TINT = [[1, 1, 1], [1, .96, .9], [.86, .9, .84], [1, .92, .82]];
+
+export const jitterOf = (e, n) => ((Math.sin(e * 12.9898 + n * 78.233) * 43758.5453) % 1 + 1) % 1;
+const hash = (s) => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619); return h >>> 0; };
+
+/** The facade a placement wears: its row's own, else its template family's. */
+export function facadeOf(facade, material) {
+  if (facade) return facade;
+  return material === 'stone' ? 'stone' : material === 'brick' ? 'brick' : 'frame';
+}
+
+/** The tint of a front over its atlas row, shared by stand-in and detail. */
+export function facadeTint(facade, tone, jitter, out = [1, 1, 1]) {
+  const t = Number(tone) || 0;
+  let base, k;
+  if (facade === 'stone') { base = STONE_TINT[t % STONE_TINT.length]; k = .96 + .06 * jitter; }
+  else if (facade === 'painted') { base = PAINTED_TINT[t % PAINTED_TINT.length]; k = .95 + .06 * jitter; }
+  else if (facade === 'brick') { base = BRICK_TINT[t % BRICK_TINT.length]; k = .9 + .12 * jitter; }
+  else { base = FRAME_PAINT[t % FRAME_PAINT.length]; k = .95 + .05 * jitter; }
+  out[0] = base[0] * k; out[1] = base[1] * k; out[2] = base[2] * k;
+  return out;
+}
+
+const WALL_OF = { brick: 'brick', stone: 'stone', painted: 'painted', frame: 'clapboard' };
+const HOUSE_FLOOR = { brick_rowhouse: 1.36, brick_mansard: 1.19, villa_hip: 1.02, brick_cottage: .51,
+  timber_cottage: .34, timber_house: .51, timber_hip: .51 };
+const PORCH = new Set(['timber_house', 'timber_hip', 'timber_cottage']);
+// 1835 dooryard pickets (enclosures.js / gates.js): pale 0.075 m on a 0.17 m pitch.
+const PALE_PITCH_M = .17, PALE_W_M = .075, FENCE_H_M = 1.1, POST_PITCH_M = 2.4, GATE_W_M = 1.07;
+
+/** Distance from (e, n) to a ring's point or polyline. */
+function ringDistance(ring, e, n) {
+  const p = ring.points;
+  if (p.length === 1) return Math.hypot(e - p[0][0], n - p[0][1]);
+  let best = Infinity;
+  for (let i = 0; i + 1 < p.length; i++) {
+    const [ax, ay] = p[i], [bx, by] = p[i + 1];
+    const dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy;
+    const t = L ? Math.max(0, Math.min(1, ((e - ax) * dx + (n - ay) * dy) / L)) : 0;
+    best = Math.min(best, Math.hypot(e - ax - t * dx, n - ay - t * dy));
+  }
+  return best;
+}
+
+class Buffer {
+  constructor() { this.p = []; this.n = []; this.uv = []; this.c = []; this.i = []; }
+  get vertices() { return this.p.length / 3; }
+  /** A quad (or triangle) wound to face `normal`; uvs follow the points. */
+  poly(points, uvs, normal, color) {
+    const [a, b, c] = points;
+    const ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2];
+    const vx = c[0] - a[0], vy = c[1] - a[1], vz = c[2] - a[2];
+    const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
+    if (nx * normal[0] + ny * normal[1] + nz * normal[2] < 0) { points = [...points].reverse(); uvs = [...uvs].reverse(); }
+    const base = this.vertices;
+    for (let k = 0; k < points.length; k++) {
+      this.p.push(points[k][0], points[k][1], points[k][2]);
+      this.n.push(normal[0], normal[1], normal[2]);
+      this.uv.push(uvs[k][0], uvs[k][1]);
+      this.c.push(color[0], color[1], color[2]);
+    }
+    for (let k = 1; k + 1 < points.length; k++) this.i.push(base, base + k, base + k + 1);
+  }
+  geometry() {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(this.p, 3));
+    g.setAttribute('normal', new THREE.Float32BufferAttribute(this.n, 3));
+    g.setAttribute('uv', new THREE.Float32BufferAttribute(this.uv, 2));
+    g.setAttribute('color', new THREE.Float32BufferAttribute(this.c, 3));
+    g.setAttribute('_confidence', new THREE.Float32BufferAttribute(new Float32Array(this.vertices).fill(1), 1));
+    g.setIndex(this.vertices > 65535 ? new THREE.Uint32BufferAttribute(this.i, 1) : new THREE.Uint16BufferAttribute(this.i, 1));
+    g.computeBoundingSphere(); g.computeBoundingBox();
+    return g;
+  }
+}
+
+/**
+ * Build the detail cells. `rows` are city-context placements ({e, n, w, d, h,
+ * base, cos, sin, t, row}); `fronts` is kit.json's `fronts` section; `materials`
+ * maps its material names to the loaded kit materials.
+ */
+export function buildFronts({ rows, rings, fronts, materials, detail = 'full', value }) {
+  const radius = rings.radius_m?.[detail] ?? 200;
+  const cellM = 100;
+  const cells = new Map();
+  const census = { buildings: 0, houses: 0, shops: 0, fences: 0, gates: 0, triangles: 0, cells: 0 };
+  const atlasCells = fronts.atlas_cells ?? 4;
+  const inset = 1.5 / 1024;
+  const cellUv = (name, top = 0, bottom = 1) => {
+    const [col, row] = fronts.cells[name];
+    return [(col + inset * atlasCells) / atlasCells, (row + top + inset * atlasCells) / atlasCells,
+      (col + 1 - inset * atlasCells) / atlasCells, (row + bottom - inset * atlasCells) / atlasCells];
+  };
+  const match = name => fronts.materials[name]?.match ?? [1, 1, 1];
+  const tint = [1, 1, 1];
+
+  for (const r of rows) {
+    if (r.isTree) continue;
+    const t = r.t, kind = t.id;
+    const shop = !!t.shop || value(r.row, 'row', null) === 'attached';
+    const house = !shop && HOUSE_FLOOR[kind] != null;
+    if (!shop && !house) continue;
+    let near = Infinity;
+    for (const ring of rings.rings ?? []) near = Math.min(near, ringDistance(ring, r.e, r.n));
+    if (near > radius) continue;
+    const key = `${Math.floor(r.e / cellM)},${Math.floor(r.n / cellM)}`;
+    if (!cells.has(key)) cells.set(key, { e: (Math.floor(r.e / cellM) + .5) * cellM, n: (Math.floor(r.n / cellM) + .5) * cellM, buffers: {} });
+    const cell = cells.get(key);
+    const buf = name => cell.buffers[name] ??= new Buffer();
+
+    // Front frame: a runs left to right as the street sees the front, y up,
+    // o outward from the stand-in's face. Local x = w/2 - a, z = -d/2 - o.
+    const { w, d, h, base } = r, c = r.cos, s = r.sin;
+    const P = (a, y, o) => {
+      const x = w / 2 - a, z = -d / 2 - o;
+      return [r.e + c * x + s * z, base + y, -(r.n + s * x - c * z)];
+    };
+    const OUT = [-s, 0, -c], RIGHT = [-c, 0, s], UP = [0, 1, 0];
+    const neg = v => [-v[0], -v[1], -v[2]];
+    const facade = facadeOf(value(r.row, 'facade', null), t.material);
+    const wall = WALL_OF[facade];
+    const span = fronts.materials[wall]?.span_m ?? 4;
+    const jitter = jitterOf(r.e, r.n);
+    facadeTint(facade, value(r.row, 'tone', 0), jitter, tint);
+    const m = match(wall);
+    const wallColor = [tint[0] * m[0], tint[1] * m[1], tint[2] * m[2]];
+    // Trim and cast iron are painted to the front's own stone or paint colour;
+    // a brick front's are cream stone.
+    const trimColor = facade === 'brick' ? [1, .97, .9] : facade === 'frame' ? [tint[0], tint[1], tint[2]] : [tint[0] * 1.05, tint[1] * 1.04, tint[2] * 1.02];
+    const WHITE = [1, 1, 1];
+    const wallQuad = (a0, a1, y0, y1, o) => {
+      if (a1 - a0 < .01 || y1 - y0 < .01) return;
+      buf(wall).poly([P(a0, y0, o), P(a1, y0, o), P(a1, y1, o), P(a0, y1, o)],
+        [[a0 / span, -y0 / span], [a1 / span, -y0 / span], [a1 / span, -y1 / span], [a0 / span, -y1 / span]], OUT, wallColor);
+    };
+    const wallSide = (a, y0, y1, o0, o1, normal) => buf(wall).poly([P(a, y0, o0), P(a, y0, o1), P(a, y1, o1), P(a, y1, o0)],
+      [[o0 / span, -y0 / span], [o1 / span, -y0 / span], [o1 / span, -y1 / span], [o0 / span, -y1 / span]], normal, wallColor);
+    const part = (name, a0, a1, y0, y1, o, color = WHITE, uv = cellUv(name)) => {
+      buf('parts').poly([P(a0, y0, o), P(a1, y0, o), P(a1, y1, o), P(a0, y1, o)],
+        [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]], OUT, color);
+    };
+    // A box in the front frame; `faces` picks front/top/bottom/left/right.
+    const box = (name, a0, a1, y0, y1, o0, o1, color, faces = 'ftblr') => {
+      const uv = cellUv(name), q = [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]];
+      const b = buf('parts');
+      if (faces.includes('f')) b.poly([P(a0, y0, o1), P(a1, y0, o1), P(a1, y1, o1), P(a0, y1, o1)], q, OUT, color);
+      if (faces.includes('t')) b.poly([P(a0, y1, o1), P(a1, y1, o1), P(a1, y1, o0), P(a0, y1, o0)], q, UP, color);
+      if (faces.includes('b')) b.poly([P(a0, y0, o0), P(a1, y0, o0), P(a1, y0, o1), P(a0, y0, o1)], q, [0, -1, 0], color);
+      if (faces.includes('l')) b.poly([P(a0, y0, o0), P(a0, y0, o1), P(a0, y1, o1), P(a0, y1, o0)], q, neg(RIGHT), color);
+      if (faces.includes('r')) b.poly([P(a1, y0, o1), P(a1, y0, o0), P(a1, y1, o0), P(a1, y1, o1)], q, RIGHT, color);
+    };
+
+    /**
+     * One storey's row of openings in a wall plane at `O`: the wall around
+     * them, the sash recessed behind, reveals, sill, and a head that is flat
+     * (frame), segmental (brick, painted) or round (stone) under its hood.
+     */
+    const openings = (centres, ww, y0, y1, ys, wh, O, style, doorAt = -1, doorW = 1.1, doorH = 2.4) => {
+      const half = ww / 2;
+      const rise = style === 'round' ? half : style === 'segmental' ? ww * .2 : 0;
+      const yt = ys + wh, crown = yt + rise;
+      const spans = centres.map((cx, k) => k === doorAt
+        ? { cx, half: doorW / 2, ys: y0 + .02, yt: y0 + doorH, crown: y0 + doorH, rise: 0, door: true }
+        : { cx, half, ys, yt, crown, rise, door: false });
+      const top = Math.max(...spans.map(o => o.crown));
+      const low = Math.min(...spans.map(o => o.ys));
+      wallQuad(0, w, y0, low, O);
+      wallQuad(0, w, top, y1, O);
+      let from = 0;
+      for (const o of spans) {
+        wallQuad(from, o.cx - o.half, low, top, O);
+        wallQuad(o.cx - o.half, o.cx + o.half, low, o.ys, O);
+        wallQuad(o.cx - o.half, o.cx + o.half, o.crown, top, O);
+        from = o.cx + o.half;
+        const inner = .045;
+        // Reveals: the wall's thickness at the jambs and sill.
+        wallSide(o.cx - o.half, o.ys, o.yt, inner, O, RIGHT);
+        wallSide(o.cx + o.half, o.ys, o.yt, inner, O, neg(RIGHT));
+        if (o.door) {
+          part('house_door', o.cx - o.half, o.cx + o.half, o.ys, o.yt, inner);
+          box('trim', o.cx - o.half - .12, o.cx + o.half + .12, o.yt, o.yt + .2, O, O + .1, trimColor, 'ftb');
+          continue;
+        }
+        part('sash', o.cx - o.half, o.cx + o.half, o.ys, o.crown, inner);
+        buf(wall).poly([P(o.cx - o.half, o.ys, inner), P(o.cx + o.half, o.ys, inner), P(o.cx + o.half, o.ys, O), P(o.cx - o.half, o.ys, O)],
+          [[0, 0], [ww / span, 0], [ww / span, O / span], [0, O / span]], UP, wallColor);
+        box('trim', o.cx - o.half - .08, o.cx + o.half + .08, o.ys - .1, o.ys, O, O + .06, trimColor, 'ftb');
+        if (!o.rise) {
+          // A flat head: a plain cap (frame) or a stone lintel.
+          box('trim', o.cx - o.half - .1, o.cx + o.half + .1, o.yt, o.yt + .2, O, O + .08, trimColor, 'ftb');
+          continue;
+        }
+        // The arched head: wall spandrels fill the corners above the arc, and
+        // a hood (K09: 0.26 m deep, 0.12 m proud) follows the arc over it.
+        const R = (o.half * o.half + o.rise * o.rise) / (2 * o.rise), yc = o.yt + o.rise - R;
+        const phi = Math.asin(Math.min(1, o.half / R)), K = 6, arc = [], hood = [];
+        for (let k = 0; k <= K; k++) {
+          const f = -phi + 2 * phi * k / K;
+          arc.push([o.cx + R * Math.sin(f), yc + R * Math.cos(f)]);
+          hood.push([o.cx + (R + .2) * Math.sin(f), yc + (R + .2) * Math.cos(f)]);
+        }
+        for (let k = 0; k < K; k++) {
+          const corner = k < K / 2 ? [o.cx - o.half, o.crown] : [o.cx + o.half, o.crown];
+          const tri = [corner, arc[k], arc[k + 1]];
+          buf(wall).poly(tri.map(([a, y]) => P(a, y, O)), tri.map(([a, y]) => [a / span, -y / span]), OUT, wallColor);
+          const q = [arc[k], arc[k + 1], hood[k + 1], hood[k]];
+          const uv = cellUv('trim');
+          buf('parts').poly(q.map(([a, y]) => P(a, y, O + .12)), [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]], OUT, trimColor);
+          const qt = [hood[k], hood[k + 1]];
+          const da = (qt[0][0] + qt[1][0]) / 2 - o.cx, dy = (qt[0][1] + qt[1][1]) / 2 - yc, dl = Math.hypot(da, dy) || 1;
+          const radial = [RIGHT[0] * da / dl, dy / dl, RIGHT[2] * da / dl];
+          buf('parts').poly([P(qt[0][0], qt[0][1], O), P(qt[1][0], qt[1][1], O), P(qt[1][0], qt[1][1], O + .12), P(qt[0][0], qt[0][1], O + .12)],
+            [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]], radial, trimColor);
+        }
+        if (style === 'round') box('trim', o.cx - .1, o.cx + .1, o.crown - .06, o.crown + .3, O, O + .16, trimColor, 'ftlr');
+      }
+      wallQuad(from, w, low, top, O);
+    };
+
+    if (shop) {
+      census.shops++;
+      const storeys = Math.max(1, t.storeys ?? 2);
+      const gf = Math.min(4.6, Math.max(3.6, h / storeys * 1.2));
+      const bays = Math.max(2, Math.round(w / 2.9)), bw = w / bays;
+      const O = .16;
+      const h0 = hash(String(r.id));
+      // The storefront: cast-iron piers, plate glass on a panelled bulkhead,
+      // a door in every shop, the lintel and a lettered signboard over it.
+      for (let k = 0; k <= bays; k++) {
+        const a = k * bw;
+        box('iron', Math.max(0, a - .17), Math.min(w, a + .17), 0, gf - .7, 0, O + .06, trimColor, 'flr');
+      }
+      const doorBay = bays >= 3 ? Math.floor(bays / 2) : 0;
+      for (let k = 0; k < bays; k++) {
+        const a0 = k * bw + .17, a1 = (k + 1) * bw - .17;
+        if (k === doorBay) {
+          const cx = (k + .5) * bw;
+          part('shop_door', cx - .76, cx + .76, 0, Math.min(3.05, gf - .8), .06);
+          part('dark', cx - .76, cx + .76, Math.min(3.05, gf - .8), gf - .7, .06);
+          if (cx - .76 - a0 > .3) part('shop_glass', a0, cx - .76, 0, gf - .7, .06);
+          if (a1 - cx - .76 > .3) part('shop_glass', cx + .76, a1, 0, gf - .7, .06);
+        } else part('shop_glass', a0, a1, 0, gf - .7, .06);
+      }
+      box('cornice', 0, w, gf - .7, gf, 0, O + .12, trimColor, 'fb');
+      const boards = fronts.boards ?? [];
+      if (boards.length) {
+        const b = boards[h0 % boards.length], sw = Math.min(w - .6, 5.4);
+        part('board', w / 2 - sw / 2, w / 2 + sw / 2, gf - .66, gf - .05, O + .13, WHITE, b);
+      }
+      if (h0 % 10 < 6) {
+        // A canvas awning let down over the walk.
+        const uv = cellUv('awning', (h0 >>> 4) & 1 ? 0 : .5, (h0 >>> 4) & 1 ? .5 : 1);
+        const col = AWNING_TINT[(h0 >>> 5) % AWNING_TINT.length];
+        const yTop = gf - .82, yLow = 2.55, oFar = O + 1.9;
+        const q = [P(.1, yLow, oFar), P(w - .1, yLow, oFar), P(w - .1, yTop, O + .13), P(.1, yTop, O + .13)];
+        const quv = [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]];
+        const slope = [OUT[0] * (yTop - yLow), 1.77, OUT[2] * (yTop - yLow)], L = Math.hypot(...slope);
+        buf('parts').poly(q, quv, slope.map(v => v / L), col);
+        buf('parts').poly(q, quv, slope.map(v => -v / L), col.map(v => v * .7));
+        buf('parts').poly([P(.1, yLow - .25, oFar), P(w - .1, yLow - .25, oFar), P(w - .1, yLow, oFar), P(.1, yLow, oFar)],
+          [[uv[0], uv[1] + .02], [uv[2], uv[1] + .02], [uv[2], uv[1]], [uv[0], uv[1]]], OUT, col);
+      }
+      // Upper storeys: windows on the bays, hoods by material, string courses.
+      const sh = storeys > 1 ? (h - gf - .62) / (storeys - 1) : 0;
+      const style = facade === 'stone' ? 'round' : facade === 'frame' ? 'flat' : 'segmental';
+      const centres = Array.from({ length: bays }, (_, k) => (k + .5) * bw);
+      const ww = Math.min(bw * .5, 1.2);
+      for (let k = 1; k < storeys; k++) {
+        const y0 = gf + (k - 1) * sh, y1 = k === storeys - 1 ? h : y0 + sh;
+        const wh = sh * .5 - (style === 'round' ? ww * .25 : 0);
+        openings(centres, ww, y0, y1, y0 + sh * .2, Math.max(.8, wh), O, style);
+        if (k > 1 && facade !== 'frame') box('trim', 0, w, y0 - .1, y0 + .08, O, O + .07, trimColor, 'ftb');
+      }
+      if (storeys === 1) wallQuad(0, w, gf, h, O);
+      // K10's bracketed cornice: frieze, brackets on a 0.72 m rhythm, crown.
+      box('cornice', 0, w, h - .62, h - .12, O, O + .04, trimColor, 'f');
+      const count = Math.max(2, Math.round(w / .72));
+      for (let k = 0; k <= count; k++) {
+        const a = .15 + (w - .3) * k / count;
+        box('cornice', a - .06, a + .06, h - .6, h - .12, O, O + .42, trimColor, 'flr');
+      }
+      box('cornice', -.04, w + .04, h - .12, h + .22, 0, O + .62, trimColor, 'ftb');
+    } else {
+      census.houses++;
+      const floor = HOUSE_FLOOR[kind];
+      const storeys = Math.max(1, t.storeys ?? 1);
+      const bays = Math.max(1, t.front_bays ?? 3), bw = w / bays;
+      const O = .1, sh = h / storeys;
+      const style = facade === 'stone' ? 'round' : facade === 'frame' ? 'flat' : 'segmental';
+      const centres = Array.from({ length: bays }, (_, k) => (k + .5) * bw);
+      const doorAt = Math.floor(bays / 2);
+      const ww = Math.min(bw * .45, 1.0);
+      wallQuad(0, w, .3, floor, O);
+      for (let k = 0; k < storeys; k++) {
+        const y0 = k === 0 ? floor : k * sh, y1 = k === storeys - 1 ? h : (k + 1) * sh;
+        const ys = k === 0 ? floor + .75 : y0 + .75;
+        const wh = Math.max(.9, Math.min(y1 - ys - .5 - (style === 'flat' ? 0 : ww * .3), 1.9));
+        if (k === 0) {
+          // The door stands at the floor, over the kit's own steps or porch.
+          const doorH = Math.min(2.4, y1 - floor - .35);
+          openings(centres, ww, floor, y1, ys, wh, O, style, doorAt, Math.min(1.1, bw * .8), doorH);
+        } else openings(centres, ww, y0, y1, ys, wh, O, style);
+      }
+      // The front gable's wall over the eave.
+      if (t.roof === 'gable' && t.rise_m) {
+        const rise = t.rise_m * h / t.eave_m, tri = [[0, h], [w, h], [w / 2, h + rise]];
+        buf(wall).poly(tri.map(([a, y]) => P(a, y, O)), tri.map(([a, y]) => [a / span, -y / span]), OUT, wallColor);
+      }
+      // The front yard's fence, with a gate on the door's line (1835 dooryard
+      // pickets, gates.js leaf), and the path from the gate to the steps.
+      const yard = +value(r.row, 'yard_m', 0);
+      if (yard >= 2) {
+        census.fences++;
+        const o = yard - .2, cx = centres[doorAt];
+        const paint = facade === 'frame' ? [tint[0], tint[1], tint[2]] : FRAME_PAINT[(hash(String(r.id)) >>> 3) % FRAME_PAINT.length];
+        const color = paint.map(v => v * .98);
+        const a0 = -.8, a1 = w + .8, g0 = cx - GATE_W_M / 2, g1 = cx + GATE_W_M / 2;
+        for (let a = a0; a <= a1 + 1e-6; a += POST_PITCH_M) box('boards', a - .06, a + .06, 0, FENCE_H_M + .15, o - .06, o + .06, color, 'ftlr');
+        for (const a of [g0, g1]) box('boards', a - .07, a + .07, 0, FENCE_H_M + .2, o - .07, o + .07, color, 'ftlr');
+        for (const [r0, r1] of [[a0, g0 - .07], [g1 + .07, a1]]) {
+          if (r1 - r0 < .2) continue;
+          for (const y of [.25, FENCE_H_M - .2]) box('boards', r0, r1, y, y + .08, o + .04, o + .07, color, 'ft');
+          for (let a = r0 + PALE_PITCH_M / 2; a < r1 - PALE_W_M / 2; a += PALE_PITCH_M) {
+            box('boards', a - PALE_W_M / 2, a + PALE_W_M / 2, .08, FENCE_H_M, o - .07, o - .05, color, 'ft');
+          }
+        }
+        // The 1835 house gate: one paled leaf, hung on the left post, shut.
+        const toEnu = ([X, Y, Z]) => ({ e: X, n: -Z, y: Y });
+        const ja = toEnu(P(g0, 0, o)), jb = toEnu(P(g1, 0, o)), into = P(cx, 0, 0);
+        for (const bx of gateBoxes({ kind: 'gate', leaves: 1, leaf_stock: 'picket', swing_deg: 0 }, ja, jb, FENCE_H_M, [into[0], -into[2]])) {
+          orientedBox(buf('parts'), bx, cellUv('boards'), color);
+        }
+        census.gates++;
+        const step = PORCH.has(kind) ? 1.9 : 1.1;
+        const risers = Math.max(2, Math.round(floor / .17));
+        const from = step + .3 * (risers - 1);
+        if (o - from > .2) {
+          const uv = cellUv(facade === 'frame' ? 'boards' : 'flags');
+          buf('parts').poly([P(cx - .6, .05, from), P(cx + .6, .05, from), P(cx + .6, .05, o), P(cx - .6, .05, o)],
+            [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]], UP, [.95, .93, .9]);
+        }
+      }
+    }
+    census.buildings++;
+  }
+
+  const meshes = [];
+  for (const cell of cells.values()) {
+    cell.meshes = [];
+    for (const [name, b] of Object.entries(cell.buffers)) {
+      const material = materials.get(name);
+      if (!material || !b.vertices) continue;
+      const mesh = new THREE.Mesh(b.geometry(), material);
+      mesh.name = `context:1871:fronts:${cell.e},${cell.n}:${name}`;
+      mesh.receiveShadow = true; mesh.castShadow = false; mesh.visible = false;
+      mesh.userData = { contextTier: 'detail', triangles: b.i.length / 3, confidence: 'reconstructed' };
+      census.triangles += b.i.length / 3;
+      cell.meshes.push(mesh); meshes.push(mesh);
+    }
+    delete cell.buffers;
+  }
+  census.cells = cells.size;
+  return { cells: [...cells.values()], meshes, census, showM: rings.show_m?.[detail] ?? 300 };
+}
+
+/** One gates.js box (world centre, horizontal axis u, half sizes) as six faces. */
+function orientedBox(b, box, uv, color) {
+  const ux = box.ux, uz = box.uz, L = Math.hypot(ux, uz) || 1;
+  const u = [ux / L, 0, uz / L], v = [-uz / L, 0, ux / L], up = [0, 1, 0];
+  const at = (su, sy, sv) => [box.cx + u[0] * su * box.halfLen + v[0] * sv * box.halfW,
+    box.cy + sy * box.halfH, box.cz + u[2] * su * box.halfLen + v[2] * sv * box.halfW];
+  const q = [[uv[0], uv[3]], [uv[2], uv[3]], [uv[2], uv[1]], [uv[0], uv[1]]];
+  for (const sv of [-1, 1]) b.poly([at(-1, -1, sv), at(1, -1, sv), at(1, 1, sv), at(-1, 1, sv)], q, v.map(x => x * sv), color);
+  b.poly([at(-1, 1, -1), at(1, 1, -1), at(1, 1, 1), at(-1, 1, 1)], q, up, color);
+  for (const su of [-1, 1]) b.poly([at(su, -1, -1), at(su, -1, 1), at(su, 1, 1), at(su, 1, -1)], q, u.map(x => x * su), color);
+}

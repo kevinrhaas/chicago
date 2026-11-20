@@ -220,10 +220,15 @@ def footprints(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
     caller measures the 1835 plat and its e1834_harbor_cut ground, and the first Fort
     Dearborn, burned on 16 August 1812 and seated only in the 1812 scene, stands on
     neither. A phase closing before that epoch opens is not on this ground at all.
+
+    And a phase that OPENED after that epoch closed (T-3688): the 1871 Court House square
+    group stands where the 1835 town's lots were, and an 1835 lot is not held by a
+    building put up thirty years later.
     """
-    town_from = next(e["from"] for e in json.loads(
+    town = next(e for e in json.loads(
         (STRUCTURES.parent / "terrain" / "epochs.json").read_text(encoding="utf-8"))["epochs"]
         if e["id"] == "e1834_harbor_cut")
+    town_from, town_to = town["from"], town["to"]
     placed: list[tuple[str, list[tuple[float, float]]]] = []
     for path in sorted(STRUCTURES.glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
@@ -235,6 +240,8 @@ def footprints(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
             if position.get("utm_e") is None or len(polygon) < 3:
                 continue
             if (phase.get("documented_range") or {}).get("to", "9999") < town_from:
+                continue
+            if (phase.get("documented_range") or {}).get("from", "0000") > town_to:
                 continue
             placed.append((record["id"], world_polygon(phase, datum)))
     return placed

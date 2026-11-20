@@ -55,7 +55,7 @@ export function decodeBuildings(doc) {
 
 export function buildingClasses(rows) {
   return {
-    commercial: rows.filter(r => /^commercial_/.test(r.kit)),
+    commercial: rows.filter(r => /^(commercial_|frame_shop$)/.test(r.kit)),
     residential: rows.filter(r => /^(timber_|brick_|villa_)/.test(r.kit)),
     industrial: rows.filter(r => /^(warehouse|factory|industrial_shed)$/.test(r.kit)),
   };

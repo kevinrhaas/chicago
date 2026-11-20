@@ -1,0 +1,104 @@
+{
+  "id": "chamber_of_commerce_1871",
+  "scene": "1871",
+  "name": "The Chamber of Commerce",
+  "address": "Southeast corner of LaSalle and Washington Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Office buildings stand on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Burned out about 1:20 a.m. on 9 October 1871 (Andreas). What stands on the corner now is general knowledge, not researched here."
+  },
+  "built": {
+    "year": 1865,
+    "grade": "attested",
+    "sources": [
+      "jevne_almini_1866_chicago_illustrated",
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Board of Trade exchange and offices",
+  "summary": "The Board of Trade's home, built of pale stone facing the Court House square. Grain was traded in a great hall upstairs, 44 feet high. Banks and merchants rented the floors below.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Edward Burling",
+      "grade": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated"
+      ]
+    },
+    {
+      "label": "Size",
+      "value": "93 by 181 feet",
+      "grade": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated"
+      ]
+    },
+    {
+      "label": "Cost",
+      "value": "About $400,000",
+      "grade": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The great triple window over the door was thirty feet high.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "text": "The flames broke in through the LaSalle Street windows and gutted it in minutes.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1864-09-11",
+      "text": "The corner-stone is laid before a crowd in the square.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1865-08-30",
+      "text": "The building is dedicated with three days of celebration.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated",
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The fire destroys it between one and two in the morning.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

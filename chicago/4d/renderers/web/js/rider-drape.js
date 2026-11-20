@@ -64,6 +64,17 @@ export function pressLift(z, s, a) {
     * smooth(z.s0 - .02, z.s0 + .04, s) * smooth(z.s1 + .02, z.s1 - .04, s);
 }
 
+/**
+ * How far over the coat a habit's cloth lies at (s, |phi|) to clear the saddle cloth and flaps:
+ * the zone's lift and OVER_M more, held to its edges (OVER_DEG round and OVER_S along past them,
+ * where the zone's own lift eases out) so the cloth's edge does not come through it.
+ */
+export const OVER_DEG = 10, OVER_S = 0.05, OVER_M = 0.006;
+export function overLift(z, s, a) {
+  const l = pressLift({ ...z, maxDeg: z.maxDeg + OVER_DEG, s0: z.s0 - OVER_S, s1: z.s1 + OVER_S }, s, a);
+  return l > 1e-4 ? l + OVER_M * (l / z.lift) : 0;
+}
+
 const materialName = (m) => (Array.isArray(m.material) ? m.material[0] : m.material)?.name ?? '';
 
 /**
@@ -82,11 +93,13 @@ export function drapes(mesh, kind = null) {
  * (x toward `env.side`, y toward `env.up`, z along `env.dir`); moved in place. Returns whether
  * it moved. `seatHalfDeg` is the saddle's seat half angle.
  */
-export function drapePoint(q, env, { seatHalfDeg = 45, s0 = -0.7, s1 = 1, margin = MARGIN_M, clampDeg = CLAMP_DEG } = {}) {
+export function drapePoint(q, env, { seatHalfDeg = 45, s0 = -0.7, s1 = 1, margin = MARGIN_M, clampDeg = CLAMP_DEG, over = null } = {}) {
   const x = q.dot(env.side), y = q.dot(env.up), s = q.dot(env.dir);
   if (s <= s0 + 0.02 || s >= s1 - 0.02) return false;
   const phi = Math.atan2(x, y) / DEG, a = Math.abs(phi), r = Math.hypot(x, y);
   if (a < seatHalfDeg && y > 0) return false;
+  // `over` (a pressZone): the cloth lies over the saddle cloth and flaps, not on the coat under them.
+  if (over) margin += overLift(over, s, a);
   const sgn = x < 0 ? -1 : 1;
   const inside = r < env.radius(s, phi) + margin;
   const width = env.radius(s, sgn * clampDeg) * Math.sin(clampDeg * DEG);
@@ -134,7 +147,20 @@ export function pressPoint(q, env, zone) {
 // CPU (the tests use the same), the vertex shader reads it from a small float texture.
 // Reconstructed: how a habit lay is drawn from the general shape, not from a record
 // (liberty L-sidesaddle-3644).
-export const HABIT = Object.freeze({ cols: 32, rows: 16, margin_m: 0.035, waist_m: 0.17, below_foot_m: 0.1, lift_m: 0.012, blend: 0.14 });
+//
+// Kevin, 2026-11-19 (1904, aside in the habit): "you can see her leg through the riding habit".
+// Every point of her legs was under the sheet, but the skirt is drawn with only so many
+// vertices: each panel between two of them is flat, and over the knees and the forward thigh
+// (the sheet's tightest bends) a flat panel cut further in than the 3.5 cm the sheet stood off
+// the leg. And over its first 14 % of depth (about 13 cm along the thigh) the cloth was still
+// mostly where the standing figure's skin put it, which a thigh raised over the head leaves
+// behind. So the sheet stands 8 cm off the legs, starts 10 cm round the hips (at 17 the thigh
+// top came up under its first row), and the cloth is on it by 4 % of its depth. Measured by
+// drawing her, cloth panels and all, from five sides at each pace (tools/test_riding.mjs with
+// rider_drawn.mjs): bare leg went from 460 to 550 pixels in the worst view to none. Where it
+// falls over the saddle on the off side the cloth is laid over the saddle cloth and flaps
+// (drapePoint `over`, overLift; the shader's drapeTackLift), not on the coat under them.
+export const HABIT = Object.freeze({ cols: 32, rows: 16, margin_m: 0.08, waist_m: 0.10, below_foot_m: 0.1, lift_m: 0.012, blend: 0.04 });
 const HABIT_KINDS = new Set(['hang', 'ride']);
 /** Whether a rider's mesh is laid on the habit (its hanging cloth, and what rides on that). */
 export const habitCloth = (mesh, kind) => !!mesh?.isSkinnedMesh && HABIT_KINDS.has(kind) && drapes(mesh, kind);
@@ -286,6 +312,13 @@ uniform vec4 drapeK; // s0, ds, ns, na
 uniform vec4 drapeP; // scale, margin, seat half angle, clamp angle (radians)
 uniform vec4 drapeZ; // a leg's press: s0, s1, the cloth's edge (radians), lift (0: a cloth's drape)
 float drapeSmooth(float a, float b, float x) { return smoothstep(0.0, 1.0, (x - a) / (b - a)); }
+float drapeTackLift(float s, float a) {
+  float d10 = 0.174533, d4 = 0.069813, ed = ${(OVER_DEG * Math.PI / 180).toFixed(6)}, es = ${OVER_S.toFixed(4)};
+  if (drapeZ.w <= 0.0) return 0.0;
+  float l = drapeZ.w * drapeSmooth(drapeP.z - d10, drapeP.z + d4, a) * drapeSmooth(drapeZ.z + ed + d4, drapeZ.z + ed - d10, a)
+    * drapeSmooth(drapeZ.x - es - 0.02, drapeZ.x - es + 0.04, s) * drapeSmooth(drapeZ.y + es + 0.02, drapeZ.y + es - 0.04, s);
+  return l > 0.0001 ? l + ${OVER_M.toFixed(4)} * (l / drapeZ.w) : 0.0;
+}
 float drapeRad(float s, float phi) {
   float u = phi / 6.28318530718 + 0.5 / drapeK.w;
   float v = ((s - drapeK.x) / drapeK.y + 0.5) / drapeK.z;
@@ -335,7 +368,9 @@ const GLSL_PRESS = /* glsl */`
   }
 }
 `;
-const GLSL_BODY = /* glsl */`
+// `over`: the cloth lies over the saddle cloth and flaps (their lift, drapeTackLift), not on the
+// coat under them, where it showed through the saddle cloth in patches (the habit's off side).
+const glslBody = (over = false) => /* glsl */`
 {
   vec3 dq = (drapeIn * vec4(transformed, 1.0)).xyz;
   float sEnd = drapeK.x + drapeK.y * (drapeK.z - 1.0);
@@ -345,13 +380,14 @@ const GLSL_BODY = /* glsl */`
     if (!(a < drapeP.z && dq.y > 0.0)) {
       float sgn = dq.x < 0.0 ? -1.0 : 1.0;
       float r = length(dq.xy);
-      bool inside = r < drapeRad(dq.z, phi < 0.0 ? phi + 6.28318530718 : phi) + drapeP.y;
+      float dm = drapeP.y${over ? ' + drapeTackLift(dq.z, a)' : ''};
+      bool inside = r < drapeRad(dq.z, phi < 0.0 ? phi + 6.28318530718 : phi) + dm;
       float cl = drapeP.w;
       float width = drapeRad(dq.z, sgn > 0.0 ? cl : 6.28318530718 - cl) * sin(cl);
-      bool under = a > cl && abs(dq.x) < width + drapeP.y;
+      bool under = a > cl && abs(dq.x) < width + dm;
       if (inside || under) {
         float p2 = sgn * min(a, cl);
-        float r2 = drapeRad(dq.z, p2 < 0.0 ? p2 + 6.28318530718 : p2) + drapeP.y;
+        float r2 = drapeRad(dq.z, p2 < 0.0 ? p2 + 6.28318530718 : p2) + dm;
         dq.xy = vec2(sin(p2), cos(p2)) * r2;
         transformed = (drapeOut * vec4(dq, 1.0)).xyz;
       }
@@ -359,6 +395,7 @@ const GLSL_BODY = /* glsl */`
   }
 }
 `;
+const GLSL_BODY = glslBody(false), GLSL_BODY_OVER = glslBody(true);
 
 /**
  * Drape a seated rider's cloth over a fitted horse. `meshes`: the rider's skinned meshes;
@@ -396,7 +433,8 @@ export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, pres
     const draped = drapes(mesh, kindOf?.(mesh) ?? null);
     if (!draped && !(Z && mesh?.isSkinnedMesh)) continue;
     const H = habitOf.get(mesh);
-    const body = draped ? (H ? GLSL_HABIT + GLSL_BODY : GLSL_BODY) : GLSL_PRESS;
+    // The habit's cloth lies over the saddle cloth (the press zone's lift) where there is one.
+    const body = draped ? (H ? GLSL_HABIT + (Z ? GLSL_BODY_OVER : GLSL_BODY) : GLSL_BODY) : GLSL_PRESS;
     const habitU = H ? { habitRest: { value: H.rest.matrix }, habitK: { value: new THREE.Vector4(habitL, H.layer * HABIT.lift_m, HABIT.cols, HABIT.rows) },
       habitB: { value: new THREE.Vector2(HABIT.blend, 0) }, habitG: { value: sheetTex } } : null;
     const uIn = { value: new THREE.Matrix4() }, uOut = { value: new THREE.Matrix4() };
@@ -412,7 +450,7 @@ export function drapeRider({ meshes, kindOf = null, tack, seatHalfDeg = 45, pres
           .replace('#include <skinning_vertex>', `#include <skinning_vertex>\n${body}`);
       };
       const key = m.customProgramCacheKey?.bind(m);
-      c.customProgramCacheKey = () => `${key ? key() : ''}|rider-${draped ? (H ? 'habit' : 'drape') : 'press'}`;
+      c.customProgramCacheKey = () => `${key ? key() : ''}|rider-${draped ? (H ? (Z ? 'habit-over' : 'habit') : 'drape') : 'press'}`;
       return c;
     });
     mesh.material = Array.isArray(was) ? list : list[0];

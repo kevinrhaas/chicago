@@ -249,11 +249,19 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A classroom Chromebook boots as a computer on the memory diet, people and teams kept, and is offered Prepare for class (T-3675)" \
+  node tools/check_chromebook.mjs
+
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
+
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
 
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
@@ -407,12 +415,14 @@ step "A teacher's route travels whole in one bounded link or file, degrades with
   node tools/test_teacher_route.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
-step "Gossip investigations preserve cited uncertainty and explicit bounded notebook saves (T-3663)" \
+step "Make your case: every case table row uses its telling's cited claims, refuses gaps, saves only on request (T-3663, T-3678)" \
   node tools/test_jaunt_investigation.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
   node tools/test_lesson_guides.mjs
 step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
   node tools/test_photo_hunt.mjs
+step "Watch a block grow shows each year only the buildings recorded standing by then, never guesses an undated one, and Leave restores the town exactly (T-3676)" \
+  node tools/check_block_grow.mjs
 step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
   node tools/test_viewport_accessibility.mjs
 step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
@@ -1008,6 +1018,8 @@ step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
   python3 generators/lodge_camp_emit.py --check
 step "the monuments are the bytes their records build (T-3567)" \
   python3 generators/monument_emit.py --check
+step "the 1871 fire landmarks are the bytes their records build (T-3688)" \
+  python3 generators/landmark_1871_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -4776,6 +4788,13 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3681: each jaunt's Spanish telling (data/jaunts/_es/<id>.txt) compiles to the overlay beside
+# its English (sidecars/<scene>/jaunts/es/). Each passage carries the mark of the English it was
+# translated from, and the app shows it only while that English stands, so a change to a jaunt's
+# English never stales this step.
+step "Spanish jaunt overlays are as built from their words files (T-3681)" \
+  python3 tools/jaunts_es.py --check
 
 # T-3590: every jaunt's school grade band is measured from its own words (the mean of five
 # grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.

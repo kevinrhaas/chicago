@@ -1,0 +1,103 @@
+== title @c70fc853
+Mira antes de comprar un lote
+
+== premise @7d64c7b1
+Escudriña un aviso de tierras, observa la sala donde se subastan los lotes, ubica tu esquina y evalúa el terreno antes de comprometer dinero alguno.
+
+== opening @5e330cbe
+PASEO: MIRA ANTES DE COMPRAR UN LOTE. El Chicago del verano de 1835 está consumido por una manía especulativa, y "La apertura de una oficina de tierras en mayo de 1835 echó leña al ya brillante incendio de la excitación". Los lotes que se vendían por $10 a $50 en 1830 ahora obtienen "veinte o treinta veces más", y una porción del pueblo que se vendió por $20,000 el verano pasado se revendió este mayo por $100,000.
+
+Las ventas se hacen en subasta pública, y un pregonero vestido de escarlata, en un caballo blanco, desfila por el pueblo anunciando la hora, y "Las multitudes se agolpaban a su alrededor y lo seguían y se colgaban de sus palabras cautivadoras". Antes de unirte a ellas, escudriña lo que de verdad se ofrece: la sala, los avisos, la esquina y el terreno mismo.
+
+== stop auction @f51db6b5
+Comienza en Dearborn Street, en la nueva sala de subastas de John Bates Junior. El 12 y 13 de junio, el aviso del Democrat ofreció aquí cincuenta lotes del pueblo de Marseilles, con cincuenta más por venir, aunque Marseilles constituye un pueblo enteramente aparte. Durante este auge especulativo, observan Moses y Kirkland, "Toda la tierra parecía estar estacada y poblada sobre el papel", y "Pero pocos de estos pueblos de papel llegaron a ser algo". Relee el anuncio con mucha más atención.
+
+== narrative auction @b2818940
+¿Qué propiedad ofrecía en realidad ese anuncio?
+
+== label auction chicago-lots @280d3598
+Vendía lotes de Chicago
+
+== consequence auction chicago-lots @b7a800c8
+Reléelo: los lotes pertenecían a Marseilles, porque la sala de subastas es apenas un mercado, no la propiedad misma.
+
+== label auction another-town @f8065835
+Vendía lotes de otro pueblo
+
+== consequence auction another-town @6dba5551
+Correcto: una sala de subastas de Chicago, que hace una venta para un lugar enteramente distinto.
+
+== stop notice @b055240c
+Al oeste hasta Clark, donde el Democrat se imprimió desde 1833 hasta que, para el 20 de mayo, su oficina se había trasladado encima de la ferretería de Jones y King. Tu ejemplar contiene dos avisos de tierras: los lotes de Hubbard en la School Section y en el pueblo original, y las tierras de Fell a lo largo de la ruta propuesta del canal. Las valuaciones se han vuelto extraordinarias: esta primavera, Gurdon Hubbard y sus socios adquirieron ochenta acres por $5,000, trazaron el plano en Nueva York y "vendieron la mitad de los lotes en subasta por $80,000", un rendimiento de dieciséis veces sobre la mitad de la propiedad.
+
+== narrative notice @bb62d106
+Selecciona cuál de los dos anuncios vas a seguir.
+
+== label notice town-lots @c7801f5e
+Sigue los lotes de Hubbard en el pueblo
+
+== consequence notice town-lots @ae1133d2
+Investigarás un lote dentro del pueblo mismo.
+
+== label notice canal-land @cbc291f6
+Sigue las tierras de Fell en la ruta del canal
+
+== consequence notice canal-land @678c6cc5
+Investigarás tierras más allá del pueblo, a lo largo del trazado proyectado del canal.
+
+== stop corner @ce3bc985
+Continúa al oeste hasta LaSalle, donde la tienda de madera de dos pisos de Peck ocupa la esquina que identifican sus propios anuncios. Un lote se define por sus esquinas y sus líneas de calle, así que establece tu orientación: el río queda al norte, y los lotes del pueblo se extienden hacia el sur. Philo Carpenter, que llegó en 1832, pagó por "dos lotes en South Water street, cuarenta pies de frente, a un costo de $75". Durante el frenesí especulativo, "El lote 1, manzana 2, se vendió en junio por $5,000 y se revendió en agosto por $10,000".
+
+== narrative corner @623cebe8
+Ubica la esquina medida por el agrimensor y mira hacia el sur, hacia las filas de lotes trazados.
+
+== stop ground @201be508
+Varios pasos al este, un modesto desagüe pasa por debajo de South Water hasta el río, y la calle lo atraviesa sobre troncos. Un relato del pueblo temprano caracteriza la División Sur como generalmente baja y pantanosa, más húmeda aún junto al río, y cubierta de pasto alto, cañas y juncos. El maestro de escuela Granville Sproat recordaba un lodo "de media pierna de hondo, hasta los cubos de las ruedas de los carros y las carretas". Determina qué comunica el estado del terreno sobre su valor.
+
+== narrative ground @f0e696fc
+¿Investigarás más a fondo una propiedad en particular, o conservarás tu dinero?
+
+== label ground inquire @2102a7be
+Primero averigua sobre un lote
+
+== consequence ground inquire @4f765d8b
+Investigarás un lote en particular y recorrerás su terreno real.
+
+== label ground hold @7bb4c747
+Guárdate el dinero
+
+== consequence ground hold @fe32b528
+Por el momento conservas tu capital, a la espera de información más confiable.
+
+== leg 0 @83fb1fb9
+Parte de la sala de ventas hacia el periódico que la anunció.
+
+== note 0 @9a93a6ed
+Al norte por Dearborn hasta South Water Street y al oeste por ella hasta la esquina de Clark Street.
+
+== leg 1 @96ef55f3
+Traslada tu anuncio a una esquina medida en la que de verdad puedas confiar.
+
+== note 1 @3b2d199e
+Al oeste por South Water Street, una cuadra, hasta la esquina de LaSalle.
+
+== leg 2 @9990341f
+Ahora dirige tu atención hacia abajo, al terreno mismo.
+
+== note 2 @f605c56b
+Unos pasos al este por South Water Street hasta donde el desagüe se junta con el río.
+
+== ending inquire-town @6165fb2f
+Investigarás un lote en particular del aviso de Hubbard y te pararás sobre su terreno real antes de pagar. En un pueblo donde las valuaciones se duplican entre junio y agosto, semejante diligencia te convierte en el comprador más raro de Chicago.
+
+== ending inquire-canal @bf0dba5f
+Te presentarás en la New York House, como dispone el aviso de Fell, para conocer las condiciones de una parcela a lo largo de la ruta del canal, y la recorrerás antes de comprometer el pago. Todo el mundo insiste en que el canal es inminente, así que verifica que la tierra sea igual de sólida.
+
+== ending held @2f6564f4
+Conservas tu dinero, pues un aviso, una sala de ventas y una calle anegada te han instruido lo suficiente por un día. Recuérdalo cuando se derrumbe la burbuja especulativa: después de 1836, casi todos los compradores de la primera venta de lotes del canal pierden sus lotes, y solo Peck completa su segundo pago.
+
+== keepsake title @da936678
+Lee el terreno
+
+== keepsake text @b24b3bcb
+Una nota ficticia que documenta un aviso de tierras escudriñado, una sala de ventas observada y un terreno recorrido antes de que cambiara de manos ningún dinero.

@@ -46,7 +46,7 @@ def main():
     # T-3684: the City centreline clip the platted core is drawn on keeps its shape.
     for problem in street_clip.clip_errors(json.loads(street_clip.OUT.read_text())):check(False,f"1871 street clip: {problem}")
     check(len(doc["buildings"])>=25000,"city context has shrunk to a neighborhood")
-    check(len({b["kit"] for b in doc["buildings"]})==16,"one or more period kit families is absent")
+    check(len({b["kit"] for b in doc["buildings"]})==17,"one or more period kit families is absent")
     check(set(b["id"] for b in doc["bridges"])==set(b["id"] for b in plan["bridges"]),"mapped bridge inventory was dropped")
     bridge_sources={b["id"]:b for b in plan["bridges"]}
     for bridge in doc["bridges"]:
@@ -279,7 +279,7 @@ def main():
         check(all("_CONFIDENCE" in p["attributes"] for m in gltf["meshes"] for p in m["primitives"]),f"missing confidence channel: {name}")
     if fails:
         print("\n".join("FAIL "+x for x in fails));return 1
-    print(f"1871 context PASS: {len(doc['buildings']):,} footprints, 16 kits, {len(bridges)} walkable bridges, {len(quays)} supported quay bays; visible floor agreement, safe bank access, field support, exclusion masks, non-overlap, 30mm mesh agreement, provenance and every generated hash verified")
+    print(f"1871 context PASS: {len(doc['buildings']):,} footprints, 17 kits, {len(bridges)} walkable bridges, {len(quays)} supported quay bays; visible floor agreement, safe bank access, field support, exclusion masks, non-overlap, 30mm mesh agreement, provenance and every generated hash verified")
     return 0
 
 

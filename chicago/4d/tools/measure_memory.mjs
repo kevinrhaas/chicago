@@ -1,7 +1,7 @@
 /**
  * WHAT A YEAR KEEPS RESIDENT, LAYER BY LAYER, AND WHO IS HOLDING IT (T-2546).
  *
- *   node tools/measure_memory.mjs [--year 1812,1835,1904] [--only desktop|mobile|shared|both|a,b]
+ *   node tools/measure_memory.mjs [--year 1812,1835,1904] [--only desktop|mobile|shared|chromebook|both|a,b]
  *        [--no-snapshot] [--keep-geometry] [--ktx2-off] [--json out.json]
  *   node tools/measure_memory.mjs --from reading.json
  *   node tools/measure_memory.mjs --gate [--year …] [--only …] [--json out.json]
@@ -91,6 +91,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { CHROMEBOOK, spoofDevice } from './chromebook_emulation.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT4D = path.resolve(HERE, '..');
@@ -185,6 +186,12 @@ const VIEWPORTS = [
   // (`--only phone-strong`).
   { id: 'phone-strong', label: 'strong phone 390x780 dpr3 ?device=strong', width: 390, height: 780, dsf: 3,
     mobile: true, tier: null, query: 'device=strong' },
+  // T-3675: a classroom set's low-end Chromebook, EMULATED (tools/chromebook_emulation.mjs):
+  // ChromeOS's user agent, 4 GB, 4 threads and Intel UHD 600 told to the page before it runs,
+  // no `?device=`, so the town routes it as it would the real one (a Chromebook: weak,
+  // Balanced, Sharpness Low, the memory diet). Read only when asked for (`--only chromebook`).
+  { id: 'chromebook', label: CHROMEBOOK.label, width: CHROMEBOOK.width, height: CHROMEBOOK.height,
+    dsf: CHROMEBOOK.dsf, mobile: false, tier: null, emulate: CHROMEBOOK },
 ].filter((v) => (SELF_TEST ? v.mobile
   : ONLY === 'both' ? v.id === 'desktop' || v.id === 'mobile' : ONLY.split(',').includes(v.id)));
 
@@ -658,7 +665,9 @@ for (const year of YEARS) {
     const ctx = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
       deviceScaleFactor: vp.dsf, isMobile: vp.mobile, hasTouch: vp.mobile,
+      ...(vp.emulate ? { userAgent: vp.emulate.userAgent } : {}),
     });
+    if (vp.emulate) await ctx.addInitScript(spoofDevice, vp.emulate);
     await ctx.addInitScript(installGlMeter);
     const page = await ctx.newPage();
     const errors = [];
@@ -856,6 +865,17 @@ for (const year of YEARS) {
     const heap = await cdp.send('Runtime.getHeapUsage');
     const gl = await page.evaluate(() => window.__memoryMeter());
     const scene = await page.evaluate(readLayers);
+    // T-3675: who the boot chose to be and what it still draws at spawn, so a diet row is
+    // read beside the people, horses, carriages and wagons it must keep (owner, 2026-11-10).
+    const device = await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const kids = (o) => o?.group?.children?.filter((c) => c.visible !== false).length ?? null;
+      return { cls: a.device?.cls ?? null, why: a.device?.why ?? null, chromeos: !!a.device?.signals?.chromeos,
+        touch: !!a.device?.touch, detail: a.detail ?? null, lowMemory: !!a.lowMemory,
+        drawn: { people: a.humans?.actors?.length ?? null, parkedVehicles: a.parkedTransport?.instances?.length ?? null,
+          parkedTeams: a.parkedTransport?.instances?.filter((i) => i.team).length ?? null,
+          standingHorses: a.standingHorses?.instances?.length ?? null, townTransport: kids(a.townTransport) } };
+    });
     const totals = {
       jsHeap: heap.usedSize, arrayBuffers: heap.backingStorageSize ?? 0,
       gpuBuffers: gl.gpuBuffers, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers,
@@ -863,7 +883,7 @@ for (const year of YEARS) {
     };
     totals.total = totals.jsHeap + totals.arrayBuffers + totals.gpuBuffers + totals.gpuTextures;
     const row = { year, viewport: vp.id, label: vp.label, tier: scene.tier, pixelRatio: scene.pixelRatio,
-      keepGeometry: KEEP_GEOMETRY, totals, gl, heapTotal: heap.totalSize,
+      keepGeometry: KEEP_GEOMETRY, device, totals, gl, heapTotal: heap.totalSize,
       shadowMapBytes: scene.shadowMapBytes, textures: scene.textures, layers: scene.layers,
       layerSum: {
         cpuKept: scene.layers.reduce((s, l) => s + l.cpuKept, 0),
@@ -884,6 +904,8 @@ for (const year of YEARS) {
       row.seconds.snapshot = Math.round((Date.now() - ts) / 1000);
     }
     rows.push(row);
+    console.log(`  device ${device.cls}${device.chromeos ? ' (ChromeOS)' : ''} · ${device.detail}`
+      + `${device.lowMemory ? ' · memory diet' : ''} · drawn ${JSON.stringify(device.drawn)}`);
     console.log(`memory /${year}/ ${vp.id}: total ${MB(totals.total)} MB (${row.seconds.boot}s`
       + `${row.seconds.snapshot ? ` + snapshot ${row.seconds.snapshot}s` : ''})`);
     await ctx.close();
@@ -937,6 +959,15 @@ if (GATE || SELF_TEST) {
   const ceilings = JSON.parse(fs.readFileSync(CEILINGS_PATH, 'utf8'));
   let red = 0;
   for (const row of rows) {
+    // T-3675: the emulated Chromebook must have been routed as one: a weak computer at
+    // Balanced on the memory diet, never Light, with its people still drawn.
+    if (row.viewport === 'chromebook') {
+      const d = row.device || {};
+      const routed = d.chromeos && d.cls === 'weak' && !d.touch && d.detail === 'balanced' && d.lowMemory
+        && d.drawn?.people > 0;
+      if (!routed) { red += 1; console.log(`::error::/${row.year}/ chromebook: not routed as a Chromebook — ${JSON.stringify(d)}`); }
+      else console.log(`ok /${row.year}/ chromebook routed: ${d.why}; ${d.detail}, memory diet, ${d.drawn.people} people drawn`);
+    }
     const c = ceilings.ceilings?.[row.year]?.[row.viewport];
     if (!c) { console.log(`::warning::no memory ceiling for /${row.year}/ ${row.viewport}; read, not held`); continue; }
     const over = row.totals.total > c.total_bytes;

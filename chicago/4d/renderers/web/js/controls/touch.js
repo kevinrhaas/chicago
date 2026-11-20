@@ -28,6 +28,7 @@ const TAP_SLOP = 12;               // ...and moved less than this = a tap
 // smoothly. Pitch stays smooth: it is the sweep sideways that unsettles.
 import { lookScale } from './intent.js';
 import { viewportSize } from '../viewport.js';
+import { isChromeOS, touchDefault } from '../device-profile.js';
 
 export const SNAP_DEG = 30;
 export const SNAP_PX = 48;
@@ -295,6 +296,8 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
 
 /** Best guess at whether this device wants the touch backend by default. */
 export function prefersTouch() {
-  return window.matchMedia?.('(pointer: coarse)').matches
-    || (navigator.maxTouchPoints > 0 && window.innerWidth < 900);
+  // T-3675: on a Chromebook only the primary pointer decides (device-profile.js touchDefault).
+  return touchDefault({ coarse: !!window.matchMedia?.('(pointer: coarse)').matches,
+    maxTouchPoints: navigator.maxTouchPoints || 0, width: window.innerWidth,
+    chromeos: isChromeOS(navigator.userAgent, navigator.userAgentData?.platform) });
 }

@@ -2662,6 +2662,7 @@ BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone
 #: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
 PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
+CUT_DOOR_PROUD_M = 0.15    # T-3562: the most a pavilion the door is cut through (cut_by_door) stands proud
 EAVE_FASCIA_M = 0.20       # the K05 eave's fascia on a K01 house: its soffit stands this far under the eaves line
 BRACKETED_CORNICE = "k10.cornice.bracketed_timber"
 
@@ -4208,6 +4209,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 if e.get("cut_by_entrance") is True and v["kind"] == "projection" and (
                         (a < j0 < b < o.s_m and b - j0 <= 0.5) or (o.s_m < a < j1 < b and j1 - a <= 0.5)):
                     continue
+                # T-3562: or a SHALLOW pavilion a flat-headed door is cut through at its edge
+                # (1815's: Chicagology's square-on print draws the pavilion's dentil band and
+                # quoins ending at s 4.0, over the door's south half, and the oblique no cheek
+                # beside the door): one jamb inside the pavilion, the other past its edge, the
+                # pavilion no more than CUT_DOOR_PROUD_M proud, so the door reads in one plane
+                if e.get("cut_by_door") is True and v["kind"] == "projection" \
+                        and e["wall"] == "k01.wall.street_front" and not e.get("cut_by_entrance") \
+                        and float((e.get("plan") or {}).get("proud_m", 1.0)) <= CUT_DOOR_PROUD_M + 1e-9 \
+                        and ((a < j0 < b < j1) or (j0 < a < j1 < b)):
+                    continue
                 # T-1881: or a forward block that CARRIES the entrance on its face (1729's: the
                 # 1911 sheet draws the Prairie front's north part 2.95 m before the rest, its stoop
                 # before it, and the photographs put the door behind the portico on that part):
@@ -4343,6 +4354,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     # T-1890: a shallow pavilion the main cornice runs on across (1801's wall gable)
                     **({"cornice_across": True} if e.get("cornice_across") is True else {}),
                     **({"cut_by_entrance": True} if e.get("cut_by_entrance") is True else {}),
+                    # T-3562: a shallow pavilion the flat-headed door is cut through at its edge
+                    **({"cut_by_door": True} if e.get("cut_by_door") is True else {}),
                     # T-3236: or a bay whose cornice overhangs a porch arch's pier (1812's)
                     **({"seat_walls": True} if e.get("seat_walls") is True else {}),
                     **({"entrance": True} if "door_hole" in v else {}),

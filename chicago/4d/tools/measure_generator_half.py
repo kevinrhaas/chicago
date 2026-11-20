@@ -711,8 +711,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # city_1871_emit.py's independent standard-library recipe. That recipe hashes its
 # own module, plan and datum; neither terrain_gen.py nor common/*.py is an input.
 # Their reaches therefore remain 6 and 820; the new emitter's reach is 2.
+# 1126 -> 1129 on 2026-11-19 (T-3688): the Court House, the Chamber of Commerce and the
+# Sherman House in 1871, the first records of the new pure-Python `landmark_1871`
+# archetype (generators/landmark_1871_emit.py), restaling on none of the shared rows.
 STATED = {
-    "assets": 1126,
+    "assets": 1129,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
