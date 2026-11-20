@@ -12201,9 +12201,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2013:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b451c64fb81e76a1d6b282edb43a080f48d1001a89571a4ed31e40f1ff6db704",
+   "model_inputs_sha256": "f7457697f761bf4d56cce5c73aca62dba103a679782e962101e1e4e4e3757a6c",
    "barrier": {
-    "key": "0747853515f8ff36",
+    "key": "f1a838d7cfeae8ab",
     "cell": 0.1,
     "u0": -10.4,
     "v0": -0.7,
@@ -12211,7 +12211,7 @@
     "rects": "2 3 7 53 3 56 52 53 3 104 7 8 56 57 52 55 57 104 54 55 286 287 7 84 287 303 9 32 303 305 10 11 303 305 13 28 303 305 30 31 305 330 10 31 349 350 16 17 349 350 24 25 350 351 15 17 350 351 24 26 351 353 15 16 351 353 25 26 353 354 1 16 353 354 25 84 354 357 1 15 354 357 26 84"
    },
    "floor": {
-    "key": "5000a367f9fbccf5",
+    "key": "b154dc47aa74b311",
     "cell": 0.1,
     "u0": 18.1,
     "v0": 0.2,
