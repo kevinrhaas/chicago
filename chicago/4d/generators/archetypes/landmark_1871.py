@@ -41,6 +41,16 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from archetypes.landmark_1871_params import LandmarkParams  # noqa: E402
 
+
+def _seqsum(xs):
+    """Add left to right, one term at a time: 3.11's `sum()` spelled out, so the bytes
+    agree on every CPython (T-2363; prairie_draft._seqsum). Never call the built-in
+    `sum()` in this module: `tools/check_exact_sums.py` counts them."""
+    total = 0
+    for x in xs:
+        total = total + x
+    return total
+
 GENERATOR = "chicago-4d generators/archetypes/landmark_1871.py (T-3688)"
 ROOT = Path(__file__).resolve().parents[2]
 STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02
@@ -204,8 +214,8 @@ class Mesh:
     def prism(self, mat, ring, z0, z1, conf, top=True, bottom=False, center=None):
         """A vertical prism over a convex ring of (x, y)."""
         n = len(ring)
-        cx = sum(p[0] for p in ring) / n
-        cy = sum(p[1] for p in ring) / n
+        cx = _seqsum(p[0] for p in ring) / n
+        cy = _seqsum(p[1] for p in ring) / n
         for i in range(n):
             a, b = ring[i], ring[(i + 1) % n]
             mid = ((a[0] + b[0]) / 2 - cx, (a[1] + b[1]) / 2 - cy, 0.0)
@@ -217,7 +227,7 @@ class Mesh:
 
     @property
     def triangles(self):
-        return sum(len(p.idx) // 3 for p in self.prims.values())
+        return _seqsum(len(p.idx) // 3 for p in self.prims.values())
 
 
 class Frame:
