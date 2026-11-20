@@ -1,5 +1,6 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__as_mapped_1904.glb": "d9584a20c8e9e7d069deb8c43c3882be9c4ab26b34dea570863225b423602ec9",
@@ -1074,7 +1075,7 @@
     "rothschild_house_2112_prairie_coach_house__draft_1904.glb": "90df84ae376748c67e739039d7d87e63bdf27e927f36bea679c1def9b72edae6",
     "sauganash_hotel__frame_1831.glb": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385",
     "sauganash_hotel_stable__stable_1831.glb": "b7a252133f3d3d744f699411e25307b1aa0a17efceed7c103eafeabcbd6998be",
-    "sears_meeker_house_1815_prairie__as_mapped_1904.glb": "08ac533219477f305a70fb5ab8a65dc1591a761f859c92bd3f2adcd0dafa41ad",
+    "sears_meeker_house_1815_prairie__as_mapped_1904.glb": "7225bac5622df22b973bf68d228b8a7749051ebe77739a5bae6978949b0abdbe",
     "sears_meeker_house_1815_prairie_coach_house__draft_1904.glb": "b09274898936c986fa2a3e83839427252467fb2f23e256835305e257052369ed",
     "second_presbyterian_church_1936_michigan__draft_1904.glb": "740b0fbc0e897c30eb4da6cddbc56e7573ae75d117de7faef8f07f7dd9a8130a",
     "shed_1834_1900_prairie__as_standing_1904.glb": "8cca1d525c4a1af88689c4b39143c448c4c8e8a69e47ecf8be7d9687c9eb740f",
@@ -1130,6 +1131,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "111f34a5e2036b15c34ca4e38c16a68534413227d9bd57291a10e6bf0cbb09d6",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }

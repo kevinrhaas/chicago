@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "08ac533219477f305a70fb5ab8a65dc1591a761f859c92bd3f2adcd0dafa41ad",
+  "glb_sha256": "7225bac5622df22b973bf68d228b8a7749051ebe77739a5bae6978949b0abdbe",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -44,7 +44,8 @@
     },
     {
       "what": "the pavilion's own dentil band at the second storey's head (y 440-470 px), lower than the main cornice; the build's pavilion carries no band there and its wall runs plain up to the attic's sill (T-3562 re-read: the main cornice now stops at the pavilion's south edge, as the print's does)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: K08's corbel table carries the attic storey at 8.43 m: a 0.21 m course 0.15 m proud on dentils 0.1 m wide at 0.22 m, down to 8.0 m, across the pavilion; it renders at y 437-468 px against the print's 437-468 px. The print steps the band's middle segment up about 8 px (0.1 m) over the window; the build's runs level (within tolerance)"
     },
     {
       "what": "the door's pedimented hood on carved brackets (x 245-430 px, y 615-700 px) and the transom with the house number",
@@ -125,8 +126,8 @@
     },
     {
       "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic; T-3562 slates the attic's outer 0.75 m from its foot (K08's storey cheeks), where the print stands a stone shoulder under the slate",
-      "status": "open",
-      "how": "one with the pavilion's width (above)"
+      "status": "fixed",
+      "how": "T-3562: K08's cheek shoulder: the pavilion's coursed stone carried up 2.2 m over the attic's foot at each side, under a 0.2 m cap 0.12 m proud (y 280-295 px rendered against the print's 280-295) and a second band at 10.0 m (y 327-337 against 325-337), the slate rising from the cap; the shoulders' caps overhang the pavilion's edges as the print's do"
     },
     {
       "what": "the low coping and the two square posts flanking the walk",
@@ -174,7 +175,7 @@
       "how": "T-3562: the front block is 9.72 m along the front, the bay set out 0.75 m past its south wall (K01 bays[].set_out_m); the wall's south edge renders at x 854-868 px (it rendered at 907-919, flush with the bay) and the bay's at 925, as before"
     },
     {
-      "what": "the crown's cornice: the print's eave spans the attic's stone front alone (x 205-402 px, 2.75 m), the cheeks' slate sloping out beneath it to the shoulders; the build's cornice runs on across the slated cheeks, about 4.5 m (T-3562)",
+      "what": "the crown's cornice: the print's eave spans the attic's stone front alone (x 205-402 px, 2.75 m), the cheeks' slate sloping out beneath it to the shoulders' caps (since T-3562's shoulders, about 0.8 m of slate, 10.63-11.45 m); the build's cornice runs on across the slated cheeks, about 4.5 m (T-3562)",
       "status": "open"
     },
     {

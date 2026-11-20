@@ -562,7 +562,7 @@
               ]
             },
             {
-              "height_m": 3.55,
+              "height_m": 2.93,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -577,13 +577,13 @@
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 3.02,
               "windows": [
                 {
                   "opening": "k06.opening.casement_pair_transom_plate",
                   "clear_width_m": 1.7,
                   "clear_height_m": 1.75,
-                  "sill_m": 0.2,
+                  "sill_m": 0.82,
                   "at": [
                     0.5155
                   ],
@@ -594,7 +594,21 @@
               "cheeks": {
                 "front_run": 1,
                 "width_m": 0.75,
-                "proud_m": 0.03
+                "proud_m": 0.05,
+                "shoulder": {
+                  "height_m": 2.2,
+                  "cap_m": 0.2,
+                  "proud_m": 0.12,
+                  "ledge_m": 1.57
+                }
+              },
+              "corbel_table": {
+                "height_m": 0.43,
+                "course_m": 0.21,
+                "proud_m": 0.15,
+                "block_m": 0.1,
+                "pitch_m": 0.22,
+                "margin_m": 0.08
               }
             }
           ],
@@ -611,8 +625,7 @@
             "course_m": 0.45,
             "block_m": 1.0,
             "joint_m": 0.01,
-            "relief_m": 0.03,
-            "to_m": 9.05
+            "relief_m": 0.03
           },
           "cut_by_door": true
         },

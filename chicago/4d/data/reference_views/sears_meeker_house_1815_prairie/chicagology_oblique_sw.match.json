@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "08ac533219477f305a70fb5ab8a65dc1591a761f859c92bd3f2adcd0dafa41ad",
+  "glb_sha256": "7225bac5622df22b973bf68d228b8a7749051ebe77739a5bae6978949b0abdbe",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -127,7 +127,8 @@
     },
     {
       "what": "the pavilion's own dentil band at the second storey's head and the stone shoulders beside the attic (the band at x 1085-1300 px, y 513-533 px; the shoulders at y 340-410 px), as on the square-on (T-3562)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the corbel-table band at the attic's foot and the capped stone shoulders beside the attic (as on the square-on) render on this camera along the print's lines, the band under the attic's lights and over the second storey's, the shoulders' caps at the slate's foot"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
