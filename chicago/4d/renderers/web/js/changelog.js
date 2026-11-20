@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3161, ts: '2026-11-20T06:29:51.517Z', date: 'Nov 20, 2026, 12:29 AM CT', title: 'The Last Sunday: walk 1871 Chicago on the day before the fire', kind: 'feature',
+    items: [
+      'A new 1871 story: Sunday 8 October, from Lake Street at two in the afternoon to DeKoven Street at dusk.',
+      'Nine stops: the Sherman House, the Court House cupola, the Chamber of Commerce, Crosby\'s Opera House, State Street, the Water Tower, the Saturday fire\'s ruins and the O\'Leary barn.',
+      'Every fact and quotation comes from the 1871 histories, Andreas, the fire\'s own inquiry and the Chicago History Museum.',
+      'Told for grades 3-5, 6-8, 9-10 and 11-12, with a fuller telling for adults.',
+      'It ends where the Great Chicago Fire begins.',
+    ] },
   { v: 3160, ts: '2026-11-20T06:00:51.545Z', date: 'Nov 20, 2026, 12:00 AM CT', title: 'The Great Chicago Fire, a Jaunt in 1871', kind: 'feature',
     items: [
       'Follow the fire hour by hour in twelve stops, from the O\'Leary barn on Sunday night to the old cemetery on Monday evening, and the rain.',
