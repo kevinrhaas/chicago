@@ -1,0 +1,26 @@
+{
+  "id": "colbert_chamberlin_1871_great_conflagration",
+  "type": "book",
+  "citation": "Elias Colbert and Everett Chamberlin, Chicago and the Great Conflagration. Cincinnati and New York: C. F. Vent; Chicago: J. S. Goodman & Co., 1871.",
+  "author": "Elias Colbert; Everett Chamberlin",
+  "date": "1871",
+  "describes_date": "1868 enumeration; city in 1871; fire of 8-9 October 1871",
+  "repository": "Harold B. Lee Library, Brigham Young University, digitized by the Internet Archive",
+  "url": "https://archive.org/details/chicagogreatconf1871colb",
+  "locator": "pp. 146-147 (\"An enumeration made in the spring of 1868 gave a total of 35,654 wooden buildings, and 3712 of brick and stone; total, 39,366\"); p. 167, ch. XXXII \"Chicago in 1871\" (59,500 buildings: North 13,800, South 16,300, West 29,400); p. 226 (the ground north of De Koven Street \"thickly studded with one-story frame dwellings, cow-stables, pig-sties, corn-cribs, sheds\"); pp. 285-286 (West Division buildings burned \"nearly all frame structures\"; the South Division burned district held \"the great majority of the most expensive structures in the city\").",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Published in the United States in 1871; public domain by age. Only the counts and descriptions are used, no page images.",
+  "asset_use": "inventory",
+  "verified": true,
+  "access_notes": "Full text read on 2026-11-19 from the Internet Archive's OCR of the 1871 printing (identifier chicagogreatconf1871colb); the quoted passages were checked against the page numbers printed in that text.",
+  "what_it_supplies": [
+    "A citywide ratio of building materials before the fire: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone (about nine in ten wooden).",
+    "The city's 59,500 buildings in 1871 by division, with the West Division largest (29,400).",
+    "Descriptions that the West Side's burned blocks were nearly all frame, and that the South Division's burned centre held the city's most expensive structures."
+  ],
+  "what_it_does_not_supply": [
+    "A material for any particular lot, block or street; a material ratio by division or for 1871 itself; paint colours."
+  ],
+  "note": "T-3683 uses the 1868 ratio and the division descriptions to set the share of frame and masonry stand-ins by district in the 1871 context city. The generated buildings remain anonymous reconstructions."
+}

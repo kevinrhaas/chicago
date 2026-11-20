@@ -429,6 +429,9 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   mixer.stopAllAction(); mixer.uncacheRoot(root);
   let height = 0;
   for (let r = 0; r < count; r++) height = Math.max(height, rest[r * 3 + 1]);
+  // aRegion carries the point's region (0 cloth, 1 skin, 2 hair) and its slot, as region + 4 x
+  // (slot + 1): a phone has 16 vertex attributes, and gl_InstanceID can take one of them under
+  // ANGLE, so the middle body adds none of its own for its slots (T-3553).
   const colour = new Float32Array(count * 3), region = new Float32Array(count), lift = new Float32Array(count);
   const slotOf = new Float32Array(count).fill(-1), mask = new Float32Array(count * 4);
   const c = new THREE.Color();
@@ -461,6 +464,7 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
     const k = entry.region === 0 ? rank.get(m.name ?? '') : undefined;
     if (k != null) {
       slotOf[r] = k;
+      region[r] = entry.region + 4 * (k + 1);
       ranked[k].base ??= [c.r, c.g, c.b];
       if (k < CARD_SLOTS) mask[r * 4 + k] = 1;
     }
@@ -476,7 +480,6 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   geometry.setAttribute('color', new THREE.BufferAttribute(colour, 3));
   geometry.setAttribute('aRegion', new THREE.BufferAttribute(region, 1));
   geometry.setAttribute('aLift', new THREE.BufferAttribute(lift, 1));
-  geometry.setAttribute('aSlot', new THREE.BufferAttribute(slotOf, 1));
   geometry.setAttribute('aMask', new THREE.BufferAttribute(mask, 4));
   geometry.setIndex(count > 65535 ? new THREE.Uint32BufferAttribute(tris, 1) : new THREE.Uint16BufferAttribute(tris, 1));
   geometry.computeVertexNormals();
@@ -486,7 +489,7 @@ export function buildCrowdBody(gltf, { cell = CLUSTER_M.full, measured = new Map
   vat.generateMipmaps = false;
   vat.needsUpdate = true;
   return { geometry, vat, reps: count, triangles: tris.length / 3, height, walkSeconds, vatBytes: data.byteLength,
-    slots: slotList, skinBase: skinBase ?? [1, 1, 1] };
+    slots: slotList, slotOf, skinBase: skinBase ?? [1, 1, 1] };
 }
 
 /** The vertex half of the animation texture, for any lit or unlit material. */
@@ -498,8 +501,8 @@ function vatVertex(shader, body, { instanced = true } = {}) {
   shader.vertexShader = shader.vertexShader
     .replace('#include <common>', `#include <common>
 uniform highp sampler2D uVat; uniform float uVatW; uniform float uReps; uniform float uFrame;
-attribute float aRegion; attribute float aLift; attribute float aSlot;
-${instanced ? 'attribute vec4 iA; attribute vec3 iSkin; attribute vec3 iHair; attribute float iCloth; uniform highp sampler2D uDress;'
+attribute float aRegion; attribute float aLift;
+${instanced ? 'attribute vec4 iA; attribute vec4 iSkin; attribute vec3 iHair; uniform highp sampler2D uDress;'
     : 'attribute vec4 aMask; varying vec4 vCrowdMask;'}
 varying float vCrowdFade;
 vec3 crowdVat(float f) {
@@ -507,12 +510,16 @@ vec3 crowdVat(float f) {
   return texelFetch(uVat, ivec2(int(mod(k, uVatW)), int(floor(k / uVatW))), 0).xyz;
 }`)
     .replace('#include <begin_vertex>', instanced
-      ? 'vec3 transformed = mix(crowdVat(iA.x), crowdVat(iA.y), iA.z) + normal * aLift; vCrowdFade = iA.w;'
+      // iA: the walk's frame, the instance's row (its own dress), the blend to the next frame,
+      // the fade. The next frame is the one after, round the walk; the idle (WALK_FRAMES) holds.
+      ? `float crowdNext = iA.x > ${WALK_FRAMES - 0.5} ? iA.x : mod(iA.x + 1.0, ${WALK_FRAMES}.0);
+vec3 transformed = mix(crowdVat(iA.x), crowdVat(crowdNext), iA.z) + normal * aLift; vCrowdFade = iA.w;`
       : 'vec3 transformed = crowdVat(uFrame) + normal * aLift; vCrowdFade = 1.0; vCrowdMask = aMask;')
     .replace('#include <color_vertex>', `#include <color_vertex>
-${instanced ? `vColor.rgb = aRegion > 1.5 ? iHair : (aRegion > 0.5 ? vColor.rgb * iSkin : vColor.rgb * iCloth);
-if (aSlot > -0.5) { vec4 own = texelFetch(uDress, ivec2(int(aSlot + 0.5), gl_InstanceID), 0); if (own.a > 0.5) vColor.rgb = own.rgb; }`
-    : 'if (aRegion > 1.5) vColor.rgb = vec3(' + DEFAULT_HAIR.map((x) => x.toFixed(4)).join(', ') + ');'}`);
+float crowdRegion = mod(aRegion, 4.0), crowdSlot = floor(aRegion / 4.0 + 0.01) - 1.0;
+${instanced ? `vColor.rgb = crowdRegion > 1.5 ? iHair : (crowdRegion > 0.5 ? vColor.rgb * iSkin.rgb : vColor.rgb * iSkin.w);
+if (crowdSlot > -0.5) { vec4 own = texelFetch(uDress, ivec2(int(crowdSlot + 0.5), int(iA.y + 0.5)), 0); if (own.a > 0.5) vColor.rgb = own.rgb; }`
+    : 'if (crowdRegion > 1.5) vColor.rgb = vec3(' + DEFAULT_HAIR.map((x) => x.toFixed(4)).join(', ') + ');'}`);
 }
 
 function crowdFragment(shader, mode) {
@@ -528,7 +535,7 @@ function midMaterial(body, dress) {
   const m = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85, metalness: 0, side: THREE.DoubleSide });
   m.name = 'crowd_mid';
   m.onBeforeCompile = (shader) => { shader.uniforms.uDress = { value: dress }; vatVertex(shader, body); crowdFragment(shader, 'mid'); };
-  m.customProgramCacheKey = () => 'crowd-mid-v2';
+  m.customProgramCacheKey = () => 'crowd-mid-v3';
   return m;
 }
 
@@ -544,7 +551,7 @@ function bakeMaterial(body) {
       .replace('#include <common>', '#include <common>\nuniform float uMaskPass; varying vec4 vCrowdMask;')
       .replace('#include <dithering_fragment>', '#include <dithering_fragment>\nif (uMaskPass > 0.5) gl_FragColor = vCrowdMask;');
   };
-  m.customProgramCacheKey = () => 'crowd-bake-v2';
+  m.customProgramCacheKey = () => 'crowd-bake-v3';
   m.userData.uFrame = uFrame;
   m.userData.uMaskPass = uMaskPass;
   return m;
@@ -863,14 +870,14 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
   function mountMid(b) {
     const cap = (CAPS[tier] ?? CAPS.full).mid;
     const geometry = new THREE.InstancedBufferGeometry();
-    for (const [k, a] of Object.entries(b.body.geometry.attributes)) geometry.setAttribute(k, a);
+    for (const [k, a] of Object.entries(b.body.geometry.attributes)) if (k !== 'aMask') geometry.setAttribute(k, a);
     geometry.index = b.body.geometry.index;
     const mk = (n) => { const a = new THREE.InstancedBufferAttribute(new Float32Array(cap * n), n); a.setUsage(THREE.DynamicDrawUsage); return a; };
-    b.attrs = { a: mk(4), skin: mk(3), hair: mk(3), cloth: mk(1), m: mk(16), cap };
+    // iSkin.w is the cloth's shade; iA.y the instance's row in its dress table (no gl_InstanceID).
+    b.attrs = { a: mk(4), skin: mk(4), hair: mk(3), m: mk(16), cap };
     geometry.setAttribute('iA', b.attrs.a);
     geometry.setAttribute('iSkin', b.attrs.skin);
     geometry.setAttribute('iHair', b.attrs.hair);
-    geometry.setAttribute('iCloth', b.attrs.cloth);
     geometry.instanceCount = 0;
     // T-3553: each instance's own colours for the body's slots, one row an instance.
     const dress = new THREE.DataTexture(new Float32Array(CROWD_SLOTS * cap * 4), CROWD_SLOTS, cap, THREE.RGBAFormat, THREE.FloatType);
@@ -1138,13 +1145,12 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           q.setFromAxisAngle(up, yaw); s3.setScalar(p.look.scale);
           m4.compose(w3, q, s3);
           b.mesh.setMatrixAt(i, m4);
-          let fa = WALK_FRAMES, fb = WALK_FRAMES, ft = 0;
-          if (p.walk) { const f = p.cycle * WALK_FRAMES; fa = Math.floor(f) % WALK_FRAMES; fb = (fa + 1) % WALK_FRAMES; ft = f - Math.floor(f); }
-          b.attrs.a.setXYZW(i, fa, fb, ft, p.wm);
+          let fa = WALK_FRAMES, ft = 0;
+          if (p.walk) { const f = p.cycle * WALK_FRAMES; fa = Math.floor(f) % WALK_FRAMES; ft = f - Math.floor(f); }
+          b.attrs.a.setXYZW(i, fa, i, ft, p.wm);
           const sk = p.look.skin, hr = p.look.hair;
-          b.attrs.skin.setXYZ(i, sk[0], sk[1], sk[2]);
+          b.attrs.skin.setXYZW(i, sk[0], sk[1], sk[2], p.look.cloth);
           b.attrs.hair.setXYZ(i, hr[0], hr[1], hr[2]);
-          b.attrs.cloth.setX(i, p.look.cloth);
           const row = b.dress.image.data, o = i * CROWD_SLOTS * 4;
           if (p.look.slots) row.set(p.look.slots, o); else row.fill(0, o, o + CROWD_SLOTS * 4);
           nMid++;
@@ -1165,7 +1171,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       for (const b of bodies.values()) if (b.mesh) {
         b.mesh.instanceMatrix.needsUpdate = true;
         b.mesh.instanceMatrix.clearUpdateRanges?.(); b.mesh.instanceMatrix.addUpdateRange?.(0, b.mesh.count * 16);
-        for (const a of [b.attrs.a, b.attrs.skin, b.attrs.hair, b.attrs.cloth]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, b.mesh.count * a.itemSize); }
+        for (const a of [b.attrs.a, b.attrs.skin, b.attrs.hair]) { a.needsUpdate = true; a.clearUpdateRanges?.(); a.addUpdateRange?.(0, b.mesh.count * a.itemSize); }
         b.mesh.visible = b.mesh.count > 0;
         if (b.mesh.count > 0) b.dress.needsUpdate = true;
         tris += b.body.triangles * b.mesh.count;

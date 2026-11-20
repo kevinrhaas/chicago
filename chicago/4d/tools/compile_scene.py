@@ -975,6 +975,10 @@ def how_known(person: dict, transient: bool = False) -> str:
             and person.get("resident_subtype") == "reconstructed_trade_head"
             and (person.get("reconstruction") or {}).get("stage") == "trade_households"):
         return "reconstructed"
+    # T-3690: the 1871 city's carded people (tools/town_people_1871.py), every name ours.
+    if (person.get("grade") == "reconstructed"
+            and (person.get("reconstruction") or {}).get("stage") == "reconstructed_resident"):
+        return "reconstructed"
     return "documented"
 
 

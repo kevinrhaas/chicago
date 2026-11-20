@@ -54,6 +54,8 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   // T-2741: today's streets, for the compass readout and the maps in every year.
   ['data/modern/', 'data/modern/'],
+  // T-3674: the on-site tour, fetched when Window mode starts in 1904.
+  ['data/onsite/', 'data/onsite/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
@@ -80,9 +82,10 @@ const COPIES = [
   ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
   // T-3265: a later scene's own household cards, which a person's card in Inspect › People reads;
-  // copied verbatim (690 KB together) by publish.sh's loop over data/residents_<scene>/.
+  // copied verbatim by publish.sh's loop over data/residents_<scene>/ (1871's town: 9.5 MB, T-3690).
   ['data/residents_1812/', 'data/residents_1812/'],
   ['data/residents_1904/', 'data/residents_1904/'],
+  ['data/residents_1871/', 'data/residents_1871/'],
   ['data/enclosures/', 'data/enclosures/'],
   // T-3332: a scene's night lights (lit windows by the hour, the lamps outside); night-lights.js reads them.
   ['data/night_lights/', 'data/night_lights/'],

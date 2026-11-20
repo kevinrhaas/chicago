@@ -31,8 +31,8 @@ import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
 import { fieldLog, count as countField } from './field-log.js'; // T-2660
-import { normalMoment, parseMoment, momentLink, momentFits, stampMoment } from './moment.js';
-import { huntSpotSafe } from './photo-hunt.js';
+import { normalMoment, parseMoment, momentLink, momentFits, nearestOpen, stampMoment } from './moment.js';
+import { huntSet, huntSpotSafe } from './photo-hunt.js';
 import './strings/moment.js';
 // T-3672: a teacher's route, read from its link once and opened after the landing.
 import { parseRouteLink, routeSession, routeCatalog, activeRoute } from './teacher-route.js';
@@ -60,7 +60,7 @@ import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
-import { createWindowMode, windowAt } from './controls/window.js';
+import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -2758,7 +2758,8 @@ async function boot() {
       // The pixel proof covers the scene's July appearance. Winter's on/off
       // comparison has a repeatable raster difference; alternate seasons retain
       // the complete draw list, then summer can safely restore this filter.
-      allow:()=>buildings.group.visible && api.season?.current==='summer'});
+      // T-3676: a held building's backing would hide what stands behind its empty lot.
+      allow:()=>buildings.group.visible && api.season?.current==='summer' && !api.blockGrow?.bar});
   }
 
   // T-2481 — the Season setting: the ground's snow, sward and leaves (season.js
@@ -4198,7 +4199,8 @@ async function boot() {
       name: names[r[S.name]] ?? null, e0: r[S.e0], n0: r[S.n0], e1: r[S.e1], n1: r[S.n1],
     })).filter((l) => l.name);
   })();
-  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines });
+  const eraWhere = createWhere({ streets, grid: streetGrid?.grid ?? null, lines: contextStreetLines,
+    junctions: contextCity?.junctions?.() ?? [] });
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets, year: loaded.scene.id ?? YEAR, where: eraWhere,
     // T-2626: the round instrument opens the Map app (its stub opens the whole field).
@@ -4237,7 +4239,9 @@ async function boot() {
   // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
   // otherwise swallow a shoe whose trousers come down over it.
   const figureGround = (e, n) => figureGroundHeight(terrain, decks, e, n,
-    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null : null);
+    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null
+      // T-3690: the 1871 city's people stand on its plank walks and roadways, not under them.
+      : String(YEAR) === '1871' ? api.contextCity?.floorHeight?.(e, n) ?? null : null);
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -4298,14 +4302,25 @@ async function boot() {
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
-  if (['1812', '1835', '1904'].includes(daysScene)) {
+  if (['1812', '1835', '1871', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
-      : daysScene === '1812' && doorsFile1812 ? doorsFile1812 : getOptional(`humans/doors_${daysScene}.json`),
+    let [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
+      : daysScene === '1812' && doorsFile1812 ? doorsFile1812
+      : daysScene === '1871' ? null : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
-      ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
+      getOptional(`humans/inside_${daysScene}.json`)]);
+    // T-3690: the 1871 city's people (tools/town_people_1871.py) are given their doors and the
+    // places outside them on the context city's own walks, as the city stands today.
+    if (daysScene === '1871' && inside) {
+      const { placeTown1871, roadHeightOf } = await import('./town-1871.js');
+      api.roadHeight1871 = roadHeightOf(api.contextCity?.doc?.walk_surfaces ?? []);
+      const placed = placeTown1871(inside, api.contextCity);
+      doors = placed.doors;
+      api.town1871 = placed.census;
+      if (placed.census.dropped) layerProblems('humans').push(`town-1871: ${placed.census.dropped} of ${placed.census.households} households have no walk near their place and are not drawn`);
+    }
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
     // skirt's width off and nobody is stepped aside into (house-barriers.js).
@@ -4365,7 +4380,7 @@ async function boot() {
       standClear: houseBarriers ? (q) => houseBarriers.clearOf(q.e, q.n, BARRIER_STAND_M, (r) => dayClear(r, r)) : null,
       // T-3556: 1835's town is thousands under its roofs, so more of them are out about the
       // visitor at once; fewer on a lighter detail (a phone), never none (people are core).
-      residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
+      residentsNear: ['1835', '1871'].includes(daysScene) ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
       // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
@@ -4466,6 +4481,8 @@ async function boot() {
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
+          // T-3690: 1871's teams ride the context city's roadway ribbons where it lays them.
+          : String(YEAR) === '1871' ? (e, n) => api.roadHeight1871?.(e, n) ?? profiledGroundHeight(terrain, decks, e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
@@ -5343,11 +5360,48 @@ async function boot() {
     onChange: (on) => {
       windowKey?.setAttribute('aria-pressed', String(on));
       blackbox.log(on ? 'window' : 'window-end');
-      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
-      else hud.say('Window closed');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); offerOnsite(); }
+      else { onsite?.end(); hud.say('Window closed'); }
     },
   });
   api.window = windowMode;
+
+  /**
+   * T-3674: the on-site tour (js/onsite.js, its card js/onsite-view.js) — in 1904, Window mode
+   * offers a walk on today's Prairie Avenue to the Glessner House: each stop's distance and
+   * direction from the fix, arrival inside a radius scaled to the fix's accuracy, and a fix off
+   * the tour's ground held where the visitor stands. The card and its data load the first time
+   * Window mode starts in that year, never at boot.
+   */
+  // The tour's year is onsite.js's ONSITE_YEAR, said here so the boot imports nothing of it
+  // (tools/check_onsite_tour.mjs holds the two equal).
+  const ONSITE_YEAR = '1904';
+  let onsite = null, onsiteLoad = null, onsiteData = null, onsiteUnwatch = null;
+  const loadOnsite = () => onsiteLoad ??= import('./onsite-view.js')
+    .then(({ mountOnsite }) => (onsite = mountOnsite(document.body, {
+      load: () => onsiteData ??= fetch(new URL('onsite/prairie_1904.json', bases.dataBase), { cache: 'no-cache' })
+        .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+        .catch((err) => { onsiteData = null; problems.push(`onsite/prairie_1904.json: ${err.message} — the on-site tour is not offered`); throw err; }),
+      toLocal: (lat, lon) => toLocalLL(lat, lon, loaded.datum),
+      heading: () => walker.bearingDeg,
+      where: () => ({ e: walker.state.e, n: walker.state.n }),
+      lastFix: () => windowMode.lastFix,
+      pinned: windowMode.pinned,
+      openHouse: (id) => pick(id),
+      say: (line) => hud.say(line),
+      onRun: (running) => {
+        blackbox.log(running ? 'onsite' : 'onsite-end');
+        onsiteUnwatch?.(); onsiteUnwatch = null;
+        if (running) onsiteUnwatch = windowMode.watchFix((fix, at) => onsite.fix(fix, at));
+      },
+    })))
+    .catch((error) => { onsiteLoad = null; problems.push(`on-site tour: ${error.message}`); return null; });
+  function offerOnsite() {
+    if (String(loaded.scene.id ?? YEAR) !== ONSITE_YEAR) return;
+    void loadOnsite().then((o) => { if (o && windowMode.on && !o.running) o.offer(); });
+  }
+  api.onsite = { get state() { return onsite?.state ?? null; }, get running() { return !!onsite?.running; },
+    offer: offerOnsite, end: () => onsite?.end() };
   if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
   windowKey?.addEventListener('click', () => {
     if (windowMode.on) { windowMode.stop(); return; }
@@ -6029,6 +6083,30 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
+  // T-3676: Watch a block grow. Its scene half (block-grow-scene.js) holds the block's
+  // unbuilt buildings out of the town and ghosts the undated; its bar (block-grow-view.js)
+  // steps the years. Both load on first use; Leave puts the town back exactly.
+  const blockGrow = { scene: null, bar: null, opening: false, buildings: null };
+  async function openBlockGrow(id) {
+    if (String(YEAR) !== '1904' || blockGrow.opening) return false;
+    blockGrow.opening = true;
+    try {
+      const [{ offeredBlocks }, { createBlockGrowScene }, { mountBlockGrowBar }] = await Promise.all([
+        import('./block-grow.js'), import('./block-grow-scene.js'), import('./block-grow-view.js')]);
+      const block = offeredBlocks(loaded.registry).find((b) => b.id === id);
+      if (!block) return false;
+      api.townTransport?.cancelDriverApproaches?.();
+      blockGrow.scene ??= createBlockGrowScene({ scene3d, buildings: () => buildings, walker, hud, camera,
+        registry: loaded.registry, doorGroups: () => [api.houseDoors?.group, api.coachHouse?.group] });
+      blockGrow.bar?.close();
+      navigatorUi?.dock();
+      blockGrow.buildings = buildings;
+      blockGrow.bar = mountBlockGrowBar(document.body, { block, scene: blockGrow.scene,
+        onLeave: () => { blockGrow.bar = null; } });
+      return true;
+    } finally { blockGrow.opening = false; }
+  }
+  api.blockGrow = blockGrow;
   let guideFaq = null; // T-2662
   const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
@@ -7183,6 +7261,13 @@ async function boot() {
         recall: (href) => recallHome?.ask(href),
         // T-3390: a Jump to another year asks the same way before its ring runs.
         confirmJump: (to, go) => (recallHome ? recallHome.askJump(to, go) : go()),
+        // T-3669: where you stand, for Jump to land on the same ground in the far year.
+        jumpPose: () => {
+          if (!api.ready || gateOpen) return null;
+          const st = walker.state;
+          return { e: st.e, n: st.n, bearing: walker.bearingDeg, pitch: st.pitch / DEG,
+            altitude: st.flying ? st.altitude : null, season: api.season.current, hour: world.sunTime };
+        },
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.
@@ -7218,7 +7303,7 @@ async function boot() {
         // Its optional visit validates the actual stand before starting ordinary travel.
         photoHunt: {
           load: async () => {
-            if (String(YEAR) !== '1904') return null;
+            if (!huntSet(YEAR)) return null;
             const doc = await ensurePictures();
             if (doc) destinations.addPhotos(doc);
             else picturesPromise = null; // The hunt's retry may read a restored connection.
@@ -7232,6 +7317,19 @@ async function boot() {
               barrierAt: (e, n) => houseBarriers?.near(e, n, BODY_R_M) })) return false;
             return goToTarget({ kind: 'photo', id });
           },
+        },
+        // T-3676: Watch a block grow — one block of the loaded 1904 town, one year at a
+        // time, from its buildings' recorded years (block-grow.js); no other year is read.
+        blockGrow: {
+          available: String(YEAR) === '1904',
+          blocks: async () => {
+            if (String(YEAR) !== '1904') return [];
+            const { offeredBlocks } = await import('./block-grow.js');
+            return offeredBlocks(loaded.registry).map((b) => ({ id: b.id, title: b.title,
+              dated: b.dated.length, undated: b.undated.length }));
+          },
+          open: (id) => openBlockGrow(id),
+          get active() { return !!blockGrow.bar; },
         },
         // T-2825: the record as the card says it — its notes without a ticket, a record id or
         // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
@@ -7383,11 +7481,29 @@ async function boot() {
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
     const restoreMoment = async () => {
-      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
-      if (!momentFits(sharedMoment, { year: YEAR, inBounds: (e, n) => terrain.inBounds(e, n),
-        blockedAt: (e, n) => router.blockedAt(e, n) })) {
-        hud.say(t('moment.invalid')); return;
+      const ground = { inBounds: (e, n) => terrain.inBounds(e, n), blockedAt: (e, n) => router.blockedAt(e, n) };
+      const jumped = sharedMoment.via === 'jump';
+      let moved = 0;
+      if (!momentFits(sharedMoment, { year: YEAR, ...ground })) {
+        // T-3669: a Jump keeps your ground where this year has it: a house or the river
+        // where you stood moves you to the nearest open ground; land this year's town does
+        // not cover leaves this year's own arrival (its Welcome) in place, and says so.
+        // A shared link never moves.
+        const open = jumped && sharedMoment.year === String(YEAR) && sharedMoment.altitude === null
+          ? nearestOpen(sharedMoment.e, sharedMoment.n, ground) : null;
+        if (!open) {
+          if (jumped) {
+            api.jumpLanding = { kept: false, outside: true, from: sharedMoment.from ?? null };
+            hud.say(t('moment.jumpOutside', { from: sharedMoment.from ?? t('moment.thatYear'), year: YEAR }));
+          } else {
+            if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
+            hud.say(t('moment.invalid'));
+          }
+          return;
+        }
+        sharedMoment.e = open.e; sharedMoment.n = open.n; moved = open.moved;
       }
+      if (api.welcome?.state === 'welcome') api.welcome.enter('spawn');
       travel.stop('shared-moment'); follow.stop('input');
       if (sharedMoment.season) await api.season.set(sharedMoment.season, { transient: true });
       if (sharedMoment.hour) await api.timeOfDay.set(sharedMoment.hour, { date: sharedMoment.date ?? undefined, transient: true });
@@ -7402,7 +7518,11 @@ async function boot() {
         else missingPerson = true;
       } else if (sharedMoment.structure && loaded.registry.has(sharedMoment.structure)) openBuilding(sharedMoment.structure);
       api.momentRestored = sharedMoment;
-      hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
+      if (jumped) {
+        api.jumpLanding = { kept: true, outside: false, moved, e: sharedMoment.e, n: sharedMoment.n, from: sharedMoment.from ?? null };
+        hud.say(t(moved ? 'moment.jumpNear' : 'moment.jumpSame', { year: YEAR, m: moved }));
+      }
+      else hud.say(t(missingPerson ? 'moment.personMissing' : 'moment.arrived'));
     };
     const open = () => { void restoreMoment().catch(() => hud.say(t('moment.invalid'))); };
     if (journey.state === 'landed' || journey.state === 'exploring') open();
@@ -7750,6 +7870,11 @@ async function boot() {
       buildings?.setDate?.(world.sunDate);
       api.yards?.setDate?.(world.sunDate);
       gateFrame.invalidate?.();
+    }
+    // T-3676: a detail change rebuilt the buildings under a time-lapse: hold its year again.
+    if (blockGrow.bar && blockGrow.buildings !== buildings) {
+      blockGrow.buildings = buildings;
+      blockGrow.scene?.reapply();
     }
     api.days?.update(frameDt);
     api.jauntHosts?.update(frameDt);
