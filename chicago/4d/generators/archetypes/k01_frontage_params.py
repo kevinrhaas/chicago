@@ -3056,6 +3056,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-2900: a corner turret's centre may stand inside its wall, as 1801's does on the
             # 1911 sheet (its bump 0.6 m proud on a ring 2.6 m across)
             c_lo = -(r - 0.3) if e.get("corner") is not None or across is not None else 0.0
+            # T-3616: and a round front tower whose cap is built in two stages (2011's, its bow
+            # 1.3 m proud on the 1911 sheet on a ring 4 m across, and its cap's axis behind the
+            # drum's in both pictures): its cap stands whole over the house's roof behind it
+            if not square and across is None and (e.get("roof") or {}).get("upper") is not None:
+                c_lo = -(r - 1.0)
             # T-3318: and a square tower's, its front standing out of the wall by what its sheet
             # draws (1936's 1.3 m on a 3.8 m square), so long as 0.3 m of its cheeks stays clear
             if square:
@@ -3117,6 +3122,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         for k in ("storeys", "roof"):
             if k in e:
                 v[k] = _copy.deepcopy(e[k])
+        # T-3616: a round tower's cap in two stages (2011 Prairie's turret in the Chicagology
+        # photograph): a skirt from the eaves up `from_m`, a ledge `out_m` out over its top and
+        # `ledge_m` deep, and a steeper upper cone at its own `pitch` (k08_bays._two_stage_cone)
+        if v["roof"].get("upper") is not None:
+            up = v["roof"]["upper"]
+            if v["kind"] != "tower" or v["roof"].get("kind") != "cone" or v.get("cap_whole") \
+                    or not isinstance(up, dict) or set(up) != {"from_m", "out_m", "ledge_m", "pitch"} \
+                    or not 0.3 <= float(up["from_m"]) <= 3.0 or not 0.05 <= float(up["out_m"]) <= 0.6 \
+                    or not 0.05 <= float(up["ledge_m"]) <= 0.4 or not 0.5 <= float(up["pitch"]) <= 4.0:
+                raise ParamError(f"bays: {e['id']}'s roof.upper is a round tower's cone's upper stage: "
+                                 f"from_m 0.3-3 m, out_m 0.05-0.6 m, ledge_m 0.05-0.4 m, pitch 0.5-4, not {up}")
         # T-1881: a pavilion's mansard slated as the house's own lower faces (1729's: each
         # forward section carries the main roof's slate round its own curb in every photograph)
         # T-1890: and a tower's or corner turret's cone (1801's two, slated as the mansard in the

@@ -44720,20 +44720,29 @@ the coped street-line wall and the yard (the photograph's yard is strewn with bu
 goods are hung (K01 hangs none on a gable roof).
 
 **What is built otherwise than the evidence, and why.** The turret is K08's round tower, 2.0 m in radius on a
-centre 0.15 m before the wall's face, so it stands 2.15 m proud where the sheet's bow stands about 1.3 m: a smaller tower
-would no longer fill the photograph's width. Its roof is one plain cone where the photograph shows two stages
-(a flared skirt, a ledge and a steeper upper cone): K08 cannot flare a tower's cone yet, and T-3616 builds it.
+centre 0.8 m inside the wall's face (T-3616), so it bows 1.2 m proud where the sheet's bow reads about 1.3 m (T-3615 had it
+2.15 m proud, which hid the door and cross window the Inland Architect plate sees beside it). The two pictures pull its
+projection apart (the plate's carried camera wants about 1.0 m, the photograph's lights sit best on a rounder drum), so the
+sheet decides, and the cap's apex stands between them: about 0.13 m under the photograph's and 0.5 m over the plate's,
+its axis within about 0.3 m of each. The cap is built in two stages as the photograph shows it (a skirt from the eaves, a
+ledge, a steeper upper cone: T-3616); the stages' pitches, the ledge's depth and its covering are read loosely and are
+RECONSTRUCTED within what the two prints show.
+Round the inset centre the turret's lights stand 0.3-0.55 m south of the photograph's: K08 refuses a light nearer
+the drum's junction with the front, and its band of small lights stops at three (the light tier's 7,000-triangle budget
+for one tower), so the plate's band lights round the south side are not built. Both gaps stand open in the match records.
 The turret's top band carries three small lights on the part of the round the photograph sees, where the Reid plate shows more round its south side: K08's triangle budget for one tower holds no more. The door is the kit's round-arched double door with its arch glazed, where the photograph shows a transom
 bar and a single leaf. The dormer is a plain face with one sash at the contract's shortest (1.5 m), about
 0.25 m taller than the photograph's deep hood over a recessed light. The door stands at 1.4 m along the front
 (the photograph's 1.35 m) so its voussoirs keep the kit's 0.25 m off the corner. The sheet's small frame bay on
 the rear block's open south side and its cut rear corner are not built.
 
-**How to resolve:** T-3616 builds the turret's two-stage roof, solves the Reid plate's camera and signs off
-the image gate; a picture of the rear or a description of the stone would replace the invented parts.
+**How to resolve:** a measured plan of the turret or a third picture of it from the street would settle its
+projection and its cap's pitches; a picture of the rear or a description of the stone would replace the invented parts.
+**Revised:** 2026-11-17 (T-3616: the turret's centre moved inside the face, its cap built in two stages, the plate's camera
+solved into `data/reference_views/house_2011_prairie/inland_architect_plate.json`).
 **Covers:** `house_2011_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2011_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2011_prairie.as_mapped_1904.form.service_wall_brick`, `house_2011_prairie.as_mapped_1904.form.street_front_trim`, `house_2011_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2011_prairie.as_mapped_1904.form.stair_tread_m`, `house_2011_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2011_prairie.as_mapped_1904.form.stoop_width_m`, `house_2011_prairie.as_mapped_1904.form.rear_bays`, `house_2011_prairie.as_mapped_1904.form.sash_by_storey`, `house_2011_prairie.as_mapped_1904.form.rainwater`, `house_2011_prairie.as_mapped_1904.form.boundary`, `house_2011_prairie.as_mapped_1904.form.yard`
-**Ticket:** T-3615 (piece 1 of T-1915, S06).
-**Review:** `docs/RESEARCH/photo-match/house_2011_prairie/chicagology_photo-side-by-side.jpg`.
+**Ticket:** T-3615 (piece 1 of T-1915, S06); T-3616 (piece 2: the turret's two-stage cap and the image-gate sign-off).
+**Review:** `docs/RESEARCH/photo-match/house_2011_prairie/chicagology_photo-side-by-side.jpg`, `docs/RESEARCH/photo-match/house_2011_prairie/inland_architect_plate-side-by-side.jpg`.
 **Recorded:** 2026-11-16 (T-3615).
 
 ### L-k01-2021-high-3633 — 2021 Prairie, the Adams/High house, refined from the district draft onto K01: a steep front gable, a round corner turret and a gabled south wing read off its one photograph
