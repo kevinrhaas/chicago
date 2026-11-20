@@ -184,6 +184,7 @@ const COVERAGE = [
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
   ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
+  ['data/music/', NONE, 'generated-music cue files (T-3710), never published; tools/fal_music.mjs reads them: test_fal_music.mjs'],
   // T-2288: the K02 stone library. No scene binds it yet (T-2289 lays it on the 1808
   // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
   // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
