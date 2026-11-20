@@ -134,18 +134,23 @@ _split_ran() { # <k/N> <jobs> -> the actual work and prerequisite labels
     source tools/check_harness.sh
     '"$_split_fixture" 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | sed -n 's/^.*ran \(.*\)$/\1/p'
 }
-for jobs in 1 4; do
-  for ((k=1;k<=16;k++)); do
-    original="$(_split_ran "$k/16" "$jobs")"
-    first="$(_split_ran "$k/32" "$jobs")"
-    second="$(_split_ran "$((k + 16))/32" "$jobs")"
-    want "$(printf '%s\n%s\n' "$first" "$second" | grep '^gate ' | sort)" \
-         "$(printf '%s\n' "$original" | grep '^gate ' | sort)" \
-         "part $k/16 equals its two 32-way halves, without missing or duplicate work (CHECK_JOBS=$jobs)"
-    for selected in "$original" "$first" "$second"; do
-      want "$(printf '%s\n' "$selected" | grep '^prerequisite ' | sort)" \
-           "$(printf 'prerequisite middle\nprerequisite start')" \
-           "each split run keeps both every_part prerequisites (k=$k, CHECK_JOBS=$jobs)"
+# T-3707: the content build's gate went from eight parts to sixteen on the same
+# arithmetic, so the 8 -> 16 split is proven beside T-3654's 16 -> 32.
+for half in 8 16; do
+  whole_n=$((half * 2))
+  for jobs in 1 4; do
+    for ((k=1;k<=half;k++)); do
+      original="$(_split_ran "$k/$half" "$jobs")"
+      first="$(_split_ran "$k/$whole_n" "$jobs")"
+      second="$(_split_ran "$((k + half))/$whole_n" "$jobs")"
+      want "$(printf '%s\n%s\n' "$first" "$second" | grep '^gate ' | sort)" \
+           "$(printf '%s\n' "$original" | grep '^gate ' | sort)" \
+           "part $k/$half equals its two $whole_n-way halves, without missing or duplicate work (CHECK_JOBS=$jobs)"
+      for selected in "$original" "$first" "$second"; do
+        want "$(printf '%s\n' "$selected" | grep '^prerequisite ' | sort)" \
+             "$(printf 'prerequisite middle\nprerequisite start')" \
+             "each split run keeps both every_part prerequisites (k=$k/$half, CHECK_JOBS=$jobs)"
+      done
     done
   done
 done
@@ -523,6 +528,68 @@ then
   ok "CI requires every native part before the required gate can pass"
 else
   bad "CI can hide an incomplete native partition or changed required check"
+fi
+
+# T-3707. The content build's gate (chicago-4d-bake.yml `gate`) is the only gate a
+# bake PR gets, and it runs check.sh as `--part k/N` across a matrix. The matrix
+# and the N are spelled in two places, so they can drift apart: a matrix of 1..8
+# under a `/16` would run half the gate and report it green. Hold the job to a
+# matrix of exactly 1..N for the N its name and its `--part` spell, N to at least
+# the sixteen T-3707 raised it to (lowering it brings back the 600 s timeouts),
+# max-parallel to N, and the 600 s ceiling to what it is: raise N, not the cap.
+if python3 - ../../.github/workflows/chicago-4d-bake.yml <<'PY_BAKE_PARTITION'
+from pathlib import Path
+import json, re, sys
+source = Path(sys.argv[1]).read_text()
+def valid(text):
+    text = '\n'.join(line for line in text.splitlines() if not line.lstrip().startswith('#'))
+    if '\njobs:\n' not in text: return False
+    text = text.split('\njobs:\n', 1)[1]
+    jobs = {}
+    for match in re.finditer(r'^  ([a-z][a-z0-9-]*):\s*$', text, re.M):
+        start = match.end(); following = re.search(r'^  [a-z][a-z0-9-]*:\s*$', text[start:], re.M)
+        jobs[match.group(1)] = text[start:start + following.start()] if following else text[start:]
+    gate = jobs.get('gate')
+    if gate is None: return False
+    if re.search(r'^\s+(?:include|exclude):', gate, re.M): return False
+    if re.search(r'^\s+if:', gate, re.M) or 'continue-on-error:' in gate: return False
+    name = re.findall(r'^    name: bake gate part \$\{\{ matrix\.part \}\}/(\d+)$', gate, re.M)
+    run = re.findall(r'^        run: timeout --kill-after=5s 600s \./tools/check\.sh --part "\$\{\{ matrix\.part \}\}/(\d+)"$', gate, re.M)
+    if len(name) != 1 or run != name: return False
+    n = int(name[0])
+    if n < 16 or n > 32: return False
+    if f'      max-parallel: {n}' not in gate.splitlines(): return False
+    if '      fail-fast: false' not in gate.splitlines(): return False
+    matrix = re.findall(r'^        part: (\[[^\n]+\])$', gate, re.M)
+    if len(matrix) != 1 or json.loads(matrix[0]) != list(range(1, n + 1)): return False
+    if len(re.findall(r'^\s+run:', gate, re.M)) != 3: return False
+    for later in ('open-pr', 'publish-bundle'):
+        block = jobs.get(later)
+        if block is None or not re.search(r'^    needs: \[[^\]]*\bgate\b[^\]]*\]$', block, re.M): return False
+    return True
+assert valid(source), 'the content build gate no longer runs all N parts of check.sh at 600 s, or no longer holds back the PR and bundle'
+full = '[' + ', '.join(str(i) for i in range(1, 17)) + ']'
+controls = [
+    source.replace(full, '[' + ', '.join(str(i) for i in range(1, 16)) + ']'),
+    source.replace(full, '[1, 2, 3, 4, 5, 6, 7, 8]'),
+    source.replace('600s ./tools/check.sh --part "${{ matrix.part }}/16"', '900s ./tools/check.sh --part "${{ matrix.part }}/16"'),
+    source.replace('--part "${{ matrix.part }}/16"', '--part "${{ matrix.part }}/8"'),
+    source.replace('name: bake gate part ${{ matrix.part }}/16', 'name: bake gate part ${{ matrix.part }}/8'),
+    source.replace('max-parallel: 16', 'max-parallel: 8'),
+    source.replace('        part: ' + full, '        part: ' + full + '\n        exclude:\n          - part: 16'),
+    source.replace('    name: bake gate part', '    continue-on-error: true\n    name: bake gate part'),
+    source.replace('/16"', '/8"').replace('bake gate part ${{ matrix.part }}/16', 'bake gate part ${{ matrix.part }}/8')
+          .replace(full, '[1, 2, 3, 4, 5, 6, 7, 8]').replace('max-parallel: 16', 'max-parallel: 8'),
+]
+for i, broken in enumerate(controls, 1):
+    assert broken != source, f'bake gate control {i} did not alter the workflow'
+    assert not valid(broken), f'unsafe bake gate control {i} passed'
+print(f'bake gate: all sixteen parts at 600 s before the PR and bundle; {len(controls)} refusal controls pass')
+PY_BAKE_PARTITION
+then
+  ok "the content build runs every part of its N-part gate, N >= 16, before its PR or bundle"
+else
+  bad "the content build's gate matrix and its --part N can drift, or it was lowered below sixteen"
 fi
 
 printf '\n%d passed, %d failed\n' "$PASS" "$FAILN"

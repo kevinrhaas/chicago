@@ -96,17 +96,43 @@ export function say(text, overlay, key = null) {
   const e = overlay.edits[readerKey(text)];
   if (!e) return text;
   const out = applyEdits(text, e);
-  if (ORIGINAL.size >= ORIGINAL_MAX) ORIGINAL.clear();
-  ORIGINAL.set(out, text);
+  remember(out, text);
   return out;
 }
 
+function remember(out, text) {
+  if (ORIGINAL.size >= ORIGINAL_MAX) ORIGINAL.clear();
+  ORIGINAL.set(out, text);
+}
+
 /** A copy of `doc` with every string the overlay holds said for a reader. The record
- *  itself is never changed: other views, and the smoke's hash of a sidecar, hold it. */
+ *  itself is never changed: other views, and the smoke's hash of a sidecar, hold it.
+ *
+ *  T-3709: ONE string per distinct text in the copy. JSON.parse makes a fresh string for
+ *  every occurrence of a repeated value, and `applyEdits` a fresh one for every occurrence
+ *  of an edited one, so the 1835 address book's 363 copies of one 807-character note (and
+ *  1,278 of another) were each held twice over, on a phone, for as long as the town is
+ *  open: about 6 MB of its JS heap. Each text is said once per copy and every place it
+ *  sits is handed that one string; a string cannot be changed in place, so nothing is
+ *  aliased that a record could alter. */
 export function readerCopy(doc, overlay) {
   if (!overlay?.edits) return doc;
+  // `say` reads the key only as "a prose field or not", so that is all the memo keys on.
+  const said = [new Map(), new Map()];
+  const pool = new Map();
+  const sayOnce = (v, key) => {
+    const memo = said[PROSE_KEYS.has(key) ? 1 : 0];
+    let out = memo.get(v);
+    if (out === undefined) {
+      out = say(v, overlay, key);
+      const same = pool.get(out);
+      if (same === undefined) pool.set(out, out); else out = same;
+      memo.set(v, out);
+    } else if (out !== v && ORIGINAL.get(out) === undefined) remember(out, v);
+    return out;
+  };
   const walk = (v, key) => {
-    if (typeof v === 'string') return say(v, overlay, key);
+    if (typeof v === 'string') return sayOnce(v, key);
     if (Array.isArray(v)) return v.map((x) => walk(x, key));
     if (v && typeof v === 'object') {
       const out = {};
