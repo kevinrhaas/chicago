@@ -1072,7 +1072,9 @@
     "s20-1701-r1": "1701's two-storey brick building by the tracks now stands refined in place on this builder as `hibbard_house_1701_prairie_coach_house` (T-3316, piece 2 of T-3310): the sheet's parallelogram outline, its walls on the slant of the Illinois Central right-of-way (the builder's skew_per_m), and its elevation read off the Chicagology photograph of the Hibbard house through the house's solved camera (a hipped roof on a bracketed cornice, a square lantern, a curved wall gable over a framed window, low oculi, stacks); its record written from that reading and no longer by these rules (L-t3316-hibbard-1701-stable).",
     "s20-1701-r2": "1701's storey-and-a-half crossed brick stable joined to the south end of its building by the tracks stands with it in `hibbard_house_1701_prairie_coach_house` (T-3316), on the sheet's own outline and slant, its gable to the yard with the lunette and oculus the Chicagology photograph shows; the draft stands no second building in its place.",
     "s35-2108-front": "2108 Prairie now stands as the K01 stone-front house `mark_kimball_house_2108_prairie` (T-3667, piece 1 of T-1921, the S11 package of the T-1837 programme), the Mark Kimball house, which refines this draft in place under the draft's own id: the sheet's two-storey main body behind a pale stone front, its round-arched door at the north end at the head of an iron-railed stoop and two round-headed lights south of it, off the Tribune's 1898 cut and the early-1890s street photograph.",
-    "s35-2108-wing": "2108 Prairie's '2B' rear range now stands on K01's rear wing of `mark_kimball_house_2108_prairie` (T-3667), built square where the sheet chamfers its rear corners (liberty L-k01-2108-kimball-3667), and the draft stands no second building."
+    "s35-2108-wing": "2108 Prairie's '2B' rear range now stands on K01's rear wing of `mark_kimball_house_2108_prairie` (T-3667), built square where the sheet chamfers its rear corners (liberty L-k01-2108-kimball-3667), and the draft stands no second building.",
+    "s35-2112-front": "2112 Prairie now stands as the K01 stone-front house `rothschild_house_2112_prairie` (T-3668, piece 2 of T-1921, the S11 package of the T-1837 programme), the Max M. Rothschild house, which refines this draft in place under the draft's own id: the sheet's '3B' main body read as two storeys under a mansard behind a pale stone front, its canted stone bay at the south end and a round-arched door north of it at the head of a stone-cheeked stoop, off the sheet at full size and the early-1890s street photograph.",
+    "s35-2112-wing": "2112 Prairie's '2B' rear range now stands on K01's rear wing of `rothschild_house_2112_prairie` (T-3668); the sheet's small one-storey frame porch on the south flank is not built (liberty L-k01-2112-rothschild-3668), and the draft stands no second building."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1801,7 +1803,9 @@
       "roof": "flat",
       "brackets": true,
       "entrance": "north",
-      "why": "The Rothschild stone-front townhouse: three storeys with a stone front and a rear 2B range, flat behind a bracketed cornice; the sheet's canted bay stands as its stone projection."
+      "why": "The Rothschild stone-front townhouse: three storeys with a stone front and a rear 2B range, flat behind a bracketed cornice; the sheet's canted bay stands as its stone projection.",
+      "house_id": "rothschild_house_2112_prairie",
+      "house_address": "2112"
     },
     "frontage-35-068": {
       "slug": "house",
