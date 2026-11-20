@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1206,
+  "count": 1207,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -78755,6 +78755,40 @@
       ],
       "work_refs": [
         "T-3690"
+      ]
+    },
+    {
+      "id": "L-k10-2013-reid-blocks-3626",
+      "title": "2013 Prairie's row of blocks under its cornice and the border up its south edge, off the Inland Architect's 1895 plate: plain where the plate is carved",
+      "section": "per_subject",
+      "subjects": [
+        "reid_house_2013_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work adds the two things the plate draws on 2013 Prairie's upper front that `“2013 Prairie's stone frame round its upper lights and its two oval lights, built on K01 off the Inland Architect's 1895 plate: plain where the plate is carved, and the ovals not cut”` left out. A course of thirteen stone blocks stands under the corona of K10's moulded stone cornice, 0.65 m apart, each the kit's scrolled console at 0.22 m tall, 0.18 m wide and 0.2 m out (12.91-13.13 m); the street front's stone cornice on a flat roof now takes wall head blocks, which only the cornice round a mansard took before (the k10 frontage generator). And a raised border runs up the front's south edge, 0.4 m wide and 0.05 m proud, from the belt's top (5.95 m) to under the cornice (12.95 m), as a fifth strip of the front's frame (street front windows frame pilasters). **What is read, not invented.** Through the camera earlier work solved on the plate: the blocks' row under the corona and their spacing (about 25 px apart along a front of about 300 px), the border's place at the south corner (x 600-640 px) and its run from under the frieze to the second storey. **What is invented.** The blocks' section (the kit's console, not the plate's square modillion) and their projection; the border's projection; carrying the border down to the belt, where the plate shows its lower length only in part behind 2017's carved lamp bracket. **What is built otherwise than the evidence, and why.** The border is a plain strip where the plate carves it, and its carved bracket at about 7.7 m is not built. The frieze of garlands is not a separate band: the plate's frieze stands where K10's moulded section does (its foot on the lunette's crown at about 12.9 m), and a band under the section would strike the lunette's head. The front's tone stays as `“2013 Prairie, the William H. Reid house, refined from the district draft onto K01: its front read off the Inland Architect's 1895 plate through a solved camera, its flanks and rear still the kits'”` laid it (cream sooted): the plate prints the front near white, and K03 lays no face paler than its common buff panel (a recipe only darkens a panel, and 1904 adds no brick map at its phone memory ceiling)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a pale brick panel in K03, if the owner pays its memory, re-tones the front; the 2003 nomination photographs, once readable and cleared, read the flanks and rear."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-20 (T-3626)."
+        }
+      ],
+      "work_refs": [
+        "T-1916",
+        "T-3626",
+        "T-3625"
       ]
     },
     {
