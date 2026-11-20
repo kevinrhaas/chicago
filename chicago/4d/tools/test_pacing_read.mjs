@@ -242,7 +242,7 @@ function footprints(scene) {
       assert.ok([e, n, w, d, th].every(Number.isFinite) && w > 0 && d > 0,
         `${scene} context footprint has finite positive dimensions`);
       const cos = Math.cos(th); const sin = Math.sin(th);
-      out.push({ id: value(row, 'id', `${e},${n}`),
+      out.push({ id: value(row, 'id', `${e},${n}`), context: true,
         pts: [[-w / 2, -d / 2], [w / 2, -d / 2], [w / 2, d / 2], [-w / 2, d / 2]]
           .map(([x, z]) => [e + cos * x + sin * z, n + sin * x - cos * z]) });
     }
@@ -299,24 +299,29 @@ for (const scene of scenes) {
   const anchor = (id) => scene.anchors.find((a) => a.id === id);
   const poses = SCENE_POSES[1871];
   const downtown = anchor('downtown'); const above = anchor('river_from_above');
-  assert.equal(footprints('1871').length, context.buildings.length,
+  assert.equal(footprints('1871').filter((f) => f.context).length, context.buildings.length,
     'every generated context building participates in the clearance check');
   assert.deepEqual(poses.walk.from, [downtown.local_e, downtown.local_n]);
   assert.deepEqual(poses.turn, { at: [downtown.local_e, downtown.local_n], yaw_deg: downtown.yaw_deg });
   assert.deepEqual(poses.flight, { from: [above.local_e, above.local_n], yaw_deg: above.yaw_deg,
     altitude_m: above.altitude_m, pitch_deg: above.pitch_deg });
-  const roads = context.walk_surfaces.filter((r) => r.kind === 'road' && r.id.startsWith('madison_street__'));
-  assert.ok(roads.length > 0, 'mapped Madison Street has emitted road ribbons');
-  const onRoad = (e, n) => roads.some(({ a, b, width_m: width }) => {
+  // T-3684: downtown Madison is the platted street (its id `madison_street…`), with its
+  // plank walks; where it crosses Wabash the crossing is Wabash's carriageway.
+  const madison = context.walk_surfaces.filter((r) => /^madison_street(_\d+)?__/.test(r.id));
+  assert.ok(madison.some((r) => r.kind === 'road'), 'mapped Madison Street has emitted road ribbons');
+  const floors = [...madison, ...context.walk_surfaces.filter((r) => r.kind === 'road')];
+  const covered = (e, n) => floors.some(({ a, b, width_m: width }) => {
     const de = b[0] - a[0]; const dn = b[1] - a[1]; const len = Math.hypot(de, dn);
     const along = ((e - a[0]) * de + (n - a[1]) * dn) / len;
     const across = (-(e - a[0]) * dn + (n - a[1]) * de) / len;
-    return along >= 0 && along <= len && Math.abs(across) + 0.34 <= width / 2;
+    return along >= -0.01 && along <= len + 0.01 && Math.abs(across) <= width / 2;
   });
+  // the walker and its shoulder, 0.34 m every way, stand on street floor
+  const onStreet = (e, n) => [[0, 0], [0.34, 0], [-0.34, 0], [0, 0.34], [0, -0.34]].every(([x, y]) => covered(e + x, n + y));
   const length = poses.walk.legs.reduce((sum, [, len]) => sum + len, 0);
   for (let d = 0; d <= length; d += 0.5) {
     const p = walkAt(poses.walk, d);
-    assert.ok(onRoad(p.local_e, p.local_n), `1871 walk at ${d} m stays on mapped Madison Street`);
+    assert.ok(onStreet(p.local_e, p.local_n), `1871 walk at ${d} m stays on mapped Madison Street`);
   }
 }
 

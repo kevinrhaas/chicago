@@ -1,0 +1,26 @@
+{
+  "id": "jevne_almini_1866_chicago_illustrated",
+  "type": "illustration",
+  "citation": "Jevne & Almini (publishers), Chicago Illustrated, with text by James W. Sheahan. Chicago: Jevne & Almini, 1866-1867. Lithographs by the Chicago Lithographing Co., 152 & 154 Clark Street.",
+  "author": "Otto Jevne and Peter M. Almini, publishers; Chicago Lithographing Co., lithographers; text by James W. Sheahan",
+  "date": "1866-1867",
+  "describes_date": "1866-1867",
+  "repository": "University of Michigan copy, digitised by HathiTrust (mdp.69015000002622). The Chamber of Commerce plate (PDF page 8 of the copy read) is committed at data/sources/assets/landmarks_1871_t3688/chicago_illustrated_chamber_of_commerce_plate.jpg.",
+  "url": "https://hdl.handle.net/2027/mdp.69015000002622",
+  "locator": "Plate 'Chamber of Commerce' (PDF page 8) and its letterpress (PDF pages 9-10), which places it at the south-east corner of LaSalle and Washington streets fronting the Court-House square and gives it as 93 by 181 feet, 100 feet high, E. Burling architect, a Mansard roof, dedicated 30 August 1865, cost about $400,000.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1866-1867 in the United States; public domain (HathiTrust: Public Domain).",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) from page images of the HathiTrust copy already committed at chicago/pre_fire_v1/media/research/illustrated-pdfpage8.png, -9.png and -10.png; the plate re-saved as JPEG for the image gate, sha256 9e1a7af19fbb354ea25fe844364c669115642dfde5085e2dc2df238cde1a4eaa.",
+  "note": "A tinted lithograph drawn from a viewpoint on Washington Street north-west of the building, a little more frontal than Carbutt's photograph; it agrees with the photograph on the bays, the entrance arcade, the windows and the mansard, and adds the clock in the scrolled centre pediment and a flagstaff over it. Its letterpress gives the dimensions and the architect. A drawing, so it is read for elements and checked against the photograph for proportion.",
+  "what_it_supplies": [
+    "the Chamber of Commerce's place, size, height, architect, date and cost",
+    "its Washington Street front and LaSalle Street side, drawn"
+  ],
+  "what_it_does_not_supply": [
+    "measured proportions (it is a drawing)",
+    "the east and south walls"
+  ]
+}

@@ -12,6 +12,8 @@ import sys
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"generators"))
 import city_1871_emit as recipe
+sys.path.insert(0,str(ROOT/"tools"))
+import build_streets_1871 as street_clip
 
 
 def main():
@@ -41,6 +43,8 @@ def main():
     check(meta["cell_m"]<=10,"navigation field is too coarse for the refined bank trace")
     check(meta["reconstruction"]["horizontal_map_rms_m"]==plan["map_control"]["rms_m"],"terrain has stale training residual metadata")
     check(meta["reconstruction"]["held_out_rmse_m"]==plan["map_control"]["held_out_rms_m"],"terrain has stale reserved-check accuracy metadata")
+    # T-3684: the City centreline clip the platted core is drawn on keeps its shape.
+    for problem in street_clip.clip_errors(json.loads(street_clip.OUT.read_text())):check(False,f"1871 street clip: {problem}")
     check(len(doc["buildings"])>=25000,"city context has shrunk to a neighborhood")
     check(len({b["kit"] for b in doc["buildings"]})==17,"one or more period kit families is absent")
     check(set(b["id"] for b in doc["bridges"])==set(b["id"] for b in plan["bridges"]),"mapped bridge inventory was dropped")
@@ -55,12 +59,16 @@ def main():
         else:
             check(bridge.get("alignment")=="mapped_road_river_intersection" and bridge["context_offset_m"]<=source.get("max_alignment_offset_m",35),f"bridge used an undeclared displaced crossing: {bridge['id']}")
     city=recipe.City(plan)
+    # The drawn named streets (mapped arterials and the platted core), as the
+    # visitor sees them: no lot may stand in their carriageway or walks.
+    named_index=recipe.SpatialLines([{"points":[s["a"],s["b"]],"width_m":s["width_m"],"walk_m":s["walk_m"]} for s in doc["streets"] if s["alignment"]!="reconstructed_grid"])
     collision=collections.defaultdict(list);overlaps=[];unsupported=[];forbidden=[];mapped_intrusions=[]
     for b in doc["buildings"]:
-        u,v=recipe.uv(b["e"],b["n"]);w,d=b["width_m"],b["depth_m"]
-        corners=[recipe.en(u+du,v+dv) for du,dv in [(-w/2,-d/2),(w/2,-d/2),(w/2,d/2),(-w/2,d/2),(0,0)]]
+        # A lot facing east or west has its frontage along v (T-3684).
+        u,v=recipe.uv(b["e"],b["n"]);w,d=recipe.extents(b)
+        corners=recipe.corners(b["e"],b["n"],b["width_m"],b["depth_m"],b["bearing_deg"])
         if min(height(*p) for p in corners)<b["base_m"]-.015:unsupported.append(b["id"])
-        if any(not city.mapped_index.clear(p,1.98) for p in corners):mapped_intrusions.append(b["id"])
+        if any(not named_index.clear(p,1.98) for p in corners):mapped_intrusions.append(b["id"])
         if any(not recipe.inside(p,city.boundary) or city.park(p) or any(recipe.inside(p,x["polygon"]) for x in city.exclusions) for p in corners):forbidden.append(b["id"])
         ix,iy=math.floor(u/100),math.floor(v/100)
         for x in range(ix-1,ix+2):
@@ -73,20 +81,88 @@ def main():
     check(not overlaps,f"{len(overlaps)} generic buildings overlap: {overlaps[:5]}")
     check(not mapped_intrusions,f"{len(mapped_intrusions)} buildings intrude into mapped arterial corridors: {mapped_intrusions[:5]}")
     mapped={r["id"]:r for r in plan["streets"]}
-    deviations=[]
+    names=json.loads((ROOT/"data/context/1871/street_names_1871.json").read_text())
+    sources_dir=ROOT/"data/sources"
+    for key,base in names["bases"].items():
+        check(all((sources_dir/f"{x}.json").exists() for x in base["sources"]),f"street-name basis cites a missing source: {key}")
+    easing=doc.get("arterial_easing",{});splines={};deviations=[]
     for street in doc["streets"]:
+        name=street.get("name")
+        check(not name or "reconstructed" not in name.lower(),f"street carries a placeholder name: {street['street_id']}")
+        check(street.get("name_basis") in names["bases"] or street.get("name_basis")=="reconstructed",f"street name has no declared basis: {street['street_id']}")
+        check(bool(name)==(street.get("name_basis") not in ("reconstructed","unread")),f"street name and its basis disagree: {street['street_id']}")
         if street.get("alignment")!="mapped_arterial":continue
-        source=mapped.get(street["street_id"])
+        # Arterials run on a spline through their traced points; only an end
+        # eased onto the street it continues (declared in arterial_easing)
+        # may leave that spline, by no more than its declared shift.
+        source=mapped.get(street.get("trace_id"))
         check(source is not None,f"mapped road has no plan trace: {street['street_id']}")
-        if source:
-            deviations.extend(recipe.distance(p,source["points"]) for p in (street["a"],street["b"]))
-            check(street["name"]==source["name"],f"mapped road name differs from source: {street['street_id']}")
-    check(bool(deviations) and max(deviations)<=.015,f"named roads were moved off their mapped traces: max {max(deviations,default=0):.3f}m")
+        if not source:continue
+        check(street.get("source_name")==source["name"],f"mapped road source name differs from its trace: {street['street_id']}")
+        if street["trace_id"] not in splines:splines[street["trace_id"]]=recipe.catmull(source["points"])
+        for p in (street["a"],street["b"]):
+            off=recipe.distance(p,splines[street["trace_id"]]);allowed=.015
+            for e,n,shift in easing.get(street["street_id"],[]):
+                check(shift<=70,f"arterial eased too far: {street['street_id']}")
+                if math.dist(p,(e,n))<=310+shift:allowed=max(allowed,shift+.015)
+            if off>allowed:deviations.append((round(off,3),street["street_id"]))
+    check(not deviations,f"named roads were moved off their mapped traces: {sorted(deviations)[-5:]}")
+    # Curving streets are smooth: within one street's run no vertex turns
+    # more than 10 degrees, unless it is a street corner (60 degrees or more,
+    # or a fillet's arc drawn in sub-metre steps).
+    runs=collections.defaultdict(list)
+    for street in doc["streets"]:runs[street["run"]].append(street)
+    kinks=[]
+    for segs in runs.values():
+        if segs[0]["alignment"]=="reconstructed_grid":continue
+        for x,y in zip(segs,segs[1:]):
+            if x["b"]!=y["a"]:continue
+            turn=recipe.turning(x["a"],x["b"],y["b"])
+            if 10.5<turn<60 and min(math.dist(x["a"],x["b"]),math.dist(y["a"],y["b"]))>=1:kinks.append((x["street_id"],x["b"],round(turn,1)))
+    check(not kinks,f"{len(kinks)} street kinks over 10 degrees: {kinks[:5]}")
+    check(all(len(j)==4 and j[2]!=j[3] for j in doc.get("junctions",[])) and len(doc.get("junctions",[]))>=300,"named street junctions are missing")
     # Inspect both visible edges, independently of the generator's centerline
     # clipping. A walk overhanging a riverbank by metres must fail even if a
     # runtime floor callback would keep the visitor on the floating planks.
     surfaces=doc.get("walk_surfaces",[])
-    check(len(surfaces)==len(doc["streets"])*3,"road/walk ribbons lack exact floor descriptors")
+    # One road floor per drawn segment; walks are cut where they cross another
+    # street's carriageway (T-3684), so a segment has zero or more walk pieces.
+    roads_ids=[x["id"][:-5] for x in surfaces if x["kind"]=="road"]
+    check(len(roads_ids)==len(set(roads_ids))==len(doc["streets"]),"road ribbons lack exact floor descriptors")
+    road_set=set(roads_ids)
+    check(all(x["id"].split("_walk_")[0] in road_set for x in surfaces if x["kind"]=="walk"),"walk ribbon belongs to no road")
+    # T-3685: a plank crossing belongs to the walk line of a drawn segment and
+    # lies only on a dirt street; paved streets were crossed on their paving.
+    crossing_ids=[x["id"].rsplit("_x",1)[0] for x in surfaces if x["kind"]=="crossing"]
+    check(bool(crossing_ids) and all(x in road_set for x in crossing_ids),"plank crossings are missing or belong to no road")
+    check(doc["surface_heights_m"]["road"]<doc["surface_heights_m"]["crossing"]<doc["surface_heights_m"]["walk"]
+          and doc["surface_heights_m"]["walk"]-doc["surface_heights_m"]["road"]<=.35,"raised walks are not a step above the road and its crossings")
+    # T-3685: what each street is made of, and the report that bounds it.
+    paving=json.loads((ROOT/doc["paving"]["rules"]).read_text())
+    check((ROOT/"data/sources"/(paving["source"]+".json")).exists(),"street paving cites an unresolved source")
+    check(doc["paving"]["liberty"] in (ROOT/"docs/LIBERTIES.md").read_text(),"street surfaces carry no recorded liberty")
+    pairs={("woodblock","report_1871"),("woodblock","principal_thoroughfare"),("setts","river_street"),("dirt","unpaved")}
+    check(all((x.get("surface"),x.get("surface_basis")) in pairs for x in doc["streets"]),"a street surface has no declared basis")
+    check(any(x["surface_basis"]=="report_1871" for x in doc["streets"]),"no street is paved where the 1871 report puts its wood block")
+    # Pieces are budgeted block by block in their own division; a drawn segment
+    # may join blocks across a division line, so the city total is the check.
+    drawn=collections.Counter()
+    for x in doc["streets"]:drawn[x["surface"]]+=math.dist(x["a"],x["b"])
+    for kind,key in (("woodblock","woodblock_lineal_ft"),("setts","boulder_lineal_ft")):
+        allowed=sum(v for k,v in paving["totals"][key].items() if k!="locator")*.3048
+        check(drawn[kind]<=allowed+1,f"more {kind} drawn ({drawn[kind]:.0f} m) than the report's {allowed:.0f} m")
+        for div,kinds in doc["paving"]["lengths_m"].items():
+            check(kinds.get(kind,0)<=paving["totals"][key].get(div,0)*.3048+1,f"more {kind} budgeted in the {div} division than the report's figure")
+    street_bins=collections.defaultdict(list)
+    for x in doc["streets"]:
+        h=x["width_m"]/2
+        for i in range(math.floor((min(x["a"][0],x["b"][0])-h)/100),math.floor((max(x["a"][0],x["b"][0])+h)/100)+1):
+            for j in range(math.floor((min(x["a"][1],x["b"][1])-h)/100),math.floor((max(x["a"][1],x["b"][1])+h)/100)+1):street_bins[i,j].append(x)
+    for x in surfaces:
+        if x["kind"]=="crossing":
+            m=((x["a"][0]+x["b"][0])/2,(x["a"][1]+x["b"][1])/2)
+            under=[s for s in street_bins[math.floor(m[0]/100),math.floor(m[1]/100)] if recipe.segdist(m,s["a"],s["b"])<=s["width_m"]/2]
+            check(bool(under) and any(s["surface"]=="dirt" for s in under),f"plank crossing not over a dirt street: {x['id']}")
     surface_bins=collections.defaultdict(list);unsupported_walks=[]
     for surface in surfaces:
         a,b=surface["a"],surface["b"];width=surface["width_m"]
@@ -120,8 +196,8 @@ def main():
                 for i in range(accessor["count"]):
                     e,y,z=struct.unpack_from("<fff",blob,offset+12*i)
                     check(height(e,-z)>=recipe.GRADE-.015,"fire-clearance overlay paints solid ground across water or an unsupported bank")
-        if layer not in ("streets","walks"):continue
-        kind="road" if layer=="streets" else "walk"
+        if layer not in ("streets","walks","crossings"):continue
+        kind={"streets":"road","walks":"walk","crossings":"crossing"}[layer]
         for primitive in road_gltf["meshes"][node["mesh"]]["primitives"]:
             accessor=road_gltf["accessors"][primitive["attributes"]["POSITION"]]
             view=road_gltf["bufferViews"][accessor["bufferView"]];offset=bin_start+view.get("byteOffset",0)+accessor.get("byteOffset",0)

@@ -1,0 +1,550 @@
+{
+ "_doc": "T-3685: how the 1871 streets were surfaced, read from the Board of Public Works' Tenth Annual Report (year to 31 March 1871; source chicago_public_works_1871). Read by generators/city_1871_emit.py. 'stretches' are the streets the report names as wooden-block paved, each between two cross streets, with the page; 'totals' are the report's own mileage by kind and division, which bound the reconstruction (L-1871-street-surfaces): the report does not list the 37 miles laid before April 1870 by name, so those are drawn on the principal thoroughfares, as the Board says it chose them, until each division's wooden-block mileage is reached. Boulder pavement (21,150 lineal feet, nearly all in the South Division) is drawn on the river streets. Every other street is dirt.",
+ "source": "chicago_public_works_1871",
+ "totals": {
+  "woodblock_lineal_ft": {
+   "north": 66195,
+   "south": 105385,
+   "west": 129533,
+   "locator": "p. 37, 'Lineal feet of wooden-block pavement' by division (57.02 miles)"
+  },
+  "boulder_lineal_ft": {
+   "north": 1250,
+   "south": 19900,
+   "west": 0,
+   "locator": "p. 37, 'Lineal feet of boulders' by division"
+  },
+  "improved_miles": {
+   "woodblock": 56.5,
+   "improved": 87.72,
+   "of_all_streets": 533.99,
+   "locator": "p. 22: 'about 56½ miles of this kind of pavement in the city'; 'only about 87 ... miles out of the 533 ... miles of streets in the city have been improved', the Board recommending 'only the pavement of the main or principal thoroughfares'; the totals beside the lineal feet: 87.72 miles improved of 533.99"
+  }
+ },
+ "stretches": [
+  {
+   "street": "Clark Street",
+   "from": "the river",
+   "to": "Polk Street",
+   "kind": "woodblock",
+   "worn": true,
+   "locator": "p. 22: 'Clark Street from the river to Polk Street ... laid about nine years ... completely worn out in many places'"
+  },
+  {
+   "street": "Lake Street",
+   "from": "the river",
+   "to": "Clark Street",
+   "kind": "woodblock",
+   "worn": true,
+   "locator": "p. 22: 'Lake Street from the river to Clark Street'"
+  },
+  {
+   "street": "Lake Street",
+   "from": "Clark Street",
+   "to": "Wabash Avenue",
+   "kind": "woodblock",
+   "locator": "p. 23, laid 1870-71 by the Samuels ironizing process"
+  },
+  {
+   "street": "Indiana st",
+   "from": "N. Clark st",
+   "to": "E. line of ass'rs div. ofN. W.i,sec.9",
+   "kind": "woodblock",
+   "warrant": "1082",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1082"
+  },
+  {
+   "street": "Twenty-eighth st",
+   "from": "Michigan ave",
+   "to": "Wabash ave",
+   "kind": "woodblock",
+   "warrant": "1088",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1088"
+  },
+  {
+   "street": "Prairie ave",
+   "from": "Cottage Grove ave",
+   "to": "Thirtieth st",
+   "kind": "woodblock",
+   "warrant": "1116",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1116"
+  },
+  {
+   "street": "Michigan ave",
+   "from": "S. Water st",
+   "to": "River st",
+   "kind": "woodblock",
+   "warrant": "1117",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1117"
+  },
+  {
+   "street": "S. Water st",
+   "from": "Michigan ave",
+   "to": "Central ave",
+   "kind": "woodblock",
+   "warrant": "1118",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1118"
+  },
+  {
+   "street": "Twenty-sixth st",
+   "from": "Wabash ave",
+   "to": "S. Park ave",
+   "kind": "woodblock",
+   "warrant": "1121",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1121"
+  },
+  {
+   "street": "Taylor st",
+   "from": "Clark st",
+   "to": "Wells st",
+   "kind": "woodblock",
+   "warrant": "1123",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1123"
+  },
+  {
+   "street": "N. La Salle st",
+   "from": "Division st",
+   "to": "N. Clark st",
+   "kind": "woodblock",
+   "warrant": "1124",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1124"
+  },
+  {
+   "street": "Fulton St",
+   "from": "N. Clinton st",
+   "to": "N. Sangamon st",
+   "kind": "woodblock",
+   "warrant": "1126",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1126"
+  },
+  {
+   "street": "S. Park ave",
+   "from": "Twenty-ninth st",
+   "to": "Douglas place",
+   "kind": "woodblock",
+   "warrant": "1157",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1157"
+  },
+  {
+   "street": "Twenty-first st",
+   "from": "State St",
+   "to": "Calumet ave",
+   "kind": "woodblock",
+   "warrant": "1161",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1161"
+  },
+  {
+   "street": "Central ave",
+   "from": "S. Water st",
+   "to": "468 ft. soutii of S. « Water st",
+   "kind": "woodblock",
+   "warrant": "1168",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1168"
+  },
+  {
+   "street": "W. Adams st",
+   "from": "Ashland ave",
+   "to": "Robey st",
+   "kind": "woodblock",
+   "warrant": "1170",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1170"
+  },
+  {
+   "street": "W. Indiana st",
+   "from": "N. Desplaines st",
+   "to": "Rucker st",
+   "kind": "woodblock",
+   "warrant": "1171",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1171"
+  },
+  {
+   "street": "Division st",
+   "from": "Clybourn ave",
+   "to": "Halsted st",
+   "kind": "woodblock",
+   "warrant": "1172",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1172"
+  },
+  {
+   "street": "W. Monroe st",
+   "from": "Canal st",
+   "to": "Halsted st",
+   "kind": "woodblock",
+   "warrant": "1176",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1176"
+  },
+  {
+   "street": "Twenty-fourth st",
+   "from": "Wabash ave",
+   "to": "Calumet ave",
+   "kind": "woodblock",
+   "warrant": "1176",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1176"
+  },
+  {
+   "street": "W. Chicago ave",
+   "from": "Milwaukee ave",
+   "to": "L. 7, B. 99, Elston*s",
+   "kind": "woodblock",
+   "warrant": "1177",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1177"
+  },
+  {
+   "street": "W. Jackson st",
+   "from": "Canal st",
+   "to": "Halsted st",
+   "kind": "woodblock",
+   "warrant": "1178",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1178"
+  },
+  {
+   "street": "Loomis st",
+   "from": "W. Madison st",
+   "to": "W. Van Buren st",
+   "kind": "woodblock",
+   "warrant": "1179",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1179"
+  },
+  {
+   "street": "Michigan st",
+   "from": "Cass st",
+   "to": "St Clair st",
+   "kind": "woodblock",
+   "warrant": "1180",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1180"
+  },
+  {
+   "street": "Sheldon st",
+   "from": "W. Madison st",
+   "to": "W. Randolph st",
+   "kind": "woodblock",
+   "warrant": "1256",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1256"
+  },
+  {
+   "street": "Larrabee st",
+   "from": "Clybourn ave",
+   "to": "North ave",
+   "kind": "woodblock",
+   "warrant": "1257",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1257"
+  },
+  {
+   "street": "Superior st",
+   "from": "Pine St",
+   "to": "St. Clair st",
+   "kind": "woodblock",
+   "warrant": "1259",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1259"
+  },
+  {
+   "street": "Depuyster st",
+   "from": "Desplaines st",
+   "to": "Halsted st",
+   "kind": "woodblock",
+   "warrant": "1261",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1261"
+  },
+  {
+   "street": "Market st",
+   "from": "Randolph st",
+   "to": "Lake st",
+   "kind": "woodblock",
+   "warrant": "1262",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1262"
+  },
+  {
+   "street": "Green st",
+   "from": "Madison st",
+   "to": "Fulton st",
+   "kind": "woodblock",
+   "warrant": "1264",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1264"
+  },
+  {
+   "street": "Larrabee st",
+   "from": "Chicago ave",
+   "to": "Clybourn ave",
+   "kind": "woodblock",
+   "warrant": "1266",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1266"
+  },
+  {
+   "street": "N. Market st",
+   "from": "Chicago ave",
+   "to": "Division st",
+   "kind": "woodblock",
+   "warrant": "1473",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1473"
+  },
+  {
+   "street": "Fourteenth st",
+   "from": "State St",
+   "to": "Clark st",
+   "kind": "woodblock",
+   "warrant": "1477",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1477"
+  },
+  {
+   "street": "Ontario st",
+   "from": "N. Clark st",
+   "to": "N. Dearborn st",
+   "kind": "woodblock",
+   "warrant": "1482",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1482"
+  },
+  {
+   "street": "W. Randolph st",
+   "from": "Halsted st",
+   "to": "Union park",
+   "kind": "woodblock",
+   "warrant": "1486",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1486"
+  },
+  {
+   "street": "W. Monroe st",
+   "from": "Halsted st",
+   "to": "Aberdeen st",
+   "kind": "woodblock",
+   "warrant": "1487",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1487"
+  },
+  {
+   "street": "Sixteenth st",
+   "from": "State st",
+   "to": "Michigan ave",
+   "kind": "woodblock",
+   "warrant": "1488",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1488"
+  },
+  {
+   "street": "W. Washington st",
+   "from": "Ashland ave",
+   "to": "Leavitt st",
+   "kind": "woodblock",
+   "warrant": "1492",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1492"
+  },
+  {
+   "street": "W. Harrison st",
+   "from": "Halsted st",
+   "to": "Centre ave",
+   "kind": "woodblock",
+   "warrant": "1496",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1496"
+  },
+  {
+   "street": "Pine st",
+   "from": "Chicago ave",
+   "to": "Whitney st",
+   "kind": "woodblock",
+   "warrant": "1526",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1526"
+  },
+  {
+   "street": "Twenty-eighth st",
+   "from": "State St",
+   "to": "Wabash ave",
+   "kind": "woodblock",
+   "warrant": "1528",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1528"
+  },
+  {
+   "street": "N. Halsted st",
+   "from": "Milwaukee ave",
+   "to": "N. Br. Chi. river",
+   "kind": "woodblock",
+   "warrant": "1529",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1529"
+  },
+  {
+   "street": "Twenty-third st",
+   "from": "State st",
+   "to": "S. Park ave",
+   "kind": "woodblock",
+   "warrant": "1530",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1530"
+  },
+  {
+   "street": "Illinois st",
+   "from": "N. State st",
+   "to": "L. 2, B. 9, Kinzte's addition",
+   "kind": "woodblock",
+   "warrant": "1531",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1531"
+  },
+  {
+   "street": "W. Twelfth st",
+   "from": "Halsted st",
+   "to": "Centre ave",
+   "kind": "woodblock",
+   "warrant": "1532",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1532"
+  },
+  {
+   "street": "Milwaukee ave",
+   "from": "Elston ave",
+   "to": "W. Division st",
+   "kind": "woodblock",
+   "warrant": "1535",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1535"
+  },
+  {
+   "street": "Sedgwick st",
+   "from": "Chicago ave",
+   "to": "Division st",
+   "kind": "woodblock",
+   "warrant": "1536",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1536"
+  },
+  {
+   "street": "Green st",
+   "from": "W. Harrison st",
+   "to": "W. Madison st",
+   "kind": "woodblock",
+   "warrant": "1542",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1542"
+  },
+  {
+   "street": "Quincy st",
+   "from": "Clark st",
+   "to": "Market st",
+   "kind": "woodblock",
+   "warrant": "1543",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1543"
+  },
+  {
+   "street": "Canalport ave",
+   "from": "Halsted st",
+   "to": "Morgan st",
+   "kind": "woodblock",
+   "warrant": "1537",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1537"
+  },
+  {
+   "street": "Madison st",
+   "from": "State st",
+   "to": "Michigan ave",
+   "kind": "woodblock",
+   "warrant": "1538",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1538"
+  },
+  {
+   "street": "North ave",
+   "from": "N. Wells st",
+   "to": "N. Dearborn st",
+   "kind": "woodblock",
+   "warrant": "1539",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1539"
+  },
+  {
+   "street": "Sedgwick st",
+   "from": "Division st",
+   "to": "North ave",
+   "kind": "woodblock",
+   "warrant": "1540",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1540"
+  },
+  {
+   "street": "Douglas place",
+   "from": "S. Park ave",
+   "to": "Ill. Cent. R. R",
+   "kind": "woodblock",
+   "warrant": "1541",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1541"
+  },
+  {
+   "street": "E. Pearson st",
+   "from": "Rush st",
+   "to": "lot 10, block 20",
+   "kind": "woodblock",
+   "warrant": "1544",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1544"
+  },
+  {
+   "street": "Archer ave",
+   "from": "State st",
+   "to": "Canal or Slip",
+   "kind": "woodblock",
+   "warrant": "1545",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1545"
+  },
+  {
+   "street": "W. Lake st",
+   "from": "Reuben st",
+   "to": "Western ave",
+   "kind": "woodblock",
+   "warrant": "1547",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1547"
+  },
+  {
+   "street": "North ave",
+   "from": "N. Wells st",
+   "to": "N. Br. Chi. river",
+   "kind": "woodblock",
+   "warrant": "1551",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1551"
+  },
+  {
+   "street": "Washington st",
+   "from": "State st",
+   "to": "Franklin st",
+   "kind": "woodblock",
+   "warrant": "1553",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1553"
+  },
+  {
+   "street": "Indiana st",
+   "from": "St Clair st",
+   "to": "N. Clark st",
+   "kind": "woodblock",
+   "warrant": "1555",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1555"
+  },
+  {
+   "street": "Illinois st",
+   "from": "N. Wells st",
+   "to": "N. State st",
+   "kind": "woodblock",
+   "warrant": "1556",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1556"
+  },
+  {
+   "street": "N. Dearborn st",
+   "from": "Division st",
+   "to": "North ave",
+   "kind": "woodblock",
+   "warrant": "1561",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1561"
+  },
+  {
+   "street": "W. Madison st",
+   "from": "Centre ave",
+   "to": "Robey st",
+   "kind": "woodblock",
+   "warrant": "1562",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1562"
+  },
+  {
+   "street": "Halsted st",
+   "from": "C. B. & Q. R. R",
+   "to": "Archer ave",
+   "kind": "woodblock",
+   "warrant": "1564",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1564"
+  },
+  {
+   "street": "Monroe st",
+   "from": "State st",
+   "to": "Clark st",
+   "kind": "woodblock",
+   "warrant": "1565",
+   "locator": "pp. 25-27, Statement of assessments for wooden-block pavement, warrant 1565"
+  }
+ ],
+ "note_on_reading": "The warrant table is read from the Internet Archive's OCR text of the scan (archive.org annualreportboa06workgoog); street, from and to are as the OCR prints them, abbreviations kept. Stretches whose ends are lots, railways or parks, or which lie outside the drawn city, are recorded and not drawn (paving.unlocated in data/context/1871.json).",
+ "aliases": {
+  "_doc": "Names the report uses for streets the 1871 network draws under another name (T-3684's crosswalk). Wells Street south of the river was renamed Fifth Avenue in 1870; the report's warrant still says Wells.",
+  "Wells st": "Fifth Avenue"
+ }
+}

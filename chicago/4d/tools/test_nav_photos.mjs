@@ -170,10 +170,14 @@ ok('link-only cards keep sourced identity warnings and creator plus holder witho
   const pictures = JSON.parse(execFileSync('python3', ['-c', py], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }));
   for (const [sid, sourceId, leaf, holder, year, book] of [
     ['jb_beaubien_homestead', 'kinzie_1857_chicago_1831_panorama', null],
-    ['green_tree_tavern', 'andreas_1884_green_tree_hotel_plate', '1301', 'Andreas', '1884', 'historyofchicago01andr'],
+    // T-3677: the Green Tree's Andreas plate is now held for the 1835 hunt; a real link-only
+    // Gale (1902) plate on another card takes its place here.
+    ['log_jail', 'trowbridge_first_jail_gale_1902', '79', 'Internet Archive', '1902', 'reminiscencesofe00ingale'],
     // Andreas is now held on the hotel card; retain a real link-only hotel fixture.
     ['sauganash_hotel', 'trowbridge_sauganash_hotel', '49', 'Edwin O\\.', '1902', 'reminiscencesofe00ingale'],
   ]) {
+    assert.ok(!pictures.by_structure.green_tree_tavern.some(p => p.id === 'andreas_1884_green_tree_hotel_plate'),
+      'the held Andreas copy replaces its link-only source entry on the Green Tree card, not beside it');
     const picture = pictures.by_structure[sid].find(p => p.id === sourceId);
     assert.ok(picture && !picture.held, `${sourceId}: real compiled link-only entry`);
     const doc = fakeDoc(), pane = doc.createElement('section');

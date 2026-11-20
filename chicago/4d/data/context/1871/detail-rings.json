@@ -1,0 +1,18 @@
+{
+  "schema": "chicago-1871-detail-rings-v1",
+  "ticket": "T-3686",
+  "note": "Where the 1871 city is built at full detail: the fronts within radius_m of each ring's points or line are modelled (wall textures, storefronts, signboards, awnings, window openings and hoods, cornices, doors, steps and front fences with gates); everything beyond keeps the cheap instanced form with the same silhouette and colour. Points are local east/north metres (data/context/1871.json coordinates). Extend this list as jaunt stops are added; renderers/web/js/city-fronts.js reads it at load.",
+  "radius_m": {"full": 200, "balanced": 150, "light": 100},
+  "show_m": {"full": 330, "balanced": 270, "light": 200},
+  "rings": [
+    {"id": "court_house_square", "label": "Court House square", "points": [[516.7, -328.2]]},
+    {"id": "state_street_lake_to_monroe", "label": "State Street, Lake to Monroe", "points": [[856.0, -106.8], [860.6, -650.8]]},
+    {"id": "dearborn_and_madison", "label": "Dearborn and Madison (the Tribune)", "points": [[696.8, -524.3], [714.1, -562.9]]},
+    {"id": "washington_state_to_dearborn", "label": "Washington Street between State and Dearborn (Crosby's)", "points": [[693.6, -394.4], [860.1, -393.1]]},
+    {"id": "lake_and_clark", "label": "Lake and Clark (the Sherman House)", "points": [[571.0, -109.1], [573.9, -259.9]]},
+    {"id": "dekoven_at_jefferson", "label": "DeKoven Street at Jefferson (the O'Leary place)", "points": [[-300.6, -1965.2]]},
+    {"id": "chicago_avenue_at_pine", "label": "Chicago Avenue at Pine (the Water Tower)", "points": [[1133.8, 1154.9]]},
+    {"id": "clark_street_bridge", "label": "Clark Street bridge", "points": [[566.0, 61.0]]},
+    {"id": "state_street_bridge", "label": "State Street bridge", "points": [[843.0, 69.0]]}
+  ]
+}
