@@ -111,12 +111,26 @@ export function pack(records) {
  * Put every shared value back — the same function scene-loader.js runs, kept here so
  * the gate and the self-test exercise the very shape the loader reads.
  */
+export function copyShared(v) {
+  // T-3709: fresh objects and arrays, the same strings — structuredClone copied every
+  // string as well, one heap copy per record of a note the pack ships once.
+  if (v === null || typeof v !== 'object') return v;
+  if (Array.isArray(v)) return v.map(copyShared);
+  const out = {};
+  for (const k of Object.keys(v)) {
+    // An own `__proto__` (JSON.parse makes one) must stay a key, not become a prototype.
+    if (k === '__proto__') Object.defineProperty(out, k, { value: copyShared(v[k]), enumerable: true, writable: true, configurable: true });
+    else out[k] = copyShared(v[k]);
+  }
+  return out;
+}
+
 export function rehydrate(v, values) {
   if (!isObject(v)) return v;
   if (isMark(v)) {
     const got = values[v[MARK]];
     if (got === undefined) throw new Error(`no shared value ${v[MARK]}`);
-    return structuredClone(got);
+    return copyShared(got);
   }
   for (const k of Object.keys(v)) v[k] = rehydrate(v[k], values);
   return v;
@@ -337,6 +351,17 @@ function selfTest() {
   if (JSON.stringify(back) !== JSON.stringify(recs)) fails.push('rehydration did not restore the records key for key');
   back[0].citations[0].citation = 'changed';
   if (back[1].citations[0].citation !== cite.citation) fails.push('two rehydrated records share one object, so a change to one would change both');
+  back[0].citations.push({ source_id: 'y' });
+  if (back[1].citations.length !== 1) fails.push('two rehydrated records share one array, so a change to one would change both');
+  const proto = rehydrate({ [MARK]: 0 }, [{ ['__proto__']: { polluted: true }, keep: 1 }]);
+  if (!Object.hasOwn(proto, '__proto__') || proto.polluted !== undefined || ({}).polluted !== undefined) fails.push('an own `__proto__` key became a prototype on rehydration');
+  // T-3709: the loader's copy is this one, word for word, so the gate above is its gate.
+  const body = (src) => { const at = src.indexOf('export function copyShared(');
+    return src.slice(at, src.indexOf('\n}\n', at) + 2).split('\n').filter((l) => !l.trim().startsWith('//')).join('\n'); };
+  const loaderSrc = readFileSync(path.join(ROOT, 'renderers', 'web', 'js', 'scene-loader.js'), 'utf8');
+  if (body(loaderSrc) !== body(readFileSync(fileURLToPath(import.meta.url), 'utf8'))) {
+    fails.push("scene-loader.js's copyShared is not this tool's: the gate is no longer checking what the loader runs");
+  }
   try { pack([{ id: 'e', x: { [MARK]: 0 } }]); fails.push('a record holding the marker was packed'); } catch { /* refused, as it must be */ }
   try { publicationSelfTest(); } catch (err) { fails.push(`publication fixtures: ${err.message}`); }
   if (fails.length) { for (const f of fails) console.error(`self-test | FAIL ${f}`); process.exit(1); }
