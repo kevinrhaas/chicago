@@ -2,11 +2,11 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "17d6b7cfa51186244a4080dd70937fb8b8c4f5c378aba4f31be0f051b8cfe671",
+  "glb_sha256": "8e7b865b12f37937283ee968d7a0866d9f65ae51aa21d71935e297eb7f58bb9a",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the street front's openings: the attic's paired lights, the pavilion's second-storey window, the door, the narrow light over its south jamb and the principal-storey window past the tree",
@@ -123,7 +123,8 @@
     },
     {
       "what": "the crown's cornice runs on across the attic's slated cheeks, where the print's spans the attic front alone (as on the square-on) (T-3562)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the crown's cornice spans the attic's stone front alone (cheek_inset_m 0.75, overhang 0.18 m), and the south cheek's slate slopes out beneath its end to the shoulder's cap (K08 cheeks.raked), as this print draws it right of the attic; read square-on in chicagology_square_on"
     },
     {
       "what": "the pavilion's own dentil band at the second storey's head and the stone shoulders beside the attic (the band at x 1085-1300 px, y 513-533 px; the shoulders at y 340-410 px), as on the square-on (T-3562)",

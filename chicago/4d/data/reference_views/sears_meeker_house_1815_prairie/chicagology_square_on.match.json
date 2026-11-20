@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "17d6b7cfa51186244a4080dd70937fb8b8c4f5c378aba4f31be0f051b8cfe671",
+  "glb_sha256": "8e7b865b12f37937283ee968d7a0866d9f65ae51aa21d71935e297eb7f58bb9a",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -176,7 +176,8 @@
     },
     {
       "what": "the crown's cornice: the print's eave spans the attic's stone front alone (x 205-402 px, 2.75 m), the cheeks' slate sloping out beneath it to the shoulders' caps (since T-3562's shoulders, about 0.8 m of slate, 10.63-11.45 m); the build's cornice runs on across the slated cheeks, about 4.5 m (T-3562)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the crown's cornice is built over the attic's stone front alone (mansard.crown.cheek_inset_m 0.75, the cheeks' width, and a 0.18 m overhang: its eave 2.74 m across against the print's 2.75 m, x 197-397 px against 205-402), and each cheek is RAKED (K08 cheeks.raked): over its shoulder the attic's wall stops and the slate slopes from the stone front's edge under the cornice's end (11.45 m) down to the cheek's outer edge on the cap (10.63 m), about 48 degrees, run back the crown's 5 m depth; the pavilion's own eaves and flat top give way to the crown's. Beside the north corner the main mansard's lower faces, steeper than the slope (72 degrees), are cut away over the cheek to the crown's depth, so the north stack stands clear with the sky beside it, as the print draws it; on the south the main mansard's slate stands on behind the slope, as the print's does"
     },
     {
       "what": "the pavilion's south edge renders about 9 px (0.12 m) north of the print's (x 438 against 447 px): built 3.88 m so the narrow light's lintel clears the junction (T-3562)",

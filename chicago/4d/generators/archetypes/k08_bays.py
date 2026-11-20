@@ -1533,6 +1533,9 @@ class Bay:
         if self.v.get("stage"):
             return self._build_staged(board)
         v, data = self.v, self.data
+        # T-3562: an attic slated at its sides on RAKED cheeks (1815's, k01's crown over its stone
+        # front alone): the bay's own eaves and roof give way to the crown's (_cheeks)
+        self.raked = bool((v["storeys"][-1].get("cheeks") or {}).get("raked"))
         cv = data["curves"][self.tier]
         wall_t = part(v, data, "wall")["thickness_m"]
         recess = part(v, data, "recess")["depth_m"]
@@ -1739,6 +1742,9 @@ class Bay:
                         c_, r_ = run.L * rn["at"], rn["radius_m"] + .002
                         y_ = levels[k] + rn["centre_m"]
                         trim_holes.append((c_ - r_, c_ + r_, y_ - r_, y_ + r_, (), True))
+                rk = self._raked_holes(run, i, lo, hi, v["storeys"][k].get("cheeks"))
+                holes += rk
+                trim_holes += rk
                 if v.get("masonry") and self.tier == "full" and hi <= v["masonry"].get("to_m", math.inf) + 1e-6:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
@@ -1812,8 +1818,9 @@ class Bay:
             # T-2998: under a gable the face has no eaves (it is carried up as the gable), and
             # the returns' eaves stop square on the face's plane, inside the kneelers
             er = _Cut(run, start=gi is not None and i == gi + 1, end=gi is not None and i == gi - 1)
-            if v.get("capped"):
+            if v.get("capped") or self.raked:
                 pass   # T-1890: a staged tower's shaft, its top inside the stage's corbel courses
+                # T-3562: or a pavilion whose attic has raked cheeks: the crown's cornice is its eave
             elif gi is not None and i == gi:
                 pass
             elif gi is not None and "side" in (run.start, run.end):
@@ -1856,7 +1863,7 @@ class Bay:
             self._column(world, v["column"], y0, cv)
         if v.get("face_gable"):
             self._face_gable(world, v["face_gable"], y_e, ov)
-        if not v.get("capped"):
+        if not v.get("capped") and not self.raked:
             self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
             self._back(world, float(v["back_from_m"]), y_top, y_e)
@@ -2235,6 +2242,19 @@ class Bay:
                                   flat.P(s0, y0, -out)], (0.0, -1.0, 0.0))
         self.meta.setdefault("brackets", {})["modillions"] = self.meta.get("brackets", {}).get("modillions", 0) + n
 
+    def _raked_holes(self, run, i, lo, hi, ch):
+        """T-3562: over a raked cheek's shoulder the storey's wall stands only between the
+        cheeks (the attic's stone front); beside it, and on every other run, it stops on the
+        shoulder's cap, where the slope stands (_cheeks)."""
+        if not ch or not ch.get("raked"):
+            return []
+        y = lo + ch["shoulder"]["height_m"]
+        if i != ch["front_run"]:
+            return [(0.0, run.L, y, hi + 0.001, (), True)]
+        w = ch["width_m"]
+        return [(-0.001, run.s_start(0.0) + w, y, hi + 0.001, (), True),
+                (run.s_end(0.0) - w, run.L + 0.001, y, hi + 0.001, (), True)]
+
     def _cheeks(self, flat, run, i, lo, hi, ch, windows, capped):
         """T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
         photograph: its three lights between stone piers, its outer parts slated as cheeks): on
@@ -2245,16 +2265,25 @@ class Bay:
         T-3562: over a `shoulder` (1815's pavilion attic, Chicagology's square-on print) the
         cheek is the wall's own stone up to `height_m` over the storey's foot, under a band
         `cap_m` deep and `proud_m` out across the cheek and round its return (and a second
-        at `ledge_m`, if named), and the slate stands on that cap."""
+        at `ledge_m`, if named), and the slate stands on that cap.
+        T-3562: a RAKED cheek (1815's, the square-on print: the crown's cornice spans the stone
+        front alone and each cheek's slate slopes out beneath it to the shoulder's cap) is no
+        slab: over its shoulder the wall stops (_raked_holes), and the slate is a slope from the
+        stone front's edge at the storey's top down to the cheek's outer edge on the cap, its
+        face triangular, run back `raked.back_m` from the face (the crown's depth, k01)."""
         w, pr = ch["width_m"], ch["proud_m"]
         sh = ch.get("shoulder")
+        rk = ch.get("raked")
         lo_w = lo   # the wall's own foot, under any shoulder
         if sh:
             lo = lo_w + sh["height_m"]
+        if rk and (not sh or capped):
+            raise ValueError(f"{self.v['id']}: a raked cheek stands on a shoulder, in the top storey")
         if i != ch["front_run"]:
             if windows:
                 raise ValueError(f"{self.v['id']}: a slated cheek covers run {i}, which has a light")
-            proud(flat, "cheek", run, lo, hi, pr, top=capped, bottom=not sh)   # on a shoulder, the cap is its foot
+            if not rk:
+                proud(flat, "cheek", run, lo, hi, pr, top=capped, bottom=not sh)   # on a shoulder, the cap is its foot
             if sh:
                 for y in (sh["height_m"], sh.get("ledge_m")):
                     if y is not None:
@@ -2275,7 +2304,13 @@ class Bay:
                         flat.face("band", [flat.P(edge, y0_, 0.0), flat.P(edge, y1_, 0.0), flat.P(edge, y1_, -cp),
                                            flat.P(edge, y0_, -cp)], (hx, 0.0, 0.0))
                 self.meta["shoulders"] = self.meta.get("shoulders", 0) + 2
-            for sa, sb, edge, hx in ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
+            if rk:
+                s0, s1 = run.s_start(0.0), run.s_end(0.0)
+                bk = rk["back_m"]
+                prism(flat, "cheek", [(s0, lo), (a0, lo), (a0, hi)], -pr, bk)
+                prism(flat, "cheek", [(b1, lo), (s1, lo), (b1, hi)], -pr, bk)
+                self.meta["raked_cheeks"] = self.meta.get("raked_cheeks", 0) + 2
+            for sa, sb, edge, hx in () if rk else ((run.s_start(pr), a0, a0, 1.0), (b1, run.s_end(pr), b1, -1.0)):
                 flat.plane("cheek", rect(sa, sb, lo, hi), -pr)
                 for y, hy in ((hi, 1.0), (lo, -1.0))[0 if capped else 1:1 if sh else 2]:
                     flat.face("cheek", [flat.P(run.s_start(0.0) if hx > 0 else b1, y, 0.0),

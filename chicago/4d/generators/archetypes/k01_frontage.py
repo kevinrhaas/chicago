@@ -3488,6 +3488,10 @@ class Assembly:
                     and "soffit" in built.prims and not (sg or {}).get("whole"):
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
+            rk = self.raked_cheeks(b) if past and shallow else None
+            if rk:   # T-3562: over raked cheeks' shoulders the back is closed behind the stone front alone
+                (x0, x1), (y0, y1) = closes[0]
+                closes[0:1] = [((x0, x1), (y0, rk[1])), ((x0 + rk[0], x1 - rk[0]), (rk[1], y1))]
             for (x0, x1), (y0, y1) in closes:
                 if y1 - y0 < 1e-6:   # T-3294: a tower capped at the eave has no wall over the wall head
                     continue
@@ -3508,7 +3512,7 @@ class Assembly:
                 # roof is cut there only over the pavilion's square part, shallow_bay_cutters): the
                 # face stood as a block of stone at the cant's far end, over the side slope's slate
                 if self.chamfer_top(b) is None:
-                    y0, y1 = b.get("eave_m", p.eave_m), wall_top
+                    y0, y1 = b.get("eave_m", p.eave_m), wall_top if rk is None else rk[1]
                     pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
                             R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
             if past and not shallow:
@@ -4870,6 +4874,7 @@ class Assembly:
         # their own, then joined to the roof, so the shaft is cut where it passes through
         # the slate, the flashing where it lies on it and the cricket where it meets it
         self.stacks = []
+        joined = []   # T-3562: every K15 stack as joined, for a cut that must leave them standing
         k15s = [c for c in p.chimneys if "k15" in c]
         if k15s:
             from . import k15_chimneys as k15
@@ -4881,7 +4886,8 @@ class Assembly:
                 s = dict(c["k15"], x=c["u_m"], z=-c["v_m"])
                 parts, meta = k15.stack_solids(s, k15.Frame(s, cover), data, tp)
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
-                polys = k5.union(polys, k15.join_stack(parts))
+                joined.append(k15.join_stack(parts))
+                polys = k5.union(polys, joined[-1])
                 self.stacks.append(dict(meta, id=c["id"], centre=[c["u_m"], c["v_m"]]))
         # T-2466: a mansard's plain stack with the K15 kit's head (its sunk panels, corbelled
         # courses and cap), built by the kit with its flashing off, since the kit's flashing
@@ -4898,12 +4904,20 @@ class Assembly:
                 parts, _ = k15.stack_solids(s, k15.Frame(s, lambda x, z, h=c["cover_high_m"]: h), data, tp,
                                             bottom=y0, flashing=False)
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
-                polys = k5.union(polys, k15.join_stack(parts))
+                joined.append(k15.join_stack(parts))
+                polys = k5.union(polys, joined[-1])
         recesses += self.through_eave_cutters(k5, yf)
         recesses += straight_cut
         recesses += self.shallow_bay_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
+        if self.cheek_cuts:   # T-3562: the main mansard cut away beside a raked cheek, its stacks kept
+            for rc in self.cheek_cuts:
+                polys = k5.subtract(polys, k5._snap([rc])[0])
+            for st in plain_stacks:
+                polys = k5.union(polys, k5._snap([st])[0])
+            for j in joined:
+                polys = k5.union(polys, j)
         if p.front_pier:   # T-3112: the eave cut back over the pier and its weathering joined
             cut, hood = self.pier_roof(k5, yf)
             polys = k5.union(k5.subtract(polys, cut), k5._snap([hood])[0])
@@ -5083,6 +5097,19 @@ class Assembly:
             out.append((b, b["span_m"][0], b["span_m"][1], proud, behind))
         return out
 
+    @staticmethod
+    def raked_cheeks(b):
+        """T-3562: a bay whose top storey has RAKED cheeks (1815's pavilion attic, k08_bays._cheeks):
+        (their width, the height of their shoulders' tops), or None. Over that height the wall
+        stands only between them, so the roof is cut and the bay's back closed there alone."""
+        v = b["variant"]
+        ch = v["storeys"][-1].get("cheeks") or {}
+        if not ch.get("raked"):
+            return None
+        y0 = 0.0 if v.get("base", "grade") == "grade" else float(v["base"])
+        return float(ch["width_m"]), y0 + sum(float(st["height_m"]) for st in v["storeys"][:-1]) \
+            + float(ch["shoulder"]["height_m"])
+
     def shallow_bay_cutters(self, k5, yf):
         """T-3047: in front of a shallow pavilion the mansard's eave box, gutter and covering's
         foot would stand out past its face, and its windows' recesses run back into the steep
@@ -5094,6 +5121,7 @@ class Assembly:
         out = []
         D, P = self.p.depth_m, lambda a, b_, c: (a, c, -b_)
         cr = (self.p.mansard or {}).get("crown") or {}
+        self.cheek_cuts = []
         cut = list(self.shallow_bays())
         if cr.get("eave_m"):   # T-3156: and a pavilion carried up an attic under a raised crown
             b = next(x for x in self.p.bays if x["id"] == cr["over_bay"])
@@ -5144,9 +5172,30 @@ class Assembly:
                     if ch[0] == "left" and q[1] < s0 + ch[1]:
                         q[1] = s0 + ch[1]
                 out.append(k5.extrude([tuple(q) for q in sq], bot, top, P, "wall", floor, "wall"))
+            elif self.raked_cheeks(b) and b["wall"] == "k01.wall.street_front":
+                # T-3562: over raked cheeks' shoulders the roof is cut over the stone front alone,
+                # the main mansard standing on behind the slopes either side of it
+                w_, y_sh = self.raked_cheeks(b)
+                ys = y_sh - (self.p.eave_m - yf)
+                narrow = lambda pts: [(u, min(max(s_, s0 + w_), s1 - w_)) for u, s_ in pts]
+                out.append(k5.extrude(inner, bot, ys, P, "wall", floor, "wall"))
+                out.append(k5.extrude(narrow(inner), ys, top, P, "wall", "wall", "wall"))
+                out.append(k5.extrude(outer, bot, ys, P, "return", floor, "wall"))
+                out.append(k5.extrude(narrow(outer), ys, top, P, "return", "wall", "wall"))
+                # and beside a corner it is flush with, the crown's cheek runs back its whole depth
+                # (its raked.back_m): the main mansard's lower faces, steeper than the
+                # cheek's slope, are cut away over it to the sky, short of the crown's own cornice
+                fc = b.get("flush_corner")
+                if fc and cr.get("cheek_inset_m") and cr["over_bay"] == b["id"]:
+                    back, c_ = D + proud - cr["depth_m"], w_ - cr["overhang_m"] - 0.01
+                    sa, sb = (s0 - 1.0, s0 + c_) if fc == "left" else (s1 - c_, s1 + 1.0)
+                    # (applied after the recesses: the stacks standing in it are joined again after it)
+                    self.cheek_cuts.append(k5.extrude([(back, sa), (D + 2.0, sa), (D + 2.0, sb), (back, sb)], ys,
+                                                      self.p.eave_m + 10.0, P, "wall", "wall", "wall"))
             else:
                 out.append(k5.extrude(inner, bot, top, P, "wall", floor, "wall"))
-            out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
+            if not (self.raked_cheeks(b) and b["wall"] == "k01.wall.street_front" and ct is None):
+                out.append(k5.extrude(outer, bot, top, P, "return", floor, "wall"))
             # T-3048: and outside a chamfered corner's canted face, back to the side wall where
             # it meets it, `behind_m` behind the front; the side's eave box stops square there
             if ch is not None:
