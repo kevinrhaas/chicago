@@ -108,14 +108,47 @@
       "coping_height_m": 0.35,
       "corner_bond": [],
       "brick_above_m": 1.8,
-      "belts": []
+      "belts": [
+       [
+        1.83,
+        2.18
+       ],
+       [
+        2.18,
+        2.3
+       ],
+       [
+        5.6,
+        5.95
+       ],
+       [
+        5.95,
+        6.3
+       ],
+       [
+        6.3,
+        6.65
+       ],
+       [
+        6.65,
+        7.0
+       ],
+       [
+        7.0,
+        7.35
+       ],
+       [
+        7.35,
+        7.7
+       ]
+      ]
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_2100_sherman_photo",
       "aabn_1876_09_30_sherman_2100_plate"
      ],
-     "note": "The photograph shows smooth pale stone up to the principal floor's sill, under the dark brick of the storeys, on the front and the 21st Street flank alike; the register reads it as sandstone (the print is monochrome: K01's fawn sandstone is the kit's colour for it, liberty L-k01-2100-sherman-1919)."
+     "note": "The photograph shows smooth pale stone up to the principal floor's sill, under the dark brick of the storeys, on the front and the 21st Street flank alike; the register reads it as sandstone (the print is monochrome: K01's fawn sandstone is the kit's colour for it, liberty L-k01-2100-sherman-1919). T-3699: the brick between is banded in the same pale stone, three bands read off the photograph through its solved camera (data/reference_views/sherman_house_2100_prairie/chicagology_photo.json) on the parlour's bay (x 700-800 px): the stone runs on over the principal floor to the principal lights' sills (y 1270-1350 px, the panels under the lights in it), laid as belts from the basement's top to the sills (2.3 m); a deep band from the principal lights' heads to the second-storey sills (y 905-1060 px, about 5.8-7.8 m through the camera; the arches over the principal lights and the balcony's string course stand in it), laid from the heads (5.6 m) to the sills (7.7 m); and the frieze under the cornice (y 650-710 px), which is wall_head's frieze, over the dark brick band the photograph draws just above the second-storey heads (y 710-730 px). Each band is laid in courses of of 0.35 m or less (K01 lays none deeper than 0.40 m)'s deepest belt, so the joints between them are the kit's, not read."
     },
     "side_base": {
      "value": [
@@ -304,23 +337,54 @@
        "k01.wall.side.south",
        "k01.wall.street_front",
        "k01.wall.side.north"
-      ]
+      ],
+      "frieze": {
+       "height_m": 0.8,
+       "proud_m": 0.025
+      },
+      "blocks": {
+       "spacing_m": 1.0,
+       "height_m": 0.45,
+       "projection_m": 0.19,
+       "width_m": 0.28
+      }
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_2100_sherman_photo"
      ],
-     "note": "A deep stone cornice, pale like the bands, runs along the front and the 21st Street flank at y 600-660 px; K10's moulded stone cornice, carried round the south flank too, which no picture shows. Its paired blocks and dentil band are T-1920's."
+     "note": "A deep stone cornice, pale like the bands, runs along the front and the 21st Street flank at y 600-660 px; K10's moulded stone cornice, carried round the south flank too, which no picture shows. T-3699: under it the photograph draws a pale stone frieze over the second-storey heads (y 650-710 px) and a row of stone blocks carrying the cornice's corona, standing about 1.0 m apart along the front (x 540, 605, 670, 740, 805 and 870 px, 9.4-14.4 m along the front through the solved camera), each about 0.45 m tall: K10's blocks under the moulded cornice round a mansard (as 1815's and 1901's), at that spacing, and K10's frieze, 0.8 m deep, its foot about 0.3 m over the second-storey heads, where the photograph draws a dark brick band between the heads and the frieze. The blocks are evenly spaced where the photograph may pair them, and the dentil band under them is not laid: K10 builds neither on this cornice (see the match record)."
     },
     "street_front_trim": {
      "value": {
       "by_storey": [
        "k09.surround.rowhouse_restrained",
        "k01.flat_lintel"
+      ],
+      "tympana": [
+       {
+        "s_m": 11.1,
+        "storeys": [
+         0
+        ],
+        "lintel_m": 0.15,
+        "lintel_proud_m": 0.1,
+        "tympanum": {
+         "spring_m": 0.1,
+         "rise_m": 0.4,
+         "proud_m": 0.04,
+         "band_m": 0.1,
+         "band_proud_m": 0.08,
+         "relief_m": 0.02
+        }
+       }
       ]
      },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's dressed surrounds; the photograph's stone arches and pointed heads over the principal storey are T-1920's."
+     "confidence": "inferred",
+     "note": "The kit's dressed surrounds on the front's lights (RECONSTRUCTED, L-k01-2100-sherman-1919), except where T-3699 reads the photograph: the parlour's principal light (x 720-810 px) is square-headed under a stone lintel with a carved segmental tympanum over it, its moulded arch springing at the head (y 1060 px) and rising about 0.5 m to its crown (y 1010 px, about 6.4 m through the solved camera), laid as K09's tympanum on a lintel (as 1827's), in the deep stone band; the second-storey light keeps K01's flat lintel, as the photograph draws a square stone head there.",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ]
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -488,7 +552,22 @@
             0.7
            ],
            "recess_m": 0.33,
-           "why_not_ordinary": "the library's tall pair under its stone arch in the photograph (x 60-215 px, y 750-940): about 3.2 m of light in a 5.4 m principal storey"
+           "why_not_ordinary": "the library's tall pair under its stone arch in the photograph (x 60-215 px, y 750-940): about 3.2 m of light in a 5.4 m principal storey",
+           "surround": {
+            "band_m": 0.12,
+            "proud_m": 0.03,
+            "head_m": 0.15,
+            "head_proud_m": 0.08
+           },
+           "tympanum": {
+            "spring_m": 0.1,
+            "rise_m": 0.5,
+            "proud_m": 0.04,
+            "band_m": 0.1,
+            "band_proud_m": 0.08,
+            "relief_m": 0.02,
+            "span_m": 4.4
+           }
           }
          ]
         },
@@ -696,7 +775,7 @@
       "chicagology_2100_sherman_photo",
       "sanborn_1911_chicago_v3_sheet_35"
      ],
-     "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); built as K08's square tower across the corner from grade, its windowless lowest storey standing where the plan cuts the parlour's corner on the diagonal and the photograph shows the oriel's column (the cut is not made: K01 lays no tower on a canted corner; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed."
+     "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); built as K08's square tower across the corner from grade, its windowless lowest storey standing where the plan cuts the parlour's corner on the diagonal and the photograph shows the oriel's column (the cut is not made: K01 lays no tower on a canted corner; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed. T-3699: the library's tall pair (x 60-215 px) stands in moulded stone surrounds under one broad carved segmental tympanum spanning both lights (its crown at y 990 px), K09's tympanum with span_m over the pair;"
     },
     "chimneys": {
      "value": {
@@ -846,6 +925,111 @@
      },
      "confidence": "reconstructed",
      "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's yard: a flagged walk to the stoop. The house stood empty in 1904 after Sherman's death (the register); its upkeep is not read."
+    },
+    "side_belts": {
+     "value": [
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 1.8,
+       "to_m": 2.15,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 2.15,
+       "to_m": 2.3,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 5.6,
+       "to_m": 5.95,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 5.95,
+       "to_m": 6.3,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 6.3,
+       "to_m": 6.65,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 6.65,
+       "to_m": 7.0,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 7.0,
+       "to_m": 7.35,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.north",
+       "from_m": 7.35,
+       "to_m": 7.7,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 1.8,
+       "to_m": 2.15,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 2.15,
+       "to_m": 2.3,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 5.6,
+       "to_m": 5.95,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 5.95,
+       "to_m": 6.3,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 6.3,
+       "to_m": 6.65,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 6.65,
+       "to_m": 7.0,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 7.0,
+       "to_m": 7.35,
+       "proud_m": 0.03
+      },
+      {
+       "wall": "k01.wall.side.south",
+       "from_m": 7.35,
+       "to_m": 7.7,
+       "proud_m": 0.03
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "chicagology_2100_sherman_photo"
+     ],
+     "note": "T-3699: the front's three pale stone bands carried round the 21st Street flank (K01's north wall), where the photograph draws them at the same lines as the front (x 1100-1428 px: the stone to the principal sills at y 1260-1340, the deep band from the principal heads to the second-storey sills at y 970-1060, and the frieze over the second-storey heads, which is wall_head's), 0.03 m proud as the basement's side_base is, in courses of 0.35 m or less (K01's side belt). The south flank's are carried round the same way, which no picture shows (liberty L-k01-2100-sherman-1919)."
     }
    }
   }
