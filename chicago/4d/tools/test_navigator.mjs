@@ -147,6 +147,23 @@ const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
   assert.deepEqual(createWhere({ streets: { status: status('ahead') } }).at(0, 0), { mode: 'near', place: 'near Lake Street' });
   assert.equal(createWhere({ streets: { status: () => null } }).at(0, 0), null);
 
+  // T-3684: the 1871 city lists where its named streets meet, and the THEN line says the
+  // intersection, or the street between its cross streets, as the 1871 directory does.
+  {
+    const doc1871 = json('data/context/1871.json');
+    const lines = doc1871.streets.filter((s) => s.name).map((s) => ({ name: s.name, e0: s.a[0], n0: s.a[1], e1: s.b[0], n1: s.b[1] }));
+    const w = createWhere({ lines, junctions: doc1871.junctions });
+    const sm = doc1871.junctions.find((j) => j.includes('State Street') && j.includes('Madison Street'));
+    assert.ok(sm, 'State and Madison is a junction of the 1871 streets');
+    assert.deepEqual(w.at(sm[0] + 6, sm[1] + 8)?.place, 'State and Madison streets');
+    assert.equal(w.at(sm[0] + 0.5, sm[1] + 70)?.place, 'State Street, between Madison and Washington');
+    const cw = doc1871.junctions.find((j) => j.includes('Clark Street') && j.includes('Washington Street'));
+    assert.equal(w.at(cw[0] + 0.5, cw[1] + 60)?.place, 'Clark Street, between Washington and Randolph');
+    assert.ok(!doc1871.streets.some((s) => /reconstructed/i.test(s.name ?? '')), 'no 1871 street is named as a reconstruction');
+    // Kevin's stands at 148 E Wacker Dr, on the river bank by Michigan Avenue.
+    for (const [e, n] of [[1196, 100], [1196, 60]]) assert.match(w.at(e, n)?.place ?? '', /Michigan Avenue/);
+  }
+
   assert.equal(facingWords(264.94), 'facing west');
   assert.equal(facingWords(-90), 'facing west');
   assert.equal(facingWords(44), 'facing north-east');

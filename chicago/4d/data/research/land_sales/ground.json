@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 1059,
+    "structures_placed": 1062,
     "structures_reached": 135,
     "structures_reached_by_grade": {
       "inferred": 30,
       "reconstructed": 105
     },
     "structures_unreached_by_section": {
-      "09": 595,
+      "09": 598,
       "10": 1,
       "16": 42,
       "outside the four sections": 286
@@ -39965,11 +39965,13 @@
       "brown_boarding_house",
       "caldwell_agency_log_house",
       "carpenter_south_water_store",
+      "chamber_of_commerce_1871",
       "chappel_infant_school",
       "chicago_american_office",
       "chicago_democrat_office",
       "clybourn_cabins",
       "cobweb_castle",
+      "cook_county_court_house_1871",
       "cook_county_courthouse_1835",
       "dearborn_street_drawbridge",
       "dole_warehouse_south",
@@ -40535,6 +40537,7 @@
       "robinson_caldwell_cabins",
       "sauganash_hotel",
       "sauganash_hotel_stable",
+      "sherman_house_1871",
       "slough_log_bridge",
       "south_bank_shed_dearborn_e2",
       "south_branch_raft_bridge",

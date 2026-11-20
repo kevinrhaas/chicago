@@ -1,0 +1,732 @@
+{
+  "id": "chamber_of_commerce_1871",
+  "phase": "chamber_1865_1871",
+  "name": "The Chamber of Commerce (E. Burling, 1865), LaSalle and Washington Streets",
+  "aka": [
+    "Board of Trade building",
+    "Chamber of Commerce building"
+  ],
+  "archetype": "landmark_1871",
+  "asset": "gltf/chamber_of_commerce_1871__chamber_1865_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "nypl_carbutt_140_chamber_of_commerce"
+    ]
+  },
+  "documented_range": {
+    "from": "1865-08-30",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+      "jevne_almini_1866_chicago_illustrated",
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Completed 28 August 1865 and dedicated on the 30th (Andreas vol. 2, p. 358; Chicago Illustrated); destroyed between one and two o'clock on the morning of 9 October 1871, when the flames broke in the west windows near the south end and seized the roof and cornices (Andreas vol. 2, p. 368)."
+  },
+  "change_note": "Built T-3688 (2026-11-19): the Chamber of Commerce stands in the 1871 scene on the new landmark_1871 archetype, from Carbutt's stereograph and Chicago Illustrated.",
+  "placement": {
+    "local_e": 474.89,
+    "local_n": -463.49,
+    "rotation_deg": 359.53,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "jevne_almini_1866_chicago_illustrated",
+      "mitchell_1870_chicago_map"
+    ],
+    "position_note": "The footprint's south-west corner (local E 474.89, N -463.49). The building's north-west corner is set where the 1871 plan's LaSalle Street east line (centre E 464.44 + 10 m) meets Washington Street's south line (centre N -396.32 - 12 m), the corner Chicago Illustrated names; the front is squared to Washington Street's bearing on the plan (89.53 degrees). The plan's streets are traced from Mitchell's 1870 map, so the corner is good to that tracing (a few metres), not to a survey.",
+    "symbolic_location": "South-east corner of LaSalle and Washington Streets, facing the Court House square across Washington Street.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        28.35,
+        0
+      ],
+      [
+        28.35,
+        55.17
+      ],
+      [
+        0,
+        55.17
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "jevne_almini_1866_chicago_illustrated"
+    ],
+    "note": "93 by 181 feet (28.35 by 55.17 m), the main building's dimensions in Chicago Illustrated; 93 feet on Washington Street and 181 on LaSalle, as both pictures show the short front on Washington."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "walls",
+          "note": "Destroyed about 1:20 a.m. on 9 October 1871: the flames broke the west windows near the south end and seized the roof and the overhanging cornices; gutted in minutes, part of the walls melted away (Andreas vol. 2, p. 368).",
+          "time": "1871-10-09T01:20",
+          "sources": [
+            "andreas_1885_v2_buildings"
+          ]
+        },
+        "blocks": [
+          {
+            "name": "main",
+            "box": [
+              0,
+              0,
+              28.35,
+              55.17
+            ],
+            "storeys": [
+              2.6,
+              6.5,
+              15.0
+            ],
+            "wall": "marble",
+            "course_m": 0.5,
+            "rustic_storeys": 2,
+            "belts": [
+              1,
+              2
+            ],
+            "water_table": 0.6,
+            "confidence": "inferred",
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.9,
+              "brackets": 1.15
+            },
+            "roof": {
+              "kind": "mansard",
+              "h": 5.0,
+              "inset": 0.45,
+              "run": 1.5,
+              "curve": 0.15,
+              "covering": "slate",
+              "cresting": true,
+              "dormers": {
+                "N": {
+                  "kind": "oculus",
+                  "w": 1.5,
+                  "h": 1.9,
+                  "at": [
+                    3.6,
+                    7.6,
+                    20.75,
+                    24.75
+                  ]
+                },
+                "W": {
+                  "kind": "flat",
+                  "head": "flat",
+                  "w": 0.9,
+                  "h": 1.4,
+                  "at": [
+                    4.7,
+                    9.3,
+                    13.9,
+                    20.68,
+                    25.28,
+                    29.88,
+                    34.48,
+                    41.26,
+                    45.86,
+                    50.46
+                  ]
+                },
+                "E": {
+                  "kind": "flat",
+                  "head": "flat",
+                  "w": 0.9,
+                  "h": 1.4,
+                  "at": [
+                    4.7,
+                    9.3,
+                    13.9,
+                    20.68,
+                    25.28,
+                    29.88,
+                    34.48,
+                    41.26,
+                    45.86,
+                    50.46
+                  ]
+                }
+              }
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    3.6,
+                    7.6,
+                    20.75,
+                    24.75
+                  ]
+                },
+                "levels": [
+                  1.5,
+                  7.6,
+                  15.0
+                ],
+                "belts": [
+                  2
+                ],
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pair_round",
+                    "w": 1.9,
+                    "h": 6.3,
+                    "sill": 0.6,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "pair_round",
+                    "w": 1.9,
+                    "h": 8.85,
+                    "sill": 1.15,
+                    "hood": "pediment"
+                  }
+                ],
+                "pilasters": [
+                  {
+                    "s": 1.2,
+                    "w": 2.4
+                  },
+                  {
+                    "s": 27.15,
+                    "w": 2.4
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    4.7,
+                    9.3,
+                    13.9,
+                    20.68,
+                    25.28,
+                    29.88,
+                    34.48,
+                    41.26,
+                    45.86,
+                    50.46
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "store",
+                    "w": 3.4,
+                    "h": 2.25,
+                    "sill": 0.15
+                  },
+                  {
+                    "kind": "round",
+                    "w": 0.95,
+                    "h": 3.7,
+                    "sill": 1.5,
+                    "hood": "arch",
+                    "bays": {
+                      "at": [
+                        3.65,
+                        5.75,
+                        8.25,
+                        10.35,
+                        12.85,
+                        14.95,
+                        19.63,
+                        21.73,
+                        24.23,
+                        26.33,
+                        28.83,
+                        30.93,
+                        33.43,
+                        35.53,
+                        40.21,
+                        42.31,
+                        44.81,
+                        46.91,
+                        49.41,
+                        51.51
+                      ]
+                    }
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 8.85,
+                    "sill": 1.15,
+                    "hood": "pediment"
+                  }
+                ],
+                "pilasters": [
+                  {
+                    "s": 1.2,
+                    "w": 2.4
+                  },
+                  {
+                    "s": 53.97,
+                    "w": 2.4
+                  },
+                  {
+                    "s": 17.29,
+                    "w": 2.18
+                  },
+                  {
+                    "s": 37.87,
+                    "w": 2.18
+                  }
+                ],
+                "awnings": null
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    4.7,
+                    9.3,
+                    13.9,
+                    20.68,
+                    25.28,
+                    29.88,
+                    34.48,
+                    41.26,
+                    45.86,
+                    50.46
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "flat",
+                    "w": 1.2,
+                    "h": 1.3,
+                    "sill": 0.8
+                  },
+                  {
+                    "kind": "round",
+                    "w": 0.95,
+                    "h": 3.7,
+                    "sill": 1.5,
+                    "hood": "arch",
+                    "bays": {
+                      "at": [
+                        3.65,
+                        5.75,
+                        8.25,
+                        10.35,
+                        12.85,
+                        14.95,
+                        19.63,
+                        21.73,
+                        24.23,
+                        26.33,
+                        28.83,
+                        30.93,
+                        33.43,
+                        35.53,
+                        40.21,
+                        42.31,
+                        44.81,
+                        46.91,
+                        49.41,
+                        51.51
+                      ]
+                    }
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.3,
+                    "h": 8.85,
+                    "sill": 1.15,
+                    "hood": "pediment"
+                  }
+                ],
+                "pilasters": [
+                  {
+                    "s": 1.2,
+                    "w": 2.4
+                  },
+                  {
+                    "s": 53.97,
+                    "w": 2.4
+                  },
+                  {
+                    "s": 17.29,
+                    "w": 2.18
+                  },
+                  {
+                    "s": 37.87,
+                    "w": 2.18
+                  }
+                ],
+                "awnings": null
+              },
+              "S": "blank"
+            },
+            "note": "The three storeys under the mansard and the wall head 22 m above the street, scaled off Carbutt's stereograph on the front's 93 feet; the hall's 44 feet floor to ceiling from Andreas (vol. 2, p. 358)."
+          },
+          {
+            "name": "centre bay",
+            "box": [
+              9.675,
+              55.17,
+              18.675,
+              55.77
+            ],
+            "storeys": [
+              9.1,
+              15.0
+            ],
+            "wall": "marble",
+            "course_m": 0.5,
+            "rustic_storeys": 1,
+            "belts": [
+              1
+            ],
+            "confidence": "attested",
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 0.9,
+              "brackets": 1.15
+            },
+            "roof": {
+              "kind": "flat"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    4.5
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "door_round",
+                    "w": 2.1,
+                    "h": 6.8,
+                    "sill": 0.9,
+                    "bays": {
+                      "at": [
+                        1.75,
+                        4.5,
+                        7.25
+                      ]
+                    }
+                  },
+                  {
+                    "kind": "pair_round",
+                    "w": 3.6,
+                    "h": 8.6,
+                    "sill": 1.5,
+                    "hood": "arch",
+                    "depth": 0.25,
+                    "back": 0.25
+                  }
+                ]
+              },
+              "E": "blank",
+              "W": "blank",
+              "S": "none"
+            },
+            "sources": [
+              "andreas_1885_v2_buildings",
+              "nypl_carbutt_140_chamber_of_commerce"
+            ],
+            "note": "Andreas (vol. 2, p. 358): the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide; the projecting bay and its triple-arched entrance are in Carbutt's stereograph and Jevne & Almini's lithograph."
+          }
+        ],
+        "pediments": [
+          {
+            "block": 1,
+            "face": "N",
+            "s": 4.5,
+            "w": 6.6,
+            "h": 4.4,
+            "kind": "scroll",
+            "clock": true,
+            "depth": 1.2,
+            "z": 24.18,
+            "confidence": "attested",
+            "sources": [
+              "nypl_carbutt_140_chamber_of_commerce",
+              "jevne_almini_1866_chicago_illustrated"
+            ],
+            "note": "The scrolled pediment with its clock over the centre bay, above the cornice, as Carbutt's stereograph and Jevne & Almini's lithograph both show it."
+          }
+        ],
+        "steps": [
+          {
+            "block": 1,
+            "face": "N",
+            "s0": 0.4,
+            "s1": 8.6,
+            "n": 4
+          }
+        ],
+        "flagpoles": [
+          {
+            "at": [
+              14.175,
+              55.27,
+              28.4
+            ],
+            "h": 8.0
+          }
+        ],
+        "chimneys": [
+          {
+            "at": [
+              2.3,
+              4.7
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              2.3,
+              13.9
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              2.3,
+              25.28
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              2.3,
+              34.48
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              2.3,
+              45.86
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              26.05,
+              4.7
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              26.05,
+              13.9
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              26.05,
+              25.28
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              26.05,
+              34.48
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          },
+          {
+            "at": [
+              26.05,
+              45.86
+            ],
+            "z0": 28.9,
+            "h": 1.3,
+            "w": 0.8,
+            "d": 0.8,
+            "material": "marble_wall"
+          }
+        ],
+        "note": "Read off Carbutt's stereograph No. 140 and Jevne & Almini's lithograph, which agree, scaled on the front's 93 feet; Andreas (vol. 2, p. 358) gives the hall's height and the triple window."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "nypl_carbutt_140_chamber_of_commerce",
+        "jevne_almini_1866_chicago_illustrated",
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Read off Carbutt's stereograph and Jevne & Almini's lithograph, which agree. THREE STOREYS under a mansard: a basement of shops at street level (iron shop fronts on LaSalle, small windows on the front), the first storey of business rooms lit by round-arched windows (singles on the front, pairs on the sides), and the grand hall, 44 feet floor to ceiling (13.4 m, the letterpress; built 13.0 m), lit by tall round-arched windows; the wall head 22 m above the street (the photograph, scaled on the front's 93 feet). THE FRONT on Washington Street: five bays, two and one and two, the centre bay projecting with the triple-arched entrance up a short flight of steps, a great triple window over it and a scrolled pediment with a clock above the cornice; the outer bays' hall windows are paired lights under one arch. Andreas (vol. 2, p. 358) agrees: the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide (built 9.2 by 3.6 m), the side spaces two windows each. THE SIDE on LaSalle: ten bays in three groups (three, four, three) divided by rusticated pilaster strips, rusticated corner piers; the letterpress's eighteen hall windows are nine a side over the 143-foot hall. The whole wall is banded with channelled joints. A bracketed cornice, and a curved mansard of slate with oval dormers on the front and small square dormers along the sides, iron cresting at its curb. The east wall on Exchange Place is built like the LaSalle side without shop fronts and the south wall blank (reconstructed: no picture found shows them)."
+    },
+    "wall_material": {
+      "value": "marble",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Andreas (vol. 2, p. 358): cut stone (Athens marble) on the three sides fronting north, east and west, and brick on the south side, which faced Calhoun Place. Athens marble is the Lemont limestone; built in the K02 library's pale Bedford-type limestone. The south wall is built blank in the same stone (its brick is a liberty, docs/LIBERTIES.md).",
+      "geometry": "simplified"
+    },
+    "storeys": {
+      "value": 3,
+      "confidence": "attested",
+      "sources": [
+        "nypl_carbutt_140_chamber_of_commerce",
+        "jevne_almini_1866_chicago_illustrated"
+      ],
+      "note": "Basement, first storey and grand hall, under the mansard.",
+      "geometry": "simplified"
+    },
+    "height_m": {
+      "value": 29.0,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2_buildings",
+        "jevne_almini_1866_chicago_illustrated",
+        "nypl_carbutt_140_chamber_of_commerce"
+      ],
+      "note": "Andreas (vol. 2, p. 358): the mansard's extreme height twenty-three feet (7.0 m) above the cornice and ninety-nine feet from the basement floor; Chicago Illustrated gives one hundred feet in height. The wall head stands about 22 m over the street in the photograph (scaled on the 93-foot front), so the roof is built 6.6 m with its 0.4 m cresting over the cornice, the top 29 m over the street.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "commercial_exchange",
+      "confidence": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated"
+      ],
+      "note": "Built and owned by an incorporated company of members of the Board of Trade; its grand hall upstairs was the exchange room, and the floors under it were let to merchants, banks and insurance companies (Chicago Illustrated's letterpress)."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "attested",
+      "sources": [
+        "jevne_almini_1866_chicago_illustrated"
+      ],
+      "note": "Dedicated 30 August 1865 (Chicago Illustrated's letterpress)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2_buildings",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+        "when and how each burned on 8-9 October 1871"
+      ],
+      "what_it_does_not_supply": [
+        "measured drawings or surveyed positions: street corners only",
+        "the walls no writer describes"
+      ]
+    },
+    {
+      "source_id": "jevne_almini_1866_chicago_illustrated",
+      "citation": "Jevne & Almini (publishers), Chicago Illustrated, with text by James W. Sheahan. Chicago: Jevne & Almini, 1866-1867. Lithographs by the Chicago Lithographing Co., 152 & 154 Clark Street.",
+      "url": "https://hdl.handle.net/2027/mdp.69015000002622",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Chamber of Commerce's place, size, height, architect, date and cost",
+        "its Washington Street front and LaSalle Street side, drawn"
+      ],
+      "what_it_does_not_supply": [
+        "measured proportions (it is a drawing)",
+        "the east and south walls"
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    },
+    {
+      "source_id": "nypl_carbutt_140_chamber_of_commerce",
+      "citation": "John Carbutt, '140.—Chamber of Commerce', stereograph, Views of Chicago series (Chicago: J. Carbutt, c. 1866-1871). New York Public Library, Robert N. Dennis collection of stereoscopic views, MFY Dennis Coll 90-F172, image G90F172_009F.",
+      "url": "https://commons.wikimedia.org/wiki/File:Chamber_of_Commerce,_by_Carbutt,_John,_1832-1905.png",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the massing, storeys and bay rhythm of the Washington and LaSalle fronts",
+        "the mansard, its dormers and the centre bay's clock pediment",
+        "the street-level shop fronts on LaSalle Street"
+      ],
+      "what_it_does_not_supply": [
+        "the east and south walls",
+        "colour",
+        "a date of exposure"
+      ]
+    }
+  ],
+  "research_note": "THE CHAMBER OF COMMERCE, built by T-3688 for the 1871 scene (the fire's South Side landmarks). Its two street fronts are built from Carbutt's stereograph (No. 140) and Jevne & Almini's lithograph, which agree element by element; its size, height and place are the lithograph's letterpress. The east wall on Exchange Place is built like the LaSalle side and the south wall blank, neither seen in any picture found (docs/LIBERTIES.md, T-3688).",
+  "research_doc": "",
+  "review_required": false
+}

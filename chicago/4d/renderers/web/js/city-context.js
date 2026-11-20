@@ -6,6 +6,8 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { dressStreetSurfaces } from './street-surfaces-1871.js';
+import { buildFronts, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
 
 async function json(url) {
   const response = await fetch(url, { cache: 'no-cache' });
@@ -112,6 +114,13 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     problems.push(`1871 context: ${error.message}`);
     return out;
   }
+  // T-3686: the jaunt stops' detail rings. Optional: without them every front
+  // keeps its instanced stand-in.
+  let rings=null;
+  if (doc.detail_rings && definition.fronts) {
+    try { rings=await json(new URL(doc.detail_rings,dataBase)); }
+    catch (error) { problems.push(`1871 context detail rings: ${error.message}`); }
+  }
   const geometries = new Set(), materials = new Set(), textures = new Set();
   // Confidence must discard/dither the sun's depth pass as well as the colour
   // pass. Keep one depth owner per colour material, as buildings.js does: a
@@ -155,6 +164,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   out.census.walkSurfaces=doc.walk_surfaces?.length ?? 0;
   out.census.floorCells=floors.cells;
   const infrastructureMeshes=[];
+  let walkMaterial=null;
   out.census.infrastructureSourceMeshes=0;
   out.census.infrastructureTriangles=0;
   for (const asset of streets) {
@@ -165,6 +175,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       if (!object.isMesh) return;
       if (Array.isArray(object.material)) throw Error('1871 infrastructure: portable primitives must each have one material');
       const layer=object.userData.layer ?? object.parent?.userData.layer ?? 'infrastructure';
+      if (layer==='walks' && !walkMaterial) walkMaterial=object.material;
       const castShadow=layer==='bridges';
       // One atlas/material per portable primitive. Group by attribute layout as
       // well as material and shadow behaviour, retaining every authored channel.
@@ -200,6 +211,17 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     // remain resident; shared materials/textures are released with the layer.
     for (const geometry of sourceGeometries) { geometry.dispose(); geometries.delete(geometry); }
   }
+  // T-3685: the streets' painted surfaces (wood block, boulders, dirt, planks)
+  // and the raised walks' kerb boards and crossing steps, from the floors.
+  const surfacing=dressStreetSurfaces(infrastructureMeshes,{walkSurfaces:doc.walk_surfaces ?? [],
+    heights:doc.surface_heights_m ?? {},detail,confidence});
+  for (const texture of surfacing.textures) textures.add(texture);
+  for (const material of surfacing.materials) materials.add(material);
+  for (const mesh of surfacing.meshes) {
+    geometries.add(mesh.geometry); infrastructureMeshes.push(mesh); group.add(mesh);
+    out.census.infrastructureTriangles+=mesh.userData.triangles;
+  }
+  out.census.streetSurfaces=surfacing.census;
   out.census.infrastructureMeshes=infrastructureMeshes.length;
   const templates = new Map([...definition.templates,...(definition.vegetation ?? [])].map(t => [t.id, t]));
   const columns = Object.fromEntries((doc.fields?.buildings ?? []).map((key, index) => [key, index]));
@@ -260,6 +282,9 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       return {name:enumValue('street',get('name')) ?? get('name'),e0:get('e0'),n0:get('n0'),e1:get('e1'),n1:get('n1')};
     }).filter(r=>[r.e0,r.n0,r.e1,r.n1].every(Number.isFinite));
   };
+  // T-3684: where two named 1871 streets meet, `[e, n, name, name]`, for the
+  // where card's "State and Madison streets".
+  out.junctions = () => (doc.junctions ?? []).filter(j=>Array.isArray(j) && j.length>=4 && Number.isFinite(j[0]) && Number.isFinite(j[1]));
   // The city's own sparse planting positions, with generic portable deciduous
   // crowns. No other year's species palette or planting record is imported.
   const treeFields=Object.fromEntries((doc.fields?.trees ?? []).map((key,index)=>[key,index]));
@@ -282,22 +307,72 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   const position=new THREE.Vector3(), scale=new THREE.Vector3(), color=new THREE.Color();
   const transformed=new THREE.Vector3(), normalMatrix=new THREE.Matrix3();
   const meshes=[];
-  const FRAME_PAINT=[[.98,.97,.94],[.98,.97,.94],[.96,.95,.91],[.98,.97,.94],[.95,.94,.90],
-    [.97,.88,.70],[.83,.83,.81],[.80,.76,.64],[.76,.80,.72],[.62,.55,.45],[.66,.58,.48],[.72,.50,.40]];
+  const tint=[1,1,1];
   const farMaterial=kit.scene.getObjectByName(definition.templates[0].nodes.far).material.clone();
   farMaterial.vertexColors=true; confidence?.patch(farMaterial); materials.add(farMaterial);
-  const place=r=>{
+  const place=(r,t=r.t)=>{
     position.set(r.e,r.base,-r.n); quaternion.setFromAxisAngle(up,-r.bearing*Math.PI/180);
-    scale.set(r.w/r.t.width_m,r.h/r.t.eave_m,r.d/r.t.depth_m);
+    scale.set(r.w/t.width_m,r.h/t.eave_m,r.d/t.depth_m);
     matrix.compose(position,quaternion,scale); normalMatrix.getNormalMatrix(matrix);
     const tone=Number(value(r.row,'tone',0));
-    const jitter=((Math.sin(r.e*12.9898+r.n*78.233)*43758.5453)%1+1)%1;
+    const jitter=jitterOf(r.e,r.n);
     color.setRGB(.84+.14*jitter,.84+.12*jitter+.012*(tone%3),.80+.14*jitter+.018*(tone%5));
     // T-3683: a frame house wears its own paint over the pale weatherboard:
     // mostly white, some buff, grey or drab, a few unpainted or barn red.
     // Reconstructed colours (L-1871-city-baseline), not a recorded house.
     if (r.t.material==='timber') { const [pr,pg,pb]=FRAME_PAINT[tone%FRAME_PAINT.length]; color.setRGB(pr*(.95+.05*jitter),pg*(.95+.05*jitter),pb*(.95+.05*jitter)); }
+    // T-3686: a row front wears its facade's tint (brick, cream stone, painted
+    // brick or painted weatherboard), the same tint its detail wears in a ring.
+    const facade=r.isTree?null:value(r.row,'facade',null);
+    if (facade) { facadeTint(facade,tone,jitter,tint); color.setRGB(tint[0],tint[1],tint[2]); }
     if (r.isTree) color.setRGB(.83+.17*jitter,.82+.15*jitter,.72+.16*jitter);
+  };
+  // T-3686: a front whose facade is not its template's family wears the
+  // facade's atlas row: the near form moves its wall cells' UVs by whole rows
+  // per instance (aFacade = from, to), the far form takes the composite of a
+  // shop form of that family with the nearest storey count.
+  const facadeRows=r=>{
+    const facade=r.isTree?null:value(r.row,'facade',null);
+    if (!facade) return null;
+    const from=FAMILY_ROW[r.t.material], to=FACADE_ROW[facadeOf(facade,r.t.material)];
+    return from==null||to==null||from===to?null:[from,to];
+  };
+  const shopForms=[...templates.values()].filter(t=>t.shop&&!t.vegetation);
+  const farTemplate=r=>{
+    const rows=facadeRows(r);
+    if (!rows) return r.t;
+    const family=rows[1]===FAMILY_ROW.stone?'stone':rows[1]===FAMILY_ROW.brick?'brick':rows[1]===FAMILY_ROW.timber?'timber':null;
+    let best=r.t, gap=Infinity;
+    for (const t of shopForms) if (t.material===family && Math.abs((t.storeys??1)-(r.t.storeys??1))<gap) { best=t; gap=Math.abs((t.storeys??1)-(r.t.storeys??1)); }
+    return best;
+  };
+  const facadeMaterials=new Map();
+  const facadeMaterial=source=>{
+    let material=facadeMaterials.get(source);
+    if (material) return material;
+    material=source.clone();
+    material.onBeforeCompile=shader=>{
+      shader.vertexShader='attribute vec2 aFacade;\n'+shader.vertexShader.replace('#include <uv_vertex>',`#include <uv_vertex>
+  float facadeShift=abs(floor(uv.y*8.0)-aFacade.x)<0.5?(aFacade.y-aFacade.x)*0.125:0.0;
+  #ifdef USE_MAP
+  vMapUv.y+=facadeShift;
+  #endif
+  #ifdef USE_NORMALMAP
+  vNormalMapUv.y+=facadeShift;
+  #endif
+  #ifdef USE_AOMAP
+  vAoMapUv.y+=facadeShift;
+  #endif
+  #ifdef USE_METALNESSMAP
+  vMetalnessMapUv.y+=facadeShift;
+  #endif
+  #ifdef USE_ROUGHNESSMAP
+  vRoughnessMapUv.y+=facadeShift;
+  #endif`);
+    };
+    material.customProgramCacheKey=()=>'chicago4d-1871-facade-rows';
+    confidence?.patch(material); materials.add(material); facadeMaterials.set(source,material);
+    return material;
   };
   for (const tile of tiles.values()) {
     tile.nearMeshes=[];
@@ -307,7 +382,20 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       {
         const source=kit.scene.getObjectByName(t.nodes.near);
         if (!source?.isMesh) throw Error(`1871 context: missing portable mesh ${t.nodes.near}`);
-        const mesh=new THREE.InstancedMesh(source.geometry,source.material,rows.length);
+        const shifts=t.vegetation?null:rows.map(facadeRows);
+        let geometry=source.geometry, material=source.material;
+        if (shifts?.some(Boolean)) {
+          // Share the kit's buffers; only the per-instance rows are this tile's.
+          geometry=new THREE.BufferGeometry();
+          for (const [key,attribute] of Object.entries(source.geometry.attributes)) geometry.setAttribute(key,attribute);
+          geometry.setIndex(source.geometry.index);
+          geometry.boundingBox=source.geometry.boundingBox; geometry.boundingSphere=source.geometry.boundingSphere;
+          const facadeAttr=new Float32Array(rows.length*2);
+          shifts.forEach((shift,index)=>{ if (shift) facadeAttr.set(shift,index*2); });
+          geometry.setAttribute('aFacade',new THREE.InstancedBufferAttribute(facadeAttr,2));
+          geometries.add(geometry); material=facadeMaterial(source.material);
+        }
+        const mesh=new THREE.InstancedMesh(geometry,material,rows.length);
         mesh.name=`context:1871:${name}:near`;
         rows.forEach((r,index)=>{
           place(r); mesh.setMatrixAt(index,matrix); mesh.setColorAt(index,color);
@@ -324,7 +412,11 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       }
       const source=kit.scene.getObjectByName(t.nodes.far);
       if (!source?.isMesh) throw Error(`1871 context: missing portable mesh ${t.nodes.far}`);
-      for (const row of rows) farParts.push({geometry:source.geometry,row});
+      for (const row of rows) {
+        const form=t.vegetation?t:farTemplate(row);
+        const geometry=form===t?source.geometry:kit.scene.getObjectByName(form.nodes.far)?.geometry ?? source.geometry;
+        farParts.push({geometry,row,form});
+      }
     }
     // All far forms share one atlas, so assemble the portable geometry into ONE
     // draw per tile. Keep every source normal/UV/confidence and a pick range.
@@ -335,7 +427,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     const conf=new Float32Array(vertexCount), indices=new Uint32Array(indexCount), ranges=[];
     let vertex=0,index=0;
     for (const part of farParts) {
-      place(part.row);
+      place(part.row,part.form);
       const g=part.geometry, a=g.attributes;
       ranges.push({first:index/3,count:g.index.count/3,row:part.row});
       for (let i=0;i<a.position.count;i++) {
@@ -363,6 +455,65 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     mesh.userData.buildingCount=farParts.filter(p=>!p.row.isTree).length;
     mesh.userData.treeCount=farParts.length-mesh.userData.buildingCount;
     tile.farMesh=mesh; meshes.push(mesh); group.add(mesh);
+  }
+  // T-3686: a row front stands back of its street's walk by the corridor's
+  // margin; that strip is paved in the walk's own planking, front to walk,
+  // so the business streets read as built up, not as lawns before shops.
+  const apronMeshes=[];
+  // T-3685 raises the walks on planks: the apron meets the walk at its own
+  // height (just under it, so the two never fight), not a step below it.
+  const apronWalkY=+(doc.surface_heights_m?.walk);
+  if (walkMaterial) {
+    for (const tile of tiles.values()) {
+      const p=[], nrm=[], uv=[], idx=[];
+      for (const rows of tile.sets.values()) for (const r of rows) {
+        const gap=r.isTree?0:+value(r.row,'walk_gap_m',0);
+        if (!(gap>.05)) continue;
+        const reach=gap+.35, y=Number.isFinite(apronWalkY)?apronWalkY-.005:r.base+.1, base=p.length/3;
+        for (const [x,z] of [[-r.w/2,-r.d/2],[r.w/2,-r.d/2],[r.w/2,-r.d/2-reach],[-r.w/2,-r.d/2-reach]]) {
+          const e=r.e+r.cos*x+r.sin*z, n=r.n+r.sin*x-r.cos*z;
+          p.push(e,y,-n); nrm.push(0,1,0); uv.push(e/2,-n/2);
+        }
+        // Wind the quad to face up, whichever way the front's bearing turns it.
+        const ax=p[base*3+3]-p[base*3], az=p[base*3+5]-p[base*3+2];
+        const bx=p[base*3+6]-p[base*3], bz=p[base*3+8]-p[base*3+2];
+        if (az*bx-ax*bz>0) idx.push(base,base+1,base+2,base,base+2,base+3);
+        else idx.push(base,base+2,base+1,base,base+3,base+2);
+      }
+      if (!idx.length) continue;
+      const geometry=new THREE.BufferGeometry();
+      geometry.setAttribute('position',new THREE.Float32BufferAttribute(p,3));
+      geometry.setAttribute('normal',new THREE.Float32BufferAttribute(nrm,3));
+      geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));
+      geometry.setAttribute('_confidence',new THREE.Float32BufferAttribute(new Float32Array(p.length/3).fill(1),1));
+      geometry.setIndex(idx); geometry.computeBoundingSphere(); geometry.computeBoundingBox();
+      geometries.add(geometry);
+      const mesh=new THREE.Mesh(geometry,walkMaterial);
+      mesh.name=`context:1871:tile:${tile.e},${tile.n}:aprons`; mesh.receiveShadow=true;
+      mesh.userData={layer:'infrastructure',confidence:'reconstructed',triangles:idx.length/3};
+      apronMeshes.push(mesh); group.add(mesh);
+    }
+  }
+  out.census.apronMeshes=apronMeshes.length;
+  out.census.apronTriangles=apronMeshes.reduce((sum,m)=>sum+m.userData.triangles,0);
+  // T-3686: full detail within the jaunt stops' rings (city-fronts.js).
+  let fronts=null;
+  const frontNode=definition.fronts && kit.scene.getObjectByName(definition.fronts.node);
+  if (rings && frontNode) {
+    const byName=new Map();
+    frontNode.traverse(object=>{ if (object.isMesh) for (const m of [object.material].flat()) byName.set(m.name,m); });
+    const frontMaterials=new Map();
+    for (const [key,entry] of Object.entries(definition.fronts.materials)) {
+      const material=byName.get(entry.material);
+      if (!material) continue;
+      material.vertexColors=true; material.needsUpdate=true;
+      frontMaterials.set(key,material);
+    }
+    const rows=[];
+    for (const tile of tiles.values()) for (const set of tile.sets.values()) for (const r of set) if (!r.isTree) rows.push(r);
+    fronts=buildFronts({rows,rings,fronts:definition.fronts,materials:frontMaterials,detail,value});
+    for (const mesh of fronts.meshes) { geometries.add(mesh.geometry); group.add(mesh); }
+    out.census.detail={...fronts.census,showM:fronts.showM};
   }
   out.census.meshes=meshes.length;
   out.census.triangles=meshes.reduce((sum,m)=>sum+m.userData.triangles,0);
@@ -394,6 +545,18 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       }
       if (inView) { if (near) nearTiles++; else farTiles++; }
     }
+    let detailTriangles=0, detailMeshes=0;
+    if (fronts) {
+      for (const cell of fronts.cells) {
+        const show=Math.hypot(cell.e-camera.position.x,-cell.n-camera.position.z)<fronts.showM && camera.position.y<fronts.showM;
+        for (const mesh of cell.meshes) {
+          mesh.visible=show;
+          if (show && frustum.intersectsObject(mesh)) { detailTriangles+=mesh.userData.triangles; detailMeshes++; }
+        }
+      }
+      activeTriangles+=detailTriangles; activeMeshes+=detailMeshes;
+    }
+    out.census.detailVisibleTriangles=detailTriangles; out.census.detailVisibleMeshes=detailMeshes;
     out.census.visibleTriangles=activeTriangles; out.census.visibleMeshes=activeMeshes;
     out.census.visibleBuildings=activeBuildings; out.census.nearTiles=nearTiles; out.census.farTiles=farTiles;
     out.census.visibleTrees=activeTrees;

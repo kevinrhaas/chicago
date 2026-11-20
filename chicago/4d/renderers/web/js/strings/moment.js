@@ -19,4 +19,8 @@ export default register('moment', {
   invalid: 'This shared spot is outside the walkable town. You have arrived at the usual starting place.',
   personMissing: 'You have arrived at the shared spot. This person’s card is no longer available here.',
   arrived: 'You have arrived at the shared spot.',
+  jumpSame: 'Same ground, {year}.',
+  jumpNear: 'Same ground, {year}. Something stands where you were, so you are {m} m from it.',
+  jumpOutside: 'The town of {year} does not reach the ground you stood on in {from}. You have arrived at its usual starting place.',
+  thatYear: 'the other year',
 });

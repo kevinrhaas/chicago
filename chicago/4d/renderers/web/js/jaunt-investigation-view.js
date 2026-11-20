@@ -19,15 +19,18 @@ export function renderInvestigation(doc, model, draft, notebook = fieldNotebook)
   };
   const root = node('details', null, 'jaunt-investigation'); root.open = draft.open;
   const summary = node('summary', t('investigation.title'));
-  root.append(summary, node('p', model.intro ?? t('investigation.intro')), node('p', t('investigation.privacy'), 'jaunt-meta'),
+  root.append(summary, node('p', model.intro), node('p', t('investigation.privacy'), 'jaunt-meta'),
     node('h4', model.question));
   root.addEventListener('toggle', () => { draft.open = root.open; });
   for (const reading of model.readings) {
     const card = node('section', null, 'jaunt-investigation-reading');
-    card.append(node('h5', reading.title), node('p', model.reading ?? t('investigation.reading'), 'jaunt-meta'), node('p', reading.locator));
+    card.append(node('h5', reading.title), node('p', model.readingNote, 'jaunt-meta'));
+    if (reading.locator) card.append(node('p', reading.locator));
     for (const claim of reading.claims) {
-      card.append(node('h6', t(`investigation.evidence.${claim.id}`)),
-        node('p', model.grades?.[claim.confidence] ?? t(`investigation.grade.${claim.confidence}`), 'jaunt-meta'), node('blockquote', claim.text));
+      card.append(node('h6', claim.label), node('p', claim.grade, 'jaunt-meta'));
+      // A claim's own locator, unless the reading already gave it for the whole item.
+      if (claim.locator && claim.locator !== reading.locator) card.append(node('p', claim.locator, 'jaunt-meta'));
+      card.append(node('blockquote', claim.text));
       if (claim.reasoning) card.append(node('p', claim.reasoning));
     }
     const sources = node('ul');
@@ -45,7 +48,7 @@ export function renderInvestigation(doc, model, draft, notebook = fieldNotebook)
     input.addEventListener('change', () => {
       draft.selected = choices.filter(c => c.checked).map(c => c.value); changed();
     });
-    label.append(input, node('span', t(`investigation.evidence.${claim.id}`))); choiceSet.append(label);
+    label.append(input, node('span', claim.label)); choiceSet.append(label);
   }
   root.append(choiceSet);
   const fields = {};
@@ -59,8 +62,8 @@ export function renderInvestigation(doc, model, draft, notebook = fieldNotebook)
   const review = node('div', null, 'jaunt-investigation-review'); review.hidden = !draft.reviewed;
   review.append(node('p', t('investigation.review')));
   for (const claim of model.claims)
-    review.append(node('h5', t(`investigation.evidence.${claim.id}`)), node('p', t(`investigation.review.${claim.id}`)));
-  review.append(node('p', model.liberties ?? t('investigation.review.liberties')), button('revise', () => fields.claim.focus()));
+    review.append(node('h5', claim.label), node('p', claim.review));
+  review.append(node('p', model.closing), button('revise', () => fields.claim.focus()));
   const compare = button('compare', () => {
     draft.reviewed = true; review.hidden = false; compare.setAttribute('aria-expanded', 'true');
     status.textContent = t('investigation.review');

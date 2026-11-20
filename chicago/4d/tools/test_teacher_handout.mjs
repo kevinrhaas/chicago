@@ -124,7 +124,7 @@ for (const d of DESTINATIONS) {
     for (const c of chosen) assert(!beats(r, c), `${d.year}: ${r.title} is not suggested, so it cannot beat ${c.title}`);
   }
 }
-assert(picks[1871].includes('The Last Sunday'), '1871 suggests its own Jaunts (T-3692), never another year’s');
+assert.deepEqual([...picks[1871]].sort(), ['The Great Chicago Fire', 'The Last Sunday', 'Who Started the Fire?'], '1871 suggests its own Jaunts, the Great Fire (T-3691), The Last Sunday (T-3692) and Who Started the Fire? (T-3693), not their retellings and never another year’s');
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
 assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');

@@ -1,0 +1,346 @@
+{
+ "id": "hh_1871_court_house_039",
+ "scene": "1871",
+ "name": "The Driscoll household near the Court House square",
+ "head": "hh_1871_court_house_039_1",
+ "division": "court_house",
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "sources": [
+   "census_1870_us_vol1"
+  ],
+  "note": "A reconstructed household of the 1870 census's city."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "court_house",
+   "resolves_to": "neighbourhood",
+   "tier": "reconstructed",
+   "source_id": "mitchell_1870_chicago_map",
+   "note": "Lives near the Court House square; the house is an anonymous building of the context city (L-1871-city-baseline), found at run time on the street nearest the household's place."
+  }
+ ],
+ "arrival": {
+  "value": "1866",
+  "precision": "year",
+  "tier": "reconstructed"
+ },
+ "card_evidence": [
+  {
+   "source_id": "census_1870_us_vol1",
+   "locator": "Population of Chicago, 1870",
+   "quote": "the 1870 Census counted 298,977 people living in Chicago, Illinois",
+   "claim": "The city's count; this card is one of the reconstructed households drawn at about one person in eighty-five."
+  },
+  {
+   "source_id": "edwards_chicago_directory_1871",
+   "locator": "the directory's occupations",
+   "claim": "The trades are in the directory's words; no listing is claimed for this household."
+  }
+ ],
+ "persons": [
+  {
+   "id": "hh_1871_court_house_039_1",
+   "name": "Patrick Driscoll",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "58-58",
+    "low": 58,
+    "high": 58,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "lumber shover",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 58",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Kilkenny, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Lumber shover",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1813 in County Kilkenny, Ireland and came to Chicago about 1866. He works as a lumber shover, and the household lives near the Court House square. The family's church is Holy Family."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_court_house_039_2",
+   "name": "Sarah Driscoll",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "54-54",
+    "low": 54,
+    "high": 54,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 54",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Kilkenny, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Keeping house",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1817 in County Kilkenny, Ireland and came to Chicago about 1866. She keeps house for her husband Patrick and their family near the Court House square. The family's church is Holy Family."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_court_house_039_3",
+   "name": "Edward Driscoll",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "17-17",
+    "low": 17,
+    "high": 17,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "laborer",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 17",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Kilkenny, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Laborer",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1854 in County Kilkenny, Ireland and came to Chicago about 1866. He lives at home and works as a laborer."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_court_house_039_4",
+   "name": "Bridget Driscoll",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "16-16",
+    "low": 16,
+    "high": 16,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the Irish people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 16",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "County Kilkenny, Ireland",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "Irish",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1855 in County Kilkenny, Ireland and came to Chicago about 1866."
+    ]
+   }
+  }
+ ]
+}
