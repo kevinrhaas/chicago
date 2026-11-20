@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3160, ts: '2026-11-20T06:00:51.545Z', date: 'Nov 20, 2026, 12:00 AM CT', title: 'The Great Chicago Fire, a Jaunt in 1871', kind: 'feature',
+    items: [
+      'Follow the fire hour by hour in twelve stops, from the O\'Leary barn on Sunday night to the old cemetery on Monday evening, and the rain.',
+      'Each stop stands in the street before a landmark at its hour: St. Paul\'s, the Court House bell, the Sherman House, Crosby\'s Opera House, the Water Works, the Tribune, Field, Leiter and Co.',
+      'Crowds watch from the street and hurry away from the flames at every stop.',
+      'Every fact and quotation is cited to three accounts of 1871 and 1885; hours no account gives are marked as inferred.',
+      'Told for grades 3-5, 6-8, 9-10 and 11-12, and in an 18+ telling that counts the dead.',
+    ] },
   { v: 3159, ts: '2026-11-20T05:23:24.550Z', date: 'Nov 19, 2026, 11:23 PM CT', title: '1871: the city\'s people out on a Sunday afternoon', kind: 'feature',
     items: [
       'About 3,600 Chicagoans now walk the plank walks of 1871 or talk at their doors on Sunday, 8 October, the afternoon before the fire.',

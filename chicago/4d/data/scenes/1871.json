@@ -87,6 +87,69 @@
       "pitch_deg": -22
     },
     {
+      "id": "sunday_lake_street",
+      "label": "Lake Street east of Clark, the old wholesale row",
+      "local_e": 585,
+      "local_n": -110,
+      "yaw_deg": 90
+    },
+    {
+      "id": "sunday_sherman_house",
+      "label": "Clark and Randolph, across from the Sherman House",
+      "local_e": 592,
+      "local_n": -276,
+      "yaw_deg": 315
+    },
+    {
+      "id": "sunday_court_house",
+      "label": "Clark Street, facing the Court House square",
+      "local_e": 592,
+      "local_n": -330,
+      "yaw_deg": 270
+    },
+    {
+      "id": "sunday_chamber",
+      "label": "Washington and LaSalle, facing the Chamber of Commerce",
+      "local_e": 450,
+      "local_n": -382,
+      "yaw_deg": 135
+    },
+    {
+      "id": "sunday_crosbys",
+      "label": "Washington Street, facing Crosby's Opera House",
+      "local_e": 777,
+      "local_n": -405,
+      "yaw_deg": 0
+    },
+    {
+      "id": "sunday_state_street",
+      "label": "State Street at Madison, looking north",
+      "local_e": 862,
+      "local_n": -540,
+      "yaw_deg": 0
+    },
+    {
+      "id": "sunday_water_tower",
+      "label": "Chicago Avenue at Pine Street, the Water Tower",
+      "local_e": 1135,
+      "local_n": 1070,
+      "yaw_deg": 355
+    },
+    {
+      "id": "sunday_van_buren_bridge",
+      "label": "The east end of the Van Buren Street bridge over the South Branch",
+      "local_e": 115,
+      "local_n": -1086,
+      "yaw_deg": 300
+    },
+    {
+      "id": "sunday_dekoven",
+      "label": "DeKoven Street, before the O'Leary cottage",
+      "local_e": -318,
+      "local_n": -2022,
+      "yaw_deg": 25
+    },
+    {
       "id": "fire_oleary_barn",
       "label": "DeKoven Street, before the O'Leary cottage, looking at the barn behind it",
       "short": "O'Leary barn",
