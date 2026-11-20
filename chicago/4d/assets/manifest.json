@@ -9838,9 +9838,9 @@
     "reid_house_2013_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3450836,
+      "bytes": 3510964,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b451c64fb81e76a1d6b282edb43a080f48d1001a89571a4ed31e40f1ff6db704",
+      "inputs_sha256": "f7457697f761bf4d56cce5c73aca62dba103a679782e962101e1e4e4e3757a6c",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "reid_house_2013_prairie"

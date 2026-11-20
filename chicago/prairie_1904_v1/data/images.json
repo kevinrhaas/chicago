@@ -33,7 +33,7 @@
  ],
  "counts": {
   "images": 962,
-  "local": 698,
+  "local": 702,
   "in_period": 615,
   "buildings_with_images": 62,
   "buildings": 63,
@@ -39640,15 +39640,40 @@
    "repository": "National Archives (NARA), RG 79 National Register files",
    "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
    "call_number": "NRHP 03000783",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf#page=34",
-   "image_url": null,
+   "catalog_url": "https://catalog.archives.gov/id/28891968",
+   "image_url": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=34",
    "rights": "unknown — link only",
-   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
-   "local": null,
+   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established. Owner direction 2026-11-20 (T-3626, answering its decision with option c: 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing'): held here as an attributed reference copy for reading the house's form. The photographs are the preparer's (Susan M. Baldwin, Baldwin Historic Properties), not a federal work, and NARA's catalog record for the file (naId 28891968) marks its use 'Restricted - Possibly' for copyright; so nothing is derived from them as an asset (no texture, no traced mesh) and the credit travels with every copy.",
+   "local": {
+    "display": "research/images/files/a20-reid-nrhp-2003-photo-front.jpg",
+    "display_bytes": 218569,
+    "thumb": "research/images/files/a20-reid-nrhp-2003-photo-front-thumb.jpg",
+    "thumb_bytes": 25969,
+    "original_px": [
+     3351,
+     4446
+    ],
+    "original_sha256": "debdeaad70872f14e4574ce3d77bd1bf3dd4a2e37ee695a229163172437afc29",
+    "original_bytes": 920796,
+    "fetched_from": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=34 (the page's embedded JPEG, unaltered, extracted with pdfimages -j)",
+    "fetched": "2026-11-20"
+   },
    "verified": "viewed",
-   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session; 2026-11-20 (T-3626): the whole file fetched from NARA's catalog media URL (naId 28891968, 53 pp, 38.7 MB) after its S3 copy refused this runner",
    "notes": "PDF p34. 2003 view of the 1894 front: portico with Ionic columns (parapet gone), oval grilled windows, tripartite and Palladian windows, cornice brackets; roof balustrade missing, end posts topped with salvaged balusters (per text). Iron fence, mature tree. Vacant lots either side by 2003. Compare with the 1895 plate (a20-chicagology-2013-reid-ia1895) for 1904 roofline.",
    "measurements": [],
+   "reference_copy": {
+    "basis": "owner, 2026-11-20: T-3626's decision answered (c), 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing' (kevinrhaas/chicago-tickets T-3626); a reference copy with attribution under the 2026-10-11 rule (T-2368)",
+    "credit": {
+     "catalog_url": "https://catalog.archives.gov/id/28891968",
+     "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+     "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+     "date": "February 2003 (photo labels \"2/03\")",
+     "repository": "National Archives (NARA), RG 79 National Register files",
+     "rights": "unknown — link only",
+     "title": "Reid House, Cook Co., IL — nomination photograph (front)"
+    }
+   },
    "stream": "2000-2100",
    "parcel_ids": [
     "indiana_2013",
@@ -39677,15 +39702,40 @@
    "repository": "National Archives (NARA), RG 79 National Register files",
    "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
    "call_number": "NRHP 03000783",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf#page=36",
-   "image_url": null,
+   "catalog_url": "https://catalog.archives.gov/id/28891968",
+   "image_url": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=36",
    "rights": "unknown — link only",
-   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
-   "local": null,
+   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established. Owner direction 2026-11-20 (T-3626, answering its decision with option c: 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing'): held here as an attributed reference copy for reading the house's form. The photographs are the preparer's (Susan M. Baldwin, Baldwin Historic Properties), not a federal work, and NARA's catalog record for the file (naId 28891968) marks its use 'Restricted - Possibly' for copyright; so nothing is derived from them as an asset (no texture, no traced mesh) and the credit travels with every copy.",
+   "local": {
+    "display": "research/images/files/a20-reid-nrhp-2003-photo-north-side.jpg",
+    "display_bytes": 162390,
+    "thumb": "research/images/files/a20-reid-nrhp-2003-photo-north-side-thumb.jpg",
+    "thumb_bytes": 18926,
+    "original_px": [
+     4585,
+     3272
+    ],
+    "original_sha256": "fbbc66841d9020abd62bb769f7ab9615acd47359a80af66069c1524293e0063e",
+    "original_bytes": 805098,
+    "fetched_from": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=36 (the page's embedded JPEG, unaltered, extracted with pdfimages -j)",
+    "fetched": "2026-11-20"
+   },
    "verified": "viewed",
-   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session; 2026-11-20 (T-3626): the whole file fetched from NARA's catalog media URL (naId 28891968, 53 pp, 38.7 MB) after its S3 copy refused this runner",
    "notes": "PDF p36. Full north party wall exposed: parged common brick over west half, red brick and window openings to the east, cornice of the front visible at right; vacant lot with chain-link fence, cars. Shows full building depth and storey heights in profile — useful for massing (3 storeys + raised basement, flat roof). Post-1955 condition (neighbour 2009 demolished 1955).",
    "measurements": [],
+   "reference_copy": {
+    "basis": "owner, 2026-11-20: T-3626's decision answered (c), 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing' (kevinrhaas/chicago-tickets T-3626); a reference copy with attribution under the 2026-10-11 rule (T-2368)",
+    "credit": {
+     "catalog_url": "https://catalog.archives.gov/id/28891968",
+     "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+     "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+     "date": "February 2003 (photo labels \"2/03\")",
+     "repository": "National Archives (NARA), RG 79 National Register files",
+     "rights": "unknown — link only",
+     "title": "Reid House — nomination photograph (north side elevation across vacant lot)"
+    }
+   },
    "stream": "2000-2100",
    "parcel_ids": [
     "indiana_2013",
@@ -39714,15 +39764,40 @@
    "repository": "National Archives (NARA), RG 79 National Register files",
    "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
    "call_number": "NRHP 03000783",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf#page=38",
-   "image_url": null,
+   "catalog_url": "https://catalog.archives.gov/id/28891968",
+   "image_url": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=38",
    "rights": "unknown — link only",
-   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
-   "local": null,
+   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established. Owner direction 2026-11-20 (T-3626, answering its decision with option c: 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing'): held here as an attributed reference copy for reading the house's form. The photographs are the preparer's (Susan M. Baldwin, Baldwin Historic Properties), not a federal work, and NARA's catalog record for the file (naId 28891968) marks its use 'Restricted - Possibly' for copyright; so nothing is derived from them as an asset (no texture, no traced mesh) and the credit travels with every copy.",
+   "local": {
+    "display": "research/images/files/a20-reid-nrhp-2003-photo-rear.jpg",
+    "display_bytes": 159180,
+    "thumb": "research/images/files/a20-reid-nrhp-2003-photo-rear-thumb.jpg",
+    "thumb_bytes": 19740,
+    "original_px": [
+     4585,
+     3272
+    ],
+    "original_sha256": "5e1baebabacd7a1302ac6673c0b8db63d348b8879336885a30b7e8170621da94",
+    "original_bytes": 791425,
+    "fetched_from": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=38 (the page's embedded JPEG, unaltered, extracted with pdfimages -j)",
+    "fetched": "2026-11-20"
+   },
    "verified": "viewed",
-   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session; 2026-11-20 (T-3626): the whole file fetched from NARA's catalog media URL (naId 28891968, 53 pp, 38.7 MB) after its S3 copy refused this runner",
    "notes": "PDF p38. Rear of house with open top-floor terrace (roof deck) under a later frame canopy, south side notch with oriel, and the 1910 coach house with upper living quarters. NB the coach house post-dates 1904 (built 1910 per nomination text), so the 1904 rear yard differed.",
    "measurements": [],
+   "reference_copy": {
+    "basis": "owner, 2026-11-20: T-3626's decision answered (c), 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing' (kevinrhaas/chicago-tickets T-3626); a reference copy with attribution under the 2026-10-11 rule (T-2368)",
+    "credit": {
+     "catalog_url": "https://catalog.archives.gov/id/28891968",
+     "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+     "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+     "date": "February 2003 (photo labels \"2/03\")",
+     "repository": "National Archives (NARA), RG 79 National Register files",
+     "rights": "unknown — link only",
+     "title": "Reid House — nomination photograph (rear, east elevation)"
+    }
+   },
    "stream": "2000-2100",
    "parcel_ids": [
     "indiana_2013",
@@ -39751,15 +39826,40 @@
    "repository": "National Archives (NARA), RG 79 National Register files",
    "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
    "call_number": "NRHP 03000783",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/03000783.pdf#page=48",
-   "image_url": null,
+   "catalog_url": "https://catalog.archives.gov/id/28891968",
+   "image_url": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=48",
    "rights": "unknown — link only",
-   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established",
-   "local": null,
+   "rights_basis": "Government-hosted nomination; photographs by the preparer (S. Baldwin, Baldwin Historic Properties) — reuse rights not established. Owner direction 2026-11-20 (T-3626, answering its decision with option c: 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing'): held here as an attributed reference copy for reading the house's form. The photographs are the preparer's (Susan M. Baldwin, Baldwin Historic Properties), not a federal work, and NARA's catalog record for the file (naId 28891968) marks its use 'Restricted - Possibly' for copyright; so nothing is derived from them as an asset (no texture, no traced mesh) and the credit travels with every copy.",
+   "local": {
+    "display": "research/images/files/a20-reid-nrhp-2003-photo-rear-garden.jpg",
+    "display_bytes": 246510,
+    "thumb": "research/images/files/a20-reid-nrhp-2003-photo-rear-garden-thumb.jpg",
+    "thumb_bytes": 27469,
+    "original_px": [
+     3467,
+     4466
+    ],
+    "original_sha256": "4c1cd70436279ccfa70fa1ae5a29b8bd8b5f1c7633c04931a4f73b351dc1f132",
+    "original_bytes": 1048866,
+    "fetched_from": "https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf#page=48 (the page's embedded JPEG, unaltered, extracted with pdfimages -j)",
+    "fetched": "2026-11-20"
+   },
    "verified": "viewed",
-   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session",
+   "found_via": "acquisition-manifest.json lead (reid-nrhp-2003.pdf), re-downloaded and read this session; 2026-11-20 (T-3626): the whole file fetched from NARA's catalog media URL (naId 28891968, 53 pp, 38.7 MB) after its S3 copy refused this runner",
    "notes": "PDF p48. Ivy-covered brick wall with doors and barred windows — the 1910 coach house or rear wing seen from the garden. Not 1904 fabric if coach house.",
    "measurements": [],
+   "reference_copy": {
+    "basis": "owner, 2026-11-20: T-3626's decision answered (c), 'Clear the 2003 nomination photographs for use, bring them into the image store, and read the flanks and rear before closing' (kevinrhaas/chicago-tickets T-3626); a reference copy with attribution under the 2026-10-11 rule (T-2368)",
+    "credit": {
+     "catalog_url": "https://catalog.archives.gov/id/28891968",
+     "collection": "National Register of Historic Places nomination: Reid House, ref. 03000783 (2003)",
+     "creator": "Susan M. Baldwin (Baldwin Historic Properties)",
+     "date": "February 2003 (photo labels \"2/03\")",
+     "repository": "National Archives (NARA), RG 79 National Register files",
+     "rights": "unknown — link only",
+     "title": "Reid House — nomination photograph (rear garden / coach house)"
+    }
+   },
    "stream": "2000-2100",
    "parcel_ids": [
     "indiana_2013",
