@@ -562,7 +562,7 @@
               ]
             },
             {
-              "height_m": 3.55,
+              "height_m": 2.93,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -577,13 +577,13 @@
               ]
             },
             {
-              "height_m": 2.4,
+              "height_m": 3.02,
               "windows": [
                 {
                   "opening": "k06.opening.casement_pair_transom_plate",
                   "clear_width_m": 1.7,
                   "clear_height_m": 1.75,
-                  "sill_m": 0.2,
+                  "sill_m": 0.82,
                   "at": [
                     0.5155
                   ],
@@ -594,7 +594,21 @@
               "cheeks": {
                 "front_run": 1,
                 "width_m": 0.75,
-                "proud_m": 0.03
+                "proud_m": 0.05,
+                "shoulder": {
+                  "height_m": 2.2,
+                  "cap_m": 0.2,
+                  "proud_m": 0.12,
+                  "ledge_m": 1.57
+                }
+              },
+              "corbel_table": {
+                "height_m": 0.43,
+                "course_m": 0.21,
+                "proud_m": 0.15,
+                "block_m": 0.1,
+                "pitch_m": 0.22,
+                "margin_m": 0.08
               }
             }
           ],
@@ -611,8 +625,7 @@
             "course_m": 0.45,
             "block_m": 1.0,
             "joint_m": 0.01,
-            "relief_m": 0.03,
-            "to_m": 9.05
+            "relief_m": 0.03
           },
           "cut_by_door": true
         },
@@ -820,7 +833,7 @@
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up an attic storey past the main cornice under its own steep hipped roof (T-3156: its paired lights x 200-325 px and y 390-250 px, its eave at y 210 px, 11.6 m; the main eave stopping square at its cheeks): the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half. T-3562: built so, re-read through the square-on camera (x 160-447 px there, s 0-4.0 m): its dentil band and quoins stop over the door's south half (the door's south jamb at s 4.13 m, the narrow light from s 4.01 m) and the oblique draws no cheek beside the door, so the pavilion is SHALLOW, 0.1 m proud (K08's least), 3.88 m wide from the north corner (flush_corner; 0.12 m short of the print's so the narrow light's lintel clears the junction), its window recesses run back through the wall (shallow), and the door is cut through its edge (cut_by_door, a K01 option T-3562 added: the face cut back from the door's north jamb past the cheek between sill and head). Its windows re-read: the principal storey's centred at s 1.40 m (x 228-295 px), the second storey's at 2.0 m (x 265-342 px) and the attic's paired lights at 2.0 m (x 240-362 px), widened to 1.7 m; the attic storey slated at its sides (K08's storey cheeks, 0.75 m each, as 1823's), leaving a 2.38 m stone front against the print's 2.37 m (x 217-387 px); the coursing carried up to the attic's foot (9.05 m). The print's own dentil band at the second storey's head and its stone shoulders beside the attic are not built (open in the match record); the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902). T-3562: the corner bay stands SET OUT 0.75 m past the main front's south wall (set_out_m, a K01 option this ticket added: a flush projection's cheek carried past its corner, its back closed on the front's plane over the stretch past it): the oblique print draws its south face at x 1745-1790 px, beyond the cornice's turn onto the flank, and the square-on its south edge at x 905 px against the upper wall's 834 px. The bay keeps its 9.43 m centre; the main wall moves in (the footprint)."
+      "note": "Read off the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px) against the 1911 sheet (s28fp-1815-b1): the pavilion across the front's north end, carried up an attic storey past the main cornice under its own steep hipped roof (T-3156: its paired lights x 200-325 px and y 390-250 px, its eave at y 210 px, 11.6 m; the main eave stopping square at its cheeks): the photograph's quoined pavilion runs x 100-390 px (4.0 m) with the door in its south half. T-3562: built so, re-read through the square-on camera (x 160-447 px there, s 0-4.0 m): its dentil band and quoins stop over the door's south half (the door's south jamb at s 4.13 m, the narrow light from s 4.01 m) and the oblique draws no cheek beside the door, so the pavilion is SHALLOW, 0.1 m proud (K08's least), 3.88 m wide from the north corner (flush_corner; 0.12 m short of the print's so the narrow light's lintel clears the junction), its window recesses run back through the wall (shallow), and the door is cut through its edge (cut_by_door, a K01 option T-3562 added: the face cut back from the door's north jamb past the cheek between sill and head). Its windows re-read: the principal storey's centred at s 1.40 m (x 228-295 px), the second storey's at 2.0 m (x 265-342 px) and the attic's paired lights at 2.0 m (x 240-362 px), widened to 1.7 m; the attic storey slated at its sides (K08's storey cheeks, 0.75 m each, as 1823's), leaving a 2.38 m stone front against the print's 2.37 m (x 217-387 px); the coursing carried up to the attic's foot (9.05 m). T-3562: the pavilion's own dentil band and the attic's stone shoulders read off the square-on print (71.5 px/m, grade at y 1040 px): the band a smooth course at y 437-452 px over a row of dentils to y 468 px (8.0-8.43 m, about 0.2 m over the second storey's window heads and 0.6 m under the main cornice's line), x 155-447 px across the pavilion, five or six dentils a segment at about 16-19 px; built as K08's corbel table carrying the attic storey (a 0.21 m course 0.15 m proud on 0.1 m blocks at 0.22 m, down to 0.43 m under the line), the attic's foot brought down to 8.43 m with it (its lights' sill raised to keep them at 9.25 m) and the coursing carried up the whole pavilion, as the print courses its attic; beside the attic each cheek is the pavilion's stone up to a capped block, its cap at y 280-295 px (to 10.63 m) and a second band at y 325-337 px (to 10.0 m), both overhanging the pavilion's edges, the slate rising from the cap (K08's cheek shoulder, a T-3562 option: 2.2 m of stone, 0.2 m caps 0.12 m proud, the second at 1.57 m), the slate cheeks then 0.05 m proud of the coursing. The cheeks' slate sloping out under the crown's eave, and the crown's cornice spanning the attic front alone, are not built (open in the match record); the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted, a stone balcony with pierced panels on it; on the north flank the sheet's stair projection 0.86 m behind the front, 1.55 m out on the sheet and built 1.2 m out, K08's deepest pavilion (its face in shadow at x 45-100 px), and on the south flank the sheet's canted bay 9-13 m behind the front (lot u 18.1-25.6), its storeys reconstructed. The sheet draws no corner bay and a one-storey projection north of centre on the front instead; which is 1904's is open in the match record (the Heun remodel of 1902). T-3562: the corner bay stands SET OUT 0.75 m past the main front's south wall (set_out_m, a K01 option this ticket added: a flush projection's cheek carried past its corner, its back closed on the front's plane over the stretch past it): the oblique print draws its south face at x 1745-1790 px, beyond the cornice's turn onto the flank, and the square-on its south edge at x 905 px against the upper wall's 834 px. The bay keeps its 9.43 m centre; the main wall moves in (the footprint)."
     },
     "mansard": {
       "value": {
