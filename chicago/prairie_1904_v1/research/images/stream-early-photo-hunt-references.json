@@ -1,0 +1,134 @@
+[
+ {
+  "id": "early-green-tree-andreas-1884",
+  "kind": "engraving",
+  "title": "“The Green Tree Hotel.” — wood engraving, Andreas, History of Chicago, vol. 1",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1884 publication",
+  "date_earliest": 1884,
+  "date_latest": 1884,
+  "period": "in-period",
+  "creator": "Unsigned on the plate",
+  "repository": "A. T. Andreas, History of Chicago, vol. 1 (Chicago: A. T. Andreas, 1884), p. 634; scanned volume at Internet Archive",
+  "collection": "History of Chicago, vol. 1 (1884), p. 634",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/historyofchicago01andr/page/n1301/mode/1up",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/7c5f2109cc1db6a86e23d76b4127385b587adcee/chicago/reference/images/chicago/chicago_green_tree_inn_1838.jpg",
+  "rights": "public domain",
+  "rights_basis": "Underlying engraving was published in the United States in A. T. Andreas, History of Chicago, volume 1, 1884, p. 634, and is public domain in the United States by publication age. This is the unchanged held reproduction, not a newly recovered original or a claim of copyright ownership in a modern reproduction. The original plate supplies no 1838 date or legible artist signature.",
+  "local": {
+   "display": "research/images/files/early-green-tree-andreas-1884.jpg",
+   "display_bytes": 970135,
+   "thumb": "research/images/files/early-green-tree-andreas-1884-thumb.jpg",
+   "thumb_bytes": 23053,
+   "original_px": [
+    1600,
+    1000
+   ],
+   "original_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+   "original_bytes": 970135,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/7c5f2109cc1db6a86e23d76b4127385b587adcee/chicago/reference/images/chicago/chicago_green_tree_inn_1838.jpg",
+   "fetched": "2026-11-03"
+  },
+  "verified": "viewed",
+  "found_via": "Existing data/sources/andreas_1884_green_tree_hotel_plate and the exact copy its reference view's camera was solved on (original SHA256 bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a). T-3677: the copy this camera was solved on, held so the Where and when? hunt can show it.",
+  "reference_views": [
+   "green_tree_tavern/andreas_1838"
+  ],
+  "notes": "Made in 1884, decades after the scene. The held copy's printed caption reads “THE GREEN TREE INN—1838”: a date the picture claims to show, not the date it was made, and later than the July 1835 scene.",
+  "measurements": []
+ },
+ {
+  "id": "early-green-tree-kurz-allison-1893",
+  "kind": "lithograph",
+  "title": "“No. 11. The Green Tree Hotel.” — panel of Kurz & Allison’s chromolithograph Chicago in Early Days, 1779–1857",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1893 publication",
+  "date_earliest": 1893,
+  "date_latest": 1893,
+  "period": "in-period",
+  "creator": "Kurz & Allison",
+  "repository": "Library of Congress Prints and Photographs Division; panel 11 reproduction supplied by the owner (data/sources/assets/prefire_views_kevin_2026_08/p6_0.png)",
+  "collection": "Chicago in Early Days, 1779–1857 (1893), panel 11",
+  "call_number": null,
+  "catalog_url": "https://www.loc.gov/pictures/item/2003656685/",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/24e4c333ab94864208141bb85234e33dadde841a/chicago/4d/data/sources/assets/prefire_views_kevin_2026_08/p6_0.png",
+  "rights": "public domain",
+  "rights_basis": "The underlying US chromolithograph carries Copyrighted1893 by Kurz & Allison,76 &78 Wabash Avenue,Chicago,Ills. on the held whole sheet (IMG_5382.png); its1893 United States copyright has expired. The held panel bears numeral11 and the sheet key names The Green Tree Hotel,cor.West Lake and Canal St.,built1833. No modern reproduction ownership, original building paint colour or independently dated1835 state is asserted.",
+  "local": {
+   "display": "research/images/files/early-green-tree-kurz-allison-1893.jpg",
+   "display_bytes": 65989,
+   "thumb": "research/images/files/early-green-tree-kurz-allison-1893-thumb.jpg",
+   "thumb_bytes": 28020,
+   "original_px": [
+    569,
+    354
+   ],
+   "original_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+   "original_bytes": 501320,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/24e4c333ab94864208141bb85234e33dadde841a/chicago/4d/data/sources/assets/prefire_views_kevin_2026_08/p6_0.png",
+   "fetched": "2026-11-03"
+  },
+  "verified": "viewed",
+  "found_via": "Existing data/sources/kurz_allison_1893 and the exact copy its reference view's camera was solved on (original SHA256 fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955). T-3677: the copy this camera was solved on, held so the Where and when? hunt can show it.",
+  "reference_views": [
+   "green_tree_tavern/kurz_1893_panel11"
+  ],
+  "notes": "A retrospective print of 1893; one vignette of fifteen on the sheet.",
+  "measurements": []
+ },
+ {
+  "id": "early-green-tree-trowbridge-1902",
+  "kind": "illustration",
+  "title": "“The Green Tree Tavern in 1835.” — drawing by W. E. S. Trowbridge, plate in Gale, Reminiscences of Early Chicago",
+  "building_ids": [],
+  "addresses": [],
+  "streetscape": false,
+  "view": "oblique front",
+  "facing": null,
+  "camera_position": null,
+  "date": "1902 publication; captioned 1835",
+  "date_earliest": 1902,
+  "date_latest": 1902,
+  "period": "in-period",
+  "creator": "W. E. S. Trowbridge",
+  "repository": "Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Chicago: Fleming H. Revell, 1902), plate facing p. 35; Internet Archive",
+  "collection": "Reminiscences of Early Chicago and Vicinity (1902), plate facing p. 35",
+  "call_number": null,
+  "catalog_url": "https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up",
+  "image_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/7c5f2109cc1db6a86e23d76b4127385b587adcee/chicago/reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
+  "rights": "public domain",
+  "rights_basis": "The exact illustration, title-page illustrator credit and 1902 United States copyright/publication pages were verified together in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity. The underlying 1902 artwork is public domain in the United States by publication age. This unchanged held reproduction makes no claim about modern stock-reproduction ownership.",
+  "local": {
+   "display": "research/images/files/early-green-tree-trowbridge-1902.jpg",
+   "display_bytes": 573274,
+   "thumb": "research/images/files/early-green-tree-trowbridge-1902-thumb.jpg",
+   "thumb_bytes": 18147,
+   "original_px": [
+    1630,
+    1198
+   ],
+   "original_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+   "original_bytes": 573274,
+   "fetched_from": "https://raw.githubusercontent.com/kevinrhaas/chicago/7c5f2109cc1db6a86e23d76b4127385b587adcee/chicago/reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
+   "fetched": "2026-11-03"
+  },
+  "verified": "viewed",
+  "found_via": "Existing data/sources/trowbridge_green_tree_1902 and the exact copy its reference view's camera was solved on (original SHA256 4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225). T-3677: the copy this camera was solved on, held so the Where and when? hunt can show it.",
+  "reference_views": [
+   "green_tree_tavern/trowbridge_1902"
+  ],
+  "notes": "A drawing made in 1902 and captioned 1835; it is a retrospective picture, not a witness of the scene date.",
+  "measurements": []
+ }
+]

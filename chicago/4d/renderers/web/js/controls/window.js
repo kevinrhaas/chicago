@@ -21,6 +21,8 @@
  *    and the UTM grid's convergence (`gridConvergenceDeg`, the scene's north is grid
  *    north) are taken out. A compass still drifts a few degrees beside steel and cars,
  *    so a sideways drag on the view turns it to line up with the street (`offsetDeg`).
+ *    Without the sensors — motion access refused on iOS, or a device that has none — the
+ *    window still opens and the same drag is the turn itself (T-3674).
  *  - The walker keeps the last word on where you stand (a fix inside a building is
  *    pushed out to its wall, as any step is), and its yaw and pitch are only steered,
  *    through the intent, like any other backend. Roll is dropped: the horizon stays
@@ -141,6 +143,8 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
   let on = false;
   let watchId = null;
   let look = null;               // { yaw, pitch } wanted, from the sensors
+  let dragYaw = null;            // T-3674: the yaw a drag turned to, while no sensor reads
+  let motion = true;             // whether motion access was given (iOS asks)
   let alphaOffset = null;        // compass heading's alpha less the event's own alpha, smoothed
   let offsetDeg = 0;             // the visitor's line-up
   let placed = null;             // the last fix the visitor was set down at
@@ -148,6 +152,8 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
   let outsideSaid = false;
   let drag = null;
   const pinned = windowAt(search);
+  // T-3674: who else hears every fix (the on-site tour), and may ask to hold the visitor.
+  const fixWatchers = new Set();
 
   let sawAbsolute = false;
   function onOrientation(event) {
@@ -173,6 +179,11 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
   function place(fix) {
     lastFix = fix;
     const at = toLocal(fix.lat, fix.lon, datum);
+    // A watcher that answers true holds the visitor where they are: the on-site tour does
+    // for a fix off its own ground, and says so on its card (T-3674).
+    let held = false;
+    for (const watch of [...fixWatchers]) if (watch(fix, at) === true) held = true;
+    if (held) return false;
     if (!inBounds(at.e, at.n)) {
       if (!outsideSaid) {
         say(`Window: you are ${Math.round(Math.hypot(at.e, at.n) / 100) / 10} km from the river forks, outside this year's town`);
@@ -185,14 +196,19 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
     const first = !placed;
     placed = at;
     walker.teleport({ local_e: at.e, local_n: at.n, yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG });
-    if (first) say(`Window: placed by ${pinned ? 'the address' : `GPS, ±${Math.round(fix.accuracy || 0)} m`} · turn to look · drag sideways to line up`);
+    if (first) say(`Window: placed by ${pinned ? 'the address' : `GPS, ±${Math.round(fix.accuracy || 0)} m`} · ${motion ? 'turn to look · drag sideways to line up' : 'drag sideways to turn'}`);
     return true;
   }
 
   const onDown = (e) => { if (on) drag = { id: e.pointerId, x: e.clientX }; };
   const onMove = (e) => {
     if (!on || !drag || e.pointerId !== drag.id) return;
-    offsetDeg += (e.clientX - drag.x) * ALIGN_DEG_PER_PX;
+    const deg = (e.clientX - drag.x) * ALIGN_DEG_PER_PX;
+    // With the sensors reading, a drag lines their view up; with none (motion access
+    // refused, or a device without them), the drag is the turn itself, the same way round
+    // (T-3674: the on-site tour has to work without motion access).
+    if (look) offsetDeg += deg;
+    else dragYaw = (dragYaw ?? walker.state.yaw) - deg * DEG;
     drag.x = e.clientX;
   };
   const onUp = (e) => { if (drag && e.pointerId === drag.id) drag = null; };
@@ -202,12 +218,12 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
     enable() {},
     disable() { intent.clear(); },
     update() {
-      if (!on || !look) return;
-      let d = (look.yaw - walker.state.yaw) % (2 * Math.PI);
+      if (!on || (!look && dragYaw === null)) return;
+      let d = ((look ? look.yaw : dragYaw) - walker.state.yaw) % (2 * Math.PI);
       if (d > Math.PI) d -= 2 * Math.PI;
       if (d < -Math.PI) d += 2 * Math.PI;
       intent.yawDelta = d;
-      intent.pitchDelta = look.pitch - walker.state.pitch;
+      if (look) intent.pitchDelta = look.pitch - walker.state.pitch;
     },
   };
 
@@ -222,6 +238,7 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
     if (watchId !== null) nav?.geolocation?.clearWatch?.(watchId);
     watchId = null;
     look = null;
+    dragYaw = null;
     drag = null;
     if (backends.active === backend) backends.activate(fallback());
     onChange(false);
@@ -232,6 +249,21 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
     get on() { return on; },
     get offsetDeg() { return offsetDeg; },
     get placed() { return placed; },
+    /** Whether the motion sensors may turn the view (false: motion access refused; drag turns it). */
+    get motion() { return motion; },
+    /** The last fix given, `{ lat, lon, accuracy }` (accuracy 0 for ?window-at=), or null. */
+    get lastFix() { return lastFix; },
+    /** Whether ?window-at= stands in for the GPS. */
+    get pinned() { return !!pinned; },
+
+    /**
+     * T-3674: hear every fix, `fn(fix, at)` with `at` in the scene's metres; answering true
+     * holds the visitor where they are for that fix. Returns the way to stop hearing.
+     */
+    watchFix(fn) {
+      fixWatchers.add(fn);
+      return () => fixWatchers.delete(fn);
+    },
 
     /** Whether this device can be a window: motion sensors, and a location or ?window-at=. */
     supported() {
@@ -248,20 +280,27 @@ export function createWindowMode({ THREE, walker, intent, backends, fallback, da
       if (typeof ask === 'function') {
         let answer = 'denied';
         try { answer = await ask.call(win.DeviceOrientationEvent); } catch { answer = 'denied'; }
-        if (answer !== 'granted') { say('Window needs motion access: allow it when the browser asks'); return false; }
-      }
+        // T-3674: refused, the window still opens: the location sets the visitor down and a
+        // sideways drag turns the view, so a walk on the street needs no motion access.
+        motion = answer === 'granted';
+      } else motion = true;
       on = true;
+      dragYaw = null;
       alphaOffset = null;
       sawAbsolute = false;
       placed = null;
+      lastFix = null;
       outsideSaid = false;
-      win.addEventListener('deviceorientationabsolute', onOrientation);
-      win.addEventListener('deviceorientation', onOrientation);
+      if (motion) {
+        win.addEventListener('deviceorientationabsolute', onOrientation);
+        win.addEventListener('deviceorientation', onOrientation);
+      }
       surface?.addEventListener('pointerdown', onDown);
       surface?.addEventListener('pointermove', onMove);
       win.addEventListener('pointerup', onUp);
       backends.activate(backend);
       onChange(true);
+      if (!motion) say('Window: no motion access · drag sideways to turn the view');
       if (pinned) place({ ...pinned, accuracy: 0 });
       else {
         say('Window: finding where you are…');

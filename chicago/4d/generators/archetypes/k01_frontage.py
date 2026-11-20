@@ -122,6 +122,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.window_hood      T-3365: a named street light's moulded hood: a drip band with
                             label stops, consoles, a splayed key block in place of its
                             lintel, a carved pendant off its crown (street_front_windows.hoods)
+  k01.wall.front_frame      T-3626: a named-window front's stone frame: pilasters, sunk
+                            panels under raised borders, corniced hoods and oval lights in
+                            moulded rings (street_front_windows.frame; 2013's, off its plate)
   k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
                             head (the area lights, the third floor), their joints
                             radiating and each stone's bed turned along its joint
@@ -1396,6 +1399,60 @@ class Assembly:
                 wmax = max(t[2] for t in pd["tiers"])
                 pts += [(s - wmax / 2, pd["from_m"], 0.0), (s + wmax / 2, pd["top_m"], d)]
             self.seat(front, pts, "k01.window_hood")
+
+    FRAME_FIELD_M = 0.005   # T-3626: an oval light's dark field, just proud of the wall (no hole is cut)
+
+    def front_frame(self, front):
+        """T-3626: k01.wall.front_frame — the stone frame a named-window front draws round its
+        lights and on its plain wall (street_front_windows.frame; 2013 Prairie's, off the Inland
+        Architect's 1895 plate): flat `pilasters` up the wall, `panels` each a raised border
+        round a field sunk to the wall's face, `hoods` each a frieze under a corona that runs
+        past its ends, and `ovals`, an oval light in a moulded ring round its dark field. Every
+        part dressed limestone proud of the front."""
+        p, fr = self.p, self.p.street_dress["frame"]
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "street_front_windows")
+        O, R, N = front
+        mat = "limestone_trim"
+        params = {k: len(fr.get(k, ())) for k in ("pilasters", "panels", "hoods", "ovals")}
+        seed = self.instance("k01.wall.front_frame", "wall", params, {"origin": O})
+        pts = []
+        for q in fr.get("pilasters", ()):
+            (s0, s1), y0, y1, d = q["s_m"], q["from_m"], q["to_m"], q["proud_m"]
+            self.proud_box(mat, front, s0, s1, y0, y1, d, seed, conf)
+            pts += [(s0, y0, 0.0), (s1, y1, d)]
+        for q in fr.get("panels", ()):
+            (s0, s1), y0, y1, b, d = q["s_m"], q["bed_m"], q["top_m"], q["border_m"], q["proud_m"]
+            self.proud_rects(mat, front, [(s0, s1, y0, y0 + b), (s0, s1, y1 - b, y1), (s0, s0 + b, y0, y1),
+                                          (s1 - b, s1, y0, y1)], d, seed, conf)
+            pts += [(s0, y0, 0.0), (s1, y1, d)]
+        for q in fr.get("hoods", ()):
+            (s0, s1), y0, y1, d, c = q["s_m"], q["bed_m"], q["top_m"], q["proud_m"], q["corona"]
+            cy, ov = y1 - c["height_m"], c["overhang_m"]
+            # the frieze's top runs 5 mm up into the corona, so no face of it lies on the corona's soffit
+            self.proud_box(mat, front, s0, s1, y0, cy + 0.005, d, seed, conf)
+            self.proud_box(mat, front, s0 - ov, s1 + ov, cy, y1, c["proud_m"], seed, conf)
+            pts += [(s0 - ov, y0, 0.0), (s1 + ov, y1, c["proud_m"])]
+        n = 24
+        unit = [(math.cos(2 * math.pi * k / n), math.sin(2 * math.pi * k / n)) for k in range(n)]
+        for q in fr.get("ovals", ()):
+            C = _add(_add(O, _mul(R, q["s_m"])), _mul(Y, q["y_m"]))
+            a, b_, rg, d = q["width_m"] / 2, q["height_m"] / 2, q["ring_m"], q["proud_m"]
+            sunk = self.FRAME_FIELD_M
+            E = lambda aa, bb, k, dd: _add(_add(C, _mul(N, dd)), _add(_mul(R, aa * unit[k % n][0]),
+                                                                    _mul(Y, bb * unit[k % n][1])))
+            pr, dark = self.prim(mat), self.prim("backing")
+            for k in range(n):
+                o0, o1 = E(a, b_, k, d), E(a, b_, k + 1, d)
+                i0, i1 = E(a - rg, b_ - rg, k, d), E(a - rg, b_ - rg, k + 1, d)
+                pr.face([o0, o1, i1, i0], N, self.basis(mat, o0, R, Y, seed), conf)
+                f0, f1 = E(a, b_, k, 0.0), E(a, b_, k + 1, 0.0)
+                pr.quad(f0, f1, o1, o0, _sub(_mul(_add(f0, o1), 0.5), C), self.basis(mat, f0, N, Y, seed), conf)
+                s0_, s1_ = E(a - rg, b_ - rg, k, sunk), E(a - rg, b_ - rg, k + 1, sunk)
+                pr.quad(s0_, s1_, i1, i0, _sub(C, _mul(_add(s0_, i1), 0.5)), self.basis(mat, s0_, N, Y, seed), conf)
+            disc = [E(a - rg, b_ - rg, k, sunk) for k in range(n)]
+            dark.face(disc, N, self.basis("backing", disc[0], R, Y, seed), conf)
+            pts += [(q["s_m"] - a, q["y_m"] - b_, 0.0), (q["s_m"] + a, q["y_m"] + b_, d)]
+        self.seat(front, pts, "k01.front_frame")
 
     def wing_deck(self, w):
         """The wing's flat deck: a slab from its wall top to the fascia's top, run out over
@@ -3255,6 +3312,8 @@ class Assembly:
         built = K8.Bay(v, K8.load(), "full").build(board=False)
         if b.get("cut_by_entrance"):
             self.cut_by_entrance(b, built)
+        if b.get("cut_by_door"):
+            self.cut_by_door(b, built)
         conf = p.conf("bays")
         lo_, hi_ = k01_frontage_params._bay_span(v["plan"])
         seed = self.instance(f"k08.{v['kind']}", "bay",
@@ -3424,7 +3483,9 @@ class Assembly:
                 closes = [c for c in (((x0, x1), (y0, y_c)), (tuple(sg["junctions_x"]), (y_c, y1)))
                           if c[1][1] - c[1][0] > 1e-6]
             # T-3156: a pavilion under a raised crown has no soffit of its own: the crown's is over it
-            if not shallow and "soffit" in built.prims and not (sg or {}).get("whole"):
+            # T-3562: and a shallow one's under a flat hipped top (1815's), which no parapet closes
+            if (not shallow or (v.get("roof") or {}).get("kind") != "gable") \
+                    and "soffit" in built.prims and not (sg or {}).get("whole"):
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
@@ -3535,6 +3596,39 @@ class Assembly:
                     basis((xa, ya, 0.0), ((xb - xa) / L, (yb - ya) / L, 0.0), (0.0, 0.0, 1.0)), None)
         pr.face([(jamb, floor, 0.0), (edge, floor, 0.0), (edge, floor, proud), (jamb, floor, proud)], Y,
                 basis((jamb, floor, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)), None)
+
+    def cut_by_door(self, b, built):
+        """T-3562: a shallow pavilion cut back round the flat-headed door at its edge (1815's:
+        Chicagology's square-on print draws the pavilion's dentil band and quoins ending over
+        the door's south half, and the oblique no cheek beside the door, so the door stands in
+        one plane). In the bay's frame, everything the kit built from the door's sill to its
+        head, between the jamb inside the pavilion and past its cheek, is cut away through the
+        pavilion's whole depth, and the cut is closed in the bay's stone: the jamb carried
+        forward from the door's reveal, a flat soffit at the head, and the floor at the sill."""
+        door = next((o for o in self.p.openings if o.wall == b["wall"] and o.component == "k01.opening.door_leaf"
+                     and o.s_m - o.width_m / 2 < b["span_m"][1] and o.s_m + o.width_m / 2 > b["span_m"][0]), None)
+        if door is None:
+            raise ValueError(f"{b['id']} is cut_by_door and no door on its wall reaches it")
+        j0, j1 = door.s_m - door.width_m / 2, door.s_m + door.width_m / 2
+        left = b["span_m"][0] < j0 < b["span_m"][1]       # the door's low jamb inside, the cheek at the high end
+        proud = self._bay_proud(b)
+        k = 1.0 if left else -1.0                          # x measured into the mouth from the jamb
+        jamb = (j0 if left else j1) - b["s_m"]
+        edge = (b["span_m"][1] if left else b["span_m"][0]) - b["s_m"]
+        floor, head = door.sill_m, door.head_m
+        hs = [((-k, 0.0, 0.0), -k * jamb), ((k, 0.0, 0.0), k * edge + 0.3),
+              ((0.0, -1.0, 0.0), -floor), ((0.0, 1.0, 0.0), head),
+              ((0.0, 0.0, -1.0), 0.01), ((0.0, 0.0, 1.0), proud + 0.3)]
+        for role, src in built.prims.items():
+            built.prims[role] = _cut_convex(src, hs)
+        pr = built.prims.setdefault("reveal", Prim("reveal"))
+        basis = lambda o, au, av: (o, au, av, 1.0, 1.0, 0.0, 0.0)
+        pr.face([(jamb, floor, 0.0), (jamb, head, 0.0), (jamb, head, proud), (jamb, floor, proud)],
+                (k, 0.0, 0.0), basis((jamb, floor, 0.0), (0.0, 0.0, 1.0), (0.0, 1.0, 0.0)), None)
+        pr.face([(jamb, head, 0.0), (edge, head, 0.0), (edge, head, proud), (jamb, head, proud)],
+                (0.0, -1.0, 0.0), basis((jamb, head, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)), None)
+        pr.face([(jamb, floor, 0.0), (edge, floor, 0.0), (edge, floor, proud), (jamb, floor, proud)],
+                (0.0, 1.0, 0.0), basis((jamb, floor, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)), None)
 
     def bay_cresting(self, v, mn, W, R, N, conf):
         """T-2964: K10's iron cresting (`k10.cresting.iron_ridge`, as 1801's deck carries it,
@@ -4144,7 +4238,11 @@ class Assembly:
         before = lambda b: bool(h.get("columns")) and b.get("block") and self._bay_proud(b) is not None \
             and out - (self._bay_proud(b) - eb_out) >= h["columns"]["plinth_m"][0] + 0.3
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
+            # T-3562: a shallow pavilion the door is cut through (cut_by_door) stands less far out
+            # than the hood, which runs on across its face as Chicagology's square-on print draws
             if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
+                    not (b.get("cut_by_door") and self._bay_proud(b) is not None
+                         and self._bay_proud(b) + 0.1 <= out) and \
                     not (b.get("front_step") and cut_in_block) and not before(b) and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
@@ -7130,6 +7228,8 @@ def build(params, structure_id: str):
             a.corner_stone(frame, frames["k01.wall.side.south"][0][0], D)
         if p.street_dress.get("hoods"):   # T-3365
             a.window_hoods(frame)
+        if p.street_dress.get("frame"):   # T-3626
+            a.front_frame(frame)
     for cid, (mat, O, R, length, t, bands) in walls.items():
         if cid in frames:
             continue
@@ -7244,6 +7344,8 @@ def build(params, structure_id: str):
                 continue
             if bay.get("entrance") and o.component == "k01.opening.door_leaf":
                 continue   # T-1881: the door it carries is on its face
+            if bay.get("cut_by_door") and o.component == "k01.opening.door_leaf":
+                continue   # T-3562: the door cut through its edge, its face cut back round it
             if o.wall == bay["wall"] and bay["span_m"][0] < o.s_m < bay["span_m"][1] \
                     and o.sill_m - 0.15 < top:
                 raise ValueError(f"{bay['id']}'s roof meets {o.wall} at {top:.3f} m, under the "

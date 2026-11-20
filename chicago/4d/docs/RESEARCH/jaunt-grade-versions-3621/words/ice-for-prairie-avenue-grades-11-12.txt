@@ -1,0 +1,91 @@
+== premise
+Play the iceman's young helper on a Monday morning in October 1904: determine the appropriate entrance at 1800 Prairie Avenue, where the family uses one door and the ice is consigned to another, then decide whether to wait for the kitchen or hurry onward.
+
+== opening
+JAUNT: ICE FOR PRAIRIE AVENUE. A Monday morning in October 1904, and you are thirteen, riding on the back of an ice wagon along Prairie Avenue. The iceman manages the heavy blocks; the subsidiary errands are your responsibility. This morning that responsibility involves identifying the proper entrance at some of the most distinguished residences in Chicago, where every family possesses an entrance of its own and deliveries are expected to use another.
+
+The first house on the round is the granite one at the corner of Eighteenth Street. Identify the correct door before the ice begins to deteriorate. The houses and their inhabitants are authentic; the iceman's helper is your invention, and you are the helper.
+
+== stop the-corner
+At this corner of Prairie Avenue and Eighteenth Street, John Glessner built his house diagonally opposite Pullman's mansion and across the street from W. W. Kimball's smaller French chateau. Its outside walls are Wellesley granite, and every wall is lined with hollow brick, with the plaster applied directly and no laths, so there is no place for a mouse to live. Passers-by remark on the narrow windows along Eighteenth Street, unaware that on the courtyard side the architect provided generous ones. From the pavement it resembles an impregnable fortress without any discernible back entrance.
+
+== narrative the-corner
+Which entrance is intended for deliveries?
+
+== label the-corner front
+Approach the front entrance
+
+== consequence the-corner front
+It is unquestionably the most impressive entrance on the corner.
+
+== label the-corner alley
+Circumnavigate by the alley
+
+== consequence the-corner alley
+A residence this substantial must possess a secondary entrance somewhere.
+
+== stop front-door
+The entrance on Prairie Avenue belongs to the family. Henry Hobson Richardson designed this house, which Glessner called his last work, and the Glessners have slept here since the night of 1 December 1887. It is Monday, and every Monday from October to May Mrs. Glessner's Reading Class meets for two hours in the library: during the first hour the women sew while a professional reader performs, and during the second there is lighter reading or a lecture. Their carriages will arrive at this door shortly, and a dripping block of ice is hardly what distinguished visitors expect to encounter. Beside the door an underpass leads beneath the house to the courtyard. Retreat, and circumnavigate the house.
+
+== narrative front-door
+The family's entrance, emphatically not yours.
+
+== stop the-gates
+Round the back, off the alley, stand the courtyard gates. Through them, on 1 December 1887, the Glessners moved all their belongings into the house 'before our neighbors suspected even that we were about to move', and that night they lit the new hearth with fire carried from their previous house at Washington and Morgan Streets. Above the court the dovecotes hold nearly sixty doves, whose eggs supply the family's table. Even here, however, the ice stops short: the service entrance is round on Eighteenth Street.
+
+== narrative the-gates
+The secondary entrance to the household, though not the designated one for ice.
+
+== stop the-arch
+Beneath the great arch on Eighteenth Street is the service entrance, with an address of its own, 35 Eighteenth Street. From it a small corridor leads to the kitchen, and the kitchen window is set within the arch itself. The ice never enters the house. Instead it passes through a small half-door into the cold closet. Inside, an annunciator shows the kitchen which room has rung, and the staff eat their own dinner at about three o'clock, so the kitchen can then turn to the family's. This household employs one cook, and since 1892 that has been Mattie Williamson, who took over after Mrs. Glessner dismissed seven cooks in seven weeks.
+
+== narrative the-arch
+Await the kitchen's instructions, or hurry onward?
+
+== label the-arch wait
+Await the kitchen's order
+
+== consequence the-arch wait
+You will learn what quantity of ice to deliver next time; meanwhile the wagon remains at the stable doors.
+
+== label the-arch run
+Hurry onward
+
+== consequence the-arch run
+You intend to identify the Kimballs' service entrance before the wagon arrives.
+
+== stop the-stable
+The wagon waits beside the stable's carriage doorway on Eighteenth Street, where the iceman can water his horse. The stable contains six stalls, and the carriage house has room for as many carriages, all of it built in white glazed brick. The furnace room lies underneath, so the dust, dirt and noise of coal and ashes never reach the house. Who drives for the Glessners now is not recorded: their coachman of twenty-four years departed in 1902. Within two years the horses will disappear, and motor cars will replace them.
+
+== narrative the-stable
+Where the wagon patiently awaits your return.
+
+== stop kimball
+Across Prairie Avenue at 1801 stands W. W. Kimball's residence, built in 1890 to Solon S. Beman's design in the French Chateauesque style, with a very steep slate roof over the main block and a round tower on the Eighteenth Street side beneath a slate cone. Kimball established his piano business in Chicago in 1857, 'beginning with only four pianos'; by 1881 his own factory was 'churning out around 100 pianos and organs every week'. A residence this elaborate undoubtedly possesses a service entrance as well, and identifying it is your particular responsibility.
+
+== narrative kimball
+The subsequent residence on the morning's itinerary.
+
+== leg 0
+The most impressive entrance on the corner, therefore.
+
+== leg 1
+Every substantial residence possesses a secondary entrance, provided you can discover it.
+
+== leg 2
+Around the corner, before the ice deteriorates any further.
+
+== leg 5
+Across the avenue, running energetically.
+
+== ending a-regular
+The back way first, the kitchen's order recorded, and the horse watered at the stable doors: the iceman announces that you are satisfactory. Next Monday you will proceed directly round by the alley without being reminded, and eventually the kitchen staff will recognize your face at the half-door.
+
+== ending ahead-of-the-wagon
+You discovered the Glessners' back entrance by yourself, and now you are across Prairie Avenue ahead of the wagon, searching for the Kimballs'. The iceman will never acknowledge it, but he is genuinely gratified. Every house on this avenue keeps one door for the family and another way in for everything else, and you are learning them one alley at a time.
+
+== ending round-the-long-way
+You discovered through experience that the imposing entrance on Prairie Avenue is not intended for deliveries, but you discovered it before the Reading Class assembled. The kitchen's order is in your pocket and the horse has been watered. Next Monday you will go round by Eighteenth Street first.
+
+== ending two-lessons
+Two lessons absorbed before ten o'clock: the principal entrance belongs exclusively to the family, and a delivery wagon waits for nobody. You are across Prairie Avenue searching for the Kimballs' back way while the iceman whistles for you. Tomorrow the itinerary commences again, and you will comprehend one additional door.

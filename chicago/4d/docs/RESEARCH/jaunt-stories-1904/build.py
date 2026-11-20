@@ -26,6 +26,8 @@ sys.path.insert(0, str(HERE))
 import claims as C  # noqa: E402
 import stories  # noqa: E402
 import directions as D  # noqa: E402
+sys.path.insert(0, str(HERE.parent / 'narration-smooth-3696'))
+import smooth  # noqa: E402  T-3696: every direction is performed in the smooth style
 
 LIBERTY = C.LIBERTY
 STANDS = json.loads((HERE / 'stands.json').read_text())
@@ -238,12 +240,12 @@ def direction(doc):
             old, new = straight(old), straight(new)
             if out.count(old) != 1: misses.append(f'{doc["id"]}/{key}: {old!r} found {out.count(old)} times'); continue
             out = out.replace(old, new)
-        out = (lead + ' ' + out).strip() if lead else out
+        out = smooth.restyle((lead + ' ' + out).strip() if lead else out)
         if words(out) != words(text): misses.append(f'{doc["id"]}/{key}: the performed words differ from the panel\'s')
         scripts[key] = out
     if set(plan) - set(texts): misses.append(f'{doc["id"]}: direction for parts it does not have: {sorted(set(plan) - set(texts))}')
     return {'$comment': "T-3578 format, written by docs/RESEARCH/jaunt-stories-1904/build.py from directions.py: the same words as the panel shows, with ElevenLabs v3 audio tags in square brackets and ellipses and [short pause]/[long pause] for pauses. Performance only: a whisper or a sigh is a reading of the story, not evidence of how anyone spoke (L-jaunt-voices-3578). Keyed <part>:<id>.",
-            'version': 1, 'jaunt': doc['id'], 'scripts': scripts}, misses
+            'version': 1, 'jaunt': doc['id'], 'style': 'smooth', 'scripts': scripts}, misses
 
 
 def main(check=False):

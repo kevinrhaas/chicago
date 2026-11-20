@@ -164,7 +164,41 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.match(css, /\.nav-key[\s\S]*?background: var\(--signal/, 'the key is signal red');
   const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
   assert.match(main, /confirmJump: \(to, go\) => \(recallHome \? recallHome\.askJump\(to, go\) : go\(\)\)/, 'the page asks before a Jump (T-3390)');
-  assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump'\)/, 'the year chip opens Jump (T-2626\'s #year-badge button)');
+  assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump', \{ focus: true \}\)/, 'the year chip opens Jump (T-2626\'s #year-badge button), focus into it (T-3671)');
 }
 
-console.log('NAV JUMP PASS — three era cards, HERE on yours; a pick runs the ring and the transfer stamp, then the page; Escape aborts; RECALL the one red key');
+
+// ---- T-3669: same spot, another year ---------------------------------------------
+{
+  const doc = fakeDoc(); const panel = doc.createElement('div'); const calls = [], timers = [];
+  mount(panel, { scene: { id: '1904' }, actions: { confirmJump: (to, go) => go(),
+    jumpPose: () => ({ e: 1410.12, n: -3218.01, bearing: 265, pitch: 0, altitude: null, season: 'winter', hour: '09:00' }) } }, {
+    doc, reduced: true, go: (href) => calls.push(href), wait: (fn) => { timers.push(fn); return 1; }, cancel: () => {},
+    storage: { setItem() {} },
+  });
+  walk(panel).find((c) => String(c.className).split(' ').includes('nav-jump') && c.dataset.year === '1812').click();
+  timers.at(-1)();
+  const href = calls.at(-1);
+  assert(href.startsWith('../1812/?moment=1&'), href);
+  const q = new URLSearchParams(href.split('?')[1]);
+  assert.deepEqual(['year', 'e', 'n', 'bearing', 'via', 'from', 'season', 'hour'].map((k) => q.get(k)),
+    ['1812', '1410.12', '-3218.01', '265', 'jump', '1904', 'winter', '09:00'], 'the far year opens on the ground you stood on');
+  const card = walk(panel).find((c) => c.dataset?.year === '1812' && c.tagName === 'A');
+  assert.equal(card.href, '../1812/', 'the card itself stays a plain link (a modified click opens the page)');
+  unmount(panel);
+  // No pose (the page not ready, or a harness): the year's own start, as before.
+  const panel2 = doc.createElement('div'); const calls2 = [], timers2 = [];
+  mount(panel2, { scene: { id: '1904' }, actions: { jumpPose: () => null } }, {
+    doc, reduced: true, go: (href) => calls2.push(href), wait: (fn) => { timers2.push(fn); return 1; }, cancel: () => {}, storage: null });
+  walk(panel2).find((c) => c.dataset?.year === '1835' && c.tagName === 'A').click();
+  timers2.at(-1)();
+  assert.deepEqual(calls2, ['../1835/']);
+  unmount(panel2);
+}
+{
+  const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
+  assert.match(main, /jumpPose: \(\) => \{/, 'the page hands Jump where you stand');
+  assert.match(main, /nearestOpen\(sharedMoment\.e, sharedMoment\.n, ground\)/, 'a Jump moves to the nearest open ground, a shared link never');
+}
+
+console.log('NAV JUMP PASS — three era cards, HERE on yours; same spot in the far year (T-3669); a pick runs the ring and the transfer stamp, then the page; Escape aborts; RECALL the one red key');

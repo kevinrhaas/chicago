@@ -175,12 +175,27 @@ await (async () => {
 })();
 
 await (async () => {
-  const r = rig();
+  // T-3674: refused, the window still opens (the on-site tour needs no motion access): the
+  // location sets the visitor down, no sensor is listened to, and a sideways drag turns the view.
+  const r = rig({ search: '?window-at=41.8573,-87.6237' });
   r.win.DeviceOrientationEvent.requestPermission = async () => 'denied';
-  assert.equal(await r.mode.start(), false);
+  assert.equal(await r.mode.start(), true);
+  assert.equal(r.mode.motion, false);
+  assert.equal(r.backends.name, 'window');
+  assert.equal(r.listeners.deviceorientation, undefined, 'no sensor is listened to');
+  assert.ok(r.said.some((l) => /no motion access · drag sideways to turn/.test(l)), r.said.join(' | '));
+  assert.equal(r.teleports.length, 1, 'the address still sets the visitor down');
+  r.mode.backend.update();
+  assert.equal(r.intent.yawDelta, 0, 'nothing turns until the visitor drags');
+  r.surfaceListeners.pointerdown({ pointerId: 1, clientX: 100 });
+  r.surfaceListeners.pointermove({ pointerId: 1, clientX: 140 });
+  r.listeners.pointerup({ pointerId: 1 });
+  r.mode.backend.update();
+  // Dragging right turns the view right (the bearing grows), as the line-up drag does.
+  assert.ok(near(-r.intent.yawDelta / DEG, 40 * w.ALIGN_DEG_PER_PX, 1e-9), `${-r.intent.yawDelta / DEG}`);
+  r.mode.stop();
   assert.equal(r.backends.active, r.page);
-  assert.match(r.said.at(-1), /motion access/);
-  checks.push('iOS motion permission refused: nothing starts, and it says why');
+  checks.push('iOS motion permission refused: the window still opens, says so, and a sideways drag turns the view');
 })();
 
 check('the key ships hidden, is offered only on a touch device or with ?window-at=, and pausing closes it', () => {

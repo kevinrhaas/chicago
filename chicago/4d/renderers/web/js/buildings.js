@@ -1628,9 +1628,27 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const datedIds = new Set([...registry.values()]
     .filter((r) => r.sidecar?.documented_range?.drawn_only_within === true).map((r) => r.id));
-  let datedInstances = null;
   const datedHidden = new Set();
+  // T-3676: the structures "Watch a block grow" keeps out of its year, collapsed the same way.
+  const heldIds = new Set();
+  /** Each structure's instances and the matrix each had when first collapsed. */
+  const ownInstances = new Map();
   const ZERO_MATRIX = new THREE.Matrix4().makeScale(0, 0, 0);
+  function instancesOf(ids) {
+    const want = new Set([...ids].filter((id) => !ownInstances.has(id)));
+    if (!want.size) return;
+    for (const id of want) ownInstances.set(id, []);
+    for (const batch of batches) {
+      (batch.userData.batchIndex ?? []).forEach((id, i) => {
+        if (want.has(id)) ownInstances.get(id).push({ batch, i, matrix: batch.getMatrixAt(i, new THREE.Matrix4()) });
+      });
+    }
+  }
+  /** Draw a structure, or collapse it: drawn only while neither its date nor a hold keeps it away. */
+  function redraw(id) {
+    const show = !datedHidden.has(id) && !heldIds.has(id);
+    for (const { batch, i, matrix } of ownInstances.get(id) ?? []) batch.setMatrixAt(i, show ? matrix : ZERO_MATRIX);
+  }
   function onRange(date, rng) {
     if (!date) return true;
     const d = String(date).slice(0, 10);
@@ -1638,23 +1656,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   }
   function setDate(date) {
     if (!datedIds.size) return [];
-    if (!datedInstances) {
-      datedInstances = new Map();
-      for (const batch of batches) {
-        (batch.userData.batchIndex ?? []).forEach((id, i) => {
-          if (!datedIds.has(id)) return;
-          if (!datedInstances.has(id)) datedInstances.set(id, []);
-          datedInstances.get(id).push({ batch, i, matrix: batch.getMatrixAt(i, new THREE.Matrix4()) });
-        });
-      }
-    }
+    instancesOf(datedIds);
     for (const id of datedIds) {
       const show = onRange(date, registry.get(id)?.sidecar?.documented_range);
       if (show === !datedHidden.has(id)) continue;
-      for (const { batch, i, matrix } of datedInstances.get(id) ?? []) batch.setMatrixAt(i, show ? matrix : ZERO_MATRIX);
       if (show) datedHidden.delete(id); else datedHidden.add(id);
+      redraw(id);
     }
     return [...datedHidden];
+  }
+  /**
+   * T-3676 — HELD OUT OF A TIME-LAPSE'S YEAR. "Watch a block grow" (block-grow.js) keeps
+   * the buildings not yet standing in its year out of the town, by the same zero matrix
+   * as `setDate` and for the same reasons; a structure both dated away and held comes
+   * back only when both let it. `setHeld([])` is the town exactly as it was. Returns the
+   * ids held.
+   */
+  function setHeld(ids = []) {
+    const next = new Set([...ids].filter((id) => registry.has(id)));
+    instancesOf(next);
+    for (const id of [...heldIds]) if (!next.has(id)) { heldIds.delete(id); redraw(id); }
+    for (const id of next) if (!heldIds.has(id)) { heldIds.add(id); redraw(id); }
+    return [...heldIds];
   }
 
   function setWeathering(value) {
@@ -1850,6 +1873,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     setDate,
     get datedIds() { return [...datedIds]; },
     get datedHidden() { return [...datedHidden]; },
+    /** T-3676: keep these structures out of the town (none: the town as it loaded); the ids held. */
+    setHeld,
+    get heldIds() { return [...heldIds]; },
 
     /**
      * What tone each structure was given and what its vertices were actually

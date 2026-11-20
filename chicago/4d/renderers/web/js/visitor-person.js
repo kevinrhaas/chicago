@@ -25,9 +25,16 @@
  * device; the newer of the two wins. A refused or failed write keeps the device's copy and
  * says so once in the console: the person is never lost to a network.
  *
- * The shape grows: `v` is the record's version, each year's dress is kept per sex (so changing
- * sex and back gives the same clothes again), and fields a later builder adds (colours, a hat,
- * build) are carried through untouched by normalChoice.
+ * The shape grows: `v` is the record's version, each year's dress is kept per body type (so
+ * changing it and back gives the same clothes again), and fields a later builder adds (colours,
+ * a hat, build) are carried through untouched by normalChoice.
+ *
+ * Body types (Kevin, 2026-11-19: a third one, and the control named for the person's style, not
+ * their gender). The choice's `sex` field keeps its name (stored choices, the account's copy) but
+ * holds a body type: the catalog's `sexes`, shown as "Body type". One with `of` (Androgynous)
+ * wears any outfit and cut of the types it names, any library face, and its own `build` on each
+ * body; its record's `sex` is the body's (the outfit's), so the people layer, the face library
+ * and the side saddle read it as they read anyone's.
  */
 import { SIGN_IN } from './sign-in-config.js';
 
@@ -41,6 +48,19 @@ const yearKey = (year, catalog) => {
   const y = String(year ?? '');
   return (catalog.years ?? []).includes(y) ? y : null;
 };
+
+/** A body type of the catalog (`sexes`) by id. */
+export const bodyType = (catalog, id) => byId(catalog.sexes, id);
+/** The bodies a body type wears: its own id, or those it names in `of`. */
+export const bodiesOf = (catalog, id) => bodyType(catalog, id)?.of ?? [id];
+/** A year's list (`outfits` or `cuts`) for a body type, each entry with the body it is worn on. */
+export function wardrobe(catalog, kind, year, id) {
+  const seen = new Set(), out = [];
+  for (const body of bodiesOf(catalog, id)) {
+    for (const o of catalog[kind]?.[year]?.[body] ?? []) if (!seen.has(o.id)) { seen.add(o.id); out.push({ ...o, body }); }
+  }
+  return out;
+}
 
 /**
  * A stored or typed choice brought to one the catalog can draw: every field one of its own ids,
@@ -65,7 +85,7 @@ export function normalChoice(raw, catalog) {
     years: {},
     saved: typeof r.saved === 'string' ? r.saved : '',
   };
-  // Each year's dress and cut, kept per sex.
+  // Each year's dress and cut, kept per body type.
   for (const y of catalog.years ?? []) {
     const had = r.years?.[y] && typeof r.years[y] === 'object' ? r.years[y] : {};
     out.years[y] = {};
@@ -73,38 +93,42 @@ export function normalChoice(raw, catalog) {
       const h = had[s] && typeof had[s] === 'object' ? had[s] : {};
       out.years[y][s] = {
         ...h,
-        outfit: pickId(catalog.outfits?.[y]?.[s], h.outfit, null),
-        cut: pickId(catalog.cuts?.[y]?.[s], h.cut, null),
+        outfit: pickId(wardrobe(catalog, 'outfits', y, s), h.outfit, null),
+        cut: pickId(wardrobe(catalog, 'cuts', y, s), h.cut, null),
       };
     }
   }
   return out;
 }
 
-/** Faces a person of `sex` and `complexion` may choose: the library's of that sex, the freckled
- * ones only for a light complexion (the library's own rule, face_library.json `light_only_for`). */
-export function faceChoices(faces, sex, complexion) {
+/** Faces a person of body type `sex` and `complexion` may choose: the library's of that body
+ * (both, for a type with `of`; `catalog` tells which), the freckled ones only for a light
+ * complexion (the library's own rule, face_library.json `light_only_for`). */
+export function faceChoices(faces, sex, complexion, catalog = null) {
   const F = faces?.faces;
   if (!Array.isArray(F)) return [];
   const light = Array.isArray(faces.light_only_for) ? faces.light_only_for : [];
+  const wears = catalog ? bodiesOf(catalog, sex) : [sex === 'male' ? 'male' : 'female'];
   return F.map((f, index) => ({ ...f, index }))
-    .filter((f) => f.sex === (sex === 'male' ? 'male' : 'female') && (!f.light_only || light.includes(complexion)));
+    .filter((f) => wears.includes(f.sex) && (!f.light_only || light.includes(complexion)));
 }
 
 function faceOk(face, sex, complexion, catalog) {
   if (face === 'auto' || face === 'body') return true;
   if (typeof face !== 'string' || !catalog.faces) return false;
-  return faceChoices(catalog.faces, sex, complexion).some((f) => f.id === face);
+  return faceChoices(catalog.faces, sex, complexion, catalog).some((f) => f.id === face);
 }
 
-/** The year's own entry of the choice: { sex, outfit, cut } with the catalog's records. */
+/** The year's own entry of the choice: { sex (the body type), body (the outfit's), outfit, cut }
+ * with the catalog's records. */
 export function yearChoice(choice, year, catalog) {
   const y = yearKey(year, catalog) ?? (catalog.years ?? [])[0];
   const sex = choice.sex;
   const mine = choice.years?.[y]?.[sex] ?? {};
-  const outfits = catalog.outfits?.[y]?.[sex] ?? [];
-  const cuts = catalog.cuts?.[y]?.[sex] ?? [];
-  return { year: y, sex, outfit: byId(outfits, mine.outfit) ?? first(outfits), cut: byId(cuts, mine.cut) ?? first(cuts) };
+  const outfits = wardrobe(catalog, 'outfits', y, sex);
+  const cuts = wardrobe(catalog, 'cuts', y, sex);
+  const outfit = byId(outfits, mine.outfit) ?? first(outfits);
+  return { year: y, sex, body: outfit?.body ?? sex, outfit, cut: byId(cuts, mine.cut) ?? first(cuts) };
 }
 
 /** The body the visitor wears in `year`. */
@@ -117,18 +141,21 @@ export function personAsset(choice, year, catalog) {
  * human-variation.js reads `looks.face_pick`). Pure.
  */
 export function personRecord(choice, year, catalog) {
-  const { sex, cut, outfit, year: y } = yearChoice(choice, year, catalog);
+  const { sex: type, body: sex, cut, outfit, year: y } = yearChoice(choice, year, catalog);
   const age = byId(catalog.ages, choice.age)?.years ?? 35;
-  const facial = [...(byId(catalog.facial?.[sex], choice.facial)?.wears ?? []), ...(catalog.brows?.[sex] ?? [])];
+  const facial = [...(byId(catalog.facial?.[type], choice.facial)?.wears ?? []), ...(catalog.brows?.[type] ?? [])];
   const graded = (value) => ({ value, drawn: value, grade: 'reconstructed' });
+  // A body type's own build on this body (human-variation.js looks.build), when it has one.
+  const build = bodyType(catalog, type)?.build?.[sex] ?? null;
   return {
-    sex, visitor: true, scene: y,
+    sex, visitor: true, scene: y, ...(type !== sex ? { body_type: type } : {}),
     age: { years: age, grade: 'reconstructed' },
     looks: {
       complexion: graded(choice.complexion),
       eyes: graded(choice.eyes),
       hair: { value: choice.hair_colour, drawn: choice.hair_colour, cut: cut?.id ?? null, facial, grade: 'reconstructed' },
       face_pick: choice.face === 'auto' ? null : choice.face,
+      ...(build ? { build: { ...build } } : {}),
       grade: 'reconstructed', basis: PERSON_BASIS, liberty: catalog.liberty,
     },
     // A dress worn on its body in other colours, pieces set aside, a hat of its own (human-looks.js
@@ -223,7 +250,7 @@ export function createVisitorPerson({ catalog, storage = null, account = null, f
   const api = {
     catalog,
     get choice() { return choice; },
-    /** Change the choice. Fields of the year's dress (`outfit`, `cut`) need `year`. */
+    /** Change the choice. Fields of the year's dress (`outfit`, `cut`) need `year`. `sex` is the body type. */
     set(patch = {}, year = null) {
       const next = structuredClone(choice);
       for (const [k, v] of Object.entries(patch)) {

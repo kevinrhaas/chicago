@@ -1,0 +1,650 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Employment",
+  "menu_group": "Work",
+  "grade_band": "11-12",
+  "review_required": false,
+  "long_form": true,
+  "id": "ice-for-prairie-avenue-grades-11-12",
+  "scene": "1904",
+  "plate": {
+    "structure": "glessner_house",
+    "picture": "a18-gh-cornell-glessner-rear-c1887"
+  },
+  "title": "Ice for Prairie Avenue",
+  "premise": "Play the iceman's young helper on a Monday morning in October 1904: determine the appropriate entrance at 1800 Prairie Avenue, where the family uses one door and the ice is consigned to another, then decide whether to wait for the kitchen or hurry onward.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: ICE FOR PRAIRIE AVENUE. A Monday morning in October 1904, and you are thirteen, riding on the back of an ice wagon along Prairie Avenue. The iceman manages the heavy blocks; the subsidiary errands are your responsibility. This morning that responsibility involves identifying the proper entrance at some of the most distinguished residences in Chicago, where every family possesses an entrance of its own and deliveries are expected to use another.\n\nThe first house on the round is the granite one at the corner of Eighteenth Street. Identify the correct door before the ice begins to deteriorate. The houses and their inhabitants are authentic; the iceman's helper is your invention, and you are the helper.",
+    "read_s": 33
+  },
+  "variables": {
+    "door": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "went": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-corner",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_corner"
+      },
+      "text": "At this corner of Prairie Avenue and Eighteenth Street, John Glessner built his house diagonally opposite Pullman's mansion and across the street from W. W. Kimball's smaller French chateau. Its outside walls are Wellesley granite, and every wall is lined with hollow brick, with the plaster applied directly and no laths, so there is no place for a mouse to live. Passers-by remark on the narrow windows along Eighteenth Street, unaware that on the courtyard side the architect provided generous ones. From the pavement it resembles an impregnable fortress without any discernible back entrance.",
+      "narrative": "Which entrance is intended for deliveries?",
+      "read_s": 33,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        },
+        {
+          "kind": "person",
+          "id": "glessner_john_j",
+          "label": "John J. Glessner"
+        }
+      ],
+      "evidence": [
+        "neighbours",
+        "mice",
+        "narrow-windows",
+        "places",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "front",
+          "label": "Approach the front entrance",
+          "consequence": "It is unquestionably the most impressive entrance on the corner.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "door",
+              "value": 1
+            }
+          ],
+          "next": "front-door"
+        },
+        {
+          "id": "alley",
+          "label": "Circumnavigate by the alley",
+          "consequence": "A residence this substantial must possess a secondary entrance somewhere.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "door",
+              "value": 2
+            }
+          ],
+          "next": "the-gates"
+        }
+      ]
+    },
+    {
+      "id": "front-door",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_door"
+      },
+      "text": "The entrance on Prairie Avenue belongs to the family. Henry Hobson Richardson designed this house, which Glessner called his last work, and the Glessners have slept here since the night of 1 December 1887. It is Monday, and every Monday from October to May Mrs. Glessner's Reading Class meets for two hours in the library: during the first hour the women sew while a professional reader performs, and during the second there is lighter reading or a lecture. Their carriages will arrive at this door shortly, and a dripping block of ice is hardly what distinguished visitors expect to encounter. Beside the door an underpass leads beneath the house to the courtyard. Retreat, and circumnavigate the house.",
+      "narrative": "The family's entrance, emphatically not yours.",
+      "read_s": 37,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_frances_m",
+          "label": "Frances M. Glessner"
+        },
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "evidence": [
+        "richardson-last",
+        "first-night",
+        "class-harper",
+        "underpass",
+        "places",
+        "role"
+      ],
+      "next": "the-arch"
+    },
+    {
+      "id": "the-gates",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_gate"
+      },
+      "text": "Round the back, off the alley, stand the courtyard gates. Through them, on 1 December 1887, the Glessners moved all their belongings into the house 'before our neighbors suspected even that we were about to move', and that night they lit the new hearth with fire carried from their previous house at Washington and Morgan Streets. Above the court the dovecotes hold nearly sixty doves, whose eggs supply the family's table. Even here, however, the ice stops short: the service entrance is round on Eighteenth Street.",
+      "narrative": "The secondary entrance to the household, though not the designated one for ice.",
+      "read_s": 31,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "evidence": [
+        "moving-day",
+        "doves",
+        "great-arch",
+        "places",
+        "role"
+      ],
+      "next": "the-arch"
+    },
+    {
+      "id": "the-arch",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_arch"
+      },
+      "text": "Beneath the great arch on Eighteenth Street is the service entrance, with an address of its own, 35 Eighteenth Street. From it a small corridor leads to the kitchen, and the kitchen window is set within the arch itself. The ice never enters the house. Instead it passes through a small half-door into the cold closet. Inside, an annunciator shows the kitchen which room has rung, and the staff eat their own dinner at about three o'clock, so the kitchen can then turn to the family's. This household employs one cook, and since 1892 that has been Mattie Williamson, who took over after Mrs. Glessner dismissed seven cooks in seven weeks.",
+      "narrative": "Await the kitchen's instructions, or hurry onward?",
+      "read_s": 37,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "person",
+          "id": "glessner_williamson_martha_l",
+          "label": "Mattie Williamson"
+        },
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "evidence": [
+        "great-arch",
+        "servants-address",
+        "kitchen-window",
+        "staff-dinner",
+        "one-cook",
+        "mattie-cook",
+        "places",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "wait",
+          "label": "Await the kitchen's order",
+          "consequence": "You will learn what quantity of ice to deliver next time; meanwhile the wagon remains at the stable doors.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "went",
+              "value": 1
+            }
+          ],
+          "next": "the-stable"
+        },
+        {
+          "id": "run",
+          "label": "Hurry onward",
+          "consequence": "You intend to identify the Kimballs' service entrance before the wagon arrives.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "went",
+              "value": 2
+            }
+          ],
+          "next": "kimball"
+        }
+      ]
+    },
+    {
+      "id": "the-stable",
+      "destination": {
+        "kind": "anchor",
+        "id": "glessner_tour_stable"
+      },
+      "text": "The wagon waits beside the stable's carriage doorway on Eighteenth Street, where the iceman can water his horse. The stable contains six stalls, and the carriage house has room for as many carriages, all of it built in white glazed brick. The furnace room lies underneath, so the dust, dirt and noise of coal and ashes never reach the house. Who drives for the Glessners now is not recorded: their coachman of twenty-four years departed in 1902. Within two years the horses will disappear, and motor cars will replace them.",
+      "narrative": "Where the wagon patiently awaits your return.",
+      "read_s": 31,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "glessner_house",
+          "label": "About this house"
+        }
+      ],
+      "evidence": [
+        "stable-door",
+        "stable-size",
+        "stable-brick",
+        "charles-1878-1902",
+        "automobiles",
+        "places",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "kimball",
+      "destination": {
+        "kind": "anchor",
+        "id": "kimball_house"
+      },
+      "text": "Across Prairie Avenue at 1801 stands W. W. Kimball's residence, built in 1890 to Solon S. Beman's design in the French Chateauesque style, with a very steep slate roof over the main block and a round tower on the Eighteenth Street side beneath a slate cone. Kimball established his piano business in Chicago in 1857, 'beginning with only four pianos'; by 1881 his own factory was 'churning out around 100 pianos and organs every week'. A residence this elaborate undoubtedly possesses a service entrance as well, and identifying it is your particular responsibility.",
+      "narrative": "The subsequent residence on the morning's itinerary.",
+      "read_s": 32,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "kimball_house_1801_prairie",
+          "label": "About this house"
+        }
+      ],
+      "evidence": [
+        "kimball-marker",
+        "kimball-photo",
+        "kimball-start",
+        "places",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-corner",
+      "to": "front-door",
+      "note": "A few steps south along the Prairie Avenue front to the door.",
+      "evidence": [
+        "underpass",
+        "places"
+      ],
+      "story": "The most impressive entrance on the corner, therefore.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-corner",
+      "to": "the-gates",
+      "note": "West along Eighteenth Street past the stable, and round into the alley to the courtyard gates.",
+      "evidence": [
+        "moving-day",
+        "places"
+      ],
+      "story": "Every substantial residence possesses a secondary entrance, provided you can discover it.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "front-door",
+      "to": "the-arch",
+      "note": "Back to the corner and west along Eighteenth Street to the great arch.",
+      "evidence": [
+        "great-arch",
+        "places"
+      ],
+      "story": "Around the corner, before the ice deteriorates any further.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-gates",
+      "to": "the-arch",
+      "note": "Out of the alley and east along Eighteenth Street to the great arch.",
+      "evidence": [
+        "great-arch",
+        "places"
+      ]
+    },
+    {
+      "from": "the-arch",
+      "to": "the-stable",
+      "note": "A little way west along Eighteenth Street to the carriage doorway.",
+      "evidence": [
+        "stable-door",
+        "places"
+      ]
+    },
+    {
+      "from": "the-arch",
+      "to": "kimball",
+      "note": "East to the corner and across Prairie Avenue.",
+      "evidence": [
+        "neighbours",
+        "places"
+      ],
+      "story": "Across the avenue, running energetically.",
+      "story_evidence": [
+        "role"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "a-regular",
+      "text": "The back way first, the kitchen's order recorded, and the horse watered at the stable doors: the iceman announces that you are satisfactory. Next Monday you will proceed directly round by the alley without being reminded, and eventually the kitchen staff will recognize your face at the half-door.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "door",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "went",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "ahead-of-the-wagon",
+      "text": "You discovered the Glessners' back entrance by yourself, and now you are across Prairie Avenue ahead of the wagon, searching for the Kimballs'. The iceman will never acknowledge it, but he is genuinely gratified. Every house on this avenue keeps one door for the family and another way in for everything else, and you are learning them one alley at a time.",
+      "read_s": 17,
+      "completion_eligible": true,
+      "when": {
+        "var": "door",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "round-the-long-way",
+      "text": "You discovered through experience that the imposing entrance on Prairie Avenue is not intended for deliveries, but you discovered it before the Reading Class assembled. The kitchen's order is in your pocket and the horse has been watered. Next Monday you will go round by Eighteenth Street first.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "var": "went",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "two-lessons",
+      "text": "Two lessons absorbed before ten o'clock: the principal entrance belongs exclusively to the family, and a delivery wagon waits for nobody. You are across Prairie Avenue searching for the Kimballs' back way while the iceman whistles for you. Tomorrow the itinerary commences again, and you will comprehend one additional door.",
+      "read_s": 15,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "the-ice-round-grades-11-12",
+    "title": "The Ice Round",
+    "text": "A fictional card of one morning's ice round on Prairie Avenue in October 1904: which door you tried first and where you went next. No real delivery, order or helper is written on it."
+  },
+  "evidence": [
+    {
+      "id": "neighbours",
+      "text": "Glessner built at the corner of Eighteenth Street and Prairie Avenue, diagonally opposite Pullman's mansion and across the street from W. W. Kimball's smaller French chateau.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 3, Part I.B."
+    },
+    {
+      "id": "mice",
+      "text": "The outside walls on the streets are of Wellesley granite, and all walls are lined with hollow brick, to which the plastering is attached without laths, so there is no place for mice behind the plastering.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 13."
+    },
+    {
+      "id": "narrow-windows",
+      "text": "Passers-by remarked on the narrow windows in the north side along 18th Street, just enough to light the narrow corridors, not realizing that on the courtyard side Richardson had put generous windows.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 15."
+    },
+    {
+      "id": "richardson-last",
+      "text": "Henry Hobson Richardson designed the house; Glessner calls it his last work.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 2 (architect); Story of a House, HABS data page 13 ('It was his last work')."
+    },
+    {
+      "id": "first-night",
+      "text": "The family slept in the house for the first time on the night of 1 December 1887.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 9."
+    },
+    {
+      "id": "class-harper",
+      "text": "In 1893 William Rainey Harper, president of the University of Chicago, asked Frances Glessner for advice on how to introduce faculty wives to women of the city. The result was her Monday Morning Reading Class, which met for two hours in the library of the house every Monday from October to May. During the first hour the women sewed and listened to a professional reader; during the second there was lighter reading or a lecture. Membership was by invitation only, and the class continued until 1930.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "underpass",
+      "text": "An underpass on the east (Prairie Avenue) front leads under the house to the courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "HABS data page 2 (Part I.A.6, 'the door of the underpass on the east facade'); drawings sheet 2, the first-floor plan."
+    },
+    {
+      "id": "moving-day",
+      "text": "On 1 December 1887 the family moved all their belongings in through the courtyard entrance from the alley before the neighbours suspected they were moving, and lit the new hearth with fire carried from the old house at Washington and Morgan Streets; they were in 'before our neighbors suspected even that we were about to move'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data pages 8-9."
+    },
+    {
+      "id": "doves",
+      "text": "Doves in the dovecotes, which held nearly sixty, gave the family eggs.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_servants_2012"
+      ],
+      "locator": "The post."
+    },
+    {
+      "id": "great-arch",
+      "text": "The service entrance is through the great arch on Eighteenth Street to a small corridor and the kitchen.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "Story of a House, HABS data page 15; drawings sheet 5, the 18th Street entrance arch."
+    },
+    {
+      "id": "servants-address",
+      "text": "The servants had their own address, 35 Eighteenth Street (renumbered 227 E. 18th Street in 1909), and separate entrances, the women's set within the great arch.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_home_for_servants_2014"
+      ],
+      "locator": "The post."
+    },
+    {
+      "id": "kitchen-window",
+      "text": "The women servants' entrance is set within the great arch on Eighteenth Street, and the kitchen window sits within the arch.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_home_for_servants_2014"
+      ],
+      "locator": "The post, on George Glessner's photograph of about 1890."
+    },
+    {
+      "id": "staff-dinner",
+      "text": "The servants ate their own dinner at about three o'clock, so that the kitchen could turn to the family's dinner afterwards; an annunciator in the kitchen showed which room had rung, and the iceman delivered ice through a half-door into the cold closet.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_servants_2012"
+      ],
+      "locator": "The post's account of the kitchen's routines."
+    },
+    {
+      "id": "one-cook",
+      "text": "The Glessners only ever had one cook at a time; Kate Ryan, whom the census of 1 June 1900 found cooking for the house, was the temporary summer cook in Chicago while Mattie Williamson was in New Hampshire with the family.",
+      "confidence": "attested",
+      "sources": [
+        "tyre_2026_glessner_one_cook"
+      ],
+      "locator": "The owner's message of 13 November 2026, relaying Bill Tyre of Glessner House."
+    },
+    {
+      "id": "mattie-cook",
+      "text": "In February 1892, hired as a maid, Mattie Williamson became the cook after Frances Glessner dismissed her seventh cook in seven weeks; the cooks had struggled with a new gas stove. Frances wrote: 'Mattie Williamson is going to try my cooking. I shall have her taught.'",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_mattie_williamson_2020"
+      ],
+      "locator": "The post, quoting Frances Glessner's journal for February 1892."
+    },
+    {
+      "id": "mattie-leaves",
+      "text": "Mattie Williamson left in 1912 to marry William Prescott in Los Angeles; Frances Glessner later wrote to her son that Mattie was 'one of the finest people that ever lived.'",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_mattie_williamson_2020"
+      ],
+      "locator": "The post's account of her marriage and death."
+    },
+    {
+      "id": "stable-door",
+      "text": "The stable's carriage doorway opens on Eighteenth Street.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "locator": "Sheets 2 and 5: the 18th Street carriage doorway."
+    },
+    {
+      "id": "stable-size",
+      "text": "The stable had six stalls for horses, and the carriage house could hold as many carriages.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_servants_2012"
+      ],
+      "locator": "The post's account of the coach house and stable."
+    },
+    {
+      "id": "stable-brick",
+      "text": "The carriage house and stables are of white glazed brick, and the house is heated from the furnace room under them, keeping the dust and dirt and noise of coal and ashes out of the house.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Story of a House, HABS data page 13; HABS data page 22."
+    },
+    {
+      "id": "charles-1878-1902",
+      "text": "Charles Nelson, an immigrant from Sweden, was the Glessners' coachman from 1878 until 1902, so he was no longer in their service in 1904; who drove for them from 1902 is not recorded in the sources read.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_journal_2021_08"
+      ],
+      "locator": "Page 3, 'Secrets of Glessner House, Part 19: The Coachman'."
+    },
+    {
+      "id": "automobiles",
+      "text": "In 1906 the Glessners changed to automobiles, and the wall between the stable and the carriage house was taken down.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_blog_servants_2012"
+      ],
+      "locator": "The post's account of the coach house and stable."
+    },
+    {
+      "id": "kimball-marker",
+      "text": "William W. Kimball Residence. Built 1890; Solon S. Beman, architect. Built for the prominent Chicago piano and organ manufacturer in the French Chateauesque style.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1801 S. Prairie Avenue entry."
+    },
+    {
+      "id": "kimball-photo",
+      "text": "J. W. Taylor's photograph of about 1895 shows a very steep slate roof over the main block and a round tower on the 18th Street flank under a slate cone.",
+      "confidence": "attested",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "locator": "The whole print, from the north-west across 18th Street and Prairie Avenue."
+    },
+    {
+      "id": "kimball-start",
+      "text": "Kimball founded his piano business in Chicago in 1857, 'beginning with only four pianos'; in 1881 he opened his own factory 'churning out around 100 pianos and organs every week'; he 'died at his home in Chicago on December 16, 1904'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_wallace_kimball"
+      ],
+      "locator": "The biography: Chicago, the factory, his death."
+    },
+    {
+      "id": "places",
+      "text": "The six stops are exterior stands round 1800 Prairie Avenue and on the avenue at Kimball's corner, the stands the published Glessner jaunts use. The ice's half-door is the house's own, but where along the service side it opens is not stated, so no stop claims its spot, and no interior is entered.",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_house_blog_servants_2012",
+        "habs_glessner_house_il_1015_drawings"
+      ],
+      "reasoning": "The half-door into the cold closet is the museum's account of the kitchen's routines; the HABS drawings place the great arch, the underpass and the stable's carriage doorway on Eighteenth Street, which is where the stands stand. The stop at the arch speaks of the service entrance and the kitchen behind it, and of the half-door without placing it."
+    },
+    {
+      "id": "role",
+      "text": "The iceman's helper the visitor plays, their age, the iceman, his wagon and horse, the Monday in October 1904, the round and its order, the doors tried, the kitchen's order and the watering of the horse, the choices, the four endings, the timing inputs and The Ice Round keepsake are invented connective narrative. No ice delivery on a day in 1904 is asserted and no named person is met or speaks; the Reading Class's Monday meetings are attested, its carriages on this morning are not.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3679"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3679"
+  ],
+  "version_of": "ice-for-prairie-avenue"
+}

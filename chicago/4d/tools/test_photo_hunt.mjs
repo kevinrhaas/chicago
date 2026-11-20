@@ -2,20 +2,24 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { HUNT_PHOTOS, HUNT_STORAGE_KEY, validHuntDay, huntDay, huntOrder, huntLink, parseHuntLink,
+import { HUNT_PHOTOS, HUNT_STORAGE_KEY, HUNT_SETS, HUNT_MAX_EYE_M, huntSet, huntCount, validHuntDay, huntDay, huntOrder, huntLink, parseHuntLink,
   huntRounds, huntResult, huntSpotSafe, createHuntSession } from '../renderers/web/js/photo-hunt.js';
 import { createDestinations } from '../renderers/web/js/destinations.js';
 import { spotTarget } from '../renderers/web/js/photos-tab.js';
 
 const root = path.resolve(new URL('..', import.meta.url).pathname);
-const doc = JSON.parse(execFileSync('python3', ['-c',
-  'import sys,json;sys.path.insert(0,"tools");import compile_pictures as p;print(json.dumps(p.add_place_names(p.derive(*p.read_tree()),p.load_json(p.PLACE_NAMES))["1904"]))'], { cwd: root, maxBuffer: 4 * 1024 * 1024 }));
-const registry = new Map();
-for (const id of Object.keys(doc.by_structure)) {
-  const file = path.join(root, 'data/sidecars/1904', `${id}.json`);
-  if (fs.existsSync(file)) registry.set(id, { sidecar: JSON.parse(fs.readFileSync(file)) });
+const docs = JSON.parse(execFileSync('python3', ['-c',
+  'import sys,json;sys.path.insert(0,"tools");import compile_pictures as p;print(json.dumps(p.add_place_names(p.derive(*p.read_tree()),p.load_json(p.PLACE_NAMES))))'], { cwd: root, maxBuffer: 64 * 1024 * 1024 }));
+function catalogue(year) {
+  const doc = docs[year], registry = new Map();
+  for (const id of Object.keys(doc.by_structure)) {
+    const file = path.join(root, 'data/sidecars', year, `${id}.json`);
+    if (fs.existsSync(file)) registry.set(id, { sidecar: JSON.parse(fs.readFileSync(file)) });
+  }
+  const destinations = createDestinations({ scene: {}, registry }); destinations.addPhotos(doc);
+  return { doc, registry, destinations };
 }
-const destinations = createDestinations({ scene: {}, registry }); destinations.addPhotos(doc);
+const { doc, registry, destinations } = catalogue('1904');
 const day = '2026-11-18';
 const rounds = huntRounds(doc, destinations, day);
 assert.equal(rounds.length, 5, 'all five real photographs meet the evidence requirements');
@@ -42,9 +46,11 @@ for (let i = 1; i <= 30; i++) assert.deepEqual([...huntOrder(`2026-11-${String(i
 const url = new URL(huntLink(day, 'https://example.test/4d/dev/1904/?token=private&data=remote&moment=1#private'));
 assert.equal(url.pathname, '/4d/dev/1904/'); assert.equal(url.hash, '');
 assert.deepEqual([...url.searchParams.keys()], ['year', 'nav', 'hunt', 'huntDay']);
-assert.deepEqual(parseHuntLink(url.search), { day, version: 1 });
+assert.deepEqual(parseHuntLink(url.search), { day, version: 1, year: '1904' });
+// T-3677: the link's year names its set; a year with no set, or two years, is refused.
 for (const q of ['?hunt=2&huntDay=2026-11-18&year=1904', '?hunt=1&huntDay=2026-02-29&year=1904',
-  '?hunt=1&huntDay=2026-11-18&year=1835', '?hunt=1&hunt=1&huntDay=2026-11-18&year=1904']) assert.equal(parseHuntLink(q), null);
+  '?hunt=1&huntDay=2026-11-18&year=1871', '?hunt=1&huntDay=2026-11-18', '?hunt=1&huntDay=2026-11-18&year=1904&year=1835',
+  '?hunt=1&huntDay=2026-11-18&year=constructor', '?hunt=1&hunt=1&huntDay=2026-11-18&year=1904']) assert.equal(parseHuntLink(q), null);
 assert.equal(huntLink(day, 'javascript:alert(1)'), null);
 assert.equal(huntLink('bad', url.href), null);
 const row = destinations.byId('photo', ne.id);
@@ -95,4 +101,66 @@ raw = JSON.stringify({ version: 1, day, cursor: 4, answers: [] });
 assert.equal(createHuntSession({ day, rounds, storage }).state.issue, 'unreadable');
 raw = 'x'.repeat(4097);
 assert.equal(createHuntSession({ day, rounds, storage }).state.issue, 'unreadable');
-console.log('PHOTO HUNT PASS — canonical licensed photos and camera positions, dates, daily links, visit guards, distance scores, bounded progress and storage failures');
+raw = JSON.stringify({ version: 1, year: '1812', day, cursor: 0, answers: [] });
+assert.equal(createHuntSession({ day, rounds, storage }).state.issue, 'unreadable', 'another year’s record is not 1904 progress');
+const before = JSON.stringify({ version: 1, day, cursor: 1, answers: [{ id: huntOrder(day)[0], skipped: true }] });
+raw = before; session = createHuntSession({ day, rounds, storage });
+assert.equal(session.state.cursor, 1, 'progress saved before T-3677 still opens');
+assert(session.skip()); assert.equal(JSON.parse(raw).year, undefined, '1904 keeps its record format');
+
+// T-3677: the earlier years' sets of prints and drawings, each from its own catalogue.
+assert.deepEqual(Object.keys(HUNT_SETS).sort(), ['1835', '1904']);
+assert.equal(huntSet('1812'), null, '1812 has two pictures with a spot on safe ground, fewer than a set needs');
+assert.equal(huntSet('1871'), null, '1871 has no picture with a camera spot, so no set');
+assert.equal(huntSet('__proto__'), null);
+const keys = new Set(Object.values(HUNT_SETS).map(s => s.storageKey));
+assert.equal(keys.size, 2, 'each year keeps its own saved record');
+for (const [year, count, places] of [['1835', 3, 1]]) {
+  const cat = catalogue(year), set = huntSet(year);
+  assert.equal(huntCount(year), count);
+  const yr = huntRounds(cat.doc, cat.destinations, day, year);
+  assert.equal(yr.length, count, `${year}: every picture meets the evidence requirements`);
+  assert.deepEqual(yr.map(r => r.id), huntOrder(day, year));
+  assert.equal(new Set(yr.map(r => r.structure)).size, places);
+  assert.deepEqual(huntRounds(cat.doc, cat.destinations, day, '1904'), [], 'a set never reads another year’s catalogue');
+  for (const round of yr) {
+    const p = cat.doc.by_structure[round.structure].find(p => p.id === round.id);
+    assert.equal(round.structure, set.pictures[round.id]);
+    assert.deepEqual(round.target, spotTarget(p, cat.registry.get(round.structure).sidecar.placement));
+    assert.notEqual(round.kind, 'PHOTO', `${round.id}: a print or drawing, never called a photograph`);
+    assert.match(round.kind, /^(ENGRAVING|LITHO|ILLUSTRATION)$/);
+    assert(round.later && round.made > Number(year), `${round.id}: made after ${year}, and the reveal says so`);
+    assert(p.spot.h <= HUNT_MAX_EYE_M, `${round.id}: a spot on the ground`);
+    assert.match(p.rights, /^public domain/);
+    assert.equal(new URL(round.image).origin, new URL(cat.doc.image_store.base_url).origin);
+    assert.match(round.image, new RegExp(`/${round.id}-thumb\\.jpg$`));
+  }
+  assert.deepEqual(huntOrder(day, year), huntOrder(day, year));
+  for (let i = 1; i <= 30; i++) assert.deepEqual([...huntOrder(`2026-11-${String(i).padStart(2, '0')}`, year)].sort(), Object.keys(set.pictures).sort());
+  assert(Array.from({ length: 30 }, (_, i) => huntOrder(`2026-12-${String(i + 1).padStart(2, '0')}`, year).join()).some(o => o !== huntOrder(day, year).join()),
+    `${year}: the daily order changes`);
+  const link = new URL(huntLink(day, 'https://example.test/4d/1904/?year=1904&token=x', year));
+  assert.equal(link.searchParams.get('year'), year);
+  assert.deepEqual(parseHuntLink(link.search), { day, version: 1, year });
+  link.searchParams.set('year', '1812');
+  assert.equal(parseHuntLink(link.search), null, 'a link names one year’s set only');
+  const bad = { ...cat.destinations.byId('photo', yr[0].id) };
+  const swap = (picture) => ({ byId: (_, id) => id === yr[0].id ? { ...bad, picture } : cat.destinations.byId('photo', id) });
+  for (const change of [{ rights: 'unknown — link only' }, { kind: 'POSTCARD' }, { years: [1931, 1931] },
+    { spot: { ...bad.picture.spot, h: 20.5 } }])
+    assert.deepEqual(huntRounds(cat.doc, swap({ ...bad.picture, ...change }), day, year), [], `${year}: refuses ${JSON.stringify(change)}`);
+  let saved = null;
+  const box = { getItem: (k) => (k === set.storageKey ? saved : null), setItem: (k, v) => { assert.equal(k, set.storageKey); saved = v; } };
+  const s = createHuntSession({ day, rounds: yr, storage: box, year });
+  assert.equal(s.state.total, count);
+  assert.throws(() => createHuntSession({ day, rounds: yr.slice(1), storage: box, year }));
+  assert.throws(() => createHuntSession({ day, rounds: yr, storage: box, year: '1871' }));
+  for (let i = 0; i < count; i++) { assert(s.guess(yr[i].target)); assert(s.next()); }
+  assert(s.state.complete); assert.equal(s.state.score, count * 1000); assert.equal(s.guess(yr[0].target), false);
+  assert.equal(JSON.parse(saved).year, year);
+  assert.equal(createHuntSession({ day, rounds: yr, storage: box, year }).state.score, count * 1000, `${year}: progress reloads`);
+  assert.equal(createHuntSession({ day, rounds, storage: box }).state.answers.length, 0, `${year}'s record is not read as 1904's`);
+  saved = JSON.stringify({ ...JSON.parse(saved), year: '1904' });
+  assert.equal(createHuntSession({ day, rounds: yr, storage: box, year }).state.issue, 'unreadable');
+}
+console.log('PHOTO HUNT PASS — 1904 and 1835 sets: canonical licensed pictures and camera positions, dates, daily links, visit guards, distance scores, bounded progress and storage failures');
