@@ -2,7 +2,7 @@
  "format": "chicago4d_drivers_1871_v1",
  "ticket": "T-3690",
  "liberty": "L-1871-town-traffic",
- "doc": "The 1871 city's teams on Sunday 8 October: each row a round of four streets, each at least 20 m between kerbs (data/context/1871.json), its corners the crossings of their centre lines as the context city lays them today (frozen here, so the round does not move under a regeneration; tools/lay_driven_1871.mjs --audit reads them against the context city again), and the household its driver comes from. tools/town_people_1871.py cards the driver and his household; tools/lay_driven_1871.mjs writes the round into data/transport/driven/loops.json. The trades, the rounds and the men are reconstructed (L-1871-town-traffic).",
+ "doc": "The 1871 city's teams on Sunday 8 October: each row a round of four streets, its corners the crossings of their centre lines as the context city lays them today (re-laid on T-3684's platted 1871 streets, 2026-11-20), its `lanes_m` how far right of the crown the team keeps on each leg (3 m, less on a narrower street: half the carriageway less 5.5 m, so the 17 m turn stays on the roadway) (frozen here, so the round does not move under a regeneration; tools/lay_driven_1871.mjs --audit reads them against the context city again), and the household its driver comes from. tools/town_people_1871.py cards the driver and his household; tools/lay_driven_1871.mjs writes the round into data/transport/driven/loops.json. The trades, the rounds and the men are reconstructed (L-1871-town-traffic).",
  "drivers": [
   {
    "row": "express_wagon_state_madison_1871",
@@ -18,21 +18,27 @@
    ],
    "corners": [
     [
-     860.12,
-     -523.36
+     837.89,
+     -525.7
     ],
     [
-     977.16,
-     -522.14
+     969.9,
+     -522.4
     ],
     [
-     978.75,
-     -649.86
+     972.5,
+     -665.7
     ],
     [
-     860.56,
-     -650.84
+     843.32,
+     -669.6
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    2.5,
+    1.0,
+    2.5
    ]
   },
   {
@@ -49,21 +55,27 @@
    ],
    "corners": [
     [
-     690.26,
-     -258.99
+     702.9,
+     -253.8
     ],
     [
-     860.11,
-     -257.58
+     831.2,
+     -253.7
     ],
     [
-     860.11,
-     -393.05
+     833.5,
+     -395.0
     ],
     [
-     693.58,
-     -394.43
+     703.6,
+     -394.4
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    2.5,
+    1.0,
+    1.0
    ]
   },
   {
@@ -80,21 +92,27 @@
    ],
    "corners": [
     [
-     579.01,
-     -524.91
+     582.5,
+     -531.0
     ],
     [
-     696.77,
-     -524.26
+     705.4,
+     -529.6
     ],
     [
-     703.33,
-     -791.62
+     707.5,
+     -813.8
     ],
     [
-     584.14,
-     -792.61
+     585.7,
+     -815.6
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    1.0,
+    1.0,
+    2.5
    ]
   },
   {
@@ -102,30 +120,36 @@
    "home_hub": "state_madison",
    "trade": "baggage man",
    "words": "a hotel's baggage wagon",
-   "name": "A hotel baggage wagon round Wells, Washington, LaSalle and Monroe",
+   "name": "A hotel baggage wagon round Fifth, Washington, LaSalle and Monroe",
    "streets": [
-    "Wells Street",
+    "Fifth Avenue",
     "LaSalle Street",
     "Washington Street",
     "Monroe Street"
    ],
    "corners": [
     [
-     322.93,
-     -397.49
+     336.5,
+     -392.3
     ],
     [
-     464.44,
-     -396.32
+     457.0,
+     -393.3
     ],
     [
-     467.16,
-     -654.09
+     461.5,
+     -674.4
     ],
     [
-     327.67,
-     -655.24
+     339.6,
+     -675.4
     ]
+   ],
+   "lanes_m": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
    ]
   },
   {
@@ -133,30 +157,36 @@
    "home_hub": "lake_street",
    "trade": "grocer's driver",
    "words": "a grocer's wagon",
-   "name": "A grocer's wagon round Franklin, Lake, Wells and Madison",
+   "name": "A grocer's wagon round Franklin, Lake, Fifth and Madison",
    "streets": [
     "Franklin Street",
-    "Wells Street",
+    "Fifth Avenue",
     "Lake Street",
     "Madison Street"
    ],
    "corners": [
     [
-     177.54,
-     -112.35
+     210.0,
+     -111.0
     ],
     [
-     320.56,
-     -111.17
+     332.79,
+     -112.6
     ],
     [
-     324.54,
-     -527.65
+     338.5,
+     -532.7
     ],
     [
-     187.76,
-     -528.96
+     215.0,
+     -533.1
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    1.0,
+    2.5,
+    1.0
    ]
   },
   {
@@ -164,30 +194,36 @@
    "home_hub": "canal_street",
    "trade": "brewery driver",
    "words": "a brewery wagon",
-   "name": "A brewery wagon round Desplaines, Randolph, Canal and Washington",
+   "name": "A brewery wagon round Jefferson, Randolph, Canal and Washington",
    "streets": [
-    "Desplaines Street",
+    "Jefferson Street",
     "Canal Street",
     "Randolph Street",
     "Washington Street"
    ],
    "corners": [
     [
-     -402.57,
-     -269.02
+     -398.7,
+     -251.0
     ],
     [
-     -205.74,
-     -267.39
+     -155.3,
+     -251.8
     ],
     [
-     -203.2,
-     -401.83
+     -151.5,
+     -391.9
     ],
     [
-     -400.37,
-     -403.46
+     -396.9,
+     -391.0
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    1.0,
+    1.0,
+    1.0
    ]
   },
   {
@@ -195,30 +231,36 @@
    "home_hub": "west_madison",
    "trade": "milkman",
    "words": "a milk wagon",
-   "name": "A milk wagon round Halsted, Madison, Desplaines and Adams",
+   "name": "A milk wagon round Halsted, Madison, Jefferson and Adams",
    "streets": [
     "Halsted Street",
-    "Desplaines Street",
+    "Jefferson Street",
     "Madison Street",
     "Adams Street"
    ],
    "corners": [
     [
-     -791.42,
-     -538.31
+     -791.32,
+     -542.95
     ],
     [
-     -398.21,
-     -534.56
+     -394.8,
+     -539.2
     ],
     [
-     -393.84,
-     -800.68
+     -390.0,
+     -824.0
     ],
     [
-     -785.26,
-     -803.92
+     -780.3,
+     -827.3
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    1.0,
+    1.0,
+    2.5
    ]
   },
   {
@@ -226,30 +268,36 @@
    "home_hub": "west_madison",
    "trade": "livery driver",
    "words": "a livery stable's wagon",
-   "name": "A livery wagon round Halsted, Lake, Desplaines and Randolph",
+   "name": "A livery wagon round Halsted, Lake, Jefferson and Randolph",
    "streets": [
     "Halsted Street",
-    "Desplaines Street",
+    "Jefferson Street",
     "Lake Street",
     "Randolph Street"
    ],
    "corners": [
     [
-     -799.28,
-     -120.42
+     -791.0,
+     -111.3
     ],
     [
-     -405.07,
-     -117.16
+     -400.89,
+     -109.8
     ],
     [
-     -402.57,
-     -269.02
+     -398.7,
+     -251.0
     ],
     [
-     -796.42,
-     -272.27
+     -788.9,
+     -251.0
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    1.0,
+    2.5,
+    2.5
    ]
   },
   {
@@ -257,30 +305,36 @@
    "home_hub": "dekoven",
    "trade": "milkman",
    "words": "a milk wagon",
-   "name": "A milk wagon round Desplaines, Taylor, Canal and Twelfth",
+   "name": "A milk wagon round Jefferson, Taylor, Canal and Twelfth",
    "streets": [
-    "Desplaines Street",
+    "Jefferson Street",
     "Canal Street",
     "Taylor Street",
     "Twelfth Street"
    ],
    "corners": [
     [
-     -376.13,
-     -1879.55
+     -372.6,
+     -1885.2
     ],
     [
-     -175.22,
-     -1877.89
+     -124.0,
+     -1882.7
     ],
     [
-     -169.49,
-     -2179.91
+     -121.2,
+     -2160.7
     ],
     [
-     -371.16,
-     -2182.54
+     -367.7,
+     -2162.5
     ]
+   ],
+   "lanes_m": [
+    1.0,
+    1.0,
+    2.5,
+    1.0
    ]
   },
   {
@@ -288,30 +342,36 @@
    "home_hub": "dekoven",
    "trade": "teamster",
    "words": "a hay wagon for the barns",
-   "name": "A hay wagon round Halsted, Taylor, Desplaines and Twelfth",
+   "name": "A hay wagon round Halsted, Taylor, Jefferson and Twelfth",
    "streets": [
     "Halsted Street",
-    "Desplaines Street",
+    "Jefferson Street",
     "Taylor Street",
     "Twelfth Street"
    ],
    "corners": [
     [
-     -760.24,
-     -1882.72
+     -761.9,
+     -1895.2
     ],
     [
-     -376.13,
-     -1879.55
+     -372.6,
+     -1885.2
     ],
     [
-     -371.16,
-     -2182.54
+     -367.7,
+     -2162.5
     ],
     [
-     -753.17,
-     -2187.52
+     -760.4,
+     -2166.8
     ]
+   ],
+   "lanes_m": [
+    1.0,
+    1.0,
+    2.5,
+    2.5
    ]
   },
   {
@@ -328,21 +388,27 @@
    ],
    "corners": [
     [
-     594.51,
-     -1334.08
+     593.7,
+     -1358.9
     ],
     [
-     862.89,
-     -1331.86
+     848.0,
+     -1357.3
     ],
     [
-     863.85,
-     -1610.84
+     852.0,
+     -1607.2
     ],
     [
-     599.86,
-     -1613.02
+     597.2,
+     -1613.2
     ]
+   ],
+   "lanes_m": [
+    1.0,
+    2.5,
+    1.0,
+    2.5
    ]
   },
   {
@@ -359,21 +425,27 @@
    ],
    "corners": [
     [
-     983.95,
-     -1068.29
+     978.9,
+     -1089.6
     ],
     [
-     1146.86,
-     -1066.95
+     1125.4,
+     -1087.1
     ],
     [
-     1150.12,
-     -1329.49
+     1128.0,
+     -1372.1
     ],
     [
-     987.22,
-     -1330.84
+     981.8,
+     -1374.3
     ]
+   ],
+   "lanes_m": [
+    1.0,
+    2.5,
+    1.0,
+    2.5
    ]
   },
   {
@@ -390,21 +462,27 @@
    ],
    "corners": [
     [
-     865.75,
-     -2166.42
+     858.1,
+     -2150.0
     ],
     [
-     997.58,
-     -2164.55
+     990.0,
+     -2149.0
     ],
     [
-     1007.64,
-     -2973.81
+     998.0,
+     -2951.0
     ],
     [
-     865.38,
-     -2972.59
+     865.2,
+     -2953.4
     ]
+   ],
+   "lanes_m": [
+    2.5,
+    2.5,
+    1.0,
+    2.5
    ]
   }
  ]

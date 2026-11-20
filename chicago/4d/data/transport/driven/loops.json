@@ -3813,20 +3813,20 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            863.13,
-            -526.33
+            840.48,
+            -528.14
           ],
           [
-            974.2,
-            -525.17
+            967.45,
+            -524.96
           ],
           [
-            975.71,
-            -646.89
+            969.98,
+            -664.78
           ],
           [
-            863.55,
-            -647.82
+            845.78,
+            -668.53
           ]
         ]
       },
@@ -3921,25 +3921,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            693.33,
-            -261.96
+            703.91,
+            -256.3
           ],
           [
-            857.11,
-            -260.61
+            828.74,
+            -256.2
           ],
           [
-            857.11,
-            -390.07
+            830.98,
+            -393.99
           ],
           [
-            696.51,
-            -391.41
+            704.6,
+            -393.4
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 205,
+      "initial_distance_m": 183.75,
       "hours": [
         6.75,
         20.75
@@ -4029,25 +4029,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            582.07,
-            -527.89
+            585.03,
+            -533.47
           ],
           [
-            693.84,
-            -527.28
+            704.42,
+            -532.11
           ],
           [
-            700.26,
-            -788.65
+            706.49,
+            -812.81
           ],
           [
-            587.08,
-            -789.59
+            588.19,
+            -814.56
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 532,
+      "initial_distance_m": 570,
       "hours": [
         6.25,
         20.25
@@ -4127,7 +4127,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "hotel_baggage_wagon_wells_1871",
-      "name": "A hotel baggage wagon round Wells, Washington, LaSalle and Monroe, Henry Davis at the horses' heads",
+      "name": "A hotel baggage wagon round Fifth, Washington, LaSalle and Monroe, Henry Davis at the horses' heads",
       "ride_name": "Henry's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4137,25 +4137,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            325.99,
-            -400.46
+            337.51,
+            -393.31
           ],
           [
-            461.47,
-            -399.34
+            456.02,
+            -394.29
           ],
           [
-            464.13,
-            -651.11
+            460.48,
+            -673.41
           ],
           [
-            330.61,
-            -652.22
+            340.59,
+            -674.39
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 81.75,
+      "initial_distance_m": 84.75,
       "hours": [
         5.75,
         19.75
@@ -4175,7 +4175,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Henry Davis drives a hotel's baggage wagon round Wells, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Henry Davis drives a hotel's baggage wagon round Fifth, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4194,7 +4194,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Henry Davis drives a hotel's baggage wagon round Wells, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Henry Davis drives a hotel's baggage wagon round Fifth, Washington, LaSalle and Monroe on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4235,7 +4235,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "grocer_wagon_lake_street_1871",
-      "name": "A grocer's wagon round Franklin, Lake, Wells and Madison, Georg Zimmermann at the horses' heads",
+      "name": "A grocer's wagon round Franklin, Lake, Fifth and Madison, Georg Zimmermann at the horses' heads",
       "ride_name": "Georg's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4245,25 +4245,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            180.61,
-            -115.32
+            211.03,
+            -113.51
           ],
           [
-            317.59,
-            -114.19
+            331.82,
+            -115.09
           ],
           [
-            321.51,
-            -524.68
+            337.47,
+            -530.2
           ],
           [
-            190.69,
-            -525.93
+            215.97,
+            -530.6
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 508.75,
+      "initial_distance_m": 501.75,
       "hours": [
         6,
         20
@@ -4283,7 +4283,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Wells and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Fifth and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4302,7 +4302,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Wells and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Georg Zimmermann drives a grocer's wagon round Franklin, Lake, Fifth and Madison on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4343,7 +4343,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "brewery_wagon_canal_1871",
-      "name": "A brewery wagon round Desplaines, Randolph, Canal and Washington, Hugh Nolan at the horses' heads",
+      "name": "A brewery wagon round Jefferson, Randolph, Canal and Washington, Hugh Nolan at the horses' heads",
       "ride_name": "Nolan's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4353,25 +4353,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            -399.52,
-            -271.99
+            -397.67,
+            -253.5
           ],
           [
-            -208.68,
-            -270.41
+            -156.23,
+            -254.3
           ],
           [
-            -206.26,
-            -398.86
+            -152.53,
+            -390.9
           ],
           [
-            -397.42,
-            -400.44
+            -395.91,
+            -390
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 518.25,
+      "initial_distance_m": 619.5,
       "hours": [
         5.25,
         19.25
@@ -4391,7 +4391,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Hugh Nolan drives a brewery wagon round Desplaines, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Hugh Nolan drives a brewery wagon round Jefferson, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4410,7 +4410,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Hugh Nolan drives a brewery wagon round Desplaines, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Hugh Nolan drives a brewery wagon round Jefferson, Randolph, Canal and Washington on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4451,7 +4451,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "milk_wagon_west_madison_1871",
-      "name": "A milk wagon round Halsted, Madison, Desplaines and Adams, Conrad Klein at the horses' heads",
+      "name": "A milk wagon round Halsted, Madison, Jefferson and Adams, Conrad Klein at the horses' heads",
       "ride_name": "Conrad's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4461,25 +4461,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            -788.35,
-            -541.28
+            -788.72,
+            -545.43
           ],
           [
-            -401.16,
-            -537.59
+            -395.76,
+            -541.71
           ],
           [
-            -396.89,
-            -797.71
+            -391.02,
+            -823.01
           ],
           [
-            -782.33,
-            -800.9
+            -777.84,
+            -826.28
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 278,
+      "initial_distance_m": 288.75,
       "hours": [
         5.5,
         19.5
@@ -4499,7 +4499,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Conrad Klein drives a milk wagon round Halsted, Madison, Desplaines and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Conrad Klein drives a milk wagon round Halsted, Madison, Jefferson and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4518,7 +4518,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Conrad Klein drives a milk wagon round Halsted, Madison, Desplaines and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Conrad Klein drives a milk wagon round Halsted, Madison, Jefferson and Adams on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4559,7 +4559,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "livery_wagon_west_lake_1871",
-      "name": "A livery wagon round Halsted, Lake, Desplaines and Randolph, Johann Brandt at the horses' heads",
+      "name": "A livery wagon round Halsted, Lake, Jefferson and Randolph, Johann Brandt at the horses' heads",
       "ride_name": "Johann's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4569,25 +4569,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            -796.22,
-            -123.39
+            -788.46,
+            -113.79
           ],
           [
-            -408.02,
-            -120.18
+            -401.85,
+            -112.3
           ],
           [
-            -405.62,
-            -266.05
+            -399.74,
+            -248.5
           ],
           [
-            -793.48,
-            -269.25
+            -786.44,
+            -248.5
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 612.75,
+      "initial_distance_m": 599,
       "hours": [
         6.25,
         20.25
@@ -4607,7 +4607,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Desplaines and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Jefferson and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4626,7 +4626,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Desplaines and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Johann Brandt drives a livery stable's wagon round Halsted, Lake, Jefferson and Randolph on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4667,7 +4667,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "milk_wagon_dekoven_1871",
-      "name": "A milk wagon round Desplaines, Taylor, Canal and Twelfth, Jeremiah Daly at the horses' heads",
+      "name": "A milk wagon round Jefferson, Taylor, Canal and Twelfth, Jeremiah Daly at the horses' heads",
       "ride_name": "Jeremiah's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4677,25 +4677,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            -373.08,
-            -1882.52
+            -371.58,
+            -1886.19
           ],
           [
-            -178.16,
-            -1880.91
+            -124.99,
+            -1883.71
           ],
           [
-            -172.55,
-            -2176.95
+            -122.23,
+            -2158.21
           ],
           [
-            -368.21,
-            -2179.5
+            -366.74,
+            -2159.99
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 916.25,
+      "initial_distance_m": 970,
       "hours": [
         6.75,
         20.75
@@ -4715,7 +4715,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Jeremiah Daly drives a milk wagon round Desplaines, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Jeremiah Daly drives a milk wagon round Jefferson, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4734,7 +4734,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Jeremiah Daly drives a milk wagon round Desplaines, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Jeremiah Daly drives a milk wagon round Jefferson, Taylor, Canal and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4775,7 +4775,7 @@
       ],
       "envelope_basis": "Farm-box cart bed, wheels and tongue, the two-horse team at 3.5 m, and the teamster walking 1.3 m off the near side, plus 15 cm.",
       "id": "hay_wagon_dekoven_1871",
-      "name": "A hay wagon round Halsted, Taylor, Desplaines and Twelfth, Hugh Quinn at the horses' heads",
+      "name": "A hay wagon round Halsted, Taylor, Jefferson and Twelfth, Hugh Quinn at the horses' heads",
       "ride_name": "Quinn's wagon",
       "scene": "1871",
       "driver_mode": "on_foot",
@@ -4785,25 +4785,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            -757.17,
-            -1885.69
+            -759.39,
+            -1896.14
           ],
           [
-            -379.08,
-            -1882.57
+            -373.58,
+            -1886.23
           ],
           [
-            -374.21,
-            -2179.58
+            -368.74,
+            -2160.01
           ],
           [
-            -750.24,
-            -2184.48
+            -757.91,
+            -2164.27
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 436,
+      "initial_distance_m": 425,
       "hours": [
         5.75,
         19.75
@@ -4823,7 +4823,7 @@
         },
         "provenance": {
           "grade": "reconstructed",
-          "basis": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Desplaines and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+          "basis": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Jefferson and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
           "liberty": "L-1871-town-traffic"
         },
         "review_required": false
@@ -4842,7 +4842,7 @@
         "mitchell_1870_chicago_map",
         "chicago_public_works_1871"
       ],
-      "note": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Desplaines and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
+      "note": "Hugh Quinn drives a hay wagon for the barns round Halsted, Taylor, Jefferson and Twelfth on the Sunday afternoon. No source names him or his round: he, his trade, his team, its wagon and its hours are reconstructed for the 1871 city's Sunday traffic (see L-1871-town-traffic).",
       "liberty": "L-1871-town-traffic"
     },
     {
@@ -4893,25 +4893,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            597.57,
-            -1337.05
+            596.21,
+            -1359.88
           ],
           [
-            859.9,
-            -1334.88
+            845.52,
+            -1358.32
           ],
           [
-            860.84,
-            -1607.86
+            849.48,
+            -1606.26
           ],
           [
-            602.8,
-            -1610
+            599.69,
+            -1612.14
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 726,
+      "initial_distance_m": 679.25,
       "hours": [
         6,
         20
@@ -5001,25 +5001,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            986.99,
-            -1071.27
+            981.41,
+            -1090.56
           ],
           [
-            1143.9,
-            -1069.97
+            1122.91,
+            -1088.14
           ],
           [
-            1147.08,
-            -1326.52
+            1125.49,
+            -1371.14
           ],
           [
-            990.18,
-            -1327.82
+            984.29,
+            -1373.26
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 55.75,
+      "initial_distance_m": 57.25,
       "hours": [
         6.25,
         20.25
@@ -5109,25 +5109,25 @@
         "corner_radius_m": 17,
         "points_enu_m": [
           [
-            868.75,
-            -2169.38
+            860.62,
+            -2152.48
           ],
           [
-            994.62,
-            -2167.59
+            987.53,
+            -2151.52
           ],
           [
-            1004.6,
-            -2970.78
+            995.49,
+            -2950.05
           ],
           [
-            868.38,
-            -2969.62
+            867.69,
+            -2952.35
           ]
         ]
       },
       "stops": [],
-      "initial_distance_m": 808,
+      "initial_distance_m": 802.5,
       "hours": [
         5.25,
         19.25

@@ -16,12 +16,11 @@
  * 1835 teamsters do. Phones and Light take its far level, and every row is `streamed`
  * (town-transport.js): only the teams near the visitor are built.
  *
- * WHERE. data/transport/driven/drivers_1871.json: each team a round of four streets at least
- * 20 m between kerbs, clockwise, so its corners are right turns about its own block; it keeps
- * LANE_M right of the crown, and its 17 m turn (the wagon steers to 8 degrees) keeps its inside
- * wheels about 9 m from the crossing's middle, inside a 20 m street's kerbs. A narrower street
- * (the 12-14 m reconstructed streets of the context city) cannot take that turn, so no team
- * drives one. Rounds share no street in the same direction. A team never stands at a door (no
+ * WHERE. data/transport/driven/drivers_1871.json: each team a round of four platted streets,
+ * clockwise, so its corners are right turns about its own block. It keeps LANE_M right of the
+ * crown where the carriageway allows, and less on a narrower one (the row's `lanes_m`: half the
+ * carriageway less 5.5 m), so its 17 m turn (the wagon steers to 8 degrees) stays on the roadway
+ * of the two streets it joins. The lattice's reconstructed streets carry no round. Rounds share no street in the same direction. A team never stands at a door (no
  * `stops`): it halts only where its way is held (transport-crossings.js, the visitor, a horse),
  * so no team stands in the street with nobody at its head. The roadways are the context city's
  * level ribbons (wood block), so a team stands on the certified level plane, not in ruts: its
@@ -70,8 +69,10 @@ const SOURCES = ['edwards_chicago_directory_1871', 'census_1870_us_vol1', 'mitch
 // The driver routine's hours out with the team (tools/town_people_1871.py "driver"), a little inside them.
 const OUT_FROM = 6, OUT_TO = 20;
 
-/** The round's lane: each leg moved LANE_M to the right of its direction, corners where the moved legs meet. */
+/** The round's lane: each leg moved right of its direction (LANE_M, or the leg's own entry of
+ * `off` on a narrower street), corners where the moved legs meet. */
 export function lane(pts, off = LANE_M) {
+  const offs = Array.isArray(off) ? off : pts.map(() => off);
   const n = pts.length;
   const legs = pts.map((p, i) => {
     const q = pts[(i + 1) % n], L = Math.hypot(q[0] - p[0], q[1] - p[1]);
@@ -80,8 +81,9 @@ export function lane(pts, off = LANE_M) {
   });
   return legs.map((leg, i) => {
     const prev = legs[(i + n - 1) % n];
-    const pa = [prev.p[0] + prev.r[0] * off, prev.p[1] + prev.r[1] * off];
-    const pb = [leg.p[0] + leg.r[0] * off, leg.p[1] + leg.r[1] * off];
+    const oa = offs[(i + n - 1) % n], ob = offs[i];
+    const pa = [prev.p[0] + prev.r[0] * oa, prev.p[1] + prev.r[1] * oa];
+    const pb = [leg.p[0] + leg.r[0] * ob, leg.p[1] + leg.r[1] * ob];
     const det = prev.d[0] * leg.d[1] - prev.d[1] * leg.d[0];
     const t = ((pb[0] - pa[0]) * leg.d[1] - (pb[1] - pa[1]) * leg.d[0]) / det;
     return [Math.round((pa[0] + prev.d[0] * t) * 100) / 100, Math.round((pa[1] + prev.d[1] * t) * 100) / 100];
@@ -99,7 +101,7 @@ export function buildRows() {
   return drivers.map((d, k) => {
     const who = byRow.get(d.row);
     if (!who?.asset_id) throw Error(`lay_driven_1871: ${d.row} has no driver in data/humans/inside_1871.json (run tools/town_people_1871.py)`);
-    const points = lane(fit(d.corners, CORNER_R));
+    const points = lane(fit(d.corners, CORNER_R), d.lanes_m ?? LANE_M);
     const spec = { kind: 'path', corner_radius_m: CORNER_R, points_enu_m: points };
     const route = routeFor(spec);
     const shift = Number(who.shift) || 0;
