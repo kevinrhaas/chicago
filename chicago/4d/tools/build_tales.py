@@ -56,7 +56,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / 'docs/RESEARCH/tales-3553'
 ASKS = ROOT / 'docs/RESEARCH/asks-3553'
 OUT = ROOT / 'data/tales'
-SCENES = ('1812', '1835', '1904')
+SCENES = ('1812', '1835', '1871', '1904')
 FIELDS = {'roles', 'for', 'sex', 'age', 'title', 'meet', 'from', 'to'}
 
 # The figure a person is drawn as says what the visitor sees: a woman's figure tells a
@@ -159,6 +159,9 @@ def parse_personas(path: Path) -> dict:
 # A figure's temperament leans the way their life leans: {role: [temper, ...]}, picked from by a
 # hash of their id, so it is the same on every visit and two neighbours seldom share one.
 TEMPER_BY_ROLE = {
+    # T-3690: 1871's.
+    'tradesman': ['shrewd', 'talkative', 'wry', 'earnest', 'cheerful'], 'workman': ['earnest', 'wry', 'gloomy', 'cheerful', 'wary'],
+    'driver': ['wry', 'cheerful', 'earnest'], 'servant': ['shy', 'cheerful', 'earnest', 'talkative'],
     'soldier': ['wary', 'wry', 'gloomy', 'earnest', 'fiery', 'cheerful', 'proud'],
     'officer': ['proud', 'earnest', 'wary', 'shrewd'],
     'militia': ['earnest', 'wary', 'gloomy', 'proud'],
@@ -221,6 +224,9 @@ TOPICS_BY_ROLE = {
     'young_lady': ['fun', 'kin'], 'maid': ['work', 'home'], 'cook': ['work', 'talk'],
     'coachman': ['wild', 'work'], 'manservant': ['work', 'talk'], 'nurse': ['kin', 'work'],
     'housekeeper': ['work', 'talk'],
+    # T-3690: 1871's.
+    'tradesman': ['trade', 'talk'], 'workman': ['work', 'home'], 'driver': ['work', 'wild'], 'servant': ['work', 'kin'],
+    'german': ['home', 'fun'], 'scandinavian': ['home', 'work'], 'bohemian': ['home', 'kin'],
 }
 ORIGIN_1835 = {'yankee': 'A Yankee from New England', 'new_york': 'From New York', 'irish': 'From Ireland',
                'british': 'From Britain', 'french_canadian': 'Of the old French families', 'native': 'Potawatomi',
@@ -271,6 +277,16 @@ def who_line(scene: str, pid: str, row: dict, person: dict, roles: list, sex: st
                         .get(rel, f'of the {name} household'))
         elif rel in ('lodger', 'boarder') or 'lodgers' in (row.get('household_name') or ''):
             bits.append('a boarder')
+    elif scene == '1871':
+        facts = {f.get('label'): f.get('value') for f in person.get('card_facts') or [] if isinstance(f, dict)}
+        if facts.get('Born'):
+            bits.append(f"Born in {facts['Born']}")
+        if facts.get('Work') and not child:
+            bits.append(facts['Work'].lower())
+        hm = re.match(r'The (.+?) household (.+)$', row.get('household_name') or '')
+        if hm:
+            bits.append({'head': f'head of the {hm.group(1)} household', 'wife': f'wife in the {hm.group(1)} household'}
+                        .get(row.get('relationship') or '', f'of the {hm.group(1)} household'))
     else:
         note = person.get('note') or ''
         m = re.search(r'born [A-Z][a-z]+ \d{4}[^,.;]*, in ([^,(.;]+?)\s*[,(.;]', note)
@@ -507,6 +523,27 @@ def roles_1835(row, person, sex, age, child, routine):
     return list(dict.fromkeys(out))
 
 
+# T-3690: the 1871 city's people (tools/town_people_1871.py): their day's routine says their place
+# in the city, their card's Community fact their people.
+COMMUNITY_1871 = {'Irish': 'irish', 'German': 'german', 'Scandinavian': 'scandinavian', 'Bohemian': 'bohemian',
+                  'Black Chicagoan': 'black_resident'}
+
+
+def roles_1871(person, sex, child, routine):
+    if child:
+        return ['child']
+    out = {'gentleman': ['gentleman'], 'lady': ['lady'], 'tradesman': ['tradesman'], 'workman': ['workman'],
+           'woman': ['woman'], 'woman_trade': ['needlewoman', 'woman'], 'servant': ['servant'],
+           'lad': ['youth'], 'girl': ['youth'], 'driver': ['driver', 'workman']}.get(routine, ['woman'] if sex == 'f' else ['tradesman'])
+    facts = {f.get('label'): f.get('value') for f in person.get('card_facts') or [] if isinstance(f, dict)}
+    com = COMMUNITY_1871.get(facts.get('Community'))
+    if com:
+        out.append(com)
+    if sex == 'f':
+        out = [r for r in out if r not in ('gentleman', 'tradesman', 'workman', 'driver')] or ['woman']
+    return list(dict.fromkeys(out))
+
+
 def roles_1904(row, person, sex, age, child):
     occ = (row.get('occupation') or '').lower()
     rel = row.get('relationship') or ''
@@ -553,6 +590,8 @@ def tellers(scene: str) -> dict:
             roles = roles_1812(row, person, sex, age, child)
         elif scene == '1835':
             roles = roles_1835(row, person, sex, age, child, inside.get(pid, {}).get('routine'))
+        elif scene == '1871':
+            roles = roles_1871(person, sex, child, inside.get(pid, {}).get('routine'))
         else:
             roles = roles_1904(row, person, sex, age, child)
         if age is not None and age < 4:
@@ -567,7 +606,7 @@ def tellers(scene: str) -> dict:
 POOL_MIN = 12
 # A figure the builder did not know tells the town's common stories.
 FALLBACK = {'1812': {'m': 'settler_man', 'f': 'woman'}, '1835': {'m': 'townsman', 'f': 'townswoman'},
-            '1904': {'m': 'gentleman', 'f': 'lady'}}
+            '1871': {'m': 'tradesman', 'f': 'woman'}, '1904': {'m': 'gentleman', 'f': 'lady'}}
 WIDER = {
     'household_servant': ('settler_man', 'woman'), 'teacher': ('townsman', 'townswoman'),
     'innkeeper': ('townsman', 'townswoman'), 'boarding_keeper': ('townsman', 'townswoman'),
@@ -576,6 +615,9 @@ WIDER = {
     'nurse': ('manservant', 'maid'), 'cook': ('manservant', 'maid'), 'coachman': ('manservant', 'maid'),
     'housekeeper': ('manservant', 'maid'), 'professional': ('townsman', 'townswoman'),
     'clerk': ('townsman', 'townswoman'),
+    # T-3690: 1871's (roles no other scene has).
+    'german': ('tradesman', 'woman'), 'scandinavian': ('workman', 'woman'), 'bohemian': ('workman', 'woman'),
+    'driver': ('workman', None), 'servant': (None, 'woman'),
 }
 
 
@@ -596,6 +638,16 @@ ASK_WIDER = {
     'housekeeper': ([], ['maid', 'cook']), 'cook': ([], ['maid']), 'coachman': (['manservant'], []),
     'metis': (['canadien'], ['canadien']), 'canadien': (['townsman'], ['townswoman']),
     'youth': (['townsman'], ['townswoman']), 'engage': (['settler_man'], []), 'militia': (['settler_man'], []),
+}
+
+
+# T-3690: 1871's roles, kept to that scene's file (another scene's `ask_wider` lists only its own).
+ASK_WIDER_1871 = {
+    'workman': (['tradesman', 'driver'], ['woman']), 'tradesman': (['gentleman', 'workman'], ['woman']),
+    'driver': (['workman'], []), 'servant': ([], ['woman']), 'german': (['tradesman', 'workman'], ['woman']),
+    'scandinavian': (['workman'], ['woman']), 'bohemian': (['workman'], ['woman']),
+    'irish': (['workman', 'tradesman'], ['woman', 'servant']), 'black_resident': (['workman'], ['woman']),
+    'youth': (['tradesman'], ['woman']), 'needlewoman': ([], ['woman', 'lady']), 'gentleman': (['tradesman'], ['lady']),
 }
 
 
@@ -723,7 +775,7 @@ def build(scene: str) -> dict:
         'ask_roles': dict(sorted(ask_roles.items())),
         'asks': asks,
         'personal_asks': dict(sorted(personal_asks.items())),
-        'ask_wider': {r: {'m': m, 'f': f} for r, (m, f) in sorted(ASK_WIDER.items())
+        'ask_wider': {r: {'m': m, 'f': f} for r, (m, f) in sorted({**ASK_WIDER, **(ASK_WIDER_1871 if scene == '1871' else {})}.items())
                       if any(r in a['roles'] for a in asks) or any(x in a['roles'] for x in m + f for a in asks)},
         'tempers': {k: {'name': v['name'], 'lines': v['lines']} for k, v in sorted(tempers.items())},
         'persona': persona,

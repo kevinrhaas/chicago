@@ -151,9 +151,12 @@ export function libertyEntryHtml(lib, { names = new Map(), showSubjects = true, 
  * @param {object[]} liberties  the derived list
  * @param {string} subjectId    a structure_id
  */
-export function libertiesFor(liberties, subjectId) {
+export function libertiesFor(liberties, subjectId, explicitIds = []) {
   if (!subjectId || !Array.isArray(liberties)) return [];
-  return liberties.filter((lib) => Array.isArray(lib.subjects) && lib.subjects.includes(subjectId));
+  // Generated context instances share an explicitly declared scene-level liberty.
+  const declared = new Set(Array.isArray(explicitIds) ? explicitIds : []);
+  return liberties.filter((lib) => declared.has(lib.id)
+    || (Array.isArray(lib.subjects) && lib.subjects.includes(subjectId)));
 }
 
 /**

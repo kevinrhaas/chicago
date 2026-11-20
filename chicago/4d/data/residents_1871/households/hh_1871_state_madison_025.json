@@ -1,0 +1,124 @@
+{
+ "id": "hh_1871_state_madison_025",
+ "scene": "1871",
+ "name": "Friedrich Braun's lodging in the blocks about State and Madison streets",
+ "head": "hh_1871_state_madison_025_1",
+ "division": "state_madison",
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "sources": [
+   "census_1870_us_vol1"
+  ],
+  "note": "A reconstructed household of the 1870 census's city."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "state_madison",
+   "resolves_to": "neighbourhood",
+   "tier": "reconstructed",
+   "source_id": "mitchell_1870_chicago_map",
+   "note": "Lives in the blocks about State and Madison streets; the house is an anonymous building of the context city (L-1871-city-baseline), found at run time on the street nearest the household's place."
+  }
+ ],
+ "arrival": {
+  "value": "1868",
+  "precision": "year",
+  "tier": "reconstructed"
+ },
+ "card_evidence": [
+  {
+   "source_id": "census_1870_us_vol1",
+   "locator": "Population of Chicago, 1870",
+   "quote": "the 1870 Census counted 298,977 people living in Chicago, Illinois",
+   "claim": "The city's count; this card is one of the reconstructed households drawn at about one person in eighty-five."
+  },
+  {
+   "source_id": "edwards_chicago_directory_1871",
+   "locator": "the directory's occupations",
+   "claim": "The trades are in the directory's words; no listing is claimed for this household."
+  }
+ ],
+ "persons": [
+  {
+   "id": "hh_1871_state_madison_025_1",
+   "name": "Friedrich Braun",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "32-32",
+    "low": 32,
+    "high": 32,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "machinist",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the German people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 32",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Holstein",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "German",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Machinist",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1839 in Holstein and came to Chicago about 1868. He works as a machinist, and the household lives in the blocks about State and Madison streets. The family's church is St. Michael's."
+    ]
+   }
+  }
+ ]
+}

@@ -45,13 +45,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "generators"))
-sys.path.insert(0, str(ROOT / "generators"))
+sys.path.insert(0, str(ROOT / "tools"))
 
 import bpy  # noqa: E402
 
 import ao_export  # noqa: E402
 import emit  # noqa: E402
 import mesh_inputs  # noqa: E402
+from scene_selection import selection_errors, structure_is_selected  # noqa: E402
 
 from common.versions import (asset_key, label_problem, load_versions,  # noqa: E402
                              read_manifest, write_manifest)
@@ -152,13 +153,15 @@ def main() -> int:
     # is built once. --scene still narrows to one.
     scene_ids = [args.scene] if args.scene else sorted(
         p.stem for p in (ROOT / "data" / "scenes").glob("*.json"))
-    targets = [dt.date.fromisoformat(load(ROOT / "data" / "scenes" / f"{sid}.json")
-                                     ["target_date"]) for sid in scene_ids]
+    scenes = [load(ROOT / "data" / "scenes" / f"{sid}.json") for sid in scene_ids]
+    targets = [dt.date.fromisoformat(sc["target_date"]) for sc in scenes]
     target = ", ".join(str(t) for t in targets)
 
     def phases_in_scenes(structure: dict) -> list:
         seen, out = set(), []
-        for t in targets:
+        for sc, t in zip(scenes, targets):
+            if not structure_is_selected(sc, structure["id"]):
+                continue
             ph = resolve_phase(structure, t)
             if ph is not None and ph.get("id") not in seen:
                 seen.add(ph.get("id"))
@@ -178,6 +181,11 @@ def main() -> int:
     # an id that does not exist is refused BEFORE the first Blender operation
     # rather than discovered as an empty result afterwards (T-1652).
     records = [load(path) for path in sorted((ROOT / "data" / "structures").glob("*.json"))]
+    for sc in scenes:
+        errors = selection_errors(sc, (st["id"] for st in records))
+        if errors:
+            print(f"REFUSING TO BUILD scene {sc['id']}: " + "; ".join(errors))
+            return REFUSED
     only = parse_only(args.only)
     refused = refusal(only, [st["id"] for st in records])
     if refused:

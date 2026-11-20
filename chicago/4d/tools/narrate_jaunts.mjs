@@ -6,6 +6,7 @@
  *   node tools/narrate_jaunts.mjs --list-voices          the owner's ElevenLabs voices and their ids
  *   node tools/narrate_jaunts.mjs --voice --out DIR      voice what changed into DIR/narration/
  *   node tools/narrate_jaunts.mjs --verify DIR           check DIR's upload on the public media host
+ *   node tools/narrate_jaunts.mjs --quota                the account's ElevenLabs credits used, limit, reset
  *
  *   --jaunt ID        only this jaunt (it must be listed in data/narration/voices.json)
  *   --max-chars N     refuse a run that would spend more characters (default: the config's)
@@ -39,8 +40,21 @@ export function loadConfig(root = ROOT) {
   if (config.version !== 1 || !Array.isArray(config.jaunts) || typeof config.voices !== 'object' || typeof config.narrators !== 'object') throw Error('voices.json: unknown shape');
   const ids = Object.keys(config.narrators).join(), app = NARRATORS.map(n => n.id).join();
   if (ids !== app) throw Error(`voices.json narrators (${ids}) differ from the app's choices in narration.js (${app})`);
+  for (const j of jauntEntries(config)) {
+    if (!j.id) throw Error('voices.json: a jaunts entry has no id');
+    for (const n of j.narrators) if (!config.narrators[n]) throw Error(`voices.json: ${j.id} names narrator "${n}", which is not in narrators`);
+  }
   return config;
 }
+/** The voiced jaunts and the narrators each is voiced in. An entry is a jaunt id (every narrator)
+ *  or { id, narrators: [...] }. The owner, 2026-11-19 (T-3696): new jaunts are voiced in the
+ *  Cultivated Essayist only, the Storyteller later, to keep inside the ElevenLabs budget; the app
+ *  plays the default narrator's clip when the chosen one has none (narration.js clipFor). */
+export function jauntEntries(config) {
+  return config.jaunts.map(j => (typeof j === 'string' ? { id: j, narrators: Object.keys(config.narrators) }
+    : { id: j.id, narrators: j.narrators ?? Object.keys(config.narrators) }));
+}
+export const jauntIds = config => jauntEntries(config).map(j => j.id);
 /** The words of a text, and nothing else: what a performance copy must keep unchanged. Tags in
  *  square brackets are directions; case, punctuation and spacing are the performance's. */
 export function spokenWords(text) {
@@ -71,6 +85,35 @@ export function directionProblems(scripts, directions) {
   return [...new Set(problems)];
 }
 
+/** The smooth style (owner, 2026-11-19, T-3696: "not a lot of transition between topics and also
+ *  pauses between subjects"; "the parts where they whisper and laugh could be toned down"; "that
+ *  smoother narration rule applies for all the jaunts"). A direction file marked
+ *  `"style": "smooth"` is held to it: no whispering, at most one laugh in a script, and a pause
+ *  ([short pause], [long pause] or an ellipsis) at least every SMOOTH.words_per_pause words, so
+ *  a speaker breathes between subjects. docs/AUDIO.md § Narration style. Every new or re-made
+ *  direction is written in it; older files say nothing, and are brought to it when next voiced. */
+export const SMOOTH = { words_per_pause: 50, laughs: 1 };
+const LAUGH = /\[(?:laughs?|laughing|chuckles?|chuckling|giggles?|giggling|snickers?)[^\]]*\]/gi;
+const WHISPER = /\[(?:whispers?|whispering)[^\]]*\]/gi;
+const PAUSE = /\[(?:short |long )?pause\]|\.\.\.|…/gi;
+export function styleProblems(id, file) {
+  if (file?.style !== 'smooth') return [];
+  const out = [];
+  for (const [k, text] of Object.entries(file.scripts ?? {})) {
+    const words = spokenWords(text).length, pauses = (text.match(PAUSE) ?? []).length;
+    if ((text.match(WHISPER) ?? []).length) out.push(`${id}/${k}: whispers (the smooth style has none)`);
+    const laughs = (text.match(LAUGH) ?? []).length;
+    if (laughs > SMOOTH.laughs) out.push(`${id}/${k}: ${laughs} laughs (the smooth style allows ${SMOOTH.laughs})`);
+    const need = Math.floor(words / SMOOTH.words_per_pause);
+    if (pauses < need) out.push(`${id}/${k}: ${pauses} pause(s) in ${words} words (the smooth style wants ${need})`);
+  }
+  return out;
+}
+export function loadDirectionFile(id, root = ROOT) {
+  const file = path.join(root, 'data/narration/direction', `${id}.json`);
+  return fs.existsSync(file) ? read(file) : null;
+}
+
 export function publicBase(root = ROOT) {
   return new URL(read(path.join(root, 'tools/audio-hosting.json')).public_base).href;
 }
@@ -79,7 +122,7 @@ export function publicBase(root = ROOT) {
  *  narrator script is listed once for each narrator (`narrator` names which). */
 export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
   const out = [];
-  for (const id of config.jaunts) {
+  for (const { id, narrators } of jauntEntries(config)) {
     if (only && id !== only) continue;
     const source = read(path.join(root, 'data/jaunts', `${id}.json`));
     const jaunt = read(path.join(root, 'data/sidecars', source.scene, 'jaunts', `${id}.json`));
@@ -89,7 +132,7 @@ export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
       const directed = direction[`${script.part}:${script.id}`];
       const spoken = directed != null && sameWords(directed, script.text) ? directed : script.text;
       const spoken_sha256 = sha(spoken);
-      for (const narrator of script.speaker === NARRATOR ? Object.keys(config.narrators) : [null]) {
+      for (const narrator of script.speaker === NARRATOR ? narrators : [null]) {
         out.push({ ...script, jaunt: id, scene: source.scene, text_sha256, spoken, spoken_sha256, directed: spoken !== script.text, narrator,
           key: clipKey(text_sha256, script.speaker, narrator ?? DEFAULT_NARRATOR) });
       }
@@ -131,6 +174,18 @@ export function plan(scripts, config, index, names = null) {
   return { todo, current, skipped, chars: todo.reduce((n, s) => n + (s.spoken ?? s.text).length, 0) };
 }
 
+/** The longest start of the plan (in its order) that fits `budget` characters; a clip is never
+ *  split, and one that does not fit ends the batch so the order is kept. */
+export function takeWithin(todo, budget) {
+  let chars = 0, i = 0;
+  for (; i < todo.length; i++) {
+    const n = (todo[i].spoken ?? todo[i].text).length;
+    if (chars + n > budget) break;
+    chars += n;
+  }
+  return { batch: todo.slice(0, i), rest: todo.slice(i), chars };
+}
+
 async function readIndex(where, fetcher = fetch) {
   if (where && !/^https?:/.test(where)) return fs.existsSync(where) ? read(where) : { version: 1, clips: {} };
   const url = where ?? new URL(INDEX_PATH, publicBase()).href;
@@ -147,6 +202,22 @@ export async function listVoices(key, fetcher = fetch) {
   if (!r.ok) throw Error(`ElevenLabs voices: HTTP ${r.status} ${await r.text().catch(() => '')}`.trim());
   return (await r.json()).voices.map(v => ({ name: v.name, id: v.voice_id, category: v.category }));
 }
+
+/** The account's ElevenLabs quota (T-3696): credits used this billing period, its limit and when it
+ *  resets. A key without the user_read permission gets null, and the run says so; it never fails a
+ *  run, which still voices. Asked before and after voicing, the difference is what the run spent. */
+export async function quota(key, fetcher = fetch) {
+  try {
+    const r = await fetcher(`${API}/v1/user/subscription`, { headers: { 'xi-api-key': key } });
+    if (!r.ok) return { error: `HTTP ${r.status}` };
+    const q = await r.json();
+    if (!Number.isFinite(q.character_count) || !Number.isFinite(q.character_limit)) return { error: 'unknown shape' };
+    return { tier: q.tier ?? null, used: q.character_count, limit: q.character_limit,
+      resets: Number.isFinite(q.next_character_count_reset_unix) ? new Date(q.next_character_count_reset_unix * 1000).toISOString() : null };
+  } catch (e) { return { error: e.message }; }
+}
+export const quotaLine = (q, when) => (q.error ? `ElevenLabs quota ${when}: not readable (${q.error}; the key needs the user_read permission)`
+  : `ElevenLabs quota ${when}: ${q.used} of ${q.limit} credits used this period (${q.limit - q.used} left${q.tier ? `, plan ${q.tier}` : ''}${q.resets ? `, resets ${q.resets}` : ''})`);
 
 export async function synthesize(key, script, fetcher = fetch, { tries = 4, wait = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const { voice_id, output_format, ...body } = script.voice.params;
@@ -171,8 +242,12 @@ export async function voice(work, index, out, key, { fetcher = fetch, now = () =
   fs.mkdirSync(dir, { recursive: true });
   const next = { version: 1, updated: now(), clips: { ...index.clips } }, made = [];
   if (narrators) next.narrators = narrators;
+  let stopped = null;
   for (const s of work) {
-    const bytes = await synthesize(key, s, fetcher);
+    // T-3696: a clip ElevenLabs refuses (out of credits, most likely) ends the run, but what was
+    // already voiced is paid for: it is kept, indexed and uploaded, and the rest waits.
+    let bytes;
+    try { bytes = await synthesize(key, s, fetcher); } catch (e) { stopped = { at: `${s.jaunt}/${s.part}:${s.id}`, error: e.message }; break; }
     const digest = sha(bytes), file = `narration/${digest}.mp3`;
     fs.writeFileSync(path.join(out, file), bytes);
     next.clips[s.key] = { text_sha256: s.text_sha256, file, bytes: bytes.length, sha256: digest,
@@ -186,7 +261,7 @@ export async function voice(work, index, out, key, { fetcher = fetch, now = () =
   }
   fs.writeFileSync(path.join(out, INDEX_PATH), JSON.stringify(next, null, 1) + '\n');
   fs.writeFileSync(path.join(out, 'made.json'), JSON.stringify(made) + '\n');
-  return { index: next, made };
+  return { index: next, made, stopped };
 }
 
 /** After upload: every made clip and the index are served, whole, from the public host. */
@@ -224,6 +299,11 @@ async function main(argv) {
     note(['Your ElevenLabs voices (name · id · kind):', ...voices.map(v => `  ${v.name} · ${v.id} · ${v.category}`)].join('\n'));
     return;
   }
+  if (has('--quota')) {
+    if (!key) throw Error('--quota needs ELEVENLABS_API_KEY');
+    note(quotaLine(await quota(key), 'now'));
+    return;
+  }
   if (has('--verify')) {
     const errors = await verify(arg('--verify'));
     if (errors.length) throw Error(`NARRATION VERIFY FAIL\n${errors.join('\n')}`);
@@ -232,22 +312,42 @@ async function main(argv) {
   }
   const config = loadConfig();
   const scripts = await scriptsFor(config, { only: arg('--jaunt') });
-  const stale = directionProblems(scripts, Object.fromEntries(config.jaunts.map(id => [id, loadDirection(id)])));
+  const stale = directionProblems(scripts, Object.fromEntries(jauntIds(config).map(id => [id, loadDirection(id)])));
   if (stale.length) note(['Direction set aside (the plain words are voiced instead):', ...stale.map(x => `  ${x}`)].join('\n'));
   const index = await readIndex(arg('--index'));
   const names = key && [...Object.values(config.voices), ...Object.values(config.narrators)].some(v => (typeof v === 'string' ? v : v?.voice) && !looksLikeId(typeof v === 'string' ? v : v.voice))
     ? new Map((await listVoices(key)).map(v => [v.name.replace(/\s+/g, ' ').trim().toLowerCase(), v.id])) : null;
   const p = plan(scripts, config, index, names);
   note(report(p, scripts, config));
+  const before = key ? await quota(key) : null;
+  if (before) note(quotaLine(before, 'before this run'));
   const max = Number(arg('--max-chars') ?? config.max_chars_per_run);
   if (has('--voice')) {
     const out = arg('--out'); if (!out) throw Error('--voice needs --out DIR');
     if (!p.todo.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing to voice.'); return; }
     if (!key) throw Error('--voice needs ELEVENLABS_API_KEY');
-    if (p.chars > max) throw Error(`this run would spend ${p.chars} characters, over the ${max} cap; raise --max-chars (or max_chars_per_run) to allow it`);
-    const { made } = await voice(p.todo, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
+    // T-3696 (the owner, 2026-11-19: "work towards the full budget"): a run voices the plan in
+    // order (voices.json's jaunt order, which is the budget plan's) up to the per-run cap and what
+    // the quota has left above its reserve; the rest waits for the next run, which takes up
+    // where this one stopped. A run never fails for want of credits.
+    const left = before && !before.error ? before.limit - before.used - (config.quota_reserve ?? 0) : Infinity;
+    const { batch, rest, chars } = takeWithin(p.todo, Math.min(max, left));
+    if (rest.length) note(`Over ${Math.min(max, left) === max ? `the ${max}-character cap per run` : `what the quota has left (${Math.max(0, left)} above the ${config.quota_reserve ?? 0} reserve)`}: `
+      + `${rest.length} clip(s), ${rest.reduce((n, s) => n + (s.spoken ?? s.text).length, 0)} characters, wait for the next run:\n`
+      + [...new Set(rest.map(s => s.jaunt))].map(j => `  ${j}`).join('\n'));
+    if (!batch.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing voiced this run.'); return; }
+    const { made, stopped } = await voice(batch, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
       choices: Object.fromEntries(Object.entries(config.narrators).map(([id, n]) => [id, n.label ?? id])) } });
-    note(`Voiced ${made.length} clip(s), ${p.chars} characters.`);
+    const spent = batch.slice(0, made.length).reduce((n, s) => n + (s.spoken ?? s.text).length, 0);
+    note(`Voiced ${made.length} clip(s), ${spent} characters.`);
+    if (stopped) {
+      note(`Stopped at ${stopped.at}: ${stopped.error}. The ${made.length} clip(s) voiced before it are kept and uploaded; the other ${batch.length - made.length} wait for the next run.`);
+      if (!made.length) throw Error(`nothing voiced: ${stopped.error}`);
+      console.log(`::warning::narration stopped early at ${stopped.at} (${stopped.error.slice(0, 160)})`);
+    }
+    const after = await quota(key);
+    note(quotaLine(after, 'after this run'));
+    if (!before.error && !after.error) note(`This run used ${after.used - before.used} ElevenLabs credits (${spent} characters sent).`);
   }
 }
 

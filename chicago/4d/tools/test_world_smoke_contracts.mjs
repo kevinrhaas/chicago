@@ -1,5 +1,14 @@
 import assert from 'node:assert/strict';
 import { STRUCTURE_BATCH_KEYS, MAPPED_BATCH, structureBatchContract, greenTreeYardMode } from './world_smoke_contracts.mjs';
+import { isHorizonReference } from '../renderers/web/js/time-of-day.js';
+// A valid autumn sky was rejected against July 1835's measured north horizon,
+// leaving bright fixed-colour fog under a darker sampled sky. The same is true
+// of another scene's own hour and of alternate seasons in the reference year.
+assert.equal(isHorizonReference('1835-07-01', '12:30'), true);
+for (const [date, time] of [
+  ['1871-10-08', '16:00'], ['1812-08-14', '15:00'], ['1904-07-01', '10:30'],
+  ['1835-10-15', '12:30'], ['1835-07-01', '16:00'], ['1835-07-01', 'daytime'],
+]) assert.equal(isHorizonReference(date, time), false, `${date} ${time} must use its own sky`);
 const batches = STRUCTURE_BATCH_KEYS.map((key) => ({ key, owners: ['source-owner'],
   mapped: MAPPED_BATCH.test(key), validMaterial: true }));
 assert.ok(structureBatchContract(batches));

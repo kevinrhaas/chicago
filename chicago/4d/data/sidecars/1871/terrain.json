@@ -1,0 +1,380 @@
+{
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "epoch": "e1871_prefire",
+  "scope": "Full municipal context baseline before the fire; forms and grades are reconstructed, not parcel-identification claims.",
+  "standard": "",
+  "context": [],
+  "claims": [
+    {
+      "id": "bank",
+      "group": "the bank",
+      "label": "reconstructed river banks",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [],
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "ruger_1868_chicago_panorama",
+        "chicago_public_works_1871"
+      ],
+      "citations": [
+        {
+          "source_id": "chicago_public_works_1871",
+          "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+            "Contracted sidewalk work, park improvements and canal-opening chronology.",
+            "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet."
+          ],
+          "what_it_does_not_supply": [
+            "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+            "Individual building footprints or facades."
+          ]
+        },
+        {
+          "source_id": "mitchell_1870_chicago_map",
+          "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+          "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+            "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+          ],
+          "what_it_does_not_supply": [
+            "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+            "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+          ]
+        },
+        {
+          "source_id": "ruger_1868_chicago_panorama",
+          "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+          "url": "https://www.loc.gov/item/73693350/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+            "Central-city spatial relationships from Schiller Street to Twelfth Street."
+          ],
+          "what_it_does_not_supply": [
+            "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+            "Photographic color or an exhaustive citywide building inventory."
+          ]
+        }
+      ],
+      "notes": [
+        "The 1870 map's river routes carry reconstructed channel widths bounded by period swing-bridge spans, with a broad bank transition at the context field resolution."
+      ],
+      "work_refs": [
+        "T-3685"
+      ]
+    },
+    {
+      "id": "lake_surface",
+      "group": "the lake surface",
+      "label": "lake surface",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [],
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "ruger_1868_chicago_panorama",
+        "chicago_public_works_1871"
+      ],
+      "citations": [
+        {
+          "source_id": "chicago_public_works_1871",
+          "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+            "Contracted sidewalk work, park improvements and canal-opening chronology.",
+            "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet."
+          ],
+          "what_it_does_not_supply": [
+            "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+            "Individual building footprints or facades."
+          ]
+        },
+        {
+          "source_id": "mitchell_1870_chicago_map",
+          "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+          "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+            "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+          ],
+          "what_it_does_not_supply": [
+            "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+            "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+          ]
+        },
+        {
+          "source_id": "ruger_1868_chicago_panorama",
+          "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+          "url": "https://www.loc.gov/item/73693350/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+            "Central-city spatial relationships from Schiller Street to Twelfth Street."
+          ],
+          "what_it_does_not_supply": [
+            "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+            "Photographic color or an exhaustive citywide building inventory."
+          ]
+        }
+      ],
+      "notes": [
+        "Lake and river are held at the project's shared zero datum; no October 8 lake-stage observation is claimed."
+      ],
+      "work_refs": [
+        "T-3685"
+      ]
+    },
+    {
+      "id": "graded_ground",
+      "group": "the graded lots",
+      "label": "city context grade",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [],
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "ruger_1868_chicago_panorama",
+        "chicago_public_works_1871"
+      ],
+      "citations": [
+        {
+          "source_id": "chicago_public_works_1871",
+          "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+            "Contracted sidewalk work, park improvements and canal-opening chronology.",
+            "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet."
+          ],
+          "what_it_does_not_supply": [
+            "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+            "Individual building footprints or facades."
+          ]
+        },
+        {
+          "source_id": "mitchell_1870_chicago_map",
+          "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+          "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+            "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+          ],
+          "what_it_does_not_supply": [
+            "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+            "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+          ]
+        },
+        {
+          "source_id": "ruger_1868_chicago_panorama",
+          "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+          "url": "https://www.loc.gov/item/73693350/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+            "Central-city spatial relationships from Schiller Street to Twelfth Street."
+          ],
+          "what_it_does_not_supply": [
+            "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+            "Photographic color or an exhaustive citywide building inventory."
+          ]
+        }
+      ],
+      "notes": [
+        "A common raised-city context grade provides coherent street, lot and walk support. It is not a surveyed 1871 elevation model."
+      ],
+      "work_refs": [
+        "T-3685"
+      ]
+    },
+    {
+      "id": "lake_shelf",
+      "group": "the lake bed",
+      "label": "lake shelf",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [],
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "ruger_1868_chicago_panorama",
+        "chicago_public_works_1871"
+      ],
+      "citations": [
+        {
+          "source_id": "chicago_public_works_1871",
+          "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+            "Contracted sidewalk work, park improvements and canal-opening chronology.",
+            "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet."
+          ],
+          "what_it_does_not_supply": [
+            "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+            "Individual building footprints or facades."
+          ]
+        },
+        {
+          "source_id": "mitchell_1870_chicago_map",
+          "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+          "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+            "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+          ],
+          "what_it_does_not_supply": [
+            "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+            "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+          ]
+        },
+        {
+          "source_id": "ruger_1868_chicago_panorama",
+          "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+          "url": "https://www.loc.gov/item/73693350/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+            "Central-city spatial relationships from Schiller Street to Twelfth Street."
+          ],
+          "what_it_does_not_supply": [
+            "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+            "Photographic color or an exhaustive citywide building inventory."
+          ]
+        }
+      ],
+      "notes": [
+        "An unmeasured low channel/lake bed lets the historical waterline read. It is a context depth, not a soundings reconstruction."
+      ],
+      "work_refs": [
+        "T-3685"
+      ]
+    },
+    {
+      "id": "surface_texture",
+      "group": "the surface texture",
+      "label": "surface texture",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [],
+      "sources": [
+        "mitchell_1870_chicago_map",
+        "ruger_1868_chicago_panorama",
+        "chicago_public_works_1871"
+      ],
+      "citations": [
+        {
+          "source_id": "chicago_public_works_1871",
+          "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+          "url": "https://archive.org/details/annualreportboa06workgoog",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+            "Contracted sidewalk work, park improvements and canal-opening chronology.",
+            "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet."
+          ],
+          "what_it_does_not_supply": [
+            "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+            "Individual building footprints or facades."
+          ]
+        },
+        {
+          "source_id": "mitchell_1870_chicago_map",
+          "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+          "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+            "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+          ],
+          "what_it_does_not_supply": [
+            "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+            "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+          ]
+        },
+        {
+          "source_id": "ruger_1868_chicago_panorama",
+          "citation": "A. Ruger. Chicago in 1868 from Schiller Street north side to 12th Street south side. Chicago Lithographing Co., 1868. Library of Congress 73693350.",
+          "url": "https://www.loc.gov/item/73693350/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "Contemporary pictorial context: dense commercial buildings, low gabled dwellings, churches, warehouses, railway facilities and waterfront activity.",
+            "Central-city spatial relationships from Schiller Street to Twelfth Street."
+          ],
+          "what_it_does_not_supply": [
+            "Surveyed footprints, accurate heights, calibrated roof pitches or unchanged October 1871 appearance for individual properties.",
+            "Photographic color or an exhaustive citywide building inventory."
+          ]
+        }
+      ],
+      "notes": [
+        "Earth, grass and sandy ground appearance is generic context; no later grading, park construction or fill is imported."
+      ],
+      "work_refs": [
+        "T-3685"
+      ]
+    },
+    {
+      "id": "datum.lake_stage",
+      "group": "the vertical datum",
+      "label": "How high the 1835 water surface stood",
+      "confidence": "reconstructed",
+      "confidence_key": "lake_stage_confidence",
+      "fields": [
+        {
+          "key": "export_offset_ft_asl",
+          "value": 580.0
+        }
+      ],
+      "sources": [],
+      "citations": [],
+      "notes": [
+        "No 1835 Lake Michigan stage record located. The mid-1830s fall in a high-water phase; 580 +/- 1.5 ft ASL is the working assumption. Check NOAA/GLERL historical Michigan-Huron reconstructions to narrow it.",
+        "Z = 0.0 ft at the summer-1835 lake and river water surface"
+      ]
+    }
+  ],
+  "not_modelled": []
+}

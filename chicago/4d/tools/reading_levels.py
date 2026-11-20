@@ -240,7 +240,9 @@ def current_texts(scene, files):
 
 
 def scenes():
-    by = {}
+    # A card may ask for its age table before any retellings are authored. An empty
+    # table preserves the card's own prose and gives that scene a valid lazy endpoint.
+    by = {p.stem: [] for p in sorted((ROOT / "data/scenes").glob("[0-9][0-9][0-9][0-9].json"))}
     for path in sorted(WORDS.glob('*.json')):
         scene = path.stem.split('-', 1)[0]
         by.setdefault(scene, []).append(path)
@@ -263,7 +265,7 @@ def main():
     # And the reader's overlay (data/reader/, ignored too): a building card's "why" is read through
     # it (tools/reading_why.mjs), so without it a fresh clone reads the builders' raw notes.
     subprocess.run([sys.executable, str(ROOT / 'tools/compile_reader_text.py')]
-                   + [a for s in ('1812', '1835', '1904') for a in ('--family', f'structures_{s}')],
+                   + [a for s in scenes() for a in ('--family', f'structures_{s}')],
                    cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
     if args.prepare:
         return 0
@@ -296,7 +298,7 @@ def main():
                 print(f'{scene} {r["card"]}: own {r["own"]} (grade {r["grade"]}) · {ages}')
     for path in sorted(OUT.glob('*.json')) if OUT.exists() else []:
         if path.name not in wanted:
-            failures.append(f'data/reading/{path.name} has no words files behind it')
+            failures.append(f'data/reading/{path.name} has neither a scene nor words files behind it')
     entries = sum(len(json.loads((OUT / n).read_text())['entries']) for n in wanted if (OUT / n).exists())
     if waiting:
         print(f'reading_levels: {len(waiting)} telling(s) wait for a re-key: their note changed since it was told, '

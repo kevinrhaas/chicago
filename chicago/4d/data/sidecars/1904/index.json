@@ -1123,9 +1123,9 @@
     },
     {
       "id": "house_2101_prairie",
-      "name": "2101 Prairie Avenue — Brick masonry (district draft; refined by T-1924)",
+      "name": "2101 Prairie Avenue — brick corner house of two and a half storeys on 21st Street, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2101_prairie.json",
-      "asset": "gltf/house_2101_prairie__draft_1904.glb"
+      "asset": "gltf/house_2101_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2101_prairie_coach_house",
@@ -1375,9 +1375,9 @@
     },
     {
       "id": "mark_kimball_house_2108_prairie",
-      "name": "2108 Prairie Avenue — Mark Kimball compact brick house (district draft; refined by T-1921)",
+      "name": "2108 Prairie Avenue — the Mark Kimball house, two storeys of brick behind a pale stone front over a high basement, its round-arched door at the head of an iron-railed stoop",
       "sidecar": "sidecars/1904/mark_kimball_house_2108_prairie.json",
-      "asset": "gltf/mark_kimball_house_2108_prairie__draft_1904.glb"
+      "asset": "gltf/mark_kimball_house_2108_prairie__as_mapped_1904.glb"
     },
     {
       "id": "mark_kimball_house_2108_prairie_coach_house",
@@ -1609,9 +1609,9 @@
     },
     {
       "id": "sherman_house_2100_prairie",
-      "name": "2100 Prairie Avenue — Sherman Victorian Gothic (district draft; refined by T-1919, T-1920)",
+      "name": "2100 Prairie Avenue — John B. Sherman house (Burnham & Root, 1874)",
       "sidecar": "sidecars/1904/sherman_house_2100_prairie.json",
-      "asset": "gltf/sherman_house_2100_prairie__draft_1904.glb"
+      "asset": "gltf/sherman_house_2100_prairie__as_mapped_1904.glb"
     },
     {
       "id": "sherman_house_2100_prairie_coach_house",
@@ -1657,9 +1657,9 @@
     },
     {
       "id": "tolman_house_2031_prairie",
-      "name": "2031 Prairie Avenue — Lemont-limestone Italianate row (district draft; refined by T-1918)",
+      "name": "2031 Prairie Avenue — Lemont-limestone row house of three storeys with a full-height canted bay and a two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/tolman_house_2031_prairie.json",
-      "asset": "gltf/tolman_house_2031_prairie__draft_1904.glb"
+      "asset": "gltf/tolman_house_2031_prairie__as_mapped_1904.glb"
     },
     {
       "id": "tolman_house_2031_prairie_coach_house",
@@ -1733,6 +1733,7 @@
     "burns_house_1812",
     "caldwell_agency_log_house",
     "carpenter_south_water_store",
+    "chamber_of_commerce_1871",
     "chappel_infant_school",
     "chicago_american_office",
     "chicago_democrat_office",
@@ -1741,6 +1742,7 @@
     "clybourn_cabins",
     "clybourn_slaughterhouse",
     "cobweb_castle",
+    "cook_county_court_house_1871",
     "cook_county_courthouse_1835",
     "council_house",
     "coursoll_field_1812",
@@ -2533,6 +2535,7 @@
     "robinson_caldwell_cabins",
     "sauganash_hotel",
     "sauganash_hotel_stable",
+    "sherman_house_1871",
     "slough_log_bridge",
     "south_bank_shed_dearborn_e2",
     "south_branch_raft_bridge",

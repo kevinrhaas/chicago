@@ -1,0 +1,27 @@
+{
+  "id": "chicago_public_works_1871",
+  "type": "book",
+  "citation": "Chicago Board of Public Works. Tenth Annual Report to the Common Council, for the municipal year ending March 31, 1871. Chicago, 1871.",
+  "author": "Chicago Board of Public Works",
+  "date": "1871",
+  "describes_date": "1870-04-01/1871-07-15",
+  "repository": "Internet Archive, digitized primarypublication",
+  "url": "https://archive.org/details/annualreportboa06workgoog",
+  "locator": "Printed pages 17, 44, 48–49, 52 and 84, identified individually in chicago/pre_fire_v1/data/field_notebook_1871.json. Preserved bridge-table scan: chicago/pre_fire_v1/media/research/works-1871-p49.jpg. Street paving (T-3685): pp. 22-23 (wooden-block mileage, the worn Clark and Lake Street pavement, the principal-thoroughfare rule), pp. 25-27 (statement of assessments for wooden-block pavement, by warrant) and p. 37 (lineal feet of wooden-block and boulder pavement by division), read from the Internet Archive OCR text; transcribed in chicago/4d/data/context/1871/paving_1871.json.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Original United States municipal publication dated 1871, public domain by age. This applies to the original report and faithful scan, not a modern annotated edition.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Primary pages were inspected for the existing research notebook. The actual preserved page 49 bridge table was inspected again for this foundation on 2026-11-18. Fiscal year ends March 31; page 17 includes a July 15 addendum.",
+  "what_it_supplies": [
+    "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
+    "Contracted sidewalk work, park improvements and canal-opening chronology.",
+    "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet (T-3685)."
+  ],
+  "what_it_does_not_supply": [
+    "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",
+    "Individual building footprints or facades."
+  ],
+  "note": "Report-year evidence is brought forward to October 8 only as a bounded assumption. Reported bridge length is not a clear navigation opening. Erie and Twenty-second bridges were not in use at the March count; an October opening is not established here. Generic swing bridges do not claim exact engineering detail."
+}

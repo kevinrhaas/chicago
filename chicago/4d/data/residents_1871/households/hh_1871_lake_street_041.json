@@ -1,0 +1,494 @@
+{
+ "id": "hh_1871_lake_street_041",
+ "scene": "1871",
+ "name": "The Sherman household near Lake Street and the river",
+ "head": "hh_1871_lake_street_041_1",
+ "division": "lake_street",
+ "present_on_scene_date": {
+  "value": "present",
+  "confidence": "reconstructed",
+  "sources": [
+   "census_1870_us_vol1"
+  ],
+  "note": "A reconstructed household of the 1870 census's city."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "lake_street",
+   "resolves_to": "neighbourhood",
+   "tier": "reconstructed",
+   "source_id": "mitchell_1870_chicago_map",
+   "note": "Lives near Lake Street and the river; the house is an anonymous building of the context city (L-1871-city-baseline), found at run time on the street nearest the household's place."
+  }
+ ],
+ "arrival": {
+  "value": "1852",
+  "precision": "year",
+  "tier": "reconstructed"
+ },
+ "card_evidence": [
+  {
+   "source_id": "census_1870_us_vol1",
+   "locator": "Population of Chicago, 1870",
+   "quote": "the 1870 Census counted 298,977 people living in Chicago, Illinois",
+   "claim": "The city's count; this card is one of the reconstructed households drawn at about one person in eighty-five."
+  },
+  {
+   "source_id": "edwards_chicago_directory_1871",
+   "locator": "the directory's occupations",
+   "claim": "The trades are in the directory's words; no listing is claimed for this household."
+  }
+ ],
+ "persons": [
+  {
+   "id": "hh_1871_lake_street_041_1",
+   "name": "Joseph Sherman",
+   "relationship": "head",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "40-40",
+    "low": 40,
+    "high": 40,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "sailor",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 40",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Pennsylvania",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Sailor",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1831 in Pennsylvania and came to Chicago about 1852. He works as a sailor, and the household lives near Lake Street and the river. The family's church is Second Presbyterian."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_lake_street_041_2",
+   "name": "Harriet Sherman",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "35-35",
+    "low": 35,
+    "high": 35,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 35",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Pennsylvania",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Keeping house",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1836 in Pennsylvania and came to Chicago about 1852. She keeps house for her husband Joseph and their family near Lake Street and the river. The family's church is Second Presbyterian."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_lake_street_041_3",
+   "name": "Sarah Sherman",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "16-16",
+    "low": 16,
+    "high": 16,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 16",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1855 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_lake_street_041_4",
+   "name": "William Sherman",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "15-15",
+    "low": 15,
+    "high": 15,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "occupation": {
+    "value": "apprentice",
+    "tier": "reconstructed",
+    "note": "A trade in the words of Edwards's 1871 directory, chosen for the household's means and community; not a listing."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 15",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "Apprentice",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1856 in Illinois and born in Chicago. He lives at home and works as an apprentice."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_lake_street_041_5",
+   "name": "Clara Sherman",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "female",
+   "age_band": {
+    "value": "13-13",
+    "low": 13,
+    "high": 13,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names her: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 13",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "At school",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "She was born about 1858 in Illinois and born in Chicago."
+    ]
+   }
+  },
+  {
+   "id": "hh_1871_lake_street_041_6",
+   "name": "George Sherman",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sources": [
+    "census_1870_us_vol1",
+    "edwards_chicago_directory_1871",
+    "mitchell_1870_chicago_map"
+   ],
+   "sex": "male",
+   "age_band": {
+    "value": "10-10",
+    "low": 10,
+    "high": 10,
+    "tier": "reconstructed",
+    "note": "Seeded within the household's believable spread of ages; not recorded."
+   },
+   "present_on_scene_date": {
+    "value": "present",
+    "confidence": "reconstructed",
+    "note": "A reconstructed resident of the 1871 city; no source places this person."
+   },
+   "note": "One of the city's 298,977 people of the 1870 census, whom no source names; carded so the streets of 8 October 1871 have their people. Name, age, birthplace, trade, household and day are reconstructed (L-town-people-1871).",
+   "reconstruction": {
+    "stage": "reconstructed_resident",
+    "ticket": "T-3690",
+    "liberty": "L-town-people-1871",
+    "name": "reconstructed",
+    "history": "reconstructed"
+   },
+   "name_basis": {
+    "value": "reconstructed",
+    "grade": "reconstructed",
+    "note": "No source names him: a name common among the American-born people of the period, chosen for this card. Any likeness to a real Chicagoan of 1871 is the commonness of the name."
+   },
+   "card_facts": [
+    {
+     "label": "Name",
+     "value": "Reconstructed (no source names them)",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Age in 1871",
+     "value": "About 10",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Born",
+     "value": "Illinois",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Community",
+     "value": "American-born",
+     "grade": "reconstructed"
+    },
+    {
+     "label": "Work",
+     "value": "At school",
+     "grade": "reconstructed"
+    }
+   ],
+   "evidence": [],
+   "history": {
+    "title": "A reconstructed history",
+    "grade": "reconstructed",
+    "liberty": "L-town-people-1871",
+    "caveat": "No source tells this life: every particular of it is ours.",
+    "paragraphs": [
+     "He was born about 1861 in Illinois and born in Chicago."
+    ]
+   }
+  }
+ ]
+}

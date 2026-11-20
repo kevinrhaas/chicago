@@ -57,6 +57,15 @@
 # Making the K-kit checks share their builds is the cut that would bring the WHOLE
 # gate back down, and it is a ticket of its own.
 #
+# T-3654, 2026-11-18: this sandbox's part 1/16 timed out at 590 s twice,
+# with two jobs beside browser acceptance and then four jobs without a browser.
+# The hanging-garment step took 262/211 s and publishing took 204/139 s. The
+# existing raise-N rule therefore needs a parser allowance through 32. A costly
+# k/16 slot can be replaced by k/32 and (k+16)/32: those two ordinal sets are its
+# exact partition, with every prerequisite repeated. The harness fixture checks
+# that equivalence for every k, including a prerequisite in the middle. No
+# assertion or timeout changes; CI keeps all eight parts and its required gate.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
@@ -240,11 +249,19 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A classroom Chromebook boots as a computer on the memory diet, people and teams kept, and is offered Prepare for class (T-3675)" \
+  node tools/check_chromebook.mjs
+
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
+
+step "The on-site tour walks Prairie Avenue to the Glessner House in Window mode: stops where their parcels put them, in order, arrival by the fix's accuracy, a fix off its ground held (T-3674)" \
+  node tools/check_onsite_tour.mjs
+selftest "…and an invented source, a paraphrased citation, a source no record lends or a stop resting on framing is refused (T-3674)" \
+  node tools/check_onsite_tour.mjs --self-test
 
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
@@ -394,16 +411,24 @@ step "Moment links contain only bounded public scene state and photos release th
   node tools/test_moment.mjs
 step "Field notebook preserves evidence and notes, bounds storage, and reports failed writes (T-3656)" \
   node tools/test_field_notebook.mjs
+step "A teacher's route travels whole in one bounded link or file, degrades with a message, and shows the teacher's words as text (T-3672)" \
+  node tools/test_teacher_route.mjs
 step "Jaunt reflections use only cited visited claims across all reading bands (T-3656)" \
   node tools/test_jaunt_understanding.mjs
+step "Make your case: every case table row uses its telling's cited claims, refuses gaps, saves only on request (T-3663, T-3678)" \
+  node tools/test_jaunt_investigation.mjs
 step "Group lesson guides use the selected outing's citations and preserve print cleanup (T-3656)" \
   node tools/test_lesson_guides.mjs
 step "Photo hunts preserve canonical evidence, shared dates, distance scores and bounded local progress (T-3657)" \
   node tools/test_photo_hunt.mjs
+step "Watch a block grow shows each year only the buildings recorded standing by then, never guesses an undated one, and Leave restores the town exactly (T-3676)" \
+  node tools/check_block_grow.mjs
 step "Browser magnification preserves viewport size and independent movement and look controls (T-3658)" \
   node tools/test_viewport_accessibility.mjs
 step "Focused menus own arrows and Space while world controls and card closing remain available (T-3658)" \
   node tools/test_keyboard_ownership.mjs
+step "People met and places found count only talks and footsteps in town, per year, bounded and local (T-3673)" \
+  node tools/test_met_found.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
@@ -474,8 +499,12 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
+  node tools/test_city_context_depth.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
+  node tools/test_route_unreachable.mjs
 step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
@@ -702,6 +731,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "1871's Sunday wagons go round their blocks as lay_driven_1871.mjs writes them, on streets their turns fit (T-3690)" \
+  node tools/lay_driven_1871.mjs --check
 step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
   node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
@@ -760,6 +791,10 @@ step "The 1835 town's people, their homes, places of business, doors, days, dres
   python3 tools/town_people_1835.py --check
 step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
   node tools/test_town_people_1835.mjs
+step "The 1871 city's people, their households, cards, days, dress and looks are what town_people_1871.py writes, bounded by the 1870 census (T-3690)" \
+  python3 tools/town_people_1871.py --check
+step "1871's people stand on the context city's walks at their own doors, most out on the Sunday afternoon, and each wagon is led by its carded driver (T-3690)" \
+  node tools/test_town_people_1871.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
@@ -989,6 +1024,8 @@ step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
   python3 generators/lodge_camp_emit.py --check
 step "the monuments are the bytes their records build (T-3567)" \
   python3 generators/monument_emit.py --check
+step "the 1871 fire landmarks are the bytes their records build (T-3688)" \
+  python3 generators/landmark_1871_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -1617,6 +1654,11 @@ step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-3634. 2017 Prairie's mansard curb carries a row of square merlons in Chicagology's
+# photograph, not the K10 kit's scroll cresting.
+step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
+  python3 tools/test_k01_deck_crenellation.py
+
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
 # the corner: bad returns and lights refused, no slate left in front of the return's back edge,
@@ -1850,6 +1892,13 @@ step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365
 # light's lintel. Held on the committed record; each part refused out of its range.
 step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
   python3 tools/test_k01_window_hoods.py
+
+# T-3626. The stone frame of a K01 named-window front (2013 Prairie, the Inland Architect's 1895
+# plate): pilasters carrying one corniced hood over the top storey's lights, a sunk panel under
+# each of them, a lunette over the hood and two oval lights in moulded rings, every part proud of
+# the brick and clear of every light. Held on the committed record; each part refused out of range.
+step "a K01 named-window front takes a stone frame of pilasters, panels, a hood and oval lights (T-3626)" \
+  python3 tools/test_k01_front_frame.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
@@ -4702,6 +4751,46 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+step "scene membership prevents another year's reconstructions from being backcast (T-3654)" \
+  python3 tools/test_scene_selection.py
+
+# T-3654: a citywide context is generated from a graded map plan and portable kit.
+step "1871 map controls still match the historical raster" \
+  python3 tools/fit_1871_city_map.py --check
+
+step "1871 registration comparison and independent checks reproduce" \
+  python3 tools/audit_1871_city_map.py --check
+
+step "1871 research overlay preserves the original map pixels and current plan" \
+  python3 ../pre_fire_v1/tools/build_geography_overlay.py --check
+
+step "1869 harbor relative traces retain their verified raster and unregistered status" \
+  python3 tools/trace_harbor_1869.py --check
+
+step "1871 portable period kit is reproducible" \
+  python3 generators/city_context_emit.py --check
+
+step "1871 city, infrastructure and terrain are reproducible" \
+  python3 generators/city_1871_emit.py --check
+
+step "1871 buildings, crossings and generated surfaces are spatially coherent" \
+  python3 tools/check_city_1871.py
+
+selftest "1871 browser acceptance harness rejects broken contracts" \
+  node tools/smoke_city_1871.mjs --self-test
+
+# T-3687: the Great Fire's map and clock. Every timed place cites a source and lies in the
+# burnt district, every hour falls inside the fire, and the local outlines are re-derived
+# from the scene's rivers and shoreline, so a moved river is red here, not a wrong fire.
+step "1871 Great Fire district and hours are sourced and current (T-3687)" \
+  python3 tools/fire_1871.py --check
+
+selftest "…and its own checks fire when broken" \
+  python3 tools/fire_1871.py --self-test
+
+selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
+  node tools/qa_city_fire_1871.mjs --self-test
+
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
 step "1904 built-so-far walk matches the building records (T-2747)" \
@@ -4712,6 +4801,13 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3681: each jaunt's Spanish telling (data/jaunts/_es/<id>.txt) compiles to the overlay beside
+# its English (sidecars/<scene>/jaunts/es/). Each passage carries the mark of the English it was
+# translated from, and the app shows it only while that English stands, so a change to a jaunt's
+# English never stales this step.
+step "Spanish jaunt overlays are as built from their words files (T-3681)" \
+  python3 tools/jaunts_es.py --check
 
 # T-3590: every jaunt's school grade band is measured from its own words (the mean of five
 # grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.

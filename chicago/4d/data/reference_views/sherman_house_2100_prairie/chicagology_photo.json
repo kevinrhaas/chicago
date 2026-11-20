@@ -1,0 +1,23 @@
+{
+  "structure_id": "sherman_house_2100_prairie",
+  "source_id": "chicagology_2100_sherman_photo",
+  "library_image": "a20-chicagology-2100-sherman-photo",
+  "photo": "../../sources/assets/sherman_2100_pictures_t1919/chicagology_2100_sherman_photo.jpg",
+  "image_px": [
+    1428,
+    1741
+  ],
+  "principal_px": [
+    380.0,
+    1395.6
+  ],
+  "focal_px": 3753.0,
+  "eye": [
+    67.4,
+    37.7,
+    1.5
+  ],
+  "yaw_deg": 233.0,
+  "sky": "overcast",
+  "solve": "Fitted by T-1919 from the photograph's own geometry, then placed on the record. Its verticals are vertical, so the camera is level. Two vanishing points on the horizon: the 21st Street flank's cornice (x 1100, y 600 to x 1428, y 705 px) runs to x about 3544, and the front's lines run far to the left (the fence's top, x 700, y 1495 to x 60, y 1475, to about x -2940; the cornice's blocks, x 900, y 590 to x 360, y 640, to about x -7650; a mean near -4300). Two perpendicular horizontal directions put the heading at 233 degrees (37 degrees south of looking due west at the front) and the focal length at about 3750 px, a long lens. The scale is the woman standing on the stoop's landing (x 600-650, y 1235-1360, taken as 1.65 m): about 77 px a metre there, so the eye is about 49 m from the porch, on the north walk of 21st Street east of Prairie Avenue (u 67.4, v 37.7, 1.5 m over the house's grade). The principal point (x 380, y 1396) is fitted to the record as built: first to four points (the porch's north column at the landing and at the soffit, x 565, y 1360 and 1050; the corner's outer edge at grade and at the eave, x 1005, y 1505 and 650) on the district draft's 13.0 m front, which put the porch and the corner within 8-31 px and printed the library pavilion about 190 px (about 3 m) north of the photograph's; then, with the body widened to the sheet outline's 14.2 m (see the record's footprint), moved 190 px left so the porch, the corner and the pavilion fall within about 30-60 px of the photograph together. The heading and focal length are the photograph's own and were not bent to the record. APPROXIMATE: the print is a crop whose optical centre is unknown, so the principal point is fitted, not measured. The photograph casts no hard shadow on the front, so it renders overcast."
+}

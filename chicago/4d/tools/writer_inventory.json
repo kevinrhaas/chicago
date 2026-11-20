@@ -28,6 +28,13 @@
       "finding": "Reproduces: two bare write runs in a clean isolated Git fixture with exact current modules, numeric structure record and original texture inputs/outputs advance all three target mtimes with identical bytes and clean Git status. All deliberately perturbed outputs are repaired. The fixture is not a claim that the active application tree was clean. See docs/RESEARCH/glessner-finish-T-2226/finish-writer-measurement.json.",
       "placed": "The original flat-brick maps read authored surface_finish and existing committed original clay/mortar maps, before the Blender master and reduced derivative. Generated explicitly before those bakes and checked read-only in check.sh. Eventual manifest placement must follow the original-fabric writer and precede asset baking; this ordering is not appended blindly."
     },
+    "town_people_1871.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: a bare write run on a clean tree rewrites data/residents_1871/households/, data/humans/inside_1871.json and data/humans/variation/{dress,looks}_1871_town.json byte for byte and changes no committed byte (T-3690).",
+      "placed": "Reads only authored inputs (data/transport/driven/drivers_1871.json and its own tables). Its outputs are read by tools/human_variation_kit.py (the 1871 persons), tools/lay_driven_1871.mjs (the drivers), tools/build_tales.py and the 1871 resident sidecars, so its slot is before those; that order is not yet measured into the manifest."
+    },
     "native_cards_1812.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2445,6 +2452,40 @@
       "write_mode": "DIR [id ...]",
       "measured": "2026-11-16",
       "finding": "Cannot rebuild from the tree: its write mode ingests films that tools/site_films.mjs rendered outside the repository (DIR/<id>.mp4 and DIR/<id>.jpg), interpolates any film under 20 fps to 24 with ffmpeg, and writes site-films/<id>.<sha8>.mp4, site/media/films/<id>.jpg and site/js/films.js. Run bare it prints its usage, exits 2 and writes nothing; --check reads films.js, site-films/ and the posters (20 films) and writes nothing (git status --porcelain identical before and after both)."
+    },
+    "fit_1871_city_map.py": {
+      "placement": "not_a_writer",
+      "write_mode": "(bare; also measured --check)",
+      "measured": "2026-11-18",
+      "finding": "Writes nothing: bare and --check runs of the exact current root tool in an isolated 15-file Git index fixture changed no file bytes or mtimes and created no files. Both exited 0. The fixture matched its own index; no application index or HEAD commit was used. Python bytecode generation was explicitly disabled. T-3654."
+    },
+    "fire_1871.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: --write on the committed tree rewrote data/fire/1871.json byte for byte. Shifting one zone's derived local vertex by 1.0 m made --check exit 1, and --write then restored the exact committed bytes. --check and --self-test write nothing. T-3687.",
+      "placed": "Only the `local` and `acres` fields of data/fire/1871.json and the `conversion` block are derived. It reads data/context/1871/plan.json's modern controls and river.geojson/shoreline.geojson, and the authored outlines, controls and model are its inputs. Before it can be placed in the manifest, its order after the 1871 plan and geography writers (fit_1871_city_map.py, city_1871_emit.py) has to be settled."
+    },
+    "audit_1871_city_map.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-11-18",
+      "finding": "Reproduces in the measured root Python runtime: two --write runs in an isolated 15-file Git index fixture advanced only data/traces/mitchell_1870_fit_audit.json mtime while retaining all bytes. Adding 1.0 m to its reserved-check RMSE made --check exit 1; --write restored the exact indexed output, then --check passed. Bare and --check modes wrote nothing. Final fixture had zero changed, added or deleted files. T-3654.",
+      "placed": "Only the fit-audit JSON is derived; manual control annotations, original registration, portable OSM primitives and the authored scene plan are inputs, never conflict-resolution outputs. Before manifest placement, establish the source-control/audit/consumer ordering and measure the numerical writer under the CI runtime: --check permits small platform float differences, while --write serializes the current runtime. Full-manifest ordering/prove was not run in this bounded gate repair."
+    },
+    "trace_harbor_1869.py": {
+      "placement": "pending",
+      "write_mode": "(bare); optional --audit-svg PATH writes an explicit review artifact",
+      "measured": "2026-11-18",
+      "finding": "Reproduces: two bare runs in an isolated 15-file Git index fixture advanced only data/traces/harbor_1869/metric_trace.geojson mtime with identical bytes. Perturbing its first coordinate by 1.0 m made --check exit 1; a bare run restored the exact indexed output. --check alone wrote nothing. Separately measured --check --audit-svg optional-audit.svg created exactly the requested SVG and did not rewrite the metric trace. After removing that explicit artifact, all 15 fixture files matched their index. T-3654.",
+      "placed": "Only metric_trace.geojson is the default derived output. The inspected image_trace.json, metric controls and SHA-verified source raster are authored evidence inputs; optional SVG output is caller-selected. Place the metric writer after any future source-trace/control writer and before absolute-registration consumers, which are not yet adopted into the scene. A full-manifest ordering/prove pass was not run here, so no conflict-resolving manifest step is appended blindly."
+    },
+    "jaunts_es.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: hashed the 249 overlay files under data/sidecars/{1812,1835,1904}/jaunts/es/, ran the bare writer twice, hashes identical. Appended a byte to 1835/a-decent-coat.json: --check exited 1 naming it; the bare writer restored the identical bytes (T-3681).",
+      "placed": "after compile_jaunts.py (it reads the same data/jaunts/*.json the compiler does, and the words files in data/jaunts/_es/); writes only jaunts/es/ under each scene's sidecars, which compile_jaunts leaves alone (T-3681)"
     }
   }
 }

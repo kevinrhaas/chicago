@@ -1,0 +1,28 @@
+{
+ "id": "chicago_tribune_1997_10_06_oleary_cleared",
+ "type": "newspaper",
+ "citation": "Mills, Steve. 'Mrs. O'Leary, Cow Cleared by City Council Committee'. Chicago Tribune, 6 October 1997.",
+ "author": "Steve Mills",
+ "date": "1997-10-06",
+ "describes_date": "1871-10-08; the City Council committee hearing of 6 October 1997",
+ "repository": "Chicago Tribune online archive",
+ "url": "https://www.chicagotribune.com/1997/10/06/mrs-oleary-cow-cleared-by-city-council-committee/",
+ "locator": "The article's four paragraphs: the committee's vote, Aldermen Beavers and Burke, Sullivan's actions, Nancy Knight Connolly.",
+ "tier": 3,
+ "rights_status": "check_required",
+ "rights_note": "Cited for short quoted fragments in text only; the article text is (c) Chicago Tribune and is not reproduced or derived from beyond those fragments.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3693) on the live page.",
+ "note": "A news report of the Committee on Police and Fire's hearing and vote; it reports the aldermen's view that Daniel 'Peg Leg' Sullivan's actions 'should be scrutinized', not a finding that he started the fire.",
+ "what_it_supplies": [
+  "the committee's vote to exonerate Catherine O'Leary and her cow, October 1997",
+  "Aldermen William Beavers and Edward Burke",
+  "the 'Peg Leg' name for Sullivan",
+  "Nancy Knight Connolly, a great-great-granddaughter: 'We always knew that she was innocent'"
+ ],
+ "what_it_does_not_supply": [
+  "the full City Council's vote",
+  "any new evidence from 1871"
+ ]
+}

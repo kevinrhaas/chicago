@@ -166,13 +166,19 @@
     },
     "wall_head": {
      "value": {
-      "cornice": "k10.cornice.moulded_stone"
+      "cornice": "k10.cornice.moulded_stone",
+      "blocks": {
+       "spacing_m": 0.65,
+       "height_m": 0.22,
+       "projection_m": 0.2,
+       "width_m": 0.18
+      }
      },
      "confidence": "inferred",
      "sources": [
       "inland_architect_1895_02_reid_plate"
      ],
-     "note": "A heavy moulded stone cornice over a garlanded frieze across the whole front, the crown at about 14.2 m through the camera, its corona on a dentil course (the plate's x 300-615 px, y 160-335). K10's moulded stone cornice stands for the whole entablature; the plate's dentils and its frieze of garlands and wreaths are not carved (L-k01-2013-reid-3625)."
+     "note": "A heavy moulded stone cornice over a garlanded frieze across the whole front, the crown at about 14.2 m through the camera, its corona on a row of blocks (the plate's x 300-615 px, y 160-335). K10's moulded stone cornice stands for the frieze and cornice, its foot on the lunette's crown as the plate's frieze is; the frieze's garlands and wreaths are not carved (L-k01-2013-reid-3625). T-3626: the row of blocks under the corona is `blocks`, thirteen of K10's stone consoles 0.65 m apart (the plate's about 25 px apart along a front of about 300 px), 0.22 m tall, 0.18 m wide and 0.2 m out; the plate's are square modillions, the kit's console stands for them, its size and projection reconstructed (L-k10-2013-reid-blocks-3626)."
     },
     "roof_form": {
      "value": "flat",
@@ -369,15 +375,15 @@
         "s_m": 2.36,
         "width_m": 0.45,
         "sill_m": 9.7,
-        "height_m": 2.0
+        "height_m": 1.6
        },
        {
-        "component": "k01.opening.street_sash_round",
+        "component": "k01.opening.street_sash_wide",
         "storey": 2,
         "s_m": 3.7,
-        "width_m": 1.0,
+        "width_m": 1.2,
         "sill_m": 9.7,
-        "height_m": 2.9
+        "height_m": 1.75
        },
        {
         "component": "k01.opening.street_sash_narrow",
@@ -385,7 +391,15 @@
         "s_m": 4.97,
         "width_m": 0.45,
         "sill_m": 9.7,
-        "height_m": 2.0
+        "height_m": 1.6
+       },
+       {
+        "component": "k01.opening.street_sash_round",
+        "storey": 2,
+        "s_m": 3.7,
+        "width_m": 0.9,
+        "sill_m": 11.9,
+        "height_m": 0.7
        }
       ],
       "base_top_m": 1.65,
@@ -394,13 +408,128 @@
         5.7,
         5.95
        ]
-      ]
+      ],
+      "frame": {
+       "pilasters": [
+        {
+         "s_m": [
+          1.83,
+          2.08
+         ],
+         "from_m": 5.95,
+         "to_m": 11.45,
+         "proud_m": 0.05
+        },
+        {
+         "s_m": [
+          2.65,
+          2.95
+         ],
+         "from_m": 5.95,
+         "to_m": 11.45,
+         "proud_m": 0.04
+        },
+        {
+         "s_m": [
+          4.4,
+          4.7
+         ],
+         "from_m": 5.95,
+         "to_m": 11.45,
+         "proud_m": 0.04
+        },
+        {
+         "s_m": [
+          5.25,
+          5.5
+         ],
+         "from_m": 5.95,
+         "to_m": 11.45,
+         "proud_m": 0.05
+        },
+        {
+         "s_m": [
+          7.22,
+          7.62
+         ],
+         "from_m": 5.95,
+         "to_m": 12.95,
+         "proud_m": 0.05
+        }
+       ],
+       "panels": [
+        {
+         "s_m": [
+          2.135,
+          2.585
+         ],
+         "bed_m": 8.4,
+         "top_m": 9.55,
+         "border_m": 0.06,
+         "proud_m": 0.03
+        },
+        {
+         "s_m": [
+          3.05,
+          4.35
+         ],
+         "bed_m": 8.4,
+         "top_m": 9.55,
+         "border_m": 0.08,
+         "proud_m": 0.03
+        },
+        {
+         "s_m": [
+          4.745,
+          5.195
+         ],
+         "bed_m": 8.4,
+         "top_m": 9.55,
+         "border_m": 0.06,
+         "proud_m": 0.03
+        }
+       ],
+       "hoods": [
+        {
+         "s_m": [
+          1.83,
+          5.5
+         ],
+         "bed_m": 11.45,
+         "top_m": 11.8,
+         "proud_m": 0.08,
+         "corona": {
+          "height_m": 0.15,
+          "proud_m": 0.2,
+          "overhang_m": 0.08
+         }
+        }
+       ],
+       "ovals": [
+        {
+         "s_m": 0.83,
+         "y_m": 7.3,
+         "width_m": 0.75,
+         "height_m": 1.2,
+         "ring_m": 0.12,
+         "proud_m": 0.06
+        },
+        {
+         "s_m": 6.54,
+         "y_m": 7.3,
+         "width_m": 0.75,
+         "height_m": 1.2,
+         "ring_m": 0.12,
+         "proud_m": 0.06
+        }
+       ]
+      }
      },
      "confidence": "inferred",
      "sources": [
       "inland_architect_1895_02_reid_plate"
      ],
-     "note": "Every light of the front as the plate draws it, through the solved camera (data/reference_views/reid_house_2013_prairie/inland_architect_plate.json): two tall lights under caps on the ground floor beside the portico; over them a frame of three lights a storey on the second and third floors, a broad light between two narrow ones at 2.36, 3.7 and 4.97 m, sills 6.2 and 9.7 m, heads 8.25 and 11.7 m; and the third floor's broad light carried up under a round arch to about 12.6 m. The band under the second-floor sills is the plate's projecting belt; the carved band under the eave is its frieze of garlands and wreaths (x 330-605 px, y 245-335), carved as K01's guilloche, whose rings stand for the plate's festoons (L-k01-2013-reid-3625). The plate's two oval lights, at 0.83 and 6.54 m about 7.3 m up, K01 cuts no oval for; they are not built (L-k01-2013-reid-3625)."
+     "note": "Every light of the front as the plate draws it, through the solved camera (data/reference_views/reid_house_2013_prairie/inland_architect_plate.json): two tall lights under caps on the ground floor beside the portico; over them a frame of three lights a storey on the second and third floors, a broad light between two narrow ones at 2.36, 3.7 and 4.97 m, sills 6.2 and 9.7 m, heads 8.25 and 11.7 m; and the third floor's broad light carried up under a round arch to about 12.6 m. The band under the second-floor sills is the plate's projecting belt; the frieze of garlands and wreaths under the eave (x 330-605 px, y 245-335) is the wall head's (L-k01-2013-reid-3625). T-3626: the plate's stone frame round the three-light storeys is `frame`: a pilaster up each side of the frame and one in each pier between its lights, from the belt's top (5.95 m) to the hood (11.45 m); a sunk panel under each third-storey light between the floors (8.4-9.55 m, the plate's three rectangles under those lights); one corniced hood across the whole frame, 11.45-11.8 m. The plate draws the third storey's broad light as two: a square-headed light under the hood, its head at the hood, and a round-headed lunette over it in its own arch, so they are built so (1.2 m wide, 9.7-11.45 m; 0.9 m wide, 11.9-12.6 m), and the narrow lights' heads stand under the pilasters' capitals (1.6 m tall). The two oval lights at 0.83 and 6.54 m, 7.3 m up, each 0.75 by 1.2 m over its moulded ring (the plate's south ring x 565-602 px, y 590-670): no hole is cut, a dark field in a stone ring stands for the grilled light; the capitals are not carved (L-k01-2013-reid-3626). T-3626: the fifth frame strip (s 7.22-7.62 m) is the plate's border up the front's south edge (x 600-640 px), from under the frieze down past the second storey, carried to the belt's top (5.95-12.95 m), 0.4 m wide and 0.05 m proud; plain where the plate carves it, and its carved bracket at about 7.7 m not built (L-k10-2013-reid-blocks-3626)."
     },
     "basement_lights": {
      "value": {

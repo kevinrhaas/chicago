@@ -19,10 +19,12 @@
 //                          exists — the kill switch; see that file's header).
 //
 // WHAT A YEAR'S PACK HOLDS. Everything under walk/ (the app), the year's door,
-// the changelog What's-New reads, build.json, and data/ — except the two things
-// that are genuinely split by year: GLBs (a year takes the ones its own sidecars
+// the changelog What's-New reads, build.json, and data/ — except data that is
+// genuinely split by year: GLBs (a year takes the ones its own sidecars
 // name, plus the terrain epochs' grounds, which every year may load) and the other
-// years' sidecars. The rest of data/ is shared and goes
+// years' sidecars. Year-named context documents and asset folders also stay with
+// their year; a full city must not inflate every other destination's download.
+// The rest of data/ is shared and goes
 // in every pack, because every year's cards and layers read from it and a pack
 // that missed one file would fail offline at the moment a visitor opens that card.
 // Checked against a recorded 1835 boot: all 687 GLBs it loaded are in 1835's pack.
@@ -110,6 +112,8 @@ export function yearFiles(files, year, owners) {
     // A year's prebuilt layers (T-2677) are that year's alone, like its sidecars.
     const pre = rel.match(/^data\/prebuilt\/(\d{4})\//)?.[1];
     if (pre) return pre === year;
+    const contextYear = rel.match(/^data\/context\/(\d{4})(?:\/|\.json$|-kit\.json$)/)?.[1];
+    if (contextYear) return contextYear === year;
     if (/^data\/gltf\/.+\.(glb|ktx2|bin)$/.test(rel)) {
       const o = owners.get(rel);
       return !o || o.has('*') || o.has(year);
@@ -246,6 +250,8 @@ function selfTest() {
     'js/changelog.js', 'tickets.json', 'index.html', 'data/scenes/1835.json', 'data/residents/a.json',
     'data/sidecars/1835/a.json', 'data/sidecars/1904/b.json', 'data/terrain/epochs/e1834.json',
     'data/gltf/a__1835.glb', 'data/gltf/b__1904.glb', 'data/gltf/terrain__e1834.glb', 'data/gltf/loose.glb',
+    'data/context/1871.json', 'data/context/1871/kit.glb', 'data/context/1871/infrastructure.glb',
+    'data/context/1871-kit.json', 'data/context/shared-kit.glb', 'data/context/1904.json',
     'data/liberties.json', 'prairie-1904/index.html', 'walk/js/scene-loader.js',
     'data/prebuilt/1835/frontage.json', 'data/prebuilt/1835/frontage.bin.gz',
     'walk/audio/catalog.json', 'walk/audio/credits.html', 'walk/audio/1835/music.ogg',
@@ -284,6 +290,13 @@ function selfTest() {
   ok(y1835.has('js/changelog.js') && y1835.has('build.json'), 'the network-first files are in the pack for offline');
   ok(!y1835.has('tickets.json') && !y1835.has('prairie-1904/index.html') && !y1835.has('index.html'),
     'files the walk never loads stay out');
+  const context1871 = yearFiles(files, '1871', owners).filter(p => p.startsWith('data/context/'));
+  ok(context1871.includes('data/context/1871.json') && context1871.includes('data/context/1871/kit.glb')
+    && context1871.includes('data/context/1871/infrastructure.glb') && context1871.includes('data/context/1871-kit.json')
+    && !context1871.includes('data/context/1904.json'), 'the 1871 city and portable meshes belong to 1871');
+  ok(![...y1835].some(p => /^data\/context\/1871/.test(p))
+    && yearFiles(files, '1904', owners).includes('data/context/1904.json')
+    && y1835.has('data/context/shared-kit.glb'), 'other years exclude 1871 context but retain shared context assets');
   const old = { files: [['a', '1'], ['b', '2'], ['c', '3']] };
   const plan = planUpdate(old, { files: [['a', '1'], ['b', '9'], ['d', '4']] });
   ok(plan.fetch.map((f) => f[0]).join() === 'b,d', 'an update fetches only the changed and the new');

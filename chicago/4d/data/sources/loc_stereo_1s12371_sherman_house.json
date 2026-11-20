@@ -1,0 +1,27 @@
+{
+  "id": "loc_stereo_1s12371_sherman_house",
+  "type": "photograph",
+  "citation": "John Carbutt, '52.—Sherman House, cor. Clark and Randolph Streets', stereograph, Stereographs of Chicago (Chicago: J. Carbutt, 131 Lake Street, [1860s]). Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12371.",
+  "author": "John Carbutt (1832-1905), photographer and publisher (the card's mount)",
+  "date": "[between 1861 and 1871] (the Library dates it between 1860 and 1930; the building it shows stood from July 1861 to October 1871)",
+  "describes_date": "1861-1871",
+  "repository": "Library of Congress, Prints and Photographs Division (STEREO U.S. GEOG FILE - Illinois--Chicago--Buildings--Sherman House). The left half of the card is committed at data/sources/assets/landmarks_1871_t3688/loc_1s12371_sherman_house_left.jpg.",
+  "url": "https://www.loc.gov/pictures/item/2018649305/",
+  "locator": "The left half of the card: the Sherman House from a window across Clark Street to the south-east, its Randolph Street front at left and its Clark Street front receding right; the Court House square's iron fence and a rank of hacks on Clark Street in the foreground.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published before 1872.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-19 (T-3688) from the Library's master TIFF of the whole card (tile.loc.gov storage-services, service/pnp/stereo/1s12000/1s12300/1s12371); the left half cropped (2394 x 2428 px) and committed at 1600 px wide, sha256 f2896201165ff9c92a8386805bd7ed8ba22893600a47b13fe3fa6a1219ee0ed6.",
+  "note": "The one photograph found of the Sherman House's two street fronts together: the shop arcade and awnings, the iron balcony, the six storeys in three groups of bays a front, the bracketed cornice and the corner attic. Monochrome.",
+  "what_it_supplies": [
+    "the Sherman House's massing, storeys and bays on Randolph and Clark Streets",
+    "its shop fronts, balcony, cornice and attic"
+  ],
+  "what_it_does_not_supply": [
+    "the north and west walls",
+    "measured storey heights",
+    "colour"
+  ]
+}

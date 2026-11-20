@@ -54,6 +54,8 @@ const COPIES = [
   ['data/datum.json', 'data/datum.json'],
   // T-2741: today's streets, for the compass readout and the maps in every year.
   ['data/modern/', 'data/modern/'],
+  // T-3674: the on-site tour, fetched when Window mode starts in 1904.
+  ['data/onsite/', 'data/onsite/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
@@ -80,9 +82,10 @@ const COPIES = [
   ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
   // T-3265: a later scene's own household cards, which a person's card in Inspect › People reads;
-  // copied verbatim (690 KB together) by publish.sh's loop over data/residents_<scene>/.
+  // copied verbatim by publish.sh's loop over data/residents_<scene>/ (1871's town: 9.5 MB, T-3690).
   ['data/residents_1812/', 'data/residents_1812/'],
   ['data/residents_1904/', 'data/residents_1904/'],
+  ['data/residents_1871/', 'data/residents_1871/'],
   ['data/enclosures/', 'data/enclosures/'],
   // T-3332: a scene's night lights (lit windows by the hour, the lamps outside); night-lights.js reads them.
   ['data/night_lights/', 'data/night_lights/'],
@@ -100,6 +103,8 @@ const COPIES = [
   ['data/wells/', 'data/wells/'],
   ['data/street_grid/', 'data/street_grid/'],
   ['data/context/', 'data/context/'],
+  // T-3687: the Great Fire's district and hours, read by city-fire.js once a fire time is set.
+  ['data/fire/', 'data/fire/'],
   ['data/street_surfaces/', 'data/street_surfaces/'],
   ['data/street_section/', 'data/street_section/'],
   ['data/street_trees/', 'data/street_trees/'],
@@ -155,10 +160,10 @@ const TRANSFORMED = [
     verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
-        + 'copies the temporal observatory to the root and writes year doors as the stamped renderer plus a base into walk/, so the address '
+        + 'copies the temporal observatory to the root and writes small stamped year doors that load one shared renderer, adding a base into walk/ before parsing, so the address '
         + 'bar keeps the short path and every relative URL resolves from walk/',
-    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the <base> is the first child of '
-        + '<head>, exact root-template copying, working year doors and the honest 1812 status; the deploy URL smoke '
+    gate: 'write_entry_pages.mjs --self-test (check.sh) asserts the inserted <base>, exact root-template copying, small shared doors, build markers and the honest 1812 status; '
+        + 'strip_page_comments.mjs --check holds every door to its canonical loader; the deploy URL smoke '
         + '(.github/chicago-4d-url-check.json) requests /4d/, /4d/1835/ and /4d/dev/1835/ live.' },
   { re: /^(?:prairie-1904|pre-fire)\/viewer\/root-served\.js$/,
     what: 'tools/serve_from_root.py (T-1828) names the asset directories it removed from the mirror because '

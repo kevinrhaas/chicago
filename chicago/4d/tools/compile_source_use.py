@@ -39,7 +39,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # T-3606: twelve records behind the ten 1904 story jaunts (Delia Caton, the Brown divorce, the
 # Pullman twins and Behring, the monument, the Everleigh Club, Kimball, Keith, Glessner Lee) read
 # 289 026; 296 000, the compressed first-open limit unchanged.
-INDEX_BUDGET = 296_000
+# T-3654: the 1871 context city's map, survey and directory sources, meeting dev's new Prairie
+# K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
+INDEX_BUDGET = 312_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -265,6 +267,27 @@ class Compiler:
             row = read(data / 'railway' / f'{s}.json')
             if row is not None:
                 self.record('railway', 'railway', f'railway/{s}', row, 'other_scene', elsewhere=(s,))
+        # T-3654: context.js reads the scene's own document; the city kit also
+        # supplies the citations shown on its generated building and tree cards.
+        # Read both actual inputs, rather than relying on the same sources being
+        # cited by terrain. These remain other-scene uses in the 1835 catalog.
+        for s, o in others.items():
+            if 'context' not in o['layers']:
+                continue
+            row = read(data / 'context' / f'{s}.json')
+            if row is None:
+                continue
+            self.record('context', 'context', f'context/{s}', row, 'other_scene',
+                        grade='reconstructed', elsewhere=(s,))
+            if row.get('kind') == 'city_context_1871':
+                kit_path = row.get('kit_definition')
+                if kit_path is None:
+                    kit_path = 'context/1871/kit.json'
+                kit = read(data / kit_path)
+                if kit is None:
+                    raise ValueError(f'scene {s}: missing context kit {kit_path}')
+                self.record('context kits', 'context', f'context/{s}', kit, 'other_scene',
+                            'kit', grade='reconstructed', elsewhere=(s,))
         # T-2489: a ruling is the 1835 town's exclusion when it is ruled for 1835, and
         # another scene's when that scene lists the layer and the ruling names it.
         for row in read(data / 'exclusions.json', {}).get('excluded', []):
@@ -340,6 +363,8 @@ class Compiler:
         hit = self._extra.get(eid) or names.get(eid)
         if hit:
             return hit
+        if kind == 'context':
+            return f"{str(eid).rsplit('/', 1)[-1]} city context"
         if kind == 'terrain':
             return rt.words(str(eid).split('.')[-1])
         return rt.words(str(eid))
@@ -495,6 +520,11 @@ class Compiler:
         # wardrobe sources produce 631 complete sources and 259 766 raw bytes; 60 598 gzip
         # bytes for the index, inside the same 120 000-byte compressed first-open assertion;
         # another conscious 8 000-byte raw increase (+3.1%), nothing cut.
+        # 312 000 SINCE 2026-11-20 (T-3690): the 1871 town's dress, census and street-picture sources (five
+        # records) merged onto dev's 1871 streets and fire landmarks take the index to
+        # 305 681 raw bytes with every citation whole. Another conscious 8 000-byte raw
+        # increase (70 699 gzip bytes for the index), inside the same 120 000-byte compressed
+        # first-open assertion; nothing cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

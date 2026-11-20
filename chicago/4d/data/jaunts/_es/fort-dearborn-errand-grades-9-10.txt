@@ -1,0 +1,88 @@
+== title @fdfd18bf
+Un encargo en el fuerte Dearborn
+
+== premise @09b99f2b
+Lleva un modesto pedido de provisiones por los edificios de servicio cotidiano del fuerte y hasta su taller.
+
+== opening @ce8111b4
+PASEO: UN ENCARGO EN EL FUERTE DEARBORN. Una mañana de invierno en la desembocadura del río, con el lago gris como el hierro y los barcos amarrados por la temporada, y un poblador recordaba que "no entraba nada, y no había manera de mandar nada fuera del pueblo". Allá afuera, en la pradera, "había lobos en gran abundancia por todo el pueblo". Dentro de la empalizada, el fuerte mantiene sus provisiones.
+
+Llevas una nota: elige una pequeña provisión en la tienda del vivandero, revisa el paquete contra la nota en el almacén y entrégalo en el taller del fuerte junto al lago.
+
+== stop errand @59520b32
+Esta es la puerta sur del fuerte, ocupado sin interrupción por tropas federales desde junio de 1832. Juliette Kinzie, que vivió adentro en 1831, describió empalizadas altas y grandes puertas al norte y al sur, y Hubbard situó el cuerpo de guardia y el almacén a cada lado de esta puerta en 1827. En una temporada helada, lo que contengan los almacenes es todo lo que hay hasta que la primavera vuelva a abrir el lago.
+
+== narrative errand @22016d0b
+Dile tu encargo al centinela y sigue a través del patio de armas hasta la tienda del vivandero.
+
+== stop supply @6b3a8b7f
+Al este de la puerta norte está la tienda del vivandero, el comerciante del puesto, que vendía lo que la ración oficial no daba. Hubbard la situó aquí en 1827, y la clave de una fotografía de 1855 todavía la rotula como la del vivandero, aunque no se sabe quién la llevaba en 1835.
+
+== narrative supply @4221ba46
+Elige una provisión para la nota, o sigue sin comprar nada.
+
+== label supply candles @8633bcc9
+Un manojo de velas
+
+== consequence supply candles @c5d61ada
+Luz para las breves tardes de invierno en un banco de trabajo.
+
+== label supply thread @21abc443
+Hilo y un paquete de agujas
+
+== consequence supply thread @321227c2
+Pequeño y ligero, pero siempre escaso en alguna parte de la guarnición.
+
+== stop account @00db2d6f
+Al este de la puerta sur está el almacén, que los avisos de carne de res del Ejército de 1834 llaman almacén de subsistencias: la carne fresca llegaba en cuartos, hasta tres veces por semana, y probablemente sumaba 400 libras a la semana. Compara tu paquete con el pedido antes de seguir adelante.
+
+== narrative account @0593cebd
+Rinde cuentas de cada artículo del paquete antes de que salga de la empalizada.
+
+== label account tally @a2e6955e
+Cotejar el paquete con la nota
+
+== consequence account tally @53040fd4
+Todo lo que pedía la nota está en el paquete, y lo registras.
+
+== stop deliver @0c9161cc
+Afuera de la empalizada, hacia el lago, el plano de 1830 dibuja un edificio rotulado Taller. Como no se nombra ningún oficio, es un taller general y no una herrería. Puede que haya sido en este donde Jeremiah Porter, "el pionero de los ministros protestantes de Chicago", "predicó un sermón en el taller del carpintero de la guarnición el 19 de mayo de 1833". Deja el paquete adentro, junto a la puerta.
+
+== narrative deliver @18447b18
+Entrega lo que pedía la nota, o lleva de vuelta lo que falte.
+
+== label deliver hand-over @e2453eee
+Dejar el paquete cotejado en el taller
+
+== consequence deliver hand-over @9fa7e341
+Con el encargo completo, la nota regresa doblada en tu bolsillo.
+
+== leg 0 @16a033a4
+La primera línea del pedido solicita una modesta provisión de la tienda del vivandero.
+
+== note 0 @10f05b33
+A través del fuerte hasta el ala noreste, al este de la puerta norte.
+
+== leg 1 @239b82b5
+Antes de que el paquete salga del fuerte, verifica su contenido contra el pedido.
+
+== note 1 @675ff923
+De regreso a la puerta sur, al edificio de su lado este.
+
+== leg 2 @10110c22
+La última línea del pedido te indica que entregues el paquete en el taller.
+
+== note 2 @7ba55760
+El tramo más largo: afuera, pasando la esquina sureste de la empalizada, hacia la orilla del lago.
+
+== ending accounted @f33d678f
+Provisión elegida, paquete cotejado y entregado en el taller. El fuerte es un vecino trabajador en la desembocadura del río, con provisiones que mantener y un largo invierno a lo largo del cual mantenerlas.
+
+== ending unfinished @50d3ee34
+Parte del pedido regresa contigo, sin cumplir. Los edificios de servicio del fuerte seguirán aquí mañana, junto con el resto de la lista, y la nieve.
+
+== keepsake title @6383fa8b
+Cuentas claras en el fuerte
+
+== keepsake text @45cdc68a
+Una nota de provisiones ficticia, cotejada afuera del almacén del fuerte Dearborn y llevada al taller en el terreno exterior.

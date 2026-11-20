@@ -124,19 +124,20 @@ for (const d of DESTINATIONS) {
     for (const c of chosen) assert(!beats(r, c), `${d.year}: ${r.title} is not suggested, so it cannot beat ${c.title}`);
   }
 }
+assert.deepEqual([...picks[1871]].sort(), ['The Great Chicago Fire', 'The Last Sunday', 'Who Started the Fire?'], '1871 suggests its own Jaunts, the Great Fire (T-3691), The Last Sunday (T-3692) and Who Started the Fire? (T-3693), not their retellings and never another year’s');
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
 assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');
 assert.equal(picks[1812].length, 3, '1812 has three to suggest (the Fort Dearborn jaunts, T-3325..T-3327)');
 
 // ---- the steps are the tour's own ------------------------------------------------------------
-for (const scene of ['1835', '1904', '1812']) {
+for (const scene of ['1835', '1904', '1812', '1871']) {
   const m = handoutModel({ steps: STEPS, scene, destinations: DESTINATIONS, catalogs: {} });
   assert.equal(m.steps.length, 10);
   assert.deepEqual(m.steps.map((s) => s.n), ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']);
   assert.deepEqual(m.steps.map((s) => s.task), STEPS.map((s) => s.task), 'each step\'s task, as the tour has it');
   assert.deepEqual(m.steps.map((s) => s.bubble), STEPS.map((s) => s.bubble({ scene, front: null })), 'each bubble, as the tour says it there');
-  assert.deepEqual(m.destinations.map((d) => d.year), [1835, 1904, 1812], 'the Observatory\'s destinations, in its order');
+  assert.deepEqual(m.destinations.map((d) => d.year), [1835, 1904, 1812, 1871], 'the Observatory\'s destinations, in its order');
   assert.equal(m.destinations.filter((d) => d.here).map((d) => String(d.year)).join(), scene, 'the destination in hand is marked');
   assert(m.destinations.every((d) => d.state === 'reading'));
 }
@@ -157,7 +158,7 @@ assert.equal(screen.children.at(-1), block, '…last, under the glossary and the
 assert.equal(byClass(block, 'nav-k')[0].textContent, 'For teachers');
 assert.match(byId(block, 'guide-handout').textContent, /Reading the Jaunts…/, 'while the catalogs are read, it says so');
 await settle(); await settle();
-assert.deepEqual(asked, [1835, 1904, 1812], 'every destination\'s catalog, asked once each');
+assert.deepEqual(asked, [1835, 1904, 1812, 1871], 'every destination\'s catalog, asked once each');
 const handout = byId(block, 'guide-handout');
 const words = handout.textContent;
 const stepEls = byClass(handout, 'handout-step');
@@ -167,7 +168,7 @@ STEPS.forEach((s, i) => {
   assert.equal(byClass(stepEls[i], 'handout-bubble')[0].textContent, s.bubble({ scene: '1904', front: null }));
 });
 const dests = byClass(handout, 'handout-dest');
-assert.deepEqual(dests.map((d) => byClass(d, 'handout-dest-name')[0].textContent), ['1835 · Chicago', '1904 · Prairie Avenue', '1812 · Fort Dearborn']);
+assert.deepEqual(dests.map((d) => byClass(d, 'handout-dest-name')[0].textContent), ['1835 · Chicago', '1904 · Prairie Avenue', '1812 · Fort Dearborn', '1871 · Pre-fire Chicago']);
 assert.equal(dests[1].dataset.here, 'true', 'the destination in hand');
 for (const d of dests) {
   const titles = byClass(d, 'handout-jaunt-title').map((e) => e.textContent);
@@ -233,7 +234,7 @@ unmount(empty);
 const bare = doc.createElement('div');
 mount(bare, { controls: 'pointerlock', actions: {} });
 await settle(); await settle();
-assert.equal(byClass(byId(bare, 'guide-handout'), 'handout-empty').length, 3);
+assert.equal(byClass(byId(bare, 'guide-handout'), 'handout-empty').length, 4);
 unmount(bare);
 
 // ---- the page: the print stylesheet, the catalog read, the link -----------------------------
@@ -249,4 +250,4 @@ const main = read('renderers/web/js/main.js');
 assert(/jauntCatalog: \(year\) => \(jauntCatalogs\[year\] \?\?= fetch\(new URL\(`sidecars\/\$\{encodeURIComponent\(year\)\}\/jaunts\/catalog\.json`/.test(main),
   'each destination\'s catalog is read when Guide asks, never at boot');
 
-console.log(`test_teacher_handout: ten tour steps and three Jaunts each for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);
+console.log(`test_teacher_handout: ten tour steps and available Jaunts for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);

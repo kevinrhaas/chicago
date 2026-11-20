@@ -217,3 +217,19 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-panel .jaunt-notes-close { position: absolute; top: 4px; right: 0; width: 36px; min-height: 36px; height: 36px; padding: 0;
   display: grid; place-items: center; background: none; border-color: transparent; color: var(--ink-dim, inherit); }
 .jaunt-panel .jaunt-notes-close:hover { color: var(--ink, inherit); border-color: var(--edge, #88968c); }
+/* T-3671 (WCAG 2.1 AA): the outing's status line and the Listen key's note are read, not
+   drawn; Pause holds a voice (on the controls beside the pace, and on the collapsed bar);
+   the words a voice is reading are lit while it reads them, and a Transcript fold gives the
+   voiced words where the card shows another telling. */
+.jaunt-status { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.jaunt-controls .jaunt-voice { grid-column: 3 / -1; flex-direction: row; gap: 6px; color: var(--accent, #ead09e); border-color: color-mix(in srgb, var(--accent, #ead09e) 60%, transparent); }
+.jaunt-controls .jaunt-voice.jaunt-voice-wide { grid-column: 1 / -1; }
+.jaunt-panel .jaunt-voice .menu-icon { flex: none; }
+.jaunt-bar .jaunt-voice { display: grid; place-items: center; padding: 0; color: var(--accent, #ead09e); }
+.jaunt-voicing { border-radius: 6px; background: color-mix(in srgb, var(--accent, #ead09e) 9%, transparent);
+  box-shadow: -6px 0 0 color-mix(in srgb, var(--accent, #ead09e) 9%, transparent), 6px 0 0 color-mix(in srgb, var(--accent, #ead09e) 9%, transparent); }
+.jaunt-transcript { margin: 0 0 10px; padding: 0 10px; border: 1px solid var(--edge, #64716e); border-radius: 10px; }
+.jaunt-transcript[hidden] { display: none; }
+.jaunt-transcript > summary { display: flex; align-items: center; font-size: .82rem; letter-spacing: .04em; }
+.jaunt-transcript-note { margin: 4px 0; font-size: .78rem; opacity: .8; }
+.jaunt-transcript p { margin: 6px 0 10px; }

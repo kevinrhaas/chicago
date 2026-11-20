@@ -68,7 +68,8 @@ import readable_text as rt  # noqa: E402
 
 DATA = ROOT / "data"
 OUT = DATA / "reader"
-SCENES = ("1812", "1835", "1904")
+# Every published scene has lazy reader endpoints, even before it has authored cards.
+SCENES = tuple(sorted(p.stem for p in (DATA / "scenes").glob("[0-9][0-9][0-9][0-9].json")))
 
 
 def _sidecar_files(scene: str, names: tuple[str, ...]) -> list[Path]:
@@ -111,7 +112,9 @@ def families() -> dict[str, list[Path]]:
                        *sorted((DATA / "businesses" / "authored").glob("biz_*.json")), book],
     }
     for scene in SCENES:
-        fam[f"structures_{scene}"] = _structures(scene) + [agencies]
+        structures = _structures(scene)
+        # An empty context-only city has no agency record or authored structure prose.
+        fam[f"structures_{scene}"] = structures + ([agencies] if structures else [])
     for scene in SCENES:
         fam[f"jaunts_{scene}"] = sorted((DATA / "sidecars" / scene / "jaunts").glob("*.json"))
     return {k: [p for p in v if p.is_file()] for k, v in fam.items()}

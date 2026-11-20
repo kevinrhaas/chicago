@@ -192,6 +192,13 @@ def scene_phase(rec: dict) -> dict | None:
     return phases[-1]
 
 
+def not_yet_built(rec: dict) -> bool:
+    """True when every phase of the record opens after the scene date."""
+    starts = [(phase.get("documented_range") or {}).get("from")
+              for phase in rec.get("phases") or []]
+    return bool(starts) and all(start and start > SCENE_DATE for start in starts)
+
+
 def enclosed_area_m2(phase: dict) -> tuple[float, float, float]:
     """Footprint area, storeys, and the enclosed floor area that is their product.
 
@@ -306,6 +313,11 @@ def build(data: dict) -> dict:
     for rec in data["structures"]:
         fn = function_of(rec)
         if fn is None:
+            continue
+        if not_yet_built(rec):
+            # T-3688: a house every phase of which opens after the scene date is not in
+            # this town at all (the 1871 Sherman House), so it neither sleeps anyone nor
+            # is recorded as a house that was going up.
             continue
         if pictured_prefix and rec["id"].startswith(pictured_prefix) \
                 and fn in LODGING_FUNCTIONS:

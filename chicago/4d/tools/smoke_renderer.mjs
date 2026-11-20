@@ -15051,14 +15051,17 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the ten tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
-      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
-      // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
-      && handoutRead.dests.every((d) => d.jaunts === 3 && d.empty === null)
+      && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
+      // 1871 has its own Jaunts since The Last Sunday (T-3692): one to three suggested; the
+      // three earlier destinations keep three each.
+      && handoutRead.dests.every((d) => d.name.startsWith('1871')
+        ? d.jaunts >= 1 && d.jaunts <= 3 && d.empty === null : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10 && s.jaunts === 9)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10
+        && s.jaunts === 9 + (handoutRead.dests.find((d) => d.name.startsWith('1871'))?.jaunts ?? 0))
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -18130,7 +18133,8 @@ for (const [label, viewport, touch] of [
     // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
     // device opens and closes by keyboard alone: N opens it with focus inside and visible,
     // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
-    // one, Escape closes it and leaves focus, visibly, on the grip.
+    // one, Escape closes it and leaves focus, visibly, on the grip (a phone) or the open
+    // app's rail key (a desktop).
     await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
     const visibleFocus = () => page.evaluate(() => {
       const el = document.activeElement;
@@ -18171,11 +18175,13 @@ for (const [label, viewport, touch] of [
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
       && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
-      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      // T-3671 (WCAG 2.4.3) hands focus on close to the rail key of the app that was open,
+      // Home's here, on a desktop whose rail stays; a phone's grip is still the handle (T-3703).
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-tab-home') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
-    // The chip is hit-tested like any chrome. The screen shows the three destinations with
+    // The chip is hit-tested like any chrome. The screen shows the four destinations with
     // HERE on this one only, and RECALL as its one signal-red key. Picking another runs
     // the transfer ring and writes the Observatory's stamp; Escape aborts it here, so this
     // page stays (part 15 makes a real jump and lands).
@@ -18226,8 +18232,8 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(1300);
     const stayed = await page.evaluate(() => location.href);
     await page.evaluate(() => window.__chicago4d.navigator.dock());
-    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
-      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
+    check(`${label}: the year chip opens Jump — four era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
+      jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812,1871' && jumpScreen.here.join() === String(YEAR)
       && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
       // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
       // ring that is aborted leaves none: part 15's real jump reads it on arrival.
@@ -22244,7 +22250,9 @@ for (const [label, viewport, touch] of [
       });
       const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));
       await p14.waitForURL(new RegExp(`/${to}/`), { timeout: 30_000 });
-      await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome', null, { timeout: 240_000, polling: 500 });
+      // T-3669: a Jump lands on the ground you stood on when the far year has it, straight
+      // into the town ('world'); where it does not, the year's own Welcome stays ('welcome').
+      await p14.waitForFunction(() => ['welcome', 'world'].includes(window.__chicago4d?.welcome?.state), null, { timeout: 240_000, polling: 500 });
       // The Welcome shows at the flip's midpoint and the journey reads `landed` half a flip
       // (260 ms of timers) later; on a runner whose frames take seconds the read fell between
       // the two (T-2649's local run: "journey":"landing"). Wait for it; the check still asks.
@@ -22255,6 +22263,21 @@ for (const [label, viewport, touch] of [
         !!to && ringShown && String(landed.year) === to && landed.journey === 'landed' && landed.transfer === 'true'
         && landed.years.length >= 2 && Number(landed.years[0]) > Number(to) && landed.years.at(-1) === to,
         JSON.stringify({ to, ringShown, landed: { ...landed, years: `${landed.years[0]} … ${landed.years.at(-1)} (${landed.years.length})` } }));
+      // T-3669: and the far page says what it did with the ground: kept (perhaps a few metres
+      // off a house), or outside this year's town with its Welcome left in place.
+      await p14.waitForFunction(() => !!window.__chicago4d?.jumpLanding, null, { timeout: 60_000, polling: 250 }).catch(() => {});
+      const jumpLanding = await p14.evaluate(() => ({ landing: window.__chicago4d.jumpLanding ?? null,
+        query: Object.fromEntries(new URLSearchParams(location.search)), state: window.__chicago4d.welcome?.state ?? null,
+        at: window.__chicago4d.walker?.state ? { e: Math.round(window.__chicago4d.walker.state.e * 100) / 100, n: Math.round(window.__chicago4d.walker.state.n * 100) / 100 } : null }));
+      {
+        const L = jumpLanding.landing, q = jumpLanding.query;
+        const kept = L?.kept === true && jumpLanding.state === 'world' && L.moved <= 24
+          && Math.hypot(jumpLanding.at.e - Number(q.e), jumpLanding.at.n - Number(q.n)) <= L.moved + 1.5;
+        const outside = L?.outside === true && jumpLanding.state === 'welcome';
+        check(`${label}: Jump carries the ground you stood on to the far year, or says this year's town does not reach it (T-3669)`,
+          q.via === 'jump' && !!q.from && q.from !== to && (kept || outside),
+          JSON.stringify(jumpLanding));
+      }
       // >>> T-2649: walking in at the far year, the choices made before the Jump are in force.
       await p14.evaluate(() => { window.__chicago4d.welcome.enter('spawn'); });
       await p14.waitForFunction(() => window.__chicago4d.welcome.state === 'world', null, { timeout: 120_000, polling: 250 }).catch(() => {});

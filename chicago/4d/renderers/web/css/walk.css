@@ -472,8 +472,8 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   margin: 0; overflow: hidden; white-space: nowrap; text-overflow: clip;
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--ink);
 }
-.arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
-.arrival-readout dd[data-telemetry="years"] { color: var(--lamp, var(--accent)); }
+.arrival-readout dd[data-read="eta"] { color: var(--lamp-ink, var(--lamp, var(--accent))); }
+.arrival-readout dd[data-telemetry="years"] { color: var(--lamp-ink, var(--lamp, var(--accent))); }
 /* T-3539: the device panel — the Observatory's meter, then why it reads so and what this
    device draws. Two lines are held from first paint, so the device does not grow when the
    profile lands. */
@@ -496,7 +496,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .arrival-device-bar i.on { background: var(--lamp, var(--accent)); }
 .arrival-device-bar i.top { box-shadow: 0 0 6px color-mix(in srgb, var(--lamp, var(--accent)) 70%, transparent); }
 .arrival-device-head b {
-  flex: none; color: var(--lamp, var(--accent));
+  flex: none; color: var(--lamp-ink, var(--lamp, var(--accent)));
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums;
 }
 .arrival-device-head em {
@@ -623,7 +623,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .year-chip .badge-year { font-size: 17px; font-weight: 500; letter-spacing: .1em; }
 .year-chip .badge-sub { font-size: 13px; letter-spacing: .1em; }
-.year-chip .badge-dot { font-size: 13px; opacity: .7; }
+.year-chip .badge-dot { font-size: 13px; opacity: .8; }
 .year-chip :is(.badge-alt, .badge-version, .badge-version[data-tone]) { color: var(--amber, #E2A63F); border-left-color: rgba(255, 255, 255, .16); }
 .year-chip:hover { border-color: var(--amber, #E2A63F); }
 .year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -835,7 +835,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   background: var(--panel); color: var(--ink-dim);
   box-shadow: var(--shadow); cursor: pointer;
 }
-.street-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.street-toggle[aria-pressed="true"] { color: var(--accent); border-color: var(--lit-edge, color-mix(in srgb, var(--accent) 55%, var(--edge))); }
 .street-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2977 (owner, 2026-10-21): the Walk/Fly key, moved here from the right-edge column, where
    the Inspect key appearing over it pushed it up and down. A small round key left of the
@@ -884,7 +884,7 @@ body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absol
 /* T-3597: Window as a round icon key, the fly key's size, with the same 44 px touch floor. */
 .vr-key.icon-key { width: 28px; min-width: 28px; padding: 0; }
 body:is(.is-touch, .touch-first) .vr-key.icon-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
-.vr-key[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.vr-key[aria-pressed="true"] { color: var(--accent); border-color: var(--lit-edge, color-mix(in srgb, var(--accent) 55%, var(--edge))); }
 .vr-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
 .vr-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
@@ -2402,6 +2402,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-pack[data-state="downloading"] .welcome-pack-bar { visibility: visible; }
 .gate.welcome-compact .welcome-pack { margin-top: 0; }
 .gate.welcome-compact .welcome-pack-toggle { min-height: 30px; }
+/* T-3675: the same download in Settings › Performance, "Prepare for class". */
+.pack-settings-actions { display: inline-flex; gap: 6px; }
+.pack-settings-actions [hidden] { display: none; }
+.pack-settings-bar { display: block; height: 2px; margin-top: 6px; border-radius: 1px; visibility: hidden;
+  background: linear-gradient(90deg, var(--accent) calc(var(--f, 0) * 100%), var(--edge) 0); }
+.pack-settings[data-state="downloading"] .pack-settings-bar { visibility: visible; }
 /* Inside a choice: eyebrow and intro step aside, the title shrinks, the choices become tabs. */
 .gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
 .gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
@@ -2428,7 +2434,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
-#welcome-search, .jaunt-filters input {
+/* The jaunt search moved from the filters into the pinned row (T-3653); it keeps their shape. */
+#welcome-search, .jaunt-filters input, .jaunt-find-row input {
   box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px 8px 33px;
   font: inherit; font-size: 16px; color: var(--ink); background: var(--panel-solid);
   border: 1px solid var(--edge); border-radius: 999px;
@@ -2597,8 +2604,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-grades-label { font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); margin-right: 2px; }
 /* T-3590: the school grades a jaunt is written for. */
 /* The owner, 2026-11-15: an adults-only jaunt says so on its card, and what it shows. */
-.jaunt-adults { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--alert, #e0703a) 70%, transparent); color: var(--alert, #e0703a); border-radius: 999px; padding: 0 6px; font-weight: 600; }
-.jaunt-warning { margin: 4px 0 0; font-size: 12px; line-height: 1.35; color: var(--alert, #e0703a); }
+.jaunt-adults { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--alert, #e0703a) 70%, transparent); color: var(--alert-ink, var(--alert, #e0703a)); border-radius: 999px; padding: 0 6px; font-weight: 600; }
+.jaunt-warning { margin: 4px 0 0; font-size: 12px; line-height: 1.35; color: var(--alert-ink, var(--alert, #e0703a)); }
 .jaunt-grade { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--ink-dim) 45%, transparent); border-radius: 999px; padding: 0 6px; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
 /* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
@@ -2830,4 +2837,62 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   .tale-key { min-height: 44px; }
   .tale-body p { font-size: 15px; }
   .ask-q { min-height: 44px; }
+}
+
+/* ---- T-3671 (WCAG 1.4.4): Settings › Display › Text size reaches every part ------------
+   The Navigator's screens have scaled with --text-scale since T-2656 (navigator.css); from
+   100 % to 200 % the rest of the interface scales with them. Each part is magnified with
+   `zoom`, as the browser's own zoom would, so a part keeps its layout and its rows wrap: a
+   card or a panel whose place is fixed to the screen keeps that place and magnifies its
+   CONTENTS (its children), widened where the screen has room; a part that sizes itself is
+   magnified whole, with any length measured from the screen's edge divided back so it
+   lands where it did. Nothing here applies at 100 % (html[data-text-scale] is unset). */
+html[data-text-scale] :is(.hud-chips, .hud-instrument .compass-row, .instrument-below, .quick-column, .hud-bottom > :not(.roam-tip),
+  .popup > *, .jaunt-panel > *, .jaunt-context-card > *, .tale-card > *, .crash-notice > *, .tour-card > *,
+  .gate-card, .recall-card, .overview-full-head, .overview-full-foot) { zoom: var(--text-scale); }
+html[data-text-scale] :is(.nav-hint, .roam-tip, .look-tag, .target-tag[data-place="centre"]) { zoom: var(--text-scale); }
+html[data-text-scale] .target-tag[data-place="centre"] { max-width: min(440px, calc((100vw - 120px) / var(--text-scale))); }
+html[data-text-scale] .look-tag { white-space: normal; max-width: calc((100vw - 32px) / var(--text-scale)); text-align: center; }
+html[data-text-scale] .nav-hint { top: calc((64px + env(safe-area-inset-top, 0px)) / var(--text-scale));
+  max-width: min(420px, calc((100vw - 32px) / var(--text-scale))); }
+html[data-text-scale] .roam-tip { bottom: calc((92px + env(safe-area-inset-bottom, 0px)) / var(--text-scale));
+  max-width: calc((100vw - 32px) / var(--text-scale)); }
+/* A card's title row reaches into its side padding by 16 px; the padding grows with it. */
+html[data-text-scale] .popup { padding-left: calc(16px * var(--text-scale)); padding-right: calc(16px * var(--text-scale)); }
+/* Where the screen has room, a card and a panel widen with their words. */
+@media (min-width: 621px) {
+  html[data-text-scale] .popup { width: min(calc(440px * var(--text-scale)), calc(100vw - 24px), max(440px, 50vw)); }
+  html[data-text-scale] .tour-card { width: min(calc(360px * var(--text-scale)), calc(100vw - 32px)); }
+}
+@media (min-width: 901px) {
+  html[data-text-scale] .jaunt-panel { width: min(calc(350px * var(--text-scale)), calc(100vw - 28px), max(350px, 40vw)); }
+  html[data-text-scale] .jaunt-context-card { width: min(calc(430px * var(--text-scale)), calc(100vw - 28px), max(430px, 45vw)); }
+  html[data-text-scale] .tale-card { width: min(calc(420px * var(--text-scale)), calc(100vw - 264px), max(420px, 45vw)); }
+}
+/* Above 100 % a line that ends in an ellipsis at 100 % wraps, and a strip of tabs takes a second row. */
+html[data-text-scale] .jaunt-progress-title { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; overflow-wrap: anywhere; }
+html[data-text-scale] .pop-tabs { flex-wrap: wrap; overflow-x: visible; }
+/* A tall card or prompt scrolls in its overlay rather than past the screen's edge. */
+html[data-text-scale] :is(.gate, .recall-confirm, .overview-full) { overflow-y: auto; align-items: safe center; grid-template-columns: minmax(0, 1fr); }
+/* The arrival device on a phone, magnified: the year window over its lamps, the destination
+   wrapping, the readout one cell to a row. */
+html[data-text-scale] .gate[data-state="welcome"] .gate-code { flex-wrap: wrap; white-space: normal; }
+@media (max-width: 520px) {
+  html[data-text-scale] :is(.arrival-instrument, .arrival-deck) { grid-template-columns: minmax(0, 1fr); }
+  html[data-text-scale] .arrival-window .arrival-year { width: min(156px, 100%); }
+  html[data-text-scale] .arrival-destination { white-space: normal; overflow-wrap: anywhere; }
+  html[data-text-scale] .arrival-readout { grid-template-columns: minmax(0, 1fr); }
+  html[data-text-scale] .arrival-readout > div { border-left: 0; }
+  html[data-text-scale] .arrival-device-head { flex-wrap: wrap; }
+  html[data-text-scale] .arrival-device-bar { flex-basis: 100%; order: 1; }
+  html[data-text-scale] .arrival-readout > div + div { border-top: 1px solid var(--edge); }
+}
+
+/* T-3671 (WCAG 2.2.2, 2.3.3): Settings › Look › Motion, Reduce — or System on a device that
+   asks for less (js/motion.js puts html[data-motion]). Every transition and animation runs to
+   its end at once: nothing slides, pulses, blinks or rolls, and a blink stops lit. One rule,
+   last in the sheet, so no panel has to remember it. */
+html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
 }

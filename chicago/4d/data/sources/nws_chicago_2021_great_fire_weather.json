@@ -1,0 +1,25 @@
+{
+ "id": "nws_chicago_2021_great_fire_weather",
+ "type": "website",
+ "citation": "National Weather Service Chicago. 'The 150th Anniversary of the Great Chicago Fire of 1871'. 8 October 2021.",
+ "author": "National Weather Service, Chicago office",
+ "date": "2021-10-08",
+ "describes_date": "July to 10 October 1871",
+ "repository": "weather.gov",
+ "url": "https://www.weather.gov/lot/1871fire",
+ "locator": "'Weather Prior to the Fire' (the months and the week before) and 'Weather During the Fire: October 8th'.",
+ "tier": 3,
+ "rights_status": "public_domain",
+ "rights_note": "A work of the United States government; public domain.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3692) on the live page.",
+ "note": "A reconstruction from surviving volunteer and Army observations: Chicago's own station records were lost in the fire. Its regional highs and winds are estimates, not a measured street-level reading in the city.",
+ "what_it_supplies": [
+  "3.55 inches of rain from 7 July to 8 October; no rain at all from 29 September to 8 October",
+  "highs in the low to mid 80s on 8 October; southwest winds estimated to peak at about 35-45 mph"
+ ],
+ "what_it_does_not_supply": [
+  "the temperature or wind at any hour on any Chicago street"
+ ]
+}
