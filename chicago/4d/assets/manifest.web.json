@@ -1,5 +1,6 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__as_mapped_1904.glb": "d9584a20c8e9e7d069deb8c43c3882be9c4ab26b34dea570863225b423602ec9",
@@ -257,7 +258,7 @@
     "house_2016_calumet_coach_house__draft_1904.glb": "7b163a948d03bd82ed9bcaee19a2a406f26dc3aac8fd477eb26961286c2a368a",
     "house_2017_indiana__draft_1904.glb": "5019433c28416f8f67bd14b1734c05e2146c33f1dcaa931b58ba0dd363df9ce9",
     "house_2017_indiana_coach_house__draft_1904.glb": "09ea32a98553c56ef1c315dbab9cf90a28310e35d3f8841a3875140d4222977d",
-    "house_2017_prairie__as_mapped_1904.glb": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53",
+    "house_2017_prairie__as_mapped_1904.glb": "8ec76d276d2d41b6a04387e042f0dd625d3dad320e96c01c33381658b9e7f640",
     "house_2017_prairie_coach_house__draft_1904.glb": "e53aa69a621533de90a06c1421772c86e883dbf4ce0d18db25e2539a3c5c5613",
     "house_2018_prairie__as_mapped_1904.glb": "3cb3a23610d077fc6a24a8362ca76aa662e49f4c047d25d2bcac043c3b90da8d",
     "house_2018_prairie_coach_house__draft_1904.glb": "ee53f3353f95e781591802247adb91454a210a0f16ed61bbbe133fb395751dc1",
@@ -1130,6 +1131,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "111f34a5e2036b15c34ca4e38c16a68534413227d9bd57291a10e6bf0cbb09d6",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }

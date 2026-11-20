@@ -139,6 +139,13 @@ def rule_data(v, data, b):
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
                          f"closer than {pier} m to its end")
         k = w["storey"]
+        if w.get("gable"):
+            # T-3634: a light in a coped gable's face stands over the wall top; the kit itself
+            # holds it inside the kneelers and under the copings' beds (k08_bays._gable_face)
+            if w["y_all"][0] < levels[-1] - EPS or w["y_all"][1] > b.meta["roof"]["gable_top_m"] + EPS:
+                fails.append(f"storey: a gable light spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, outside "
+                             f"its gable {levels[-1]:.3f}..{b.meta['roof']['gable_top_m']:.3f}")
+            continue
         floor = levels[k] + (band["height_m"] / 2 if k else (plinth["height_m"] if v["base"] == "grade" else 0))
         if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
             floor = levels[0] - k06["parts"]["sill"]["height_m"]
