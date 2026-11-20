@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3154, ts: '2026-11-20T02:18:23.091Z', date: 'Nov 19, 2026, 8:18 PM CT', title: 'Play a part: three new jaunts where your choices change the story', kind: 'feature',
+    items: [
+      '1812: be a young runner at Fort Dearborn in the week the order to leave arrives.',
+      '1835: be the Chicago Democrat\'s new apprentice and carry the 1 July paper round town.',
+      '1904: be the iceman\'s helper on Prairie Avenue and find the right door at the Glessners\'.',
+      'Each has two choices that change where you go next, and four different endings.',
+      'Every stop\'s facts are cited; the young person, the choices and the endings are liberties, and say so.',
+      'All three come in every grade band and an 18+ telling, under Errands (1812) and Work.',
+    ] },
   { v: 3153, ts: '2026-11-20T01:43:03.170Z', date: 'Nov 19, 2026, 7:43 PM CT', title: 'The Court House, Chamber of Commerce and Sherman House stand in 1871', kind: 'feature',
     items: [
       'The Court House rises in the middle of its square: the smoke-darkened 1853 house under its domed cupola, between the two pale stone wings of 1870.',
