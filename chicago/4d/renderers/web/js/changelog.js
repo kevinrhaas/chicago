@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3188, ts: '2026-11-21T16:11:34.810Z', date: 'Nov 21, 2026, 10:11 AM CT', title: '2100 Prairie\'s porch takes its deep stone balcony and swept stair', kind: 'feature',
+    items: [
+      'The Sherman house\'s front porch now looks more like its c. 1890 photograph: it stands where the picture puts it, a little north of the front door, under a deep stone entablature, with carved capitals on its columns and a balcony guard raised to about 85 cm before a glazed door onto the balcony.',
+      'The front steps now rise between stone cheeks that sweep down to the walk and splay outward at the foot, as the 1876 plan draws them, and the south cheek is pierced with a row of openings like the photograph\'s.',
+    ] },
+  { v: 3187, ts: '2026-11-21T16:00:48.770Z', date: 'Nov 21, 2026, 10:00 AM CT', title: '2110 Prairie: the Rees house under its tall stone gable', kind: 'feature',
+    items: [
+      'The Harriet Rees house at 2110 Prairie Avenue is now built from its pictures instead of the rough draft: a pale limestone front rising into a tall coped gable with a finial, five arched windows under it, a two-storey bow capped in copper, and a round-arched door at the top of a high stoop.',
+    ] },
   { v: 3186, ts: '2026-11-21T14:00:02.899Z', date: 'Nov 21, 2026, 8:00 AM CT', title: '1871: Court House, Sherman House and Chamber of Commerce match their photographs', kind: 'feature',
     items: [
       'The Court House\'s wings are rebuilt to their 1868 plan and the photograph: taller, with crested centre pavilions, urns along the parapets, and a domed pavilion on the Clark Street front.',

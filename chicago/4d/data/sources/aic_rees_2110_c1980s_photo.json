@@ -1,0 +1,30 @@
+{
+ "id": "aic_rees_2110_c1980s_photo",
+ "type": "photograph",
+ "citation": "Rees, Harriet, Residence. Black-and-white photograph of the front (east) of 2110 S. Prairie Avenue on its original site, c. 1980s; photographer not named. Art Institute of Chicago, Ryerson & Burnham Archives, mqc 5235 (000000.090908-13.jpg).",
+ "author": "unknown photographer",
+ "date": "c. 1980s (the archive's view date)",
+ "describes_date": "1980-1989",
+ "repository": "Art Institute of Chicago, Ryerson & Burnham Archives (CONTENTdm collection mqc, item 5235). Prairie library image a20-aic-rees-c1980s-photo, its rights recorded there as unknown, link only; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-aic-rees-c1980s-photo.jpg).",
+ "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/5235",
+ "locator": "The whole front from the sidewalk before it, looking up: the gable and finial at the top (y 75-310 of 1056 px), the loggia (y 320-400), the bow from its copper cap (y 410-470) to its base (y 890), the arched door at the right (x 515-635).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "The archive's record says 'For publication/rights information please contact the Ryerson and Burnham Archives'. Only forms, counts and places are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-21 (T-1922) from the image store's copy, 724 x 1056 px.",
+ "note": "A picture of its own date, nearly a century after the 1904 target: it is read for the 1888 front where the early-1890s street photograph shows the same forms (the bow, its carved band, the pale stone, the arched door, the stoop) and for what that photograph's trees and edge cut off (the loggia and the gable), argued unchanged from 1888 in docs/RESEARCH/k01-2110-rees-1922/README.md. The bow's iron window guards and the basement door under the landing are not argued for 1904.",
+ "what_it_supplies": [
+  "the gable over the whole front: coped rakes, kneelers, finial, carved tympanum and one narrow light",
+  "the five round-arched lights of the loggia on colonettes at the gable's foot",
+  "the bow's three lights a storey, its carved band and its cap",
+  "the round-arched door at the north end with the light over it, and the high stoop",
+  "a stack on the south flank behind the gable"
+ ],
+ "what_it_does_not_supply": [
+  "any measure: no scale stands in it, and it looks up, which foreshortens heights",
+  "the flanks and the rear",
+  "colour: it is black and white"
+ ]
+}

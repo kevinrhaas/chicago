@@ -5000,6 +5000,175 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "rees_house_2110_prairie/as_mapped_1904/form.bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.boundary": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.construction": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.entrance_bay": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.front_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.principal_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.roof_covering": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.roof_form": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.roof_pitch_deg": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.shaped_gable": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.stone_front": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.storey_heights_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.stories": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "sole_support": false,
+      "confidence": "attested"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.street_front_trim": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.street_front_windows": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "rees_house_2110_prairie/as_mapped_1904/form.wall_head": {
+      "kind": "structure",
+      "blocked_sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "reid_house_2013_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
       "blocked_sources": [
