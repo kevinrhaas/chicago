@@ -16150,7 +16150,7 @@
     "armour_house_2115_prairie",
     "armour_house_2115_prairie_coach_house"
    ],
-   "scheme": "drying_yard",
+   "scheme": "side_lawn",
    "grade": "reconstructed",
    "sources": [
     "census_1900_chicago_t623_roll245"
@@ -16160,30 +16160,30 @@
     {
      "id": "prairie_2115:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "yard_brick",
+     "material": "flags",
      "polygon_local_m": [
       [
-       1439.29,
-       -3667.44
+       1448.24,
+       -3659.95
       ],
       [
-       1439.31,
-       -3669.37
+       1448.26,
+       -3663.47
       ],
       [
-       1444.32,
-       -3669.33
+       1455.53,
+       -3663.41
       ],
       [
-       1444.31,
-       -3667.4
+       1455.5,
+       -3659.89
       ]
      ],
      "along_deg": 179.56,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in stone flagging: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_2115:drying_yard:1",
@@ -16191,20 +16191,20 @@
      "material": "trodden",
      "polygon_local_m": [
       [
-       1450.53,
-       -3655.19
+       1450.59,
+       -3664.19
       ],
       [
-       1450.57,
-       -3661.19
+       1450.64,
+       -3670.19
       ],
       [
-       1454.57,
-       -3661.16
+       1454.64,
+       -3670.16
       ],
       [
-       1454.52,
-       -3655.16
+       1454.59,
+       -3664.16
       ]
      ],
      "along_deg": 179.56,
@@ -16218,10 +16218,10 @@
     {
      "id": "prairie_2115:back_door",
      "structure": "armour_house_2115_prairie",
-     "e": 1439.1,
-     "n": -3668.28,
+     "e": 1448.24,
+     "n": -3661.21,
      "facing_deg": 89.56,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -16230,17 +16230,17 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1452.53,
-     "n": -3655.48,
+     "e": 1452.6,
+     "n": -3664.48,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
@@ -16249,8 +16249,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1452.57,
-     "n": -3660.88,
+     "e": 1452.64,
+     "n": -3669.87,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
