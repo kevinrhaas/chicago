@@ -191,34 +191,94 @@
         "face": "street",
         "along_m": 1.6,
         "head": "gable",
-        "gable_pitch_deg": 48,
+        "gable_pitch_deg": 45,
         "sash": {
          "variant": "k06.opening.sash_paired_flat",
-         "width_m": 1.25,
-         "height_m": 1.05,
-         "sill_m": 0.15
+         "width_m": 1.3,
+         "height_m": 1.0,
+         "sill_m": 0.1
         },
-        "surround_m": 0.3,
-        "face_setback_m": 0.05,
+        "surround_m": 0.38,
+        "face_setback_m": 0.01,
         "over_curb": {
          "back_m": 1.0
+        },
+        "frieze_m": 0.17,
+        "dress": {
+         "cornice_m": [
+          0.25,
+          0.22
+         ],
+         "return_m": 0.2,
+         "rake": [
+          [
+           0.1,
+           0.15
+          ],
+          [
+           0.06,
+           0.08
+          ]
+         ],
+         "pilasters": {
+          "width_m": 0.34,
+          "proud_m": 0.05,
+          "cap_m": 0.15
+         },
+         "cheeks": "slate",
+         "lunette": {
+          "radius_m": 0.38,
+          "ring_m": 0.07,
+          "proud_m": 0.1,
+          "flutes": 9
+         }
         }
        },
        {
         "face": "street",
         "along_m": 4.9,
         "head": "gable",
-        "gable_pitch_deg": 48,
+        "gable_pitch_deg": 45,
         "sash": {
          "variant": "k06.opening.sash_2over2_flat",
          "width_m": 0.7,
          "height_m": 1.0,
-         "sill_m": 0.15
+         "sill_m": 0.1
         },
-        "surround_m": 0.3,
-        "face_setback_m": 0.05,
+        "surround_m": 0.33,
+        "face_setback_m": 0.01,
         "over_curb": {
          "back_m": 1.0
+        },
+        "frieze_m": 0.22,
+        "dress": {
+         "cornice_m": [
+          0.25,
+          0.22
+         ],
+         "return_m": 0.2,
+         "rake": [
+          [
+           0.1,
+           0.15
+          ],
+          [
+           0.06,
+           0.08
+          ]
+         ],
+         "pilasters": {
+          "width_m": 0.3,
+          "proud_m": 0.05,
+          "cap_m": 0.15
+         },
+         "cheeks": "slate",
+         "lunette": {
+          "radius_m": 0.28,
+          "ring_m": 0.06,
+          "proud_m": 0.1,
+          "flutes": 7
+         }
         }
        }
       ],
@@ -238,7 +298,7 @@
      "sources": [
       "chicagology_2017_armour_photo"
      ],
-     "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (x 45-255 px) with a pair of lights (x 90-205, y 300-400) and the south one (x 375-515) with one light (x 415-475), each under a stone pediment of about 48 degrees between pilasters standing up over the curb (their apexes at y 150 and 190 px, about 0.8 and 0.4 m over it; K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them; along the curb a crenellated cresting (y 222-240): square merlons about 0.15 m wide (13-14 px) at about 0.34 m centres (31 px) rising about 0.09 m over a solid band, about 0.2 m in all, built in iron as the deck's crenellated pattern (T-3634); its material is not shown in the print and is inferred. The pediments' carved lunettes are not built (the match record)."
+     "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (pilasters at x 52-240 px, about 2.05 m) with a pair of lights (x 85-207, y 312-400, about 1.3 x 1.0 m) and the south one (pilasters at x 382-505, about 1.35 m) with one light (x 415-475, y 312-400), each dressed as a classical pediment standing up over the curb (K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them (T-3634): a pilaster with its capital either side of the lights (about 0.35 and 0.3 m wide), a frieze over them, a level cornice about 0.25 m deep whose top lies 0.55 m over the lights' heads (y 262 against 312 px) and whose ends return past the pilasters, the raking cornice pitched about 45 degrees to the apexes at y 152 and 184 px, and in each tympanum a carved lunette standing on the level cornice, a moulded ring round a carved fan (x 117-180 and 422-470 px, about 0.38 and 0.28 m in radius); the fan's carving is read only as a fan of leaves at the print's grain and its count is inferred. The dress is laid in the front's stone, the tone it has in the print. Along the curb a crenellated cresting (y 222-240): square merlons about 0.15 m wide (13-14 px) at about 0.34 m centres (31 px) rising about 0.09 m over a solid band, about 0.2 m in all, built in iron as the deck's crenellated pattern (T-3634); its material is not shown in the print and is inferred."
     },
     "roof_covering": {
      "value": {
