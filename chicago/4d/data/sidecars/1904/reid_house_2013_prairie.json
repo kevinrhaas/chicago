@@ -793,8 +793,8 @@
           ],
           "floor_m": 1.65,
           "storey_heights_m": [
-            3.8,
-            3.5
+            4.45,
+            4.5
           ],
           "sash_by_storey": [
             {
@@ -820,6 +820,36 @@
             "overhang_m": 0.15,
             "fascia_m": 0.3,
             "covering": "painted_tin_sheet"
+          },
+          "roof_porch": {
+            "storey_m": 2.55,
+            "post_m": 0.12,
+            "posts": {
+              "south": [
+                -6.55
+              ],
+              "north": [
+                -6.55
+              ],
+              "rear": [
+                2.23
+              ]
+            },
+            "roof": {
+              "slab_m": 0.35,
+              "overhang_m": 0.15
+            },
+            "railing": {
+              "sides": [
+                "south",
+                "north",
+                "rear"
+              ],
+              "height_m": 0.95,
+              "rail_m": 0.06,
+              "baluster_m": 0.025,
+              "pitch_m": 0.12
+            }
           }
         }
       ],
@@ -828,7 +858,7 @@
         "sanborn_1911_chicago_v3_sheet_35",
         "nrhp_2003_reid_house_nomination"
       ],
-      "note": "The 1911 sheet behind the front block, read at full size: a narrower '3B' part 4.85 m deep (px 1015-1041) and 4.65 m wide along the north line (rows 476-501), with a small canted bay on its open south side, and the '2B' rear block 5.4 m deep (px 1041-1070) and 4.46 m wide. Their floors, storeys, flat roofs and lights are RECONSTRUCTED; the canted bay is not built (L-k01-2013-reid-3625, T-3626 reads the rear off the 2003 photographs). T-3626, the 2003 nomination photographs: on the north wall behind the front block (K01's 'south' side of rear_3b, s from its rear end) a tall light in the top storey at s 2.95 (sill 10.47 m, px x 368-383; about 0.7 m wide, laid at the kit's 0.75 m), none in the middle storey, and in the ground storey only a small high light at s 2.24 (sill 4.92 m, about 0.5 x 0.64 m, px x 355-366) that a wing's sash cannot lay (1.5 m at the least) and is not built, under the bar a street visitor would notice, through the north side's camera; the rear block's north wall is blank from grade to its parapet. Its rear (east) face, in the rear photograph (no camera solved), shows two lights a storey, barred in 2003, set about a quarter of the face in from each corner (built at s 1.1 and 3.35). Not built, and open in the match records: the rear block stands about 11.4 m to its parapet at its east end with an open, roofed porch over it to about 14 m (the nomination: 'the top floor of the rear section is open to provide a terrace'), where this wing is two storeys to 8.95 m; the dining room's canted bay on the south side of rear_3b (the nomination: 'a bay with a larger central window flanked by narrower angled side windows'; the 1911 sheet's canted bay); and the rear's smooth red brick. The narrower 3B part stands as tall as the front block (its top storey 4.6 m, the deck at 13.55 m): the north side's camera reads the party wall's parapet at 14.2-15.0 m unbroken from the front back to u -3.8, where the rear block's terrace begins, so the draft's 4.0 m top storey, a 0.6 m step down behind the front block that the photograph does not show, is withdrawn."
+      "note": "The 1911 sheet behind the front block, read at full size: a narrower '3B' part 4.85 m deep (px 1015-1041) and 4.65 m wide along the north line (rows 476-501), with a small canted bay on its open south side, and the '2B' rear block 5.4 m deep (px 1041-1070) and 4.46 m wide. Their floors, storeys, flat roofs and lights are RECONSTRUCTED; the canted bay is not built (L-k01-2013-reid-3625, T-3626 reads the rear off the 2003 photographs). T-3626, the 2003 nomination photographs: on the north wall behind the front block (K01's 'south' side of rear_3b, s from its rear end) a tall light in the top storey at s 2.95 (sill 10.47 m, px x 368-383; about 0.7 m wide, laid at the kit's 0.75 m), none in the middle storey, and in the ground storey only a small high light at s 2.24 (sill 4.92 m, about 0.5 x 0.64 m, px x 355-366) that a wing's sash cannot lay (1.5 m at the least) and is not built, under the bar a street visitor would notice, through the north side's camera; the rear block's north wall is blank from grade to its parapet. Its rear (east) face, in the rear photograph (no camera solved), shows two lights a storey, barred in 2003, set about a quarter of the face in from each corner (built at s 1.1 and 3.35). T-3626 builds the rear block's top floor as the nomination's terrace ('the top floor of the rear section is open to provide a terrace'): two enclosed storeys of 4.45 and 4.5 m (RECONSTRUCTED split; the north side's camera reads the wall's top, the porch's sill, at about 10.9 m, so the wall stops at 10.6 m under a deck at 10.9 m), and on the deck an open porch (`roof_porch`, k01_wing_porch) 2.55 m to a flat tin roof at 13.45-13.8 m, under the 3B part's 13.85 m deck: posts at its two rear corners, one at u -6.55 on each long side (the north side's pier between the porch's two openings, x 275-290 px) and one mid-rear (the rear photograph's posts at its corners and between them), and an iron railing round its three open sides (the rear photograph's along the rear); the posts' and rails' sections and the roof's slab are reconstructed (L-k01-2013-reid-porch-3626). Read but not built: the dining room's canted bay on the south side of rear_3b (the nomination: 'a bay with a larger central window flanked by narrower angled side windows'; the 1911 sheet's canted bay); and the rear's smooth red brick (the rear photograph has no solved camera; a one-storey K08 bay is refused on a K01 wing's wall, which carries towers, full-height projections and oriels only). The narrower 3B part stands as tall as the front block (its top storey 4.6 m, the deck at 13.55 m): the north side's camera reads the party wall's parapet at 14.2-15.0 m unbroken from the front back to u -3.8, where the rear block's terrace begins, so the draft's 4.0 m top storey, a 0.6 m step down behind the front block that the photograph does not show, is withdrawn."
     },
     "function": {
       "value": "residence",

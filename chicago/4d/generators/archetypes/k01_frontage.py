@@ -1262,6 +1262,10 @@ class Assembly:
             self.wing_deck(w)
         else:
             self.wing_roof(w)
+        if w.get("roof_porch"):
+            # T-3626: an open, roofed porch on the deck (2013's rear block)
+            from . import k01_wing_porch
+            k01_wing_porch.dress(self, w)
 
     def group_holes(self, o):
         """T-3354: an opening's holes in its wall — one, or for a rear wing's stone-mullioned
