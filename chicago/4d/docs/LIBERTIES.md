@@ -25186,6 +25186,7 @@ in a K01 area light, closes the basement lights' open item in the match record.
 **Ticket:** T-3667 (piece 1 of T-1921).
 **Review:** `docs/RESEARCH/k01-2108-kimball-3667/README.md`.
 **Recorded:** 2026-11-19 (T-3667).
+**Revised:** 2026-11-20 (T-3668): the basement lights resolved as the line above asked. K02's Lemont-limestone base now runs to four courses (it ran to two), so 2108's base lays four rusticated courses of 0.35 m under its 0.25 m coping to the lights' heads at 1.65 m, and each light stands 1.4 m on its 0.25 m sill: two thirds of the record's 2.2 m basement, the proportion the cut draws (its heads at y 176 under the ledge at 151, its feet at 236 over grade at 242), not its scale, which draws every height tall. Each is barred with K08's grille, five uprights, a foot bar and a bar at the head under a ring, for the five or six bars and the arched line the cut draws. Still invented: the count of base courses (the cut draws the base's ashlar without its joints), the bars' count and the ring's radius. The match record reads `matches`.
 
 ### L-k01-2112-rothschild-3668 — 2112 Prairie, the Max M. Rothschild house, refined from the district draft onto K01: its plan, canted stone bay and mansard off the 1911 sheet, its pale stone front, round-arched door, round-headed lights and stone-cheeked stoop off the early-1890s street photograph, everything neither shows the kits'
 
@@ -45609,3 +45610,12 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 **Ticket:** T-3626 (piece 2 of T-1916, S07).
 **Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg`.
 **Recorded:** 2026-11-20 (T-3626).
+
+### L-score-3710 — The jaunts' score: newly made music under the narrated jaunts (2026-11-20)
+
+**Decision:** the owner, 2026-11-20, asked for an instrumental score for the whole app ("in the style of John Williams ... no vocals instrumentation only and use native and other instruments to make this a unique and cool and respectful story, maybe not as many native things in 1904 and less in 1835 and 1871, use music and styles from the era"), narrated jaunts first, then "Ok can you go ahead and add the music to the jaunts correctly". The music under the 22 narrated 1812 and 1904 jaunts and their versions is generated for the app (ElevenLabs Music through fal, Stable Audio 2.5 inpainting for joins; `data/music/score.json`, `data/music/jaunts.json`) and chosen by the owner by ear. Its main theme is one recording he fixed and is never regenerated. Everything in it is reconstructed: no piece is a period composition, arrangement or performance, and none was heard in Chicago in 1812 or 1904. The period is suggested by instrument colour only, over a cinematic orchestra: in 1812 a Woodlands cedar flute, a soft hand drum, a Métis fiddle, fife and rope snare; in 1904 a romantic orchestra, salon strings and ragtime piano touches. The Native colour in 1812 is kept to timbre, under rules written into every 1812 cue (`tools/build_music_score.py`): no stereotyped tom-tom beat and no war whoops, and in every cue no vocals, choir, singing or humming. Nothing in it is presented as a Potawatomi or other nation's song. Which cue plays at which stop (the battle's build, march, fight and aftermath), and the scandal jaunts' stand-in bed, are ours.
+
+**Re-opens on:** a documented piece of music played or sung at Fort Dearborn in 1812 or on Prairie Avenue about 1904, which could be arranged for the stop it belongs to; a Potawatomi musician's or the nation's guidance on how their music may be represented.
+
+**Ticket:** T-3710.
+**Recorded:** 2026-11-20.
