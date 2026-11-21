@@ -1,0 +1,699 @@
+{
+  "id": "field_leiter_1871",
+  "name": "Field, Leiter & Co., State and Washington Streets",
+  "archetype": "landmark_1871",
+  "function": {
+    "value": "store",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Field, Leiter & Co.'s dry goods store (Andreas vol. 2, pp. 694-695)."
+  },
+  "built": {
+    "value": 1868,
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Field, Leiter & Co. occupied the corner from the autumn of 1868 (Andreas vol. 2, pp. 694-695); the building's own completion date is not given there."
+  },
+  "research_note": "FIELD, LEITER & CO., built by T-3688 for the 1871 scene: the dry goods house of Marshall Field and Levi Z. Leiter, in Potter Palmer's marble building on the north-east corner of State and Washington Streets from the autumn of 1868 (Andreas vol. 2, pp. 563, 694-695). Built to Andreas's engraving of it. On the night of the fire its own pumps kept 'that massive pile of pure marble and iron' wet until the water failed (p. 734); it burned before daylight on 9 October 1871, with losses of nearly $3,500,000.",
+  "phases": [
+    {
+      "id": "store_1868_1871",
+      "documented_range": {
+        "from": "1868-10-01",
+        "to": "1871-10-09",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1885_v2_buildings"
+        ],
+        "note": "Occupied from the autumn of 1868; burned 9 October 1871 (Andreas vol. 2)."
+      },
+      "position": {
+        "utm_e": 447918.335,
+        "utm_n": 4637010.983,
+        "rotation_deg": 359.4,
+        "symbolic_location": "North-east corner of State and Washington Streets.",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1885_v2_buildings",
+          "mitchell_1870_chicago_map"
+        ],
+        "note": "Its State Street front on the east building line of State Street and its Washington Street front on the north building line of Washington Street, at the corner Andreas gives the store (vol. 2, pp. 694-695). The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. IT LAPS THE 1835 PLAT'S WASHINGTON STREET BY 2.35 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, and the two tracings disagree by about 2.4 m here; moving the store 2.4 m north would set it back from the walk it fronts. The footprint's origin is local E 845.63 N -384.82.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Set on the 1871 plan's street lines (traced from Mitchell's 1870 map) at the corner or frontage the texts name; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            41.5,
+            0
+          ],
+          [
+            41.5,
+            25.5
+          ],
+          [
+            0,
+            25.5
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1885_v2_downtown_plates"
+        ],
+        "note": "Both fronts' lengths read through the engraving's camera against its storeys; no dimension is given in the texts read."
+      },
+      "form": {
+        "composition": {
+          "value": {
+            "confidence": "inferred",
+            "fire": {
+              "fate": "burned",
+              "left": "walls",
+              "time": "1871-10-09T03:45",
+              "sources": [
+                "andreas_1885_v2_buildings"
+              ],
+              "note": "Its own pumping engines kept 'that massive pile of pure marble and iron' wet until the water stopped when the Water Works fell; then it burned (Horace White, in Andreas vol. 2, p. 734)."
+            },
+            "blocks": [
+              {
+                "name": "the store",
+                "box": [
+                  0,
+                  0,
+                  41.5,
+                  25.5
+                ],
+                "storeys": [
+                  4.8,
+                  3.6,
+                  3.4,
+                  3.2,
+                  3.1,
+                  3.0
+                ],
+                "wall": "marble",
+                "belts": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "water_table": 0.3,
+                "cornice": {
+                  "kind": "bracketed",
+                  "proj": 1.0,
+                  "brackets": 0.8
+                },
+                "roof": {
+                  "kind": "mansard",
+                  "h": 3.8,
+                  "inset": 0.3,
+                  "run": 1.2,
+                  "curve": 0.15,
+                  "covering": "slate",
+                  "cresting": true,
+                  "dormers": {
+                    "S": {
+                      "kind": "arched",
+                      "w": 1.4,
+                      "h": 2.2
+                    },
+                    "W": {
+                      "kind": "arched",
+                      "w": 1.4,
+                      "h": 2.2
+                    }
+                  }
+                },
+                "faces": {
+                  "S": {
+                    "bays": {
+                      "at": [
+                        1.596,
+                        4.788,
+                        7.981,
+                        11.173,
+                        14.365,
+                        17.558,
+                        20.75,
+                        23.942,
+                        27.135,
+                        30.327,
+                        33.519,
+                        36.712,
+                        39.904
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "W": {
+                    "bays": {
+                      "at": [
+                        1.062,
+                        3.188,
+                        5.312,
+                        7.438,
+                        9.562,
+                        11.688,
+                        13.812,
+                        15.938,
+                        18.062,
+                        20.188,
+                        22.312,
+                        24.438
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "N": "blank",
+                  "E": "blank"
+                },
+                "confidence": "inferred",
+                "note": "Six storeys of white marble over iron shop fronts, every upper window round-arched between pilasters, under a bracketed cornice and a slated mansard, as Andreas's engraving shows it. Heights read through the engraving's camera."
+              },
+              {
+                "name": "the corner pavilion",
+                "box": [
+                  -0.3,
+                  -0.3,
+                  9.0,
+                  9.0
+                ],
+                "storeys": [
+                  4.8,
+                  3.6,
+                  3.4,
+                  3.2,
+                  3.1,
+                  3.0
+                ],
+                "wall": "marble",
+                "belts": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "water_table": 0.3,
+                "cornice": {
+                  "kind": "bracketed",
+                  "proj": 1.0,
+                  "brackets": 0.8
+                },
+                "roof": {
+                  "kind": "mansard",
+                  "h": 6.8,
+                  "inset": 0.3,
+                  "run": 1.4,
+                  "curve": 0.2,
+                  "covering": "slate",
+                  "cresting": true,
+                  "dormers": {
+                    "S": {
+                      "kind": "arched",
+                      "w": 1.6,
+                      "h": 2.6
+                    },
+                    "W": {
+                      "kind": "arched",
+                      "w": 1.6,
+                      "h": 2.6
+                    }
+                  }
+                },
+                "faces": {
+                  "S": {
+                    "bays": {
+                      "at": [
+                        1.55,
+                        4.65,
+                        7.75
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "W": {
+                    "bays": {
+                      "at": [
+                        1.163,
+                        3.488,
+                        5.812,
+                        8.138
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "N": "none",
+                  "E": "none"
+                },
+                "confidence": "inferred",
+                "note": "The corner on State and Washington rises into a tall mansard with an arched dormer on each face, as the engraving shows it."
+              },
+              {
+                "name": "the north pavilion",
+                "box": [
+                  -0.3,
+                  18.9,
+                  6.0,
+                  25.5
+                ],
+                "storeys": [
+                  4.8,
+                  3.6,
+                  3.4,
+                  3.2,
+                  3.1,
+                  3.0
+                ],
+                "wall": "marble",
+                "belts": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "water_table": 0.3,
+                "cornice": {
+                  "kind": "bracketed",
+                  "proj": 1.0,
+                  "brackets": 0.8
+                },
+                "roof": {
+                  "kind": "mansard",
+                  "h": 5.4,
+                  "inset": 0.3,
+                  "run": 1.4,
+                  "curve": 0.2,
+                  "covering": "slate",
+                  "cresting": true,
+                  "dormers": {
+                    "W": {
+                      "kind": "arched",
+                      "w": 1.6,
+                      "h": 2.6
+                    }
+                  }
+                },
+                "faces": {
+                  "W": {
+                    "bays": {
+                      "at": [
+                        1.1,
+                        3.3,
+                        5.5
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "S": "none",
+                  "N": "none",
+                  "E": "none"
+                },
+                "confidence": "inferred",
+                "note": "The State Street front's north end rises into its own mansard, as the engraving shows it."
+              },
+              {
+                "name": "the east pavilion",
+                "box": [
+                  34.9,
+                  -0.3,
+                  41.5,
+                  6.0
+                ],
+                "storeys": [
+                  4.8,
+                  3.6,
+                  3.4,
+                  3.2,
+                  3.1,
+                  3.0
+                ],
+                "wall": "marble",
+                "belts": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "water_table": 0.3,
+                "cornice": {
+                  "kind": "bracketed",
+                  "proj": 1.0,
+                  "brackets": 0.8
+                },
+                "roof": {
+                  "kind": "mansard",
+                  "h": 5.4,
+                  "inset": 0.3,
+                  "run": 1.4,
+                  "curve": 0.2,
+                  "covering": "slate",
+                  "cresting": true,
+                  "dormers": {
+                    "S": {
+                      "kind": "arched",
+                      "w": 1.6,
+                      "h": 2.6
+                    }
+                  }
+                },
+                "faces": {
+                  "S": {
+                    "bays": {
+                      "at": [
+                        1.65,
+                        4.95
+                      ]
+                    },
+                    "storeys": [
+                      {
+                        "kind": "store",
+                        "w": 2.5,
+                        "h": 4.2,
+                        "sill": 0.2,
+                        "hood": "none"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.5,
+                        "sill": 0.7,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.4,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.3,
+                        "h": 2.2,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.25,
+                        "h": 2.1,
+                        "sill": 0.6,
+                        "hood": "arch"
+                      },
+                      {
+                        "kind": "round",
+                        "w": 1.2,
+                        "h": 2.0,
+                        "sill": 0.35,
+                        "hood": "arch"
+                      }
+                    ]
+                  },
+                  "N": "none",
+                  "E": "none",
+                  "W": "none"
+                },
+                "confidence": "inferred",
+                "note": "The Washington Street front's east end rises into its own mansard, as the engraving shows it."
+              }
+            ],
+            "flagpoles": [
+              {
+                "at": [
+                  4.35,
+                  4.35,
+                  28.0
+                ],
+                "h": 8.0
+              }
+            ],
+            "note": "The fronts read off the engraving in Andreas (vol. 2, p. 563); 'pure marble and iron' (Horace White, Andreas vol. 2, p. 734). The plan size is read through the engraving's camera; the walls behind are not drawn there."
+          },
+          "confidence": "inferred",
+          "sources": [
+            "andreas_1885_v2_buildings",
+            "andreas_1885_v2_downtown_plates"
+          ],
+          "note": "The fronts, their arches, pavilions and mansards from the engraving; heights read off it."
+        },
+        "wall_material": {
+          "value": "Marble",
+          "confidence": "attested",
+          "sources": [
+            "andreas_1885_v2_buildings"
+          ],
+          "note": "'That massive pile of pure marble and iron' (Horace White, Andreas vol. 2, p. 734).",
+          "geometry": "simplified"
+        }
+      },
+      "change_note": "Built T-3688 (2026-11-21): Field, Leiter & Co.'s store stands in the 1871 scene on the landmark_1871 archetype."
+    }
+  ],
+  "land_owner": {
+    "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+    "confidence": "reconstructed",
+    "sources": [
+      "isa_public_domain_land_tract_sales"
+    ],
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 7 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "tract": "the south-west fractional quarter of section 10",
+    "entries": [
+      "ls0057"
+    ],
+    "date_purchased": "1835-05-28",
+    "type_of_sale": "federal land sale (cash entry)",
+    "margin_m": 6.9,
+    "generated_by": "tools/resolve_land_tracts.py --build"
+  }
+}

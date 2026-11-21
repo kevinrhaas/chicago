@@ -1,0 +1,562 @@
+{
+ "id": "palmer_house_1871",
+ "name": "The Palmer House, State and Quincy Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "hotel",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "Potter Palmer's hotel (Andreas vol. 2, p. 509)."
+ },
+ "built": {
+  "value": 1870,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "Built in 1869-70 and opened on 26 September 1870 (Andreas vol. 2, p. 509)."
+ },
+ "research_note": "THE PALMER HOUSE, built by T-3688 for the 1871 scene: Potter Palmer's first hotel, built in 1869-70 at the north-west corner of State and Quincy Streets, eight storeys with 'handsome stone fronts', opened in September 1870 (Andreas vol. 2, p. 509). Built to Andreas's engraving of it. It was the last first-class hotel standing at four in the morning of 9 October 1871, and fell after daylight.",
+ "phases": [
+  {
+   "id": "hotel_1870_1871",
+   "documented_range": {
+    "from": "1870-09-26",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2_buildings"
+    ],
+    "note": "Opened 26 September 1870; burned 9 October 1871 (Andreas vol. 2)."
+   },
+   "position": {
+    "utm_e": 447854.832,
+    "utm_n": 4636525.539,
+    "rotation_deg": 359.4,
+    "symbolic_location": "North-west corner of State and Quincy Streets.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2_buildings",
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "Its State Street front on the west building line of State Street and its Quincy Street front on Quincy Street's north building line, at the corner Andreas gives it (vol. 2, p. 509). The 1870 plan draws no Quincy Street between State and Dearborn; its line is set midway between Adams and Jackson, as a 13 m street with a 3.5 m walk. The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. The footprint's origin is local E 782.13 N -870.26.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Set on the 1871 plan's street lines (traced from Mitchell's 1870 map) at the corner or frontage the texts name; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      50.0,
+      0
+     ],
+     [
+      50.0,
+      25.0
+     ],
+     [
+      0,
+      25.0
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2_downtown_plates"
+    ],
+    "note": "The State Street front's length read through the engraving's camera against its storeys; the Quincy Street front runs out of the engraving and its length is reconstructed."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "time": "1871-10-09T07:20",
+       "sources": [
+        "andreas_1885_v2_buildings"
+       ],
+       "note": "Still standing at four in the morning, 'the only first-class hotel' left; it fell after daylight, 'at nearly the same time as the Academy of Design' (Andreas vol. 2, pp. 726, 739)."
+      },
+      "blocks": [
+       {
+        "name": "the hotel",
+        "box": [
+         0,
+         0,
+         50.0,
+         25.0
+        ],
+        "storeys": [
+         5.2,
+         4.2,
+         4.0,
+         3.8,
+         3.6,
+         3.4
+        ],
+        "wall": "limestone_pale",
+        "belts": [
+         1,
+         2,
+         3,
+         4,
+         5
+        ],
+        "water_table": 0.3,
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 1.1,
+         "brackets": 0.8
+        },
+        "roof": {
+         "kind": "mansard",
+         "h": 3.6,
+         "inset": 0.3,
+         "run": 1.4,
+         "curve": 0.2,
+         "covering": "slate",
+         "cresting": false,
+         "dormers": {
+          "S": {
+           "kind": "arched",
+           "w": 1.5,
+           "h": 2.4
+          },
+          "E": {
+           "kind": "arched",
+           "w": 1.5,
+           "h": 2.4
+          }
+         }
+        },
+        "faces": {
+         "S": {
+          "bays": {
+           "at": [
+            1.562,
+            4.688,
+            7.812,
+            10.938,
+            14.062,
+            17.188,
+            20.312,
+            23.438,
+            26.562,
+            29.688,
+            32.812,
+            35.938,
+            39.062,
+            42.188,
+            45.312,
+            48.438
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "store",
+            "w": 2.4,
+            "h": 4.4,
+            "sill": 0.2,
+            "hood": "none"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.7,
+            "sill": 0.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.6,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.5,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.15,
+            "h": 2.4,
+            "sill": 0.6,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.1,
+            "h": 2.3,
+            "sill": 0.5,
+            "hood": "arch"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             0,
+             1,
+             2,
+             3,
+             4,
+             5,
+             6,
+             7,
+             8,
+             9,
+             10,
+             11,
+             12,
+             13,
+             14,
+             15
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "round",
+            "w": 2.0,
+            "h": 3.9,
+            "sill": 0.5,
+            "hood": "arch"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            1.562,
+            4.688,
+            7.812,
+            10.938,
+            14.062,
+            17.188,
+            20.312,
+            23.438
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "store",
+            "w": 2.4,
+            "h": 4.4,
+            "sill": 0.2,
+            "hood": "none"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.7,
+            "sill": 0.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.6,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.5,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.15,
+            "h": 2.4,
+            "sill": 0.6,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.1,
+            "h": 2.3,
+            "sill": 0.5,
+            "hood": "arch"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             3,
+             4
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "door_round",
+            "w": 2.4,
+            "h": 4.4,
+            "sill": 0.0,
+            "hood": "arch"
+           }
+          ]
+         },
+         "N": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "note": "Six storeys of pale stone over shop fronts, the windows round-arched under hoods, and a tall slated mansard with dormers making the hotel's eighth storey, as Andreas's engraving shows it. Heights read through the engraving's camera."
+       },
+       {
+        "name": "the mansard's upper tier",
+        "box": [
+         1.7,
+         1.7,
+         48.3,
+         23.3
+        ],
+        "z0": 27.8,
+        "storeys": [
+         0.2
+        ],
+        "wall": "limestone_pale",
+        "roof": {
+         "kind": "mansard",
+         "h": 2.6,
+         "inset": 0.2,
+         "run": 0.9,
+         "curve": 0.15,
+         "covering": "slate",
+         "cresting": true,
+         "dormers": {
+          "S": {
+           "kind": "arched",
+           "w": 1.0,
+           "h": 1.6,
+           "at": [
+            1.792,
+            5.377,
+            8.962,
+            12.546,
+            16.131,
+            19.715,
+            23.3,
+            26.885,
+            30.469,
+            34.054,
+            37.638,
+            41.223,
+            44.808
+           ]
+          },
+          "E": {
+           "kind": "arched",
+           "w": 1.0,
+           "h": 1.6,
+           "at": [
+            1.8,
+            5.4,
+            9.0,
+            12.6,
+            16.2,
+            19.8
+           ]
+          }
+         }
+        },
+        "faces": {
+         "S": "none",
+         "N": "none",
+         "E": "none",
+         "W": "none"
+        },
+        "confidence": "inferred",
+        "note": "The mansard rises in two tiers, a row of small dormers over the large ones, as the engraving shows it."
+       },
+       {
+        "name": "the State Street pavilion",
+        "box": [
+         43.2,
+         8.5,
+         50.4,
+         16.5
+        ],
+        "storeys": [
+         5.2,
+         4.2,
+         4.0,
+         3.8,
+         3.6,
+         3.4
+        ],
+        "wall": "limestone_pale",
+        "belts": [
+         1,
+         2,
+         3,
+         4,
+         5
+        ],
+        "water_table": 0.3,
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 1.1,
+         "brackets": 0.8
+        },
+        "roof": {
+         "kind": "mansard",
+         "h": 8.0,
+         "inset": 0.3,
+         "run": 1.8,
+         "curve": 0.25,
+         "covering": "slate",
+         "cresting": true,
+         "dormers": {
+          "E": {
+           "kind": "arched",
+           "w": 1.6,
+           "h": 2.8
+          }
+         }
+        },
+        "faces": {
+         "E": {
+          "bays": {
+           "at": [
+            1.333,
+            4.0,
+            6.667
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "store",
+            "w": 2.4,
+            "h": 4.4,
+            "sill": 0.2,
+            "hood": "none"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.7,
+            "sill": 0.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.6,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.2,
+            "h": 2.5,
+            "sill": 0.7,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.15,
+            "h": 2.4,
+            "sill": 0.6,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.1,
+            "h": 2.3,
+            "sill": 0.5,
+            "hood": "arch"
+           }
+          ]
+         },
+         "S": "none",
+         "N": "none",
+         "W": "none"
+        },
+        "confidence": "inferred",
+        "note": "The State Street front's centre breaks forward over the entrance and rises into a taller mansard, as the engraving shows it."
+       }
+      ],
+      "porches": [
+       {
+        "block": 2,
+        "face": "E",
+        "s0": 1.0,
+        "s1": 7.0,
+        "h": 4.8,
+        "depth": 2.0,
+        "columns": 4,
+        "balcony": true,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_downtown_plates"
+        ],
+        "note": "The columned entrance on State Street with a balcony over it, as the engraving shows it."
+       }
+      ],
+      "chimneys": [
+       {
+        "at": [
+         6.0,
+         18.0
+        ],
+        "z0": 24.2,
+        "h": 8.5,
+        "w": 1.6,
+        "d": 0.8
+       },
+       {
+        "at": [
+         24.0,
+         20.0
+        ],
+        "z0": 24.2,
+        "h": 8.5,
+        "w": 1.6,
+        "d": 0.8
+       },
+       {
+        "at": [
+         40.0,
+         21.0
+        ],
+        "z0": 24.2,
+        "h": 8.5,
+        "w": 1.6,
+        "d": 0.8
+       }
+      ],
+      "note": "The fronts read off the engraving in Andreas (vol. 2, p. 509); eight storeys with 'handsome stone fronts' (p. 509). The State Street front's length is read through the engraving's camera; the Quincy Street front runs past the engraving's edge and is reconstructed."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2_buildings",
+      "andreas_1885_v2_downtown_plates"
+     ],
+     "note": "The fronts, their arches, the pavilion, the entrance and the mansard from the engraving; heights read off it."
+    },
+    "wall_material": {
+     "value": "Stone",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "'Handsome stone fronts' (Andreas vol. 2, p. 509); the stone is not named, drawn pale.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3688 (2026-11-21): the Palmer House stands in the 1871 scene on the landmark_1871 archetype."
+  }
+ ]
+}
