@@ -35871,7 +35871,6 @@
         "mark_kimball_house_2108_prairie_coach_house",
         "murdoch_house_2130_prairie",
         "murdoch_house_2130_prairie_coach_house",
-        "rees_house_2110_prairie",
         "robbins_house_2126_prairie",
         "robbins_house_2126_prairie_coach_house",
         "rothschild_house_2112_prairie",
@@ -36005,18 +36004,6 @@
         },
         {
           "domain": "structure",
-          "structure": "rees_house_2110_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "rees_house_2110_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "robbins_house_2126_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36105,7 +36092,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
