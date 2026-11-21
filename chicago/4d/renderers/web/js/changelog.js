@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3191, ts: '2026-11-21T20:37:09.744Z', date: 'Nov 21, 2026, 2:37 PM CT', title: '2013 Prairie\'s front is now cream brick', kind: 'improvement',
+    items: [
+      '2013 Prairie\'s front is now laid in a pale, rough cream brick, as its 2003 National Register nomination describes it, where it used to read as a warm tan.',
+      'It is now the palest front on its block, as the 1895 Inland Architect plate prints it, and its match against that plate is signed off.',
+    ] },
   { v: 3190, ts: '2026-11-21T18:25:47.639Z', date: 'Nov 21, 2026, 12:25 PM CT', title: '2115 Prairie, the Armour house, built from its photograph', kind: 'feature',
     items: [
       '2115 Prairie Avenue, the Kelley/Armour house, now stands on the 1911 map\'s plan, read off a winter photograph of the house: a banded stone front with round-arched windows, the arched door at the head of a broad stoop, a south pavilion under its own taller roof, and a slate mansard with arched dormers and a tall stack.',
