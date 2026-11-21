@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3180, ts: '2026-11-21T08:06:17.759Z', date: 'Nov 21, 2026, 2:06 AM CT', title: '2100 Prairie\'s roof takes its carved dormers and stack', kind: 'feature',
+    items: [
+      'The Sherman house\'s roof now looks more like its c. 1890 photograph: the small dormer over the front door is a stone face under a projecting shelf with a slated hood leaning back over it, and the large dormer over the parlour has a stone coping up its gable, a little pinnacle at each shoulder and a finial on top.',
+      'The great chimney on the 21st Street side has a carved stone head with three tall round flues standing in a row, instead of a plain brick stack, and the library\'s tall front gable has a carved stone panel.',
+    ] },
   { v: 3179, ts: '2026-11-21T07:36:19.410Z', date: 'Nov 21, 2026, 1:36 AM CT', title: 'Where the fire began and where the North Side fled', kind: 'feature',
     items: [
       'The O\'Leary cottages and barn stand on DeKoven Street with their neighbours, built to the 1871 photograph of the cottages.',
