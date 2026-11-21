@@ -494,6 +494,8 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       geometries.add(geometry);
       const mesh=new THREE.Mesh(geometry,walkMaterial);
       mesh.name=`context:1871:tile:${tile.e},${tile.n}:aprons`; mesh.receiveShadow=true;
+      // The walk's planking draws as a ground decal after everything opaque; its apron with it.
+      mesh.renderOrder=STREET_DECAL_ORDER.walks;
       mesh.userData={layer:'infrastructure',confidence:'reconstructed',triangles:idx.length/3};
       apronMeshes.push(mesh); group.add(mesh);
     }
