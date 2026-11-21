@@ -25186,6 +25186,7 @@ in a K01 area light, closes the basement lights' open item in the match record.
 **Ticket:** T-3667 (piece 1 of T-1921).
 **Review:** `docs/RESEARCH/k01-2108-kimball-3667/README.md`.
 **Recorded:** 2026-11-19 (T-3667).
+**Revised:** 2026-11-20 (T-3668): the basement lights resolved as the line above asked. K02's Lemont-limestone base now runs to four courses (it ran to two), so 2108's base lays four rusticated courses of 0.35 m under its 0.25 m coping to the lights' heads at 1.65 m, and each light stands 1.4 m on its 0.25 m sill: two thirds of the record's 2.2 m basement, the proportion the cut draws (its heads at y 176 under the ledge at 151, its feet at 236 over grade at 242), not its scale, which draws every height tall. Each is barred with K08's grille, five uprights, a foot bar and a bar at the head under a ring, for the five or six bars and the arched line the cut draws. Still invented: the count of base courses (the cut draws the base's ashlar without its joints), the bars' count and the ring's radius. The match record reads `matches`.
 
 ### L-k01-2112-rothschild-3668 — 2112 Prairie, the Max M. Rothschild house, refined from the district draft onto K01: its plan, canted stone bay and mansard off the 1911 sheet, its pale stone front, round-arched door, round-headed lights and stone-cheeked stoop off the early-1890s street photograph, everything neither shows the kits'
 
