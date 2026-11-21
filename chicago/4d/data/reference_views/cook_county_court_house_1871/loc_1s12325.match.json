@@ -2,23 +2,43 @@
   "structure_id": "cook_county_court_house_1871",
   "view": "loc_1s12325",
   "glb": "assets/gltf/cook_county_court_house_1871__court_house_1870_1871.glb",
-  "glb_sha256": "c5599474577868af5f83a25ae204d830afae538881d0e5a6b9d9f9820782c353",
-  "camera_sha256": "950a0ded5198e62a2be057644e98f473a28f22678b121a7b53ddd37d8fb387e0",
+  "glb_sha256": "4b16ea9e6a12f8fe6b9caa328f2f0c42e890a0717d313efc2dff9fef0370e3b4",
+  "camera_sha256": "2547a70b62cf795abfd8ac6cfe61d7e5849985abcfb349f1070328db6a5180f2",
   "photo_sha256": "e0950504e4fa06d6e9360f453e405719a588a1287fefb92bf0a54cf758f45c8c",
   "side_by_side": "docs/RESEARCH/photo-match/cook_county_court_house_1871/loc_1s12325-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "The camera is not fitted: no dimension of the 1870 wings was found, so the pictures cannot be scaled against each other and the model is set by eye",
-      "status": "open"
+      "what": "The camera is fitted (eye at Clark and Randolph, the 120 ft fire-watch gallery as the check), the wings at the 1868 plan's 80 by 130 feet",
+      "status": "fixed"
     },
     {
-      "what": "The wings are a storey short of the photograph's and lack its attic of round windows under the scrolled crests and the urns along the parapet",
-      "status": "open"
+      "what": "The wings' height, their attic of round windows under the scrolled crests and the urns along the balustraded parapet",
+      "status": "fixed"
     },
     {
-      "what": "The great cupola stands lower and narrower than in the photograph, and its clock stage is missing",
-      "status": "open"
+      "what": "The wing fronts' window rhythm, single, pair, single, with the crested pavilion in the middle",
+      "status": "fixed"
+    },
+    {
+      "what": "The pavilion breaking forward on the Clark Street front, with low domes and a flagstaff on its corners",
+      "status": "fixed"
+    },
+    {
+      "what": "The great cupola's drum, fire-watch gallery, clock stage and dome",
+      "status": "fixed"
+    },
+    {
+      "what": "The open belfry with its flared cap and the small domed cupola on the 1853 house's roof, and the flight of steps at the north portico's west end",
+      "status": "fixed"
+    },
+    {
+      "what": "No single camera fits both wings: fitted on the near (east) wing the far (west) wing stands about 2-3 m taller in the render than through the trees in the picture, and the near wing's north front draws about 10 per cent wider. Fits that move the eye disagree about the cause (a lower city wing, or a misread far side), and the cited 80-foot wing is kept",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The window surrounds' and piers' carved detail and the rustication's depth",
+      "status": "within tolerance"
     },
     {
       "what": "Tones: the 1853 house dark and the wings pale, as the photograph shows them",

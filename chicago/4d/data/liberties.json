@@ -142,6 +142,10 @@
       "name": "Coursoll's inclosed field, north of the river, 1812"
     },
     {
+      "id": "court_house_square_1871",
+      "name": "Court House Square"
+    },
+    {
       "id": "crosbys_opera_house_1871",
       "name": "Crosby's Opera House, Washington Street"
     },
@@ -78799,6 +78803,7 @@
       "subjects": [
         "chamber_of_commerce_1871",
         "cook_county_court_house_1871",
+        "court_house_square_1871",
         "sherman_house_1871"
       ],
       "covers": [
@@ -78828,6 +78833,18 @@
         },
         {
           "domain": "structure",
+          "structure": "court_house_square_1871",
+          "phase": "square_1853_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "court_house_square_1871",
+          "phase": "square_1853_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
           "structure": "sherman_house_1871",
           "phase": "sherman_1861_1871",
           "aspect": "form.storeys"
@@ -78848,11 +78865,15 @@
         },
         {
           "label": "These are this project's",
-          "text": "- **Places.** Each stands on the 1871 plan's street lines at the corner its texts name (the Court House centred in its square); the plan's streets are a tracing of Mitchell's 1870 map, so a building is good to a few metres, and moves if the streets do. - **Walls no picture shows.** The Chamber of Commerce's east wall on Exchange Place is built like its LaSalle side without shop fronts, and its south wall (brick, Andreas says) is built blank in the front's stone; the Sherman House's north and west walls are built blank; the Court House's south and west fronts are built as mirrors of the north and east. - **The Court House's wings.** No dimension of the 1870 wings was found: each is built about 30 m by 38 m, nearly square as Andreas's engraving draws the east wing, and their bays, storey heights and corner domes are read off the stereograph by eye. Its camera does not yet fit the building (see its match record): the wings' size and the cupola's height are the open questions. - **Heights.** No storey height was found in any text. The Chamber of Commerce's are read through its photograph's camera against Andreas's 44-foot hall and 23-foot roof; the Sherman House's through its camera (about 30 m to the cornice); the Court House's by eye. - **Detail.** Ornament is simplified to the archetype's vocabulary: carved crests and scrolled pediments are flat profiles, window tracery is a sash bar, the clock faces are blank discs, statuary and lettered signs are left out, the Court House's and Sherman House's channelled rustication is left out (the Chamber of Commerce's is drawn as joint strips), and the Chamber of Commerce's south wall is stone rather than brick. - **Tones.** The stone textures are the 1904 kits' (Lemont and Bedford limestone); the Court House's 1853 house is the Lemont texture darkened to the smoke-stained grey the 1871 stereograph shows, and its 1870 wings the paler Bedford texture, the colours of the photograph rather than of the quarries. - **Stated, not built twice.** Each record's wall material, `storeys` and height (m) are the evidence its composition was read against; the composition, not those attributes, drives the mesh."
+          "text": "- **Places.** Each stands on the 1871 plan's street lines at the corner its texts name (the Court House centred in its square); the plan's streets are a tracing of Mitchell's 1870 map, so a building is good to a few metres, and moves if the streets do. - **Walls no picture shows.** The Chamber of Commerce's east wall on Exchange Place is built like its LaSalle side without shop fronts, and its south wall (brick, Andreas says) is built blank in the front's stone; the Sherman House's north and west walls are built blank; the Court House's south and west fronts are built as mirrors of the north and east. - **The Court House's wings.** No dimension of the 1870 wings was found: each is built about 30 m by 38 m, nearly square as Andreas's engraving draws the east wing, and their bays, storey heights and corner domes are read off the stereograph by eye. Its camera does not yet fit the building (see its match record): the wings' size and the cupola's height are the open questions."
+        },
+        {
+          "label": "Superseded 2026-11-21 (the sign-off)",
+          "text": "one wing dimension was found, the planned east wing's 130 by 80 feet in the Chicago Evening Post of 2 October 1868 (Notice of the planned east wing of the Court House, Chicago Evening Post, 2…), and both wings are now built to it, 80 feet east to west and 130 north to south; the west wing's size is not given anywhere and is taken as the east wing's twin. What is still this project's: the wings' 25 m to the cornice top and their storey heights, read through the stereograph's fitted camera; the north and south fronts' single, pair, single windows round the crested pavilion, read off the east wing's north front and repeated on the other three; the pavilion breaking 5 m forward from each wing's street front, its 14.4 m width and projection read through the camera at the picture's left edge, and the LaSalle Street one taken as the Clark Street one's twin; the low domes and flagstaffs on those pavilions' corners; the belfry's and small cupola's sizes and places on the 1853 roof; and the north steps at the portico's west end, where the picture has them. No single camera fits both wings (the match record says so): the far west wing reads lower through the trees than the cited 80-foot plan lets it stand, and the plan is kept. - **Court House Square** (Court House Square, added 2026-11-21). The stereograph shows the building standing back from Randolph Street behind an iron fence on a stone base, with no other building in the square; the scene's context city had filled the square's north and south ends with ordinary blocks. The square is now open ground inside a stone kerb and iron fence on the 1871 plan's lot lines. The fence's line, its height and pattern, and the gateways other than the north one before the steps are this project's; the trees and lamps the picture shows along the walks are not drawn. - **Heights.** No storey height was found in any text. The Chamber of Commerce's are read through its photograph's camera against Andreas's 44-foot hall and 23-foot roof; the Sherman House's through its camera (about 30 m to the cornice); the Court House's 1853 house by eye, and its wings through the stereograph's camera (see the wings above). - **Detail.** Ornament is simplified to the archetype's vocabulary: carved crests and scrolled pediments are flat profiles, window tracery is a sash bar, the clock faces are blank discs, statuary and lettered signs are left out, the Court House's and Sherman House's channelled rustication is left out (the Chamber of Commerce's is drawn as joint strips), and the Chamber of Commerce's south wall is stone rather than brick. - **Tones.** The stone textures are the 1904 kits' (Lemont and Bedford limestone); the Court House's 1853 house is the Lemont texture darkened to the smoke-stained grey the 1871 stereograph shows, and its 1870 wings the paler Bedford texture, the colours of the photograph rather than of the quarries. - **Stated, not built twice.** Each record's wall material, `storeys` and height (m) are the evidence its composition was read against; the composition, not those attributes, drives the mesh."
         },
         {
           "label": "Covers",
-          "text": "`chamber_of_commerce_1871.chamber_1865_1871.form.wall_material`, `chamber_of_commerce_1871.chamber_1865_1871.form.storeys`, `chamber_of_commerce_1871.chamber_1865_1871.form.height_m`, `cook_county_court_house_1871.court_house_1870_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.storeys`"
+          "text": "`chamber_of_commerce_1871.chamber_1865_1871.form.wall_material`, `chamber_of_commerce_1871.chamber_1865_1871.form.storeys`, `chamber_of_commerce_1871.chamber_1865_1871.form.height_m`, `cook_county_court_house_1871.court_house_1870_1871.form.wall_material`, `court_house_square_1871.square_1853_1871.form.composition`, `court_house_square_1871.square_1853_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.wall_material`, `sherman_house_1871.sherman_1861_1871.form.storeys`"
         },
         {
           "label": "How to resolve",
@@ -79339,7 +79360,9 @@
       "id": "L-1871-last-sunday-3692",
       "title": "The Last Sunday: one afternoon's walk through the city on 8 October 1871",
       "section": "per_subject",
-      "subjects": [],
+      "subjects": [
+        "court_house_square_1871"
+      ],
       "covers": [],
       "recorded": "2026-11-19",
       "revised": null,
