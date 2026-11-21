@@ -1153,6 +1153,10 @@ def build(params: LandmarkParams) -> Mesh:
         porch(m, blocks, p, CONF.get(p.get("confidence"), base_conf))
     for p in c.get("steps") or []:
         steps(m, blocks, p, CONF.get(p.get("confidence"), base_conf))
+    for r in c.get("railings") or []:   # T-3688: a free-standing railing along a block's face (a square's fence on its kerb)
+        fr, L = face_frame(blocks[r["block"]]["box"], r["face"])
+        railing(m, fr, r.get("s0", 0.0), r.get("s1", L), r["z"], r.get("h", 1.0),
+                CONF.get(r.get("confidence"), base_conf), r.get("kind", "iron"), d=r.get("d", 0.0))
     for ch in c.get("chimneys") or []:
         x, y = ch["at"]
         w, d = ch.get("w", 1.0), ch.get("d", 0.6)

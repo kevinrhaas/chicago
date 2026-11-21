@@ -724,8 +724,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Leiter & Co., the Palmer House and the Tribune building, on the same archetype,
 # restaling on none of the shared rows. 1149 -> 1150 the same day (T-3689): the
 # pumping works' grounds across Pine Street, open ground like the Water Tower's.
+# 1150 -> 1151 on 2026-11-21 (T-3688): Court House Square, open ground round the Court
+# House with its kerb and iron fence, on the same archetype (its photograph shows no
+# other building in the square).
 STATED = {
-    "assets": 1150,
+    "assets": 1151,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
