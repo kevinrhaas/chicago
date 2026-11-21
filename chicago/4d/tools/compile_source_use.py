@@ -41,9 +41,8 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 289 026; 296 000, the compressed first-open limit unchanged.
 # T-3654: the 1871 context city's map, survey and directory sources, meeting dev's new Prairie
 # K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
-# T-3562: dev's own sources since T-3654 and 1815 Prairie's three remodel records (the Ryerson and
-# Burnham index, the Glessner House note, the 1908 Daily News picture) read 312 120; 320 000, the
-# compressed first-open limit unchanged.
+# T-3689: the North and West Side fire places' pictures (the Water Tower and works, the O'Leary
+# cottage, the Ogden house, St. Michael's) read 313 267; 320 000, the compressed limit unchanged.
 INDEX_BUDGET = 320_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
@@ -528,10 +527,6 @@ class Compiler:
         # 305 681 raw bytes with every citation whole. Another conscious 8 000-byte raw
         # increase (70 699 gzip bytes for the index), inside the same 120 000-byte compressed
         # first-open assertion; nothing cut.
-        # 320 000 SINCE 2026-11-21 (T-3562): 1815 Prairie's remodel records (three sources) on
-        # dev's newer ones take the index to 312 120 raw bytes with every citation whole. Another
-        # conscious 8 000-byte raw increase, inside the same 120 000-byte compressed first-open
-        # assertion; nothing cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

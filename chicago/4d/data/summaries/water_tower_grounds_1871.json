@@ -1,0 +1,70 @@
+{
+  "id": "water_tower_grounds_1871",
+  "scene": "1871",
+  "name": "The Water Tower's grounds",
+  "address": "West of Pine Street between Chicago Avenue and Pearson Street, North Side",
+  "status": {
+    "text": "Its railing stood through the fire",
+    "today": "The park round the Water Tower",
+    "grade": "inferred",
+    "sources": [
+      "loc_stereo_1s12375_water_tower",
+      "chm_ichi_05902_water_tower_1890"
+    ],
+    "note": "The railing still stands in a photograph taken after the fire. The grounds are a park today."
+  },
+  "built": {
+    "year": 1867,
+    "grade": "inferred",
+    "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph"
+    ],
+    "note": "Laid out with the water works, begun in 1867."
+  },
+  "use": "Public grounds",
+  "summary": "The open lawn round the Water Tower, with shrub beds, young trees and walks. No houses stood between the tower and Chicago Avenue. A stone kerb with an iron railing ran round it.",
+  "key": [
+    {
+      "label": "In the middle",
+      "value": "The Water Tower, which survived the fire",
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12375_water_tower"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "An 1866-67 print shows the tower standing alone on open, planted ground.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph"
+      ]
+    },
+    {
+      "text": "How far the grounds reached is taken from today's park round the tower.",
+      "about": "structure",
+      "grade": "inferred",
+      "sources": [
+        "chm_ichi_05902_water_tower_1890"
+      ],
+      "note": "No survey of the 1860s lot was found; a photograph of about 1890 shows the same fenced lawn."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "The fire sweeps past. The tower and its railing stand; the grass and young trees burn.",
+      "era": "1871",
+      "grade": "inferred",
+      "sources": [
+        "loc_stereo_1s12375_water_tower"
+      ],
+      "note": "A photograph taken after the fire shows the tower and its railing still standing. The grass and trees around them are burnt."
+    }
+  ]
+}
