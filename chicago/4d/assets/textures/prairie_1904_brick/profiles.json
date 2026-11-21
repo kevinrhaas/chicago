@@ -364,6 +364,91 @@
       "fabric": "brick/rough_red_brown/material.json",
       "confidence": "reconstructed",
       "note": "Rough-faced red-brown brick: a torn, dragged face with pits and grit, irregular chipped arrises and deep raked joints that put a shadow under every course. Colour, tear and chip rate are reconstructed."
+    },
+    "cream_rough": {
+      "unit": {
+        "module_m": 0.2159,
+        "course_m": 0.066675,
+        "stretcher_m": [
+          0.2099,
+          0.060675
+        ],
+        "header_m": [
+          0.10195,
+          0.060675
+        ],
+        "bed_depth_m": 0.1016
+      },
+      "joint": {
+        "width_m": 0.006,
+        "recess_m": 0.0015,
+        "profile": "struck",
+        "mortar": "mortar_lime"
+      },
+      "arris": {
+        "bevel_m": 0.002,
+        "chip": {
+          "probability": 0.2,
+          "depth_m": 0.004,
+          "length_m": [
+            0.006,
+            0.02
+          ]
+        }
+      },
+      "face_relief_m": 0.0018,
+      "variants": [
+        {
+          "id": "body",
+          "weight": 0.5,
+          "tint": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "id": "paler",
+          "weight": 0.2,
+          "tint": [
+            1.03,
+            1.03,
+            1.04
+          ]
+        },
+        {
+          "id": "buffer",
+          "weight": 0.2,
+          "tint": [
+            0.97,
+            0.95,
+            0.9
+          ]
+        },
+        {
+          "id": "flashed",
+          "weight": 0.1,
+          "tint": [
+            0.9,
+            0.87,
+            0.82
+          ]
+        }
+      ],
+      "variation_rule": "each unit draws ONE variant by weight, independently, from a generator seeded by (component seed, course, unit): no alternating, banded or checkerboard pattern, and the same wall draws the same bricks on every machine (K01 \u00a7 seed)",
+      "bonds": [
+        "running"
+      ],
+      "uses": [
+        {
+          "record": null,
+          "register": "2013 Prairie (reid_house_2013_prairie): the 2003 National Register nomination's front 'faced with cream colored, rough textured brick' (nrhp_2003_reid_house_nomination, p. 4; T-3626)"
+        }
+      ],
+      "not_for": "a common wall, or any front whose own evidence is not a pale (cream or white) brick",
+      "fabric": "brick/cream_rough/material.json",
+      "confidence": "reconstructed",
+      "note": "Rough-textured cream face brick: the pale, lime-rich clays the lake-shore yards fired cream to straw, with a torn, sanded face, pale grit and a fine struck joint in a cream-grey lime mortar so the front reads as one pale field. The colour family is the nomination's word 'cream'; the exact tint, tear, chip rate and joint are reconstructed."
     }
   },
   "mortars": {
@@ -605,6 +690,15 @@
       "courses": 12,
       "for": "the Mayer front (pa-2009-17)",
       "material": "panel/rough_red_brown_running/material.json"
+    },
+    {
+      "id": "cream_rough_running",
+      "fabric": "cream_rough",
+      "bond": "running",
+      "modules": 4,
+      "courses": 12,
+      "for": "a cream-brick street front (2013 Prairie, T-3626) at the balanced and light exports",
+      "material": "panel/cream_rough_running/material.json"
     },
     {
       "id": "pressed_red_flemish_dark_headers",

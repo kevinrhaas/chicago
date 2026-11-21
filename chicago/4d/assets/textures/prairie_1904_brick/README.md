@@ -1,7 +1,7 @@
 # Prairie Avenue 1904 K03 brick library
 
 Version 1.0.0 (T-2290, piece 1 of T-1845; package K03 of the T-1837 Prairie programme). It holds
-**four brick fabrics, two mortars, the joints and bonds as data, and four bonded LOD panels**, all
+**five brick fabrics, two mortars, the joints and bonds as data, and five bonded LOD panels**, all
 built by one deterministic script, `tools/generate_prairie_1904_brick.py`. The script samples no
 photograph.
 
@@ -28,6 +28,7 @@ photograph.
 | `common_buff` | 9 mm weathered, 3.0 mm back, `mortar_lime` | common_6, running | pa-1612-1, pa-1808-6, pa-1912-10, pa-2130-42, pa-2031-nrhp |
 | `dark_fired` | 6 mm struck, 2.0 mm back, `mortar_lime` | flemish | accent only |
 | `rough_red_brown` | 10 mm raked, 5.0 mm back, `mortar_lime` | running | pa-2009-17 |
+| `cream_rough` | 6 mm struck, 1.5 mm back, `mortar_lime` | running | 2013 Prairie (T-3626: the 2003 nomination's "cream colored, rough textured brick") |
 
 The module is Glessner v4's (0.2159 m along, 0.066675 m a course). Each fabric's joint comes out
 of that module, not on top of it, so every brick on the street registers with the canonical
@@ -50,14 +51,16 @@ dirt on it stay separate.
 | brick | `common_buff` | 1,048,576 | 5,464,586 | 656,315 |
 | brick | `dark_fired` | 1,048,576 | 4,158,916 | 621,836 |
 | brick | `rough_red_brown` | 1,048,576 | 3,555,150 | 499,174 |
+| brick | `cream_rough` | 1,048,576 | 3,649,780 | 501,267 |
 | mortar | `mortar_dark` | 1,048,576 | 3,839,283 | 364,107 |
 | mortar | `mortar_lime` | 1,048,576 | 3,811,655 | 391,040 |
 | panel | `pressed_red_running` | 248,640 | 1,125,393 | 153,851 |
 | panel | `common_buff_common_6` | 248,640 | 1,284,529 | 185,911 |
 | panel | `rough_red_brown_running` | 248,640 | 977,055 | 222,504 |
 | panel | `pressed_red_flemish_dark_headers` | 186,720 | 854,044 | 135,476 |
+| panel | `cream_rough_running` | 248,640 | 1,038,622 | 185,193 |
 
-Total: 29,895,186 B of masters, 3,654,492 B of web JPEGs.
+Total: 34,583,588 B of masters, 4,340,952 B of web JPEGs.
 Nothing here is published yet. `tools/publish.sh` ships no file from this library until a component
 binds one (T-2291).
 

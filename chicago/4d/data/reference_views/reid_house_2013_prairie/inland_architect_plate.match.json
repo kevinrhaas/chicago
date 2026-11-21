@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a",
+  "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a"
+      "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -42,7 +42,7 @@
         7.885140492844279
       ],
       "rotation_y": 0,
-      "glb_sha256": "273f176c475b2fc1cae80aaf70ee6a3b3875fd0543ff8693642b78d175bda12b"
+      "glb_sha256": "7c922ea47e81ef9bca407d01021724003a20b8006e1ad79a4d0bd166402e2897"
     },
     {
       "structure_id": "house_2017_prairie",
@@ -64,9 +64,9 @@
       "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53"
     }
   ],
-  "group_sha256": "9dc31eed1076b1639194698eeb3416a2dff259908640349afc821bff9db62390",
+  "group_sha256": "9b33d21e80647b01bc4c37427bebfa6cade54d23d86a37ade5551ee302461735",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a narrow three-storey front over a raised basement filling its lot between 2011 and 2017, flat behind a cornice and a roof balustrade, where the draft stood a 5.5 m body 2 m south of the sheet's",
@@ -135,8 +135,8 @@
     },
     {
       "what": "the front's tone: the plate prints it the palest front on the block, near white beside 2011's pale stone, where the render's cream brick reads a warm tan",
-      "status": "open",
-      "how": "still open. T-3626: the 2003 nomination now documents the colour the monochrome plate cannot: the front is 'faced with cream colored, rough textured brick' (PDF p. 4; nrhp_2003_reid_house_nomination), so the plate's near-white is cream brick, not stone. K03 still cannot lay it: a recipe's factor is at most 1 on its panels and the palest is the common buff, which cream_sooted already sits on (k03_face_brick.json `rule`). The owner answered T-3626's question on 2026-11-20 with 'You can add colors': a pale cream panel for 1904 is the fix, and its map's memory has to be paid at the phone ceiling T-3708 set; not attempted in this run."
+      "status": "fixed",
+      "how": "T-3626: the front is laid in the K03 library's new cream_rough panel (rough cream face brick in a fine struck joint, the recipe `cream_rough`), the colour the 2003 nomination documents ('faced with cream colored, rough textured brick', p. 4) and the owner's 'You can add colors' (2026-11-20) allowed. Measured on the side-by-side: the front's mean luma 178 against 2011's stone at 143, where the last render's tan brick read 130, darker than 2011; the plate prints 2013 at 230 against 2011's 222. The order now matches the plate: 2013 is the palest front on the block. The plate's near-white is a monochrome halftone's highlight on cream brick; the exact tint is reconstructed (L-k03-brick-library-2290)"
     },
     {
       "what": "the portico's entablature and the door",
@@ -170,5 +170,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-20"
+  "reviewed": "2026-11-21"
 }
