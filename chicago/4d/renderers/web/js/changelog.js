@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3192, ts: '2026-11-21T23:08:58.150Z', date: 'Nov 21, 2026, 5:08 PM CT', title: '2109 Prairie\'s veranda turns its corner on columns, as the photograph shows', kind: 'change',
+    items: [
+      'The Roloson house at 2109 Prairie now matches its one photograph. Its veranda stands on round columns on pedestals, turns the south-west corner and runs down the side on open piers, with its railing at the deck and a flat, bare roof.',
+      'The rear block steps out only a narrow strip past the front, as the photograph shows. The mansard dormer has its eared hood, and the upper south window sits on the veranda\'s roof line.',
+    ] },
   { v: 3191, ts: '2026-11-21T20:37:09.744Z', date: 'Nov 21, 2026, 2:37 PM CT', title: '2013 Prairie\'s front is now cream brick', kind: 'improvement',
     items: [
       '2013 Prairie\'s front is now laid in a pale, rough cream brick, as its 2003 National Register nomination describes it, where it used to read as a warm tan.',
