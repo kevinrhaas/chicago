@@ -1,0 +1,228 @@
+{
+  "id": "cemetery_dead_house_1871",
+  "phase": "dead_house_1860_1871",
+  "name": "The cemetery's dead-house",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/cemetery_dead_house_1871__dead_house_1860_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Burned on the evening of 9 October 1871 (p. 267); the scene's phase begins in 1860."
+  },
+  "change_note": "Built T-3689 (2026-11-20): the refuge in the old City Cemetery, on the landmark_1871 archetype.",
+  "placement": {
+    "local_e": 488.0,
+    "local_n": 2799.0,
+    "rotation_deg": 359.29,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "position_note": "Where it stood is not known; it is set in the graves near the jaunt's stop, in view of the families there. The footprint's origin is local E 488.0 N 2799.0.",
+    "symbolic_location": "In the old City Cemetery, near North Clark Street.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        4.3,
+        0
+      ],
+      [
+        4.3,
+        6.1
+      ],
+      [
+        0,
+        6.1
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Reconstructed: about 14 by 20 feet."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the dead-house",
+            "box": [
+              0,
+              0,
+              4.3,
+              6.1
+            ],
+            "storeys": [
+              0.3,
+              2.6
+            ],
+            "wall": "boards",
+            "trim": "wood_trim",
+            "roof": {
+              "kind": "gable",
+              "h": 1.6,
+              "eave": 0.25,
+              "covering": "shingle",
+              "ridge": "y"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    2.15
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "door_flat",
+                    "w": 1.3,
+                    "h": 2.1,
+                    "sill": 0.0,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "S": "blank",
+              "E": {
+                "bays": {
+                  "at": [
+                    1.6,
+                    4.5
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.6,
+                    "h": 0.9,
+                    "sill": 1.2,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    1.6,
+                    4.5
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "flat",
+                    "w": 0.6,
+                    "h": 0.9,
+                    "sill": 1.2,
+                    "hood": "none"
+                  }
+                ]
+              }
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "colbert_chamberlin_1871_great_conflagration"
+            ],
+            "note": "A small board house with a door in its gable end and two small high windows on each side; its form is reconstructed."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "N",
+            "s0": 1.4,
+            "s1": 2.9,
+            "n": 2,
+            "material": "wood_trim"
+          }
+        ],
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "colbert_chamberlin_1871_great_conflagration"
+          ],
+          "note": "'Now the dead-house is afire ... It burns until it is consumed' (Colbert and Chamberlin, p. 267)."
+        },
+        "note": "THE DEAD-HOUSE OF THE OLD CITY CEMETERY, built by T-3689 for the 1871 scene: the cemetery's receiving house, which caught fire on Monday evening among the refugees, 'a shudder of horror runs through the multitude. It defies the extinguishers. It burns until it is consumed. But it was, happily, tenantless' (a writer in the New York World, quoted by Colbert and Chamberlin, p. 267). Its size, form and place are reconstructed: a small board house."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "Reconstructed."
+    },
+    "wall_material": {
+      "value": "Boards",
+      "confidence": "reconstructed",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "Reconstructed as the plainest frame house.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "outbuilding",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "'The dead-house' (Colbert and Chamberlin, p. 267)."
+    },
+    "built": {
+      "value": 1843,
+      "confidence": "reconstructed",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "Standing in October 1871 (p. 267); when it was built is not known, and 1843 stands for it."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "colbert_chamberlin_1871_great_conflagration",
+      "citation": "Elias Colbert and Everett Chamberlin, Chicago and the Great Conflagration. Cincinnati and New York: C. F. Vent; Chicago: J. S. Goodman & Co., 1871.",
+      "url": "https://archive.org/details/chicagogreatconf1871colb",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "A citywide ratio of building materials before the fire: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone (about nine in ten wooden).",
+        "The city's 59,500 buildings in 1871 by division, with the West Division largest (29,400).",
+        "Descriptions that the West Side's burned blocks were nearly all frame, and that the South Division's burned centre held the city's most expensive structures."
+      ],
+      "what_it_does_not_supply": [
+        "A material for any particular lot, block or street; a material ratio by division or for 1871 itself; paint colours."
+      ]
+    }
+  ],
+  "research_note": "THE DEAD-HOUSE OF THE OLD CITY CEMETERY, built by T-3689 for the 1871 scene: the cemetery's receiving house, which caught fire on Monday evening among the refugees, 'a shudder of horror runs through the multitude. It defies the extinguishers. It burns until it is consumed. But it was, happily, tenantless' (a writer in the New York World, quoted by Colbert and Chamberlin, p. 267). Its size, form and place are reconstructed: a small board house.",
+  "research_doc": "",
+  "review_required": false
+}

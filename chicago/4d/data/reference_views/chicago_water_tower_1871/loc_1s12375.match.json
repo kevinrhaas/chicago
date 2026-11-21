@@ -1,0 +1,29 @@
+{
+  "structure_id": "chicago_water_tower_1871",
+  "view": "loc_1s12375",
+  "glb": "assets/gltf/chicago_water_tower_1871__tower_1869_1871.glb",
+  "glb_sha256": "3408274c1eee6086fcf0df413ce449b1a788fd8ee71cc2132e0269775a2d52d9",
+  "camera_sha256": "a697b078100cad327b4a2b16e022902169e9af111cb459908e03096b9a84465b",
+  "photo_sha256": "fa813beebf89ee89bff37f9735d5cedbeb04fd8650f1c3501b88fca1ef94308d",
+  "side_by_side": "docs/RESEARCH/photo-match/chicago_water_tower_1871/loc_1s12375-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Base, upper stage, corner turrets, gallery, octagonal shaft, head turrets, iron cupola and mast stand at the picture's heights and in its places",
+      "status": "fixed"
+    },
+    {
+      "what": "The base reads a little wider in the render than in the print: the solved stand sees a sliver more of the north face than Greene's camera did (a camera-fit disagreement, a few pixels at the turrets)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Crockets on the upper stage's gables and the little spires on its pinnacles are drawn plain",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The rock-faced bossing is drawn as coursing",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,323 @@
+{
+ "id": "lake_shore_sands_1871",
+ "name": "The lake shore sands",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "beach",
+  "confidence": "attested",
+  "sources": [
+   "colbert_chamberlin_1871_great_conflagration",
+   "sheahan_upton_1871_great_conflagration"
+  ],
+  "note": "The beach along the North Side (Sheahan and Upton, pp. 113-114)."
+ },
+ "built": {
+  "value": 1830,
+  "confidence": "reconstructed",
+  "sources": [
+   "mitchell_1870_chicago_map"
+  ],
+  "note": "Natural shore; the year only opens the record."
+ },
+ "research_note": "THE LAKE SHORE SANDS by the old City Cemetery and Lincoln Park, built by T-3689 for the 1871 scene: the open shore where the people of the North Side fled from the fire on Monday 9 October 1871. Refugees were 'at Lincoln Park and the old cemetery to the south of it, and along the Lake-shore Drive' (Colbert and Chamberlin, p. 265); 'along the beach were judges, merchants, doctors, workingmen, women and children' (Sheahan and Upton, pp. 113-114). The strip follows the 1871 plan's shore line (Mitchell's 1870 map) along the cemetery; how wide the sand ran is reconstructed.",
+ "phases": [
+  {
+   "id": "shore_1860_1871",
+   "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "The shore of Mitchell's 1870 map; the scene's phase begins in 1860."
+   },
+   "position": {
+    "utm_e": 447890.942,
+    "utm_n": 4640091.039,
+    "rotation_deg": 343.29,
+    "symbolic_location": "The lake shore along the old City Cemetery, north of North Avenue.",
+    "confidence": "inferred",
+    "sources": [
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "Along the 1871 plan's shore line from (845.06, 2703.29) to (638.19, 3392.44) (data/context/1871/plan.json, from Mitchell's 1870 map), on the level ground 16 to 40 m inland of the plan's line, above the bank. The footprint's origin is local E 818.24 N 2695.24.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid along the plan's traced shore line; the 1871 beach's width was not surveyed."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      -12.0,
+      0
+     ],
+     [
+      12.0,
+      0
+     ],
+     [
+      12.0,
+      719.53
+     ],
+     [
+      -12.0,
+      719.53
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "The sand's strip; reconstructed width."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the sands, stretch 1",
+        "box": [
+         -12.0,
+         0.0,
+         12.0,
+         102.79
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 2",
+        "box": [
+         -12.0,
+         102.79,
+         12.0,
+         205.58
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 3",
+        "box": [
+         -12.0,
+         205.58,
+         12.0,
+         308.37
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 4",
+        "box": [
+         -12.0,
+         308.37,
+         12.0,
+         411.16
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 5",
+        "box": [
+         -12.0,
+         411.16,
+         12.0,
+         513.95
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 6",
+        "box": [
+         -12.0,
+         513.95,
+         12.0,
+         616.74
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       },
+       {
+        "name": "the sands, stretch 7",
+        "box": [
+         -12.0,
+         616.74,
+         12.0,
+         719.53
+        ],
+        "storeys": [
+         0.15
+        ],
+        "wall": "sand",
+        "roof": {
+         "kind": "flat",
+         "covering": "sand"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration",
+         "sheahan_upton_1871_great_conflagration"
+        ],
+        "note": "The lake shore's sand, open ground between the town and the water, where the North Side's people fled (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114); its width and edges are reconstructed."
+       }
+      ],
+      "fire": {
+       "fate": "survived",
+       "left": "whole",
+       "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+       ],
+       "note": "Open sand: nothing on it to burn."
+      },
+      "note": "THE LAKE SHORE SANDS by the old City Cemetery and Lincoln Park, built by T-3689 for the 1871 scene: the open shore where the people of the North Side fled from the fire on Monday 9 October 1871. Refugees were 'at Lincoln Park and the old cemetery to the south of it, and along the Lake-shore Drive' (Colbert and Chamberlin, p. 265); 'along the beach were judges, merchants, doctors, workingmen, women and children' (Sheahan and Upton, pp. 113-114). The strip follows the 1871 plan's shore line (Mitchell's 1870 map) along the cemetery; how wide the sand ran is reconstructed."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "colbert_chamberlin_1871_great_conflagration",
+      "sheahan_upton_1871_great_conflagration"
+     ],
+     "note": "A level strip of sand; reconstructed."
+    },
+    "kind": {
+     "value": "open_ground",
+     "confidence": "attested",
+     "sources": [
+      "sheahan_upton_1871_great_conflagration"
+     ],
+     "note": "An open beach (Sheahan and Upton, pp. 113-114): the walker reads it and lets the visitor walk on it; nothing in the mesh comes from it.",
+     "geometry": "record_only"
+    },
+    "wall_material": {
+     "value": "Sand",
+     "confidence": "attested",
+     "sources": [
+      "sheahan_upton_1871_great_conflagration"
+     ],
+     "note": "'Along the beach' (Sheahan and Upton, pp. 113-114).",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-20): the lake shore refuge, on the landmark_1871 archetype."
+  }
+ ]
+}

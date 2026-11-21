@@ -1,0 +1,103 @@
+{
+  "id": "st_michaels_church_1871",
+  "scene": "1871",
+  "name": "St. Michael's Church",
+  "address": "Hurlbut and Linden Streets, south-east corner",
+  "status": {
+    "text": "Walls stood through the fire",
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2",
+      "andreas_1885_v2_st_michaels_plates"
+    ],
+    "note": "The walls stood; the steeple burned and the bells fell (Andreas vol. 2, p. 405).",
+    "today": "Its later history is not researched here"
+  },
+  "built": {
+    "year": 1870,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2"
+    ]
+  },
+  "use": "German Catholic parish church",
+  "summary": "The German Catholic parish had just finished this huge brick church, with a tower and a chime of bells. The fire burned its roof and steeple, and the bells crashed down. But the walls were built so well that they stood.",
+  "key": [
+    {
+      "label": "Size",
+      "value": "200 feet long, 80 feet wide",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Cost",
+      "value": "$200,000",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Pastor",
+      "value": "Rev. Peter Zimmer",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The steeple was low, but it held a whole chime of bells.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "The walls were so well built that they stood through the fire.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "A tower on the east corner, a tall gable with a round window, and tall arched windows down the side.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "inferred",
+      "sources": [
+        "andreas_1885_v2_st_michaels_plates"
+      ],
+      "note": "Read off the engraving of the ruins (Andreas vol. 2, p. 405)."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1870",
+      "text": "The parish outgrows its old church and builds this one.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The fire burns the roof and steeple; the bells fall.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

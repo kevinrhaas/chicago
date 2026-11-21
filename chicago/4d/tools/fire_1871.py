@@ -144,11 +144,15 @@ def derive(doc: dict) -> dict:
         if ring[0] == ring[-1]:
             ring.pop()
         out["zones"][z["id"]] = {"local": ring, "acres": round(polygon_area(ring) / ACRE_M2)}
+    # T-3689: a place built on the 1871 plan's own streets (a named structure the scene
+    # stands) carries `plan_local`, the scene's metres, and that is where the fire is;
+    # its lat/lon stays the modern pointer it was read from, and `plan_note` says why
+    # the two differ (the plan is a tracing of Mitchell's 1870 map, not the modern grid).
     for c in doc["controls"]:
-        e, n = to_local(c["lat"], c["lon"])
+        e, n = c["plan_local"] if "plan_local" in c else to_local(c["lat"], c["lon"])
         out["controls"][c["id"]] = [round(e, 1), round(n, 1)]
     for s in doc.get("spared", []):
-        e, n = to_local(s["lat"], s["lon"])
+        e, n = s["plan_local"] if "plan_local" in s else to_local(s["lat"], s["lon"])
         out["spared"][s["id"]] = [round(e, 1), round(n, 1)]
     return out
 
@@ -212,6 +216,8 @@ def problems(doc: dict) -> list[str]:
                 bad.append(f"control {c['id']}: {c['t']} outside the fire's {doc['start']}..{doc['end']}")
         except (KeyError, ValueError):
             bad.append(f"control {c['id']}: hour is not YYYY-MM-DDTHH:MM")
+        if "plan_local" in c and not c.get("plan_note"):
+            bad.append(f"control {c['id']}: plan_local without a plan_note saying why")
         if c.get("local") != d["controls"][c["id"]]:
             bad.append(f"control {c['id']}: local position is stale: run tools/fire_1871.py --write")
         e, n = d["controls"][c["id"]]

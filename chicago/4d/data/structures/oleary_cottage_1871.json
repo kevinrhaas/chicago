@@ -1,0 +1,376 @@
+{
+ "id": "oleary_cottage_1871",
+ "name": "The O'Leary cottages, 137 DeKoven Street",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "dwelling",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Two dwellings: the McLaughlins in front, the O'Learys behind (Andreas vol. 2, p. 708)."
+ },
+ "built": {
+  "value": 1864,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Patrick and Catherine O'Leary 'own the lot and house in which they live' (their affidavit, Andreas vol. 2, p. 708); when the houses were built is not known: reconstructed as the 1860s."
+ },
+ "research_note": "THE O'LEARY COTTAGES, built by T-3689 for the 1871 scene: two small frame houses 'one behind the other and practically attached', thirty-six feet from front to rear, the front one nearly on DeKoven Street's building line, on the east half of lot 12 in block 38 of the School Section Addition (No. 137). The McLaughlins rented the front; Patrick and Catherine O'Leary lived in the rear with their five children. Read off Andreas's account (vol. 2, pp. 707-715) and J. Mountford's stereograph of the cottages just after the fire, which shows them standing in the burnt block.",
+ "phases": [
+  {
+   "id": "cottage_1871",
+   "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 707-715); when it was built is not known, and the scene's phase begins in 1860."
+   },
+   "position": {
+    "utm_e": 446750.4,
+    "utm_n": 4635440.853,
+    "rotation_deg": 359.11,
+    "symbolic_location": "137 DeKoven Street, north side, between Jefferson and Clinton Streets (the east half of lot 12, block 38, School Section Addition).",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "loc_cph_3b04891_oleary_cottage"
+    ],
+    "note": "Andreas (vol. 2, p. 711) runs a line from the north-east corner of the block to the north-east corner of lot 137 on the north alley and finds the barn 175 feet along it; with the 1871 plan's DeKoven and Jefferson Streets that puts the lot's middle at about local E -319. The front cottage stands on the plan's north building line. The fire file's controls had put the site on the modern map's DeKoven Street, about 35 m south of the 1871 plan's. The footprint's origin is local E -322.3 N -1954.95.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from Andreas's measured description of the lots against the 1871 plan's DeKoven Street; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      6.25,
+      0
+     ],
+     [
+      6.25,
+      11.0
+     ],
+     [
+      0,
+      11.0
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "The two houses, 36 feet from front to rear (Andreas vol. 2, p. 711); their widths are reconstructed (about 19 and 20 feet)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "blocks": [
+       {
+        "name": "the front cottage",
+        "box": [
+         0.15,
+         0,
+         5.95,
+         4.6
+        ],
+        "storeys": [
+         0.6,
+         3.0
+        ],
+        "wall": "clapboard",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.12,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 1.9,
+         "eave": 0.3,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "S": {
+          "bays": {
+           "at": [
+            1.45,
+            3.95
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             0
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 0.9,
+            "h": 2.05,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "at": [
+            2.3
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": {
+          "bays": {
+           "at": [
+            2.3
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": "none"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2"
+        ],
+        "note": "The front house of the two, its gable on the street, 'nearly on the street line' (Andreas vol. 2, p. 711); the McLaughlins' part. Its size is reconstructed so the two make Andreas's 36 feet."
+       },
+       {
+        "name": "the rear cottage",
+        "box": [
+         0,
+         4.6,
+         6.1,
+         11.0
+        ],
+        "storeys": [
+         0.6,
+         2.6
+        ],
+        "wall": "clapboard",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.12,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 1.9,
+         "eave": 0.3,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "E": {
+          "bays": {
+           "at": [
+            1.6,
+            4.6
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_flat",
+            "w": 0.9,
+            "h": 2.05,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "at": [
+            3.05
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "at": [
+            3.2
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.75,
+            "h": 1.35,
+            "sill": 0.8,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": "none"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "loc_cph_3b04891_oleary_cottage"
+        ],
+        "note": "The rear house, 'practically attached' (Andreas vol. 2, p. 711): its east side and north gable as Mountford's stereograph shows them, a door and a window on the east side, a window in the gable, the chimney on the ridge; the O'Learys' part."
+       }
+      ],
+      "fire": {
+       "fate": "survived",
+       "left": "whole",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "The wind carried the fire north and east, away from the cottages; 'the O'Leary house, yet standing' (Andreas vol. 2, p. 719)."
+      },
+      "note": "THE O'LEARY COTTAGES, built by T-3689 for the 1871 scene: two small frame houses 'one behind the other and practically attached', thirty-six feet from front to rear, the front one nearly on DeKoven Street's building line, on the east half of lot 12 in block 38 of the School Section Addition (No. 137). The McLaughlins rented the front; Patrick and Catherine O'Leary lived in the rear with their five children. Read off Andreas's account (vol. 2, pp. 707-715) and J. Mountford's stereograph of the cottages just after the fire, which shows them standing in the burnt block.",
+      "tint": {
+       "clapboard": [
+        0.56,
+        0.54,
+        0.5
+       ]
+      },
+      "chimneys": [
+       {
+        "at": [
+         3.2,
+         1.3
+        ],
+        "z0": 4.3,
+        "h": 1.9,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "loc_cph_3b04891_oleary_cottage"
+        ],
+        "note": "A chimney on each ridge, as Mountford's stereograph shows them."
+       },
+       {
+        "at": [
+         3.05,
+         6.6
+        ],
+        "z0": 3.9,
+        "h": 2.0,
+        "w": 0.6,
+        "d": 0.6,
+        "confidence": "inferred",
+        "sources": [
+         "loc_cph_3b04891_oleary_cottage"
+        ],
+        "note": "A chimney on each ridge, as Mountford's stereograph shows them."
+       }
+      ],
+      "steps": [
+       {
+        "block": 0,
+        "face": "S",
+        "s0": 0.95,
+        "s1": 1.95,
+        "n": 3,
+        "material": "wood_trim",
+        "rise": 0.2
+       },
+       {
+        "block": 1,
+        "face": "E",
+        "s0": 4.1,
+        "s1": 5.1,
+        "n": 3,
+        "material": "wood_trim",
+        "rise": 0.2
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "loc_cph_3b04891_oleary_cottage"
+     ],
+     "note": "Sizes from Andreas's account where he gives them; storeys, roofs and openings from the photograph where it shows them, else reconstructed as the neighbourhood's one-storey frame cottages."
+    },
+    "wall_material": {
+     "value": "Unpainted weatherboards on a frame, shingle roofs",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "loc_cph_3b04891_oleary_cottage"
+     ],
+     "note": "The stereograph shows plain dark weatherboarding; whether it had ever been painted is not known.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-20): the O'Leary site on DeKoven Street, on the landmark_1871 archetype in the 1835 town's clapboard and shingles."
+  }
+ ]
+}

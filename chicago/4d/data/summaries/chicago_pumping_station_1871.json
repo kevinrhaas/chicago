@@ -1,0 +1,102 @@
+{
+  "id": "chicago_pumping_station_1871",
+  "scene": "1871",
+  "name": "The Water Works",
+  "address": "Pine Street, across from the Water Tower",
+  "status": {
+    "text": "Walls survived the fire",
+    "today": "The Chicago Avenue Pumping Station, rebuilt inside the old walls",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_water_works"
+    ],
+    "note": "Its roof burned and fell on the engines on 9 October 1871; the stone walls stood. Its later history is not researched here."
+  },
+  "built": {
+    "year": 1869,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2_water_works"
+    ]
+  },
+  "use": "Pumping engines for the city's water",
+  "summary": "The engine house pulled water through a tunnel two miles under the lake and up the tower. Its roof caught fire at 3:20 in the morning. Then the city had no water to fight the fire.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "W. W. Boyington",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "label": "Size",
+      "value": "142 by 60 feet",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "label": "Smoke-stack",
+      "value": "130 feet high",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "With the pumps dead, the fire engines had no water from the mains.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "text": "A battlemented stone front, with a taller pavilion around the main door.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works",
+        "loc_stereo_1s12374_water_works"
+      ]
+    },
+    {
+      "text": "Burning brands blown over the North Side set its slate roof's timbers alight.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1869-01-01",
+      "text": "The pumping engines start lifting lake water from the two-mile tunnel.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The roof catches at about 3:20 a.m. and falls on the engines.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    }
+  ]
+}
