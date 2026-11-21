@@ -381,8 +381,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     }).finally(() => { instance.teamPending = null; });
     return instance.teamPending;
   }
-  // T-3686: 1871 keeps the hack stand the Sherman House stereograph shows on Clark Street.
-  if (!dataBase || !terrain || !['1835', '1871', '1904'].includes(String(sceneId))) return out;
+  if (!dataBase || !terrain || !['1835', '1904'].includes(String(sceneId))) return out;
   const heightAt = groundHeight ?? ((e, n) => terrain.surfaceHeight(e, n));
   try {
     const response = await fetch(new URL('transport/parked/placements.json', dataBase));

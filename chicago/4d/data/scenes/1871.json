@@ -47,7 +47,7 @@
       "short": "Commercial centre",
       "glyph": "street",
       "local_e": 900,
-      "local_n": -534,
+      "local_n": -532.4,
       "yaw_deg": 0
     },
     {
@@ -330,7 +330,6 @@
     "context",
     "street_furniture",
     "street_trees",
-    "parked_transport",
     "humans"
   ],
   "released": false,
