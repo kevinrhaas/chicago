@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3190, ts: '2026-11-21T18:25:47.639Z', date: 'Nov 21, 2026, 12:25 PM CT', title: '2115 Prairie, the Armour house, built from its photograph', kind: 'feature',
+    items: [
+      '2115 Prairie Avenue, the Kelley/Armour house, now stands on the 1911 map\'s plan, read off a winter photograph of the house: a banded stone front with round-arched windows, the arched door at the head of a broad stoop, a south pavilion under its own taller roof, and a slate mansard with arched dormers and a tall stack.',
+    ] },
   { v: 3189, ts: '2026-11-21T17:39:28.715Z', date: 'Nov 21, 2026, 11:39 AM CT', title: '2017 Prairie\'s dormers get their carved pediments', kind: 'improvement',
     items: [
       'The two dormers on the William Armour house\'s mansard at 2017 Prairie are now the classical pediments its photograph shows: pilasters either side of the windows, a deep cornice, and a carved fan-shaped lunette in each gable.',
