@@ -1,0 +1,416 @@
+{
+ "id": "tribune_building_1871",
+ "name": "The Tribune building, Madison and Dearborn Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "printing_office",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "The Chicago Tribune's own building, its offices and press (Andreas vol. 2, p. 492)."
+ },
+ "built": {
+  "value": 1869,
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1885_v2_buildings"
+  ],
+  "note": "The paper moved in at the end of the 1860s (Andreas vol. 2, p. 492; the OCR's year is damaged)."
+ },
+ "research_note": "THE TRIBUNE BUILDING, built by T-3688 for the 1871 scene: the Tribune Company's own building on the south-east corner of Madison and Dearborn Streets, of Joliet marble, four storeys high, at a cost of $225,000 (Andreas vol. 2, p. 492), with iron front frames, roof and shutters, 'considered absolutely fireproof' (p. 563). Built to Andreas's engraving of it. It was the only newspaper property untouched at four in the morning, and burned after daylight on 9 October 1871.",
+ "phases": [
+  {
+   "id": "office_1869_1871",
+   "documented_range": {
+    "from": "1869-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2_buildings"
+    ],
+    "note": "Occupied by the end of the 1860s; burned 9 October 1871 (Andreas vol. 2)."
+   },
+   "position": {
+    "utm_e": 447784.7,
+    "utm_n": 4636839.171,
+    "rotation_deg": 359.4,
+    "symbolic_location": "South-east corner of Madison and Dearborn Streets.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2_buildings",
+     "mitchell_1870_chicago_map"
+    ],
+    "note": "Its Madison Street front on the south building line of Madison Street and its Dearborn Street front on the east building line of Dearborn Street, at the corner Andreas gives it (vol. 2, p. 492). The footprint's origin is local E 712.0 N -556.63.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Set on the 1871 plan's street lines (traced from Mitchell's 1870 map) at the corner or frontage the texts name; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      34.25,
+      0
+     ],
+     [
+      34.25,
+      18.85
+     ],
+     [
+      0,
+      18.85
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "andreas_1885_v2_downtown_plates"
+    ],
+    "note": "Both fronts' lengths read through the engraving's camera against its storeys; no dimension is given in the texts read."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "time": "1871-10-09T07:30",
+       "sources": [
+        "andreas_1885_v2_buildings"
+       ],
+       "note": "At four in the morning 'the only newspaper property left untouched'; thought fireproof, it burned after daylight (Andreas vol. 2, pp. 563, 739)."
+      },
+      "blocks": [
+       {
+        "name": "the Dearborn Street range",
+        "box": [
+         0,
+         0,
+         34.25,
+         13.899390334559014
+        ],
+        "storeys": [
+         5.6,
+         4.4,
+         4.2,
+         4.0
+        ],
+        "wall": "limestone",
+        "belts": [
+         1,
+         2,
+         3
+        ],
+        "water_table": 0.4,
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 1.1,
+         "brackets": 0.75
+        },
+        "roof": {
+         "kind": "flat",
+         "covering": "tin"
+        },
+        "faces": {
+         "W": {
+          "bays": {
+           "at": [
+            3.2,
+            5.6,
+            8.0,
+            10.4,
+            12.8
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "round",
+            "w": 2.5,
+            "h": 4.6,
+            "sill": 0.3,
+            "hood": "none"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.8,
+            "sill": 0.9,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.7,
+            "sill": 0.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.25,
+            "h": 2.5,
+            "sill": 0.7,
+            "hood": "arch"
+           }
+          ]
+         },
+         "N": "none",
+         "S": "blank",
+         "E": "blank"
+        },
+        "confidence": "inferred",
+        "note": "Four storeys of Joliet stone on Dearborn Street, round-arched shop fronts under round-arched windows with hoods, a bracketed cornice, as Andreas's engraving shows it."
+       },
+       {
+        "name": "the Madison Street range",
+        "box": [
+         4.950609665440988,
+         13.899390334559014,
+         34.25,
+         18.85
+        ],
+        "storeys": [
+         5.6,
+         4.4,
+         4.2,
+         4.0
+        ],
+        "wall": "limestone",
+        "belts": [
+         1,
+         2,
+         3
+        ],
+        "water_table": 0.4,
+        "cornice": {
+         "kind": "bracketed",
+         "proj": 1.1,
+         "brackets": 0.75
+        },
+        "roof": {
+         "kind": "flat",
+         "covering": "tin"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            1.45,
+            4.35,
+            7.25,
+            10.15,
+            13.05,
+            15.95,
+            18.85,
+            21.75,
+            24.65
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "round",
+            "w": 2.5,
+            "h": 4.6,
+            "sill": 0.3,
+            "hood": "none"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.8,
+            "sill": 0.9,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.3,
+            "h": 2.7,
+            "sill": 0.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.25,
+            "h": 2.5,
+            "sill": 0.7,
+            "hood": "arch"
+           }
+          ]
+         },
+         "W": "none",
+         "S": "none",
+         "E": "blank"
+        },
+        "confidence": "inferred",
+        "note": "The Madison Street front, the same four storeys and arches, as the engraving shows it."
+       }
+      ],
+      "towers": [
+       {
+        "name": "the corner",
+        "at": [
+         4.950609665440988,
+         13.899390334559014
+        ],
+        "z0": 0.0,
+        "plan": "octagon",
+        "wall": "limestone",
+        "stages": [
+         {
+          "w": 9.901219330881975,
+          "h": 5.6,
+          "openings": {
+           "kind": "door_round",
+           "w": 2.6,
+           "h": 4.8,
+           "sill": 0.0,
+           "faces": [
+            2
+           ]
+          },
+          "cornice": false,
+          "cornice_proj": 1.1
+         },
+         {
+          "w": 9.901219330881975,
+          "h": 4.4,
+          "openings": {
+           "kind": "round",
+           "w": 1.4,
+           "h": 2.8,
+           "sill": 0.9,
+           "hood": "arch",
+           "faces": [
+            2
+           ]
+          },
+          "cornice": false,
+          "cornice_proj": 1.1
+         },
+         {
+          "w": 9.901219330881975,
+          "h": 4.2,
+          "openings": {
+           "kind": "round",
+           "w": 1.4,
+           "h": 2.7,
+           "sill": 0.8,
+           "hood": "arch",
+           "faces": [
+            2
+           ]
+          },
+          "cornice": false,
+          "cornice_proj": 1.1
+         },
+         {
+          "w": 9.901219330881975,
+          "h": 4.0,
+          "openings": {
+           "kind": "round",
+           "w": 1.4,
+           "h": 2.5,
+           "sill": 0.7,
+           "hood": "arch",
+           "faces": [
+            2
+           ]
+          },
+          "cornice": true,
+          "cornice_proj": 1.1
+         }
+        ],
+        "cap": {
+         "kind": "flat"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_downtown_plates"
+        ],
+        "note": "The cut-off corner on Madison and Dearborn, with the entrance at its foot, as the engraving shows it.",
+        "cornice_proj": 0.2
+       },
+       {
+        "name": "the corner's crest",
+        "at": [
+         2.5105286319742093,
+         16.339471368025794
+        ],
+        "z0": 18.599999999999998,
+        "plan": "octagon",
+        "wall": "limestone",
+        "stages": [
+         {
+          "w": 3.0,
+          "h": 2.2,
+          "openings": {
+           "kind": "oculus",
+           "w": 1.0,
+           "h": 1.0,
+           "sill": 0.6,
+           "faces": [
+            2
+           ]
+          },
+          "cornice": true,
+          "cornice_proj": 0.25
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.3,
+         "covering": "tin_dark"
+        },
+        "finial": 0.5,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_downtown_plates"
+        ],
+        "note": "The raised crest over the cut corner's cornice, as the engraving shows it; its pediment is drawn as a little hipped attic with a round window, set on the corner's face.",
+        "cornice_proj": 0.2
+       }
+      ],
+      "pediments": [
+       {
+        "block": 1,
+        "face": "N",
+        "s": 4.5,
+        "w": 6.0,
+        "h": 1.8,
+        "kind": "pediment",
+        "depth": 0.8,
+        "z": 18.3,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_downtown_plates"
+        ],
+        "note": "The pediment over the Madison Street front's east end, as the engraving shows it."
+       }
+      ],
+      "note": "The fronts read off the engraving in Andreas (vol. 2, p. 492); 'Joliet marble, four stories high' (p. 492); 'a four-story building of stone, with iron front frames and roof' (p. 563). The plan size is read through the engraving's camera."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2_buildings",
+      "andreas_1885_v2_downtown_plates"
+     ],
+     "note": "The fronts, their arches, the cut-off corner and the pediment from the engraving; heights read off it."
+    },
+    "wall_material": {
+     "value": "Stone",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2_buildings"
+     ],
+     "note": "'Joliet marble' (Andreas vol. 2, p. 492): the Joliet-Lemont stone, laid in the K02 kit's Lemont limestone.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3688 (2026-11-21): the Tribune building stands in the 1871 scene on the landmark_1871 archetype."
+  }
+ ]
+}

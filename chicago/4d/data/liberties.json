@@ -142,6 +142,10 @@
       "name": "Coursoll's inclosed field, north of the river, 1812"
     },
     {
+      "id": "crosbys_opera_house_1871",
+      "name": "Crosby's Opera House, Washington Street"
+    },
+    {
       "id": "dalton_cottage_1871",
       "name": "Dalton's cottage, 135 DeKoven Street"
     },
@@ -220,6 +224,10 @@
     {
       "id": "exchange_coffee_house_stable",
       "name": "The Exchange Coffee House's Stable"
+    },
+    {
+      "id": "field_leiter_1871",
+      "name": "Field, Leiter & Co., State and Washington Streets"
     },
     {
       "id": "first_fort_covered_way_bank_lower",
@@ -1752,6 +1760,10 @@
     {
       "id": "ouilmette_house_1812",
       "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house"
+    },
+    {
+      "id": "palmer_house_1871",
+      "name": "The Palmer House, State and Quincy Streets"
     },
     {
       "id": "peck_store",
@@ -3614,8 +3626,16 @@
       "name": "Tremont House (the first)"
     },
     {
+      "id": "tremont_house_1871",
+      "name": "The Tremont House, Lake and Dearborn Streets"
+    },
+    {
       "id": "tremont_house_1_stable",
       "name": "The Tremont House's Stable"
+    },
+    {
+      "id": "tribune_building_1871",
+      "name": "The Tribune building, Madison and Dearborn Streets"
     },
     {
       "id": "tucker_smith_house_2140_prairie",
@@ -78963,6 +78983,106 @@
       ],
       "work_refs": [
         "T-3689"
+      ]
+    },
+    {
+      "id": "L-1871-downtown-landmarks-3688",
+      "title": "The other downtown fire landmarks (the Tremont House, Crosby's Opera House, Field, Leiter & Co., the Palmer House, the Tribune building): what their pictures and texts do not say",
+      "section": "per_subject",
+      "subjects": [
+        "crosbys_opera_house_1871",
+        "field_leiter_1871",
+        "palmer_house_1871",
+        "tremont_house_1",
+        "tremont_house_1871",
+        "tribune_building_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "crosbys_opera_house_1871",
+          "phase": "opera_house_1865_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "crosbys_opera_house_1871",
+          "phase": "opera_house_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "field_leiter_1871",
+          "phase": "store_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "field_leiter_1871",
+          "phase": "store_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "palmer_house_1871",
+          "phase": "hotel_1870_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "palmer_house_1871",
+          "phase": "hotel_1870_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1871",
+          "phase": "hotel_1850_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "tribune_building_1871",
+          "phase": "office_1869_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tribune_building_1871",
+          "phase": "office_1869_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "five more of the pre-fire city's named landmarks stand in the 1871 scene on the landmark 1871 archetype, each built as a composition read off its one picture, in the 1904 kits' brick, stone, marble, slate and tin: The Tremont House, Lake and Dearborn Streets (Carbutt's stereograph No. 55), Crosby's Opera House, Washington Street (Carbutt's stereograph No. 139), Field, Leiter & Co., State and Washington Streets, The Palmer House, State and Quincy Streets and The Tribune building, Madison and Dearborn Streets (Andreas's engravings, vol. 2, pp. 563, 509 and 492). **What the sources give** — each building's corner, storeys, stone or brick, builder, architect, cost, dates and the hour it burned, and the Tremont House's 140 by 180 feet — is cited attribute by attribute in its record and its card."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **Places.** Each stands on the 1871 plan's street lines (a tracing of Mitchell's 1870 map) at the corner its texts name; Crosby's is centred between Dearborn and State, \"nearly midway\" as Andreas says. The plan draws no Quincy Street between State and Dearborn, so the Palmer House's south front is set on a line midway between Adams and Jackson. The fire file's Tremont House, Palmer House and Tribune controls carry a plan local to the buildings the scene stands, because the modern controls fall across the street from them. - **Sizes.** No text read gives the size of any but the Tremont House. Crosby's front width, both fronts of Field, Leiter & Co. (about 41 m on Washington by 25 m on State) and of the Tribune building (about 34 m on Madison by 19 m on Dearborn), and the Palmer House's State Street front (25 m) are read through each picture's camera against its storeys; an engraving's perspective is drawn rather than optical, so these are reconstructions. Crosby's depth (55 m) and the Palmer House's Quincy Street front (50 m), which run out of their pictures, are reconstructed. - **Heights.** No storey height was found in any text: each is read through its picture's camera. - **Walls no picture shows.** Every rear and party wall is built blank in the front's material. - **Detail.** Ornament is simplified to the archetype's vocabulary: Field, Leiter & Co.'s paired windows and balconies are single arched windows at the same rhythm; the Tribune building's cut-off corner is an eight-sided corner stage and its crest a little hipped attic; Crosby's sculpture group is a plain segmental crest; carved crests, lettered signs and awnings are left out, and shop fronts are plain glazed bays. - **Tones.** The pictures are monochrome. The Tremont House is the K03 kit's red brick; Crosby's and the Palmer House the pale stone; Field, Leiter & Co. the 1904 kit's marble; the Tribune building's Joliet marble the Lemont limestone, the same Joliet-Lemont stone."
+        },
+        {
+          "label": "Covers",
+          "text": "`crosbys_opera_house_1871.opera_house_1865_1871.footprint`, `field_leiter_1871.store_1868_1871.footprint`, `palmer_house_1871.hotel_1870_1871.footprint`, `tribune_building_1871.office_1869_1871.footprint`, `tremont_house_1871.hotel_1850_1871.form.wall_material`, `crosbys_opera_house_1871.opera_house_1865_1871.form.wall_material`, `field_leiter_1871.store_1868_1871.form.wall_material`, `palmer_house_1871.hotel_1870_1871.form.wall_material`, `tribune_building_1871.office_1869_1871.form.wall_material`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Sanborn or Rascher sheet of the business district for 1870-1871, a photograph of Field, Leiter & Co., the Palmer House or the Tribune building before the fire, or a building notice giving their sizes, replaces the parts above."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on photo match, the research notes on photo match, the research notes on photo match, the research notes on photo match, the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3688)."
+        }
+      ],
+      "work_refs": [
+        "T-3688"
       ]
     },
     {
