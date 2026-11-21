@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3176, ts: '2026-11-21T04:39:14.645Z', date: 'Nov 20, 2026, 10:39 PM CT', title: '1815 Prairie\'s attic crown now sits on its stone front alone', kind: 'improvement',
+    items: [
+      'The pavilion\'s steep crown now carries its cornice across the attic\'s stone front only, as the old photographs show, not out over the slate beside it.',
+      'On each side of the attic the slate now slopes down from the end of that cornice to the stone shoulder below, and the north chimney stands clear against the sky.',
+    ] },
   { v: 3175, ts: '2026-11-21T02:33:30.900Z', date: 'Nov 20, 2026, 8:33 PM CT', title: '2013 Prairie\'s north wall built from its 2003 photograph', kind: 'improvement',
     items: [
       'The Reid house\'s side wall now has the narrow stair windows its 2003 National Register photograph shows, at their own heights, where it had a plain grid.',

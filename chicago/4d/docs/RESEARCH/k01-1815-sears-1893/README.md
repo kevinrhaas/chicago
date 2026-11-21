@@ -72,3 +72,24 @@ No generator rule was changed: every part is the K01, K02, K05 and K08 kits as t
   1 July 1904 could be either side of it. The photographs show the Sears house; the build follows
   them, and `L-k01-1815-sears-1893` says so. (The record's name, "Arthur Meeker's from 1893", is
   contradicted by the 1902 sale.)
+
+## T-3562: the crown's cornice over the attic front alone, and its raked cheeks
+
+The square-on print draws the pavilion's crown with its cornice over the attic's stone front
+alone (x 205-402 px, 2.75 m), and on each side of that front a triangle of slate sloping out
+and down from the cornice's end to the capped stone shoulder (from about y 230 to y 282 px,
+roughly 50 degrees); over the north cheek there is sky, beside the free-standing north stack.
+The oblique print draws the south cheek the same way, right of the attic. Read together, the
+crown's sides carry down past its cornice to the shoulders, and the attic is narrower than the
+pavilion under it above the shoulders' caps.
+
+Built so: K01's hipped crown takes `cheek_inset_m` (its eave over the stone front between the
+cheeks, 2.74 m with a 0.18 m overhang), and K08's cheeks take `raked` (over the shoulder the
+attic's wall stops, and the slate is a slope from the stone front's edge under the cornice's end
+down to the cheek's outer edge on the cap, run back the crown's 5 m depth). On the corner the
+pavilion is flush with, the main mansard's lower faces (72 degrees, steeper than the slope)
+are cut away over the cheek to the crown's depth, because the print shows sky there and not
+slate; the stacks standing in that cut are joined again after it. How far back the cheeks run
+is inferred (the prints show only the street end). Both match records re-judged: the crown's
+cornice fixed on both; the oblique now matches; the square-on keeps one open item, which front
+stood in 1904.
