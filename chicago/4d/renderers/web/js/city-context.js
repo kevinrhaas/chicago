@@ -273,6 +273,37 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   }
   out.containsBuilding = (e,n,pad=.25) => (collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? []).some(r=>contains(r,e,n,pad));
   out.footprintsNear = (e,n) => collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? [];
+  // T-3691 (the owner, 2026-11-21, on The Last Sunday: "we ran into a wall ... the default walk
+  // should follow sidewalks etc"): the route planner is handed what the walker meets here, the
+  // buildings, and what a walk keeps to, the streets with their plank walks and crossings, for
+  // the box it plans over. Without them a route crossed the city's blocks straight, through
+  // the buildings the walker then stopped against.
+  out.routeFeatures = (box) => {
+    const hit = (e0,e1,n0,n1) => e1>=box.e0 && e0<=box.e1 && n1>=box.n0 && n0<=box.n1;
+    const seen = new Set(), footprints = [];
+    for (let i=Math.floor(box.e0/collisionCellM);i<=Math.floor(box.e1/collisionCellM);i++) {
+      for (let j=Math.floor(box.n0/collisionCellM);j<=Math.floor(box.n1/collisionCellM);j++) {
+        for (const r of collisions.get(`${i},${j}`) ?? []) {
+          if (seen.has(r)) continue;
+          seen.add(r);
+          if (hit(r.e-r.radius,r.e+r.radius,r.n-r.radius,r.n+r.radius)) footprints.push({ id:r.id, pts:r.pts });
+        }
+      }
+    }
+    const line = (a,b) => Array.isArray(a) && Array.isArray(b)
+      && hit(Math.min(a[0],b[0]),Math.max(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[1],b[1]));
+    const streets = [];
+    for (const r of doc.streets ?? []) {
+      if (Array.isArray(r) || !line(r.a,r.b) || !(r.width_m>0)) continue;
+      streets.push({ id:r.street_id, path:[r.a,r.b], track_width_m:r.width_m, corridor_width_m:r.width_m+2*(r.walk_m ?? 0) });
+    }
+    const walks = [];
+    for (const w of doc.walk_surfaces ?? []) {
+      if ((w.kind!=='walk' && w.kind!=='crossing') || !line(w.a,w.b)) continue;
+      walks.push({ centreline_local_enu_m:[w.a,w.b], width_m:w.width_m, kind:w.kind==='crossing' ? 'board_crossing' : 'walk' });
+    }
+    return { footprints, streets, walks };
+  };
   out.streetLines = () => {
     const fields=Object.fromEntries((doc.fields?.streets ?? []).map((key,index)=>[key,index]));
     return (doc.street_lines ?? doc.streets ?? []).map(row=>{

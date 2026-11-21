@@ -511,6 +511,8 @@ step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and
   node tools/test_fort_gates.mjs
 step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
   node tools/test_route_unreachable.mjs
+step "an 1871 jaunt plans in a window round the visitor, round the city's buildings and along its plank walks (T-3691)" \
+  node tools/test_route_window.mjs
 step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \

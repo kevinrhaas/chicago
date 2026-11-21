@@ -154,7 +154,7 @@ import { mountResidents } from './residents.js';
 import { mountGround } from './ground.js';
 import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
-import { createRouter } from './route.js';
+import { createRouter, WINDOW_CELLS } from './route.js';
 import { createTravel, PACES } from './travel.js';
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
@@ -4633,6 +4633,12 @@ async function boot() {
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
     passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,
+    // T-3691: a world too big for one grid (1871) keeps a window round the visitor, held
+    // still while they fly, and half the size on a phone or at the Light detail.
+    focus: () => (walker.state.flying ? null : walker.state),
+    windowCells: () => (prefersTouch() || detailLevel === 'light' ? WINDOW_CELLS / 2 : WINDOW_CELLS),
+    // T-3691: the 1871 context city's buildings, streets and plank walks (city-context.js).
+    extra: (box) => contextCity?.routeFeatures?.(box) ?? null,
   });
   let travel = null;
   api.router = router;
