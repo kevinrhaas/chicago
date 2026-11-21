@@ -1,0 +1,388 @@
+{
+  "id": "washington_square_1871",
+  "phase": "square_1860_1871",
+  "name": "Washington Square",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/washington_square_1871__square_1860_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Open on the night of the fire (Andreas vol. 2, p. 759); the scene's phase begins in 1860."
+  },
+  "change_note": "Built T-3689 (2026-11-20): Washington Square before the Ogden house, on the landmark_1871 archetype.",
+  "placement": {
+    "local_e": 571.0,
+    "local_n": 1391.0,
+    "rotation_deg": 359.3,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2",
+      "chicago_street_center_lines"
+    ],
+    "position_note": "Inside the street lines of today's Washington Square Park (the City's centrelines of Clark, Dearborn and Walton Streets, data/context/1871/modern_clip.json, less half each street and its walk); its south line is taken a little north of Delaware Place's line. The footprint's origin is local E 571.0 N 1391.0.",
+    "symbolic_location": "Between Clark and Dearborn Streets, south of the Ogden house's block (Oak Street, now Walton).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        100.0,
+        0
+      ],
+      [
+        100.0,
+        45.0
+      ],
+      [
+        0,
+        45.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1885_v2",
+      "chicago_street_center_lines"
+    ],
+    "note": "The open ground of the square, inside its streets."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the south fence, west of the gate",
+            "box": [
+              0,
+              0,
+              48.5,
+              0.22
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the south fence, east of the gate",
+            "box": [
+              51.5,
+              0,
+              100.0,
+              0.22
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the north fence, west of the gate",
+            "box": [
+              0,
+              44.78,
+              48.5,
+              45.0
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the north fence, east of the gate",
+            "box": [
+              51.5,
+              44.78,
+              100.0,
+              45.0
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the west fence, south of the gate",
+            "box": [
+              0,
+              0.22,
+              0.22,
+              21.0
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the west fence, north of the gate",
+            "box": [
+              0,
+              24.0,
+              0.22,
+              44.78
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the east fence, south of the gate",
+            "box": [
+              99.78,
+              0.22,
+              100.0,
+              21.0
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          },
+          {
+            "name": "the east fence, north of the gate",
+            "box": [
+              99.78,
+              24.0,
+              100.0,
+              44.78
+            ],
+            "storeys": [
+              0.95
+            ],
+            "wall": "boards",
+            "roof": {
+              "kind": "flat",
+              "covering": "shingle"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "andreas_1885_v2"
+            ],
+            "note": "A low wooden fence round the square, a gateway in the middle of each side; reconstructed (no text or picture of the square's fence before the fire was found)."
+          }
+        ],
+        "fire": {
+          "fate": "burned",
+          "left": "nothing",
+          "sources": [
+            "andreas_1885_v2"
+          ],
+          "note": "The goods left in the square 'quickly vanished in the flames' (Andreas vol. 2, p. 759); its wooden fence is taken to have burned with them."
+        },
+        "note": "WASHINGTON SQUARE, built by T-3689 for the 1871 scene: the open square on the North Side between Clark and Dearborn Streets, south of Mahlon D. Ogden's house. 'Washington Square had been filled with fugitives earlier in the night, but they had been compelled to flee, leaving their household goods scattered on the ground. These light goods quickly vanished in the flames'; 'the open square immediately south of it' is one reason Andreas gives that the Ogden house was ordinarily beyond danger (Andreas vol. 2, p. 759). The square is laid on today's Washington Square Park, between Clark, Dearborn and Walton Streets; its fence is reconstructed."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Open ground inside a low wooden fence; the fence is reconstructed."
+    },
+    "kind": {
+      "value": "open_ground",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "An open square (Andreas vol. 2, p. 759): the walker reads it and lets the visitor walk in it; nothing in the mesh comes from it.",
+      "geometry": "record_only"
+    },
+    "wall_material": {
+      "value": "A wooden fence round open ground",
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Reconstructed.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "public_square",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "'The open square immediately south of' the Ogden house (Andreas vol. 2, p. 759)."
+    },
+    "built": {
+      "value": 1842,
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "An open square before the fire (p. 759); when it was laid out is not researched here, and 1842 stands for it."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "clock hours at named places along the fire's path, 8-9 October 1871",
+        "the south line of the South Division ruin (Harrison and Congress streets) and where the fire was stopped",
+        "that M. D. Ogden's house on the North Side escaped",
+        "the gale from the south-west and the rain about eleven o'clock Monday night"
+      ],
+      "what_it_does_not_supply": [
+        "a surveyed outline of the burnt district",
+        "an hour for most individual buildings, which are interpolated between its stated hours"
+      ]
+    },
+    {
+      "source_id": "chicago_street_center_lines",
+      "citation": "City of Chicago, Department of Innovation and Technology. Street Center Lines (Transportation.geojson), osd-street-center-line release, last edited 2014-10-15.",
+      "url": "https://github.com/Chicago/osd-street-center-line",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Modern street names and centreline geometry for downtown and the near South Side",
+        "Each segment's grid coordinate (EWNS) and its block's address ranges, left and right"
+      ],
+      "what_it_does_not_supply": [
+        "Anything about 1812, 1835 or 1904",
+        "Renames after 2014 (Ida B. Wells Dr, DuSable Lake Shore Dr), which the tool applies and lists in the clip"
+      ]
+    }
+  ],
+  "research_note": "WASHINGTON SQUARE, built by T-3689 for the 1871 scene: the open square on the North Side between Clark and Dearborn Streets, south of Mahlon D. Ogden's house. 'Washington Square had been filled with fugitives earlier in the night, but they had been compelled to flee, leaving their household goods scattered on the ground. These light goods quickly vanished in the flames'; 'the open square immediately south of it' is one reason Andreas gives that the Ogden house was ordinarily beyond danger (Andreas vol. 2, p. 759). The square is laid on today's Washington Square Park, between Clark, Dearborn and Walton Streets; its fence is reconstructed.",
+  "research_doc": "",
+  "review_required": false
+}

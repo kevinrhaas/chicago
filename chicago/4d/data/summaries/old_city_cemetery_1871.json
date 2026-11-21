@@ -1,0 +1,111 @@
+{
+  "id": "old_city_cemetery_1871",
+  "scene": "1871",
+  "name": "The old City Cemetery",
+  "address": "North Clark Street at North Avenue, the south end of Lincoln Park",
+  "status": {
+    "text": "A refuge in the fire",
+    "today": "Part of Lincoln Park",
+    "grade": "attested",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Taken into Lincoln Park by the act of February 1869 and being cleared in September 1871 (Colbert and Chamberlin, pp. 139-140)."
+  },
+  "built": {
+    "year": 1843,
+    "grade": "reconstructed",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "In use before 1866, when it was mostly emptied (page 140). When the first grave was dug is not known; 1843 stands in for it."
+  },
+  "use": "The city's old burial ground",
+  "summary": "Most of the bodies had been moved away, but old headstones and grassy mounds still stood in the long grass. On Monday about thirty thousand people crowded in here with trunks, chairs and bundles, watching the North Side burn. Sparks set the wooden grave markers alight, and that night many lay down on the graves to sleep.",
+  "key": [
+    {
+      "label": "Refugees",
+      "value": "About 30,000 by Monday nightfall",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "label": "Vacated",
+      "value": "Mostly since 1866",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "label": "Rain",
+      "value": "Came at two in the morning",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "People piled up pails, bureaus, clocks, carpets and great mirrors leaning against the trees.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "text": "A banker sat on a grave, staring into the frying pan he had saved.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "text": "Cheap pine head-boards stood at the heads of the graves, and many of them burned.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "Thousands crowd in from the burning North Side.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The dead-house catches fire; the crowd stamps out the sparks among the graves.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "date": "1871-10-10",
+      "text": "Rain at two in the morning; people shiver, glad of it.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ]
+}

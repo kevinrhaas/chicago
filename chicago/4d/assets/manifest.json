@@ -150,12 +150,22 @@
       "phase_id": "frame_1833",
       "structure_id": "carpenter_south_water_store"
     },
+    "cemetery_dead_house_1871__dead_house_1860_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 67988,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "331323c25d24c92639bdb1665d7dc037bd2c2d131c46ae0bf56c3f7f6a283522",
+      "kind": "generated",
+      "phase_id": "dead_house_1860_1871",
+      "structure_id": "cemetery_dead_house_1871"
+    },
     "chamber_of_commerce_1871__chamber_1865_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
       "bytes": 1909280,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "d8a782a371c0909d4157465fff2b66773822890ea07dcc995d04a60a4105213b",
+      "inputs_sha256": "e3b3069224eae1a132c633b5f64fd5435c0346367ab94c3c654ca107d712f42b",
       "kind": "generated",
       "phase_id": "chamber_1865_1871",
       "structure_id": "chamber_of_commerce_1871"
@@ -210,7 +220,7 @@
       "baked_ao": false,
       "bytes": 1803488,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "459ac49e3a00212e5a679a1abc1d516de7c598eb6ec0148559b5fc18b360438f",
+      "inputs_sha256": "196ac56b8f64762f8b3ef25b8374b46355bd79ac08b8d090d0cafa87a6509d3d",
       "kind": "generated",
       "phase_id": "works_1869_1871",
       "structure_id": "chicago_pumping_station_1871"
@@ -220,7 +230,7 @@
       "baked_ao": false,
       "bytes": 1381240,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "49b02f50e24f5d5158a2f6b12c04cdc1c8c346280984067e36d6a43e980d9720",
+      "inputs_sha256": "b808cb3b94a863dc7f68ae9c74156718b94623d43fcff29704d1f9c57ffdd1d4",
       "kind": "generated",
       "phase_id": "tower_1869_1871",
       "structure_id": "chicago_water_tower_1871"
@@ -277,7 +287,7 @@
       "baked_ao": false,
       "bytes": 3465736,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "8d2b6bb237af36374313292e69b382a4a00d6816deba04c52c691de792665783",
+      "inputs_sha256": "0399dd0fc59007a6344e0fb1619ca3b4ad7a59ad8df10fbf1c271d51e80ed70c",
       "kind": "generated",
       "phase_id": "court_house_1870_1871",
       "structure_id": "cook_county_court_house_1871"
@@ -305,7 +315,7 @@
       "baked_ao": false,
       "bytes": 170716,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "0fd0ab14704b6706cd07b2f1d79423353f6dfa069aa16c3b0a6c40874d13794e",
+      "inputs_sha256": "9943160d747fb3561588a3d64c8f74b9c528aea2b24e1a05cf5b5c76a0d12ac8",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "dalton_cottage_1871"
@@ -315,7 +325,7 @@
       "baked_ao": false,
       "bytes": 55372,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "b46c1fc32701c2e2b05e2ce43e50f4cace7f98f852f9ac205f5b25de3591e93b",
+      "inputs_sha256": "66d40c99b39eb5285ca87330f8efd56d0defa571b5030170b52203ec7f7eda4f",
       "kind": "generated",
       "phase_id": "shed_1871",
       "structure_id": "dalton_shed_1871"
@@ -807,7 +817,7 @@
       "baked_ao": false,
       "bytes": 169696,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "b6f12cc64598bfbaa4ac20d73d45c59b5d612e7fa04379f7ea3ff0b4410249b7",
+      "inputs_sha256": "64f92614e88beef7cbb066ac6aab90584bd488729ae9eca80ced8202d8bb8d86",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "forbes_cottage_1871"
@@ -3544,6 +3554,16 @@
       "phase_id": "shell_1835",
       "structure_id": "lake_house_construction"
     },
+    "lake_shore_sands_1871__shore_1860_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 15656,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "08d548c7c8a0e7f881e62156ad4dbac066916c27354dbd432dae9d527766de68",
+      "kind": "generated",
+      "phase_id": "shore_1860_1871",
+      "structure_id": "lake_shore_sands_1871"
+    },
     "lalime_house_1812__lalime_1812.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -4089,6 +4109,16 @@
       "phase_id": "crossing_1835",
       "structure_id": "north_water_slough_crossing"
     },
+    "ogden_house_1871__house_1860_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 328608,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "31e1fc73b842be57af3051b09979368ce7ed2c6699748de3f6bb748da3512f03",
+      "kind": "generated",
+      "phase_id": "house_1860_1871",
+      "structure_id": "ogden_house_1871"
+    },
     "old_bank_building__frame_1834.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -4098,12 +4128,22 @@
       "phase_id": "frame_1834",
       "structure_id": "old_bank_building"
     },
+    "old_city_cemetery_1871__graves_1860_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1318236,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "7f2f384efbcd7b0828f6ab2346a57084a96fd5928c032f0106179f2058aafe16",
+      "kind": "generated",
+      "phase_id": "graves_1860_1871",
+      "structure_id": "old_city_cemetery_1871"
+    },
     "oleary_barn_1871__barn_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
       "bytes": 69144,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "ed4b5f6b1ac9c2828e7216b8c7ed0060d4e6d87aafbf889d7fd56c9f47118e76",
+      "inputs_sha256": "36f1486b4f054b2150f5f3675fa7b4c85d54f27d47e3f32364d8fbc3543cefd6",
       "kind": "generated",
       "phase_id": "barn_1871",
       "structure_id": "oleary_barn_1871"
@@ -4113,7 +4153,7 @@
       "baked_ao": false,
       "bytes": 175588,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "d2a4107540ca683b5411858bb5afb0893a17d1eb14807954988ebb0da6b59b3d",
+      "inputs_sha256": "9b2a786160661d40d530bc71f602e04810cca068114106b376494e6a021d04f2",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "oleary_cottage_1871"
@@ -10066,7 +10106,7 @@
       "baked_ao": false,
       "bytes": 2084364,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "6c33edd1efb9b29377c899ffb786ff43ad810c8f4ca0cb2673796e58c6c9840c",
+      "inputs_sha256": "e5262ca60cf06441cd4215e716908a22d193f6ca37c339850061a6bcf034dec9",
       "kind": "generated",
       "phase_id": "sherman_1861_1871",
       "structure_id": "sherman_house_1871"
@@ -10176,6 +10216,16 @@
       "phase_id": "frame_1833",
       "structure_id": "st_marys_church"
     },
+    "st_michaels_church_1871__church_1869_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 876164,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "80072768f6ff31ca2951bf1c65038998602392fcc2b4114908809bfa3fa361e9",
+      "kind": "generated",
+      "phase_id": "church_1869_1871",
+      "structure_id": "st_michaels_church_1871"
+    },
     "steamboat_hotel__frame_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -10219,7 +10269,7 @@
       "baked_ao": false,
       "bytes": 167064,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "efa7b96657d89604c2e95459662e486e80c3659a3c10457b1fe9c4fc59d2811b",
+      "inputs_sha256": "9146fe803fe714ebe69162ddc5734a1695e8ee9f3ef9ac57de1fd810dc0630eb",
       "kind": "generated",
       "phase_id": "house_1871",
       "structure_id": "sullivan_house_1871"
@@ -10421,6 +10471,16 @@
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "walker_meeting_house"
+    },
+    "washington_square_1871__square_1860_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 52404,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "6b4f2303f37f8fa00a5ddc8f7ec1b0f612fa0f1d4d2f8f21302c6caa1afadd7c",
+      "kind": "generated",
+      "phase_id": "square_1860_1871",
+      "structure_id": "washington_square_1871"
     },
     "water__e1830_natural.glb": {
       "baked_ao": false,

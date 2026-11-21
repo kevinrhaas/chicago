@@ -714,8 +714,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1126 -> 1129 on 2026-11-19 (T-3688): the Court House, the Chamber of Commerce and the
 # Sherman House in 1871, the first records of the new pure-Python `landmark_1871`
 # archetype (generators/landmark_1871_emit.py), restaling on none of the shared rows.
+# 1129 -> 1143 on 2026-11-20 (T-3689): the fire's North and West Side places (the
+# Water Tower and works, the DeKoven Street lots, the Ogden house, St. Michael's, the
+# old City Cemetery and its dead-house, Washington Square, the lake shore sands) on the
+# same landmark_1871 archetype, restaling on none of the shared rows.
 STATED = {
-    "assets": 1129,
+    "assets": 1143,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,

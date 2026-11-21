@@ -32,8 +32,8 @@ CONSUMED = {"composition"}
 
 #: the fabrics a composition may name, each the 1904 kit's own (see landmark_1871.MATERIALS)
 WALLS = ("marble", "lockport_marble", "limestone", "brick_red", "brick_cream", "iron_stone",
-         "lockport_weathered", "limestone_pale", "clapboard", "clapboard_bare", "boards")
-ROOFS = ("slate", "tin", "tin_dark", "shingle")
+         "lockport_weathered", "limestone_pale", "clapboard", "clapboard_bare", "boards", "sod", "sand")
+ROOFS = ("slate", "tin", "tin_dark", "shingle", "stone_trim", "sod", "sand")
 OPENINGS = ("flat", "segment", "round", "pair_round", "store", "door_round", "door_flat",
             "oculus", "blank", "pointed", "door_pointed")
 HOODS = ("none", "cornice", "arch", "pediment", "segment")
@@ -68,10 +68,10 @@ class LandmarkParams:
             if not (x1 - x0 < 120 and y1 - y0 < 120):
                 raise ParamError(f"{where}: box over 120 m — no 1871 building was that long")
             st = b.get("storeys") or []
-            if not st or any(not (0.4 <= h <= 15.0) for h in st):
-                raise ParamError(f"{where}: storey heights must each be 0.4-15 m (a frame cottage's "
-                                 f"floor raised on posts is a storey; a hall storey, like the Chamber of "
-                                 f"Commerce's exchange room, is one)")
+            if not st or any(not (0.15 <= h <= 15.0) for h in st):
+                raise ParamError(f"{where}: storey heights must each be 0.15-15 m (a grave's mound or a "
+                                 f"frame cottage's floor raised on posts is a storey; a hall storey, like "
+                                 f"the Chamber of Commerce's exchange room, is one)")
             if b.get("wall", "limestone") not in WALLS:
                 raise ParamError(f"{where}: wall {b.get('wall')!r} is not one of {WALLS}")
             roof = b.get("roof") or {"kind": "flat"}

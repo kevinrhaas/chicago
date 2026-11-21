@@ -91,12 +91,18 @@ MATERIALS = {
     "boards": ("k1835", "walls/vertical_sawn_board", (1.0, 1.0, 1.0), 0.88, "walls", {}),
     "shingle": ("k1835", "roofs/wood_shingles_weathered", (1.0, 1.0, 1.0), 0.85, "roof", {}),
     "wood_trim": (None, None, (0.40, 0.37, 0.32), 0.8, "trim", {}),
+    "wood_white": (None, None, (0.80, 0.79, 0.74), 0.7, "trim", {}),
+    # the old City Cemetery's grass-grown grave mounds (T-3689): sod, a flat colour
+    "sod": (None, None, (0.11, 0.15, 0.05), 0.97, "walls", {}),
+    # and the lake shore's sand, the 1835 kit's own dune sand
+    "sand": ("k1835", "ground/lake_michigan_dune_sand", (1.0, 1.0, 1.0), 0.95, "walls", {}),
 }
 ROLE_OF = {k: v[4] for k, v in MATERIALS.items()}
 WALL_MAT = {"marble": "marble_wall", "lockport_marble": "marble_wall", "limestone": "stone_wall",
             "lockport_weathered": "stone_weathered", "limestone_pale": "marble_wall",
             "brick_red": "brick_wall", "brick_cream": "brick_cream", "iron_stone": "iron_stone",
-            "clapboard": "clapboard", "clapboard_bare": "clapboard_bare", "boards": "boards"}
+            "clapboard": "clapboard", "clapboard_bare": "clapboard_bare", "boards": "boards",
+            "sod": "sod", "sand": "sand"}
 
 
 def _sub(a, b):

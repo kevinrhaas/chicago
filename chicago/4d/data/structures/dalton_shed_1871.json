@@ -3,7 +3,7 @@
  "name": "Dalton's shed",
  "archetype": "landmark_1871",
  "function": {
-  "value": "shed",
+  "value": "woodshed_or_storage_shed",
   "confidence": "attested",
   "sources": [
    "andreas_1885_v2"
