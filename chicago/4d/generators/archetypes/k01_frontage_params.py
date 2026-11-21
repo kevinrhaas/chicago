@@ -8520,9 +8520,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "columns" in hd:
             co = hd["columns"]
             if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
-                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved", "flutes"}:
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved", "flutes", "cluster"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m, and optionally at_v_m, carved and flutes")
+                                 "capital_m and respond_m, and optionally at_v_m, carved, flutes and cluster")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -8576,6 +8576,33 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if not isinstance(nf, int) or isinstance(nf, bool) or not 8 <= nf <= 32:
                     raise ParamError("entrance_kit.hood.columns.flutes: a whole number of flutes, 8-32")
                 door_kit["hood"]["columns"]["flutes"] = nf
+            # T-3717: the column at a named end (`left` the low-v end, `right` the high-v) a
+            # cluster of `count` slender shafts in a row along the front, `gap_m` apart, on one
+            # pedestal of its own `plinth_m` [width along the front, height] under one abacus
+            # (2100's north corner, the Chicagology photograph: three shafts on a pedestal about
+            # 1.4 m high). The pedestal is as deep as the other columns' plinths
+            if "cluster" in co:
+                cl = co["cluster"]
+                if not isinstance(cl, dict) or set(cl) != {"sides", "count", "diameter_m", "gap_m", "plinth_m"} \
+                        or not cl["sides"] or not set(cl["sides"]) <= {"left", "right"} \
+                        or len(set(cl["sides"])) != len(cl["sides"]) or "at_v_m" in co or "arches" in hd \
+                        or not isinstance(cl["count"], int) or isinstance(cl["count"], bool) \
+                        or not 2 <= cl["count"] <= 4:
+                    raise ParamError("entrance_kit.hood.columns.cluster takes sides (left, right), count (2-4), "
+                                     "diameter_m, gap_m and plinth_m [width, height], on corner columns "
+                                     "(no at_v_m, no arches)")
+                cd_, gp = float(cl["diameter_m"]), float(cl["gap_m"])
+                cw_, ch_ = (float(x) for x in cl["plinth_m"])
+                span = cl["count"] * cd_ + (cl["count"] - 1) * gp
+                if not (0.1 <= cd_ <= dia and 0.02 <= gp <= 0.2 and span + 0.1 <= cw_ <= 1.2 and 0.1 <= ch_ <= 1.6):
+                    raise ParamError(f"entrance_kit.hood.columns.cluster: shafts 0.1 m up to the columns' "
+                                     f"{dia} m, 0.02-0.2 m apart, on a pedestal up to 1.2 m wide and 1.6 m high "
+                                     f"with 0.05 m to spare each side of the row ({span:.3f} m)")
+                ends_w = sum(cw_ if s in cl["sides"] else pw for s in ("left", "right"))
+                if hd["width_m"] < ends_w + 0.8 or ch_ + 0.5 > float(hd["soffit_m"]) - cap - float(val("principal_floor_m")):
+                    raise ParamError("entrance_kit.hood.columns.cluster: the hood is too small for its pedestal")
+                door_kit["hood"]["columns"]["cluster"] = {"sides": list(cl["sides"]), "count": cl["count"],
+                                                          "diameter_m": cd_, "gap_m": gp, "plinth_m": [cw_, ch_]}
             # T-3210: a round-arched arcade on the columns (1827's porch, the Doane photograph):
             # on the front, an arch from capital to capital between each pair of columns; on an
             # end (`left` the low-v end, `right` the high-v), one from the respond on the wall to
