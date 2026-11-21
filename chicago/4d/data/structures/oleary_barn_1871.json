@@ -1,0 +1,212 @@
+{
+ "id": "oleary_barn_1871",
+ "name": "The O'Leary barn",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "barn",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "A barn and stable for the O'Learys' cows and horse (Andreas vol. 2, p. 708)."
+ },
+ "built": {
+  "value": 1864,
+  "confidence": "reconstructed",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Not known: reconstructed as the cottages' decade."
+ },
+ "research_note": "THE O'LEARY BARN, built by T-3689 for the 1871 scene: a frame barn sixteen by twenty feet and fourteen feet high at the rear of the O'Leary lot on the north alley, a hayloft over five cows, a calf and a horse, where the fire began between 8:45 and 9:30 on the evening of Sunday 8 October 1871 (Andreas vol. 2, pp. 707-715). No picture of it is known: it burned that night.",
+ "phases": [
+  {
+   "id": "barn_1871",
+   "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Standing on the night of the fire (Andreas vol. 2, pp. 707-715); when it was built is not known, and the scene's phase begins in 1860."
+   },
+   "position": {
+    "utm_e": 446751.308,
+    "utm_n": 4635465.762,
+    "rotation_deg": 359.11,
+    "symbolic_location": "At the rear of 137 DeKoven Street, on the north alley.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "chicago_board_police_fire_1871_report"
+    ],
+    "note": "At the rear of lot 137 on the north alley, 175 feet along Andreas's line from the block's north-east corner (vol. 2, p. 711); its south side eight feet north of the rear of Dalton's house next door and about forty feet behind the cottages (the 'forty-foot yard'), so its north side falls on the alley line. The footprint's origin is local E -321.39 N -1930.04.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid out from Andreas's measured description of the lots against the 1871 plan's DeKoven Street; no traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      4.88,
+      0
+     ],
+     [
+      4.88,
+      6.1
+     ],
+     [
+      0,
+      6.1
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Sixteen by twenty feet (Andreas vol. 2, p. 711), the long side running back from the street."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "blocks": [
+       {
+        "name": "the barn",
+        "box": [
+         0,
+         0,
+         4.88,
+         6.1
+        ],
+        "storeys": [
+         2.4,
+         1.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "cornice": {
+         "kind": "light",
+         "proj": 0.1,
+         "material": "wood_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 1.45,
+         "eave": 0.25,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "S": {
+          "bays": {
+           "at": [
+            1.3,
+            3.4
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "door_flat",
+            "w": 1.0,
+            "h": 2.0,
+            "sill": 0.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.0,
+            "h": 0.9,
+            "sill": 0.35,
+            "hood": "none"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             0
+            ],
+            "kind": "blank",
+            "w": 0.1,
+            "h": 0.1,
+            "sill": 0.5
+           }
+          ]
+         },
+         "N": {
+          "bays": {
+           "at": [
+            2.44
+           ]
+          },
+          "storeys": [
+           {
+            "kind": "door_flat",
+            "w": 2.4,
+            "h": 2.2,
+            "sill": 0.0,
+            "hood": "none"
+           },
+           {
+            "kind": "flat",
+            "w": 1.1,
+            "h": 1.0,
+            "sill": 0.3,
+            "hood": "none"
+           }
+          ]
+         },
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "chicago_board_police_fire_1871_report"
+        ],
+        "note": "'A small wooden barn, sixteen by twenty feet, and fourteen feet high' with a loft above, 'recently filled with hay' (the Board's report and Andreas vol. 2, pp. 708-711); its cows, a calf and a horse stood below. Its doors are reconstructed: a man door from the yard and a wagon door on the alley, as the O'Learys kept a horse and wagon."
+       }
+      ],
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "time": "1871-10-08T21:00",
+       "sources": [
+        "andreas_1885_v2",
+        "chicago_board_police_fire_1871_report"
+       ],
+       "note": "The fire began in the barn, between 8:45 and 9:30 on Sunday evening (Andreas vol. 2, pp. 708, 719; the Board of Police and Fire Commissioners): it burned to the ground."
+      },
+      "note": "THE O'LEARY BARN, built by T-3689 for the 1871 scene: a frame barn sixteen by twenty feet and fourteen feet high at the rear of the O'Leary lot on the north alley, a hayloft over five cows, a calf and a horse, where the fire began between 8:45 and 9:30 on the evening of Sunday 8 October 1871 (Andreas vol. 2, pp. 707-715). No picture of it is known: it burned that night."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "chicago_board_police_fire_1871_report"
+     ],
+     "note": "Sizes from Andreas's account where he gives them; storeys, roofs and openings from the photograph where it shows them, else reconstructed as the neighbourhood's one-storey frame cottages."
+    },
+    "wall_material": {
+     "value": "Sawn boards on a frame, a shingle roof",
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "chicago_board_police_fire_1871_report"
+     ],
+     "note": "A wooden barn (Andreas); its boarding and roof are reconstructed as the neighbourhood's.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-20): the O'Leary site on DeKoven Street, on the landmark_1871 archetype in the 1835 town's clapboard and shingles."
+  }
+ ]
+}

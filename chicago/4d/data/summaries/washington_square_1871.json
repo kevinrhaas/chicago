@@ -1,0 +1,68 @@
+{
+  "id": "washington_square_1871",
+  "scene": "1871",
+  "name": "Washington Square",
+  "address": "Between Clark and Dearborn Streets, North Side",
+  "status": {
+    "text": "A refuge in the fire",
+    "today": "Washington Square Park",
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Filled with people fleeing the fire on the night of 8-9 October 1871 (Andreas vol. 2, p. 759)."
+  },
+  "built": {
+    "year": 1842,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "An open square before the fire (page 759). When it was laid out is not known; 1842 stands in for it."
+  },
+  "use": "Public square",
+  "summary": "An open square of grass in front of the Ogden house. People fleeing the fire crowded in with their belongings. The heat drove them on, and the things they left behind burned.",
+  "key": [
+    {
+      "label": "North side",
+      "value": "Mahlon D. Ogden's house, which survived",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The open square helped keep the fire off the Ogden house.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "The fence round the square is a guess; no picture of it before the fire was found.",
+      "about": "structure",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "note": "Andreas, p. 759, names the square but does not describe its fence."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "Fugitives fill the square, then have to run; their goods burn.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "structure_id": "ogden_house_1871",
+  "view": "loc_3b04902",
+  "glb": "assets/gltf/ogden_house_1871__house_1860_1871.glb",
+  "glb_sha256": "259a227d8a6e84e91c8538950a94d8be190b0b3788705cfd9bc4ca88d8561eab",
+  "camera_sha256": "fc6ff86c9b0e5df6d108ced3361b257ff159caf4a01bd9b9d2c03de346db1c35",
+  "photo_sha256": "6dde084c42c251a8f2e20eca38daf0db82fbd5c59124b07be7d0eb32f09be0b8",
+  "side_by_side": "docs/RESEARCH/photo-match/ogden_house_1871/loc_3b04902-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "A two-storey frame house, five bays across, a veranda across its front, a bracketed cornice and a low roof, where the print shows it behind the elms",
+      "status": "fixed"
+    },
+    {
+      "what": "The veranda's openings read as low arches in the print; they are built as square posts and a plain beam (the trees hide most of it)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The elms, the fence and the rubble of the neighbouring house are not part of the building",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

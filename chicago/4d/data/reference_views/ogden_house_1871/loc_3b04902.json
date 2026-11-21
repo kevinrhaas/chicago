@@ -1,0 +1,23 @@
+{
+ "structure_id": "ogden_house_1871",
+ "scene": "1871",
+ "source_id": "loc_cph_3b04902_ogden_house",
+ "photo": "../../sources/assets/landmarks_1871_t3689/loc_3b04902_ogden_house_left.jpg",
+ "image_px": [
+  620,
+  650
+ ],
+ "principal_px": [
+  310.0,
+  258.0
+ ],
+ "focal_px": 930.0,
+ "eye": [
+  -0.9,
+  -54.92,
+  1.6
+ ],
+ "yaw_deg": 10.12,
+ "sky": "overcast",
+ "solve": "Fitted by T-3689, by eye, to the left half of Melander & Henderson's stereograph 'No. 51. Residence of Mahlon D. Ogden, Esq.' (Views of Chicago Ruins, Great Fire of October 1871; LOC LC-USZ62-57071, cph 3b04902), cropped from the Library's scan to 620 x 650 px. The house stands behind the elms of its grounds, its front and veranda to the camera, the rubble of a burnt brick house and an iron fence in the foreground. The stand was set in Washington Square about 55 m south of the house's front, for a stereo lens of about 930 px, so that the eaves (y about 140 px), the veranda's roof and the ground line fall where the print shows them; then the heading was moved until the front's two corners did: heading 9.6 degrees, the horizon at y 258 px. UNCERTAINTY: large; the house is half hidden by trees in a small print. It is good for the storeys, the five-bay front, the veranda and the low roof, not for a dimension. LIGHT: overcast."
+}

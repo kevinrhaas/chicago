@@ -1,0 +1,23 @@
+{
+ "structure_id": "oleary_cottage_1871",
+ "scene": "1871",
+ "source_id": "loc_cph_3b04891_oleary_cottage",
+ "photo": "../../sources/assets/landmarks_1871_t3689/loc_3b04891_oleary_cottage_right.jpg",
+ "image_px": [
+  655,
+  650
+ ],
+ "principal_px": [
+  327.5,
+  345.0
+ ],
+ "focal_px": 980.0,
+ "eye": [
+  28.93,
+  21.0,
+  1.6
+ ],
+ "yaw_deg": 245.89,
+ "sky": "overcast",
+ "solve": "Fitted by T-3689, by eye, to the right half of J. Mountford's stereograph of Mrs. O'Leary's residence (LOC LC-USZ62-57060, cph 3b04891), cropped from the Library's scan to 655 x 650 px (the scan is small: the cottages are about 400 px across). The view is from the burnt lots north-east of the cottages, looking west-south-west at the rear cottage's east side and north gable, the front cottage beyond it at left, the houses across DeKoven Street at right. The stand was set from the rear cottage's two faces (their apparent widths, 188 and 97 px, give the bearing; their scale, about 34 px a metre, the distance for a stereo camera's lens of about 980 px), then the heading moved 3 degrees and the horizon set on the far houses' feet until the render's roofs and gables lay on the photograph's: the eye about 29 m east and 21 m north of the cottages' south-west corner, heading 245 degrees, f 980 px, horizon y 345 px. UNCERTAINTY: large; it is a hand fit to a small print, good for the cottages' arrangement, roof lines and proportions, not for a dimension. LIGHT: overcast."
+}

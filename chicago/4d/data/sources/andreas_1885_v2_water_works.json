@@ -1,0 +1,27 @@
+{
+  "id": "andreas_1885_v2_water_works",
+  "type": "book",
+  "citation": "A. T. Andreas, History of Chicago, vol. 2, From 1857 until the Fire of 1871 (Chicago: A. T. Andreas, 1885), pp. 69-70 ('Water Works') and p. 742 (the fire at the works).",
+  "author": "A. T. Andreas",
+  "date": "1885",
+  "describes_date": "1867-1871",
+  "repository": "Internet Archive, item historyofchicago02andr.",
+  "url": "https://archive.org/details/historyofchicago02andr",
+  "locator": "Vol. 2, pp. 69-70: the engine house 142 by 60 feet and 36 feet in the clear, castellated Gothic in rock-faced ashlar with cut-stone trimmings, the slate roof on massive timbers, the two-storey centre of the main front round the main entrance, the boiler rooms nineteen feet apart in the rear and the 130-foot smoke-stack between them; the tower about one hundred feet west of the main building, its octagonal shaft to a battlemented cornice at 154 feet, the iron cupola, the forty-foot base and the 36-inch stand-pipe 138 feet high. P. 742: the works' roof caught at about 3:20 a.m. on 9 October and fell; the tower was only slightly damaged.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Internet Archive's OCR text and page images of pp. 69-70 and 742.",
+  "note": "Written fourteen years after the fire from the city's records; the dimensions agree with HABS's survey of the tower.",
+  "what_it_supplies": [
+    "the works' plan dimensions, style, material and roof",
+    "the tower's heights and its distance from the works",
+    "when the works' roof burned and that the tower survived"
+  ],
+  "what_it_does_not_supply": [
+    "the works' orientation on its lot (read from the stereographs)",
+    "the boiler rooms' size"
+  ]
+}
