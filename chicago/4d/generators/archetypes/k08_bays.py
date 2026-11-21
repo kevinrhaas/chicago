@@ -3266,8 +3266,20 @@ class Bay:
         if not jl - 1e-9 <= x0 < x1 <= jr + 1e-9 or not y0 < y1:
             raise ValueError(f"{self.v['id']}: its back over x {x0}..{x1} from {y0} to {y1} m stands "
                              f"outside its junctions ({jl:.3f}..{jr:.3f})")
-        world.face("roof_back", [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)], (0.0, 0.0, -1.0))
-        self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)]}
+        D = float(bo.get("back_m", 0.0))
+        if not D:
+            world.face("roof_back", [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)], (0.0, 0.0, -1.0))
+            self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)]}
+            return
+        # T-3562: carried back `back_m` along the side wall (a set-out entrance block's vestibule,
+        # 1815's): its back at that depth, its outer end run back from the cheek, and its top
+        # roofed over in the bay's covering from the wall plane back
+        xo, k = (x0, -1.0) if bo.get("outer", "left") == "left" else (x1, 1.0)
+        world.face("roof_back", [(x1, y0, -D), (x0, y0, -D), (x0, y1, -D), (x1, y1, -D)], (0.0, 0.0, -1.0))
+        world.face("roof_back", [(xo, y0, -D), (xo, y0, 0.0), (xo, y1, 0.0), (xo, y1, -D)], (k, 0.0, 0.0))
+        world.face("roof", [(x0, y1, 0.0), (x1, y1, 0.0), (x1, y1, -D), (x0, y1, -D)], (0.0, 1.0, 0.0))
+        self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)],
+                                  "back_m": round(D, 4)}
 
     def _frieze(self, flat, run, y0, y1, fr, band_h, framed_above):
         """T-2778: a windowless storey's carved frieze on one run, between the floor bands
@@ -4423,6 +4435,63 @@ class Bay:
                         straps += 1
         self.meta["balcony"] = {"panels": cnt, "straps": straps, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
 
+    def _floor_balcony_squared(self, flat, s_c):
+        """T-3562: a SQUARED floor balcony (1815's after its remodel, the 1908 Daily News
+        picture: a stone ledge across the bay's front under its three lights, an iron railing
+        on it): a slab `chord_m` along the face and `rise_m` out, its top the floor, and on it
+        a rail `inset_m` in from its edges, run from the wall round both front corners and back
+        to the wall, a square post at each corner and against the wall at each end, bars at
+        `pitch_m` under the rail (the light tier drops the bars). Posts, rail and bars are the
+        bay's iron where the record names `rail_fabric: iron`, else its dressed stone."""
+        fb = self.v["floor_balcony"]
+        h, rise, inset = fb["chord_m"] / 2, fb["rise_m"], fb["inset_m"]
+        pm, bm, (rw, rd) = fb["post_m"], fb["bar_m"], fb["rail_m"]
+        y1 = fb["floor_m"]
+        y0, y3 = y1 - fb["slab_m"], y1 + fb["height_m"]
+
+        def P(s, z, y):
+            return flat.P(s, y, -z)
+
+        def box(role, s0, s1, z0, z1, ya, yb, back=False):
+            q = [(s0, z0), (s1, z0), (s1, z1), (s0, z1)]
+            for k in range(4):
+                a, b = q[k], q[(k + 1) % 4]
+                if k == 0 and not back:   # against the wall
+                    continue
+                m = ((a[0] + b[0]) / 2 - (s0 + s1) / 2, (a[1] + b[1]) / 2 - (z0 + z1) / 2)
+                flat.face(role, [P(*a, ya), P(*b, ya), P(*b, yb), P(*a, yb)], (m[0], 0.0, m[1]))
+            flat.face(role, [P(*p, yb) for p in q], Y)
+            if abs(ya - y1) > 1e-9:   # a post or bar stands on the slab's top: no foot drawn on it
+                flat.face(role, [P(*p, ya) for p in q[::-1]], (0.0, -1.0, 0.0))
+
+        box("band", s_c - h, s_c + h, 0.0, rise, y0, y1)   # the slab, its back on the wall
+        role = "iron" if fb.get("rail_fabric") == "iron" else "band"
+        sa, sb, zr = s_c - h + inset, s_c + h - inset, rise - inset
+        corners = [(sa, 0.0), (sa, zr), (sb, zr), (sb, 0.0)]
+        for k, (cs, cz) in enumerate(corners):   # posts: against the wall at each end, at each corner
+            z0 = max(0.003, cz - pm / 2) if cz else 0.003
+            box(role, cs - pm / 2, cs + pm / 2, z0, z0 + pm, y1, y3, back=True)
+        bars = 0
+        for (as_, az), (bs_, bz) in zip(corners, corners[1:]):
+            L = math.hypot(bs_ - as_, bz - az)
+            us, uz = (bs_ - as_) / L, (bz - az) / L
+            # the rail between the posts, stopped at their faces
+            a0, a1 = pm / 2, L - pm / 2
+            e0, e1 = a0 - 0.005, a1 + 0.005   # the rail's ends let into the posts, off their faces
+            if us:   # along the front
+                box(role, as_ + e0, as_ + e1, zr - rw / 2, zr + rw / 2, y3 - rd, y3 - 0.004, back=True)
+            else:    # a return, back to the wall
+                lo, hi = sorted((az + uz * e0, az + uz * e1))
+                box(role, as_ - rw / 2, as_ + rw / 2, max(0.003, lo), hi, y3 - rd, y3 - 0.004, back=True)
+            n = max(1, math.floor((a1 - a0) / fb["pitch_m"]))
+            for j in (range(1, n) if self.tier == "full" else ()):
+                t = a0 + (a1 - a0) * j / n
+                cs, cz = as_ + us * t, az + uz * t
+                box(role, cs - bm / 2, cs + bm / 2, cz - bm / 2, cz + bm / 2, y1, y3 - rd / 2, back=True)
+                bars += 1
+        self.meta["floor_balcony"] = {"floor_m": round(y1, 4), "top_m": round(y3, 4), "bars": bars,
+                                      "chord_m": round(2 * h, 4), "rise_m": round(rise, 4), "squared": True}
+
     def _floor_balcony(self, flat, s_c, cv):
         """T-2534: a balcony on a projection's floor, out from its front run under the window it
         serves, all in the bay's dressed stone: a slab on a segmental bow from the wall to the
@@ -4432,6 +4501,8 @@ class Bay:
         (the light tier keeps the slab, the posts and the rail, and drops the balusters). Built
         in the run's flat frame (z out of the face), so a straight run carries it rigidly."""
         fb = self.v["floor_balcony"]
+        if fb.get("squared"):
+            return self._floor_balcony_squared(flat, s_c)
         h, rise, inset = fb["chord_m"] / 2, fb["rise_m"], fb["inset_m"]
         pm, bm, (rw, rd) = fb["post_m"], fb["bar_m"], fb["rail_m"]
         y1 = fb["floor_m"]

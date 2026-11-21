@@ -5292,7 +5292,7 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.basement_lights": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_1815_sears_two_views"
+        "cdn_dn0005529_meeker_residence_1908"
       ],
       "sole_support": true,
       "confidence": "inferred"
@@ -5300,6 +5300,7 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.bays": {
       "kind": "structure",
       "blocked_sources": [
+        "cdn_dn0005529_meeker_residence_1908",
         "chicagology_1815_sears_two_views"
       ],
       "sole_support": false,
@@ -5308,7 +5309,7 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.boundary": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_1815_sears_two_views"
+        "cdn_dn0005529_meeker_residence_1908"
       ],
       "sole_support": false,
       "confidence": "inferred"
@@ -5340,7 +5341,15 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.entrance_bay": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_1815_sears_two_views"
+        "cdn_dn0005529_meeker_residence_1908"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "sears_meeker_house_1815_prairie/as_mapped_1904/form.entrance_floor_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "cdn_dn0005529_meeker_residence_1908"
       ],
       "sole_support": true,
       "confidence": "inferred"
@@ -5348,14 +5357,15 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.entrance_kit": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_1815_sears_two_views"
+        "cdn_dn0005529_meeker_residence_1908"
       ],
-      "sole_support": false,
+      "sole_support": true,
       "confidence": "inferred"
     },
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.front_bays": {
       "kind": "structure",
       "blocked_sources": [
+        "cdn_dn0005529_meeker_residence_1908",
         "chicagology_1815_sears_two_views"
       ],
       "sole_support": true,
@@ -5364,6 +5374,7 @@
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.front_bays_by_storey": {
       "kind": "structure",
       "blocked_sources": [
+        "cdn_dn0005529_meeker_residence_1908",
         "chicagology_1815_sears_two_views"
       ],
       "sole_support": true,
@@ -5418,14 +5429,6 @@
       "confidence": "inferred"
     },
     "sears_meeker_house_1815_prairie/as_mapped_1904/form.stone_front": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_1815_sears_two_views"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
-    "sears_meeker_house_1815_prairie/as_mapped_1904/form.stoop_width_m": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_1815_sears_two_views"
