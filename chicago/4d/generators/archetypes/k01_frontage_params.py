@@ -8132,9 +8132,28 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "veranda" in door_kit_in:
         vr = door_kit_in["veranda"]
         need = {"posts_v_m", "post_m", "height_m", "inset_m", "beam_m", "roof"}
-        if not need <= set(vr) <= need | {"open_under"} or set(vr["roof"]) != {"overhang_m", "rise_m", "thickness_m"}:
+        if not need <= set(vr) <= need | {"open_under", "columns"} \
+                or set(vr["roof"]) != {"overhang_m", "rise_m", "thickness_m"}:
             raise ParamError(f"entrance_kit.veranda takes {sorted(need)}, its roof overhang_m, rise_m "
-                             f"and thickness_m, and may name open_under")
+                             f"and thickness_m, and may name open_under and columns")
+        # T-3666: its posts may be round COLUMNS, each on a square pedestal from the deck and
+        # under a square capital at the beam (2109's, the Armour photograph): `diameter_m` the
+        # shaft, `pedestal_m` and `capital_m` [width, height]; a pedestal stands no further out
+        # than the deck's edge (post_m + 2 inset_m wide at most)
+        cv = vr.get("columns")
+        if cv is not None:
+            if not isinstance(cv, dict) or set(cv) != {"diameter_m", "pedestal_m", "capital_m"} \
+                    or len(cv["pedestal_m"]) != 2 or len(cv["capital_m"]) != 2:
+                raise ParamError("entrance_kit.veranda.columns takes diameter_m, pedestal_m and capital_m "
+                                 "[width, height]")
+            dia = float(cv["diameter_m"])
+            (pw_, ph_), (cw_, ch_) = (tuple(float(x) for x in cv[k]) for k in ("pedestal_m", "capital_m"))
+            if not (0.15 <= dia <= 0.4 and dia <= pw_ <= float(vr["post_m"]) + 2 * float(vr["inset_m"])
+                    and 0.1 <= ph_ <= 1.2 and dia <= cw_ <= 0.6 and 0.05 <= ch_ <= 0.5
+                    and ph_ + ch_ + 1.5 <= float(vr["height_m"])):
+                raise ParamError("entrance_kit.veranda.columns: a 0.15-0.4 m shaft on a 0.1-1.2 m pedestal at "
+                                 "least as wide and no wider than post_m and two insets, under a capital at "
+                                 "least as wide (to 0.6 m, 0.05-0.5 m high), with 1.5 m of shaft between")
         # T-2960: a deck open beneath, on its posts carried down to grade (1736's photograph):
         # a skirt board `skirt_m` deep over the void, which stands `recess_m` behind the front
         ou = vr.get("open_under")
@@ -8149,7 +8168,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"not a veranda's (0.1-0.3 m, 2.0-4.5 m)")
         door_kit["veranda"] = {**vr, "posts_v_m": [float(x) for x in vr["posts_v_m"]],
                                "beam_m": [float(x) for x in vr["beam_m"]], "roof": dict(vr["roof"]),
-                               **({"open_under": {k: float(x) for k, x in ou.items()}} if ou else {})}
+                               **({"open_under": {k: float(x) for k, x in ou.items()}} if ou else {}),
+                               **({"columns": {"diameter_m": float(cv["diameter_m"]),
+                                               "pedestal_m": [float(x) for x in cv["pedestal_m"]],
+                                               "capital_m": [float(x) for x in cv["capital_m"]]}} if cv else {})}
     if door_arch:
         door_kit["arch"] = dict(door_arch)
     if "opening_m" in door_kit_in:
