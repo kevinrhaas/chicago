@@ -1073,7 +1073,9 @@
     "s35-2108-front": "2108 Prairie now stands as the K01 stone-front house `mark_kimball_house_2108_prairie` (T-3667, piece 1 of T-1921, the S11 package of the T-1837 programme), the Mark Kimball house, which refines this draft in place under the draft's own id: the sheet's two-storey main body behind a pale stone front, its round-arched door at the north end at the head of an iron-railed stoop and two round-headed lights south of it, off the Tribune's 1898 cut and the early-1890s street photograph.",
     "s35-2108-wing": "2108 Prairie's '2B' rear range now stands on K01's rear wing of `mark_kimball_house_2108_prairie` (T-3667), built square where the sheet chamfers its rear corners (liberty L-k01-2108-kimball-3667), and the draft stands no second building.",
     "s35-2112-front": "2112 Prairie now stands as the K01 stone-front house `rothschild_house_2112_prairie` (T-3668, piece 2 of T-1921, the S11 package of the T-1837 programme), the Max M. Rothschild house, which refines this draft in place under the draft's own id: the sheet's '3B' main body read as two storeys under a mansard behind a pale stone front, its canted stone bay at the south end and a round-arched door north of it at the head of a stone-cheeked stoop, off the sheet at full size and the early-1890s street photograph.",
-    "s35-2112-wing": "2112 Prairie's '2B' rear range now stands on K01's rear wing of `rothschild_house_2112_prairie` (T-3668); the sheet's small one-storey frame porch on the south flank is not built (liberty L-k01-2112-rothschild-3668), and the draft stands no second building."
+    "s35-2112-wing": "2112 Prairie's '2B' rear range now stands on K01's rear wing of `rothschild_house_2112_prairie` (T-3668); the sheet's small one-storey frame porch on the south flank is not built (liberty L-k01-2112-rothschild-3668), and the draft stands no second building.",
+    "s35-2115-front": "2115 Prairie now stands as the K01 stone-front house `armour_house_2115_prairie` (T-3712, piece 1 of T-1925, the S14 package of the T-1837 programme), the Kelley/Armour house, which refines this draft in place under the draft's own id: the sheet's '3B' main body read as two storeys of banded stone front under a dormered slate mansard, its south pavilion under a taller crown and the round-arched door in the middle at the head of a broad stoop, off the sheet at full size and the Armour photograph.",
+    "s35-2115-wing": "2115 Prairie's '3B' rear range now stands on K01's rear wing of `armour_house_2115_prairie` (T-3712); the sheet's '2B' south piece beside the main body is not built (liberty L-k01-2115-armour-3712), and the draft stands no second building."
   },
   "frontages": {
     "frontage-28-038": {
@@ -2026,6 +2028,8 @@
       "chimneys": 3,
       "entrance": "centre",
       "why": "The David Kelley house of 1871, Mrs. Philip D. Armour's in 1904: the register's Second Empire 'patterned slate mansard and cresting' as the family's mansard with dormers over three storeys and a stone street face, the 'central arched doorway and pediment' as a central entrance. Its quoins, paired arches and stepped stair are T-1925's.",
+      "house_id": "armour_house_2115_prairie",
+      "house_address": "2115",
       "built": {
         "value": 1871,
         "confidence": "attested",

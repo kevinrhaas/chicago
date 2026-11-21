@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_2115_armour_photo",
+ "type": "photograph",
+ "citation": "2115 S. Prairie (Armour mansion). Photograph of the Philip D. Armour house's street front and north flank, taken from the west walk of Prairie Avenue in winter, with the south end of 2109 (the Roloson house) at its left edge and 2117 at its right; unknown photographer, undated. Reproduced on chicagology.com, Prairie Avenue, 2115 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (winter; the Prairie library reads c. 1890s–1930s)",
+ "describes_date": "undated; the Armour house with its neighbours standing (2109 was lost in 1933, the register's reported chronology)",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a20-chicagology-2115-armour-photo, '2115 S. Prairie (Armour mansion)', recorded there as 'unknown — link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-chicagology-2115-armour-photo.jpg), committed at data/sources/assets/roloson_2109_photo_t3666/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/2115prairie/",
+ "locator": "The print's left edge, x 0-560 px: 2109's front from its south corner (about x 225) northward out of the frame, its second-storey round-headed light, frieze and bracketed cornice, the mansard over them with a round-headed dormer under a scrolled hood and the deck's cornice and stack; the frame veranda's front and its south return on columns over open piers (y 700-1290); the rear block's cornice at x 225-285, y 515-540. The rest of the print is 2115 and 2117.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown — link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3666) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3666) from the image store's reference copy, 2000 x 1525 px greyscale, sha256 e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b.",
+ "note": "The one picture known of 2109 Prairie, and it catches only the house's south end: the T-1837 register's 'Roloson partly seen in Armour photograph'. A pale front (stone on the 1911 sheet) whose south corner carries a carved pilaster strip; a tall round-headed light in the second storey under a moulded hood with a carved key; a frieze with a long sunk panel and a lozenge over a bracketed cornice whose paired consoles turn the corner; above it a slated mansard with a round-headed dormer framed in a scrolled, carved surround, a cornice round the deck and a tall stack. Across the front and down the south side a one-storey veranda on round columns with moulded capitals, paired at the corner on panelled pedestals, a balustrade of turned balusters between the pedestals, a deep plain entablature under a flat roof, its floor raised on square piers with the void under it open. Beyond, to the right, the cornice of the house's rear block, which steps out south of the front block (the 1911 sheet). Undated and evidence of its own date; the 1911 sheet draws the house and the T-1842 census rules it present in 1904, so its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the front's south end: the second storey's round-headed light and its hood, the corner pilaster strip, the frieze and the bracketed cornice",
+  "the mansard over the front, its round-headed dormer and scrolled surround, the deck's cornice and the stack",
+  "the veranda: its columns, pedestals, balustrade, entablature and flat roof, its run across the front and down the south side, its floor's height and the open piers under it",
+  "the rear block's cornice standing at the front's height beyond the veranda"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated",
+  "the front's north part (out of the frame), the north flank, the rear and the back porches"
+ ]
+}

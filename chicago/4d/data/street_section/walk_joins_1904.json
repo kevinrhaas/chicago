@@ -14,14 +14,15 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 105,
-  "joined": 83,
+  "walk_ends": 106,
+  "joined": 84,
   "already_met": 15,
   "not_street_ends": 7,
   "widest_gap_m": 1.6
  },
  "joins": [
   {"id": "armour_corwith_house_1945_prairie:front_walk:0", "house": "armour_corwith_house_1945_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.321, "width_m": 1.28, "polygon_local_m": [[1414.282, -3451.249], [1414.295, -3452.529], [1413.894, -3452.533], [1413.881, -3451.253]]},
+  {"id": "armour_house_2115_prairie:front_walk:0", "house": "armour_house_2115_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.285, "width_m": 2.6, "polygon_local_m": [[1416.435, -3658.3], [1416.466, -3660.9], [1416.101, -3660.903], [1416.081, -3658.303]]},
   {"id": "buckingham_house_2036_prairie:front_walk:0", "house": "buckingham_house_2036_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_20_21", "gap_m": 0.296, "width_m": 1.28, "polygon_local_m": [[1395.444, -3588.471], [1395.43, -3587.191], [1395.806, -3587.187], [1395.818, -3588.467]]},
   {"id": "coleman_ames_house_1811_prairie:front_walk:0", "house": "coleman_ames_house_1811_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.316, "width_m": 2.2, "polygon_local_m": [[1412.262, -3250.629], [1412.284, -3252.829], [1411.889, -3252.833], [1411.867, -3250.633]]},
   {"id": "dent_house_1823_prairie:front_walk:0", "house": "dent_house_1823_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.31, "width_m": 1.5, "polygon_local_m": [[1412.552, -3280.08], [1412.566, -3281.58], [1412.177, -3281.584], [1412.162, -3280.084]]},
