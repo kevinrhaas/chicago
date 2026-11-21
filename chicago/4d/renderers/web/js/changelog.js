@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3177, ts: '2026-11-21T06:35:15.384Z', date: 'Nov 21, 2026, 12:35 AM CT', title: 'Music under the narrated jaunts', kind: 'feature',
+    items: [
+      'The narrated 1812 and 1904 jaunts now have their own score, and so does every grade version of them: twenty-two jaunts, a hundred and ten in all.',
+      'The main theme opens each jaunt while you fly to the first stop. A quieter bed then plays under the voice at each stop, and the theme\'s closing cadence comes in over the ending.',
+      'The Battle of Fort Dearborn has no fanfare. Its music builds through the days before the march, then moves with you through the march, the fight at the sand bank and the aftermath, and ends on Remembrance.',
+      'When the jaunt is over, the era\'s own playlist comes back. Music changes fade into each other rather than cutting.',
+      'The score is newly made for this app. It is instrumental and modern, written in the colours of each period; it is not a recording from the time.',
+    ] },
+  { v: 3176, ts: '2026-11-21T04:39:14.645Z', date: 'Nov 20, 2026, 10:39 PM CT', title: '1815 Prairie\'s attic crown now sits on its stone front alone', kind: 'improvement',
+    items: [
+      'The pavilion\'s steep crown now carries its cornice across the attic\'s stone front only, as the old photographs show, not out over the slate beside it.',
+      'On each side of the attic the slate now slopes down from the end of that cornice to the stone shoulder below, and the north chimney stands clear against the sky.',
+    ] },
   { v: 3175, ts: '2026-11-21T02:33:30.900Z', date: 'Nov 20, 2026, 8:33 PM CT', title: '2013 Prairie\'s north wall built from its 2003 photograph', kind: 'improvement',
     items: [
       'The Reid house\'s side wall now has the narrow stair windows its 2003 National Register photograph shows, at their own heights, where it had a plain grid.',

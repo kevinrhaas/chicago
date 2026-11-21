@@ -45632,3 +45632,12 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 **Ticket:** T-3626 (piece 2 of T-1916, S07).
 **Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg`.
 **Recorded:** 2026-11-20 (T-3626).
+
+### L-score-3710 — The jaunts' score: newly made music under the narrated jaunts (2026-11-20)
+
+**Decision:** the owner, 2026-11-20, asked for an instrumental score for the whole app ("in the style of John Williams ... no vocals instrumentation only and use native and other instruments to make this a unique and cool and respectful story, maybe not as many native things in 1904 and less in 1835 and 1871, use music and styles from the era"), narrated jaunts first, then "Ok can you go ahead and add the music to the jaunts correctly". The music under the 22 narrated 1812 and 1904 jaunts and their versions is generated for the app (ElevenLabs Music through fal, Stable Audio 2.5 inpainting for joins; `data/music/score.json`, `data/music/jaunts.json`) and chosen by the owner by ear. Its main theme is one recording he fixed and is never regenerated. Everything in it is reconstructed: no piece is a period composition, arrangement or performance, and none was heard in Chicago in 1812 or 1904. The period is suggested by instrument colour only, over a cinematic orchestra: in 1812 a Woodlands cedar flute, a soft hand drum, a Métis fiddle, fife and rope snare; in 1904 a romantic orchestra, salon strings and ragtime piano touches. The Native colour in 1812 is kept to timbre, under rules written into every 1812 cue (`tools/build_music_score.py`): no stereotyped tom-tom beat and no war whoops, and in every cue no vocals, choir, singing or humming. Nothing in it is presented as a Potawatomi or other nation's song. Which cue plays at which stop (the battle's build, march, fight and aftermath), and the scandal jaunts' stand-in bed, are ours.
+
+**Re-opens on:** a documented piece of music played or sung at Fort Dearborn in 1812 or on Prairie Avenue about 1904, which could be arranged for the stop it belongs to; a Potawatomi musician's or the nation's guidance on how their music may be represented.
+
+**Ticket:** T-3710.
+**Recorded:** 2026-11-20.
