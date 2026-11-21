@@ -1556,6 +1556,9 @@ class Bay:
         # T-3047: on a shallow projection, each window's hole as (x0, x1, y0, y1) in the bay's
         # frame: its recess runs back through the wall plane, where the host opens its face
         self.host_holes: list[tuple] = []
+        # T-3634: each light cut in a coped gable's face, in the world frame, as its hole
+        # (x0, x1, y0, y1) and its dressings' top and sides (y_top, x_left, x_right)
+        self.gable_holes: list[tuple] = []
         self.seed = seed_of(v["id"], 0 if tier == "full" else 1)
         self.runs, self.plan = plan_of(v)
         self.stage_runs: list = []   # T-1890: a staged tower's upper ring, numbered on from `runs`
@@ -1806,6 +1809,8 @@ class Bay:
                 elif 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
+            if gi is not None and i == gi and (v["roof"].get("gable") or {}).get("lights"):
+                self._gable_lights(flat, run, i, v["roof"]["gable"]["lights"], y_top, recess, wall_t, cv)
             if cant:
                 self._chamfer_cornice(flat, run, ct, band)
             if v.get("pilasters"):
@@ -2748,6 +2753,89 @@ class Bay:
             "depth_m": depth, "proud_m": proud, "cap_m": cap, "cap_proud_m": cap_out,
             "foot_m": round(y_f, 4), "reach_m": round(proud + cap_out, 4)}
 
+    #: T-3634: a gable light's dressings stand this far clear of the copings' beds, and its
+    #: hole this far inside the kneelers' inner faces
+    GABLE_LIGHT_CLEAR_M = 0.1
+
+    def _gable_lights(self, flat, run, i, gl, y_top, recess, wall_t, cv):
+        """T-3634: LIGHTS cut in a coped gable's face (2017 Prairie's south projection, the
+        Chicagology photograph: two small lights side by side on the gable's foot, under its
+        rakes). Each entry is a storey's window entry (`opening`, `clear_width_m`,
+        `clear_height_m`, `at`, `recess_m`, `why_not_ordinary`), its `sill_m` measured over
+        the wall top, every one of its `at` falling on the gable's own run. Each is K06's
+        opening as a storey's light is, in this run's strip, so it is bent with the face; its
+        hole is recorded for `_gable`, which cuts the gable's face round it and refuses one
+        that runs into the copings or whose recess runs back into the roof behind them. A
+        light is square-headed (a hole of four corners), since the face is cut in straight
+        pieces. The light tier keeps the lights, dropping what a storey's light drops."""
+        if not isinstance(gl, list) or not 1 <= len(gl) <= 4:
+            raise ValueError(f"{self.v['id']}: a gable's lights are a list of 1-4 window entries")
+        drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
+        k_attic = len(self.v["storeys"])
+        for w in gl:
+            extra = set(w) - {"opening", "clear_width_m", "clear_height_m", "sill_m", "at", "recess_m",
+                              "why_not_ordinary"}
+            if extra or "at" not in w or not 0.0 <= float(w["sill_m"]) <= 1.5:
+                raise ValueError(f"{self.v['id']}: a gable light takes opening, clear_width_m, clear_height_m, "
+                                 f"sill_m (0-1.5 m over the wall top), at, recess_m and why_not_ordinary "
+                                 f"(not {sorted(extra)})")
+            for ri, s in locate(self.runs, self.plan, w):
+                if ri != i:
+                    raise ValueError(f"{self.v['id']}: a gable light at {w['at']} falls on run {ri}, "
+                                     f"not the gable's run {i}")
+                o = window(w, s, y_top + float(w["sill_m"]), w.get("recess_m", recess))
+                if len(o.holes) != 1 or len(o.holes[0]) != 4:
+                    raise ValueError(f"{self.v['id']}: a gable light is square-headed (its face is cut "
+                                     f"in straight pieces)")
+                sh = [(q[0] + s, q[1] + o.O[1]) for q in o.holes[0]]
+                xs = sorted(run.world(q[0], 0.0, 0.0)[0] for q in sh)
+                ys = [q[1] for q in sh]
+                allp = [q for pr in o.prims.values() for q in pr.pos]
+                self.gable_holes.append((xs[0], xs[-1], min(ys), max(ys), max(q[1] for q in allp),
+                                         min(run.world(q[0], 0.0, 0.0)[0] for q in allp),
+                                         max(run.world(q[0], 0.0, 0.0)[0] for q in allp)))
+                merge(flat.prims, o.prims, drop)
+                self.windows.append({**self._window_record(run, i, k_attic, w, s, o, wall_t), "gable": True})
+
+    def _gable_face(self, world, xa, xb, y_top, under, p, F):
+        """The gable's face, the front carried up from the wall top to the copings' beds; with
+        lights (T-3634) cut round each one's hole in convex pieces: bands between the holes'
+        sills and heads, each split either side of the holes it crosses, every piece clipped
+        to the gable's outline. Refuses a light whose dressings run within GABLE_LIGHT_CLEAR_M
+        of a coping's bed or past a kneeler, or whose recess runs back into the roof."""
+        outline = [(xa, y_top), (xb, y_top), (xb, under(xb)), ((xa + xb) / 2, under((xa + xb) / 2)),
+                   (xa, under(xa))]
+        if not self.gable_holes:
+            world.face("wall", [(x, y, p) for x, y in outline], F)
+            return
+        c = self.GABLE_LIGHT_CLEAR_M
+        up = float(self.v["roof"]["gable"]["upstand_m"])
+        holes = sorted(self.gable_holes)
+        for j, (x0, x1, y0, y1, yt, tx0, tx1) in enumerate(holes):
+            if not (xa + c <= tx0 and tx1 <= xb - c and y_top + 1e-6 <= y0
+                    and yt <= min(under(tx0), under(tx1)) - c):
+                raise ValueError(f"{self.v['id']}: a gable light ({x0:.3f}-{x1:.3f} m, to {yt:.3f} m) stands "
+                                 f"{c} m inside the kneelers and under the copings' beds, over the wall top")
+            # its recess stands under the roof's slopes (a coping's bed less the upstand)
+            if y1 > min(under(x0), under(x1)) - up - 1e-6:
+                raise ValueError(f"{self.v['id']}: a gable light's recess (head {y1:.3f} m) runs back into the "
+                                 f"roof behind the gable")
+            if j and x0 < holes[j - 1][1] + 0.05:
+                raise ValueError(f"{self.v['id']}: two gable lights stand 0.05 m apart or more")
+        top = max(under(x) for x in (xa, xb, (xa + xb) / 2)) + 1.0
+        ys = sorted({y_top, top, *(h[2] for h in holes), *(h[3] for h in holes)})
+        for c0, c1 in zip(ys, ys[1:]):
+            cut = [h for h in holes if h[2] <= c0 + 1e-9 and c1 <= h[3] + 1e-9]
+            xs = [xa, *[x for h in cut for x in h[:2]], xb]
+            for a_, b_ in zip(xs[::2], xs[1::2]):
+                if b_ - a_ < 1e-9:
+                    continue
+                poly = outline
+                for f in (lambda q: q[0] - a_, lambda q: b_ - q[0], lambda q: q[1] - c0, lambda q: c1 - q[1]):
+                    poly = clip_half(poly, f)
+                if len(poly) >= 3 and abs(area(poly)) > 1e-9:
+                    world.face("wall", [(x, y, p) for x, y in poly], F)
+
     def _gable(self, world, y_top, y_e, ov):
         """T-2998: a coped stone gable (1801 Prairie's south pavilion, the Taylor photograph).
         The front is carried up past the wall top as a gable between two KNEELERS, square
@@ -2805,9 +2893,9 @@ class Bay:
             # the parapet's underside over the wall top, from its back to the front, corner to
             # corner (past them the kneelers' own)
             world.face("band", [(xl, y_top, zb), (xr, y_top, zb), (xr, y_top, p), (xl, y_top, p)], D)
-        # the gable: the front carried up from the wall top to the copings' beds
-        world.face("wall", [(xa, y_top, p), (xb, y_top, p), (xb, under(xb), p), (xc, under(xc), p),
-                            (xa, under(xa), p)], F)
+        # the gable: the front carried up from the wall top to the copings' beds (T-3634: cut
+        # round its lights)
+        self._gable_face(world, xa, xb, y_top, under, p, F)
         for xs in (xa, xb):
             n = (-1.0 if xs < xc else 1.0, 0.0, 0.0)
             # the parapet's back over the roof (a shallow one's from the wall top)
@@ -3266,8 +3354,20 @@ class Bay:
         if not jl - 1e-9 <= x0 < x1 <= jr + 1e-9 or not y0 < y1:
             raise ValueError(f"{self.v['id']}: its back over x {x0}..{x1} from {y0} to {y1} m stands "
                              f"outside its junctions ({jl:.3f}..{jr:.3f})")
-        world.face("roof_back", [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)], (0.0, 0.0, -1.0))
-        self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)]}
+        D = float(bo.get("back_m", 0.0))
+        if not D:
+            world.face("roof_back", [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)], (0.0, 0.0, -1.0))
+            self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)]}
+            return
+        # T-3562: carried back `back_m` along the side wall (a set-out entrance block's vestibule,
+        # 1815's): its back at that depth, its outer end run back from the cheek, and its top
+        # roofed over in the bay's covering from the wall plane back
+        xo, k = (x0, -1.0) if bo.get("outer", "left") == "left" else (x1, 1.0)
+        world.face("roof_back", [(x1, y0, -D), (x0, y0, -D), (x0, y1, -D), (x1, y1, -D)], (0.0, 0.0, -1.0))
+        world.face("roof_back", [(xo, y0, -D), (xo, y0, 0.0), (xo, y1, 0.0), (xo, y1, -D)], (k, 0.0, 0.0))
+        world.face("roof", [(x0, y1, 0.0), (x1, y1, 0.0), (x1, y1, -D), (x0, y1, -D)], (0.0, 1.0, 0.0))
+        self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)],
+                                  "back_m": round(D, 4)}
 
     def _frieze(self, flat, run, y0, y1, fr, band_h, framed_above):
         """T-2778: a windowless storey's carved frieze on one run, between the floor bands
@@ -4423,6 +4523,63 @@ class Bay:
                         straps += 1
         self.meta["balcony"] = {"panels": cnt, "straps": straps, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
 
+    def _floor_balcony_squared(self, flat, s_c):
+        """T-3562: a SQUARED floor balcony (1815's after its remodel, the 1908 Daily News
+        picture: a stone ledge across the bay's front under its three lights, an iron railing
+        on it): a slab `chord_m` along the face and `rise_m` out, its top the floor, and on it
+        a rail `inset_m` in from its edges, run from the wall round both front corners and back
+        to the wall, a square post at each corner and against the wall at each end, bars at
+        `pitch_m` under the rail (the light tier drops the bars). Posts, rail and bars are the
+        bay's iron where the record names `rail_fabric: iron`, else its dressed stone."""
+        fb = self.v["floor_balcony"]
+        h, rise, inset = fb["chord_m"] / 2, fb["rise_m"], fb["inset_m"]
+        pm, bm, (rw, rd) = fb["post_m"], fb["bar_m"], fb["rail_m"]
+        y1 = fb["floor_m"]
+        y0, y3 = y1 - fb["slab_m"], y1 + fb["height_m"]
+
+        def P(s, z, y):
+            return flat.P(s, y, -z)
+
+        def box(role, s0, s1, z0, z1, ya, yb, back=False):
+            q = [(s0, z0), (s1, z0), (s1, z1), (s0, z1)]
+            for k in range(4):
+                a, b = q[k], q[(k + 1) % 4]
+                if k == 0 and not back:   # against the wall
+                    continue
+                m = ((a[0] + b[0]) / 2 - (s0 + s1) / 2, (a[1] + b[1]) / 2 - (z0 + z1) / 2)
+                flat.face(role, [P(*a, ya), P(*b, ya), P(*b, yb), P(*a, yb)], (m[0], 0.0, m[1]))
+            flat.face(role, [P(*p, yb) for p in q], Y)
+            if abs(ya - y1) > 1e-9:   # a post or bar stands on the slab's top: no foot drawn on it
+                flat.face(role, [P(*p, ya) for p in q[::-1]], (0.0, -1.0, 0.0))
+
+        box("band", s_c - h, s_c + h, 0.0, rise, y0, y1)   # the slab, its back on the wall
+        role = "iron" if fb.get("rail_fabric") == "iron" else "band"
+        sa, sb, zr = s_c - h + inset, s_c + h - inset, rise - inset
+        corners = [(sa, 0.0), (sa, zr), (sb, zr), (sb, 0.0)]
+        for k, (cs, cz) in enumerate(corners):   # posts: against the wall at each end, at each corner
+            z0 = max(0.003, cz - pm / 2) if cz else 0.003
+            box(role, cs - pm / 2, cs + pm / 2, z0, z0 + pm, y1, y3, back=True)
+        bars = 0
+        for (as_, az), (bs_, bz) in zip(corners, corners[1:]):
+            L = math.hypot(bs_ - as_, bz - az)
+            us, uz = (bs_ - as_) / L, (bz - az) / L
+            # the rail between the posts, stopped at their faces
+            a0, a1 = pm / 2, L - pm / 2
+            e0, e1 = a0 - 0.005, a1 + 0.005   # the rail's ends let into the posts, off their faces
+            if us:   # along the front
+                box(role, as_ + e0, as_ + e1, zr - rw / 2, zr + rw / 2, y3 - rd, y3 - 0.004, back=True)
+            else:    # a return, back to the wall
+                lo, hi = sorted((az + uz * e0, az + uz * e1))
+                box(role, as_ - rw / 2, as_ + rw / 2, max(0.003, lo), hi, y3 - rd, y3 - 0.004, back=True)
+            n = max(1, math.floor((a1 - a0) / fb["pitch_m"]))
+            for j in (range(1, n) if self.tier == "full" else ()):
+                t = a0 + (a1 - a0) * j / n
+                cs, cz = as_ + us * t, az + uz * t
+                box(role, cs - bm / 2, cs + bm / 2, cz - bm / 2, cz + bm / 2, y1, y3 - rd / 2, back=True)
+                bars += 1
+        self.meta["floor_balcony"] = {"floor_m": round(y1, 4), "top_m": round(y3, 4), "bars": bars,
+                                      "chord_m": round(2 * h, 4), "rise_m": round(rise, 4), "squared": True}
+
     def _floor_balcony(self, flat, s_c, cv):
         """T-2534: a balcony on a projection's floor, out from its front run under the window it
         serves, all in the bay's dressed stone: a slab on a segmental bow from the wall to the
@@ -4432,6 +4589,8 @@ class Bay:
         (the light tier keeps the slab, the posts and the rail, and drops the balusters). Built
         in the run's flat frame (z out of the face), so a straight run carries it rigidly."""
         fb = self.v["floor_balcony"]
+        if fb.get("squared"):
+            return self._floor_balcony_squared(flat, s_c)
         h, rise, inset = fb["chord_m"] / 2, fb["rise_m"], fb["inset_m"]
         pm, bm, (rw, rd) = fb["post_m"], fb["bar_m"], fb["rail_m"]
         y1 = fb["floor_m"]

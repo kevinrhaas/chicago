@@ -2,11 +2,11 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7ab10e774e1d8e739ab9f6fcfeacb97f45df5b9109b9df52336624adf3dba3d3",
+  "glb_sha256": "959268ad3ae7c2febb036eafff5d38e8d932cd2eac6d5494cf43b158180268ae",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a stone front two storeys over a raised basement under a slated mansard, 10.4 m across from the pavilion's north corner (x 160 px) to the corner bay's south edge (x 905 px), the cornice's top at y 357 px",
@@ -20,13 +20,13 @@
     },
     {
       "what": "the door in the pavilion's south half (x 288-393 px) up a stoop, the window column south of it (x 495-577 px) on both storeys, the barred basement light under it",
-      "status": "fixed",
-      "how": "T-3155: the door at v 3.36, the column at v 6.1, K01's area light under it"
+      "status": "owner ruling",
+      "how": "T-3155: the door at v 3.36, the column at v 6.1, K01's area light under it. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the one-storey corner bay at the south-west corner (x 600-845 px), its north cheek canted with one light, two narrow lights in its front, barred basement lights under them, a stone balcony of pierced panels on its deck",
-      "status": "fixed",
-      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, set out 0.75 m past the south flank (T-3562), under K08's stone balcony with one row of pierced panels"
+      "status": "owner ruling",
+      "how": "T-3155: a K08 projection 2.08 m wide and 1.2 m out with a 1.4 m canted left cheek, set out 0.75 m past the south flank (T-3562), under K08's stone balcony with one row of pierced panels. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the gabled dormer in the mansard over the window column (x 470-600 px)",
@@ -35,7 +35,8 @@
     },
     {
       "what": "the pavilion: the photograph's is about 4.0 m wide (x 160-445 px) with the door in its south half. T-3562: built so, 3.88 m from the north corner and 0.1 m proud, the door cut through its edge (cut_by_door) and the face in one plane with it as the print draws; its principal window (x 228-295 px), second-storey window (x 265-342 px) and attic pair (x 240-362 px) each render within about 10 px of the print's, and the crown's apex over the attic on the print's (y 75-85 px)",
-      "status": "fixed"
+      "status": "fixed",
+      "how": ""
     },
     {
       "what": "the pavilion's attic storey: a stone wall carried up past the main cornice to its own eave at y 205 px (11.6 m), two paired lights in it (x 178-302 px, y 248-390 px), under its steep roof; the build's steep hipped crown starts at the main eave, so the paired lights and their wall are missing and the roof starts 2.4 m lower (its apex within 0.4 m of the print's)",
@@ -49,32 +50,33 @@
     },
     {
       "what": "the door's pedimented hood on carved brackets (x 245-430 px, y 615-700 px) and the transom with the house number",
-      "status": "fixed",
-      "how": "T-3562: K01's bracketed door hood takes a pediment in place of its railing, in the front's stone: a tympanum under a raking cornice, its apex 5.77 m over grade under a finial to 6.07 m (the print's 5.86 and 6.27 m), on two small carved brackets 0.4 m deep beside the transom; the transom's number not built"
+      "status": "owner ruling",
+      "how": "T-3562: K01's bracketed door hood takes a pediment in place of its railing, in the front's stone: a tympanum under a raking cornice, its apex 5.77 m over grade under a finial to 6.07 m (the print's 5.86 and 6.27 m), on two small carved brackets 0.4 m deep beside the transom; the transom's number not built. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the pediment's width: the print's runs 2.55 m (x 305-487 px). T-3562: built 2.55 m, its ends within about 5 px of the print's, the hood run on across the shallow pavilion's face",
-      "status": "fixed"
+      "status": "owner ruling",
+      "how": "T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stoop's sides: the flight's steps show along both (the north side's against the dark of the basement doorway, x 285-305 px), under an iron hand rail each side curving down onto the newels' tops (x 265-300 and 440-470 px), each foot a square newel under a cap and a ball knob (x 230-265 and 445-480 px)",
-      "status": "fixed",
-      "how": "T-3562: K07's railed swept cheek: the cheeks were solid stone walls sweeping down to the newels; they are now stepped level with the treads under a 0.04 m iron rail each side, to the newels' caps, the rails straight where the print's curve down at the foot (within tolerance: under the bar)"
+      "status": "owner ruling",
+      "how": "T-3562: K07's railed swept cheek: the cheeks were solid stone walls sweeping down to the newels; they are now stepped level with the treads under a 0.04 m iron rail each side, to the newels' caps, the rails straight where the print's curve down at the foot (within tolerance: under the bar) T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the south newel renders about 40 px south of the print's",
-      "status": "within tolerance",
-      "how": "the newels stand some 4 m before the front, read through a camera fitted on the front's plane (as the corner bay's edge); the stoop's 2.6 m width is the record's"
+      "status": "owner ruling",
+      "how": "the newels stand some 4 m before the front, read through a camera fitted on the front's plane (as the corner bay's edge); the stoop's 2.6 m width is the record's. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the basement doorway under the stoop's landing: the landing runs on north of the flight across the pavilion's front to a square stone post on its outer corner (x 142-172 px, from grade to about 0.5 m over the floor, under a cap), a level iron rail along its front edge from the post to the flight's head (y 890 px), its fascia down to y 945 px (about 1.3 m over grade), and under it the dark: the pavilion's face in shadow (x 170-220 px) and the doorway black beside it (x 220-267 px), behind the north newel",
-      "status": "fixed",
-      "how": "T-3562: K07's landing wing (cheek_form.wing): the landing carried 1.72 m north past the flight's north cheek to a 0.4 m stone post at its outer corner, from grade to 0.55 m over the floor under a cap, its fascia 0.45 m deep, open beneath back to the pavilion's face (0.45 m proud) with a 0.65 m doorway in it in the kit's dark, and the cheek's level rail carried on along the wing's front to the post; the pavilion's basement light, which the build had read in that dark (x 175-235 px), taken out. The post renders on x 142-175 px and its cap at y 870 px, the rail at y 876 px (0.48 m over the floor against the print's 0.4) and the fascia down to y 945 px; the void reads in shadow, the doorway behind the newel as in the print"
+      "status": "owner ruling",
+      "how": "T-3562: K07's landing wing (cheek_form.wing): the landing carried 1.72 m north past the flight's north cheek to a 0.4 m stone post at its outer corner, from grade to 0.55 m over the floor under a cap, its fascia 0.45 m deep, open beneath back to the pavilion's face (0.45 m proud) with a 0.65 m doorway in it in the kit's dark, and the cheek's level rail carried on along the wing's front to the post; the pavilion's basement light, which the build had read in that dark (x 175-235 px), taken out. The post renders on x 142-175 px and its cap at y 870 px, the rail at y 876 px (0.48 m over the floor against the print's 0.4) and the fascia down to y 945 px; the void reads in shadow, the doorway behind the newel as in the print. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "a short iron bar falling from the wing's rail toward the post (x 167-185 px, y 895-927 px), a stay or a rail's end",
-      "status": "within tolerance",
-      "how": "T-3562: about 0.45 m of bar a few centimetres thick beside the post, under the bar; the build's rail runs level into the post"
+      "status": "owner ruling",
+      "how": "T-3562: about 0.45 m of bar a few centimetres thick beside the post, under the bar; the build's rail runs level into the post. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the narrow light over the door's south jamb (x 386-417 px, y 520-598 px: about 0.43 m across and 1.09 m high, its sill 6.19 m over grade)",
@@ -83,8 +85,8 @@
     },
     {
       "what": "the corner bay's south edge renders about 40 px (0.5 m) south of the print's",
-      "status": "within tolerance",
-      "how": "the bay's 1.2 m projection read through a camera fitted on the main plane; under a visitor's notice at the street"
+      "status": "owner ruling",
+      "how": "the bay's 1.2 m projection read through a camera fitted on the main plane; under a visitor's notice at the street. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the north stack stands about 0.8 m south of the print's (x 145-190 px): K01 stands a stack inside the main footprint and the print's rises from the stair projection",
@@ -108,16 +110,18 @@
     },
     {
       "what": "the stone's colour and tone: the print is monochrome and very light; the build's K02 Lemont limestone is buff, after the 1973 landmarks report's 'yellow limestone'",
-      "status": "not shown"
+      "status": "not shown",
+      "how": ""
     },
     {
       "what": "the street fence, the walk and the parkway's stone posts",
-      "status": "not shown",
-      "how": "outside the building record; the boundary is not built on this house yet"
+      "status": "owner ruling",
+      "how": "outside the building record; the boundary is not built on this house yet. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
-      "what": "which front stood in 1904: the photographs are undated and show Joseph Sears's house; he sold it to Mrs. Grace Murray Meeker in March 1902 with fifteen rooms (Inter Ocean, 28 March 1902), and in 1915 it had twenty-one, 'extensively remodeled' after the purchase (Chicago Tribune, 1 May 1915), Arthur Heun's remodel (Chicagology); the 1911 sheet, drawing a one-storey projection north of the front's centre and no corner bay, is the remodelled house. Whether the remodel came before 1 July 1904 is not known (T-3156): the build follows the photographs (L-k01-1815-sears-1893)",
-      "status": "open"
+      "what": "which front stood in 1904: the photographs are undated and show Joseph Sears's house; he sold it to Mrs. Grace Murray Meeker in March 1902 with fifteen rooms (Inter Ocean, 28 March 1902), and in 1915 it had twenty-one, 'extensively remodeled' after the purchase (Chicago Tribune, 1 May 1915), Arthur Heun's remodel (Chicagology); the 1911 sheet, drawing a one-storey projection north of the front's centre and no corner bay, is the remodelled house. T-3562 (2026-11-21) found the remodel itself dated: the Ryerson and Burnham Archives' building index gives 'Heun, Arthur [1902 remodeling]' and 'sold to Arthur Meeker, 1902, who drastically remodeled the residence' (aic_rba_index_1815_meeker_residence), Glessner House puts the sale and the remodel together under 1902 (glessner_blog_sears_meeker_1815_heun_remodel), and the Meekers' son was born on Prairie Avenue in 1902 (Chicagology). Read together, the remodelled front, not the photographs', most likely stood on 1 July 1904; neither index record has been read on its page, and an index's year can be the sale's. A dated picture exists: the Chicago Daily News photographed the Meeker residence's front and side in 1908 (DN-0005529, Chicago History Museum; cdn_dn0005529_meeker_residence_1908), which this runner could not reach. The build follows the photographs (L-k01-1815-sears-1893); whether 1904 keeps them or waits on the 1908 picture is the owner's (T-3562, decision pending)",
+      "status": "owner ruling",
+      "how": "T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the main cornice: the print's is a deep bracketed one, a row of large stone consoles under a moulded crown (y 360-430 px); the build carries K10's moulded stone cornice with no consoles",
@@ -131,18 +135,18 @@
     },
     {
       "what": "the low coping and the two square posts flanking the walk",
-      "status": "fixed",
-      "how": "T-3206 lays K11's 0.25 m stone coping with 0.9 m posts either side of a 1.8 m opening and the K14 walk through it"
+      "status": "owner ruling",
+      "how": "T-3206 lays K11's 0.25 m stone coping with 0.9 m posts either side of a 1.8 m opening and the K14 walk through it. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the posts' places along the lot line",
-      "status": "within tolerance",
-      "how": "through the camera the print's posts stand at s 1.96-2.22 and 3.83-4.10; they are laid 0.2-0.45 m off, at the stopping rule's edge (T-3153)"
+      "status": "owner ruling",
+      "how": "through the camera the print's posts stand at s 1.96-2.22 and 3.83-4.10; they are laid 0.2-0.45 m off, at the stopping rule's edge (T-3153) T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "a low iron fence set back on the north side",
-      "status": "fixed",
-      "how": "T-3562 builds it (boundary.passage_fence): the K11 kit's spear fence on a 0.1 m curb, its top rail 0.45 m over it, on the line u 15.6 (1.9 m behind the front, where the solved camera puts the print's foot at y 1033 px) from inside the north lot line to the north stair projection's flank. It renders where the print draws it: its spear tips at y 980 px against the print's 983-985, its foot at about y 1027-1030 against 1033, running out of the frame past x 0 and meeting the projection's street end. The print's top band reads as a row of finials whose shape it does not resolve; the kit's spear heads stand for them, and its pickets stand at the kit's 0.125 m pitch where the print's look closer. The pale braced stakes before it are not built"
+      "status": "owner ruling",
+      "how": "T-3562 builds it (boundary.passage_fence): the K11 kit's spear fence on a 0.1 m curb, its top rail 0.45 m over it, on the line u 15.6 (1.9 m behind the front, where the solved camera puts the print's foot at y 1033 px) from inside the north lot line to the north stair projection's flank. It renders where the print draws it: its spear tips at y 980 px against the print's 983-985, its foot at about y 1027-1030 against 1033, running out of the frame past x 0 and meeting the projection's street end. The print's top band reads as a row of finials whose shape it does not resolve; the kit's spear heads stand for them, and its pickets stand at the kit's 0.125 m pitch where the print's look closer. The pale braced stakes before it are not built. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the rosettes over the cornice's consoles (y 388-398 px)",
@@ -171,8 +175,8 @@
     },
     {
       "what": "the main front's south wall stands inside the corner bay's south edge: the upper storey's wall ends at x 834 px and the cornice at about 855 px, the bay running on to x 905 px",
-      "status": "fixed",
-      "how": "T-3562: the front block is 9.72 m along the front, the bay set out 0.75 m past its south wall (K01 bays[].set_out_m); the wall's south edge renders at x 854-868 px (it rendered at 907-919, flush with the bay) and the bay's at 925, as before"
+      "status": "owner ruling",
+      "how": "T-3562: the front block is 9.72 m along the front, the bay set out 0.75 m past its south wall (K01 bays[].set_out_m); the wall's south edge renders at x 854-868 px (it rendered at 907-919, flush with the bay) and the bay's at 925, as before. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the crown's cornice: the print's eave spans the attic's stone front alone (x 205-402 px, 2.75 m), the cheeks' slate sloping out beneath it to the shoulders' caps (since T-3562's shoulders, about 0.8 m of slate, 10.63-11.45 m); the build's cornice runs on across the slated cheeks, about 4.5 m (T-3562)",
@@ -181,11 +185,18 @@
     },
     {
       "what": "the pavilion's south edge renders about 9 px (0.12 m) north of the print's (x 438 against 447 px): built 3.88 m so the narrow light's lintel clears the junction (T-3562)",
-      "status": "within tolerance"
+      "status": "within tolerance",
+      "how": ""
     },
     {
       "what": "the attic's stone front between its slated cheeks renders 2.38 m against the print's 2.37 m (x 217-387 px), its paired lights 1.7 m across against the print's 1.75 m (T-3562)",
-      "status": "within tolerance"
+      "status": "within tolerance",
+      "how": ""
+    },
+    {
+      "what": "the ground floor: this print's stoop and pedimented door in the pavilion's south half, the principal-storey window column and the corner bay with its stone balcony, over a low coping",
+      "status": "owner ruling",
+      "how": "T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling. Built instead: the one-storey stone bay across the front's middle (v 1.24-7.04, 1.2 m proud) under a corbel table and blocking course, its iron balcony on a stone ledge, the arched door at grade in a one-storey entrance block north of the house, and the tall iron railing on the street line. The storeys over it stand as this print draws them."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

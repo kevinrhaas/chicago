@@ -1674,6 +1674,11 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
   python3 tools/test_k01_deck_crenellation.py
 
+# T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
+# and the K08 bay kit cut no light in a gable's face.
+step "a K08 projection's coped gable may carry square-headed lights cut in its face (T-3634)" \
+  python3 tools/test_k08_gable_lights.py
+
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
 # the corner: bad returns and lights refused, no slate left in front of the return's back edge,

@@ -651,7 +651,21 @@
                 "width_m": 0.2,
                 "shaft_m": 0.35,
                 "cap_m": 0.3
-              }
+              },
+              "lights": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.62,
+                  "clear_height_m": 1.12,
+                  "sill_m": 0.1,
+                  "at": [
+                    0.4043,
+                    0.5957
+                  ],
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "the gable's two attic lights in the photograph (x 667-730 and 750-812 px, y 240-350), standing side by side on the gable's foot either side of its middle, about 0.68 m across their frames with a 0.2 m pier between, and about 1.2 m tall (T-3634; built 0.62 by 1.12 m clear on 0.9 m centres, their sills 0.1 m over the wall top so the K06 sill stands on it)"
+                }
+              ]
             }
           },
           "gable_through_eave": true
@@ -662,7 +676,7 @@
         "chicagology_2017_armour_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past the cornice into a steep gable (its foot at the dentilled band, y 360-420 px, about 9 m; its apex at y 70, about 12.2 m; so a pitch of about 1.5) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. Its gable's bargeboards are built as K08's coping and its two attic lights are not built (the match record)."
+      "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past the cornice into a steep gable (its foot at the dentilled band, y 360-420 px, about 9 m; its apex at y 70, about 12.2 m; so a pitch of about 1.5) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. Its gable's bargeboards are built as K08's coping (the match record); its two attic lights are cut in the gable's face as the photograph shows them (T-3634)."
     },
     "rear_wings": {
       "value": [

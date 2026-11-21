@@ -139,6 +139,13 @@ def rule_data(v, data, b):
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
                          f"closer than {pier} m to its end")
         k = w["storey"]
+        if w.get("gable"):
+            # T-3634: a light in a coped gable's face stands over the wall top; the kit itself
+            # holds it inside the kneelers and under the copings' beds (k08_bays._gable_face)
+            if w["y_all"][0] < levels[-1] - EPS or w["y_all"][1] > b.meta["roof"]["gable_top_m"] + EPS:
+                fails.append(f"storey: a gable light spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, outside "
+                             f"its gable {levels[-1]:.3f}..{b.meta['roof']['gable_top_m']:.3f}")
+            continue
         floor = levels[k] + (band["height_m"] / 2 if k else (plinth["height_m"] if v["base"] == "grade" else 0))
         if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
             floor = levels[0] - k06["parts"]["sill"]["height_m"]
@@ -332,9 +339,15 @@ def rule_keyed(b, v):
     in_hole = (lambda role, p: role in K.WINDOW_ROLES and p[2] >= -tp_deep - 1e-6
                and any(h[0] - 1e-6 <= p[0] <= h[1] + 1e-6 and h[2] - 1e-6 <= p[1] <= h[3] + 1e-6
                        for h in b.host_holes)) if tp else (lambda role, p: False)
+    # T-3562: a back carried `back_m` along the side wall (k08_bays.Bay._back_over, 1815's set-out
+    # entrance block) closes it behind the plane, inside its x and y span and no deeper than back_m
+    bo = b.meta.get("back_over") or {}
+    back = (lambda role, p: role in ("roof", "roof_back") and p[2] >= -bo["back_m"] - 1e-6
+            and bo["x"][0] - 1e-6 <= p[0] <= bo["x"][1] + 1e-6
+            and bo["y"][0] - 1e-6 <= p[1] <= bo["y"][1] + 1e-6) if bo.get("back_m") else (lambda role, p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p) and not clear(p) and not in_hole(role, p)), default=(0.0, None))
+                if not cut(p) and not clear(p) and not in_hole(role, p) and not back(role, p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:

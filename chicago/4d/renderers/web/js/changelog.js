@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 3185, ts: '2026-11-21T13:11:05.288Z', date: 'Nov 21, 2026, 7:11 AM CT', title: '2017 Prairie\'s gable gets its two attic windows', kind: 'improvement',
+    items: [
+      'The steep gable over the William Armour house\'s south projection at 2017 Prairie now has the pair of small attic windows its photograph shows, side by side above the gable\'s foot.',
+    ] },
+  { v: 3184, ts: '2026-11-21T11:49:12.615Z', date: 'Nov 21, 2026, 5:49 AM CT', title: '1815 Prairie rebuilt to its 1908 Daily News photograph', kind: 'feature',
+    items: [
+      'The Sears-Meeker house now shows the front Arthur Heun\'s 1902 remodel gave it, read off a 1908 Chicago Daily News photograph: a one-storey stone bay across the front with an iron balcony rail, an arched entrance at street level in a small stone block, and a tall iron railing along the walk.',
+      'The old stoop, pedimented door and corner bay, which the earlier undated photographs show, are gone for 1904; the upper storeys, attic and mansard are unchanged and match all three pictures.',
+      'Records now say why 1904 shows the remodel: Heun\'s work is dated 1902, and the 1908 photograph is the only picture after the sale.',
+    ] },
   { v: 3183, ts: '2026-11-21T11:04:43.179Z', date: 'Nov 21, 2026, 5:04 AM CT', title: '2109 Prairie, the Roloson house, rebuilt from its one photograph', kind: 'feature',
     items: [
       '2109 Prairie Avenue, Robert Roloson\'s house, now stands as itself rather than as a block-draft box: a pale stone front under a slated mansard with a round-headed dormer, tall round-headed lights under keyed hoods, and a bracketed cornice, read off the edge of the winter photograph of the Armour house next door.',
