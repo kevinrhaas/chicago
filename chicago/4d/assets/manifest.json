@@ -315,7 +315,7 @@
       "baked_ao": false,
       "bytes": 1265688,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "9cfe243c297a5137935e8508731d2afe5f788206e50fe769ec0c8b55a6cddfbd",
+      "inputs_sha256": "7afb9117708918056b8466cfd48c18af3493aeb82417a69b60c01b568a8233f3",
       "kind": "generated",
       "phase_id": "opera_house_1865_1871",
       "structure_id": "crosbys_opera_house_1871"
@@ -508,7 +508,7 @@
       "baked_ao": false,
       "bytes": 2649116,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "1058ee0ba00c83db14ab1ff80b12a9985ad2ba477843c17e056a3ffc8af8a2b1",
+      "inputs_sha256": "2f2d3001a81eb15f574074ee54116abf667ec0e747aadd3c662a18aec052c440",
       "kind": "generated",
       "phase_id": "store_1868_1871",
       "structure_id": "field_leiter_1871"
@@ -4212,7 +4212,7 @@
       "baked_ao": false,
       "bytes": 2339440,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "b81f5e02389da12279c73d996e0d732a8a94ef23d41097436ae7107ec1c2a2cf",
+      "inputs_sha256": "2ef36a232b2e090fdd34644a8d7630c70e9d8007fc2dc5b05b478bfd27279755",
       "kind": "generated",
       "phase_id": "hotel_1870_1871",
       "structure_id": "palmer_house_1871"
@@ -4481,6 +4481,16 @@
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_lodge_1800_calumet"
+    },
+    "pumping_works_grounds_1871__grounds_1867_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 64496,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "a5cb6cbf6d89b3bbeb3984a348acdcf01680bee00f93044d151c1410bb3a5301",
+      "kind": "generated",
+      "phase_id": "grounds_1867_1871",
+      "structure_id": "pumping_works_grounds_1871"
     },
     "ream_house_1901_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -10412,7 +10422,7 @@
       "baked_ao": false,
       "bytes": 1463320,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "3f9860ac141ae4a20a15496d2428344653ab4a63dbc7d14e53c442e25ac5cbcc",
+      "inputs_sha256": "419138e6bb43c0c8980c910ac5d3720adfbb2fb4620574ee53f0c2036cc6cde4",
       "kind": "generated",
       "phase_id": "hotel_1850_1871",
       "structure_id": "tremont_house_1871"
@@ -10440,7 +10450,7 @@
       "baked_ao": false,
       "bytes": 1290156,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "a2cdf058fa0c136057d43c6ec6656e286e1724ff94edac75e3e2ad27ec8258ef",
+      "inputs_sha256": "f738f3f83a4c6b48c9c5d9aef56f1c1a35224d59690ab7a245b609d8e12b918f",
       "kind": "generated",
       "phase_id": "office_1869_1871",
       "structure_id": "tribune_building_1871"

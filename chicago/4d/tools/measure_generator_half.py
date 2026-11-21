@@ -722,9 +722,10 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # kerb and railing, on the same archetype (the owner asked for the houses off its block).
 # 1144 -> 1149 on 2026-11-21 (T-3688): the Tremont House, Crosby's Opera House, Field,
 # Leiter & Co., the Palmer House and the Tribune building, on the same archetype,
-# restaling on none of the shared rows.
+# restaling on none of the shared rows. 1149 -> 1150 the same day (T-3689): the
+# pumping works' grounds across Pine Street, open ground like the Water Tower's.
 STATED = {
-    "assets": 1149,
+    "assets": 1150,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
