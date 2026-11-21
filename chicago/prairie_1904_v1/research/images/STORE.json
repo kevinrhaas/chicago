@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 167499235,
+ "bytes": 168377988,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -2764,6 +2764,38 @@
   "a20-nypl-dennis-tucker-1010-prairie-stereo.jpg": {
    "bytes": 191789,
    "sha256": "c2fc6b70f15d237949eb3c4e3aae042e805c387f63e39cdd92264bcaeb964436"
+  },
+  "a20-reid-nrhp-2003-photo-front-thumb.jpg": {
+   "bytes": 25969,
+   "sha256": "38f9b12fadc55348f5e64cb5b26a4d5ffe7c82befd7556ecaced0154d28b8d43"
+  },
+  "a20-reid-nrhp-2003-photo-front.jpg": {
+   "bytes": 218569,
+   "sha256": "66cca313cb18d7668afa7fa38ef2f76a03b921451bcd90a6517812621f11280e"
+  },
+  "a20-reid-nrhp-2003-photo-north-side-thumb.jpg": {
+   "bytes": 18926,
+   "sha256": "2ffbaa1265ec5817612acdac48330614cd89efdeca4cb082eff614c0b9c5306b"
+  },
+  "a20-reid-nrhp-2003-photo-north-side.jpg": {
+   "bytes": 162390,
+   "sha256": "9c6a9c9d40d86d0f35800b9f5edb1c132fd542e7aa487de40b92458ded78bedb"
+  },
+  "a20-reid-nrhp-2003-photo-rear-garden-thumb.jpg": {
+   "bytes": 27469,
+   "sha256": "5c55d20a4fd029e03358cf9c9f30c2f5acc181e71019dda2c7645c3cdfa7fba3"
+  },
+  "a20-reid-nrhp-2003-photo-rear-garden.jpg": {
+   "bytes": 246510,
+   "sha256": "ea39d9c2a41ff942197986b145931700c8c83f7ccc00ba40ea9a8525b246d6b1"
+  },
+  "a20-reid-nrhp-2003-photo-rear-thumb.jpg": {
+   "bytes": 19740,
+   "sha256": "06ffecbc948f6a9338761afe97698e82f4510cc43f8434b6372ec8ab2e9be8ed"
+  },
+  "a20-reid-nrhp-2003-photo-rear.jpg": {
+   "bytes": 159180,
+   "sha256": "dc597f4b00e0588af9e74694c33236a62211f57c075f346d0417effd957efd49"
   },
   "cgn-1600-robinson-1886-thumb.jpg": {
    "bytes": 15223,
