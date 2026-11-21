@@ -1,0 +1,33 @@
+{
+  "structure_id": "tribune_building_1871",
+  "view": "andreas_p492",
+  "glb": "assets/gltf/tribune_building_1871__office_1869_1871.glb",
+  "glb_sha256": "38edd16dfac45183862db00eb546932bd331ea65b318bbb1f1eeb589a83f2609",
+  "camera_sha256": "d7c0a8d6ec7428720219589ea328bc574b1d22b0a1bcedcf6a6e3a9229e06761",
+  "photo_sha256": "56101834c0a44bc9884cee69b55cd312b17b67ce4b7f4dfe4932870f5a877be4",
+  "side_by_side": "docs/RESEARCH/photo-match/tribune_building_1871/andreas_p492-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Four storeys of stone, round-arched shop fronts under three rows of round-arched windows with hoods and a bracketed cornice, the Madison Street front to the left and the Dearborn Street front to the right, where the engraving shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The cut-off corner with its arched entrance, the raised crest over it, and the pediment over the Madison Street front's east end",
+      "status": "fixed"
+    },
+    {
+      "what": "The corner's crest is a pedimented aedicule in the engraving; it is drawn as a little hipped attic with a round window",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The windows near the corner, the 'CHICAGO TRIBUNE' sign and the round ornaments over the entrance are not drawn; the corner's piers are plain",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The stone reads as the 1904 kit's Lemont limestone, warmer than the engraving's paper",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -884,9 +884,14 @@
    ],
    "locator": "p. 739: in ruins by four o'clock.",
    "local": [
-    692.5,
-    -129.7
-   ]
+    732.3,
+    -153.4
+   ],
+   "plan_local": [
+    732.3,
+    -153.4
+   ],
+   "plan_note": "The Tremont House as T-3688 builds it on the south-east corner of Lake and Dearborn (data/structures/tremont_house_1871.json): the modern control fell west of Dearborn Street, across the street from the hotel."
   },
   {
    "id": "wrights_stable",
@@ -986,9 +991,14 @@
    "locator": "p. 739: at four o'clock 'the Palmer House the only first-class hotel' left; p. 726, it 'fell at nearly the same time as the Academy of Design', after the Bigelow House fell as 'the day was fully ushered in'.",
    "note": "In the renewal from Dearborn and Jackson at about seven.",
    "local": [
-    852.7,
-    -897.0
-   ]
+    807.1,
+    -857.8
+   ],
+   "plan_local": [
+    807.1,
+    -857.8
+   ],
+   "plan_note": "The Palmer House as T-3688 builds it on the north-west corner of State and Quincy (data/structures/palmer_house_1871.json): the modern control fell east of State Street, across the street from the hotel Andreas puts on the west side."
   },
   {
    "id": "dearborn_jackson_renewal",
@@ -1020,9 +1030,14 @@
    "locator": "p. 739: at four o'clock 'the Tribune office was the only newspaper property left untouched'.",
    "note": "Taken in the sweep north and east from Dearborn and Jackson after seven.",
    "local": [
-    714.1,
-    -562.9
-   ]
+    732.7,
+    -551.3
+   ],
+   "plan_local": [
+    732.7,
+    -551.3
+   ],
+   "plan_note": "The Tribune building as T-3688 builds it on the plan's south-east corner of Madison and Dearborn (data/structures/tribune_building_1871.json): the modern control fell just south of the building's footprint."
   },
   {
    "id": "michigan_terrace_row",

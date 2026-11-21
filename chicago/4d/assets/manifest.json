@@ -310,6 +310,16 @@
       "phase_id": "coursoll_1808",
       "structure_id": "coursoll_field_1812"
     },
+    "crosbys_opera_house_1871__opera_house_1865_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1265688,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "7afb9117708918056b8466cfd48c18af3493aeb82417a69b60c01b568a8233f3",
+      "kind": "generated",
+      "phase_id": "opera_house_1865_1871",
+      "structure_id": "crosbys_opera_house_1871"
+    },
     "dalton_cottage_1871__cottage_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
@@ -492,6 +502,16 @@
       "kind": "generated",
       "phase_id": "stable_1834",
       "structure_id": "exchange_coffee_house_stable"
+    },
+    "field_leiter_1871__store_1868_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 2649116,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "2f2d3001a81eb15f574074ee54116abf667ec0e747aadd3c662a18aec052c440",
+      "kind": "generated",
+      "phase_id": "store_1868_1871",
+      "structure_id": "field_leiter_1871"
     },
     "first_fort_covered_way_bank_lower__first_fort_1803.glb": {
       "archetype": "palisade",
@@ -4187,6 +4207,16 @@
       "phase_id": "ouilmette_1812",
       "structure_id": "ouilmette_house_1812"
     },
+    "palmer_house_1871__hotel_1870_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 2339440,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "2ef36a232b2e090fdd34644a8d7630c70e9d8007fc2dc5b05b478bfd27279755",
+      "kind": "generated",
+      "phase_id": "hotel_1870_1871",
+      "structure_id": "palmer_house_1871"
+    },
     "peck_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -4451,6 +4481,16 @@
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "pullman_lodge_1800_calumet"
+    },
+    "pumping_works_grounds_1871__grounds_1867_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 64496,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "a5cb6cbf6d89b3bbeb3984a348acdcf01680bee00f93044d151c1410bb3a5301",
+      "kind": "generated",
+      "phase_id": "grounds_1867_1871",
+      "structure_id": "pumping_works_grounds_1871"
     },
     "ream_house_1901_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -10377,6 +10417,16 @@
       "phase_id": "draft_1904",
       "structure_id": "tolman_house_2031_prairie_coach_house"
     },
+    "tremont_house_1871__hotel_1850_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1463320,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "419138e6bb43c0c8980c910ac5d3720adfbb2fb4620574ee53f0c2036cc6cde4",
+      "kind": "generated",
+      "phase_id": "hotel_1850_1871",
+      "structure_id": "tremont_house_1871"
+    },
     "tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -10394,6 +10444,16 @@
       "kind": "generated",
       "phase_id": "stable_1833",
       "structure_id": "tremont_house_1_stable"
+    },
+    "tribune_building_1871__office_1869_1871.glb": {
+      "archetype": "landmark_1871",
+      "baked_ao": false,
+      "bytes": 1290156,
+      "generator": "generators/landmark_1871_emit.py",
+      "inputs_sha256": "f738f3f83a4c6b48c9c5d9aef56f1c1a35224d59690ab7a245b609d8e12b918f",
+      "kind": "generated",
+      "phase_id": "office_1869_1871",
+      "structure_id": "tribune_building_1871"
     },
     "tucker_smith_house_2140_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
