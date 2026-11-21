@@ -32,8 +32,8 @@
     "note": "Opened 29 September 1850; burned 9 October 1871 (Andreas vol. 2)."
    },
    "position": {
-    "utm_e": 447779.988,
-    "utm_n": 4637219.218,
+    "utm_e": 447783.688,
+    "utm_n": 4637215.018,
     "rotation_deg": 359.4,
     "symbolic_location": "South-east corner of Lake and Dearborn Streets.",
     "confidence": "inferred",
@@ -42,7 +42,7 @@
      "loc_stereo_1s47905_tremont_house",
      "mitchell_1870_chicago_map"
     ],
-    "note": "Its Lake Street front on the south building line of Lake Street and its Dearborn Street front on the east building line of Dearborn Street, at the corner Carbutt's stereograph shows it on (the card: 'Tremont House, cor. Lake and Dearborn streets'), its long front running south down Dearborn as the stereograph shows it from across the corner. The footprint's origin is local E 707.29 N -176.58.",
+    "note": "Its Lake Street front on the south building line of Lake Street and its Dearborn Street front on the east building line of Dearborn Street, at the corner Carbutt's stereograph shows it on (the card: 'Tremont House, cor. Lake and Dearborn streets'), its long front running south down Dearborn as the stereograph shows it from across the corner. The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. IT LAPS THE 1835 PLAT'S LAKE STREET BY 2.52 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, and the two tracings disagree by about 2.5 m here; moving the hotel 2.5 m south would set it back from the walk it fronts in its own scene. The footprint's origin is local E 710.99 N -180.78.",
     "derivation": {
      "method": "not_derivable",
      "reason": "Set on the 1871 plan's street lines (traced from Mitchell's 1870 map) at the corner or frontage the texts name; no platted corner or traced frontage for the 1871 city is in data/traces/street_control.json to recompute it from."

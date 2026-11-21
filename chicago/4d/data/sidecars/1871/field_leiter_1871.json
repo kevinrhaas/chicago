@@ -25,15 +25,15 @@
   },
   "change_note": "Built T-3688 (2026-11-21): Field, Leiter & Co.'s store stands in the 1871 scene on the landmark_1871 archetype.",
   "placement": {
-    "local_e": 841.635,
-    "local_n": -388.517,
+    "local_e": 845.635,
+    "local_n": -384.817,
     "rotation_deg": 359.4,
     "position_confidence": "inferred",
     "position_sources": [
       "andreas_1885_v2_buildings",
       "mitchell_1870_chicago_map"
     ],
-    "position_note": "Its State Street front on the east building line of State Street and its Washington Street front on the north building line of Washington Street, at the corner Andreas gives the store (vol. 2, pp. 694-695). The footprint's origin is local E 841.63 N -388.52.",
+    "position_note": "Its State Street front on the east building line of State Street and its Washington Street front on the north building line of Washington Street, at the corner Andreas gives the store (vol. 2, pp. 694-695). The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. IT LAPS THE 1835 PLAT'S WASHINGTON STREET BY 2.35 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, and the two tracings disagree by about 2.4 m here; moving the store 2.4 m north would set it back from the walk it fronts. The footprint's origin is local E 845.63 N -384.82.",
     "symbolic_location": "North-east corner of State and Washington Streets.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -684,6 +684,14 @@
         "andreas_1885_v2_buildings"
       ],
       "note": "Field, Leiter & Co. occupied the corner from the autumn of 1868 (Andreas vol. 2, pp. 694-695); the building's own completion date is not given there."
+    },
+    "land_owner": {
+      "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
+      "confidence": "reconstructed",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 7 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares."
     }
   },
   "residents": [],
@@ -721,6 +729,14 @@
         "the walls the draughtsman did not draw",
         "colour"
       ]
+    },
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     {
       "source_id": "mitchell_1870_chicago_map",

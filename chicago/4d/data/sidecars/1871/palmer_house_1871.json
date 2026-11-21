@@ -25,15 +25,15 @@
   },
   "change_note": "Built T-3688 (2026-11-21): the Palmer House stands in the 1871 scene on the landmark_1871 archetype.",
   "placement": {
-    "local_e": 786.132,
-    "local_n": -873.761,
+    "local_e": 782.132,
+    "local_n": -870.261,
     "rotation_deg": 359.4,
     "position_confidence": "inferred",
     "position_sources": [
       "andreas_1885_v2_buildings",
       "mitchell_1870_chicago_map"
     ],
-    "position_note": "Its State Street front on the west building line of State Street and its Quincy Street front on Quincy Street's north building line, at the corner Andreas gives it (vol. 2, p. 509). The 1870 plan draws no Quincy Street between State and Dearborn; its line is set midway between Adams and Jackson. The footprint's origin is local E 786.13 N -873.76.",
+    "position_note": "Its State Street front on the west building line of State Street and its Quincy Street front on Quincy Street's north building line, at the corner Andreas gives it (vol. 2, p. 509). The 1870 plan draws no Quincy Street between State and Dearborn; its line is set midway between Adams and Jackson, as a 13 m street with a 3.5 m walk. The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. The footprint's origin is local E 782.13 N -870.26.",
     "symbolic_location": "North-west corner of State and Quincy Streets.",
     "uncertainty_m": 20,
     "placement_provisional": false,
