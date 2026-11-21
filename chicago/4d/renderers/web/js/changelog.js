@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3183, ts: '2026-11-21T11:04:43.179Z', date: 'Nov 21, 2026, 5:04 AM CT', title: '2109 Prairie, the Roloson house, rebuilt from its one photograph', kind: 'feature',
+    items: [
+      '2109 Prairie Avenue, Robert Roloson\'s house, now stands as itself rather than as a block-draft box: a pale stone front under a slated mansard with a round-headed dormer, tall round-headed lights under keyed hoods, and a bracketed cornice, read off the edge of the winter photograph of the Armour house next door.',
+      'Its raised veranda runs across the front and down the south side on columns over open piers, and behind it a three-storey rear block steps out south, with a frame back porch at the north-east corner, all laid to the 1911 fire-insurance map\'s plan.',
+      'The photograph only catches the house\'s south end, so the door, the north bays and the steps are a reconstruction and say so; the remaining differences from the picture are written into its match record.',
+    ] },
   { v: 3182, ts: '2026-11-21T10:06:49.772Z', date: 'Nov 21, 2026, 4:06 AM CT', title: 'Find the jaunts that are read aloud', kind: 'feature',
     items: [
       'The Jaunts list has a new Listen row. Tap Narrated to see only the jaunts that are read aloud to you, alongside the group, age and search filters; Clear filters lets it go.',
