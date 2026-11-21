@@ -107,7 +107,7 @@ def dress(a, w):
     ov, Rl = P["overhang_m"], P["railing"]
     seed = a.instance(f"k01.roof_porch.wing.{w['id']}", "porch",
                       {"storey_m": P["storey_m"], "post_m": pm, "roof_m": yr, "top_m": yt,
-                       "posts": sum(len(x) for x in P["posts"].values()) + 2,
+                       "posts": len(P["posts"]["south"]) + len(P["posts"]["north"]) + len(P["posts"]["rear"]) + 2,
                        "railed": ",".join(Rl["sides"])},
                       {"floor": ((u0 + u1) / 2, yd, -(v0 + v1) / 2), "roof": ((u0 + u1) / 2, yt, -(v0 + v1) / 2)})
     X, Z, O = (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), (0.0, 0.0, 0.0)
