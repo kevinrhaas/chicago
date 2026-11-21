@@ -1679,6 +1679,11 @@ step "a K01 mansard deck's cresting may be crenellated, square merlons on a band
 step "a K08 projection's coped gable may carry square-headed lights cut in its face (T-3634)" \
   python3 tools/test_k08_gable_lights.py
 
+# T-3634. 2017 Prairie's two mansard dormers are classical pediments with a carved lunette in
+# each tympanum in Chicagology's photograph, and the dressed pediment (T-3307) built none.
+step "a dressed dormer pediment may carry a carved lunette in its tympanum (T-3634)" \
+  python3 tools/test_k10_dormer_lunette.py
+
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
 # the corner: bad returns and lights refused, no slate left in front of the return's back edge,

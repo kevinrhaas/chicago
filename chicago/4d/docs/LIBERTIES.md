@@ -45168,6 +45168,7 @@ rear, or K08 lights in a gable's face, would replace the invented and unbuilt pa
 **Recorded:** 2026-11-18 (T-3634).
 **Resolved in part:** 2026-11-19, T-3634: the cresting along the curb is now the photograph's row of square merlons (the mansard deck's crenellated pattern: 0.15 m merlons at 0.34 m centres, rising 0.09 m over a solid band, 0.2 m in all, measured off the print) where it was K10's iron scroll cresting; that it is iron is inferred, the print being monochrome. The projection's two basement lights now carry the north part's grille, as the photograph's are barred. The rest of what is built otherwise than the evidence stands as written above.
 **Resolved in part:** 2026-11-20, T-3634: the gable's two attic lights are now cut in its face as the photograph shows them (K08's coped gable takes square-headed lights in its face): side by side either side of the gable's middle on 0.9 m centres, 0.62 by 1.12 m clear, their sills 0.1 m over the gable's foot, measured off the print through its camera; their sashes are the house's two-over-two, which the print is too small to count. The rest of what is built otherwise than the evidence stands as written above.
+**Resolved in part:** 2026-11-21, T-3634: the two dormers are now dressed as the photograph shows them, each a classical pediment in the front's stone: a pilaster with its capital either side of the lights, a frieze, a level cornice 0.25 m deep returned past the pilasters, the raking cornice pitched 45 degrees, and in each tympanum a carved lunette standing on the cornice, a moulded ring round a fan of leaves (0.38 and 0.28 m in radius), measured off the print through its camera. The lunettes' carving, read in the print only as a fan, is built as nine and seven plain leaves round a boss, and the capitals are plain blocks: both reconstructed. The dormers stand about 0.2 m higher than the photograph's, on K01's least sill. The rest of what is built otherwise than the evidence stands as written above.
 
 ### L-k01-2027-villa-3635 — 2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'
 
@@ -45603,7 +45604,16 @@ proportions, not measured (RECONSTRUCTED); the flue shafts are the kit's 1.1 m `
 stand about 1.9 m, so the head stands about 0.8 m high (the kit has no longer shaft, and adding one to the shared
 kit restales every house that reads it); the two stacks no picture shows take the same head without shafts; the
 large dormer's roundel and the head's carved gablet are not built; the panel's carving is K08's leaf relief where
-the photograph's is a diaper lattice; and the gable's flared feet are still not built.
+the photograph's is a diaper lattice; and the gable's flared feet are still not built. T-3701 (the
+third piece) built the porch and its flight off the photograph: the porch moved 0.5 m north onto the photograph's
+axis, its entablature deepened to 1.2 m under the balcony, the guard raised to 0.85 m before a door onto the balcony
+(K06's French window, whose foot the photograph hides behind the guard), carved capitals, and swept stone cheeks
+splayed toward the walk with a row of openings through the south one. What stays otherwise than the evidence there:
+the balcony door's leaves are the kit's, the cheeks' sweep and the openings' size and count are read at the
+photograph's scale, not measured (RECONSTRUCTED); the cluster of three columns is one column a side and the
+balcony stops short of the pavilion (the shared kit stands porch columns 0.3 m apart past their plinths and a porch on
+its own landing, and changing it restales every house that reads it); the flight is the porch's width where the
+photograph's is narrower; and the balustrade's carved, pierced panels are square stone balusters.
 **Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.

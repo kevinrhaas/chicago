@@ -1509,8 +1509,8 @@ def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) ->
     the sash, `pilasters` {width_m, proud_m, cap_m}, from its sill to the cornice; and the
     cheeks painted as the face is (`cheeks`: painted) where a plain gable's are slated."""
     keys = {"cornice_m", "return_m", "rake", "pilasters", "cheeks"}
-    if not isinstance(dr, dict) or set(dr) - {"consoles"} != keys:
-        raise ParamError(f"{what}.dress takes {sorted(keys)} and may name consoles")
+    if not isinstance(dr, dict) or set(dr) - {"consoles", "lunette"} != keys:
+        raise ParamError(f"{what}.dress takes {sorted(keys)} and may name consoles and a lunette")
     h, pj = (float(x) for x in dr["cornice_m"])
     rt = float(dr["return_m"])
     if not 0.1 <= h <= 0.4 or not 0.1 <= pj <= 0.4 or not 0.05 <= rt <= 0.4:
@@ -1551,7 +1551,35 @@ def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) ->
                              f"cornice's {pj} m projection and 0.1 m short of the foot, a roll 0.08 m to half "
                              f"the width, 0.1-0.6 m deep, 0-0.15 m proud of the face")
         out["consoles"] = cs
+    if "lunette" in dr:
+        # T-3634: a carved lunette in the pediment's tympanum (2017 Prairie's two dormers, in
+        # Chicagology's photograph): a half disc `radius_m` across standing on the level
+        # cornice's top on the face's axis, its moulded ring `ring_m` wide round a fan of
+        # `flutes` carved leaves and a boss at their foot, `proud_m` out of the tympanum at the
+        # ring. Its fit under the raking cornice is checked against the pitch (_lunette_fits)
+        ln = dr["lunette"]
+        lk = {"radius_m", "ring_m", "proud_m", "flutes"}
+        if not isinstance(ln, dict) or set(ln) != lk:
+            raise ParamError(f"{what}.dress.lunette takes {', '.join(sorted(lk))}")
+        ln = {k: (int(v) if k == "flutes" else float(v)) for k, v in ln.items()}
+        if not (0.15 <= ln["radius_m"] <= 0.8 and 0.03 <= ln["ring_m"] <= ln["radius_m"] / 3
+                and 0.02 <= ln["proud_m"] <= 0.1 and 5 <= ln["flutes"] <= 15):
+            raise ParamError(f"{what}.dress.lunette: a 0.15-0.8 m half disc, its ring 0.03 m up to a third of "
+                             f"that, 0.02-0.1 m proud, a fan of 5-15 leaves")
+        out["lunette"] = ln
     return out
+
+
+def lunette_clearance(d: dict) -> float:
+    """T-3634: how far a dressed pediment's tympanum reaches from the middle of its level
+    cornice's top to the raking cornice's inner line, square to the rake — the radius a
+    lunette standing there may take. Its numbers are dress_lower_dormer's (k10_frontage)."""
+    dr = d["dress"]
+    t = math.tan(math.radians(d["gable_pitch_deg"]))
+    r = d["sash_width_m"] / 2 + d["surround_m"]
+    rise = (r + 0.85 * dr["cornice_m"][1]) * t
+    cq = math.sqrt(1 + t * t)
+    return (rise - math.fsum(w for w, _ in dr["rake"]) * cq) / cq
 
 
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False,
@@ -1622,6 +1650,11 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
             out["over_curb"] = {"back_m": float(oc["back_m"])}
         if "dress" in d:
             out["dress"] = _dormer_dress(d["dress"], what, sw, ring, fz)
+            ln = out["dress"].get("lunette")
+            if ln and ln["radius_m"] > lunette_clearance(out) - 0.03:
+                raise ParamError(f"{what}.dress.lunette.radius_m {ln['radius_m']}: the tympanum under the raking "
+                                 f"cornice leaves {lunette_clearance(out):.3f} m, and the lunette stands 0.03 m "
+                                 f"clear of it")
         if "ornament" in d:
             out["ornament"] = _dormer_ornament(d["ornament"], what, out)
     elif "ornament" in d or "over_curb" in d:
