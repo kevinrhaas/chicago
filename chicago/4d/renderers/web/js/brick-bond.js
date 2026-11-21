@@ -79,6 +79,7 @@ export const PANELS = Object.freeze({
   common_buff_common_6: Object.freeze({ bond: 'common_6', modules: 4, courses: 12, joint_m: 0.009 }),
   rough_red_brown_running: Object.freeze({ bond: 'running', modules: 4, courses: 12, joint_m: 0.01 }),
   pressed_red_running: Object.freeze({ bond: 'running', modules: 4, courses: 12, joint_m: 0.004 }),
+  cream_rough_running: Object.freeze({ bond: 'running', modules: 4, courses: 12, joint_m: 0.006 }),
 });
 
 /** The panels the library offers that this module does not shuffle, and why. */
