@@ -57,6 +57,21 @@
       "street": "clark",
       "structure": "cook_county_courthouse_1835"
     },
+    "crosbys_opera_house_1871:opera_house_1865_1871": {
+      "anchor_in": [
+        "washington"
+      ],
+      "anchor_offset_m": 8.9,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 3.29,
+      "layer": "research",
+      "phase": "opera_house_1865_1871",
+      "position_confidence": "inferred",
+      "street": "washington",
+      "structure": "crosbys_opera_house_1871"
+    },
     "dearborn_street_drawbridge:draw_1834": {
       "anchor_in": [
         "south_water"
@@ -86,6 +101,21 @@
       "position_confidence": "inferred",
       "street": "wells",
       "structure": "exchange_coffee_house"
+    },
+    "field_leiter_1871:store_1868_1871": {
+      "anchor_in": [
+        "washington"
+      ],
+      "anchor_offset_m": 9.84,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 2.35,
+      "layer": "research",
+      "phase": "store_1868_1871",
+      "position_confidence": "inferred",
+      "street": "washington",
+      "structure": "field_leiter_1871"
     },
     "first_fort_wharf:first_fort_1803": {
       "anchor_in": [
@@ -483,6 +513,19 @@
       "street": "state",
       "structure": "st_marys_church"
     },
+    "tremont_house_1871:hotel_1850_1871": {
+      "anchor_in": [],
+      "anchor_offset_m": 65.32,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 2.52,
+      "layer": "research",
+      "phase": "hotel_1850_1871",
+      "position_confidence": "inferred",
+      "street": "lake",
+      "structure": "tremont_house_1871"
+    },
     "tremont_house_1:frame_1833": {
       "anchor_in": [
         "dearborn"
@@ -543,6 +586,26 @@
       "street": "clark",
       "ticket": "T-3688",
       "why": "T-3688. TWO TRACINGS OF ONE STREET, FOUR METRES APART. The corridor is the 1835 plat's Clark Street, derived from the street control; the Court House is centred in the 1871 plan's square, whose Clark Street line is traced from Mitchell's 1870 map and is the line the 1871 scene draws. The two disagree by about 4 m here, a measurement about the plat and the georeference rather than a court house in the road. The only escape (4.1 m west along its front, tools/measure_corridor_intrusion.py --escape) would take the building off the centre of the square both pictures show it on. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "crosbys_opera_house_1871:opera_house_1865_1871": {
+      "depth_m": 3.29,
+      "escape_bearing_deg": 0.46,
+      "escape_m": 3.293,
+      "escape_vs_facade": "across",
+      "on": "2026-11-21",
+      "street": "washington",
+      "ticket": "T-3688",
+      "why": "T-3688. TWO TRACINGS OF ONE STREET, THREE METRES APART. The corridor is the 1835 plat's Washington Street, derived from the street control; Crosby's front stands on the north building line of the 1871 scene's Washington Street (today's centreline, its carriageway and walk), the street a visitor walks in front of it. The two disagree by about 3 m here, a measurement about the plat and the georeference rather than an opera house in the road. The only escape (3.3 m north) would set it back from the walk its neighbours front. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "field_leiter_1871:store_1868_1871": {
+      "depth_m": 2.35,
+      "escape_bearing_deg": 0.46,
+      "escape_m": 2.35,
+      "escape_vs_facade": "across",
+      "on": "2026-11-21",
+      "street": "washington",
+      "ticket": "T-3688",
+      "why": "T-3688. TWO TRACINGS OF ONE STREET, TWO METRES APART. The corridor is the 1835 plat's Washington Street, derived from the street control; Field, Leiter & Co.'s Washington Street front stands on the north building line of the 1871 scene's Washington Street (today's centreline, its carriageway and walk), the street a visitor walks in front of it. The two disagree by about 2.4 m here, a measurement about the plat and the georeference rather than a store in the road. The only escape (2.4 m north) would set it back from the walk it fronts. Refused rather than repaired; argued in the record's own position.note."
     },
     "first_fort_wharf:first_fort_1803": {
       "depth_m": 5.15,
@@ -700,6 +763,16 @@
       "street": "randolph",
       "ticket": "T-3688",
       "why": "T-3688. TWO TRACINGS OF ONE STREET, FOUR METRES APART. The corridor is the 1835 plat's Randolph Street, derived from the street control; the Sherman House stands on the 1871 plan's Randolph Street, traced from Mitchell's 1870 map, whose north line the 1871 scene draws and a visitor walks. Here the two disagree by about 4 m, which is a measurement about the plat and the georeference rather than a hotel in the road. The only escape (3.9 m north, tools/measure_corridor_intrusion.py --escape) would stand the house 4 m back from the street it fronts in its own scene and lap Clark by 1.8 m. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "tremont_house_1871:hotel_1850_1871": {
+      "depth_m": 2.52,
+      "escape_bearing_deg": 180.47,
+      "escape_m": 2.518,
+      "escape_vs_facade": "across",
+      "on": "2026-11-21",
+      "street": "lake",
+      "ticket": "T-3688",
+      "why": "T-3688. TWO TRACINGS OF ONE STREET, TWO AND A HALF METRES APART. The corridor is the 1835 plat's Lake Street, derived from the street control; the Tremont House's Lake Street front stands on the south building line of the 1871 scene's Lake Street (today's centreline, its carriageway and walk), the street a visitor walks in front of it. The two disagree by about 2.5 m here, a measurement about the plat and the georeference rather than a hotel in the road. The only escape (2.5 m south) would set it back from the walk it fronts. Refused rather than repaired; argued in the record's own position.note."
     }
   }
 }

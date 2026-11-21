@@ -1,0 +1,28 @@
+{
+  "id": "andreas_1885_v2_downtown_plates",
+  "type": "illustration",
+  "citation": "Wood engravings in A. T. Andreas, History of Chicago, vol. 2 (Chicago: A. T. Andreas, 1885): 'Tribune Building' and its ruins, p. 492; 'Palmer House' (the first, of 1870), p. 509; 'Potter Palmer Building' (Field, Leiter & Co.'s store, so indexed), p. 563.",
+  "author": "Blomgren Bros., engravers, Chicago (signed on the Palmer House plate)",
+  "date": "1885",
+  "describes_date": "1868-1871, the buildings before the fire, and the Tribune building's walls after it",
+  "repository": "Internet Archive, item historyofchicago02andr (printed pages 492, 509 and 563). The engravings are committed at data/sources/assets/landmarks_1871_t3688/andreas_v2_p492_tribune_building.jpg, andreas_v2_p492_tribune_ruins.jpg, andreas_v2_p509_palmer_house.jpg and andreas_v2_p563_field_leiter_building.jpg.",
+  "url": "https://archive.org/details/historyofchicago02andr",
+  "locator": "p. 492: the Tribune building from across Madison and Dearborn Streets to the north-west, its Madison Street front at left, the cut-off corner with the entrance and 'CHICAGO TRIBUNE' over it, the Dearborn Street front at right; beside it, its burnt-out walls. p. 509: the Palmer House from across State and Quincy Streets to the south-east, the Quincy Street front at left, the State Street front with its entrance pavilion and balcony at right, the mansard in two tiers. p. 563: Field, Leiter & Co.'s store from across State and Washington Streets to the south-west, the State Street front at left, the Washington Street front at right, the corner and end pavilions' tall mansards.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-21 (T-3688) from the Internet Archive's page images of pp. 492, 509 and 563; each engraving cropped and committed: Tribune 820 x 820 px (sha256 56101834c0a44bc9884cee69b55cd312b17b67ce4b7f4dfe4932870f5a877be4), Tribune ruins 660 x 1380 px (955535973ab728571ab4194c1782774ccf042764e6fe7484e818b3e6e8f66e8c), Palmer House 1055 x 1160 px (f677d336429b6d8fdbdc81839893391cdccaea707d5c1bd179a2a79f406265d1), Field, Leiter & Co. 1150 x 1210 px (035511ffa5cb029b35d816665aef796761728c2a2a691a74e12991be607b0cd9).",
+  "note": "Drawn for the 1885 history from earlier views; the only pictures found of these three buildings. An engraving's perspective is drawn, not optical, so the fronts' lengths read through it are reconstructions.",
+  "what_it_supplies": [
+    "each building's fronts, storeys, bays, arches, pavilions, roofs and entrances",
+    "the fronts' proportions, as drawn",
+    "that the Tribune building's walls stood after the fire"
+  ],
+  "what_it_does_not_supply": [
+    "measured sizes",
+    "the walls the draughtsman did not draw",
+    "colour"
+  ]
+}

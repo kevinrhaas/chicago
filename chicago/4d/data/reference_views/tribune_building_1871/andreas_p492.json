@@ -1,0 +1,23 @@
+{
+ "structure_id": "tribune_building_1871",
+ "scene": "1871",
+ "source_id": "andreas_1885_v2_downtown_plates",
+ "photo": "../../sources/assets/landmarks_1871_t3688/andreas_v2_p492_tribune_building.jpg",
+ "image_px": [
+  820,
+  820
+ ],
+ "principal_px": [
+  410.0,
+  636.49
+ ],
+ "focal_px": 1066.01,
+ "eye": [
+  -25.74,
+  52.62,
+  0.7
+ ],
+ "yaw_deg": 134.59,
+ "sky": "sun",
+ "solve": "Fitted by T-3688 to the engraving of the Tribune building in Andreas, History of Chicago, vol. 2, p. 492, cropped from the Internet Archive's page image and committed at 820 x 820 px. The draughtsman stood across the corner, north-west of the building and low, looking south-east: the Madison Street front runs off to the left and the Dearborn Street front to the right, the cut-off corner between them. Eight points were solved for together with both fronts' lengths and the corner's cut: the cut's two edges at cornice and foot (x 505 and 605), the Madison Street front's east end (x 115) and the Dearborn Street front's south end (x 783), against an 18.2 m cornice read from the four storeys. Residuals are under 9 px. UNCERTAINTY: high; an engraving's perspective is drawn, not optical, so the fronts' lengths are reconstructed from it."
+}

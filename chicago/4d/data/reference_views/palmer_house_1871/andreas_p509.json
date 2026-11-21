@@ -1,0 +1,23 @@
+{
+ "structure_id": "palmer_house_1871",
+ "scene": "1871",
+ "source_id": "andreas_1885_v2_downtown_plates",
+ "photo": "../../sources/assets/landmarks_1871_t3688/andreas_v2_p509_palmer_house.jpg",
+ "image_px": [
+  1055,
+  1160
+ ],
+ "principal_px": [
+  527.5,
+  902.49
+ ],
+ "focal_px": 1301.89,
+ "eye": [
+  79.54,
+  -30.87,
+  5.63
+ ],
+ "yaw_deg": 315.45,
+ "sky": "sun",
+ "solve": "Fitted by T-3688 to the engraving of the Palmer House in Andreas, History of Chicago, vol. 2, p. 509, cropped from the Internet Archive's page image and committed at 1055 x 1160 px. The draughtsman stood across the corner, south-east of the hotel and a storey or so up, looking north-west: the Quincy Street front runs off to the left past the engraving's edge, the State Street front to the right. Six points were solved for together with the State Street front's length: the corner's cornice and foot (x 546), the State Street front's north end at cornice and foot (x 917), and the Quincy Street front's cornice and foot at the engraving's left edge (x 20), against a 24.2 m cornice read from the six storeys under the mansard. Residuals are under 4 px. UNCERTAINTY: high; an engraving's perspective is drawn, not optical."
+}
