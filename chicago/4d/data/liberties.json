@@ -79252,6 +79252,32 @@
       ]
     },
     {
+      "id": "L-score-3710",
+      "title": "The jaunts' score: newly made music under the narrated jaunts (2026-11-20)",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-20, asked for an instrumental score for the whole app (\"in the style of John Williams... no vocals instrumentation only and use native and other instruments to make this a unique and cool and respectful story, maybe not as many native things in 1904 and less in 1835 and 1871, use music and styles from the era\"), narrated jaunts first, then \"Ok can you go ahead and add the music to the jaunts correctly\". The music under the 22 narrated 1812 and 1904 jaunts and their versions is generated for the app (ElevenLabs Music through fal, Stable Audio 2.5 inpainting for joins; the score data, the jaunts data) and chosen by the owner by ear. Its main theme is one recording he fixed and is never regenerated. Everything in it is reconstructed: no piece is a period composition, arrangement or performance, and none was heard in Chicago in 1812 or 1904. The period is suggested by instrument colour only, over a cinematic orchestra: in 1812 a Woodlands cedar flute, a soft hand drum, a Métis fiddle, fife and rope snare; in 1904 a romantic orchestra, salon strings and ragtime piano touches. The Native colour in 1812 is kept to timbre, under rules written into every 1812 cue (the music score generator): no stereotyped tom-tom beat and no war whoops, and in every cue no vocals, choir, singing or humming. Nothing in it is presented as a Potawatomi or other nation's song. Which cue plays at which stop (the battle's build, march, fight and aftermath), and the scandal jaunts' stand-in bed, are ours."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a documented piece of music played or sung at Fort Dearborn in 1812 or on Prairie Avenue about 1904, which could be arranged for the stop it belongs to; a Potawatomi musician's or the nation's guidance on how their music may be represented."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-20."
+        }
+      ],
+      "work_refs": [
+        "T-3710"
+      ]
+    },
+    {
       "id": "L-kinzie-house-1812-2497",
       "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
       "section": "resolved",

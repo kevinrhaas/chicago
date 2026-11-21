@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createSound, curve } from '../renderers/web/js/sound.js';
 import { createJourney } from '../renderers/web/js/journey.js';
-import { createRecordedAudio, nearbyWater, waterKind, musicFor, windGain, playlistOrder } from '../renderers/web/js/recorded-audio.js';
+import { createRecordedAudio, nearbyWater, waterKind, musicFor, windGain, playlistOrder, scoreCueFor } from '../renderers/web/js/recorded-audio.js';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../renderers/web/audio/catalog.json', import.meta.url)));
 assert.deepEqual(['1812','1835','1904'].map(y => musicFor(catalog,y).length), [3,2,10]);
@@ -278,9 +278,10 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   }
   // T-3569: the library left the Pages artifact for R2 (T-3532; publish ships only the
   // catalogue), so this bounds the source tree, raised from 40 MiB for the owner's ten
-  // 1904 ragtime tracks. What a visitor holds is one streamed cue, bounded below.
-  assert(total<96*1024*1024,`both codec alternatives fit 96 MiB: ${total}`);
-  for(const a of catalog.assets.filter(a=>a.id.startsWith('ragtime-')))
+  // 1904 ragtime tracks, and to 128 MiB for the jaunts' score (T-3710: eighteen cues, about
+  // 22 MB in both codecs). What a visitor holds is one streamed cue, bounded below.
+  assert(total<128*1024*1024,`both codec alternatives fit 128 MiB: ${total}`);
+  for(const a of catalog.assets.filter(a=>a.id.startsWith('ragtime-')||a.id.startsWith('score-')))
     assert(a.delivery.opus.bytes<2.5*1024*1024&&a.delivery.aac.bytes<3.5*1024*1024&&a.delivery.opus.bytes*8/a.duration_s<96000,`${a.id}: compact stream`);
   assert(catalog.assets.filter(a=>a.kind==='environment').every(a=>a.license==='CC0-1.0'&&a.source_url));
   const candidates=catalog.assets.filter(a=>a.kind==='candidate');
@@ -324,5 +325,85 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert.doesNotMatch(sound,/createOscillator|createBuffer\(/,'no generated hums or tones');
   const main=fs.readFileSync(new URL('../renderers/web/js/main.js',import.meta.url),'utf8');
   assert.match(main,/gesture\.unlockAudio\(\)/);assert.match(main,/environment: \(\) =>/);
+}
+{
+  // T-3710: the jaunts' score. Every jaunt data/music/jaunts.json names is in the catalogue's
+  // plans; each cue is catalogued, verified and never in an era's playlist.
+  const plan=JSON.parse(fs.readFileSync(new URL('../data/music/jaunts.json',import.meta.url)));
+  const score=catalog.jaunt_score.jaunts, cues=catalog.assets.filter(a=>a.id.startsWith('score-'));
+  assert.deepEqual(Object.keys(score).sort(),plan.jaunts.map(j=>j.id).sort(),'the catalogue carries every jaunt with music');
+  assert.equal(cues.length,Object.keys(plan.cues).length);
+  for(const a of cues){assert.equal(a.kind,'music');assert.equal(a.playlist,false,`${a.id} is the score, not a playlist track`);
+    assert.ok(a.delivery.opus.bytes>0&&a.delivery.aac.bytes>0);assert.equal(a.loop,a.score_role==='bed');}
+  for(const y of ['1812','1835','1904'])assert(!musicFor(catalog,y).some(a=>a.id.startsWith('score-')),`${y}'s playlist keeps the score out`);
+  for(const [id,p] of Object.entries(score))for(const c of [p.opening,p.bed,p.closing,...Object.values(p.stops??{})]){
+    const a=cues.find(x=>x.id===c);assert.ok(a,`${id}: ${c} catalogued`);}
+  const battle=(phase,stop,extra={})=>scoreCueFor(catalog,{id:'battle-of-fort-dearborn',phase,stop,...extra},extra.played);
+  assert.equal(battle('opening','the-fort').asset.id,'score-battle-1-buildup','the battle opens on its build, no fanfare');
+  assert.equal(battle('atStop','council').asset.id,'score-battle-1-buildup');
+  assert.equal(battle('travelling','river-mouth').asset.id,'score-battle-2-march','setting out for a stop takes up its cue');
+  assert.equal(battle('atStop','the-bank').asset.id,'score-battle-3-fight');
+  assert.equal(battle('detail','ouilmette').asset.id,'score-battle-4-aftermath');
+  assert.equal(battle('closing','ouilmette').asset.id,'score-theme-remembrance');
+  assert.deepEqual(battle('outcome','ouilmette',{played:new Set(['score-theme-remembrance'])}),{quiet:true},'after the closing cue the music rests');
+  assert.equal(battle('atStop','the-bank').loop,true);assert.equal(battle('closing','ouilmette').loop,false);
+  const g=(phase,played)=>scoreCueFor(catalog,{id:'glessner-household-tour-grades-3-5',phase,stop:null},played);
+  assert.equal(g('opening').asset.id,'score-jaunt-opening-1904','a grade version opens on the theme');
+  assert.equal(g('opening',new Set(['score-jaunt-opening-1904'])).asset.id,'score-bed-1904-household','a flight longer than the opening goes on into the bed');
+  assert.equal(scoreCueFor(catalog,{id:'some-new-band-of-it',version_of:'killing-of-jean-lalime',phase:'atStop'}).asset.id,'score-bed-1812-mystery','an unlisted version takes its jaunt\'s plan');
+  assert.equal(scoreCueFor(catalog,{id:'a-decent-coat',phase:'atStop'}),null,'a jaunt with no score keeps the era playlist');
+  assert.equal(scoreCueFor(catalog,null),null);
+  // The engine: one gesture-unlocked element plays the playlist and the score; a cue change dips
+  // the fader and starts the next one; a closing cue is never cut; then the playlist returns.
+  const ctx=context(),media=mediaFactory(),queued=[];let connects=0;
+  const original=ctx.createMediaElementSource;ctx.createMediaElementSource=()=>{connects++;return original();};
+  const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),media:()=>media.make(),now:()=>0,random:()=>0,
+    later:fn=>queued.push(fn),fetcher:async()=>({ok:true,json:async()=>catalog})});
+  const run=()=>{while(queued.length)queued.shift()();};
+  let jaunt=null;const sync=()=>engine.sync({active:true,ambienceOn:false,musicOn:true,year:'1812',jaunt});
+  sync();await flush();
+  assert(engine.state.track.includes('Frontier'),'no jaunt: the 1812 playlist');assert.equal(engine.state.score,null);
+  const element=media.made.at(-1);
+  jaunt={id:'battle-of-fort-dearborn',phase:'opening',stop:'the-fort',session:1};sync();
+  assert(engine.state.track.includes('Frontier'),'the playlist is dipped, not cut');assert.equal(queued.length,1);
+  sync();assert.equal(queued.length,1,'one change in flight at a time');
+  run();assert.equal(engine.state.score,'score-battle-1-buildup');assert(engine.state.playing);
+  jaunt={...jaunt,phase:'atStop'};sync();assert.equal(queued.length,0,'the same cue goes on through the stop');
+  jaunt={...jaunt,phase:'travelling',stop:'river-mouth'};sync();run();
+  assert.equal(engine.state.score,'score-battle-2-march');assert.equal(element.loop,true,'a bed loops');
+  jaunt={...jaunt,phase:'atStop',stop:'the-bank'};sync();run();assert.equal(engine.state.score,'score-battle-3-fight');
+  jaunt={...jaunt,phase:'closing',stop:'ouilmette'};sync();run();
+  assert.equal(engine.state.score,'score-theme-remembrance');assert.equal(element.loop,false,'a closing plays once');
+  jaunt=null;sync();assert.equal(queued.length,0,'closing the card never cuts the closing cue');
+  assert.equal(engine.state.score,'score-theme-remembrance');
+  element.paused=true;element.onended();await flush();
+  assert(engine.state.track.includes('Frontier')&&engine.state.playing,'then the era playlist comes back');
+  assert.equal(media.made.length,1,'one element throughout');assert.equal(connects,1,'one media graph node throughout');
+  // A finished closing rests until the jaunt is over, and a new outing hears its cues again.
+  jaunt={id:'killing-of-jean-lalime',phase:'closing',stop:null,session:2};sync();run();
+  assert.equal(engine.state.score,'score-jaunt-closing-1812');
+  element.paused=true;element.onended();await flush();
+  assert(!engine.state.playing,'the music rests over Outing complete');
+  jaunt={...jaunt,session:3,phase:'opening'};sync();assert.equal(engine.state.score,'score-jaunt-opening-1812','a rested player starts the next cue at once');
+  element.paused=true;element.onended();await flush();
+  assert.equal(engine.state.score,'score-bed-1812-mystery','an opening that ends before the flight does goes on into the bed');
+  engine.dispose();run();
+}
+{
+  // T-3710: createSound hands the jaunt under way to the recordings, by id, version, phase and stop.
+  const ctx=context(),journey=createJourney({initial:'on-jaunt',root:null});let last;let runtime=null;
+  const sound=createSound({audio:()=>ctx,journey,doc:null,storage:null,every:()=>1,cancelEvery(){},
+    settings:()=>({soundMaster:1,soundMusic:1,soundAmbience:1,soundEffects:1}),jaunt:()=>runtime,
+    recordings:()=>({sync(s){last=s;},dispose(){}})});
+  assert.equal(last.jaunt,null,'no jaunt, no score');
+  runtime={jaunt:{id:'battle-of-fort-dearborn-grades-3-5',version_of:'battle-of-fort-dearborn',stops:[{id:'the-fort'},{id:'the-bank'}]},
+    session:4,phase:'travelling',stopIndex:1,visited:[{id:'the-fort'},{id:'the-bank'}]};
+  sound.sync();
+  assert.deepEqual(last.jaunt,{id:'battle-of-fort-dearborn-grades-3-5',version_of:'battle-of-fort-dearborn',phase:'travelling',stop:'the-bank',session:4});
+  runtime={...runtime,phase:'outcome',restored:true};sound.sync();
+  assert.equal(last.jaunt,null,'a finished outing restored on reload plays no closing again');
+  runtime=null;sound.sync();assert.equal(last.jaunt,null);sound.dispose();
+  const main=fs.readFileSync(new URL('../renderers/web/js/main.js',import.meta.url),'utf8');
+  assert.match(main,/jaunt: \(\) => api\.jaunts\?\.state/,'the app hands its jaunt runtime to the sound');
 }
 console.log('SOUND PASS — separate era libraries; no muted fetch; terrain proximity; bounded decoded memory; music stream cleanup; hidden/mute/scene races; no synthetic tones');
