@@ -1076,7 +1076,9 @@
     "s35-2112-front": "2112 Prairie now stands as the K01 stone-front house `rothschild_house_2112_prairie` (T-3668, piece 2 of T-1921, the S11 package of the T-1837 programme), the Max M. Rothschild house, which refines this draft in place under the draft's own id: the sheet's '3B' main body read as two storeys under a mansard behind a pale stone front, its canted stone bay at the south end and a round-arched door north of it at the head of a stone-cheeked stoop, off the sheet at full size and the early-1890s street photograph.",
     "s35-2112-wing": "2112 Prairie's '2B' rear range now stands on K01's rear wing of `rothschild_house_2112_prairie` (T-3668); the sheet's small one-storey frame porch on the south flank is not built (liberty L-k01-2112-rothschild-3668), and the draft stands no second building.",
     "s35-2115-front": "2115 Prairie now stands as the K01 stone-front house `armour_house_2115_prairie` (T-3712, piece 1 of T-1925, the S14 package of the T-1837 programme), the Kelley/Armour house, which refines this draft in place under the draft's own id: the sheet's '3B' main body read as two storeys of banded stone front under a dormered slate mansard, its south pavilion under a taller crown and the round-arched door in the middle at the head of a broad stoop, off the sheet at full size and the Armour photograph.",
-    "s35-2115-wing": "2115 Prairie's '3B' rear range now stands on K01's rear wing of `armour_house_2115_prairie` (T-3712); the sheet's '2B' south piece beside the main body is not built (liberty L-k01-2115-armour-3712), and the draft stands no second building."
+    "s35-2115-wing": "2115 Prairie's '3B' rear range now stands on K01's rear wing of `armour_house_2115_prairie` (T-3712); the sheet's '2B' south piece beside the main body is not built (liberty L-k01-2115-armour-3712), and the draft stands no second building.",
+    "s35-2110-front": "2110 Prairie now stands as the K01 stone-front house `rees_house_2110_prairie` (T-1922, the S12A package of the T-1837 programme), the Harriet Rees house, which refines this draft in place under the draft's own id: the sheet's full-width '3B' front block under a tall coped gable to the avenue, its stone bow at the south end and the round-arched door north of it at the head of a high stoop, off the sheet at full size, the early-1890s street photograph and two later photographs of the house on this site.",
+    "s35-2110-wing": "2110 Prairie's rear body, narrower than its front block, and the small one-storey piece behind it now stand on K01's rear wings of `rees_house_2110_prairie` (T-1922), and the draft stands no second building."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1798,7 +1800,9 @@
       "pitch_deg": 52,
       "front_bays": 2,
       "entrance": "south",
-      "why": "The Harriet Rees house (Cobb & Frost, 1888) at its historical 2110 site, not its present one: the register's 'limestone front, tall gable' as a steep gable whose end faces the avenue over the 3B narrow body and its stone front, two bays wide. Its carved tympanum, loggia and bowed oriel are T-1922's and T-1923's."
+      "why": "The Harriet Rees house (Cobb & Frost, 1888) at its historical 2110 site, not its present one: the register's 'limestone front, tall gable' as a steep gable whose end faces the avenue over the 3B narrow body and its stone front, two bays wide. Its carved tympanum, loggia and bowed oriel are T-1922's and T-1923's.",
+      "house_id": "rees_house_2110_prairie",
+      "house_address": "2110"
     },
     "frontage-35-067": {
       "slug": "rothschild_house",
