@@ -35,17 +35,17 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 1077,
-    "structures_reached": 135,
+    "structures_placed": 1083,
+    "structures_reached": 136,
     "structures_reached_by_grade": {
       "inferred": 30,
-      "reconstructed": 105
+      "reconstructed": 106
     },
     "structures_unreached_by_section": {
-      "09": 598,
+      "09": 600,
       "10": 1,
-      "16": 48,
-      "outside the four sections": 295
+      "16": 50,
+      "outside the four sections": 296
     },
     "school_section": {
       "parcels": {
@@ -2584,6 +2584,10 @@
         {
           "id": "emigrant_camp_shore",
           "margin_m": 67.1
+        },
+        {
+          "id": "field_leiter_1871",
+          "margin_m": 6.9
         },
         {
           "id": "fort_dearborn_artillery_house",
@@ -39973,6 +39977,7 @@
       "cobweb_castle",
       "cook_county_court_house_1871",
       "cook_county_courthouse_1835",
+      "crosbys_opera_house_1871",
       "dearborn_street_drawbridge",
       "dole_warehouse_south",
       "elston_ash_house",
@@ -40546,6 +40551,7 @@
       "temple_lake_st_building",
       "thomas_church_store",
       "tremont_house_1",
+      "tremont_house_1871",
       "tremont_house_1_stable",
       "walker_meeting_house",
       "west_approach_wagon_camp",
@@ -40567,6 +40573,7 @@
       "heacock_house_monroe",
       "oleary_barn_1871",
       "oleary_cottage_1871",
+      "palmer_house_1871",
       "recon_1835_blk_school_section_tier_118_d2_01",
       "recon_1835_blk_school_section_tier_118_d3_05",
       "recon_1835_blk_school_section_tier_118_d4_03",
@@ -40608,7 +40615,8 @@
       "recon_1835_blk_school_section_tier_95_d5_02",
       "recon_1835_blk_school_section_tier_95_d6_06",
       "recon_1835_blk_school_section_tier_95_d6_07",
-      "sullivan_house_1871"
+      "sullivan_house_1871",
+      "tribune_building_1871"
     ],
     "outside the four sections": [
       "armour_corwith_house_1945_prairie",
@@ -40869,6 +40877,7 @@
       "pullman_house_1729_prairie_conservatory",
       "pullman_house_1729_prairie_ranges",
       "pullman_lodge_1800_calumet",
+      "pumping_works_grounds_1871",
       "ream_house_1901_prairie",
       "ream_house_1901_prairie_coach_house",
       "rees_house_2110_prairie",

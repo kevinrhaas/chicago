@@ -1,0 +1,111 @@
+{
+  "id": "field_leiter_1871",
+  "scene": "1871",
+  "name": "Field, Leiter & Co.",
+  "address": "Northeast corner of State and Washington Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Later buildings stand on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "It burned on 9 October 1871. The corner's later buildings are not researched here."
+  },
+  "built": {
+    "year": 1868,
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Field, Leiter & Co. moved in during the autumn of 1868 (Andreas vol. 2, pp. 694-695); the building's own finish date is not given there."
+  },
+  "use": "Dry goods store",
+  "summary": "Marshall Field and Levi Leiter's dry goods store, in Potter Palmer's marble building on State Street. Its clerks sprayed it with its own pumps through the night. When the city's water failed, it burned.",
+  "key": [
+    {
+      "label": "Owners",
+      "value": "Marshall Field and Levi Z. Leiter",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Building owner",
+      "value": "Potter Palmer",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Built of",
+      "value": "Marble and iron",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Losses",
+      "value": "Nearly $3,500,000",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Iron shop fronts fill the ground floor on both streets.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_downtown_plates"
+      ]
+    },
+    {
+      "text": "Tall slate roofs rise over the corner and both ends.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_downtown_plates"
+      ]
+    },
+    {
+      "text": "Its own pumps kept it wet, like a great fountain, until the water stopped.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1868-10-01",
+      "text": "Field, Leiter & Co. move to the corner.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The water fails, and the store burns before daylight.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "crosbys_opera_house_1871",
+  "scene": "1871",
+  "name": "Crosby's Opera House",
+  "address": "North side of Washington Street, between State and Dearborn",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Later buildings stand on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "It burned on 9 October 1871. The site's later buildings are not researched here."
+  },
+  "built": {
+    "year": 1865,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Opera house",
+  "summary": "Uranus Crosby's grand opera house, with an art gallery, a concert hall and shops. It cost about $600,000 and opened in April 1865. It burned in the fire, days before it was to reopen.",
+  "key": [
+    {
+      "label": "Built by",
+      "value": "Uranus H. Crosby",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Architect",
+      "value": "W. W. Boyington",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Cost",
+      "value": "About $600,000",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Shops sit in the tall arches on either side of the great door.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s47902_crosbys_opera_house"
+      ]
+    },
+    {
+      "text": "A sculpture group stood on the raised centre of the roof.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s47902_crosbys_opera_house"
+      ]
+    },
+    {
+      "text": "It had just been redone, and was to reopen that week.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1865-04-20",
+      "text": "The opera house opens.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The fire takes it in the night.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}
