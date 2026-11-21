@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "about": "T-3710 (owner, 2026-11-20): trial pieces of generated period music made through fal's queue API, for the owner to listen to before deciding whether generated music has a place in the app. Nothing here is played by the app. Prices are fal's list prices as read from each model's https://fal.ai/models/<id>/llms.txt on 2026-11-20; re-read them before a large run.",
+  "models": {
+    "minimax": {
+      "endpoint": "fal-ai/minimax-music/v2",
+      "price": {
+        "usd": 0.03,
+        "per": "clip"
+      },
+      "duration_param": null,
+      "lyrics_param": "lyrics_prompt",
+      "prompt_max": 300,
+      "output": "audio",
+      "extra": {}
+    },
+    "cassette": {
+      "endpoint": "cassetteai/music-generator",
+      "price": {
+        "usd": 0.02,
+        "per": "minute"
+      },
+      "duration_param": "duration",
+      "duration_range": [
+        10,
+        180
+      ],
+      "output": "audio_file",
+      "extra": {}
+    },
+    "stable-audio": {
+      "endpoint": "fal-ai/stable-audio-25/text-to-audio",
+      "price": {
+        "usd": 0.2,
+        "per": "clip"
+      },
+      "duration_param": "seconds_total",
+      "duration_range": [
+        1,
+        190
+      ],
+      "output": "audio",
+      "extra": {}
+    },
+    "lyria": {
+      "endpoint": "fal-ai/lyria2",
+      "price": {
+        "usd": 0.1,
+        "per": "30s"
+      },
+      "duration_param": null,
+      "fixed_seconds": 30,
+      "output": "audio",
+      "extra": {
+        "negative_prompt": "vocals, singing, electric guitar, synthesizer, drum kit, modern production"
+      }
+    },
+    "elevenlabs": {
+      "endpoint": "fal-ai/elevenlabs/music",
+      "price": {
+        "usd": 0.6,
+        "per": "minute",
+        "rounded_up": true
+      },
+      "duration_param": "music_length_ms",
+      "duration_scale": 1000,
+      "duration_range": [
+        3,
+        600
+      ],
+      "output": "audio",
+      "extra": {
+        "force_instrumental": true
+      },
+      "plans": true
+    }
+  },
+  "trial_models": [
+    "minimax",
+    "cassette",
+    "stable-audio",
+    "lyria",
+    "elevenlabs"
+  ],
+  "cues": [
+    {
+      "id": "1812-garrison-fife",
+      "era": "1812",
+      "seconds": 45,
+      "prompt": "Solo wooden fife with a rope-tension snare drum playing a brisk 1810s American military camp tune in 6/8, outdoors on a frontier fort parade ground, acoustic, period instruments only, no vocals, no modern instruments"
+    },
+    {
+      "id": "1835-border-fiddle",
+      "era": "1835",
+      "seconds": 45,
+      "prompt": "Solo fiddle playing a lively 1830s American frontier reel in D major, foot stomping on a wooden tavern floor, rough but warm, acoustic, period instruments only, no vocals, no modern instruments, no drum kit"
+    },
+    {
+      "id": "1871-parlor-piano",
+      "era": "1871",
+      "seconds": 45,
+      "prompt": "Upright parlor piano playing a gentle 1860s American parlor ballad in the style of the period, slightly out-of-tune Victorian piano in a wood-panelled room, moderate tempo, acoustic, no vocals, no modern instruments"
+    },
+    {
+      "id": "1812-yankee-doodle-sung",
+      "era": "1812",
+      "seconds": 60,
+      "models": [
+        "minimax"
+      ],
+      "prompt": "A lone soldier sings an old American marching song at a frontier fort in 1812, wooden fife and rope snare drum, outdoors, acoustic, period instruments only",
+      "lyrics_source": "Yankee Doodle, traditional verse, 18th century (public domain)",
+      "lyrics": "[Intro]\n[Verse]\nYankee Doodle went to town\nA-riding on a pony,\nStuck a feather in his cap\nAnd called it macaroni.\n[Chorus]\nYankee Doodle, keep it up,\nYankee Doodle dandy,\nMind the music and the step,\nAnd with the girls be handy.\n[Outro]"
+    },
+    {
+      "id": "1835-home-sweet-home-sung",
+      "era": "1835",
+      "seconds": 60,
+      "models": [
+        "minimax"
+      ],
+      "prompt": "A tavern singer and a solo fiddle perform a tender 1830s American parlor song, small wooden room on the frontier, acoustic, period instruments only, no drums",
+      "lyrics_source": "Home! Sweet Home!, John Howard Payne, 1823 (public domain)",
+      "lyrics": "[Verse]\n'Mid pleasures and palaces though we may roam,\nBe it ever so humble, there's no place like home;\nA charm from the skies seems to hallow us there,\nWhich, seek through the world, is ne'er met with elsewhere.\n[Chorus]\nHome! Home! sweet, sweet home!\nThere's no place like home, oh, there's no place like home!"
+    },
+    {
+      "id": "1871-beautiful-dreamer-sung",
+      "era": "1871",
+      "seconds": 60,
+      "models": [
+        "minimax"
+      ],
+      "prompt": "A woman sings a gentle 1860s American parlor ballad with an upright Victorian parlor piano, warm lamp-lit room, acoustic, no modern instruments, no drums",
+      "lyrics_source": "Beautiful Dreamer, Stephen Foster, published 1864 (public domain)",
+      "lyrics": "[Verse]\nBeautiful dreamer, wake unto me,\nStarlight and dewdrops are waiting for thee;\nSounds of the rude world heard in the day,\nLull'd by the moonlight have all pass'd away!\n[Chorus]\nBeautiful dreamer, awake unto me!\nBeautiful dreamer, awake unto me!"
+    },
+    {
+      "id": "1835-fiddle-reel-instrumental",
+      "era": "1835",
+      "seconds": 60,
+      "models": [
+        "minimax"
+      ],
+      "prompt": "Solo fiddle plays a lively 1830s American frontier reel, foot stomping on a wooden tavern floor, acoustic, instrumental, no vocals, no drums",
+      "lyrics_source": "none: an instrumental attempt, structure tags only",
+      "lyrics": "[Intro]\n[Instrumental]\n[Instrumental]\n[Outro]"
+    }
+  ]
+}

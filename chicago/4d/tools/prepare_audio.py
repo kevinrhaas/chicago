@@ -101,6 +101,89 @@ def ragtime_1904(encode=True):
     return out
 
 
+SCORE = ROOT / 'data/music/jaunts.json'
+SCORE_SEAM_S = 3.0      # a looped bed's tail crossfades into its own head, equal power
+SCORE_TAIL_S = .4       # a one-shot cue keeps this much after its last sound
+
+
+def score_jaunts(encode=True):
+    """T-3710: the jaunts' score (data/music/jaunts.json, tools/build_jaunt_music.py).
+
+    Each cue is the owner-selected MP3 of score set v1, decoded once and given one static
+    gain to its own integrated loudness (beds lower, to sit under a voice); no compression,
+    limiting or EQ. A bed loops: its leading silence and closing fade are cut and its tail is
+    crossfaded into its head so the player's loop has no seam. A one-shot cue keeps its fade;
+    a closing cue keeps only its last seconds, so its cadence lands over the closing scene.
+    Encoded like the ragtime: Opus 64k with an AAC fallback. Returns (assets, jaunt_score)."""
+    spec = json.loads(SCORE.read_text())
+    sr, out = 48000, []
+    folder = OUT / 'score'
+    folder.mkdir(parents=True, exist_ok=True)
+    # Not re-encoding: a committed row whose original and deliveries are unchanged stands
+    # as it is, so a library-only rebuild does not decode the whole score again.
+    before = OUT / 'catalog.json'
+    kept = {a['id']: a for a in json.loads(before.read_text())['assets']} if not encode and before.exists() else {}
+    for cid, cue in spec['cues'].items():
+        file = ROOT / cue['file']
+        key = 'score-' + cid
+        opus, aac = folder / (key + '.ogg'), folder / (key + '.m4a')
+        row = kept.get(key)
+        if row and row['original'] == cue['file'] and row['original_integrity'] == fingerprint(file) \
+                and opus.exists() and aac.exists() and row['delivery'] == {'opus': fingerprint(opus), 'aac': fingerprint(aac)}:
+            out.append(row); continue
+        source_lufs = integrated_lufs(file)
+        gain_db = round(cue['lufs'] - source_lufs, 2)
+        raw = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', str(file), '-map', '0:a',
+            '-ac', '2', '-ar', str(sr), '-f', 'f32le', '-'])
+        pcm = np.frombuffer(raw, dtype='<f4').reshape(-1, 2) * np.float32(10 ** (gain_db / 20))
+        loud = np.flatnonzero(np.max(np.abs(pcm), axis=1) > 10 ** (-50 / 20))
+        pcm = pcm[int(loud[0]):int(loud[-1]) + 1]
+        if cue['loop']:
+            # The body ends where the closing fade begins: the last whole second within 8 dB
+            # of the cue's median second.
+            secs = np.sqrt(np.mean(pcm[:len(pcm) // sr * sr].reshape(-1, sr, 2) ** 2, axis=(1, 2))) + 1e-9
+            level = 20 * np.log10(secs)
+            body_end = (int(np.flatnonzero(level >= np.median(level) - 8)[-1]) + 1) * sr
+            body = pcm[:body_end]
+            seam = int(SCORE_SEAM_S * sr)
+            t = np.linspace(0, np.pi / 2, seam, dtype=np.float32)[:, None]
+            pcm = body[seam:].copy()
+            pcm[-seam:] = body[-seam:] * np.cos(t) + body[:seam] * np.sin(t)
+            shape = f'leading silence and closing fade cut ({len(body) / sr:.1f} s body); tail crossfaded {SCORE_SEAM_S:.0f} s equal-power into the head for a seamless loop'
+        else:
+            pcm = pcm[:min(len(pcm), int(loud[-1] - loud[0]) + 1 + int(SCORE_TAIL_S * sr))].copy()
+            fade = int(.25 * sr)
+            pcm[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)[:, None]
+            shape = f'trailing silence trimmed to {SCORE_TAIL_S} s with 250 ms fade'
+            if cue.get('keep_last_s'):
+                pcm = pcm[-int(cue['keep_last_s'] * sr):].copy()
+                rise = 2 * sr
+                pcm[:rise] *= np.linspace(0, 1, rise, dtype=np.float32)[:, None]
+                shape += f'; only its last {cue["keep_last_s"]} s kept, faded in over 2 s'
+        peak = float(np.max(np.abs(pcm)))
+        if peak > .99: raise ValueError(f'{file.name}: loudness match would clip ({peak:.3f})')
+        if encode:
+            pipe = ['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '1', '-f', 'f32le', '-ar', str(sr), '-ac', '2',
+                '-i', '-', '-map_metadata', '-1', '-metadata', f'title={cue["title"]}']
+            subprocess.run([*pipe, '-c:a', 'libopus', '-b:a', RAGTIME_OPUS, '-vbr', 'on', '-application', 'audio',
+                str(opus)], input=pcm.tobytes(), check=True)
+            subprocess.run([*pipe, '-c:a', 'aac', '-b:a', RAGTIME_AAC, '-movflags', '+faststart',
+                str(aac)], input=pcm.tobytes(), check=True)
+        out.append({'id': key, 'kind': 'music', 'era': cue['era'], 'title': cue['title'], 'playlist': False,
+            'score_role': cue['role'], 'loop': cue['loop'],
+            'duration_s': round(len(pcm) / sr, 3), 'original': cue['file'], 'original_integrity': fingerprint(file),
+            'provenance': 'Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme\'s phrases are cut from the owner\'s fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.',
+            'rights': 'Generated on the owner\'s fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.',
+            'processing': f'MP3 decoded to 48 kHz stereo; static gain {gain_db:+.2f} dB from {source_lufs:.1f} to {cue["lufs"]} LUFS integrated; {shape}; Opus {RAGTIME_OPUS} VBR, AAC-LC {RAGTIME_AAC} fallback. No compression, limiting or EQ.',
+            'opus': str(opus.relative_to(OUT)), 'aac': str(aac.relative_to(OUT)),
+            'delivery': {'opus': fingerprint(opus), 'aac': fingerprint(aac)}})
+    plans = {}
+    for row in spec['jaunts']:
+        plans[row['id']] = {k: 'score-' + row[k] for k in ('opening', 'bed', 'closing')}
+        if row.get('stops'): plans[row['id']]['stops'] = {s: 'score-' + c for s, c in row['stops'].items()}
+    return out, {'source': 'data/music/jaunts.json', 'jaunts': plans}
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     assets = []
@@ -127,6 +210,8 @@ def main():
             assets[-1].update(runtime_enabled=False,
                 review_note='Retired from 1904 playback by the owner, 2026-11-12, for the ten-track ragtime playlist. Original and verified deliveries retained.')
     assets += ragtime_1904('--effects-only' not in sys.argv and '--library-only' not in sys.argv)
+    score_assets, jaunt_score = score_jaunts('--effects-only' not in sys.argv and '--library-only' not in sys.argv)
+    assets += score_assets
     for key, name, creator, source, start in [
         ('wind', '475448_7009965-hq.mp3', 'o_ciz', 'https://freesound.org/people/o_ciz/sounds/475448/', 15),
         ('river-held', '577323_97550-hq.mp3', 'TRP', 'https://freesound.org/people/TRP/sounds/577323/', 10),
@@ -232,7 +317,7 @@ def main():
                         'line': [[round(e-datum['origin_utm_e'],2),round(n-datum['origin_utm_n'],2)] for e,n,*_ in g['coordinates']],
                         'source_path': str(path.relative_to(ROOT))})
         zones[year] = {'epoch': epoch, 'features': rows}
-    catalog = {'version': 1, 'music_eras_separate': True, 'music_shuffle_eras': ['1904'], 'water_zones': zones, 'assets': assets}
+    catalog = {'version': 1, 'music_eras_separate': True, 'music_shuffle_eras': ['1904'], 'water_zones': zones, 'assets': assets, 'jaunt_score': jaunt_score}
     (OUT / 'catalog.json').write_text(json.dumps(catalog, indent=2) + '\n')
     (ROOT / 'assets/audio/catalog.json').write_text(json.dumps(catalog, indent=2) + '\n')
     print(f'Audio: {len(assets)} catalogued assets; alternatives are fetched only when needed.')
@@ -258,5 +343,19 @@ def ragtime_only():
     print('Audio: 1904 ragtime playlist rebuilt; other deliveries untouched.')
 
 
+def score_only():
+    """T-3710: rebuild only the jaunts' score inside the committed catalogue; every other
+    delivery stays byte-for-byte (see ragtime_only)."""
+    paths = [OUT / 'catalog.json', ROOT / 'assets/audio/catalog.json']
+    catalog = json.loads(paths[0].read_text())
+    rows = [a for a in catalog['assets'] if not a['id'].startswith('score-')]
+    assets, jaunt_score = score_jaunts()
+    at = max(i for i, a in enumerate(rows) if a['kind'] == 'music') + 1
+    catalog['assets'] = rows[:at] + assets + rows[at:]
+    catalog['jaunt_score'] = jaunt_score
+    for path in paths: path.write_text(json.dumps(catalog, indent=2) + '\n')
+    print(f'Audio: the jaunts\' score rebuilt ({len(assets)} cues under {len(jaunt_score["jaunts"])} jaunts); other deliveries untouched.')
+
+
 if __name__ == '__main__':
-    ragtime_only() if '--ragtime-only' in sys.argv else main()
+    ragtime_only() if '--ragtime-only' in sys.argv else score_only() if '--score-only' in sys.argv else main()

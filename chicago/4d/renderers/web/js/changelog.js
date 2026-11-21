@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3178, ts: '2026-11-21T07:09:42.523Z', date: 'Nov 21, 2026, 1:09 AM CT', title: '2108 Prairie\'s basement lights stand tall and barred, as sketched in 1898', kind: 'improvement',
+    items: [
+      '2108 Prairie, the Mark Kimball house, now has the tall iron-barred basement lights the Tribune\'s 1898 sketch shows: each about two thirds of the basement\'s height under a curved head of iron, set in a stone base of four courses, where before they were short, plain windows half that height. The house now matches its picture.',
+    ] },
+  { v: 3177, ts: '2026-11-21T06:35:15.384Z', date: 'Nov 21, 2026, 12:35 AM CT', title: 'Music under the narrated jaunts', kind: 'feature',
+    items: [
+      'The narrated 1812 and 1904 jaunts now have their own score, and so does every grade version of them: twenty-two jaunts, a hundred and ten in all.',
+      'The main theme opens each jaunt while you fly to the first stop. A quieter bed then plays under the voice at each stop, and the theme\'s closing cadence comes in over the ending.',
+      'The Battle of Fort Dearborn has no fanfare. Its music builds through the days before the march, then moves with you through the march, the fight at the sand bank and the aftermath, and ends on Remembrance.',
+      'When the jaunt is over, the era\'s own playlist comes back. Music changes fade into each other rather than cutting.',
+      'The score is newly made for this app. It is instrumental and modern, written in the colours of each period; it is not a recording from the time.',
+    ] },
   { v: 3176, ts: '2026-11-21T04:39:14.645Z', date: 'Nov 20, 2026, 10:39 PM CT', title: '1815 Prairie\'s attic crown now sits on its stone front alone', kind: 'improvement',
     items: [
       'The pavilion\'s steep crown now carries its cornice across the attic\'s stone front only, as the old photographs show, not out over the slate beside it.',

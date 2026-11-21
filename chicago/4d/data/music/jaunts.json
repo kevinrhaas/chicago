@@ -1,0 +1,947 @@
+{
+  "version": 1,
+  "about": "T-3710: the score under the jaunts, written by tools/build_jaunt_music.py. Each jaunt (and each version of it) names its opening cue, its bed, any stop's own cue and its closing cue; tools/prepare_audio.py --score-only encodes the cues and copies the plans into the audio catalogue. A jaunt listed here has music (T-3711).",
+  "cues": {
+    "jaunt-opening-1812": {
+      "file": "assets/audio/originals/score-v1/30-jaunt-opening-1812.mp3",
+      "era": "1812",
+      "title": "Jaunt Opening, 1812",
+      "role": "opening",
+      "lufs": -21,
+      "loop": false
+    },
+    "jaunt-closing-1812": {
+      "file": "assets/audio/originals/score-v1/31-jaunt-closing-1812.mp3",
+      "era": "1812",
+      "title": "Jaunt Closing, 1812",
+      "role": "closing",
+      "lufs": -21,
+      "loop": false,
+      "keep_last_s": 32
+    },
+    "bed-1812-fort": {
+      "file": "assets/audio/originals/score-v1/40-bed-1812-fort.mp3",
+      "era": "1812",
+      "title": "The Fort",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1812-mystery": {
+      "file": "assets/audio/originals/score-v1/41-bed-1812-mystery.mp3",
+      "era": "1812",
+      "title": "Mystery at the River",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "battle-1-buildup": {
+      "file": "assets/audio/originals/score-v1/42-battle-1-buildup.mp3",
+      "era": "1812",
+      "title": "Battle I: Before the March",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "battle-2-march": {
+      "file": "assets/audio/originals/score-v1/43-battle-2-march.mp3",
+      "era": "1812",
+      "title": "Battle II: The March",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "battle-3-fight": {
+      "file": "assets/audio/originals/score-v1/44-battle-3-fight.mp3",
+      "era": "1812",
+      "title": "Battle III: The Fight",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "battle-4-aftermath": {
+      "file": "assets/audio/originals/score-v1/45-battle-4-aftermath.mp3",
+      "era": "1812",
+      "title": "Battle IV: Aftermath",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "theme-remembrance": {
+      "file": "assets/audio/originals/score-v1/23-theme-remembrance.mp3",
+      "era": "1812",
+      "title": "Remembrance",
+      "role": "closing",
+      "lufs": -21,
+      "loop": false
+    },
+    "jaunt-opening-1904": {
+      "file": "assets/audio/originals/score-v1/30-jaunt-opening-1904.mp3",
+      "era": "1904",
+      "title": "Jaunt Opening, 1904",
+      "role": "opening",
+      "lufs": -21,
+      "loop": false
+    },
+    "jaunt-closing-1904": {
+      "file": "assets/audio/originals/score-v1/31-jaunt-closing-1904.mp3",
+      "era": "1904",
+      "title": "Jaunt Closing, 1904",
+      "role": "closing",
+      "lufs": -21,
+      "loop": false,
+      "keep_last_s": 32
+    },
+    "bed-1904-places": {
+      "file": "assets/audio/originals/score-v1/46-bed-1904-places.mp3",
+      "era": "1904",
+      "title": "The Avenue",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-household": {
+      "file": "assets/audio/originals/score-v1/47-bed-1904-household.mp3",
+      "era": "1904",
+      "title": "The Household",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-people": {
+      "file": "assets/audio/originals/score-v1/48-bed-1904-people.mp3",
+      "era": "1904",
+      "title": "Famous Names",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-stories": {
+      "file": "assets/audio/originals/score-v1/49-bed-1904-stories.mp3",
+      "era": "1904",
+      "title": "Prairie Avenue Stories",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-architecture": {
+      "file": "assets/audio/originals/score-v1/50-bed-1904-architecture.mp3",
+      "era": "1904",
+      "title": "Architecture",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-ghosts": {
+      "file": "assets/audio/originals/score-v1/51-bed-1904-ghosts.mp3",
+      "era": "1904",
+      "title": "Night on the Avenue",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    },
+    "bed-1904-bronze": {
+      "file": "assets/audio/originals/score-v1/52-bed-1904-bronze.mp3",
+      "era": "1904",
+      "title": "The Bronze",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true
+    }
+  },
+  "jaunts": [
+    {
+      "id": "battle-of-fort-dearborn",
+      "opening": "battle-1-buildup",
+      "bed": "battle-1-buildup",
+      "stops": {
+        "river-mouth": "battle-2-march",
+        "the-bank": "battle-3-fight",
+        "cottonwoods": "battle-3-fight",
+        "kinzie-house": "battle-4-aftermath",
+        "the-burning": "battle-4-aftermath",
+        "war-party": "battle-4-aftermath",
+        "ouilmette": "battle-4-aftermath"
+      },
+      "closing": "theme-remembrance"
+    },
+    {
+      "id": "battle-of-fort-dearborn-adults",
+      "version_of": "battle-of-fort-dearborn",
+      "opening": "battle-1-buildup",
+      "bed": "battle-1-buildup",
+      "stops": {
+        "river-mouth": "battle-2-march",
+        "the-bank": "battle-3-fight",
+        "cottonwoods": "battle-3-fight",
+        "kinzie-house": "battle-4-aftermath",
+        "the-burning": "battle-4-aftermath",
+        "war-party": "battle-4-aftermath",
+        "ouilmette": "battle-4-aftermath"
+      },
+      "closing": "theme-remembrance"
+    },
+    {
+      "id": "battle-of-fort-dearborn-grades-11-12",
+      "version_of": "battle-of-fort-dearborn",
+      "opening": "battle-1-buildup",
+      "bed": "battle-1-buildup",
+      "stops": {
+        "river-mouth": "battle-2-march",
+        "the-bank": "battle-3-fight",
+        "cottonwoods": "battle-3-fight",
+        "kinzie-house": "battle-4-aftermath",
+        "the-burning": "battle-4-aftermath",
+        "war-party": "battle-4-aftermath",
+        "ouilmette": "battle-4-aftermath"
+      },
+      "closing": "theme-remembrance"
+    },
+    {
+      "id": "battle-of-fort-dearborn-grades-3-5",
+      "version_of": "battle-of-fort-dearborn",
+      "opening": "battle-1-buildup",
+      "bed": "battle-1-buildup",
+      "stops": {
+        "river-mouth": "battle-2-march",
+        "the-bank": "battle-3-fight",
+        "cottonwoods": "battle-3-fight",
+        "kinzie-house": "battle-4-aftermath",
+        "the-burning": "battle-4-aftermath",
+        "war-party": "battle-4-aftermath",
+        "ouilmette": "battle-4-aftermath"
+      },
+      "closing": "theme-remembrance"
+    },
+    {
+      "id": "battle-of-fort-dearborn-grades-9-10",
+      "version_of": "battle-of-fort-dearborn",
+      "opening": "battle-1-buildup",
+      "bed": "battle-1-buildup",
+      "stops": {
+        "river-mouth": "battle-2-march",
+        "the-bank": "battle-3-fight",
+        "cottonwoods": "battle-3-fight",
+        "kinzie-house": "battle-4-aftermath",
+        "the-burning": "battle-4-aftermath",
+        "war-party": "battle-4-aftermath",
+        "ouilmette": "battle-4-aftermath"
+      },
+      "closing": "theme-remembrance"
+    },
+    {
+      "id": "first-fort-dearborn-tour",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-fort",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "first-fort-dearborn-tour-adults",
+      "version_of": "first-fort-dearborn-tour",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-fort",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "first-fort-dearborn-tour-grades-11-12",
+      "version_of": "first-fort-dearborn-tour",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-fort",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "first-fort-dearborn-tour-grades-3-5",
+      "version_of": "first-fort-dearborn-tour",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-fort",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "first-fort-dearborn-tour-grades-9-10",
+      "version_of": "first-fort-dearborn-tour",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-fort",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "killing-of-jean-lalime",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-mystery",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "killing-of-jean-lalime-adults",
+      "version_of": "killing-of-jean-lalime",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-mystery",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "killing-of-jean-lalime-grades-11-12",
+      "version_of": "killing-of-jean-lalime",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-mystery",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "killing-of-jean-lalime-grades-3-5",
+      "version_of": "killing-of-jean-lalime",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-mystery",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "killing-of-jean-lalime-grades-9-10",
+      "version_of": "killing-of-jean-lalime",
+      "opening": "jaunt-opening-1812",
+      "bed": "bed-1812-mystery",
+      "closing": "jaunt-closing-1812"
+    },
+    {
+      "id": "prairie-avenue-orientation",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-places",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-avenue-orientation-adults",
+      "version_of": "prairie-avenue-orientation",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-places",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-avenue-orientation-grades-11-12",
+      "version_of": "prairie-avenue-orientation",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-places",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-avenue-orientation-grades-3-5",
+      "version_of": "prairie-avenue-orientation",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-places",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-avenue-orientation-grades-9-10",
+      "version_of": "prairie-avenue-orientation",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-places",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "glessner-household-tour",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-household",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "glessner-household-tour-adults",
+      "version_of": "glessner-household-tour",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-household",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "glessner-household-tour-grades-11-12",
+      "version_of": "glessner-household-tour",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-household",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "glessner-household-tour-grades-3-5",
+      "version_of": "glessner-household-tour",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-household",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "glessner-household-tour-grades-9-10",
+      "version_of": "glessner-household-tour",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-household",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-famous-names",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-famous-names-adults",
+      "version_of": "prairie-famous-names",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-famous-names-grades-11-12",
+      "version_of": "prairie-famous-names",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-famous-names-grades-3-5",
+      "version_of": "prairie-famous-names",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-famous-names-grades-9-10",
+      "version_of": "prairie-famous-names",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-notable-women",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-notable-women-adults",
+      "version_of": "prairie-notable-women",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-notable-women-grades-11-12",
+      "version_of": "prairie-notable-women",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-notable-women-grades-3-5",
+      "version_of": "prairie-notable-women",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-notable-women-grades-6-8",
+      "version_of": "prairie-notable-women",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-people",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "field-and-mrs-caton",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "field-and-mrs-caton-adults",
+      "version_of": "field-and-mrs-caton",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "field-and-mrs-caton-grades-11-12",
+      "version_of": "field-and-mrs-caton",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "field-and-mrs-caton-grades-3-5",
+      "version_of": "field-and-mrs-caton",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "field-and-mrs-caton-grades-9-10",
+      "version_of": "field-and-mrs-caton",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "frances-glessner-lee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "frances-glessner-lee-adults",
+      "version_of": "frances-glessner-lee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "frances-glessner-lee-grades-11-12",
+      "version_of": "frances-glessner-lee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "frances-glessner-lee-grades-3-5",
+      "version_of": "frances-glessner-lee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "frances-glessner-lee-grades-9-10",
+      "version_of": "frances-glessner-lee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "monday-reading-class",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "monday-reading-class-adults",
+      "version_of": "monday-reading-class",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "monday-reading-class-grades-11-12",
+      "version_of": "monday-reading-class",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "monday-reading-class-grades-3-5",
+      "version_of": "monday-reading-class",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "monday-reading-class-grades-9-10",
+      "version_of": "monday-reading-class",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "one-year-and-a-day",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "one-year-and-a-day-adults",
+      "version_of": "one-year-and-a-day",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "one-year-and-a-day-grades-11-12",
+      "version_of": "one-year-and-a-day",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "one-year-and-a-day-grades-3-5",
+      "version_of": "one-year-and-a-day",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "one-year-and-a-day-grades-9-10",
+      "version_of": "one-year-and-a-day",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "pullmans-other-son",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "pullmans-other-son-adults",
+      "version_of": "pullmans-other-son",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "pullmans-other-son-grades-11-12",
+      "version_of": "pullmans-other-son",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "pullmans-other-son-grades-3-5",
+      "version_of": "pullmans-other-son",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "pullmans-other-son-grades-9-10",
+      "version_of": "pullmans-other-son",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-pullman-twins",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-pullman-twins-adults",
+      "version_of": "the-pullman-twins",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-pullman-twins-grades-11-12",
+      "version_of": "the-pullman-twins",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-pullman-twins-grades-3-5",
+      "version_of": "the-pullman-twins",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-pullman-twins-grades-9-10",
+      "version_of": "the-pullman-twins",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-walk-to-the-lake",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-walk-to-the-lake-adults",
+      "version_of": "the-walk-to-the-lake",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-walk-to-the-lake-grades-11-12",
+      "version_of": "the-walk-to-the-lake",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-walk-to-the-lake-grades-3-5",
+      "version_of": "the-walk-to-the-lake",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "the-walk-to-the-lake-grades-9-10",
+      "version_of": "the-walk-to-the-lake",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "scandal-at-1612",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "scandal-at-1612-adults",
+      "version_of": "scandal-at-1612",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "scandal-at-1612-grades-11-12",
+      "version_of": "scandal-at-1612",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "scandal-at-1612-grades-3-5",
+      "version_of": "scandal-at-1612",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "scandal-at-1612-grades-9-10",
+      "version_of": "scandal-at-1612",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "sisters-of-the-levee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "sisters-of-the-levee-adults",
+      "version_of": "sisters-of-the-levee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "sisters-of-the-levee-grades-11-12",
+      "version_of": "sisters-of-the-levee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "sisters-of-the-levee-grades-3-5",
+      "version_of": "sisters-of-the-levee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "sisters-of-the-levee-grades-9-10",
+      "version_of": "sisters-of-the-levee",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-stories",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-architects",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-architects-adults",
+      "version_of": "prairie-architects",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-architects-grades-11-12",
+      "version_of": "prairie-architects",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-architects-grades-3-5",
+      "version_of": "prairie-architects",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-architects-grades-6-8",
+      "version_of": "prairie-architects",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-italianate",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-italianate-adults",
+      "version_of": "prairie-style-italianate",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-italianate-grades-11-12",
+      "version_of": "prairie-style-italianate",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-italianate-grades-3-5",
+      "version_of": "prairie-style-italianate",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-italianate-grades-9-10",
+      "version_of": "prairie-style-italianate",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-romanesque",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-romanesque-adults",
+      "version_of": "prairie-style-romanesque",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-romanesque-grades-11-12",
+      "version_of": "prairie-style-romanesque",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-romanesque-grades-3-5",
+      "version_of": "prairie-style-romanesque",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-romanesque-grades-9-10",
+      "version_of": "prairie-style-romanesque",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-second-empire",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-second-empire-adults",
+      "version_of": "prairie-style-second-empire",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-second-empire-grades-11-12",
+      "version_of": "prairie-style-second-empire",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-second-empire-grades-3-5",
+      "version_of": "prairie-style-second-empire",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-style-second-empire-grades-9-10",
+      "version_of": "prairie-style-second-empire",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-architecture",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-ghosts-at-night",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-ghosts",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-ghosts-at-night-adults",
+      "version_of": "prairie-ghosts-at-night",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-ghosts",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-ghosts-at-night-grades-11-12",
+      "version_of": "prairie-ghosts-at-night",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-ghosts",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-ghosts-at-night-grades-3-5",
+      "version_of": "prairie-ghosts-at-night",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-ghosts",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "prairie-ghosts-at-night-grades-9-10",
+      "version_of": "prairie-ghosts-at-night",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-ghosts",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "bronze-at-eighteenth",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-bronze",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "bronze-at-eighteenth-adults",
+      "version_of": "bronze-at-eighteenth",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-bronze",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "bronze-at-eighteenth-grades-11-12",
+      "version_of": "bronze-at-eighteenth",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-bronze",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "bronze-at-eighteenth-grades-3-5",
+      "version_of": "bronze-at-eighteenth",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-bronze",
+      "closing": "jaunt-closing-1904"
+    },
+    {
+      "id": "bronze-at-eighteenth-grades-9-10",
+      "version_of": "bronze-at-eighteenth",
+      "opening": "jaunt-opening-1904",
+      "bed": "bed-1904-bronze",
+      "closing": "jaunt-closing-1904"
+    }
+  ]
+}

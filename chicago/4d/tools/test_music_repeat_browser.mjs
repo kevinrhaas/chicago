@@ -41,7 +41,7 @@ try{
   for(const year of ['1835','1812','1904']){
    if(year!=='1835')await page.evaluate(y=>{window.year=y;sync();},year);
    // T-3569: 1904 is shuffled from a random start; other eras play in catalogue order.
-   const list=catalog.assets.filter(a=>a.kind==='music'&&a.era===year&&a.runtime_enabled!==false);
+   const list=catalog.assets.filter(a=>a.kind==='music'&&a.era===year&&a.runtime_enabled!==false&&a.playlist!==false);
    const shuffled=(catalog.music_shuffle_eras??[]).includes(year),titles=list.map(a=>a.title);
    await page.waitForFunction(titles=>titles.includes(engine.state.track)&&!player.paused&&Number.isFinite(player.duration)&&peak()>1e-6,shuffled?titles:[titles[0]],{timeout:45000});
    const made=await page.evaluate(()=>players.length),heard=[await page.evaluate(()=>engine.state.track)];

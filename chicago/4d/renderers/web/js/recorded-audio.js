@@ -31,7 +31,31 @@ export function nearbyWater(terrain, eye) {
 
 export function musicFor(catalog, year) {
   // A retired cue (runtime_enabled false) stays catalogued for provenance, never played.
-  return catalog.assets.filter(a => a.kind === 'music' && a.era === String(year) && a.runtime_enabled !== false);
+  // T-3710: the jaunts' score (playlist false) plays only under its jaunts, never in the era's playlist.
+  return catalog.assets.filter(a => a.kind === 'music' && a.era === String(year) && a.runtime_enabled !== false && a.playlist !== false);
+}
+
+/** T-3710: the score cue a jaunt wants now, from catalog.jaunt_score. A jaunt (or a grade
+ * band's or audience's version of one, by version_of) opens on its opening cue during the
+ * flight to the first stop, then loops its bed, or the cue its current stop names (the
+ * battle's four movements); its closing cue plays once over the closing scene and the
+ * Outing complete card, then the music rests until the jaunt is over. `played` holds the
+ * one-shot cues already heard in this outing. null: no score, the era's playlist plays. */
+export function scoreCueFor(catalog, jaunt, played = new Set()) {
+  const score = catalog?.jaunt_score; if (!score || !jaunt?.id) return null;
+  const plan = score.jaunts?.[jaunt.id] ?? (jaunt.version_of ? score.jaunts?.[jaunt.version_of] : null);
+  if (!plan) return null;
+  const asset = id => id ? catalog.assets.find(a => a.id === id && a.kind === 'music' && a.runtime_enabled !== false) ?? null : null;
+  const bed = () => { const a = asset(plan.stops?.[jaunt.stop] ?? plan.bed); return a && { asset: a, loop: true, role: 'bed' }; };
+  if (jaunt.phase === 'opening') {
+    const a = asset(plan.opening);
+    return a && !played.has(a.id) ? { asset: a, loop: false, role: 'opening' } : bed();
+  }
+  if (['closing', 'outcome'].includes(jaunt.phase)) {
+    const a = asset(plan.closing);
+    return a && !played.has(a.id) ? { asset: a, loop: false, role: 'closing' } : { quiet: true };
+  }
+  return bed();
 }
 
 /** T-3569: shuffled eras (catalog.music_shuffle_eras) start at a random track and
@@ -94,7 +118,8 @@ export function waterKind(wet, terrain, zone) {
 
 export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}), workEnvironment = () => ({}),
   fetcher = globalThis.fetch?.bind(globalThis), media = () => new Audio(),
-  base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now(), random = Math.random } = {}) {
+  base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now(), random = Math.random,
+  later = (fn, ms) => setTimeout(fn, ms) } = {}) {
   let disposed = false, enabled = false, effectsOn = false, musicOn = false, catalog = null, pending = null;
   let year = '', generation = 0, controller = null, musicFailed = false;
   let player = null, mediaNode = null, track = null, trackIndex = 0, order = null, fallback = false;
@@ -103,6 +128,10 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
   const errors = new Set();
   let targets = new Map();
   let musicLevel = 0, duck = 1;
+  // T-3710: what the one streamed player is playing ({ kind: 'era' } or a jaunt's score cue),
+  // the fader it plays through (a cue change dips it rather than cutting), and the jaunt.
+  let current = null, fader = null, switching = false, attemptId = 0;
+  let jaunt = null, session = null, played = new Set();
   const habitat = createHabitatAudio({ ctx, output: ambience, catalog: () => catalog, environment,
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
   const transport = createTransportAudio({ ctx, output: effects, catalog: () => catalog, environment,
@@ -111,7 +140,7 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     fetcher, base, decodeAudio: decode, onError: message => report(message) });
   function report(message) { if (message) errors.add(message); onStatus(state()); }
   function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices, ...work.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes + work.state.decodedBytes,
-    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading + work.state.loading, habitat: habitat.state, transport: transport.state, work: work.state }; }
+    track: track?.title ?? null, playing: !!player && !player.paused, score: current?.kind === 'cue' ? current.asset.id : null, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading + work.state.loading, habitat: habitat.state, transport: transport.state, work: work.state }; }
   function fade(param, value) { param.setTargetAtTime(value, ctx.currentTime, 0.3); }
   function stopVoice(id) {
     const v = voices.get(id); if (!v) return;
@@ -121,7 +150,8 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
   }
   function stopMusic() {
     if (player) { player.pause(); player.onended = null; player.onerror = null; player.removeAttribute('src'); player.load(); }
-    mediaNode?.disconnect(); player = null; mediaNode = null; track = null;
+    mediaNode?.disconnect(); fader?.disconnect(); player = null; mediaNode = null; fader = null; track = null;
+    current = null; switching = false;
   }
   function reset() {
     habitat.reset(); transport.reset(); work.reset();
@@ -199,48 +229,92 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       if (own === generation && e.name !== 'AbortError') { failed.add(id); report(`${id}: ${e.message}`); }
     } finally { if (own === generation) loads.delete(id); }
   }
-  function playMusic() {
-    if (disposed || !musicOn || !catalog || player || musicFailed) return;
-    const list = musicFor(catalog, year); if (!list.length) return;
-    const shuffle = (catalog.music_shuffle_eras ?? []).includes(String(year));
-    if (order?.length !== list.length) { order = playlistOrder(list.length, shuffle, random); trackIndex = 0; }
-    track = list[order[trackIndex % order.length]]; player = media(); player.preload = 'none';
-    player.crossOrigin = 'anonymous'; fallback = !player.canPlayType('audio/ogg; codecs="opus"');
-    mediaNode = ctx.createMediaElementSource(player); mediaNode.connect(music);
-    const own = generation, element = player;
-    let attemptId = 0;
-    const fail = e => {
-      if (!fallback) { fallback = true; attempt(); }
-      else { report(`Music unavailable: ${track.title}: ${e?.message ?? 'media error'}`); stopMusic(); musicFailed = true; }
-    };
-    const attempt = () => {
-      const id = ++attemptId;
-      element.src = new URL(fallback ? track.aac : track.opus, base).href;
-      element.play().catch(e => {
-        if (own !== generation || player !== element || id !== attemptId) return;
-        // The rejected Opus play promise can arrive after onerror has already
-        // started AAC. Only the current attempt may stop or replace playback.
-        if (e.name === 'NotSupportedError') fail(e);
-        else { report(`Music playback: ${e.message}`); stopMusic(); musicFailed = true; }
-      });
-    };
+  // One gesture-unlocked streaming element plays everything, the era's playlist and the
+  // jaunts' score alike: an iPhone lets only an element a tap has started play on later.
+  function attempt() {
+    const element = player, own = generation, id = ++attemptId;
+    element.src = new URL(fallback ? track.aac : track.opus, base).href;
+    element.play().catch(e => {
+      if (own !== generation || player !== element || id !== attemptId) return;
+      // The rejected Opus play promise can arrive after onerror has already
+      // started AAC. Only the current attempt may stop or replace playback.
+      if (e.name === 'NotSupportedError') fail(e);
+      else { report(`Music playback: ${e.message}`); stopMusic(); musicFailed = true; }
+    });
+  }
+  function fail(e) {
+    if (!fallback) { fallback = true; attempt(); }
+    else { report(`Music unavailable: ${track.title}: ${e?.message ?? 'media error'}`); stopMusic(); musicFailed = true; }
+  }
+  function begin(asset, loop) {
+    track = asset; player.loop = !!loop;
+    fallback = !player.canPlayType('audio/ogg; codecs="opus"');
+    attempt(); report();
+  }
+  function ensurePlayer() {
+    if (player) return;
+    const element = player = media(); element.preload = 'none'; element.crossOrigin = 'anonymous';
+    mediaNode = ctx.createMediaElementSource(element); fader = ctx.createGain(); fader.gain.value = 1;
+    mediaNode.connect(fader); fader.connect(music);
+    const own = generation;
     element.onerror = () => {
       if (own !== generation || player !== element) return;
       fail(element.error);
     };
     element.onended = () => {
       if (disposed || !musicOn || own !== generation || player !== element) return;
+      // A one-shot score cue that ends is heard; the jaunt moves on to what it wants next.
+      if (current?.kind === 'cue') { played.add(current.asset.id); current = null; steer(); return; }
       // Keep the gesture-unlocked streaming element and its graph connection.
       // Advance immediately, then wrap within this era; no full-playlist preload.
       // A shuffled era deals a new order at the wrap, never repeating the last track.
+      const list = musicFor(catalog, year), shuffle = (catalog.music_shuffle_eras ?? []).includes(String(year));
+      if (!list.length) return;
+      if (order?.length !== list.length) { order = playlistOrder(list.length, shuffle, random); trackIndex = -1; }
       trackIndex = (trackIndex + 1) % order.length;
       if (!trackIndex && shuffle) order = playlistOrder(list.length, true, random, order.at(-1));
-      track = list[order[trackIndex]];
-      fallback = !element.canPlayType('audio/ogg; codecs="opus"');
-      attempt(); report();
+      begin(list[order[trackIndex]], false);
     };
-    attempt(); report();
   }
+  function wanted() {
+    const cue = scoreCueFor(catalog, jaunt, played);
+    if (cue?.quiet) return { kind: 'quiet' };
+    if (cue) return { kind: 'cue', asset: cue.asset, loop: cue.loop, role: cue.role };
+    return musicFor(catalog, year).length ? { kind: 'era' } : { kind: 'quiet' };
+  }
+  function start(want) {
+    current = want;
+    if (want.kind === 'quiet') { if (player && !player.paused) player.pause(); report(); return; }
+    ensurePlayer();
+    if (want.kind === 'cue') { begin(want.asset, want.loop); return; }
+    const list = musicFor(catalog, year), shuffle = (catalog.music_shuffle_eras ?? []).includes(String(year));
+    if (order?.length !== list.length) { order = playlistOrder(list.length, shuffle, random); trackIndex = 0; }
+    begin(list[order[trackIndex % order.length]], false);
+  }
+  /** T-3710: bring the player to what is wanted now. A change of cue dips the fader over about
+   * a second and starts the next one rising, never a cut; a closing cue is never cut short, so
+   * its cadence lands even when the visitor closes the card. */
+  function steer() {
+    if (disposed || !musicOn || !catalog || musicFailed || switching) return;
+    const want = wanted();
+    if (current && current.kind === want.kind && (want.kind !== 'cue' || current.asset.id === want.asset.id)) return;
+    if (!player) { if (want.kind !== 'quiet') start(want); return; }
+    const sounding = !player.paused && current && current.kind !== 'quiet';
+    if (sounding && current.kind === 'cue' && current.role === 'closing') return;
+    if (!sounding) { start(want); return; }
+    switching = true;
+    const own = generation, element = player;
+    fader.gain.setTargetAtTime(0, ctx.currentTime, .3);
+    later(() => {
+      if (disposed || own !== generation || player !== element) return;
+      switching = false;
+      fader.gain.setTargetAtTime(1, ctx.currentTime, .25);
+      const next = wanted();
+      if (current && current.kind === next.kind && (next.kind !== 'cue' || current.asset.id === next.asset.id)) return;
+      start(next);
+    }, 1200);
+  }
+  function playMusic() { steer(); }
   function update() {
     if (disposed || (!enabled && !musicOn && !effectsOn)) {
       habitat.sync({ enabled: false, year, duck }); transport.sync({ enabled: false, year, duck }); return;
@@ -284,8 +358,12 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     playMusic();
   }
   return {
-    sync({ active, ambienceOn, effectsOn: wantsEffects, musicOn: wantsMusic, year: nextYear, musicLevel: level = .4 } = {}) {
+    sync({ active, ambienceOn, effectsOn: wantsEffects, musicOn: wantsMusic, year: nextYear, musicLevel: level = .4, jaunt: nextJaunt = null } = {}) {
       if (disposed) return;
+      // T-3710: the jaunt under way, if any ({ id, version_of, phase, stop, session }).
+      jaunt = nextJaunt?.id ? nextJaunt : null;
+      const outing = jaunt ? `${jaunt.id}#${jaunt.session ?? ''}` : null;
+      if (outing !== session) { session = outing; played = new Set(); }
       const next = String(nextYear ?? '');
       if (year !== next) { reset(); year = next; }
       const nextEnabled = !!active && !!ambienceOn, nextMusic = !!active && !!wantsMusic;
