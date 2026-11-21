@@ -1,0 +1,23 @@
+{
+ "id": "glessner_blog_sears_meeker_1815_heun_remodel",
+ "type": "website",
+ "citation": "Glessner House, 'The Story of a House' (blog), posts labelled 'Arthur Meeker': Joseph Sears's house at 1815 S. Prairie Avenue, 'In 1902, the house was sold to Arthur Meeker, the European representative for Armour. Meeker had the house significantly remodeled from plans prepared by architect Arthur Heun.'",
+ "author": "Glessner House",
+ "describes_date": "1902",
+ "url": "https://glessnerhouse.blogspot.com/search/label/Arthur%20Meeker",
+ "locator": "The post on Joseph Sears and Kenilworth, its paragraph on the Prairie Avenue house: the 1902 sale to Arthur Meeker, Heun's remodel, the publishers after the Meekers moved north, and its razing in 1967.",
+ "tier": 4,
+ "rights_status": "check_required",
+ "rights_note": "A museum's blog text; quoted as a fact, nothing reproduced from its pictures.",
+ "asset_use": "text_only",
+ "verified": false,
+ "access_notes": "Read 2026-11-21 (T-3562) through a text-extraction fetch of the label page, which returned the two sentences quoted in the citation verbatim; the page itself was not opened in a browser, so `verified` stays false until someone does. The post gives no date, permit, cost or list of changes for the remodel.",
+ "note": "Puts the sale and Heun's remodel in one sentence under 1902. It does not say the remodel was done in 1902; read with aic_rba_index_1815_meeker_residence, which does.",
+ "what_it_supplies": [
+  "the 1902 sale to Arthur Meeker and Arthur Heun as the remodel's architect"
+ ],
+ "what_it_does_not_supply": [
+  "the remodel's date as distinct from the sale's",
+  "what the remodel changed on the front"
+ ]
+}

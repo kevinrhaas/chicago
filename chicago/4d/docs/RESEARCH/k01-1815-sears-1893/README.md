@@ -93,3 +93,35 @@ slate; the stacks standing in that cut are joined again after it. How far back t
 is inferred (the prints show only the street end). Both match records re-judged: the crown's
 cornice fixed on both; the oblique now matches; the square-on keeps one open item, which front
 stood in 1904.
+
+## T-3562: which front stood in 1904
+
+The square-on's last open item is not a difference between the build and the print: the build
+matches both prints. It is whether the front the prints show still stood on 1 July 1904. Read on
+2026-11-21:
+
+- **The remodel's date.** The Ryerson and Burnham Archives' building index gives the house as
+  'Meeker, Arthur, Residence; Heath, D.C., and Company Building', Burnham and Root 1882, 'Heun,
+  Arthur [1902 remodeling]', 'sold to Arthur Meeker, 1902, who drastically remodeled the
+  residence' (`aic_rba_index_1815_meeker_residence`). Glessner House: 'In 1902, the house was sold
+  to Arthur Meeker ... Meeker had the house significantly remodeled from plans prepared by
+  architect Arthur Heun' (`glessner_blog_sears_meeker_1815_heun_remodel`). The Meekers' son was
+  born on Prairie Avenue in 1902 (Tribune, 1949, on Chicagology's page). Against them stands only
+  the 1915 Tribune's loose 'about ten years ago'. So the remodel most likely came in 1902-1903,
+  before the 1904 target.
+- **Not read on the page.** The finding aid and the Chicago Collections record both answered
+  this runner with a browser challenge (403); their wording is as web-search excerpts gave it.
+  Both source records are `verified: false` and say so.
+- **The dated picture.** The Chicago Daily News photographed 'Arthur Meeker residence showing the
+  front and one side with yard' in 1908 (DN-0005529, Chicago History Museum;
+  `cdn_dn0005529_meeker_residence_1908`). It is the only known picture of the house after the
+  sale, so it shows the remodelled front, or proves the remodel left the front alone. It is not
+  in the image store; the store's fetch queue needs a direct image URL, which the catalogue page
+  (unreachable here) would give.
+- **Not tried, and worth trying:** the daily building-permit columns of the Inter Ocean and the
+  Tribune for 1902-1903 (a line for 1815 Prairie, Arthur Meeker, alterations, Arthur Heun), and
+  the Chicago Architectural Club's 1903 exhibition catalogue.
+
+The build is unchanged: the photographs stay the 1904 front under `L-k01-1815-sears-1893`, now
+weighed as most likely superseded by 1904. Which way to go is the owner's: T-3562 carries the
+question (decision pending).
