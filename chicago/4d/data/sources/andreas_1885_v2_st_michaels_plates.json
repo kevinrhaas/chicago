@@ -1,0 +1,28 @@
+{
+  "id": "andreas_1885_v2_st_michaels_plates",
+  "type": "illustration",
+  "citation": "'Ruins, St. Michael's Church', wood engraving (Blomgren Bros., Chicago), in A. T. Andreas, History of Chicago, vol. 2 (Chicago: A. T. Andreas, 1885), p. 405.",
+  "author": "Blomgren Bros., engravers, Chicago (signed at lower left)",
+  "date": "1885",
+  "describes_date": "October 1871, the church's walls standing after the fire",
+  "repository": "Internet Archive, item historyofchicago02andr (printed page 405). The engraving is committed at data/sources/assets/landmarks_1871_t3689/andreas_v2_p405_st_michaels_ruins.jpg.",
+  "url": "https://archive.org/details/historyofchicago02andr/page/405/mode/1up",
+  "locator": "Vol. 2, p. 405, the engraving beside the account of St. Michael's parish: the burnt-out church from the north-west, across Linden Street; the broken tower on the front's east corner, the nave gable with its round window, the west aisle's gable and a pinnacled corner buttress, the Hurlbut Street side running away to the right; bare trees and brick rubble in the foreground.",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1885 in the United States; public domain.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Internet Archive's page image of p. 405 (2306 x 3299 px); the engraving cropped and committed at 1140 x 1035 px, sha256 4fd37a22d50669a2e3c4b5bd83a3ae7179046a17c49dd6835f6240ab8b58b36a.",
+  "note": "Drawn for the 1885 history, most likely from a photograph of the ruins. It shows what stood after the fire: the walls, without roof, steeple or glass.",
+  "what_it_supplies": [
+    "the church's front and west side, and the tower's place on the front's east corner",
+    "the walls' heights against the church's 80-foot width",
+    "that the walls stood after the fire"
+  ],
+  "what_it_does_not_supply": [
+    "the roof, the steeple and the bells (burned)",
+    "the east side and the rear",
+    "measured proportions (an engraving)"
+  ]
+}

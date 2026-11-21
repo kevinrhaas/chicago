@@ -1,0 +1,59 @@
+{
+  "id": "sullivan_house_1871",
+  "scene": "1871",
+  "name": "Dennis Sullivan's house",
+  "address": "134 DeKoven Street",
+  "status": {
+    "text": "Survived the fire",
+    "today": "Later houses, then city buildings",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Its later history is not researched here."
+  },
+  "built": {
+    "year": 1864,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing in October 1871 (Andreas, volume two). Nobody recorded when it was built; 1864 stands in for the years before the fire."
+  },
+  "use": "Family home",
+  "summary": "The house across the street from the O'Learys. Dennis Sullivan sat by its fence when he saw the barn burning. He ran across to help.",
+  "key": [
+    {
+      "label": "Across from",
+      "value": "The O'Leary place",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The fire ran north and east, so the houses on this side of the street were spared.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-08",
+      "text": "Sullivan sees the fire across the street and raises the alarm.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

@@ -55,6 +55,9 @@ GENERATOR = "chicago-4d generators/archetypes/landmark_1871.py (T-3688)"
 ROOT = Path(__file__).resolve().parents[2]
 STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04
+T1835 = ROOT / "assets" / "textures" / "chicago_1835_pbr"     # the 1835 town's wood (T-3689)
+#: the 1835 maps are 1024 px PNG masters; a landmark embeds them at this size, as JPEG
+K1835_PX = 256
 BRICK = ROOT / "assets" / "textures" / "prairie_1904_brick"   # K03
 
 CONF = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
@@ -80,11 +83,30 @@ MATERIALS = {
     "iron": (None, None, (0.05, 0.05, 0.055), 0.55, "iron", {}),
     "clock": (None, None, (0.80, 0.78, 0.72), 0.5, "roof", {}),
     "awning": (None, None, (0.62, 0.57, 0.46), 0.95, "roof", {}),
+    # T-3689: the frame city, in the 1835 town's own wood (textures/chicago_1835_pbr):
+    # white-lead clapboard (painted, a record's `tint` gives its colour), the same boards
+    # unpainted and weathered, sawn boards for barns and sheds, and weathered shingles
+    "clapboard": ("k1835", "walls/clapboard_white_lead_paint", (1.0, 1.0, 1.0), 0.7, "walls", {}),
+    "clapboard_bare": ("k1835", "walls/clapboard_weathered_oak", (1.0, 1.0, 1.0), 0.86, "walls", {}),
+    "boards": ("k1835", "walls/vertical_sawn_board", (1.0, 1.0, 1.0), 0.88, "walls", {}),
+    "shingle": ("k1835", "roofs/wood_shingles_weathered", (1.0, 1.0, 1.0), 0.85, "roof", {}),
+    "wood_trim": (None, None, (0.40, 0.37, 0.32), 0.8, "trim", {}),
+    "wood_white": (None, None, (0.80, 0.79, 0.74), 0.7, "trim", {}),
+    # the old City Cemetery's grass-grown grave mounds (T-3689): sod, a flat colour
+    "sod": (None, None, (0.11, 0.15, 0.05), 0.97, "walls", {}),
+    # and the lake shore's sand, the 1835 kit's own dune sand
+    "sand": ("k1835", "ground/lake_michigan_dune_sand", (1.0, 1.0, 1.0), 0.95, "walls", {}),
+    # and the Water Tower's grounds (T-3689): a stone kerb and the iron railing on it, in
+    # the 1835 kit's limestone and forged iron (small maps, where K02's stone is not)
+    "rubble_stone": ("k1835", "masonry/limestone_rubble_lime_mortar", (1.0, 1.0, 1.0), 0.9, "walls", {}),
+    "wrought_iron": ("k1835", "props/wrought_iron_forged", (1.0, 1.0, 1.0), 0.6, "iron", {}),
 }
 ROLE_OF = {k: v[4] for k, v in MATERIALS.items()}
 WALL_MAT = {"marble": "marble_wall", "lockport_marble": "marble_wall", "limestone": "stone_wall",
             "lockport_weathered": "stone_weathered", "limestone_pale": "marble_wall",
-            "brick_red": "brick_wall", "brick_cream": "brick_cream", "iron_stone": "iron_stone"}
+            "brick_red": "brick_wall", "brick_cream": "brick_cream", "iron_stone": "iron_stone",
+            "clapboard": "clapboard", "clapboard_bare": "clapboard_bare", "boards": "boards",
+            "sod": "sod", "sand": "sand", "limestone_rubble": "rubble_stone", "wrought_iron": "wrought_iron"}
 
 
 def _sub(a, b):
@@ -120,6 +142,9 @@ def _tile(mat: str) -> tuple:
         return tuple(json.loads((ROOFS / fab / "material.json").read_text())["tile_m"])
     if lib == "k03":
         return tuple(json.loads((BRICK / "panel" / fab / "material.json").read_text())["tile_m"])
+    if lib == "k1835":
+        span = json.loads((T1835 / fab / "material.json").read_text())["span_m"]
+        return (span, span)
     return (1.0, 1.0)
 
 
@@ -135,7 +160,23 @@ def _images(mat: str) -> dict:
         m = json.loads((BRICK / "panel" / fab / "material.json").read_text())
         return {"basecolor": BRICK / "panel" / fab / m["web"]["basecolor"],
                 "normal": BRICK / "panel" / fab / m["web"]["normal_gl"]}
+    if lib == "k1835":
+        stem = fab.split("/")[-1]
+        return {"basecolor": T1835 / fab / f"{stem}_basecolor.png", "normal": T1835 / fab / f"{stem}_normal_gl.png"}
     return {}
+
+
+def _image_bytes(src: Path) -> bytes:
+    """A map's bytes as the GLB embeds them: the K02-K04 web JPEGs as they are, the 1835
+    PNG masters scaled to K1835_PX and saved as JPEG (as city_context_emit does)."""
+    if src.suffix == ".png":
+        import io
+        from PIL import Image
+        im = Image.open(src).convert("RGB").resize((K1835_PX, K1835_PX), Image.Resampling.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, "JPEG", quality=88, optimize=False)
+        return buf.getvalue()
+    return src.read_bytes()
 
 
 def texture_files() -> list:
@@ -282,6 +323,14 @@ def _arc(o, a, b, zt):
         n = 4
         return [((a + b) / 2 + R * math.sin(-th + 2 * th * i / n), zc + R * math.cos(-th + 2 * th * i / n))
                 for i in range(n + 1)]
+    if kind in ("pointed", "door_pointed"):
+        # an equilateral Gothic head (T-3689): each side struck from the far springer
+        n = 4
+        left = [(b + w * math.cos(math.pi - (math.pi / 3) * i / n), zt + w * math.sin(math.pi - (math.pi / 3) * i / n))
+                for i in range(n + 1)]
+        right = [(a + w * math.cos(math.pi / 3 - (math.pi / 3) * i / n), zt + w * math.sin(math.pi / 3 - (math.pi / 3) * i / n))
+                 for i in range(1, n + 1)]
+        return left + right
     return [(a, zt), (b, zt)]
 
 
@@ -291,6 +340,8 @@ def _rise(o, w):
         return w / 2
     if k == "segment":
         return o.get("rise", w * 0.15)
+    if k in ("pointed", "door_pointed"):
+        return w * math.sqrt(3) / 2
     return 0.0
 
 
@@ -386,7 +437,7 @@ def opening_fill(m: Mesh, fr: Frame, o, conf, trim="stone_trim"):
         mat = "iron" if kind == "store" else "sash"
         for k, v in bars:
             if k == "v":
-                top = zh if kind in ("round", "pair_round", "segment", "oculus") else zt
+                top = zh if kind in ("round", "pair_round", "segment", "oculus", "pointed") else zt
                 m.quad(mat, fr.p(v - bar / 2, zs, gd), fr.p(v + bar / 2, zs, gd),
                        fr.p(v + bar / 2, top, gd), fr.p(v - bar / 2, top, gd), conf, fr.out)
             else:
@@ -398,7 +449,7 @@ def opening_fill(m: Mesh, fr: Frame, o, conf, trim="stone_trim"):
             m.quad("sash", fr.p(a, zs, gd), fr.p(a + f, zs, gd), fr.p(a + f, zt, gd), fr.p(a, zt, gd), conf, fr.out)
             m.quad("sash", fr.p(b - f, zs, gd), fr.p(b, zs, gd), fr.p(b, zt, gd), fr.p(b - f, zt, gd), conf, fr.out)
     # sill
-    if kind not in ("store", "door_round", "door_flat", "oculus"):
+    if kind not in ("store", "door_round", "door_flat", "door_pointed", "oculus"):
         fr.fbox(m, trim, a - 0.1, b + 0.1, zs - 0.12, zs, -0.02, 0.09, conf, skip=("bottom",))
     hood = o.get("hood", "none")
     if hood == "cornice":
@@ -599,6 +650,30 @@ def brackets(m, mat, box, sides, z, proj, spacing, conf):
             fr.fbox(m, mat, s - 0.11, s + 0.11, z - 0.62, z - 0.3, 0.0, proj * 0.92, conf, skip=("top",))
 
 
+def battlement(m: Mesh, pts, z, spec, mat, conf):
+    """A crenellated parapet (T-3689) along the closed ring `pts` (anticlockwise seen from
+    above) from z: a solid band `base` high, then merlons `merlon` wide and `h` high with
+    `gap` between them, `depth` thick, set flush with the wall face."""
+    h, base = spec.get("h", 0.9), spec.get("base", 0.35)
+    mw, gap, dep = spec.get("merlon", 0.8), spec.get("gap", 0.55), spec.get("depth", 0.45)
+    proj = spec.get("proj", 0.0)
+    n = len(pts)
+    for i in range(n):
+        a, b = pts[i], pts[(i + 1) % n]
+        L = math.hypot(b[0] - a[0], b[1] - a[1])
+        if L < 1e-6:
+            continue
+        t = ((b[0] - a[0]) / L, (b[1] - a[1]) / L)
+        fr = Frame(a, t, (t[1], -t[0]))
+        fr.fbox(m, mat, -proj, L + proj, z, z + base, -dep, proj, conf, skip=("bottom",))
+        k = max(1, round((L + gap) / (mw + gap)))
+        w = (L + gap) / k - gap
+        for j in range(k):
+            s0 = j * (w + gap)
+            fr.fbox(m, mat, s0 - (proj if j == 0 else 0.0), s0 + w + (proj if j == k - 1 else 0.0),
+                    z + base, z + base + h, -dep, proj, conf, skip=("bottom",))
+
+
 def roof(m: Mesh, block, ztop, conf, sides):
     x0, y0, x1, y1 = block["box"]
     r = block.get("roof") or {"kind": "flat"}
@@ -613,6 +688,9 @@ def roof(m: Mesh, block, ztop, conf, sides):
                 fr.fbox(m, "stone_trim", -0.05, L + 0.05, ztop + par, ztop + par + 0.12, -0.42, 0.06, conf)
         m.face("tin_dark" if cov == "slate" else cov,
                [(x0, y0, ztop + 0.04), (x1, y0, ztop + 0.04), (x1, y1, ztop + 0.04), (x0, y1, ztop + 0.04)], conf, (0, 0, 1))
+        if block.get("battlement"):
+            battlement(m, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], ztop + (par or 0), block["battlement"],
+                       WALL_MAT[block.get("wall", "limestone")], conf)
         return ztop + (par or 0)
     if kind == "hip":
         h = r["h"]
@@ -631,6 +709,32 @@ def roof(m: Mesh, block, ztop, conf, sides):
             m.face(cov, [(*ring[3], ztop), (*ring[0], ztop), (*ridge[0], ztop + h), (*ridge[1], ztop + h)], conf, (-1, 0, 1))
             m.face(cov, [(*ring[0], ztop), (*ring[1], ztop), (*ridge[0], ztop + h)], conf, (0, -1, 1))
             m.face(cov, [(*ring[2], ztop), (*ring[3], ztop), (*ridge[1], ztop + h)], conf, (0, 1, 1))
+        return ztop + h
+    if kind == "gable":
+        # T-3689: a pitched roof over a frame house or barn, its ridge along the block's
+        # longer side unless `ridge` names the axis ("x" or "y"); the gable ends are
+        # closed in the block's own wall, the eaves and rakes run out by `eave`.
+        h = r["h"]
+        e = r.get("eave", 0.3)
+        wmat = WALL_MAT[block.get("wall", "limestone")]
+        along_x = r.get("ridge", "x" if (x1 - x0) >= (y1 - y0) else "y") == "x"
+        if along_x:
+            ym = (y0 + y1) / 2
+            a0, a1 = x0 - e, x1 + e
+            m.face(cov, [(a0, y0 - e, ztop - e * h / ((y1 - y0) / 2)), (a1, y0 - e, ztop - e * h / ((y1 - y0) / 2)),
+                         (a1, ym, ztop + h), (a0, ym, ztop + h)], conf, (0, -1, 1))
+            m.face(cov, [(a1, y1 + e, ztop - e * h / ((y1 - y0) / 2)), (a0, y1 + e, ztop - e * h / ((y1 - y0) / 2)),
+                         (a0, ym, ztop + h), (a1, ym, ztop + h)], conf, (0, 1, 1))
+            m.face(wmat, [(x0, y0, ztop), (x0, y1, ztop), (x0, ym, ztop + h)], conf, (-1, 0, 0))
+            m.face(wmat, [(x1, y0, ztop), (x1, y1, ztop), (x1, ym, ztop + h)], conf, (1, 0, 0))
+        else:
+            xm = (x0 + x1) / 2
+            a0, a1 = y0 - e, y1 + e
+            dz = e * h / ((x1 - x0) / 2)
+            m.face(cov, [(x0 - e, a1, ztop - dz), (x0 - e, a0, ztop - dz), (xm, a0, ztop + h), (xm, a1, ztop + h)], conf, (-1, 0, 1))
+            m.face(cov, [(x1 + e, a0, ztop - dz), (x1 + e, a1, ztop - dz), (xm, a1, ztop + h), (xm, a0, ztop + h)], conf, (1, 0, 1))
+            m.face(wmat, [(x0, y0, ztop), (x1, y0, ztop), (xm, y0, ztop + h)], conf, (0, -1, 0))
+            m.face(wmat, [(x0, y1, ztop), (x1, y1, ztop), (xm, y1, ztop + h)], conf, (0, 1, 0))
         return ztop + h
     # mansard: a curved or straight lower slope to a curb, then a low deck
     h = r["h"]
@@ -768,6 +872,12 @@ def tower(m: Mesh, t, conf):
             ring2 = [(cx + R2 * math.cos(rot + 2 * math.pi * i / sides), cy + R2 * math.sin(rot + 2 * math.pi * i / sides))
                      for i in range(sides)]
             m.prism("stone_trim", ring2, z + h - 0.05, z + h + 0.3, conf, top=True, bottom=True)
+        if st.get("battlement"):
+            bt = st["battlement"]
+            Rt = R + bt.get("out", 0.0)
+            ringt = [(cx + Rt * math.cos(rot + 2 * math.pi * i / sides), cy + Rt * math.sin(rot + 2 * math.pi * i / sides))
+                     for i in range(sides)]
+            battlement(m, ringt, z + h + (0.3 if st.get("cornice", True) else 0.0), bt, wallmat, conf)
         if st.get("balustrade"):
             Rb = R + st.get("cornice_proj", 0.35) - 0.1
             ringb = [(cx + Rb * math.cos(rot + 2 * math.pi * i / sides), cy + Rb * math.sin(rot + 2 * math.pi * i / sides))
@@ -904,7 +1014,7 @@ def steps(m, blocks, p, conf):
     fr, L = face_frame(b["box"], p["face"])
     n, rise, tread = p["n"], p.get("rise", 0.17), p.get("tread", 0.32)
     for i in range(n):
-        fr.fbox(m, "stone_trim", p["s0"], p["s1"], 0.0, rise * (n - i), 0.0, tread * (i + 1) + p.get("landing", 0.0) * (i == 0),
+        fr.fbox(m, p.get("material", "stone_trim"), p["s0"], p["s1"], 0.0, rise * (n - i), 0.0, tread * (i + 1) + p.get("landing", 0.0) * (i == 0),
                 conf, skip=("bottom",))
 
 
@@ -1000,7 +1110,7 @@ def glb(params: LandmarkParams, structure_id: str, phase_id: str, fire: dict | N
         for r_, src in imgs.items():
             if (fab, r_) not in image_of:
                 images.append({"name": src.stem.removesuffix("_web"), "mimeType": "image/jpeg",
-                               "bufferView": view(src.read_bytes())})
+                               "bufferView": view(_image_bytes(src))})
                 textures.append({"sampler": 0, "source": len(images) - 1})
                 image_of[(fab, r_)] = len(textures) - 1
         if imgs:

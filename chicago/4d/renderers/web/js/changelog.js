@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3178, ts: '2026-11-21T07:09:42.523Z', date: 'Nov 21, 2026, 1:09 AM CT', title: '2108 Prairie\'s basement lights stand tall and barred, as sketched in 1898', kind: 'improvement',
+    items: [
+      '2108 Prairie, the Mark Kimball house, now has the tall iron-barred basement lights the Tribune\'s 1898 sketch shows: each about two thirds of the basement\'s height under a curved head of iron, set in a stone base of four courses, where before they were short, plain windows half that height. The house now matches its picture.',
+    ] },
   { v: 3177, ts: '2026-11-21T06:35:15.384Z', date: 'Nov 21, 2026, 12:35 AM CT', title: 'Music under the narrated jaunts', kind: 'feature',
     items: [
       'The narrated 1812 and 1904 jaunts now have their own score, and so does every grade version of them: twenty-two jaunts, a hundred and ten in all.',
