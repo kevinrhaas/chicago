@@ -709,6 +709,7 @@ class Entrance(Opening):
         # T-2960: open under the deck, each post runs on down past it to grade, the pier the
         # deck stands on, clear in front of the void the terrace's face is set back to
         ou = V.get("open_under")
+        cl = V.get("columns")
         y_foot = -self.v["stair"]["floor_m"] if ou else 0.0
         if ou and not 0.0 < ou["skirt_m"] < -y_foot:
             raise ValueError(f"the deck's skirt is {ou['skirt_m']} m, and the deck stands {-y_foot:.3f} m high")
@@ -716,16 +717,31 @@ class Entrance(Opening):
             raise ValueError(f"the void under the deck is set back {ou['recess_m']} m, behind posts "
                              f"{L - oc + ps / 2:.3f} m deep: it must clear them")
         for i, x in enumerate(V["posts_s_m"]):
-            a, b = x - ps / 2, x + ps / 2
+            a, b = (x - cl["pedestal_m"][0] / 2, x + cl["pedestal_m"][0] / 2) if cl else (x - ps / 2, x + ps / 2)
             if not any(s0 - 1e-6 <= a and b <= s1 + 1e-6 for s0, s1 in spans):
                 raise ValueError(f"veranda post {i + 1} at s {x:+.3f} does not stand on the deck {spans}")
             if a < c + half - 1e-6 and b > c - half + 1e-6:
                 raise ValueError(f"veranda post {i + 1} at s {x:+.3f} stands in the flight's mouth "
                                  f"(s {c - half:+.3f}..{c + half:+.3f})")
-            self._box("post", a, b, y_foot, ph, oc - ps / 2, oc + ps / 2, skip=("bottom", "top"))
-            self.probe(x, ph / 2, oc + ps / 2, ("post",), f"veranda post {i + 1}")
+            if cl:
+                # T-3666: a round column on a square pedestal under a square capital (2109's,
+                # the Armour photograph), its pier carried on down to grade where open under
+                (pw, pdh), (cw, chh), r = cl["pedestal_m"], cl["capital_m"], cl["diameter_m"] / 2
+                if y_foot < 0.0:
+                    self._box("post", x - pw / 2, x + pw / 2, y_foot, 0.0, oc - pw / 2, oc + pw / 2,
+                              skip=("bottom", "top"))
+                self._box("post", x - pw / 2, x + pw / 2, 0.0, pdh, oc - pw / 2, oc + pw / 2,
+                          skip=("bottom",))
+                self._turn((x, oc), [(r, pdh), (r, ph - chh)], 12, role="post")
+                self._box("post", x - cw / 2, x + cw / 2, ph - chh, ph, oc - cw / 2, oc + cw / 2,
+                          skip=("top",))
+                self.probe(x, pdh / 2, oc + pw / 2, ("post",), f"veranda column {i + 1}'s pedestal")
+            else:
+                self._box("post", a, b, y_foot, ph, oc - ps / 2, oc + ps / 2, skip=("bottom", "top"))
+            self.probe(x, ph / 2, oc + (r if cl else ps / 2), ("post",), f"veranda post {i + 1}")
             if ou:
-                self.probe(x, y_foot / 2, oc + ps / 2, ("post",), f"veranda post {i + 1}'s pier")
+                self.probe(x, y_foot / 2, oc + (cl["pedestal_m"][0] if cl else ps) / 2, ("post",),
+                           f"veranda post {i + 1}'s pier")
         yb0, yb1 = ph, ph + bh
         self._box("beam", sa, sb, yb0, yb1, oc - bw / 2, oc + bw / 2, skip=("top",))
         # the roof: soffit, fascia, the front slope and a hip at each end, closed on the wall
@@ -747,7 +763,9 @@ class Entrance(Opening):
         self.probe((ra + rb) / 2, ye, Lo / 2, ("porch_roof",), "the veranda's soffit")
         self.meta["veranda"] = {"posts_s_m": list(V["posts_s_m"]), "post_top_m": ph, "beam_y_m": [yb0, yb1],
                                 "roof_y_m": [ye, yr], "extent_s": [ra, rb], "extent_out_m": round(Lo, 4),
-                                **({"post_foot_m": y_foot, "open_under": dict(ou)} if ou else {})}
+                                **({"post_foot_m": y_foot, "open_under": dict(ou)} if ou else {}),
+                                **({"columns": {k: (list(v) if isinstance(v, list) else v) for k, v in cl.items()}}
+                                   if cl else {})}
 
     # T-2530: a side stoop (1621's, the Building Budget drawing's) ------------------------
     def _side_stoop(self):
