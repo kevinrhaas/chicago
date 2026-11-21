@@ -1,0 +1,28 @@
+{
+  "id": "chicago_evening_post_1868_court_house_wings",
+  "type": "newspaper",
+  "citation": "Notice of the planned east wing of the Court House, Chicago Evening Post, 2 October 1868. Transcribed on chicagology.com, \"Court House\" (pre-fire series, page prefire003).",
+  "author": "Chicago Evening Post",
+  "date": "1868-10-02",
+  "describes_date": "1868-10 (the wing as planned, before it was built)",
+  "repository": "Chicago Evening Post; transcription on chicagology.com.",
+  "url": "https://chicagology.com/prefire/prefire003/",
+  "locator": "The 1868 notice of the Clark Street (east) wing on the Chicagology Court House page: \"It will be 130 feet long and 80 feet wide, the Italian style, probably of Lockport, New York, marble\"; the same notice says a like wing was planned on the west side, without sizes.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A US newspaper notice published in 1868, in the public domain. Read for the planned wing's size and style; no asset is derived from it.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-21 (T-3688) from the chicagology.com transcription. The text should be re-checked against the Evening Post's own page; until it is, what it gives is held as inferred. The same Chicagology page quotes the Evening Post of 19 April and 25 August 1869 (the east wing's \"three or four stories of masonry above\") and the Chicago Tribune of 24 February 1870 (room sizes inside the finished wings, a sub-basement under the west wing, \"the entire cost of both wings will reach about $600,000\"); none of those gives the wings' outside size.",
+  "note": "THE ONLY WING SIZE FOUND. The 1853 Court House was the 100-foot square house with its north and south projections; the wings that the county (east) and the city (west) added in 1869-70 are pictured in the stereographs but sized nowhere else that was read. This notice gives the planned east wing as 130 feet long and 80 feet wide. The 1853 building's own depth north and south was 130 feet (Chicago Tribune, 25 January 1853, quoted on the same page), so the wing is read as 130 feet north and south, the full depth of the house, and 80 feet east and west. That reading is checked by the Library of Congress stereograph's camera: fitted with the wings at that size, the cupola's observatory gallery lands within a metre of the 120 feet that Chicago Illustrated (1866) gives for it.\n\nWHAT IT IS AND IS NOT: a plan in a newspaper before the wing was built. It is not a measurement of the finished wing, and it gives no size at all for the west wing, which is built here as the east wing's twin because the stereographs show the two alike.",
+  "what_it_supplies": [
+    "the planned east (Clark Street) wing's size: 130 feet long by 80 feet wide",
+    "its style, Italian, and its intended stone, Lockport marble",
+    "that a like wing was planned on the west side"
+  ],
+  "what_it_does_not_supply": [
+    "the wings as built: it describes the east wing before construction",
+    "any size for the west wing",
+    "the wings' height, storey heights or bay rhythm, which the stereographs show"
+  ]
+}
