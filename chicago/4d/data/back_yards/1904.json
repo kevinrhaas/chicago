@@ -15874,20 +15874,20 @@
      "material": "yard_brick",
      "polygon_local_m": [
       [
-       1441.37,
-       -3645.28
+       1442.34,
+       -3640.77
       ],
       [
-       1441.4,
-       -3648.99
+       1442.36,
+       -3643.49
       ],
       [
-       1447.23,
-       -3648.95
+       1445.41,
+       -3643.46
       ],
       [
-       1447.2,
-       -3645.24
+       1445.38,
+       -3640.75
       ]
      ],
      "along_deg": 179.55,
@@ -15901,22 +15901,22 @@
     {
      "id": "prairie_2109:back_door",
      "structure": "roloson_house_2109_prairie",
-     "e": 1441.4,
-     "n": -3647.14,
+     "e": 1442.65,
+     "n": -3642.63,
      "facing_deg": 89.55,
-     "sill_m": 1.5,
+     "sill_m": 0.18,
      "width_m": 0.95,
-     "height_m": 2.2,
+     "height_m": 1.9,
      "leaf": true,
      "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
+      "depth_m": 0.0,
+      "width_m": 1.2,
+      "risers": 1,
+      "run_m": 0.28,
       "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.18 m up, 1 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],

@@ -241,7 +241,13 @@
               "sill_m": 0.15
             },
             "surround_m": 0.2,
-            "face_setback_m": 0.05
+            "face_setback_m": 0.05,
+            "eared_hood": {
+              "band_m": 0.1,
+              "proud_m": 0.08,
+              "ear_m": 0.08,
+              "drop_m": 0.25
+            }
           },
           {
             "face": "street",
@@ -253,7 +259,13 @@
               "sill_m": 0.15
             },
             "surround_m": 0.2,
-            "face_setback_m": 0.05
+            "face_setback_m": 0.05,
+            "eared_hood": {
+              "band_m": 0.1,
+              "proud_m": 0.08,
+              "ear_m": 0.08,
+              "drop_m": 0.25
+            }
           }
         ],
         "deck": {}
@@ -262,7 +274,7 @@
       "sources": [
         "chicagology_2115_armour_photo"
       ],
-      "note": "The photograph's mansard over the front: its face rising about 2.2 m from the cornice to the deck's cornice (y 340-150 px, about 85 px a metre on the front through the solved camera), and in it over the south bay's light a round-headed dormer, its sash about 0.9 m across and 1.5 m high, framed by a carved surround with a scrolled hood (x 15-160, y 160-340 px). The north part of the front is out of the frame: a second dormer over the north bay is reconstructed to balance it (the middle bay's light under the deck has none, as a three-bay front's centre often had not)."
+      "note": "The photograph's mansard over the front: its face rising about 2.2 m from the cornice to the deck's cornice (y 340-150 px, about 85 px a metre on the front through the solved camera), and in it over the south bay's light a round-headed dormer, its sash about 0.9 m across and 1.5 m high, framed by a carved surround with a scrolled hood (x 15-160, y 160-340 px). The north part of the front is out of the frame: a second dormer over the north bay is reconstructed to balance it (the middle bay's light under the deck has none, as a three-bay front's centre often had not). T-3666 (sign-off): the south dormer's carved surround laid as K01's eared hood — a moulded band round its round head with small ears standing out at the springing and dropping below it (x 15-160, y 160-340 px), as 2115's from the same photograph: the band 0.1 m and the ears 0.08 m, so the whole stands about 1.66 m across against the print's 1.5 m; the north dormer, out of frame, repeats it (reconstructed). The carving's scrolls and the keystone are under 0.3 m of relief and not laid."
     },
     "rainwater": {
       "value": {
@@ -361,7 +373,7 @@
           "height_m": 3.0
         },
         {
-          "sill_above_floor_m": 0.6,
+          "sill_above_floor_m": 0.2,
           "width_m": 1.05,
           "height_m": 2.3
         }
@@ -370,7 +382,7 @@
       "sources": [
         "chicagology_2115_armour_photo"
       ],
-      "note": "The photograph's second-storey light about 1.05 m wide and 2.3 m to its round head (x 55-150, y 470-700 px), its sill about 0.6 m over the floor; the principal storey's taller, as the avenue's were and as the veranda shows it rising behind the columns, 3.0 m."
+      "note": "The photograph's second-storey light about 1.05 m wide and 2.3 m to its round head (x 55-150, y 470-700 px), its sill about 0.6 m over the floor; the principal storey's taller, as the avenue's were and as the veranda shows it rising behind the columns, 3.0 m. T-3666 (sign-off): the upper storey's sill brought down to 0.2 m over its floor, the south bay's light standing on the veranda's roof line as the print draws it (sill y 700, head y 495 px) where the render had it about 38 px (0.4 m) higher at the same size."
     },
     "basement_lights": {
       "value": {
@@ -467,17 +479,17 @@
           },
           "veranda": {
             "posts_v_m": [
-              0.15,
+              0.25,
               2.6,
-              5.1,
-              7.57
+              4.35,
+              6.1
             ],
             "post_m": 0.28,
-            "height_m": 4.0,
+            "height_m": 3.55,
             "inset_m": 0.1,
             "beam_m": [
-              0.6,
-              0.3
+              0.3,
+              0.6
             ],
             "roof": {
               "overhang_m": 0.15,
@@ -487,36 +499,49 @@
             "open_under": {
               "skirt_m": 0.15,
               "recess_m": 0.4
+            },
+            "columns": {
+              "diameter_m": 0.28,
+              "pedestal_m": [
+                0.45,
+                0.75
+              ],
+              "capital_m": [
+                0.4,
+                0.25
+              ]
             }
           }
         }
       },
       "confidence": "reconstructed",
-      "note": "The veranda across the front, which the sheet draws in yellow (frame) 1.8 m deep and the photograph shows on columns about 0.28 m through, under a deep plain entablature (beam 0.6 m) and an almost flat roof (y 700-745 px), its balustrade of turned balusters between pedestals and its floor on open piers. The door behind it and the steps up to it are out of the frame: a panelled door in the north bay under the veranda, reconstructed; the posts at the front's corners and between the bays."
+      "note": "The veranda across the front, which the sheet draws in yellow (frame) 1.8 m deep and the photograph shows on columns about 0.28 m through, under a deep plain entablature (beam 0.6 m) and an almost flat roof (y 700-745 px), its balustrade of turned balusters between pedestals and its floor on open piers. The door behind it and the steps up to it are out of the frame: a panelled door in the north bay under the veranda, reconstructed; the posts at the front's corners and between the bays. T-3666 (sign-off): the front run laid as the photograph draws it — round columns 0.28 m through on square pedestals 0.75 m high (y 1040-1110 px, the balustrade's top level with theirs) under square capitals, the entablature 0.6 m deep like the south run's (y 700-780 px); the nearest front column at x 60 px, v 6.1 through the solved camera, and none at the house's south corner (x 221 px shows the corner's pilaster, not a post). The columns north of it stand at the old posts' places beside the flight (out of frame, reconstructed), the third midway between."
     },
     "side_porch": {
       "value": {
         "wall": "k01.wall.side.north",
         "s_m": [
-          0.0,
+          -1.8,
           7.81
         ],
         "out_m": 2.7,
         "floor_m": 1.7,
-        "head_m": 5.7,
-        "closed_end": "low",
+        "head_m": 5.25,
+        "closed_end": "high",
         "columns": {
           "diameter_m": 0.28,
           "front": [
-            0.3,
-            2.8,
-            5.3,
-            7.51
+            -1.575,
+            1.6,
+            4.6,
+            7.585
           ],
-          "end": [],
+          "end": [
+            0.58
+          ],
           "plinth_m": [
             0.45,
-            0.6
+            0.75
           ],
           "capital_m": [
             0.4,
@@ -528,7 +553,7 @@
           "proud_m": 0.15
         },
         "balustrade": {
-          "height_m": 0.4,
+          "height_m": 0.75,
           "post_m": 0.2,
           "baluster_m": 0.06,
           "pitch_m": 0.15,
@@ -536,14 +561,19 @@
             0.12,
             0.08
           ]
-        }
+        },
+        "open_under": {
+          "pier_m": 0.45,
+          "skirt_m": 0.2
+        },
+        "balustrade_at": "deck"
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2115_armour_photo"
       ],
-      "note": "The veranda's run down the south side, which the sheet draws 2.7 m deep (14.5 px) from the front back to where the rear block steps out south, and the photograph shows on round columns receding along it (x 520, 460, 400, 340 px), paired at the corner on pedestals, under the same deep entablature. K01's side porch carries a low balustrade on its roof that the photograph does not show (liberty)."
+      "note": "The veranda's run down the south side, which the sheet draws 2.7 m deep (14.5 px) from the front back to where the rear block steps out south, and the photograph shows on round columns receding along it (x 520, 460, 400, 340 px), paired at the corner on pedestals, under the same deep entablature. K01's side porch carries a low balustrade on its roof that the photograph does not show (liberty). T-3666 (sign-off): the run now turns the corner — it starts 1.8 m before the front's plane, so the veranda's south-west corner column stands where the photograph has it (u 9.61, v 10.42 at x 515 px) and the front run's last column before it at x 300 px (0.58 m out from the house's south wall); the corner's square is this porch's deck. Its floor on open square piers 0.45 m through under every column (x 300-517, y 1130-1280 px) where it stood on a solid podium; its balustrade at the deck between the columns' pedestals (y 1040-1110 px) where it stood on the roof, which the photograph shows flat and bare. Its rear end is left open: the rear block steps out only about 0.5 m behind it (rear_wings). The run's four columns (x 517, 450, 397, 350 px) are laid at equal spacing to the front block's rear corner; the print's last two stand 25-50 px left of the render's, along a run seen almost end-on, where the camera's uncertain distance sets the spacing. Its head brought down to 5.25 m (and the front run's posts to 3.55 m over the deck) where the render stood the entablature's top about 50 px (0.5 m) over the print's (y 705 px): the shafts about 3.0 m between capital and pedestal (y 772-1050 px)."
     },
     "rear_wings": {
       "value": [
@@ -553,7 +583,7 @@
             -5.25,
             0.0,
             0.0,
-            10.04
+            8.22
           ],
           "past_host": true,
           "floor_m": 1.7,
@@ -594,7 +624,7 @@
             -9.85,
             -5.25,
             2.43,
-            10.04
+            8.22
           ],
           "floor_m": 1.7,
           "storey_heights_m": [
@@ -618,8 +648,8 @@
               2.3
             ],
             "rear": [
-              2.5,
-              5.5
+              1.7,
+              4.1
             ]
           },
           "roof": {
@@ -670,7 +700,7 @@
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2115_armour_photo"
       ],
-      "note": "The sheet's plan behind the front block (0.186 m a pixel): the brick body steps out 2.32 m south of the front block 15.25 m from the street line (column 960), where the veranda's south run ends, and runs back to 25.1 m (column 1013); its north-east corner, 20.5-26.4 m from the street line and 2.43 m in from the north wall, is a yellow (frame) part, a back porch. The rear block stands at the front's height under the '3B', as the photograph shows its cornice beyond the veranda at the step's south-west corner (x 225-285, y 515-540 px): on K01's rear wings, the first running past the main body's south end (past_host) with a front of its own there, under a flat deck behind a timber cornice (reconstructed). The back porch is one storey (reconstructed)."
+      "note": "The sheet's plan behind the front block (0.186 m a pixel): the brick body steps out 2.32 m south of the front block 15.25 m from the street line (column 960), where the veranda's south run ends, and runs back to 25.1 m (column 1013); its north-east corner, 20.5-26.4 m from the street line and 2.43 m in from the north wall, is a yellow (frame) part, a back porch. The rear block stands at the front's height under the '3B', as the photograph shows its cornice beyond the veranda at the step's south-west corner (x 225-285, y 515-540 px): on K01's rear wings, the first running past the main body's south end (past_host) with a front of its own there, under a flat deck behind a timber cornice (reconstructed). The back porch is one storey (reconstructed). T-3666 (sign-off): the photograph through its solved camera shows the step's front, past the front block's corner, only as a narrow dark strip (x 225-247 px, y 573-707) under its bracketed cornice's end (x 225-283 px), with sky beyond it at x 285-340 where a full-height face stepping out 2.32 m would stand (to x 379-415): the full-height rear block is taken to step out about 0.5 m (to v 8.22), the strip's width at the cornice. The rear block's east part is held to the same line: at the sheet's 2.32 m its front corner would stand at x 326-377, y 610-690 px, where the print shows 2115's mansard and dormers instead. What fills the rest of the sheet's step (a part lower than the veranda's roof, hidden behind it, or the coarse copy's error) is unread. The east part's two rear lights (reconstructed) re-spaced on its narrower rear wall."
     },
     "boundary": {
       "value": {

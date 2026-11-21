@@ -858,6 +858,7 @@ def dress_porch(a):
 # (`side_porch`; docs/LIBERTIES.md L-k01-1906-keith-3238).
 
 SIDE_KEYS = {"wall", "s_m", "out_m", "floor_m", "head_m", "closed_end", "columns", "entablature", "balustrade"}
+SIDE_OPTIONAL = {"open_under", "balustrade_at"}      # T-3666
 COLUMN_KEYS = {"diameter_m", "front", "end", "plinth_m", "capital_m"}
 SHAFT_SIDES = 12        # a column's round shaft in this many flat faces
 
@@ -868,15 +869,19 @@ def resolve_side_porch(spec, *, depth, openings) -> dict:
     through its entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or set(spec) != SIDE_KEYS:
-        raise ParamError(f"side_porch takes {sorted(SIDE_KEYS)}")
+    if not isinstance(spec, dict) or not SIDE_KEYS <= set(spec) <= SIDE_KEYS | SIDE_OPTIONAL:
+        raise ParamError(f"side_porch takes {sorted(SIDE_KEYS)} (and {', '.join(sorted(SIDE_OPTIONAL))})")
     wall = spec["wall"]
     if wall not in ("k01.wall.side.north", "k01.wall.side.south"):
         raise ParamError("side_porch.wall: k01.wall.side.north or k01.wall.side.south")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, fl, H = float(spec["out_m"]), float(spec["floor_m"]), float(spec["head_m"])
-    if not 0.0 <= s0 < s1 <= depth or not 2.5 <= s1 - s0 <= 10.0:
-        raise ParamError(f"side_porch.s_m [{s0}, {s1}]: 2.5-10 m along the side wall, inside its {depth} m")
+    # T-3666: on the north wall (its s from the street front) the porch may run on PAST the
+    # front's plane, up to 3 m, to turn the corner of a veranda across the front (2109's)
+    lo = -3.0 if wall == "k01.wall.side.north" else 0.0
+    if not lo <= s0 < s1 <= depth or not 2.5 <= s1 - s0 <= 12.0:
+        raise ParamError(f"side_porch.s_m [{s0}, {s1}]: 2.5-12 m along the side wall, inside its {depth} m"
+                         f"{' (from 3 m before the front)' if lo else ''}")
     if not 1.0 <= out <= 4.0 or not 0.0 <= fl <= 3.0 or not fl + 2.2 <= H <= 9.0:
         raise ParamError("side_porch: 1-4 m out, on a 0-3 m podium, its head at least 2.2 m over the floor (at most 9 m)")
     if spec["closed_end"] not in ("low", "high", None):
@@ -886,10 +891,11 @@ def resolve_side_porch(spec, *, depth, openings) -> dict:
         raise ParamError(f"side_porch.columns takes {sorted(COLUMN_KEYS)}, plinth_m and capital_m [width, height]")
     dia = float(C["diameter_m"])
     (pw, ph), (cw, chh) = (tuple(float(x) for x in C[k]) for k in ("plinth_m", "capital_m"))
-    if not (0.15 <= dia <= 0.6 and dia <= pw <= 1.0 and 0.05 <= ph <= 0.6 and dia <= cw <= 1.0
+    # T-3666: a plinth may be a pedestal up to 1 m high (2109's, level with the deck's rail)
+    if not (0.15 <= dia <= 0.6 and dia <= pw <= 1.0 and 0.05 <= ph <= 1.0 and dia <= cw <= 1.0
             and 0.05 <= chh <= 0.6 and ph + chh + 1.5 <= H - fl):
-        raise ParamError("side_porch.columns: 0.15-0.6 m shafts on plinths and under capitals at least as wide, "
-                         "with at least 1.5 m of shaft between them")
+        raise ParamError("side_porch.columns: 0.15-0.6 m shafts on plinths (to 1 m high) and under capitals at "
+                         "least as wide, with at least 1.5 m of shaft between them")
     front = sorted(float(x) for x in C["front"])
     end = sorted(float(x) for x in C["end"])
     if len(front) < 2 or any(not s0 + pw / 2 - 1e-6 <= x <= s1 - pw / 2 + 1e-6 for x in front):
@@ -913,8 +919,26 @@ def resolve_side_porch(spec, *, depth, openings) -> dict:
                 and o.sill_m < H + eh + 0.05 and o.head_m > H - 0.05:
             raise ParamError(f"side_porch (s {s0}-{s1}, its entablature {H}-{H + eh:.2f} m) stands across the "
                              f"opening at s {o.s_m} on {wall}")
+    # T-3666: open under its deck — the deck a slab `skirt_m` deep on a square pier `pier_m`
+    # wide under each column, down to grade — in place of the solid podium; and the
+    # balustrade laid at the DECK between the columns' plinths in place of on its roof
+    # (2109's, the Armour photograph)
+    ou = spec.get("open_under")
+    if ou is not None:
+        if not isinstance(ou, dict) or set(ou) != {"pier_m", "skirt_m"}:
+            raise ParamError("side_porch.open_under takes pier_m and skirt_m")
+        ou = {k: float(v) for k, v in ou.items()}
+        if not (0.15 <= ou["pier_m"] <= pw + 1e-9 and 0.05 <= ou["skirt_m"] <= fl - 0.5):
+            raise ParamError(f"side_porch.open_under: a pier 0.15 m wide up to its plinth's {pw} m, under a "
+                             f"skirt 0.05 m deep leaving at least 0.5 m of pier under a {fl} m floor")
+    at = spec.get("balustrade_at", "roof")
+    if at not in ("roof", "deck"):
+        raise ParamError("side_porch.balustrade_at: roof (the default) or deck")
+    if at == "deck" and not bh + rd <= H - fl - chh:
+        raise ParamError("side_porch.balustrade_at deck: the rail stands under the capitals")
     return {"wall": wall, "s_m": [s0, s1], "out_m": out, "floor_m": fl, "head_m": H,
             "closed_end": spec["closed_end"],
+            **({"open_under": ou} if ou else {}), **({"balustrade_at": at} if at != "roof" else {}),
             "columns": {"diameter_m": dia, "front": front, "end": end, "plinth_m": [pw, ph], "capital_m": [cw, chh]},
             "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
@@ -956,14 +980,21 @@ def dress_side_porch(a):
             if k not in skip:
                 quad(pts, n, b)
 
-    # the podium: the porch's floor over a stone block from grade, its back the wall
-    if fl > 0.0:
-        box(s0, s1, 0.0, fl, 0.0, out, skip=("back", "bottom"))
-
-    # the columns: a square plinth, a round shaft and a square capital under the entablature
+    # the columns' places: along the front's edge, and across the open end
     dia, (pw, ph), (cw, chh) = C["diameter_m"], C["plinth_m"], C["capital_m"]
     end_s = s1 - pw / 2 if closed == "low" else s0 + pw / 2
     spots = [(x, out - pw / 2) for x in C["front"]] + [(end_s, d) for d in C["end"]]
+
+    # the podium: the porch's floor over a stone block from grade, its back the wall; or
+    # (T-3666) open under, its deck a slab on a pier under each column
+    ou = pc.get("open_under")
+    if ou:
+        box(s0, s1, fl - ou["skirt_m"], fl, 0.0, out, skip=("back",))
+        for (sc, dc) in spots:
+            q = ou["pier_m"] / 2
+            box(sc - q, sc + q, 0.0, fl - ou["skirt_m"], dc - q, dc + q, skip=("bottom", "top"))
+    elif fl > 0.0:
+        box(s0, s1, 0.0, fl, 0.0, out, skip=("back", "bottom"))
     r = dia / 2
     for (sc, dc) in spots:
         box(sc - pw / 2, sc + pw / 2, fl, fl + ph, dc - pw / 2, dc + pw / 2, skip=("bottom",))
@@ -984,8 +1015,15 @@ def dress_side_porch(a):
     Dd, y1 = out + ep, H + eh
     box(S0, S1, H, y1, 0.0, Dd, skip=("back",))
 
-    # the balustrade round the balcony's open sides: posts at its corners and against the wall
     B = pc["balustrade"]
+    if pc.get("balustrade_at") == "deck":
+        nb = _deck_rail(box, B, spots, pw, fl, out, (s0, s1), closed, C)
+        a.seat((O, R, N), [(s, y, 0.0) for s in (max(S0, 0.0), S1) for y in (0.0, y1)], "k01.side_porch")
+        a.side_porch_meta = {"columns": len(spots), "balusters": nb, "top_m": round(y1, 4),
+                             "balustrade_at": "deck", **({"open_under": dict(ou)} if ou else {})}
+        return
+
+    # the balustrade round the balcony's open sides: posts at its corners and against the wall
     pm, bm, (rw, rd) = B["post_m"], B["baluster_m"], B["rail_m"]
     y2, y3 = y1, y1 + B["height_m"]
     yr = y3 - rd
@@ -1018,3 +1056,46 @@ def dress_side_porch(a):
         nb += balusters(pm, F - pm, False, mid(a0, a0 + pm))
     a.seat((O, R, N), [(s, y, 0.0) for s in (S0, S1) for y in (0.0, y3)], "k01.side_porch")
     a.side_porch_meta = {"columns": len(spots), "balusters": nb, "top_m": round(y3, 4)}
+
+
+def _deck_rail(box, B, spots, pw, fl, out, span, closed, C):
+    """T-3666: the side porch's balustrade at its deck — a rail `height_m` high on square
+    balusters, run between the columns' plinths along the porch's front edge and across its
+    open end from the last column to the wall (where a veranda across the front takes it on),
+    so the deck reads as 2109's does in the Armour photograph: railed between pedestals, its
+    roof flat and bare. Returns the balusters laid."""
+    bm, pit, (rw, rd), h = B["baluster_m"], B["pitch_m"], B["rail_m"], B["height_m"]
+    y0, y3 = fl, fl + h
+    yr = y3 - rd
+    n = 0
+
+    def run(a0, a1, fixed, along_s):
+        nonlocal n
+        if a1 - a0 < 2 * bm:
+            return
+        if along_s:
+            box(a0, a1, yr, y3, fixed - rw / 2, fixed + rw / 2, skip=("left", "right"))
+        else:
+            box(fixed - rw / 2, fixed + rw / 2, yr, y3, a0, a1, skip=("back", "front"))
+        k = max(1, math.floor((a1 - a0) / pit))
+        step = (a1 - a0) / (k + 1)
+        for i in range(1, k + 1):
+            m = a0 + i * step
+            if along_s:
+                box(m - bm / 2, m + bm / 2, y0, yr, fixed - bm / 2, fixed + bm / 2, skip=("bottom", "top"))
+            else:
+                box(fixed - bm / 2, fixed + bm / 2, y0, yr, m - bm / 2, m + bm / 2, skip=("bottom", "top"))
+        n += k
+
+    d_front = out - pw / 2
+    xs = sorted(C["front"])
+    for a_, b_ in zip(xs, xs[1:]):
+        run(a_ + pw / 2, b_ - pw / 2, d_front, True)
+    if closed != "high" or C["end"]:
+        # across the open end: from the wall to the end columns and on to the front's corner one
+        end_s = span[1] - pw / 2 if closed == "low" else span[0] + pw / 2
+        ds = sorted(C["end"]) + ([d_front] if any(abs(x - end_s) < 1e-6 for x in xs) else [])
+        stops = [0.0] + ds
+        for k_, (a_, b_) in enumerate(zip(stops, stops[1:])):
+            run(a_ + (0.0 if k_ == 0 else pw / 2), b_ - pw / 2, end_s, False)
+    return n
