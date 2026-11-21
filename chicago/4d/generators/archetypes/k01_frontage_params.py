@@ -3355,6 +3355,30 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         raise ParamError(f"bays: {e['id']}'s in_plinth light is `in_plinth: true` in the lowest "
                                          f"storey of a bay on grade, without a dressing of its own, its sill 0.2 m "
                                          f"up at least and its head 0.15 m under the {ph} m plinth's top")
+                # T-3616: a PLAIN light, cut square through the stone with no sill or head band of
+                # its own (2011's turret's top band, in the Chicagology photograph and the Inland
+                # Architect plate: square lights between plain piers on the band's course): only
+                # a bare light that says why, never a dressed one
+                if "plain" in w:
+                    dressed = any(k in w for k in ("door", "surround", "architrave", "voussoirs", "tympanum",
+                                                   "shutters", "guard", "grille", "in_plinth", "narrow", "pediment"))
+                    if w["plain"] is not True or dressed or not w.get("why_not_ordinary"):
+                        raise ParamError(f"bays: {e['id']}'s plain light is `plain: true` on a light with no "
+                                         f"dressing of its own, and says why (why_not_ordinary)")
+                # T-3616: a THROUGH-PLANE light near the ends of a round tower standing into its wall
+                # (2011's top band, whose end lights both pictures show at the drum's junctions): its
+                # recess runs back through the wall plane into the roof space, so only over the wall
+                # head, its sill at most 0.5 m under the eave, where its host opens round it
+                if "through_plane" in w:
+                    k_ = next(j for j, x in enumerate(v["storeys"]) if x is st)
+                    y_sill = sum(float(x["height_m"]) for x in v["storeys"][:k_]) + float(w["sill_m"])
+                    q = v["plan"]
+                    if w["through_plane"] is not True or v["kind"] != "tower" or q.get("kind") != "circle" \
+                            or not float(q.get("centre_proud_m", 0.0)) < 0.0 or v.get("stage") \
+                            or y_sill < eave - 0.5 or not w.get("plain"):
+                        raise ParamError(f"bays: {e['id']}'s through_plane light is `through_plane: true` on a plain "
+                                         f"light of a round tower whose centre stands inside its wall, its sill at "
+                                         f"most 0.5 m under the {eave} m eave (this one {round(y_sill, 3)} m)")
                 # T-1879: open louvred shutters folded back beside a bay's light, and an iron
                 # guard on a stone slab before its foot (1721's bows and forward block, the 1891
                 # plate). In the light's own frame, so a bow bends them with it

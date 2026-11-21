@@ -325,9 +325,16 @@ def rule_keyed(b, v):
     # from its lowest point (its corbel table under its foot) up
     sg = b.meta.get("stage") or {}
     clear = (lambda p: p[1] >= sg["bottom_m"] - 1e-6) if sg.get("whole") else (lambda p: False)
+    # T-3616: a through-plane light's recess stands behind the plane inside the hole its host
+    # opens round it, no deeper than the recess reaches (rule_through holds the hole to it)
+    tp = [w for w in b.windows if w.get("through_plane")]
+    tp_deep = max((w["recess_m"] for w in tp), default=0.0)
+    in_hole = (lambda role, p: role in K.WINDOW_ROLES and p[2] >= -tp_deep - 1e-6
+               and any(h[0] - 1e-6 <= p[0] <= h[1] + 1e-6 and h[2] - 1e-6 <= p[1] <= h[3] + 1e-6
+                       for h in b.host_holes)) if tp else (lambda role, p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p) and not clear(p)), default=(0.0, None))
+                if not cut(p) and not clear(p) and not in_hole(role, p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
@@ -506,7 +513,9 @@ def rule_recesses(b, v, data):
                 continue
             if slab is not None and w["run"] == -1 and slab((p[0], b.meta["wall_top_m"], p[1])):
                 continue
-            if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
+            # T-3616: a through-plane light's recess runs back through the plane into the roof
+            # space over the eave, where its host opens round it (rule_through checks the hole)
+            if (inside(p[0], p[1]) if inside is not None else p[1] < floor) and not w.get("through_plane"):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
             # T-1890: a staged tower's stage window is held inside the stage's ring, not the shaft's
@@ -527,6 +536,30 @@ def rule_recesses(b, v, data):
             if w1["y"][0] < w2["y"][1] and w2["y"][0] < w1["y"][1] and convex_overlap(w1["footprint"], w2["footprint"]):
                 fails.append(f"recess: the recesses of two windows on storey {w1['storey']} (runs {w1['run']} and "
                              f"{w2['run']}) run into each other")
+    return fails
+
+
+def rule_through(b):
+    """T-3616: a through-plane light's recess crosses the wall plane only inside a hole its
+    host opens there (K08 `host_holes`), so no host face is drawn across its room."""
+    fails = []
+    for w in b.windows:
+        if not w.get("through_plane"):
+            continue
+        foot = w["footprint"]
+        xs = [p[0] for p in foot if p[1] < -EPS]
+        for a, c in zip(foot, foot[1:] + foot[:1]):
+            if (a[1] < 0.0) != (c[1] < 0.0):
+                xs.append(a[0] + (c[0] - a[0]) * (0.0 - a[1]) / (c[1] - a[1]))
+        if not xs:
+            fails.append(f"through: {w['opening']} (run {w['run']}) is marked through_plane but its recess "
+                         f"stays in front of the wall plane")
+            continue
+        y0, y1 = w["y"]
+        if not any(h[0] <= min(xs) + EPS and max(xs) - EPS <= h[1] and h[2] <= y0 + EPS and y1 - EPS <= h[3]
+                   for h in b.host_holes):
+            fails.append(f"through: {w['opening']} (run {w['run']})'s recess crosses the wall plane at x "
+                         f"{min(xs):.3f}..{max(xs):.3f} outside every hole its host opens")
     return fails
 
 
@@ -828,7 +861,7 @@ def check_variant(v, data, full=None, light=None):
     light = light or K.build_variant(v, data, "light", board=False)
     tracer = Tracer(full)
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
-            + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
+            + rule_recesses(full, v, data) + rule_through(full) + rule_doubled(full) + rule_curves(full, data, "full")
             + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
             + rule_costs(full, data, "full") + rule_costs(light, data, "light")
             + rule_winding(full, "full") + rule_winding(light, "light"))
