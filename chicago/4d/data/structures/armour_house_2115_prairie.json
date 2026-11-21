@@ -645,7 +645,8 @@
                 "kind": "hip",
                 "pitch": 0.0,
                 "covering": "tin_flat_seam_painted"
-              }
+              },
+              "plinth_m": 0.05
             }
           ],
           "confidence": "inferred",

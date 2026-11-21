@@ -444,19 +444,35 @@
       }
      },
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
+    },
+    {
+     "id": "armour_house_2115_prairie:back",
+     "leaf": {
+      "local_e": 1448.24,
+      "local_n": -3661.21
+     },
+     "step": {
+      "local_e": 1452.0,
+      "local_n": -3661.18
+     },
+     "outward_deg": 89.6,
+     "width_m": 0.95,
+     "passage": true,
+     "back": true,
+     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2115:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "124a5db63eae38949340a64e8e8074c5118604c08f8c53ec3490bf48eefcfbeb",
+   "model_inputs_sha256": "17e6c69b0a1f2cf25c8ea75a26647fa8659b15e95bd3c2ab01878f8d4e794955",
    "barrier": {
-    "key": "2c2c4216b220bfb4",
+    "key": "3d03dafa351c38e7",
     "cell": 0.1,
     "u0": -6.0,
     "v0": -0.1,
     "count": 20,
-    "rects": "1 2 1 94 2 60 1 2 2 60 93 94 58 59 5 6 59 60 5 7 246 247 12 24 246 247 51 64 246 255 69 71 246 255 118 119 246 267 26 27 247 267 52 53 247 274 23 24 247 274 54 55 249 253 76 86 249 253 103 113 253 255 76 87 253 255 102 113 255 256 69 119 267 274 26 53 274 298 23 55"
+    "rects": "1 2 1 94 2 60 1 2 2 60 93 94 58 59 5 6 59 60 5 7 246 247 12 24 246 247 51 64 246 255 70 71 246 255 118 119 246 267 26 27 247 267 52 53 247 274 23 24 247 274 54 55 249 253 76 86 249 253 103 113 253 255 76 87 253 255 102 113 255 256 70 119 267 274 26 53 274 298 23 55"
    },
    "floor": {
-    "key": "6c985b7881a264d8",
+    "key": "0dedbe3d7b1faee1",
     "cell": 0.1,
     "u0": 18.1,
     "v0": 2.1,
@@ -17503,6 +17519,22 @@
     "local_e": 1364.86,
     "local_n": -3662.82,
     "rotation_deg": 179.46
+   },
+   "barrier": {
+    "cell": 0.1,
+    "u0": 0.05,
+    "v0": -0.75,
+    "count": 1,
+    "rects": "0 34 0 16"
+   },
+   "what": "back stoop"
+  },
+  {
+   "structure": "prairie_2115:back_door:stoop",
+   "placement": {
+    "local_e": 1448.24,
+    "local_n": -3661.21,
+    "rotation_deg": 359.56
    },
    "barrier": {
     "cell": 0.1,
