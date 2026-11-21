@@ -45832,6 +45832,8 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 
 ### L-k01-2013-reid-porch-3626 — 2013 Prairie's rear block re-stacked under an open, roofed porch on its deck, read off the 2003 nomination photographs
 
+**Decision:** T-3626 (piece 2 of T-1916) re-stacks the rear block of `reid_house_2013_prairie` (`rear_2b`) as two enclosed storeys of 4.45 and 4.5 m to a deck at 10.9 m, and builds the nomination's open top floor on that deck with a new K01 part, a flat wing's `roof_porch` (`k01_wing_porch`, `k01.roof_porch.wing.rear_2b`): iron posts at the deck's two rear corners, at u -6.55 on each long side and mid-rear, an iron railing round its three open sides, and a flat tin roof 2.55 m over the deck (13.45-13.8 m), under the 3B part's 13.85 m deck.
+
 **What is read, not invented.** The nomination's "the top floor of the rear section is open to provide a terrace".
 Through the north side's solved camera (`data/reference_views/reid_house_2013_prairie/nrhp_2003_north_side.json`):
 the rear block's brick wall stopping at about 10.9 m under the porch's two openings, a pier between them at about
