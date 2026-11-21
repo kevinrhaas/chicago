@@ -1,0 +1,1269 @@
+{
+  "id": "pumping_works_grounds_1871",
+  "phase": "grounds_1867_1871",
+  "name": "The pumping works' grounds",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/pumping_works_grounds_1871__grounds_1867_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1867-03-25",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph",
+      "loc_stereo_1s12374_water_works"
+    ],
+    "note": "From the works' beginning (March 1867) to the fire; the railing still stands in Greene's stereograph after it."
+  },
+  "change_note": "Built T-3689 (2026-11-21): the pumping works' grounds, open ground that clears the context city's houses from before the works (the owner, 2026-11-21: remove the house in front of the works if it is unlikely).",
+  "placement": {
+    "local_e": 1157.2,
+    "local_n": 1115.6,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph",
+      "chicago_street_center_lines"
+    ],
+    "position_note": "Between Pine Street's east walk line and Chicago Avenue's and Pearson Street's walk lines as the scene draws them (data/context/1871/modern_clip.json), east to local E 1250.0, a little beyond the works' rear, toward the shore. The footprint's origin, its south-west corner, is local E 1157.2 N 1115.6.",
+    "symbolic_location": "East of Pine Street (today Michigan Avenue) between Chicago Avenue and Pearson Street, round the pumping works.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        92.8,
+        0.0
+      ],
+      [
+        92.8,
+        70.9
+      ],
+      [
+        7.3,
+        70.9
+      ],
+      [
+        1.9,
+        13.4
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph",
+      "loc_stereo_1s12374_water_works",
+      "chicago_street_center_lines"
+    ],
+    "note": "The open ground round the works, inside its streets; its west side follows Pine Street's east walk."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the kerb, Chicago Avenue side, 3-39 m",
+            "box": [
+              3.4,
+              0.0,
+              38.8,
+              0.45
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "A low stone kerb with an iron railing before the works (Greene's stereograph of the works after the fire shows it on its kerb along the street); its line and height and the gateways are reconstructed."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              3.4,
+              0.115,
+              3.62,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              10.37,
+              0.115,
+              10.59,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              17.45,
+              0.115,
+              17.67,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              24.53,
+              0.115,
+              24.75,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              31.61,
+              0.115,
+              31.83,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              38.58,
+              0.115,
+              38.8,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the top rail",
+            "box": [
+              3.4,
+              0.115,
+              38.8,
+              0.335
+            ],
+            "z0": 0.9,
+            "storeys": [
+              0.15
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the kerb, Chicago Avenue side, 42-92 m",
+            "box": [
+              42.0,
+              0.0,
+              92.3,
+              0.45
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "A low stone kerb with an iron railing before the works (Greene's stereograph of the works after the fire shows it on its kerb along the street); its line and height and the gateways are reconstructed."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              42.0,
+              0.115,
+              42.22,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              48.177,
+              0.115,
+              48.397,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              54.465,
+              0.115,
+              54.685,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              60.752,
+              0.115,
+              60.972,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              67.04,
+              0.115,
+              67.26,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              73.327,
+              0.115,
+              73.547,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              79.615,
+              0.115,
+              79.835,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              85.902,
+              0.115,
+              86.122,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              92.08,
+              0.115,
+              92.3,
+              0.335
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the top rail",
+            "box": [
+              42.0,
+              0.115,
+              92.3,
+              0.335
+            ],
+            "z0": 0.9,
+            "storeys": [
+              0.15
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the kerb, Pine Street side, 0-19 m",
+            "box": [
+              2.8,
+              0.5,
+              3.25,
+              19.4
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "A low stone kerb with an iron railing before the works (Greene's stereograph of the works after the fire shows it on its kerb along the street); its line and height and the gateways are reconstructed."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              2.915,
+              0.5,
+              3.135,
+              0.72
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              2.915,
+              6.69,
+              3.135,
+              6.91
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              2.915,
+              12.99,
+              3.135,
+              13.21
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              2.915,
+              19.18,
+              3.135,
+              19.4
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the top rail",
+            "box": [
+              2.915,
+              0.5,
+              3.135,
+              19.4
+            ],
+            "z0": 0.9,
+            "storeys": [
+              0.15
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the kerb, Pine Street side, 22-44 m",
+            "box": [
+              5.1,
+              21.8,
+              5.55,
+              44.4
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "A low stone kerb with an iron railing before the works (Greene's stereograph of the works after the fire shows it on its kerb along the street); its line and height and the gateways are reconstructed."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              5.215,
+              21.8,
+              5.435,
+              22.02
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              5.215,
+              29.223,
+              5.435,
+              29.443
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              5.215,
+              36.757,
+              5.435,
+              36.977
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              5.215,
+              44.18,
+              5.435,
+              44.4
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the top rail",
+            "box": [
+              5.215,
+              21.8,
+              5.435,
+              44.4
+            ],
+            "z0": 0.9,
+            "storeys": [
+              0.15
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the kerb, Pine Street side, 47-70 m",
+            "box": [
+              7.6,
+              46.8,
+              8.05,
+              70.4
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "A low stone kerb with an iron railing before the works (Greene's stereograph of the works after the fire shows it on its kerb along the street); its line and height and the gateways are reconstructed."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              7.715,
+              46.8,
+              7.935,
+              47.02
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              7.715,
+              54.557,
+              7.935,
+              54.777
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              7.715,
+              62.423,
+              7.935,
+              62.643
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "a railing post",
+            "box": [
+              7.715,
+              70.18,
+              7.935,
+              70.4
+            ],
+            "z0": 0.4,
+            "storeys": [
+              0.55
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          },
+          {
+            "name": "the top rail",
+            "box": [
+              7.715,
+              46.8,
+              7.935,
+              70.4
+            ],
+            "z0": 0.9,
+            "storeys": [
+              0.15
+            ],
+            "wall": "wrought_iron",
+            "roof": {
+              "kind": "flat",
+              "covering": "wrought_iron"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "reconstructed",
+            "sources": [
+              "loc_stereo_1s12374_water_works"
+            ],
+            "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+          }
+        ],
+        "fire": {
+          "fate": "survived",
+          "left": "whole",
+          "sources": [
+            "loc_stereo_1s12374_water_works"
+          ],
+          "note": "The railing on its kerb still stands in Greene's stereograph of the roofless works after the fire."
+        },
+        "note": "THE PUMPING WORKS' GROUNDS, built by T-3689 for the 1871 scene: the open ground before the works, east of Pine Street between Chicago Avenue and Pearson Street. Kurz's lithograph of the works (Jevne & Almini, 1866-67) shows the engine house standing back from Pine Street and Chicago Avenue across open ground and walks, with no house before it; Greene's stereograph of the works after the fire shows its south and west fronts meeting at the corner turret across an open yard, behind an iron railing on a stone kerb along the street; a photograph of about 1890 shows lawn and trees before it. How far the grounds reach east toward the shore is reconstructed."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph",
+        "loc_stereo_1s12374_water_works",
+        "chm_ichi_05902_water_tower_1890"
+      ],
+      "note": "Open ground before the works inside a stone kerb and iron railing on Pine Street and Chicago Avenue; the railing's line, its steps with Pine Street, the gateway and its height are reconstructed."
+    },
+    "kind": {
+      "value": "open_ground",
+      "confidence": "attested",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph"
+      ],
+      "note": "Open ground before the works (Kurz's lithograph): the walker reads it and lets the visitor walk in it, and the context city's houses stand off it.",
+      "geometry": "record_only"
+    },
+    "wall_material": {
+      "value": "A stone kerb with an iron railing round open ground",
+      "confidence": "inferred",
+      "sources": [
+        "loc_stereo_1s12374_water_works"
+      ],
+      "note": "Greene's stereograph of the works; drawn in the 1835 kit's limestone and forged iron.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "public_square",
+      "confidence": "inferred",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph",
+        "loc_stereo_1s12374_water_works"
+      ],
+      "note": "The city's open ground before the pumping works (Kurz's lithograph, 1866-67; Greene's stereograph of the works, 1871)."
+    },
+    "built": {
+      "value": 1867,
+      "confidence": "inferred",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph"
+      ],
+      "note": "Laid out with the works, begun in 1867; the lithograph of 1866-67 shows the grounds as planned."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "chicago_street_center_lines",
+      "citation": "City of Chicago, Department of Innovation and Technology. Street Center Lines (Transportation.geojson), osd-street-center-line release, last edited 2014-10-15.",
+      "url": "https://github.com/Chicago/osd-street-center-line",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Modern street names and centreline geometry for downtown and the near South Side",
+        "Each segment's grid coordinate (EWNS) and its block's address ranges, left and right"
+      ],
+      "what_it_does_not_supply": [
+        "Anything about 1812, 1835 or 1904",
+        "Renames after 2014 (Ida B. Wells Dr, DuSable Lake Shore Dr), which the tool applies and lists in the clip"
+      ]
+    },
+    {
+      "source_id": "chm_ichi_05902_water_tower_1890",
+      "citation": "'Water Tower, Chicago Ave & Drive, 1890', photograph, ca. 1890. Chicago History Museum, ICHi-05902.",
+      "url": "https://greatchicagofire.org/landmarks/water-tower/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the tower's grounds as a fenced lawn reaching west of the tower and north toward Pearson Street"
+      ],
+      "what_it_does_not_supply": [
+        "the grounds before the fire"
+      ]
+    },
+    {
+      "source_id": "chm_kurz_1866_chicago_water_works_lithograph",
+      "citation": "Louis Kurz, 'Chicago Water Works', tinted lithograph, Chicago Lithographing Co. for Jevne & Almini, in Chicago Illustrated (Chicago: Jevne & Almini, 1866-67). Chicago History Museum, ICHi-06859.",
+      "url": "https://greatchicagofire.org/landmarks/water-tower/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that the tower stood on open, planted ground with no houses between it and Chicago Avenue",
+        "walks and kerbs along Chicago Avenue and Pine Street before the tower"
+      ],
+      "what_it_does_not_supply": [
+        "the grounds' measured extent",
+        "the fence's line before 1871"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12374_water_works",
+      "citation": "P. B. Greene, 'Water Works', stereograph, [Chicago: P. B. Greene, 1871]. Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12374.",
+      "url": "https://www.loc.gov/pictures/item/2018649308/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the works' walls, turrets, pavilion, windows and battlements",
+        "the stack's form and crown"
+      ],
+      "what_it_does_not_supply": [
+        "the roof (burned)",
+        "colour"
+      ]
+    }
+  ],
+  "research_note": "THE PUMPING WORKS' GROUNDS, built by T-3689 for the 1871 scene: the open ground before the works, east of Pine Street between Chicago Avenue and Pearson Street. Kurz's lithograph of the works (Jevne & Almini, 1866-67) shows the engine house standing back from Pine Street and Chicago Avenue across open ground and walks, with no house before it; Greene's stereograph of the works after the fire shows its south and west fronts meeting at the corner turret across an open yard, behind an iron railing on a stone kerb along the street; a photograph of about 1890 shows lawn and trees before it. How far the grounds reach east toward the shore is reconstructed.",
+  "research_doc": "",
+  "review_required": false
+}

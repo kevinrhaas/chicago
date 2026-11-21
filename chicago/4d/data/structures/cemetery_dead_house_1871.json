@@ -1,0 +1,202 @@
+{
+ "id": "cemetery_dead_house_1871",
+ "name": "The cemetery's dead-house",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "outbuilding",
+  "confidence": "attested",
+  "sources": [
+   "colbert_chamberlin_1871_great_conflagration"
+  ],
+  "note": "'The dead-house' (Colbert and Chamberlin, p. 267)."
+ },
+ "built": {
+  "value": 1843,
+  "confidence": "reconstructed",
+  "sources": [
+   "colbert_chamberlin_1871_great_conflagration"
+  ],
+  "note": "Standing in October 1871 (p. 267); when it was built is not known, and 1843 stands for it."
+ },
+ "research_note": "THE DEAD-HOUSE OF THE OLD CITY CEMETERY, built by T-3689 for the 1871 scene: the cemetery's receiving house, which caught fire on Monday evening among the refugees, 'a shudder of horror runs through the multitude. It defies the extinguishers. It burns until it is consumed. But it was, happily, tenantless' (a writer in the New York World, quoted by Colbert and Chamberlin, p. 267). Its size, form and place are reconstructed: a small board house.",
+ "phases": [
+  {
+   "id": "dead_house_1860_1871",
+   "documented_range": {
+    "from": "1860-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Burned on the evening of 9 October 1871 (p. 267); the scene's phase begins in 1860."
+   },
+   "position": {
+    "utm_e": 447560.7,
+    "utm_n": 4640194.8,
+    "rotation_deg": 359.29,
+    "symbolic_location": "In the old City Cemetery, near North Clark Street.",
+    "confidence": "reconstructed",
+    "sources": [
+     "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Where it stood is not known; it is set in the graves near the jaunt's stop, in view of the families there. The footprint's origin is local E 488.0 N 2799.0.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "No plan of the cemetery's buildings is known."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      4.3,
+      0
+     ],
+     [
+      4.3,
+      6.1
+     ],
+     [
+      0,
+      6.1
+     ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+     "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Reconstructed: about 14 by 20 feet."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the dead-house",
+        "box": [
+         0,
+         0,
+         4.3,
+         6.1
+        ],
+        "storeys": [
+         0.3,
+         2.6
+        ],
+        "wall": "boards",
+        "trim": "wood_trim",
+        "roof": {
+         "kind": "gable",
+         "h": 1.6,
+         "eave": 0.25,
+         "covering": "shingle",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            2.15
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "door_flat",
+            "w": 1.3,
+            "h": 2.1,
+            "sill": 0.0,
+            "hood": "none"
+           }
+          ]
+         },
+         "S": "blank",
+         "E": {
+          "bays": {
+           "at": [
+            1.6,
+            4.5
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.6,
+            "h": 0.9,
+            "sill": 1.2,
+            "hood": "none"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "at": [
+            1.6,
+            4.5
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "flat",
+            "w": 0.6,
+            "h": 0.9,
+            "sill": 1.2,
+            "hood": "none"
+           }
+          ]
+         }
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "colbert_chamberlin_1871_great_conflagration"
+        ],
+        "note": "A small board house with a door in its gable end and two small high windows on each side; its form is reconstructed."
+       }
+      ],
+      "steps": [
+       {
+        "block": 0,
+        "face": "N",
+        "s0": 1.4,
+        "s1": 2.9,
+        "n": 2,
+        "material": "wood_trim"
+       }
+      ],
+      "fire": {
+       "fate": "burned",
+       "left": "nothing",
+       "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+       ],
+       "note": "'Now the dead-house is afire ... It burns until it is consumed' (Colbert and Chamberlin, p. 267)."
+      },
+      "note": "THE DEAD-HOUSE OF THE OLD CITY CEMETERY, built by T-3689 for the 1871 scene: the cemetery's receiving house, which caught fire on Monday evening among the refugees, 'a shudder of horror runs through the multitude. It defies the extinguishers. It burns until it is consumed. But it was, happily, tenantless' (a writer in the New York World, quoted by Colbert and Chamberlin, p. 267). Its size, form and place are reconstructed: a small board house."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+     ],
+     "note": "Reconstructed."
+    },
+    "wall_material": {
+     "value": "Boards",
+     "confidence": "reconstructed",
+     "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+     ],
+     "note": "Reconstructed as the plainest frame house.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-20): the refuge in the old City Cemetery, on the landmark_1871 archetype."
+  }
+ ]
+}

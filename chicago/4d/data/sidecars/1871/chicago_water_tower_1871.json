@@ -1,0 +1,1149 @@
+{
+  "id": "chicago_water_tower_1871",
+  "phase": "tower_1869_1871",
+  "name": "The Water Tower (W. W. Boyington, 1869), Chicago Avenue at Pine Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/chicago_water_tower_1871__tower_1869_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "loc_stereo_1s12375_water_tower"
+    ]
+  },
+  "documented_range": {
+    "from": "1869-01-01",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+      "habs_il1041_chicago_water_tower",
+      "andreas_1885_v2_water_works"
+    ],
+    "note": "Built 1867-1869 (HABS); it stood through the fire (Andreas vol. 2, p. 742) and stands today. The scene's phase ends with the scene."
+  },
+  "change_note": "Built T-3689 (2026-11-20): the Water Tower stands in the 1871 scene on the landmark_1871 archetype, from HABS's measured drawings and Greene's 1871 stereograph.",
+  "placement": {
+    "local_e": 1125.24,
+    "local_n": 1147.161,
+    "rotation_deg": 359.33,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "habs_il1041_chicago_water_tower",
+      "conzen_2004_progress_of_the_chicago_fire"
+    ],
+    "position_note": "The centre of the tower at local E 1132.8 N 1154.9, where it stands today (it has not moved): the fire file's control for it (41.8972, -87.6244), moved 1 m west so its east turrets clear the plank walk of the 1871 plan's Pine Street. Squared to Chicago Avenue (rotation 359.33). The footprint's south-west corner is local E 1125.24 N 1147.16.",
+    "symbolic_location": "North-west corner of Chicago Avenue and Pine Street (today Michigan Avenue), on the North Side by the lake.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        15.3,
+        0
+      ],
+      [
+        15.3,
+        15.3
+      ],
+      [
+        0,
+        15.3
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "habs_il1041_chicago_water_tower"
+    ],
+    "note": "51 feet overall across the corner turrets (HABS sheet 2, plans A-A and B-B), 15.3 m square in the model."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "tint": {
+          "stone_wall": [
+            1.0,
+            0.95,
+            0.83
+          ],
+          "stone_trim": [
+            1.0,
+            0.96,
+            0.86
+          ],
+          "stone_weathered": [
+            1.0,
+            0.95,
+            0.83
+          ]
+        },
+        "fire": {
+          "fate": "survived",
+          "left": "whole",
+          "sources": [
+            "andreas_1885_v2_water_works",
+            "conzen_2004_progress_of_the_chicago_fire"
+          ],
+          "note": "The engine house's roof caught at 3:20 a.m. on 9 October and fell on the engines; the tower, 'composed wholly of stone, brick and iron', stood and was only slightly damaged (Andreas vol. 2, pp. 69-70, 742)."
+        },
+        "blocks": [
+          {
+            "name": "the base",
+            "box": [
+              1.1,
+              1.1,
+              14.2,
+              14.2
+            ],
+            "storeys": [
+              1.22,
+              7.5
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "belts": [
+              1
+            ],
+            "water_table": 0.45,
+            "cornice": {
+              "kind": "light",
+              "proj": 0.35
+            },
+            "battlement": {
+              "h": 0.8,
+              "base": 0.45,
+              "merlon": 0.7,
+              "gap": 0.42,
+              "depth": 0.4
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    6.55,
+                    9.9
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.0,
+                    "h": 3.1,
+                    "sill": 2.4
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_pointed",
+                    "w": 2.1,
+                    "h": 5.0,
+                    "sill": 0.15
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    6.55,
+                    9.9
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.0,
+                    "h": 3.1,
+                    "sill": 2.4
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_pointed",
+                    "w": 2.1,
+                    "h": 5.0,
+                    "sill": 0.15
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    6.55,
+                    9.9
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.0,
+                    "h": 3.1,
+                    "sill": 2.4
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_pointed",
+                    "w": 2.1,
+                    "h": 5.0,
+                    "sill": 0.15
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    3.2,
+                    6.55,
+                    9.9
+                  ]
+                },
+                "storeys": [
+                  null,
+                  {
+                    "kind": "pointed",
+                    "w": 1.0,
+                    "h": 3.1,
+                    "sill": 2.4
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      1
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "door_pointed",
+                    "w": 2.1,
+                    "h": 5.0,
+                    "sill": 0.15
+                  }
+                ]
+              }
+            },
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "HABS sheet 2: the building 43 feet square outside (37 inside) on a floor four feet over the ground; sheet 3: a central pointed doorway in each front between pointed windows, a battlemented parapet, rock-faced Joliet ashlar in courses. The wall head is read off sheet 3's elevation (about 29 feet)."
+          },
+          {
+            "name": "the upper stage",
+            "box": [
+              3.8300000000000005,
+              3.8300000000000005,
+              11.47,
+              11.47
+            ],
+            "z0": 8.72,
+            "storeys": [
+              9.0
+            ],
+            "wall": "limestone",
+            "course_m": 0.42,
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    3.82
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "pointed",
+                    "w": 1.5,
+                    "h": 4.8,
+                    "sill": 2.2
+                  }
+                ]
+              },
+              "E": {
+                "bays": {
+                  "at": [
+                    3.82
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "pointed",
+                    "w": 1.5,
+                    "h": 4.8,
+                    "sill": 2.2
+                  }
+                ]
+              },
+              "N": {
+                "bays": {
+                  "at": [
+                    3.82
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "pointed",
+                    "w": 1.5,
+                    "h": 4.8,
+                    "sill": 2.2
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    3.82
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "pointed",
+                    "w": 1.5,
+                    "h": 4.8,
+                    "sill": 2.2
+                  }
+                ]
+              }
+            },
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "HABS sheet 2, plan B-B: the 25-foot central block over the base; sheet 3: a tall pointed light in each face under a steep stone gable, the octagon starting from its top (about 58 feet)."
+          }
+        ],
+        "pediments": [
+          {
+            "block": 1,
+            "face": "S",
+            "s": 3.82,
+            "w": 6.4,
+            "h": 3.9,
+            "kind": "pediment",
+            "depth": 0.6,
+            "z": 17.72,
+            "covering": "stone_trim",
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "The steep gable over each face of the upper stage (HABS sheet 3)."
+          },
+          {
+            "block": 1,
+            "face": "E",
+            "s": 3.82,
+            "w": 6.4,
+            "h": 3.9,
+            "kind": "pediment",
+            "depth": 0.6,
+            "z": 17.72,
+            "covering": "stone_trim",
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "The steep gable over each face of the upper stage (HABS sheet 3)."
+          },
+          {
+            "block": 1,
+            "face": "N",
+            "s": 3.82,
+            "w": 6.4,
+            "h": 3.9,
+            "kind": "pediment",
+            "depth": 0.6,
+            "z": 17.72,
+            "covering": "stone_trim",
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "The steep gable over each face of the upper stage (HABS sheet 3)."
+          },
+          {
+            "block": 1,
+            "face": "W",
+            "s": 3.82,
+            "w": 6.4,
+            "h": 3.9,
+            "kind": "pediment",
+            "depth": 0.6,
+            "z": 17.72,
+            "covering": "stone_trim",
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "The steep gable over each face of the upper stage (HABS sheet 3)."
+          }
+        ],
+        "towers": [
+          {
+            "name": "corner turret",
+            "at": [
+              1.1,
+              1.1
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.2,
+                "h": 13.2,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.22,
+                  "h": 1.1,
+                  "sill": 6.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              1.1,
+              14.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.2,
+                "h": 13.2,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.22,
+                  "h": 1.1,
+                  "sill": 6.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              14.2,
+              1.1
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.2,
+                "h": 13.2,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.22,
+                  "h": 1.1,
+                  "sill": 6.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "corner turret",
+            "at": [
+              14.2,
+              14.2
+            ],
+            "z0": 0.0,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 2.2,
+                "h": 13.2,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.3,
+                  "merlon": 0.42,
+                  "gap": 0.3,
+                  "depth": 0.3,
+                  "out": 0.15
+                },
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.22,
+                  "h": 1.1,
+                  "sill": 6.0,
+                  "faces": [
+                    1,
+                    3,
+                    5,
+                    7
+                  ]
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "upper pinnacle",
+            "at": [
+              3.8300000000000005,
+              3.8300000000000005
+            ],
+            "z0": 8.72,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.25,
+                "h": 10.1,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.5,
+                  "base": 0.22,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.25,
+                  "out": 0.1
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "upper pinnacle",
+            "at": [
+              3.8300000000000005,
+              11.47
+            ],
+            "z0": 8.72,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.25,
+                "h": 10.1,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.5,
+                  "base": 0.22,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.25,
+                  "out": 0.1
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "upper pinnacle",
+            "at": [
+              11.47,
+              3.8300000000000005
+            ],
+            "z0": 8.72,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.25,
+                "h": 10.1,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.5,
+                  "base": 0.22,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.25,
+                  "out": 0.1
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "upper pinnacle",
+            "at": [
+              11.47,
+              11.47
+            ],
+            "z0": 8.72,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.25,
+                "h": 10.1,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.5,
+                  "base": 0.22,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.25,
+                  "out": 0.1
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "the gallery round the foot of the shaft",
+            "at": [
+              7.65,
+              7.65
+            ],
+            "z0": 17.72,
+            "plan": "square",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 6.6,
+                "h": 2.4,
+                "cornice_proj": 0.3,
+                "battlement": {
+                  "h": 0.65,
+                  "base": 0.35,
+                  "merlon": 0.48,
+                  "gap": 0.34,
+                  "depth": 0.32,
+                  "out": 0.1
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            }
+          },
+          {
+            "name": "the octagonal shaft",
+            "at": [
+              7.65,
+              7.65
+            ],
+            "z0": 17.72,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 4.72,
+                "h": 6.0,
+                "cornice": false,
+                "openings": {
+                  "kind": "pointed",
+                  "w": 0.5,
+                  "h": 1.7,
+                  "sill": 2.6,
+                  "faces": [
+                    1,
+                    5
+                  ]
+                }
+              },
+              {
+                "w": 4.72,
+                "h": 5.6,
+                "cornice": false,
+                "openings": {
+                  "kind": "pointed",
+                  "w": 0.5,
+                  "h": 1.6,
+                  "sill": 2.0,
+                  "faces": [
+                    0,
+                    4
+                  ]
+                }
+              },
+              {
+                "w": 4.72,
+                "h": 5.6,
+                "cornice": false,
+                "openings": {
+                  "kind": "pointed",
+                  "w": 0.5,
+                  "h": 1.6,
+                  "sill": 2.0,
+                  "faces": [
+                    2,
+                    6
+                  ]
+                }
+              },
+              {
+                "w": 4.72,
+                "h": 5.6,
+                "cornice": false,
+                "openings": {
+                  "kind": "pointed",
+                  "w": 0.5,
+                  "h": 1.6,
+                  "sill": 2.0,
+                  "faces": [
+                    1,
+                    5
+                  ]
+                }
+              },
+              {
+                "w": 4.72,
+                "h": 5.6,
+                "cornice": true,
+                "openings": {
+                  "kind": "pointed",
+                  "w": 0.5,
+                  "h": 1.6,
+                  "sill": 2.0,
+                  "faces": [
+                    3,
+                    7
+                  ]
+                },
+                "cornice_proj": 0.55,
+                "battlement": {
+                  "h": 0.85,
+                  "base": 0.4,
+                  "merlon": 0.55,
+                  "gap": 0.35,
+                  "depth": 0.35,
+                  "out": 0.3
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower",
+              "andreas_1885_v2_water_works"
+            ],
+            "note": "Octagonal, 15 feet 6 inches across (HABS plan C-C), its stone work ending at 154 feet in a battlemented cornice (Andreas vol. 2, p. 70; HABS: observation floor at 151 feet 6 inches); narrow pointed lights staggered up its faces as the 1871 stereograph and HABS sheet 3 show them."
+          },
+          {
+            "name": "turret at the head of the shaft",
+            "at": [
+              5.5,
+              5.5
+            ],
+            "z0": 43.2,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.0,
+                "h": 4.7,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.55,
+                  "base": 0.2,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.22,
+                  "out": 0.08
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12375_water_tower",
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "Four little battlemented turrets corbelled out on the diagonals round the shaft's head, as Greene's 1871 stereograph and HABS's photograph show them; their size is read off the pictures."
+          },
+          {
+            "name": "turret at the head of the shaft",
+            "at": [
+              5.5,
+              9.8
+            ],
+            "z0": 43.2,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.0,
+                "h": 4.7,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.55,
+                  "base": 0.2,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.22,
+                  "out": 0.08
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12375_water_tower",
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "Four little battlemented turrets corbelled out on the diagonals round the shaft's head, as Greene's 1871 stereograph and HABS's photograph show them; their size is read off the pictures."
+          },
+          {
+            "name": "turret at the head of the shaft",
+            "at": [
+              9.8,
+              5.5
+            ],
+            "z0": 43.2,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.0,
+                "h": 4.7,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.55,
+                  "base": 0.2,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.22,
+                  "out": 0.08
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12375_water_tower",
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "Four little battlemented turrets corbelled out on the diagonals round the shaft's head, as Greene's 1871 stereograph and HABS's photograph show them; their size is read off the pictures."
+          },
+          {
+            "name": "turret at the head of the shaft",
+            "at": [
+              9.8,
+              9.8
+            ],
+            "z0": 43.2,
+            "plan": "octagon",
+            "wall": "limestone",
+            "stages": [
+              {
+                "w": 1.0,
+                "h": 4.7,
+                "cornice_proj": 0.18,
+                "battlement": {
+                  "h": 0.55,
+                  "base": 0.2,
+                  "merlon": 0.3,
+                  "gap": 0.22,
+                  "depth": 0.22,
+                  "out": 0.08
+                }
+              }
+            ],
+            "cap": {
+              "kind": "flat"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12375_water_tower",
+              "habs_il1041_chicago_water_tower"
+            ],
+            "note": "Four little battlemented turrets corbelled out on the diagonals round the shaft's head, as Greene's 1871 stereograph and HABS's photograph show them; their size is read off the pictures."
+          },
+          {
+            "name": "the iron cupola",
+            "at": [
+              7.65,
+              7.65
+            ],
+            "z0": 47.75,
+            "plan": "octagon",
+            "wall": "iron_stone",
+            "stages": [
+              {
+                "w": 3.45,
+                "h": 2.55,
+                "openings": {
+                  "kind": "round",
+                  "w": 0.75,
+                  "h": 1.7,
+                  "sill": 0.45
+                },
+                "cornice_proj": 0.25
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 2.6,
+              "covering": "tin_dark"
+            },
+            "finial": 2.4,
+            "confidence": "attested",
+            "sources": [
+              "habs_il1041_chicago_water_tower",
+              "andreas_1885_v2_water_works"
+            ],
+            "note": "'Surmounted by an iron cupola, pierced with numerous windows' (Andreas vol. 2, p. 70): 11 feet 4 inches across, its base at 161 feet 6 inches and top at 173 feet 6 inches, the mast to 182 feet 6 inches (HABS sheets 2-3)."
+          }
+        ],
+        "steps": [
+          {
+            "block": 0,
+            "face": "E",
+            "s0": 5.3,
+            "s1": 7.8,
+            "n": 7
+          },
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 5.3,
+            "s1": 7.8,
+            "n": 7
+          }
+        ],
+        "note": "Laid out from the HABS measured drawings (IL-1041, 1994; sheets 2 and 3) and checked against P. B. Greene's 1871 stereograph from the west and HABS's photograph from the north-east; Andreas (vol. 2, p. 70) gives the 154-foot stone shaft, the iron cupola and the forty-foot base."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "habs_il1041_chicago_water_tower",
+        "loc_stereo_1s12375_water_tower",
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "Every height and width is HABS's (sheets 2-3, read in feet and turned into metres); the 1871 stereograph confirms that the tower of the fire is the tower HABS measured. The rock-faced bossing is drawn as coursing, the bull-nosed corners of the shaft and the slotted battlements are left plain, and the pinnacles' little spires are not built."
+    },
+    "wall_material": {
+      "value": "Joliet limestone, rock-faced ashlar with cut-stone trimmings",
+      "confidence": "attested",
+      "sources": [
+        "habs_il1041_chicago_water_tower",
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "'Native buff limestone taken from Joliet' (HABS); 'solid rock-faced ashlar stone and cut-stone trimmings' (Andreas vol. 2, p. 69). Built in the K02 Lemont limestone tinted buff.",
+      "geometry": "simplified"
+    },
+    "height_m": {
+      "value": 55.6,
+      "confidence": "attested",
+      "sources": [
+        "habs_il1041_chicago_water_tower"
+      ],
+      "note": "182 feet 6 inches to the mast's top (HABS sheet 3).",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "water_works",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "It held the 36-inch iron stand-pipe, 138 feet high, that the pumping engines across Pine Street forced the lake water up, so the mains had an even head (Andreas vol. 2, p. 70; Colbert & Chamberlin p. 155)."
+    },
+    "built": {
+      "value": 1869,
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration",
+        "habs_il1041_chicago_water_tower"
+      ],
+      "note": "Corner-stone laid 25 March 1867 (Colbert & Chamberlin p. 154); in service in 1869 (HABS IL-1041)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2_water_works",
+      "citation": "A. T. Andreas, History of Chicago, vol. 2, From 1857 until the Fire of 1871 (Chicago: A. T. Andreas, 1885), pp. 69-70 ('Water Works') and p. 742 (the fire at the works).",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the works' plan dimensions, style, material and roof",
+        "the tower's heights and its distance from the works",
+        "when the works' roof burned and that the tower survived"
+      ],
+      "what_it_does_not_supply": [
+        "the works' orientation on its lot (read from the stereographs)",
+        "the boiler rooms' size"
+      ]
+    },
+    {
+      "source_id": "colbert_chamberlin_1871_great_conflagration",
+      "citation": "Elias Colbert and Everett Chamberlin, Chicago and the Great Conflagration. Cincinnati and New York: C. F. Vent; Chicago: J. S. Goodman & Co., 1871.",
+      "url": "https://archive.org/details/chicagogreatconf1871colb",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "A citywide ratio of building materials before the fire: in spring 1868, 35,654 wooden buildings to 3,712 of brick and stone (about nine in ten wooden).",
+        "The city's 59,500 buildings in 1871 by division, with the West Division largest (29,400).",
+        "Descriptions that the West Side's burned blocks were nearly all frame, and that the South Division's burned centre held the city's most expensive structures."
+      ],
+      "what_it_does_not_supply": [
+        "A material for any particular lot, block or street; a material ratio by division or for 1871 itself; paint colours."
+      ]
+    },
+    {
+      "source_id": "conzen_2004_progress_of_the_chicago_fire",
+      "citation": "Conzen, Michael P. 'Progress of the Chicago Fire of 1871' (map). In The Encyclopedia of Chicago, ed. James R. Grossman, Ann Durkin Keating and Janice L. Reiff, plate C2. Chicago: University of Chicago Press and the Newberry Library, 2004.",
+      "url": "https://chicagoreference.com/books/grossman/images/c2-c3_fireprogress.pdf",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the outline of the burnt district by street, as a cross-check",
+        "hour bands for the North Division's burning"
+      ],
+      "what_it_does_not_supply": [
+        "a stated hour for any single building beyond its marked origins"
+      ]
+    },
+    {
+      "source_id": "habs_il1041_chicago_water_tower",
+      "citation": "Historic American Buildings Survey. Chicago Water Tower, 806 North Michigan Avenue, Chicago, Cook County, Illinois. HABS IL-1041 (HABS ILL,16-CHIG,104-), measured drawings (sheets 1-3: site plan, plans A-A, B-B and C-C, and the west elevation and section, 1994), with photographs and data pages. Library of Congress, Prints and Photographs Division.",
+      "url": "https://www.loc.gov/item/il0097/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the tower's plan at three levels and every principal height",
+        "the forms of its doorways, windows, gables, turrets and battlements"
+      ],
+      "what_it_does_not_supply": [
+        "the pumping station across the street",
+        "anything about 1871 as such: the 1871 stereograph is that witness"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12375_water_tower",
+      "citation": "P. B. Greene, 'Water Works', stereograph, [Chicago: P. B. Greene, 1871]. Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s12375.",
+      "url": "https://www.loc.gov/pictures/item/2018649309/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the tower's massing and heights as they stood in 1871",
+        "the works' long front, pavilion, corner turrets and stack, and where they stand behind the tower"
+      ],
+      "what_it_does_not_supply": [
+        "the works' south half (behind the tower)",
+        "colour"
+      ]
+    }
+  ],
+  "research_note": "THE WATER TOWER, built by T-3689 for the 1871 scene, from the Historic American Buildings Survey's measured drawings (1994) and P. B. Greene's stereograph of 1871. A base 43 feet square with an octagonal turret at each corner and a pointed doorway in each front, a 25-foot upper stage with four pinnacles and a stone gable on each face, then the octagonal shaft, 15 feet 6 inches across, to a battlemented cornice at about 154 feet, and the iron cupola and mast to 182 feet 6 inches. Joliet limestone, rock-faced, buff. It survived the fire.",
+  "research_doc": "",
+  "review_required": false
+}

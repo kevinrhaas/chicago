@@ -1,0 +1,23 @@
+{
+ "structure_id": "field_leiter_1871",
+ "scene": "1871",
+ "source_id": "andreas_1885_v2_downtown_plates",
+ "photo": "../../sources/assets/landmarks_1871_t3688/andreas_v2_p563_field_leiter_building.jpg",
+ "image_px": [
+  1150,
+  1210
+ ],
+ "principal_px": [
+  575.0,
+  1056.52
+ ],
+ "focal_px": 2028.8,
+ "eye": [
+  -58.37,
+  -27.41,
+  0.3
+ ],
+ "yaw_deg": 60.25,
+ "sky": "sun",
+ "solve": "Fitted by T-3688 to the engraving of Field, Leiter & Co.'s building in Andreas, History of Chicago, vol. 2, p. 563 (captioned there 'Potter Palmer Building'), cropped from the Internet Archive's page image and committed at 1150 x 1210 px. The draughtsman stood across the corner, south-west of the store and low, looking north-east: the State Street front runs off to the left and the Washington Street front to the right. Six points were solved for together, the two fronts' lengths with the camera: the corner's cornice and foot (x 738), the State Street front's north end at cornice and foot (x 127), and the Washington Street front's east end at cornice and foot (x 1096), against a 21.1 m cornice read from the six storeys. Residuals are under 9 px. UNCERTAINTY: high; an engraving's perspective is drawn, not optical, so the fronts' lengths are reconstructed from it."
+}

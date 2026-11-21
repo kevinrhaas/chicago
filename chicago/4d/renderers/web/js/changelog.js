@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 3182, ts: '2026-11-21T10:06:49.772Z', date: 'Nov 21, 2026, 4:06 AM CT', title: 'Find the jaunts that are read aloud', kind: 'feature',
+    items: [
+      'The Jaunts list has a new Listen row. Tap Narrated to see only the jaunts that are read aloud to you, alongside the group, age and search filters; Clear filters lets it go.',
+      'Every narrated jaunt now says Narrated on its card, so you can tell before you start which ones speak.',
+      'A Music pill joins it once jaunts have music of their own.',
+    ] },
+  { v: 3181, ts: '2026-11-21T09:54:03.264Z', date: 'Nov 21, 2026, 3:54 AM CT', title: 'Five more downtown landmarks stand in 1871, built to their pictures', kind: 'feature',
+    items: [
+      'The Tremont House at Lake and Dearborn, with its porch and rooftop lookout, built to Carbutt\'s stereograph.',
+      'Crosby\'s Opera House on Washington Street, its arched shops and slate roof, built to Carbutt\'s stereograph.',
+      'Field, Leiter & Co.\'s marble store at State and Washington, the Palmer House at State and Quincy, and the Tribune building at Madison and Dearborn, built to Andreas\'s engravings.',
+      'Each has a card with its story, and each burns at its hour in the Great Fire.',
+      'Across Pine Street from the Water Tower, the pumping works now stands back behind its own railed grounds, with no house in front.',
+    ] },
+  { v: 3180, ts: '2026-11-21T08:06:17.759Z', date: 'Nov 21, 2026, 2:06 AM CT', title: '2100 Prairie\'s roof takes its carved dormers and stack', kind: 'feature',
+    items: [
+      'The Sherman house\'s roof now looks more like its c. 1890 photograph: the small dormer over the front door is a stone face under a projecting shelf with a slated hood leaning back over it, and the large dormer over the parlour has a stone coping up its gable, a little pinnacle at each shoulder and a finial on top.',
+      'The great chimney on the 21st Street side has a carved stone head with three tall round flues standing in a row, instead of a plain brick stack, and the library\'s tall front gable has a carved stone panel.',
+    ] },
+  { v: 3179, ts: '2026-11-21T07:36:19.410Z', date: 'Nov 21, 2026, 1:36 AM CT', title: 'Where the fire began and where the North Side fled', kind: 'feature',
+    items: [
+      'The O\'Leary cottages and barn stand on DeKoven Street with their neighbours, built to the 1871 photograph of the cottages.',
+      'The Water Tower and its pumping station stand on Chicago Avenue, matched to 1871 stereographs; the tower stands alone in its railed grounds, as an 1866 print shows, and survives the fire.',
+      'Mahlon Ogden\'s house stands on Washington Square and survives the fire.',
+      'St. Michael\'s church stands in Old Town and burns to its walls, as an engraving of its ruins shows.',
+      'The old City Cemetery has its graves, headstones and pine head-boards, where thirty thousand people sat out the fire.',
+      'Every place has a card telling what happened there.',
+    ] },
+  { v: 3178, ts: '2026-11-21T07:09:42.523Z', date: 'Nov 21, 2026, 1:09 AM CT', title: '2108 Prairie\'s basement lights stand tall and barred, as sketched in 1898', kind: 'improvement',
+    items: [
+      '2108 Prairie, the Mark Kimball house, now has the tall iron-barred basement lights the Tribune\'s 1898 sketch shows: each about two thirds of the basement\'s height under a curved head of iron, set in a stone base of four courses, where before they were short, plain windows half that height. The house now matches its picture.',
+    ] },
   { v: 3177, ts: '2026-11-21T06:35:15.384Z', date: 'Nov 21, 2026, 12:35 AM CT', title: 'Music under the narrated jaunts', kind: 'feature',
     items: [
       'The narrated 1812 and 1904 jaunts now have their own score, and so does every grade version of them: twenty-two jaunts, a hundred and ten in all.',

@@ -41,7 +41,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 289 026; 296 000, the compressed first-open limit unchanged.
 # T-3654: the 1871 context city's map, survey and directory sources, meeting dev's new Prairie
 # K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
-INDEX_BUDGET = 312_000
+# T-3689: the North and West Side fire places' pictures (the Water Tower and works, the O'Leary
+# cottage, the Ogden house, St. Michael's) read 313 267; 320 000, the compressed limit unchanged.
+INDEX_BUDGET = 320_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

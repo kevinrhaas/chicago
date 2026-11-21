@@ -1,0 +1,112 @@
+{
+  "id": "chicago_water_tower_1871",
+  "scene": "1871",
+  "name": "The Water Tower",
+  "address": "Chicago Avenue at Pine Street (today Michigan Avenue)",
+  "status": {
+    "text": "Still standing",
+    "today": "The Chicago Water Tower, a city landmark",
+    "grade": "attested",
+    "sources": [
+      "habs_il1041_chicago_water_tower"
+    ],
+    "note": "It survived the fire and has stood ever since (HABS IL-1041)."
+  },
+  "built": {
+    "year": 1869,
+    "grade": "attested",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration",
+      "habs_il1041_chicago_water_tower"
+    ]
+  },
+  "use": "Water works stand-pipe tower",
+  "summary": "A castle of yellow Joliet stone hiding an iron pipe 138 feet tall. The pumps across the street forced lake water up it so the city's mains kept an even pressure. When the fire swept the North Side, it was one of the few things left standing.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "W. W. Boyington",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "label": "Height",
+      "value": "About 182 feet to the mast",
+      "grade": "attested",
+      "sources": [
+        "habs_il1041_chicago_water_tower"
+      ]
+    },
+    {
+      "label": "Corner-stone",
+      "value": "25 March 1867",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Inside the stone is a single iron stand-pipe three feet across.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    },
+    {
+      "text": "Pointed Gothic doors open in all four fronts, with a turret at every corner.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "habs_il1041_chicago_water_tower",
+        "loc_stereo_1s12375_water_tower"
+      ]
+    },
+    {
+      "text": "The fire burned everything around it, but the stone tower was only slightly damaged.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1867-03-25",
+      "text": "The corner-stone is laid.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    },
+    {
+      "date": "1869-01-01",
+      "text": "The tower and the pumping works go into service.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "habs_il1041_chicago_water_tower"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The works' roof catches at about 3:20 in the morning. The tower stands.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_water_works"
+      ]
+    }
+  ]
+}

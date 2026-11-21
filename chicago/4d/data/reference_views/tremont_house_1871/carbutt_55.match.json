@@ -1,0 +1,33 @@
+{
+  "structure_id": "tremont_house_1871",
+  "view": "carbutt_55",
+  "glb": "assets/gltf/tremont_house_1871__hotel_1850_1871.glb",
+  "glb_sha256": "591d3b2f1c83bf8b0f841d372b8dfae698b573fce1ef98f78ec3598c2061243e",
+  "camera_sha256": "abe9cf21ecc7d9a4b8950ea406e83c4cd7deb9232fbbf17be7be4f2d62c9c813",
+  "photo_sha256": "a125fadfff427aa853e714b5405d8f4d390b2208bd45f566697e25adbeea9aca",
+  "side_by_side": "docs/RESEARCH/photo-match/tremont_house_1871/carbutt_55-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Five storeys and an attic of frieze windows under a bracketed cornice, the Lake Street front square to the camera and the Dearborn Street front running away to the right, with their window rows, where the stereograph shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The columned porch and balcony over the Dearborn Street entrance",
+      "status": "fixed"
+    },
+    {
+      "what": "The octagonal belvedere with its railed gallery and little dome, and the flagpole, on the roof behind the corner",
+      "status": "fixed"
+    },
+    {
+      "what": "The ground floor's shop fronts are drawn as plain glazed bays; the stereograph's signs, awnings and doorways differ in detail",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The cornice and window dressings are lighter in tone than the photograph's painted wood or iron",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

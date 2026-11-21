@@ -1,0 +1,29 @@
+{
+  "structure_id": "oleary_cottage_1871",
+  "view": "loc_3b04891",
+  "glb": "assets/gltf/oleary_cottage_1871__cottage_1871.glb",
+  "glb_sha256": "b5faf74c2d573e30d5412d6f00dbee54e4ea07bb7361f2cccc3265c6467e9898",
+  "camera_sha256": "e5fffe83930924a214ec94e364c357dedcd8da509713a06ea34fd3a297d848c0",
+  "photo_sha256": "a26dd0f8882462ffb06f67297e5d19de6d8da8e8abd434711430cae68fea6d62",
+  "side_by_side": "docs/RESEARCH/photo-match/oleary_cottage_1871/loc_3b04891-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Two one-storey frame cottages one behind the other, gables to the street, the rear one's east side and north gable, the chimneys on the ridges, stand where the stereograph shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The front cottage stands a little taller than the rear one, as the print shows; how much taller is read by eye",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The weatherboards are drawn as the 1835 town's clapboard, greyed; the print shows them dark and rough",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The fences, the people and the wash hung out in the yard after the fire are not part of the building",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

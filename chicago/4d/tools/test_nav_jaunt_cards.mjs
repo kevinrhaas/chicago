@@ -288,3 +288,64 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   }
   console.log('test_nav_jaunt_cards: one card per jaunt, told for the picked grade');
 }
+
+// ---- T-3711 (owner, 2026-11-20: "for all the jaunts with music or narration allow that to be
+// added as a filter so we can filter and include only those jaunts with narration"): the catalog
+// says which jaunts are read aloud (data/narration/voices.json) and which have music
+// (data/music/jaunts.json, once the score's cues are attached); a Listen row filters on them.
+{
+  const { filterJaunts, LISTENS } = await import('../renderers/web/js/jaunt-menu.js');
+  const { readFileSync, existsSync } = await import('node:fs');
+  const listed = (p) => new Set((existsSync(new URL(p, import.meta.url)) ? JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8')).jaunts : [])
+    .map((e) => (typeof e === 'string' ? e : e.id)));
+  const voiced = listed('../data/narration/voices.json'), scored = listed('../data/music/jaunts.json');
+  assert.deepEqual(LISTENS.map((l) => l.id), ['narrated', 'music']);
+  let narrated = 0;
+  for (const y of ['1812', '1835', '1871', '1904']) {
+    const all = JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts;
+    for (const r of all) {
+      assert.equal(r.narrated === true, voiced.has(r.id), `${y}: ${r.id} is narrated exactly when voices.json lists it`);
+      assert.equal(r.music === true, scored.has(r.id), `${y}: ${r.id} has music exactly when data/music/jaunts.json lists it`);
+      assert(r.narrated === undefined || r.narrated === true, 'the flag is written only when true');
+    }
+    const only = filterJaunts(all, '', '', '', ['narrated']);
+    assert.deepEqual(only.map((r) => r.id).sort(), all.filter((r) => voiced.has(r.id)).map((r) => r.id).sort(), `${y}: Narrated lists only the narrated jaunts`);
+    narrated += only.length;
+  }
+  assert(narrated >= 20, `the voiced jaunts are flagged (${narrated})`);
+  assert(filterJaunts([{ id: 'a', title: 'A', narrated: true }, { id: 'b', title: 'B', narrated: true, music: true }], '', '', '', ['narrated', 'music']).map((r) => r.id).join() === 'b', 'two picked: only jaunts with both');
+  assert.deepEqual(filterJaunts([{ id: 'a', title: 'A', narrated: true }, { id: 'b', title: 'B' }], 'narrated').map((r) => r.id), ['a'], 'a search for "narrated" finds them too');
+
+  // The row, over the hand-made DOM.
+  const base = { premise: 'Walk.', category: 'walk', menu_group: 'Places', grade_band: '6-8', availability: 'available', stop_count: 2,
+    default_mode: 'walk', allowed_modes: ['walk'], destinations: [{ kind: 'structure', id: 'nowhere' }] };
+  const heard = [{ ...base, id: 'voiced', title: 'Voiced', narrated: true }, { ...base, id: 'quiet', title: 'Quiet' }, { ...base, id: 'tune', title: 'Tune', music: true, narrated: true }];
+  const lroot = document.createElement('div');
+  createJauntMenu({ root: lroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(heard);
+  const row = lroot.querySelectorAll('.jaunt-hears')[0];
+  assert(row && !row.hidden, 'a Listen row when a jaunt is narrated');
+  const lpills = row.querySelectorAll('.jaunt-hears-pill');
+  assert.deepEqual(lpills.map((p) => p.dataset.listen), ['narrated', 'music'], 'Narrated, then Music');
+  const lshown = () => lroot.querySelectorAll('.jaunt-card').map((c) => c.dataset.jaunt);
+  assert.deepEqual(lshown().sort(), ['quiet', 'tune', 'voiced']);
+  const tagOf = (id) => lroot.querySelectorAll('.jaunt-card').find((c) => c.dataset.jaunt === id).querySelectorAll('.jaunt-hear').map((t) => t.dataset.hear);
+  assert.deepEqual(tagOf('voiced'), ['narrated'], 'a narrated card says so'); assert.deepEqual(tagOf('quiet'), [], 'a quiet one says nothing');
+  assert.deepEqual(tagOf('tune'), ['narrated', 'music']);
+  lpills[0].click();
+  assert.deepEqual(lshown().sort(), ['tune', 'voiced'], 'Narrated: only the narrated jaunts');
+  assert.equal(lpills[0].getAttribute('aria-pressed'), 'true');
+  const lclear = lroot.querySelectorAll('.jaunt-clear')[0];
+  assert(!lclear.hidden, 'a Listen pick is a filter Clear filters lets go');
+  lpills[1].click();
+  assert.deepEqual(lshown(), ['tune'], 'Narrated and Music: only jaunts with both');
+  lclear.click();
+  assert.deepEqual(lshown().sort(), ['quiet', 'tune', 'voiced'], 'Clear filters: every jaunt again');
+  assert.equal(lpills[0].getAttribute('aria-pressed'), 'false');
+  const sroot = document.createElement('div');
+  createJauntMenu({ root: sroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show([heard[1]]);
+  assert(sroot.querySelectorAll('.jaunt-hears')[0].hidden, 'no narrated jaunt this year: no Listen row');
+  const nroot = document.createElement('div');
+  createJauntMenu({ root: nroot, estimate: () => ({ seconds: 600 }), onStart: () => true, onPreview: () => {} }).show(heard.slice(0, 2));
+  assert.deepEqual(nroot.querySelectorAll('.jaunt-hears-pill').map((p) => p.dataset.listen), ['narrated'], 'no jaunt has music yet: no Music pill');
+  console.log('test_nav_jaunt_cards: a Listen row filters to narrated jaunts (and music, once a jaunt has it)');
+}
