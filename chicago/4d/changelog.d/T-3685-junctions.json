@@ -1,0 +1,7 @@
+{
+  "title": "1871: street corners and crossings stop blinking",
+  "kind": "fix",
+  "items": [
+    "Where two 1871 streets meet, or two plank walks meet at a corner, the ground no longer flickers as you walk across it."
+  ]
+}

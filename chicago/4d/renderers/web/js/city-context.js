@@ -6,7 +6,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { dressStreetSurfaces } from './street-surfaces-1871.js';
+import { dressStreetSurfaces, STREET_DECAL_ORDER } from './street-surfaces-1871.js';
 import { buildFronts, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
 
 async function json(url) {
@@ -181,7 +181,11 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       // well as material and shadow behaviour, retaining every authored channel.
       const layout=Object.entries(object.geometry.attributes).sort(([a],[b])=>a.localeCompare(b))
         .map(([name,a])=>`${name}:${a.itemSize}:${a.normalized}:${a.array.constructor.name}`).join('|');
-      const key=`${object.material.uuid}:${castShadow}:${!!object.geometry.index}:${layout}`;
+      // T-3685 follow-up: the street layers (roadways, walks, crossings) draw as ground
+      // decals in a fixed order (street-surfaces-1871.js STREET_DECAL_ORDER), so the
+      // walks and the crossings, which share the plank material, each get their own batch.
+      const decal=STREET_DECAL_ORDER[layer]!=null ? `:${layer}` : '';
+      const key=`${object.material.uuid}:${castShadow}:${!!object.geometry.index}:${layout}${decal}`;
       if (!batches.has(key)) batches.set(key,{material:object.material,castShadow,parts:[],layers:new Set(),sources:new Set()});
       const batch=batches.get(key);
       // A GLB node transform is part of the asset. Bake it into this assembled
