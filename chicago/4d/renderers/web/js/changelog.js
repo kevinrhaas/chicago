@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3187, ts: '2026-11-21T16:00:48.770Z', date: 'Nov 21, 2026, 10:00 AM CT', title: '2110 Prairie: the Rees house under its tall stone gable', kind: 'feature',
+    items: [
+      'The Harriet Rees house at 2110 Prairie Avenue is now built from its pictures instead of the rough draft: a pale limestone front rising into a tall coped gable with a finial, five arched windows under it, a two-storey bow capped in copper, and a round-arched door at the top of a high stoop.',
+    ] },
   { v: 3186, ts: '2026-11-21T14:00:02.899Z', date: 'Nov 21, 2026, 8:00 AM CT', title: '1871: Court House, Sherman House and Chamber of Commerce match their photographs', kind: 'feature',
     items: [
       'The Court House\'s wings are rebuilt to their 1868 plan and the photograph: taller, with crested centre pavilions, urns along the parapets, and a domed pavilion on the Clark Street front.',
