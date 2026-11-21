@@ -65,6 +65,8 @@ const P = {
   // T-3578: a jaunt's Listen key, speaking (a voice, its waves) and stopped
   listen: '<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9c1.4 1.6 1.4 4.4 0 6m2.6-8.5c2.8 3 2.8 8 0 11"/>',
   stop: '<rect x="7" y="7" width="10" height="10" rx="1.5"/>',
+  // T-3711: a jaunt with music of its own (two beamed notes)
+  music: '<path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/><path d="M9 9.5l10-2"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;
