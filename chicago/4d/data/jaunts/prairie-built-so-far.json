@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 73003215,
+  "content_version": 467284440,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -1057,8 +1057,8 @@
         "kind": "structure",
         "id": "high_house_2021_prairie"
       },
-      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 2017 Prairie.",
-      "read_s": 14,
+      "text": "High House, 2021 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Reid House, 2013 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-49",
         "tour"
@@ -1076,10 +1076,10 @@
       "id": "stop-50",
       "destination": {
         "kind": "structure",
-        "id": "house_2017_prairie"
+        "id": "reid_house_2013_prairie"
       },
-      "text": "2017 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Last stop of the walk so far; it grows as more buildings are built out.",
-      "read_s": 18,
+      "text": "Reid House, 2013 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 7 of the pictures on the Images tab show it. Last stop of the walk so far; it grows as more buildings are built out.",
+      "read_s": 20,
       "evidence": [
         "stood-50",
         "tour"
@@ -1087,7 +1087,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_2017_prairie",
+          "id": "reid_house_2013_prairie",
           "label": "About this building"
         }
       ],
@@ -1748,13 +1748,13 @@
     },
     {
       "id": "stood-50",
-      "text": "2017 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Reid House, 2013 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
-        "chicagology_2017_armour_photo"
+        "inland_architect_1895_02_reid_plate"
       ],
       "confidence": "inferred",
-      "reasoning": "Drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the undated photograph shows the house as William Armour's. The record claims the 1904 target to the sheet's date and no more."
+      "reasoning": "Standing in February 1895, when the Inland Architect publishes its plate of the house, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more."
     }
   ],
   "liberties": [
