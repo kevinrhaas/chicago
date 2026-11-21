@@ -45121,6 +45121,19 @@ bays, the steps and the veranda's run; a K01 veranda on columns over open piers 
 **Review:** `docs/RESEARCH/k01-2109-roloson-3666/README.md`.
 **Recorded:** 2026-11-19 (T-3666).
 
+**Revised:** 2026-11-21, T-3666's sign-off against the Armour photograph. The veranda is now built as the
+photograph draws it: the front run on round columns on square pedestals (the entrance kit's veranda `columns`), the
+south run (the side porch) run on 1.8 m past the front's plane to turn the corner, its floor on open square piers
+(`open_under`) and its balustrade at the deck between the pedestals (`balustrade_at: deck`), its roof flat and bare.
+Still otherwise than the evidence: the pedestals and piers are plain where the photograph's are panelled, and the south
+run's railing is laid in the porch's stone where the print draws it dark. The rear block now steps out about 0.5 m
+south of the front block, not the sheet's 2.32 m: through the solved camera the photograph shows only a narrow strip
+of its front under its cornice's end, and 2115's mansard where a full-height face 2.32 m out would stand; what fills
+the rest of the sheet's step (a part lower than the veranda's roof, or the coarse copy's error) is unread, and the
+rear block's flat deck is kept where the print shows a sliver of slated slope. The dormer's carved surround is K01's
+eared hood (as 2115's off the same photograph), its scrolls, consoles and keystone not carved. A picture of the
+rear or the south flank would read the step.
+
 ### L-k01-2017-armour-3634 — 2017 Prairie, the William Armour house, refined from the district draft onto K01: a stone front under a mansard, a gabled south projection and a columned porch read off its one photograph
 
 **Decision:** the district draft at `house_2017_prairie` (T-2352) is refined in place, under its own id,
