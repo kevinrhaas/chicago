@@ -417,13 +417,13 @@
       "note": "The landing runs out under the porch to the columns (the plate's plan draws the stoop's flight from the porch's front edge)."
     },
     "stoop_width_m": {
-      "value": 3.0,
+      "value": 3.2,
       "confidence": "inferred",
       "sources": [
         "chicagology_2100_sherman_photo",
         "aabn_1876_09_30_sherman_2100_plate"
       ],
-      "note": "The curved front flight in the photograph (x 410-530 px at its foot) and the plan's flight, a little narrower than the porch."
+      "note": "The curved front flight in the photograph (x 410-530 px at its foot) and the plan's flight. T-3701: 3.2 m, the porch's width, on the porch's axis at v 8.0 (`entrance_kit.stoop_v_m`); K01's porch on columns stands on its own landing, so the flight is as wide as the porch, where the photograph's is about 2.3 m between its cheeks."
     },
     "entrance_bay": {
       "value": 2,
@@ -484,10 +484,11 @@
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
-        }
+        },
+        "k01.opening.balcony_door": "k06.opening.french_pair_transom"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's two-over-two sash; the photograph's lights are mostly single panes, T-1920's to refine."
+      "note": "RECONSTRUCTED (L-k01-2100-sherman-1919): the kit's two-over-two sash; the photograph's lights are mostly single panes, T-1920's to refine. T-3701: the light over the hall's door, opening onto the porch's balcony, is K06's French window (two casement leaves to the floor under a transom), the kit's own reconstruction of a balcony door (1816's, T-1886); the photograph shows its head and upper glass over the balcony's guard only."
     },
     "side_bays": {
       "value": [
@@ -909,20 +910,20 @@
           "front_yard_m": 7.3,
           "hood": {
             "fabric": "stone",
-            "soffit_m": 6.4,
-            "width_m": 3.0,
+            "soffit_m": 5.8,
+            "width_m": 3.2,
             "out_m": 2.2,
-            "fascia_m": 0.45,
+            "fascia_m": 1.2,
             "cornice": {
               "height_m": 0.15,
               "proud_m": 0.15
             },
             "brackets": "k08.bay.canted_hooded",
             "railing": {
-              "height_m": 0.55,
+              "height_m": 0.85,
               "post_m": 0.25,
-              "baluster_m": 0.08,
-              "pitch_m": 0.25,
+              "baluster_m": 0.1,
+              "pitch_m": 0.2,
               "rail_m": [
                 0.15,
                 0.1
@@ -932,13 +933,45 @@
               "diameter_m": 0.45,
               "plinth_m": [
                 0.6,
-                0.5
+                0.8
               ],
               "capital_m": 0.4,
-              "respond_m": 0.15
+              "respond_m": 0.15,
+              "carved": {
+                "tiers": 2,
+                "abacus_m": 0.1
+              }
             },
-            "railing_fabric": "stone"
-          }
+            "railing_fabric": "stone",
+            "door_over": true,
+            "centre_v_m": 8.0
+          },
+          "cheek_form": {
+            "kind": "swept",
+            "head_m": 0.6,
+            "foot_m": 0.85,
+            "block_m": 0.5,
+            "flare": [
+              {
+                "side": "left",
+                "out_m": 0.35
+              },
+              {
+                "side": "right",
+                "out_m": 0.35
+              }
+            ],
+            "pierced": {
+              "side": "left",
+              "count": 4,
+              "hole_m": [
+                0.3,
+                0.2
+              ],
+              "under_m": 0.1
+            }
+          },
+          "stoop_v_m": 8.0
         }
       },
       "confidence": "inferred",
@@ -946,7 +979,7 @@
         "chicagology_2100_sherman_photo",
         "aabn_1876_09_30_sherman_2100_plate"
       ],
-      "note": "The porch before the hall: in the photograph stone piers and a cluster of three columns with carved capitals (x 525-595 px) carry a deep stone entablature (y 965-1050) and the second floor's balcony over it, railed by a carved stone balustrade (y 895-960, about 0.85 m, built 0.55 m so it stays under the sill of the light behind it, which K01 holds it to); the soffit at y 1050 px is about 4.6 m over the landing through the solved camera; the plan draws the porch the hall's width before the vestibule. The cluster is built as one column a side; the balcony's carving and the side flight are T-1920's."
+      "note": "The porch before the hall: in the photograph stone piers and a cluster of three columns with carved capitals (x 525-595 px) carry a deep stone entablature and the second floor's balcony over it, railed by a carved stone balustrade (y 890-950 px, about 0.85 m); the plan draws the porch the hall's width before the vestibule. T-3701 read the porch off the photograph through the solved camera: the porch and its flight stand on the photograph's axis at v 8.0, 0.5 m north of the hall's door, 3.2 m wide (the door stays at v 7.5 under its south half, as the photograph's dark doorway stands left of the cluster), and the render's columns, cheeks and slab now print within about 40 px of the photograph's where they printed about 80 px south; the soffit is lowered to 5.8 m and the entablature deepened to 1.2 m, as the photograph's capitals stand about 0.6 m under the balcony's floor, so the deck stays at 7.15 m, the second floor's; the balcony's guard is raised to the photograph's 0.85 m, and the light over the door made a door onto the deck (`hood.door_over`, 1816's precedent, T-1886): the photograph's light over the porch runs down behind the guard, its foot hidden; the capitals are carved (the kit's two tiers of leaves under an abacus) and the columns stand on 0.8 m pedestals, the kit's tallest, where the photograph's cluster stands on a pedestal about 1.4 m over the landing; the flight's cheeks are swept from 0.6 m over the landing down to a block at the foot (the kit's highest head; the photograph's stand about 0.7-0.8 m over it), splayed out 0.35 m a side toward the walk as the plate's plan draws the flight widening at its foot, and the south cheek pierced by a row of four openings under its coping as the photograph's is (the plate draws both pierced; the photograph shows the north cheek's face carved with a roundel, not open). What stays otherwise than the pictures (the match record): the cluster is one column a side (K01's porch columns stand at least 0.3 m apart past their plinths, so three shafts on one pedestal need a kit change); the balcony runs 3.2 m where the photograph's runs on south to the pavilion, the kit's porch standing only on its own landing; the flight is the porch's width where the photograph's is narrower and north of the porch's middle; the balustrade's carved, pierced panels are the kit's square stone balusters at 0.2 m."
     },
     "boundary": {
       "value": {

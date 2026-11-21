@@ -2,7 +2,7 @@
   "structure_id": "sherman_house_2100_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3e590de55f8cbb06121e6fc99e58c18f4d39b847346e79387a54ae88a180a638",
+  "glb_sha256": "e7726d4142520e0f59f8b630d69c7d5de5835e0de2c328433bee1e9901ef1c1b",
   "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
   "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
   "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
@@ -41,11 +41,15 @@
       "status": "open"
     },
     {
-      "what": "the porch: the photograph's balcony runs from the pavilion to the parlour on stone piers and a cluster of three columns, with a carved stone balustrade about 0.85 m high; the record's hood is the hall's width on one column a side, railed 0.55 m with balusters",
+      "what": "the porch (T-3701): it now stands on the photograph's axis, 0.5 m north of the door, its slab and columns within about 40 px of the photograph's (they printed about 80 px south), the soffit lowered so the deep entablature prints with the photograph's (the capitals at about y 1075 px), the guard raised to the photograph's 0.85 m (its top within about 10 px of y 890) before a door onto the balcony, and the capitals carved",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch's cluster and reach: the photograph's balcony runs on south to the pavilion on stone piers, and its north corner is a cluster of three slender columns on a pedestal about 1.4 m high; the record's porch is 3.2 m wide on one column a side on 0.8 m pedestals (K01's porch columns stand at least 0.3 m apart past their plinths, and its porch stands only on its own landing); the balustrade's carved pierced panels are square stone balusters",
       "status": "open"
     },
     {
-      "what": "the stoop: the photograph's curved flight from the walk and second flight from the south, with carved stone cheeks; the record's single straight flight",
+      "what": "the stoop (T-3701): the flight now rises between swept stone cheeks, splayed toward the walk as the plate's plan draws it, the south cheek pierced by a row of openings under its coping as the photograph's is; the photograph's flight is about 2.3 m between its cheeks and north of the porch's middle where the record's is the porch's 3.2 m, its cheeks' heads stand about 0.2 m higher than the kit's highest, and its north cheek's carved roundel is not built; the 'second flight from the south' is in neither picture (the photograph's left-hand flight is this flight's south cheek), so nothing is built for it",
       "status": "open"
     },
     {
