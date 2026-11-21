@@ -66,6 +66,12 @@
 # that equivalence for every k, including a prerequisite in the middle. No
 # assertion or timeout changes; CI keeps all eight parts and its required gate.
 #
+# T-3707, 2026-11-20: the content build's own gate (chicago-4d-bake.yml `gate`)
+# kept 600 s per part and lost part 6/8 to it on two PRs while dev passed it in
+# 323 s, so that job raised N to sixteen by the rule above: k/8 is exactly k/16
+# and (k+8)/16, which the harness proves. The PR gate (chicago-4d-check.yml) keeps
+# its eight parts and T-3656's 900 s.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
@@ -1634,6 +1640,15 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 # face or as wide as its surround refused.
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
+
+# T-3616. ...and a K08 light may be PLAIN (no sill or lintel of its own, cut square in the stone)
+# and, near the ends of a round tower standing into its wall over the eave, THROUGH-PLANE, its
+# recess back through the wall plane inside a hole its host opens (2011 Prairie's turret band,
+# five lights junction to junction off the Chicagology photograph and the 1895 Inland Architect
+# plate); the hole taken away, an unmarked light behind the plane, a dressed or unreasoned plain
+# light, and a through-plane light off an inset round tower or under the eave all refused.
+step "a K08 light may be plain, and through-plane over the eave on an inset round tower (T-3616)" \
+  python3 tools/test_k08_plain_through_plane.py
 
 # T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
 # front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the

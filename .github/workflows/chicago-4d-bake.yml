@@ -85,7 +85,7 @@ permissions:
 # So the work is split and each part gets its own budget:
 #
 #   bake     generate, derive, publish          SKIP_SMOKE=1 SKIP_GATE=1, ~15 min
-#   gate     check.sh on the baked tree, 8 parts, PARALLEL with smoke (T-3503)
+#   gate     check.sh on the baked tree, 16 parts, PARALLEL with smoke (T-3503, T-3707)
 #   smoke    the published mirror, viewport × stage  8 legs, ~18 min worst, PARALLEL
 #   open-pr  the PR, only once gate AND smoke are green
 #
@@ -883,16 +883,37 @@ jobs:
   # so this is the only gate a bake PR ever gets — `needs: gate` below is not
   # optional. Its check names are prefixed `bake` so they never share a name with
   # the PR gate's own `gate part k/8` on one commit.
+  #
+  # SIXTEEN PARTS, NOT EIGHT (T-3707). The PR gate's parts got a 900 s allowance
+  # (T-3656); these kept 600 s, and on 2026-11-20 `bake gate part 6/8` was killed
+  # at it (rc 124) on two PRs running — #2257 (run 44741728254) and #2259 (run
+  # 44744942851, job 136334166562) — while every other part of both runs passed
+  # and the same part passed on dev in 323 s (run 44735878349). Its log says
+  # where the time went: dev's part 6 had published by +145 s and finished at
+  # +323 s; #2259's had only published by +277 s and was still waiting on its
+  # next step when the cap fell at +600 s. That is a runner twice as slow, not
+  # the diff — locally the part is 286 s — and the other parts had no room for
+  # it either: 7/8 took 524 s and 1/8 486 s on the same run, 3/8 502 s on
+  # #2257's. check.sh's header rule is "when a part passes about 540 s, raise N;
+  # do not lower the bar", so N is raised and the cap stays at 600 s.
+  #
+  # Sixteen because it splits every old part exactly in two: the steps of k/8
+  # are those of k/16 and (k+8)/16, each with every `every_part` prerequisite
+  # (the publish included), which tools/test_check_harness.sh proves for every
+  # k. No step is dropped, moved or given longer. The cost is eight more jobs,
+  # each paying its own checkout and publish (two to four minutes), for a gate
+  # whose slowest part is about half of what it was. The same test holds this
+  # job's matrix to the 1..N its `--part k/N` spells and N to at least sixteen.
   gate:
     needs: bake
-    name: bake gate part ${{ matrix.part }}/8
+    name: bake gate part ${{ matrix.part }}/16
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 16
       matrix:
-        part: [1, 2, 3, 4, 5, 6, 7, 8]
+        part: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -921,7 +942,7 @@ jobs:
           C4D_GATE_REQUIRE_READERS: '1'
           C4D_GATE_REQUIRE_BASE: '1'
           CHECK_JOBS: ${{ steps.jobs.outputs.n }}
-        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"
+        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/16"
 
   smoke:
     needs: bake
@@ -1063,7 +1084,7 @@ jobs:
           if out=$(bash .github/steward/pr-rest.sh create \
             --title "chore: content bake (run ${GITHUB_RUN_ID})" \
             --base "$BASE" \
-            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green in eight parts on the baked tree (T-3503), and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /4d/dev/ preview only, and production moves on owner dispatch." \
+            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green in sixteen parts on the baked tree (T-3503, T-3707), and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /4d/dev/ preview only, and production moves on owner dispatch." \
             --head "$BRANCH"); then
             PR_NUM="$out"
           else

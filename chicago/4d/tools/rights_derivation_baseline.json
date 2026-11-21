@@ -4816,6 +4816,30 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "reid_house_2013_prairie/as_mapped_1904/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "nrhp_2003_reid_house_nomination"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "reid_house_2013_prairie/as_mapped_1904/form.rear_wings": {
+      "kind": "structure",
+      "blocked_sources": [
+        "nrhp_2003_reid_house_nomination"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
+    "reid_house_2013_prairie/as_mapped_1904/form.side_bays": {
+      "kind": "structure",
+      "blocked_sources": [
+        "nrhp_2003_reid_house_nomination"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "robert_kinzie_store/store_1830/form.construction": {
       "kind": "structure",
       "blocked_sources": [

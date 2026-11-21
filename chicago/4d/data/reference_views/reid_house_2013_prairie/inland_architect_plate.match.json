@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5e847dc0b84ca7495ebb910c9d9beff091672fb122b29668351c8f49a1c7d360",
+  "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "5e847dc0b84ca7495ebb910c9d9beff091672fb122b29668351c8f49a1c7d360"
+      "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53"
     }
   ],
-  "group_sha256": "636427cfa9b8c56e37fbecd4e88f36c77611253c2b9603bec272f94e5988e1b7",
+  "group_sha256": "9dc31eed1076b1639194698eeb3416a2dff259908640349afc821bff9db62390",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -136,7 +136,7 @@
     {
       "what": "the front's tone: the plate prints it the palest front on the block, near white beside 2011's pale stone, where the render's cream brick reads a warm tan",
       "status": "open",
-      "how": "still open, and not fixable on the kit: K03 lays a face as one of its two panels under a colour factor of at most 1, so no recipe is paler than the common buff panel, and the 1904 scene adds no brick map at its phone memory ceiling (k03_face_brick.json `rule`). The plate's near-white front wants a pale brick panel; the nomination text's 'cream rough-textured brick' says the same (L-k10-2013-reid-blocks-3626)"
+      "how": "still open. T-3626: the 2003 nomination now documents the colour the monochrome plate cannot: the front is 'faced with cream colored, rough textured brick' (PDF p. 4; nrhp_2003_reid_house_nomination), so the plate's near-white is cream brick, not stone. K03 still cannot lay it: a recipe's factor is at most 1 on its panels and the palest is the common buff, which cream_sooted already sits on (k03_face_brick.json `rule`). The owner answered T-3626's question on 2026-11-20 with 'You can add colors': a pale cream panel for 1904 is the fix, and its map's memory has to be paid at the phone ceiling T-3708 set; not attempted in this run."
     },
     {
       "what": "the portico's entablature and the door",
@@ -156,7 +156,7 @@
     {
       "what": "the flanks, the rear and the roof",
       "status": "not shown",
-      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck. The 2003 nomination photographs (north side, rear, rear garden) were not read: the library holds them link-only, their reuse rights not established, and on 2026-11-20 NARA's copy refused this runner (403) and NPGallery's is not digitized. Their summaries are post-1955 (the north wall bared when 2009-2011 came down) and the rear's coach house is 1910, so neither is 1904 evidence of what the plate cannot see"
+      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck. T-3626 brought the 2003 nomination photographs into the image store and read them: the north wall has its own view now (nrhp_2003_north_side.json); the rear photograph is read in the record's rear_wings note, its camera not yet solved. The two stacks moved to the south party wall (the nomination's fireplaces) fall, from this camera, behind 2017's front gable, which the plate draws in front of them."
     },
     {
       "what": "2011 and 2017 themselves",
