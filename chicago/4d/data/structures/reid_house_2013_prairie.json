@@ -290,9 +290,53 @@
      "note": "Through the solved camera: the door centred about 1.3-1.5 m from the north corner; the ground floor's two lights at 4.0 and 5.8 m."
     },
     "side_bays": {
-     "value": [],
-     "confidence": "reconstructed",
-     "note": "No light in either party wall: the sheet draws 2011 and 2017 against them."
+     "value": [
+      {
+       "s_m": 2.05,
+       "sill_m": 3.65,
+       "width_m": 0.6,
+       "height_m": 1.65,
+       "head": "plain",
+       "why_not_ordinary": "the 2003 north-side photograph's narrow stair light, about 0.55-0.6 m across through its camera, flat-headed in the bare common brick"
+      },
+      {
+       "s_m": 5.2,
+       "sill_m": 3.55,
+       "width_m": 0.55,
+       "height_m": 1.75,
+       "head": "plain",
+       "why_not_ordinary": "the 2003 north-side photograph's narrow stair light, about 0.55-0.6 m across through its camera, flat-headed in the bare common brick"
+      },
+      {
+       "s_m": 2.05,
+       "sill_m": 7.4,
+       "width_m": 0.6,
+       "height_m": 1.8,
+       "head": "plain",
+       "why_not_ordinary": "the 2003 north-side photograph's narrow stair light, about 0.55-0.6 m across through its camera, flat-headed in the bare common brick"
+      },
+      {
+       "s_m": 5.38,
+       "sill_m": 6.5,
+       "width_m": 0.58,
+       "height_m": 2.45,
+       "head": "plain",
+       "why_not_ordinary": "the 2003 north-side photograph's narrow stair light, about 0.55-0.6 m across through its camera, flat-headed in the bare common brick"
+      },
+      {
+       "s_m": 5.44,
+       "sill_m": 10.25,
+       "width_m": 0.55,
+       "height_m": 2.15,
+       "head": "plain",
+       "why_not_ordinary": "the 2003 north-side photograph's narrow stair light, about 0.55-0.6 m across through its camera, flat-headed in the bare common brick"
+      }
+     ],
+     "confidence": "inferred",
+     "sources": [
+      "nrhp_2003_reid_house_nomination"
+     ],
+     "note": "T-3626: the north party wall's lights (K01's 'south' wall here, s from the front block's rear corner), read off the 2003 nomination photograph of the north side through its solved camera (data/reference_views/reid_house_2013_prairie/nrhp_2003_north_side.json): east of the parging, which stops at u 5.8 where 2011's 12.82 m main block ended (2011's record puts its rear corner at u 5.38 in this frame), the wall is bare common brick with narrow single lights at their own heights, not stacked, as a stair's lights are (the nomination: the grand staircase 'ascends along the north wall'). Two columns: at s 2.05 the ground floor's (sill 3.65 m, px x 458-472) and the second floor's (7.4 m); at s 5.2-5.44 a light in each storey (sills 3.55, 6.5 and 10.25 m, px x 537-557). Their sizes are the camera's, about 0.55-0.6 m wide. In 1904 they looked into 2011's side court, past its main block; the 2003 picture is evidence of its own date, and nothing in it or the nomination's text says they were cut later (the house 'remains as constructed in 1894' but for its kitchen and pantry fittings)."
     },
     "rear_bays": {
      "value": [
@@ -559,16 +603,19 @@
       "stacks": [
        {
         "u_m": 6.0,
-        "v_m": 0.7
+        "v_m": 6.92
        },
        {
         "u_m": 13.0,
-        "v_m": 0.7
+        "v_m": 6.92
        }
       ]
      },
-     "confidence": "reconstructed",
-     "note": "No stack shows over the balustrade in the plate; two stacks on the north party wall, set back where the plate cannot see them."
+     "confidence": "inferred",
+     "note": "No stack shows over the balustrade in the plate. T-3626: the 2003 photograph of the north side shows the north party wall's parapet whole with no stack on it, front to rear, and the nomination's description puts the house's fireplaces (nine, gas) on the SOUTH wall in the music room ('directly opposite the stairs'), the morning room ('the center of the south wall') and the ballroom: so the two stacks stand on the south party wall (v 6.92), at the u the draft gave them, which no picture fixes (reconstructed). The dining room's fireplace on its north wall is not given a stack of its own: the 2003 parapet shows none, and its flue's way up is not read.",
+     "sources": [
+      "nrhp_2003_reid_house_nomination"
+     ]
     },
     "entrance_kit": {
      "value": {
@@ -684,7 +731,7 @@
        "storey_heights_m": [
         3.8,
         3.5,
-        4.0
+        4.6
        ],
        "sash_by_storey": [
         {
@@ -698,15 +745,15 @@
          "height_m": 2.0
         },
         {
-         "sill_above_floor_m": 0.8,
-         "width_m": 0.9,
-         "height_m": 2.0
+         "sill_above_floor_m": 1.52,
+         "width_m": 0.75,
+         "height_m": 2.3
         }
        ],
        "windows": {
         "north": [],
         "south": [
-         2.4
+         2.95
         ]
        },
        "roof": {
@@ -714,6 +761,20 @@
         "overhang_m": 0.15,
         "fascia_m": 0.3,
         "covering": "painted_tin_sheet"
+       },
+       "windows_by_storey": {
+        "north": [
+         [],
+         [],
+         []
+        ],
+        "south": [
+         [],
+         [],
+         [
+          2.95
+         ]
+        ]
        }
       },
       {
@@ -742,11 +803,10 @@
         }
        ],
        "windows": {
-        "south": [
-         2.7
-        ],
+        "south": [],
         "rear": [
-         2.2
+         1.1,
+         3.35
         ]
        },
        "roof": {
@@ -759,9 +819,10 @@
      ],
      "confidence": "inferred",
      "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+      "sanborn_1911_chicago_v3_sheet_35",
+      "nrhp_2003_reid_house_nomination"
      ],
-     "note": "The 1911 sheet behind the front block, read at full size: a narrower '3B' part 4.85 m deep (px 1015-1041) and 4.65 m wide along the north line (rows 476-501), with a small canted bay on its open south side, and the '2B' rear block 5.4 m deep (px 1041-1070) and 4.46 m wide. Their floors, storeys, flat roofs and lights are RECONSTRUCTED; the canted bay is not built (L-k01-2013-reid-3625, T-3626 reads the rear off the 2003 photographs)."
+     "note": "The 1911 sheet behind the front block, read at full size: a narrower '3B' part 4.85 m deep (px 1015-1041) and 4.65 m wide along the north line (rows 476-501), with a small canted bay on its open south side, and the '2B' rear block 5.4 m deep (px 1041-1070) and 4.46 m wide. Their floors, storeys, flat roofs and lights are RECONSTRUCTED; the canted bay is not built (L-k01-2013-reid-3625, T-3626 reads the rear off the 2003 photographs). T-3626, the 2003 nomination photographs: on the north wall behind the front block (K01's 'south' side of rear_3b, s from its rear end) a tall light in the top storey at s 2.95 (sill 10.47 m, px x 368-383; about 0.7 m wide, laid at the kit's 0.75 m), none in the middle storey, and in the ground storey only a small high light at s 2.24 (sill 4.92 m, about 0.5 x 0.64 m, px x 355-366) that a wing's sash cannot lay (1.5 m at the least) and is not built, under the bar a street visitor would notice, through the north side's camera; the rear block's north wall is blank from grade to its parapet. Its rear (east) face, in the rear photograph (no camera solved), shows two lights a storey, barred in 2003, set about a quarter of the face in from each corner (built at s 1.1 and 3.35). Not built, and open in the match records: the rear block stands about 11.4 m to its parapet at its east end with an open, roofed porch over it to about 14 m (the nomination: 'the top floor of the rear section is open to provide a terrace'), where this wing is two storeys to 8.95 m; the dining room's canted bay on the south side of rear_3b (the nomination: 'a bay with a larger central window flanked by narrower angled side windows'; the 1911 sheet's canted bay); and the rear's smooth red brick. The narrower 3B part stands as tall as the front block (its top storey 4.6 m, the deck at 13.55 m): the north side's camera reads the party wall's parapet at 14.2-15.0 m unbroken from the front back to u -3.8, where the rear block's terrace begins, so the draft's 4.0 m top storey, a 0.6 m step down behind the front block that the photograph does not show, is withdrawn."
     }
    }
   }
