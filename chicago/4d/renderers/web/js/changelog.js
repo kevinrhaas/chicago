@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3175, ts: '2026-11-21T02:33:30.900Z', date: 'Nov 20, 2026, 8:33 PM CT', title: '2013 Prairie\'s north wall built from its 2003 photograph', kind: 'improvement',
+    items: [
+      'The Reid house\'s side wall now has the narrow stair windows its 2003 National Register photograph shows, at their own heights, where it had a plain grid.',
+      'Its chimneys move to the south wall, where the house\'s fireplaces are, and the roofline behind the front no longer steps down.',
+      'The four exterior photographs from the house\'s 2003 nomination are now in the picture library, with their credit.',
+    ] },
   { v: 3174, ts: '2026-11-20T23:43:04.033Z', date: 'Nov 20, 2026, 5:43 PM CT', title: 'Content builds check themselves in sixteen shorter parts', kind: 'chore',
     items: [
       'The automatic check that runs after a content build now splits into sixteen parts instead of eight, each half the size of an old one, because a slow build machine was running one part past its ten-minute limit and failing changes that were fine. Every check still runs, and the time limit is unchanged.',
