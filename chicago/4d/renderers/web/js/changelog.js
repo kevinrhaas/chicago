@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3181, ts: '2026-11-21T09:54:03.264Z', date: 'Nov 21, 2026, 3:54 AM CT', title: 'Five more downtown landmarks stand in 1871, built to their pictures', kind: 'feature',
+    items: [
+      'The Tremont House at Lake and Dearborn, with its porch and rooftop lookout, built to Carbutt\'s stereograph.',
+      'Crosby\'s Opera House on Washington Street, its arched shops and slate roof, built to Carbutt\'s stereograph.',
+      'Field, Leiter & Co.\'s marble store at State and Washington, the Palmer House at State and Quincy, and the Tribune building at Madison and Dearborn, built to Andreas\'s engravings.',
+      'Each has a card with its story, and each burns at its hour in the Great Fire.',
+      'Across Pine Street from the Water Tower, the pumping works now stands back behind its own railed grounds, with no house in front.',
+    ] },
   { v: 3180, ts: '2026-11-21T08:06:17.759Z', date: 'Nov 21, 2026, 2:06 AM CT', title: '2100 Prairie\'s roof takes its carved dormers and stack', kind: 'feature',
     items: [
       'The Sherman house\'s roof now looks more like its c. 1890 photograph: the small dormer over the front door is a stone face under a projecting shelf with a slated hood leaning back over it, and the large dormer over the parlour has a stone coping up its gable, a little pinnacle at each shoulder and a finial on top.',
