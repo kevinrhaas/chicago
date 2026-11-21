@@ -1,0 +1,513 @@
+{
+  "id": "court_house_square_1871",
+  "phase": "square_1853_1871",
+  "name": "Court House Square",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/court_house_square_1871__square_1853_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1870-12-31",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+      "loc_stereo_1s12325_court_house",
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "The square as Lovejoy & Foster's stereograph shows it round the finished wings (completed during 1870, Andreas vol. 2, p. 66), to the fire; it was laid out round the 1853 Court House long before."
+  },
+  "change_note": "Built T-3688 (2026-11-21): Court House Square, open ground that clears the context city's houses from round the Court House, as its photograph shows it (the owner, 2026-11-21: fix the Court House to its photo).",
+  "placement": {
+    "local_e": 474.4,
+    "local_n": -384.3,
+    "rotation_deg": 359.53,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "mitchell_1870_chicago_map"
+    ],
+    "position_note": "The footprint's origin, its south-west corner, is local E 474.4 N -384.3: the square's lot lines as the 1871 plan draws them (E 474.4-566.0, N -384.3 to -273.0, traced from Mitchell's 1870 map), squared to Washington Street with the Court House (89.53 degrees). ITS SOUTH KERB LAPS THE 1835 PLAT'S WASHINGTON STREET BY 4.85 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, the square from the 1871 plan's tracing of Mitchell's 1870 map, which is what the 1871 scene draws; the two disagree by about 5 m here, and moving the square 4.8 m north to clear Washington only laps Clark instead.",
+    "symbolic_location": "The block between Clark, Randolph, LaSalle and Washington Streets, round the Court House.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        91.6,
+        0.0
+      ],
+      [
+        91.6,
+        111.3
+      ],
+      [
+        0.0,
+        111.3
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "mitchell_1870_chicago_map"
+    ],
+    "note": "The whole square inside its lot lines, 91.6 by 111.3 m (the 1871 plan's tracing of Mitchell's map)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "reconstructed",
+        "blocks": [
+          {
+            "name": "the kerb, S side, 0-43 m",
+            "box": [
+              0.0,
+              0,
+              43.2,
+              0.45
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, S side, 49-92 m",
+            "box": [
+              48.7,
+              0,
+              91.6,
+              0.45
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, N side, 0-50 m",
+            "box": [
+              42.1,
+              110.85,
+              91.6,
+              111.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, N side, 55-92 m",
+            "box": [
+              0.0,
+              110.85,
+              36.5,
+              111.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, E side, 0-52 m",
+            "box": [
+              91.15,
+              0.0,
+              91.6,
+              52.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, E side, 58-111 m",
+            "box": [
+              91.15,
+              58.3,
+              91.6,
+              111.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, W side, 0-53 m",
+            "box": [
+              0,
+              58.3,
+              0.45,
+              111.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          },
+          {
+            "name": "the kerb, W side, 59-111 m",
+            "box": [
+              0,
+              0.0,
+              0.45,
+              52.3
+            ],
+            "storeys": [
+              0.4
+            ],
+            "wall": "limestone_rubble",
+            "roof": {
+              "kind": "flat",
+              "covering": "rubble_stone"
+            },
+            "faces": {
+              "S": "blank",
+              "N": "blank",
+              "E": "blank",
+              "W": "blank"
+            },
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s12325_court_house",
+              "andreas_1885_v2_court_house_plate"
+            ],
+            "note": "A low stone kerb with an iron fence round the square, as the stereograph shows it along Randolph Street; its line on the lot lines, its height and the gateways other than the north one, before the north steps, are reconstructed."
+          }
+        ],
+        "railings": [
+          {
+            "block": 0,
+            "face": "S",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 1,
+            "face": "S",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 2,
+            "face": "N",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 3,
+            "face": "N",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 4,
+            "face": "E",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 5,
+            "face": "E",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 6,
+            "face": "W",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          },
+          {
+            "block": 7,
+            "face": "W",
+            "z": 0.4,
+            "h": 1.3,
+            "kind": "iron",
+            "d": -0.22,
+            "confidence": "reconstructed"
+          }
+        ],
+        "fire": {
+          "fate": "survived",
+          "left": "whole",
+          "sources": [
+            "loc_stereo_1s12325_court_house",
+            "andreas_1885_v2_court_house_plate"
+          ],
+          "note": "Stone and iron round open ground: nothing in the square burned but the Court House (reconstructed; no account of the fence after the fire was found)."
+        },
+        "note": "Open ground round the Court House inside a stone kerb and iron fence on its four streets, gateways in the middle of each side (the north one before the steps)."
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "loc_stereo_1s12325_court_house",
+        "andreas_1885_v2_court_house_plate"
+      ],
+      "note": "Open ground round the Court House inside a stone kerb and iron fence; the fence's line on the lot lines, its height and the gateways other than the north one are reconstructed."
+    },
+    "kind": {
+      "value": "open_ground",
+      "confidence": "attested",
+      "sources": [
+        "loc_stereo_1s12325_court_house",
+        "andreas_1885_v2_court_house_plate"
+      ],
+      "note": "Open ground round the Court House (the stereograph shows none other in the square): the walker reads it and lets the visitor walk in it, and the context city's houses stand off it.",
+      "geometry": "record_only"
+    },
+    "wall_material": {
+      "value": "A stone kerb with an iron fence round open ground",
+      "confidence": "inferred",
+      "sources": [
+        "loc_stereo_1s12325_court_house"
+      ],
+      "note": "Lovejoy & Foster's stereograph; drawn in the 1835 kit's limestone and forged iron.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "public_square",
+      "confidence": "attested",
+      "sources": [
+        "loc_stereo_1s12325_court_house",
+        "andreas_1885_v2_court_house_plate",
+        "mitchell_1870_chicago_map"
+      ],
+      "note": "The public square the Court House stood in the middle of, the whole block between Clark, Randolph, LaSalle and Washington Streets (Mitchell's 1870 map draws it as one block; Lovejoy & Foster's stereograph and Andreas's engraving show the building standing back in it behind an iron fence)."
+    },
+    "built": {
+      "value": 1853,
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Laid out round the 1853 Court House; the square itself is older, the public square of the 1830 plat."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "andreas_1885_v2_buildings",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+        "when and how each burned on 8-9 October 1871"
+      ],
+      "what_it_does_not_supply": [
+        "measured drawings or surveyed positions: street corners only",
+        "the walls no writer describes"
+      ]
+    },
+    {
+      "source_id": "andreas_1885_v2_court_house_plate",
+      "citation": "'The Court-House before the fire', wood engraving, in A. T. Andreas, History of Chicago, vol. 2 (Chicago: A. T. Andreas, 1885), p. 65.",
+      "url": "https://archive.org/details/historyofchicago02andr/page/n66/mode/1up",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the Court House's south and east fronts, drawn",
+        "the south portico and its steps"
+      ],
+      "what_it_does_not_supply": [
+        "measured proportions (an engraving)",
+        "the north and west fronts"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s12325_court_house",
+      "citation": "'Court House', stereograph, No. 22 [of a Chicago series; the mount names Lovejoy & Foster's 'Chicago and Vicinity'], [1871]. Library of Congress Prints and Photographs Division, Stereograph Cards collection, LC-DIG-stereo-1s12325.",
+      "url": "https://www.loc.gov/pictures/item/2018649162/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Court House's massing, storeys and bays from the north-east",
+        "the cupola, the belfry and the wings' crests and domes"
+      ],
+      "what_it_does_not_supply": [
+        "the south and west fronts",
+        "measured sizes",
+        "colour"
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    }
+  ],
+  "research_note": "COURT HOUSE SQUARE, built by T-3688 for the 1871 scene: the open ground round the Court House, the whole block between Clark, Randolph, LaSalle and Washington Streets. Lovejoy & Foster's stereograph (1871) from Clark and Randolph shows the building's north front standing back from Randolph Street behind an iron fence on a stone base, with trees, lamps and a gateway before the north steps, and no other building in the square; Andreas's engraving from Clark and Washington shows the same on the south. The scene's context city had filled the square north and south of the building with ordinary blocks; this record clears them. The fence's line on the lot lines, its height and the gateways other than the north one are reconstructed.",
+  "research_doc": "",
+  "review_required": false
+}

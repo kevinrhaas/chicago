@@ -2,7 +2,7 @@
   "structure_id": "crosbys_opera_house_1871",
   "view": "carbutt_139",
   "glb": "assets/gltf/crosbys_opera_house_1871__opera_house_1865_1871.glb",
-  "glb_sha256": "260f9a6e42c07b94a6c3b24d9cbda37a49a3fda0727450bb7b46b499b56a0d25",
+  "glb_sha256": "b706f4ff4bb5fe75862eb0840a9cc80b92f62126971498b1c6db3fca1d4ef065",
   "camera_sha256": "e1ee524f28c349e1b641e260a0bafabb2398132c65b2cb3330217bc7325a98ce",
   "photo_sha256": "f54a7c0b010db2510c0f59d2e0fa6fe69ef92f7c1d21567b67c6d38471c4d6a3",
   "side_by_side": "docs/RESEARCH/photo-match/crosbys_opera_house_1871/carbutt_139-side-by-side.jpg",
@@ -27,7 +27,11 @@
     {
       "what": "The shop signs and the entrance's carving are not modelled; the window dressings are simpler than the photograph's",
       "status": "within tolerance"
+    },
+    {
+      "what": "Its balcony's railing is now built open, rails, bars and posts, as the picture draws it, where it was a solid band (T-3688, the landmarks' shared railing)",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

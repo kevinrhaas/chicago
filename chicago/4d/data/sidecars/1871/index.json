@@ -133,6 +133,12 @@
       "asset": "gltf/cook_county_court_house_1871__court_house_1870_1871.glb"
     },
     {
+      "id": "court_house_square_1871",
+      "name": "Court House Square",
+      "sidecar": "sidecars/1871/court_house_square_1871.json",
+      "asset": "gltf/court_house_square_1871__square_1853_1871.glb"
+    },
+    {
       "id": "crosbys_opera_house_1871",
       "name": "Crosby's Opera House, Washington Street",
       "sidecar": "sidecars/1871/crosbys_opera_house_1871.json",
