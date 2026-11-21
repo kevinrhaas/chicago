@@ -175,6 +175,14 @@ still speaking; travelling on does not cut a voice off; muting Narration or all 
 the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. A jaunt's Start, Continue, Next Stop and Straight-there taps also prime the element, so the opening (the title, then the Background) plays as the jaunt begins and John follows it at the first stop. The
 Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
 
+**Finding the narrated jaunts (T-3711, owner 2026-11-20).** `tools/compile_jaunts.py` writes
+`narrated: true` on the catalog row of every jaunt listed in this file's `jaunts` (not `held`),
+and `music: true` on every jaunt listed in `data/music/jaunts.json` `jaunts` (same form: an id or
+`{id, ...}`). The music work (T-3710) fills that file in as it attaches a jaunt's score cues; with
+no file, no jaunt has music. The Jaunts menu's **Listen** row shows a **Narrated** pill (and a
+**Music** pill once any jaunt has music); a picked pill lists only those jaunts, and each such
+card says *Narrated* / *Music* on its tags. Editing either list means compiling the jaunts again.
+
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices
 (L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
 
