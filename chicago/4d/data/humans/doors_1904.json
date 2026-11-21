@@ -12475,36 +12475,194 @@
   },
   {
    "structure": "roloson_house_2109_prairie",
-   "name": "2109 Prairie Avenue \u2014 Roloson partly seen in Armour photograph (district draft; refined by T-1924)",
+   "name": "2109 Prairie Avenue \u2014 the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side",
    "placement": {
-    "local_e": 1436.332,
-    "local_n": -3642.51,
+    "local_e": 1431.482,
+    "local_n": -3641.298,
     "rotation_deg": 179.312
    },
    "doors": [
     {
      "id": "roloson_house_2109_prairie:front",
      "leaf": {
-      "local_e": 1427.37,
-      "local_n": -3645.37
+      "local_e": 1423.87,
+      "local_n": -3642.69
      },
      "step": {
-      "local_e": 1419.97,
-      "local_n": -3645.46
+      "local_e": 1418.7,
+      "local_n": -3642.75
      },
      "outward_deg": 269.3,
      "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       7.695,
+       1.3
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.61,
+       0.61
+      ],
+      "sill": 1.7,
+      "head": 4.4,
+      "leaf": {
+       "front": 0,
+       "back": -0.13,
+       "s": [
+        -0.6,
+        0.6
+       ],
+       "foot": 1.7,
+       "top": 4.4
+      },
+      "hinge": "right",
+      "pair": false,
+      "revealBack": -0.005,
+      "leafBoxBack": -0.16,
+      "leafMaterials": [
+       "door_leaf"
+      ],
+      "way": [
+       [
+        12.795,
+        1.3,
+        null
+       ],
+       [
+        12.465,
+        1.3,
+        null
+       ],
+       [
+        12.225,
+        1.3,
+        0.17
+       ],
+       [
+        12.165,
+        1.3,
+        0.17
+       ],
+       [
+        11.925,
+        1.3,
+        0.34
+       ],
+       [
+        11.865,
+        1.3,
+        0.34
+       ],
+       [
+        11.625,
+        1.3,
+        0.51
+       ],
+       [
+        11.565,
+        1.3,
+        0.51
+       ],
+       [
+        11.325,
+        1.3,
+        0.68
+       ],
+       [
+        11.265,
+        1.3,
+        0.68
+       ],
+       [
+        11.025,
+        1.3,
+        0.85
+       ],
+       [
+        10.965,
+        1.3,
+        0.85
+       ],
+       [
+        10.725,
+        1.3,
+        1.02
+       ],
+       [
+        10.665,
+        1.3,
+        1.02
+       ],
+       [
+        10.425,
+        1.3,
+        1.19
+       ],
+       [
+        10.365,
+        1.3,
+        1.19
+       ],
+       [
+        10.125,
+        1.3,
+        1.36
+       ],
+       [
+        10.065,
+        1.3,
+        1.36
+       ],
+       [
+        9.825,
+        1.3,
+        1.53
+       ],
+       [
+        9.765,
+        1.3,
+        1.53
+       ],
+       [
+        9.525,
+        1.3,
+        1.7
+       ],
+       [
+        8.095,
+        1.3,
+        1.7
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "hinge": "reconstructed",
+       "swing": "reconstructed",
+       "vestibule": "reconstructed",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     },
     {
      "id": "roloson_house_2109_prairie:back",
      "leaf": {
-      "local_e": 1439.92,
-      "local_n": -3649.9
+      "local_e": 1441.4,
+      "local_n": -3647.14
      },
      "step": {
-      "local_e": 1443.68,
-      "local_n": -3649.87
+      "local_e": 1445.16,
+      "local_n": -3647.11
      },
      "outward_deg": 89.5,
      "width_m": 0.95,
@@ -12513,26 +12671,26 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2109:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f511efc878c5aae991182d764211570819be879702cdbd9ae795786352de58aa",
+   "model_inputs_sha256": "af2992c7dc0b0067d52594eb5cdd11469dc7f398987bc5de4e0c949153b8a52e",
    "barrier": {
-    "key": "16483a166ee8e071",
+    "key": "2d8c0bc0549d3e0c",
     "cell": 0.1,
-    "u0": -7.1,
-    "v0": -1.6,
-    "count": 13,
-    "rects": "2 13 6 25 13 36 1 29 36 54 1 97 54 60 28 97 60 71 38 97 71 107 71 97 107 161 71 72 126 201 81 110 161 162 16 72 162 200 31 72 201 207 24 110 207 217 24 82 217 229 43 62"
+    "u0": -11.3,
+    "v0": -1.4,
+    "count": 15,
+    "rects": "2 3 14 39 3 14 38 39 3 113 14 15 14 15 38 115 15 62 38 39 15 113 114 115 113 192 92 119 117 118 12 14 192 210 14 92 210 213 16 19 210 213 20 35 210 213 36 38 213 237 16 38 262 267 1 21 262 267 34 153"
    },
    "floor": {
-    "key": "80723872444b123a",
+    "key": "b56e47d89fc78a86",
     "cell": 0.1,
-    "u0": -6.9,
-    "v0": -1.5,
-    "ni": 227,
-    "nj": 82,
-    "count": 11,
-    "rects": "0 3 5 23 28 3 6 5 23 56 6 9 5 23 84 9 12 5 23 112 12 52 0 28 140 199 205 23 80 140 205 215 23 81 140 215 218 43 61 112 218 221 43 61 84 221 223 43 61 56 223 227 43 61 28",
-    "wall_count": 13,
-    "walls": "2 5 23 24 156 5 8 23 24 184 8 11 23 24 212 11 12 23 24 240 12 52 28 29 240 52 53 27 29 240 198 204 80 81 240 199 215 22 23 240 204 205 80 82 240 215 216 42 43 240 216 219 42 43 212 219 222 42 43 184 222 224 42 43 156"
+    "u0": 7.6,
+    "v0": 0.2,
+    "ni": 48,
+    "nj": 75,
+    "count": 20,
+    "rects": "1 2 6 15 170 2 3 6 17 170 3 4 1 31 170 3 4 44 56 170 3 4 69 73 170 4 5 1 73 170 5 16 1 74 170 16 18 2 23 170 16 18 26 48 170 16 18 51 72 170 18 21 4 19 170 21 24 5 18 153 24 27 5 18 136 27 30 5 18 119 30 33 5 18 102 33 36 5 18 85 36 39 5 18 68 39 42 5 18 51 42 45 5 18 34 45 48 5 18 17",
+    "wall_count": 49,
+    "walls": "0 1 6 7 270 1 2 5 6 270 1 2 15 18 270 2 3 0 6 270 2 3 17 32 270 2 3 43 57 270 2 3 68 74 270 3 4 31 44 270 3 4 56 69 270 3 4 73 74 270 3 16 0 1 270 4 5 73 75 270 5 16 74 75 270 16 17 0 2 270 16 17 23 26 270 16 17 48 51 270 16 17 72 75 270 17 18 1 2 270 17 18 23 24 270 17 18 25 26 270 17 18 48 49 270 17 18 50 51 270 17 18 72 73 270 18 19 1 4 270 18 19 19 24 270 18 19 25 49 270 18 19 50 73 270 19 21 3 4 270 19 21 19 20 270 21 22 3 5 270 21 22 18 20 270 22 25 4 5 253 22 25 18 19 253 25 28 4 5 236 25 28 18 19 236 28 31 4 5 219 28 31 18 19 219 31 34 4 5 202 31 34 18 19 202 34 37 4 5 185 34 37 18 19 185 37 40 4 5 168 37 40 18 19 168 40 43 4 5 151 40 43 18 19 151 43 46 4 5 134 43 46 18 19 134 46 48 4 5 117 46 48 18 19 117"
    }
   },
   {
@@ -17484,8 +17642,8 @@
   {
    "structure": "prairie_2109:back_door:stoop",
    "placement": {
-    "local_e": 1439.92,
-    "local_n": -3649.9,
+    "local_e": 1441.4,
+    "local_n": -3647.14,
     "rotation_deg": 359.55
    },
    "barrier": {

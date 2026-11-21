@@ -1,0 +1,61 @@
+{
+ "structure_id": "roloson_house_2109_prairie",
+ "view": "chicagology_armour_photo",
+ "glb": "assets/gltf/roloson_house_2109_prairie__as_mapped_1904.glb",
+ "glb_sha256": "75f2e681dbf55c57400e9b83773729e0b8d767bcfcea5c49afde9a1ba3ddea01",
+ "camera_sha256": "133e6b130a04a1020be0f8d48802506b42098111881781a9c23f680499239afc",
+ "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
+ "side_by_side": "docs/RESEARCH/photo-match/roloson_house_2109_prairie/chicagology_armour_photo-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: the draft's 9 x 5.5 m box with wings under a hip is now the sheet's front block, 7.72 m wide, two storeys of wall under a bracketed cornice with the slated mansard over them; its south corner at x about 240 px against the print's 230, its cornice at y 340-360 against 345-360",
+   "status": "fixed"
+  },
+  {
+   "what": "the south bay's round-headed light in the second storey under its keyed hood (x 55-150 px), and the principal storey's light under it behind the veranda",
+   "status": "fixed"
+  },
+  {
+   "what": "the mansard's round-headed dormer over the south bay and the tall stack over the deck behind it",
+   "status": "fixed"
+  },
+  {
+   "what": "the veranda's height and floor: its flat roof about y 700 px and its floor about y 1115, on open piers to grade, at the print's",
+   "status": "fixed"
+  },
+  {
+   "what": "the veranda's front run: the print's round columns on panelled pedestals with a turned balustrade between them and a deep plain entablature run across the front and on past the house's south corner to the corner pair at x 515 px; the render lays the entrance kit's square posts across the front only, so the run reads as a beam and a balustrade and the corner is the side porch's",
+   "status": "open"
+  },
+  {
+   "what": "the veranda's south run stands on K01's solid side-porch podium where the print shows its floor on open square piers, and carries a low balustrade on its roof that the print does not show (liberty L-k01-2109-roloson-3666)",
+   "status": "open"
+  },
+  {
+   "what": "the rear block's step south of the front block shows its brick front about 160 px wide beyond the house's corner where the print shows only a narrow strip and its cornice end (x 225-285 px): the step is likely shallower than the 2.32 m read off the sheet's coarse copy, or the camera's distance is off",
+   "status": "open"
+  },
+  {
+   "what": "the dormer's carved, scrolled surround and hood (x 15-160, y 160-340 px) is a plain moulded surround",
+   "status": "open"
+  },
+  {
+   "what": "the frieze's long sunk panel and lozenge and the carved pilaster strip on the front's south corner are not laid; each is under about 0.3 m of relief and depth",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the mansard's rise: the render's face stands a little taller than the print's to the deck cornice",
+   "status": "within tolerance"
+  },
+  {
+   "what": "colour: the print is monochrome; the stone's pale tone agrees with the render's Lemont limestone, the flanks' brick is unseen",
+   "status": "not shown"
+  },
+  {
+   "what": "the front north of the south bay, the door, the steps to the veranda, the north flank and the rear: out of the print's frame",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
