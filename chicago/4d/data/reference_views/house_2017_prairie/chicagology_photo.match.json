@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8ec76d276d2d41b6a04387e042f0dd625d3dad320e96c01c33381658b9e7f640",
+  "glb_sha256": "78818943e4f2f34ae5aa72efca8a077b068f05caf4ef0ec6274680d4232dbdf5",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "1fd27d02c520bca63d800da4e37796e0a525d32fa1272d4f37d2e8bbcaa0b950",
+  "flora_sha256": "181a67353b1e721aec085ae6a6e111b8511fa82b633dced806bbb2dabd5aeccc",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -78,12 +78,16 @@
       "status": "fixed"
     },
     {
-      "what": "the dormers: two gabled dormers on the mansard on the axes the photograph gives them, a pair of lights in the north one and one in the other, their pediments standing up over the curb to y 150 and 190 px as the photograph's",
+      "what": "the dormers: two gabled dormers on the mansard on the axes the photograph gives them, a pair of lights in the north one and one in the other, their pediments standing up over the curb, the north one's pilasters at x 52-240 px and the south one's at x 382-505 as the photograph's (T-3634 re-read their widths off the pilasters: 2.06 and 1.36 m)",
       "status": "fixed"
     },
     {
-      "what": "the dormers' dress: the photograph's dormers carry a moulded pediment over an entablature, pilasters either side of the lights and a carved lunette in each pediment; the render's are plain stone faces under a plain gable. The outline and size match; the mouldings and carving are under the bar in size but the carved lunettes are an element missing",
-      "status": "open"
+      "what": "the dormers' dress (T-3634): each is now the photograph's classical pediment in the front's stone: a pilaster with its capital either side of the lights, a frieze over them, a level cornice 0.25 m deep returned past the pilasters, its top 0.55 m over the lights' heads as the photograph's (50 px), the raking cornice in two bands pitched 45 degrees, and in each tympanum a carved lunette standing on the level cornice, a moulded ring round a fan of leaves and a boss at their foot, 0.38 and 0.28 m in radius against about 0.38 and 0.28 m (x 117-180 and 422-470 px). The capitals' carving and the fan's own carving are under the bar",
+      "status": "fixed"
+    },
+    {
+      "what": "the dormers' height: the whole dormer, lights, cornice, lunette and apex together, prints about 20 px (0.2 m) over the photograph's: the render's lights run y 295-385 against 312-400 px and its level cornice tops out at y 245 against 262. K01 stands a dormer's light at least 0.1 m over its face's foot on the lower face, where the photograph's lights run down behind the main cornice; the record takes that least sill and the face's least setback. Under the bar",
+      "status": "within tolerance"
     },
     {
       "what": "the cresting: the photograph's crest along the mansard's curb is a row of square crenellations (y 222-240 px), merlons about 13-14 px wide at about 31 px centres over a solid band; the render's is now the deck's crenellated iron cresting, merlons 0.15 m wide at 0.34 m centres rising 0.09 m over a band, 0.2 m in all, printing along the curb in the photograph's rhythm and stopping either side of each dormer as the photograph's does (T-3634; it was K10's iron scroll cresting, a different shape)",
