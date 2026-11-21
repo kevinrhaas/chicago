@@ -1,0 +1,41 @@
+{
+  "structure_id": "field_leiter_1871",
+  "view": "andreas_p563",
+  "glb": "assets/gltf/field_leiter_1871__store_1868_1871.glb",
+  "glb_sha256": "bfae5280f0f990302cae49262793f0a6794278c5fc43fd657ade080b78a847a3",
+  "camera_sha256": "f5f290ae29fecdce2a91a6f72ef84dfa7cfaad065ab5b6dd0d891a171c1aa740",
+  "photo_sha256": "035511ffa5cb029b35d816665aef796761728c2a2a691a74e12991be607b0cd9",
+  "side_by_side": "docs/RESEARCH/photo-match/field_leiter_1871/andreas_p563-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Six storeys of round-arched windows over the iron shop fronts on both fronts, under a bracketed cornice and a slated mansard with dormers, the State Street front to the left and the Washington Street front to the right, where the engraving shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The tall mansard over the corner and the raised mansards at the State Street front's north end and the Washington Street front's east end",
+      "status": "fixed"
+    },
+    {
+      "what": "The State Street front's twelve window bays",
+      "status": "fixed"
+    },
+    {
+      "what": "The engraving groups the windows in pairs between heavy piers with small balconies; they are drawn as single arched windows at the same rhythm",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The iron shop fronts are drawn as dark glazed bays; the engraving's pale iron columns and curtains differ in detail",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The marble reads as the 1904 kit's marble, a shade warmer than the engraving's white paper",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The roof crests' carving and the corner mansard's round window are drawn as plain arched dormers",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

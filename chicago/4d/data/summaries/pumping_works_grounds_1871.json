@@ -1,0 +1,70 @@
+{
+  "id": "pumping_works_grounds_1871",
+  "scene": "1871",
+  "name": "The pumping works' grounds",
+  "address": "East of Pine Street between Chicago Avenue and Pearson Street, North Side",
+  "status": {
+    "text": "Its railing stood through the fire",
+    "today": "The grounds of the Chicago Avenue Pumping Station",
+    "grade": "inferred",
+    "sources": [
+      "loc_stereo_1s12374_water_works"
+    ],
+    "note": "The railing still stands in a photograph of the works taken after the fire."
+  },
+  "built": {
+    "year": 1867,
+    "grade": "inferred",
+    "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph"
+    ],
+    "note": "Laid out with the water works, begun in 1867."
+  },
+  "use": "Public grounds",
+  "summary": "The open ground in front of the pumping works. The engine house stood back from the street behind an iron railing. No houses stood between it and Chicago Avenue.",
+  "key": [
+    {
+      "label": "Behind it",
+      "value": "The pumping works, whose roof burned",
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12374_water_works"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "An 1866-67 print shows the works standing back across open ground, with no house in front.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph"
+      ]
+    },
+    {
+      "text": "How far the grounds reached toward the lake is a guess.",
+      "about": "structure",
+      "grade": "reconstructed",
+      "sources": [
+        "chm_kurz_1866_chicago_water_works_lithograph"
+      ],
+      "note": "No survey of the works' lot was found."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "The works' roof catches fire at about 3:20 in the morning. The railing in front still stands.",
+      "era": "1871",
+      "grade": "inferred",
+      "sources": [
+        "loc_stereo_1s12374_water_works",
+        "andreas_1885_v2_water_works"
+      ],
+      "note": "Andreas gives the hour. A photograph taken after the fire shows the railing standing."
+    }
+  ]
+}

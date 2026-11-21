@@ -133,6 +133,12 @@
       "asset": "gltf/cook_county_court_house_1871__court_house_1870_1871.glb"
     },
     {
+      "id": "crosbys_opera_house_1871",
+      "name": "Crosby's Opera House, Washington Street",
+      "sidecar": "sidecars/1871/crosbys_opera_house_1871.json",
+      "asset": "gltf/crosbys_opera_house_1871__opera_house_1865_1871.glb"
+    },
+    {
       "id": "dalton_cottage_1871",
       "name": "Dalton's cottage, 135 DeKoven Street",
       "sidecar": "sidecars/1871/dalton_cottage_1871.json",
@@ -143,6 +149,12 @@
       "name": "Dalton's shed",
       "sidecar": "sidecars/1871/dalton_shed_1871.json",
       "asset": "gltf/dalton_shed_1871__shed_1871.glb"
+    },
+    {
+      "id": "field_leiter_1871",
+      "name": "Field, Leiter & Co., State and Washington Streets",
+      "sidecar": "sidecars/1871/field_leiter_1871.json",
+      "asset": "gltf/field_leiter_1871__store_1868_1871.glb"
     },
     {
       "id": "forbes_cottage_1871",
@@ -181,6 +193,18 @@
       "asset": "gltf/oleary_cottage_1871__cottage_1871.glb"
     },
     {
+      "id": "palmer_house_1871",
+      "name": "The Palmer House, State and Quincy Streets",
+      "sidecar": "sidecars/1871/palmer_house_1871.json",
+      "asset": "gltf/palmer_house_1871__hotel_1870_1871.glb"
+    },
+    {
+      "id": "pumping_works_grounds_1871",
+      "name": "The pumping works' grounds",
+      "sidecar": "sidecars/1871/pumping_works_grounds_1871.json",
+      "asset": "gltf/pumping_works_grounds_1871__grounds_1867_1871.glb"
+    },
+    {
       "id": "sherman_house_1871",
       "name": "The Sherman House (W. W. Boyington, 1861), Clark and Randolph Streets",
       "sidecar": "sidecars/1871/sherman_house_1871.json",
@@ -197,6 +221,18 @@
       "name": "Dennis Sullivan's house, 134 DeKoven Street",
       "sidecar": "sidecars/1871/sullivan_house_1871.json",
       "asset": "gltf/sullivan_house_1871__house_1871.glb"
+    },
+    {
+      "id": "tremont_house_1871",
+      "name": "The Tremont House, Lake and Dearborn Streets",
+      "sidecar": "sidecars/1871/tremont_house_1871.json",
+      "asset": "gltf/tremont_house_1871__hotel_1850_1871.glb"
+    },
+    {
+      "id": "tribune_building_1871",
+      "name": "The Tribune building, Madison and Dearborn Streets",
+      "sidecar": "sidecars/1871/tribune_building_1871.json",
+      "asset": "gltf/tribune_building_1871__office_1869_1871.glb"
     },
     {
       "id": "washington_square_1871",

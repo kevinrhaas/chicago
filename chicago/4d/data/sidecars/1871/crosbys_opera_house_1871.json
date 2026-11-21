@@ -1,0 +1,380 @@
+{
+  "id": "crosbys_opera_house_1871",
+  "phase": "opera_house_1865_1871",
+  "name": "Crosby's Opera House, Washington Street",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/crosbys_opera_house_1871__opera_house_1865_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "loc_stereo_1s47902_crosbys_opera_house"
+    ]
+  },
+  "documented_range": {
+    "from": "1865-04-20",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Opened April 1865; burned 9 October 1871 (Andreas vol. 2)."
+  },
+  "change_note": "Built T-3688 (2026-11-21): Crosby's Opera House stands in the 1871 scene on the landmark_1871 archetype.",
+  "placement": {
+    "local_e": 744.589,
+    "local_n": -384.94,
+    "rotation_deg": 359.4,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2_buildings",
+      "mitchell_1870_chicago_map"
+    ],
+    "position_note": "Its front on the north building line of Washington Street, centred midway between the east building line of Dearborn Street and the west building line of State Street, 'nearly midway between State and Dearborn' (Andreas vol. 2, p. 601). The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. IT LAPS THE 1835 PLAT'S WASHINGTON STREET BY 3.29 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, and the two tracings disagree by about 3 m here; moving the opera house 3.3 m north would set it back from the walk its neighbours front. The footprint's origin is local E 744.59 N -384.94.",
+    "symbolic_location": "North side of Washington Street, nearly midway between State and Dearborn Streets.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        46.1,
+        0
+      ],
+      [
+        46.1,
+        55.0
+      ],
+      [
+        0,
+        55.0
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "loc_stereo_1s47902_crosbys_opera_house"
+    ],
+    "note": "The front's width read through the stereograph's camera against its storeys; the depth behind it is reconstructed."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "walls",
+          "time": "1871-10-09T02:20",
+          "sources": [
+            "andreas_1885_v2_buildings"
+          ],
+          "note": "Burned on the night of the fire, days before it was to reopen; Andreas prints an engraving of its ruins (vol. 2, pp. 603-607)."
+        },
+        "blocks": [
+          {
+            "name": "the opera house",
+            "box": [
+              0,
+              0,
+              46.1,
+              55.0
+            ],
+            "storeys": [
+              5.6,
+              4.6,
+              4.3,
+              4.0
+            ],
+            "wall": "limestone_pale",
+            "belts": [
+              1,
+              2,
+              3
+            ],
+            "water_table": 0.3,
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 1.0,
+              "brackets": 0.85
+            },
+            "roof": {
+              "kind": "mansard",
+              "h": 4.6,
+              "inset": 0.4,
+              "run": 1.2,
+              "curve": 0.15,
+              "covering": "slate",
+              "cresting": true,
+              "dormers": {
+                "S": {
+                  "kind": "arched",
+                  "w": 1.9,
+                  "h": 2.7,
+                  "at": [
+                    1.773,
+                    5.319,
+                    8.865,
+                    12.412,
+                    15.958,
+                    19.504,
+                    26.596,
+                    30.142,
+                    33.688,
+                    37.235,
+                    40.781,
+                    44.327
+                  ]
+                }
+              }
+            },
+            "faces": {
+              "S": {
+                "bays": {
+                  "at": [
+                    1.773,
+                    5.319,
+                    8.865,
+                    12.412,
+                    15.958,
+                    19.504,
+                    23.05,
+                    26.596,
+                    30.142,
+                    33.688,
+                    37.235,
+                    40.781,
+                    44.327
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "round",
+                    "w": 2.6,
+                    "h": 4.8,
+                    "sill": 0.3,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.7,
+                    "h": 3.4,
+                    "sill": 0.8,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "round",
+                    "w": 1.6,
+                    "h": 3.1,
+                    "sill": 0.8,
+                    "hood": "arch"
+                  },
+                  {
+                    "kind": "pair_round",
+                    "w": 2.5,
+                    "h": 2.5,
+                    "sill": 0.8,
+                    "hood": "arch"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      6
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_round",
+                    "w": 3.4,
+                    "h": 5.4,
+                    "sill": 0.0,
+                    "hood": "arch"
+                  },
+                  {
+                    "bays": [
+                      6
+                    ],
+                    "storeys": [
+                      1
+                    ],
+                    "kind": "round",
+                    "w": 2.4,
+                    "h": 3.4,
+                    "sill": 0.9,
+                    "hood": "arch"
+                  }
+                ],
+                "pilasters": [
+                  {
+                    "s": 0.4,
+                    "w": 0.8,
+                    "to": 4
+                  },
+                  {
+                    "s": 20.650000000000002,
+                    "w": 0.7,
+                    "to": 4
+                  },
+                  {
+                    "s": 25.45,
+                    "w": 0.7,
+                    "to": 4
+                  },
+                  {
+                    "s": 45.7,
+                    "w": 0.8,
+                    "to": 4
+                  }
+                ],
+                "awnings": []
+              },
+              "W": "blank",
+              "E": "blank",
+              "N": "blank"
+            },
+            "confidence": "inferred",
+            "note": "Four storeys of pale stone on Washington Street under a slated mansard with arched dormers: shop fronts in round arches either side of the great arched entrance, round-arched windows above, the top storey's in pairs, as Carbutt's stereograph shows them. Heights read through the stereograph's camera."
+          }
+        ],
+        "porches": [
+          {
+            "block": 0,
+            "face": "S",
+            "s0": 21.150000000000002,
+            "s1": 24.95,
+            "h": 5.8,
+            "depth": 1.6,
+            "columns": 2,
+            "balcony": true,
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s47902_crosbys_opera_house"
+            ],
+            "note": "The balcony over the main entrance, as the stereograph shows it."
+          }
+        ],
+        "pediments": [
+          {
+            "block": 0,
+            "face": "S",
+            "s": 23.05,
+            "w": 5.6,
+            "h": 4.6,
+            "kind": "segment",
+            "depth": 1.0,
+            "z": 18.6,
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s47902_crosbys_opera_house"
+            ],
+            "note": "The raised centre over the entrance bay, carrying the sculpture group, as the stereograph shows it; drawn as a plain segmental crest."
+          }
+        ],
+        "flagpoles": [
+          {
+            "at": [
+              23.05,
+              6.0,
+              23.1
+            ],
+            "h": 14.0
+          }
+        ],
+        "note": "The Washington Street front read off Carbutt's stereograph (Library of Congress, stereo 1s47902); the depth behind it is not recorded."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2_buildings",
+        "loc_stereo_1s47902_crosbys_opera_house"
+      ],
+      "note": "The front, its arches, entrance, mansard and dormers from the stereograph; heights read off it."
+    },
+    "wall_material": {
+      "value": "Stone",
+      "confidence": "inferred",
+      "sources": [
+        "loc_stereo_1s47902_crosbys_opera_house"
+      ],
+      "note": "A pale dressed-stone front on the stereograph; the stone is not named in the texts read.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "opera_house",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "An opera house, with an art gallery, a concert hall and shops (Andreas vol. 2, p. 601)."
+    },
+    "built": {
+      "value": 1865,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Completed in the spring of 1865 and opened on 20 April 1865 (Andreas vol. 2, pp. 601-602)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2_buildings",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+        "when and how each burned on 8-9 October 1871"
+      ],
+      "what_it_does_not_supply": [
+        "measured drawings or surveyed positions: street corners only",
+        "the walls no writer describes"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s47902_crosbys_opera_house",
+      "citation": "John Carbutt, '139.—Crosby's Opera House, Washington Street', stereograph (Chicago: J. Carbutt, 131 Lake Street, [between ca. 1860 and 1870]). Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s47902.",
+      "url": "https://www.loc.gov/item/93500569/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Washington Street front's width, storeys, bays, arches, entrance, mansard and dormers"
+      ],
+      "what_it_does_not_supply": [
+        "the depth of the building and its other walls",
+        "measured storey heights",
+        "the stone's colour"
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    }
+  ],
+  "research_note": "CROSBY'S OPERA HOUSE, built by T-3688 for the 1871 scene: Uranus H. Crosby's opera house on the north side of Washington Street, nearly midway between State and Dearborn, W. W. Boyington architect, completed in the spring of 1865 at a reported cost of $600,000, with an art gallery, a concert hall and shops (Andreas vol. 2, pp. 601-602). Built to Carbutt's stereograph of its front. It burned on 9 October 1871.",
+  "research_doc": "",
+  "review_required": false
+}

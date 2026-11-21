@@ -1,0 +1,23 @@
+{
+ "structure_id": "tremont_house_1871",
+ "scene": "1871",
+ "source_id": "loc_stereo_1s47905_tremont_house",
+ "photo": "../../sources/assets/landmarks_1871_t3688/loc_1s47905_tremont_house_left.jpg",
+ "image_px": [
+  1400,
+  1355
+ ],
+ "principal_px": [
+  700.0,
+  847.07
+ ],
+ "focal_px": 1836.92,
+ "eye": [
+  -23.99,
+  104.4,
+  4.74
+ ],
+ "yaw_deg": 154.37,
+ "sky": "overcast",
+ "solve": "Fitted by T-3688 to the left half of John Carbutt's stereograph 'Tremont House, cor. Lake and Dearborn streets' (Library of Congress, stereo 1s47905), cut from the Library's master TIFF and scaled to 1400 x 1355 px. The camera stood across the corner, north-west of the hotel and about a storey up, looking south-east: the Lake Street front runs off to the left, nearly square to the camera, and the Dearborn Street front runs away to the right. Six points were solved for together: the corner's cornice and foot (x 690), the Dearborn front's far end at its cornice and foot (x about 1112), and the eighth bay of the Lake Street front at its cornice and foot (x 150). Residuals are under 5 px except the last foot (23 px, hidden behind the street furniture). UNCERTAINTY: moderate; the storey heights are read through this camera, not measured."
+}

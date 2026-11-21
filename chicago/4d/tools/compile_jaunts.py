@@ -38,6 +38,24 @@ def opening_light(doc):
 def read(path, default=None):
     return json.loads(path.read_text()) if path.exists() else default
 
+def listed_jaunts(path):
+    """T-3711: the jaunt ids a list of jaunts names: `jaunts` entries are an id or {id, ...}
+    (data/narration/voices.json's form). A missing file lists none."""
+    out = set()
+    for entry in (read(path, {}) or {}).get('jaunts', []):
+        jid = entry.get('id') if isinstance(entry, dict) else entry
+        if isinstance(jid, str) and jid: out.add(jid)
+    return out
+
+# T-3711 (owner, 2026-11-20: "for all the jaunts with music or narration allow that to be added
+# as a filter so we can filter and include only those jaunts with narration"): the catalog says
+# which jaunts are read aloud (the voicer's own list, data/narration/voices.json `jaunts`; its
+# `held` ones are not) and which carry their own music. Music is listed the same way, in
+# data/music/jaunts.json `jaunts`, by the work that attaches a jaunt's score cues (T-3710); until
+# that file names one, no jaunt has music and the Jaunts menu shows no music pill.
+NARRATION_LIST = Path('narration/voices.json')
+MUSIC_LIST = Path('music/jaunts.json')
+
 def packed(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')) + '\n'
 
@@ -185,6 +203,7 @@ class Compiler:
         self.root, self.data = Path(root), Path(root) / 'data'
         self.schema = Draft202012Validator(read(self.data / 'jaunts/schema.json'))
         self.scene_id = str(scene_id)
+        self.narrated, self.music = listed_jaunts(self.data / NARRATION_LIST), listed_jaunts(self.data / MUSIC_LIST)
         scene = read(self.data / f'scenes/{self.scene_id}.json')
         self.date = scene['target_date']
         index = read(self.data / f'sidecars/{self.scene_id}/index.json')
@@ -548,6 +567,8 @@ class Compiler:
                 # T-3584: the menu's group, the jaunts that lead it, and a card picture for an anchor-only route.
                 # T-3590: the school grades it is written for, and the jaunt it retells for them.
                 row.update(menu_group=doc['menu_group'], grade_band=doc['grade_band'], **{k: doc[k] for k in ('menu_rank', 'plate', 'version_of', 'audience', 'content_warning') if k in doc})
+                # T-3711: read aloud, and with music of its own (only written when true).
+                row.update(**{k: True for k, listed in (('narrated', self.narrated), ('music', self.music)) if doc['id'] in listed})
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
