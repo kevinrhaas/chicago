@@ -1,3 +1,29 @@
+## T-3709 — the 1835 phone's js heap back to 100 MB (20 November 2026)
+
+T-3708 found the phone's js heap at 130 MB against 100 on main's 2026-11-17 run, and nobody
+had accounted for it. A heap snapshot of dev 9ca8931b8 at spawn (124.1 MB after two GCs)
+answered it: 35.8 MB of the heap was strings whose text another string already held.
+
+- **The registry, 15.5 MB.** `tools/pack_boot_sidecars.mjs` ships a value three or more
+  records repeat once, in `boot/shared.json`, and `scene-loader.js` put each back with
+  `structuredClone`. That copied the strings as well as the objects, so the wire saving came
+  back as a heap cost: one 650-character roof note ("INVENTED, NOT DERIVED…") sat in the heap
+  6,339 times, 8.3 MB on its own. `rehydrate` now copies objects and arrays (two records still
+  never share one, and the self-test now changes an array to prove it) and hands every record
+  the same strings, which cannot be changed in place. The tool's copy of the function is now
+  compared with the loader's word for word, so the gate keeps checking what the loader runs.
+- **The household joins, 6.0 MB.** `readerCopy` made a fresh string for every occurrence: JSON.parse
+  does, and so does `applyEdits` for an edited sentence. The 1835 address book repeats one
+  807-character note 363 times and another 1,278 times. It now says each distinct text once
+  per copy and gives every place it sits that string.
+
+Probe heap 124.1 -> 108.9 -> 99.8 MB. `measure_memory.mjs` on the same machine: phone
+550.8 -> 521.1 MB (js heap 130.4 -> 101.7), desktop 1341.4 -> 1319.2 (155.4 -> 130.8). By
+the file's rule the 1835 lines come down: phone 600 -> 575 MiB, desktop 1500 -> 1475
+(`docs/measurements/T-3709-memory-1835.json`). The kept-geometry self-test reads 667.7 MB, still over
+575. What is left in the snapshot's duplicates is small and spread out (the registry's
+remaining 2.7 MB of strings fewer than three records share, enclosures 0.9, population 0.7).
+
 ## T-3708 — five memory ceilings re-argued after the 2026-11-20 promotion (20 November 2026)
 
 The frame-time workflow's memory job runs nightly on main and on pushes that touch its
