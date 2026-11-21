@@ -5177,6 +5177,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "reid_house_2013_prairie/as_mapped_1904/form.face_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "nrhp_2003_reid_house_nomination"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "reid_house_2013_prairie/as_mapped_1904/form.rear_wings": {
       "kind": "structure",
       "blocked_sources": [
