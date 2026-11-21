@@ -475,6 +475,28 @@ def opening_fill(m: Mesh, fr: Frame, o, conf, trim="stone_trim"):
                    (fr.t[0] * ((q0[0] + q1[0]) / 2 - cxz[0]), fr.t[1] * ((q0[0] + q1[0]) / 2 - cxz[0]),
                     (q0[1] + q1[1]) / 2 - cxz[1]))
         fr.fbox(m, trim, cx - 0.12, cx + 0.12, zh - 0.10, zh + 0.22, -0.02, 0.12, conf, skip=("bottom",))
+    elif hood == "crown":
+        # T-3688: a large curved pediment on two consoles over the window's head (the
+        # Chamber of Commerce's upper windows): the consoles stand at the springing, the
+        # cornice runs over them and the segmental pediment rises off it
+        zsp = zt
+        w2 = (b - a) / 2 + 0.38
+        for sc in (a - 0.2, b + 0.2):
+            fr.fbox(m, trim, sc - 0.13, sc + 0.13, zsp - 0.7, zh + 0.12, -0.02, 0.2, conf, skip=("bottom",))
+        fr.fbox(m, trim, cx - w2, cx + w2, zh + 0.12, zh + 0.34, -0.02, 0.24, conf)
+        rise = w2 * 0.42
+        n = 8
+        R = (w2 * w2 + rise * rise) / (2 * rise)
+        zc = zh + 0.34 + rise - R
+        th0 = math.asin(w2 / R)
+        top = [(cx + R * math.sin(-th0 + 2 * th0 * i / n), zc + R * math.cos(-th0 + 2 * th0 * i / n)) for i in range(n + 1)]
+        zb = zh + 0.34
+        for i in range(n):
+            (s0_, z0_), (s1_, z1_) = top[i], top[i + 1]
+            m.face(trim, [fr.p(cx, zb, 0.2), fr.p(s0_, z0_, 0.2), fr.p(s1_, z1_, 0.2)], conf, fr.out)
+            m.quad(trim, fr.p(s0_, z0_, 0.2), fr.p(s1_, z1_, 0.2), fr.p(s1_, z1_, -0.02), fr.p(s0_, z0_, -0.02), conf,
+                   (fr.t[0] * ((s0_ + s1_) / 2 - cx), fr.t[1] * ((s0_ + s1_) / 2 - cx), (z0_ + z1_) / 2 - zc))
+        fr.fbox(m, trim, cx - 0.16, cx + 0.16, zh - 0.15, zh + 0.34 + rise * 0.8, -0.02, 0.26, conf, skip=("bottom",))
     elif hood == "pediment":
         fr.fbox(m, trim, a - 0.15, b + 0.15, zh + 0.05, zh + 0.25, -0.02, 0.12, conf, skip=("bottom",))
         pk = zh + 0.25 + (b - a + 0.4) * 0.22
@@ -674,6 +696,23 @@ def battlement(m: Mesh, pts, z, spec, mat, conf):
                     z + base, z + base + h, -dep, proj, conf, skip=("bottom",))
 
 
+def urn(m: Mesh, at, h, conf, mat="stone_trim"):
+    """A stone urn on a pier: a square foot, a swelling body and a knob (T-3688)."""
+    x, y, z = at
+    prof = [(0.22, 0.0), (0.22, 0.12), (0.10, 0.18), (0.10, 0.28), (0.26, 0.42), (0.30, 0.6),
+            (0.24, 0.78), (0.12, 0.86), (0.07, 0.92), (0.07, 1.0)]
+    for (ra, ta), (rb, tb) in zip(prof, prof[1:]):
+        ring_a = [(x + ra * h / 1.1 * math.cos(2 * math.pi * k / 8), y + ra * h / 1.1 * math.sin(2 * math.pi * k / 8)) for k in range(8)]
+        ring_b = [(x + rb * h / 1.1 * math.cos(2 * math.pi * k / 8), y + rb * h / 1.1 * math.sin(2 * math.pi * k / 8)) for k in range(8)]
+        for k in range(8):
+            j = (k + 1) % 8
+            am = 2 * math.pi * (k + 0.5) / 8
+            m.quad(mat, (*ring_a[k], z + ta * h), (*ring_a[j], z + ta * h), (*ring_b[j], z + tb * h), (*ring_b[k], z + tb * h),
+                   conf, (math.cos(am), math.sin(am), (ra - rb) * 2))
+    top = [(x + 0.07 * h / 1.1 * math.cos(2 * math.pi * k / 8), y + 0.07 * h / 1.1 * math.sin(2 * math.pi * k / 8), z + h) for k in range(8)]
+    m.face(mat, top, conf, (0, 0, 1))
+
+
 def roof(m: Mesh, block, ztop, conf, sides):
     x0, y0, x1, y1 = block["box"]
     r = block.get("roof") or {"kind": "flat"}
@@ -688,6 +727,20 @@ def roof(m: Mesh, block, ztop, conf, sides):
                 fr.fbox(m, "stone_trim", -0.05, L + 0.05, ztop + par, ztop + par + 0.12, -0.42, 0.06, conf)
         m.face("tin_dark" if cov == "slate" else cov,
                [(x0, y0, ztop + 0.04), (x1, y0, ztop + 0.04), (x1, y1, ztop + 0.04), (x0, y1, ztop + 0.04)], conf, (0, 0, 1))
+        bal = block.get("balustrade")
+        if bal:   # T-3688: an open stone balustrade round the roof's edge (the Sherman House's belvedere)
+            bh = bal.get("h", 1.0)
+            for side in sides:
+                fr, L = face_frame(block["box"], side)
+                railing(m, fr, 0.0, L, ztop + (par or 0), bh, conf, bal.get("kind", "stone"), d=bal.get("out", 0.0))
+            par = (par or 0) + bh
+        urns = block.get("urns")
+        if urns:   # T-3688: urns on the parapet's piers (the Court House's 1870 wings)
+            for side in sides:
+                fr, L = face_frame(block["box"], side)
+                n = max(1, round(L / urns.get("every", 4.0)))
+                for k in range(n + 1):
+                    urn(m, fr.p(L * k / n, ztop + (par or 0), -0.2), urns.get("h", 1.1), conf)
         if block.get("battlement"):
             battlement(m, [(x0, y0), (x1, y0), (x1, y1), (x0, y1)], ztop + (par or 0), block["battlement"],
                        WALL_MAT[block.get("wall", "limestone")], conf)
@@ -992,21 +1045,76 @@ def pediment(m, blocks, g, conf):
         m.face("glass", circ, conf, fr.out)
 
 
+def railing(m: Mesh, fr: Frame, a, b, z, h, conf, kind="iron", d=0.0, along="s"):
+    """An open railing from a to b (along s at depth d, or along d at s = d when `along` is
+    "d"), z to z + h (T-3688): an iron one is a top and a bottom rail, thin bars and a post
+    every few metres; a stone balustrade is a plinth, turned balusters (read as square
+    posts), a cap rail and a pier every few metres. Both stay open between the bars, as the
+    stereographs show them, where a solid band read as a dark wall."""
+    if b < a:
+        a, b = b, a
+    iron = kind == "iron"
+    mat = "iron" if iron else "stone_trim"
+    rail, bar, gap, post, every = (0.06, 0.025, 0.2, 0.08, 3.0) if iron else (0.16, 0.13, 0.32, 0.36, 3.2)
+    plinth = 0.04 if iron else 0.16
+    t = 0.05 if iron else 0.3   # the rails' depth
+
+    def bx(s0, s1, z0, z1, w, skip=()):
+        if along == "s":   # runs along the wall, its outer face at depth d
+            fr.fbox(m, mat, s0, s1, z0, z1, d - w, d, conf, skip)
+        else:              # runs out from the wall, its side face at s = d
+            fr.fbox(m, mat, d - w, d, z0, z1, s0, s1, conf, skip)
+
+    bx(a, b, z, z + plinth, t, skip=("bottom",))
+    bx(a - (0.02 if iron else 0.06), b + (0.02 if iron else 0.06), z + h - rail, z + h, t + (0.0 if iron else 0.06))
+    L = b - a
+    npost = max(1, round(L / every))
+    for k in range(npost + 1):
+        sp = a + L * k / npost
+        s0, s1 = max(a, sp - post / 2), min(b, sp + post / 2)
+        bx(s0, s1, z + plinth, z + h - rail, max(t, post), skip=("bottom", "top"))
+    for k in range(npost):
+        p0 = a + L * k / npost + post / 2
+        p1 = a + L * (k + 1) / npost - post / 2
+        nb = max(0, int((p1 - p0) / gap))
+        for j in range(nb):
+            sb = p0 + (p1 - p0) * (j + 0.5) / nb
+            # an iron bar is two faces, front and back (its 2 cm ends are never seen)
+            ends = (1, 3) if along == "s" else (0, 2)
+            bx(sb - bar / 2, sb + bar / 2, z + plinth, z + h - rail, bar if not iron else 0.02,
+               skip=("bottom", "top") + (ends if iron else ()))
+        if iron and p1 - p0 > 0.2:   # the middle rail an iron gallery carries under its top
+            bx(p0, p1, z + h * 0.18, z + h * 0.18 + 0.03, 0.02)
+
+
 def porch(m, blocks, p, conf):
     b = blocks[p["block"]]
     fr, L = face_frame(b["box"], p["face"])
     s0, s1, h, dep = p["s0"], p["s1"], p["h"], p["depth"]
     z0 = p.get("z0", 0.0)
     n = p.get("columns", 4)
+    cr = p.get("column_r", 0.25)
     for i in range(n):
-        s = s0 + 0.35 + (s1 - s0 - 0.7) * i / max(1, n - 1)
-        ring = [fr.p(s + 0.25 * math.cos(2 * math.pi * k / 8), z0, dep - 0.35 + 0.25 * math.sin(2 * math.pi * k / 8))[:2]
+        s = s0 + 0.1 + cr + (s1 - s0 - 0.2 - 2 * cr) * i / max(1, n - 1)
+        ring = [fr.p(s + cr * math.cos(2 * math.pi * k / 8), z0, dep - 0.1 - cr + cr * math.sin(2 * math.pi * k / 8))[:2]
                 for k in range(8)]
         m.prism(p.get("material", "stone_trim"), ring, z0, z0 + h, conf, top=False)
+        if p.get("capitals"):   # a square plinth and a capital's abacus, a column's two ends
+            dc = dep - 0.1 - cr
+            for za, zb, k in ((z0, z0 + 0.45, 1.3), (z0 + h - 0.55, z0 + h, 1.4)):
+                fr.fbox(m, p.get("material", "stone_trim"), s - cr * k, s + cr * k, za, zb, dc - cr * k, dc + cr * k, conf)
     slab = p.get("slab", 0.8)
     fr.fbox(m, p.get("material", "stone_trim"), s0, s1, z0 + h, z0 + h + slab, 0.0, dep, conf)
-    if p.get("balcony"):
-        fr.fbox(m, "iron", s0, s1, z0 + h + slab, z0 + h + slab + 0.95, dep - 0.05, dep, conf, skip=("bottom", "top"))
+    bal = p.get("balcony")
+    if bal:
+        # T-3688: an open railing round the porch's top (front and both ends), iron unless
+        # the record names a stone balustrade
+        kind = bal.get("kind", "iron") if isinstance(bal, dict) else "iron"
+        rh = bal.get("h", 0.95) if isinstance(bal, dict) else 0.95
+        zb = z0 + h + slab
+        railing(m, fr, s0, s1, zb, rh, conf, kind, d=dep)
+        railing(m, fr, 0.0, dep - 0.05, zb, rh, conf, kind, d=s0 + (0.05 if kind == "iron" else 0.3), along="d")
+        railing(m, fr, 0.0, dep - 0.05, zb, rh, conf, kind, d=s1, along="d")
 
 
 def steps(m, blocks, p, conf):
@@ -1045,6 +1153,10 @@ def build(params: LandmarkParams) -> Mesh:
         porch(m, blocks, p, CONF.get(p.get("confidence"), base_conf))
     for p in c.get("steps") or []:
         steps(m, blocks, p, CONF.get(p.get("confidence"), base_conf))
+    for r in c.get("railings") or []:   # T-3688: a free-standing railing along a block's face (a square's fence on its kerb)
+        fr, L = face_frame(blocks[r["block"]]["box"], r["face"])
+        railing(m, fr, r.get("s0", 0.0), r.get("s1", L), r["z"], r.get("h", 1.0),
+                CONF.get(r.get("confidence"), base_conf), r.get("kind", "iron"), d=r.get("d", 0.0))
     for ch in c.get("chimneys") or []:
         x, y = ch["at"]
         w, d = ch.get("w", 1.0), ch.get("d", 0.6)

@@ -57,6 +57,21 @@
       "street": "clark",
       "structure": "cook_county_courthouse_1835"
     },
+    "court_house_square_1871:square_1853_1871": {
+      "anchor_in": [
+        "washington"
+      ],
+      "anchor_offset_m": 7.35,
+      "body_toward_street": false,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 4.85,
+      "layer": "research",
+      "phase": "square_1853_1871",
+      "position_confidence": "inferred",
+      "street": "washington",
+      "structure": "court_house_square_1871"
+    },
     "crosbys_opera_house_1871:opera_house_1865_1871": {
       "anchor_in": [
         "washington"
@@ -586,6 +601,16 @@
       "street": "clark",
       "ticket": "T-3688",
       "why": "T-3688. TWO TRACINGS OF ONE STREET, FOUR METRES APART. The corridor is the 1835 plat's Clark Street, derived from the street control; the Court House is centred in the 1871 plan's square, whose Clark Street line is traced from Mitchell's 1870 map and is the line the 1871 scene draws. The two disagree by about 4 m here, a measurement about the plat and the georeference rather than a court house in the road. The only escape (4.1 m west along its front, tools/measure_corridor_intrusion.py --escape) would take the building off the centre of the square both pictures show it on. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "court_house_square_1871:square_1853_1871": {
+      "depth_m": 4.85,
+      "escape_bearing_deg": 0.46,
+      "escape_m": 4.846,
+      "escape_vs_facade": "across",
+      "on": "2026-11-21",
+      "street": "washington",
+      "ticket": "T-3688",
+      "why": "T-3688. TWO TRACINGS OF ONE STREET, FIVE METRES APART, AND NO ROOF IN EITHER. The corridor is the 1835 plat's Washington Street, derived from the street control; the square's south kerb and fence stand on the 1871 plan's lot line, traced from Mitchell's 1870 map, the line the 1871 scene draws its Washington Street walk against. The two disagree by about 5 m here, a measurement about the plat and the georeference rather than a fence in the road, and the square is open ground, nothing a visitor walks into. The only escape (4.8 m north) clears Washington and laps Clark instead (tools/measure_corridor_intrusion.py --escape). Refused rather than repaired; argued in the record's own position.note."
     },
     "crosbys_opera_house_1871:opera_house_1865_1871": {
       "depth_m": 3.29,

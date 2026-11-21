@@ -8,16 +8,16 @@
  ],
  "principal_px": [
   800,
-  1230
+  1261.8
  ],
- "focal_px": 1500,
+ "focal_px": 2985.7,
  "eye": [
-  100,
-  95,
-  1.8
+  137.39,
+  181.18,
+  1.6
  ],
- "yaw_deg": 226,
- "solve": "NOT YET FITTED (T-3688, 2026-11-19). Placed by eye on the left half of Lovejoy & Foster's card No. 22 (1600 x 1592 px, the Library's master scaled), in the footprint frame (u east from the building's south-west corner, v north; the wings' north fronts at v 38): eye u 100, v 95, 1.8 m, heading 226 degrees, focal 1500 px, horizon y 1230 - the corner of Clark and Randolph Streets, looking south-west across the square, where the east wing's north front stands nearest at left and its east front shows edge-on. A least-squares fit on the east wing's north corners, the west wing's north-east corner and the cupola's axis does not converge (40-115 px rms for any camera): the record's wings (30 by 38 m, read by eye) and the cupola's height do not reconcile with the picture. Its match record is 'differs' until a plan or dimension of the 1870 wings is found.",
+ "yaw_deg": 209.79,
+ "solve": "FITTED (T-3688, 2026-11-21) on the left half of Lovejoy & Foster's card No. 22 (1600 x 1592 px, the Library's master scaled), in the footprint frame (u east from the west wing's street pavilion, v north; the wings' north fronts at v 39.62, the east wing's front from u 59.86 to 84.24): eye u 137.39, v 181.18, 1.6 m, heading 209.79 degrees, focal 2986 px, horizon y 1261.8 - up Clark Street from Randolph, looking south-west across the square. A least-squares fit, with the wings at the Chicago Evening Post's 1868 size (80 by 130 feet) against the 1853 house's 100-foot main part, on the east wing's north-east and north-west corners (cornice top at x 340, y 740 and x 705, y 790; ground at y 1300 and 1290), its crest's axis (x 540), the Clark Street pavilion's north side (x 140 to 230), the west wing's north-east cornice (1180, 905), its crest (x 1400) and north-west end (x 1495), and the fire watch's gallery round the cupola at the 'one hundred and twenty feet' of Chicago Illustrated (1866) on the cupola's axis (820, 688), leaves 26 px rms, most of it on the far west wing, read through trees: no single camera puts the near front's width and the far wing's height both where the picture has them (fits on the near wing alone run off to a lens no stereo camera had), so that gap is recorded in the match as within tolerance. The near wing's cornice then fits at 26 m, against the 25 m built. An earlier fit took the left edge of the Clark Street pavilion for the wing's corner (x 230), which the closer reading corrected. Light from the north-west: the north fronts lit, the east fronts in shade.",
  "sun_uvy": [
   0.6,
   -0.4,

@@ -200,7 +200,7 @@
                     "w": 1.9,
                     "h": 8.85,
                     "sill": 1.15,
-                    "hood": "pediment"
+                    "hood": "crown"
                   }
                 ],
                 "pilasters": [
@@ -272,7 +272,7 @@
                     "w": 1.3,
                     "h": 8.85,
                     "sill": 1.15,
-                    "hood": "pediment"
+                    "hood": "crown"
                   }
                 ],
                 "pilasters": [
@@ -353,7 +353,7 @@
                     "w": 1.3,
                     "h": 8.85,
                     "sill": 1.15,
-                    "hood": "pediment"
+                    "hood": "crown"
                   }
                 ],
                 "pilasters": [
@@ -433,7 +433,7 @@
                     "w": 3.6,
                     "h": 8.6,
                     "sill": 1.5,
-                    "hood": "arch",
+                    "hood": "crown",
                     "depth": 0.25,
                     "back": 0.25
                   }
@@ -600,7 +600,25 @@
             "material": "marble_wall"
           }
         ],
-        "note": "Read off Carbutt's stereograph No. 140 and Jevne & Almini's lithograph, which agree, scaled on the front's 93 feet; Andreas (vol. 2, p. 358) gives the hall's height and the triple window."
+        "note": "Read off Carbutt's stereograph No. 140 and Jevne & Almini's lithograph, which agree, scaled on the front's 93 feet; Andreas (vol. 2, p. 358) gives the hall's height and the triple window.",
+        "porches": [
+          {
+            "block": 1,
+            "face": "N",
+            "s0": 0.0,
+            "s1": 9.0,
+            "z0": 0.0,
+            "h": 8.8,
+            "depth": 0.75,
+            "columns": 0,
+            "material": "stone_trim",
+            "slab": 0.3,
+            "balcony": {
+              "kind": "stone",
+              "h": 1.0
+            }
+          }
+        ]
       },
       "confidence": "inferred",
       "sources": [
@@ -608,7 +626,7 @@
         "jevne_almini_1866_chicago_illustrated",
         "andreas_1885_v2_buildings"
       ],
-      "note": "Read off Carbutt's stereograph and Jevne & Almini's lithograph, which agree. THREE STOREYS under a mansard: a basement of shops at street level (iron shop fronts on LaSalle, small windows on the front), the first storey of business rooms lit by round-arched windows (singles on the front, pairs on the sides), and the grand hall, 44 feet floor to ceiling (13.4 m, the letterpress; built 13.0 m), lit by tall round-arched windows; the wall head 22 m above the street (the photograph, scaled on the front's 93 feet). THE FRONT on Washington Street: five bays, two and one and two, the centre bay projecting with the triple-arched entrance up a short flight of steps, a great triple window over it and a scrolled pediment with a clock above the cornice; the outer bays' hall windows are paired lights under one arch. Andreas (vol. 2, p. 358) agrees: the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide (built 9.2 by 3.6 m), the side spaces two windows each. THE SIDE on LaSalle: ten bays in three groups (three, four, three) divided by rusticated pilaster strips, rusticated corner piers; the letterpress's eighteen hall windows are nine a side over the 143-foot hall. The whole wall is banded with channelled joints. A bracketed cornice, and a curved mansard of slate with oval dormers on the front and small square dormers along the sides, iron cresting at its curb. The east wall on Exchange Place is built like the LaSalle side without shop fronts and the south wall blank (reconstructed: no picture found shows them)."
+      "note": "Read off Carbutt's stereograph and Jevne & Almini's lithograph, which agree. THREE STOREYS under a mansard: a basement of shops at street level (iron shop fronts on LaSalle, small windows on the front), the first storey of business rooms lit by round-arched windows (singles on the front, pairs on the sides), and the grand hall, 44 feet floor to ceiling (13.4 m, the letterpress; built 13.0 m), lit by tall round-arched windows; the wall head 22 m above the street (the photograph, scaled on the front's 93 feet). THE FRONT on Washington Street: five bays, two and one and two, the centre bay projecting with the triple-arched entrance up a short flight of steps, a great triple window over it and a scrolled pediment with a clock above the cornice; the outer bays' hall windows are paired lights under one arch. Andreas (vol. 2, p. 358) agrees: the facade above the first storey divided in three by bold quoins, the middle a circular-topped triple window thirty feet high and twelve wide (built 9.2 by 3.6 m), the side spaces two windows each. THE SIDE on LaSalle: ten bays in three groups (three, four, three) divided by rusticated pilaster strips, rusticated corner piers; the letterpress's eighteen hall windows are nine a side over the 143-foot hall. The whole wall is banded with channelled joints. A bracketed cornice, and a curved mansard of slate with oval dormers on the front and small square dormers along the sides, iron cresting at its curb. The east wall on Exchange Place is built like the LaSalle side without shop fronts and the south wall blank (reconstructed: no picture found shows them). The balustraded balcony over the three-arched entrance and the large curved pediments on consoles over the upper windows are read off Carbutt's stereograph (T-3688)."
     },
     "wall_material": {
       "value": "marble",
