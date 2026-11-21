@@ -98,25 +98,15 @@ Reproduce: `python3 tools/compile_register.py --check`.
 
 | Measure | Count |
 | --- | ---: |
-<<<<<<< HEAD
-| Structure records | 1,143 |
-=======
-| Structure records | 1,139 |
->>>>>>> f8439bc3d (T-3689: the pumping works' grounds, open ground before the works)
+| Structure records | 1,144 |
 | Carrying occupants | 403 |
 | Flagged `review_required` | 41 |
 
 | Graded phase attribute | Values |
 | --- | ---: |
-<<<<<<< HEAD
 | `attested` | 30 |
-| `inferred` | 1,177 |
+| `inferred` | 1,180 |
 | `reconstructed` | 2,227 |
-=======
-| `attested` | 26 |
-| `inferred` | 1,173 |
-| `reconstructed` | 2,223 |
->>>>>>> f8439bc3d (T-3689: the pumping works' grounds, open ground before the works)
 
 Reproduce: `python3 tools/audit_confidence.py --strict`.
 
@@ -144,11 +134,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 2. **28 of the 176 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **60 firms are unplaceable and 52 reach a street and no further.** Those 112 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,425 of 1,459 households have no `lives_at`.** Most are letter-list-only names (773) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.
-<<<<<<< HEAD
-5. **2,227 structure attributes are `reconstructed` against 30 attested and 1,177 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
-=======
-5. **2,223 structure attributes are `reconstructed` against 26 attested and 1,173 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
->>>>>>> f8439bc3d (T-3689: the pumping works' grounds, open ground before the works)
+5. **2,227 structure attributes are `reconstructed` against 30 attested and 1,180 inferred.** That is the honest shape of a town of which the sources describe a few dozen buildings; the grade says so on every value.
 
 ## 8. Closing
 

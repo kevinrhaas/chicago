@@ -193,17 +193,16 @@
       "asset": "gltf/oleary_cottage_1871__cottage_1871.glb"
     },
     {
-<<<<<<< HEAD
       "id": "palmer_house_1871",
       "name": "The Palmer House, State and Quincy Streets",
       "sidecar": "sidecars/1871/palmer_house_1871.json",
       "asset": "gltf/palmer_house_1871__hotel_1870_1871.glb"
-=======
+    },
+    {
       "id": "pumping_works_grounds_1871",
       "name": "The pumping works' grounds",
       "sidecar": "sidecars/1871/pumping_works_grounds_1871.json",
       "asset": "gltf/pumping_works_grounds_1871__grounds_1867_1871.glb"
->>>>>>> f8439bc3d (T-3689: the pumping works' grounds, open ground before the works)
     },
     {
       "id": "sherman_house_1871",
