@@ -25143,6 +25143,7 @@ buildings are T-1937's.
 **Retired in part:** 2000 and 2010, the two frame dwellings at the 20th Street end, by T-1909, which refined both in place on the K16 timber kit under `L-k16-2000-2010-frame-1909`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, T-1935's); and 2018, the stone-front house with its bow, by T-3607 (piece 1 of T-1910), which refined it in place on the K01 frontage kit under `L-k01-2018-stone-front-3607`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's); and 2026, the Louis Wahl house, by T-3608 (piece 2 of T-1910), which refined it in place on the K01 frontage kit to its 1874 Land Owner engraving under `L-k01-2026-wahl-3608`, under the same id; its draft attributes are gone (its alley building is still the draft's, T-1935's).
 **Retired in part:** 2108, the Mark Kimball house, by T-3667 (piece 1 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2108-kimball-3667`, under the same id; its draft attributes are gone (the coach house it shares with 2110 is still this draft's, T-1937's).
 **Retired in part:** 2112, the Max M. Rothschild house, by T-3668 (piece 2 of T-1921, the S11 package), which refined it in place on the K01 frontage kit under `L-k01-2112-rothschild-3668`, under the same id; its draft attributes are gone (its alley building is still this draft's, T-1937's).
+**Retired in part:** 2110, the Harriet Rees house, by T-1922 (the S12A package), which refined it in place on the K01 frontage kit under `L-k01-2110-rees-1922`, under the same id; its draft attributes are gone (the coach house it shares with 2108 is still this draft's, T-1937's; its tympanum, loggia colonettes and carved bands are T-1923's).
 **Retired in part:** 2036, the Ebenezer Buckingham house at the 21st Street corner, by T-1911 (the S08 package's corner house), which refined it in place on the K01 frontage kit under `L-k01-2036-buckingham-1911`, under the same id; its draft attributes are gone (its alley stable is still this draft's, T-1938's).
 **Retired in part:** 2100, the John B. Sherman house at the 21st Street corner, by T-1919 (the S10A envelope package), which refined it in place on the K01 frontage kit under `L-k01-2100-sherman-1919`, under the same id; its draft attributes are gone (its alley coach house is still this draft's, T-1938's; the 21st Street wall is still not built).
 **Ticket:** T-2351 (piece 1 of T-2161, the district draft's 20th-22nd block).
@@ -25228,6 +25229,56 @@ south porch stand.
 **Ticket:** T-3668 (piece 2 of T-1921).
 **Review:** `docs/RESEARCH/k01-2112-rothschild-3668/README.md`.
 **Recorded:** 2026-11-20 (T-3668).
+
+### L-k01-2110-rees-1922 — 2110 Prairie, the Harriet Rees house, refined from the district draft onto K01: its plan off the 1911 sheet, its bow, pale stone and stoop off the early-1890s street photograph, its gable, loggia and copper-capped bow off two later photographs of the house on this site, everything none of them shows the kits'
+
+**Decision:** 2110 Prairie Avenue (T-1922, the S12A package of T-1837) is no longer a district draft.
+It stands, under the draft's own id (`rees_house_2110_prairie`), as a `k01_frontage` record built by
+`generators/k01_emit.py`. Three storeys of K03 common brick over a high basement stand behind a K02
+smooth limestone front, which runs up over the whole width into a tall coped gable in the front's
+stone (K01's wall-gable slab, as 1625's) with a pinnacle kneeler at each corner, a finial at the apex
+and one narrow light in its face. A K08 bow two storeys high stands across the south part of the
+front under a copper cap; five K06 round-headed lights make the loggia over it at the gable's foot;
+the K07 pair of leaves stands in a round-arched opening at the north end at the head of a straight
+stoop between stone cheeks, one square-headed light over it. Behind the gable a slated K05 hip runs
+back over the front block; the narrower rear body and the one-storey piece behind it stand on K01's
+rear wings under flat decks. The front yard is open to the walk.
+**What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size through the
+T-1250 fit, and the T-1842 census (s35-2110-front, s35-2110-wing): three storeys over a basement; the
+full-width front block (9.65 x 7.8 m, its north wall on the lot line with 2108); the stone front and
+its bow at the south end; the rear body, 1.45 m in from the south wall to leave a light court and
+1.15 m in from the north lot line behind lot u 32.5; and the one-storey piece at its rear. From the
+Glessner House blog's early-1890s photograph of the 2100 block (`glessner_blog_2100_block_looking_nw_1890s`,
+forms only): the bow, its carved band, the pale stone front, the arched door north of the bow and
+the stoop between solid cheeks ending in a pedestal at the walk, and an open walk. From the Ryerson
+& Burnham Archives' c. 1980s photograph (`aic_rees_2110_c1980s_photo`) and the Glessner House
+Museum's 2012 detail (`glessner_blog_rees_2110_gable_2012`), forms only, read as the 1888 front where
+the 1890s photograph agrees and where its trees cut it off: the gable over the whole front, its rake
+about 50 degrees, its kneelers, finial and narrow light; the loggia's five round-arched lights; the
+bow's three lights a storey, its chord (0.62 of the front's width) and its copper cap; the light over
+the door; the stack on the south flank behind the gable; slate on the flanks.
+**What is invented.** Every height but the storeys' order (the later photographs look up); the
+walls' thickness; the party walls', flanks' and rear's windows and their sizes; the rear body's and
+the piece's flat decks, which no picture shows; the second stack; the gutters and the one downpipe;
+the eave's overhang; the slate's quarry, the flashing and the ridge roll; the stone's quarry; the
+kit's keystone laid near flush in a ring that has none; and the yard's walk. The roof behind the gable
+is built as a K05 hip whose flanks are the true roof's slopes: its street end stands behind the
+gable's slab, where the true roof runs on to the gable, so from up or down the avenue the ridge is
+seen to start about 2.3 m behind the gable's apex.
+**What is not built.** The gable's carved tympanum, the kneelers' carved corbels and the finial's
+leaves; the loggia's colonettes and carved capitals and the band over them (plain stone piers stand
+between its lights); the bow's carved band (K08's string course stands there) and the copper
+cornice of its cap (a moulded stone eave under a copper cone); the landing's parapet across the bow
+and the basement door under it; the stack's stone (K01 lays a stack in brick). These are T-1923's,
+whose image gate closes the house.
+**How to resolve:** T-1923 carries the carving, the colonettes and the cap's cornice and solves the
+pictures' cameras; a photograph of the flanks or the rear, or a permit, ingested as a source,
+replaces the kits' choices attribute by attribute; a K01 roof whose ridge runs to a street gable
+closes the hip's street end.
+**Covers:** `rees_house_2110_prairie.as_mapped_1904.form.wall_thickness_front_m`, `rees_house_2110_prairie.as_mapped_1904.form.wall_thickness_side_m`, `rees_house_2110_prairie.as_mapped_1904.form.service_wall_brick`, `rees_house_2110_prairie.as_mapped_1904.form.face_brick`, `rees_house_2110_prairie.as_mapped_1904.form.eave_overhang_m`, `rees_house_2110_prairie.as_mapped_1904.form.rainwater`, `rees_house_2110_prairie.as_mapped_1904.form.window_kit`, `rees_house_2110_prairie.as_mapped_1904.form.stair_tread_m`, `rees_house_2110_prairie.as_mapped_1904.form.stair_landing_depth_m`, `rees_house_2110_prairie.as_mapped_1904.form.side_bays`, `rees_house_2110_prairie.as_mapped_1904.form.rear_bays`, `rees_house_2110_prairie.as_mapped_1904.form.sash_by_storey`, `rees_house_2110_prairie.as_mapped_1904.form.basement_lights`, `rees_house_2110_prairie.as_mapped_1904.form.yard`.
+**Ticket:** T-1922 (the S12A package of T-1837).
+**Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md`.
+**Recorded:** 2026-11-21 (T-1922).
 
 ### L-k01-2026-wahl-3608 — 2026 Prairie, the Louis Wahl house, refined from the district draft to a K01 Second Empire stone-front house built to its 1874 Land Owner engraving and the 1911 sheet's plan: its tower, stoop and balcony, flank bay and stack as the print draws them, everything neither shows the kits'
 

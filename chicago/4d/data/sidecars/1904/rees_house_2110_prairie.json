@@ -1,12 +1,13 @@
 {
   "id": "rees_house_2110_prairie",
-  "phase": "draft_1904",
-  "name": "2110 Prairie Avenue — Rees Romanesque narrow house (district draft; refined by T-1922, T-1923)",
+  "phase": "as_mapped_1904",
+  "name": "2110 Prairie Avenue — the Harriet Rees house, a pale limestone front under a tall coped gable, its bow capped in copper below a five-arched loggia, the round-arched door at the head of a high stoop",
   "aka": [
-    "2110 S. Prairie Avenue"
+    "2110 S. Prairie Avenue",
+    "the Harriet F. Rees house (Cobb & Frost, 1888)"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/rees_house_2110_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/rees_house_2110_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -30,25 +31,26 @@
     "to": "1911-12-31",
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+      "sanborn_1911_chicago_v3_sheet_35",
+      "glessner_blog_2100_block_looking_nw_1890s"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "Built in 1888 (Cobb & Frost, the register's row frontage-35-066), shown in the early-1890s street photograph and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more; the house stood here until it was moved in November 2014.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1366.94,
-    "local_n": -3654.687,
+    "local_e": 1379.121,
+    "local_n": -3656.332,
     "rotation_deg": -0.682,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 25.500, v -2.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.682 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the full-width front block on its south wall (lot frame u 37.7, v -3.75 from the middle of the rear lot line): the block's rear at the sheet's column 678, where the south wall steps in, and the south wall at row 1205, through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. Rotation -0.682 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "2110 S. Prairie Avenue, parcel prairie_2110 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -58,148 +60,677 @@
         0.0
       ],
       [
-        20.0,
+        9.65,
         0.0
       ],
       [
-        20.0,
-        6.25
+        9.65,
+        7.8
       ],
       [
         0.0,
-        6.25
+        7.8
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The full-width front block of the '3B' body, read off sheet 35 of the 1911 Sanborn at full size (the committed trace's affine fit, 0.186 m a pixel; docs/RESEARCH/k01-2110-rees-1922/README.md): 9.65 m from the column where the south wall steps in (678, lot u 37.7) to the stone front (column 730, lot u 47.35), and 7.8 m from the south wall (row 1205, lot v -3.75) to the north wall on the lot line with 2108 (row 1163.5, lot v 4.05). The rest of the body stands on K01's rear wings. The draft's largest rectangle had 20 x 6.25 m."
   },
   "attributes": {
     "stories": {
       "value": 3,
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "aic_rees_2110_c1980s_photo"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "'3B' printed on the 1911 sheet over the main body: three storeys over a basement. The c. 1980s photograph shows them: the parlour storey and the one over it in the bow, and the third behind the five-arched loggia at the gable's foot."
     },
     "construction": {
       "value": "brick_with_stone_front",
       "confidence": "attested",
       "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "note": "The 1911 sheet colours the body pink (brick) and draws its street face in the blue of stone, the bow included; the early-1890s street photograph and the c. 1980s photograph both show a pale ashlar front."
+    },
+    "principal_floor_m": {
+      "value": 1.8,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "note": "The parlour floor about 1.8 m over the walk, at the head of a high stoop: the c. 1980s photograph shows a basement door under the stoop's landing with headroom, and the early-1890s photograph the landing's stone parapet standing about a man's height over the walk. Read as which storey a thing stands in, not measured."
+    },
+    "storey_heights_m": {
+      "value": [
+        3.9,
+        3.6,
+        3.4
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "Floor to floor, read as proportions of the c. 1980s photograph about the door (taken as 3.0 m to its crown): the parlour storey from the stoop's head to the bow's carved band, the upper storey from the band to the bow's copper cap, and the third from the cap to the gable's foot, where its loggia stands. The photograph looks up, so the upper heights are held to the lower ends of what it draws; the wall head stands at 12.7 m."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a stone front on its brick backing, as every K01 stone front (L-k01-2110-rees-1922)"
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick-and-a-half wall, as every K01 brick house (L-k01-2110-rees-1922)"
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the one K03 panel k03_brick lays (L-k01-2110-rees-1922)"
+    },
+    "face_brick": {
+      "value": {
+        "sides": "common_salmon"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the party walls and the rear are common brick, which no picture of 1904 shows: a Chicago common brick, salmon run (L-k01-2110-rees-1922)"
+    },
+    "stone_front": {
+      "value": {
+        "fabric": "limestone_bedford",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 2,
+        "coping_height_m": 0.25,
+        "corner_bond": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "Pale smooth ashlar in even courses, the bow standing on rock-faced base courses: the 2012 detail shows the smooth dressed stone of the gable and loggia, the c. 1980s photograph the rough stones under the bow, and the early-1890s photograph a pale front between 2112 and 2108. Bedford (Indiana) limestone for its buff-grey tone; the quarry is not read off any picture."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel",
+          "k01.flat_lintel"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "note": "The flat part of the front has one square-headed light in the upper storey, over the door, set plain in the ashlar (the c. 1980s photograph); the loggia's round heads are its own arches."
+    },
+    "wall_head": {
+      "value": {},
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "No cornice: the front runs up into its gable, which stands over the whole width from kneeler to kneeler (both photographs)."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The register reads the map's colours as 'brick with stone front'."
+      "note": "The gable faces the avenue and the slated roof falls to the flanks behind it (the 2012 detail shows slates over the north flank behind the gable's rake). K01 builds it as a steep hip behind the gable's slab: the hip's flanks are the true roof's slopes at the gable's pitch; its street end stands behind the slab, where the true roof runs on to the gable (liberty L-k01-2110-rees-1922)."
     },
-    "draft_plan": {
+    "roof_pitch_deg": {
+      "value": 50,
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "The flanks' slopes about 50 degrees: both later photographs draw the gable's rake near 50 degrees (the 2012 detail 49.5, the c. 1980s photograph 51), each looking up, which foreshortens a height a little; the draft had 52. The gable's own rake stands a little steeper than the slopes behind it, its coping clear of the slates."
+    },
+    "eave_overhang_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a slate eave 0.3 m out over the flanks (L-k01-2110-rees-1922)"
+    },
+    "roof_covering": {
       "value": {
-        "parts": [
+        "fabric": "slate_pennsylvania",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "Slate: the 2012 detail shows dark slates over the north flank behind the gable; the slate's quarry, the flashing and the ridge roll are reconstructed (L-k01-2110-rees-1922)."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "gable",
-            "rect": [
-              0.0,
-              0.0,
-              20.0,
-              6.25
-            ],
-            "from": "s35fp-2110-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
+            "wall": "k01.wall.side.south",
+            "s_m": 1.0
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K04's half-round copper gutter along the flanks' eaves, stopped at the gable, and one round copper pipe down the south wall near its rear corner to a splash stone; no picture shows the flanks (L-k01-2110-rees-1922)"
+    },
+    "shaped_gable": {
+      "value": {
+        "profile_m": [
+          [
+            3.5,
+            12.5
+          ],
+          [
+            1.75,
+            15.125
+          ],
+          [
+            0.0,
+            17.75
+          ]
+        ],
+        "foot_m": 12.02,
+        "thickness_m": 0.6,
+        "proud_m": 0.02,
+        "fabric": "front",
+        "lights": {
+          "variant": "k06.opening.sash_1over1_segmental",
+          "sill_m": 14.0,
+          "width_m": 0.32,
+          "height_m": 0.95,
+          "at_m": [
+            0.0
+          ]
+        },
+        "coping": {
+          "width_m": 0.3,
+          "proud_m": 0.05
+        },
+        "kneelers": {
+          "at_m": 3.86,
+          "shaft_m": 0.34,
+          "top_m": 13.5,
+          "cap_m": 0.08,
+          "spire_m": 0.25
+        },
+        "finial": {
+          "form": "spike",
+          "height_m": 0.9,
+          "radius_m": 0.16
+        },
+        "takes_gutter": true
+      },
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). The carving of the tympanum, the kneelers' corbels and the finial's leaves are T-1923's; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.street_sash": "k06.opening.sash_2over2_flat",
+        "k01.opening.street_arcade": "k06.opening.sash_round_fanlight"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in the square-headed lights, round-headed sash under a fanlight in the loggia's arches (L-k01-2110-rees-1922)"
+    },
+    "street_front_windows": {
+      "value": {
+        "windows": [
+          {
+            "component": "k01.opening.street_sash",
+            "storey": 1,
+            "s_m": 6.45,
+            "width_m": 1.05,
+            "sill_m": 6.4,
+            "height_m": 2.15
           },
           {
-            "id": "r2",
-            "role": "stone_front",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              20.0,
-              -0.25,
-              22.0,
-              3.25
-            ],
-            "from": "s35fp-2110-b1 p1 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 80% of its fill"
+            "component": "k01.opening.street_arcade",
+            "storey": 2,
+            "s_m": 1.64,
+            "width_m": 0.7,
+            "sill_m": 10.3,
+            "height_m": 1.7
           },
           {
-            "id": "r3",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -3.5,
-              2.25,
-              0.0,
-              4.75
-            ],
-            "from": "s35fp-2110-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 63% of its fill"
+            "component": "k01.opening.street_arcade",
+            "storey": 2,
+            "s_m": 2.62,
+            "width_m": 0.7,
+            "sill_m": 10.3,
+            "height_m": 1.7
+          },
+          {
+            "component": "k01.opening.street_arcade",
+            "storey": 2,
+            "s_m": 3.6,
+            "width_m": 0.7,
+            "sill_m": 10.3,
+            "height_m": 1.7
+          },
+          {
+            "component": "k01.opening.street_arcade",
+            "storey": 2,
+            "s_m": 4.58,
+            "width_m": 0.7,
+            "sill_m": 10.3,
+            "height_m": 1.7
+          },
+          {
+            "component": "k01.opening.street_arcade",
+            "storey": 2,
+            "s_m": 5.56,
+            "width_m": 0.7,
+            "sill_m": 10.3,
+            "height_m": 1.7
           }
         ],
-        "lot_v": [
-          -1.81,
-          6.31
-        ],
-        "street_u": 29.157
+        "base_top_m": 1.2
       },
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "note": "North of the bow, one square-headed light in the upper storey over the door (the c. 1980s photograph; the early-1890s photograph shows the light over the door's arch); in the third storey the loggia's five round-arched lights in a row over the bow's cap, from about a sixth of the front's width in from its south corner to a quarter in from its north (both later photographs), 0.98 m apart. Their colonettes and carved capitals stand here as the plain stone piers between the lights (T-1923's)."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the kit's tread (L-k01-2110-rees-1922)"
+    },
+    "stair_landing_depth_m": {
+      "value": 1.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a landing before the door (L-k01-2110-rees-1922)"
+    },
+    "stoop_width_m": {
+      "value": 1.9,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "note": "A straight stoop about as wide as the door's arch between solid stone cheeks, square out from the door to the walk: the early-1890s photograph shows the cheeks ending in a pedestal at the walk and the c. 1980s photograph the treads running down toward the street."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo"
+      ],
+      "note": "The door at the NORTH end of the front, north of the bow: the c. 1980s photograph (the viewer faces west, so right is north) shows the round-arched door between the bow and the north corner, and the early-1890s photograph an arched door between 2110's bow and 2108's front."
+    },
+    "front_bays": {
+      "value": [
+        6.45
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The door's axis 6.45 m from the south wall, in the middle of the 2.65 m of flat front the bow leaves north of it (s 5.15-7.8)."
+    },
+    "side_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: no light in the main body's south wall, which stands 0.3 m off the lot line and about 0.75 m from 2112's north wall (L-k01-2110-rees-1922)"
+    },
+    "north_bays": {
+      "value": [],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2110-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2110-b1 p1 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 80% of its fill; s35fp-2110-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 63% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "None: the north wall stands on the lot line against 2108 (the sheet's row 1163.5), built blank."
     },
-    "draft_elevation": {
+    "rear_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the main body's rear wall is covered by the rear body but for 1.45 m at its south end (L-k01-2110-rees-1922)"
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_body",
+          "rect": [
+            -5.2,
+            0.0,
+            1.45,
+            7.8
+          ],
+          "floor_m": 1.8,
+          "storey_heights_m": [
+            3.9,
+            3.6,
+            3.4
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 0.8,
+              "height_m": 1.5
+            }
+          ],
+          "windows": {
+            "south": [
+              2.6
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "rear_body_back",
+          "rect": [
+            -12.3,
+            -5.2,
+            1.45,
+            6.65
+          ],
+          "floor_m": 1.8,
+          "storey_heights_m": [
+            3.9,
+            3.6,
+            3.4
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 0.9,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 0.9,
+              "height_m": 2.0
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 0.8,
+              "height_m": 1.5
+            }
+          ],
+          "windows": {
+            "south": [
+              1.8,
+              5.0
+            ],
+            "rear": [
+              1.0
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "rear_shed",
+          "rect": [
+            -17.1,
+            -12.3,
+            3.5,
+            6.65
+          ],
+          "floor_m": 0.3,
+          "storey_heights_m": [
+            3.2
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.9,
+              "width_m": 0.9,
+              "height_m": 1.5
+            }
+          ],
+          "windows": {
+            "south": [
+              2.4
+            ],
+            "rear": [
+              1.6
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The sheet's outline behind the full-width front block, read at full size through the trace's fit: the '3B' body runs on without a dividing line to column 612 (lot u 25.4), 1.45 m in from the south wall (row 1197-1199) to leave a light court, its north wall on the lot line to column 650 (lot u 32.5) and 1.15 m in from it behind; at its rear a small one-storey piece marked '1' (columns 586-610, rows 1170-1187). Three storeys on the sheet's one '3B'; their roofs are flat behind a fascia, which no picture shows (L-k01-2110-rees-1922)."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 0.9,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 0.9,
+          "height_m": 2.0
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 0.8,
+          "height_m": 1.5
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the flank and rear lights' sizes, as 2108's (L-k01-2110-rees-1922)"
+    },
+    "basement_lights": {
+      "value": {},
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: no basement light in the flat front: the stoop and its landing stand there (L-k01-2110-rees-1922)"
+    },
+    "chimneys": {
       "value": {
-        "kind": "house",
-        "seed": 4252346595,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
+        "plan_m": [
+          0.9,
+          0.75
         ],
-        "roof_pitch_deg": 52,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "south",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2351",
-          "refined_by": [
-            "T-1922",
-            "T-1923"
-          ]
+        "top_above_ridge_m": 0.6,
+        "cap_proud_m": 0.06,
+        "cap_depth_m": 0.25,
+        "stacks": [
+          {
+            "u_m": 7.6,
+            "v_m": 0.7
+          },
+          {
+            "u_m": 1.2,
+            "v_m": 7.1
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "A tall stack on the south flank just behind the gable, its head a little over the slopes behind the gable, under its apex (the c. 1980s photograph and the 2012 detail); the second, on the north wall at the rear, is reconstructed (L-k01-2110-rees-1922)."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.double_door_deep_arch",
+          "front_yard_m": 7.3,
+          "opening_m": [
+            1.5,
+            3.0
+          ],
+          "reveal_depth_m": 0.45,
+          "arch": {
+            "ring_m": 0.3,
+            "keystone_top_m": 5.15,
+            "keystone_m": [
+              0.22,
+              0.04
+            ]
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "note": "A round-arched doorway, the arch's crown about 3 m over the stoop's head, its transom under the arch (the c. 1980s photograph, where it bears the number 2110), in a moulded ring with no keystone of its own; the kit's keystone is laid near flush. The front yard to the 1904 street line, 7.3 m (lot u 47.35 to 54.65)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -0.31,
+          7.81
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "note": "An open walk before the house: the early-1890s photograph shows a carriage post at the curb before 2110 and no fence or wall at the walk."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.9
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Romanesque' overlaid with the frontage row: The Harriet Rees house (Cobb & Frost, 1888) at its historical 2110 site, not its present one: the register's 'limestone front, tall gable' as a steep gable whose end faces the avenue over the 3B narrow body and its stone front, two bays wide. Its carved tympanum, loggia and bowed oriel are T-1922's and T-1923's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 4252346595 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+      "note": "RECONSTRUCTED: the 1904 yard as K14 conditions it, a flagged walk from the open front out to the stoop's foot, as wide as the stoop (L-k01-2110-rees-1922)"
     },
-    "draft": {
-      "value": {
-        "pass": "T-2351",
-        "liberty": "L-draft-prairie-20-22-west-2351",
-        "register_row": "frontage-35-066",
-        "census_ids": [
-          "s35-2110-front",
-          "s35-2110-wing"
-        ],
-        "trace_building": "s35fp-2110-b1",
-        "seed": 4252346595,
-        "replaceable_by": [
-          "T-1922",
-          "T-1923"
-        ],
-        "card": "District draft — refined by T-1922, T-1923."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+    "bays": {
+      "value": [
+        {
+          "id": "front_bow",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.75,
+          "fabric": "front_stone",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 4.8,
+            "rise_m": 1.5
+          },
+          "storeys": [
+            {
+              "height_m": 1.8,
+              "windows": []
+            },
+            {
+              "height_m": 3.9,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.5,
+                  "sill_m": 0.55,
+                  "at_deg": [
+                    -40,
+                    0,
+                    40
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 2.0,
+                  "sill_m": 0.7,
+                  "at_deg": [
+                    -40,
+                    0,
+                    40
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.05,
+            "covering": "copper_sheet"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "plinth_m": 0.1
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2100_block_looking_nw_1890s",
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
+      ],
+      "note": "The bow from grade to the third floor across the south part of the front, three lights a storey, its carved band at the upper floor and a copper cap under the loggia: the sheet draws it as a stone half-round at the south end of the front, and every picture shows it, the early-1890s photograph with its carved band. Its chord, 4.8 m from s 0.35 to 5.15, is read off the c. 1980s photograph as 0.62 of the front's width at the band, where the sheet's small symbol spans about 5.6 m; its rise, 1.5 m, between the photograph's turn of the side lights and the sheet's 2 m. The band's carving and the cap's copper cornice stand as K08's string course and a moulded stone eave under a copper cone (T-1923's)."
     },
     "function": {
       "value": "residence",
@@ -212,6 +743,63 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "aic_rees_2110_c1980s_photo",
+      "citation": "Rees, Harriet, Residence. Black-and-white photograph of the front (east) of 2110 S. Prairie Avenue on its original site, c. 1980s; photographer not named. Art Institute of Chicago, Ryerson & Burnham Archives, mqc 5235 (000000.090908-13.jpg).",
+      "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/5235",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the gable over the whole front: coped rakes, kneelers, finial, carved tympanum and one narrow light",
+        "the five round-arched lights of the loggia on colonettes at the gable's foot",
+        "the bow's three lights a storey, its carved band and its cap",
+        "the round-arched door at the north end with the light over it, and the high stoop",
+        "a stack on the south flank behind the gable"
+      ],
+      "what_it_does_not_supply": [
+        "any measure: no scale stands in it, and it looks up, which foreshortens heights",
+        "the flanks and the rear",
+        "colour: it is black and white"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_2100_block_looking_nw_1890s",
+      "citation": "[The 2100 block of Prairie Avenue looking north-west, early 1890s.] Street photograph; photographer not named. Reproduced by the Glessner House Museum, 'Moving house on Prairie Avenue, 1891', The Story of a House (blog), August 2014, which names the houses left to right as Max Rothschild (2112), Harriet Rees (2110), Mark Kimball (2108), John B. Sherman (2100) and Ebenezer Buckingham (2036).",
+      "url": "https://glessnerhouse.blogspot.com/2014/08/moving-house-on-prairie-avenue-1891.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "carriage posts at the west side before 2112 and 2110, round with domed tops",
+        "a row of the same posts along the east curb opposite",
+        "a gas lamp on a post at the west curb further north"
+      ],
+      "what_it_does_not_supply": [
+        "the posts' sizes: no measure stands beside them",
+        "which east-side houses the row stands before: the picture's edge cuts them off",
+        "colour or stone: the photograph is sepia"
+      ]
+    },
+    {
+      "source_id": "glessner_blog_rees_2110_gable_2012",
+      "citation": "[Rees house exterior, gable detail.] Photograph, Glessner House Museum, in 'Prairie Avenue mansion designated', The Story of a House (blog), January 2012.",
+      "url": "https://glessnerhouse.blogspot.com/2012/01/prairie-avenue-mansion-designated.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the front's stone: pale, smooth, dressed ashlar in even courses",
+        "the gable's coped rakes, its carved tympanum, its narrow round-headed light and the kneelers' carved corbels",
+        "the loggia's five round arches on colonettes with carved capitals, under a carved band",
+        "the bow's cap: a copper cornice, green with age",
+        "slate on the flank behind the gable"
+      ],
+      "what_it_does_not_supply": [
+        "any measure: it looks steeply up",
+        "the lower front, the flanks and the rear"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
@@ -232,8 +820,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1922, T-1923 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2110-b1), the T-1842 census (s35-2110-front, s35-2110-wing) and the T-1837 register row frontage-35-066 (Rees Romanesque narrow house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-1922 (the S12A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits, its plan off sheet 35 of the 1911 Sanborn read at full size, its front off the early-1890s street photograph of the 2100 block, which shows its bow, carved band, pale stone and stoop, and off two later photographs taken on this site before the house was moved in 2014 (c. 1980s, Ryerson & Burnham Archives; 2012, Glessner House Museum), read for forms only: a pale limestone front under a tall coped gable with a finial, a five-arched loggia at the gable's foot, a two-storey bow capped in copper at the south, and the round-arched door at the north at the head of a high stoop. The gable's carving, the loggia's colonettes and the bow's carved band are T-1923's. The coach house shared with 2108 (mark_kimball_house_2108_prairie_coach_house) is T-1937's and is untouched. docs/RESEARCH/k01-2110-rees-1922/README.md.",
   "research_doc": "",
-  "review_required": false,
-  "called": "2110 Prairie Avenue — Rees Romanesque narrow house"
+  "review_required": false
 }
