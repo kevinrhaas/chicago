@@ -37392,12 +37392,6 @@
           "domain": "structure",
           "structure": "reid_house_2013_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.chimneys"
-        },
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.rear_bays"
         },
         {
@@ -37417,12 +37411,6 @@
           "structure": "reid_house_2013_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "reid_house_2013_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.side_bays"
         },
         {
           "domain": "structure",
@@ -37464,11 +37452,11 @@
         },
         {
           "label": "How to resolve",
-          "text": "Later work reads the flanks and the rear off the 2003 nomination photographs and works the plate's remaining differences (the ovals, the pilastered frame, the frieze) toward the image gate's sign-off."
+          "text": "Later work reads the flanks and the rear off the 2003 nomination photographs and works the plate's later work (2026-11-20) resolved two of its claims off the north-side photograph's camera and the nomination's text: the north wall's lights (side bays, now inferred) and the stacks' wall (`chimneys`, moved to the south party wall where the nomination puts the fireplaces, now inferred); they leave this entry's Covers. remaining differences (the ovals, the pilastered frame, the frieze) toward the image gate's sign-off."
         },
         {
           "label": "Covers",
-          "text": "`reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_front_m`, `reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_side_m`, `reid_house_2013_prairie.as_mapped_1904.form.service_wall_brick`, `reid_house_2013_prairie.as_mapped_1904.form.roof_pitch_deg`, `reid_house_2013_prairie.as_mapped_1904.form.roof_covering`, `reid_house_2013_prairie.as_mapped_1904.form.window_kit`, `reid_house_2013_prairie.as_mapped_1904.form.stair_tread_m`, `reid_house_2013_prairie.as_mapped_1904.form.side_bays`, `reid_house_2013_prairie.as_mapped_1904.form.rear_bays`, `reid_house_2013_prairie.as_mapped_1904.form.chimneys`, `reid_house_2013_prairie.as_mapped_1904.form.yard`"
+          "text": "`reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_front_m`, `reid_house_2013_prairie.as_mapped_1904.form.wall_thickness_side_m`, `reid_house_2013_prairie.as_mapped_1904.form.service_wall_brick`, `reid_house_2013_prairie.as_mapped_1904.form.roof_pitch_deg`, `reid_house_2013_prairie.as_mapped_1904.form.roof_covering`, `reid_house_2013_prairie.as_mapped_1904.form.window_kit`, `reid_house_2013_prairie.as_mapped_1904.form.stair_tread_m`, `reid_house_2013_prairie.as_mapped_1904.form.rear_bays`, `reid_house_2013_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",

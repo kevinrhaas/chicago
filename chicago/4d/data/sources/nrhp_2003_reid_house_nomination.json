@@ -1,0 +1,29 @@
+{
+ "id": "nrhp_2003_reid_house_nomination",
+ "type": "manuscript",
+ "citation": "Susan M. Baldwin and Lara Ramsey (Baldwin Historic Properties), 'National Register of Historic Places Registration Form: Reid House, 2013 South Prairie Avenue, Chicago, Cook County, Illinois' (form dated 1 February 2003; listed 2003, NRHP ref. 03000783), with fifteen photographs labelled 2/03.",
+ "author": "Susan M. Baldwin and Lara Ramsey, Baldwin Historic Properties (preparers); photographs by Susan M. Baldwin",
+ "date": "February 2003",
+ "describes_date": "the house in February 2003, with an architectural history from its building in 1894",
+ "repository": "National Archives at College Park, RG 79 National Register files, catalog record 'Illinois SP Reid House' (naId 28891968), https://catalog.archives.gov/id/28891968; the file's PDF at https://catalog.archives.gov/medialz/electronic-records/rg-079/NPS_IL/03000783.pdf. Prairie library records a20-reid-nrhp-2003-* (nomination text, plans and photographs).",
+ "url": "https://catalog.archives.gov/id/28891968",
+ "locator": "PDF pp. 4-9 (section 7, description: the facade 'faced with cream colored, rough textured brick', the side walls of Chicago common brick parged on the south wall and the west half of the north, the south side's rear notch with its oriel, the rear of smooth red brick, the open terrace on the rear section's top floor, the 1910 coach house; the rooms and their fireplaces); p. 32 (sketch floor plans); photographs pp. 34 (front), 36 (north side), 38 (rear), 48 (rear garden and coach house).",
+ "tier": 3,
+ "rights_status": "check_required",
+ "rights_note": "The form is a government-hosted record, but its photographs are the preparer's, not a federal work, and NARA's catalog record marks the file 'Restricted - Possibly' for copyright. The owner directed on 2026-11-20 (T-3626, decision c) that the photographs be brought into the image store and read: they are held there and here as attributed reference copies (data/sources/assets/reid_2013_nomination_photos_t3626/README.md). Only forms, counts, places and proportions are read from them; nothing is derived from them as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-20 (T-3626). The S3 copy the library linked (nara-media.s3.amazonaws.com/.../03000783.pdf) answers 403 to this runner, as it did to the run before; the catalog's media URL serves the same file, 53 pp., 38,678,201 bytes. The photographs were extracted from their pages unaltered (pdfimages -j, 600 ppi scans about 4,585 x 3,272 px) and the image store's 1,400 px display copies are the ones committed for the cameras.",
+ "note": "The only pictures of the house's flanks and rear. They are 2003 evidence: 2009-2011 to the north and 2017 to the south had been demolished, so the party walls stand bared and parged where the neighbours stood (the north wall's parging stops about 12.4 m behind the front, where 2011's main block ended), and the coach house in the rear garden is 1910 by the form's own account.",
+ "what_it_supplies": [
+  "the north party wall's lights and its parapet line, through a solved camera",
+  "the rear block's form: its east face's lights and the open, roofed terrace on its top floor",
+  "the face brick's colour in words ('cream colored, rough textured brick'), which the monochrome 1895 plate cannot give",
+  "the dining room's canted bay on the south side of the rear part, and which walls carry the fireplaces",
+  "the coach house's date, 1910"
+ ],
+ "what_it_does_not_supply": [
+  "the house's state in 1904: every photograph is 2003, after its neighbours were demolished",
+  "dimensions: the floor plans are sketches without a scale"
+ ]
+}
