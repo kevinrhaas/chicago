@@ -1,0 +1,27 @@
+{
+  "id": "loc_cph_3b04891_oleary_cottage",
+  "type": "photograph",
+  "citation": "J. Mountford, 'Mrs. O'Leary's residence, No. 137 DeKoven St., where the great fire originated', stereograph, Chicago, 1871. Library of Congress Prints and Photographs Division, LC-USZ62-57060 (cph 3b04891).",
+  "author": "J. Mountford, photographer (the card's mount)",
+  "date": "[October-November 1871] (after the fire: the block behind the cottages is burnt out)",
+  "describes_date": "1871, just after the fire of 8-9 October",
+  "repository": "Library of Congress, Prints and Photographs Division. The right half of the card is committed at data/sources/assets/landmarks_1871_t3689/loc_3b04891_oleary_cottage_right.jpg.",
+  "url": "https://www.loc.gov/pictures/item/2004682849/",
+  "locator": "The right half of the card: the two O'Leary cottages from the burnt lots north-east of them, the rear cottage's east side and north gable nearest, the front cottage beyond at left, fences, a crowd and the wash hung out in the yard, the houses across DeKoven Street at right.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published in 1871.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Library's TIFF of the whole card (1536 x 796 px, tile.loc.gov service/pnp/cph/3b00000/3b04000/3b04891); the right half cropped and committed at 655 x 650 px, sha256 a26dd0f8882462ffb06f67297e5d19de6d8da8e8abd434711430cae68fea6d62.",
+  "note": "The one photograph found of the cottages where the fire began, taken in the burnt block within weeks of the fire. Small and soft; monochrome.",
+  "what_it_supplies": [
+    "the two cottages' arrangement, roofs, chimneys and weatherboarding",
+    "that they stood after the fire"
+  ],
+  "what_it_does_not_supply": [
+    "the barn (burned)",
+    "the cottages' street fronts and west sides",
+    "colour"
+  ]
+}
