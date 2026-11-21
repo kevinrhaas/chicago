@@ -1561,9 +1561,9 @@
     },
     {
       "id": "roloson_house_2109_prairie",
-      "name": "2109 Prairie Avenue — Roloson partly seen in Armour photograph (district draft; refined by T-1924)",
+      "name": "2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side",
       "sidecar": "sidecars/1904/roloson_house_2109_prairie.json",
-      "asset": "gltf/roloson_house_2109_prairie__draft_1904.glb"
+      "asset": "gltf/roloson_house_2109_prairie__as_mapped_1904.glb"
     },
     {
       "id": "roloson_house_2109_prairie_coach_house",
@@ -1749,6 +1749,7 @@
     "cook_county_courthouse_1835",
     "council_house",
     "coursoll_field_1812",
+    "crosbys_opera_house_1871",
     "dalton_cottage_1871",
     "dalton_shed_1871",
     "dearborn_street_drawbridge",
@@ -1759,6 +1760,7 @@
     "estray_pen",
     "exchange_coffee_house",
     "exchange_coffee_house_stable",
+    "field_leiter_1871",
     "first_fort_covered_way_bank_lower",
     "first_fort_covered_way_bank_middle",
     "first_fort_covered_way_bank_upper",
@@ -1916,6 +1918,7 @@
     "oleary_barn_1871",
     "oleary_cottage_1871",
     "ouilmette_house_1812",
+    "palmer_house_1871",
     "peck_store",
     "philo_carpenter_log_shop",
     "physicians_office",
@@ -1935,6 +1938,7 @@
     "potawatomi_camp_1812_west_bank",
     "potawatomi_trading_lodges_1812",
     "pruyne_kimball_drugstore",
+    "pumping_works_grounds_1871",
     "recon_1835_bank_freight_f3_001",
     "recon_1835_blk_indiana_north_cass_a1_08",
     "recon_1835_blk_indiana_north_cass_a1_10",
@@ -2560,7 +2564,9 @@
     "temple_lake_st_building",
     "thomas_church_store",
     "tremont_house_1",
+    "tremont_house_1871",
     "tremont_house_1_stable",
+    "tribune_building_1871",
     "wabansia_doctors_barn",
     "wabansia_doctors_house",
     "walker_meeting_house",

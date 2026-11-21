@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7ab10e774e1d8e739ab9f6fcfeacb97f45df5b9109b9df52336624adf3dba3d3",
+  "glb_sha256": "959268ad3ae7c2febb036eafff5d38e8d932cd2eac6d5494cf43b158180268ae",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -20,12 +20,13 @@
     },
     {
       "what": "the pavilion and its attic stood about 0.5-0.7 m north of the print's, because K01 could not cut the door through a projection. T-3562: the pavilion now runs from the north corner across the door's north half, 0.1 m proud, and on this view its attic stands over the print's by the same measure the square-on reads: the attic's centre about 92-95 px north of the door's in both, the pavilion's south edge beside the narrow light as the print draws it, and no cheek beside the door",
-      "status": "fixed"
+      "status": "fixed",
+      "how": ""
     },
     {
       "what": "the corner bay runs about 0.75 m south of the main front's south corner: the print's cornice turns onto the flank at x 1605 px and the bay's south face shows at x 1745-1790 px; the build sets the bay flush with the flank (its corner at x 1618 px, the main corner at 1711)",
-      "status": "fixed",
-      "how": "T-3562: the bay is set out 0.75 m past the main front's south wall (K01 bays[].set_out_m), the bay kept at its 9.43 m centre and the front block narrowed to 9.72 m, so the main wall stands inside the bay's south face as the print draws it: the cornice now turns onto the flank at about x 1660 px against the print's 1605-1650 (it rendered at 1711), and the bay's south cheek shows past the main corner, beyond it, in the front's stone"
+      "status": "owner ruling",
+      "how": "T-3562: the bay is set out 0.75 m past the main front's south wall (K01 bays[].set_out_m), the bay kept at its 9.43 m centre and the front block narrowed to 9.72 m, so the main wall stands inside the bay's south face as the print draws it: the cornice now turns onto the flank at about x 1660 px against the print's 1605-1650 (it rendered at 1711), and the bay's south cheek shows past the main corner, beyond it, in the front's stone. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the south flank is rock-faced random ashlar, dark against the smooth front; the build lays it in buff common brick",
@@ -49,27 +50,28 @@
     },
     {
       "what": "the door's pedimented hood and the stoop's stone cheeks",
-      "status": "fixed",
-      "how": "T-3562: the stone pediment on its brackets over the door, and the swept cheeks with a newel at each foot, as on the square-on (whose print shows both whole); here the tree's trunk crosses the hood"
+      "status": "owner ruling",
+      "how": "T-3562: the stone pediment on its brackets over the door, and the swept cheeks with a newel at each foot, as on the square-on (whose print shows both whole); here the tree's trunk crosses the hood. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stoop's open south side (x 1080-1340 px, y 980-1160 px): the landing on a square pier at its outer corner and open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight carried off the pier on a rampant arch from 0.82 m over grade down to grade about 0.9 m along the run; built by T-3562 (K07's arched swept cheek), the void closed in the kit's dark backing",
-      "status": "fixed"
+      "status": "owner ruling",
+      "how": "T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the basement doorway in the wall under the landing (x 1045-1260 px, y 960-1150 px): the build's void under the landing is closed at the wall in the kit's dark backing, with no doorway in it",
-      "status": "not shown",
-      "how": "T-3562: the square-on print shows the basement doorway, under the landing's north side, behind the flight's north newel, and the build stands it there (K07's landing wing, in that view's record); from this camera the wing stands behind the flight, and under the landing's south side the print shows the dark between the pier and the wall and no doorway that can be read in it, as the build's void shows it"
+      "status": "owner ruling",
+      "how": "T-3562: the square-on print shows the basement doorway, under the landing's north side, behind the flight's north newel, and the build stands it there (K07's landing wing, in that view's record); from this camera the wing stands behind the flight, and under the landing's south side the print shows the dark between the pier and the wall and no doorway that can be read in it, as the build's void shows it. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stoop's south cheek stepped level with its treads under an iron hand rail (x 1100-1290 px): the rail leaving a square stone post on the landing's outer corner over the pier (its cap at about 0.75 m over the landing) at about 0.37 m, falling to the foot newel's top on one bar part way down, and a level iron rail from the post back to the wall over the landing's edge",
-      "status": "fixed",
-      "how": "T-3562: K07's railed swept cheek (cheek_form.railed): both cheeks stepped, the rail 0.45 m over the landing at its head and 0.12 m over the newel's cap at its foot, one bar between, the post 0.35 m square and 0.65 m high on the south side, the level rail to the wall on one bar; the rail's head about 0.08 m higher than the print's and the post's cap about 0.1 m lower, both under the bar"
+      "status": "owner ruling",
+      "how": "T-3562: K07's railed swept cheek (cheek_form.railed): both cheeks stepped, the rail 0.45 m over the landing at its head and 0.12 m over the newel's cap at its foot, one bar between, the post 0.35 m square and 0.65 m high on the south side, the level rail to the wall on one bar; the rail's head about 0.08 m higher than the print's and the post's cap about 0.1 m lower, both under the bar. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stone balcony's pierced panels on the bay's deck",
-      "status": "within tolerance",
-      "how": "the panels' pattern is K08's, the rail's place and height the print's within a few pixels"
+      "status": "owner ruling",
+      "how": "the panels' pattern is K08's, the rail's place and height the print's within a few pixels. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stone's colour and tone",
@@ -78,13 +80,13 @@
     },
     {
       "what": "the street fence, the walk and the parkway's posts",
-      "status": "not shown",
-      "how": "outside the building record"
+      "status": "owner ruling",
+      "how": "outside the building record. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the coping, posts and walk T-3206 lays",
-      "status": "within tolerance",
-      "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on"
+      "status": "owner ruling",
+      "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the stack's sunk panels on its south face (x 1765-1825 px, about 11.35-13.45 m)",
@@ -118,8 +120,8 @@
     },
     {
       "what": "the corner bay's front renders about 100-170 px west of the print's on this view (its two lights at x 1515-1585 px against the print's 1565-1740, its south edge at 1615 against 1790), and narrower. T-3562, under the T-3153 bar: no single pinhole camera fits this print (30 points from both prints, 14-16 px rms, 40-60 px at the bay, T-3562's 2026-11-18 solve), and the square-on, whose camera fits within 2-20 px, places the bay within 25 px; a gap two camera fits disagree about is within tolerance",
-      "status": "within tolerance",
-      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled T-3562 (2026-11-18) measured both prints to see whether a better camera could settle it, and no single pinhole camera can: on the oblique the bay's two front lights stand 121 px apart (centres x 1590 and 1711 px) and 188 px tall (y 775-963), where the square-on places them 0.9 m apart and 2.37 m tall; so on the bay's face the print's horizontal scale is about 1.7 times its vertical (135 against 79 px/m), while on the front behind it, at about the same depth (the light right of the door, 78 px/m tall), it is under 0.8 times, and on the attic lights 0.8 times. For a level camera the ratio on a plane parallel to the front is its distance from the eye across the front over its depth along the view, which cannot rise from under 0.8 to 1.7 between two planes 0.75 m apart at the same depth; least-squares fits on 30 points from both prints (attic, pavilion and principal-storey lights, the narrow light, the right window, the bay's lights and corner, the main south corner at x 1656) left 14-16 px rms and 40-60 px at the bay with every parameter free, the eye pulled to the street line in front of the house. So either the oblique print is not a single undistorted exposure of this front (a copy, a crop of a distorted plate) or the bay as the square-on reads it is not the bay this print shows; the camera alone does not settle it, and it is left as it was."
+      "status": "owner ruling",
+      "how": "T-3562: the square-on puts the same bay's edges within 20-25 px of its print (below the 0.5 m it notes as within tolerance), and this camera is solved on the front's plane, where its distance and focal length trade against each other (its solve), so a face 1.2 m proud of that plane is where it is least sure; whether the camera or the bay is wrong here is not settled T-3562 (2026-11-18) measured both prints to see whether a better camera could settle it, and no single pinhole camera can: on the oblique the bay's two front lights stand 121 px apart (centres x 1590 and 1711 px) and 188 px tall (y 775-963), where the square-on places them 0.9 m apart and 2.37 m tall; so on the bay's face the print's horizontal scale is about 1.7 times its vertical (135 against 79 px/m), while on the front behind it, at about the same depth (the light right of the door, 78 px/m tall), it is under 0.8 times, and on the attic lights 0.8 times. For a level camera the ratio on a plane parallel to the front is its distance from the eye across the front over its depth along the view, which cannot rise from under 0.8 to 1.7 between two planes 0.75 m apart at the same depth; least-squares fits on 30 points from both prints (attic, pavilion and principal-storey lights, the narrow light, the right window, the bay's lights and corner, the main south corner at x 1656) left 14-16 px rms and 40-60 px at the bay with every parameter free, the eye pulled to the street line in front of the house. So either the oblique print is not a single undistorted exposure of this front (a copy, a crop of a distorted plate) or the bay as the square-on reads it is not the bay this print shows; the camera alone does not settle it, and it is left as it was. T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling."
     },
     {
       "what": "the crown's cornice runs on across the attic's slated cheeks, where the print's spans the attic front alone (as on the square-on) (T-3562)",
@@ -130,6 +132,11 @@
       "what": "the pavilion's own dentil band at the second storey's head and the stone shoulders beside the attic (the band at x 1085-1300 px, y 513-533 px; the shoulders at y 340-410 px), as on the square-on (T-3562)",
       "status": "fixed",
       "how": "T-3562: the corbel-table band at the attic's foot and the capped stone shoulders beside the attic (as on the square-on) render on this camera along the print's lines, the band under the attic's lights and over the second storey's, the shoulders' caps at the slate's foot"
+    },
+    {
+      "what": "the ground floor: this print's stoop and pedimented door in the pavilion's south half, the principal-storey window column and the corner bay with its stone balcony, over a low coping",
+      "status": "owner ruling",
+      "how": "T-3562 (the owner, 2026-11-21, the ticket's decision (a)): the house is built to the front the 1902 remodel left, which the 1908 Daily News picture shows (daily_news_dn0005529); this print shows Sears's ground floor before it, so the build departs from it here on the owner's ruling. Built instead: the one-storey stone bay across the front's middle (v 1.24-7.04, 1.2 m proud) under a corbel table and blocking course, its iron balcony on a stone ledge, the arched door at grade in a one-storey entrance block north of the house, and the tall iron railing on the street line. The storeys over it stand as this print draws them."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

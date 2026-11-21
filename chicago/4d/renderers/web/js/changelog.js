@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 3184, ts: '2026-11-21T11:49:12.615Z', date: 'Nov 21, 2026, 5:49 AM CT', title: '1815 Prairie rebuilt to its 1908 Daily News photograph', kind: 'feature',
+    items: [
+      'The Sears-Meeker house now shows the front Arthur Heun\'s 1902 remodel gave it, read off a 1908 Chicago Daily News photograph: a one-storey stone bay across the front with an iron balcony rail, an arched entrance at street level in a small stone block, and a tall iron railing along the walk.',
+      'The old stoop, pedimented door and corner bay, which the earlier undated photographs show, are gone for 1904; the upper storeys, attic and mansard are unchanged and match all three pictures.',
+      'Records now say why 1904 shows the remodel: Heun\'s work is dated 1902, and the 1908 photograph is the only picture after the sale.',
+    ] },
+  { v: 3183, ts: '2026-11-21T11:04:43.179Z', date: 'Nov 21, 2026, 5:04 AM CT', title: '2109 Prairie, the Roloson house, rebuilt from its one photograph', kind: 'feature',
+    items: [
+      '2109 Prairie Avenue, Robert Roloson\'s house, now stands as itself rather than as a block-draft box: a pale stone front under a slated mansard with a round-headed dormer, tall round-headed lights under keyed hoods, and a bracketed cornice, read off the edge of the winter photograph of the Armour house next door.',
+      'Its raised veranda runs across the front and down the south side on columns over open piers, and behind it a three-storey rear block steps out south, with a frame back porch at the north-east corner, all laid to the 1911 fire-insurance map\'s plan.',
+      'The photograph only catches the house\'s south end, so the door, the north bays and the steps are a reconstruction and say so; the remaining differences from the picture are written into its match record.',
+    ] },
+  { v: 3182, ts: '2026-11-21T10:06:49.772Z', date: 'Nov 21, 2026, 4:06 AM CT', title: 'Find the jaunts that are read aloud', kind: 'feature',
+    items: [
+      'The Jaunts list has a new Listen row. Tap Narrated to see only the jaunts that are read aloud to you, alongside the group, age and search filters; Clear filters lets it go.',
+      'Every narrated jaunt now says Narrated on its card, so you can tell before you start which ones speak.',
+      'A Music pill joins it once jaunts have music of their own.',
+    ] },
+  { v: 3181, ts: '2026-11-21T09:54:03.264Z', date: 'Nov 21, 2026, 3:54 AM CT', title: 'Five more downtown landmarks stand in 1871, built to their pictures', kind: 'feature',
+    items: [
+      'The Tremont House at Lake and Dearborn, with its porch and rooftop lookout, built to Carbutt\'s stereograph.',
+      'Crosby\'s Opera House on Washington Street, its arched shops and slate roof, built to Carbutt\'s stereograph.',
+      'Field, Leiter & Co.\'s marble store at State and Washington, the Palmer House at State and Quincy, and the Tribune building at Madison and Dearborn, built to Andreas\'s engravings.',
+      'Each has a card with its story, and each burns at its hour in the Great Fire.',
+      'Across Pine Street from the Water Tower, the pumping works now stands back behind its own railed grounds, with no house in front.',
+    ] },
   { v: 3180, ts: '2026-11-21T08:06:17.759Z', date: 'Nov 21, 2026, 2:06 AM CT', title: '2100 Prairie\'s roof takes its carved dormers and stack', kind: 'feature',
     items: [
       'The Sherman house\'s roof now looks more like its c. 1890 photograph: the small dormer over the front door is a stone face under a projecting shelf with a slated hood leaning back over it, and the large dormer over the parlour has a stone coping up its gable, a little pinnacle at each shoulder and a finial on top.',

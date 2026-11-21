@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1210,
+  "count": 1212,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -142,6 +142,10 @@
       "name": "Coursoll's inclosed field, north of the river, 1812"
     },
     {
+      "id": "crosbys_opera_house_1871",
+      "name": "Crosby's Opera House, Washington Street"
+    },
+    {
       "id": "dalton_cottage_1871",
       "name": "Dalton's cottage, 135 DeKoven Street"
     },
@@ -220,6 +224,10 @@
     {
       "id": "exchange_coffee_house_stable",
       "name": "The Exchange Coffee House's Stable"
+    },
+    {
+      "id": "field_leiter_1871",
+      "name": "Field, Leiter & Co., State and Washington Streets"
     },
     {
       "id": "first_fort_covered_way_bank_lower",
@@ -1754,6 +1762,10 @@
       "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house"
     },
     {
+      "id": "palmer_house_1871",
+      "name": "The Palmer House, State and Quincy Streets"
+    },
+    {
       "id": "peck_store",
       "name": "P. F. W. Peck's Store"
     },
@@ -1860,6 +1872,10 @@
     {
       "id": "pullman_lodge_1800_calumet",
       "name": "Pullman estate (1800 S. Calumet Avenue): the two-storey stone lodge between the glasshouse ranges"
+    },
+    {
+      "id": "pumping_works_grounds_1871",
+      "name": "The pumping works' grounds"
     },
     {
       "id": "ream_house_1901_prairie",
@@ -3479,7 +3495,7 @@
     },
     {
       "id": "roloson_house_2109_prairie",
-      "name": "2109 Prairie Avenue — the Roloson house"
+      "name": "2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side"
     },
     {
       "id": "roloson_house_2109_prairie_coach_house",
@@ -3614,8 +3630,16 @@
       "name": "Tremont House (the first)"
     },
     {
+      "id": "tremont_house_1871",
+      "name": "The Tremont House, Lake and Dearborn Streets"
+    },
+    {
       "id": "tremont_house_1_stable",
       "name": "The Tremont House's Stable"
+    },
+    {
+      "id": "tribune_building_1871",
+      "name": "The Tribune building, Madison and Dearborn Streets"
     },
     {
       "id": "tucker_smith_house_2140_prairie",
@@ -18417,14 +18441,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 135
+        "count": 136
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.land owner[constructed section grid] — 135 structures (130 until later work's stable, lodging house, bake-house, dairy and garden of the Kinzie establishment in the 1812 scene, 2026-10-22, all five behind the Kinzie house on the north fraction of section 10 and carrying its tract (“The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”); 128 until later work's Kinzie house and its fenced green in the 1812 scene, 2026-10-15, both on the north fraction of section 10, which the resolve land tracts tool --build reaches on the constructed grid (“The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”); 123 until later work's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, all five on the constructed grid (“Five invented barns in the yards of the Wolcott-Kinzie core's houses”); 122 until later work's stable on the Indiana North Wolcott block, 2026-10-08; 103 until later work carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until later work folded beaubien new residence into the Beaubien homestead, 2026-10-03; 99 until later work's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until later work's emigrants' camp on the same shore, 2026-10-02; 97 until later work's land-sale camp on the reservation shore, 2026-10-02; 94 until later work's boarding house, stable and privy on the Indiana North Cass block, 2026-10-02)"
+          "text": "structures.land owner[constructed section grid] — 136 structures (135 until later work's Field, Leiter & Co. store in the 1871 scene, 2026-11-21, whose corner east of State Street stands on the reservation tract's ground; 130 until later work's stable, lodging house, bake-house, dairy and garden of the Kinzie establishment in the 1812 scene, 2026-10-22, all five behind the Kinzie house on the north fraction of section 10 and carrying its tract (“The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”); 128 until later work's Kinzie house and its fenced green in the 1812 scene, 2026-10-15, both on the north fraction of section 10, which the resolve land tracts tool --build reaches on the constructed grid (“The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”); 123 until later work's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, all five on the constructed grid (“Five invented barns in the yards of the Wolcott-Kinzie core's houses”); 122 until later work's stable on the Indiana North Wolcott block, 2026-10-08; 103 until later work carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until later work folded beaubien new residence into the Beaubien homestead, 2026-10-03; 99 until later work's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until later work's emigrants' camp on the same shore, 2026-10-02; 97 until later work's land-sale camp on the reservation shore, 2026-10-02; 94 until later work's boarding house, stable and privy on the Indiana North Cass block, 2026-10-02)"
         },
         {
           "label": "Decision",
@@ -18452,6 +18476,7 @@
         }
       ],
       "work_refs": [
+        "T-3688",
         "T-2485",
         "T-2497",
         "T-2170",
@@ -20954,14 +20979,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 182
+        "count": 181
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 182 structures (183 until other work, 2026-11-19, whose refinement of the John B. Sherman house at 2100 Prairie reads its stone basement off the c. 1890 photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 184 until other work, 2026-11-19, whose refinement of the Mark Kimball house at 2108 Prairie reads its pale stone front off the Tribune's 1898 cut and the early-1890s street photograph of the 2100 block and lays it on the brick, so it says brick with a stone front and leaves this count; 185 until other work, 2026-11-17, whose refinement of the Buckingham house at 2036 Prairie reads its banded stone basement off the c. 1880 engraving and lays it under the brick, so it says brick with a stone front and leaves this count; 186 until other work, 2026-11-17, whose refinement of the William H. Reid house at 2013 Prairie reads its stone basement off the Inland Architect's 1895 plate and lays it under the brick, so it says brick with a stone front and leaves this count; 187 until other work, 2026-11-07, whose refinement of the Henderson house at 1816 Prairie reads its pale stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 188 until other work, 2026-11-03, whose refinement of the Max A. Meyer house at 2009 Prairie reads its rock-faced stone basement off its photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 189 until other work, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 181 structures (182 until other work, 2026-11-19, whose refinement of the Roloson house at 2109 Prairie reads the stone front the 1911 sheet colours blue across its whole width, so it says brick with a stone front and leaves this count; 183 until other work, 2026-11-19, whose refinement of the John B. Sherman house at 2100 Prairie reads its stone basement off the c. 1890 photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 184 until other work, 2026-11-19, whose refinement of the Mark Kimball house at 2108 Prairie reads its pale stone front off the Tribune's 1898 cut and the early-1890s street photograph of the 2100 block and lays it on the brick, so it says brick with a stone front and leaves this count; 185 until other work, 2026-11-17, whose refinement of the Buckingham house at 2036 Prairie reads its banded stone basement off the c. 1880 engraving and lays it under the brick, so it says brick with a stone front and leaves this count; 186 until other work, 2026-11-17, whose refinement of the William H. Reid house at 2013 Prairie reads its stone basement off the Inland Architect's 1895 plate and lays it under the brick, so it says brick with a stone front and leaves this count; 187 until other work, 2026-11-07, whose refinement of the Henderson house at 1816 Prairie reads its pale stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 188 until other work, 2026-11-03, whose refinement of the Max A. Meyer house at 2009 Prairie reads its rock-faced stone basement off its photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 189 until other work, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until other work, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until other work, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until other work, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until other work's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until other work, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until other work, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until other work, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: the prairie draft generator draws it in a flat colour; 174 until other work, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while other work's background row, which they replace, leaves it; 173 until other work, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until other work, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until other work, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until other work, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20978,6 +21003,7 @@
       ],
       "work_refs": [
         "T-1687",
+        "T-3666",
         "T-1919",
         "T-3667",
         "T-3631",
@@ -37246,18 +37272,6 @@
         },
         {
           "domain": "structure",
-          "structure": "roloson_house_2109_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "roloson_house_2109_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "roloson_house_2109_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -37298,7 +37312,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie.draft_1904.form.draft_elevation`, `armour_house_2115_prairie.draft_1904.form.draft`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie.draft_1904.form.draft_elevation`, `house_2125_prairie.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -37357,6 +37371,10 @@
           "text": "2101, the 21st Street corner house, by later work (the S13 package), which refined it in place on the K01 frontage kit under `“2101 Prairie, the 21st Street corner house, refined from the district draft onto K01: its plan off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone (its alley building is still the draft's, 's)."
         },
         {
+          "label": "Retired in part",
+          "text": "2109, the Roloson house, by later work (the S13 package), which refined it in place on the K01 frontage kit under `“2109 Prairie, the Roloson house, refined from the district draft onto K01: its plan off the 1911 sheet, its front's south end, mansard and veranda off the Armour photograph's left edge”`, under the same id; its draft attributes are gone (its coach house is still the draft's, the R-series')."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-11 (T-2352)."
         }
@@ -37385,7 +37403,8 @@
         "T-3660",
         "T-3661",
         "T-1924",
-        "T-3665"
+        "T-3665",
+        "T-3666"
       ]
     },
     {
@@ -42799,6 +42818,12 @@
           "domain": "structure",
           "structure": "sears_meeker_house_1815_prairie",
           "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "sears_meeker_house_1815_prairie",
+          "phase": "as_mapped_1904",
           "aspect": "form.wall_thickness_front_m"
         },
         {
@@ -42819,15 +42844,15 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where the sheet colours the whole house stone (the south flank is stone since, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **The door's pediment and the stoop's newels.** Read off the square-on print: a stone pediment over the door on two small carved brackets beside the transom, its apex at about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a pediment in place of its railing (entrance kit hood pediment, a K01 option this piece of work added) in the front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door; built since, 2026-11-19, below), the basement doorway under the stoop's landing and the stoop's arched underside, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. **The rock-faced south flank and its dormer.** Read off the oblique print: the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the front's K02 stone laid round the flank on the front's own beds in the profile's rock face (stone front flanks, a K01 option this piece of work added), and the flank dormer moved from 9.0 m, where no picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print is monochrome and draws it darker, which a different stone, soot or the light could each explain); its even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record). **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding. **The stoop's open south side.** Read off the oblique print: the landing stands on a square pier at its outer corner and is open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight is carried off the pier on a rampant arch springing about 0.82 m over grade and reaching grade about 0.9 m down the run, the lower steps solid on grade to the newel; built as K07's arched swept cheek (cheek form arched) on the stoop's south cheek. Invented: the pier's 0.5 m depth along the run and the arch's span (the print foreshortens both; read off the nosings' spacing), the arch's quarter-ellipse curve, the void running through under the whole stoop to the north cheek, and its dark backing at the north cheek and the wall, which no picture sees past the print's black. The basement doorway in that void, the south cheek's iron hand rail and its stepped top are not built. **The corner bay's set-out.** Read off both prints: the corner bay's south face stands about 0.75 m south of the main front's south wall (the oblique draws the cornice turning onto the flank at about x 1605-1655 px and the bay's south face at x 1745-1790 px; the square-on the upper wall's south edge at x 834 px and the bay's at x 905 px). Built with the bay kept at its 9.43 m centre and SET OUT 0.75 m past the corner (bays[].set out (m), a K01 option this piece of work added: its back over the stretch past the corner is closed on the front's plane in its own stone), so the front block is 9.72 m along the front, not the 1911 sheet's 10.47 m; the south stack moves in with the wall onto the print's line. The sheet is the remodelled house, so its south wall on the line of the bay's face is read as the remodel's. Invented: the 0.75 m (the two prints give 0.75-0.85 m); that the main south wall runs back on that line the whole depth of the front block and the rear range (no picture sees the flank past its two front window columns, and the sheet draws one wall at 10.47 m); and the plain stone of the bay's back past the corner, which no picture sees. **The stoop's stepped sides and iron rails.** Read off both prints: neither cheek is a solid swept wall; the flight's steps show along both sides, each cheek's top level with the tread beside it, under an iron hand rail each side falling to the top of its foot newel; on the oblique the south rail leaves a square stone post on the landing's outer corner, over the pier, and a level iron rail runs from that post back to the wall over the landing's edge. Built as K07's railed swept cheek (cheek form railed). Invented: the rails' 0.04 m square section and their straight run (the square-on draws them curving down onto the newels), their heights (0.45 m over the landing at the head and 0.12 m over each newel's cap, within about 0.1 m of the oblique's reading), the single bar under each rail and under the landing rail, the post's 0.35 m square plan and 0.65 m height with a plain cap, and the north rail's head standing on a bar at the landing's edge, where the square-on print's north post stands at the north end of a landing carried on over the basement doorway, which is not built. The basement doorway in the void under the landing is not built."
+          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where the sheet colours the whole house stone (the south flank is stone since, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **The door's pediment and the stoop's newels.** Read off the square-on print: a stone pediment over the door on two small carved brackets beside the transom, its apex at about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a pediment in place of its railing (entrance kit hood pediment, a K01 option this piece of work added) in the front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door; built since, 2026-11-19, below), the basement doorway under the stoop's landing and the stoop's arched underside, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. **The rock-faced south flank and its dormer.** Read off the oblique print: the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the front's K02 stone laid round the flank on the front's own beds in the profile's rock face (stone front flanks, a K01 option this piece of work added), and the flank dormer moved from 9.0 m, where no picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print is monochrome and draws it darker, which a different stone, soot or the light could each explain); its even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record). **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding. **The remodel's own date.** The Ryerson and Burnham Archives' building index dates the remodel itself, not only the sale: 'Heun, Arthur [1902 remodeling]', 'sold to Arthur Meeker, 1902, who drastically remodeled the residence' (Art Institute of Chicago, Ryerson and Burnham Archives, building-name index…); Glessner House puts the sale and Heun's remodel together under 1902 (Glessner House, 'The Story of a House' (blog), posts labelled 'Arthur Meeker'…); and the Meekers' son was born on Prairie Avenue in 1902 (Chicago Tribune, 4 April 1949, as Chicagology transcribes it), so the family lived there from that year. Read together, the remodelled front most likely stood on 1 July 1904, and the photographs this build follows show a front already gone. Neither index record has been read on its page (both refused this runner; their wording is as web-search excerpts gave it, so both are `verified: false`), and an index's year can be the sale's carried over, so this is weighed as a strong lead and the build does not move on it. A dated picture exists: the Chicago Daily News photographed the Meeker residence's front and one side in 1908 (negative DN-0005529, Chicago History Museum; [Arthur Meeker residence showing the front and one side with yard], 1815 South…), behind a browser challenge this runner cannot pass and not in the image store. Whether 1904 keeps the photographed front, or waits on the 1908 picture to be rebuilt to the remodel, is put to the owner on later work. **The stoop's open south side.** Read off the oblique print: the landing stands on a square pier at its outer corner and is open beneath back to the wall, black under a soffit about 0.3 m deep, and the flight is carried off the pier on a rampant arch springing about 0.82 m over grade and reaching grade about 0.9 m down the run, the lower steps solid on grade to the newel; built as K07's arched swept cheek (cheek form arched) on the stoop's south cheek. Invented: the pier's 0.5 m depth along the run and the arch's span (the print foreshortens both; read off the nosings' spacing), the arch's quarter-ellipse curve, the void running through under the whole stoop to the north cheek, and its dark backing at the north cheek and the wall, which no picture sees past the print's black. The basement doorway in that void, the south cheek's iron hand rail and its stepped top are not built. **The corner bay's set-out.** Read off both prints: the corner bay's south face stands about 0.75 m south of the main front's south wall (the oblique draws the cornice turning onto the flank at about x 1605-1655 px and the bay's south face at x 1745-1790 px; the square-on the upper wall's south edge at x 834 px and the bay's at x 905 px). Built with the bay kept at its 9.43 m centre and SET OUT 0.75 m past the corner (bays[].set out (m), a K01 option this piece of work added: its back over the stretch past the corner is closed on the front's plane in its own stone), so the front block is 9.72 m along the front, not the 1911 sheet's 10.47 m; the south stack moves in with the wall onto the print's line. The sheet is the remodelled house, so its south wall on the line of the bay's face is read as the remodel's. Invented: the 0.75 m (the two prints give 0.75-0.85 m); that the main south wall runs back on that line the whole depth of the front block and the rear range (no picture sees the flank past its two front window columns, and the sheet draws one wall at 10.47 m); and the plain stone of the bay's back past the corner, which no picture sees. **The stoop's stepped sides and iron rails.** Read off both prints: neither cheek is a solid swept wall; the flight's steps show along both sides, each cheek's top level with the tread beside it, under an iron hand rail each side falling to the top of its foot newel; on the oblique the south rail leaves a square stone post on the landing's outer corner, over the pier, and a level iron rail runs from that post back to the wall over the landing's edge. Built as K07's railed swept cheek (cheek form railed). Invented: the rails' 0.04 m square section and their straight run (the square-on draws them curving down onto the newels), their heights (0.45 m over the landing at the head and 0.12 m over each newel's cap, within about 0.1 m of the oblique's reading), the single bar under each rail and under the landing rail, the post's 0.35 m square plan and 0.65 m height with a plain cap, and the north rail's head standing on a bar at the landing's edge, where the square-on print's north post stands at the north end of a landing carried on over the basement doorway, which is not built. The basement doorway in the void under the landing is not built."
         },
         {
           "label": "How to resolve",
-          "text": "a dated picture or permit for the remodel settles which front stood in 1904; the rest stands open on the two match records. **The landing's north wing and the basement doorway under it.** Read off the square-on print: the landing runs on north of the flight across the pavilion's front to a square stone post on its outer corner (x 142-172 px, about 0.4 m, from grade to about 0.5 m over the floor under a cap), a level iron rail along its front from the post to the flight's head, a fascia down to about 1.3 m over grade, and under it the dark: the pavilion's face in shadow and a doorway black beside it, behind the north newel. Built as K07's landing wing (cheek form wing), 1.72 m past the north cheek to the post. The dark the build had read as the pavilion's basement light under its principal window is this doorway, so that light is taken out. Invented: the wing's depth (the landing's own 1.5 m; the print sees it end-on), the post's 0.4 m square plan and 0.55 m height over the floor with a plain cap (the print's has a pointed knob), the fascia's 0.45 m, the doorway's 0.65 m width and its head 0.08 m under the soffit at grade (the print cannot say whether an area steps down to it), its leaf (none: the kit's dark), the wing's north end closed in the stoop's stone, which no picture sees, and the rail run on level into the post on one bar, where the print shows a short bar falling from it beside the post. **The pavilion across the door.** Read off both prints: the pavilion's dentil band and quoins run from the front's north corner to s 4.0 m (x 160-447 px on the square-on camera, 71.5 px a metre), and stop over the door's south half, whose jamb stands at s 4.13 m with the narrow light beside it from s 4.01 m; the oblique draws no cheek beside the door, so the pavilion stands at most a hand's breadth proud and the door is in one plane. Built as a shallow K08 pavilion 3.88 m wide, flush with the north corner and 0.1 m proud, which the door is cut through at its edge (cut by door, a K01 option this piece of work added: the pavilion's face cut back from the door's north jamb past its cheek between the door's sill and head, the cut closed in its stone), its window recesses run back through the wall (K08's `shallow`). Its windows re-read through the camera: the principal storey's centred at s 1.40 m, the second storey's and the attic's paired lights at 2.0 m (they had stood 0.5-0.6 m north, with the 2.2 m pavilion); the attic storey's outer 0.75 m slated as cheeks (K08's storey cheeks), leaving a 2.38 m stone front about the print's 2.37 m, its lights widened to 1.7 m (the print's 1.75 m); the hipped crown narrowed to the print's (its slates rising 0.85 m in from a 0.3 m cornice, side inset (m)) and steepened to 58 degrees so that its apex, set back over the attic, stands where the print draws it; the coursed stone carried up the pavilion to the attic's foot; and the door's pediment widened to the print's 2.55 m now that no cheek stands in its way. Invented: the 0.1 m projection (K08's least; the prints show none), its 3.88 m width (0.12 m short of the print's, so the narrow light keeps its lintel clear of the junction), the cheeks' slate from the attic's foot (the print draws stone shoulders under slate there), the crown's cornice carried across the cheeks (the print's spans the attic front, the cheeks' slate sloping out beneath it), the cut's reveal 0.1 m deep, and the 58-degree pitch. Still open on the match records: the pavilion's own dentil band at the second storey's head, its stone shoulders, and the crown's cornice across the cheeks. **The pavilion's band and the attic's shoulders.** Read off the square-on print: the pavilion's own dentil band, a smooth course over a row of dentils at 8.0-8.43 m (y 437-468 px), about 0.6 m under the main cornice's line, and beside the attic a capped stone block at each side, its cap at 10.63 m and a second band at 10.0 m, the slate rising from the cap. Built as K08's corbel table carrying the attic storey, its foot brought down to 8.43 m (the attic's lights kept at 9.25 m), the coursing carried up the whole pavilion, and K08's cheek shoulder (a option): 2.2 m of the pavilion's stone under 0.2 m caps 0.12 m proud, the slate cheeks 0.05 m proud above them. Invented: the band's 0.15 m projection and the dentils' 0.1 m blocks at 0.22 m (the print's are finer, about 0.07 m, and its middle segment steps up 0.1 m over the window), the caps' projection, and the cheeks' slate standing upright above the caps where the print's slopes out under the crown's eave. Still open: the crown's cornice across the cheeks, and which front stood in 1904."
+          "text": "the 1908 Daily News photograph (DN-0005529) is now read and built (below); a permit for the remodel (the Inter Ocean's and the Tribune's daily permit lists of 1902-1903) settles its date. Every other difference on the two match records is fixed, within tolerance or not shown. **The landing's north wing and the basement doorway under it.** Read off the square-on print: the landing runs on north of the flight across the pavilion's front to a square stone post on its outer corner (x 142-172 px, about 0.4 m, from grade to about 0.5 m over the floor under a cap), a level iron rail along its front from the post to the flight's head, a fascia down to about 1.3 m over grade, and under it the dark: the pavilion's face in shadow and a doorway black beside it, behind the north newel. Built as K07's landing wing (cheek form wing), 1.72 m past the north cheek to the post. The dark the build had read as the pavilion's basement light under its principal window is this doorway, so that light is taken out. Invented: the wing's depth (the landing's own 1.5 m; the print sees it end-on), the post's 0.4 m square plan and 0.55 m height over the floor with a plain cap (the print's has a pointed knob), the fascia's 0.45 m, the doorway's 0.65 m width and its head 0.08 m under the soffit at grade (the print cannot say whether an area steps down to it), its leaf (none: the kit's dark), the wing's north end closed in the stoop's stone, which no picture sees, and the rail run on level into the post on one bar, where the print shows a short bar falling from it beside the post. **The pavilion across the door.** Read off both prints: the pavilion's dentil band and quoins run from the front's north corner to s 4.0 m (x 160-447 px on the square-on camera, 71.5 px a metre), and stop over the door's south half, whose jamb stands at s 4.13 m with the narrow light beside it from s 4.01 m; the oblique draws no cheek beside the door, so the pavilion stands at most a hand's breadth proud and the door is in one plane. Built as a shallow K08 pavilion 3.88 m wide, flush with the north corner and 0.1 m proud, which the door is cut through at its edge (cut by door, a K01 option this piece of work added: the pavilion's face cut back from the door's north jamb past its cheek between the door's sill and head, the cut closed in its stone), its window recesses run back through the wall (K08's `shallow`). Its windows re-read through the camera: the principal storey's centred at s 1.40 m, the second storey's and the attic's paired lights at 2.0 m (they had stood 0.5-0.6 m north, with the 2.2 m pavilion); the attic storey's outer 0.75 m slated as cheeks (K08's storey cheeks), leaving a 2.38 m stone front about the print's 2.37 m, its lights widened to 1.7 m (the print's 1.75 m); the hipped crown narrowed to the print's (its slates rising 0.85 m in from a 0.3 m cornice, side inset (m)) and steepened to 58 degrees so that its apex, set back over the attic, stands where the print draws it; the coursed stone carried up the pavilion to the attic's foot; and the door's pediment widened to the print's 2.55 m now that no cheek stands in its way. Invented: the 0.1 m projection (K08's least; the prints show none), its 3.88 m width (0.12 m short of the print's, so the narrow light keeps its lintel clear of the junction), the cheeks' slate from the attic's foot (the print draws stone shoulders under slate there), the crown's cornice carried across the cheeks (the print's spans the attic front, the cheeks' slate sloping out beneath it), the cut's reveal 0.1 m deep, and the 58-degree pitch. Still open on the match records: the pavilion's own dentil band at the second storey's head, its stone shoulders, and the crown's cornice across the cheeks. **The pavilion's band and the attic's shoulders.** Read off the square-on print: the pavilion's own dentil band, a smooth course over a row of dentils at 8.0-8.43 m (y 437-468 px), about 0.6 m under the main cornice's line, and beside the attic a capped stone block at each side, its cap at 10.63 m and a second band at 10.0 m, the slate rising from the cap. Built as K08's corbel table carrying the attic storey, its foot brought down to 8.43 m (the attic's lights kept at 9.25 m), the coursing carried up the whole pavilion, and K08's cheek shoulder (a option): 2.2 m of the pavilion's stone under 0.2 m caps 0.12 m proud, the slate cheeks 0.05 m proud above them. Invented: the band's 0.15 m projection and the dentils' 0.1 m blocks at 0.22 m (the print's are finer, about 0.07 m, and its middle segment steps up 0.1 m over the window), the caps' projection, and the cheeks' slate standing upright above the caps where the print's slopes out under the crown's eave. Still open: the crown's cornice across the cheeks, and which front stood in 1904. **The remodelled ground floor (the owner's ruling, 2026-11-21).** The owner brought in the 1908 Chicago Daily News picture (DN-0005529, the owner's 640 x 461 px copy; [Arthur Meeker residence showing the front and one side with yard], 1815 South…, now seen) and ruled that 1904 is the remodelled front. Read through its camera (the daily news dn0005529 data, fitted to the upper storeys the remodel kept, 3.3 px rms): the corner bay, its balcony, the stoop, the pedimented door and the low coping are gone; a one-storey stone bay stands across the front's middle, 5.8 m wide and 1.2 m proud, three tall transomed lights in its front and one in its south cheek, two barred basement lights under the outer ones, an iron railing on a stone ledge across it at about 1.46 m, and a row of modillions under a moulded crown and a blocking course to about 5.7 m; north of the front's north corner a small one-storey stone block, capped about 3.06 m, carries a round-arched doorway at grade under a square label; and a tall iron railing on a curb, its spears about 1.8-1.9 m over grade, runs along the street line. Built as a K08 projection (front bay) with a squared floor balcony in iron (floor balcony squared, rail fabric, K08 options this piece of work added) under K08's corbel table; a K08 projection set out past the north corner (north entry, set out (m) 1.95 m and set out back (m), K01 and K08 options this piece of work added) carrying K07's deep-arched double door one riser over grade (on block (m), a K01 option this piece of work added); and K11's spear railing with its top rail at 1.5 m over the curb. The Chicagology prints' ground floor is recorded on their match records as the owner's ruling; their upper storeys still match. Invented: the entrance block's depth along the north flank (0.96 m back to the stair projection; the picture sees only its face), its moulded cap (K10's moulded stone cornice, 0.2-0.3 m deeper than the print's thin slab), the door's leaves in its arch (the print's is black) and the arch's ring and keystone in place of the label; the step before it (one stone 0.9 m out and 1.8 m wide, the railing hiding its foot); the bay's corbel table for the print's modillions, its plain blocking storey and its flat top's thin tin edge; the balcony ledge's 0.2 m depth and 0.35 m projection; the railing's posts (0.12 m square, 1.95 m high) and its spear heads (the kit's); and the gates: a pair of 1.3 m leaves on the walk to the arched door and the side passage's gate at its mouth, where the print shows none against the shadowed run."
         },
         {
           "label": "Covers",
-          "text": "`sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`"
+          "text": "`sears_meeker_house_1815_prairie.as_mapped_1904.form.stoop_width_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`"
         },
         {
           "label": "Review",
@@ -76877,6 +76902,153 @@
       ]
     },
     {
+      "id": "L-k01-2109-roloson-3666",
+      "title": "2109 Prairie, the Roloson house, refined from the district draft onto K01: its plan off the 1911 sheet, its front's south end, mansard and veranda off the Armour photograph's left edge",
+      "section": "per_subject",
+      "subjects": [
+        "roloson_house_2109_prairie",
+        "roloson_house_2109_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S13 package of the programme): Robert Roloson's house, a '3B' brick house with a stone front under a slated mansard, a one-storey frame veranda across its front and down its south side, a three-storey rear block stepping out south behind it and a frame back porch. Its coach house (2109 S. Prairie Avenue — the alley building of the house at 2109) is still the draft's. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the fit): the front block 7.72 m wide with its stone front 7.44 m behind the street line, run back 7.81 m to where the rear block steps out 2.32 m south; the rear block to 25.1 m from the street line; the frame back porch in its north-east corner; the veranda 1.8 m deep across the front and 2.7 m down the south side to the step. From the one picture of the house, the left edge of the Armour photograph (2115 S. Prairie (Armour mansion). Photograph of the Philip D. Armour house's…, check required: forms only), through a camera solved on it (the chicagology armour photo data): two storeys of wall under a bracketed cornice over a frieze, the slated mansard over them with a round-headed dormer; the south bay's round-headed, keyed lights; the stack over the deck; the veranda's height, its floor about 1.7 m up on open piers, its columns, deep entablature and almost flat roof; the rear block's cornice at the front's height. **What is invented.** Everything north of the photograph's frame: the front's north and middle bays (repeating the south one), the door in the north bay and the steps to the veranda; the north flank's lights; the rear block's and the back porch's heights, lights and flat decks; the second dormer; the second stack; the stone's colour (a Lemont limestone; the print is monochrome) and the common brick of the flanks and rear; the basement; the low stone curb's opening; the yard. **What is built otherwise than the evidence, and why.** The photograph's veranda stands on round columns on panelled pedestals with a turned balustrade between them, its floor on open square piers; K01 builds the front run as the entrance kit's veranda on square posts over an open deck and the south run as its side porch on round columns over a solid podium with a low balustrade on its roof, which the photograph does not show. The front run stops at the house's south corner and the side porch carries the corner. The dormer's scrolled, carved surround is a plain moulded one; the frieze's sunk panel and lozenge and the corner's carved pilaster strip are not laid."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the house's front or north side, or a description of it, reads the door, the north bays, the steps and the veranda's run; a K01 veranda on columns over open piers that wraps a corner would lay it whole."
+        },
+        {
+          "label": "Covers",
+          "text": "`roloson_house_2109_prairie.as_mapped_1904.form.wall_thickness_front_m`, `roloson_house_2109_prairie.as_mapped_1904.form.wall_thickness_side_m`, `roloson_house_2109_prairie.as_mapped_1904.form.service_wall_brick`, `roloson_house_2109_prairie.as_mapped_1904.form.face_brick`, `roloson_house_2109_prairie.as_mapped_1904.form.street_front_trim`, `roloson_house_2109_prairie.as_mapped_1904.form.roof_pitch_deg`, `roloson_house_2109_prairie.as_mapped_1904.form.rainwater`, `roloson_house_2109_prairie.as_mapped_1904.form.window_kit`, `roloson_house_2109_prairie.as_mapped_1904.form.stair_tread_m`, `roloson_house_2109_prairie.as_mapped_1904.form.stoop_width_m`, `roloson_house_2109_prairie.as_mapped_1904.form.entrance_bay`, `roloson_house_2109_prairie.as_mapped_1904.form.side_bays`, `roloson_house_2109_prairie.as_mapped_1904.form.rear_bays`, `roloson_house_2109_prairie.as_mapped_1904.form.basement_lights`, `roloson_house_2109_prairie.as_mapped_1904.form.entrance_kit`, `roloson_house_2109_prairie.as_mapped_1904.form.boundary`, `roloson_house_2109_prairie.as_mapped_1904.form.yard`."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2109 roloson."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-19 (T-3666)."
+        }
+      ],
+      "work_refs": [
+        "T-2352",
+        "T-3666",
+        "T-1924",
+        "T-1837",
+        "T-1250",
+        "T-2933",
+        "T-2960",
+        "T-3239"
+      ]
+    },
+    {
       "id": "L-k01-2017-armour-3634",
       "title": "2017 Prairie, the William Armour house, refined from the district draft onto K01: a stone front under a mansard, a gabled south projection and a columned porch read off its one photograph",
       "section": "per_subject",
@@ -78715,6 +78887,7 @@
         "old_city_cemetery_1871",
         "oleary_barn_1871",
         "oleary_cottage_1871",
+        "pumping_works_grounds_1871",
         "st_michaels_church_1871",
         "sullivan_house_1871",
         "washington_square_1871",
@@ -78891,6 +79064,18 @@
         },
         {
           "domain": "structure",
+          "structure": "pumping_works_grounds_1871",
+          "phase": "grounds_1867_1871",
+          "aspect": "form.composition"
+        },
+        {
+          "domain": "structure",
+          "structure": "pumping_works_grounds_1871",
+          "phase": "grounds_1867_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
           "structure": "st_michaels_church_1871",
           "phase": "church_1869_1871",
           "aspect": "form.wall_material"
@@ -78947,11 +79132,11 @@
         },
         {
           "label": "These are this project's",
-          "text": "- **Places.** Each stands on the 1871 plan's street lines (a tracing of Mitchell's 1870 map) at the lot or corner its texts name. The plan puts DeKoven Street about 35 m north of the modern map's, and its reconstructed grid north of North Avenue does not fall where the modern streets do, so the fire file's O'Leary barn and St. Michael's controls carry a plan local to the places the scene builds (the fire 1871 tool). St. Michael's is set at the south-east corner of the plan's streets taken for Hurlbut and Linden; the Ogden house mid-block on the north side of Washington Square, set back in its grounds. - **The DeKoven Street lots.** Andreas gives the O'Leary houses' 36-foot depth, the barn's place 175 feet along the alley line, and the sheds' sizes; the cottages' widths, the neighbours' houses beyond what he says of them, their storey heights, windows and doors are reconstructed as the block's one-storey frame cottages. No picture of the barn is known: it burned that night. - **Walls no picture shows.** The pumping station's rear, the Ogden house's sides and rear, St. Michael's east aisle and its south end are built like the faces the pictures show: the east side's buttresses repeat the west side's, and the cross gable over the south end is read from the gable the engraving shows at the far end of the long side, its use (sanctuary or sacristy) not recorded. - **Heights.** Read through each picture's camera (the Water Tower's against HABS's measured height; St. Michael's against the church's 80-foot width; the others by eye), not from any text. - **St. Michael's before the fire.** The engraving shows the ruin; the low steeple, the slate roofs and the window glass are reconstructed. - **The old City Cemetery.** The graves, headstones and pine head-boards are laid out where the jaunt's families sit, about two graves in five left on the half-cleared ground; their rows, sizes and places are reconstructed. Where the dead-house stood, and its size and form, are not known: it is a small board house among the graves. - **Washington Square.** Laid inside the street lines of today's Washington Square Park; its low wooden fence and four gateways are reconstructed, and the fence is taken to have burned with the goods left on the grass. - **The Water Tower's grounds.** Kurz's lithograph of 1866-67 shows the tower alone on open, planted ground; the grounds are laid inside the street lines of today's Water Tower park, which is taken to keep the city's 1860s lot. The stone kerb and iron railing are drawn on the west side from Greene's 1871 stereograph and on Chicago Avenue and Pearson Street from a photograph of about 1890; the kerb's height, the railing's pattern, the two gateways and the side left open to Pine Street are reconstructed. The grounds keep the context city's houses off the tower's block. - **The lake shore sands.** A level strip of sand along the plan's shore by the cemetery, from 40 m to 16 m inland of its traced line, where the ground is level; the beach's width and edges are reconstructed, and the bank below it to the water stays the terrain's. - **Detail and tone.** Ornament is simplified to the archetype's vocabulary; the frame houses' paint is the 1835 kit's white lead tinted to the grey the photographs show."
+          "text": "- **Places.** Each stands on the 1871 plan's street lines (a tracing of Mitchell's 1870 map) at the lot or corner its texts name. The plan puts DeKoven Street about 35 m north of the modern map's, and its reconstructed grid north of North Avenue does not fall where the modern streets do, so the fire file's O'Leary barn and St. Michael's controls carry a plan local to the places the scene builds (the fire 1871 tool). St. Michael's is set at the south-east corner of the plan's streets taken for Hurlbut and Linden; the Ogden house mid-block on the north side of Washington Square, set back in its grounds. - **The DeKoven Street lots.** Andreas gives the O'Leary houses' 36-foot depth, the barn's place 175 feet along the alley line, and the sheds' sizes; the cottages' widths, the neighbours' houses beyond what he says of them, their storey heights, windows and doors are reconstructed as the block's one-storey frame cottages. No picture of the barn is known: it burned that night. - **Walls no picture shows.** The pumping station's rear, the Ogden house's sides and rear, St. Michael's east aisle and its south end are built like the faces the pictures show: the east side's buttresses repeat the west side's, and the cross gable over the south end is read from the gable the engraving shows at the far end of the long side, its use (sanctuary or sacristy) not recorded. - **Heights.** Read through each picture's camera (the Water Tower's against HABS's measured height; St. Michael's against the church's 80-foot width; the others by eye), not from any text. - **St. Michael's before the fire.** The engraving shows the ruin; the low steeple, the slate roofs and the window glass are reconstructed. - **The old City Cemetery.** The graves, headstones and pine head-boards are laid out where the jaunt's families sit, about two graves in five left on the half-cleared ground; their rows, sizes and places are reconstructed. Where the dead-house stood, and its size and form, are not known: it is a small board house among the graves. - **Washington Square.** Laid inside the street lines of today's Washington Square Park; its low wooden fence and four gateways are reconstructed, and the fence is taken to have burned with the goods left on the grass. - **The Water Tower's grounds.** Kurz's lithograph of 1866-67 shows the tower alone on open, planted ground; the grounds are laid inside the street lines of today's Water Tower park, which is taken to keep the city's 1860s lot. The stone kerb and iron railing are drawn on the west side from Greene's 1871 stereograph and on Chicago Avenue and Pearson Street from a photograph of about 1890; the kerb's height, the railing's pattern, the two gateways and the side left open to Pine Street are reconstructed. The grounds keep the context city's houses off the tower's block. - **The pumping works' grounds.** The same lithograph shows the works standing back from Pine Street and Chicago Avenue across open ground, and Greene's stereograph of the works shows the railing on its kerb along the street. The grounds run from Pine Street's walk to a little beyond the works' rear; that east line, the railing's steps with Pine Street, its gateway and its height are reconstructed. - **The lake shore sands.** A level strip of sand along the plan's shore by the cemetery, from 40 m to 16 m inland of its traced line, where the ground is level; the beach's width and edges are reconstructed, and the bank below it to the water stays the terrain's. - **Detail and tone.** Ornament is simplified to the archetype's vocabulary; the frame houses' paint is the 1835 kit's white lead tinted to the grey the photographs show."
         },
         {
           "label": "Covers",
-          "text": "`oleary_cottage_1871.cottage_1871.form.wall_material`, `oleary_barn_1871.barn_1871.form.wall_material`, `dalton_cottage_1871.cottage_1871.form.wall_material`, `dalton_shed_1871.shed_1871.form.wall_material`, `forbes_cottage_1871.cottage_1871.form.wall_material`, `sullivan_house_1871.house_1871.form.wall_material`, `old_city_cemetery_1871.graves_1860_1871.form.composition`, `cemetery_dead_house_1871.dead_house_1860_1871.form.composition`, `cemetery_dead_house_1871.dead_house_1860_1871.form.wall_material`, `washington_square_1871.square_1860_1871.form.composition`, `washington_square_1871.square_1860_1871.form.wall_material`, `lake_shore_sands_1871.shore_1860_1871.form.composition`, `cemetery_dead_house_1871.built`, `cemetery_dead_house_1871.dead_house_1860_1871.footprint`, `cemetery_dead_house_1871.dead_house_1860_1871.position`, `dalton_cottage_1871.built`, `dalton_shed_1871.built`, `forbes_cottage_1871.built`, `lake_shore_sands_1871.built`, `lake_shore_sands_1871.shore_1860_1871.footprint`, `ogden_house_1871.built`, `ogden_house_1871.house_1860_1871.footprint`, `old_city_cemetery_1871.built`, `old_city_cemetery_1871.graves_1860_1871.footprint`, `oleary_barn_1871.built`, `sullivan_house_1871.built`, `washington_square_1871.built`, `chicago_pumping_station_1871.works_1869_1871.form.wall_material`, `chicago_water_tower_1871.tower_1869_1871.form.height_m`, `chicago_water_tower_1871.tower_1869_1871.form.wall_material`, `lake_shore_sands_1871.shore_1860_1871.form.wall_material`, `ogden_house_1871.house_1860_1871.form.wall_material`, `old_city_cemetery_1871.graves_1860_1871.form.wall_material`, `st_michaels_church_1871.church_1869_1871.form.wall_material`, `water_tower_grounds_1871.grounds_1867_1871.form.composition`, `water_tower_grounds_1871.grounds_1867_1871.form.wall_material`"
+          "text": "`oleary_cottage_1871.cottage_1871.form.wall_material`, `oleary_barn_1871.barn_1871.form.wall_material`, `dalton_cottage_1871.cottage_1871.form.wall_material`, `dalton_shed_1871.shed_1871.form.wall_material`, `forbes_cottage_1871.cottage_1871.form.wall_material`, `sullivan_house_1871.house_1871.form.wall_material`, `old_city_cemetery_1871.graves_1860_1871.form.composition`, `cemetery_dead_house_1871.dead_house_1860_1871.form.composition`, `cemetery_dead_house_1871.dead_house_1860_1871.form.wall_material`, `washington_square_1871.square_1860_1871.form.composition`, `washington_square_1871.square_1860_1871.form.wall_material`, `lake_shore_sands_1871.shore_1860_1871.form.composition`, `cemetery_dead_house_1871.built`, `cemetery_dead_house_1871.dead_house_1860_1871.footprint`, `cemetery_dead_house_1871.dead_house_1860_1871.position`, `dalton_cottage_1871.built`, `dalton_shed_1871.built`, `forbes_cottage_1871.built`, `lake_shore_sands_1871.built`, `lake_shore_sands_1871.shore_1860_1871.footprint`, `ogden_house_1871.built`, `ogden_house_1871.house_1860_1871.footprint`, `old_city_cemetery_1871.built`, `old_city_cemetery_1871.graves_1860_1871.footprint`, `oleary_barn_1871.built`, `sullivan_house_1871.built`, `washington_square_1871.built`, `chicago_pumping_station_1871.works_1869_1871.form.wall_material`, `chicago_water_tower_1871.tower_1869_1871.form.height_m`, `chicago_water_tower_1871.tower_1869_1871.form.wall_material`, `lake_shore_sands_1871.shore_1860_1871.form.wall_material`, `ogden_house_1871.house_1860_1871.form.wall_material`, `old_city_cemetery_1871.graves_1860_1871.form.wall_material`, `st_michaels_church_1871.church_1869_1871.form.wall_material`, `water_tower_grounds_1871.grounds_1867_1871.form.composition`, `water_tower_grounds_1871.grounds_1867_1871.form.wall_material`, `pumping_works_grounds_1871.grounds_1867_1871.form.composition`, `pumping_works_grounds_1871.grounds_1867_1871.form.wall_material`"
         },
         {
           "label": "How to resolve",
@@ -78968,6 +79153,106 @@
       ],
       "work_refs": [
         "T-3689"
+      ]
+    },
+    {
+      "id": "L-1871-downtown-landmarks-3688",
+      "title": "The other downtown fire landmarks (the Tremont House, Crosby's Opera House, Field, Leiter & Co., the Palmer House, the Tribune building): what their pictures and texts do not say",
+      "section": "per_subject",
+      "subjects": [
+        "crosbys_opera_house_1871",
+        "field_leiter_1871",
+        "palmer_house_1871",
+        "tremont_house_1",
+        "tremont_house_1871",
+        "tribune_building_1871"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "crosbys_opera_house_1871",
+          "phase": "opera_house_1865_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "crosbys_opera_house_1871",
+          "phase": "opera_house_1865_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "field_leiter_1871",
+          "phase": "store_1868_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "field_leiter_1871",
+          "phase": "store_1868_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "palmer_house_1871",
+          "phase": "hotel_1870_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "palmer_house_1871",
+          "phase": "hotel_1870_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1871",
+          "phase": "hotel_1850_1871",
+          "aspect": "form.wall_material"
+        },
+        {
+          "domain": "structure",
+          "structure": "tribune_building_1871",
+          "phase": "office_1869_1871",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tribune_building_1871",
+          "phase": "office_1869_1871",
+          "aspect": "form.wall_material"
+        }
+      ],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "five more of the pre-fire city's named landmarks stand in the 1871 scene on the landmark 1871 archetype, each built as a composition read off its one picture, in the 1904 kits' brick, stone, marble, slate and tin: The Tremont House, Lake and Dearborn Streets (Carbutt's stereograph No. 55), Crosby's Opera House, Washington Street (Carbutt's stereograph No. 139), Field, Leiter & Co., State and Washington Streets, The Palmer House, State and Quincy Streets and The Tribune building, Madison and Dearborn Streets (Andreas's engravings, vol. 2, pp. 563, 509 and 492). **What the sources give** — each building's corner, storeys, stone or brick, builder, architect, cost, dates and the hour it burned, and the Tremont House's 140 by 180 feet — is cited attribute by attribute in its record and its card."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **Places.** Each stands at the corner its texts name, its fronts on the 1871 scene's building lines (today's street centrelines, off which each street's carriageway and walk are measured); Crosby's is centred between Dearborn and State, \"nearly midway\" as Andreas says. The plan draws no Quincy Street between State and Dearborn, so the Palmer House's south front is set on a line midway between Adams and Jackson. The fire file's Tremont House, Palmer House and Tribune controls carry a plan local to the buildings the scene stands, because the modern controls fall across the street from them. The Tremont House, Crosby's and Field, Leiter & Co. lap the 1835 plat's Lake and Washington Streets by 2.4 to 3.3 m; the two tracings of one street disagree by that much there, and the laps are refused in writing rather than repaired (the corridor intrusion baseline tool `refused`, argued in each record's position note). - **Sizes.** No text read gives the size of any but the Tremont House. Crosby's front width, both fronts of Field, Leiter & Co. (about 41 m on Washington by 25 m on State) and of the Tribune building (about 34 m on Madison by 19 m on Dearborn), and the Palmer House's State Street front (25 m) are read through each picture's camera against its storeys; an engraving's perspective is drawn rather than optical, so these are reconstructions. Crosby's depth (55 m) and the Palmer House's Quincy Street front (50 m), which run out of their pictures, are reconstructed. - **Heights.** No storey height was found in any text: each is read through its picture's camera. - **Walls no picture shows.** Every rear and party wall is built blank in the front's material. - **Detail.** Ornament is simplified to the archetype's vocabulary: Field, Leiter & Co.'s paired windows and balconies are single arched windows at the same rhythm; the Tribune building's cut-off corner is an eight-sided corner stage and its crest a little hipped attic; Crosby's sculpture group is a plain segmental crest; carved crests, lettered signs and awnings are left out, and shop fronts are plain glazed bays. - **Tones.** The pictures are monochrome. The Tremont House is the K03 kit's red brick; Crosby's and the Palmer House the pale stone; Field, Leiter & Co. the 1904 kit's marble; the Tribune building's Joliet marble the Lemont limestone, the same Joliet-Lemont stone."
+        },
+        {
+          "label": "Covers",
+          "text": "`crosbys_opera_house_1871.opera_house_1865_1871.footprint`, `field_leiter_1871.store_1868_1871.footprint`, `palmer_house_1871.hotel_1870_1871.footprint`, `tribune_building_1871.office_1869_1871.footprint`, `tremont_house_1871.hotel_1850_1871.form.wall_material`, `crosbys_opera_house_1871.opera_house_1865_1871.form.wall_material`, `field_leiter_1871.store_1868_1871.form.wall_material`, `palmer_house_1871.hotel_1870_1871.form.wall_material`, `tribune_building_1871.office_1869_1871.form.wall_material`"
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Sanborn or Rascher sheet of the business district for 1870-1871, a photograph of Field, Leiter & Co., the Palmer House or the Tribune building before the fire, or a building notice giving their sizes, replaces the parts above."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on photo match, the research notes on photo match, the research notes on photo match, the research notes on photo match, the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3688)."
+        }
+      ],
+      "work_refs": [
+        "T-3688"
       ]
     },
     {

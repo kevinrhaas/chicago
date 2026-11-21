@@ -2675,6 +2675,13 @@ BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone
 #: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
 PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
+#: T-3562: how far past the front's corner an entrance block that carries the door may stand
+#: (1815's, 1.88 m in the 1908 Daily News picture); any other set-out projection 1.5 m
+SET_OUT_ENTRY_M = 2.5
+#: T-3562: the lowest door floor such a block's door may stand at: one riser over grade
+ENTRY_GRADE_FLOOR_M = 0.12
+#: T-3562: how far back along the side wall that block's stretch past the corner may run
+SET_OUT_BACK_M = (0.3, 3.0)
 CUT_DOOR_PROUD_M = 0.15    # T-3562: the most a pavilion the door is cut through (cut_by_door) stands proud
 EAVE_FASCIA_M = 0.20       # the K05 eave's fascia on a K01 house: its soffit stands this far under the eaves line
 BRACKETED_CORNICE = "k10.cornice.bracketed_timber"
@@ -4099,9 +4106,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             fb = e["floor_balcony"]
             need = {"floor_m", "at", "chord_m", "rise_m", "slab_m", "height_m", "inset_m", "post_m", "bar_m",
                     "pitch_m", "rail_m"}
-            if v["kind"] != "projection" or set(fb) != need:
-                raise ParamError(f"bays: {e['id']}'s floor_balcony stands on a projection and takes {sorted(need)}")
+            # T-3562: or SQUARED, a straight stone ledge across the front, its rail run round its
+            # corners back to the wall, and that rail in iron (`rail_fabric`; 1815's bay after its
+            # remodel, the 1908 Daily News picture)
+            extra = {"squared", "rail_fabric"} & set(fb)
+            if v["kind"] != "projection" or set(fb) - extra != need \
+                    or ("squared" in fb and fb["squared"] is not True) \
+                    or fb.get("rail_fabric", "stone") not in ("stone", "iron"):
+                raise ParamError(f"bays: {e['id']}'s floor_balcony stands on a projection and takes {sorted(need)} "
+                                 f"(and squared: true, rail_fabric stone or iron)")
             bal = {k: ([float(x) for x in fb[k]] if k == "rail_m" else float(fb[k])) for k in need}
+            bal.update({k: fb[k] for k in extra})
             # the projection's plan is cheek, front, cheek; `at` is a fraction of all three, as a
             # window's is, and the bow stands on the front with 0.1 m of wall either side
             (x0, _), (_, proud_m), (x1, _) = v["plan"]["points"][:3]
@@ -4207,11 +4222,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if set_out is not None:
             set_out = float(set_out)
             top_ = sum(float(st["height_m"]) for st in v["storeys"])
+            # T-3562: an entrance block set out further, to SET_OUT_ENTRY_M, carrying the door past
+            # the corner (1815's after the 1902 remodel, the 1908 Daily News picture: 1.88 m)
+            most = SET_OUT_ENTRY_M if e.get("entrance") is True else 1.5
             if flush is None or cant is not None or face is not None or v["kind"] != "projection" \
                     or v.get("shallow") or e["wall"] != "k01.wall.street_front" or oriel \
-                    or not 0.1 <= set_out <= 1.5 or not top_ < eave - 0.3 or b - a < set_out + BAY_PIER_M:
+                    or not 0.1 <= set_out <= most or not top_ < eave - 0.3 or b - a < set_out + BAY_PIER_M:
                 raise ParamError(f"bays: {e['id']}.set_out_m stands a flush projection on the street front, "
-                                 f"under the eave, 0.1-1.5 m past the corner it names, its junction still "
+                                 f"under the eave, 0.1-{most} m past the corner it names, its junction still "
                                  f"{BAY_PIER_M} m clear of the corner on the wall, not {e.get('set_out_m')}")
         if flush is not None and cant is None:
             if v["kind"] != "projection" or flush not in ("left", "right"):
@@ -4225,6 +4243,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # its back past the corner, in the bay's own frame (x about s_m), grade to wall top
                 x0, x1 = ((a - s, -s) if flush == "left" else (wall_len[e["wall"]] - s, b - s))
                 v["back_over"] = {"x": [round(x0, 6), round(x1, 6)], "y": [0.0, round(top_, 6)]}
+                # T-3562: an entrance block's stretch past the corner may run BACK along the side
+                # wall `set_out_back_m` behind the front's plane, a room and not a screen (1815's
+                # vestibule, closed to the stair projection 0.96 m back on the north flank), its
+                # outer end and roof carried back with it (k08_bays._back_over)
+                sb_ = e.get("set_out_back_m")
+                if sb_ is not None:
+                    if e.get("entrance") is not True or not SET_OUT_BACK_M[0] <= float(sb_) <= SET_OUT_BACK_M[1]:
+                        raise ParamError(f"bays: {e['id']}.set_out_back_m runs a set-out entrance block's stretch "
+                                         f"past the corner {SET_OUT_BACK_M[0]}-{SET_OUT_BACK_M[1]} m back along "
+                                         f"the side wall, not {sb_}")
+                    v["back_over"].update(back_m=float(sb_), outer=flush)
+            elif e.get("set_out_back_m") is not None:
+                raise ParamError(f"bays: {e['id']}.set_out_back_m needs set_out_m")
         # T-2900: a corner turret: a round tower on a rear wing's wall at one of its ends, its
         # ring standing within TURRET_CORNER_M of the end wall's plane and never past it, its
         # eaves at the wing's own wall top (1801's east range, the Taylor photograph), and its
@@ -4375,9 +4406,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 sq_tower = v["kind"] == "tower" and v["plan"].get("kind") == "polygon" \
                     and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner") \
                     and e.get("corner") is None
+                # T-3562: or a one-storey block SET OUT past the front's corner that carries the
+                # door past it (1815's, the 1908 Daily News picture: the arched door at grade north
+                # of the house's north wall); a bay the door's centre stands past the corner from
+                # is behind the block, not before the door
+                if not 0.0 < o.s_m < wall_len[e["wall"]] and e.get("entrance") is not True \
+                        and e["wall"] == "k01.wall.street_front":
+                    continue
                 if e.get("entrance") is True and (sq_tower or v["kind"] == "projection"
                                                   and ((e.get("plan") or {}).get("block")
-                                                       or (e.get("plan") or {}).get("front_step"))) \
+                                                       or (e.get("plan") or {}).get("front_step")
+                                                       or e.get("set_out_m") is not None)) \
                         and e["wall"] == "k01.wall.street_front" and a + BAY_PIER_M <= j0 and j1 <= b - BAY_PIER_M:
                     v["door_hole"] = {"x_m": (round(j0 - (a + b) / 2, 4), round(j1 - (a + b) / 2, 4)),
                                       "y_m": (round(o.sill_m, 4), round(o.head_m, 4))}
@@ -4785,7 +4824,10 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
                     **({"elliptical": ell} if ell else {}),
                     **({"moulding": g["moulding"]} if g.get("moulding") else {}),
                     **({"pilasters": g["pilasters"]} if g.get("pilasters") else {})})
-    blocks = sorted((g["cuts"][0], g["cuts"][-1], g["sill_m"], g["top_m"]) for g in out)
+    # T-3562: a door past the front's corner is arched on the entrance block that carries it
+    # (from_phase hands its block the group), so the front's corners do not bound it
+    blocks = sorted((g["cuts"][0], g["cuts"][-1], g["sill_m"], g["top_m"]) for g in out
+                    if not (g["component"] == "k01.opening.door_leaf" and not 0.0 < door_s < width))
     for a, b in zip(blocks, blocks[1:]):
         if a[1] > b[0] and a[3] > b[2] and b[3] > a[2]:
             raise ParamError(f"two arched groups' blocks overlap at s {b[0]:.3f}")
@@ -6990,8 +7032,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     ef = float(val("entrance_floor_m", 0.0) or 0.0)
     if ef:
         efa = form["entrance_floor_m"]
-        if not 1.0 <= ef <= pf - 0.5:
-            raise ParamError(f"entrance_floor_m {ef} is not a vestibule's floor: at least 1.0 m up and "
+        # T-3562: or a door at grade, a single riser up, in a one-storey entrance block set out
+        # past the front's corner (1815's, the 1908 Daily News picture: the arched door on the
+        # walk), its stair carried up to the hall indoors
+        low = ENTRY_GRADE_FLOOR_M if any(b.get("entrance") is True and b.get("set_out_m") is not None
+                                         for b in (val("bays") or [])) else 1.0
+        if not low <= ef <= pf - 0.5:
+            raise ParamError(f"entrance_floor_m {ef} is not a vestibule's floor: at least {low} m up and "
                              f"0.5 m under the principal floor ({pf} m)")
         if efa.get("confidence", "reconstructed") == "reconstructed" or not efa.get("sources"):
             raise ParamError("entrance_floor_m puts the door below the principal floor; only a source can")
@@ -7044,6 +7091,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # where the bay's was), the bay's windows over it on their own centres: `axis_s_m` the
     # mouth's centre along the front, at most half a metre off the bay's, under a sized mouth
     door_bay = door_s
+    # T-3562: a door past the front's corner, carried by a one-storey entrance block set out
+    # beyond it (1815's, the 1908 Daily News picture: the arched door at grade north of the
+    # house's north wall, in a stone block standing before the front's plane). The block's
+    # bay (`bays`, entrance and set_out_m) must hold it; that is checked with the bays
+    door_past_corner = not 0.0 < door_s < width and any(
+        b.get("entrance") is True and b.get("set_out_m") is not None for b in (val("bays") or []))
     dax = ((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("axis_s_m")
     if dax is not None:
         if sfo or abs(float(dax) - door_bay) > 0.5 \
@@ -7142,7 +7195,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"that does not name its own openings")
         if k == 0 and not any(abs(x - door_bay) < 1e-6 for x in xs):
             raise ParamError(f"front_bays_by_storey[0] keeps the door's bay ({door_bay} m) among its centres")
-        if not xs or list(xs) != sorted(xs) or xs[0] < 0.6 or xs[-1] > width - 0.6:
+        # T-3562: the door's bay may stand past the front's corner, in a set-out entrance block
+        inner = [x for x in xs if not (door_past_corner and abs(x - door_bay) < 1e-6)]
+        if not xs or list(xs) != sorted(xs) or (inner and (inner[0] < 0.6 or inner[-1] > width - 0.6)):
             raise ParamError(f"front_bays_by_storey[{key}] is one centre a bay, south to north, inside the front")
         # T-2499: an upper storey may light its own number of bays — 1808's third storey runs six
         # sashes across a front its lower storeys open in three — so long as no two of its sashes,
@@ -9041,6 +9096,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if v6 is None or v6["head"] != "round" or v6.get("bays", 1) != 1:
                 raise ParamError(f"window_kit: {ROUND_HOODED} is cut as one round hole over a bay, and names "
                                  f"no single round-headed K06 sash")
+    # T-3562: the arched door of a set-out entrance block (1815's, the 1908 Daily News picture)
+    # is turned in the block's face: its group laid on that face (`on_block_m`, how far the
+    # face stands before the front) and the block's face opened round its whole voussoir block
+    eb = next((b for b in bays if b.get("entrance") and b.get("set_out_m") is not None), None)
+    if eb is not None and not 0.0 < door_s < width:
+        for g in (arched or {}).get("groups", ()):
+            if g["component"] == "k01.opening.door_leaf":
+                pl = eb["variant"]["plan"]
+                c = (eb["span_m"][0] + eb["span_m"][1]) / 2
+                g["on_block_m"] = round(max(z for _, z in pl["points"]), 6)
+                eb["variant"]["door_hole"] = {"x_m": (round(g["cuts"][0] - c, 4), round(g["cuts"][-1] - c, 4)),
+                                              "y_m": (round(g["sill_m"], 4), round(g["top_m"], 4))}
     for g, ops in zip((arched or {}).get("groups", ()), grouped):
         at = [j for o in ops for j, x in enumerate(openings) if x is o]
         if len(at) != len(ops):

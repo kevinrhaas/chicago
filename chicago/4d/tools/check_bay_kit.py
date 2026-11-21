@@ -339,9 +339,15 @@ def rule_keyed(b, v):
     in_hole = (lambda role, p: role in K.WINDOW_ROLES and p[2] >= -tp_deep - 1e-6
                and any(h[0] - 1e-6 <= p[0] <= h[1] + 1e-6 and h[2] - 1e-6 <= p[1] <= h[3] + 1e-6
                        for h in b.host_holes)) if tp else (lambda role, p: False)
+    # T-3562: a back carried `back_m` along the side wall (k08_bays.Bay._back_over, 1815's set-out
+    # entrance block) closes it behind the plane, inside its x and y span and no deeper than back_m
+    bo = b.meta.get("back_over") or {}
+    back = (lambda role, p: role in ("roof", "roof_back") and p[2] >= -bo["back_m"] - 1e-6
+            and bo["x"][0] - 1e-6 <= p[0] <= bo["x"][1] + 1e-6
+            and bo["y"][0] - 1e-6 <= p[1] <= bo["y"][1] + 1e-6) if bo.get("back_m") else (lambda role, p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p) and not clear(p) and not in_hole(role, p)), default=(0.0, None))
+                if not cut(p) and not clear(p) and not in_hole(role, p) and not back(role, p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
