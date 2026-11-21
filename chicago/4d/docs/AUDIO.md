@@ -221,6 +221,23 @@ nothing it makes is played by the app.
   inpaint (the exact fanfare kept, only what follows generated). Regenerating a theme from words
   changes its notes every time.
 - `node tools/test_fal_music.mjs` checks all of this offline against a fake fal.
+- **In the jaunts.** The owner, 2026-11-20: "Ok can you go ahead and add the music to the
+  jaunts correctly". The kept cues (score set v1, owner-selected) are originals under
+  `assets/audio/originals/score-v1/`. `tools/build_jaunt_music.py` writes
+  `data/music/jaunts.json`: the eighteen cues (file, era, role, target loudness) and, for each
+  narrated jaunt and every version of it, its opening, bed, per-stop cues and closing.
+  `prepare_audio.py --score-only` encodes them (beds lose their lead silence and closing fade
+  and are crossfaded 3 s tail into head, so the player's loop has no seam; a closing keeps its
+  last 32 s) and writes the plans into the catalogue as `jaunt_score`. Score cues are music
+  with `playlist: false`, so `musicFor` keeps them out of the era playlists.
+  `recorded-audio.js § scoreCueFor` picks the cue: the opening during the flight to the first
+  stop, then the bed (or the stop's own cue, the battle's four movements, taken up as you set
+  out for the stop); the closing once over the closing scene and Outing complete, then rest;
+  the era playlist when the jaunt is over. The same gesture-unlocked element plays both; a
+  change dips a fader over about a second, and a closing cue is never cut. Narration ducks it
+  like any music. Deliveries go to R2 like the rest (`package_audio.py`, then
+  `verify_audio_host.py`). The scandal jaunts use the stories bed until `bed-1904-scandal` is
+  made. Liberty: L-score-3710.
 
 ## Implemented foundation
 
