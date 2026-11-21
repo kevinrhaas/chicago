@@ -624,8 +624,13 @@ export function createTravel({
     };
     if (mode === 'fly') return flight();
 
+    // T-3691 (the owner, 2026-11-21, the first Fort Dearborn tour: "it said you could not get
+    // there", the walker against the palisade): a ride that starts in the air over a wall (the
+    // view from above the sally port) has no ground to come down on, so it goes by air.
+    const aloft = walker.state.flying || intent.flying;
+    if (aloft && typeof setFly === 'function' && router?.blockedAt?.(walker.state.e, walker.state.n)) return flight();
     // A ground ride. Down to earth first: the route is walked, not flown.
-    if (walker.state.flying || intent.flying) setFly?.(false);
+    if (aloft) setFly?.(false);
     const s = walker.state;
     const route = router?.plan?.({ e: s.e, n: s.n }, to, { mode }) ?? null;
     if (!route?.points?.length) {
