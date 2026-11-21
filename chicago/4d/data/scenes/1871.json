@@ -328,6 +328,9 @@
     "terrain",
     "water",
     "context",
+    "street_furniture",
+    "street_trees",
+    "parked_transport",
     "humans"
   ],
   "released": false,

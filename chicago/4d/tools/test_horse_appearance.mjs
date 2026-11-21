@@ -95,9 +95,9 @@ for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of row
 }
 assert.equal(loops.horse_appearance.recipe_file, 'transport/horse-coats.json');
 assert.equal(standing.horse_appearance, undefined, 'frozen selected placement metadata is not an appearance configuration');
-assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 21, 1871: 26, 1904: 8 }); // T-3558: ten 1835 teams; T-3690: thirteen 1871 pairs
+assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 21, 1871: 36, 1904: 8 }); // T-3558: ten 1835 teams; T-3690: thirteen 1871 pairs; T-3686: the five pairs at the Clark Street hack stand
 const identities = individuals.map(i => horseIdentity(recipe, i));
-assert.equal(new Set(identities.map(i => i.key)).size, 59); // T-3690: and the 1871 pairs
+assert.equal(new Set(identities.map(i => i.key)).size, 69); // T-3690: and the 1871 pairs; T-3686: and the hack stand's ten
 for (let n = 0; n < identities.length; n++) {
   assert.deepEqual(horseIdentity(clone(recipe), individuals[n]), identities[n], 'reload changes no marking');
   assert.equal(identities[n].historical_individual, false);

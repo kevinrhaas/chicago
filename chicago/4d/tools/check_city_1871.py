@@ -68,7 +68,11 @@ def main():
         u,v=recipe.uv(b["e"],b["n"]);w,d=recipe.extents(b)
         corners=recipe.corners(b["e"],b["n"],b["width_m"],b["depth_m"],b["bearing_deg"])
         if min(height(*p) for p in corners)<b["base_m"]-.015:unsupported.append(b["id"])
-        if any(not named_index.clear(p,1.98) for p in corners):mapped_intrusions.append(b["id"])
+        # T-3686 (owner, 2026-11-21): an attached business row stands ON the walk's
+        # outer edge, so it is held to the walk itself (the index's width is half +
+        # walk + 3); every free-standing lot keeps the 5 m margin.
+        margin=-3+recipe.ROW_FRONT_GAP_M*.25 if b.get("row")=="attached" and "_core_" in b["id"] else 1.98
+        if any(not named_index.clear(p,margin) for p in corners):mapped_intrusions.append(b["id"])
         if any(not recipe.inside(p,city.boundary) or city.park(p) or any(recipe.inside(p,x["polygon"]) for x in city.exclusions) for p in corners):forbidden.append(b["id"])
         ix,iy=math.floor(u/100),math.floor(v/100)
         for x in range(ix-1,ix+2):
