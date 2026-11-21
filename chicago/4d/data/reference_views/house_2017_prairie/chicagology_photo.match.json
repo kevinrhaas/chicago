@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53",
+  "glb_sha256": "8ec76d276d2d41b6a04387e042f0dd625d3dad320e96c01c33381658b9e7f640",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "445d2c8626bbb94571e93f7330b83669a9eb5fc2406352ad0a276ff44470c4a4",
+  "flora_sha256": "1fd27d02c520bca63d800da4e37796e0a525d32fa1272d4f37d2e8bbcaa0b950",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -98,8 +98,8 @@
       "status": "open"
     },
     {
-      "what": "the gable's two attic lights (x 668-808 px, y 240-350): not built, K08 cutting no light in a gable's face",
-      "status": "open"
+      "what": "the gable's two attic lights (x 667-730 and 750-812 px, y 240-350): now cut in the gable's face, side by side either side of its middle, their heads at y 240 against 237 px and their sills at y 340 against 350, each about 55 px across against 60 (T-3634: K08's coped gable takes square-headed lights in its face). They print about 25 px south of the photograph's with the gable itself, whose apex stands at x 759 against 733 (the projection's place, 0.3 m, the camera fit's soft depth), and their sashes are the house's two-over-two in green where the print shows them dark: under the bar",
+      "status": "fixed"
     },
     {
       "what": "the porch: two columns with carved capitals carrying a stone deck at the photograph's height (render y 655-710 against 665-700 px), on a stoop between newels; built 2.6 m wide against about 2.8 m",

@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3185, ts: '2026-11-21T13:11:05.288Z', date: 'Nov 21, 2026, 7:11 AM CT', title: '2017 Prairie\'s gable gets its two attic windows', kind: 'improvement',
+    items: [
+      'The steep gable over the William Armour house\'s south projection at 2017 Prairie now has the pair of small attic windows its photograph shows, side by side above the gable\'s foot.',
+    ] },
   { v: 3184, ts: '2026-11-21T11:49:12.615Z', date: 'Nov 21, 2026, 5:49 AM CT', title: '1815 Prairie rebuilt to its 1908 Daily News photograph', kind: 'feature',
     items: [
       'The Sears-Meeker house now shows the front Arthur Heun\'s 1902 remodel gave it, read off a 1908 Chicago Daily News photograph: a one-storey stone bay across the front with an iron balcony rail, an arched entrance at street level in a small stone block, and a tall iron railing along the walk.',
