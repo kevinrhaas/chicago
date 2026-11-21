@@ -235,7 +235,8 @@ async function sceneOutlines(scene) {
         // T-3327: a parade is ground the visitor walks on (walker.js footprintsFrom,
         // T-3319), and the stockade round it is an enclosure: its pickets are walls,
         // not a roof over the parade.
-        ground: sidecar.attributes?.kind?.value === 'parade',
+        // T-3689: open ground (a square, a cemetery) is walked on the same way.
+        ground: ['parade', 'open_ground'].includes(sidecar.attributes?.kind?.value),
         enclosure: sidecar.archetype === 'palisade',
         ...(sidecar.placement?.walk_surface_profile != null
           ? { deck_surface: deckFromSidecar(name.replace(/\.json$/, ''), sidecar) } : {}),

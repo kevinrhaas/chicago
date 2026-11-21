@@ -4509,6 +4509,546 @@
       }
     },
     {
+      "id": "score-jaunt-opening-1812",
+      "kind": "music",
+      "era": "1812",
+      "title": "Jaunt Opening, 1812",
+      "playlist": false,
+      "score_role": "opening",
+      "loop": false,
+      "duration_s": 62.945,
+      "original": "assets/audio/originals/score-v1/30-jaunt-opening-1812.mp3",
+      "original_integrity": {
+        "bytes": 1545607,
+        "sha256": "378ab1a7926b613651eddec9422ff3626f3f618bd9620ca5085888475c03d451"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.80 dB from -21.8 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-opening-1812.ogg",
+      "aac": "score/score-jaunt-opening-1812.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 591082,
+          "sha256": "fd0a64d96166a56dbeb40844316f98b65ac994d10576a66a2c6e11d5bdc12d70"
+        },
+        "aac": {
+          "bytes": 896770,
+          "sha256": "ff9cd5aa13eb07e8284dbbafb3b0e1ff67bd339b96a6d393d5abf8ade2343fc1"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-closing-1812",
+      "kind": "music",
+      "era": "1812",
+      "title": "Jaunt Closing, 1812",
+      "playlist": false,
+      "score_role": "closing",
+      "loop": false,
+      "duration_s": 32.0,
+      "original": "assets/audio/originals/score-v1/31-jaunt-closing-1812.mp3",
+      "original_integrity": {
+        "bytes": 1535576,
+        "sha256": "760737993a4b7e9ac0131b447e65cf86da1630dd043e61bd5deab7fa452c125d"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.60 dB from -22.6 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; only its last 32 s kept, faded in over 2 s; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-closing-1812.ogg",
+      "aac": "score/score-jaunt-closing-1812.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 313792,
+          "sha256": "b87d0f60acf35cc54114868f16cdb9fb3b63acefccbfe3bc001d135d0fb15843"
+        },
+        "aac": {
+          "bytes": 455706,
+          "sha256": "a1ebda5ad740ca56476d8e84a577cebbac99c6fec7412aaa89bfa9efb981134d"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1812-fort",
+      "kind": "music",
+      "era": "1812",
+      "title": "The Fort",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/40-bed-1812-fort.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "5adbf693027bfb4bbcb7c324cef7d2c3fbbe34da8056658de512205d1be98445"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.50 dB from -22.5 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1812-fort.ogg",
+      "aac": "score/score-bed-1812-fort.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 477548,
+          "sha256": "d865cdcb41ebaf0bc39eed7a4e3e1015c4c5b32a0d6472303811e14d9b5b44d6"
+        },
+        "aac": {
+          "bytes": 740944,
+          "sha256": "75bfe9e35559e653ed9656ebddd051599d943782cd5143a4c247f3278fc6ce23"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1812-mystery",
+      "kind": "music",
+      "era": "1812",
+      "title": "Mystery at the River",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/41-bed-1812-mystery.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "2d90be48803b907d17d80ec90329c98641c92abeb72ffc3308fcba14d03bcfa6"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.70 dB from -23.7 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1812-mystery.ogg",
+      "aac": "score/score-bed-1812-mystery.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 546306,
+          "sha256": "00389f33dc69f6e0cf0365f4c5a0cb9d2a4e1b32787bff26b05c635c062d8118"
+        },
+        "aac": {
+          "bytes": 783916,
+          "sha256": "4cca732db237abd847eae85b0541dbbf3018dbc55924b40dba8b4cf0ab60b254"
+        }
+      }
+    },
+    {
+      "id": "score-battle-1-buildup",
+      "kind": "music",
+      "era": "1812",
+      "title": "Battle I: Before the March",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 54.0,
+      "original": "assets/audio/originals/score-v1/42-battle-1-buildup.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "fe91a75c2adbab4e59b00d7849a69a4d3ccda2a9d95af126069b499e7008f836"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (57.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-battle-1-buildup.ogg",
+      "aac": "score/score-battle-1-buildup.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 539841,
+          "sha256": "f18360c083e10f9a4405417c98cd7cf71dece2f363622f6fb80d9e4ed959fff1"
+        },
+        "aac": {
+          "bytes": 770783,
+          "sha256": "263a8b91f4aee0e6041a976cdddc6614ec888bdd29dabca3c4f3e71b459dc99f"
+        }
+      }
+    },
+    {
+      "id": "score-battle-2-march",
+      "kind": "music",
+      "era": "1812",
+      "title": "Battle II: The March",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/43-battle-2-march.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "e5b8b55b4859c00e6ae9ba253e46251471fd4532523bdc10d08a04062b5c05b8"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-battle-2-march.ogg",
+      "aac": "score/score-battle-2-march.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 553859,
+          "sha256": "07ea36a241bee6bcf6bd4fbdbc20fadc1b172989146211eea0eccaa09796e2d3"
+        },
+        "aac": {
+          "bytes": 786168,
+          "sha256": "aa1eaeba5fc807ae9c933da9342bf70127e21497b0adce675537c62891d3b62b"
+        }
+      }
+    },
+    {
+      "id": "score-battle-3-fight",
+      "kind": "music",
+      "era": "1812",
+      "title": "Battle III: The Fight",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 54.0,
+      "original": "assets/audio/originals/score-v1/44-battle-3-fight.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "e39e4b9e6b3e1cb9eeafdc88af892c25134c44899c3ea9176f7a28bf376e94d9"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.20 dB from -24.2 to -23 LUFS integrated; leading silence and closing fade cut (57.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-battle-3-fight.ogg",
+      "aac": "score/score-battle-3-fight.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 476095,
+          "sha256": "6fe237b11b12f1f6de0bec1591dcbb6c5b9904a4261e75f2096703c18e936ba7"
+        },
+        "aac": {
+          "bytes": 770332,
+          "sha256": "05681ea8a7de7a62f36d23210f900f9c70c6187de8fb2d1400083c3cd331a5c5"
+        }
+      }
+    },
+    {
+      "id": "score-battle-4-aftermath",
+      "kind": "music",
+      "era": "1812",
+      "title": "Battle IV: Aftermath",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/45-battle-4-aftermath.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "4a86f76b15beb6180334bf28eaedfec19810245909ccf01e2f584cbfe709773c"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.10 dB from -22.9 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-battle-4-aftermath.ogg",
+      "aac": "score/score-battle-4-aftermath.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 443101,
+          "sha256": "12d9e0af72d8e580fa93c76c7827b6b239e506997fc0ebeb9d94c9c3cfebef7a"
+        },
+        "aac": {
+          "bytes": 740900,
+          "sha256": "a3bc1715cdbb26d5e5c861e1d22dbea2aa3c5a0a79a49fb2b9d41976cfff1497"
+        }
+      }
+    },
+    {
+      "id": "score-theme-remembrance",
+      "kind": "music",
+      "era": "1812",
+      "title": "Remembrance",
+      "playlist": false,
+      "score_role": "closing",
+      "loop": false,
+      "duration_s": 56.933,
+      "original": "assets/audio/originals/score-v1/23-theme-remembrance.mp3",
+      "original_integrity": {
+        "bytes": 1447178,
+        "sha256": "8c00fa3afcafa16289104e5e96d23359fe741c12370bd6655407bb101078a5d5"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -5.80 dB from -15.2 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-theme-remembrance.ogg",
+      "aac": "score/score-theme-remembrance.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 483247,
+          "sha256": "7f09f0ba939577a4e38c6600db1dc9ee4e7a14bf8844db88579f3208df09a8d3"
+        },
+        "aac": {
+          "bytes": 810595,
+          "sha256": "5d99b244393b00ee56dd71f900de5ff38b1d906bb2e54091b6c4cbfc7d5a24ae"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-opening-1904",
+      "kind": "music",
+      "era": "1904",
+      "title": "Jaunt Opening, 1904",
+      "playlist": false,
+      "score_role": "opening",
+      "loop": false,
+      "duration_s": 59.857,
+      "original": "assets/audio/originals/score-v1/30-jaunt-opening-1904.mp3",
+      "original_integrity": {
+        "bytes": 1545607,
+        "sha256": "5201c383111dbe9888bbb0abe0570de74ee2e3b0037b2b41c3745e8e2c117412"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.80 dB from -21.8 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-opening-1904.ogg",
+      "aac": "score/score-jaunt-opening-1904.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 529052,
+          "sha256": "bdcecc866c6803e6a530a5d771e1032ec3692d6b0654665ebf14f6c1018e3cbd"
+        },
+        "aac": {
+          "bytes": 851855,
+          "sha256": "7c18066bdc4b15a2f022f1ad30b7f17a0a7b63e29a20b7473e8f769731ecf2e3"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-closing-1904",
+      "kind": "music",
+      "era": "1904",
+      "title": "Jaunt Closing, 1904",
+      "playlist": false,
+      "score_role": "closing",
+      "loop": false,
+      "duration_s": 32.0,
+      "original": "assets/audio/originals/score-v1/31-jaunt-closing-1904.mp3",
+      "original_integrity": {
+        "bytes": 1535576,
+        "sha256": "852412ec8fc35961bcd27795b8d0b586706cbe9621a1e83e8116f5712cab1d10"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.20 dB from -21.2 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; only its last 32 s kept, faded in over 2 s; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-closing-1904.ogg",
+      "aac": "score/score-jaunt-closing-1904.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 301767,
+          "sha256": "8a3d94efd631027247893ed7b94e04c48201ad1f4af9e255b231d9399fadc205"
+        },
+        "aac": {
+          "bytes": 456186,
+          "sha256": "90a93a9da8e0f43721a94e4432d2a74b339600a07404bffad64a5b2fb63f75c1"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-places",
+      "kind": "music",
+      "era": "1904",
+      "title": "The Avenue",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 53.0,
+      "original": "assets/audio/originals/score-v1/46-bed-1904-places.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "5f7084cd86bcc4d130c0db67526f5ba6809edfdc95560da622c760aa98007f4c"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.20 dB from -23.2 to -23 LUFS integrated; leading silence and closing fade cut (56.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-places.ogg",
+      "aac": "score/score-bed-1904-places.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 546895,
+          "sha256": "ead209e3ac8dc4773476c5eefe52b63ff1bff7079b5d13944867f1f4ccb30295"
+        },
+        "aac": {
+          "bytes": 759327,
+          "sha256": "4dbd5ed6ce62cb2c1ee4853b596bc3b81fa5481d7bcf31a04e62e27b4da06f10"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-household",
+      "kind": "music",
+      "era": "1904",
+      "title": "The Household",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 51.0,
+      "original": "assets/audio/originals/score-v1/47-bed-1904-household.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "3fcc7fad699e7ac469c8e65b6d7dea1d92b0165f0ce0038d40423d775832cf62"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.40 dB from -22.6 to -23 LUFS integrated; leading silence and closing fade cut (54.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-household.ogg",
+      "aac": "score/score-bed-1904-household.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 453720,
+          "sha256": "59aae3f0b3f9b40fdbcd9df9805210775c0a561120246e39802ce1e9ce0c689b"
+        },
+        "aac": {
+          "bytes": 725893,
+          "sha256": "4ddd8c999617e9595a7524b1ea51a741863ba8f879435ac7a4e67b5e2a5cf33a"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-people",
+      "kind": "music",
+      "era": "1904",
+      "title": "Famous Names",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/48-bed-1904-people.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "1dcc2a097560dd82be5b4658611ed6fd5b86aa11360d74d8bcecd6ad6bcd3469"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.30 dB from -22.7 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-people.ogg",
+      "aac": "score/score-bed-1904-people.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 475229,
+          "sha256": "d1d9f90985e4b4ebd1ddfd5ec8ae57a85752e66fd6be3cac70154e1f9388d837"
+        },
+        "aac": {
+          "bytes": 783122,
+          "sha256": "31d7b58dee7f533e93a74e7b2a2c5d75eaab5c40c351990937dd5413a6cf2162"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-stories",
+      "kind": "music",
+      "era": "1904",
+      "title": "Prairie Avenue Stories",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/49-bed-1904-stories.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "ef3f666ca383b54012d7200084ce017654a3675b65780afeb864657d20ab657b"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.00 dB from -22.0 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-stories.ogg",
+      "aac": "score/score-bed-1904-stories.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 528896,
+          "sha256": "4f81f739ebbfe87e043fc87aae7932c02319bc586e74c7ee8f9def73188b534c"
+        },
+        "aac": {
+          "bytes": 784555,
+          "sha256": "5358a5f9eedd68359bfd88668e617c3acf41c89a86f76c53d71a6af621952738"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-architecture",
+      "kind": "music",
+      "era": "1904",
+      "title": "Architecture",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/50-bed-1904-architecture.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "a7a26d0dd7469f2c40d12f6751a25f7de3eb8d32a220052f0345d171e30beb59"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.40 dB from -23.4 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-architecture.ogg",
+      "aac": "score/score-bed-1904-architecture.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 470811,
+          "sha256": "005c0c6ba130353c91d8919039706e98377f84501857eb962e1cf7285e59035a"
+        },
+        "aac": {
+          "bytes": 740309,
+          "sha256": "ef59101e0639838f4a9dbe02afe24bbf58aab8ccadec109fa30e96aab6495c64"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-ghosts",
+      "kind": "music",
+      "era": "1904",
+      "title": "Night on the Avenue",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/51-bed-1904-ghosts.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "addb868845a6555aad839e5d5202e39395d9c64cc0fb6dc795a99658a625f345"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.10 dB from -22.9 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-ghosts.ogg",
+      "aac": "score/score-bed-1904-ghosts.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 614386,
+          "sha256": "77b9f0cb2e7be286332391b985d671a6540dca13b74d9f402de465ba61452c21"
+        },
+        "aac": {
+          "bytes": 789146,
+          "sha256": "0720ae9ec39b947f9c6ea9c962ded7da95ab374bcaa52ea60dd0e460ad79594d"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1904-bronze",
+      "kind": "music",
+      "era": "1904",
+      "title": "The Bronze",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 51.0,
+      "original": "assets/audio/originals/score-v1/52-bed-1904-bronze.mp3",
+      "original_integrity": {
+        "bytes": 1449059,
+        "sha256": "bd473d5621e07cb9c9379359ac16934772c34fcff315f0085ad5cf08bfa0fdd4"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-20 (T-3710). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-20; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.80 dB from -22.2 to -23 LUFS integrated; leading silence and closing fade cut (54.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-bronze.ogg",
+      "aac": "score/score-bed-1904-bronze.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 454978,
+          "sha256": "7798b50913346fa1f9f6ed37568cda62dc61ee1e804bd8e2b885e93baba516cf"
+        },
+        "aac": {
+          "bytes": 725825,
+          "sha256": "650d5c5050c8750c2876885e3e2eecde24e849e0fc3cf8402297d1fbdd361848"
+        }
+      }
+    },
+    {
       "id": "wind",
       "kind": "environment",
       "title": "Wind through leaves",
@@ -4786,8 +5326,8 @@
       "scene_placement": {
         "mode": "moving-transport",
         "anchor": "harness",
-        "gain": 0.15,
-        "max_distance_m": 32,
+        "gain": 0.3,
+        "max_distance_m": 48,
         "bindings": [
           {
             "scene": "1812",
@@ -4819,7 +5359,8 @@
             "actor_ids": [
               "prairie_driven_brougham_loop_1904",
               "prairie_driven_brougham_north_loop_1904",
-              "prairie_driven_brougham_south_loop_1904"
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
             ]
           },
           {
@@ -4848,9 +5389,93 @@
               "shore_road_wagon_haul_1812"
             ],
             "season": "winter"
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       },
       "original_integrity": {
         "bytes": 3702000,
@@ -5206,7 +5831,8 @@
       ],
       "approved_eras": [
         "1812",
-        "1835"
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "spring",
@@ -5220,8 +5846,8 @@
       "scene_placement": {
         "mode": "moving-transport",
         "anchor": "wagon",
-        "gain": 0.22,
-        "max_distance_m": 40,
+        "gain": 0.3,
+        "max_distance_m": 48,
         "bindings": [
           {
             "scene": "1812",
@@ -5273,9 +5899,107 @@
               "shore_road_wagon_haul_1812"
             ],
             "season": "winter"
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ],
+            "gain": 0.18
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ],
+            "gain": 0.18
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. The 1904 brougham (T-3587) takes it at a lower binding gain, a light carriage rolling on the street paving: a wheel-rumble proxy, not a recording of rubber or iron tyres on asphalt or brick. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       },
       "original_integrity": {
         "bytes": 245568,
@@ -6387,7 +7111,9 @@
         "1904"
       ],
       "approved_eras": [
-        "1812"
+        "1812",
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "spring",
@@ -6400,8 +7126,8 @@
       "fauna_references": [],
       "scene_placement": {
         "mode": "hoof-contact",
-        "gain": 0.24,
-        "max_distance_m": 32,
+        "gain": 0.3,
+        "max_distance_m": 40,
         "bindings": [
           {
             "scene": "1812",
@@ -6438,9 +7164,121 @@
               "fort_wagon_loop_1812",
               "shore_road_wagon_haul_1812"
             ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "season": "summer",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "kinzie_wagon_south_water_1835",
+              "reed_wagon_market_1835",
+              "jones_wagon_lake_1835",
+              "cook_wagon_randolph_1835",
+              "kinzie_wagon_washington_1835",
+              "kinzie_wagon_state_1835",
+              "white_dray_west_side_1835",
+              "western_hotel_driven_wagon_loop_1835",
+              "sabine_wagon_north_water_1835",
+              "jones_wagon_north_side_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "season": "summer",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904",
+              "prairie_driven_brougham_north_loop_1904",
+              "prairie_driven_brougham_south_loop_1904",
+              "prairie_driven_brougham_glessner_1904"
+            ]
           }
         ],
-        "note": "Reconstructed short dirt-contact proxies on the two visible moving 1812 wagon teams, timed by each actual horse gait. Non-summer dates are existing seasonal viewing reconstructions, not attested presence on those dates. Actual renderer snow-look amount damps and low-passes the dirt recording; this is not a real snow recording or measured local snow depth. No extra mechanical voices are removed."
+        "note": "Reconstructed short dirt-contact proxies on the two visible moving 1812 wagon teams, timed by each actual horse gait. Non-summer dates are existing seasonal viewing reconstructions, not attested presence on those dates. Actual renderer snow-look amount damps and low-passes the dirt recording; this is not a real snow recording or measured local snow depth. No extra mechanical voices are removed. T-3587: the 1835 Western Hotel wagon team and the 1904 Prairie Avenue brougham pair are heard hoof by hoof the same way; on the 1904 asphalt and brick the dirt recording is a declared proxy for a harder street, not a recording of it. T-3587 (owner, 2026-11-13: \"i could barely hear them\"): the 1835 and 1904 teams sound at each scene's spring/fall/winter viewing dates too, only while those actual teams are visible and moving; this is not historical presence attestation on those dates. Level and reach are listening choices (L-team-sounds-3587)."
       },
       "runtime_contact_processing": {
         "delivery_sha256": "1e9d75c58b4bb7bc87bd8251433afd60ccdfbda20571efce62262b23d598836c",
@@ -6728,5 +7566,605 @@
       "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
       "provenance": "Freesound HQ MP3 preview; not a lossless master. Modern yacht-club dock with water lapping. Not a wagon sample; inspect for boat hardware and site noise."
     }
-  ]
+  ],
+  "jaunt_score": {
+    "source": "data/music/jaunts.json",
+    "jaunts": {
+      "battle-of-fort-dearborn": {
+        "opening": "score-battle-1-buildup",
+        "bed": "score-battle-1-buildup",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "river-mouth": "score-battle-2-march",
+          "the-bank": "score-battle-3-fight",
+          "cottonwoods": "score-battle-3-fight",
+          "kinzie-house": "score-battle-4-aftermath",
+          "the-burning": "score-battle-4-aftermath",
+          "war-party": "score-battle-4-aftermath",
+          "ouilmette": "score-battle-4-aftermath"
+        }
+      },
+      "battle-of-fort-dearborn-adults": {
+        "opening": "score-battle-1-buildup",
+        "bed": "score-battle-1-buildup",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "river-mouth": "score-battle-2-march",
+          "the-bank": "score-battle-3-fight",
+          "cottonwoods": "score-battle-3-fight",
+          "kinzie-house": "score-battle-4-aftermath",
+          "the-burning": "score-battle-4-aftermath",
+          "war-party": "score-battle-4-aftermath",
+          "ouilmette": "score-battle-4-aftermath"
+        }
+      },
+      "battle-of-fort-dearborn-grades-11-12": {
+        "opening": "score-battle-1-buildup",
+        "bed": "score-battle-1-buildup",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "river-mouth": "score-battle-2-march",
+          "the-bank": "score-battle-3-fight",
+          "cottonwoods": "score-battle-3-fight",
+          "kinzie-house": "score-battle-4-aftermath",
+          "the-burning": "score-battle-4-aftermath",
+          "war-party": "score-battle-4-aftermath",
+          "ouilmette": "score-battle-4-aftermath"
+        }
+      },
+      "battle-of-fort-dearborn-grades-3-5": {
+        "opening": "score-battle-1-buildup",
+        "bed": "score-battle-1-buildup",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "river-mouth": "score-battle-2-march",
+          "the-bank": "score-battle-3-fight",
+          "cottonwoods": "score-battle-3-fight",
+          "kinzie-house": "score-battle-4-aftermath",
+          "the-burning": "score-battle-4-aftermath",
+          "war-party": "score-battle-4-aftermath",
+          "ouilmette": "score-battle-4-aftermath"
+        }
+      },
+      "battle-of-fort-dearborn-grades-9-10": {
+        "opening": "score-battle-1-buildup",
+        "bed": "score-battle-1-buildup",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "river-mouth": "score-battle-2-march",
+          "the-bank": "score-battle-3-fight",
+          "cottonwoods": "score-battle-3-fight",
+          "kinzie-house": "score-battle-4-aftermath",
+          "the-burning": "score-battle-4-aftermath",
+          "war-party": "score-battle-4-aftermath",
+          "ouilmette": "score-battle-4-aftermath"
+        }
+      },
+      "first-fort-dearborn-tour": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "first-fort-dearborn-tour-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "first-fort-dearborn-tour-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "first-fort-dearborn-tour-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "first-fort-dearborn-tour-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-fort",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "killing-of-jean-lalime": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-mystery",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "killing-of-jean-lalime-adults": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-mystery",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "killing-of-jean-lalime-grades-11-12": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-mystery",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "killing-of-jean-lalime-grades-3-5": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-mystery",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "killing-of-jean-lalime-grades-9-10": {
+        "opening": "score-jaunt-opening-1812",
+        "bed": "score-bed-1812-mystery",
+        "closing": "score-jaunt-closing-1812"
+      },
+      "prairie-avenue-orientation": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-avenue-orientation-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-avenue-orientation-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-avenue-orientation-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-avenue-orientation-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-places",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "glessner-household-tour": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-household",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "glessner-household-tour-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-household",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "glessner-household-tour-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-household",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "glessner-household-tour-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-household",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "glessner-household-tour-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-household",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-famous-names": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-famous-names-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-famous-names-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-famous-names-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-famous-names-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-notable-women": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-notable-women-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-notable-women-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-notable-women-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-notable-women-grades-6-8": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-people",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "field-and-mrs-caton": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "field-and-mrs-caton-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "field-and-mrs-caton-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "field-and-mrs-caton-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "field-and-mrs-caton-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "frances-glessner-lee": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "frances-glessner-lee-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "frances-glessner-lee-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "frances-glessner-lee-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "frances-glessner-lee-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "monday-reading-class": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "monday-reading-class-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "monday-reading-class-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "monday-reading-class-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "monday-reading-class-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "one-year-and-a-day": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "one-year-and-a-day-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "one-year-and-a-day-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "one-year-and-a-day-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "one-year-and-a-day-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "pullmans-other-son": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "pullmans-other-son-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "pullmans-other-son-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "pullmans-other-son-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "pullmans-other-son-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-pullman-twins": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-pullman-twins-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-pullman-twins-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-pullman-twins-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-pullman-twins-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-walk-to-the-lake": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-walk-to-the-lake-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-walk-to-the-lake-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-walk-to-the-lake-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "the-walk-to-the-lake-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "scandal-at-1612": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "scandal-at-1612-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "scandal-at-1612-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "scandal-at-1612-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "scandal-at-1612-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "sisters-of-the-levee": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "sisters-of-the-levee-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "sisters-of-the-levee-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "sisters-of-the-levee-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "sisters-of-the-levee-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-stories",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-architects": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-architects-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-architects-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-architects-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-architects-grades-6-8": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-italianate": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-italianate-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-italianate-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-italianate-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-italianate-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-romanesque": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-romanesque-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-romanesque-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-romanesque-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-romanesque-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-second-empire": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-second-empire-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-second-empire-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-second-empire-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-style-second-empire-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-architecture",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-ghosts-at-night": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-ghosts-at-night-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-ghosts-at-night-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-ghosts-at-night-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "prairie-ghosts-at-night-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-ghosts",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "bronze-at-eighteenth": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-bronze",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "bronze-at-eighteenth-adults": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-bronze",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "bronze-at-eighteenth-grades-11-12": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-bronze",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "bronze-at-eighteenth-grades-3-5": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-bronze",
+        "closing": "score-jaunt-closing-1904"
+      },
+      "bronze-at-eighteenth-grades-9-10": {
+        "opening": "score-jaunt-opening-1904",
+        "bed": "score-bed-1904-bronze",
+        "closing": "score-jaunt-closing-1904"
+      }
+    }
+  }
 }

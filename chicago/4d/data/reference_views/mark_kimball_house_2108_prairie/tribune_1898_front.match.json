@@ -2,11 +2,11 @@
   "structure_id": "mark_kimball_house_2108_prairie",
   "view": "tribune_1898_front",
   "glb": "assets/gltf/mark_kimball_house_2108_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6cd202d7ed761f4485ba938f06b50cb09f7248529e87cae2743a41d65640fcc7",
+  "glb_sha256": "d4682409e380bf50548d176b4c68039d4a1b75d8600a41b0c93900aea5cf2ef4",
   "camera_sha256": "fb57957a52f57d7b2278c2258e0ad8de475146d3b6062e4488e05d4c9db44b60",
   "photo_sha256": "9194d7d5e0f629bf52cf1415c0a3bb06ea699ec8d38af86b02f8d351f55256db",
   "side_by_side": "docs/RESEARCH/photo-match/mark_kimball_house_2108_prairie/tribune_1898_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's 12.25 x 5.5 m box is now the sheet's '2B' body across 7.15 m of the lot, its front's edges at x 25 and 205 px as the cut's, two storeys over a high basement",
@@ -41,8 +41,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the basement lights: the cut draws two tall barred lights, about 1.6 m high on its scale; K02 tops its two base courses at the area lights' heads and lays no course over 0.41 m, so they are built 0.8 m high and without bars (L-k01-2108-kimball-3667). A street visitor sees the shorter lights, so this stays open until K02 can lay a taller base or K01 a grille in an area light",
-      "status": "open"
+      "what": "the basement lights: the cut draws two tall barred lights, each about two thirds of its basement's height (heads at y 176 under the ledge at 151, feet at 236 over grade at 242), five or six uprights under an arched line inside the head. T-3668 builds them 1.4 m high on the 0.25 m sill (two thirds of the record's 2.2 m basement), their heads 0.55 m under the parlour floor, in four rusticated Lemont courses of 0.35 m (K02's limestone base widened to four courses), each barred with K08's grille: five uprights, a foot bar, a bar at the head and a ring under it. Their heads render at y 191 against 176, the same tall-drawn vertical the ledge's line carries",
+      "status": "fixed"
+    },
+    {
+      "what": "the bars' count and the ring: five uprights against the five or six a pen sketch draws, and K08's plain ring where the cut's arched line may be the light's own segmental head; a difference two readings of one sketch disagree about",
+      "status": "within tolerance"
     },
     {
       "what": "the upper storey and the wall head: under the cut's numerals (three dark lights show over its three bays, as the build has them)",

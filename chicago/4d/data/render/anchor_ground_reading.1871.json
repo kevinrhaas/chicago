@@ -216,7 +216,7 @@
     {
       "id": "sunday_dekoven",
       "local_e": -318,
-      "local_n": -2022,
+      "local_n": -1966,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -228,8 +228,8 @@
     },
     {
       "id": "fire_oleary_barn",
-      "local_e": -300,
-      "local_n": -2004,
+      "local_e": -311,
+      "local_n": -1962,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -358,8 +358,8 @@
     },
     {
       "id": "fire_ogden_house",
-      "local_e": 575,
-      "local_n": 1416,
+      "local_e": 612,
+      "local_n": 1418,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -384,8 +384,8 @@
     },
     {
       "id": "case_sullivan_seat",
-      "local_e": -270,
-      "local_n": -2032,
+      "local_e": -308,
+      "local_n": -1972.5,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -397,8 +397,8 @@
     },
     {
       "id": "case_oleary_yard",
-      "local_e": -312,
-      "local_n": -1986,
+      "local_e": -319,
+      "local_n": -1937,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -410,8 +410,8 @@
     },
     {
       "id": "case_oleary_front",
-      "local_e": -301,
-      "local_n": -2018,
+      "local_e": -319.2,
+      "local_n": -1959.5,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -437,8 +437,8 @@
     },
     {
       "id": "case_barn_alley",
-      "local_e": -292,
-      "local_n": -1950,
+      "local_e": -312,
+      "local_n": -1921.6,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
@@ -451,7 +451,7 @@
     {
       "id": "case_fire_academy",
       "local_e": -345,
-      "local_n": -2022,
+      "local_n": -1965.3,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,

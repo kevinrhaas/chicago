@@ -1,0 +1,1056 @@
+{
+ "id": "st_michaels_church_1871",
+ "name": "St. Michael's Church (German Catholic), Hurlbut and Linden Streets",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "church",
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "The German Catholic congregation of St. Michael's, under the Redemptorist Fathers (Andreas vol. 2, p. 405)."
+ },
+ "built": {
+  "value": 1869,
+  "confidence": "attested",
+  "sources": [
+   "andreas_1885_v2"
+  ],
+  "note": "Begun when the old church at North Avenue and Church Street grew too small, 1869-1870 (Andreas vol. 2, p. 405)."
+ },
+ "research_note": "ST. MICHAEL'S CHURCH, built by T-3689 for the 1871 scene: the German Catholic congregation's new brick church at the south-east corner of Hurlbut and Linden Streets (today Cleveland Avenue and Eugenie Street), 'a very large brick building two hundred feet long by eighty feet wide, with a tower surmounted by a low steeple containing a chime of bells', costing $200,000. Its walls stood through the fire; the steeple burned and the bells fell (Andreas vol. 2, p. 405). Read off Andreas's engraving of the ruins.",
+ "phases": [
+  {
+   "id": "church_1869_1871",
+   "documented_range": {
+    "from": "1869-01-01",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Finished shortly before the fire (Andreas: 'soon after its completion passed through the ordeal of the great fire')."
+   },
+   "position": {
+    "utm_e": 446856.557,
+    "utm_n": 4640274.654,
+    "rotation_deg": 359.29,
+    "symbolic_location": "South-east corner of Hurlbut and Linden Streets (today Cleveland Avenue and Eugenie Street), north of North Avenue.",
+    "confidence": "inferred",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "The 1871 plan's streets north of North Avenue are unnamed. Hurlbut Street is taken as the plan's north-south street at about local E -227 (about 500 west on the later numbering, the place Cleveland Avenue holds), and Linden Street as its east-west street at about local N 2949 (about 1700 north, Eugenie Street's). The church's north-west corner is set on their south and east building lines, its front on Linden Street and its long side on Hurlbut Street, as the engraving shows the front and the long side meeting at a street corner. The footprint's origin is local E -216.14 N 2878.85.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "The plan's streets here carry no names; set by reasoning from the later street numbering."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      24.4,
+      0
+     ],
+     [
+      24.4,
+      61.0
+     ],
+     [
+      0,
+      61.0
+     ]
+    ],
+    "confidence": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Two hundred feet long by eighty feet wide (Andreas vol. 2, p. 405)."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "inferred",
+      "fire": {
+       "fate": "burned",
+       "left": "walls",
+       "sources": [
+        "andreas_1885_v2"
+       ],
+       "note": "'On account of the faithful manner in which the walls had been originally constructed, they remained substantially intact. The steeple, however, was burned, and the bells fell to the ground' (Andreas vol. 2, p. 405)."
+      },
+      "blocks": [
+       {
+        "name": "the nave",
+        "box": [
+         6.5,
+         0,
+         17.9,
+         61.0
+        ],
+        "storeys": [
+         1.0,
+         8.3,
+         9.4
+        ],
+        "wall": "brick_red",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 7.0,
+         "eave": 0.35,
+         "covering": "slate",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            2.6,
+            5.7,
+            8.8
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "round",
+            "w": 1.4,
+            "h": 5.0,
+            "sill": 1.8,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.4,
+            "h": 5.6,
+            "sill": 1.0,
+            "hood": "arch"
+           }
+          ],
+          "override": [
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             1
+            ],
+            "kind": "door_round",
+            "w": 2.6,
+            "h": 5.4,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "bays": [
+             1
+            ],
+            "storeys": [
+             2
+            ],
+            "kind": "oculus",
+            "w": 3.0,
+            "h": 3.0,
+            "sill": 3.2
+           }
+          ]
+         },
+         "S": "blank",
+         "E": {
+          "bays": {
+           "n": 9,
+           "margin": 4.0
+          },
+          "storeys": [
+           null,
+           null,
+           {
+            "kind": "round",
+            "w": 1.4,
+            "h": 3.6,
+            "sill": 4.4,
+            "hood": "arch"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 9,
+           "margin": 4.0
+          },
+          "storeys": [
+           null,
+           null,
+           {
+            "kind": "round",
+            "w": 1.4,
+            "h": 3.6,
+            "sill": 4.4,
+            "hood": "arch"
+           }
+          ]
+         }
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The nave over the aisles, its gable on Linden Street with the great round window and the main door under it, round-arched clerestory lights along its sides, as the engraving of the ruins shows it (Andreas vol. 2, p. 405). Its height is read off the engraving against the church's 80-foot width."
+       },
+       {
+        "name": "the west aisle",
+        "box": [
+         0,
+         0,
+         6.5,
+         61.0
+        ],
+        "storeys": [
+         1.0,
+         8.3,
+         3.0
+        ],
+        "wall": "brick_red",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 2.2,
+         "eave": 0.35,
+         "covering": "slate",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            3.25
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "door_round",
+            "w": 1.9,
+            "h": 4.0,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.1,
+            "h": 1.6,
+            "sill": 0.3,
+            "hood": "arch"
+           }
+          ]
+         },
+         "W": {
+          "bays": {
+           "n": 9,
+           "margin": 4.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "round",
+            "w": 1.8,
+            "h": 5.6,
+            "sill": 1.4,
+            "hood": "arch"
+           },
+           null
+          ]
+         },
+         "S": "blank",
+         "E": "none"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The aisle on Hurlbut Street, its own small gable on the front and a row of tall round-arched windows between buttresses, as the engraving shows them."
+       },
+       {
+        "name": "the west aisle's front",
+        "box": [
+         0,
+         59.8,
+         6.5,
+         61.0
+        ],
+        "storeys": [
+         1.0,
+         8.3,
+         9.0
+        ],
+        "wall": "brick_red",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 5.0,
+         "eave": 0.35,
+         "covering": "slate",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": {
+          "bays": {
+           "at": [
+            3.25
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "door_round",
+            "w": 2.0,
+            "h": 4.8,
+            "sill": 0.0,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.5,
+            "h": 5.0,
+            "sill": 0.8,
+            "hood": "arch"
+           }
+          ]
+         },
+         "W": "blank",
+         "E": "none",
+         "S": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The west aisle's front, carried up as a gabled screen wall nearly to the nave's height, with a door and a tall window, as the engraving of the ruins shows it."
+       },
+       {
+        "name": "the east aisle",
+        "box": [
+         17.9,
+         0,
+         24.4,
+         61.0
+        ],
+        "storeys": [
+         1.0,
+         8.3,
+         3.0
+        ],
+        "wall": "brick_red",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 2.2,
+         "eave": 0.35,
+         "covering": "slate",
+         "ridge": "y"
+        },
+        "faces": {
+         "N": "none",
+         "E": {
+          "bays": {
+           "n": 9,
+           "margin": 4.0
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "round",
+            "w": 1.8,
+            "h": 5.6,
+            "sill": 1.4,
+            "hood": "arch"
+           },
+           null
+          ]
+         },
+         "S": "blank",
+         "W": "none"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The east aisle, built as the west one: the engraving does not show its side."
+       },
+       {
+        "name": "the south cross gable",
+        "box": [
+         -0.15,
+         0,
+         24.549999999999997,
+         6.0
+        ],
+        "storeys": [
+         1.0,
+         8.3,
+         6.0
+        ],
+        "wall": "brick_red",
+        "water_table": 0.5,
+        "cornice": {
+         "kind": "light",
+         "proj": 0.25,
+         "material": "stone_trim"
+        },
+        "roof": {
+         "kind": "gable",
+         "h": 5.5,
+         "eave": 0.35,
+         "covering": "slate",
+         "ridge": "x"
+        },
+        "faces": {
+         "W": {
+          "bays": {
+           "at": [
+            3.0
+           ]
+          },
+          "storeys": [
+           null,
+           {
+            "kind": "round",
+            "w": 1.6,
+            "h": 5.2,
+            "sill": 1.4,
+            "hood": "arch"
+           },
+           {
+            "kind": "round",
+            "w": 1.4,
+            "h": 3.6,
+            "sill": 1.2,
+            "hood": "arch"
+           }
+          ]
+         },
+         "E": "blank",
+         "S": "blank",
+         "N": "none"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A cross gable over the church's far (south) end, its gable to Hurlbut Street rising over the aisle's roof, as the engraving shows a gable and a pier at the far end of the long side; what it held (sanctuary or sacristy) is not recorded."
+       }
+      ],
+      "towers": [
+       {
+        "name": "the tower",
+        "at": [
+         21.099999999999998,
+         58.0
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 6.6,
+          "h": 18.4,
+          "openings": {
+           "kind": "round",
+           "w": 1.3,
+           "h": 3.8,
+           "sill": 10.6
+          },
+          "cornice_proj": 0.25
+         },
+         {
+          "w": 6.6,
+          "h": 7.6,
+          "openings": {
+           "kind": "round",
+           "w": 1.8,
+           "h": 5.0,
+           "sill": 1.2
+          },
+          "cornice_proj": 0.3
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 6.5,
+         "covering": "slate"
+        },
+        "finial": 1.6,
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "'A tower surmounted by a low steeple containing a chime of bells' (Andreas vol. 2, p. 405), at the front's east corner where the engraving of the ruins shows its burnt-out shaft and open belfry; the low steeple is reconstructed (it burned)."
+       },
+       {
+        "name": "the buttress pinnacle",
+        "at": [
+         0.8,
+         60.4
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 1.6,
+          "h": 21.0,
+          "cornice_proj": 0.12
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.6,
+         "covering": "slate"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The corner buttress at the west end of the front, rising to a pinnacle past the west aisle's gable, as the engraving shows it."
+       },
+       {
+        "name": "the far pinnacle",
+        "at": [
+         0.8,
+         0.6
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 1.4,
+          "h": 18.0,
+          "cornice_proj": 0.12
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 1.4,
+         "covering": "slate"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "The pier at the far (south-west) corner, rising past the cross gable, as the engraving shows it."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         7.31
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         13.94
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         20.56
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         27.19
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         33.81
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         40.44
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         47.06
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         -0.2,
+         53.69
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A brick buttress between two of the Hurlbut Street side's tall windows, as the engraving of the ruins draws them."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         7.31
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         13.94
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         20.56
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         27.19
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         33.81
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         40.44
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         47.06
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       },
+       {
+        "name": "a buttress",
+        "at": [
+         24.599999999999998,
+         53.69
+        ],
+        "z0": 0.0,
+        "plan": "square",
+        "wall": "brick_red",
+        "stages": [
+         {
+          "w": 0.9,
+          "h": 8.0,
+          "cornice_proj": 0.08
+         }
+        ],
+        "cap": {
+         "kind": "pyramid",
+         "h": 0.7,
+         "covering": "stone_trim"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "andreas_1885_v2",
+         "andreas_1885_v2_st_michaels_plates"
+        ],
+        "note": "A buttress on the east side, built as the west side's: the engraving does not show this side."
+       }
+      ],
+      "pediments": [],
+      "steps": [
+       {
+        "block": 0,
+        "face": "N",
+        "s0": 4.3,
+        "s1": 7.1,
+        "n": 4,
+        "material": "stone_trim"
+       }
+      ],
+      "note": "Read off the engraving of the ruins in Andreas (vol. 2, p. 405) and his 200 by 80 feet."
+     },
+     "confidence": "inferred",
+     "sources": [
+      "andreas_1885_v2",
+      "andreas_1885_v2_st_michaels_plates"
+     ],
+     "note": "Plan size Andreas's; the front, the west side, the tower and the windows from the engraving of the ruins; heights read off it."
+    },
+    "wall_material": {
+     "value": "Brick",
+     "confidence": "attested",
+     "sources": [
+      "andreas_1885_v2"
+     ],
+     "note": "'A very large brick building' (Andreas vol. 2, p. 405); its colour is reconstructed as a common red brick.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-20): St. Michael's church stands in the 1871 scene on the landmark_1871 archetype."
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "forbes_cottage_1871",
+  "scene": "1871",
+  "name": "The Forbes house",
+  "address": "133 DeKoven Street",
+  "status": {
+    "text": "Burned on 8 October 1871",
+    "today": "The Chicago Fire Academy's block",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Its later history is not researched here."
+  },
+  "built": {
+    "year": 1864,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing in October 1871 (Andreas, volume two). Nobody recorded when it was built; 1864 stands in for the years before the fire."
+  },
+  "use": "Family home",
+  "summary": "A frame house in two parts, two doors from the O'Learys. The Forbes family lived in front; the Lee and Connovan families rented the back.",
+  "key": [
+    {
+      "label": "Households",
+      "value": "Forbes, Lee and Connovan",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "William Lee ran from here to a drug store to sound the fire alarm.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-08",
+      "text": "The fire breaks out in the O'Leary barn next door.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}

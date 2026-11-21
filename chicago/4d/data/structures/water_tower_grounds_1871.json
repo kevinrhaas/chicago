@@ -1,0 +1,1265 @@
+{
+ "id": "water_tower_grounds_1871",
+ "name": "The Water Tower's grounds",
+ "archetype": "landmark_1871",
+ "function": {
+  "value": "public_square",
+  "confidence": "inferred",
+  "sources": [
+   "chm_kurz_1866_chicago_water_works_lithograph",
+   "chm_ichi_05902_water_tower_1890"
+  ],
+  "note": "The city's open ground round the Water Tower, a lawn with walks and trees (Kurz's lithograph, 1866-67; the photograph of about 1890)."
+ },
+ "built": {
+  "value": 1867,
+  "confidence": "inferred",
+  "sources": [
+   "chm_kurz_1866_chicago_water_works_lithograph"
+  ],
+  "note": "Laid out with the works, whose tower's cornerstone was laid in March 1867; the lithograph of 1866-67 shows the grounds as planned."
+ },
+ "research_note": "THE WATER TOWER'S GROUNDS, built by T-3689 for the 1871 scene: the open, planted ground the tower stood on, west of Pine Street between Chicago Avenue and Pearson Street. Kurz's lithograph of the works (Jevne & Almini, 1866-67) shows the tower alone on open ground, a lawn with shrub beds before it and young trees to its west, walks and kerbs along Chicago Avenue and Pine Street, and no house between the tower and Chicago Avenue. Greene's stereograph of the tower after the fire shows an iron railing on a stone kerb across its west side, and a photograph of about 1890 shows the same grounds as a fenced lawn. The grounds are laid inside today's Water Tower park (between Chicago Avenue, Pearson Street, Michigan Avenue and the lane on its west side); that the park keeps the city's 1860s lot is inferred, not documented.",
+ "phases": [
+  {
+   "id": "grounds_1867_1871",
+   "documented_range": {
+    "from": "1867-03-25",
+    "to": "1871-10-09",
+    "confidence": "inferred",
+    "sources": [
+     "chm_kurz_1866_chicago_water_works_lithograph",
+     "loc_stereo_1s12375_water_tower"
+    ],
+    "note": "From the tower's cornerstone (March 1867) to the fire; the railing still stands in Greene's stereograph after it."
+   },
+   "position": {
+    "utm_e": 448168.7,
+    "utm_n": 4638511.4,
+    "rotation_deg": 0.0,
+    "symbolic_location": "West of Pine Street (today Michigan Avenue) between Chicago Avenue and Pearson Street, round the Water Tower.",
+    "confidence": "inferred",
+    "sources": [
+     "chm_kurz_1866_chicago_water_works_lithograph",
+     "chicago_street_center_lines"
+    ],
+    "note": "Inside the street lines of today's Water Tower park: Chicago Avenue's and Pearson Street's centrelines less half the street and its walk, Pine Street's west walk line as the scene draws it, and the lane on the park's west side (data/context/1871/modern_clip.json, 'N Michigan Ave W', local E 1095.6). The footprint's origin, its south-west corner, is local E 1096.0 N 1115.6.",
+    "derivation": {
+     "method": "not_derivable",
+     "reason": "Laid inside the modern park's street lines; no survey of the 1860s lot is in the repository."
+    }
+   },
+   "footprint": {
+    "polygon": [
+     [
+      0,
+      0
+     ],
+     [
+      41.0,
+      0
+     ],
+     [
+      42.9,
+      13.4
+     ],
+     [
+      48.3,
+      70.0
+     ],
+     [
+      0,
+      70.0
+     ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "chm_kurz_1866_chicago_water_works_lithograph",
+     "chm_ichi_05902_water_tower_1890",
+     "chicago_street_center_lines"
+    ],
+    "note": "The open ground round the tower, inside its streets; its east side follows Pine Street's west walk."
+   },
+   "form": {
+    "composition": {
+     "value": {
+      "confidence": "reconstructed",
+      "blocks": [
+       {
+        "name": "the south kerb, 0-18 m",
+        "box": [
+         0,
+         0,
+         18.4,
+         0.45
+        ],
+        "storeys": [
+         0.4
+        ],
+        "wall": "limestone_rubble",
+        "roof": {
+         "kind": "flat",
+         "covering": "rubble_stone"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "A low stone kerb round the grounds, an iron railing on it (Greene's 1871 stereograph shows the railing on its kerb across the tower's west side; the 1890 photograph shows it on Chicago Avenue and down the west side). Its height and the gateways are reconstructed."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         -0.06,
+         0.115,
+         0.16,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         6.023,
+         0.115,
+         6.243,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         12.157,
+         0.115,
+         12.377,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         18.24,
+         0.115,
+         18.46,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the south top rail",
+        "box": [
+         0,
+         0.115,
+         18.4,
+         0.335
+        ],
+        "z0": 0.9,
+        "storeys": [
+         0.15
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the south kerb, 22-40 m",
+        "box": [
+         21.6,
+         0,
+         40.5,
+         0.45
+        ],
+        "storeys": [
+         0.4
+        ],
+        "wall": "limestone_rubble",
+        "roof": {
+         "kind": "flat",
+         "covering": "rubble_stone"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "A low stone kerb round the grounds, an iron railing on it (Greene's 1871 stereograph shows the railing on its kerb across the tower's west side; the 1890 photograph shows it on Chicago Avenue and down the west side). Its height and the gateways are reconstructed."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         21.54,
+         0.115,
+         21.76,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         27.79,
+         0.115,
+         28.01,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         34.09,
+         0.115,
+         34.31,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a south railing post",
+        "box": [
+         40.34,
+         0.115,
+         40.56,
+         0.335
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the south top rail",
+        "box": [
+         21.6,
+         0.115,
+         40.5,
+         0.335
+        ],
+        "z0": 0.9,
+        "storeys": [
+         0.15
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the west kerb, 0-33 m",
+        "box": [
+         0,
+         0.45,
+         0.45,
+         33.4
+        ],
+        "storeys": [
+         0.4
+        ],
+        "wall": "limestone_rubble",
+        "roof": {
+         "kind": "flat",
+         "covering": "rubble_stone"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "A low stone kerb round the grounds, an iron railing on it (Greene's 1871 stereograph shows the railing on its kerb across the tower's west side; the 1890 photograph shows it on Chicago Avenue and down the west side). Its height and the gateways are reconstructed."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         0.39,
+         0.335,
+         0.61
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         6.93,
+         0.335,
+         7.15
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         13.52,
+         0.335,
+         13.74
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         20.11,
+         0.335,
+         20.33
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         26.7,
+         0.335,
+         26.92
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         33.24,
+         0.335,
+         33.46
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the west top rail",
+        "box": [
+         0.115,
+         0.45,
+         0.335,
+         33.4
+        ],
+        "z0": 0.9,
+        "storeys": [
+         0.15
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the west kerb, 37-70 m",
+        "box": [
+         0,
+         36.6,
+         0.45,
+         70.0
+        ],
+        "storeys": [
+         0.4
+        ],
+        "wall": "limestone_rubble",
+        "roof": {
+         "kind": "flat",
+         "covering": "rubble_stone"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "A low stone kerb round the grounds, an iron railing on it (Greene's 1871 stereograph shows the railing on its kerb across the tower's west side; the 1890 photograph shows it on Chicago Avenue and down the west side). Its height and the gateways are reconstructed."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         36.54,
+         0.335,
+         36.76
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         43.17,
+         0.335,
+         43.39
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         49.85,
+         0.335,
+         50.07
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         56.53,
+         0.335,
+         56.75
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         63.21,
+         0.335,
+         63.43
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a west railing post",
+        "box": [
+         0.115,
+         69.84,
+         0.335,
+         70.06
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the west top rail",
+        "box": [
+         0.115,
+         36.6,
+         0.335,
+         70.0
+        ],
+        "z0": 0.9,
+        "storeys": [
+         0.15
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the north kerb, 0-48 m",
+        "box": [
+         0.45,
+         69.55,
+         47.8,
+         70.0
+        ],
+        "storeys": [
+         0.4
+        ],
+        "wall": "limestone_rubble",
+        "roof": {
+         "kind": "flat",
+         "covering": "rubble_stone"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "inferred",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "A low stone kerb round the grounds, an iron railing on it (Greene's 1871 stereograph shows the railing on its kerb across the tower's west side; the 1890 photograph shows it on Chicago Avenue and down the west side). Its height and the gateways are reconstructed."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         0.39,
+         69.665,
+         0.61,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         7.104,
+         69.665,
+         7.324,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         13.869,
+         69.665,
+         14.089,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         20.633,
+         69.665,
+         20.853,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         27.397,
+         69.665,
+         27.617,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         34.161,
+         69.665,
+         34.381,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         40.926,
+         69.665,
+         41.146,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "a north railing post",
+        "box": [
+         47.64,
+         69.665,
+         47.86,
+         69.885
+        ],
+        "z0": 0.4,
+        "storeys": [
+         0.55
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       },
+       {
+        "name": "the north top rail",
+        "box": [
+         0.45,
+         69.665,
+         47.8,
+         69.885
+        ],
+        "z0": 0.9,
+        "storeys": [
+         0.15
+        ],
+        "wall": "wrought_iron",
+        "roof": {
+         "kind": "flat",
+         "covering": "wrought_iron"
+        },
+        "faces": {
+         "S": "blank",
+         "N": "blank",
+         "E": "blank",
+         "W": "blank"
+        },
+        "confidence": "reconstructed",
+        "sources": [
+         "loc_stereo_1s12375_water_tower",
+         "chm_ichi_05902_water_tower_1890"
+        ],
+        "note": "The railing on the kerb, posts and a top rail; its pattern is not drawn (reconstructed)."
+       }
+      ],
+      "fire": {
+       "fate": "survived",
+       "left": "whole",
+       "sources": [
+        "loc_stereo_1s12375_water_tower"
+       ],
+       "note": "The railing on its kerb still stands in Greene's stereograph after the fire; the grass and young trees burned."
+      },
+      "note": "THE WATER TOWER'S GROUNDS, built by T-3689 for the 1871 scene: the open, planted ground the tower stood on, west of Pine Street between Chicago Avenue and Pearson Street. Kurz's lithograph of the works (Jevne & Almini, 1866-67) shows the tower alone on open ground, a lawn with shrub beds before it and young trees to its west, walks and kerbs along Chicago Avenue and Pine Street, and no house between the tower and Chicago Avenue. Greene's stereograph of the tower after the fire shows an iron railing on a stone kerb across its west side, and a photograph of about 1890 shows the same grounds as a fenced lawn. The grounds are laid inside today's Water Tower park (between Chicago Avenue, Pearson Street, Michigan Avenue and the lane on its west side); that the park keeps the city's 1860s lot is inferred, not documented."
+     },
+     "confidence": "reconstructed",
+     "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph",
+      "loc_stereo_1s12375_water_tower",
+      "chm_ichi_05902_water_tower_1890"
+     ],
+     "note": "Open ground inside a stone kerb and iron railing on Chicago Avenue, Pearson Street and the west side, open to Pine Street before the tower; the gateways and the railing's height are reconstructed."
+    },
+    "kind": {
+     "value": "open_ground",
+     "confidence": "attested",
+     "sources": [
+      "chm_kurz_1866_chicago_water_works_lithograph"
+     ],
+     "note": "Open ground round the tower (Kurz's lithograph): the walker reads it and lets the visitor walk in it, and the context city's houses stand off it.",
+     "geometry": "record_only"
+    },
+    "wall_material": {
+     "value": "A stone kerb with an iron railing round open ground",
+     "confidence": "inferred",
+     "sources": [
+      "loc_stereo_1s12375_water_tower",
+      "chm_ichi_05902_water_tower_1890"
+     ],
+     "note": "Greene's 1871 stereograph and the 1890 photograph; drawn in the 1835 kit's limestone and forged iron.",
+     "geometry": "simplified"
+    }
+   },
+   "change_note": "Built T-3689 (2026-11-21): the Water Tower's grounds, open ground that clears the context city's houses off the tower's block (the owner, 2026-11-20: remove the ordinary houses standing in front of the tower)."
+  }
+ ]
+}

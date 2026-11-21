@@ -241,14 +241,20 @@
             "along_m": 7.5,
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
-              "width_m": 0.8,
+              "width_m": 0.7,
               "height_m": 1.2,
               "sill_m": 0.15
             },
             "surround_m": 0.3,
             "face_setback_m": 0.05,
-            "head": "gable",
-            "gable_pitch_deg": 40
+            "head": "hood",
+            "hood": {
+              "shelf_m": 0.15,
+              "shelf_proud_m": 0.1,
+              "rise_m": 1.1,
+              "lean_m": 0.35,
+              "taper_m": 0.1
+            }
           },
           {
             "face": "street",
@@ -262,7 +268,24 @@
             "surround_m": 0.3,
             "face_setback_m": 0.05,
             "head": "gable",
-            "gable_pitch_deg": 55
+            "gable_pitch_deg": 55,
+            "ornament": {
+              "coping": {
+                "width_m": 0.15,
+                "proud_m": 0.06,
+                "back_m": 0.3
+              },
+              "pinnacles": {
+                "shaft_m": 0.22,
+                "rise_m": 0.3,
+                "cap_m": 0.08,
+                "spire_m": 0.35
+              },
+              "finial": {
+                "height_m": 0.5,
+                "radius_m": 0.1
+              }
+            }
           },
           {
             "face": "north",
@@ -306,7 +329,7 @@
         "chicagology_2100_sherman_photo",
         "aabn_1876_09_30_sherman_2100_plate"
       ],
-      "note": "The photograph: the slated faces rise from the cornice (y 600 px) to the crested curb (y 300-380, about 3.6 m) at about 76 degrees; on the front a small dormer over the entrance (x 445-585) and a larger stone dormer with a roundel in its gable over the parlour (x 670-850); on the 21st Street face two tall gabled stone dormers behind the great stack (x 1170-1255 and 1290-1380), the plate showing the same pair. The small front dormer's head is drawn as a low gable where the photograph shows a flat-topped dormer; the gable dormer's roundel and the dormers' stone pinnacles are T-1920's."
+      "note": "The photograph: the slated faces rise from the cornice (y 600 px) to the crested curb (y 300-380, about 3.6 m) at about 76 degrees; on the front a small dormer over the entrance (x 445-585) and a larger stone dormer with a roundel in its gable over the parlour (x 670-850); on the 21st Street face two tall gabled stone dormers behind the great stack (x 1170-1255 and 1290-1380), the plate showing the same pair. T-3702: the small dormer over the entrance is the photograph's stone face under a projecting stone shelf (its cornice, crop y 430 px at x 445-585), its light about 0.7 m across (38 px on the front's foreshortened plane at about 77 px a metre), and over the shelf a slated hood about 1.1 m high (y 345-430) leaning back into the mansard, K01's `hood` head; the large dormer over the parlour keeps its 55 degree gable and takes the photograph's stone coping up both rakes, the short engaged pinnacle with its spike at each shoulder (y 365) and the finial at its apex (y 220-240), K01's dormer ornament. The roundel in the large dormer's gable (y 290-330) is not built: K01's lower-face dormer has no roundel, and the match record keeps it open."
     },
     "roof_covering": {
       "value": {
@@ -620,6 +643,18 @@
                 "width_m": 0.25,
                 "shaft_m": 0.4,
                 "cap_m": 0.35
+              },
+              "panel": {
+                "border_m": 0.12,
+                "base_m": 0.1,
+                "proud_m": 0.03,
+                "relief": {
+                  "proud_m": 0.03,
+                  "stem_m": 0.06,
+                  "leaf_m": 0.35,
+                  "pitch_m": 0.22,
+                  "margin_m": 0.05
+                }
               }
             }
           },
@@ -777,7 +812,7 @@
         "chicagology_2100_sherman_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); T-3700: built as the photograph's and the plate's oriel, K08's turned square set across the corner on five stone corbel courses at the second floor (7.2 m), in stone, 1.55 m in radius so its face to the corner is about 2.2 m as the photograph's (x 935-1095 px), its storey 4.6 m so its cornice stands under the main cornice as the photograph's gable foot does; a narrow light on each cheek and the pair on its face (2.3 m, the photograph's y 690-860 px); under its face the plate's stone column, a shaft 0.36 m across with a base and a capital stopped under the corbels, on a pedestal from grade to the principal floor (the photograph's tree hides it; the plate draws it whole); over its face the small coped stone gable with its rose roundel (1.3 m high, the photograph's y 560-655 px); and behind the gable the slated pyramid springing from its eaves on the main cornice's line, flared at its foot (eave pitch 0.5 over its first 0.8 m) and steep above (4.2), its finial's foot at about y 130 px against the photograph's 130. The plan's cut corner is not made under it: the parlour's corner stands square behind the column (K01 lays no cut there; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed. T-3699: the library's tall pair (x 60-215 px) stands in moulded stone surrounds under one broad carved segmental tympanum spanning both lights (its crown at y 990 px), K09's tympanum with span_m over the pair;"
+      "note": "Three projections. The LIBRARY PAVILION at the front's south end: the plan's library stands about 1.25 m before the parlour's face (built 0.8 m, K08's ceiling for a pavilion carried up past the eave) and about 5 m wide, its north cheek against the porch as the photograph shows it; the photograph carries it up through the cornice into a steep slated gable with a finial (apex at y 290 px, about 17 m through the solved camera), two tall lights a storey and one in the gable. The CORNER at the parlour's north-east angle: the plan's cut corner with the oriel's dashed square over it, and the photograph's oriel on the second storey (x 905-1100 px) under the steep slated pyramid with its finial (apex at y 100 px, about 20 m through the solved camera); T-3700: built as the photograph's and the plate's oriel, K08's turned square set across the corner on five stone corbel courses at the second floor (7.2 m), in stone, 1.55 m in radius so its face to the corner is about 2.2 m as the photograph's (x 935-1095 px), its storey 4.6 m so its cornice stands under the main cornice as the photograph's gable foot does; a narrow light on each cheek and the pair on its face (2.3 m, the photograph's y 690-860 px); under its face the plate's stone column, a shaft 0.36 m across with a base and a capital stopped under the corbels, on a pedestal from grade to the principal floor (the photograph's tree hides it; the plate draws it whole); over its face the small coped stone gable with its rose roundel (1.3 m high, the photograph's y 560-655 px); and behind the gable the slated pyramid springing from its eaves on the main cornice's line, flared at its foot (eave pitch 0.5 over its first 0.8 m) and steep above (4.2), its finial's foot at about y 130 px against the photograph's 130. The plan's cut corner is not made under it: the parlour's corner stands square behind the column (K01 lays no cut there; liberty L-k01-2100-sherman-1919). The SITTING ROOM's canted bay on the 21st Street flank, from the plan (3.4 m wide, 0.9 m out, about 11 m behind the front), one storey over the basement as the plan draws it; its height is reconstructed. T-3699: the library's tall pair (x 60-215 px) stands in moulded stone surrounds under one broad carved segmental tympanum spanning both lights (its crown at y 990 px), K09's tympanum with span_m over the pair; T-3702: the pavilion gable's carved panel (the photograph's pale carved field filling the apex over the gable's light, crop x 170-290, y 150-290 of the pavilion) is K08's gable panel with its leaf relief; the photograph's carving reads as a diaper lattice, a pattern K08 does not carve."
     },
     "chimneys": {
       "value": {
@@ -796,24 +831,56 @@
               1.3,
               0.9
             ],
-            "top_m": 19.0
+            "top_m": 17.9,
+            "across": "x",
+            "flues": 3,
+            "pot": "long"
           },
           {
             "u_m": 13.0,
-            "v_m": 2.0
+            "v_m": 2.0,
+            "pot": false
           },
           {
             "u_m": 4.0,
-            "v_m": 7.0
+            "v_m": 7.0,
+            "pot": false
           }
-        ]
+        ],
+        "k15": {
+          "kit": "data/components/prairie_1904/k15_chimneys.json",
+          "from": "k15.stack.sherman",
+          "omit": [
+            "bands",
+            "panels"
+          ],
+          "flues": 2,
+          "corbels": [
+            [
+              0.15,
+              0.05
+            ],
+            [
+              0.2,
+              0.1
+            ],
+            [
+              0.2,
+              0.15
+            ]
+          ],
+          "cap": {
+            "thickness_m": 0.3,
+            "projection_m": 0.2
+          }
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2100_sherman_photo",
         "aabn_1876_09_30_sherman_2100_plate"
       ],
-      "note": "The great stack on the 21st Street flank behind the corner (photograph x 1050-1145 px, its clustered flues' tops at y 185, about 19 m through the solved camera), which the plate also draws; the other two stacks are the plan's fireplaces on the south wall and the kitchen's, their heights the kit's."
+      "note": "The great stack on the 21st Street flank behind the corner (photograph x 1050-1145 px, its clustered flues' tops at y 185, about 19 m through the solved camera), which the plate also draws; the other two stacks are the plan's fireplaces on the south wall and the kitchen's, their heights the kit's. T-3702: the great stack's head off the photograph (crop at x 1020-1180, y 170-620 px): a dark brick shaft from a stone base, a stone head over corbel courses under a projecting cap (y 320-370), and on it a row of three round flue shafts with moulded tops about 1.9 m high (y 185-320, at about 70 px a metre at the stack), seen in a row running back from the street, so they stand in a row along the stack's long side (`across: x`). Built as the K15 carved Sherman stack (its corbel blocks under a corbelled head; its string bands and sunk panels omitted, the photograph's shaft showing neither) with the kit's slender 1.1 m `long` shaft on each flue, its cap at 17.9 m so the flues' tops stand at the photograph's 19.0 m: the kit has no 1.9 m flue shaft (adding one to the shared K15 kit would restale every house that reads it), so the head stands about 0.8 m higher than the photograph's and its shafts that much shorter. The two stacks the photograph does not see take the same head without shafts (RECONSTRUCTED, L-k01-2100-sherman-1919). The carved gablet on the head's street face is not built."
     },
     "rainwater": {
       "value": {
