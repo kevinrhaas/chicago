@@ -1088,6 +1088,18 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     for what, x in (("pitch_deg", side), ("end_pitch_deg", end)):
         if not (lo < x <= hi):
             raise ParamError(f"mansard.crown.{what} {x}: a hipped crown is slated, over {lo} and up to {hi} degrees")
+    # T-3562: or over the attic's stone front alone (1815's, Chicagology's square-on print: the
+    # crown's eave spans the attic front between its slated cheeks, which slope out under it
+    # to the shoulders' caps), `cheek_inset_m` in from each junction: the attic storey's own
+    # raked cheeks (k08_bays._cheeks), as wide as they are
+    ci = float(c.get("cheek_inset_m", 0.0))
+    if ci:
+        top = bay["variant"]["storeys"][-1].get("cheeks") or {}
+        if not c.get("attic_m") or not top.get("raked") or abs(float(top["width_m"]) - ci) > 1e-9 \
+                or abs(float(top["raked"]["back_m"]) - cd) > 1e-9:
+            raise ParamError(f"mansard.crown.cheek_inset_m {ci}: a crown over an attic whose top storey has raked "
+                             f"cheeks, as wide as they are, run back its depth_m")
+        a, b = a + ci, b - ci
     w = b - a
     point = c.get("point", False)
     if point is not True and point is not False:
@@ -1161,6 +1173,7 @@ def _hip_crown(c: dict, m: dict, bay: dict, proud: float, a: float, b: float, cd
     return {"over_bay": bay["id"], "form": "hip", "x0": round(x1 - cd, 4), "x1": round(x1, 4),
             "z0": round(-b, 4), "z1": round(-a, 4), "pitch_deg": side, "end_pitch_deg": end,
             "overhang_m": co, "ridge_m": round(E + rise, 4), **({"side_inset_m": si} if si else {}),
+            **({"cheek_inset_m": ci, "depth_m": cd} if ci else {}),
             **({"point": True, "back_pitch_deg": back_pitch} if point else {}),
             "ridge_x_m": (round(back, 4), round(apex, 4)),
             **({"attic_m": attic, "eave_m": round(E, 4)} if attic else {}),
@@ -3646,7 +3659,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             ch = st.get("cheeks")
             if ch is None:
                 continue
-            if not isinstance(ch, dict) or set(ch) - {"consoles", "shoulder"} != {"front_run", "width_m", "proud_m"} \
+            if not isinstance(ch, dict) or set(ch) - {"consoles", "shoulder", "raked"} != {"front_run", "width_m", "proud_m"} \
                     or not (0 <= int(ch["front_run"]) and 0.3 <= float(ch["width_m"]) <= 2.0
                             and 0.01 <= float(ch["proud_m"]) <= 0.06):
                 raise ParamError(f"bays: {e['id']}'s cheeks take front_run, width_m (0.3-2.0 m) and proud_m "
@@ -3672,6 +3685,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # foot under a cap `cap_m` deep and `proud_m` out, and may carry a second such band
             # `ledge_m` over the foot; the slate starts on the cap
             sh = ch.get("shoulder")
+            # T-3562: and RAKED over its shoulder (1815's attic, the square-on print: the crown's
+            # cornice over the stone front alone, each cheek's slate sloping out under it to the cap)
+            # run back `back_m` from the face, the depth of the crown over them
+            rkd = ch.get("raked")
+            if rkd is not None and (not isinstance(rkd, dict) or set(rkd) != {"back_m"}
+                                    or not 0.5 <= float(rkd["back_m"]) <= 8.0
+                                    or sh is None or st is not v["storeys"][-1]):
+                raise ParamError(f"bays: {e['id']}'s cheeks are raked over a shoulder, in the top storey only, "
+                                 f"and take back_m (0.5-8 m), not {rkd}")
             sk, sko = {"height_m", "cap_m", "proud_m"}, {"ledge_m"}
             if sh is not None and (not isinstance(sh, dict) or not sk <= set(sh) <= sk | sko or cs is not None
                                    or not (0.5 <= float(sh["height_m"]) <= float(st["height_m"]) - 0.5
@@ -3686,7 +3708,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             st["cheeks"] = {"front_run": int(ch["front_run"]), "width_m": float(ch["width_m"]),
                             "proud_m": float(ch["proud_m"]),
                             **({"consoles": {k: float(cs[k]) for k in sorted(ck)}} if cs is not None else {}),
-                            **({"shoulder": {k: float(sh[k]) for k in sorted(sh)}} if sh is not None else {})}
+                            **({"shoulder": {k: float(sh[k]) for k in sorted(sh)}} if sh is not None else {}),
+                            **({"raked": {"back_m": float(rkd["back_m"])}} if rkd is not None else {})}
         # T-3002: a dressed band across one run over a storey's windows, under its top, with a
         # roundel on it (1801's south pavilion under its gable's shelf, the Taylor photograph)
         for st in v["storeys"]:
