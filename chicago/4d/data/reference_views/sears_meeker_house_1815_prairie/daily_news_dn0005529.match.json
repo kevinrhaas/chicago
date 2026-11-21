@@ -1,0 +1,68 @@
+{
+  "structure_id": "sears_meeker_house_1815_prairie",
+  "view": "daily_news_dn0005529",
+  "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
+  "glb_sha256": "959268ad3ae7c2febb036eafff5d38e8d932cd2eac6d5494cf43b158180268ae",
+  "camera_sha256": "3b91432fc5264a36af1192ee41e8b0e470accfae2f40af61b3c186efc564404c",
+  "photo_sha256": "3a638fdf878ef01a0c31329beb88ad5c2f31de76b9065747656aa992c41b1cb3",
+  "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/daily_news_dn0005529-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the upper storeys, the pavilion's attic, the mansard, its dormer and the south stack: the 1902 remodel left them as the Chicagology prints draw them",
+      "status": "fixed",
+      "how": "T-3562: the camera is fitted to them (3.3 px rms over eleven points and the flank's cornice line); the build's upper storeys, already matched to both Chicagology prints, fall on the picture's within a few pixels"
+    },
+    {
+      "what": "the one-storey stone bay across the front's middle (x 205-290 px, v 1.24-7.04 m, its face about 1.2 m proud): three tall transomed lights in its front (v 2.11-3.20, 3.73-4.71 and 5.22-6.33 m; 2.05-4.17 m over grade), one in its south cheek, two barred basement lights under the outer ones",
+      "status": "fixed",
+      "how": "T-3562: built as a K08 projection 5.8 m wide and 1.2 m proud on the front (front_bay), a basement storey to 1.8 m and a principal storey of three transomed lights to 4.36 m, its lights within about 0.1 m of the picture's; the corner bay, the stoop and the pedimented door it replaced are gone"
+    },
+    {
+      "what": "the bay's top: a row of modillions under a moulded crown at 4.36-5.04 m and a plain blocking course to about 5.7 m, under the second storey's sills",
+      "status": "within tolerance",
+      "how": "T-3562: built as K08's corbel table (a course on blocks, 4.36-4.79 m) under a plain stone storey to 5.4 m and the bay's flat top to 5.69 m, held 0.15 m under the second storey's sills over it; the crown's moulding and the modillions' carving are under the bar on this print, and the flat top's thin edge renders in the bay's painted tin where the print's coping is stone"
+    },
+    {
+      "what": "an iron railing on a stone ledge across the bay's front at its basement's head (the ledge at about 1.46 m, the rail about 0.85 m over it)",
+      "status": "fixed",
+      "how": "T-3562: a squared floor balcony on the bay (K08 floor_balcony squared, rail_fabric iron, options this ticket added): a 0.2 m stone ledge 0.35 m out across 5.58 m, an iron rail on it run round its corners back to the wall"
+    },
+    {
+      "what": "the entrance: a small one-storey stone block north of the house's north wall (v -1.95 to 0.46 m, its face about 0.2 m before the front), capped about 3.06 m over grade, with a round-arched doorway at grade in it (v -1.33 to 0.0, its crown about 2.15 m) under a square label",
+      "status": "fixed",
+      "how": "T-3562: built as a K08 projection set out 1.95 m past the front's north corner (set_out_m, run 0.96 m back along the flank to the stair projection, set_out_back_m) carrying the K01 door: a round-headed double door at one riser over grade (entrance_floor_m 0.15, opening_m 1.33 by 2.0 m) under its voussoir ring and keystone, the arch turned in the block's face (K01 options this ticket added: a door past the front's corner, carried by such a block)"
+    },
+    {
+      "what": "the square label round the arch's head and the block's moulded cap",
+      "status": "within tolerance",
+      "how": "the arch's ring and keystone stand where the label does; the cap is K10's moulded stone cornice, 0.2-0.3 m deeper than the print's thin slab"
+    },
+    {
+      "what": "the doorway reads black in the print: an open vestibule arch, the door unseen behind it",
+      "status": "within tolerance",
+      "how": "K07's deep-arch door stands 0.95 m back in its reveal; behind the railing it reads as a dark opening at this size"
+    },
+    {
+      "what": "the tall iron railing on a stone curb along the street line, its spears about 1.8-1.9 m over grade, run from the north lot line to the south",
+      "status": "fixed",
+      "how": "T-3562: K11's spear railing on its curb, its top rail raised to 1.5 m over the curb (fence_rail_top_m), its gates hung on slender iron posts; the old low coping is gone"
+    },
+    {
+      "what": "where the railing's gates stand: the print shows no gate against the shadowed run",
+      "status": "not shown",
+      "how": "a pair of leaves on the walk to the arched door and the side passage's gate at its mouth (v -4.35 to -3.0 m), reconstructed (docs/LIBERTIES.md)"
+    },
+    {
+      "what": "the neighbours, the street trees and the street",
+      "status": "not shown",
+      "how": "the review render draws the house alone"
+    },
+    {
+      "what": "the stone's colour and tone",
+      "status": "not shown",
+      "how": "the print is monochrome"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

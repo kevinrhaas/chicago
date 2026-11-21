@@ -124,4 +124,39 @@ matches both prints. It is whether the front the prints show still stood on 1 Ju
 
 The build is unchanged: the photographs stay the 1904 front under `L-k01-1815-sears-1893`, now
 weighed as most likely superseded by 1904. Which way to go is the owner's: T-3562 carries the
-question (decision pending).
+question (decided 2026-11-21, below).
+
+## T-3562: the remodelled ground floor, to the 1908 picture
+
+The owner answered on 2026-11-21: bring in the 1908 Daily News picture and rebuild 1904 to the
+remodelled front, with that picture as its image gate. The owner supplied a 640 x 461 px copy of
+DN-0005529 (`data/sources/assets/meeker_1815_dn0005529_t3562/`), now the house's third reference
+view (`daily_news_dn0005529.json`).
+
+- **Camera.** Fitted to what the remodel kept: the attic's paired lights, the pavilion's and the
+  second storey's windows, the main cornice's corner, the south stack's top and the south flank's
+  cornice line, all placed in 3-D by the square-on Chicagology camera, with the eye held at 1.6 m
+  and grade held at three feet on the new ground floor. 3.3 px rms; the eye about 30 m before the
+  front in the avenue's far walk. The build's upper storeys fall on the picture's within a few
+  pixels, so the remodel left them alone.
+- **What the remodel did.** The corner bay with its pierced balcony, the stoop, the pedimented door
+  and the low coping are gone. A one-storey stone bay stands across the front's middle, 5.8 m wide
+  and 1.2 m proud, with three tall transomed lights, two barred basement lights, an iron railing on
+  a stone ledge at about 1.46 m, and modillions under a crown and a blocking course to about 5.7 m.
+  North of the front's north corner a small stone block, capped about 3.06 m, carries a
+  round-arched doorway at grade. A tall iron railing, its spears about 1.8-1.9 m, runs along the
+  street line.
+- **Built.** The bay as a K08 projection with a squared iron floor balcony under K08's corbel table;
+  the block as a K08 projection set out 1.95 m past the corner and run back to the stair projection,
+  carrying K07's deep-arched double door one riser over grade; the railing as K11's spear railing
+  with its top rail at 1.5 m. The K01 and K08 options this needed (`set_out_m` for an entrance,
+  `set_out_back_m`, `on_block_m`, `floor_balcony.squared`, `rail_fabric`) are additive.
+- **Match records.** The 1908 view matches: its remaining differences are within tolerance (the
+  modillions, the block's cap, the door reading black, the railing's posts) or not shown (the
+  gates, the neighbours, colour). On both Chicagology views every ground-floor item is now the
+  owner's ruling; their upper storeys still match.
+- **Reconstructed** (`L-k01-1815-sears-1893`): the block's depth, its cap's moulding and the door's
+  leaves; the step; the bay's corbel table, blocking storey and flat top; the balcony ledge's
+  depth; the railing's posts and spear heads; and the two gates, which the print does not show.
+
+![before and after, through the 1908 camera](../photo-match/sears_meeker_house_1815_prairie/daily_news_dn0005529-side-by-side.jpg)

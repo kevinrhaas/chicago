@@ -5,20 +5,25 @@
  "author": "Chicago Daily News staff photographer",
  "date": "1908",
  "describes_date": "1908",
- "repository": "Chicago History Museum, Chicago Daily News negatives collection (DN-0005529); catalogued on Explore Chicago Collections.",
+ "repository": "Chicago History Museum, Chicago Daily News negatives collection (DN-0005529); catalogued on Explore Chicago Collections. The project's reference copy is the owner's (640 x 461 px, supplied on T-3562, 2026-11-21), committed at data/sources/assets/meeker_1815_dn0005529_t3562/ with its attribution.",
  "url": "https://explore.chicagocollections.org/image/chicagohistory/71/3t9dd7h/",
- "locator": "The whole negative, as catalogued: the front and one side of the house with its yard.",
+ "locator": "The whole negative: the house's street front and south flank from the south-west across Prairie Avenue, from the street railing to the stacks; the neighbours' edges either side.",
  "tier": 1,
  "rights_status": "check_required",
- "rights_note": "The Chicago Daily News negatives of 1902-1933 are offered by the Chicago History Museum and the Library of Congress without known restrictions (cdn_dn0003324_field_residence), but this negative's own record has not been read, and no copy is held.",
+ "rights_note": "The Chicago Daily News negatives of 1902-1933 are offered by the Chicago History Museum and the Library of Congress without known restrictions (cdn_dn0003324_field_residence), but this negative's own catalogue record has not been read on its page. Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate is the owner's, unaltered.",
  "asset_use": "cross_check",
- "verified": false,
- "access_notes": "NOT SEEN. On 2026-11-21 (T-3562) its catalogue page refused this runner (403, a browser challenge) and the Library of Congress's copy of the collection was behind the same challenge; the title, date and number are as a web search gave the Chicago Collections record. Not in the image store.",
- "note": "The nearest dated picture of 1815 Prairie to 1904, and the only one known after the 1902 sale: the photographs the build follows are undated and show Joseph Sears's house. Whether its front is the photographed one or Heun's remodel settles which front stood in 1904 if, as the Ryerson and Burnham index says, the remodel was done in 1902.",
+ "verified": true,
+ "access_notes": "Read 2026-11-21 (T-3562) from the owner's copy, 640 x 461 px greyscale, sha256 3a638fdf878ef01a0c31329beb88ad5c2f31de76b9065747656aa992c41b1cb3; its catalogue page still refuses this runner (403, a browser challenge), so the title, date and number are as a web search gave the Chicago Collections record. Not in the image store.",
+ "note": "The nearest dated picture of 1815 Prairie to 1904, and the only one known after the 1902 sale: it shows Arthur Heun's remodelled ground floor (the one-storey stone bay across the front, the arched entrance at grade in a block north of the front, the tall street railing) under the upper storeys, mansard and stacks the undated Chicagology prints draw for Joseph Sears's house. The owner ruled on T-3562 (2026-11-21) that 1904 is built to it; its camera is data/reference_views/sears_meeker_house_1815_prairie/daily_news_dn0005529.json.",
  "what_it_supplies": [
-  "(once seen) the front the Meekers' house showed in 1908"
+  "the remodelled ground floor: the one-storey bay's plan, lights, basement lights, balcony rail and top; the entrance block, its cap and its arched door at grade",
+  "the tall iron railing along the street line",
+  "that the upper storeys, the pavilion's attic, the mansard and the stacks stood as the Chicagology prints draw them"
  ],
  "what_it_does_not_supply": [
-  "anything yet: the picture has not been seen"
+  "colour: the print is monochrome",
+  "the north flank, the entrance block's depth and the rear",
+  "the gates in the railing, against its shadowed run",
+  "the carving of the bay's modillions at this size"
  ]
 }
