@@ -1,0 +1,24 @@
+{
+  "structure_id": "roloson_house_2109_prairie",
+  "source_id": "chicagology_2115_armour_photo",
+  "library_image": "a20-chicagology-2115-armour-photo",
+  "photo": "../../sources/assets/roloson_2109_photo_t3666/chicagology_2115_armour.jpg",
+  "image_px": [
+    2000,
+    1525
+  ],
+  "principal_px": [
+    1000.0,
+    1129.0
+  ],
+  "focal_px": 2105.0,
+  "eye": [
+    31.9,
+    6.87,
+    1.6
+  ],
+  "yaw_deg": -68.0,
+  "sky": "overcast",
+  "scene": "1904",
+  "solve": "Fitted for T-3666 to the photograph's left edge and the 1911 sheet 35 plan of 2109 (the K01 record's frame: u toward the street, v along the front from the north wall, so its 'north' is the real south). A level camera: the print's verticals stand upright and the Armour front's principal sill line runs level, so the camera is not pitched. Its principal column is held at the print's middle (x 1000 px), the print being a reproduction of unknown crop. Fitted by least squares on 2109 alone, at an assumed 1.6 m eye: the front's south corner at the eave (u 7.81, v 7.72, 9.9 m up) at x 230, y 360 px; the south bay's light centred at x 102; the veranda's south-west corner (u 9.61, v 10.42) at x 515 and its floor (1.7 m) at y 1115; grade under it at y 1290; the veranda floor at the house's corner at y 1115. Result: eye u 31.9, v 6.87 (in the roadway about 17 m west of the street line, level with the front block's south wall), yaw -68 degrees, focal 2105 px, the horizon at y 1129; every residual within 9 px. An eye of 2.0 or 2.5 m fits as well (u 33.0-35.7, focal 2208-2482 px), so height and distance are uncertain by about 15%. The Armour house (2115) was tried as context and dropped: its district-draft footprint does not stand where the print draws its front's two corners (x 760 and 1555), so it cannot hold the camera until T-1925 refines it. No shadow falls in the print (a winter sky, snow on the lawns), so the render is overcast."
+}
