@@ -95,7 +95,8 @@ _body = _material("brick", FABRIC)
 # T-3244: the panels a record may lay instead (`service_wall_brick`), each with the brick
 # its units are cut from: the red-brown brick in light joints of 1700-1708 Prairie's photographs.
 # Every one shares the common panel's tile and the module, so the bond's phase is the same.
-PANELS = {PANEL: FABRIC, "rough_red_brown_running": "rough_red_brown"}
+PANELS = {PANEL: FABRIC, "rough_red_brown_running": "rough_red_brown",
+          "cream_rough_running": "cream_rough"}  # T-3626: 2013 Prairie's cream front
 TILES, IMAGES, ROUGHNESS = {}, {}, {}
 for _p, _f in PANELS.items():
     _pm, _bm = _material("panel", _p), _material("brick", _f)

@@ -182,6 +182,23 @@ BRICKS = [
      ],
      "not_for": "any front other than one the register calls rough; its chipped arris is Mayer's, not a general weathering",
      "note": "Rough-faced red-brown brick: a torn, dragged face with pits and grit, irregular chipped arrises and deep raked joints that put a shadow under every course. Colour, tear and chip rate are reconstructed."},
+    {"id": "cream_rough", "kind": "rough", "seed": 5,
+     "colors": [[234, 220, 186], [208, 190, 152]], "grit": [190, 172, 136], "mean_roughness": 0.88,
+     "joint": {"width_m": 0.006, "recess_m": 0.0015, "profile": "struck", "mortar": "mortar_lime"},
+     "arris": {"bevel_m": 0.002, "chip": {"probability": 0.20, "depth_m": 0.004, "length_m": [0.006, 0.02]}},
+     "face_relief_m": 0.0018,
+     "variants": [
+         {"id": "body", "weight": 0.50, "tint": [1.00, 1.00, 1.00]},
+         {"id": "paler", "weight": 0.20, "tint": [1.03, 1.03, 1.04]},
+         {"id": "buffer", "weight": 0.20, "tint": [0.97, 0.95, 0.90]},
+         {"id": "flashed", "weight": 0.10, "tint": [0.90, 0.87, 0.82]},
+     ],
+     "bonds": ["running"],
+     "uses": [
+         {"record": None, "register": "2013 Prairie (reid_house_2013_prairie): the 2003 National Register nomination's front 'faced with cream colored, rough textured brick' (nrhp_2003_reid_house_nomination, p. 4; T-3626)"},
+     ],
+     "not_for": "a common wall, or any front whose own evidence is not a pale (cream or white) brick",
+     "note": "Rough-textured cream face brick: the pale, lime-rich clays the lake-shore yards fired cream to straw, with a torn, sanded face, pale grit and a fine struck joint in a cream-grey lime mortar so the front reads as one pale field. The colour family is the nomination's word 'cream'; the exact tint, tear, chip rate and joint are reconstructed."},
 ]
 
 SPECIALS = {
@@ -208,6 +225,8 @@ PANELS = [
      "for": "common-brick returns, party walls, rear ranges and coach houses"},
     {"id": "rough_red_brown_running", "fabric": "rough_red_brown", "bond": "running", "modules": 4, "courses": 12,
      "for": "the Mayer front (pa-2009-17)"},
+    {"id": "cream_rough_running", "fabric": "cream_rough", "bond": "running", "modules": 4, "courses": 12,
+     "for": "a cream-brick street front (2013 Prairie, T-3626) at the balanced and light exports"},
     {"id": "pressed_red_flemish_dark_headers", "fabric": "pressed_red", "bond": "flemish", "header_fabric": "dark_fired",
      "modules": 3, "courses": 12,
      "for": "a Georgian Revival option (pa-2126-20, pa-1700-52) - Flemish bond with burnt headers; no register entry yet attests the bond"},
@@ -300,7 +319,8 @@ def fabric_rough(spec, rng):
     pits = specks(rng, 0.0007, 1.1)
     color = mix(body * 0.85 + lump * 0.15, spec["colors"][1], spec["colors"][0])
     color *= (0.96 + 0.04 * tear)[..., None]
-    color = color * (1 - 0.25 * grit)[..., None] + np.array([168, 120, 92], np.float32) * (0.25 * grit)[..., None]
+    grit_rgb = np.array(spec.get("grit", [168, 120, 92]), np.float32)   # T-3626: a pale rough brick's own grit
+    color = color * (1 - 0.25 * grit)[..., None] + grit_rgb * (0.25 * grit)[..., None]
     color *= (1 - 0.15 * pits)[..., None]
     h = (tear - 0.5) * 0.0007 + (lump - 0.5) * 0.0012 + (body - 0.5) * 0.0008 - pits * 0.0012 + grit * 0.0002
     rough = clamp01(spec["mean_roughness"] + (tear - 0.5) * 0.06)
