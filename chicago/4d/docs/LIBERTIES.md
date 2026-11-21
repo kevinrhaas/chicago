@@ -45436,7 +45436,18 @@ piece) built the corner off the photograph and the 1876 plate: the second-storey
 corbels, the plate's stone column under it, its small coped gable with a roundel, and the slated pyramid springing
 behind the gable from the main cornice's line; the square tower from grade is gone. What stays otherwise than the
 evidence there: the plan's cut corner is not made behind the column (the parlour's corner stands square; K01 lays no
-cut under an oriel), and the plate's carved rose in the roundel is a plain disc.
+cut under an oriel), and the plate's carved rose in the roundel is a plain disc. T-3702 (the fourth
+piece) built the roof's ornament off the photograph: the small dormer over the hall is a stone face under a
+projecting shelf with a slated hood leaning back over it; the large dormer over the parlour carries a stone coping up
+its rakes, an engaged pinnacle at each shoulder and a finial; the great stack carries the K15 carved Sherman head
+(corbel blocks, corbelled courses, cap) with three round flue shafts in a row along its long side;
+and the pavilion's gable carries K08's carved panel. What stays otherwise than the evidence there: the hood's rise
+and lean, the pinnacles' and finial's sizes and the head's courses are read at the photograph's scale and the kit's
+proportions, not measured (RECONSTRUCTED); the flue shafts are the kit's 1.1 m `long` profile where the photograph's
+stand about 1.9 m, so the head stands about 0.8 m high (the kit has no longer shaft, and adding one to the shared
+kit restales every house that reads it); the two stacks no picture shows take the same head without shafts; the
+large dormer's roundel and the head's carved gablet are not built; the panel's carving is K08's leaf relief where
+the photograph's is a diaper lattice; and the gable's flared feet are still not built.
 **Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.
