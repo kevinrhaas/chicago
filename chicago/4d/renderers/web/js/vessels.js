@@ -38,6 +38,8 @@ const CREW_CAP = { full: 14, balanced: 10, light: 6 };
 const DETAIL_NEAR_M = 220;
 /** A boat the visitor left goes home once they are this far off, or out of sight and half as far. */
 const HOME_FAR_M = 380;
+/** Open water kept round a moored boat, past her ends and sides, where the reeds do not grow. */
+const MOORING_CLEAR_M = 0.8;
 const LAKE_E = 1520;
 const CREW_PROFILE = { 1835: 'anonymous_adult_1835' };
 const CREW_ASSET = { 1835: 'mahoney_patrick_1835' };
@@ -208,6 +210,16 @@ export async function createVessels({
     if (rec.mode === 'beached') {
       const pts = model.hullOutline().map(([x, z]) => { const q = localToEnu(v.pose, x, z); return [q.e, q.n]; });
       out.keepOut.push({ id: `${rec.id}__hull`, pts });
+    } else if (rec.mode === 'moored') {
+      // A boat kept at a berth keeps its water open: no reed grows up through her floor
+      // (the 1812 garrison's scow lies in the reed bed below the Kinzie house), at her own
+      // berth and at each dated one. crossings.js keeps its landings clear the same way.
+      for (const [k, b] of [rec.berth, ...(rec.dated ?? []).map((d) => d.berth)].filter(Boolean).entries()) {
+        const pose = { e: b.e, n: b.n, bearing: b.bearing };
+        const hx = v.L / 2 + MOORING_CLEAR_M, hz = v.B / 2 + MOORING_CLEAR_M;
+        const pts = [[-hx, -hz], [hx, -hz], [hx, hz], [-hx, hz]].map(([x, z]) => { const q = localToEnu(pose, x, z); return [q.e, q.n]; });
+        out.keepOut.push({ id: `${rec.id}__berth${k ? `_${k}` : ''}`, pts });
+      }
     }
     v.thing = thingFor(v);
     out.things.push(v.thing);
