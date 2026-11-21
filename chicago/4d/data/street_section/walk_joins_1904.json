@@ -14,8 +14,8 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 105,
-  "joined": 83,
+  "walk_ends": 106,
+  "joined": 84,
   "already_met": 15,
   "not_street_ends": 7,
   "widest_gap_m": 1.6
@@ -87,6 +87,7 @@
   {"id": "pullman_house_1729_prairie:front_walk:4", "house": "pullman_house_1729_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.178, "width_m": 1.5, "polygon_local_m": [[1411.624, -3173.971], [1411.634, -3175.471], [1411.384, -3175.474], [1411.365, -3173.974]]},
   {"id": "ream_house_1901_prairie:front_walk:0", "house": "ream_house_1901_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.35, "width_m": 1.28, "polygon_local_m": [[1413.085, -3329.181], [1413.098, -3330.461], [1412.668, -3330.466], [1412.655, -3329.186]]},
   {"id": "ream_house_1901_prairie:service_walk:1", "house": "ream_house_1901_prairie", "kind": "service_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.353, "width_m": 1.33, "polygon_local_m": [[1413.012, -3321.592], [1413.025, -3322.922], [1412.593, -3322.926], [1412.579, -3321.596]]},
+  {"id": "rees_house_2110_prairie:front_walk:0", "house": "rees_house_2110_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.343, "width_m": 1.9, "polygon_local_m": [[1395.964, -3650.631], [1395.942, -3648.731], [1396.365, -3648.727], [1396.382, -3650.627]]},
   {"id": "reid_house_2013_prairie:front_walk:0", "house": "reid_house_2013_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.333, "width_m": 1.28, "polygon_local_m": [[1415.432, -3521.027], [1415.445, -3522.307], [1415.032, -3522.31], [1415.023, -3521.03]]},
   {"id": "rothschild_house_2112_prairie:front_walk:0", "house": "rothschild_house_2112_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.31, "width_m": 2.2, "polygon_local_m": [[1396.108, -3662.591], [1396.082, -3660.391], [1396.472, -3660.387], [1396.492, -3662.587]]},
   {"id": "sears_meeker_house_1815_prairie:front_walk:0", "house": "sears_meeker_house_1815_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.303, "width_m": 1.5, "polygon_local_m": [[1412.374, -3263.076], [1412.389, -3264.576], [1412.007, -3264.579], [1411.992, -3263.079]]},

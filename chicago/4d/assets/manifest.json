@@ -9830,19 +9830,9 @@
       "baked_ao": false,
       "bytes": 4084324,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "312068ae7326bc5e2d4d8394e566e99d28b4c719fed5ab969029d41d6002ed64",
+      "inputs_sha256": "e9d3be00b0d1e8f38fb8ae7677c925dae2a6e466b1d9ddf463456404ca82fc97",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
-      "structure_id": "rees_house_2110_prairie"
-    },
-    "rees_house_2110_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
-      "baked_ao": false,
-      "bytes": 143208,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "21d56a4732ae62641785959baf7b5915cf8a5cc29d6e79ed04d05897e1720c42",
-      "kind": "generated",
-      "phase_id": "draft_1904",
       "structure_id": "rees_house_2110_prairie"
     },
     "reid_house_2013_prairie__as_mapped_1904.glb": {
