@@ -68,3 +68,25 @@ three lights a storey; the door at the north end with the light over it; the sto
 - the stack's stone (K01 lays stacks in brick);
 - the roof behind the gable: K01 builds a hip, so its ridge starts about 2.3 m behind the apex where the true roof runs on to the gable;
 - the cameras of the three pictures and their match records.
+
+## T-3714 — the carved stone (piece 1 of T-1923)
+
+![from the walk, looking up at the bow and the gable](carving-from-the-walk-3714.jpg)
+
+Rendered with `node tools/photo_match.mjs` through an approximate camera on the walk, sunlit (not committed:
+the pictures' rights are unresolved, so no side-by-side is kept). Liberty `L-k01-2110-rees-carving-3714`.
+
+- **The gable's carved head** (`shaped_gable.tympanum`, new in `k01_shaped_gable.py`): a dressed triangle
+  from 15.35 m up into the apex, 0.03 m inside the coping, carrying a stem, pairs of leaves each rolling
+  into a curl, a boss and a fleuron; and the carved drop under it over the light, its arms 1.0 m across.
+  Read off the 2012 detail: the field's level base a little over the light's head (about 0.4 m by the
+  light's own 0.95 m), and the drop's two curled arms either side of the light.
+- **The bow's carved band** (`carved_band`, a new K08 storey option): 0.9 m deep about the upper floor line,
+  from a little over the parlour lights' heads to the upper lights' sills, as the c. 1980s photograph shows
+  it, carrying K08's guilloche. The photograph's carving is scrolled foliage; the rings stand for it.
+- **The bow's copper cornice** (`eaves.in_cap_covering`): the moulded section run in the cap's copper,
+  green with age in the 2012 detail.
+
+Left for T-3715: the loggia's colonnettes and carved capitals, the landing's parapet, the stack's stone and
+the roof run on to the gable. Left for T-3716's photo-match: the kneelers' carved corbels, the finial's
+leaves, the carved fleurons over the bow's upper lights, and the carving's density against the pictures.
