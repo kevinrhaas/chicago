@@ -23482,6 +23482,15 @@ is an option and no house's evidence asks for it yet. The brick module is Glessn
 fabric so the street registers with the canonical asset. No 1904 brick size for these houses is a
 source here.
 
+**Added by T-3626 (2026-11-21): a fifth fabric, rough cream.** `cream_rough` (and its
+`cream_rough_running` panel) is a pale rough-faced cream brick in 6 mm struck joints of the sandy lime
+mortar, made for 2013 Prairie, whose 2003 National Register nomination describes a front "faced with
+cream colored, rough textured brick" (`nrhp_2003_reid_house_nomination`, p. 4). The colour family
+and the rough face are that sentence's; the tint, tear, chip rate, joint and running bond are
+invented, as for the other four. It exists because no factor over the common buff panel can reach a
+cream (a glTF base colour factor never exceeds 1), and the owner answered T-3626 with "You can add
+colors".
+
 **How to resolve:** a dated photograph, specification or surviving fabric of a particular house
 replaces that house's colour, joint and bond. A trade source on Chicago pressed or common brick
 dimensions c. 1870-1904 replaces the module. Neither changes the rule that joints are data and

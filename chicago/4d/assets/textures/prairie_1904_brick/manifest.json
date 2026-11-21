@@ -8,7 +8,8 @@
     "pressed_red",
     "common_buff",
     "dark_fired",
-    "rough_red_brown"
+    "rough_red_brown",
+    "cream_rough"
   ],
   "mortars": [
     "mortar_dark",
@@ -18,6 +19,7 @@
     "pressed_red_running",
     "common_buff_common_6",
     "rough_red_brown_running",
+    "cream_rough_running",
     "pressed_red_flemish_dark_headers"
   ],
   "costs": [
@@ -48,6 +50,13 @@
       "pixels_per_map": 1048576,
       "master_bytes": 3555150,
       "web_bytes": 499174
+    },
+    {
+      "id": "cream_rough",
+      "group": "brick",
+      "pixels_per_map": 1048576,
+      "master_bytes": 3649780,
+      "web_bytes": 501267
     },
     {
       "id": "mortar_dark",
@@ -85,6 +94,13 @@
       "web_bytes": 222504
     },
     {
+      "id": "cream_rough_running",
+      "group": "panel",
+      "pixels_per_map": 248640,
+      "master_bytes": 1038622,
+      "web_bytes": 185193
+    },
+    {
       "id": "pressed_red_flemish_dark_headers",
       "group": "panel",
       "pixels_per_map": 186720,
@@ -93,12 +109,12 @@
     }
   ],
   "totals": {
-    "master_bytes": 29895186,
-    "web_bytes": 3654492
+    "master_bytes": 34583588,
+    "web_bytes": 4340952
   },
   "files": {
     "LICENSE.txt": "f2fcec3fab255e652a7a6fc38c7229755be05cd81e45446cbaa5c6c6fad87dee",
-    "README.md": "792132ec3cbcb2ce917ce41556f83597aa8b40a5b8f4da7ef280ec8e7f66c91e",
+    "README.md": "3f3fb34a7aef09e36cd37cd2d72215e677c6b57f85d71801b6d9b4fc606b8e13",
     "brick/common_buff/common_buff_basecolor.png": "8ecd9b3be78d7317f9dbd18c6f19a75d12a44e827cecee48509460ae38b7add0",
     "brick/common_buff/common_buff_basecolor_web.jpg": "d6519ce2d27cb25abb8c604d9e6b315f655fb91176bc230df91249099fa6c0cc",
     "brick/common_buff/common_buff_height16.png": "fbd6bb99a44675cda7c570317b950c9972c1a4c36227daa7c322de0cfa10a0f5",
@@ -108,6 +124,15 @@
     "brick/common_buff/common_buff_orm_web.jpg": "e0635ffbe4d4626d6f59353e957c2ddab1380d0dd412958bdc9a4c7a290043e4",
     "brick/common_buff/common_buff_roughness.png": "152fa6a5501345d8451c21bda52627ade662a67595e65cf55f816af6f1806b50",
     "brick/common_buff/material.json": "3dcc07b26ccfcc565e99b790bb13c1621f22719bcdd529ae5c1055b53cce68a6",
+    "brick/cream_rough/cream_rough_basecolor.png": "d0079ad9a3adcc8265f724bb8377efa2c07f0b3c0d2184e17af8fb1e556d6307",
+    "brick/cream_rough/cream_rough_basecolor_web.jpg": "2ad2a166a62846ba4bc974d838cd63e5466e55dcb3072752e712fce6b54f0d46",
+    "brick/cream_rough/cream_rough_height16.png": "a0a9156ebf1baaee4b875b4c00c12a892c8897b85ab155e63174af5bb9637615",
+    "brick/cream_rough/cream_rough_normal_gl.png": "fbf8f5d9da7a85fe58ee54d6c5052e3ae04e170fdd731d3efef33779ea07762a",
+    "brick/cream_rough/cream_rough_normal_gl_web.jpg": "4177c2a5e0fecfee150ec4c31ce883dc627d2858f117c8f274a50a8627c91cb5",
+    "brick/cream_rough/cream_rough_orm.png": "de58054f1eadfc0887a12de372dd8f0a42ff85947c3ccbffc25848832b5cfe56",
+    "brick/cream_rough/cream_rough_orm_web.jpg": "edacbea99b5498a319ba3cfbbe1d7c96ab7f55c0d023c9fbed64224be80886e5",
+    "brick/cream_rough/cream_rough_roughness.png": "85c794e1d2f9c48f3fb7fa854882745a6e652c87d5d04f270ac51f51b1bc0d39",
+    "brick/cream_rough/material.json": "f9fe6a7c611a9cffd2269b49e613ef230e42a308c8a5e2fa2342b48e988348c5",
     "brick/dark_fired/dark_fired_basecolor.png": "978be6ba649615c53d8f68f64cc656108b19f62b8be1187480d0688d5941deac",
     "brick/dark_fired/dark_fired_basecolor_web.jpg": "61343dd6eb7195574dceec12d8288e5198784e9924ab6367154033805e553125",
     "brick/dark_fired/dark_fired_height16.png": "bc472265ddb729ef080ad7b53af5b5b42f226b71d2f40f0de69742c90ee6fe60",
@@ -162,6 +187,15 @@
     "panel/common_buff_common_6/common_buff_common_6_orm_web.jpg": "fed4977ec29a0ea43f45307933776db3aa321d40ea5cf80a3e8a78fd3e08952d",
     "panel/common_buff_common_6/common_buff_common_6_roughness.png": "c5f2c5d24892cb658ed90bd02e72155b55b19c7c6893204f1b602c7ae2db9717",
     "panel/common_buff_common_6/material.json": "9dfe909967a043aae64f6282663372a831bb78708cdf210c1d223df59d7bff7e",
+    "panel/cream_rough_running/cream_rough_running_basecolor.png": "d8199e0cb72c5f015d876c6ccb3d7a9b58a625d67e90b94d8cfff67fdf9bdfc5",
+    "panel/cream_rough_running/cream_rough_running_basecolor_web.jpg": "b11ae6ec5ff3ffce7cd6b5ce1c348f61089919574b943b5698d8aaa9bd89b05b",
+    "panel/cream_rough_running/cream_rough_running_height16.png": "7e1b5f0a6c0e2db58e80a3fdc704d6a351ea99f9bb184f512d09480e38c0df21",
+    "panel/cream_rough_running/cream_rough_running_normal_gl.png": "e9ee5d551607135578826270c65e3df51a740c577f2bb9c71da961bd1c1abe59",
+    "panel/cream_rough_running/cream_rough_running_normal_gl_web.jpg": "9217fa1afb9c148630cbed3a854710f1ee723d73643e913f123040e6576ad728",
+    "panel/cream_rough_running/cream_rough_running_orm.png": "81b43cc69b8a4a0d942ff87665cf40765841d2f4f4279489ece391e7aa14cdd8",
+    "panel/cream_rough_running/cream_rough_running_orm_web.jpg": "97df3a2a4e277a8b1eb17c982721389ce9672d1bbaf9c24b2fa833be7c50d68b",
+    "panel/cream_rough_running/cream_rough_running_roughness.png": "4e912fea5197f5aacfcf05d5ae83d03adf19d194944f04c3529bc225906641e2",
+    "panel/cream_rough_running/material.json": "edb548b2c18221631f0e3fb927f2e5bf5e15f0ebf9f92b975b30137d6d44342a",
     "panel/pressed_red_flemish_dark_headers/material.json": "d530bf1a297e53847997327638b6fee0329075b2d0587ed7896dd3365710fdf1",
     "panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor.png": "7b32d96df3ae4c50747245a13e6f3b777745cd0348bcd008b55afa5f80e47ea7",
     "panel/pressed_red_flemish_dark_headers/pressed_red_flemish_dark_headers_basecolor_web.jpg": "98c6dcc6c612a4adde579b63ec606102a78454581e05bc57190a2d568fc74ec8",
@@ -189,7 +223,7 @@
     "panel/rough_red_brown_running/rough_red_brown_running_orm.png": "d9120324e2d815163e014ba3481b0aebe919131421f2716737d6f654fc0722d5",
     "panel/rough_red_brown_running/rough_red_brown_running_orm_web.jpg": "e828ba09a4e6841f0b665e0fcbc7a1e7041e91b6dd515bf8eee67d9af82998f2",
     "panel/rough_red_brown_running/rough_red_brown_running_roughness.png": "96058a56d140091c03eaecf414505a5475b006af7daa30cd96e2308bcc196173",
-    "profiles.json": "91494c1b14a5b4e363c9011861f884657e566bf46d54763752bc8e4f07ed595e",
-    "tools/generate_prairie_1904_brick.py": "67ce0a43feafa7ee8a99cc883de82ae11f0a2ba07d41f74a9a29c10256fcb6ac"
+    "profiles.json": "cb6015105d65ac4c79e91bdb8d461c5f08bff8575dad8ef00da5afe6470848cd",
+    "tools/generate_prairie_1904_brick.py": "b99c54900531fa96555be977e712502768fa5296aa275b43735caa1400e37089"
   }
 }
