@@ -1,0 +1,54 @@
+{
+  "structure_id": "reid_house_2013_prairie",
+  "view": "nrhp_2003_north_side",
+  "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
+  "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a",
+  "camera_sha256": "776efb0919ba3e6c5b0bdc50864a74d9d0ff5413746cb1c50277e0ed75f4c449",
+  "photo_sha256": "9c6a9c9d40d86d0f35800b9f5edb1c132fd542e7aa487de40b92458ded78bedb",
+  "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the north party wall's lights: east of the parging, narrow single stair lights at their own heights in two columns (s 2.05: ground and second floor; s 5.2-5.44: one a storey) and a tall light in the top storey of the part behind the front block, none on the rear block",
+      "status": "fixed",
+      "how": "T-3626: laid as side_bays read off this camera, and rear_3b's top storey; the draft had a ground-to-top column on each rear part and none on the main body"
+    },
+    {
+      "what": "no stack on the north parapet, front to rear",
+      "status": "fixed",
+      "how": "T-3626: the draft's two reconstructed stacks stood on the north wall; moved to the south party wall, where the nomination puts the fireplaces"
+    },
+    {
+      "what": "the parapet line: unbroken at about 14.2-15 m from the front back to the rear block's terrace (u -3.8)",
+      "status": "fixed",
+      "how": "T-3626: rear_3b's top storey raised from 4.0 to the front block's 4.6 m; the draft stepped down 0.6 m behind the front block"
+    },
+    {
+      "what": "the rear block: its north wall up to about 11.4 m at the east end and an open, roofed porch on its top floor to about 14 m (u -8.8 to -4.1), where the build stands two storeys to 8.95 m with a flat deck",
+      "status": "open",
+      "how": "the nomination's 'top floor of the rear section is open to provide a terrace'; K01's wings have no open, roofed porch on a deck to build it with"
+    },
+    {
+      "what": "a small high light in the ground storey behind the front block (s 2.24 on rear_3b, about 0.5 x 0.64 m, sill 4.9 m)",
+      "status": "within tolerance",
+      "how": "under the bar a street visitor would notice, and below a K01 wing sash's 1.5 m least height; not built"
+    },
+    {
+      "what": "the wall's face: parged common brick over the west half where 2011 stood, bare common brick east of it",
+      "status": "not shown",
+      "how": "the parging is post-1955 (2011 demolished); in 1904 the west half stood against 2011 and the east half is the common brick the record lays. The print is monochrome"
+    },
+    {
+      "what": "the front's balustrade, gone in 2003, finials on its end pedestals",
+      "status": "not shown",
+      "how": "a later loss, argued from the 1895 plate, which draws the balustrade whole (the nomination: the pedestals 'originally framing the balustrade')"
+    },
+    {
+      "what": "2011 and 2009 beside it, the fence, the cars, the 2003 skyline",
+      "status": "not shown",
+      "how": "2003 surroundings; 2011 is rendered in the 1904 scene from its own record and left out of this view, which is about 2013's north wall"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "2026-11-20"
+}
