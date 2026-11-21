@@ -78,9 +78,9 @@
       "arris": {"bevel_m": 0.008, "chips_per_m": 1.2, "chip_depth_m": [0.002, 0.01], "chip_length_m": [0.015, 0.06]},
       "rock_face_projection_m": [0.0, 0.025],
       "corner_bond": {"rule": "quoins return alternately long and short", "return_m": [0.25, 0.6]},
-      "rusticated_base": {"channel_width_m": 0.018, "channel_depth_m": 0.012, "courses": [1, 2]},
+      "rusticated_base": {"channel_width_m": 0.018, "channel_depth_m": 0.012, "courses": [1, 4]},
       "coping": {"fall": 0.125, "overhang_m": 0.05, "drip_groove_m": 0.012},
-      "uses": "the Lemont-limestone fronts the register names, and an undocumented foundation or rear wall in local stone",
+      "uses": "the Lemont-limestone fronts the register names, and an undocumented foundation or rear wall in local stone; T-3668: its rusticated base runs to four courses, since the quarry's thin beds (0.41 m at most) lay a basement whose lights stand two thirds of its height, as the Tribune's 1898 cut draws 2108 Prairie's, only in four",
       "register_rows": ["pa-2031-nrhp", "pa-2035-nrhp"],
       "not_for": "the register's Bedford houses"
     },
