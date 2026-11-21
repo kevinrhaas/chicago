@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3189, ts: '2026-11-21T17:39:28.715Z', date: 'Nov 21, 2026, 11:39 AM CT', title: '2017 Prairie\'s dormers get their carved pediments', kind: 'improvement',
+    items: [
+      'The two dormers on the William Armour house\'s mansard at 2017 Prairie are now the classical pediments its photograph shows: pilasters either side of the windows, a deep cornice, and a carved fan-shaped lunette in each gable.',
+    ] },
   { v: 3188, ts: '2026-11-21T16:11:34.810Z', date: 'Nov 21, 2026, 10:11 AM CT', title: '2100 Prairie\'s porch takes its deep stone balcony and swept stair', kind: 'feature',
     items: [
       'The Sherman house\'s front porch now looks more like its c. 1890 photograph: it stands where the picture puts it, a little north of the front door, under a deep stone entablature, with carved capitals on its columns and a balcony guard raised to about 85 cm before a glazed door onto the balcony.',

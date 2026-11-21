@@ -1298,15 +1298,15 @@
        "to": 8.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1328,15 +1328,15 @@
        "to": 15.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1351,8 +1351,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -1403,15 +1403,15 @@
        "to": 9.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1433,15 +1433,15 @@
        "to": 16.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1456,8 +1456,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -1500,15 +1500,15 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1530,15 +1530,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "taking the air and visiting along the frontage",
        "to_point": {
-        "local_e": 1423.15,
-        "local_n": -3660.3
+        "local_e": 1417.38,
+        "local_n": -3657.83
        }
       },
       {
@@ -1553,8 +1553,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.19,
-        "local_n": -3663.3,
+        "local_e": 1417.42,
+        "local_n": -3660.83,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -18570,8 +18570,8 @@
        "to": 9.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -18596,15 +18596,15 @@
        "to": 16.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3660.08
+        "local_e": 1417.37,
+        "local_n": -3657.61
        }
       },
       {
@@ -18619,8 +18619,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -18671,8 +18671,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -18697,15 +18697,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3660.08
+        "local_e": 1417.37,
+        "local_n": -3657.61
        }
       },
       {
@@ -18720,8 +18720,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -18764,8 +18764,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -18790,15 +18790,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking the approach before the next carriage trip",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3660.08
+        "local_e": 1417.37,
+        "local_n": -3657.61
        }
       },
       {
@@ -18813,8 +18813,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3663.08,
+        "local_e": 1417.41,
+        "local_n": -3660.61,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -19868,8 +19868,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -19894,15 +19894,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking for household deliveries",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.22
+        "local_e": 1417.36,
+        "local_n": -3656.75
        }
       },
       {
@@ -19917,8 +19917,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -19969,8 +19969,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -19995,15 +19995,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking for household deliveries",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.22
+        "local_e": 1417.36,
+        "local_n": -3656.75
        }
       },
       {
@@ -20018,8 +20018,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -20062,8 +20062,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -20088,15 +20088,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking for household deliveries",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.22
+        "local_e": 1417.36,
+        "local_n": -3656.75
        }
       },
       {
@@ -20111,8 +20111,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.22,
+        "local_e": 1417.4,
+        "local_n": -3659.75,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -54894,8 +54894,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -54920,15 +54920,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.41
+        "local_e": 1417.35,
+        "local_n": -3655.94
        }
       },
       {
@@ -54943,8 +54943,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -54995,8 +54995,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -55021,15 +55021,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.41
+        "local_e": 1417.35,
+        "local_n": -3655.94
        }
       },
       {
@@ -55044,8 +55044,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -55088,8 +55088,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -55114,15 +55114,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.41
+        "local_e": 1417.35,
+        "local_n": -3655.94
        }
       },
       {
@@ -55137,8 +55137,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.41,
+        "local_e": 1417.39,
+        "local_n": -3658.94,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -61020,8 +61020,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -61046,15 +61046,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3658.78
+        "local_e": 1417.36,
+        "local_n": -3656.31
        }
       },
       {
@@ -61069,8 +61069,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -61121,8 +61121,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -61147,15 +61147,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3658.78
+        "local_e": 1417.36,
+        "local_n": -3656.31
        }
       },
       {
@@ -61170,8 +61170,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -61214,8 +61214,8 @@
        "to": 11.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -61240,15 +61240,15 @@
        "to": 18.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3658.78
+        "local_e": 1417.36,
+        "local_n": -3656.31
        }
       },
       {
@@ -61256,8 +61256,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3661.78,
+        "local_e": 1417.4,
+        "local_n": -3659.31,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -77048,8 +77048,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -77074,15 +77074,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.49
+        "local_e": 1417.35,
+        "local_n": -3656.02
        }
       },
       {
@@ -77097,8 +77097,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -77149,8 +77149,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -77175,15 +77175,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.49
+        "local_e": 1417.35,
+        "local_n": -3656.02
        }
       },
       {
@@ -77198,8 +77198,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -77242,8 +77242,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -77268,15 +77268,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.12,
-        "local_n": -3658.49
+        "local_e": 1417.35,
+        "local_n": -3656.02
        }
       },
       {
@@ -77291,8 +77291,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.16,
-        "local_n": -3661.49,
+        "local_e": 1417.39,
+        "local_n": -3659.02,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -101688,8 +101688,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -101714,15 +101714,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.23
+        "local_e": 1417.36,
+        "local_n": -3656.76
        }
       },
       {
@@ -101737,8 +101737,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -101789,8 +101789,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -101815,15 +101815,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.23
+        "local_e": 1417.36,
+        "local_n": -3656.76
        }
       },
       {
@@ -101838,8 +101838,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -101882,8 +101882,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -101908,15 +101908,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "checking kitchen deliveries at the entrance",
        "to_point": {
-        "local_e": 1423.13,
-        "local_n": -3659.23
+        "local_e": 1417.36,
+        "local_n": -3656.76
        }
       },
       {
@@ -101931,8 +101931,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.17,
-        "local_n": -3662.23,
+        "local_e": 1417.4,
+        "local_n": -3659.76,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -104587,8 +104587,8 @@
        "to": 9.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -104613,15 +104613,15 @@
        "to": 16.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3659.52
+        "local_e": 1417.37,
+        "local_n": -3657.05
        }
       },
       {
@@ -104636,8 +104636,8 @@
        "to": 18.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -104688,8 +104688,8 @@
        "to": 10.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -104714,15 +104714,15 @@
        "to": 17.0,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3659.52
+        "local_e": 1417.37,
+        "local_n": -3657.05
        }
       },
       {
@@ -104737,8 +104737,8 @@
        "to": 19,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "talk",
@@ -104781,8 +104781,8 @@
        "to": 10.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "work",
@@ -104807,15 +104807,15 @@
        "to": 17.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "walk",
        "doing": "sweeping the entrance",
        "to_point": {
-        "local_e": 1423.14,
-        "local_n": -3659.52
+        "local_e": 1417.37,
+        "local_n": -3657.05
        }
       },
       {
@@ -104830,8 +104830,8 @@
        "to": 19.5,
        "indoors": false,
        "at": {
-        "local_e": 1423.18,
-        "local_n": -3662.52,
+        "local_e": 1417.41,
+        "local_n": -3660.05,
         "heading_deg": 269.3
        },
        "activity": "talk",
