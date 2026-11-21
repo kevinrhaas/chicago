@@ -173,14 +173,20 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         raise ParamError("mansard.deck.cresting.joined: a finial at every corner (finials), no hoods or cross roof")
     if deck.get("cross_roof"):
         out["cross_roof"] = _cross_roof(deck["cross_roof"], out, bays, depth)
-    # a stack across the curb line would cut the rail: none may stand on it
+    # a stack across the curb line would cut the rail: none may stand on it, but T-3634: a
+    # stack on the cornice astride a side wall (2017's north stack, at the photograph's left
+    # edge) stands through the side's curb, and that side's cresting stops either side of it
     for c in chimneys:
         sx, sz = c["plan_m"]
-        lines = ((("v", u0, u1, None, v0),) if "south" not in walled else ()) + \
-                ((("v", u0, u1, None, v1),) if "north" not in walled else ()) + \
-                (("u", v0, v1, u0, None), ("u", v0, v1, u1, None))
-        for along, lo, hi, cu, cv in lines:
+        lines = ((("v", u0, u1, None, v0, "south"),) if "south" not in walled else ()) + \
+                ((("v", u0, u1, None, v1, "north"),) if "north" not in walled else ()) + \
+                (("u", v0, v1, u0, None, None), ("u", v0, v1, u1, None, None))
+        for along, lo, hi, cu, cv, side in lines:
             if cv is not None and abs(c["v_m"] - cv) < sz / 2 + 0.1 and lo < c["u_m"] < hi:
+                if c.get("on_cornice") and lo + sx / 2 + 0.3 < c["u_m"] < hi - sx / 2 - 0.3:
+                    out.setdefault("stack_gaps", {}).setdefault(side, []).append(
+                        (round(c["u_m"] - sx / 2 - CROSS_CLEAR_M, 4), round(c["u_m"] + sx / 2 + CROSS_CLEAR_M, 4)))
+                    continue
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at v {cv:.2f}")
             if cu is not None and abs(c["u_m"] - cu) < sx / 2 + 0.1 and lo < c["v_m"] < hi:
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at u {cu:.2f}")
@@ -592,6 +598,7 @@ def dress(a, dk, conf):
             gaps = [g for g in [crown_gap(dk, along, at, y_cap)] if g]
             if side == "street":   # T-1894: and either side of a dormer standing over the curb
                 gaps += [tuple(g) for g in dk.get("dormer_gaps", ())]
+            gaps += [tuple(g) for g in (dk.get("stack_gaps") or {}).get(side, ())]   # T-3634
             if gaps:   # T-3562: and either side of a hipped crown standing through its line
                 pieces = [(s0, s1)]
                 for g0, g1 in sorted(gaps):
