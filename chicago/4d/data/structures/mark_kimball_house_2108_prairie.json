@@ -131,7 +131,7 @@
       "fabric": "limestone_lemont",
       "dressing": "smooth",
       "trim_fabric": "dressed_trim",
-      "rusticated_base_courses": 2,
+      "rusticated_base_courses": 4,
       "coping_height_m": 0.25,
       "corner_bond": []
      },
@@ -140,7 +140,7 @@
       "glessner_blog_2100_block_looking_nw_1890s",
       "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "Pale smooth ashlar in tall courses, as the photograph shows it and the cut draws it, two base courses up to the basement lights' heads, as K02 lays a stone basement. Lemont limestone is the district's pale stone (the row at 2031-2035); the quarry is not read off either picture."
+     "note": "Pale smooth ashlar in tall courses, as the photograph shows it and the cut draws it, four base courses of 0.35 m up to the basement lights' heads at 1.65 m, as K02 lays a stone basement (T-3668: the count is ours, the cut draws the base's ashlar without its joints; four is what lays its tall lights inside Lemont's 0.41 m course). Lemont limestone is the district's pale stone (the row at 2031-2035); the quarry is not read off either picture."
     },
     "street_front_trim": {
      "value": {
@@ -212,11 +212,16 @@
       "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
       "k01.opening.area_light": {
        "variant": "k06.opening.area_light",
-       "well": false
+       "well": false,
+       "grille": {
+        "bars": 5,
+        "set_back_m": 0.04,
+        "ring_radius_m": 0.4
+       }
       }
      },
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K06 two-over-two double-hung sash, round-headed under a fanlight in the parlour storey, flat-headed above and on the rear; the basement lights the kit's area lights (L-k01-2108-kimball-3667)"
+     "note": "RECONSTRUCTED: K06 two-over-two double-hung sash, round-headed under a fanlight in the parlour storey, flat-headed above and on the rear; the basement lights the kit's area lights, barred as the cut draws them: K08's bar grille, five uprights under the ring the cut draws as an arched line inside each light's head (T-3668; the count of bars is read as five to six off a pen sketch, the ring's radius ours) (L-k01-2108-kimball-3667)"
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -355,13 +360,13 @@
      "value": {
       "sill_m": 0.25,
       "width_m": 1.0,
-      "height_m": 0.8
+      "height_m": 1.4
      },
      "confidence": "inferred",
      "sources": [
       "chicago_tribune_1898_01_09_residence_district"
      ],
-     "note": "A barred light under each of the two parlour lights, as the cut draws them, a little wider than the lights over them. The cut draws them taller, about three fifths of the basement's height; K02 tops its two base courses at the area lights' heads and lays a course no taller than 0.41 m, so they are built 0.8 m high (L-k01-2108-kimball-3667), and the bars are not built, K01 laying a basement light without a grille."
+     "note": "A barred light under each of the two parlour lights, as the cut draws them, a little wider than the lights over them. T-3668: read off the panel itself, each light's head stands at y 176 and its foot at y 236 in a basement drawn from the ledge at y 151 to grade at y 242, so the light is about two thirds of the basement's height; on the record's 2.2 m basement that is 1.4 m, its head 0.55 m under the parlour floor as the cut leaves about a quarter of the storey over it. The sill stays at 0.25 m (the cut's foot is a few pixels over its walk). Height inferred from the cut's proportion, not its scale, which draws every height tall (pixel aspect 0.743)."
     },
     "chimneys": {
      "value": {

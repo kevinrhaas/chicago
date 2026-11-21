@@ -1,0 +1,60 @@
+{
+  "id": "cemetery_dead_house_1871",
+  "scene": "1871",
+  "name": "The cemetery's dead-house",
+  "address": "The old City Cemetery",
+  "status": {
+    "text": "Burned in the fire",
+    "today": "Gone",
+    "grade": "attested",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "'It burns until it is consumed' (a writer in the New York World, quoted by Colbert and Chamberlin, p. 267)."
+  },
+  "built": {
+    "year": 1843,
+    "grade": "reconstructed",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "Standing in October 1871 (p. 267); when it was built is not known, and 1843 stands for it."
+  },
+  "use": "Where the dead waited for burial",
+  "summary": "A little house in the cemetery where bodies were kept before burial. On Monday evening, with the crowd all around it, it caught fire. People shuddered, but it was empty, and it burned to the ground.",
+  "key": [
+    {
+      "label": "Inside that night",
+      "value": "Nobody",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Its size, shape and exact place are guesses; only the account of it burning survives.",
+      "about": "structure",
+      "grade": "reconstructed",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "Colbert and Chamberlin, p. 267, name it but do not describe it."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "The dead-house burns among the refugees.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ]
+    }
+  ]
+}

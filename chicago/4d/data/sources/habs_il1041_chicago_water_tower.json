@@ -1,0 +1,26 @@
+{
+  "id": "habs_il1041_chicago_water_tower",
+  "type": "illustration",
+  "citation": "Historic American Buildings Survey. Chicago Water Tower, 806 North Michigan Avenue, Chicago, Cook County, Illinois. HABS IL-1041 (HABS ILL,16-CHIG,104-), measured drawings (sheets 1-3: site plan, plans A-A, B-B and C-C, and the west elevation and section, 1994), with photographs and data pages. Library of Congress, Prints and Photographs Division.",
+  "author": "Historic American Buildings Survey (National Park Service)",
+  "date": "1994",
+  "describes_date": "1994 (the tower as surveyed; built 1867-1869 and unaltered in its stonework)",
+  "repository": "Library of Congress, Prints and Photographs Division (HABS/HAER/HALS collection), item il0097. Photograph 1 (from the north-east) is committed at data/sources/assets/landmarks_1871_t3689/habs_il1041_photo1_from_northeast.jpg.",
+  "url": "https://www.loc.gov/item/il0097/",
+  "locator": "Sheet 2: plans A-A (the base, 43 feet square outside, 51 feet across the corner turrets, the floor four feet above the ground), B-B (the 25-foot upper stage) and C-C (the octagonal shaft, 15 feet 6 inches across). Sheet 3: the elevation, with the observation floor at 151 feet 6 inches, the cupola from 161 feet 6 inches to 173 feet 6 inches and the mast's top at 182 feet 6 inches. Photograph 1: the tower from the north-east across Michigan Avenue, the pumping station's corner turret at left.",
+  "tier": 4,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "Works of the U.S. Government (National Park Service, HABS). LOC: 'No known restrictions on images made by the U.S. Government'.",
+  "asset_use": "geometry",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Library's sheet images (tile.loc.gov, service/pnp/habshaer/il/il0000/il0097/sheet/00002v.jpg and 00003v.jpg) and photograph 061196pv.jpg; the photograph committed at 810 x 1024 px, sha256 b922470fde2ee3b827ba5a4078e0bcd949f1201482e23fb547fc65b2bde3303b.",
+  "note": "A 1994 survey of a tower that has stood unchanged in its stonework since 1869 and survived the fire; the owner asked (2026-11-20) that modern pictures be used to tune it. Its heights are read off sheet 3 in feet and turned into metres.",
+  "what_it_supplies": [
+    "the tower's plan at three levels and every principal height",
+    "the forms of its doorways, windows, gables, turrets and battlements"
+  ],
+  "what_it_does_not_supply": [
+    "the pumping station across the street",
+    "anything about 1871 as such: the 1871 stereograph is that witness"
+  ]
+}

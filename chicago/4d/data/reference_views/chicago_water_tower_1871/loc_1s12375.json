@@ -1,0 +1,22 @@
+{
+ "structure_id": "chicago_water_tower_1871",
+ "source_id": "loc_stereo_1s12375_water_tower",
+ "photo": "../../sources/assets/landmarks_1871_t3689/loc_1s12375_water_tower_left.jpg",
+ "image_px": [
+  1600,
+  1662
+ ],
+ "principal_px": [
+  800.0,
+  1285.99
+ ],
+ "focal_px": 2076.95,
+ "eye": [
+  -81.15,
+  31.88,
+  1.6
+ ],
+ "yaw_deg": 105.41,
+ "solve": "Fitted by T-3689 to the left half of P. B. Greene's stereograph 'Water Works' (LOC LC-DIG-stereo-1s12375), cropped from the Library's master scan to 1600 x 1662 px. The view is from the burnt ground west of the tower, looking east across it to the works' long front on Pine Street. Seven observations: the tower's mast head (x 795, y 60), the head of its stone shaft (798, 232) and the gallery at the shaft's foot (797, 836), on HABS's measured heights; the works' smoke-stack crown (403, 795) at Andreas's 130 feet, its north-east corner turret's head (118, 1045) and its pavilion turrets' heads (380, 1050; 493, 1075). A level camera at 1.6 m was fitted for position, heading, focal length and horizon with the works held where their record puts them: the eye about 89 m west and 23 m north of the tower's centre, heading 105 degrees, f 2077 px (a stereo camera's long lens), the horizon at y 1286 px. RESIDUALS: 15.0 px RMS, 29 px at most (the pavilion turrets, whose heads are read off a dim, distant part of the print). UNCERTAINTY: the tower is symmetric, so its own points fix the distance and not the bearing; the bearing rests on the works' four points. LIGHT: an overcast winter sky after the fire; no cast shadow reads.",
+ "sky": "overcast"
+}

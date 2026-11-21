@@ -237,7 +237,9 @@ export function footprintsFrom(registry, { camps = false } = {}) {
     for (const [index, poly] of polygons.entries()) {
       const fp = { id: record.id, pts: poly.map(toWorld) };
       // Preserve the native parade-ground floor flag on its original core.
-      if (index === 0 && record.sidecar?.attributes?.kind?.value === 'parade') fp.ground = true;
+      // T-3689: open ground (a square, a cemetery) is walked on as a parade is: its
+      // footprint keeps the context city's buildings off it, never the visitor.
+      if (index === 0 && ['parade', 'open_ground'].includes(record.sidecar?.attributes?.kind?.value)) fp.ground = true;
       // Existing passages belong to the core, not a separate annex component.
       const lanes = index === 0
         ? (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean)

@@ -1,0 +1,111 @@
+{
+  "id": "ogden_house_1871",
+  "scene": "1871",
+  "name": "The Ogden house",
+  "address": "Washington Square, between Dearborn and Clark",
+  "status": {
+    "text": "Survived the fire",
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2",
+      "loc_cph_3b04902_ogden_house"
+    ],
+    "note": "Andreas vol. 2, pp. 754 and 759, and Melander & Henderson's stereograph of the house standing after the fire.",
+    "today": "Its later history is not researched here"
+  },
+  "built": {
+    "year": 1860,
+    "grade": "reconstructed",
+    "sources": [
+      "andreas_1885_v2"
+    ],
+    "note": "Standing in October 1871 (Andreas vol. 2, p. 759); the year it was built is not researched here, and 1860 stands for it."
+  },
+  "use": "Family home",
+  "summary": "Mahlon D. Ogden's big wooden house stood in its grounds on Washington Square. Everything around it burned. With the family away, friends covered it with wet blankets and carpets, and in the morning it still stood.",
+  "key": [
+    {
+      "label": "Owner",
+      "value": "Mahlon D. Ogden",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Built of",
+      "value": "Wood, with a wooden fence round its grounds",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "label": "Block",
+      "value": "Oak Street, Washington Square, Dearborn Avenue and Clark Street",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "People fleeing the fire filled the square in front. The heat drove them on, and their bundles burned on the grass.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "The fence and the barn caught fire, but the house did not.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "Water from the Ogdens' cistern was shared with people trying to save Robert Collyer's church.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "text": "A two-storey house with a veranda across its front and a low roof, behind the elms of its grounds.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_cph_3b04902_ogden_house"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "The fire sweeps the North Side; the people in Washington Square have to run.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "Wet blankets and carpets save the Ogden house.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ]
+    }
+  ]
+}
