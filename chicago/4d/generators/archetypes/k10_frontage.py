@@ -52,7 +52,8 @@ STONE = "k10.cornice.moulded_stone"      # T-2460: 1619's, from its drawing
 CRESTING = "k10.cresting.iron_ridge"
 DORMER = "k10.dormer.pedimented_on_bracketed_eave"
 ROLE_MATERIAL = {"timber": "fascia", "iron": "iron",   # the eave's painted timber; the house's iron
-                 "stone": "bay_stone"}                  # T-2460: a bay's stone, whose band the cornice continues
+                 "stone": "bay_stone",                  # T-2460: a bay's stone, whose band the cornice continues
+                 "dormer": "dormer_stone"}              # T-3634: a stone dormer's dressed pediment, in its face's stone
 HEAD_HORN_M = 0.12      # K01's flat lintel runs this far past each jamb; K03's soldier head less
 HEAD_RISE_M = 0.30      # K01's lintel, the deepest head a K01 opening takes
 CLEAR_M = 0.03          # a bracket stands this far (along the wall) from a head, a pipe or a bay
@@ -510,6 +511,12 @@ def dress_lower_dormer(a, g, conf):
                       {"eave": a_point(axis, sg, ra, centre, nf, (0.0, hs, 0.0))})
     var = K.Variant({"id": "k10.dormer.lower_face_pediment", "kind": "dormer", "material": "timber"}, K.load())
     var.seed, var.rng = seed, random.Random(seed)
+    # T-3634: dormers the record faces in the front's stone (2017 Prairie's) carry their dress
+    # in that stone; every other dressed dormer keeps the eave's painted timber
+    stone = (getattr(a.p, "mansard", None) or {}).get("dormer_fabric") == "front_stone"
+    _piece = var.piece
+    var.piece = lambda name, role, rests, *x, **kw: _piece(name, "dormer" if stone and role == "timber" else role,
+                                                           rests, *x, **kw)
     druns = [K.Run("dormer left", (-r, -rt), (-r, 0.0), (False, True)),
              K.Run("dormer front", (-r, 0.0), (r, 0.0), (True, True)),
              K.Run("dormer right", (r, 0.0), (r, -rt), (True, False))]
@@ -538,6 +545,8 @@ def dress_lower_dormer(a, g, conf):
         pc = var.piece(f"rake {'crown' if i == 0 else 'fascia'}", "timber", "open")
         K.prism(pc.mesh, poly, 0.0, q, back=True)
         off += w
+    if dr.get("lunette"):
+        _lunette(var, K, dr["lunette"], hs, (apex - off * cq - hs) / cq)
     # the pilasters: each centred in its jamb's surround, its capital a block standing out
     # past it under the cornice
     pl = dr["pilasters"]
@@ -572,6 +581,39 @@ def dress_lower_dormer(a, g, conf):
         m.pos = [a_point(axis, sg, ra, centre, nf, q) for q in m.pos]
         m.nrm = [a_point(axis, sg, ra, 0.0, 0.0, n) for n in m.nrm]
     _lay(a, var.pieces, conf, "k10.dormer.lower_face_pediment")
+
+
+LUNETTE_ARC = 4          # a lunette's ring is struck in this many straight pieces a leaf
+LUNETTE_HUB = 0.3        # the boss at the fan's foot, as a fraction of the lunette's radius
+LUNETTE_LEAF = (0.75, 0.15)   # a leaf's face and the cut between leaves, as fractions of proud_m
+LUNETTE_SEAT_M = 0.002   # stood this far over the cornice's washed top, so the two never fight
+
+
+def _lunette(var, K, ln, hs, room):
+    """T-3634: a carved lunette standing on the dressed pediment's level cornice, on the
+    face's axis (2017 Prairie's two dormers): a half disc whose moulded ring stands
+    `proud_m` out of the tympanum, a fan of `flutes` leaves inside it, each alternate one
+    cut back, and a half-round boss at their foot. `room` is the tympanum's reach from the
+    cornice's middle to the raking cornice's inner line; a lunette that does not stand clear
+    of it is refused (k01_frontage_params checks the same before a bake)."""
+    R, rw, pr, F = ln["radius_m"], ln["ring_m"], ln["proud_m"], ln["flutes"]
+    if R > room - 0.03:
+        raise ValueError(f"the lunette's {R} m reaches the raking cornice ({room:.3f} m of tympanum)")
+    y0 = hs + LUNETTE_SEAT_M
+    at = lambda r, a: (r * math.cos(a), y0 + r * math.sin(a))
+    ri, rh = R - rw, R * LUNETTE_HUB
+    n = F * LUNETTE_ARC
+    for i in range(n):   # the ring: an arc of straight stones, each a convex piece
+        a0, a1 = math.pi * i / n, math.pi * (i + 1) / n
+        pc = var.piece("lunette ring", "timber", "open")
+        K.prism(pc.mesh, [at(ri, a0), at(R, a0), at(R, a1), at(ri, a1)], 0.0, pr)
+    for k in range(F):   # the fan: its leaves between the boss and the ring
+        a0, a1 = math.pi * k / F, math.pi * (k + 1) / F
+        pc = var.piece("lunette leaf", "timber", "open")
+        K.prism(pc.mesh, [at(rh, a0), at(ri, a0), at(ri, a1), at(rh, a1)], 0.0,
+                pr * LUNETTE_LEAF[k % 2])
+    pc = var.piece("lunette boss", "timber", "open")
+    K.prism(pc.mesh, [at(rh, math.pi * j / 8) for j in range(9)], 0.0, pr * 0.85)
 
 
 def a_point(axis, sg, ra, centre, nf, q):
