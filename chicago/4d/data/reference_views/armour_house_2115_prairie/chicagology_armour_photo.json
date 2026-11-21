@@ -1,0 +1,24 @@
+{
+  "structure_id": "armour_house_2115_prairie",
+  "source_id": "chicagology_2115_armour_photo",
+  "library_image": "a20-chicagology-2115-armour-photo",
+  "photo": "../../sources/assets/roloson_2109_photo_t3666/chicagology_2115_armour.jpg",
+  "image_px": [
+    2000,
+    1525
+  ],
+  "principal_px": [
+    1000.0,
+    1090.0
+  ],
+  "focal_px": 2105.0,
+  "eye": [
+    46.16,
+    -8.18,
+    1.6
+  ],
+  "yaw_deg": -66.69,
+  "sky": "overcast",
+  "scene": "1904",
+  "solve": "Fitted for T-3713 on 2115 itself, in the K01 record's frame (u from the main body's rear toward the street, v from the north wall southward: the house is turned 180 degrees, so the frame's 'north' is the real south). A level camera, as for 2109's fit on the same print: its verticals stand upright. The principal column is held at the print's middle (x 1000 px) and the eye at 1.6 m; least squares on the front's north corner at grade (x 757, y 1220) and at the wall head (9.9 m in T-3712's record; x 745, y 480), the first two window columns at 1.65 and 3.75 m (x 857 and 1000), the door's landing at 2.2 m on the third column, 5.6 m (x 1132, y 1035), and the pavilion's north face at 6.9 m, 0.95 m proud (x 1215). The focal length is not determined by the front alone (a free fit runs to an implausible 652 px through the record's own positional errors); it is held at 2105 px, 2109's fit on the same print, and 1800-2500 px move the eye 4-5 m along the line of sight with the same residuals. Result: eye u 46.16, v -8.18 (in the roadway about 20 m west of the street line and 8 m north of the north wall), yaw -66.69 degrees, focal 2105 px, the horizon at y 1090; residuals within 13 px (the wall head against the landing, about 0.2 m of height). The camera then reads the pavilion's south corner (x 1440) at 10.6 m from the north wall and its lights at 7.96 and 9.7 m, the south end's light (x 1500) at about 12.4 m, the north flank's one light (x 565) at 6.4 m from the rear, the front stack (x 715) at 13.8 m and the back one (x 540) about at the rear; distances along the flank are foreshortened, so 10 px there is about a metre. No shadow falls in the print (a winter sky, snow on the lawns), so the render is overcast."
+}
