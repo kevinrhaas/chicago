@@ -2257,7 +2257,47 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         if kne:
             raise ParamError("shaped_gable.run_on: a side carried on down past the ledge carries no kneeler")
         ro = {"wall": r_["wall"], "profile_m": rp, "band_m": band, "back_m": back}
+    ty = {}
+    if sg.get("tympanum"):
+        # T-3714: a carved panel filling the gable's head (2110 Prairie's, its c. 1980s photograph
+        # and the 2012 detail): a dressed triangle from `base_m` over grade up into the apex,
+        # `border_m` inside the coping's inner edge and `proud_m` out of the slab, carrying K08's
+        # leafy `relief` (a stem, pairs of leaves, a boss and a fleuron; k08_bays._gable_panel's
+        # keys and bounds); and an optional carved `drop` hanging `length_m` from the panel's
+        # base on its centre line, opening into two arms `arm_m` across, over the light under it
+        t_ = sg["tympanum"]
+        tk, rk, dk = {"base_m", "border_m", "proud_m", "relief"}, \
+            {"proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"}, {"length_m", "arm_m", "width_m"}
+        rl, dr = t_.get("relief"), t_.get("drop")
+        if not tk <= set(t_) <= tk | {"drop"} or not isinstance(rl, dict) or set(rl) != rk \
+                or (dr is not None and (not isinstance(dr, dict) or set(dr) != dk)):
+            raise ParamError(f"shaped_gable.tympanum takes {sorted(tk)} and optionally drop {sorted(dk)}, its "
+                             f"relief {sorted(rk)}; not {t_}")
+        ty = {k_: float(t_[k_]) for k_ in ("base_m", "border_m", "proud_m")}
+        ty["relief"] = {k_: float(rl[k_]) for k_ in sorted(rk)}
+        r_ = ty["relief"]
+        if not (0.03 <= ty["border_m"] <= 0.3 and 0.01 <= ty["proud_m"] <= 0.06 and 0.01 <= r_["proud_m"] <= 0.06
+                and 0.04 <= r_["stem_m"] <= 0.2 and 0.15 <= r_["leaf_m"] <= 0.8 and 0.15 <= r_["pitch_m"] <= 0.8
+                and 0.02 <= r_["margin_m"] <= 0.15):
+            raise ParamError("shaped_gable.tympanum: border 0.03-0.3 m, proud 0.01-0.06 m; its relief 0.01-0.06 m "
+                             "proud, stem 0.04-0.2 m, leaves and pitch 0.15-0.8 m, margin 0.02-0.15 m")
+        top_light = sill + lh_all
+        if not ledge <= ty["base_m"] <= pr[-1][1] - 1.2 or ty["base_m"] < top_light + 0.1:
+            raise ParamError(f"shaped_gable.tympanum.base_m {ty['base_m']}: over the ledge and the lights' heads "
+                             f"({top_light:.2f} m) by 0.1 m, and 1.2 m under the apex")
+        if dr is not None:
+            ty["drop"] = {k_: float(dr[k_]) for k_ in sorted(dk)}
+            d_ = ty["drop"]
+            if not (0.1 <= d_["length_m"] <= ty["base_m"] - top_light - 0.03 + 1e-9 and 0.1 <= d_["arm_m"] <= 1.2
+                    and 0.03 <= d_["width_m"] <= 0.12):
+                raise ParamError(f"shaped_gable.tympanum.drop: 0.1 m long to 0.03 m over the lights' heads "
+                                 f"({top_light:.2f} m), its arms 0.1-1.2 m across, 0.03-0.12 m wide; not {dr}")
+            # its arms run level a quarter of their span out, then fall beside the lights
+            if d_["arm_m"] / 4 < max(abs(x) for x in at) + lw / 2 + 0.03:
+                raise ParamError(f"shaped_gable.tympanum.drop.arm_m {d_['arm_m']}: its arms fall clear of the "
+                                 f"lights, a quarter of their span past each light's side by 0.03 m")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
+            **({"tympanum": ty} if ty else {}),
             **({"takes_gutter": True} if tg else {}),
             **({"run_on": ro} if ro else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
@@ -3817,6 +3857,45 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"0.1-0.4 m course 0.05-0.5 m proud, corbels 0.1-0.6 m wide, 0.05 m apart at "
                                  f"least, down to 1.5 m under the line), not {ct}")
             st["corbel_table"] = {k_: float(ct[k_]) for k_ in sorted(keys)}
+        # T-3714: a carved band at a storey's floor line in place of its string course (2110
+        # Prairie's bow at its upper floor, the c. 1980s photograph: a deep band of carved
+        # foliage between the parlour lights' heads and the upper lights' sills), `below_m`
+        # under the line and `above_m` over it, `proud_m` out, carrying the frieze's guilloche
+        # (T-2778's keys); its foot clear of the lights' head bands under it, its top of their sills
+        wk = json.loads(WINDOW_KIT.read_text())["parts"]
+        for k, st in enumerate(v["storeys"]):
+            cb = st.get("carved_band")
+            if cb is None:
+                continue
+            keys, gk = {"below_m", "above_m", "proud_m", "guilloche"}, \
+                {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"}
+            g = cb.get("guilloche") if isinstance(cb, dict) else None
+            if k == 0 or st.get("corbel_table") or not isinstance(g, dict) or set(cb) != keys or set(g) != gk \
+                    or not (0.05 <= float(cb["below_m"]) <= 1.0 and 0.0 <= float(cb["above_m"]) <= 0.6
+                            and 0.2 <= float(cb["below_m"]) + float(cb["above_m"]) <= 1.2
+                            and 0.01 <= float(cb["proud_m"]) <= 0.08) \
+                    or not (6 <= int(g["segments"]) <= 24 and 1.0 <= float(g["pitch"]) <= 3.0) \
+                    or not (0.0 < float(g["ring_width_m"]) < float(g["radius_m"]) <= 0.5
+                            and 0.0 < float(g["ring_proud_m"]) <= 0.05 and 0.0 <= float(g["margin_m"]) <= 0.1):
+                raise ParamError(f"bays: {e['id']}'s carved_band takes below_m (0.05-1 m) and above_m (0-0.6 m) "
+                                 f"of the floor line, 0.2-1.2 m together, proud_m (0.01-0.08 m) and a guilloche "
+                                 f"of {sorted(gk)}, on a storey over another with no corbel table; not {cb}")
+            under, over = v["storeys"][k - 1], st
+            heads = [float(w["sill_m"]) + float(w["clear_height_m"]) for w in under.get("windows", [])]
+            sills = [float(w["sill_m"]) for w in over.get("windows", [])]
+            foot = float(under["height_m"]) - float(cb["below_m"])
+            if heads and max(heads) + float(wk["head_band"]["width_m"]) + 0.05 > foot + 1e-9:
+                raise ParamError(f"bays: {e['id']}'s carved_band reaches {cb['below_m']} m under the floor line, "
+                                 f"onto the head bands of the lights under it (their top "
+                                 f"{max(heads) + float(wk['head_band']['width_m']):.2f} m in a "
+                                 f"{under['height_m']} m storey, 0.05 m clear)")
+            if sills and float(cb["above_m"]) > min(sills) - float(wk["sill"]["height_m"]) - 0.02 + 1e-9:
+                raise ParamError(f"bays: {e['id']}'s carved_band stands {cb['above_m']} m over the floor line, "
+                                 f"onto the sill stones of the lights over it (0.02 m clear)")
+            st["carved_band"] = {"below_m": float(cb["below_m"]), "above_m": float(cb["above_m"]),
+                                 "proud_m": float(cb["proud_m"]),
+                                 "guilloche": {k_: (int(g[k_]) if k_ == "segments" else float(g[k_]))
+                                               for k_ in sorted(gk)}}
         if "light_tier" in e:
             # T-1890: a bay holding an OPEN opening (1801's gabled section's loggia) has no sash,
             # blind or curtain there for its light tier to drop, so it may state its own light-tier
@@ -3978,11 +4057,21 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     # soffit out `eave_overhang_m` to a fascia), in the eave's painted timber
                     v["overrides"]["eaves"]["profile"] = bracketed_section(k10, overhang)
                     v["overrides"]["eaves"]["role"] = "fascia"
-                elif cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice"}:
+                elif cv is None or cv["kind"] != "moulded" or set(ev) - {"cornice", "in_cap_covering"} \
+                        or ev.get("in_cap_covering", True) is not True:
                     raise ParamError(f"bays: {e['id']}'s eaves name a K10 moulded cornice, or "
                                      f"{BRACKETED_CORNICE}, and nothing else, not {ev}")
                 else:
                     v["overrides"]["eaves"]["profile"] = k10["parts"]["profiles"][cv["profile"]]["points"]
+                    if ev.get("in_cap_covering"):
+                        # T-3714: the moulded section run in the cap's own sheet metal (2110 Prairie's
+                        # bow, its copper cornice green with age in the 2012 detail and dark in the
+                        # c. 1980s photograph), a metal cap's alone
+                        if not str(v["roof"].get("covering", "")).startswith("copper"):
+                            raise ParamError(f"bays: {e['id']}'s eaves in_cap_covering stand under a copper cap")
+                        # in K08's `finial` role, which takes the cap's covering as `roof` does but is
+                        # not held to the cone's normal (check_bay_kit rule_curves reads `roof` as the cap)
+                        v["overrides"]["eaves"]["role"] = "finial"
         # T-2408's consoles and modillions read off a picture (1637's south bay, T-2780): the
         # record sizes the variant's own brackets, never adds them to a variant without
         # T-3324: a square tower may take brackets its variant has none of (1936's belvedere,
