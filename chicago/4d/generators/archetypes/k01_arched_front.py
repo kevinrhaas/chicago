@@ -56,6 +56,8 @@ def plan(a, frame):
     p, af = a.p, a.p.arched_front
     rects = []
     for g in af["groups"]:
+        if g.get("on_block_m") is not None:   # T-3562: turned in the entrance block's face, not this
+            continue
         L, R = g["cuts"][0], g["cuts"][-1]
         rects.append((g["lights"][0][0], g["lights"][-1][1], g["sill_m"], g["spring_m"]))   # the clear hole
         rects.append((L, R, g["spring_m"], g["top_m"]))                                      # the voussoir block
@@ -1262,6 +1264,12 @@ def _balconette(a, frame, bc, conf):
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:
+        if g.get("on_block_m") is not None:
+            # T-3562: a door's arch turned in the face of the set-out entrance block that carries it
+            O, R, N = frame
+            k = _k01()
+            _voussoirs(a, (k._add(O, k._mul(N, g["on_block_m"])), R, N), g, conf, recess)
+            continue
         _voussoirs(a, frame, g, conf, recess)
     if af.get("carved_band"):
         _carved_band(a, frame, af, length, conf)

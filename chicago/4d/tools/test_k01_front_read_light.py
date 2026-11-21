@@ -60,16 +60,19 @@ if light:
     check(abs(o.width_m - 0.43) < 1e-6 and abs(o.sill_m - 6.19) < 1e-6 and abs(o.head_m - 7.28) < 1e-6,
           f"at its own size and sill: 0.43 m across, 6.19-7.28 m ({o.width_m}, {o.sill_m}, {o.head_m})")
     check(o.narrow and o.plain, "one light a sash, its head read")
-check(sorted(round(o.sill_m, 2) for o in front if abs(o.s_m - 6.1) < 1e-6) == [2.15, 5.85],
-      "the plain number (6.1 m) is still a column on both storeys")
-check(len(front) == 3, f"three street sashes: two in the column, one read ({len(front)})")
+# T-3562 (the owner's ruling, 2026-11-21): the 1902 remodel's one-storey bay stands before the
+# principal storey, so its only street opening is the door (front_bays_by_storey "0"); the
+# column at 6.1 m is the second storey's alone
+check(sorted(round(o.sill_m, 2) for o in front if abs(o.s_m - 6.1) < 1e-6) == [5.85],
+      "the plain number (6.1 m) is still the second storey's column")
+check(len(front) == 2, f"two street sashes: one in the column, one read ({len(front)})")
 
 refused(lambda v: v["1"][0].pop("why_not_ordinary"), "a read light narrower than the sash with no reason",
         "width_m")
-refused(lambda v: v["1"][0].update(sill_m=4.6), "a read light down on the door's hood", "meets a window or the door")
+refused(lambda v: v["1"][0].update(s_m=-0.3), "a read light past the front's north corner", "wall's ends")
 refused(lambda v: v["1"][0].update(s_m=5.6), "a read light against the column's window",
         "meets a window or the door")
-refused(lambda v: v.update({"0": [{**v["1"][0], "sill_m": 2.5}, 3.36, 6.1]}), "a read light on the principal storey",
+refused(lambda v: v.update({"0": [{**v["1"][0], "sill_m": 2.5}, -0.7]}), "a read light on the principal storey",
         "on an upper storey")
 
 if failures:

@@ -123,6 +123,12 @@ let houses = 0, climbed = 0, walled = 0, rects = 0;
     const sc = read(`../data/sidecars/1904/${row.structure}.json`);
     const record = { id: row.structure, sidecar: sc };
     const pl = row.placement;
+    // T-3562: a door at grade, one riser up (1815's remodelled entrance), has no stoop to read as
+    // a floor (prairie_barriers.FLOOR_MIN_TOP_M 0.4): the walker steps straight up to its sill.
+    if (!row.floor && door.plan.sill <= WALK.stepUp) {
+      ok(door.plan.sill <= WALK.stepUp, `${row.structure}: its door at grade is one step up (${door.plan.sill})`);
+      continue;
+    }
     ok(!!row.floor, `${row.structure}: its front stoop is a floor to climb`);
     if (!row.floor) continue;
     const decks = stairSurface(floorDecks([row], () => Array.from(matrixOf(pl))));
