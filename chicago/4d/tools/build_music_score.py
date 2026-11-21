@@ -36,14 +36,6 @@ def cue(id, group, kind, themes, use, p, jaunts=None, era=None):
     if jaunts: c["jaunts"] = jaunts
     C.append(c)
 B12 = ["battle-of-fort-dearborn", "battle-of-fort-dearborn-grades-3-5", "battle-of-fort-dearborn-grades-9-10"]
-cue("main-title", "core", "statement", ["portage", "first-people"], "Home page, main title, credits", plan([
-  sec("Opening fanfare", 16, "trumpets and horns play " + HOOK, "bold and bright, light timpani"),
-  sec("Variation", 24, "a variation on the same hook: the same notes in violins and horns with a new rhythm and fresh harmony, light and clear, harp arpeggios"),
-  sec("Flute", 20, "a solo cedar flute plays the hook simply over soft strings, open prairie and lake"),
-  sec("Exploring", 30, "the music explores and develops fragments of the hook, adventurous and curious, transparent and uncluttered"),
-  sec("Opening returns", 30, "the opening fanfare returns exactly as at the start, trumpets and horns with the full orchestra, ending on a big D major chord")]))
-cue("main-title-short", "core", "statement", ["portage"], "App start, time travel, loading", plan([
-  sec("Call", 8, "trumpets and horns state " + HOOK), sec("Answer", 14, "full orchestra repeats the hook, strings swell"), sec("End", 8, "bright held D major chord")]))
 cue("theme-first-people", "core", "statement", ["first-people"], "Theme suite; source for 1812 cues", plan([
   sec("Flute alone", 20, "a solo Woodlands cedar flute, free and unhurried, an original melody that opens with the rising fifth D to A, dignified and still"),
   sec("Strings join", 25, "soft strings and harp beneath the flute, a hand drum like a slow heartbeat"),
@@ -64,40 +56,11 @@ cue("theme-mystery", "core", "statement", ["mystery"], "Theme suite; mysteries a
   sec("Question", 20, "celesta and low clarinet, a curious motif that bends through a tritone before settling, pizzicato basses"),
   sec("Search", 25, "muted strings creep, a little eerie, never horror"),
   sec("Unanswered", 15, "the motif once more, ending on an unresolved chord")]))
-cue("stings-discovery", "core", "sting", ["discovery"], "Stop arrivals, right answers, photo found (cut into stings)", plan([
-  sec("Sting 1", 5, "a bright short horn flourish leaping up a fifth, harp glissando, triangle, then silence"),
-  sec("Gap 1", 3, "silence"),
-  sec("Sting 2", 5, "a short trumpet and glockenspiel flourish on the hook's first notes, then silence"),
-  sec("Gap 2", 3, "silence"),
-  sec("Sting 3", 5, "a warm string and harp flourish rising to a D major chord, then silence"),
-  sec("Gap 3", 3, "silence"),
-  sec("Sting 4", 6, "a cedar flute and horn rising fifth, a soft cymbal, then silence")]))
-cue("overture-1812", "era", "statement", ["first-people", "fort", "portage"], "1812 arrival, era theme", plan([
-  sec("Dawn", 25, "a cedar flute over a heartbeat hand drum, wide prairie and lake"),
-  sec("Traders", 25, "a Metis fiddle tune answers, lively but gentle"),
-  sec("The fort", 25, "the fife and drum garrison call, horns join"),
-  sec("Portage", 45, "the orchestra plays " + HOOK + " with flute and fiddle colours, broad and hopeful")], "1812"))
-cue("overture-1835", "era", "statement", ["portage", "fort"], "1835 arrival, era theme", plan([
-  sec("Reel", 30, "a lively fiddle reel version of the Portage hook, fife and drum, hammered dulcimer"),
-  sec("Hymn", 30, "a hymn-like passage on reed organ and strings"),
-  sec("Farewell", 15, "a brief distant cedar flute phrase"),
-  sec("Boom town", 45, "keyed bugle and the orchestra in full with the hook, optimism and hustle")], "1835"))
-cue("overture-1871", "era", "statement", ["portage", "fire"], "1871 arrival, era theme", plan([
-  sec("Parlor", 30, "a parlor piano and cornet play the Portage hook as a parlor ballad"),
-  sec("Band", 30, "a saxhorn brass band march on the hook"),
-  sec("Omen", 30, "a darker passage, a falling bass line and a high bell striking in threes, the fire foreshadowed"),
-  sec("Resolve", 30, "the orchestra returns to the hook, resolute and strong")], "1871"))
-cue("overture-1904", "era", "statement", ["gilded-age", "portage"], "1904 arrival, era theme", plan([
-  sec("Rag", 30, "ragtime piano plays a syncopated Portage hook"),
-  sec("Waltz", 30, "salon strings turn the hook into a graceful three-four waltz"),
-  sec("Trio", 30, "a concert band trio gives the hook a proud march"),
-  sec("Grand", 30, "the full romantic orchestra closes on the hook, grand and warm")], "1904"))
-for era, open_txt, close_txt in [("1812", "a cedar flute plays the hook's opening, a soft horn answers", "a gentle horn and string statement of the hook's end with a final flute note"),
-                                 ("1904", "warm strings and a touch of piano play the hook", "a warm string and horn statement of the hook's end, a glowing chord")]:
-    cue(f"jaunt-opening-{era}", "jaunt", "statement-then-bed", ["portage"], f"Every {era} jaunt opening (narration starts after about 6 s)", plan([
-      sec("Hook", 6, open_txt), sec("Bed", 54, "settles into a quiet bed for a narrator, sparse and even", neg=BEDN)], era))
-    cue(f"jaunt-closing-{era}", "jaunt", "bed-then-statement", ["portage"], f"Every {era} jaunt closing scene", plan([
-      sec("Bed", 48, "a quiet bed for a narrator, sparse and even", neg=BEDN), sec("Hook", 12, close_txt)], era))
+# Jaunt openings and closings: only the bed is generated. The fixed Portage recording's first
+# phrase is spliced on the front of an opening and its cadence on the end of a closing.
+for era in ("1812", "1904"):
+    cue(f"jaunt-opening-{era}", "jaunt", "bed", ["portage"], f"Every {era} jaunt opening, after the fixed fanfare phrase", bed("Opening", era, "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"), None, era)
+    cue(f"jaunt-closing-{era}", "jaunt", "bed", ["portage"], f"Every {era} jaunt closing scene, before the fixed fanfare cadence", bed("Closing", era, "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"), None, era)
 cue("bed-1812-fort", "jaunt", "bed", ["fort", "waters"], "Fort Dearborn, Building by Building", bed("Fort day", "1812", "a guided walk around the fort by day: a soft distant fife figure now and then, a rolling harp current beneath, warm low strings"), ["first-fort-dearborn-tour"], "1812")
 cue("bed-1812-mystery", "jaunt", "bed", ["mystery", "first-people"], "Chicago's First Murder", bed("Dusk", "1812", "a frontier murder mystery at dusk by the river: pizzicato low strings, soft celesta, a single flute phrase in pauses, tension kept low"), ["killing-of-jean-lalime"], "1812")
 cue("battle-1-buildup", "battle", "bed", ["fort", "first-people"], "Battle of Fort Dearborn: the order to leave, the warnings", bed("Dread", "1812", "August 1812, the order to leave the fort: the garrison call slowed and uneasy, a low string pedal, a heartbeat hand drum, a worried horn answers the flute"), B12, "1812")
@@ -116,7 +79,7 @@ for id, use, jaunts, txt in [
     themes = {"bed-1904-ghosts": ["mystery"], "bed-1904-bronze": ["remembrance", "first-people"], "bed-1904-scandal": ["mystery", "gilded-age"]}.get(id, ["gilded-age", "portage"])
     cue(id, "jaunt", "bed", themes, use, bed(id.split("-")[-1].title(), "1904", txt), jaunts, "1904")
 out = {"version": 1,
- "about": "T-3710 (owner, 2026-11-20): the Chicago 4D score's first baseline set, as ElevenLabs Music composition plans through fal (the owner picked ElevenLabs over MiniMax v2.5 and Stable Audio). Themes and rules: the Chicago 4D Score doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). Nothing here is played by the app yet. Built by a script; re-run it rather than hand-editing.",
+ "about": "T-3710 (owner, 2026-11-20): the generated part of the Chicago 4D score, as ElevenLabs Music composition plans through fal (the owner picked ElevenLabs over MiniMax v2.5 and Stable Audio). The main theme is a FIXED recording the owner chose (THEME-FINAL-portage-main-title.mp3); the title, ident, stings and overtures are cut from or built around it, never regenerated. Themes and rules: the Chicago 4D Score doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). Nothing here is played by the app yet. Built by a script; re-run it rather than hand-editing.",
  "models": {"elevenlabs": {"endpoint": "fal-ai/elevenlabs/music", "price": {"usd": 0.6, "per": "minute", "rounded_up": True}, "duration_param": "music_length_ms", "duration_scale": 1000, "duration_range": [3, 600], "output": "audio", "plans": True, "extra": {"force_instrumental": True}}},
  "trial_models": ["elevenlabs"], "cues": C}
 for c in C: assert all(len(x) <= 300 for x in c["plan"]["positive_global_styles"])

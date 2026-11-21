@@ -214,8 +214,12 @@ nothing it makes is played by the app.
   the "Chicago 4D Score" doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). He picked
   ElevenLabs Music over MiniMax v2.5 and Stable Audio after a main-title comparison; MiniMax
   v2 sings even when asked not to. `tools/build_music_score.py` writes `data/music/score.json`
-  (30 cues as ElevenLabs composition plans: sections with durations and styles, no words);
-  make them with `--cues data/music/score.json` (about $21 at list price).
+  (the generated cues as ElevenLabs composition plans: sections with durations and styles, no
+  words); make them with `--cues data/music/score.json`. The main theme is a FIXED recording the
+  owner chose and is never regenerated: the title, idents, stings, jaunt opening phrases and
+  closing cadences are cut from it, and the era overtures continue it through Stable Audio 2.5
+  inpaint (the exact fanfare kept, only what follows generated). Regenerating a theme from words
+  changes its notes every time.
 - `node tools/test_fal_music.mjs` checks all of this offline against a fake fal.
 
 ## Implemented foundation

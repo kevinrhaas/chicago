@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "about": "T-3710 (owner, 2026-11-20): the Chicago 4D score's first baseline set, as ElevenLabs Music composition plans through fal (the owner picked ElevenLabs over MiniMax v2.5 and Stable Audio). Themes and rules: the Chicago 4D Score doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). Nothing here is played by the app yet. Built by a script; re-run it rather than hand-editing.",
+  "about": "T-3710 (owner, 2026-11-20): the generated part of the Chicago 4D score, as ElevenLabs Music composition plans through fal (the owner picked ElevenLabs over MiniMax v2.5 and Stable Audio). The main theme is a FIXED recording the owner chose (THEME-FINAL-portage-main-title.mp3); the title, ident, stings and overtures are cut from or built around it, never regenerated. Themes and rules: the Chicago 4D Score doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). Nothing here is played by the app yet. Built by a script; re-run it rather than hand-editing.",
   "models": {
     "elevenlabs": {
       "endpoint": "fal-ai/elevenlabs/music",
@@ -26,146 +26,6 @@
     "elevenlabs"
   ],
   "cues": [
-    {
-      "id": "main-title",
-      "group": "core",
-      "kind": "statement",
-      "themes": [
-        "portage",
-        "first-people"
-      ],
-      "use": "Home page, main title, credits",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Opening fanfare",
-            "duration_ms": 16000,
-            "positive_local_styles": [
-              "trumpets and horns play the Portage hook: a quick rising D major arpeggio D, F-sharp, A to a long held A; then F-sharp, D, down to a long C-sharp; then A, G, F-sharp down to a long D, and up to a long E; then home to D",
-              "bold and bright, light timpani"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Variation",
-            "duration_ms": 24000,
-            "positive_local_styles": [
-              "a variation on the same hook: the same notes in violins and horns with a new rhythm and fresh harmony, light and clear, harp arpeggios"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Flute",
-            "duration_ms": 20000,
-            "positive_local_styles": [
-              "a solo cedar flute plays the hook simply over soft strings, open prairie and lake"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Exploring",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "the music explores and develops fragments of the hook, adventurous and curious, transparent and uncluttered"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Opening returns",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "the opening fanfare returns exactly as at the start, trumpets and horns with the full orchestra, ending on a big D major chord"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "main-title-short",
-      "group": "core",
-      "kind": "statement",
-      "themes": [
-        "portage"
-      ],
-      "use": "App start, time travel, loading",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Call",
-            "duration_ms": 8000,
-            "positive_local_styles": [
-              "trumpets and horns state the Portage hook: a quick rising D major arpeggio D, F-sharp, A to a long held A; then F-sharp, D, down to a long C-sharp; then A, G, F-sharp down to a long D, and up to a long E; then home to D"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Answer",
-            "duration_ms": 14000,
-            "positive_local_styles": [
-              "full orchestra repeats the hook, strings swell"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "End",
-            "duration_ms": 8000,
-            "positive_local_styles": [
-              "bright held D major chord"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
     {
       "id": "theme-first-people",
       "group": "core",
@@ -488,410 +348,14 @@
       }
     },
     {
-      "id": "stings-discovery",
-      "group": "core",
-      "kind": "sting",
-      "themes": [
-        "discovery"
-      ],
-      "use": "Stop arrivals, right answers, photo found (cut into stings)",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Sting 1",
-            "duration_ms": 5000,
-            "positive_local_styles": [
-              "a bright short horn flourish leaping up a fifth, harp glissando, triangle, then silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Gap 1",
-            "duration_ms": 3000,
-            "positive_local_styles": [
-              "silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Sting 2",
-            "duration_ms": 5000,
-            "positive_local_styles": [
-              "a short trumpet and glockenspiel flourish on the hook's first notes, then silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Gap 2",
-            "duration_ms": 3000,
-            "positive_local_styles": [
-              "silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Sting 3",
-            "duration_ms": 5000,
-            "positive_local_styles": [
-              "a warm string and harp flourish rising to a D major chord, then silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Gap 3",
-            "duration_ms": 3000,
-            "positive_local_styles": [
-              "silence"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Sting 4",
-            "duration_ms": 6000,
-            "positive_local_styles": [
-              "a cedar flute and horn rising fifth, a soft cymbal, then silence"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "overture-1812",
-      "group": "era",
-      "kind": "statement",
-      "themes": [
-        "first-people",
-        "fort",
-        "portage"
-      ],
-      "use": "1812 arrival, era theme",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental",
-          "year 1812 frontier fort on Lake Michigan",
-          "Woodlands cedar flute",
-          "soft hand drum like a heartbeat",
-          "Metis fiddle",
-          "fife and rope snare"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering",
-          "stereotyped tom-tom beat",
-          "war whoops"
-        ],
-        "sections": [
-          {
-            "section_name": "Dawn",
-            "duration_ms": 25000,
-            "positive_local_styles": [
-              "a cedar flute over a heartbeat hand drum, wide prairie and lake"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Traders",
-            "duration_ms": 25000,
-            "positive_local_styles": [
-              "a Metis fiddle tune answers, lively but gentle"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "The fort",
-            "duration_ms": 25000,
-            "positive_local_styles": [
-              "the fife and drum garrison call, horns join"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Portage",
-            "duration_ms": 45000,
-            "positive_local_styles": [
-              "the orchestra plays the Portage hook: a quick rising D major arpeggio D, F-sharp, A to a long held A; then F-sharp, D, down to a long C-sharp; then A, G, F-sharp down to a long D, and up to a long E; then home to D with flute and fiddle colours, broad and hopeful"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "overture-1835",
-      "group": "era",
-      "kind": "statement",
-      "themes": [
-        "portage",
-        "fort"
-      ],
-      "use": "1835 arrival, era theme",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental",
-          "year 1835 boom town on the Chicago River",
-          "fiddle",
-          "fife and drum",
-          "keyed bugle",
-          "hammered dulcimer",
-          "reed organ"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Reel",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a lively fiddle reel version of the Portage hook, fife and drum, hammered dulcimer"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Hymn",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a hymn-like passage on reed organ and strings"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Farewell",
-            "duration_ms": 15000,
-            "positive_local_styles": [
-              "a brief distant cedar flute phrase"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Boom town",
-            "duration_ms": 45000,
-            "positive_local_styles": [
-              "keyed bugle and the orchestra in full with the hook, optimism and hustle"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "overture-1871",
-      "group": "era",
-      "kind": "statement",
-      "themes": [
-        "portage",
-        "fire"
-      ],
-      "use": "1871 arrival, era theme",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental",
-          "year 1871 wooden city before the Great Fire",
-          "saxhorn brass band",
-          "cornet",
-          "parlor piano",
-          "church bells"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Parlor",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a parlor piano and cornet play the Portage hook as a parlor ballad"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Band",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a saxhorn brass band march on the hook"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Omen",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a darker passage, a falling bass line and a high bell striking in threes, the fire foreshadowed"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Resolve",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "the orchestra returns to the hook, resolute and strong"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "overture-1904",
-      "group": "era",
-      "kind": "statement",
-      "themes": [
-        "gilded-age",
-        "portage"
-      ],
-      "use": "1904 arrival, era theme",
-      "era": "all",
-      "plan": {
-        "positive_global_styles": [
-          "cinematic orchestral film score",
-          "grand Hollywood adventure style",
-          "French horns",
-          "lush strings",
-          "harp",
-          "timpani",
-          "consonant and tonal",
-          "instrumental",
-          "year 1904 gilded Prairie Avenue",
-          "romantic orchestra",
-          "ragtime piano touches",
-          "salon strings"
-        ],
-        "negative_global_styles": [
-          "vocals",
-          "choir",
-          "singing",
-          "humming",
-          "spoken word",
-          "electronic",
-          "synthesizer",
-          "drum kit",
-          "electric guitar",
-          "atonal",
-          "dissonant chromatic wandering"
-        ],
-        "sections": [
-          {
-            "section_name": "Rag",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "ragtime piano plays a syncopated Portage hook"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Waltz",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "salon strings turn the hook into a graceful three-four waltz"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Trio",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "a concert band trio gives the hook a proud march"
-            ],
-            "negative_local_styles": []
-          },
-          {
-            "section_name": "Grand",
-            "duration_ms": 30000,
-            "positive_local_styles": [
-              "the full romantic orchestra closes on the hook, grand and warm"
-            ],
-            "negative_local_styles": []
-          }
-        ]
-      }
-    },
-    {
       "id": "jaunt-opening-1812",
       "group": "jaunt",
-      "kind": "statement-then-bed",
+      "kind": "bed",
       "themes": [
         "portage"
       ],
-      "use": "Every 1812 jaunt opening (narration starts after about 6 s)",
-      "era": "all",
+      "use": "Every 1812 jaunt opening, after the fixed fanfare phrase",
+      "era": "1812",
       "plan": {
         "positive_global_styles": [
           "cinematic orchestral film score",
@@ -906,7 +370,12 @@
           "Woodlands cedar flute",
           "soft hand drum like a heartbeat",
           "Metis fiddle",
-          "fife and rope snare"
+          "fife and rope snare",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
         ],
         "negative_global_styles": [
           "vocals",
@@ -921,30 +390,39 @@
           "atonal",
           "dissonant chromatic wandering",
           "stereotyped tom-tom beat",
-          "war whoops"
+          "war whoops",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
         ],
         "sections": [
           {
-            "section_name": "Hook",
-            "duration_ms": 6000,
+            "section_name": "Opening A",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "a cedar flute plays the hook's opening, a soft horn answers"
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"
             ],
             "negative_local_styles": []
           },
           {
-            "section_name": "Bed",
-            "duration_ms": 54000,
+            "section_name": "Opening B",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "settles into a quiet bed for a narrator, sparse and even"
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "same texture continues, no new ideas"
             ],
-            "negative_local_styles": [
-              "loud",
-              "sudden hits",
-              "big crescendo",
-              "busy percussion",
-              "prominent melody"
-            ]
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
           }
         ]
       }
@@ -952,12 +430,12 @@
     {
       "id": "jaunt-closing-1812",
       "group": "jaunt",
-      "kind": "bed-then-statement",
+      "kind": "bed",
       "themes": [
         "portage"
       ],
-      "use": "Every 1812 jaunt closing scene",
-      "era": "all",
+      "use": "Every 1812 jaunt closing scene, before the fixed fanfare cadence",
+      "era": "1812",
       "plan": {
         "positive_global_styles": [
           "cinematic orchestral film score",
@@ -972,7 +450,12 @@
           "Woodlands cedar flute",
           "soft hand drum like a heartbeat",
           "Metis fiddle",
-          "fife and rope snare"
+          "fife and rope snare",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
         ],
         "negative_global_styles": [
           "vocals",
@@ -987,28 +470,37 @@
           "atonal",
           "dissonant chromatic wandering",
           "stereotyped tom-tom beat",
-          "war whoops"
+          "war whoops",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
         ],
         "sections": [
           {
-            "section_name": "Bed",
-            "duration_ms": 48000,
+            "section_name": "Closing A",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "a quiet bed for a narrator, sparse and even"
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"
             ],
-            "negative_local_styles": [
-              "loud",
-              "sudden hits",
-              "big crescendo",
-              "busy percussion",
-              "prominent melody"
-            ]
+            "negative_local_styles": []
           },
           {
-            "section_name": "Hook",
-            "duration_ms": 12000,
+            "section_name": "Closing B",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "a gentle horn and string statement of the hook's end with a final flute note"
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "eases to a quiet sustained close that can loop"
             ],
             "negative_local_styles": []
           }
@@ -1018,12 +510,12 @@
     {
       "id": "jaunt-opening-1904",
       "group": "jaunt",
-      "kind": "statement-then-bed",
+      "kind": "bed",
       "themes": [
         "portage"
       ],
-      "use": "Every 1904 jaunt opening (narration starts after about 6 s)",
-      "era": "all",
+      "use": "Every 1904 jaunt opening, after the fixed fanfare phrase",
+      "era": "1904",
       "plan": {
         "positive_global_styles": [
           "cinematic orchestral film score",
@@ -1037,7 +529,12 @@
           "year 1904 gilded Prairie Avenue",
           "romantic orchestra",
           "ragtime piano touches",
-          "salon strings"
+          "salon strings",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
         ],
         "negative_global_styles": [
           "vocals",
@@ -1050,30 +547,39 @@
           "drum kit",
           "electric guitar",
           "atonal",
-          "dissonant chromatic wandering"
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
         ],
         "sections": [
           {
-            "section_name": "Hook",
-            "duration_ms": 6000,
+            "section_name": "Opening A",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "warm strings and a touch of piano play the hook"
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant"
             ],
             "negative_local_styles": []
           },
           {
-            "section_name": "Bed",
-            "duration_ms": 54000,
+            "section_name": "Opening B",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "settles into a quiet bed for a narrator, sparse and even"
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "same texture continues, no new ideas"
             ],
-            "negative_local_styles": [
-              "loud",
-              "sudden hits",
-              "big crescendo",
-              "busy percussion",
-              "prominent melody"
-            ]
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Opening C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet bed that follows a heroic D major brass fanfare and sits under a narrator, settled and expectant",
+              "eases to a quiet sustained close that can loop"
+            ],
+            "negative_local_styles": []
           }
         ]
       }
@@ -1081,12 +587,12 @@
     {
       "id": "jaunt-closing-1904",
       "group": "jaunt",
-      "kind": "bed-then-statement",
+      "kind": "bed",
       "themes": [
         "portage"
       ],
-      "use": "Every 1904 jaunt closing scene",
-      "era": "all",
+      "use": "Every 1904 jaunt closing scene, before the fixed fanfare cadence",
+      "era": "1904",
       "plan": {
         "positive_global_styles": [
           "cinematic orchestral film score",
@@ -1100,7 +606,12 @@
           "year 1904 gilded Prairie Avenue",
           "romantic orchestra",
           "ragtime piano touches",
-          "salon strings"
+          "salon strings",
+          "soft underscore bed for a narrator speaking over it",
+          "sparse and even",
+          "slow steady tempo",
+          "no lead melody in the middle register",
+          "low strings, harp and high soft violins"
         ],
         "negative_global_styles": [
           "vocals",
@@ -1113,28 +624,37 @@
           "drum kit",
           "electric guitar",
           "atonal",
-          "dissonant chromatic wandering"
+          "dissonant chromatic wandering",
+          "loud",
+          "sudden hits",
+          "big crescendo",
+          "busy percussion",
+          "prominent melody"
         ],
         "sections": [
           {
-            "section_name": "Bed",
-            "duration_ms": 48000,
+            "section_name": "Closing A",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "a quiet bed for a narrator, sparse and even"
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence"
             ],
-            "negative_local_styles": [
-              "loud",
-              "sudden hits",
-              "big crescendo",
-              "busy percussion",
-              "prominent melody"
-            ]
+            "negative_local_styles": []
           },
           {
-            "section_name": "Hook",
-            "duration_ms": 12000,
+            "section_name": "Closing B",
+            "duration_ms": 20000,
             "positive_local_styles": [
-              "a warm string and horn statement of the hook's end, a glowing chord"
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "same texture continues, no new ideas"
+            ],
+            "negative_local_styles": []
+          },
+          {
+            "section_name": "Closing C",
+            "duration_ms": 20000,
+            "positive_local_styles": [
+              "a quiet, warm bed under a narrator's closing words, gently rising at the very end toward a D major cadence",
+              "eases to a quiet sustained close that can loop"
             ],
             "negative_local_styles": []
           }
