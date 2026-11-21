@@ -34,7 +34,7 @@ import os from 'node:os';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readerKey, readerCopy, nameOf } from '../renderers/web/js/reader-text.js';
+import { readerKey, readerCopy, nameOf, say, originalOf } from '../renderers/web/js/reader-text.js';
 import { visitorTextProblems } from '../renderers/web/js/fallback-summary.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -74,6 +74,24 @@ function strings(v, out, key = null) {
 }
 const PROSE_KEYS = new Set(['note', 'locator']);
 const isProse = ([s, key]) => /\S\s+\S/.test(s) || (PROSE_KEYS.has(key) && s.trim() !== '');
+
+// T-3709: readerCopy says each distinct text once and hands every place it sits that one
+// string. Whatever it memoises, every occurrence must read exactly as `say` reads it alone,
+// the key's prose rule included (a one-token value is said under `note`, kept under `id`).
+{
+  const text = 'The frame cottage stands behind the store.';
+  const token = 'cottage';
+  const overlay = { edits: { [readerKey(text)]: [[4, 5, 'wooden']], [readerKey(token)]: [[0, 7, 'little house']] } };
+  const doc = { rows: [{ note: text, id: token }, { note: token, label: text }, { why: text, note: token }], tail: [text, token] };
+  const before = JSON.stringify(doc);
+  const copy = readerCopy(doc, overlay);
+  const one = (v, key) => (Array.isArray(v) ? v.map((x) => one(x, key))
+    : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, one(x, k)])) : say(v, overlay, key));
+  expect(JSON.stringify(copy) === JSON.stringify(one(JSON.parse(before), null)),
+    'a repeated text is said in every place it sits exactly as `say` says it there (T-3709)');
+  expect(JSON.stringify(doc) === before && copy.rows[0] !== doc.rows[0], 'the memoised copy is still a copy and leaves the record as it was');
+  expect(originalOf(copy.rows[2].why) === text, 'a rewritten sentence still names the one it was said from');
+}
 
 for (const [family, files] of Object.entries(families)) {
   const overlay = JSON.parse(readFileSync(path.join(dir, `${family}.json`), 'utf8'));

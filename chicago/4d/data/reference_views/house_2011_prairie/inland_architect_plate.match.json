@@ -2,11 +2,11 @@
   "structure_id": "house_2011_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
-  "glb_sha256": "273f176c475b2fc1cae80aaf70ee6a3b3875fd0543ff8693642b78d175bda12b",
+  "glb_sha256": "7c922ea47e81ef9bca407d01021724003a20b8006e1ad79a4d0bd166402e2897",
   "camera_sha256": "f920f8ceb4b182a27d38b0d8a0e3c5f6dc16e217efc3b6927980f76ad1122984",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "side_by_side": "docs/RESEARCH/photo-match/house_2011_prairie/inland_architect_plate-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the front's north edge on the party line with 2009 (the render's x about 67 px, the plate's about 80), the round-arched door at the north end (x 88-130 against 100-155, its crown y 840 against 850) and the cross window over it: the carried camera's own offset on 2011's flat front, about 12-25 px leftward",
@@ -17,8 +17,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the turret's top band of small square lights: the plate sees three round the drum's south side (x about 175-195, 215-240 and 260-295 px); the render shows two, at about 110-125 and 148-165, the band's other light on the north side out of this view. K08 holds one tower to 7,000 triangles at the light tier and three band lights fill it, so the band cannot also carry the south side's",
-      "status": "open"
+      "what": "the turret's top band of small square lights: the plate sees three round the drum's south side (x about 175-195, 215-240 and 260-295 px), and the render now shows three there too (T-3616: five plain lights evenly round the drum, the end two running their recesses back through the wall plane over the eave), at x 161-174, 197-216 and 248-267: the same three at the same spacing, about 20 px (0.21 m) north of the plate's, the camera's own offset on the drum (its north silhouette prints about 23 px left of the plate's), and a little narrower (13-19 px against 20-35)",
+      "status": "fixed"
     },
     {
       "what": "the turret's cap: a steep slate cap over a broad flared foot with a finial, its eave at about y 430 px against the render's 415, its apex (the finial's foot) at about x 270, y 700 against the render's x 253, y 672 (about 0.5 m higher and 0.3 m north); the photograph from the north-west puts the apex 0.13 m higher than the render and 0.35 m north of it, so the two pictures disagree and the build stands between them. The plate's print does not separate the ledge between the cap's two stages that the photograph shows plainly",
