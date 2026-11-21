@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "nrhp_2003_north_side",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4b61a9bdb22aab83f1857e04345cc2e6a3fb20802d43e8b97623aec0ce435a0a",
+  "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e",
   "camera_sha256": "776efb0919ba3e6c5b0bdc50864a74d9d0ff5413746cb1c50277e0ed75f4c449",
   "photo_sha256": "9c6a9c9d40d86d0f35800b9f5edb1c132fd542e7aa487de40b92458ded78bedb",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg",
@@ -50,5 +50,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-20"
+  "reviewed": "2026-11-21"
 }

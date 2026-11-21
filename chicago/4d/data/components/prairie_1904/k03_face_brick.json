@@ -7,8 +7,8 @@
   "reader": "generators/archetypes/k03_brick.py (recipe), read for a K01 record's `face_brick` by generators/archetypes/k01_frontage_params.py",
   "research": "docs/RESEARCH/face-brick-1904-T-3385/README.md",
   "owner": "2026-11-05: \"this is prairie avenue and they would have nice face brick and it would be different for houses ... use that base model and probably add more versions with tuned color and material based on the correct time period and likely brick styles across all the buildings\"",
-  "rule": "Every recipe is the K03 panel it names, unchanged (its bricks, its joints, its bond, and the renderer's per-brick shuffle, brick-bond.js), under a colour factor and a roughness shift. The factor is mean_linear over the panel's own mean (material.json mean_srgb, linearised) and must lie in [0, 1] on each channel, so a recipe only ever darkens or re-hues a panel and never asks a glTF base colour factor over 1. No recipe adds a map: 1904 is at its phone memory ceiling, and both panels named here are already loaded there. A period recipe (T-3387) is an earlier hand-made brick for the 1812 and 1835 scenes, read by fort_structure for its brick walls and its stacks (`period_brick`). A face recipe goes on the street front (and its brick bays); a common recipe on the side and rear walls, the stacks and the area walls. Which recipe a house wears is the record's (`face_brick`), read off its own pictures where it has them.",
-  "panels": ["common_buff_common_6", "rough_red_brown_running"],
+  "rule": "Every recipe is the K03 panel it names, unchanged (its bricks, its joints, its bond, and the renderer's per-brick shuffle, brick-bond.js), under a colour factor and a roughness shift. The factor is mean_linear over the panel's own mean (material.json mean_srgb, linearised) and must lie in [0, 1] on each channel, so a recipe only ever darkens or re-hues a panel and never asks a glTF base colour factor over 1. No recipe adds a map of its own: 1904 is at its phone memory ceiling. A pale brick no factor can reach is a new library panel instead (T-3626: the owner's 'You can add colors' on 2026-11-20), its one balanced-export map paid for at the ceiling; `cream_rough_running`, 518 x 480 px, is the only one, laid by 2013 Prairie alone. A period recipe (T-3387) is an earlier hand-made brick for the 1812 and 1835 scenes, read by fort_structure for its brick walls and its stacks (`period_brick`). A face recipe goes on the street front (and its brick bays); a common recipe on the side and rear walls, the stacks and the area walls. Which recipe a house wears is the record's (`face_brick`), read off its own pictures where it has them.",
+  "panels": ["common_buff_common_6", "rough_red_brown_running", "cream_rough_running"],
   "recipes": {
     "pressed_red": {
       "role": "face",
@@ -63,6 +63,15 @@
       "roughness_delta": -0.04,
       "period": [1850, 1875],
       "note": "A pale cream front brick of the 1850s and 1860s (Milwaukee's lake-clay 'cream city' brick was shipped to Chicago), its porous face greyed by thirty and more years of the city's soft-coal smoke by 1904: the common panel's own body, a shade duller in its red. The library has no paler panel than the common buff, so a fresh cream is not laid."
+    },
+    "cream_rough": {
+      "role": "face",
+      "name": "Rough cream front brick",
+      "panel": "cream_rough_running",
+      "mean_linear": [0.6296, 0.5291, 0.3431],
+      "roughness_delta": 0.0,
+      "period": [1880, 1905],
+      "note": "Rough-textured cream face brick, laid fresh: the library's cream_rough panel unchanged (T-3626). 2013 Prairie's 2003 National Register nomination describes its front as 'faced with cream colored, rough textured brick' (nrhp_2003_reid_house_nomination, p. 4), and the 1895 Inland Architect plate prints that front the palest on the block. The colour family is the nomination's; the tint is reconstructed (L-k03-brick-library-2290). Soot by 1904 is the K14 condition mask's, not this recipe's."
     },
     "common_buff": {
       "role": "common",
@@ -123,7 +132,8 @@
   "liberty": "L-k03-face-brick-3385",
   "panel_mean_linear": {
     "common_buff_common_6": [0.407, 0.2563, 0.1537],
-    "rough_red_brown_running": [0.1973, 0.0985, 0.0685]
+    "rough_red_brown_running": [0.1973, 0.0985, 0.0685],
+    "cream_rough_running": [0.6296, 0.5291, 0.3431]
   },
   "panel_mean_rule": "Each panel's linear mean base colour, measured off its web map (the picture the renderer draws) by k03_brick.panel_mean, which holds these figures to the map wherever PIL is at hand; written down so a generator that runs inside Blender, which has no PIL, resolves a recipe to the same factor (T-3387)."
 }

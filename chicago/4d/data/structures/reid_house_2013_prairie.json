@@ -141,14 +141,15 @@
     },
     "face_brick": {
      "value": {
-      "front": "cream_sooted",
+      "front": "cream_rough",
       "sides": "common_buff"
      },
      "confidence": "inferred",
      "sources": [
-      "inland_architect_1895_02_reid_plate"
+      "inland_architect_1895_02_reid_plate",
+      "nrhp_2003_reid_house_nomination"
      ],
-     "note": "The plate's front is the palest on the block, paler than 2011's stone and 2017's brick, in fine courses; the register's 'cream textured brick'. The recipe's tone is RECONSTRUCTED: the print is monochrome."
+     "note": "The plate's front is the palest on the block, paler than 2011's stone and 2017's brick, in fine courses; the register's 'cream textured brick'. The 2003 nomination names it: the front is 'faced with cream colored, rough textured brick' (p. 4). T-3626 lays it in the K03 library's cream_rough panel, a pale rough cream no factor over the common buff could reach (the owner's 'You can add colors', 2026-11-20); the sides stay common buff. The cream family is documented; the exact tint is RECONSTRUCTED (L-k03-brick-library-2290): the plate is monochrome and the nomination gives no shade."
     },
     "street_front_trim": {
      "value": {

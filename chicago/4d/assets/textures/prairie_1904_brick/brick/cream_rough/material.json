@@ -1,0 +1,43 @@
+{
+  "id": "cream_rough",
+  "group": "brick",
+  "role": "fabric",
+  "kind": "rough",
+  "tile_m": [
+    1.0,
+    1.0
+  ],
+  "resolution_px": 1024,
+  "px_per_m": 1024.0,
+  "uv_rule": "K01 scale_uv: TEXCOORD_0 = surface metres / tile_m (data/components/prairie_1904/k01_contract.json)",
+  "joints_in_map": false,
+  "orientation": "image x = along the course (u); image y = up the wall (v), image top = up",
+  "height_range_m": [
+    -0.002189,
+    0.001115
+  ],
+  "mean_srgb": [
+    216,
+    201,
+    165
+  ],
+  "mean_roughness": 0.88,
+  "note": "Rough-textured cream face brick: the pale, lime-rich clays the lake-shore yards fired cream to straw, with a torn, sanded face, pale grit and a fine struck joint in a cream-grey lime mortar so the front reads as one pale field. The colour family is the nomination's word 'cream'; the exact tint, tear, chip rate and joint are reconstructed.",
+  "confidence": "reconstructed appearance; which house wears it is the T-1837 register's to say",
+  "liberty": "L-k03-brick-library-2290",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear, OpenGL +Y (up the wall)",
+    "roughness": "linear",
+    "height16": "linear 16-bit; 0 = height_range_m[0], 65535 = height_range_m[1]",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "cream_rough_basecolor_web.jpg",
+    "normal_gl": "cream_rough_normal_gl_web.jpg",
+    "orm": "cream_rough_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19043496,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_brick.py); no photograph sampled"
+}
