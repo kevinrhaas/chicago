@@ -416,9 +416,13 @@ def inside_point(b):
                  ((dh["x_m"][1] + xb) / 2, zf_ - 0.3), ((dh["x_m"][0] + xa) / 2, zf_ - 0.3))
     lv = b.meta["levels_m"]
 
+    # T-3562: over raked cheeks the bay has no eaves: its top is the wall top between them
+    # (k08_bays._raked_top), and over the wall top is the crown's
+    raked = (b.v["storeys"][-1].get("cheeks") or {}).get("raked")
+
     def points(cand):
         return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
-               [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+               ([] if raked else [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])])
 
     for cand in cands:
         if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows) and \
