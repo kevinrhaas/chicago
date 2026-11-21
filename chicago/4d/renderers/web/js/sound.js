@@ -11,6 +11,7 @@ export function mayStartEarly({ nav = globalThis.navigator, transfer = false } =
 }
 export function createSound({ audio = () => null, unlock = null, early = false,
   settings = () => null, scene = () => '', environment = () => ({}), workEnvironment = () => ({}), journey = null,
+  jaunt = () => null,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   doc = globalThis.document ?? null, recordings = createRecordedAudio,
   every = (fn, ms) => setInterval(fn, ms), cancelEvery = clearInterval } = {}) {
@@ -45,9 +46,17 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       speech.gain.setTargetAtTime(curve(levels.narration), ctx.currentTime, .08);
       const inTown = !journey || ['exploring', 'inspecting', 'on-jaunt', 'touring'].includes(journey.state);
       recorded.sync({ active, ambienceOn: levels.ambience > 0, effectsOn: levels.effects > 0, musicOn: levels.music > 0 && inTown,
-        musicLevel: levels.music, year: scene() });
+        musicLevel: levels.music, year: scene(), jaunt: jauntNow() });
     }
     return state();
+  }
+  // T-3710: the jaunt under way, for its score (recorded-audio.js § scoreCueFor).
+  function jauntNow() {
+    try {
+      const s = jaunt(); if (!s?.jaunt?.id || (s.restored && s.phase === 'outcome')) return null;
+      const stop = s.jaunt.stops?.find?.(x => x.id === s.visited?.[s.stopIndex]?.id)?.id ?? null;
+      return { id: s.jaunt.id, version_of: s.jaunt.version_of ?? null, phase: s.phase, stop, session: s.session ?? null };
+    } catch { return null; }
   }
   function state() {
     return { context: ctx?.state ?? 'none', levels: { ...levels }, silent: !active, hum: false,
