@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 140637906,
+  "content_version": 510336874,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -972,8 +972,8 @@
         "kind": "structure",
         "id": "house_1621_prairie"
       },
-      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Elbridge Keith House, 1900 Prairie.",
-      "read_s": 14,
+      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: walk on to the 2026-2109 Prairie area, starting at 2026 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-45",
         "tour"
@@ -991,33 +991,12 @@
       "id": "stop-46",
       "destination": {
         "kind": "structure",
-        "id": "elbridge_keith_house_1900_prairie"
-      },
-      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: walk on to the 2026-2108 Prairie area, starting at 2026 Prairie.",
-      "read_s": 19,
-      "evidence": [
-        "stood-46",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "elbridge_keith_house_1900_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-47"
-    },
-    {
-      "id": "stop-47",
-      "destination": {
-        "kind": "structure",
         "id": "house_2026_prairie"
       },
       "text": "2026 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Buckingham House, 2036 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-47",
+        "stood-46",
         "tour"
       ],
       "links": [
@@ -1027,10 +1006,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-48"
+      "next": "stop-47"
     },
     {
-      "id": "stop-48",
+      "id": "stop-47",
       "destination": {
         "kind": "structure",
         "id": "buckingham_house_2036_prairie"
@@ -1038,7 +1017,7 @@
       "text": "Buckingham House, 2036 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Mark Kimball House, 2108 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-48",
+        "stood-47",
         "tour"
       ],
       "links": [
@@ -1048,16 +1027,37 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-48"
+    },
+    {
+      "id": "stop-48",
+      "destination": {
+        "kind": "structure",
+        "id": "mark_kimball_house_2108_prairie"
+      },
+      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Roloson House, 2109 Prairie.",
+      "read_s": 14,
+      "evidence": [
+        "stood-48",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "mark_kimball_house_2108_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-49"
     },
     {
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "mark_kimball_house_2108_prairie"
+        "id": "roloson_house_2109_prairie"
       },
-      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Sherman House, 2100 Prairie.",
-      "read_s": 14,
+      "text": "Roloson House, 2109 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Sherman House, 2100 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-49",
         "tour"
@@ -1065,7 +1065,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "mark_kimball_house_2108_prairie",
+          "id": "roloson_house_2109_prairie",
           "label": "About this building"
         }
       ],
@@ -1699,16 +1699,6 @@
     },
     {
       "id": "stood-46",
-      "text": "Elbridge Keith House, 1900 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "glessner_blog_2014_11_elbridge_keith_house"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The museum's post dates the mansard and a rear addition to the 1880s, before the target; the house still stands."
-    },
-    {
-      "id": "stood-47",
       "text": "2026 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1718,7 +1708,7 @@
       "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws it and the T-1842 census rules it present in 1904 (present_as_mapped). The Land Owner engraving of May 1874 shows it standing then; its building and loss dates are not read."
     },
     {
-      "id": "stood-48",
+      "id": "stood-47",
       "text": "Buckingham House, 2036 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1728,13 +1718,22 @@
       "reasoning": "The house stands in the c. 1880 engraving and on the 1911 sheet, and the T-1842 census rules it present in 1904 (present_as_mapped); this phase claims the 1904 target and the sheet's date, no more. Its building and loss dates are not read."
     },
     {
-      "id": "stood-49",
+      "id": "stood-48",
       "text": "Mark Kimball House, 2108 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
       "confidence": "inferred",
       "reasoning": "Standing in 1904 (empty and to let that spring, the register's note) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the Tribune drew it in January 1898 and the street photograph of the early 1890s shows it. The record claims the 1904 target to the sheet's date and no more."
+    },
+    {
+      "id": "stood-49",
+      "text": "Roloson House, 2109 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1911 sheet draws the house and the T-1842 census rules it present in 1904 (present_as_mapped); the Armour photograph is undated. Its building date is not read; the register reports its loss in 1933."
     },
     {
       "id": "stood-50",
