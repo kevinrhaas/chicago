@@ -96,13 +96,17 @@ MATERIALS = {
     "sod": (None, None, (0.11, 0.15, 0.05), 0.97, "walls", {}),
     # and the lake shore's sand, the 1835 kit's own dune sand
     "sand": ("k1835", "ground/lake_michigan_dune_sand", (1.0, 1.0, 1.0), 0.95, "walls", {}),
+    # and the Water Tower's grounds (T-3689): a stone kerb and the iron railing on it, in
+    # the 1835 kit's limestone and forged iron (small maps, where K02's stone is not)
+    "rubble_stone": ("k1835", "masonry/limestone_rubble_lime_mortar", (1.0, 1.0, 1.0), 0.9, "walls", {}),
+    "wrought_iron": ("k1835", "props/wrought_iron_forged", (1.0, 1.0, 1.0), 0.6, "iron", {}),
 }
 ROLE_OF = {k: v[4] for k, v in MATERIALS.items()}
 WALL_MAT = {"marble": "marble_wall", "lockport_marble": "marble_wall", "limestone": "stone_wall",
             "lockport_weathered": "stone_weathered", "limestone_pale": "marble_wall",
             "brick_red": "brick_wall", "brick_cream": "brick_cream", "iron_stone": "iron_stone",
             "clapboard": "clapboard", "clapboard_bare": "clapboard_bare", "boards": "boards",
-            "sod": "sod", "sand": "sand"}
+            "sod": "sod", "sand": "sand", "limestone_rubble": "rubble_stone", "wrought_iron": "wrought_iron"}
 
 
 def _sub(a, b):

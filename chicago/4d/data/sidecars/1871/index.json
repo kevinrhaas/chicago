@@ -203,6 +203,12 @@
       "name": "Washington Square",
       "sidecar": "sidecars/1871/washington_square_1871.json",
       "asset": "gltf/washington_square_1871__square_1860_1871.glb"
+    },
+    {
+      "id": "water_tower_grounds_1871",
+      "name": "The Water Tower's grounds",
+      "sidecar": "sidecars/1871/water_tower_grounds_1871.json",
+      "asset": "gltf/water_tower_grounds_1871__grounds_1867_1871.glb"
     }
   ],
   "excluded_by_date": [],

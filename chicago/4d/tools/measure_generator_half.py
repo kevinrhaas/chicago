@@ -718,8 +718,10 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Water Tower and works, the DeKoven Street lots, the Ogden house, St. Michael's, the
 # old City Cemetery and its dead-house, Washington Square, the lake shore sands) on the
 # same landmark_1871 archetype, restaling on none of the shared rows.
+# 1143 -> 1144 on 2026-11-21 (T-3689): the Water Tower's grounds, open ground with its
+# kerb and railing, on the same archetype (the owner asked for the houses off its block).
 STATED = {
-    "assets": 1143,
+    "assets": 1144,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,
