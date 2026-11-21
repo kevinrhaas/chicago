@@ -466,7 +466,6 @@
          2.4
         ],
         "wall": "marble",
-        "parapet": 1.1,
         "roof": {
          "kind": "flat",
          "covering": "tin"
@@ -482,7 +481,10 @@
          "proj": 0.35
         },
         "confidence": "inferred",
-        "note": "The balustraded attic over the south-east corner with its flagstaff, as the stereograph shows it; its height and extent are read through the stereograph's camera."
+        "note": "The balustraded attic over the south-east corner with its flagstaff, as the stereograph shows it; its height and extent are read through the stereograph's camera.",
+        "balustrade": {
+         "h": 1.0
+        }
        }
       ],
       "porches": [
@@ -512,15 +514,30 @@
        },
        {
         "block": 0,
+        "face": "S",
+        "s0": 15.5,
+        "s1": 30.2,
+        "z0": 0.0,
+        "h": 10.95,
+        "depth": 0.9,
+        "columns": 0,
+        "material": "iron",
+        "balcony": true,
+        "slab": 0.25
+       },
+       {
+        "block": 0,
         "face": "E",
         "s0": 22.0,
         "s1": 32.9,
-        "h": 10.85,
+        "h": 10.35,
         "depth": 3.0,
         "columns": 4,
         "material": "stone_trim",
         "balcony": true,
-        "slab": 0.5
+        "slab": 0.85,
+        "column_r": 0.42,
+        "capitals": true
        }
       ],
       "chimneys": [
@@ -562,7 +579,7 @@
       "loc_stereo_1s12371_sherman_house",
       "andreas_1885_v2_buildings"
      ],
-     "note": "Read off the stereograph: a ground storey of round-arched shop fronts with striped awnings, six storeys in all (Andreas: 'six stories high'), the Randolph front in three groups of four bays and the Clark front in three groups of five between plain pilaster strips, the end groups' windows round-headed and the middle groups' square-headed under small cornices, a deep bracketed cornice, a continuous iron balcony at the first floor, a balustraded attic over the south-east corner with its flagstaff. Storey heights are read through the stereograph's camera (no dimension of them was found): fitted on the cornice's three corners and the front's two feet, the wall head stands about 30 m over the street (a 6.0 m shop storey, then 5.2 to 4.4 m)."
+     "note": "Read off the stereograph: a ground storey of round-arched shop fronts with striped awnings, six storeys in all (Andreas: 'six stories high'), the Randolph front in three groups of four bays and the Clark front in three groups of five between plain pilaster strips, the end groups' windows round-headed and the middle groups' square-headed under small cornices, a deep bracketed cornice, a continuous iron balcony at the first floor, a balustraded attic over the south-east corner with its flagstaff. Storey heights are read through the stereograph's camera (no dimension of them was found): fitted on the cornice's three corners and the front's two feet, the wall head stands about 30 m over the street (a 6.0 m shop storey, then 5.2 to 4.4 m). The open iron railings of the first-floor gallery, the third-floor balcony over the middle four bays of the Randolph front, the Clark Street portico's two-storey columns under its railed balcony and the attic's stone balustrade are read off the same stereograph (T-3688)."
     },
     "wall_material": {
      "value": "Athens marble",

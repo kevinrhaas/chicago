@@ -37,7 +37,7 @@ WALLS = ("marble", "lockport_marble", "limestone", "brick_red", "brick_cream", "
 ROOFS = ("slate", "tin", "tin_dark", "shingle", "stone_trim", "sod", "sand", "rubble_stone", "wrought_iron")
 OPENINGS = ("flat", "segment", "round", "pair_round", "store", "door_round", "door_flat",
             "oculus", "blank", "pointed", "door_pointed")
-HOODS = ("none", "cornice", "arch", "pediment", "segment")
+HOODS = ("none", "cornice", "arch", "pediment", "segment", "crown")
 CAPS = ("dome", "bell", "pyramid", "flat", "lantern_dome")
 FACES = ("S", "N", "E", "W")
 

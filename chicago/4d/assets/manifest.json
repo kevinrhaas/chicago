@@ -155,7 +155,7 @@
       "baked_ao": false,
       "bytes": 67988,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "de4714bfb6a62a2bc6951515166c603df190de309596e1c1cb95786f8e9d6d50",
+      "inputs_sha256": "cd8b7658684ba2cf67065887301e293bcab0bc84a1b72e432049d49c74514a72",
       "kind": "generated",
       "phase_id": "dead_house_1860_1871",
       "structure_id": "cemetery_dead_house_1871"
@@ -163,9 +163,9 @@
     "chamber_of_commerce_1871__chamber_1865_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
-      "bytes": 1909280,
+      "bytes": 2032772,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "43627264e5ce190e7a118d2f82bfaefa4efecade682d1bf43bd44530556a74c2",
+      "inputs_sha256": "7303460733585ca381c891531a5dcf8273e4d8ef2b506d0a918db516759afd42",
       "kind": "generated",
       "phase_id": "chamber_1865_1871",
       "structure_id": "chamber_of_commerce_1871"
@@ -220,7 +220,7 @@
       "baked_ao": false,
       "bytes": 1803488,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "11f945a76e6a8ec8a7e3b5f7013133afcef4f712a6d88bb6b4e1c236d8f5c0e3",
+      "inputs_sha256": "6c9657f17288aaf9b0896a53b62697454e1ff936838579bf6805b3d75bdfdd84",
       "kind": "generated",
       "phase_id": "works_1869_1871",
       "structure_id": "chicago_pumping_station_1871"
@@ -230,7 +230,7 @@
       "baked_ao": false,
       "bytes": 1381240,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "bd2544f709d8c06e0abb6a21682ee187758662b159fead0ccfe4a939512ad73c",
+      "inputs_sha256": "30a7ed324b8942aab60499671f3a7a6bc3d20586e61e3885701aee85f8097309",
       "kind": "generated",
       "phase_id": "tower_1869_1871",
       "structure_id": "chicago_water_tower_1871"
@@ -287,7 +287,7 @@
       "baked_ao": false,
       "bytes": 3465736,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "195380ec563901e9e778f90a986b7ff96f205806f8a7e16c6a99e93b99f52f24",
+      "inputs_sha256": "6c3cdde7dd739bca095f0c4f89942b15365984b799e4cdca55938d26629bfd6d",
       "kind": "generated",
       "phase_id": "court_house_1870_1871",
       "structure_id": "cook_county_court_house_1871"
@@ -313,9 +313,9 @@
     "crosbys_opera_house_1871__opera_house_1865_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
-      "bytes": 1265688,
+      "bytes": 1286752,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "7afb9117708918056b8466cfd48c18af3493aeb82417a69b60c01b568a8233f3",
+      "inputs_sha256": "b2143e7c85d1eaa97075f6ca2d54065abd7da095d5aec2ef7f1bd6c39279050b",
       "kind": "generated",
       "phase_id": "opera_house_1865_1871",
       "structure_id": "crosbys_opera_house_1871"
@@ -325,7 +325,7 @@
       "baked_ao": false,
       "bytes": 170716,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "2c3cd4377299895a8bc606a85dd3047079069ed4efab5dc38589d25d0eb14f1f",
+      "inputs_sha256": "14ad99fd46ce0a39d60132397bdb39e09dbbec55b21ccdfd5b502c3ae6348f2d",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "dalton_cottage_1871"
@@ -335,7 +335,7 @@
       "baked_ao": false,
       "bytes": 55372,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "db3161afafadb71e95f3fe5457813581ba3fff3fd4f33cdb9eff2322c960216a",
+      "inputs_sha256": "80bbfc9d21a4e0e11b31a6c2f31ec19d783556e57d866c7d3ae3a126738c42fb",
       "kind": "generated",
       "phase_id": "shed_1871",
       "structure_id": "dalton_shed_1871"
@@ -508,7 +508,7 @@
       "baked_ao": false,
       "bytes": 2649116,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "2f2d3001a81eb15f574074ee54116abf667ec0e747aadd3c662a18aec052c440",
+      "inputs_sha256": "de94c01e1c1fdc8bbc4ca6e5050fa74f911d90877dc30cd3b5144cdd4d041ad2",
       "kind": "generated",
       "phase_id": "store_1868_1871",
       "structure_id": "field_leiter_1871"
@@ -837,7 +837,7 @@
       "baked_ao": false,
       "bytes": 169696,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "767832abdf1afd2ab056f196ae1367964e8115bdcfb2481c822a4c0f31e6d7df",
+      "inputs_sha256": "fec8a2bfd557982d935c0bd7ac37c7295718a12dc1535902c2cf46d9fb226b28",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "forbes_cottage_1871"
@@ -3579,7 +3579,7 @@
       "baked_ao": false,
       "bytes": 15656,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "bde4ac1363e39e31fcaa0adc0032552a26e316fd08cad3839f66ea424d933ae3",
+      "inputs_sha256": "f9978081bf1d1835e5fa7f206ec2a551bd63f3edbb057897474208e814269c0d",
       "kind": "generated",
       "phase_id": "shore_1860_1871",
       "structure_id": "lake_shore_sands_1871"
@@ -4134,7 +4134,7 @@
       "baked_ao": false,
       "bytes": 328608,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "a9512106b5be30af7eed5ba14d3737aea51ac90c1baf7b33d50686538069e7d8",
+      "inputs_sha256": "68725a9c31023e629a030e867f88818417c1f60b921d46550aa287e7d9c78e91",
       "kind": "generated",
       "phase_id": "house_1860_1871",
       "structure_id": "ogden_house_1871"
@@ -4153,7 +4153,7 @@
       "baked_ao": false,
       "bytes": 1318236,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "1ba2111e076fbdfd9be3fa5366cdeadb3815e48203b9a676a1940ee4711c20fd",
+      "inputs_sha256": "2e9b6263789abe9e4634164c4ae491795d252af877c3c0bacf4be2765b45bb8a",
       "kind": "generated",
       "phase_id": "graves_1860_1871",
       "structure_id": "old_city_cemetery_1871"
@@ -4163,7 +4163,7 @@
       "baked_ao": false,
       "bytes": 69144,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "ebe38623e4c077e94c790f8f0e5bf85790708704dd67f8f7ce07d89d17615d21",
+      "inputs_sha256": "b12edbd9eb88101c25d4c57bbeabd0e59111424e6b909a4acf8ce091606e9eb5",
       "kind": "generated",
       "phase_id": "barn_1871",
       "structure_id": "oleary_barn_1871"
@@ -4173,7 +4173,7 @@
       "baked_ao": false,
       "bytes": 175588,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "ad1b4b29feba8e440a14604de9b45c7a2348a9805b084cbe12da4e3ae7b276ca",
+      "inputs_sha256": "4fba801cd2ff40e21913a258d027c95714b73dc91670a48e41f4384c7f7e1d16",
       "kind": "generated",
       "phase_id": "cottage_1871",
       "structure_id": "oleary_cottage_1871"
@@ -4210,9 +4210,9 @@
     "palmer_house_1871__hotel_1870_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
-      "bytes": 2339440,
+      "bytes": 2366436,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "2ef36a232b2e090fdd34644a8d7630c70e9d8007fc2dc5b05b478bfd27279755",
+      "inputs_sha256": "5bfa41a748edb8ebfaf8d3d8b23aa287a5dfb4f5fbe50c088c4b0c3f08b9c32c",
       "kind": "generated",
       "phase_id": "hotel_1870_1871",
       "structure_id": "palmer_house_1871"
@@ -4487,7 +4487,7 @@
       "baked_ao": false,
       "bytes": 64496,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "a5cb6cbf6d89b3bbeb3984a348acdcf01680bee00f93044d151c1410bb3a5301",
+      "inputs_sha256": "9c8b86007aebe39623b9fa5d1d0c6178d9099a52b79de4523366caad1f108815",
       "kind": "generated",
       "phase_id": "grounds_1867_1871",
       "structure_id": "pumping_works_grounds_1871"
@@ -10144,9 +10144,9 @@
     "sherman_house_1871__sherman_1861_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
-      "bytes": 2084364,
+      "bytes": 2502144,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "93b7687ae8d1a22b44ccf0010c041e0196bb385353ceeb9c5c2b024f1e30d64d",
+      "inputs_sha256": "084c7d8480c62ce82b7f27567710a63929cb37da03b90964070f85ca82d6e10b",
       "kind": "generated",
       "phase_id": "sherman_1861_1871",
       "structure_id": "sherman_house_1871"
@@ -10261,7 +10261,7 @@
       "baked_ao": false,
       "bytes": 876164,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "c488f54219fff9affb4e6ae973f2d7e7be5d5f7fec829fcda436ccae282eed93",
+      "inputs_sha256": "fe2cfd30216589b78244b29fdcca6c8cc19bd4de8cf5848dff3460287fd9f2db",
       "kind": "generated",
       "phase_id": "church_1869_1871",
       "structure_id": "st_michaels_church_1871"
@@ -10309,7 +10309,7 @@
       "baked_ao": false,
       "bytes": 167064,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "6f940f457e7172a3d7e08032e05fde209bf8e8251882329383e476567a0efaef",
+      "inputs_sha256": "75110a87032d5c1b9fccd22425a05647270dc7b137bcaa421d8b3dfe5c49f15d",
       "kind": "generated",
       "phase_id": "house_1871",
       "structure_id": "sullivan_house_1871"
@@ -10420,9 +10420,9 @@
     "tremont_house_1871__hotel_1850_1871.glb": {
       "archetype": "landmark_1871",
       "baked_ao": false,
-      "bytes": 1463320,
+      "bytes": 1492184,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "419138e6bb43c0c8980c910ac5d3720adfbb2fb4620574ee53f0c2036cc6cde4",
+      "inputs_sha256": "7704aad118a538a3253e5e23b02c59b6b3f0cffbd4f058856abcfe9b140fc822",
       "kind": "generated",
       "phase_id": "hotel_1850_1871",
       "structure_id": "tremont_house_1871"
@@ -10450,7 +10450,7 @@
       "baked_ao": false,
       "bytes": 1290156,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "f738f3f83a4c6b48c9c5d9aef56f1c1a35224d59690ab7a245b609d8e12b918f",
+      "inputs_sha256": "03057a51963c03c254bf0ac6e688a34741698c7eb2a7668f0348dc65afec9fee",
       "kind": "generated",
       "phase_id": "office_1869_1871",
       "structure_id": "tribune_building_1871"
@@ -10537,7 +10537,7 @@
       "baked_ao": false,
       "bytes": 52404,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "7b0db111913d60bf3a898c40ffaae7f70a6f26b8800f92e9e2a1a07e0119b356",
+      "inputs_sha256": "5d5d44d66b8ebe3ee7bfd587b53fa16ffbf94f62da59f9013ecd382f64b7c5f1",
       "kind": "generated",
       "phase_id": "square_1860_1871",
       "structure_id": "washington_square_1871"
@@ -10585,7 +10585,7 @@
       "baked_ao": false,
       "bytes": 65248,
       "generator": "generators/landmark_1871_emit.py",
-      "inputs_sha256": "a3cb31ca50cc34ee86cb53ae1fab9a1b9e03cd5d868a798ecd8c3f927af085ec",
+      "inputs_sha256": "1eb6cb8eeb144e54ded04c047bc8ac324173d195ae2ee83194e329d742e32079",
       "kind": "generated",
       "phase_id": "grounds_1867_1871",
       "structure_id": "water_tower_grounds_1871"
