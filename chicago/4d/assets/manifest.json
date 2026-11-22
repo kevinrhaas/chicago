@@ -2963,9 +2963,9 @@
     "house_2125_prairie__as_mapped_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 2182796,
+      "bytes": 2244812,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "d400b1d24018655a30fa3ca0feee91f98de6f0baa744826681f23fc584669005",
+      "inputs_sha256": "397dfbd7a5a53f00f40a1310ed17b1ce52f7c9a2d60e1880f3698cb6bdfc23f6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2125_prairie"

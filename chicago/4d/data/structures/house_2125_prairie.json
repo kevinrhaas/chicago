@@ -418,13 +418,15 @@
                         "k06_variant": "k06.opening.sash_2over2_flat",
                         "clear_height_m": 2.1,
                         "sill_m": 1.75,
-                        "centre_m": 0.645
+                        "centre_m": 0.647,
+                        "clear_width_m": 0.6
                       },
                       {
                         "k06_variant": "k06.opening.sash_2over2_flat",
                         "clear_height_m": 1.9,
                         "sill_m": 5.05,
-                        "centre_m": 0.645
+                        "centre_m": 0.647,
+                        "clear_width_m": 0.6
                       }
                     ]
                   },
@@ -450,13 +452,15 @@
                         "k06_variant": "k06.opening.sash_2over2_flat",
                         "clear_height_m": 2.1,
                         "sill_m": 1.75,
-                        "centre_m": 0.645
+                        "centre_m": 0.591,
+                        "clear_width_m": 0.6
                       },
                       {
                         "k06_variant": "k06.opening.sash_2over2_flat",
                         "clear_height_m": 1.9,
                         "sill_m": 5.05,
-                        "centre_m": 0.645
+                        "centre_m": 0.591,
+                        "clear_width_m": 0.6
                       }
                     ]
                   }
