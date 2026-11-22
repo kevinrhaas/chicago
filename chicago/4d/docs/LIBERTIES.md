@@ -46020,7 +46020,7 @@ and T-1938's.
 frame as K16 clapboard at a frame wall's 0.15 m, with no studs or sheathing behind it.
 **How to resolve:** a photograph, plate or description of 2125 before 1911, ingested as a source, replaces
 the elevations; the front, its porch and roof are what it would show first.
-**Covers:** `house_2125_prairie.as_mapped_1904.form.frame_house`, `house_2125_prairie.as_mapped_1904.form.roof_covering`, `house_2125_prairie.as_mapped_1904.form.boundary`, `house_2125_prairie.as_mapped_1904.form.yard`
+**Covers:** `house_2125_prairie.as_mapped_1904.form.boundary`, `house_2125_prairie.as_mapped_1904.form.yard`, `house_2125_prairie.as_mapped_1904.form.stories`, `house_2125_prairie.as_mapped_1904.form.construction`
 **Ticket:** T-3723 (piece 1 of T-1930, S18).
 **Review:** `docs/RESEARCH/k16-2125-frame-3723/README.md`.
 **Recorded:** 2026-11-22 (T-3723).
