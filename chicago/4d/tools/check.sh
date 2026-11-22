@@ -1740,6 +1740,12 @@ step "a corner porch's cornice may stand on modillions, its balcony in the trim 
 step "a hood's parapet may be pierced with rings under finials; a cornice stack may break the curb (T-3634)" \
   python3 tools/test_k01_pierced_parapet.py
 
+# T-3634. 2017 Prairie's gable as Chicagology's photograph shows it: a K08 coped gable may stand on
+# a dentilled foot cornice, carry bargeboards under its rakes and a latticed ventilator in its peak,
+# each opt-in; refused shallower than the copings, onto the gable's lights, or past the top storey.
+step "a coped gable may take a dentilled foot cornice, bargeboards and a ventilator (T-3634)" \
+  python3 tools/test_k08_gable_dress.py
+
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
 # on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
