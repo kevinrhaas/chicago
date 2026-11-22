@@ -25551,6 +25551,27 @@ piece; a photograph of the flanks or rear, ingested as a source, replaces the ki
 **Review:** `docs/RESEARCH/k01-2115-armour-3712/README.md`.
 **Recorded:** 2026-11-21 (T-3712).
 
+**T-3713 (piece 2 of T-1925): the two pictures' cameras and the image-gate sign-off.** Both pictures now
+carry solved cameras (`data/reference_views/armour_house_2115_prairie/`: the Armour photograph, fitted on the
+front's north corner, its window columns, the door's landing and the cornice; the Tribune's 1928 halftone, fitted
+on the same columns, the grade, the cornice and the curb, with a pixel aspect of 1.195 for a copy resampled
+unevenly, which is measured, not assumed). Through them the piece above was corrected where the pictures
+disagreed with it by more than a visitor would miss: the door stands in the third column (K01 counts the bays from
+its own 'south' end, the real north on this house, so `entrance_bay` is 3, not 2); the pavilion is 3.7 m wide, not
+the sheet's 4.8 m, and the front's own wall south of it carries one light a storey; the wall head stands 0.6 m
+higher under a frieze with K10's console blocks every 0.6 m, standing for the photograph's 1 m bracketed cornice
+over K10's 0.36 m moulded section, and the mansard rises 3.35 m; the deck carries K10's iron cresting, 0.6 m
+(the deck dresser now stops a rail short of a mansard crown as of a hipped one); the north flank carries only the
+one tall second-storey light the photograph shows, and the north side's mansard one dormer where it shows its
+first; the stacks stand where the pictures put them, 2.6 m over the deck, the south one triangulated from both
+cameras. **Read:** every place and height above, through the cameras (residuals in each `solve`). **Invented:**
+the console blocks' spacing and section and the cresting's pattern (the kit's); the flank light's head, 0.5 m
+under the print's to clear the frieze; the north side's hidden rear 2 m, laid with no light. **Left open** (the
+match records): the mansard and its dormers carried back over the rear range, which K01's rear wing cannot
+roof; the iron cresting and carved top on the pavilion's crown, which a K01 mansard crown does not take; and the
+front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B' piece), built
+under the main mansard.
+
 ### L-k01-2013-reid-3625 — 2013 Prairie, the William H. Reid house, refined from the district draft onto K01: its front read off the Inland Architect's 1895 plate through a solved camera, its flanks and rear still the kits'
 
 **Decision:** the district draft at `reid_house_2013_prairie` (T-2352) is refined in place, under its own id, to a
