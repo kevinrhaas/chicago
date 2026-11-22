@@ -121,6 +121,8 @@ PURE_PYTHON_HELPERS = {
                                        "k01_rear_veranda.py",
                                        # T-1881: a raised stone terrace under an awning on the rear wall
                                        "k01_rear_terrace.py",
+                                       # T-3626: an open, roofed porch on a rear wing's deck
+                                       "k01_wing_porch.py",
                                        # T-1881: a hanging lantern on a bracket on the street front
                                        "k01_wall_lanterns.py",
                                        # T-3255: eared and crested hoods, and corner pilasters

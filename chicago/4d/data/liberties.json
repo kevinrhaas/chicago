@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1216,
+  "count": 1217,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80022,6 +80022,39 @@
       ],
       "work_refs": [
         "T-3710"
+      ]
+    },
+    {
+      "id": "L-k01-2013-reid-porch-3626",
+      "title": "2013 Prairie's rear block re-stacked under an open, roofed porch on its deck, read off the 2003 nomination photographs",
+      "section": "per_subject",
+      "subjects": [
+        "reid_house_2013_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work re-stacks the rear block of 2013 Prairie Avenue — William H. Reid house (Beers, Clay & Dutton, 1894) (rear 2b) as two enclosed storeys of 4.45 and 4.5 m to a deck at 10.9 m, and builds the nomination's open top floor on that deck with a new K01 part, a flat wing's roof porch (k01 wing porch, k01.roof porch wing rear 2b): iron posts at the deck's two rear corners, at u -6.55 on each long side and mid-rear, an iron railing round its three open sides, and a flat tin roof 2.55 m over the deck (13.45-13.8 m), under the 3B part's 13.85 m deck. **What is read, not invented.** The nomination's \"the top floor of the rear section is open to provide a terrace\". Through the north side's solved camera (the nrhp 2003 north side data): the rear block's brick wall stopping at about 10.9 m under the porch's two openings, a pier between them at about u -6.8 to -6.3, the porch's roof underside at about 13.5 m, and its roof standing just under the wall of the 3B part beside it. Off the rear photograph (p. 38, from the south-east; no camera solved): slender dark posts at the porch's corners and between them on the rear and the south, an iron railing along the rear on the wall's top, the roof's fascia over all, and two enclosed storeys of lights under it. **What is invented.** The split of the block's two storeys (4.45 and 4.5 m: the photographs give the wall's top, not its floors); the posts' 0.12 m section, in iron; the railing's height, rails and balusters, carried along the north and south sides as well as the rear; the roof's 0.35 m slab and 0.15 m overhang; the south side's middle post at the north side's station (u -6.55); the deck's flat tin. The roof is built to 13.8 m, just under the 3B part's 13.85 m deck, where the camera reads it at about 14.2 m: the same fit reads the 3B part's top about as far over its build, so the porch keeps the picture's relation to the wall beside it. **What is built otherwise than the evidence, and why.** The north side's pier between the openings is about 0.3-0.4 m broad in the picture and is built as one of the porch's slender posts (within tolerance, under a foot). Not built: the dining room's canted bay on the 3B part's open south side (the 1911 sheet's, the nomination's \"bay with a larger central window flanked by narrower angled side windows\", one storey in the rear photograph), because K01 refuses a one-storey K08 bay on a wing's wall; and the rear's smooth red brick, where K03 lays the common brick."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera solved on the rear photograph measures the porch from behind, and the bay's place and height; K01 standing a one-storey bay on a wing's wall builds it."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3626)."
+        }
+      ],
+      "work_refs": [
+        "T-1916",
+        "T-3626"
       ]
     },
     {
