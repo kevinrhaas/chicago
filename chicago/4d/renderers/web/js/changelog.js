@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3194, ts: '2026-11-22T00:27:43.128Z', date: 'Nov 21, 2026, 6:27 PM CT', title: '1871 jaunts start on phones; jaunt walks go round buildings', kind: 'fix',
+    items: [
+      'The Great Fire, The Last Sunday and Who Started the Fire no longer close the page on a phone when they start or part way through.',
+      'Walks between stops in 1871 keep to the plank walks and cross at the crossings, instead of heading straight into a building.',
+      'A short walk across a yard still goes straight across, not out to the street and round the block.',
+      'A walk too long to plan at once (across the river to the North Side) is flown.',
+      'On the Fort Dearborn tour, the walk after the view above the sally port no longer stops against the stockade: it starts by air.',
+    ] },
+  { v: 3193, ts: '2026-11-22T00:27:43.128Z', date: 'Nov 21, 2026, 6:27 PM CT', title: 'River water stays out of the boats you take out', kind: 'fix',
+    items: [
+      'Steering the garrison\'s scow or the Kinzies\' boat in 1812, the river no longer shows between the floorboards as the boat rises and falls.',
+      'The same holds for the rowboats and canoes of 1835.',
+      'Reeds no longer grow up through a boat lying at her mooring.',
+    ] },
   { v: 3192, ts: '2026-11-21T23:08:58.150Z', date: 'Nov 21, 2026, 5:08 PM CT', title: '2109 Prairie\'s veranda turns its corner on columns, as the photograph shows', kind: 'change',
     items: [
       'The Roloson house at 2109 Prairie now matches its one photograph. Its veranda stands on round columns on pedestals, turns the south-west corner and runs down the side on open piers, with its railing at the deck and a flat, bare roof.',
