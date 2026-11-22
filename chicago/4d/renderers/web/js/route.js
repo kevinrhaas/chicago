@@ -351,10 +351,13 @@ function makeHeap(capacity = 4096) {
  * @param {number} [o.inflate=0.6]  extra clearance around footprints beyond the radius
  * @param {number} [o.passageNeed=0]  the headroom a footprint's passage lane must clear to be
  *   walked (T-3264: the walker's eye plus its margin; a lower soffit stays a wall)
+ * @param {(e:number,n:number)=>boolean} [o.standClear]  T-3691: false where a body may not
+ *   stand (a 1904 house's stoop, area walls and railings, house-barriers.js); a side stand
+ *   (standOff's second look) is never put there
  */
 export function createRouter({
   terrain = null, streets = null, footprints = [], decks = [], surfaceAt = null,
-  streetGrid = null, walks = [], occluders = null,
+  streetGrid = null, walks = [], occluders = null, standClear = null,
   cell = 2, radius = 0.34, stepUp = 0.35, inflate = 0.6, passageNeed = 0,
   maxCells = WHOLE_GRID_MAX_CELLS, windowCells = WINDOW_CELLS, focus = null, extra = null,
 } = {}) {
@@ -1428,43 +1431,66 @@ export function createRouter({
   }
 
   /**
-   * standOff's second look (T-3691): from a public walk of ANY street (a carriageway on
-   * horseback) within 100 m, at the face of the building turned toward that point, seen
-   * clear of every other footprint and past the trunks and posts. Null when no walk sees it.
+   * standOff's second look (T-3691): the same rule as the parcel street's (out near the
+   * framing distance, little along, a clear and unshaded view), asked of every face of the
+   * building — each outward edge normal of its footprint — from a public walk of ANY street
+   * (a carriageway on horseback) within 100 m, seen clear of every other footprint. So the
+   * Pullman palm house is seen head-on across its court from 18th Street, as J. W. Taylor
+   * photographed it, not at a slant past the house. Null when no walk sees a face.
    */
   function sideStand(id, centre, d, mask, near) {
     const fp = footprints.find(f => f.id === id);
-    if (!fp?.pts?.length) return null;
+    const pts = fp?.pts ?? [];
+    if (pts.length < 3) return null;
+    let area = 0;
+    for (let i = 0; i < pts.length; i++) {
+      const [ae, an] = pts[i], [be, bn] = pts[(i + 1) % pts.length];
+      area += ae * bn - be * an;
+    }
+    // Each face's outward bearing, from edges 2 m or longer, one per 10 degrees.
+    const bearings = [];
+    for (let i = 0; i < pts.length; i++) {
+      const [ae, an] = pts[i], [be, bn] = pts[(i + 1) % pts.length];
+      const len = Math.hypot(be - ae, bn - an);
+      if (len < 2) continue;
+      // Counter-clockwise (area > 0) puts the outside on the right of each edge.
+      const oe = (area > 0 ? bn - an : an - bn) / len, on = (area > 0 ? ae - be : be - ae) / len;
+      const b = Math.atan2(oe, on);
+      if (!bearings.some(x => Math.abs(Math.atan2(Math.sin(x - b), Math.cos(x - b))) < 10 * DEG)) bearings.push(b);
+    }
     const onPublic = (e, n) => (mask === 2
       ? (streetGrid?.faces ?? []).some(f => (f.bands?.walk ?? []).some(q => inside(e, n, q)))
       : (streetGrid?.carriageways ?? []).some(r => (r.quads_local_m ?? []).some(q => inside(e, n, q))));
     let best = null, score = Infinity;
-    for (let j = Math.max(0, cellJ(centre.n - 100)); j <= Math.min(grid.rows - 1, cellJ(centre.n + 100)); j++) {
-      for (let i = Math.max(0, cellI(centre.e - 100)); i <= Math.min(grid.cols - 1, cellI(centre.e + 100)); i++) {
-        const k = j * grid.cols + i;
-        if (grid.cls[k] === CLS_BLOCKED || !(grid.network[k] & mask)) continue;
-        if (mask === 2 && grid.cls[k] !== CLS_WALK) continue;
-        const e = centreE(i), n = centreN(j), dist = Math.hypot(e - centre.e, n - centre.n);
-        if (dist < 3) continue;
-        const ue = (e - centre.e) / dist, un = (n - centre.n) / dist;
-        let depth = 0, lo = Infinity, hi = -Infinity;
-        for (const [pe, pn] of fp.pts) {
-          depth = Math.max(depth, (pe - centre.e) * ue + (pn - centre.n) * un);
-          const along = (pe - centre.e) * un - (pn - centre.n) * ue;
-          lo = Math.min(lo, along); hi = Math.max(hi, along);
+    for (const bearing of bearings) {
+      const ne = Math.sin(bearing), nn = Math.cos(bearing);
+      let depth = -Infinity, lo = Infinity, hi = -Infinity;
+      for (const [pe, pn] of pts) {
+        depth = Math.max(depth, (pe - centre.e) * ne + (pn - centre.n) * nn);
+        const along = (pe - centre.e) * nn - (pn - centre.n) * ne;
+        lo = Math.min(lo, along); hi = Math.max(hi, along);
+      }
+      const mid = (lo + hi) / 2;
+      const front = { bearing, street: null, width: hi - lo,
+        e: centre.e + ne * depth + nn * mid, n: centre.n + nn * depth - ne * mid };
+      for (let j = Math.max(0, cellJ(front.n - 100)); j <= Math.min(grid.rows - 1, cellJ(front.n + 100)); j++) {
+        for (let i = Math.max(0, cellI(front.e - 100)); i <= Math.min(grid.cols - 1, cellI(front.e + 100)); i++) {
+          const k = j * grid.cols + i;
+          if (grid.cls[k] === CLS_BLOCKED || !(grid.network[k] & mask)) continue;
+          if (mask === 2 && grid.cls[k] !== CLS_WALK) continue;
+          const e = centreE(i), n = centreN(j), de = e - front.e, dn = n - front.n;
+          const out = de * ne + dn * nn, along = Math.abs(de * nn - dn * ne);
+          if (out < 3 || along > Math.max(3, out)) continue;
+          let v = Math.abs(out - d) + along * 4;
+          if (v >= score) continue;
+          if (!onPublic(e, n)) continue;
+          if (typeof standClear === 'function' && !standClear(e, n)) continue;
+          if (!clearView(e, n, front.e + ne * (radius + 0.1), front.n + nn * (radius + 0.1), id)) continue;
+          const view = near.length ? frontView({ e, n }, front, near) : null;
+          if (view) v += view.hidden * VIEW_COST + (view.near > VIEW_NEAR_BLOCKED || view.hidden > VIEW_BLOCKED ? VIEW_REFUSED : 0);
+          if (v >= score) continue;
+          score = v; best = { e, n, front, blocked: view?.hidden ?? 0 };
         }
-        if (dist - depth < 3) continue;
-        const mid = (lo + hi) / 2;
-        let v = Math.abs(dist - d) + Math.abs(mid);
-        if (v >= score) continue;
-        if (!onPublic(e, n)) continue;
-        const front = { bearing: Math.atan2(ue, un), street: null, width: hi - lo,
-          e: centre.e + ue * depth + un * mid, n: centre.n + un * depth - ue * mid };
-        if (!clearView(e, n, front.e + ue * (radius + 0.1), front.n + un * (radius + 0.1), id)) continue;
-        const view = near.length ? frontView({ e, n }, front, near) : null;
-        if (view) v += view.hidden * VIEW_COST + (view.near > VIEW_NEAR_BLOCKED || view.hidden > VIEW_BLOCKED ? VIEW_REFUSED : 0);
-        if (v >= score) continue;
-        score = v; best = { e, n, front, blocked: view?.hidden ?? 0 };
       }
     }
     return best;

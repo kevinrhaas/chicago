@@ -80,11 +80,12 @@ for (const f of footprints) for (const [e, n] of f.pts) {
 const terrain = { heightfield: { loaded: true, originE: e0 - 60, originN: n0 - 60, widthM: e1 - e0 + 120, depthM: n1 - n0 + 120 },
   surfaceHeight: () => 1, walkHeight: () => 1, isWater: () => false };
 const streetGrid = read(`street_grid/${SCENE}.json`);
-const make = (occ, grid = streetGrid) => createRouter({ terrain, streetGrid: grid, footprints,
-  occluders: occ, cell: 1, inflate: 0.1 });
-const router = make(SELF_TEST ? [] : occluders);
 const doors = read(`humans/doors_${SCENE}.json`);
 const barriers = createHouseBarriers([...(doors.structures ?? []), ...(doors.barriers ?? [])].filter(r => r?.barrier));
+// main.js hands the router the same barriers, so a side stand is never put on one.
+const make = (occ, grid = streetGrid) => createRouter({ terrain, streetGrid: grid, footprints,
+  occluders: occ, cell: 1, inflate: 0.1, standClear: (e, n) => !barriers.near(e, n, BARRIER_STAND_M) });
+const router = make(SELF_TEST ? [] : occluders);
 
 /** T-3691: a stand on foot is on a public walk, aimed at a front, and off every stoop. */
 function offWalk(rt, stand, mode) {
