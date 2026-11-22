@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3198, ts: '2026-11-22T08:20:17.232Z', date: 'Nov 22, 2026, 2:20 AM CT', title: '2013 Prairie\'s rear block gets its open rooftop porch', kind: 'improvement',
+    items: [
+      'The rear block behind 2013 Prairie now rises two tall storeys to an open, roofed porch on its top floor, as the house\'s 2003 National Register photographs show it and its nomination describes: "the top floor of the rear section is open to provide a terrace".',
+      'The porch stands on slender iron posts behind an iron railing, under a flat roof just below the wall beside it, and the house\'s view from the north is now signed off against its photograph.',
+    ] },
+  { v: 3197, ts: '2026-11-22T06:36:43.468Z', date: 'Nov 22, 2026, 12:36 AM CT', title: '2120 Prairie is built', kind: 'feature',
+    items: [
+      '2120 Prairie, on the west side between 21st and 22nd Streets, now stands as a full house in place of its draft. Its plan comes from the 1911 map: a two-storey brick house with an open porch before its door, a two-storey bay clad in sheet iron on its north side, a one-storey brick bay on its south side and a one-storey brick range behind. No picture of it is known, so the red brick front, hooded windows, bracketed cornice, tin roof and the porch on its two columns are a careful best guess, and the house\'s card says so.',
+    ] },
   { v: 3196, ts: '2026-11-22T03:24:25.138Z', date: 'Nov 21, 2026, 9:24 PM CT', title: '2017 Prairie\'s porch parapet and chimney match its photograph', kind: 'improvement',
     items: [
       'The porch on the William Armour house at 2017 Prairie now has the parapet its photograph shows: a solid stone band pierced with a row of round openings, with a ball finial on each front corner, in place of a plain balustrade.',

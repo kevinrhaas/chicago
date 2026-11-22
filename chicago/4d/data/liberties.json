@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1215,
+  "count": 1217,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1207,7 +1207,7 @@
     },
     {
       "id": "house_2120_prairie",
-      "name": "2120 Prairie Avenue — Brick masonry"
+      "name": "2120 Prairie Avenue — two-storey brick house with an iron-clad north bay"
     },
     {
       "id": "house_2120_prairie_coach_house",
@@ -36035,18 +36035,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2120_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2120_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2120_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36183,7 +36171,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36218,6 +36206,10 @@
           "text": "2100, the John B. Sherman house at the 21st Street corner, by earlier work (the S10A envelope package), which refined it in place on the K01 frontage kit under `“2100 Prairie, the John B. Sherman house, refined from the district draft onto K01: Burnham & Root's brick and stone corner house of 1874 as an envelope, off the 1911 sheet, the 1876 plate's plan and the c. 1890 photograph”`, under the same id; its draft attributes are gone (its alley coach house is still this draft's, 's; the 21st Street wall is still not built)."
         },
         {
+          "label": "Retired in part",
+          "text": "2120, the two-storey brick house with an iron-clad north bay, by later work (the S15 package), which refined it in place on the K01 frontage kit under `“2120 Prairie, the two-storey brick house with an iron-clad bay, refined from the district draft onto K01: its plan off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone (its alley building is still this draft's, 's)."
+        },
+        {
           "label": "Review",
           "text": "the research notes on prairie draft 20 22 west."
         },
@@ -36246,7 +36238,9 @@
         "T-1922",
         "T-1938",
         "T-1911",
-        "T-1919"
+        "T-1919",
+        "T-1926",
+        "T-3720"
       ]
     },
     {
@@ -76849,6 +76843,208 @@
       ]
     },
     {
+      "id": "L-k01-2120-prairie-3720",
+      "title": "2120 Prairie, the two-storey brick house with an iron-clad bay, refined from the district draft onto K01: its plan off the 1911 sheet, everything above the plan a bounded design",
+      "section": "per_subject",
+      "subjects": [
+        "house_2120_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.boundary"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_bay"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.principal_floor_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_form"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.sash_by_storey"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.storey_heights_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2120_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft at 2120 Prairie Avenue — two-storey brick house with an iron-clad north bay is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S15 package of the programme). No photograph, plate or description of 2120 is known: the Prairie library holds none under the address, and the register's map-only rule applies (\"map plan controls plan shape, not a supposedly measured facade\"). **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.1858 m a pixel, through the committed trace's fit): the '2' brick building, its main body 16.25 m from the rear wall to the front and 11.8 m from the south wall to the north wall (the draft's fit drew it 11.0 m, 0.93 m short of the south wall, and the house's corner moves with it); the open one-storey frame porch before the front, 2.2 m out and 3.7 m wide; a canted bay on the north flank drawn grey, the key's iron-clad frame, lettered 'IR.CL.2D' (built two storeys); a one-storey canted brick bay on the south flank, 4.65 m wide and 1.18 m out; the one-storey brick rear range, 7.8 m by 6.6 m, on a neck 3.9 m out from the main rear wall; the small-circle slate-or-metal roof marks on the house, the porch and the bay; the front lot line and the lines with 2116 and 2126. The 1911 uses ('DRESS MAKING', 'Electric Motor Repairing' in the range) are not carried back to 1904. **What is invented.** Every height (a 1.7 m principal floor, 4.0 and 3.6 m storeys), the walls' thickness, the deep red pressed front over buff common brick, the 30-degree tin hip (metal chosen of the sheet's slate-or-metal mark), the bracketed cornice standing for the key's brick-or-metal cornice, the gutters, the five bays of the front with the door in the middle, the porch's columns, deck and low railing, every light of both flanks, the rear and the bays, the iron bay's two storeys and painted face, the two stacks, the stoop, the rear range's floor, height, lights and flat tin deck, and the earth front yard with its flagged walk. **What is built otherwise than the evidence, and why.** The iron cladding of the north bay is built as K08's painted frame face: the kit lays no pressed-metal skin. The porch is built 3.6 m wide, 0.1 m under the sheet, so its deck clears the heads of the lights either side of the door. The range's canted alley corners are built square (K01 lays a wing as a rectangle). Not built: the one-storey frame porch in the angle north of the neck, the small one-storey piece on the neck's south side, and the narrow grey edge along the front's outer line, read as too narrow for a facing."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any picture of 2120 before 1911: the front, its porch and the north bay are what it would read first."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2120_prairie.as_mapped_1904.form.principal_floor_m`, `house_2120_prairie.as_mapped_1904.form.storey_heights_m`, `house_2120_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2120_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2120_prairie.as_mapped_1904.form.service_wall_brick`, `house_2120_prairie.as_mapped_1904.form.face_brick`, `house_2120_prairie.as_mapped_1904.form.wall_head`, `house_2120_prairie.as_mapped_1904.form.roof_form`, `house_2120_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2120_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2120_prairie.as_mapped_1904.form.stair_tread_m`, `house_2120_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2120_prairie.as_mapped_1904.form.stoop_width_m`, `house_2120_prairie.as_mapped_1904.form.entrance_bay`, `house_2120_prairie.as_mapped_1904.form.front_bays`, `house_2120_prairie.as_mapped_1904.form.side_bays`, `house_2120_prairie.as_mapped_1904.form.north_bays`, `house_2120_prairie.as_mapped_1904.form.rear_bays`, `house_2120_prairie.as_mapped_1904.form.sash_by_storey`, `house_2120_prairie.as_mapped_1904.form.basement_lights`, `house_2120_prairie.as_mapped_1904.form.window_kit`, `house_2120_prairie.as_mapped_1904.form.rainwater`, `house_2120_prairie.as_mapped_1904.form.chimneys`, `house_2120_prairie.as_mapped_1904.form.entrance_kit`, `house_2120_prairie.as_mapped_1904.form.boundary`, `house_2120_prairie.as_mapped_1904.form.yard`, `house_2120_prairie.as_mapped_1904.form.street_front_trim`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2120 prairie."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-22 (T-3720)."
+        }
+      ],
+      "work_refs": [
+        "T-2351",
+        "T-3720",
+        "T-1926",
+        "T-1837"
+      ]
+    },
+    {
       "id": "L-k01-2033-otis-3659",
       "title": "2033 Prairie, the Otis house, refined from the district draft onto K01: its stone front, full-height bay, door and cornice read off Walker Evans' 1946 photograph, its flanks and rear still the kits'",
       "section": "per_subject",
@@ -79834,6 +80030,39 @@
       ],
       "work_refs": [
         "T-3710"
+      ]
+    },
+    {
+      "id": "L-k01-2013-reid-porch-3626",
+      "title": "2013 Prairie's rear block re-stacked under an open, roofed porch on its deck, read off the 2003 nomination photographs",
+      "section": "per_subject",
+      "subjects": [
+        "reid_house_2013_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work re-stacks the rear block of 2013 Prairie Avenue — William H. Reid house (Beers, Clay & Dutton, 1894) (rear 2b) as two enclosed storeys of 4.45 and 4.5 m to a deck at 10.9 m, and builds the nomination's open top floor on that deck with a new K01 part, a flat wing's roof porch (k01 wing porch, k01.roof porch wing rear 2b): iron posts at the deck's two rear corners, at u -6.55 on each long side and mid-rear, an iron railing round its three open sides, and a flat tin roof 2.55 m over the deck (13.45-13.8 m), under the 3B part's 13.85 m deck. **What is read, not invented.** The nomination's \"the top floor of the rear section is open to provide a terrace\". Through the north side's solved camera (the nrhp 2003 north side data): the rear block's brick wall stopping at about 10.9 m under the porch's two openings, a pier between them at about u -6.8 to -6.3, the porch's roof underside at about 13.5 m, and its roof standing just under the wall of the 3B part beside it. Off the rear photograph (p. 38, from the south-east; no camera solved): slender dark posts at the porch's corners and between them on the rear and the south, an iron railing along the rear on the wall's top, the roof's fascia over all, and two enclosed storeys of lights under it. **What is invented.** The split of the block's two storeys (4.45 and 4.5 m: the photographs give the wall's top, not its floors); the posts' 0.12 m section, in iron; the railing's height, rails and balusters, carried along the north and south sides as well as the rear; the roof's 0.35 m slab and 0.15 m overhang; the south side's middle post at the north side's station (u -6.55); the deck's flat tin. The roof is built to 13.8 m, just under the 3B part's 13.85 m deck, where the camera reads it at about 14.2 m: the same fit reads the 3B part's top about as far over its build, so the porch keeps the picture's relation to the wall beside it. **What is built otherwise than the evidence, and why.** The north side's pier between the openings is about 0.3-0.4 m broad in the picture and is built as one of the porch's slender posts (within tolerance, under a foot). Not built: the dining room's canted bay on the 3B part's open south side (the 1911 sheet's, the nomination's \"bay with a larger central window flanked by narrower angled side windows\", one storey in the rear photograph), because K01 refuses a one-storey K08 bay on a wing's wall; and the rear's smooth red brick, where K03 lays the common brick."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera solved on the rear photograph measures the porch from behind, and the bay's place and height; K01 standing a one-storey bay on a wing's wall builds it."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3626)."
+        }
+      ],
+      "work_refs": [
+        "T-1916",
+        "T-3626"
       ]
     },
     {
