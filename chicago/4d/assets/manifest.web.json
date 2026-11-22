@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -303,7 +303,7 @@
     "house_2119_indiana__draft_1904.glb": "d5a0ada0f90ea070865d023c4aa67c012b18bfadf46175ed500b481ab5889ef5",
     "house_2120_prairie__as_mapped_1904.glb": "24fa02649c3d59a967e66a94dc4781c51c7aed0c29f130d1e05ecb85eaf237ff",
     "house_2120_prairie_coach_house__draft_1904.glb": "203f91e7ffd6544212894b7233b5a1d234399a15e73d713e9c258edddb951ec0",
-    "house_2123_prairie__draft_1904.glb": "951cfb738330b7a14f893e0f76f7aec38297efd7b40127943022e5951fad959d",
+    "house_2123_prairie__as_mapped_1904.glb": "420c53d39c7d626ec72db68b19ac86b4d5c0b840eab36ca9bbf7f08b47f59d73",
     "house_2123_prairie_coach_house__draft_1904.glb": "fb15f50b771d5b9378a449f9652867bc62ee6ccc5a711ccd9e0cafbb4fe6a221",
     "house_2124_calumet__draft_1904.glb": "caf5194c675379b0ccab192ed45c011bc28517fcbb27182b6f9cf573caf8e6fd",
     "house_2125_prairie__as_mapped_1904.glb": "d6667893a5a7e48b08a13a94cf004605230e04c3e289d22503fa884356a3ebb4",
