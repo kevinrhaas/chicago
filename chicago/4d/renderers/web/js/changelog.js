@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 3196, ts: '2026-11-22T03:24:25.138Z', date: 'Nov 21, 2026, 9:24 PM CT', title: '2017 Prairie\'s porch parapet and chimney match its photograph', kind: 'improvement',
+    items: [
+      'The porch on the William Armour house at 2017 Prairie now has the parapet its photograph shows: a solid stone band pierced with a row of round openings, with a ball finial on each front corner, in place of a plain balustrade.',
+      'Its front chimney now rises from the mansard\'s cornice at the very edge of the house, where the photograph puts it, and stands a little taller.',
+    ] },
+  { v: 3195, ts: '2026-11-22T01:59:06.076Z', date: 'Nov 21, 2026, 7:59 PM CT', title: '1871 streets gain lamps, telegraph poles, trees and a hack stand', kind: 'feature',
+    items: [
+      'Downtown, shop fronts now stand right on the plank walk, block after block, instead of behind a strip of lawn.',
+      'Gas lamps stand at the street corners and along the business blocks, with telegraph poles and their wires on the main streets.',
+      'Hitching posts line the walks in front of the shops.',
+      'The house streets are planted with street trees.',
+      'Five hacks wait with their teams on Clark Street beside the Court House Square, where the stereograph of the Sherman House shows a rank of them.',
+      'Where two streets or two plank walks meet, the ground no longer flickers as you walk across it.',
+    ] },
   { v: 3194, ts: '2026-11-22T00:27:43.128Z', date: 'Nov 21, 2026, 6:27 PM CT', title: '1871 jaunts start on phones; jaunt walks go round buildings', kind: 'fix',
     items: [
       'The Great Fire, The Last Sunday and Who Started the Fire no longer close the page on a phone when they start or part way through.',
