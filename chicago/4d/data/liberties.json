@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1217,
+  "count": 1218,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80064,6 +80064,39 @@
       "work_refs": [
         "T-1916",
         "T-3626"
+      ]
+    },
+    {
+      "id": "L-k01-2110-rees-carving-3714",
+      "title": "2110 Prairie's carved tympanum, its bow's carved band and copper cornice, off its c. 1980s photograph and the 2012 detail: the kits' carving where the stone's own is not read",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the S12B package) carves three things `“2110 Prairie, the Harriet Rees house, refined from the district draft onto K01: its plan off the 1911 sheet, its bow, pale stone and stoop off the early-1890s street photograph, its gable, loggia and copper-capped bow off two later photographs of the house on this site, everything none of them shows the kits'”` left plain. The gable's head takes a carved panel (shaped gable tympanum, a new K01 element in the k01 shaped gable generator): a dressed triangle 0.03 m proud from 15.35 m over grade up into the apex, just inside the coping, carrying a stem up its middle with pairs of leaves leaning out from it, each rolling into a curl, a boss at its foot and a fleuron at its head, the relief 0.05 m proud; and under it a carved drop from the panel's base over the narrow light, opening into two arms 1.0 m across that end in bosses beside the light. The bow's string course at its upper floor is replaced by a carved band 0.9 m deep (0.45 m each side of the floor line, 0.04 m proud) carrying K08's guilloche (carved band, a new K08 storey option in the k08 bays generator). The bow's moulded cornice is laid in the cap's copper (eaves.in cap covering), not in stone. **What is read, not invented.** From the c. 1980s photograph (Rees, Harriet, Residence. Black-and-white photograph of the front (east) of…, forms only) and the 2012 detail ([Rees house exterior, gable detail.] Photograph, Glessner House Museum, in…, forms only): the carved field filling the gable's head down to a level base a little over the light's head; a carved drop hanging from that base over the light and opening into two curled arms either side of it; the deep carved band round the bow between the parlour lights' heads and the upper lights' sills; the cap's cornice in copper, green with age in 2012, as the cone over it. **What is invented.** The carving's design: the photographs show scrolled foliage round a central stem, and the kits lay a stylised stem, leaves and curls in the gable and a chain of interlaced rings in the bow's band, neither carved to the stone's own pattern. The panel's base height and the band's depth are read as proportions of photographs taken looking up (about 0.1 m either way); the relief's depth is the kit's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a close photograph of the carving read square-on replaces the kits' patterns; later work solves the two pictures' cameras and records what is left in their match records."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2110 rees (§)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3714)."
+        }
+      ],
+      "work_refs": [
+        "T-1923",
+        "T-3714",
+        "T-3716",
+        "T-1837"
       ]
     },
     {
