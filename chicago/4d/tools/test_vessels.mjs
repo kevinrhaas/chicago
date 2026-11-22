@@ -107,6 +107,35 @@ for (const scene of ['1835', '1812']) {
       if (process.env.VESSEL_DEBUG) console.log("boom over the helm", low - m.deckY(m.helm.x));
       ok(low !== Infinity && low > m.deckY(m.helm.x) + 1.8, `the main boom hangs ${(low - m.deckY(m.helm.x)).toFixed(2)} m over the deck at the helm`);
     }
+    // The water lid of an open hull stays out of the river however she rides (T-3612; Kevin
+    // 2026-11-21: "Water in the boat when I went for a ride", the Kinzies' Mackinaw boat in
+    // 1812). vessels.js ride() heaves a boat under 15 m by 0.05 * 1.6 m and rolls her 1.1 * 1.6
+    // degrees in the open lake, and heels her up to 4.5 degrees under canvas; the lid it had,
+    // 4 mm over the waterline, went under with 2 cm of heave in the river.
+    const lidMesh = m.group.getObjectByName('water-lid');
+    if (lidMesh) {
+      const heave = 0.05 * 1.6, roll = (1.1 * 1.6 + 4.5) * Math.PI / 180, pitch = 0.9 * 1.2 * Math.PI / 180;
+      const lp = lidMesh.geometry.getAttribute('position'), v = new THREE.Vector3();
+      let low = Infinity, wide = 0;
+      for (const sr of [1, -1]) for (const sp of [1, -1]) {
+        const tilt = new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(sr * roll, 0, sp * pitch, 'YZX'))
+          .setPosition(0, -heave, 0);
+        for (let i = 0; i < lp.count; i++) {
+          v.fromBufferAttribute(lp, i);
+          wide = Math.max(wide, Math.abs(v.z));
+          low = Math.min(low, v.applyMatrix4(tilt).y);
+        }
+      }
+      ok(low > 0.02, `${rec.kind}: the water lid goes ${low.toFixed(3)} m under the river as she rides`);
+      ok(wide < rec.hull.beam_m / 2, `${rec.kind}: the water lid is wider than the hull`);
+      // The eye at the helm stands over the lid, so the lid never hides the boat from her pilot.
+      let under = -Infinity;
+      for (let i = 0; i < lp.count; i++) {
+        v.fromBufferAttribute(lp, i);
+        if (Math.abs(v.x - m.helm.x) < 0.8) under = Math.max(under, v.y);
+      }
+      ok(m.helm.y > under + 0.25, `${rec.kind}: the helm's eye is ${(m.helm.y - under).toFixed(2)} m over the water lid`);
+    }
     m.dispose?.();
   }
 }
@@ -213,6 +242,18 @@ date = '1812-08-14';
 const v12 = await createVessels({ dataBase: 'http://x/data/', sceneId: '1812', terrain: terrainOf('1812'), problems, hour: () => hour, season: () => season, date: () => date });
 ok(problems.length === 0 && v12.census.vessels === 2, `1812: ${problems.join('; ')} ${JSON.stringify(v12.census)}`);
 const kinzie = v12.vessels.find((v) => v.id === 'vessel_kinzie_boat_1812');
+// A moored boat keeps her water open: the planters are handed her berths, home and dated, so
+// no reed grows up through the scow's floor below the Kinzie house (2026-11-21).
+for (const v of v12.vessels) {
+  const berths = [v.rec.berth, ...(v.rec.dated ?? []).map((d) => d.berth)];
+  for (const b of berths) {
+    const k = v12.keepOut.find((q) => {
+      const es = q.pts.map((p) => p[0]), ns = q.pts.map((p) => p[1]);
+      return b.e > Math.min(...es) && b.e < Math.max(...es) && b.n > Math.min(...ns) && b.n < Math.max(...ns);
+    });
+    ok(k && k.id.startsWith(v.id), `${v.id}: the reeds are not kept off her berth at (${b.e}, ${b.n})`);
+  }
+}
 tick(v12);
 const home = [kinzie.pose.e, kinzie.pose.n];
 date = '1812-08-15';

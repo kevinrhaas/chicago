@@ -339,6 +339,10 @@ def corners(e,n,width,depth,bearing):
     return [(e+c*x+s*z,n+s*x-c*z) for x,z in [(-width/2,-depth/2),(width/2,-depth/2),(width/2,depth/2),(-width/2,depth/2),(0,0)]]
 
 
+# T-3686, owner 2026-11-21: an attached business row stands on the walk's outer
+# edge (a hand's breadth clear of the planks, so the front never z-fights them).
+ROW_FRONT_GAP_M=0.06
+
 class SpatialLines:
     """Small uniform index: per-lot exclusions never scan the whole city's roads."""
     def __init__(self, lines, cell=200):
@@ -581,8 +585,8 @@ class City:
     def park(self,p):
         return any(inside(p,k["polygon"]) for k in self.parks)
 
-    def lot_clear(self,points):
-        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,2) for p in points)
+    def lot_clear(self,points,street_extra=2):
+        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,street_extra) for p in points)
 
     def district(self,e,n):
         zone=next((z for z in self.zones if inside((e,n),z["polygon"])),None)
@@ -1568,25 +1572,44 @@ class City:
 
     def core_row(self,place,street,si,gi,side,axis,a,d,L,edge,district,fronts):
         """T-3686 on a platted face: attached fronts fill the face from corner
-        to corner at the building line, with the gap to the walk paved
-        (walk_gap_m); a front a cross street's lot already holds is left out."""
+        to corner, built to the walk; a front a cross street's lot already
+        holds is left out.
+
+        Owner, 2026-11-21: the fronts stand on the walk's outer edge, as every
+        photograph of the 1871 business streets shows them, not 5 m behind it
+        on the corridor margin the free-standing lots keep. Each end of the row
+        stops at the cross street's own walk edge, found by probing the street
+        index, so a corner store's flank lines that walk too."""
         (ua,va),(du,dv)=a,d
         kind="central_business" if district=="central_business" else "strip"
         draw=random.Random(f"1871-core-row-{si}-{gi}-{side}")
-        gap=edge+.05-street.get("width_m",14)/2-street.get("walk_m",2.3)
-        # The row runs from one cross street's building line to the next; the
-        # front stands just outside the corridor margin lot_clear keeps.
-        s0=edge+.05
-        if L-2*s0<16:return
-        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-2*s0,kind,draw,district,f"core-{si}-{gi}-{side}")):
+        walk_edge=street.get("width_m",14)/2+street.get("walk_m",2.3)
+        front=walk_edge+ROW_FRONT_GAP_M
+        # A point's clearance from every street's walk edge: the index's own
+        # width is half + walk + 3, so an extra of -3 + gap is the walk edge.
+        extra=-3+ROW_FRONT_GAP_M*.5
+
+        def at_uv(s,off):
+            c=(ua+du*s/L,va+dv*s/L)
+            return en(c[0],c[1]+side*off) if axis=="ew" else en(c[0]+side*off,c[1])
+
+        def end_clear(from_start):
+            for s in [x*.25 for x in range(16,int(edge*4)+2)]:
+                t=s if from_start else L-s
+                if all(self.mapped_index.clear(at_uv(t,off),extra) for off in (front+.02,front+3,front+8)):return s
+            return edge+.05
+        s_start,s_end=end_clear(True),end_clear(False)
+        s0=s_start
+        if L-s_start-s_end<16:return
+        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-s_start-s_end,kind,draw,district,f"core-{si}-{gi}-{side}")):
             at=s0+width/2;s0+=width
             full=max(10.,draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26))
             c=(ua+du*at/L,va+dv*at/L)
             # A wider mapped corridor or a shallow block: set the front back a
             # little, or build shallower, before leaving the lot empty.
-            for push in (0.,.3,.8,1.5,2.5):
+            for push in (0.,.3,.8,1.5,2.5,5.):
                 for depth in dict.fromkeys((full,max(10.,full*.7),max(10.,full*.5),10.)):
-                    back=edge+.05+push+depth/2
+                    back=front+push+depth/2
                     if axis=="ew":
                         u,v=c[0],c[1]+side*back;eu,ev=width,depth
                         bearing=-math.degrees(ANGLE)+(180 if side>0 else 0)
@@ -1594,11 +1617,11 @@ class City:
                         u,v=c[0]+side*back,c[1];eu,ev=depth,width
                         bearing=-math.degrees(ANGLE)+(-90 if side>0 else 90)
                     pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
-                    if not self.lot_clear(pts4):continue
+                    if not self.lot_clear(pts4,extra):continue
                     # Backs meeting the row behind (a half block between two
                     # platted streets) build shallower rather than leave a gap.
                     e,n=en(u,v)
-                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(gap+push,2)},probe=True):break
+                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(ROW_FRONT_GAP_M+push,2)},probe=True):break
                 else:continue
                 break
 

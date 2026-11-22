@@ -181,8 +181,9 @@ export const SCENE_POSES = Object.freeze({
     // From the commercial-centre anchor, along mapped Madison Street east of
     // State. The bearing follows the emitted road, not a due-east shortcut into
     // the context lots. These are benchmark camera moves, not historical actions.
-    walk: { from: [900, -534], legs: [[89.4026285464, 100]] },
-    turn: { at: [900, -534], yaw_deg: 0 }, // downtown
+    // T-3686: the anchor stands mid-walk, now the fronts are built to the walk's edge.
+    walk: { from: [900, -532.4], legs: [[89.4026285464, 100]] },
+    turn: { at: [900, -532.4], yaw_deg: 0 }, // downtown
     flight: { from: [-400, 200], yaw_deg: 100, altitude_m: 350, pitch_deg: -22 }, // river_from_above
   },
   1904: {

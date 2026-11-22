@@ -6,7 +6,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { dressStreetSurfaces } from './street-surfaces-1871.js';
+import { dressStreetSurfaces, STREET_DECAL_ORDER } from './street-surfaces-1871.js';
 import { buildFronts, facadeOf, facadeTint, jitterOf, FAMILY_ROW, FACADE_ROW, FRAME_PAINT } from './city-fronts.js';
 
 async function json(url) {
@@ -181,7 +181,11 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       // well as material and shadow behaviour, retaining every authored channel.
       const layout=Object.entries(object.geometry.attributes).sort(([a],[b])=>a.localeCompare(b))
         .map(([name,a])=>`${name}:${a.itemSize}:${a.normalized}:${a.array.constructor.name}`).join('|');
-      const key=`${object.material.uuid}:${castShadow}:${!!object.geometry.index}:${layout}`;
+      // T-3685 follow-up: the street layers (roadways, walks, crossings) draw as ground
+      // decals in a fixed order (street-surfaces-1871.js STREET_DECAL_ORDER), so the
+      // walks and the crossings, which share the plank material, each get their own batch.
+      const decal=STREET_DECAL_ORDER[layer]!=null ? `:${layer}` : '';
+      const key=`${object.material.uuid}:${castShadow}:${!!object.geometry.index}:${layout}${decal}`;
       if (!batches.has(key)) batches.set(key,{material:object.material,castShadow,parts:[],layers:new Set(),sources:new Set()});
       const batch=batches.get(key);
       // A GLB node transform is part of the asset. Bake it into this assembled
@@ -273,6 +277,37 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
   }
   out.containsBuilding = (e,n,pad=.25) => (collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? []).some(r=>contains(r,e,n,pad));
   out.footprintsNear = (e,n) => collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? [];
+  // T-3691 (the owner, 2026-11-21, on The Last Sunday: "we ran into a wall ... the default walk
+  // should follow sidewalks etc"): the route planner is handed what the walker meets here, the
+  // buildings, and what a walk keeps to, the streets with their plank walks and crossings, for
+  // the box it plans over. Without them a route crossed the city's blocks straight, through
+  // the buildings the walker then stopped against.
+  out.routeFeatures = (box) => {
+    const hit = (e0,e1,n0,n1) => e1>=box.e0 && e0<=box.e1 && n1>=box.n0 && n0<=box.n1;
+    const seen = new Set(), footprints = [];
+    for (let i=Math.floor(box.e0/collisionCellM);i<=Math.floor(box.e1/collisionCellM);i++) {
+      for (let j=Math.floor(box.n0/collisionCellM);j<=Math.floor(box.n1/collisionCellM);j++) {
+        for (const r of collisions.get(`${i},${j}`) ?? []) {
+          if (seen.has(r)) continue;
+          seen.add(r);
+          if (hit(r.e-r.radius,r.e+r.radius,r.n-r.radius,r.n+r.radius)) footprints.push({ id:r.id, pts:r.pts });
+        }
+      }
+    }
+    const line = (a,b) => Array.isArray(a) && Array.isArray(b)
+      && hit(Math.min(a[0],b[0]),Math.max(a[0],b[0]),Math.min(a[1],b[1]),Math.max(a[1],b[1]));
+    const streets = [];
+    for (const r of doc.streets ?? []) {
+      if (Array.isArray(r) || !line(r.a,r.b) || !(r.width_m>0)) continue;
+      streets.push({ id:r.street_id, path:[r.a,r.b], track_width_m:r.width_m, corridor_width_m:r.width_m+2*(r.walk_m ?? 0) });
+    }
+    const walks = [];
+    for (const w of doc.walk_surfaces ?? []) {
+      if ((w.kind!=='walk' && w.kind!=='crossing') || !line(w.a,w.b)) continue;
+      walks.push({ centreline_local_enu_m:[w.a,w.b], width_m:w.width_m, kind:w.kind==='crossing' ? 'board_crossing' : 'walk' });
+    }
+    return { footprints, streets, walks };
+  };
   out.streetLines = () => {
     const fields=Object.fromEntries((doc.fields?.streets ?? []).map((key,index)=>[key,index]));
     return (doc.street_lines ?? doc.streets ?? []).map(row=>{
@@ -490,6 +525,8 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
       geometries.add(geometry);
       const mesh=new THREE.Mesh(geometry,walkMaterial);
       mesh.name=`context:1871:tile:${tile.e},${tile.n}:aprons`; mesh.receiveShadow=true;
+      // The walk's planking draws as a ground decal after everything opaque; its apron with it.
+      mesh.renderOrder=STREET_DECAL_ORDER.walks;
       mesh.userData={layer:'infrastructure',confidence:'reconstructed',triangles:idx.length/3};
       apronMeshes.push(mesh); group.add(mesh);
     }

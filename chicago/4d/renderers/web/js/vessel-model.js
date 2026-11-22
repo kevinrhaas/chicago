@@ -982,20 +982,9 @@ export function buildTradeBoat(spec, { confidence = null, coarse = false } = {})
     if (rl) group.add(rl);
   }
   group.add(p.mesh(mat, 'hull'));
-  // The lid at the waterline inside the open hull, so the river does not show through it.
+  // The lid across the open hull, so the river does not show through it.
   const lidMat = waterLidMaterial();
-  const lid = [];
-  for (let i = 0; i < 16; i++) {
-    const a = 0.03 + (0.94 * i) / 16, b = 0.03 + (0.94 * (i + 1)) / 16;
-    const wa = waterHalf(ln, a), wb = waterHalf(ln, b);
-    lid.push(ln.x(a), 0.004, -wa, ln.x(b), 0.004, -wb, ln.x(b), 0.004, wb, ln.x(a), 0.004, -wa, ln.x(b), 0.004, wb, ln.x(a), 0.004, wa);
-  }
-  const lg = new THREE.BufferGeometry();
-  lg.setAttribute('position', new THREE.Float32BufferAttribute(lid, 3));
-  const lidMesh = new THREE.Mesh(lg, lidMat);
-  lidMesh.renderOrder = 0.5;
-  lidMesh.name = 'water-lid';
-  group.add(lidMesh);
+  group.add(gunwaleLid(ln, 16, lidMat));
 
   let sails = 'furled', side = 1;
   function setSails(state, windSide = side, boomDeg = 30) {
@@ -1032,15 +1021,37 @@ export function buildTradeBoat(spec, { confidence = null, coarse = false } = {})
   };
 }
 
-/** The half-breadth of a hull where its section meets the water (y = 0), at station t. */
-function waterHalf(ln, t) {
-  let lo = 0, hi = 1;
-  if (ln.sheer(t) <= 0) return 0;
-  for (let k = 0; k < 18; k++) {
-    const mid = (lo + hi) / 2;
-    if (sectionPoint(ln, t, mid)[1] < 0) lo = mid; else hi = mid;
+/** How far under the sheer the lid lies, and how far inside the planking. */
+export const LID_UNDER_SHEER_M = 0.03;
+const LID_INSET_M = 0.03;
+
+/**
+ * The depth-only lid across an open hull's opening, a few centimetres under the sheer and
+ * inside the planking. It used to lie 4 mm over the waterline, and a boat that rides the
+ * water (vessels.js ride: a couple of centimetres of heave and a degree of roll in the river,
+ * more in the lake, more again heeled under sail) put it under the river half the time, so
+ * the water showed between the floorboards of a boat the visitor was steering (Kevin,
+ * 2026-11-21, the Kinzies' Mackinaw boat in 1812). Up at the gunwale it stays dry until the
+ * boat would ship water over her side, as crossings.js lays its own. It hides only what is
+ * drawn after it (the river, at renderOrder 1), so the floor, thwarts, bales and crew drawn
+ * before it still show.
+ */
+function gunwaleLid(ln, n, mat) {
+  const lid = [];
+  const at = (t) => {
+    const y = ln.sheer(t) - LID_UNDER_SHEER_M;
+    return [ln.x(t), y, Math.max(0, halfAtY(ln, t, y) - LID_INSET_M)];
+  };
+  for (let i = 0; i < n; i++) {
+    const [xa, ya, wa] = at(0.03 + (0.94 * i) / n), [xb, yb, wb] = at(0.03 + (0.94 * (i + 1)) / n);
+    lid.push(xa, ya, -wa, xb, yb, -wb, xb, yb, wb, xa, ya, -wa, xb, yb, wb, xa, ya, wa);
   }
-  return Math.max(0, sectionPoint(ln, t, lo)[2] - 0.03);
+  const lg = new THREE.BufferGeometry();
+  lg.setAttribute('position', new THREE.Float32BufferAttribute(lid, 3));
+  const lidMesh = new THREE.Mesh(lg, mat);
+  lidMesh.renderOrder = 0.5;
+  lidMesh.name = 'water-lid';
+  return lidMesh;
 }
 
 /** The half-breadth of a hull's section at height y, at station t. */
@@ -1155,18 +1166,7 @@ export function buildSmallBoat(spec, { confidence = null } = {}) {
     }
   }
   const lidMat = waterLidMaterial();
-  const lid = [];
-  for (let i = 0; i < 12; i++) {
-    const a = 0.03 + (0.94 * i) / 12, b = 0.03 + (0.94 * (i + 1)) / 12;
-    const wa = waterHalf(ln, a), wb = waterHalf(ln, b);
-    lid.push(ln.x(a), 0.004, -wa, ln.x(b), 0.004, -wb, ln.x(b), 0.004, wb, ln.x(a), 0.004, -wa, ln.x(b), 0.004, wb, ln.x(a), 0.004, wa);
-  }
-  const lg = new THREE.BufferGeometry();
-  lg.setAttribute('position', new THREE.Float32BufferAttribute(lid, 3));
-  const lidMesh = new THREE.Mesh(lg, lidMat);
-  lidMesh.renderOrder = 0.5;
-  lidMesh.name = 'water-lid';
-  group.add(lidMesh);
+  group.add(gunwaleLid(ln, 12, lidMat));
 
   /** Swing the oars: `phase` 0..1 through one stroke; `on` false lays them in along the gunwales. */
   function stroke(phase, on) {
