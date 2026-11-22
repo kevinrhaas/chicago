@@ -4633,6 +4633,8 @@ async function boot() {
     // T-3263: the trunks and posts a stand must see past — the parkway elms, the lamps
     // and poles, and the grown timber's trunks (re-read when a detail change re-grows it).
     occluders: standOccluders,
+    // T-3691: and never on a stoop, area wall or railing (house-barriers.js, read with the people).
+    standClear: (e, n) => !api.houseBarriers?.near(e, n, BARRIER_STAND_M),
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
     passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,

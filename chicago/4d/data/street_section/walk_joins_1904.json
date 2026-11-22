@@ -14,8 +14,8 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 109,
-  "joined": 86,
+  "walk_ends": 110,
+  "joined": 87,
   "already_met": 16,
   "not_street_ends": 7,
   "widest_gap_m": 1.6
@@ -70,6 +70,7 @@
   {"id": "house_2027_prairie:front_walk:0", "house": "house_2027_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.319, "width_m": 1.2, "polygon_local_m": [[1415.811, -3572.028], [1415.824, -3573.228], [1415.425, -3573.231], [1415.416, -3572.031]]},
   {"id": "house_2101_prairie:front_walk:0", "house": "house_2101_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.067, "width_m": 1.2, "polygon_local_m": [[1415.921, -3618.913], [1415.934, -3620.113], [1415.787, -3620.114], [1415.778, -3618.914]]},
   {"id": "house_2120_prairie:front_walk:0", "house": "house_2120_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.287, "width_m": 1.2, "polygon_local_m": [[1396.278, -3678.831], [1396.264, -3677.631], [1396.631, -3677.627], [1396.642, -3678.827]]},
+  {"id": "house_2125_prairie:front_walk:0", "house": "house_2125_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.249, "width_m": 1.2, "polygon_local_m": [[1416.639, -3688.711], [1416.653, -3689.911], [1416.324, -3689.913], [1416.315, -3688.713]]},
   {"id": "jones_house_1834_prairie:front_walk:0", "house": "jones_house_1834_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.326, "width_m": 1.2, "polygon_local_m": [[1393.008, -3317.97], [1392.995, -3316.77], [1393.401, -3316.766], [1393.413, -3317.966]]},
   {"id": "kellogg_house_1709_prairie:front_walk:0", "house": "kellogg_house_1709_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.284, "width_m": 1.5, "polygon_local_m": [[1410.848, -3102.684], [1410.859, -3104.184], [1410.503, -3104.189], [1410.484, -3102.689]]},
   {"id": "kellogg_house_1923_prairie:front_walk:0", "house": "kellogg_house_1923_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_18_20", "gap_m": 0.379, "width_m": 1.28, "polygon_local_m": [[1414.072, -3424.571], [1414.084, -3425.851], [1413.626, -3425.855], [1413.613, -3424.575]]},
