@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3205, ts: '2026-11-22T22:12:35.090Z', date: 'Nov 22, 2026, 4:12 PM CT', title: '2125 Prairie is built', kind: 'feature',
+    items: [
+      '2125 Prairie, the one wooden house among the brick ones on the east side between 21st and 22nd Streets, now stands as a full house in place of its draft. Its plan comes from the 1911 map: two storeys over a raised basement, a porch across the whole front, a square bay on its north side, an angled bay on its south side and a one-storey range behind. No picture of it is known, so the clapboard, the windows, the steep slate gable facing the avenue and the olive paint with cream trim are a careful best guess, and the house\'s card says so.',
+    ] },
   { v: 3204, ts: '2026-11-22T20:27:14.936Z', date: 'Nov 22, 2026, 2:27 PM CT', title: 'Jaunt stops at hidden buildings no longer end against a wall', kind: 'fix',
     items: [
       'Pullman\'s Other Son and The Pullman Twins no longer stop against the front of the Pullman house on the way to the palm house behind it. You now stand on the 18th Street sidewalk and look at the glasshouse across the yard.',
