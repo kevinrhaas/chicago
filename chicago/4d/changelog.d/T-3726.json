@@ -1,0 +1,7 @@
+{
+  "title": "A slow set of checks split in two so work lands again",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changes. One group of the checks that run on every change had grown from about a quarter of an hour to as much as 38 minutes, and on the slower test machines it was cut off at its 40-minute limit, so finished work could not be merged. The group is now two groups that run side by side, each about 20 minutes even on the slowest machine. Every check still runs, unchanged."
+  ]
+}

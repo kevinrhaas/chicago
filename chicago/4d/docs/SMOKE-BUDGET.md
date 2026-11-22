@@ -72,8 +72,9 @@ re-read.
 
 The gate is cut into legs by `chicago-4d-bake.yml` § `smoke` — two viewports over
 one list of stage ranges, **every leg in parallel**, each under the leg cap.
-Those ranges have been re-spelled five times in 2026 as the body was re-cut (T-2362
-last, when desktop parts 5, 8, 13 and 14 each grew to a leg's worth on CI), and
+Those ranges have been re-spelled six times in 2026 as the body was re-cut (T-3726
+last, when desktop 9-12 grew to 27-38 minutes on CI and was cut into 9-10 and 11-12;
+T-2362 before it, when desktop parts 5, 8, 13 and 14 each grew to a leg's worth), and
 every prose copy of them has gone stale in turn. So **`--legs` reads them from
 the workflow and prices them from `tools/dev-smoke-state.json`**, and
 `--self-test` (which `check.sh` runs) fails if the ranges ever stop tiling parts
