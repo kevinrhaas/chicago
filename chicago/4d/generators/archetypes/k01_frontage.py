@@ -4507,6 +4507,8 @@ class Assembly:
                           **({"columns": len(cols.get("at_s_m", (0, 0)))} if cols else {}),
                           **({"arches": self._arch_count} if cols and h.get("arches") else {}),
                           **({"flutes": cols["flutes"]} if cols and cols.get("flutes") else {}),
+                          **({"cluster_shafts": cols["cluster"]["count"] * len(cols["cluster"]["sides"])}
+                             if cols and cols.get("cluster") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
@@ -4565,36 +4567,57 @@ class Assembly:
         spc = (op.s_m + splay["column_s_m"], splay["column_out_m"]) if splay else None
         ends = [x for side, x in (("left", min(at)), ("right", max(at))) if side in arches["faces"]] \
             if arches and arches.get("end_columns") else []
+        # T-3717: a corner column made a cluster of slender shafts on a pedestal of its own
+        # (`cluster`), its plinth `cpw` wide along the front, in from the hood's end as a
+        # single column's is
+        cl = co.get("cluster")
+        cpw = cl["plinth_m"][0] if cl else pw
+        if cl and not co.get("at_s_m"):
+            at = (s0 + (cpw if "left" in cl["sides"] else pw) / 2 + 0.05,
+                  s1 - (cpw if "right" in cl["sides"] else pw) / 2 - 0.05)
+        clustered = [x for side, x in (("left", min(at)), ("right", max(at))) if side in cl["sides"]] if cl else []
         bd = pw / 2 + 0.01   # T-1896: an end's back column, its plinth against the wall
         backs = [(x, bd) for x in ends]
         for cs, cd_ in [(x, cd) for x in at] + ([spc] if spc else []) + backs:
-            if (cs, cd_) != spc and not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
+            cx = (cs, cd_) != spc and (cs, cd_) not in backs and any(abs(cs - x) < 1e-9 for x in clustered)
+            w_, h_ = (cpw, cl["plinth_m"][1]) if cx else (pw, ph)
+            if (cs, cd_) != spc and not s0 + w_ / 2 + 0.05 - 1e-6 <= cs <= s1 - w_ / 2 - 0.05 + 1e-6:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             cd = cd_
-            box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
-            box(cs - cw, cs + cw, ys - (cv["abacus_m"] if cv else cap), ys, cd - cw, cd + cw,
+            box(cs - w_ / 2, cs + w_ / 2, yl, yl + h_, cd - pw / 2, cd + pw / 2, skip=("bottom",))
+            if cx:   # the cluster's shafts in a row along the front, under one abacus over the row
+                n_c, rr = cl["count"], cl["diameter_m"] / 2
+                pitch = cl["diameter_m"] + cl["gap_m"]
+                shafts = [(cs + (i - (n_c - 1) / 2) * pitch, rr) for i in range(n_c)]
+                hw, hd_ = (n_c - 1) * pitch / 2 + rr + 0.07, rr + 0.07
+            else:
+                shafts, hw, hd_ = [(cs, r)], cw, cw
+            box(cs - hw, cs + hw, ys - (cv["abacus_m"] if cv else cap), ys, cd - hd_, cd + hd_,
                 skip=("top",) if not arches else ())
-            if cv:   # T-3186: the bay columns' bell of leaves (T-2887), its crown under the abacus
-                C, ya, yb, k = P(cs, 0.0, cd), ys - cap, ys - cv["abacus_m"], cv["tiers"]
-                for t in range(k):
-                    lo, hi = ya + (yb - ya) * t / k, ya + (yb - ya) * (t + 1) / k
-                    self.bell("carved_trim", C, R, N, C[1] + lo, C[1] + hi, r + 0.01 + 0.02 * t,
-                              r + 0.05 + 0.025 * t, seed, conf)
-            ya, yb = yl + ph, ys - cap
-            # T-1902: a fluted shaft rings an arris at the radius with a flute's hollow under it,
-            # `flutes` of each round (the verandah's, k01_porte_cochere._fluted)
-            nf = co.get("flutes")
-            n_, rk = (2 * nf, lambda i: 1.0 if i % 2 == 0 else 0.9) if nf else (seg, lambda i: 1.0)
-            for k in range(n_):
-                a0, a1 = 2 * math.pi * k / n_, 2 * math.pi * (k + 1) / n_
-                am = (a0 + a1) / 2
-                q = [(cs + r * rk(i) * math.cos(a), cd + r * rk(i) * math.sin(a))
-                     for i, a in ((k, a0), ((k + 1) % n_, a1))]
-                quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]), P(q[0][0], yb, q[0][1])],
-                     self._hood_dir(P, am), bf)
+            for xs, r_ in shafts:
+                if cv:   # T-3186: the bay columns' bell of leaves (T-2887), its crown under the abacus
+                    C, ya, yb, k = P(xs, 0.0, cd), ys - cap, ys - cv["abacus_m"], cv["tiers"]
+                    for t in range(k):
+                        lo, hi = ya + (yb - ya) * t / k, ya + (yb - ya) * (t + 1) / k
+                        self.bell("carved_trim", C, R, N, C[1] + lo, C[1] + hi, r_ + 0.01 + 0.02 * t,
+                                  r_ + 0.05 + 0.025 * t, seed, conf)
+                ya, yb = yl + h_, ys - cap
+                # T-1902: a fluted shaft rings an arris at the radius with a flute's hollow under it,
+                # `flutes` of each round (the verandah's, k01_porte_cochere._fluted)
+                nf = co.get("flutes")
+                n_, rk = (2 * nf, lambda i: 1.0 if i % 2 == 0 else 0.9) if nf else (seg, lambda i: 1.0)
+                for k in range(n_):
+                    a0, a1 = 2 * math.pi * k / n_, 2 * math.pi * (k + 1) / n_
+                    am = (a0 + a1) / 2
+                    q = [(xs + r_ * rk(i) * math.cos(a), cd + r_ * rk(i) * math.sin(a))
+                         for i, a in ((k, a0), ((k + 1) % n_, a1))]
+                    quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]),
+                          P(q[0][0], yb, q[0][1])], self._hood_dir(P, am), bf)
             # the respond: a flat pilaster on the wall behind the column, landing to soffit
-            # (T-1896: none behind an end whose own column stands against the wall)
-            if (cs, cd_) != spc and (cs, cd_) not in backs and not any(abs(cs - x) < 1e-9 for x in ends):
+            # (T-1896: none behind an end whose own column stands against the wall; T-3717: nor
+            # behind a cluster, whose shafts stand clear against the porch's shadow)
+            if (cs, cd_) != spc and (cs, cd_) not in backs and not any(abs(cs - x) < 1e-9 for x in ends) \
+                    and not cx:
                 box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
         cd = out - pw / 2 - 0.05
         if arches and arches.get("end_parapet_m"):   # T-1896: each arched end's low parapet
