@@ -2,7 +2,7 @@
   "structure_id": "sherman_house_2100_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/sherman_house_2100_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2f1a3b9bf3fe05acc7d8de5766d783825c2463a0c7ca0729219dbf1226989c36",
+  "glb_sha256": "babc22ea500ad1232e64a22e583717945e467c384ba54d7854a16d83db0f3e78",
   "camera_sha256": "c776cca76448468f8084f619fd51b3817bd61c7398bae7aca31dc5cddf7b41de",
   "photo_sha256": "2a55ae43e36b6db91dccb451cc478d04f1ef272e04ffa0255ca5e4874f38a563",
   "side_by_side": "docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg",
@@ -49,16 +49,28 @@
       "status": "fixed"
     },
     {
-      "what": "the porch's north end: the render's cluster prints at about x 380-480 px where the photograph's stands at x 525-595, and the photograph's balcony runs on about 60 px further north past it: the photograph's porch is wider to the north than the record's 3.2 m (about 1 m), which the kit can carry only with a terrace beside the flight",
+      "what": "the porch's north end (T-3718): the balcony now runs on to v 10.3, about 0.7 m further north, as far as the parlour's upper light beside it allows, and the cluster stands at v 9.4 inside its end as the 1876 plate's plan draws its three columns, so the balcony runs on past the cluster as the photograph's does; with the render laid over the photograph at the porch the cluster's shafts, the balcony's north end and the parlour's light fall together (the whole front north of the pavilion prints about 100 px left of the photograph's, the camera's own misfit, see its solve)",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch's reach and rail (T-3718): the balcony now runs south to the library pavilion's north face, its south end on a square stone pier under a plain capital (K01's `columns.pier`), as the photograph's plain pier at the pavilion's corner and the plate's thickened corner draw it; the balustrade is a stone band pierced with nine round openings between its corner posts, where the photograph's openings are carved pierced panels, a difference of carving under the bar from the street",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop (T-3701, T-3718): the flight rises between swept stone cheeks, splayed toward the walk as the plate's plan draws it, the south cheek pierced by a row of openings under its coping as the photograph's is, and now 2.3 m wide between the south pier and the cluster's pedestal, the photograph's width at its head (the plate's plan draws the flight in the same place, from the library's corner to the three columns), with a terrace at the landing's height either side under the pier and the cluster; the 'second flight from the south' is in neither picture (the photograph's left-hand flight is this flight's south cheek), so nothing is built for it",
+      "status": "fixed"
+    },
+    {
+      "what": "the stoop's north cheek: its face carries a carved roundel in the photograph that is not built",
       "status": "open"
     },
     {
-      "what": "the porch's reach and rail: the photograph's balcony runs on south to the pavilion on stone piers; the record's porch is 3.2 m wide on its own landing (K01's porch stands only on its own landing); the balustrade's carved pierced panels are square stone balusters",
-      "status": "open"
+      "what": "the stoop's cheeks' heads: the photograph's stand about 0.2 m higher than the kit's highest",
+      "status": "within tolerance"
     },
     {
-      "what": "the stoop (T-3701): the flight now rises between swept stone cheeks, splayed toward the walk as the plate's plan draws it, the south cheek pierced by a row of openings under its coping as the photograph's is; the photograph's flight is about 2.3 m between its cheeks and north of the porch's middle where the record's is the porch's 3.2 m, its cheeks' heads stand about 0.2 m higher than the kit's highest, and its north cheek's carved roundel is not built; the 'second flight from the south' is in neither picture (the photograph's left-hand flight is this flight's south cheek), so nothing is built for it",
-      "status": "open"
+      "what": "the terraces' parapets (T-3718): the kit's swept flight takes a terrace beside it only behind a parapet, so a low stone parapet pierced with square holes stands along each terrace's front, where the photograph's landing north of the cluster has an open rail; the south one is behind the pier and the north one mostly behind the cluster's pedestal, under 0.3 m of either showing",
+      "status": "within tolerance"
     },
     {
       "what": "the stone bands (T-3699): the photograph's pale stone against the dark brick in three bands — the stone carried on over the principal floor to the principal lights' sills, a deep band from the principal heads to the second-storey sills (the arches and the balcony's string course in it), and the frieze under the cornice — are now laid on the front's parlour bay and along the 21st Street flank at the record's own sill and head lines; at the parlour the deep band prints at y 950-1050 px against the photograph's 905-1060. The flank's deep band prints taller than the photograph's because the record's flank lights are shorter than the photograph's (the flank's lights are their own difference, below); the south flank is carried round the same way",
