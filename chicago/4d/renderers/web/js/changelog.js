@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3204, ts: '2026-11-22T20:27:14.936Z', date: 'Nov 22, 2026, 2:27 PM CT', title: 'Jaunt stops at hidden buildings no longer end against a wall', kind: 'fix',
+    items: [
+      'Pullman\'s Other Son and The Pullman Twins no longer stop against the front of the Pullman house on the way to the palm house behind it. You now stand on the 18th Street sidewalk and look at the glasshouse across the yard.',
+      'Every stop at a building that another building hides from its own street, such as a coach house or a rear cottage, now stands on a sidewalk of a street that can see it, never on a doorstep or in a yard.',
+    ] },
   { v: 3203, ts: '2026-11-22T19:39:03.139Z', date: 'Nov 22, 2026, 1:39 PM CT', title: '2100 Prairie\'s balcony reaches the library, on a pier and pierced rail', kind: 'feature',
     items: [
       '2100 Prairie\'s porch balcony now runs from the library\'s projecting front to beside the parlour\'s upper window, as the old photograph and the 1876 plan show. A plain square stone pier carries its south end, and the cluster of three columns now stands just inside its north end. The balcony\'s rail is now a stone band pierced with round openings instead of square balusters. The flight is narrowed to the photograph\'s 2.3 m, between the pier and the columns, with a low stone terrace on each side.',
