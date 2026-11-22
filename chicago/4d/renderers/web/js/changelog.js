@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3206, ts: '2026-11-22T23:22:28.883Z', date: 'Nov 22, 2026, 5:22 PM CT', title: '2017 Prairie\'s tall gable matches its photograph', kind: 'improvement',
+    items: [
+      'The steep gable on the William Armour house at 2017 Prairie now stands on a deep cornice with a row of dentils across its foot, as its photograph shows.',
+      'Its rakes run down to the corners on deep bargeboards at the photograph\'s pitch, and a small diamond-lattice ventilator sits in its peak.',
+    ] },
   { v: 3205, ts: '2026-11-22T22:12:35.090Z', date: 'Nov 22, 2026, 4:12 PM CT', title: '2125 Prairie is built', kind: 'feature',
     items: [
       '2125 Prairie, the one wooden house among the brick ones on the east side between 21st and 22nd Streets, now stands as a full house in place of its draft. Its plan comes from the 1911 map: two storeys over a raised basement, a porch across the whole front, a square bay on its north side, an angled bay on its south side and a one-storey range behind. No picture of it is known, so the clapboard, the windows, the steep slate gable facing the avenue and the olive paint with cream trim are a careful best guess, and the house\'s card says so.',
