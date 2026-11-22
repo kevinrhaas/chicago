@@ -36,7 +36,7 @@ sheet's key (`sanborn_1911_vol3_key.jpg`).
 ## The design (all reconstructed; no picture of 2120 is known)
 
 2101's floors and storeys (a 1.7 m principal floor on a high stoop, 4.0 and 3.6 m storeys); a deep red pressed front
-over buff common brick on the flanks and rear; stone lintels under cornice hoods on both storeys of the front; five bays
+over buff common brick on the flanks and rear; stone lintels under cornice hoods over the principal storey and plain flat lintels over the chamber storey; five bays
 on the front with the door in the middle under the sheet's porch, built as K01's timber porch on two turned columns, its
 deck railed low; a 30 degree hip in painted standing-seam tin over a bracketed cornice (standing for the key's
 brick-or-metal cornice); the north bay two storeys, its iron cladding as K08's painted frame face; the south bay one
