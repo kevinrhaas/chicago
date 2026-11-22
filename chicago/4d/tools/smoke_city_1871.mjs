@@ -247,6 +247,9 @@ async function run(opts) {
         const surfacing = row.boot.census.streetSurfaces;
         check(surfacing?.dressed >= 4 && surfacing.edgeQuads > 10_000 && surfacing.tilePx === (surfacing.detail === 'light' ? 256 : 512),
           `${vp.name}: street surfaces painted (${surfacing?.dressed} materials, ${surfacing?.tilePx} px) with ${surfacing?.edgeQuads} kerb and step faces`);
+        // Roadways, crossings and walks draw as ordered ground decals, so where two lie
+        // one on the other (every junction and corner) they no longer blink (Kevin 2026-11-21).
+        check(surfacing?.decals >= 3, `${vp.name}: street layers drawn as ordered decals (${surfacing?.decals} batches)`);
         const extents = buildings.reduce((b, r) => [Math.min(b[0], r.e), Math.max(b[1], r.e), Math.min(b[2], r.n), Math.max(b[3], r.n)], [Infinity, -Infinity, Infinity, -Infinity]);
         check(extents[1] - extents[0] > 5_000 && extents[3] - extents[2] > 7_000, `${vp.name}: city spans north, south and western districts`);
         check(row.boot.streetLines > 30 && (doc.walk_decks?.length ?? 0) > 0, `${vp.name}: dated streets and bridge decks available`);

@@ -9,10 +9,15 @@ ROOT = Path(__file__).resolve().parents[2]
 # T-3558: the photographic farm-box wagon the 1835 moving teams draw, parked at original
 # farm-box stands; every other 1835 farm-box or covered yard vehicle is retired.
 FARM_BOX = 'farm_box_w01'
+# T-3686, the owner's ruling of 2026-11-21 ("Yes, a labelled stand-in"): the five hacks the
+# Sherman House stereograph (LOC 1s12371) shows on Clark Street are drawn with the 1893
+# catalogue Brougham, labelled as a stand-in. Only these five rows, at that stand, may do so.
+HACK_STAND = tuple(f'hack_stand_clark_court_house_{i}' for i in range(1, 6))
+HACK_SOURCES = ['loc_stereo_1s12371_sherman_house', 'studebaker_1893_illustrated_souvenir']
 
 
 def validate(record):
-    assert set(record['scenes']) == {'1835', '1904'}, 'Only the explicitly authored eras may draw these models'
+    assert set(record['scenes']) == {'1835', '1871', '1904'}, 'Only the explicitly authored eras may draw these models'
     original = json.loads((ROOT/'data/yard/town_trade_goods.json').read_text())
     originals = {w['id']: w for w in original['wagons']}
     ids, replaced = set(), set()
@@ -22,7 +27,8 @@ def validate(record):
             ids.add(row['id'])
             assert len(row['at_local_enu_m']) == 2 and all(math.isfinite(x) for x in row['at_local_enu_m'])
             assert math.isfinite(row['bearing_deg'])
-            assert row['liberty'] == ('L-brougham-parked-2794' if row['model'] == 'studebaker_brougham_1893' else 'L-covered-wagons-2980' if row['model'] in COVERED_MODELS
+            stand_in = year == '1871' and row['id'] in HACK_STAND
+            assert row['liberty'] == ('L-1871-streetscape' if stand_in else 'L-brougham-parked-2794' if row['model'] == 'studebaker_brougham_1893' else 'L-covered-wagons-2980' if row['model'] in COVERED_MODELS
                                       else 'L-1835-parked-farm-box' if row['model'] == FARM_BOX else 'L-parked-vehicles-2979')
             assert row['note'] and row['location']
             for source in row['source_ids']:
@@ -36,6 +42,12 @@ def validate(record):
                 assert row['at_local_enu_m'] == old['at_local_enu_m'], 'Replacement must keep its existing stand'
                 assert row['bearing_deg'] == old['bearing_deg'], 'Replacement must keep its existing bearing'
                 assert row['belongs_to'] == old.get('belongs_to'), 'Do not invent a vehicle owner'
+            elif row['model'] == 'studebaker_brougham_1893' and stand_in:
+                assert row.get('belongs_to') is None and not row.get('replaces'), 'A hack at the stand has no owner claim'
+                assert row['source_ids'] == HACK_SOURCES, 'The stand is the stereograph\'s; the form is the catalogue\'s'
+                assert 'stand-in' in row['note'] and 'reconstructed' in row['note'], 'The stand-in says so on its card'
+                e, n = row['at_local_enu_m']
+                assert 570 < e < 578 and -315 < n < -270, 'Clark Street, along the Court House Square, south of Randolph'
             elif row['model'] == 'studebaker_brougham_1893':
                 assert year == '1904' and row['id'] == 'prairie_parked_studebaker_brougham', 'Catalogue type never backdated or aliased'
                 assert row.get('belongs_to') is None and not row.get('replaces'), 'No owner claim or existing C02 rebranding'

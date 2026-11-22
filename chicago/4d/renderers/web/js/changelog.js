@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 3195, ts: '2026-11-22T01:59:06.076Z', date: 'Nov 21, 2026, 7:59 PM CT', title: '1871 streets gain lamps, telegraph poles, trees and a hack stand', kind: 'feature',
+    items: [
+      'Downtown, shop fronts now stand right on the plank walk, block after block, instead of behind a strip of lawn.',
+      'Gas lamps stand at the street corners and along the business blocks, with telegraph poles and their wires on the main streets.',
+      'Hitching posts line the walks in front of the shops.',
+      'The house streets are planted with street trees.',
+      'Five hacks wait with their teams on Clark Street beside the Court House Square, where the stereograph of the Sherman House shows a rank of them.',
+      'Where two streets or two plank walks meet, the ground no longer flickers as you walk across it.',
+    ] },
+  { v: 3194, ts: '2026-11-22T00:27:43.128Z', date: 'Nov 21, 2026, 6:27 PM CT', title: '1871 jaunts start on phones; jaunt walks go round buildings', kind: 'fix',
+    items: [
+      'The Great Fire, The Last Sunday and Who Started the Fire no longer close the page on a phone when they start or part way through.',
+      'Walks between stops in 1871 keep to the plank walks and cross at the crossings, instead of heading straight into a building.',
+      'A short walk across a yard still goes straight across, not out to the street and round the block.',
+      'A walk too long to plan at once (across the river to the North Side) is flown.',
+      'On the Fort Dearborn tour, the walk after the view above the sally port no longer stops against the stockade: it starts by air.',
+    ] },
+  { v: 3193, ts: '2026-11-22T00:27:43.128Z', date: 'Nov 21, 2026, 6:27 PM CT', title: 'River water stays out of the boats you take out', kind: 'fix',
+    items: [
+      'Steering the garrison\'s scow or the Kinzies\' boat in 1812, the river no longer shows between the floorboards as the boat rises and falls.',
+      'The same holds for the rowboats and canoes of 1835.',
+      'Reeds no longer grow up through a boat lying at her mooring.',
+    ] },
+  { v: 3192, ts: '2026-11-21T23:08:58.150Z', date: 'Nov 21, 2026, 5:08 PM CT', title: '2109 Prairie\'s veranda turns its corner on columns, as the photograph shows', kind: 'change',
+    items: [
+      'The Roloson house at 2109 Prairie now matches its one photograph. Its veranda stands on round columns on pedestals, turns the south-west corner and runs down the side on open piers, with its railing at the deck and a flat, bare roof.',
+      'The rear block steps out only a narrow strip past the front, as the photograph shows. The mansard dormer has its eared hood, and the upper south window sits on the veranda\'s roof line.',
+    ] },
   { v: 3191, ts: '2026-11-21T20:37:09.744Z', date: 'Nov 21, 2026, 2:37 PM CT', title: '2013 Prairie\'s front is now cream brick', kind: 'improvement',
     items: [
       '2013 Prairie\'s front is now laid in a pale, rough cream brick, as its 2003 National Register nomination describes it, where it used to read as a warm tan.',
