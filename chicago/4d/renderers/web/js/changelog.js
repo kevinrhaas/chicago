@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3202, ts: '2026-11-22T16:50:05.946Z', date: 'Nov 22, 2026, 10:50 AM CT', title: 'A slow set of checks split in two so work lands again', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One group of the checks that run on every change had grown from about a quarter of an hour to as much as 38 minutes, and on the slower test machines it was cut off at its 40-minute limit, so finished work could not be merged. The group is now two groups that run side by side, each about 20 minutes even on the slowest machine. Every check still runs, unchanged.',
+    ] },
   { v: 3201, ts: '2026-11-22T16:06:10.439Z', date: 'Nov 22, 2026, 10:06 AM CT', title: '2115 Prairie checked against both of its photographs', kind: 'fix',
     items: [
       'The Armour house\'s door now stands where its photograph shows it, after two windows, not between them.',
