@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3199, ts: '2026-11-22T11:59:31.996Z', date: 'Nov 22, 2026, 5:59 AM CT', title: '2100 Prairie\'s porch corner on a cluster of three columns', kind: 'feature',
+    items: [
+      'At 2100 Prairie Avenue, the John B. Sherman house, the porch\'s north corner now stands on three slender stone columns grouped on one tall pedestal under a single carved capital, as the photograph shows, in place of one plain column.',
+    ] },
   { v: 3198, ts: '2026-11-22T08:20:17.232Z', date: 'Nov 22, 2026, 2:20 AM CT', title: '2013 Prairie\'s rear block gets its open rooftop porch', kind: 'improvement',
     items: [
       'The rear block behind 2013 Prairie now rises two tall storeys to an open, roofed porch on its top floor, as the house\'s 2003 National Register photographs show it and its nomination describes: "the top floor of the rear section is open to provide a terrace".',
