@@ -1733,6 +1733,13 @@ step "a bay light's lintel may carry the front's carved crest (T-1886)" \
 step "a corner porch's cornice may stand on modillions, its balcony in the trim stone (T-3370)" \
   python3 tools/test_k01_porch_balcony.py
 
+# T-3634. 2017 Prairie's porch parapet and north stack as Chicagology's photograph shows them: a
+# hood railing may be a coped band pierced with rings (no balusters) under ball finials on its
+# front posts; a stack on a mansard's cornice may stand through the deck's curb, the cresting
+# stopping short of it; refused when the rings do not clear the band, oversized, or at a corner.
+step "a hood's parapet may be pierced with rings under finials; a cornice stack may break the curb (T-3634)" \
+  python3 tools/test_k01_pierced_parapet.py
+
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
 # on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the

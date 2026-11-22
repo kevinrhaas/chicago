@@ -8492,9 +8492,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  "door_over"}
         if not need <= set(hd) <= need | extra | {"railing", "pediment"} or \
                 ("railing" in hd) == ("pediment" in hd) or set(hd["cornice"]) != {"height_m", "proud_m"} or \
-                ("railing" in hd and set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}):
+                ("railing" in hd and not _hood_railing_keys_ok(hd["railing"])):
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, and "
-                             f"either a railing (height_m, post_m, baluster_m, pitch_m and rail_m [width, depth]) "
+                             f"either a railing (height_m, post_m, rail_m [width, depth], and baluster_m and pitch_m or a "
+                             f"pierced band; optionally finials) "
                              f"or a pediment")
         bay = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}.get(hd["brackets"])
         if not bay or not bay.get("brackets"):
@@ -8512,7 +8513,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                             "brackets": hd["brackets"], "consoles": dict(con), "modillions": dict(mod)}
         if "railing" in hd:
             door_kit["hood"]["railing"] = {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
-                                           for k, v in hd["railing"].items()}
+                                           for k, v in hd["railing"].items() if k not in ("pierced", "finials")}
+            door_kit["hood"]["railing"].update(_hood_railing_extras(hd["railing"], hd))
         else:
             # T-3562: a pediment on the cornice slab in place of the railing: a tympanum rising
             # `rise_m` from the slab's top to its apex over the hood's centre, set back to the
@@ -9079,7 +9081,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone",
                              **({"head": head} if head else {}),
                              **({"wall_end": st_["wall_end"]} if st_.get("wall_end") else {}),
-                             **({"on_step": True} if st_.get("on_step") else {})})
+                             **({"on_step": True} if st_.get("on_step") else {}),
+                             **({"on_cornice": True} if st_.get("on_cornice") else {})})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")
@@ -9610,3 +9613,52 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )
     return params
+
+
+def _hood_railing_keys_ok(rl) -> bool:
+    """A door hood's railing: height_m, post_m and rail_m [width, depth], and either square
+    balusters (baluster_m, pitch_m) or, T-3634, a solid band PIERCED with rings (2017's porch,
+    its photograph: a coped band with five round piercings between its corner pedestals);
+    optionally FINIALS on its front corner posts."""
+    if not isinstance(rl, dict):
+        return False
+    base = {"height_m", "post_m", "rail_m"}
+    ks = set(rl) - {"finials"}
+    return ks in (base | {"baluster_m", "pitch_m"}, base | {"pierced"})
+
+
+def _hood_railing_extras(rl, hd) -> dict:
+    """T-3634: check and normalise a hood railing's `pierced` band and `finials`.
+
+    pierced: {rings: n on the front run (1-12), diameter_m: each ring's clear diameter}, the
+    returns taking as many as the front's spacing fits; the ring must clear the band (the
+    railing's height less the rail's depth) and its cell by 0.03 m a side.
+    finials: {plinth_m: [width, height], ball_m: the ball's diameter} on each front corner post."""
+    out = {}
+    h, pm = float(rl["height_m"]), float(rl["post_m"])
+    rw, rd = (float(x) for x in rl["rail_m"])
+    if "pierced" in rl:
+        pc = rl["pierced"]
+        if not isinstance(pc, dict) or set(pc) != {"rings", "diameter_m"} or int(pc["rings"]) != pc["rings"] \
+                or not 1 <= int(pc["rings"]) <= 12:
+            raise ParamError("entrance_kit.hood.railing.pierced takes rings (1-12) and diameter_m")
+        if hd.get("splay") or rw < 0.12:
+            raise ParamError("entrance_kit.hood.railing.pierced: a pierced band needs a rail 0.12 m wide or more, "
+                             "and no splayed end")
+        n, d = int(pc["rings"]), float(pc["diameter_m"])
+        run = float(hd["width_m"]) + 2 * float(hd["cornice"]["proud_m"]) - 0.08 - 2 * pm
+        if not 0.08 <= d <= min(h - rd, run / n) - 0.06:
+            raise ParamError(f"entrance_kit.hood.railing.pierced: {n} rings {d} m across do not fit a band "
+                             f"{h - rd:.2f} m high and {run:.2f} m long with 0.03 m about each")
+        out["pierced"] = {"rings": n, "diameter_m": d}
+    if "finials" in rl:
+        fn = rl["finials"]
+        if not isinstance(fn, dict) or set(fn) != {"plinth_m", "ball_m"} or len(fn["plinth_m"]) != 2:
+            raise ParamError("entrance_kit.hood.railing.finials takes plinth_m [width, height] and ball_m")
+        pw, ph = (float(x) for x in fn["plinth_m"])
+        b = float(fn["ball_m"])
+        if not (0.1 <= pw <= pm + 0.1 and 0.03 <= ph <= 0.4 and 0.08 <= b <= pw + 0.05):
+            raise ParamError(f"entrance_kit.hood.railing.finials: a plinth 0.1-{pm + 0.1:.2f} m wide (the post's width "
+                             f"and 0.1 m) and 0.03-0.4 m high, under a ball 0.08 m to its width and 0.05 m")
+        out["finials"] = {"plinth_m": [pw, ph], "ball_m": b}
+    return out
