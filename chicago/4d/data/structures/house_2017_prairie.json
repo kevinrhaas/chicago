@@ -702,7 +702,7 @@
        ],
        "roof": {
         "kind": "gable",
-        "pitch": 1.5,
+        "pitch": 1.4,
         "covering": "slate_pennsylvania",
         "gable": {
          "inset_m": [
@@ -713,11 +713,36 @@
          "coping": {
           "width_m": 0.3,
           "height_m": 0.18,
-          "proud_m": 0.12
+          "proud_m": 0.15
          },
          "kneeler": {
-          "width_m": 0.35,
+          "width_m": 0.1,
           "out_m": 0.03
+         },
+         "foot_cornice": {
+          "height_m": 0.2,
+          "proud_m": 0.3,
+          "dentils": {
+           "width_m": 0.1,
+           "drop_m": 0.2,
+           "spacing_m": 0.19,
+           "out_m": 0.14
+          },
+          "fillet": [
+           0.08,
+           0.1
+          ]
+         },
+         "bargeboards": {
+          "depth_m": 0.27,
+          "proud_m": 0.1
+         },
+         "ventilator": {
+          "height_m": 0.55,
+          "gap_m": 0.05,
+          "proud_m": 0.03,
+          "bar_m": 0.03,
+          "cell_m": 0.11
          },
          "finial": {
           "width_m": 0.2,
@@ -748,7 +773,7 @@
       "chicagology_2017_armour_photo",
       "sanborn_1911_chicago_v3_sheet_35"
      ],
-     "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past the cornice into a steep gable (its foot at the dentilled band, y 360-420 px, about 9 m; its apex at y 70, about 12.2 m; so a pitch of about 1.5) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. Its gable's bargeboards are built as K08's coping (the match record); its two attic lights are cut in the gable's face as the photograph shows them (T-3634)."
+     "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past a dentilled cornice into a steep gable (its foot at the cornice's shelf, y 360 px, 9 m; its apex at y 70, about 12.2 m; its rakes run down to the shelf at the projection's corners at a pitch of about 1.4, read off both rakes) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. The gable's foot cornice (a shelf over a row of dentils and a fillet, y 355-425 px), the bargeboards under its rakes and the latticed ventilator in its peak (y 120-170 px) are built as the photograph shows them, in the front's stone since the print is monochrome; its two attic lights are cut in the gable's face as the photograph shows them (T-3634)."
     },
     "rear_wings": {
      "value": [
