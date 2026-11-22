@@ -279,14 +279,31 @@
           "height_m": 0.9,
           "radius_m": 0.16
         },
-        "takes_gutter": true
+        "takes_gutter": true,
+        "tympanum": {
+          "base_m": 15.35,
+          "border_m": 0.03,
+          "proud_m": 0.03,
+          "relief": {
+            "proud_m": 0.05,
+            "stem_m": 0.07,
+            "leaf_m": 0.55,
+            "pitch_m": 0.2,
+            "margin_m": 0.05
+          },
+          "drop": {
+            "length_m": 0.3,
+            "arm_m": 1.0,
+            "width_m": 0.06
+          }
+        }
       },
       "confidence": "inferred",
       "sources": [
         "aic_rees_2110_c1980s_photo",
         "glessner_blog_rees_2110_gable_2012"
       ],
-      "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). The carving of the tympanum, the kneelers' corbels and the finial's leaves are T-1923's; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts."
+      "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). T-3714: the gable's head carved as both photographs show it, a carved field from a level base a little over the light's head (15.35 m) up into the apex, just inside the coping, and under it a carved drop over the light opening into two curled arms either side of it; the kit's stem, leaves and curls stand for the photographs' scrolled foliage (L-k01-2110-rees-carving-3714). The kneelers' corbels and the finial's leaves are left to T-3716's photo-match; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts."
     },
     "window_kit": {
       "value": {
@@ -698,6 +715,19 @@
             },
             {
               "height_m": 3.6,
+              "carved_band": {
+                "below_m": 0.45,
+                "above_m": 0.45,
+                "proud_m": 0.04,
+                "guilloche": {
+                  "radius_m": 0.3,
+                  "ring_width_m": 0.06,
+                  "ring_proud_m": 0.03,
+                  "margin_m": 0.05,
+                  "pitch": 1.6,
+                  "segments": 16
+                }
+              },
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -720,7 +750,8 @@
             "covering": "copper_sheet"
           },
           "eaves": {
-            "cornice": "k10.cornice.moulded_stone"
+            "cornice": "k10.cornice.moulded_stone",
+            "in_cap_covering": true
           },
           "plinth_m": 0.1
         }
@@ -732,7 +763,7 @@
         "aic_rees_2110_c1980s_photo",
         "glessner_blog_rees_2110_gable_2012"
       ],
-      "note": "The bow from grade to the third floor across the south part of the front, three lights a storey, its carved band at the upper floor and a copper cap under the loggia: the sheet draws it as a stone half-round at the south end of the front, and every picture shows it, the early-1890s photograph with its carved band. Its chord, 4.8 m from s 0.35 to 5.15, is read off the c. 1980s photograph as 0.62 of the front's width at the band, where the sheet's small symbol spans about 5.6 m; its rise, 1.5 m, between the photograph's turn of the side lights and the sheet's 2 m. The band's carving and the cap's copper cornice stand as K08's string course and a moulded stone eave under a copper cone (T-1923's)."
+      "note": "The bow from grade to the third floor across the south part of the front, three lights a storey, its carved band at the upper floor and a copper cap under the loggia: the sheet draws it as a stone half-round at the south end of the front, and every picture shows it, the early-1890s photograph with its carved band. Its chord, 4.8 m from s 0.35 to 5.15, is read off the c. 1980s photograph as 0.62 of the front's width at the band, where the sheet's small symbol spans about 5.6 m; its rise, 1.5 m, between the photograph's turn of the side lights and the sheet's 2 m. T-3714: the carved band at the upper floor stands 0.45 m either side of the floor line, from a little over the parlour lights' heads to the upper lights' sills, as the c. 1980s photograph shows it, carrying K08's guilloche for the photograph's carved foliage; and the cap's moulded cornice is run in the cap's own copper, green with age in the 2012 detail (L-k01-2110-rees-carving-3714)."
     },
     "function": {
       "value": "residence",

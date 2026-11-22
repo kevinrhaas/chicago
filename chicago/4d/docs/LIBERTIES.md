@@ -25552,6 +25552,27 @@ piece; a photograph of the flanks or rear, ingested as a source, replaces the ki
 **Review:** `docs/RESEARCH/k01-2115-armour-3712/README.md`.
 **Recorded:** 2026-11-21 (T-3712).
 
+**T-3713 (piece 2 of T-1925): the two pictures' cameras and the image-gate sign-off.** Both pictures now
+carry solved cameras (`data/reference_views/armour_house_2115_prairie/`: the Armour photograph, fitted on the
+front's north corner, its window columns, the door's landing and the cornice; the Tribune's 1928 halftone, fitted
+on the same columns, the grade, the cornice and the curb, with a pixel aspect of 1.195 for a copy resampled
+unevenly, which is measured, not assumed). Through them the piece above was corrected where the pictures
+disagreed with it by more than a visitor would miss: the door stands in the third column (K01 counts the bays from
+its own 'south' end, the real north on this house, so `entrance_bay` is 3, not 2); the pavilion is 3.7 m wide, not
+the sheet's 4.8 m, and the front's own wall south of it carries one light a storey; the wall head stands 0.6 m
+higher under a frieze with K10's console blocks every 0.6 m, standing for the photograph's 1 m bracketed cornice
+over K10's 0.36 m moulded section, and the mansard rises 3.35 m; the deck carries K10's iron cresting, 0.6 m
+(the deck dresser now stops a rail short of a mansard crown as of a hipped one); the north flank carries only the
+one tall second-storey light the photograph shows, and the north side's mansard one dormer where it shows its
+first; the stacks stand where the pictures put them, 2.6 m over the deck, the south one triangulated from both
+cameras. **Read:** every place and height above, through the cameras (residuals in each `solve`). **Invented:**
+the console blocks' spacing and section and the cresting's pattern (the kit's); the flank light's head, 0.5 m
+under the print's to clear the frieze; the north side's hidden rear 2 m, laid with no light. **Left open** (the
+match records): the mansard and its dormers carried back over the rear range, which K01's rear wing cannot
+roof; the iron cresting and carved top on the pavilion's crown, which a K01 mansard crown does not take; and the
+front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B' piece), built
+under the main mansard.
+
 ### L-k01-2013-reid-3625 — 2013 Prairie, the William H. Reid house, refined from the district draft onto K01: its front read off the Inland Architect's 1895 plate through a solved camera, its flanks and rear still the kits'
 
 **Decision:** the district draft at `reid_house_2013_prairie` (T-2352) is refined in place, under its own id, to a
@@ -45917,6 +45938,36 @@ height; K01 standing a one-storey bay on a wing's wall builds it.
 **Ticket:** T-3626 (piece 2 of T-1916, S07).
 **Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg`.
 **Recorded:** 2026-11-21 (T-3626).
+
+### L-k01-2110-rees-carving-3714 — 2110 Prairie's carved tympanum, its bow's carved band and copper cornice, off its c. 1980s photograph and the 2012 detail: the kits' carving where the stone's own is not read
+
+**Decision:** T-3714 (piece 1 of T-1923, the S12B package) carves three things `L-k01-2110-rees-1922` left
+plain. The gable's head takes a carved panel (`shaped_gable.tympanum`, a new K01 element in
+`generators/archetypes/k01_shaped_gable.py`): a dressed triangle 0.03 m proud from 15.35 m over grade up into
+the apex, just inside the coping, carrying a stem up its middle with pairs of leaves leaning out from it, each
+rolling into a curl, a boss at its foot and a fleuron at its head, the relief 0.05 m proud; and under it a
+carved drop from the panel's base over the narrow light, opening into two arms 1.0 m across that end in
+bosses beside the light. The bow's string course at its upper floor is replaced by a carved band 0.9 m deep
+(0.45 m each side of the floor line, 0.04 m proud) carrying K08's guilloche (`carved_band`, a new K08 storey
+option in `generators/archetypes/k08_bays.py`). The bow's moulded cornice is laid in the cap's copper
+(`eaves.in_cap_covering`), not in stone.
+
+**What is read, not invented.** From the c. 1980s photograph (`aic_rees_2110_c1980s_photo`, forms only) and the
+2012 detail (`glessner_blog_rees_2110_gable_2012`, forms only): the carved field filling the gable's head down
+to a level base a little over the light's head; a carved drop hanging from that base over the light and
+opening into two curled arms either side of it; the deep carved band round the bow between the parlour lights'
+heads and the upper lights' sills; the cap's cornice in copper, green with age in 2012, as the cone over it.
+
+**What is invented.** The carving's design: the photographs show scrolled foliage round a central stem, and
+the kits lay a stylised stem, leaves and curls in the gable and a chain of interlaced rings in the bow's band,
+neither carved to the stone's own pattern. The panel's base height and the band's depth are read as
+proportions of photographs taken looking up (about 0.1 m either way); the relief's depth is the kit's.
+
+**How to resolve:** a close photograph of the carving read square-on replaces the kits' patterns; T-3716 solves
+the two pictures' cameras and records what is left in their match records.
+**Ticket:** T-3714 (piece 1 of T-1923, the S12B package of T-1837).
+**Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3714).
+**Recorded:** 2026-11-21 (T-3714).
 
 ### L-1871-streetscape — The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand
 
