@@ -15,7 +15,9 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   apron        (T-2883) or an oriel's apron in their place: its plan carried straight down
                as a flat face to a moulded foot proud of it, closed under the foot back
                to the wall (1625's oriel, from its print), in its own `apron` role (T-2904)
-  floor bands  a string course at every floor line between storeys
+  floor bands  a string course at every floor line between storeys; (T-3714) or, where a storey
+               names a `carved_band`, a deep dressed band about that line carrying the frieze's
+               guilloche (2110 Prairie's bow at its upper floor, the c. 1980s photograph)
   eaves        a soffit out to a fascia, or (T-2460) a moulded section the variant's
                eaves name as a `profile` (in the role they name, T-2472; a band's stone
                by default), swept and mitred as the soffit is; on a variant naming `brackets` (T-2408), a
@@ -1806,6 +1808,8 @@ class Bay:
                     self._pier(flat, run, levels[k], hi, sp)
                 if 0 < k and v["storeys"][k].get("corbel_table"):
                     self._corbel_table(flat, run, levels[k], v["storeys"][k]["corbel_table"])
+                elif 0 < k and v["storeys"][k].get("carved_band"):
+                    self._carved_band(flat, run, levels[k], v["storeys"][k]["carved_band"])
                 elif 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
@@ -3716,6 +3720,21 @@ class Bay:
         flat.plane("band", rect_, -pr)
         flat.tube("band", rect_, 0.0, -pr, inward=False)
         m = self.meta.setdefault("cap_band", {"y_m": [round(lo, 4), round(hi, 4)], "rings": 0})
+        if self.tier == "light":
+            return
+        m["rings"] += self._guilloche(flat, 0.0, run.L, lo, hi, cb["guilloche"], pr)
+
+    def _carved_band(self, flat, run, y_line, cb):
+        """T-3714: a carved band at a floor line in place of its string course (2110 Prairie's
+        bow at its upper floor, the c. 1980s photograph): a dressed strip from `below_m` under
+        the line to `above_m` over it, `proud_m` out along the whole run, carrying the frieze's
+        guilloche. The light tier keeps the strip and drops the rings."""
+        pr = float(cb["proud_m"])
+        lo, hi = y_line - float(cb["below_m"]), y_line + float(cb["above_m"])
+        rect_ = rect(0.0, run.L, lo, hi)
+        flat.plane("band", rect_, -pr)
+        flat.tube("band", rect_, 0.0, -pr, inward=False)
+        m = self.meta.setdefault("carved_band", {"y_m": [round(lo, 4), round(hi, 4)], "rings": 0})
         if self.tier == "light":
             return
         m["rings"] += self._guilloche(flat, 0.0, run.L, lo, hi, cb["guilloche"], pr)

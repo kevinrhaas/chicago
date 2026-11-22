@@ -1,0 +1,25 @@
+{
+  "structure_id": "armour_house_2115_prairie",
+  "source_id": "chicago_tribune_1928_07_08_armour_famous_homes",
+  "library_image": "nps-2115-tribune-1928-07-08-famous-homes-photo",
+  "photo": "../../sources/assets/armour_2115_photo_t3713/tribune_1928_07_08_armour.jpg",
+  "image_px": [
+    1223,
+    1400
+  ],
+  "principal_px": [
+    611.0,
+    829.0
+  ],
+  "focal_px": 1244.0,
+  "eye": [
+    44.0,
+    3.44,
+    1.6
+  ],
+  "yaw_deg": -85.93,
+  "sky": "overcast",
+  "scene": "1904",
+  "solve": "Fitted for T-3713 on 2115 in the K01 record's frame (u toward the street, v from the north wall southward), a level camera square to the front with its principal column at the halftone's middle (x 611 px) and the eye at 1.6 m. The halftone is dark and coarse; read off an equalized copy: the front's north corner (x 300), the three north window columns at 1.65, 3.75 and 5.6 m (x 400, 520, 640), the pavilion's north light at 8.0 m (x 775) and the south end's light at 11.65 m (x 975) for the horizontal; the grade at the front (y 905), the wall head at 10.7 m (y 395) and the deck's curb at 14.4 m (y 215) for the vertical. The horizontal and vertical scales disagree by about a fifth (about 57 against 48 px a metre at the front's plane), which a square-on view cannot do: the copy was resampled unevenly on its way from microfilm, so pixel_aspect is fitted, 1.195 (1.188-1.199 over the fits). The distance is not determined by a square-on picture; the eye is held at u 44.0 (the avenue's west walk, about 18 m west of the street line), where u 40-48 fit alike. Result: eye v 3.44, yaw -85.93 degrees, focal 1244 px (vertical), horizon y 829; residuals within 12 px. The halftone shows no readable shadow, so the render is overcast.",
+  "pixel_aspect": 1.195
+}

@@ -131,13 +131,13 @@
         "storey_heights_m": {
           "value": [
             4.0,
-            3.9
+            4.5
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's two storeys of wall, scaled at the door's plane by the stoop's risers, about twelve from the walk to the landing in the photograph (y 1215 to 1035 px, about 15 px a riser), each taken as a 0.18 m riser (reconstructed): about 83 px a metre there: the principal storey from the landing (y 1035) to the belt under the second storey's lights (y 720), about 3.8 m and the belt; the second storey from the belt to the cornice's top (y 415), about 3.7 m with the frieze."
+          "note": "The photograph's two storeys of wall, scaled at the door's plane by the stoop's risers, about twelve from the walk to the landing in the photograph (y 1215 to 1035 px, about 15 px a riser), each taken as a 0.18 m riser (reconstructed): about 83 px a metre there: the principal storey from the landing (y 1035) to the belt under the second storey's lights (y 720), about 3.8 m and the belt; the second storey from the belt to the cornice's top (y 415), about 3.7 m with the frieze. T-3713: the second storey carried 0.6 m higher, to 4.5 m, so the wall head stands where the photograph's deep bracketed cornice begins: through the solved camera (data/reference_views/armour_house_2115_prairie/chicagology_armour_photo.json) the cornice runs about 1 m deep at the north corner (y 400-475 px) where K10's moulded stone section is 0.36 m, and the 0.6 m between the second storey's frieze and that section is built as the wall head's frieze with its console blocks (wall_head)."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -202,13 +202,23 @@
               "k01.wall.street_front",
               "k01.wall.side.north",
               "k01.wall.rear_service"
-            ]
+            ],
+            "frieze": {
+              "height_m": 0.6,
+              "proud_m": 0.025
+            },
+            "blocks": {
+              "spacing_m": 0.6,
+              "height_m": 0.45,
+              "projection_m": 0.19,
+              "width_m": 0.2
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's deep moulded cornice over a frieze of carved panels (y 400-500 px), carried round the north flank (x 380-760); K10's moulded stone cornice, round all four walls (the rear's reconstructed). Its modillions and the frieze's carving are finer than K01 lays here (liberty)."
+          "note": "The photograph's deep cornice over a frieze of carved panels (y 400-500 px), carried round the north flank (x 380-760); K10's moulded stone cornice, round all four walls (the rear's reconstructed). T-3713: the photograph's cornice is about 1 m deep at the north corner (y 400-475 px through the solved camera), its corona over a close row of consoles about 0.55 m apart (x 670-800 px); K10's section is 0.36 m, so the 0.6 m under it is built as a frieze with K10's console blocks every 0.6 m (as 2100's and 1901's). The consoles' carving and the frieze's panels are finer than K01 lays here (liberty)."
         },
         "roof_form": {
           "value": "mansard",
@@ -235,7 +245,7 @@
         "mansard": {
           "value": {
             "variant": "k05.roof.mansard_convex",
-            "lower_rise_m": 3.0,
+            "lower_rise_m": 3.35,
             "bulge": 0.0,
             "lower_pitch_deg": 75,
             "dormers": [
@@ -281,47 +291,7 @@
               },
               {
                 "face": "south",
-                "along_m": 5.0,
-                "head": "round",
-                "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
-                  "width_m": 0.8,
-                  "height_m": 1.5,
-                  "sill_m": 0.1
-                },
-                "surround_m": 0.3,
-                "face_setback_m": 0.1,
-                "eared_hood": {
-                  "band_m": 0.15,
-                  "proud_m": 0.08,
-                  "ear_m": 0.2,
-                  "drop_m": 0.25,
-                  "rise_m": 0.477
-                }
-              },
-              {
-                "face": "south",
-                "along_m": 9.5,
-                "head": "round",
-                "sash": {
-                  "variant": "k06.opening.sash_round_fanlight",
-                  "width_m": 0.8,
-                  "height_m": 1.5,
-                  "sill_m": 0.1
-                },
-                "surround_m": 0.3,
-                "face_setback_m": 0.1,
-                "eared_hood": {
-                  "band_m": 0.15,
-                  "proud_m": 0.08,
-                  "ear_m": 0.2,
-                  "drop_m": 0.25,
-                  "rise_m": 0.477
-                }
-              },
-              {
-                "face": "south",
-                "along_m": 14.0,
+                "along_m": 2.9,
                 "head": "round",
                 "sash": {
                   "variant": "k06.opening.sash_round_fanlight",
@@ -355,6 +325,12 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.1
               }
+            },
+            "deck": {
+              "cresting": {
+                "height_m": 0.6,
+                "inset_m": 0.08
+              }
             }
           },
           "confidence": "inferred",
@@ -362,7 +338,7 @@
             "chicagology_2115_armour_photo",
             "chicago_tribune_1928_07_08_armour_famous_homes"
           ],
-          "note": "The photograph's mansard (y 160-420 px), about 3 m of steep slated face over the cornice scaled at the door's plane by the stoop's risers, about twelve from the walk to the landing in the photograph (y 1215 to 1035 px, about 15 px a riser), each taken as a 0.18 m riser (reconstructed); on the street face a pair of round-headed lights over the two north bays (x 860-1000) and one round-headed dormer over the door (x 1100-1160), each under a carved hood rising to a point; three smaller round-headed dormers on the north flank's face (x 430-570; K01's 'south' face, the house being turned 180 degrees). The pair is built as two K06 round dormers side by side under K01's eared hood, standing for the carved hood rising to a point that they share (liberty); the north face's dormers' places along the face are spaced evenly (reconstructed). Over the south pavilion the photograph's taller mansard crown (x 1220-1440), rising about a metre over the main roof's curb with its own round-headed dormer (x 1340-1390). Round the deck's edge the photograph's iron cresting, about half a metre high (x 770-1220, y 110-160 px), with small finials at its corners, is not built: K01 lays a deck's cresting only where no mansard crown stands on it (liberty)."
+          "note": "The photograph's mansard (y 160-420 px), about 3 m of steep slated face over the cornice scaled at the door's plane by the stoop's risers, about twelve from the walk to the landing in the photograph (y 1215 to 1035 px, about 15 px a riser), each taken as a 0.18 m riser (reconstructed); on the street face a pair of round-headed lights over the two north bays (x 860-1000) and one round-headed dormer over the door (x 1100-1160), each under a carved hood rising to a point; three smaller round-headed dormers on the north flank's face (x 430-570; K01's 'south' face, the house being turned 180 degrees). The pair is built as two K06 round dormers side by side under K01's eared hood, standing for the carved hood rising to a point that they share (liberty); the north face's dormers' places along the face are spaced evenly (reconstructed). Over the south pavilion the photograph's taller mansard crown (x 1220-1440), rising about a metre over the main roof's curb with its own round-headed dormer (x 1340-1390). Round the deck's edge the photograph's iron cresting, about half a metre high (x 770-1220, y 110-160 px), with small finials at its corners, is not built: K01 lays a deck's cresting only where no mansard crown stands on it (liberty). T-3713: its lower rise 3.35 m, the photograph's face from the cornice's top to the deck's curb at the north corner (y 400 to about 180 px, about 220 px where the K05 face rose 195 px through the solved camera at 3.0 m). T-3713: the iron cresting the photograph shows along the deck's curb over the front and the north side (y 120-200 px) is the K10 kit's (k10.cresting.iron_ridge, 0.6 m tall), stopped short of the pavilion's crown either side; its pattern is the kit's, not the print's (liberty). T-3713: the north side's mansard (K01's 'south' face) is plain slate in the photograph from the front's corner back to its first dormer (x 550 px, about 1.5-2 m from the main body's rear through the solved camera), so that side carries one dormer at 2.9 m where T-3712 had three at 5.0, 9.5 and 14.0 m; the dormers the photograph shows further back (x 360-480 px) stand over the rear range (see the match record)."
         },
         "roof_covering": {
           "value": {
@@ -397,24 +373,25 @@
           "note": "The photograph's broad straight flight between solid stone cheeks, a little wider than the door's surround (x 1075-1270 at the landing, about 2.6 m at the door's plane)."
         },
         "entrance_bay": {
-          "value": 2,
+          "value": 3,
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The door is the third opening from the north in the photograph's principal storey (x 1085-1180), between the two north bays and the south pavilion."
+          "note": "The door is the third opening from the north in the photograph's principal storey (x 1085-1180), between the two north bays and the south pavilion: K01 counts a front's bays from its own 'south' end, which on this house, turned 180 degrees, is the real north, so the door is bay 3 (T-3713: T-3712 had set 2, which put the door in the second column with a window south of it, against the photograph's two windows north of the door)."
         },
         "front_bays": {
           "value": [
             1.65,
             3.75,
-            5.6
+            5.6,
+            11.65
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's three window columns north of the pavilion (x 820-890, 965-1030 and the door's 1085-1180 px), laid along the front's first 6.9 m from the north corner (x 760) to the pavilion's junction (x 1215), their places read in proportion along that stretch and corrected for its recession (about 0.3 m either way)."
+          "note": "The photograph's three window columns north of the pavilion (x 820-890, 965-1030 and the door's 1085-1180 px), laid along the front's first 6.9 m from the north corner (x 760) to the pavilion's junction (x 1215), their places read in proportion along that stretch and corrected for its recession (about 0.3 m either way); and (T-3713) the fourth, the front's south end beyond the pavilion, whose one light a storey (x 1475-1525 px, its basement light x 1485-1530) back-projects through the solved camera (data/reference_views/armour_house_2115_prairie/chicagology_armour_photo.json) to about 12.4 m from the north wall, laid at 11.65 m so the light stands clear of the south corner (12.64 m)."
         },
         "north_bays": {
           "value": [
@@ -427,15 +404,19 @@
         },
         "side_bays": {
           "value": [
-            3.5,
-            8.0,
-            13.0
+            {
+              "s_m": 6.4,
+              "sill_m": 6.8,
+              "width_m": 1.0,
+              "height_m": 2.4,
+              "head": "round"
+            }
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph shows the north flank (K01's 'south' wall, the house being turned 180 degrees) plain under the cornice with one tall round-headed light at about the principal storey's height (x 555-575 px); the rest of the flank's lights are spaced evenly (reconstructed)."
+          "note": "T-3713: the photograph's north flank (K01's 'south' wall, the house being turned 180 degrees) is plain stone-pale wall under the cornice from the front corner back to where 2109's veranda and roof hide it (x 520-760 px), but for one tall round-headed light in the second storey (x 555-575, y 630-790 px), which back-projects through the solved camera (data/reference_views/armour_house_2115_prairie/chicagology_armour_photo.json) to 6.4 m from the rear, its sill about 7.2 m and its head about 10 m over grade (laid from 6.8 to 9.2 m, its arch clear of the wall head's frieze and consoles, which start 9.54 m up on this wall: about 0.5 m short of the print's head, within tolerance in the match record): a stair light, laid once at its own place. T-3712 had laid three columns of lights (3.5, 8.0 and 13.0 m) on every storey, two of them on the stretch the photograph shows plain. The flank's hidden rear 2 m carries no light (reconstructed)."
         },
         "rear_bays": {
           "value": [
@@ -494,33 +475,33 @@
               1.0,
               0.8
             ],
-            "top_above_ridge_m": 1.2,
+            "top_above_ridge_m": 2.6,
             "cap_proud_m": 0.1,
             "cap_depth_m": 0.3,
             "stacks": [
               {
-                "u_m": 16.5,
+                "u_m": 13.8,
                 "v_m": 0.85,
                 "fabric": "stone"
               },
               {
-                "u_m": 2.5,
+                "u_m": 1.4,
                 "v_m": 0.85,
                 "fabric": "stone"
               },
               {
-                "u_m": 9.0,
-                "v_m": 11.8,
+                "u_m": 14.5,
+                "v_m": 10.4,
                 "fabric": "stone"
               }
             ]
           },
           "confidence": "inferred",
           "sources": [
-            "chicagology_2115_armour_photo",
-            "chicago_tribune_1928_07_08_armour_famous_homes"
+            "chicago_tribune_1928_07_08_armour_famous_homes",
+            "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's tall carved stack rising from the north side's deck near the front (x 685-745, y 40-200 px) and a second one further back on the same side (x 520-560); the Tribune's 'tall corner stacks'. The third, on the south side, is reconstructed; K01's plain stone stack stands for the carved one (liberty)."
+          "note": "The photograph's tall carved stack rising from the north side's deck near the front (x 685-745, y 40-200 px) and a second one further back on the same side (x 520-560); the Tribune's 'tall corner stacks'. The third, on the south side, is reconstructed; K01's plain stone stack stands for the carved one (liberty). T-3713: the front stack stands 13.8 m from the rear, where the photograph's (x 685-745 px) back-projects through the solved camera at the north side's 0.85 m (data/reference_views/armour_house_2115_prairie/chicagology_armour_photo.json); T-3712 had it 16.5 m, about 50 px nearer the corner than the print draws it. The second, the photograph's small stack just behind the north side's first dormer (x 520-570 px), back-projects to about the main body's rear and stands 1.4 m from it, clear of the deck's rear curb where the cresting runs (T-3712 had 2.5 m, which the dormer now occupies). Their tops 2.6 m over the deck (T-3712: 1.2 m): the front stack's top stands at y 40 px in the photograph, about 18 m over grade through the solved camera, where 1.2 m put it about 100 px lower; the back one is the same kit stack (the print shows it lower, about 0.5 m over the curb: within tolerance in the match record). The third, on the south side, is no longer reconstructed: the Armour photograph shows its carved top over the pavilion's crown (x 1230-1290, y 110-230 px) and the Tribune's 1928 photograph its 'tall corner stack' at the crown's south end (x about 855 px); triangulated through the two solved cameras (data/reference_views/armour_house_2115_prairie/) it stands about 14.5 m from the rear and 10.4 m from the north wall, its top about 18.5 m up (residuals 2-16 px), where T-3712 had reconstructed it at 9.0 m and 11.8 m."
         },
         "rainwater": {
           "value": {
@@ -585,10 +566,10 @@
               "id": "pavilion",
               "variant": "k08.projection.full_height",
               "wall": "k01.wall.street_front",
-              "s_m": 9.3,
+              "s_m": 8.75,
               "fabric": "front_stone",
               "plan": {
-                "width_m": 4.8,
+                "width_m": 3.7,
                 "proud_m": 0.95
               },
               "storeys": [
@@ -601,10 +582,10 @@
                       "clear_height_m": 0.85,
                       "sill_m": 0.2,
                       "at": [
-                        0.3,
-                        0.7
+                        0.359,
+                        0.67
                       ],
-                      "why_not_ordinary": "the pavilion's two basement lights under its principal lights (the Armour photograph x 1380-1430, 1485-1530 px), as the front's"
+                      "why_not_ordinary": "the pavilion's basement lights under its principal lights, as the front's (the Armour photograph shows the south one, x 1380-1430 px; the stoop's south cheek hides the north one)"
                     }
                   ]
                 },
@@ -617,15 +598,15 @@
                       "clear_height_m": 2.6,
                       "sill_m": 0.3,
                       "at": [
-                        0.3,
-                        0.7
+                        0.359,
+                        0.67
                       ],
                       "why_not_ordinary": "the pavilion's two round-headed principal lights in the Armour photograph (x 1260-1330, 1365-1420 px), sized as the front's"
                     }
                   ]
                 },
                 {
-                  "height_m": 3.9,
+                  "height_m": 4.5,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_round_fanlight",
@@ -633,8 +614,8 @@
                       "clear_height_m": 2.2,
                       "sill_m": 0.3,
                       "at": [
-                        0.3,
-                        0.7
+                        0.359,
+                        0.67
                       ],
                       "why_not_ordinary": "the pavilion's two round-headed second-storey lights in the Armour photograph (x 1250-1315, 1365-1400 px), sized as the front's"
                     }
@@ -654,7 +635,7 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2115_armour_photo"
           ],
-          "note": "The south pavilion the 1911 sheet draws on the front: the front's blue band bowed out about 5 px (0.95 m) between rows 1242 and 1268 (4.8 m, its middle 9.3 m from the north wall), which the photograph shows as the stretch of the front under its own taller mansard (x 1215-1440 px) with two round-headed lights a storey; the sheet's scalloped edge is built as a square-faced projection (liberty). The sheet's '2B' south piece (rows 1273.5-1288, 2.7 m past the south wall, columns 921-968) is not built: no K01 part stands a wing beside the main body (liberty)."
+          "note": "The south pavilion the 1911 sheet draws on the front: the front's blue band bowed out about 5 px (0.95 m) between rows 1242 and 1268, which the photograph shows as the stretch of the front under its own taller mansard (x 1215-1440 px) with two round-headed lights a storey; the sheet's scalloped edge is built as a square-faced projection (liberty). T-3713: its width is the photograph's, not the sheet's 4.8 m. Through the solved camera (data/reference_views/armour_house_2115_prairie/chicagology_armour_photo.json) its north face stands at the junction x 1215 px and its south corner at x 1440 back-projects to 10.6 m from the north wall, so it is 3.7 m wide with its middle 8.75 m from the north wall; its two lights back-project to 7.96 and 9.7 m (built at 7.96 and 9.75: `at` 0.359 and 0.67 of the bay's 5.6 m run of return, face and return). The sheet's bowed band (rows 1242-1268) reads about a metre wider, its scalloped outline being drawn coarser than the front it stands for; south of the pavilion the front's own wall carries one light a storey (front_bays). The sheet's '2B' south piece (rows 1273.5-1288, 2.7 m past the south wall, columns 921-968) is not built: no K01 part stands a wing beside the main body (liberty)."
         },
         "rear_wings": {
           "value": [
