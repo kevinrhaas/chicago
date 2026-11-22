@@ -37633,73 +37633,13 @@
           "domain": "structure",
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.basement_lights"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.chimneys"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.eave_overhang_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.entrance_bay"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.entrance_kit"
         },
         {
           "domain": "structure",
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.face_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.front_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.mansard"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.north_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.principal_floor_m"
         },
         {
           "domain": "structure",
@@ -37717,37 +37657,13 @@
           "domain": "structure",
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.roof_covering"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.roof_pitch_deg"
         },
         {
           "domain": "structure",
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.sash_by_storey"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.side_bays"
         },
         {
           "domain": "structure",
@@ -37765,43 +37681,7 @@
           "domain": "structure",
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.stone_front"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stoop_width_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.storey_heights_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stories"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.street_front_round_heads"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.street_front_trim"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.wall_head"
         },
         {
           "domain": "structure",
@@ -37820,12 +37700,6 @@
           "structure": "house_2123_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.window_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.yard"
         }
       ],
       "recorded": "2026-11-22",
@@ -37841,7 +37715,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_2123_prairie.as_mapped_1904.form.stories`, `house_2123_prairie.as_mapped_1904.form.stone_front`, `house_2123_prairie.as_mapped_1904.form.principal_floor_m`, `house_2123_prairie.as_mapped_1904.form.storey_heights_m`, `house_2123_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2123_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2123_prairie.as_mapped_1904.form.service_wall_brick`, `house_2123_prairie.as_mapped_1904.form.face_brick`, `house_2123_prairie.as_mapped_1904.form.street_front_trim`, `house_2123_prairie.as_mapped_1904.form.street_front_round_heads`, `house_2123_prairie.as_mapped_1904.form.wall_head`, `house_2123_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2123_prairie.as_mapped_1904.form.eave_overhang_m`, `house_2123_prairie.as_mapped_1904.form.mansard`, `house_2123_prairie.as_mapped_1904.form.roof_covering`, `house_2123_prairie.as_mapped_1904.form.stair_tread_m`, `house_2123_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2123_prairie.as_mapped_1904.form.stoop_width_m`, `house_2123_prairie.as_mapped_1904.form.entrance_bay`, `house_2123_prairie.as_mapped_1904.form.front_bays`, `house_2123_prairie.as_mapped_1904.form.side_bays`, `house_2123_prairie.as_mapped_1904.form.north_bays`, `house_2123_prairie.as_mapped_1904.form.rear_bays`, `house_2123_prairie.as_mapped_1904.form.sash_by_storey`, `house_2123_prairie.as_mapped_1904.form.basement_lights`, `house_2123_prairie.as_mapped_1904.form.window_kit`, `house_2123_prairie.as_mapped_1904.form.rainwater`, `house_2123_prairie.as_mapped_1904.form.chimneys`, `house_2123_prairie.as_mapped_1904.form.entrance_kit`, `house_2123_prairie.as_mapped_1904.form.boundary`, `house_2123_prairie.as_mapped_1904.form.yard`, `house_2123_prairie.as_mapped_1904.form.bays`, `house_2123_prairie.as_mapped_1904.form.rear_wings`"
+          "text": "`house_2123_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2123_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2123_prairie.as_mapped_1904.form.service_wall_brick`, `house_2123_prairie.as_mapped_1904.form.street_front_trim`, `house_2123_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2123_prairie.as_mapped_1904.form.stair_tread_m`, `house_2123_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2123_prairie.as_mapped_1904.form.north_bays`, `house_2123_prairie.as_mapped_1904.form.rear_bays`, `house_2123_prairie.as_mapped_1904.form.window_kit`, `house_2123_prairie.as_mapped_1904.form.rainwater`, `house_2123_prairie.as_mapped_1904.form.entrance_kit`"
         },
         {
           "label": "Review",
