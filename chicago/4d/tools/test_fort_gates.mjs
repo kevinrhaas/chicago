@@ -415,6 +415,35 @@ try {
     rideIn('1812 west', footprints, layer, ix, router, from, to);
   }
 
+  // ---- T-3691 (the owner, 2026-11-21, the first fort tour: stuck against the palisade after
+  // the view from above the sally port): a walking ride that starts in the air over a wall goes
+  // by air, and arrives; one that starts in the air over open ground comes down and walks.
+  {
+    const { footprints, layer, ix } = fort('1812');
+    const router = createRouter({ terrain: { ...flat, heightfield: { loaded: true, originE: 1050, originN: 120, widthM: 200, depthM: 160 } },
+      footprints, cell: 1, inflate: 0.1 });
+    const above = { e: 1166.5, n: 227 }, to = { e: 1195, n: 170 };
+    ok(router.blockedAt(above.e, above.n), 'the view over the sally port stands above the stockade');
+    for (const [label, from, mode] of [['over the wall', above, 'fly'], ['over open ground', { e: 1185, n: 190 }, 'walk']]) {
+      const camera = new THREE.PerspectiveCamera();
+      const walker = createWalker({ camera, terrain: flat, footprints, spawn: { local_e: from.e, local_n: from.n, yaw_deg: 0 } });
+      walker.teleport({ local_e: from.e, local_n: from.n, altitude_m: 13 });
+      const intent = createIntent();
+      let arrivals = 0, stops = 0, flying = walker.state.flying;
+      const travel = createTravel({ walker, intent, router, terrain: flat,
+        setFly: (on) => { walker.setFlying?.(on); intent.flying = on; flying = on; },
+        gates: { along: (pts) => gatesOnRoute(layer.gates, pts).map((g) => ({ at: g.at,
+          blocks: () => !(g.state === 'open' && !g.running), open: () => { if (g.state !== 'open' && !g.running) ix.act(g, 'open'); } })) },
+        tickWorld: (dt) => ix.update(dt) });
+      travel.setMode('walk');
+      ok(flying, `${label}: the ride starts in the air`);
+      ok(travel.go({ kind: 'anchor', id: 'se', local_e: to.e, local_n: to.n, yaw_deg: 0 },
+        { token: {}, onArrive: () => arrivals++, onStop: () => stops++ }), `${label}: the ride sets off`);
+      ok(travel.state.phase === (mode === 'fly' ? 'ascending' : 'travelling'), `${label}: it goes ${mode === 'fly' ? 'by air' : 'on foot'} (${travel.state.phase})`);
+      ok(stops === 0, `${label}: and is not stopped as unreachable`);
+    }
+  }
+
   // ---- T-3405, 1835: in by the south gate, past the guard house's corner, onto the parade.
   {
     const { footprints, layer, ix } = fort('1835');
