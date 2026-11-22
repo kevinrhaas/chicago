@@ -4509,6 +4509,7 @@ class Assembly:
                           **({"flutes": cols["flutes"]} if cols and cols.get("flutes") else {}),
                           **({"cluster_shafts": cols["cluster"]["count"] * len(cols["cluster"]["sides"])}
                              if cols and cols.get("cluster") else {}),
+                          **({"piers": len(cols["pier"]["sides"])} if cols and cols.get("pier") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
@@ -4576,6 +4577,11 @@ class Assembly:
             at = (s0 + (cpw if "left" in cl["sides"] else pw) / 2 + 0.05,
                   s1 - (cpw if "right" in cl["sides"] else pw) / 2 - 0.05)
         clustered = [x for side, x in (("left", min(at)), ("right", max(at))) if side in cl["sides"]] if cl else []
+        # T-3718: the column at a named end a square stone pier (`pier`), `width_m` on a side,
+        # under a plain capital block in place of a turned shaft and its carving (2100's south
+        # end against the library pavilion, the Chicagology photograph and the 1876 plate's plan)
+        pi = co.get("pier")
+        piered = [x for side, x in (("left", min(at)), ("right", max(at))) if side in pi["sides"]] if pi else []
         bd = pw / 2 + 0.01   # T-1896: an end's back column, its plinth against the wall
         backs = [(x, bd) for x in ends]
         for cs, cd_ in [(x, cd) for x in at] + ([spc] if spc else []) + backs:
@@ -4585,15 +4591,23 @@ class Assembly:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
             cd = cd_
             box(cs - w_ / 2, cs + w_ / 2, yl, yl + h_, cd - pw / 2, cd + pw / 2, skip=("bottom",))
+            px = (cs, cd_) != spc and (cs, cd_) not in backs and any(abs(cs - x) < 1e-9 for x in piered)
             if cx:   # the cluster's shafts in a row along the front, under one abacus over the row
                 n_c, rr = cl["count"], cl["diameter_m"] / 2
                 pitch = cl["diameter_m"] + cl["gap_m"]
                 shafts = [(cs + (i - (n_c - 1) / 2) * pitch, rr) for i in range(n_c)]
                 hw, hd_ = (n_c - 1) * pitch / 2 + rr + 0.07, rr + 0.07
+            elif px:   # T-3718: the pier, a square shaft from its plinth to a plain capital block
+                hp = pi["width_m"] / 2
+                box(cs - hp, cs + hp, yl + h_, ys - cap, cd - hp, cd + hp, skip=("bottom", "top"))
+                box(cs - hp - 0.05, cs + hp + 0.05, ys - cap, ys, cd - hp - 0.05, cd + hp + 0.05,
+                    skip=("top",) if not arches else ())
+                shafts = []
             else:
                 shafts, hw, hd_ = [(cs, r)], cw, cw
-            box(cs - hw, cs + hw, ys - (cv["abacus_m"] if cv else cap), ys, cd - hd_, cd + hd_,
-                skip=("top",) if not arches else ())
+            if not px:
+                box(cs - hw, cs + hw, ys - (cv["abacus_m"] if cv else cap), ys, cd - hd_, cd + hd_,
+                    skip=("top",) if not arches else ())
             for xs, r_ in shafts:
                 if cv:   # T-3186: the bay columns' bell of leaves (T-2887), its crown under the abacus
                     C, ya, yb, k = P(xs, 0.0, cd), ys - cap, ys - cv["abacus_m"], cv["tiers"]
