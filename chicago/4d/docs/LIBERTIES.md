@@ -45925,6 +45925,36 @@ height; K01 standing a one-storey bay on a wing's wall builds it.
 **Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg`.
 **Recorded:** 2026-11-21 (T-3626).
 
+### L-k01-2110-rees-carving-3714 — 2110 Prairie's carved tympanum, its bow's carved band and copper cornice, off its c. 1980s photograph and the 2012 detail: the kits' carving where the stone's own is not read
+
+**Decision:** T-3714 (piece 1 of T-1923, the S12B package) carves three things `L-k01-2110-rees-1922` left
+plain. The gable's head takes a carved panel (`shaped_gable.tympanum`, a new K01 element in
+`generators/archetypes/k01_shaped_gable.py`): a dressed triangle 0.03 m proud from 15.35 m over grade up into
+the apex, just inside the coping, carrying a stem up its middle with pairs of leaves leaning out from it, each
+rolling into a curl, a boss at its foot and a fleuron at its head, the relief 0.05 m proud; and under it a
+carved drop from the panel's base over the narrow light, opening into two arms 1.0 m across that end in
+bosses beside the light. The bow's string course at its upper floor is replaced by a carved band 0.9 m deep
+(0.45 m each side of the floor line, 0.04 m proud) carrying K08's guilloche (`carved_band`, a new K08 storey
+option in `generators/archetypes/k08_bays.py`). The bow's moulded cornice is laid in the cap's copper
+(`eaves.in_cap_covering`), not in stone.
+
+**What is read, not invented.** From the c. 1980s photograph (`aic_rees_2110_c1980s_photo`, forms only) and the
+2012 detail (`glessner_blog_rees_2110_gable_2012`, forms only): the carved field filling the gable's head down
+to a level base a little over the light's head; a carved drop hanging from that base over the light and
+opening into two curled arms either side of it; the deep carved band round the bow between the parlour lights'
+heads and the upper lights' sills; the cap's cornice in copper, green with age in 2012, as the cone over it.
+
+**What is invented.** The carving's design: the photographs show scrolled foliage round a central stem, and
+the kits lay a stylised stem, leaves and curls in the gable and a chain of interlaced rings in the bow's band,
+neither carved to the stone's own pattern. The panel's base height and the band's depth are read as
+proportions of photographs taken looking up (about 0.1 m either way); the relief's depth is the kit's.
+
+**How to resolve:** a close photograph of the carving read square-on replaces the kits' patterns; T-3716 solves
+the two pictures' cameras and records what is left in their match records.
+**Ticket:** T-3714 (piece 1 of T-1923, the S12B package of T-1837).
+**Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3714).
+**Recorded:** 2026-11-21 (T-3714).
+
 ### L-1871-streetscape — The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand
 
 **Decision:** the owner, 2026-11-21, asked for the 1871 streets' "trees and other streetscape ... the correct supporting street furniture", the fronts of buildings set correctly against the walks, and "street parking and support". Read from the period stereographs already in `data/sources/`: Crosby's Opera House on Washington Street (`loc_stereo_1s47902_crosbys_opera_house`), the Sherman House at Clark and Randolph (`loc_stereo_1s12371_sherman_house`), the Tremont House (`loc_stereo_1s47905_tremont_house`) and the Court House (`loc_stereo_1s12325_court_house`). **What the pictures show (attested):** business fronts built to the walk, gas lamps on posts at the kerb, telegraph poles with several crossarms and many wires along the main streets, trees down Washington Street east of the opera house. The Sherman House picture also shows a rank of five closed hacks with their teams at the Clark Street kerb along the Court House Square's fence. **What is reconstructed:**

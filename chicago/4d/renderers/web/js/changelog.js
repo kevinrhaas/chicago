@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3200, ts: '2026-11-22T14:42:58.320Z', date: 'Nov 22, 2026, 8:42 AM CT', title: '2110 Prairie: the Rees house\'s carved stone and copper cornice', kind: 'improvement',
+    items: [
+      'The Rees house at 2110 Prairie now carries the carving its photographs show: a carved panel of scrolling leaves in the top of its tall gable with a carved drop over the little window, a deep carved band round the bow at the upper floor, and the bow\'s cornice in green copper instead of stone.',
+    ] },
   { v: 3199, ts: '2026-11-22T11:59:31.996Z', date: 'Nov 22, 2026, 5:59 AM CT', title: '2100 Prairie\'s porch corner on a cluster of three columns', kind: 'feature',
     items: [
       'At 2100 Prairie Avenue, the John B. Sherman house, the porch\'s north corner now stands on three slender stone columns grouped on one tall pedestal under a single carved capital, as the photograph shows, in place of one plain column.',
