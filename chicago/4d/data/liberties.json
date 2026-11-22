@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1218,
+  "count": 1219,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80129,6 +80129,32 @@
       ],
       "work_refs": [
         "T-3686"
+      ]
+    },
+    {
+      "id": "L-k01-1936-allerton-tribune-2026-11-22",
+      "title": "1936 Prairie's materials laid as its 1869 Tribune describes them: pressed red brick all round, brownstone dressings, carving, steps and bay, a rusticated basement and a slate-dark roof",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-22, reading the 1869 Tribune's description of the Thompson house on Chicagology, found the build \"brick and reddish stone\". The build's rough red-brown brick and its brownstone stood within a few points of one tone, the tower stood wholly in brownstone, and the dressings in pale limestone. The record now lays every wall above the basement in the K03 palette's pressed red face brick (face brick all round); the tower in that brick on the basement's stone; every dressing, the K09 carving (crests, capitals) and the stoop in the walling's brownstone (stone front trim in walling, carving in walling, steps in walling, the last two new K01 keys); the reception room's half-octagonal bay in brownstone ashlar; the basement's facing on the flanks and the bays' plinths as rusticated ashlar on a base course under a two-step water-table (side base rustic, bays[].plinth rustic, new K01/K08 options); and the main hip's standing seam painted black for the Tribune's slate. **What is read, not invented.** From the Tribune: the 6 ft Portland brownstone ashlar with rubbed face, square rustic joints and a heavy moulded base and water-table; the Baltimore pressed brick to every exterior wall above it; every window trimmed in brownstone; the stone porch, steps, columns and cornice; the stone bay; the slate roof. From the photograph: the tower's shaft printing in the brick walls' tone, and the bay's face printing apart from the brick beside it. **What is invented.** The shade within the pressed reds (the palette's recipe). The number of rustic courses, the channels' width and depth, and the base's and water-table's heights and projections. The bay's coursing. The roof is still the kit's painted metal: its slate cuts need 45 degrees, or a deeper headlap at 25 to 45, and the hip is pitched 25 degrees and less."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a colour description or a surviving fragment of the stone and brick; a close photograph of the basement or the bay; a slate cut for a low hip in the K04 kit."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-22 (T-3727)."
+        }
+      ],
+      "work_refs": [
+        "T-3727"
       ]
     },
     {

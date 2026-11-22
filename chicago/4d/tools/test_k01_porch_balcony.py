@@ -104,5 +104,32 @@ refused(lambda f: f["corner_porch"]["value"].update(dressings="marble"), "dressi
 refused(lambda f: f["entrance_kit"]["value"]["k01.opening.door_leaf"]["hood"].update(railing_fabric="slate"),
         "a railing in slate", "railing_fabric")
 
+# 2026-11-22 (the owner, on the 1869 Tribune's description): the carving and the steps cut from
+# the walling's brownstone as the trim is, and the basement laid as rusticated ashlar
+st_ = p.stone
+check(st_.get("trim_face") == st_.get("carving_face") == st_.get("steps_face") == "sandstone_brown",
+      f"1936's trim, carving and steps are its walling's brownstone: {st_.get('trim_face')}, "
+      f"{st_.get('carving_face')}, {st_.get('steps_face')}")
+check(a.fabric["carved_trim"] == a.fabric["stoop_stone"] == "sandstone_brown",
+      f"the carving and the stoop are laid in it: {a.fabric['carved_trim']}, {a.fabric['stoop_stone']}")
+check(all(sb.get("rustic", {}).get("courses") == 4 for sb in p.side_base) and len(p.side_base) == 2,
+      "both flanks' basement facing is rusticated, four courses")
+plain_c = variant(lambda f: [f["stone_front"]["value"].pop(k) for k in ("carving_in_walling", "steps_in_walling")])
+pc = K1.build(KP.from_phase(plain_c["phases"][0], plain_c), SID)
+check(pc.fabric["carved_trim"] != "sandstone_brown" and pc.fabric["stoop_stone"] != "sandstone_brown",
+      "without the keys the carving and the stoop keep the kit's own stone")
+from archetypes import k08_bays as K8  # noqa: E402
+R = {"courses": 4, "channel_m": 0.02, "depth_m": 0.015, "water_table_m": 0.3, "base_m": 0.3}
+rc = K8.rustic_courses(1.83, R)
+check(abs(rc[-1][1] - 1.83) < 1e-9 and len([x for x in rc if x[2] < 0]) == 3 and rc[0][0] == 0.0,
+      f"the rustic courses run grade to 1.83 m with three channels: {rc}")
+refused(lambda f: f["stone_front"]["value"].pop("trim_in_walling"), "carving in the walling without the trim",
+        "needs trim_in_walling")
+refused(lambda f: f["side_base"]["value"][0]["rustic"].update(courses=12), "twelve rustic courses", "2-8 courses")
+refused(lambda f: f["side_base"]["value"][0]["rustic"].pop("base_m"), "a rustic base with no base course",
+        "rustic takes")
+refused(lambda f: f["bays"]["value"][1].update(plinth_m=0.5), "a rustic plinth under the basement's top",
+        "plinth_rustic lays a stone basement's plinth")
+
 print(f"\n{'FAIL' if failures else 'PASS'}: test_k01_porch_balcony — {len(failures)} failure(s)")
 sys.exit(1 if failures else 0)
