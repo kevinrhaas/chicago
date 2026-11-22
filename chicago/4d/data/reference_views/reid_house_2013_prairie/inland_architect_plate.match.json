@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e",
+  "glb_sha256": "3a6c945243cf07b0efbcbb049d2bdfcba5bd495a042a034411ec8825d6970a68",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e"
+      "glb_sha256": "3a6c945243cf07b0efbcbb049d2bdfcba5bd495a042a034411ec8825d6970a68"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -61,10 +61,10 @@
         -10.370315576112317
       ],
       "rotation_y": -0.00010471975511966374,
-      "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53"
+      "glb_sha256": "78818943e4f2f34ae5aa72efca8a077b068f05caf4ef0ec6274680d4232dbdf5"
     }
   ],
-  "group_sha256": "9b33d21e80647b01bc4c37427bebfa6cade54d23d86a37ade5551ee302461735",
+  "group_sha256": "0a23a2a4a52ee78c8a2e1cb96a9a6e4523e21482b3996b4d0ccc71b13f30463c",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

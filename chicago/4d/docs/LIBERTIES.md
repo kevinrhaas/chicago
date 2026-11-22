@@ -45886,6 +45886,37 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 **Ticket:** T-3710.
 **Recorded:** 2026-11-20.
 
+### L-k01-2013-reid-porch-3626 — 2013 Prairie's rear block re-stacked under an open, roofed porch on its deck, read off the 2003 nomination photographs
+
+**Decision:** T-3626 (piece 2 of T-1916) re-stacks the rear block of `reid_house_2013_prairie` (`rear_2b`) as two enclosed storeys of 4.45 and 4.5 m to a deck at 10.9 m, and builds the nomination's open top floor on that deck with a new K01 part, a flat wing's `roof_porch` (`k01_wing_porch`, `k01.roof_porch.wing.rear_2b`): iron posts at the deck's two rear corners, at u -6.55 on each long side and mid-rear, an iron railing round its three open sides, and a flat tin roof 2.55 m over the deck (13.45-13.8 m), under the 3B part's 13.85 m deck.
+
+**What is read, not invented.** The nomination's "the top floor of the rear section is open to provide a terrace".
+Through the north side's solved camera (`data/reference_views/reid_house_2013_prairie/nrhp_2003_north_side.json`):
+the rear block's brick wall stopping at about 10.9 m under the porch's two openings, a pier between them at about
+u -6.8 to -6.3, the porch's roof underside at about 13.5 m, and its roof standing just under the wall of the 3B part
+beside it. Off the rear photograph (p. 38, from the south-east; no camera solved): slender dark posts at the porch's
+corners and between them on the rear and the south, an iron railing along the rear on the wall's top, the roof's
+fascia over all, and two enclosed storeys of lights under it.
+
+**What is invented.** The split of the block's two storeys (4.45 and 4.5 m: the photographs give the wall's top,
+not its floors); the posts' 0.12 m section, in iron; the railing's height, rails and balusters, carried along the
+north and south sides as well as the rear; the roof's 0.35 m slab and 0.15 m overhang; the south side's middle
+post at the north side's station (u -6.55); the deck's flat tin. The roof is built to 13.8 m, just under the 3B
+part's 13.85 m deck, where the camera reads it at about 14.2 m: the same fit reads the 3B part's top about as far
+over its build, so the porch keeps the picture's relation to the wall beside it.
+
+**What is built otherwise than the evidence, and why.** The north side's pier between the openings is about
+0.3-0.4 m broad in the picture and is built as one of the porch's slender posts (within tolerance, under a foot).
+Not built: the dining room's canted bay on the 3B part's open south side (the 1911 sheet's, the nomination's "bay
+with a larger central window flanked by narrower angled side windows", one storey in the rear photograph), because
+K01 refuses a one-storey K08 bay on a wing's wall; and the rear's smooth red brick, where K03 lays the common brick.
+
+**How to resolve:** a camera solved on the rear photograph measures the porch from behind, and the bay's place and
+height; K01 standing a one-storey bay on a wing's wall builds it.
+**Ticket:** T-3626 (piece 2 of T-1916, S07).
+**Review:** `docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg`.
+**Recorded:** 2026-11-21 (T-3626).
+
 ### L-1871-streetscape — The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand
 
 **Decision:** the owner, 2026-11-21, asked for the 1871 streets' "trees and other streetscape ... the correct supporting street furniture", the fronts of buildings set correctly against the walks, and "street parking and support". Read from the period stereographs already in `data/sources/`: Crosby's Opera House on Washington Street (`loc_stereo_1s47902_crosbys_opera_house`), the Sherman House at Clark and Randolph (`loc_stereo_1s12371_sherman_house`), the Tremont House (`loc_stereo_1s47905_tremont_house`) and the Court House (`loc_stereo_1s12325_court_house`). **What the pictures show (attested):** business fronts built to the walk, gas lamps on posts at the kerb, telegraph poles with several crossarms and many wires along the main streets, trees down Washington Street east of the opera house. The Sherman House picture also shows a rank of five closed hacks with their teams at the Clark Street kerb along the Court House Square's fence. **What is reconstructed:**

@@ -1864,6 +1864,13 @@ step "a K01 brick wing's stone belts and corner quoins (T-3353)" \
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
 
+# T-3626. An open, roofed porch on a K01 rear wing's deck (k01_wing_porch), held on 2013
+# Prairie's record: its posts, railings and roof built on the rear block's deck, its roof under
+# the deck of the part it stands against; a pitched wing, a roof over the host, a post crowding
+# a corner, an unknown railing side and an unknown key refused.
+step "a K01 rear wing carries an open, roofed porch on its deck (T-3626)" \
+  python3 tools/test_k01_wing_porch.py
+
 # T-1881. A raised stone terrace under a striped awning on a K01 house's rear wall
 # (k01_rear_terrace), held on 1729 Prairie's record: its podium, balustrade, posts and
 # striped canvas built where the record puts them, nothing inside the main block, the old
