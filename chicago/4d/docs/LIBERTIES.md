@@ -45692,10 +45692,14 @@ axis, its entablature deepened to 1.2 m under the balcony, the guard raised to 0
 (K06's French window, whose foot the photograph hides behind the guard), carved capitals, and swept stone cheeks
 splayed toward the walk with a row of openings through the south one. What stays otherwise than the evidence there:
 the balcony door's leaves are the kit's, the cheeks' sweep and the openings' size and count are read at the
-photograph's scale, not measured (RECONSTRUCTED); the cluster of three columns is one column a side and the
-balcony stops short of the pavilion (the shared kit stands porch columns 0.3 m apart past their plinths and a porch on
-its own landing, and changing it restales every house that reads it); the flight is the porch's width where the
-photograph's is narrower; and the balustrade's carved, pierced panels are square stone balusters.
+photograph's scale, not measured (RECONSTRUCTED). T-3717 (a piece of T-3701) built the north corner's cluster of three
+columns (K01's `columns.cluster`): three 0.24 m shafts 0.15 m apart on one pedestal 1.15 m wide and 1.4 m high,
+under one carved abacus. The photograph shows only the cluster's front, so the row is laid along the front and its
+spacing is read at the photograph's scale, not measured (INFERRED); no respond stands on the wall behind it, as the
+photograph's porch is in shadow there. Still otherwise than the evidence: the south column is the kit's single column
+(the photograph's tree hides it); the balcony stops short of the pavilion (the kit's porch stands on its own
+landing); the flight is the porch's width where the photograph's is narrower; and the balustrade's carved, pierced
+panels are square stone balusters.
 **Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.
