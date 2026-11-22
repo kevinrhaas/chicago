@@ -515,13 +515,22 @@
             "brackets": "k08.bay.canted_hooded",
             "railing": {
               "height_m": 0.45,
-              "post_m": 0.25,
-              "baluster_m": 0.06,
-              "pitch_m": 0.25,
+              "post_m": 0.3,
               "rail_m": [
-                0.2,
-                0.08
-              ]
+                0.24,
+                0.1
+              ],
+              "pierced": {
+                "rings": 5,
+                "diameter_m": 0.27
+              },
+              "finials": {
+                "plinth_m": [
+                  0.32,
+                  0.1
+                ],
+                "ball_m": 0.34
+              }
             },
             "columns": {
               "diameter_m": 0.32,
@@ -546,7 +555,7 @@
         "chicagology_2017_armour_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The porch in the photograph: two columns with carved capitals (x 320-355 and 535-575 px, y 785-1050) on the stoop's landing carry a stone deck whose soffit is at about 4.5 m, level with the door's head (y 770 px) and whose parapet stands about 0.4 m over it (y 665-700), its ball finials (y 610-665) not built; 2.8 m across, built 2.6 so that its deck's frame stands clear of the projection's flank (0.1 m each side). Its depth, 1.75 m, is the sheet's one-storey stone part before the front. The parapet's rings are built as K01's stone railing (the match record)."
+      "note": "The porch in the photograph: two columns with carved capitals (x 320-355 and 535-575 px, y 785-1050) on the stoop's landing carry a stone deck whose soffit is at about 4.5 m, level with the door's head (y 770 px) and whose parapet stands about 0.4 m over it (y 665-700), a ball finial on a square plinth over each front corner (y 610-665, about 0.55 m); 2.8 m across, built 2.6 so that its deck's frame stands clear of the projection's flank (0.1 m each side). Its depth, 1.75 m, is the sheet's one-storey stone part before the front. The parapet is a coped solid band with five round piercings across its front (x 365-535 px, each about 22 px, 0.27 m, across at about 0.45 m centres) between its corner pedestals, built so (T-3634); its returns, which the square-on photograph does not show, are pierced at the front's spacing (three rings each), and the finials' turning (a ball on a plinth) is read at the halftone's resolution."
     },
     "door_clear_height_m": {
       "value": 2.75,
@@ -568,12 +577,13 @@
         "stacks": [
           {
             "u_m": 14.8,
-            "v_m": 0.7,
+            "v_m": 0.0,
             "plan_m": [
               1.0,
               0.7
             ],
-            "top_m": 12.1
+            "top_m": 12.5,
+            "on_cornice": true
           },
           {
             "u_m": 5.0,
@@ -589,7 +599,7 @@
       "sources": [
         "chicagology_2017_armour_photo"
       ],
-      "note": "The north stack at the photograph's left edge (x 0-50 px, its top at y 80, about 12.1 m), built inside the north flank toward the front, about 0.7 m south of where the photograph's left edge puts it (K01 stands a stack on a flank's outer face only on a mansard's side parapet, which the photograph does not show; the match record); a second stack on the south flank toward the rear is reconstructed."
+      "note": "The north stack at the photograph's left edge (x 0-50 px, its top at y 80, about 12.5 m), built on the mansard's cornice astride the flank wall toward the front (T-3634: its centre on the wall's line, its outer face at the cornice's 0.35 m edge, rising from the wall head as 1620's front stack does, the deck's cresting stopping either side of it), where the photograph's left edge puts it; until T-3634 it stood 0.7 m inside the flank and 0.4 m low, because K01 then let no stack stand through a mansard's curb. A second stack on the other flank toward the rear is reconstructed."
     },
     "rainwater": {
       "value": {
