@@ -15,7 +15,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling with a stone front and a rounded bay (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-1922 (the S12A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits, its plan off sheet 35 of the 1911 Sanborn read at full size, its front off the early-1890s street photograph of the 2100 block, which shows its bow, carved band, pale stone and stoop, and off two later photographs taken on this site before the house was moved in 2014 (c. 1980s, Ryerson & Burnham Archives; 2012, Glessner House Museum), read for forms only: a pale limestone front under a tall coped gable with a finial, a five-arched loggia at the gable's foot, a two-storey bow capped in copper at the south, and the round-arched door at the north at the head of a high stoop. The gable's carving, the loggia's colonettes and the bow's carved band are T-1923's. The coach house shared with 2108 (mark_kimball_house_2108_prairie_coach_house) is T-1937's and is untouched. docs/RESEARCH/k01-2110-rees-1922/README.md.",
+  "research_note": "T-1922 (the S12A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits, its plan off sheet 35 of the 1911 Sanborn read at full size, its front off the early-1890s street photograph of the 2100 block, which shows its bow, carved band, pale stone and stoop, and off two later photographs taken on this site before the house was moved in 2014 (c. 1980s, Ryerson & Burnham Archives; 2012, Glessner House Museum), read for forms only: a pale limestone front under a tall coped gable with a finial, a five-arched loggia at the gable's foot, a two-storey bow capped in copper at the south, and the round-arched door at the north at the head of a high stoop. The gable's carving, the loggia's colonnettes, the landing's parapet and the bow's carved band are T-1923's (T-3714, T-3715). The coach house shared with 2108 (mark_kimball_house_2108_prairie_coach_house) is T-1937's and is untouched. docs/RESEARCH/k01-2110-rees-1922/README.md.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -157,13 +157,26 @@
               "k01.flat_lintel",
               "k01.flat_lintel",
               "k01.flat_lintel"
-            ]
+            ],
+            "loggia": {
+              "at_m": [
+                1.15,
+                2.13,
+                3.11,
+                4.09,
+                5.07,
+                6.05
+              ],
+              "foot_m": 10.3,
+              "spring_m": 11.65
+            }
           },
           "confidence": "inferred",
           "sources": [
-            "aic_rees_2110_c1980s_photo"
+            "aic_rees_2110_c1980s_photo",
+            "glessner_blog_rees_2110_gable_2012"
           ],
-          "note": "The flat part of the front has one square-headed light in the upper storey, over the door, set plain in the ashlar (the c. 1980s photograph); the loggia's round heads are its own arches."
+          "note": "The flat part of the front has one square-headed light in the upper storey, over the door, set plain in the ashlar (the c. 1980s photograph); the loggia's round heads are its own arches. T-3715: the loggia's six colonnettes, one beside each outer arch and one on each pier between, each a round shaft on a moulded base under a carved bell capital from which the arches spring (both later photographs, the 2012 detail close to): from the lights' sill (10.3 m) to their springing (11.65 m), engaged in the piers. The kit's foliate colonnette stands for them: its plinth, base and leafed bell are newly designed, not read stone by stone off the photographs' capitals, whose leaves are larger and looser (L-k01-2110-rees-3715)."
         },
         "wall_head": {
           "value": {},
@@ -182,7 +195,7 @@
             "glessner_blog_rees_2110_gable_2012",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The gable faces the avenue and the slated roof falls to the flanks behind it (the 2012 detail shows slates over the north flank behind the gable's rake). K01 builds it as a steep hip behind the gable's slab: the hip's flanks are the true roof's slopes at the gable's pitch; its street end stands behind the slab, where the true roof runs on to the gable (liberty L-k01-2110-rees-1922)."
+          "note": "The gable faces the avenue and the slated roof falls to the flanks behind it (the 2012 detail shows slates over the north flank behind the gable's rake). K01 builds it as a steep hip whose ridge runs on to the gable's back (T-3715, shaped_gable.roof_to_gable): the flanks are the true roof's slopes at the gable's pitch, hipped only at the rear (liberty L-k01-2110-rees-1922)."
         },
         "roof_pitch_deg": {
           "value": 50,
@@ -288,14 +301,15 @@
                 "arm_m": 1.0,
                 "width_m": 0.06
               }
-            }
+            },
+            "roof_to_gable": true
           },
           "confidence": "inferred",
           "sources": [
             "aic_rees_2110_c1980s_photo",
             "glessner_blog_rees_2110_gable_2012"
           ],
-          "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). T-3714: the gable's head carved as both photographs show it, a carved field from a level base a little over the light's head (15.35 m) up into the apex, just inside the coping, and under it a carved drop over the light opening into two curled arms either side of it; the kit's stem, leaves and curls stand for the photographs' scrolled foliage (L-k01-2110-rees-carving-3714). The kneelers' corbels and the finial's leaves are left to T-3716's photo-match; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts."
+          "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). T-3714: the gable's head carved as both photographs show it, a carved field from a level base a little over the light's head (15.35 m) up into the apex, just inside the coping, and under it a carved drop over the light opening into two curled arms either side of it; the kit's stem, leaves and curls stand for the photographs' scrolled foliage (L-k01-2110-rees-carving-3714). The kneelers' corbels and the finial's leaves are left to T-3716's photo-match; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts. T-3715: the slates run on to the gable's back (roof_to_gable), as both photographs show them beside the rake behind each kneeler, where the hip had fallen away a half-width short of it (L-k01-2110-rees-3715)."
         },
         "window_kit": {
           "value": {
@@ -366,7 +380,7 @@
             "glessner_blog_rees_2110_gable_2012",
             "glessner_blog_2100_block_looking_nw_1890s"
           ],
-          "note": "North of the bow, one square-headed light in the upper storey over the door (the c. 1980s photograph; the early-1890s photograph shows the light over the door's arch); in the third storey the loggia's five round-arched lights in a row over the bow's cap, from about a sixth of the front's width in from its south corner to a quarter in from its north (both later photographs), 0.98 m apart. Their colonettes and carved capitals stand here as the plain stone piers between the lights (T-1923's)."
+          "note": "North of the bow, one square-headed light in the upper storey over the door (the c. 1980s photograph; the early-1890s photograph shows the light over the door's arch); in the third storey the loggia's five round-arched lights in a row over the bow's cap, from about a sixth of the front's width in from its south corner to a quarter in from its north (both later photographs), 0.98 m apart. Their colonnettes and carved capitals stand on the piers between the lights and beside the outer two (street_front_trim.loggia, T-3715)."
         },
         "stair_tread_m": {
           "value": 0.3,
@@ -374,9 +388,9 @@
           "note": "RECONSTRUCTED: the kit's tread (L-k01-2110-rees-1922)"
         },
         "stair_landing_depth_m": {
-          "value": 1.3,
+          "value": 1.95,
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: a landing before the door (L-k01-2110-rees-1922)"
+          "note": "RECONSTRUCTED: a landing 1.95 m deep, its front edge in line with the face of the parapet that carries it on south across the bow's foot, where the c. 1980s photograph shows that parapet's block standing as the stoop's south cheek begins to fall; the depth is chosen to that alignment, not measured (T-3715; L-k01-2110-rees-1922, L-k01-2110-rees-3715). It was the kit's 1.3 m."
         },
         "stoop_width_m": {
           "value": 1.9,
@@ -596,7 +610,8 @@
             "stacks": [
               {
                 "u_m": 7.6,
-                "v_m": 0.7
+                "v_m": 0.7,
+                "fabric": "stone"
               },
               {
                 "u_m": 1.2,
@@ -609,7 +624,7 @@
             "aic_rees_2110_c1980s_photo",
             "glessner_blog_rees_2110_gable_2012"
           ],
-          "note": "A tall stack on the south flank just behind the gable, its head a little over the slopes behind the gable, under its apex (the c. 1980s photograph and the 2012 detail); the second, on the north wall at the rear, is reconstructed (L-k01-2110-rees-1922)."
+          "note": "A tall stack on the south flank just behind the gable, its head a little over the slopes behind the gable, under its apex (the c. 1980s photograph and the 2012 detail); the second, on the north wall at the rear, is reconstructed (L-k01-2110-rees-1922). T-3715: the south stack is laid in the front's pale stone to its cap, as both photographs show it against the gable; the rear stack stays brick, which no picture shows."
         },
         "entrance_kit": {
           "value": {
@@ -628,6 +643,52 @@
                   0.22,
                   0.04
                 ]
+              },
+              "terrace": {
+                "side": "left",
+                "to_v_m": 0.2,
+                "back": [
+                  [
+                    5.15,
+                    0.97
+                  ],
+                  [
+                    4.5,
+                    1.31
+                  ],
+                  [
+                    4.0,
+                    1.52
+                  ],
+                  [
+                    3.5,
+                    1.62
+                  ],
+                  [
+                    2.0,
+                    1.52
+                  ],
+                  [
+                    1.5,
+                    1.31
+                  ],
+                  [
+                    1.0,
+                    0.97
+                  ],
+                  [
+                    0.35,
+                    0.12
+                  ]
+                ],
+                "parapet": {
+                  "height_m": 0.5,
+                  "thickness_m": 0.25,
+                  "holes": [
+                    0,
+                    0
+                  ]
+                }
               }
             }
           },
@@ -636,7 +697,7 @@
             "aic_rees_2110_c1980s_photo",
             "glessner_blog_2100_block_looking_nw_1890s"
           ],
-          "note": "A round-arched doorway, the arch's crown about 3 m over the stoop's head, its transom under the arch (the c. 1980s photograph, where it bears the number 2110), in a moulded ring with no keystone of its own; the kit's keystone is laid near flush. The front yard to the 1904 street line, 7.3 m (lot u 47.35 to 54.65)."
+          "note": "A round-arched doorway, the arch's crown about 3 m over the stoop's head, its transom under the arch (the c. 1980s photograph, where it bears the number 2110), in a moulded ring with no keystone of its own; the kit's keystone is laid near flush. The front yard to the 1904 street line, 7.3 m (lot u 47.35 to 54.65). T-3715: the landing carried south from the stoop across the bow's foot at the landing's height, faced to grade, behind a plain stone parapet whose top stands at the parlour lights' sills (the early-1890s photograph shows its level top under the bow's lights from the stoop to the bow's south end; the c. 1980s photograph its solid block beside the stoop's south cheek, the rest behind a shrub): as deep as the landing, 1.95 m out from the flat front, its back stepped round the bow's plan 0.12 m clear of its plinth, the parapet 0.5 m high and 0.25 m thick. Its depth before the bow's crown and its thickness are read as proportions, not measured (L-k01-2110-rees-3715)."
         },
         "boundary": {
           "value": {
