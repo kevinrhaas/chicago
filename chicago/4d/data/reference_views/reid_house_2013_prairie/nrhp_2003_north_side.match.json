@@ -2,11 +2,11 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "nrhp_2003_north_side",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e490b2835b9af391618244b07ea9cd58af512dd9543ba318a524bade87a50b2e",
+  "glb_sha256": "3a6c945243cf07b0efbcbb049d2bdfcba5bd495a042a034411ec8825d6970a68",
   "camera_sha256": "776efb0919ba3e6c5b0bdc50864a74d9d0ff5413746cb1c50277e0ed75f4c449",
   "photo_sha256": "9c6a9c9d40d86d0f35800b9f5edb1c132fd542e7aa487de40b92458ded78bedb",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/nrhp_2003_north_side-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the north party wall's lights: east of the parging, narrow single stair lights at their own heights in two columns (s 2.05: ground and second floor; s 5.2-5.44: one a storey) and a tall light in the top storey of the part behind the front block, none on the rear block",
@@ -25,8 +25,23 @@
     },
     {
       "what": "the rear block: its north wall up to about 11.4 m at the east end and an open, roofed porch on its top floor to about 14 m (u -8.8 to -4.1), where the build stands two storeys to 8.95 m with a flat deck",
-      "status": "open",
-      "how": "the nomination's 'top floor of the rear section is open to provide a terrace'; K01's wings have no open, roofed porch on a deck to build it with"
+      "status": "fixed",
+      "how": "T-3626: rear_2b re-stacked as two storeys of 4.45 and 4.5 m, its wall top at 10.6 m and its deck at 10.9 m (the camera reads the porch's sill at about 10.9 m at u -5 to -6.3), and the new K01 roof_porch on the deck (k01_wing_porch): iron posts at the two rear corners and one between the openings on each long side (u -6.55; the north side's pier at x 275-290 px) and mid-rear (the rear photograph's), an iron railing round the three open sides and a flat tin roof 2.55 m over the deck to 13.8 m, under the 3B part's deck; the render's porch roof and its post at x 240-300 and 265 px against the picture's 240-330 and 275-290"
+    },
+    {
+      "what": "the porch's pier between its openings: in the picture a brick pier about 0.3-0.4 m broad at u -6.8 to -6.3; built a 0.12 m post at u -6.55 as its rear and south ones are (the rear photograph's slender posts)",
+      "status": "within tolerance",
+      "how": "under about 1 ft in breadth, at the same place; the rear photograph shows the porch's other posts slender"
+    },
+    {
+      "what": "the porch's roof: the camera reads its top at about 14.2 m and the 3B part's parapet at 14.5-15 m; built to 13.8 m under the 3B part's 13.85 m deck",
+      "status": "within tolerance",
+      "how": "the camera fit reads the 3B part's top 0.35 m and more over its build too, so the porch's roof keeps the picture's relation to the wall beside it (just under its top); a gap the camera fit and the record disagree about"
+    },
+    {
+      "what": "the rear block's wall top against the porch's sill: about 10.9 m in the picture, the deck's fascia 10.6-10.9 m in the build; the rear end's vertical at x 222 against the render's 214",
+      "status": "within tolerance",
+      "how": "under about 1 ft; the rear end's 0.45 m is the solve's own worst residual against the 1911 sheet's -10.25 (the solve says so)"
     },
     {
       "what": "a small high light in the ground storey behind the front block (s 2.24 on rear_3b, about 0.5 x 0.64 m, sill 4.9 m)",

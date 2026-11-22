@@ -6339,6 +6339,18 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             if fabric != "brick":
                 raise ParamError(f"rear_wings: {wid}'s dressings are stone laid in a brick wing's walls")
             wing["dressings"] = _wing_dressings(wid, e["dressings"], walls, ops, top)
+        if e.get("roof_porch") is not None:
+            # T-3626: an open, roofed porch on the deck (2013's rear block, its 2003 photographs),
+            # its roof under the deck of the wing it stands against
+            from .k01_wing_porch import ParamError as PorchError, resolve as resolve_porch
+            if host is None:
+                raise ParamError(f"rear_wings: {wid}'s roof_porch stands against a wing's rear wall, and "
+                                 f"{wid} stands on the main rear wall")
+            try:
+                wing["roof_porch"] = resolve_porch(wid, e["roof_porch"], rect=(u0, u1, v0, v1), deck=deck,
+                                                   roof_kind=kind, host_top=host["deck_m"])
+            except PorchError as err:
+                raise ParamError(str(err)) from None
         out.append(wing)
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:
