@@ -27,6 +27,16 @@
         "sidecar": "sidecars/1904/versions/glessner_house/v3.json",
         "asset": "gltf/versions/glessner_house/v3/glessner_house__as_built_1887.glb"
       }
+    ],
+    "robbins_house_2126_prairie": [
+      {
+        "label": "completed",
+        "summary": "The finished Robbins house as the May 1905 Inland Architect plate shows it, beside the default July 1904 building site.",
+        "test_fixture": false,
+        "phase": "completed",
+        "sidecar": "sidecars/1904/versions/robbins_house_2126_prairie/completed.json",
+        "asset": "gltf/versions/robbins_house_2126_prairie/completed/robbins_house_2126_prairie__completed.glb"
+      }
     ]
   }
 }

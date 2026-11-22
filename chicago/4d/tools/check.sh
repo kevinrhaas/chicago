@@ -1014,6 +1014,8 @@ step "Glessner's canonical UV caches are complete and reject stale or corrupt la
   python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
+step "the K01 structure versions are the bytes their version records build (T-3721)" \
+  python3 generators/k01_versions_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
 step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
