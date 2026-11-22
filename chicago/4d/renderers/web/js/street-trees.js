@@ -181,6 +181,39 @@ function treeCard(t, doc) {
   // T-1934: a tree a solved picture places carries its reading and sources; its spot is
   // inferred from the picture, not the rule's reconstruction
   const pictured = t.placed === 'pictured';
+  // T-3686: another year's file names its own trees and notes (data/street_trees/1871.json).
+  const own = doc.card ?? null;
+  const file = `data/street_trees/${doc.scene ?? '1904'}.json`;
+  if (own) {
+    return {
+      id: t.id,
+      sidecar: {
+        name: young ? own.young_name : own.name,
+        phase: null,
+        change_note: own.note,
+        placement: {
+          symbolic_location: t.face ?? null,
+          position_confidence: pl.tier ?? 'reconstructed',
+          position_sources: [],
+          position_note: pl.note ?? '',
+        },
+        attributes: {
+          species: {
+            value: sp.common ?? 'street tree', confidence: sp.tier ?? 'reconstructed',
+            sources: sp.sources ?? [], note: sp.note ?? '',
+          },
+          position: {
+            value: `${Math.round(t.e * 10) / 10} E, ${Math.round(t.n * 10) / 10} N`,
+            confidence: pl.tier ?? 'reconstructed', sources: [],
+            note: `About ${pl.spacing_ft ?? 30} ft from the next tree, at the curb. ${pl.liberty ?? ''}`.trim(),
+          },
+        },
+        citations: [],
+        research_doc: own.research_doc ?? null,
+        research_note: `Tree ${t.id} of ${file} (${doc.ticket ?? ''}). ${pl.liberty ?? ''}`.trim(),
+      },
+    };
+  }
   return {
     id: t.id,
     sidecar: {
@@ -270,7 +303,9 @@ export async function createStreetTrees({
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
-    const y = terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
+    // T-3686: a tree in a box at the edge of a raised plank walk stands at the walk's height.
+    const y = Number.isFinite(t.y_m) ? t.y_m
+      : terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
     return { t, y, variant: t.variant ?? 0, h: 20 };
   });
 

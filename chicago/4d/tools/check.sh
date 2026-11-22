@@ -4800,6 +4800,12 @@ step "1871 portable period kit is reproducible" \
 step "1871 city, infrastructure and terrain are reproducible" \
   python3 generators/city_1871_emit.py --check
 
+# T-3686. The 1871 streetscape (owner, 2026-11-21): the lamps, telegraph poles and wires and
+# hitching posts on the walks, and the street trees on the house streets, are laid from the
+# city above; the committed files are what the tool writes, item for item.
+step "1871 street furniture and street trees re-lay from the city (T-3686)" \
+  python3 tools/lay_1871_street_furniture.py --check
+
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py
 

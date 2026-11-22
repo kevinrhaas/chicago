@@ -41,6 +41,21 @@ function rng(seed) {
 const rgb = (r, g, b, k = 1) => `rgb(${Math.round(r * k)},${Math.round(g * k)},${Math.round(b * k)})`;
 const grey = v => { const g = Math.max(0, Math.min(255, Math.round(v))); return `rgb(${g},${g},${g})`; };
 
+/**
+ * The order the street layers draw in, as ground decals (Kevin, 2026-11-21: "any
+ * intersections of sidewalks or streets is flashy and blinks when you cross it").
+ * Where two streets meet, their roadway ribbons lie one on the other at the same
+ * height, and so do two walks at a corner; drawn with depth writes, the two faces
+ * fought for every pixel and the junction blinked as the eye moved. As 1904's
+ * roadways do (street-grid.js ROAD_RENDER_ORDER, T-3389), they now draw after every
+ * opaque thing at order 0 without writing depth: overlapping faces of one layer
+ * resolve by draw order, the same every frame, and each layer lies over the one
+ * below — roadways (dirt, then boulders, then wood block), the plank crossings,
+ * then the raised walks. Keep anything opaque that lies under the streets below 10.
+ */
+export const STREET_DECAL_ORDER = Object.freeze({ streets: 10, crossings: 10.2, walks: 10.3 });
+const ROADWAY_RANK = Object.freeze({ dirt: 0, setts: 0.01, woodblock: 0.02 });
+
 /** Metres one tile covers (square), its roughness and relief. */
 export const SURFACES = Object.freeze({
   woodblock: { metres: 2, roughness: 0.92, bump: 0.035 },
@@ -211,9 +226,18 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
   const made = new Map(), textures = [], materials = [], out = [];
   const px = detail === 'light' ? 256 : 512;
   const dressed = new Set();
+  let decals = 0;
   for (const mesh of meshes) {
     const material = mesh.material, kind = String(material?.name ?? '').replace(/^1871_/, '');
-    if (!SURFACES[kind] || dressed.has(material)) continue;
+    if (!SURFACES[kind]) continue;
+    const layers = mesh.userData?.layers ?? [];
+    if (layers.length && layers.every(l => STREET_DECAL_ORDER[l] != null)) {
+      // one layer a batch (city-context.js splits them); a roadway ranks by its surface
+      mesh.renderOrder = Math.max(...layers.map(l => STREET_DECAL_ORDER[l])) + (layers.includes('streets') ? (ROADWAY_RANK[kind] ?? 0) : 0);
+      material.depthWrite = false;
+      decals++;
+    }
+    if (dressed.has(material)) continue;
     dress(material, kind, tileTextures(kind, px, anisotropy, made, textures));
     dressed.add(material);
   }
@@ -233,7 +257,7 @@ export function dressStreetSurfaces(meshes, { walkSurfaces = [], heights = {}, d
       liberty: 'L-1871-street-surfaces', triangles: quads * 2 };
     out.push(mesh);
   }
-  return { textures, materials, meshes: out, census: { detail, dressed: dressed.size, edgeQuads: quads, tilePx: px } };
+  return { textures, materials, meshes: out, census: { detail, dressed: dressed.size, decals, edgeQuads: quads, tilePx: px } };
 }
 
 /**

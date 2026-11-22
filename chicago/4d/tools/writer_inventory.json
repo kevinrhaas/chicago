@@ -2486,6 +2486,13 @@
       "measured": "2026-11-19",
       "finding": "Reproduces: hashed the 249 overlay files under data/sidecars/{1812,1835,1904}/jaunts/es/, ran the bare writer twice, hashes identical. Appended a byte to 1835/a-decent-coat.json: --check exited 1 naming it; the bare writer restored the identical bytes (T-3681).",
       "placed": "after compile_jaunts.py (it reads the same data/jaunts/*.json the compiler does, and the words files in data/jaunts/_es/); writes only jaunts/es/ under each scene's sidecars, which compile_jaunts leaves alone (T-3681)"
+    },
+    "lay_1871_street_furniture.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-21",
+      "finding": "Reproduces: a bare run on the committed tree rewrote data/street_furniture/1871.json and data/street_trees/1871.json byte for byte and changed no other committed byte; --check writes nothing (T-3686).",
+      "placed": "Reads data/context/1871.json (generators/city_1871_emit.py's output, itself not in the manifest), the 1904 lamp kind in data/street_furniture/1904.json and data/sources/. Its slot is after city_1871_emit.py and tools/lay_prairie_1904_street_furniture.py; placing it waits on the 1871 city writer's own placement."
     }
   }
 }
