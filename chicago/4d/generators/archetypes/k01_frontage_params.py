@@ -969,7 +969,30 @@ def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, ea
         out["dormer"] = _round_dormer(d, "mansard.crown.dormer", run + co)
         if out["dormer"]["width_m"] > (b - a) - 0.6:
             raise ParamError(f"mansard.crown.dormer: {out['dormer']['width_m']:.2f} m wide on a {b - a} m crown")
+    if c.get("cresting") is not None:
+        out.update(_crown_deck_dress(c, out, run, pitch))
     return out
+
+
+def _crown_deck_dress(c: dict, out: dict, run: float, pitch: float) -> dict:
+    """T-3713: a mansard crown's own deck dressed as the Armour photograph draws 2115's
+    pavilion crown: a rail of the K10 kit's iron cresting round its curb (`cresting`,
+    height_m and inset_m as the main deck's). The crown's curb is its fascia's rectangle
+    drawn in by the run its lower faces take to the crown's curb; the deck over it rises at
+    the house's deck pitch. k01_mansard_deck.crown_dress builds it."""
+    co = out["overhang_m"]
+    curb = [round(out["x0"] - co + run, 4), round(out["x1"] + co - run, 4),
+            round(-(out["z1"] + co - run), 4), round(-(out["z0"] - co + run), 4)]   # u0, u1, v0, v1
+    res = {"deck": {"curb": curb, "curb_m": out["curb_m"], "deck_pitch_deg": pitch}}
+    cr = c.get("cresting")
+    if cr is not None:
+        if set(cr) - {"height_m", "inset_m"}:
+            raise ParamError("mansard.crown.cresting takes height_m and inset_m")
+        h, ins = float(cr["height_m"]), float(cr.get("inset_m", 0.08))
+        if not 0.3 <= h <= 1.0 or not 0.03 <= ins <= 0.3:
+            raise ParamError("mansard.crown.cresting: 0.3-1.0 m high, 0.03-0.3 m inside the crown's curb")
+        res["deck"]["cresting"] = {"height_m": h, "inset_m": ins}
+    return res
 
 
 #: T-3283: what a crown over a stretch of the front takes, and the least stretch it spans
@@ -9329,6 +9352,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
                                                pitch, float(val("eave_overhang_m")), val("cant_corner"), chimneys)
         cr = mansard_roof["crown"]
+        if cr.get("deck") and not val("mansard").get("deck"):
+            # T-3713: the crown's deck is dressed beside the main deck's (k01_mansard_deck.dress)
+            raise ParamError("mansard.crown.cresting dresses a crown over a dressed deck: "
+                             "name mansard.deck too")
         if cr.get("form") == "hip":
             # T-2465: a stack through a hipped crown clears its ridge as a ridge stack does
             co = cr["overhang_m"]

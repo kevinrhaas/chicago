@@ -25568,9 +25568,14 @@ cameras. **Read:** every place and height above, through the cameras (residuals 
 the console blocks' spacing and section and the cresting's pattern (the kit's); the flank light's head, 0.5 m
 under the print's to clear the frieze; the north side's hidden rear 2 m, laid with no light. **Left open** (the
 match records): the mansard and its dormers carried back over the rear range, which K01's rear wing cannot
-roof; the iron cresting and carved top on the pavilion's crown, which a K01 mansard crown does not take; and the
-front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B' piece), built
-under the main mansard.
+roof; and the front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B'
+piece), built under the main mansard. **T-3713 (crown pass):** the pavilion's crown now carries the K10 kit's
+iron cresting round its own deck (`mansard.crown.cresting`, k01_mansard_deck.crown_dress), 0.6 m as the main
+deck's, its pattern the kit's, not the print's (invented). The 'carved top' the first pass read at the crown's
+north corner is the south stack seen past the crown (the Armour camera reaches that stretch only from the stack
+the Tribune camera triangulated); the stack now stands 18.35 m, between the two pictures' readings (about 0.3 m
+over the photograph's top, about 0.3 m under the halftone's), and its ornamented head is the kit's plain cap
+(invented).
 
 ### L-k01-2013-reid-3625 — 2013 Prairie, the William H. Reid house, refined from the district draft onto K01: its front read off the Inland Architect's 1895 plate through a solved camera, its flanks and rear still the kits'
 
