@@ -5145,7 +5145,8 @@
     "rees_house_2110_prairie/as_mapped_1904/form.street_front_trim": {
       "kind": "structure",
       "blocked_sources": [
-        "aic_rees_2110_c1980s_photo"
+        "aic_rees_2110_c1980s_photo",
+        "glessner_blog_rees_2110_gable_2012"
       ],
       "sole_support": true,
       "confidence": "inferred"
