@@ -1225,9 +1225,9 @@
     },
     {
       "id": "house_2125_prairie",
-      "name": "2125 Prairie Avenue — Frame dwelling (district draft; refined by T-1930)",
+      "name": "2125 Prairie Avenue — Frame dwelling, K16 clapboard",
       "sidecar": "sidecars/1904/house_2125_prairie.json",
-      "asset": "gltf/house_2125_prairie__draft_1904.glb"
+      "asset": "gltf/house_2125_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2125_prairie_coach_house",
