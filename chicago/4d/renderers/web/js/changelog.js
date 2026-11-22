@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3203, ts: '2026-11-22T19:39:03.139Z', date: 'Nov 22, 2026, 1:39 PM CT', title: '2100 Prairie\'s balcony reaches the library, on a pier and pierced rail', kind: 'feature',
+    items: [
+      '2100 Prairie\'s porch balcony now runs from the library\'s projecting front to beside the parlour\'s upper window, as the old photograph and the 1876 plan show. A plain square stone pier carries its south end, and the cluster of three columns now stands just inside its north end. The balcony\'s rail is now a stone band pierced with round openings instead of square balusters. The flight is narrowed to the photograph\'s 2.3 m, between the pier and the columns, with a low stone terrace on each side.',
+    ] },
   { v: 3202, ts: '2026-11-22T16:50:05.946Z', date: 'Nov 22, 2026, 10:50 AM CT', title: 'A slow set of checks split in two so work lands again', kind: 'fix',
     items: [
       'Nothing you can see changes. One group of the checks that run on every change had grown from about a quarter of an hour to as much as 38 minutes, and on the slower test machines it was cut off at its 40-minute limit, so finished work could not be merged. The group is now two groups that run side by side, each about 20 minutes even on the slowest machine. Every check still runs, unchanged.',

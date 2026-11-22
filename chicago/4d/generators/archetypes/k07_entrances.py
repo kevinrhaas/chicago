@@ -1565,8 +1565,9 @@ class Entrance(Opening):
                     self.quad("cheek", [(si, lo, o), (so, lo, o), (so, hi, o), (si, hi, o)], OUT)
         if nw:
             self._newel_foot(si + dx(F), sgn, o1, F, -R, yF, nw)
-        else:
-            self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+        else:   # T-3718: its end stands where the flare carried the block, on the foot riser's end
+            dF = dx(F)
+            self.quad("cheek", [(si + dF, -R, F), (so + dF, -R, F), (so + dF, yF, F), (si + dF, yF, F)], OUT)
         if ar:
             self._arched_void(si, so, sgn, far, L, p0, R, ys_, sp, [o for o in cuts if L - 1e-9 <= o <= oa_ + 1e-9],
                               arch, ar)
@@ -1575,7 +1576,7 @@ class Entrance(Opening):
             self._carved_block(si, so, sgn, o1, F, -R, yF, cv["foot_blocks"]["proud_m"])
         mid = (si + so) / 2
         a, b = (cuts[1], cuts[2]) if start < L else (cuts[0], cuts[1])
-        fm = si + dx(F) + sgn * nw["width_m"] / 2 if nw else mid
+        fm = si + dx(F) + sgn * nw["width_m"] / 2 if nw else mid + dx(F)
         top_s, foot_s = (mid + dx((a + b) / 2), (top(a) + top(b)) / 2, (a + b) / 2), (fm, yF, (o1 + F) / 2)
         self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top_s, foot_s]
         for pt in (top_s, foot_s):
