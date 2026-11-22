@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 127938446,
+  "content_version": 783229256,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -1035,7 +1035,7 @@
         "kind": "structure",
         "id": "mark_kimball_house_2108_prairie"
       },
-      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Sherman House, 2100 Prairie.",
+      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Roloson House, 2109 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-48",
@@ -1054,19 +1054,18 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "sherman_house_2100_prairie"
+        "id": "roloson_house_2109_prairie"
       },
-      "text": "Sherman House, 2100 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. RAZED 1936. Next: Kelley-Armour House, 2115 Prairie.",
-      "read_s": 16,
+      "text": "Roloson House, 2109 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Kelley-Armour House, 2115 Prairie.",
+      "read_s": 13,
       "evidence": [
         "stood-49",
-        "razed-49",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "sherman_house_2100_prairie",
+          "id": "roloson_house_2109_prairie",
           "label": "About this building"
         }
       ],
@@ -1729,22 +1728,12 @@
     },
     {
       "id": "stood-49",
-      "text": "Sherman House, 2100 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "Roloson House, 2109 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35",
-        "chicagology_2100_sherman_photo"
+        "sanborn_1911_chicago_v3_sheet_35"
       ],
       "confidence": "inferred",
-      "reasoning": "Built 1874 (the marker) and drawn by the 1911 sheet; the T-1842 census rules it present in 1904 (present_as_mapped), and the undated photograph (the library dates it c. 1885-1895) shows the house as this record builds it. This phase claims the 1904 target and the sheet's date, no more; the 1911 sheet's college lettering is a later use, not drawn."
-    },
-    {
-      "id": "razed-49",
-      "text": "John B. Sherman Residence, 2100 S. Prairie Avenue: razed 1936.",
-      "confidence": "attested",
-      "sources": [
-        "hmdb_prairie_lost_houses_2000_2100"
-      ],
-      "locator": "The 2100 S. Prairie Avenue entry."
+      "reasoning": "The 1911 sheet draws the house and the T-1842 census rules it present in 1904 (present_as_mapped); the Armour photograph is undated. Its building date is not read; the register reports its loss in 1933."
     },
     {
       "id": "stood-50",

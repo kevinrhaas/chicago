@@ -154,7 +154,7 @@ import { mountResidents } from './residents.js';
 import { mountGround } from './ground.js';
 import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
-import { createRouter } from './route.js';
+import { createRouter, WINDOW_CELLS } from './route.js';
 import { createTravel, PACES } from './travel.js';
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
@@ -3097,9 +3097,12 @@ async function boot() {
   const parkedDrawingBuffer = new THREE.Vector2();
   const parkedTransport = await createParkedTransport({
     dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
-    stationaryTeams: String(YEAR) === '1904',
+    stationaryTeams: ['1871', '1904'].includes(String(YEAR)),
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
-    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
+    // T-3686: an 1871 hack stands on the paved roadway the context city lays over the field.
+    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n)
+      : String(YEAR) === '1871' && typeof contextCity.floorHeight === 'function'
+        ? (e, n) => contextCity.floorHeight(e, n) ?? terrain.surfaceHeight(e, n) : null,
     getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
     // T-3300: fetch a vehicle when the eye comes within 60 m of where it is drawn,
     // not at boot — 1835's wagons were 2.0 MB of the first visit, all out of reach.
@@ -4633,6 +4636,12 @@ async function boot() {
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
     passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,
+    // T-3691: a world too big for one grid (1871) keeps a window round the visitor, held
+    // still while they fly, and half the size on a phone or at the Light detail.
+    focus: () => (walker.state.flying ? null : walker.state),
+    windowCells: () => (prefersTouch() || detailLevel === 'light' ? WINDOW_CELLS / 2 : WINDOW_CELLS),
+    // T-3691: the 1871 context city's buildings, streets and plank walks (city-context.js).
+    extra: (box) => contextCity?.routeFeatures?.(box) ?? null,
   });
   let travel = null;
   api.router = router;

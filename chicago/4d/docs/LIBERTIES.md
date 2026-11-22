@@ -45151,6 +45151,19 @@ bays, the steps and the veranda's run; a K01 veranda on columns over open piers 
 **Review:** `docs/RESEARCH/k01-2109-roloson-3666/README.md`.
 **Recorded:** 2026-11-19 (T-3666).
 
+**Revised:** 2026-11-21, T-3666's sign-off against the Armour photograph. The veranda is now built as the
+photograph draws it: the front run on round columns on square pedestals (the entrance kit's veranda `columns`), the
+south run (the side porch) run on 1.8 m past the front's plane to turn the corner, its floor on open square piers
+(`open_under`) and its balustrade at the deck between the pedestals (`balustrade_at: deck`), its roof flat and bare.
+Still otherwise than the evidence: the pedestals and piers are plain where the photograph's are panelled, and the south
+run's railing is laid in the porch's stone where the print draws it dark. The rear block now steps out about 0.5 m
+south of the front block, not the sheet's 2.32 m: through the solved camera the photograph shows only a narrow strip
+of its front under its cornice's end, and 2115's mansard where a full-height face 2.32 m out would stand; what fills
+the rest of the sheet's step (a part lower than the veranda's roof, or the coarse copy's error) is unread, and the
+rear block's flat deck is kept where the print shows a sliver of slated slope. The dormer's carved surround is K01's
+eared hood (as 2115's off the same photograph), its scrolls, consoles and keystone not carved. A picture of the
+rear or the south flank would read the step.
+
 ### L-k01-2017-armour-3634 — 2017 Prairie, the William Armour house, refined from the district draft onto K01: a stone front under a mansard, a gabled south projection and a columned porch read off its one photograph
 
 **Decision:** the district draft at `house_2017_prairie` (T-2352) is refined in place, under its own id,
@@ -45850,3 +45863,16 @@ nomination photographs, once readable and cleared, read the flanks and rear.
 
 **Ticket:** T-3710.
 **Recorded:** 2026-11-20.
+
+### L-1871-streetscape — The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand
+
+**Decision:** the owner, 2026-11-21, asked for the 1871 streets' "trees and other streetscape ... the correct supporting street furniture", the fronts of buildings set correctly against the walks, and "street parking and support". Read from the period stereographs already in `data/sources/`: Crosby's Opera House on Washington Street (`loc_stereo_1s47902_crosbys_opera_house`), the Sherman House at Clark and Randolph (`loc_stereo_1s12371_sherman_house`), the Tremont House (`loc_stereo_1s47905_tremont_house`) and the Court House (`loc_stereo_1s12325_court_house`). **What the pictures show (attested):** business fronts built to the walk, gas lamps on posts at the kerb, telegraph poles with several crossarms and many wires along the main streets, trees down Washington Street east of the opera house. The Sherman House picture also shows a rank of five closed hacks with their teams at the Clark Street kerb along the Court House Square's fence. **What is reconstructed:**
+- *Fronts:* `generators/city_1871_emit.py` (`core_row`) now stands every attached downtown and shop-street row on the walk's outer edge (0.06 m clear of the planks) and runs each row to the cross street's own walk edge, where it had stood 5 m back on the corridor margin the free-standing lots keep. The walk widths themselves are unchanged (16 m roadway and 4.2 m walks on the principal streets, 13 m and 3.5 m elsewhere): no 1871 source in the project gives them, so they stay reconstructed. A front that cannot stand there (a mapped corridor in the way) still steps back, up to 5 m, and records it in `walk_gap_m`.
+- *Furniture* (`tools/lay_1871_street_furniture.py`, `data/street_furniture/1871.json`): a gas lamp at the walk's end at every downtown corner and every 46 m along the business blocks, drawn as the 1904 lamp (its form inferred from the three LOC stereographs, the positions reconstructed); telegraph poles every 40 m on one side of the named main streets, carrying wires up to 62 m; hitching posts every 7.5 m along the shop walks. Spacing, which side, and the hitching post's form are this project's.
+- *Street trees* (`data/street_trees/1871.json`): one file a side along the house streets within about 3.2 km of State and Madison, about 30 ft apart in boxes at the kerb, a third of the places empty and one tree in five young, all drawn as the American elm of the 1904 layer. Kind, spacing and extent are reconstructed; the opera-house picture shows tall broad-crowned street trees but not their kind.
+- *The hack stand* (`data/transport/parked/placements.json`, rows `hack_stand_clark_court_house_1` to `_5`): the stand and the rank are attested by the Sherman House picture. The project has no closed carriage of 1871, so each hack is a **stand-in**, the brougham after Studebaker's 1893 catalogue, on the owner's ruling of 2026-11-21 ("Yes, a labelled stand-in"); its card says so. `tools/transport/check_parked_placements.py` allows that design in 1871 for these five rows at this stand only. Its form, the spacing, the horses and their coats, and the absence of drivers are reconstructed.
+
+**How to resolve:** an 1871 ordinance or Board of Public Works report giving walk widths and lamp spacing; a Western Union or city fire-alarm telegraph map for the pole lines; more period street views (Carbutt's Views of Chicago series) to place trees, lamps and stands street by street; a model of the pictured 1871 hack, to replace the stand-in.
+**Ticket:** T-3686.
+**Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
+**Recorded:** 2026-11-21 (T-3686).

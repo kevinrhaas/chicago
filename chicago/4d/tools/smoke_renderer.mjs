@@ -8295,21 +8295,25 @@ for (const [label, viewport, touch] of [
       });
       return { census: v?.census ?? null, keepOut: (v?.keepOut ?? []).length, stands,
         beached: stands.filter((s) => s.beached).length, oldBoats: a.boats?.census?.boats ?? null,
+        mooredBerths: (v?.vessels ?? []).filter((x) => x.rec.mode === 'moored')
+          .reduce((k, x) => k + 1 + (x.rec.dated ?? []).filter((d) => d.berth).length, 0),
         crew: v?.crewState?.() ?? null };
     });
     // Fifteen vessels: five named schooners, the schooner in the offing and her
     // lighter, six rowboats and two bark canoes, and ZERO refused — every berth was
     // laid by tools/lay_vessels.py against the committed heightfield, so a refusal
     // means the terrain moved under the record. One planting keep-out per beached
-    // hull. The T-0063 boat layer draws nothing now: every record names its
-    // successor.
+    // hull, and one per berth of a moored boat (2026-11-21: no reed grows up through a
+    // boat at her mooring). The T-0063 boat layer draws nothing now: every record names
+    // its successor.
     check(`${label}: every vessel is laid and none refused`,
       flotilla.census?.vessels === 15 && flotilla.census?.refused === 0
-        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached
+        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached + flotilla.mooredBerths
         && flotilla.beached === 5 && flotilla.oldBoats === 0,
       `${flotilla.census?.vessels} vessel(s) (${flotilla.census?.schooners} schooner(s)), `
       + `${flotilla.census?.refused} refused, ${flotilla.keepOut} keep-out(s) for `
-      + `${flotilla.beached} beached hull(s), ${flotilla.oldBoats} drawn by the old boat layer`);
+      + `${flotilla.beached} beached hull(s) and ${flotilla.mooredBerths} moored berth(s), `
+      + `${flotilla.oldBoats} drawn by the old boat layer`);
     // An afloat hull floats on the plane in its own water: clear of the bed by its
     // draft (the harbour's dredged channel by its own depth), of every pier and
     // wharf, and of the drawbridge's span. The pilot's own
