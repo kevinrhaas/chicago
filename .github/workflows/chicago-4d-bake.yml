@@ -97,7 +97,7 @@ permissions:
 #
 # THE GATE IS STILL BOTH VIEWPORTS AND NOTHING LESS, which is smoke_renderer.mjs's
 # own rule. Each matrix leg prints "NOT THE FULL GATE" because on its own it is
-# not one; all ten legs together are, and `needs: smoke` fails if ANY fails.
+# not one; all the legs together are, and `needs: smoke` fails if ANY fails.
 # The workflow reconstitutes the gate the suite refuses to let one run claim —
 # which holds only while the stage ranges tile 1..15 with no gap and no overlap.
 #
@@ -871,6 +871,25 @@ jobs:
   # halves. Mobile shares the list (gateShape() in smoke_budget.mjs reads one
   # `stage:` row for both viewports); its legs only get shorter. The cap is
   # unchanged; content is unchanged; no check moved between parts.
+  #
+  # T-3726 CUT 9-12 IN TWO, as 9-10 and 11-12, because the "~16m" leg above had
+  # grown to 27-38m and stopped fitting the cap. Read from this workflow's own
+  # job history, 2026-11-21 21:00Z to 2026-11-22 13:20Z: desktop 9-12 passed in
+  # 27-28m on dev and main (job 137124398296: 26m50s for the stage) and in
+  # 35-38m on PR heads, and was cancelled AT the 40m cap on #2290 (job
+  # 137039400647) and on #2292 (job 137203036813, still in part 12's Guide
+  # checks at 35m56s). A cancelled leg is a red check, so neither PR could reach
+  # `clean` — the T-2362 failure again, one leg over. Mapping job 137124398296's
+  # check stamps to their `stageOn(n)` blocks gives desktop part cost
+  #   9 ~7m35s (incl. a 3m19s unsettled facade-tones baseline)   10 ~5m05s
+  #   11 ~2m50s                                                   12 ~10m25s
+  # plus a ~55s boot, so the halves are 9-10 ~13m40s and 11-12 ~14m10s on the
+  # 27m runner, and ~19m and ~21m scaled to the slowest pass (38m, job
+  # 137118375169) — about 19m of margin under 40 on the slowest reading where
+  # 9-12 kept 2m. Ten stages make twenty legs; the extra pair pays a checkout,
+  # a Playwright install and a boot (~1m30s each). Mobile shares the list and
+  # its legs only get shorter. The cap is unchanged; content is unchanged; no
+  # check moved between parts.
   # THE GATE, IN PARTS, ON THE TREE THE BAKE PUSHED (T-3503).
   #
   # bake.sh used to end in `check.sh` whole, inside the bake job's cap. Whole is
@@ -961,7 +980,7 @@ jobs:
       fail-fast: false
       matrix:
         viewport: [mobile, desktop]
-        stage: ['1-2', '3-4', '5', '6-7', '8', '9-12', '13', '14', '15']
+        stage: ['1-2', '3-4', '5', '6-7', '8', '9-10', '11-12', '13', '14', '15']
     steps:
       # T-0437: smoke imports tools and reads its two baseline JSON files;
       # the boot check also reads docs/SITE-BUDGET.md. All browser inputs come
