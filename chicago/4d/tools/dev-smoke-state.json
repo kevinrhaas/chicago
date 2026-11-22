@@ -2,6 +2,68 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 529,
+      "takenAt": "2026-11-21T23:15:16.941Z",
+      "ref": "claude/project-thread-mclxht",
+      "commit": "c527c111c7aa",
+      "devCommit": "bf06ed5b2f67",
+      "treeHash": "sha256:b36b78999c224b43",
+      "treeDirty": false,
+      "changelogHash": "sha256:5bb90eb0b59c17e3",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.5,
+          3.6,
+          3.4
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/7f716873-d6aa-547e-9367-9b036303b262/scratchpad/smoke-d2b.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "2",
+      "parts": [
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 115,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 193,
+      "takenAt": "2026-11-21T23:15:16.791Z",
+      "ref": "claude/project-thread-mclxht",
+      "commit": "c527c111c7aa",
+      "devCommit": "bf06ed5b2f67",
+      "treeHash": "sha256:b36b78999c224b43",
+      "treeDirty": false,
+      "changelogHash": "sha256:5bb90eb0b59c17e3",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.5,
+          3.6,
+          3.4
+        ]
+      },
+      "source": "/tmp/claude-0/-home-user/7f716873-d6aa-547e-9367-9b036303b262/scratchpad/smoke-m2b.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "15",
       "parts": [
@@ -1756,62 +1818,6 @@
         "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42942125394/job/130266182695"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "14-15",
-      "parts": [
-        14,
-        15
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 165,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 2277,
-      "takenAt": "2026-11-10T18:27:46Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868344580/job/130037309064"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "14-15",
-      "parts": [
-        14,
-        15
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 165,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 822,
-      "takenAt": "2026-11-10T17:54:20Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "6f5dfa7de1d9",
-      "devCommit": "565e5a35d1bc",
-      "treeHash": "sha256:de159f920dc579d1",
-      "treeDirty": false,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42868366683/job/130012682128"
     }
   ]
 }

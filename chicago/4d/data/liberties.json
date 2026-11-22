@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1214,
+  "count": 1215,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -77386,6 +77386,10 @@
         {
           "label": "Resolved in part",
           "text": "2026-11-21, this work: the two dormers are now dressed as the photograph shows them, each a classical pediment in the front's stone: a pilaster with its capital either side of the lights, a frieze, a level cornice 0.25 m deep returned past the pilasters, the raking cornice pitched 45 degrees, and in each tympanum a carved lunette standing on the cornice, a moulded ring round a fan of leaves (0.38 and 0.28 m in radius), measured off the print through its camera. The lunettes' carving, read in the print only as a fan, is built as nine and seven plain leaves round a boss, and the capitals are plain blocks: both reconstructed. The dormers stand about 0.2 m higher than the photograph's, on K01's least sill. The rest of what is built otherwise than the evidence stands as written above."
+        },
+        {
+          "label": "Resolved in part",
+          "text": "2026-11-21, this work: the porch's parapet is now the photograph's coped solid band pierced with five round openings across its front (0.27 m across, at the front's even spacing between its corner pedestals, measured off the print through its camera), each front pedestal carrying a ball finial on a square plinth (a 0.34 m ball on a 0.32 m plinth), where it was K01's railing of posts and balusters without the finials. Invented: the returns, which the square-on photograph does not see, pierced at the front's spacing (three rings each); the finials' turning, read at the halftone's resolution as a ball on a plinth. The north stack now stands on the mansard's cornice astride the flank wall, where the photograph's left edge puts it, its top at 12.5 m, the curb's cresting stopping either side of it (K01's mansard deck now lets a stack on the cornice stand through its curb); it stood 0.7 m inside the flank and 0.4 m low. The rest of what is built otherwise than the evidence stands as written above, the gable's bargeboards and dentilled band and the low railing at the front's foot still open in the match record."
         }
       ],
       "work_refs": [
@@ -79823,6 +79827,46 @@
       ],
       "work_refs": [
         "T-3710"
+      ]
+    },
+    {
+      "id": "L-1871-streetscape",
+      "title": "The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand",
+      "section": "per_subject",
+      "subjects": [
+        "court_house_square_1871"
+      ],
+      "covers": [],
+      "recorded": "2026-11-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-21, asked for the 1871 streets' \"trees and other streetscape... the correct supporting street furniture\", the fronts of buildings set correctly against the walks, and \"street parking and support\". Read from the period stereographs already in the sources data: Crosby's Opera House on Washington Street (John Carbutt, '139.—Crosby's Opera House, Washington Street', stereograph…), the Sherman House at Clark and Randolph (John Carbutt, '52.—Sherman House, cor), the Tremont House (John Carbutt, '55.—Tremont House, cor) and the Court House ('Court House', stereograph, No. 22 [of a Chicago series)."
+        },
+        {
+          "label": "What the pictures show (attested)",
+          "text": "business fronts built to the walk, gas lamps on posts at the kerb, telegraph poles with several crossarms and many wires along the main streets, trees down Washington Street east of the opera house. The Sherman House picture also shows a rank of five closed hacks with their teams at the Clark Street kerb along the Court House Square's fence."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "- *Fronts:* the city 1871 emit generator (core row) now stands every attached downtown and shop-street row on the walk's outer edge (0.06 m clear of the planks) and runs each row to the cross street's own walk edge, where it had stood 5 m back on the corridor margin the free-standing lots keep. The walk widths themselves are unchanged (16 m roadway and 4.2 m walks on the principal streets, 13 m and 3.5 m elsewhere): no 1871 source in the project gives them, so they stay reconstructed. A front that cannot stand there (a mapped corridor in the way) still steps back, up to 5 m, and records it in walk gap (m). - *Furniture* (the lay 1871 street furniture tool, the 1871 street furniture data): a gas lamp at the walk's end at every downtown corner and every 46 m along the business blocks, drawn as the 1904 lamp (its form inferred from the three LOC stereographs, the positions reconstructed); telegraph poles every 40 m on one side of the named main streets, carrying wires up to 62 m; hitching posts every 7.5 m along the shop walks. Spacing, which side, and the hitching post's form are this project's. - *Street trees* (the 1871 street trees data): one file a side along the house streets within about 3.2 km of State and Madison, about 30 ft apart in boxes at the kerb, a third of the places empty and one tree in five young, all drawn as the American elm of the 1904 layer. Kind, spacing and extent are reconstructed; the opera-house picture shows tall broad-crowned street trees but not their kind. - *The hack stand* (the placements data, rows hack stand clark court house 1 to `_5`): the stand and the rank are attested by the Sherman House picture. The project has no closed carriage of 1871, so each hack is a **stand-in**, the brougham after Studebaker's 1893 catalogue, on the owner's ruling of 2026-11-21 (\"Yes, a labelled stand-in\"); its card says so. the parked placements check allows that design in 1871 for these five rows at this stand only. Its form, the spacing, the horses and their coats, and the absence of drivers are reconstructed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an 1871 ordinance or Board of Public Works report giving walk widths and lamp spacing; a Western Union or city fire-alarm telegraph map for the pole lines; more period street views (Carbutt's Views of Chicago series) to place trees, lamps and stands street by street; a model of the pictured 1871 hack, to replace the stand-in."
+        },
+        {
+          "label": "Review",
+          "text": "the city 1871 emit generator (core row), the lay 1871 street furniture tool, the walkthrough's street furniture code, the walkthrough's street trees code, the placements data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-21 (T-3686)."
+        }
+      ],
+      "work_refs": [
+        "T-3686"
       ]
     },
     {

@@ -4366,7 +4366,7 @@ class Assembly:
             pr = self.prim(rm)
             tri1 = len(pr.idx) // 3
             bf, bh, be = (self.basis(rm, O, a, b, seed) for a, b in ((R, Y), (R, N), (N, Y)))
-        pm, bm = rl["post_m"], rl["baluster_m"]
+        pm, bm = rl["post_m"], rl.get("baluster_m")   # T-3634: none on a pierced band
         rw, rd = rl["rail_m"]
         e = 0.04                                   # the railing's line in from the slab's edge
         L, Rs, F = S0 + e, S1 - e, D - e           # its outer edges: left, right, front
@@ -4397,10 +4397,76 @@ class Assembly:
                 else:
                     box(fixed - bm / 2, fixed + bm / 2, y2, yr, m - bm / 2, m + bm / 2, skip=("bottom", "top"))
             return n
-        nb = balusters(L + pm, Rs - pm, True, mid(*fr))
-        for a in (L, Rs - pm):
-            if a != sp_a:
-                nb += balusters(pm, F - pm, False, mid(a, a + pm))
+        def pierced(a, b, along_s, fixed, n):
+            """T-3634: a solid band from the slab to the rail's soffit, a little thinner than
+            the rail so the rail reads as its coping, pierced with `n` round openings, one to
+            each equal cell of the run: each face a ring of quads from the opening's edge out
+            to its cell's rectangle, the opening's reveal a tube through the band. The band's
+            ends are against the posts, its foot on the slab and its top under the rail."""
+            tb = rw - 0.06
+            if along_s:
+                Q, T, Z, fb = (lambda t, y, z: P(t, y, fixed + z)), R, N, bf
+            else:
+                Q, T, Z, fb = (lambda t, y, z: P(fixed + z, y, t)), N, R, be
+            ym, hh, rr, k = (y2 + yr) / 2, (yr - y2) / 2, rl["pierced"]["diameter_m"] / 2, 16
+            hw = (b - a) / n / 2
+            ring = []
+            for j in range(k):
+                th = 2 * math.pi * j / k
+                ct, sn = math.cos(th), math.sin(th)
+                m = max(abs(ct), abs(sn))   # out to the cell's rectangle, its corners at 45 degrees
+                ring.append(((ct * rr, sn * rr), (hw * ct / m, hh * sn / m)))
+            for i in range(n):
+                tc = a + (2 * i + 1) * hw
+                for j in range(k):
+                    (c0, e0), (c1, e1) = ring[j], ring[(j + 1) % k]
+                    for z, nz in ((tb / 2, Z), (-tb / 2, _mul(Z, -1))):
+                        quad([Q(tc + c0[0], ym + c0[1], z), Q(tc + e0[0], ym + e0[1], z),
+                              Q(tc + e1[0], ym + e1[1], z), Q(tc + c1[0], ym + c1[1], z)], nz, fb)
+                    mt, my = (c0[0] + c1[0]) / 2, (c0[1] + c1[1]) / 2   # the reveal faces the ring's centre
+                    quad([Q(tc + c0[0], ym + c0[1], -tb / 2), Q(tc + c1[0], ym + c1[1], -tb / 2),
+                          Q(tc + c1[0], ym + c1[1], tb / 2), Q(tc + c0[0], ym + c0[1], tb / 2)],
+                         _unit(_add(_mul(T, -mt), _mul(Y, -my))), bh)
+            return n
+
+        if rl.get("pierced"):
+            if spl:
+                raise ValueError("a pierced hood railing takes no splayed end")
+            n_front = rl["pierced"]["rings"]
+            cell = (Rs - L - 2 * pm) / n_front
+            nb = pierced(L + pm, Rs - pm, True, mid(*fr), n_front)
+            for a in (L, Rs - pm):
+                nb += pierced(pm, F - pm, False, mid(a, a + pm), max(1, round((F - 2 * pm) / cell)))
+        else:
+            nb = balusters(L + pm, Rs - pm, True, mid(*fr))
+            for a in (L, Rs - pm):
+                if a != sp_a:
+                    nb += balusters(pm, F - pm, False, mid(a, a + pm))
+        fin = rl.get("finials")
+        if fin:
+            # T-3634: on each front corner post a square plinth and a ball on it (2017's porch,
+            # its photograph's two finials), the ball's faces each turned out from its centre
+            pw, ph = fin["plinth_m"]
+            rb, seg, bands = fin["ball_m"] / 2, 12, 8
+            for a0 in (L, Rs - pm):
+                cs, cd = a0 + pm / 2, F - pm / 2
+                box(cs - pw / 2, cs + pw / 2, y3, y3 + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
+                yc = y3 + ph + rb
+                for i in range(bands):
+                    p0, p1 = math.pi * i / bands - math.pi / 2, math.pi * (i + 1) / bands - math.pi / 2
+                    for j in range(seg):
+                        q0, q1 = 2 * math.pi * j / seg, 2 * math.pi * (j + 1) / seg
+                        pts = []
+                        for pp, qq in ((p0, q0), (p0, q1), (p1, q1), (p1, q0)):
+                            v = P(cs + rb * math.cos(pp) * math.cos(qq), yc + rb * math.sin(pp),
+                                  cd + rb * math.cos(pp) * math.sin(qq))
+                            if not pts or _dot(_sub(v, pts[-1]), _sub(v, pts[-1])) > 1e-12:
+                                pts.append(v)
+                        if len(pts) > 3 and _dot(_sub(pts[0], pts[-1]), _sub(pts[0], pts[-1])) <= 1e-12:
+                            pts.pop()
+                        pc_, qc = (p0 + p1) / 2, (q0 + q1) / 2
+                        quad(pts, _unit(_add(_add(_mul(R, math.cos(pc_) * math.cos(qc)), _mul(Y, math.sin(pc_))),
+                                             _mul(N, math.cos(pc_) * math.sin(qc)))), bh)
         if spl:
             # T-1887: the splayed end's return, from the front corner's post along the slab's
             # diagonal to a post where it meets the cheek, a rail over square balusters
@@ -4429,7 +4495,10 @@ class Assembly:
             tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") in ("iron", "trim")
             else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
-        self.hood_meta = {"modillions": n, "consoles": 2 - len({"left", "right"} & set(ends)), "balusters": nb,
+        self.hood_meta = {"modillions": n, "consoles": 2 - len({"left", "right"} & set(ends)),
+                          **({"rings": nb} if rl.get("pierced") else {"balusters": nb}),
+                          **({"finials": 2, "finial_top_m": round(y3 + fin["plinth_m"][1] + fin["ball_m"], 4)}
+                             if fin else {}),
                           "top_m": round(y3, 4),
                           **({"columns": len(cols.get("at_s_m", (0, 0)))} if cols else {}),
                           **({"arches": self._arch_count} if cols and h.get("arches") else {}),

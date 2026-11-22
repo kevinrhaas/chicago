@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "78818943e4f2f34ae5aa72efca8a077b068f05caf4ef0ec6274680d4232dbdf5",
+  "glb_sha256": "7dd1e8a4e5008d3ee9696e50c7f713544978093162d7d11fc1174671c5280d55",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "181a67353b1e721aec085ae6a6e111b8511fa82b633dced806bbb2dabd5aeccc",
+  "flora_sha256": "c74d5fbb0b7e93f61f91006281c10185d583dba579e133b845620c457d01dee7",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -110,8 +110,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the porch's parapet: the photograph's is a solid band pierced with rings, a ball finial on each front corner (y 610-665 px); the render's is K01's stone railing of posts and balusters, without the finials",
-      "status": "open"
+      "what": "the porch's parapet (T-3634): now the photograph's coped solid band pierced with five rings across its front (render y 665-690 px against 675-695, at the photograph's spacing), between corner pedestals, each front pedestal carrying a ball finial on a square plinth (render y 610-650 against 608-660 px); K01's hood railing takes a pierced band in place of balusters. The parapet's top prints about 10 px (0.1 m) over the photograph's coping, and its returns, which the picture does not see, are pierced at the front's spacing",
+      "status": "fixed"
     },
     {
       "what": "the door: the photograph's opening is dark and deep, with a glazed double door and a transom; the render's is a single panelled leaf in a reveal",
@@ -122,8 +122,8 @@
       "status": "fixed"
     },
     {
-      "what": "the north stack: the photograph's stands at its left edge (x 0-50 px, top y 80); the render's at x 47-122, top y 120, about 0.7 m south of it and 0.4 m low (K01 stands a stack on a flank's outer face only on a mansard's side parapet)",
-      "status": "open"
+      "what": "the north stack (T-3634): now on the mansard's cornice astride the flank wall, where the photograph's left edge puts it (render x 0-35 px at the frame's edge against 0-50, its top at y 85 against 80); K01's mansard deck now lets a stack on the cornice stand through its curb, its cresting stopping either side. Until T-3634 it stood 0.7 m inside the flank and 0.4 m low",
+      "status": "fixed"
     },
     {
       "what": "the railing: the photograph shows a low iron railing along the front's foot before the basement; the render's is the parcel's iron spear fence on the street line, which stands taller in the frame",
