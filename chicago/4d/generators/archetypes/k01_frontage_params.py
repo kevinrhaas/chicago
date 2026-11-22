@@ -8645,9 +8645,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "columns" in hd:
             co = hd["columns"]
             if not {"diameter_m", "plinth_m", "capital_m", "respond_m"} <= set(co) <= \
-                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved", "flutes", "cluster"}:
+                    {"diameter_m", "plinth_m", "capital_m", "respond_m", "at_v_m", "carved", "flutes", "cluster",
+                     "pier"}:
                 raise ParamError("entrance_kit.hood.columns takes diameter_m, plinth_m [width, height], "
-                                 "capital_m and respond_m, and optionally at_v_m, carved, flutes and cluster")
+                                 "capital_m and respond_m, and optionally at_v_m, carved, flutes, cluster and pier")
             dia, (pw, ph), cap, rsp = float(co["diameter_m"]), (float(x) for x in co["plinth_m"]), \
                 float(co["capital_m"]), float(co["respond_m"])
             if not (0.15 <= dia <= 0.6 and dia < pw <= 0.8 and 0.1 <= ph <= 0.8 and 0.1 <= cap <= 0.6
@@ -8710,12 +8711,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 cl = co["cluster"]
                 if not isinstance(cl, dict) or set(cl) != {"sides", "count", "diameter_m", "gap_m", "plinth_m"} \
                         or not cl["sides"] or not set(cl["sides"]) <= {"left", "right"} \
-                        or len(set(cl["sides"])) != len(cl["sides"]) or "at_v_m" in co or "arches" in hd \
+                        or len(set(cl["sides"])) != len(cl["sides"]) or "arches" in hd \
                         or not isinstance(cl["count"], int) or isinstance(cl["count"], bool) \
                         or not 2 <= cl["count"] <= 4:
                     raise ParamError("entrance_kit.hood.columns.cluster takes sides (left, right), count (2-4), "
-                                     "diameter_m, gap_m and plinth_m [width, height], on corner columns "
-                                     "(no at_v_m, no arches)")
+                                     "diameter_m, gap_m and plinth_m [width, height], on the end columns "
+                                     "(no arches)")
                 cd_, gp = float(cl["diameter_m"]), float(cl["gap_m"])
                 cw_, ch_ = (float(x) for x in cl["plinth_m"])
                 span = cl["count"] * cd_ + (cl["count"] - 1) * gp
@@ -8728,6 +8729,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError("entrance_kit.hood.columns.cluster: the hood is too small for its pedestal")
                 door_kit["hood"]["columns"]["cluster"] = {"sides": list(cl["sides"]), "count": cl["count"],
                                                           "diameter_m": cd_, "gap_m": gp, "plinth_m": [cw_, ch_]}
+                # T-3718: with at_v_m, the cluster is the end column there (2100's, about 0.6 m in
+                # from the balcony's north end in the photograph and on the 1876 plate's plan), its
+                # wider pedestal inside the hood's end and 0.3 m clear of its neighbour's plinth
+                if "at_v_m" in co:
+                    at = sorted(float(x) for x in co["at_v_m"])
+                    for side, x, nb in (("left", at[0], at[1]), ("right", at[-1], at[-2])):
+                        if side in cl["sides"] and (x - cw_ / 2 - 0.05 < hs0 - 1e-6 or x + cw_ / 2 + 0.05 > hs1 + 1e-6
+                                                    or abs(x - nb) < cw_ / 2 + pw / 2 + 0.3):
+                            raise ParamError(f"entrance_kit.hood.columns.cluster: the {side} end's pedestal at v {x} "
+                                             f"stands past the hood's ends (v {hs0:.3f}-{hs1:.3f}) or within 0.3 m of "
+                                             f"its neighbour")
+            # T-3718: the column at a named end a square stone pier `width_m` on a side under a
+            # plain capital block, in place of a turned shaft and its carving (2100's south end,
+            # where the balcony meets the library pavilion: the Chicagology photograph's plain
+            # pier and the 1876 plate's plan, its pier at the library's corner)
+            if "pier" in co:
+                pi = co["pier"]
+                if not isinstance(pi, dict) or set(pi) != {"sides", "width_m"} or not pi["sides"] \
+                        or not set(pi["sides"]) <= {"left", "right"} or len(set(pi["sides"])) != len(pi["sides"]) \
+                        or set(pi["sides"]) & set((co.get("cluster") or {}).get("sides", ())) or "arches" in hd \
+                        or not dia <= float(pi["width_m"]) <= pw - 0.1:
+                    raise ParamError("entrance_kit.hood.columns.pier takes sides (left, right; not a cluster's) "
+                                     "and width_m, from the columns' diameter up to 0.1 m short of their plinth "
+                                     "(no arches)")
+                door_kit["hood"]["columns"]["pier"] = {"sides": list(pi["sides"]), "width_m": float(pi["width_m"])}
             # T-3210: a round-arched arcade on the columns (1827's porch, the Doane photograph):
             # on the front, an arch from capital to capital between each pair of columns; on an
             # end (`left` the low-v end, `right` the high-v), one from the respond on the wall to
