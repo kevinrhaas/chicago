@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3202, ts: '2026-11-22T16:50:05.946Z', date: 'Nov 22, 2026, 10:50 AM CT', title: 'A slow set of checks split in two so work lands again', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One group of the checks that run on every change had grown from about a quarter of an hour to as much as 38 minutes, and on the slower test machines it was cut off at its 40-minute limit, so finished work could not be merged. The group is now two groups that run side by side, each about 20 minutes even on the slowest machine. Every check still runs, unchanged.',
+    ] },
+  { v: 3201, ts: '2026-11-22T16:06:10.439Z', date: 'Nov 22, 2026, 10:06 AM CT', title: '2115 Prairie checked against both of its photographs', kind: 'fix',
+    items: [
+      'The Armour house\'s door now stands where its photograph shows it, after two windows, not between them.',
+      'Its south pavilion is narrowed to the photograph\'s width, and the front beyond it gains its own window.',
+      'A deeper cornice with consoles, a taller mansard and iron cresting along the roof\'s deck match the photographs.',
+      'The chimneys stand where both pictures put them, and the north side keeps the one tall window it really had.',
+      'Still different from the pictures: the back roof\'s dormers, the cresting on the pavilion\'s tower and the lower south end.',
+    ] },
   { v: 3200, ts: '2026-11-22T14:42:58.320Z', date: 'Nov 22, 2026, 8:42 AM CT', title: '2110 Prairie: the Rees house\'s carved stone and copper cornice', kind: 'improvement',
     items: [
       'The Rees house at 2110 Prairie now carries the carving its photographs show: a carved panel of scrolling leaves in the top of its tall gable with a carved drop over the little window, a deep carved band round the bow at the upper floor, and the bow\'s cornice in green copper instead of stone.',
