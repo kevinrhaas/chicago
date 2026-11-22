@@ -45257,6 +45257,7 @@ rear, or K08 lights in a gable's face, would replace the invented and unbuilt pa
 **Resolved in part:** 2026-11-20, T-3634: the gable's two attic lights are now cut in its face as the photograph shows them (K08's coped gable takes square-headed lights in its face): side by side either side of the gable's middle on 0.9 m centres, 0.62 by 1.12 m clear, their sills 0.1 m over the gable's foot, measured off the print through its camera; their sashes are the house's two-over-two, which the print is too small to count. The rest of what is built otherwise than the evidence stands as written above.
 **Resolved in part:** 2026-11-21, T-3634: the two dormers are now dressed as the photograph shows them, each a classical pediment in the front's stone: a pilaster with its capital either side of the lights, a frieze, a level cornice 0.25 m deep returned past the pilasters, the raking cornice pitched 45 degrees, and in each tympanum a carved lunette standing on the cornice, a moulded ring round a fan of leaves (0.38 and 0.28 m in radius), measured off the print through its camera. The lunettes' carving, read in the print only as a fan, is built as nine and seven plain leaves round a boss, and the capitals are plain blocks: both reconstructed. The dormers stand about 0.2 m higher than the photograph's, on K01's least sill. The rest of what is built otherwise than the evidence stands as written above.
 **Resolved in part:** 2026-11-21, T-3634: the porch's parapet is now the photograph's coped solid band pierced with five round openings across its front (0.27 m across, at the front's even spacing between its corner pedestals, measured off the print through its camera), each front pedestal carrying a ball finial on a square plinth (a 0.34 m ball on a 0.32 m plinth), where it was K01's railing of posts and balusters without the finials. Invented: the returns, which the square-on photograph does not see, pierced at the front's spacing (three rings each); the finials' turning, read at the halftone's resolution as a ball on a plinth. The north stack now stands on the mansard's cornice astride the flank wall, where the photograph's left edge puts it, its top at 12.5 m, the curb's cresting stopping either side of it (K01's mansard deck now lets a stack on the cornice stand through its curb); it stood 0.7 m inside the flank and 0.4 m low. The rest of what is built otherwise than the evidence stands as written above, the gable's bargeboards and dentilled band and the low railing at the front's foot still open in the match record.
+**Resolved in part:** 2026-11-22, T-3634: the projection's gable is now the photograph's: its rakes run down to a moulded cornice across its foot at the projection's corners (a stone shelf 0.3 m proud over a row of 21 dentils and a fillet, K08's new `foot_cornice`), at the pitch both rakes read on the print through its camera (about 1.4, where 1.5 was built), so its apex stands at the photograph's 12.2 m; a board 0.27 m deep hangs under each rake's coping (`bargeboards`); and a triangle of diamond lattice stands in its peak (`ventilator`, 0.55 m high), where it was K08's coping and broad kneelers alone. Invented: the three parts' stone (the print is monochrome, so the bargeboards are built in the coping's stone rather than painted timber) and the ventilator's dark field behind its lattice; the cornice is about 0.2 m shallower than the print's (0.48 m against about 0.66 m), held to the projection's windowless top storey. Still otherwise: the gable's finial is K08's pyramid-capped block, not the photograph's ball on a collared stem.
 
 ### L-k01-2027-villa-3635 — 2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'
 
@@ -45994,6 +45995,56 @@ the two pictures' cameras and records what is left in their match records.
 **Ticket:** T-3686.
 **Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
 **Recorded:** 2026-11-21 (T-3686).
+
+### L-k01-robbins-2126-3721 — 2126 Prairie, the Robbins house completed, a structure version on K01 beside the July 1904 works shell: the front off the May 1905 plate, the plan off the 1911 sheet
+
+**Decision:** the default record `robbins_house_2126_prairie` stays the July 1904 building site the T-1842 census ruling
+r35-robbins-2126 declares (the district draft's works shell, `L-draft-prairie-20-22-west-2351`): on the scene's date the
+house was still being built. The finished house is added BESIDE it as a structure version,
+`data/structures/versions/robbins_house_2126_prairie/completed.json`, a `k01_frontage` record built by the new
+`generators/k01_versions_emit.py` (T-3721, piece 2 of T-1926, the S15 package of the T-1837 programme), opened with
+`?structure=robbins_house_2126_prairie&version=completed`. Its phase is put on the 1904 scene's date only so the two can be
+compared from the same spot; its `documented_range` is graded reconstructed and says so. The May 1905 plate dates the
+finished house and is never read as July 1904 evidence.
+
+**What is read, not invented.** From the May 1905 Inland Architect plate (`inland_architect_1905_05_robbins_plate`; the
+Prairie library's two images are scans of one photograph), square-on and scaled from the front's width on the 1911 sheet:
+three storeys over a pale basement with barred lights; five bays with the door in the middle; the bays' axes, the sash
+sizes, the principal floor (about 1.26 m), the storey heights, the entablature over the chamber storey (7.87-8.95 m), the
+attic's sill course, the attic's short lights, the moulded top cornice on blocks and a flat roof behind it; the two end
+chimneys; a round-headed doorway with a fanlight and a pale panelled door on a stone stoop; an iron railing on a pale
+curb and a two-leaf gate between ball-topped piers. From sheet 35 of the 1911 Sanborn at full size (0.1858 m a pixel):
+the main body 12.26 by 12.19 m (the draft's fit drew 11.25 by 9.5 m, inside the flanks' bays), the three-storey wing
+behind it 12.0 by 7.6 m, the house's corner 1.47 m south of the draft's, and the lot lines.
+
+**What is invented.** The flanks' and rear's lights and the wing's, which no picture shows; the wall thicknesses;
+the colours (the print is monochrome: red brick and white marble are the register's reading, the door's pale paint
+is chosen); how far back the chimneys stand (built 1.3 m behind the front and 1.7 m over the roof, which shows them
+about as far over the cornice as the plate does) and the roof's covering; the yard's condition.
+
+**What is built otherwise than the evidence, and why.** The kit has no marble: the basement face, lintels, entablature
+and sill course are K02's palest coursed ashlar (Bedford limestone), and the basement is laid in two shallow-channelled
+courses because a plain plinth cannot take barred lights. The entablature is three plain stone courses: its veined
+frieze, its dentils' teeth and the four Ionic pilaster heads under its architrave are not built, nor the marble panels
+between the storeys and the carved panel over the door (K01 lays a course, not its ornament, and a K01 generator change
+would restale every K01 house). The principal lintels' keystones and the attic lights' eared dressings are not built
+(K01 keys heads only on an all-brick front, and this one has a stone basement). The sash are two over two where the plate
+shows six over six (K06's working sash). The doorway's side lights and its cornice under the fanlight are not built; the
+door is K07's pair of leaves in the round head. The gate piers are K11's stone piers with urns, where the plate's are
+brick with balls; the side passage is shut by K11's side gate, where the plate shows a brick wall and ball-topped pier
+returned north; the scrolled stop at the south corner is not built. The principal floor is built 1.28 m, not 1.26, so
+K07's stoop and K01's stair agree on seven risers; the railing stands 0.3 m inside the walk, as K11 sets the block's
+other fronts. The sheet's two small iron-clad canted bays on the flanks near the rear, the wing's canted corner and the
+narrow grey edge along the front are not built.
+
+**How to resolve:** T-3722 solves the plate's camera into `data/reference_views/robbins_house_2126_prairie/` and works
+the side-by-side down (the pilaster heads, keystones and panels are the differences over the bar it inherits); a 1904
+building permit or a dated progress photograph decides which state stands in the town on 1 July 1904 (then
+`node tools/promote_version.mjs` makes the version the default, or the version stays a comparison).
+**Covers:** `robbins_house_2126_prairie.completed.form.wall_thickness_front_m`, `robbins_house_2126_prairie.completed.form.wall_thickness_side_m`, `robbins_house_2126_prairie.completed.form.service_wall_brick`, `robbins_house_2126_prairie.completed.form.roof_pitch_deg`, `robbins_house_2126_prairie.completed.form.eave_overhang_m`, `robbins_house_2126_prairie.completed.form.roof_covering`, `robbins_house_2126_prairie.completed.form.stair_tread_m`, `robbins_house_2126_prairie.completed.form.stair_landing_depth_m`, `robbins_house_2126_prairie.completed.form.side_bays`, `robbins_house_2126_prairie.completed.form.north_bays`, `robbins_house_2126_prairie.completed.form.rear_bays`, `robbins_house_2126_prairie.completed.form.yard`, `robbins_house_2126_prairie.completed.documented_range`.
+**Ticket:** T-3721 (piece 2 of T-1926, S15).
+**Review:** `docs/RESEARCH/k01-robbins-2126-3721/README.md`.
+**Recorded:** 2026-11-22 (T-3721).
 
 ### L-k16-2125-frame-3723 — 2125 Prairie, the frame dwelling, refined from the district draft to a whole K16 clapboard frame house on the outline the 1911 sheet draws, everything above the plan the kit's
 

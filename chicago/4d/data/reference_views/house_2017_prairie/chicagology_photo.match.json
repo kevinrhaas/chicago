@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7dd1e8a4e5008d3ee9696e50c7f713544978093162d7d11fc1174671c5280d55",
+  "glb_sha256": "0fc166301c7285cc08788003c4ca1fb5ed494d362796f2869f492f4acb0359e5",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+      "sha256": "b59ed55bc81dde94169575610b64e3d004ec78d61735aaf9332504463458aee4"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,7 +65,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "c74d5fbb0b7e93f61f91006281c10185d583dba579e133b845620c457d01dee7",
+  "flora_sha256": "8d28baecd63ca0ef01889e42d6e9ebe8d465c9af06d73271daf6b877e4f0a7a3",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -98,8 +98,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the projection's gable: the photograph's has projecting bargeboards and a dentilled band across its foot (y 360-420 px) with a ventilator in its peak; the render's is K08's coped gable with a kneeler at each foot and no band across",
-      "status": "open"
+      "what": "the projection's gable (T-3634): now the photograph's: its rakes run down to a dentilled cornice across its foot at the projection's corners (a shelf 0.3 m proud over a row of 21 dentils and a fillet, y 355-425 px, built 8.52-9.0 m), at the rakes' pitch of about 1.4 so its apex stands at the photograph's 12.2 m; bargeboards 0.27 m deep under both rakes, the copings oversailing them; and a triangle of diamond lattice in its peak (y 120-170 px, built 0.55 m high). The photograph's cornice is about 0.2 m deeper (y 355-425 against the built 0.48 m, the projection's windowless top storey), under the bar",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's finial: the photograph's is a ball on a collared stem; the render's is K08's stone block under a pyramid, the same 0.2 m across and standing to the same height over the apex, its head's profile a few pixels, under the bar",
+      "status": "within tolerance"
     },
     {
       "what": "the gable's two attic lights (x 667-730 and 750-812 px, y 240-350): now cut in the gable's face, side by side either side of its middle, their heads at y 240 against 237 px and their sills at y 340 against 350, each about 55 px across against 60 (T-3634: K08's coped gable takes square-headed lights in its face). They print about 25 px south of the photograph's with the gable itself, whose apex stands at x 759 against 733 (the projection's place, 0.3 m, the camera fit's soft depth), and their sashes are the house's two-over-two in green where the print shows them dark: under the bar",

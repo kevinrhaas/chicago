@@ -1014,6 +1014,8 @@ step "Glessner's canonical UV caches are complete and reject stale or corrupt la
   python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
+step "the K01 structure versions are the bytes their version records build (T-3721)" \
+  python3 generators/k01_versions_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
 step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
@@ -1744,6 +1746,12 @@ step "a corner porch's cornice may stand on modillions, its balcony in the trim 
 # stopping short of it; refused when the rings do not clear the band, oversized, or at a corner.
 step "a hood's parapet may be pierced with rings under finials; a cornice stack may break the curb (T-3634)" \
   python3 tools/test_k01_pierced_parapet.py
+
+# T-3634. 2017 Prairie's gable as Chicagology's photograph shows it: a K08 coped gable may stand on
+# a dentilled foot cornice, carry bargeboards under its rakes and a latticed ventilator in its peak,
+# each opt-in; refused shallower than the copings, onto the gable's lights, or past the top storey.
+step "a coped gable may take a dentilled foot cornice, bargeboards and a ventilator (T-3634)" \
+  python3 tools/test_k08_gable_dress.py
 
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
