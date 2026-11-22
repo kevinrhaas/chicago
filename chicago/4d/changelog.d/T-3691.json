@@ -1,0 +1,8 @@
+{
+  "title": "Jaunt stops at hidden buildings no longer end against a wall",
+  "kind": "fix",
+  "items": [
+    "Pullman's Other Son and The Pullman Twins no longer stop against the front of the Pullman house on the way to the palm house behind it. You now stand on the 18th Street sidewalk and look at the glasshouse across the yard.",
+    "Every stop at a building that another building hides from its own street, such as a coach house or a rear cottage, now stands on a sidewalk of a street that can see it, never on a doorstep or in a yard."
+  ]
+}

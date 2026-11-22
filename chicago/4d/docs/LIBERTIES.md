@@ -45696,10 +45696,18 @@ photograph's scale, not measured (RECONSTRUCTED). T-3717 (a piece of T-3701) bui
 columns (K01's `columns.cluster`): three 0.24 m shafts 0.15 m apart on one pedestal 1.15 m wide and 1.4 m high,
 under one carved abacus. The photograph shows only the cluster's front, so the row is laid along the front and its
 spacing is read at the photograph's scale, not measured (INFERRED); no respond stands on the wall behind it, as the
-photograph's porch is in shadow there. Still otherwise than the evidence: the south column is the kit's single column
-(the photograph's tree hides it); the balcony stops short of the pavilion (the kit's porch stands on its own
-landing); the flight is the porch's width where the photograph's is narrower; and the balustrade's carved, pierced
-panels are square stone balusters.
+photograph's porch is in shadow there. T-3718 (the last piece of T-3701) carried the porch north and south as the
+photograph and the 1876 plate's plan draw it: the balcony runs from the library pavilion's north face (v 5.75) to
+v 10.3, about 0.7 m further north than before and as far as the parlour's upper light beside it allows, its south end
+on a square stone pier (K01's `columns.pier`, 0.5 m on a side under a plain capital block, where the plate's plan
+thickens the library's corner) and the cluster stood at v 9.4, inside the balcony's north end as the plan's three
+columns stand; the flight narrowed to 2.3 m between the pier and the cluster's pedestal, the photograph's width at
+its head, with a terrace at the landing's height either side carrying the pier and the cluster to the balcony's
+ends; and the balustrade a stone band pierced with nine round openings. What stays otherwise than the evidence: the
+pier's width, the cluster's place and the north end are read at the photograph's and the plan's scale, not measured
+(INFERRED); the photograph's carved pierced panels are round piercings in a plain band, and the kit's swept flight
+takes a terrace only behind a low pierced parapet (square holes), where the photograph's landing north of the
+cluster has an open rail (RECONSTRUCTED).
 **Covers:** `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sherman_house_2100_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sherman_house_2100_prairie.as_mapped_1904.form.service_wall_brick`, `sherman_house_2100_prairie.as_mapped_1904.form.roof_pitch_deg`, `sherman_house_2100_prairie.as_mapped_1904.form.stair_tread_m`, `sherman_house_2100_prairie.as_mapped_1904.form.window_kit`, `sherman_house_2100_prairie.as_mapped_1904.form.side_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rear_bays`, `sherman_house_2100_prairie.as_mapped_1904.form.rainwater`, `sherman_house_2100_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1919 (the S10A envelope package of the T-1837 programme).
 **Review:** `docs/RESEARCH/photo-match/sherman_house_2100_prairie/chicagology_photo-side-by-side.jpg`.
