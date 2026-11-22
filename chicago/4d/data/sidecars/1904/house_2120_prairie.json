@@ -1,12 +1,12 @@
 {
   "id": "house_2120_prairie",
-  "phase": "draft_1904",
-  "name": "2120 Prairie Avenue — Brick masonry (district draft; refined by T-1926)",
+  "phase": "as_mapped_1904",
+  "name": "2120 Prairie Avenue — two-storey brick house with an iron-clad north bay, K01 frontage assembly",
   "aka": [
     "2120 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_2120_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_2120_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -23,23 +23,23 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). No building date or loss date is read for it (T-3720).",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1373.102,
-    "local_n": -3683.478,
+    "local_e": 1373.033,
+    "local_n": -3684.409,
     "rotation_deg": -0.685,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 31.500, v -4.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.685 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body at its south wall: column 644, row 1357.5 of sheet 35 at full size (T-3720), 0.08 m behind and 0.93 m south of the draft's corner (the draft's rectangle fit stopped short of the south wall), through the T-1250 fit of the sheet: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of reading. Rotation -0.685 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "2120 S. Prairie Avenue, parcel prairie_2120 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -54,18 +54,18 @@
       ],
       [
         16.25,
-        11.0
+        11.8
       ],
       [
         0.0,
-        11.0
+        11.8
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The main body: 16.25 m from the rear wall (column 644) to the front (column 731.5), and 11.8 m along the front from the south wall (row 1357.5) to the north wall (row 1294), read off sheet 35 of the 1911 Sanborn at full size (T-3720) and carried into this frame through the committed fit of the trace (data/traces/prairie_1904_footprints_s35.json, 0.1858 m a pixel). The draft's fit drew it 16.25 by 11.0 m. A narrow grey edge, 2 to 3 pixels, runs along the front's outer line (columns 732-734): neutral grey like the iron-clad bay's, not the blue of 2001's stone band, and too narrow to read as a facing, so no stone front is built."
   },
   "attributes": {
     "stories": {
@@ -74,7 +74,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "'2' printed on the 1911 sheet: 2 full storeys."
+      "note": "'2' printed on the 1911 sheet in the main body's north-east corner: two storeys."
     },
     "construction": {
       "value": "brick",
@@ -82,126 +82,515 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The sheet colours the main body pink, brick, with no blue stone band across its front (2001's and 2109's fronts carry one) and no dashed frame-cornice line; the register's row reads 'Brick masonry'."
     },
-    "draft_plan": {
+    "principal_floor_m": {
+      "value": 1.7,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the principal floor 1.7 m over grade on the high stoop the register's brief asks for, 2001's and 2101's on the same blocks (liberty L-k01-2120-prairie-3720)."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.0,
+        3.6
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a 4.0 m principal storey and a 3.6 m chamber storey, inside RECONSTRUCTION-RULES.md's starting ranges, the wall head at 9.3 m (liberty L-k01-2120-prairie-3720)."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a three-brick front wall (liberty L-k01-2120-prairie-3720)."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two-brick side walls (liberty L-k01-2120-prairie-3720)."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the common brick panel of the avenue's flanks (liberty L-k01-2120-prairie-3720)."
+    },
+    "face_brick": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              16.25,
-              11.0
-            ],
-            "from": "s35fp-2120-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -11.5,
-              -0.75,
-              -4.0,
-              5.25
-            ],
-            "from": "s35fp-2120-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -4.0,
-              1.0,
-              -0.25,
-              4.0
-            ],
-            "from": "s35fp-2120-b1 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r4",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -2.5,
-              7.0,
-              0.0,
-              10.5
-            ],
-            "from": "s35fp-2120-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill"
-          }
-        ],
-        "lot_v": [
-          -3.075,
-          12.075
-        ],
-        "street_u": 23.274
+        "front": "pressed_red_deep",
+        "sides": "common_buff"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a deep red pressed front over buff common brick on the flanks and rear; no picture gives the colour, and the deep red parts it from 2101's pressed red across the avenue and from 2126's red front of 1905 beside it (liberty L-k01-2120-prairie-3720)."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K10's bracketed cornice at the wall head under the hip. The sheet's plain brick colour without a dashed edge is its key's 'brick building with brick or metal cornice': the bracketed profile stands for a pressed-metal cornice of that form, the kit holding no metal cornice under a hip (liberty L-k01-2120-prairie-3720)."
+    },
+    "roof_form": {
+      "value": "hip",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a hip over the main body; the sheet's '2' puts no storey in the roof and draws no curb line, so no mansard (liberty L-k01-2120-prairie-3720)."
+    },
+    "roof_pitch_deg": {
+      "value": 30,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a moderate 30 degree hip in standing-seam tin, lower than 2101's attic-storey 45 degrees as the sheet's '2' puts no storey in the roof (liberty L-k01-2120-prairie-3720)."
+    },
+    "eave_overhang_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a 0.45 m eave over the bracketed cornice (liberty L-k01-2120-prairie-3720)."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll"
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2120-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill; s35fp-2120-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2120-b1 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s35fp-2120-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 61% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The sheet prints the small circle its key uses for a slate or metal roof on the main body (by its south-east corner). Metal is chosen of the two: the hip is a moderate one with no attic storey under it, below the pitch the kit slates at its 3 in headlap, so painted tin in standing seams; its colour and flashing are reconstructed (liberty L-k01-2120-prairie-3720)."
     },
-    "draft_elevation": {
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K07 stoop's, as 1634's (liberty L-k01-2120-prairie-3720)."
+    },
+    "stair_landing_depth_m": {
+      "value": 2.2,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the stoop's landing as deep as the porch over it stands out, 2.2 m, the sheet's porch depth (columns 731.5-743.5) (liberty L-k01-2120-prairie-3720)."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a 1.8 m stone flight centred on the door, the landing carried out to the porch's ends on terraces either side (liberty L-k01-2120-prairie-3720)."
+    },
+    "entrance_bay": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the door in the middle of five bays, under the sheet's front porch (rows 1313.75-1333.75, v 4.36-8.08: built 4.1-7.7, centred on the door) (liberty L-k01-2120-prairie-3720)."
+    },
+    "front_bays": {
+      "value": [
+        1.35,
+        3.3,
+        5.9,
+        8.5,
+        10.45
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: five bays along the 11.8 m front, the door in the middle one under the porch, the bays either side of it set out 2.6 m so the porch's deck clears their heads (liberty L-k01-2120-prairie-3720)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "north_iron_bay",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.side.north",
+          "s_m": 8.37,
+          "fabric": "frame",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -1.4,
+                0.0
+              ],
+              [
+                -0.65,
+                0.74
+              ],
+              [
+                0.65,
+                0.74
+              ],
+              [
+                1.4,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 5.7,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.45,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the principal-storey sash on the bay's face, level with the wall's beside it (T-3720, reconstructed)"
+                }
+              ]
+            },
+            {
+              "height_m": 2.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.8,
+                  "clear_height_m": 1.6,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the chamber-storey sash on the bay's face, the bay's top under its own low deck below the main cornice's bed moulding (T-3720, reconstructed)"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "tin_flat_seam_painted"
+          }
+        },
+        {
+          "id": "south_brick_bay",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.side.south",
+          "s_m": 11.03,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -2.33,
+                0.0
+              ],
+              [
+                -1.15,
+                1.18
+              ],
+              [
+                1.15,
+                1.18
+              ],
+              [
+                2.33,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 5.7,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.9,
+                  "clear_height_m": 2.3,
+                  "sill_m": 2.45,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the house's principal-storey sash on the bay's face, level with the wall's beside it (T-3720, reconstructed)"
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "tin_flat_seam_painted"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The sheet's two canted bays on the flanks, read off sheet 35 of the 1911 Sanborn at full size (T-3720) and carried into this frame through the committed fit of the trace (data/traces/prairie_1904_footprints_s35.json, 0.1858 m a pixel): on the north flank a bay drawn grey, the key's iron-clad frame, and lettered 'IR.CL.2D' in the house beside it (iron clad, second storey, as the sheet letters 2017's rear porch 'OPEN 1st IR.CL.2nd'), columns 678.75-693.75 and 0.74 m out to row 1290 (u 6.49-9.28); on the south flank a one-storey bay drawn pink, brick, lettered '1' with the small circle of a slate or metal roof, columns 691-716 and 1.18 m out to row 1363.75 (u 8.70-13.35). Their places, plans, fabrics and the south bay's one storey are the map's; the north bay's two storeys are read off the lettering; the iron cladding is built as K08's painted frame face (the kit lays no pressed-metal skin), and both bays' heights, lights and low hipped tops are K08's reconstruction (liberty L-k01-2120-prairie-3720)."
+    },
+    "side_bays": {
+      "value": [
+        2.0,
+        4.6,
+        7.0,
+        15.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: lights on the south flank behind and before its brick bay (liberty L-k01-2120-prairie-3720)."
+    },
+    "north_bays": {
+      "value": [
+        3.0,
+        5.3,
+        11.4,
+        13.7
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: lights on the north flank either side of its iron-clad bay, measured from the front (liberty L-k01-2120-prairie-3720)."
+    },
+    "rear_bays": {
+      "value": [
+        1.2,
+        3.2,
+        5.4
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: three lights in the rear wall's open stretch north of the rear range's neck (measured from the north corner), where the sheet's rear frame porch stands (not built) (liberty L-k01-2120-prairie-3720)."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.75,
+          "width_m": 1.0,
+          "height_m": 2.3
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 1.0,
+          "height_m": 1.9
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K01 proof's two-storey sash, the principal storey's the taller, as 2101's (liberty L-k01-2120-prairie-3720)."
+    },
+    "basement_lights": {
       "value": {
-        "kind": "house",
-        "seed": 1948357740,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 34,
-        "mansard_lower_m": 3.0,
-        "front_bays": 4,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2351",
-          "refined_by": [
-            "T-1926"
-          ]
+        "sill_m": 0.35,
+        "width_m": 0.9,
+        "height_m": 0.65
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: area lights in the brick basement under the principal windows, 0.65 m high, as 1634's and 2001's (liberty L-k01-2120-prairie-3720)."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 2-storey brick, a dwelling in 1904 (the 1904 Blue Book lists the Gorton household; DRESS MAKING is the 1911 use): the brick family's low hip over two storeys and its one-storey rear wing; its frame porches stand as the sheet traces them. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1948357740 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
+      "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in every wall; the basement lights the kit's area light. The kit's commonest forms, not a reading of this house (liberty L-k01-2120-prairie-3720)."
     },
-    "draft": {
+    "rainwater": {
       "value": {
-        "pass": "T-2351",
-        "liberty": "L-draft-prairie-20-22-west-2351",
-        "register_row": "frontage-35-068",
-        "census_ids": [
-          "s35-2120-front",
-          "s35-2120-wing"
-        ],
-        "trace_building": "s35fp-2120-b1",
-        "seed": 1948357740,
-        "replaceable_by": [
-          "T-1926"
-        ],
-        "card": "District draft — refined by T-1926."
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.street_front",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 11.45
+          },
+          {
+            "wall": "k01.wall.side.north",
+            "s_m": 0.35
+          }
+        ]
       },
       "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "RECONSTRUCTED: half-round copper gutters on the hip's eaves, round downpipes to splash stones at the corners, 2101's (liberty L-k01-2120-prairie-3720)."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 5.0,
+            "v_m": 8.0
+          },
+          {
+            "u_m": 11.25,
+            "v_m": 8.0
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two stacks on the hip's north slope, 2 m off the ridge line, one behind the front rooms and one behind the back; the sheet draws no chimney (liberty L-k01-2120-prairie-3720)."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 7.1,
+          "terrace": [
+            {
+              "side": "left",
+              "to_v_m": 4.1
+            },
+            {
+              "side": "right",
+              "to_v_m": 7.7
+            }
+          ],
+          "hood": {
+            "soffit_m": 4.8,
+            "width_m": 3.6,
+            "out_m": 2.2,
+            "fascia_m": 0.4,
+            "cornice": {
+              "height_m": 0.18,
+              "proud_m": 0.15
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "railing": {
+              "height_m": 0.45,
+              "post_m": 0.22,
+              "baluster_m": 0.08,
+              "pitch_m": 0.2,
+              "rail_m": [
+                0.2,
+                0.12
+              ]
+            },
+            "columns": {
+              "diameter_m": 0.3,
+              "plinth_m": [
+                0.4,
+                0.4
+              ],
+              "capital_m": 0.3,
+              "respond_m": 0.15
+            }
+          }
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the sheet's open one-storey frame porch before the front (drawn yellow with a dashed outer edge, lettered '1' with the small circle of a slate or metal roof; columns 731.5-743.5, rows 1313.75-1333.75: 2.2 m out, 3.7 m wide) built as K01's timber porch on two turned columns over a panelled door on a stone stoop, its landing carried to the porch's ends on terraces, its flat deck railed low as 1709's; the front yard 7.1 m deep to the front lot line (liberty L-k01-2120-prairie-3720)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
+          -2.145,
+          13.005
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: no boundary across the front: no picture of this front is held; the lot's sides are the line with 2126 and the line with 2116 in this frame (liberty L-k01-2120-prairie-3720)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a flagged front walk to the stoop over an earth front, 2101's (liberty L-k01-2120-prairie-3720)."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.trim.lintel_cornice_hood"
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: stone lintels under cornice hoods over the lights of both storeys of the brick front, the brief's lintels (liberty L-k01-2120-prairie-3720)."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_neck",
+          "rect": [
+            -3.9,
+            0.0,
+            1.77,
+            4.92
+          ],
+          "floor_m": 0.6,
+          "storey_heights_m": [
+            3.8
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 0.9,
+              "height_m": 2.0
+            }
+          ],
+          "windows": {},
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        },
+        {
+          "id": "rear_range",
+          "rect": [
+            -11.71,
+            -3.9,
+            0.0,
+            6.6
+          ],
+          "floor_m": 0.6,
+          "storey_heights_m": [
+            3.8
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 0.9,
+              "height_m": 2.0
+            }
+          ],
+          "windows": {
+            "north": [
+              1.6,
+              4.0,
+              6.3
+            ],
+            "rear": [
+              1.7,
+              4.9
+            ],
+            "south": [
+              2.2,
+              5.6
+            ]
+          },
+          "past_host": true,
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The sheet's attached one-storey brick rear range (census s35-2120-wing; lettered '1', with the 1911 'Electric Motor Repairing'), read off sheet 35 of the 1911 Sanborn at full size (T-3720) and carried into this frame through the committed fit of the trace (data/traces/prairie_1904_footprints_s35.json, 0.1858 m a pixel): a neck 3.9 m out from the main rear wall (column 644 to 623) between rows 1331 and 1348 (v 1.77-4.92), and the range beyond it from column 623 to its alley end at column 581 (u -11.71), from row 1322 to the main body's south wall line (v 0-6.6). Its place, storey and brick are the map's; its floor, height, lights and flat painted-tin deck are K01's reconstruction. Not built: the range's canted alley corners (K01 lays a wing as a rectangle), the small one-storey piece on the neck's south side (columns 637-645, rows 1349-1355), the solid dot in the range (the key's boiler), and the one-storey frame porch in the angle north of the neck (columns 625-645, rows 1295-1325) (liberty L-k01-2120-prairie-3720)."
     },
     "function": {
       "value": "residence",
@@ -209,7 +598,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The 1911 sheet labels the building with a 1911 use, '2-storey brick building lettered DRESS MAKING, with frame porches front and rear', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Brick masonry', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
+      "note": "The 1911 sheet letters the building with its 1911 uses, 'DRESS MAKING' and, in the rear range, 'Electric Motor Repairing' (the register: 1911 commercial use only), which are not carried back to 1904. The register's family row, 'Brick masonry', names it a house, so the 1904 function is inferred residence on that row and the T-1842 census ruling (present_as_mapped)."
     }
   },
   "residents": [],
@@ -234,8 +623,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1926 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2120-b1), the T-1842 census (s35-2120-front, s35-2120-wing) and the T-1837 register row frontage-35-068 (Brick masonry); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-3720 (piece 1 of T-1926, the S15 package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — K03 brick walls, K06 sash, K07 door and stoop under a K01 timber porch on columns, K08 canted bays, K10 bracketed cornice, a K04/K05 slated hip and the attached one-storey rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (storeys '2', brick, the main body 16.25 by 11.8 m, an open one-storey frame porch before the front, a canted bay drawn grey and lettered 'IR.CL.' (iron clad) on the north flank, a one-storey canted brick bay on the south flank, the one-storey brick rear range on a narrower neck, the small-circle slate-or-metal roof mark) through the T-1842 census, which rules it present in 1904. No photograph, plate or description of the house is known (the Prairie library holds none under 2120), so every height, opening, roof and detail is the kits' reconstruction under liberty L-k01-2120-prairie-3720. Review: docs/RESEARCH/k01-2120-prairie-3720/README.md.",
   "research_doc": "",
   "review_required": false,
-  "called": "2120 Prairie Avenue — Brick masonry"
+  "called": "2120 Prairie Avenue — two-storey brick house with an iron-clad north bay"
 }
