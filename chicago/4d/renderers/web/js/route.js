@@ -1398,6 +1398,14 @@ export function createRouter({
       }
     }
     if (best) { stands.set(key, best); return best; }
+    // T-3691 (the owner, 2026-11-22, Pullman's Other Son at the Pullman conservatory: "one more
+    // jaunt that ended in a blocked path"): a building behind another on its own lot — the palm
+    // house behind the Pullman house — has no clear view from its parcel's street, and the ring
+    // below stood the visitor on the house's front stoop, where the walk stopped against the
+    // stone. Look from any street's walk that sees the side of it turned that way instead
+    // (where the street grid draws its walks: 1904).
+    const side = streetGrid && sideStand(id, centre, d, mask, all.filter(o => Math.abs(o.e - centre.e) < 110 && Math.abs(o.n - centre.n) < 110));
+    if (side) { stands.set(key, side); return side; }
     // 0, +30, -30, +60, -60, … 180; the first with a clear view of the front, else the
     // first free one (T-3263).
     let free = null;
@@ -1417,6 +1425,49 @@ export function createRouter({
     const cellFree = nearestCell(centre.e, centre.n, Math.ceil(60 / cell));
     if (cellFree >= 0) return { e: centreE(cellFree % grid.cols), n: centreN((cellFree / grid.cols) | 0) };
     return { e: centre.e, n: centre.n };
+  }
+
+  /**
+   * standOff's second look (T-3691): from a public walk of ANY street (a carriageway on
+   * horseback) within 100 m, at the face of the building turned toward that point, seen
+   * clear of every other footprint and past the trunks and posts. Null when no walk sees it.
+   */
+  function sideStand(id, centre, d, mask, near) {
+    const fp = footprints.find(f => f.id === id);
+    if (!fp?.pts?.length) return null;
+    const onPublic = (e, n) => (mask === 2
+      ? (streetGrid?.faces ?? []).some(f => (f.bands?.walk ?? []).some(q => inside(e, n, q)))
+      : (streetGrid?.carriageways ?? []).some(r => (r.quads_local_m ?? []).some(q => inside(e, n, q))));
+    let best = null, score = Infinity;
+    for (let j = Math.max(0, cellJ(centre.n - 100)); j <= Math.min(grid.rows - 1, cellJ(centre.n + 100)); j++) {
+      for (let i = Math.max(0, cellI(centre.e - 100)); i <= Math.min(grid.cols - 1, cellI(centre.e + 100)); i++) {
+        const k = j * grid.cols + i;
+        if (grid.cls[k] === CLS_BLOCKED || !(grid.network[k] & mask)) continue;
+        if (mask === 2 && grid.cls[k] !== CLS_WALK) continue;
+        const e = centreE(i), n = centreN(j), dist = Math.hypot(e - centre.e, n - centre.n);
+        if (dist < 3) continue;
+        const ue = (e - centre.e) / dist, un = (n - centre.n) / dist;
+        let depth = 0, lo = Infinity, hi = -Infinity;
+        for (const [pe, pn] of fp.pts) {
+          depth = Math.max(depth, (pe - centre.e) * ue + (pn - centre.n) * un);
+          const along = (pe - centre.e) * un - (pn - centre.n) * ue;
+          lo = Math.min(lo, along); hi = Math.max(hi, along);
+        }
+        if (dist - depth < 3) continue;
+        const mid = (lo + hi) / 2;
+        let v = Math.abs(dist - d) + Math.abs(mid);
+        if (v >= score) continue;
+        if (!onPublic(e, n)) continue;
+        const front = { bearing: Math.atan2(ue, un), street: null, width: hi - lo,
+          e: centre.e + ue * depth + un * mid, n: centre.n + un * depth - ue * mid };
+        if (!clearView(e, n, front.e + ue * (radius + 0.1), front.n + un * (radius + 0.1), id)) continue;
+        const view = near.length ? frontView({ e, n }, front, near) : null;
+        if (view) v += view.hidden * VIEW_COST + (view.near > VIEW_NEAR_BLOCKED || view.hidden > VIEW_BLOCKED ? VIEW_REFUSED : 0);
+        if (v >= score) continue;
+        score = v; best = { e, n, front, blocked: view?.hidden ?? 0 };
+      }
+    }
+    return best;
   }
 
   function clearView(ae, an, be, bn, id) {

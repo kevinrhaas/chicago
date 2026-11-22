@@ -23,11 +23,21 @@
  *
  *   node tools/check_jaunt_views.mjs            gate: every 1904 stop, both modes
  *   node tools/check_jaunt_views.mjs --report   every stop's share, blocked or not
- *   node tools/check_jaunt_views.mjs --self-test  the rule without trunks must fail
+ *   node tools/check_jaunt_views.mjs --self-test  the rule without trunks must fail, and
+ *                                                  and so must a stand off the walks or on a stoop
+ *
+ * T-3691 (the owner, 2026-11-22, Pullman's Other Son: "one more jaunt that ended in a blocked
+ * path"): the Pullman palm house stands behind the Pullman house, so no Prairie Avenue walk saw
+ * it, and the rule's last resort stood the visitor on the house's front stoop; the walk stopped
+ * against the stone and the ride paused. So every stop on foot also has to stand ON a public
+ * walk (route.js classAt 'sidewalk', inside a street face's walk band) with the front the rule
+ * aimed at, and clear of every house's stoop, area walls and railings (doors_1904.json barriers,
+ * house-barriers.js) — the places the walker stops and the planner does not know.
  */
 import fs from 'node:fs';
 import { register } from 'node:module';
 import { createRouter, frontBlocked, frontView, VIEW_BLOCKED, VIEW_NEAR_BLOCKED } from '../renderers/web/js/route.js';
+import { createHouseBarriers, BARRIER_STAND_M } from '../renderers/web/js/house-barriers.js';
 
 const vendor = new URL('../renderers/web/vendor/three-0.185.1/', import.meta.url).href;
 register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, c, next) {
@@ -69,9 +79,21 @@ for (const f of footprints) for (const [e, n] of f.pts) {
 }
 const terrain = { heightfield: { loaded: true, originE: e0 - 60, originN: n0 - 60, widthM: e1 - e0 + 120, depthM: n1 - n0 + 120 },
   surfaceHeight: () => 1, walkHeight: () => 1, isWater: () => false };
-const make = occ => createRouter({ terrain, streetGrid: read(`street_grid/${SCENE}.json`), footprints,
+const streetGrid = read(`street_grid/${SCENE}.json`);
+const make = (occ, grid = streetGrid) => createRouter({ terrain, streetGrid: grid, footprints,
   occluders: occ, cell: 1, inflate: 0.1 });
 const router = make(SELF_TEST ? [] : occluders);
+const doors = read(`humans/doors_${SCENE}.json`);
+const barriers = createHouseBarriers([...(doors.structures ?? []), ...(doors.barriers ?? [])].filter(r => r?.barrier));
+
+/** T-3691: a stand on foot is on a public walk, aimed at a front, and off every stoop. */
+function offWalk(rt, stand, mode) {
+  if (mode !== 'walk' || !stand) return null;
+  if (!stand.front) return 'not on a walk that sees it (the last-resort ring)';
+  if (rt.classAt(stand.e, stand.n) !== 'sidewalk') return `on ${rt.classAt(stand.e, stand.n)} ground, not a walk`;
+  if (barriers.near(stand.e, stand.n, BARRIER_STAND_M)) return 'on a stoop, area wall or railing';
+  return null;
+}
 
 /** main.js framing(): the distance that fits the building's sphere in the view. */
 function framingDistance(fp, sidecar) {
@@ -116,19 +138,20 @@ for (const s of stops) {
         const d = Math.hypot(o.e - stand.e, o.n - stand.n);
         if (frontBlocked(stand, front, [o]) > 0 && (!worst || d < worst.d)) worst = { what: o.what, d };
       }
-      seen.set(key, { stand, view, worst });
+      seen.set(key, { stand, view, worst, off: offWalk(router, stand, mode) });
     }
     const v = seen.get(key);
     if (v.missing) continue; // compile_jaunts gates a stop naming no structure
-    const row = { ...s, mode, blocked: v.view?.hidden ?? null, near: v.view?.near ?? null, e: v.stand?.e, n: v.stand?.n, worst: v.worst };
+    const row = { ...s, mode, blocked: v.view?.hidden ?? null, near: v.view?.near ?? null, e: v.stand?.e, n: v.stand?.n, worst: v.worst, off: v.off };
     rows.push(row);
-    if (!v.view || v.view.near > VIEW_NEAR_BLOCKED || v.view.hidden > VIEW_BLOCKED) failures.push(row);
+    if (!v.view || v.view.near > VIEW_NEAR_BLOCKED || v.view.hidden > VIEW_BLOCKED || v.off) failures.push(row);
   }
 }
 
 const pct = x => x === null ? 'no stand' : `${(x * 100).toFixed(0)}%`;
 const line = r => `${r.jaunt} / ${r.stop} (${r.id}, ${r.mode}) at e ${r.e?.toFixed(1)} n ${r.n?.toFixed(1)}: `
-  + `${pct(r.blocked)} of the front hidden, ${pct(r.near)} by a trunk or post near the eye${r.worst ? ` — nearest in the way ${r.worst.what} at ${r.worst.d.toFixed(1)} m` : ''}`;
+  + `${pct(r.blocked)} of the front hidden, ${pct(r.near)} by a trunk or post near the eye${r.worst ? ` — nearest in the way ${r.worst.what} at ${r.worst.d.toFixed(1)} m` : ''}`
+  + (r.off ? `; stands ${r.off}` : '');
 if (REPORT) for (const r of rows) console.log(`  ${line(r)}`);
 const stats = `${rows.length} stop arrivals (${stops.length} stops × walk, horse), ${occluders.length} trunks and posts`;
 
@@ -137,13 +160,24 @@ if (SELF_TEST) {
   // Prairie Avenue walk's Jones stop is behind its elm again: the gate has to see that.
   const jones = failures.find(r => r.id === 'jones_house_1834_prairie' && r.mode === 'walk');
   if (!jones) { console.log(`JAUNT VIEWS SELF-TEST FAIL — with no trunks given to the rule, the 1834 Prairie stop still reads clear`); process.exit(1); }
-  console.log(`JAUNT VIEWS SELF-TEST PASS — with no trunks given to the rule, ${failures.length} stop arrivals stand blocked (${line(jones)})`);
+  // T-3691: with no street walks at all, the Pullman palm house falls to the rule's last-resort
+  // ring, as it did from Prairie Avenue before the side look: the gate has to see it off a walk.
+  const walkless = make(occluders, { ...streetGrid, faces: [] });
+  const palm = 'pullman_house_1729_prairie_conservatory', fp = footprints.find(f => f.id === palm);
+  const centre = { e: fp.pts.reduce((a, p) => a + p[0], 0) / fp.pts.length, n: fp.pts.reduce((a, p) => a + p[1], 0) / fp.pts.length };
+  const { r, distance } = framingDistance(fp, registry.get(palm)?.sidecar);
+  const hidden = offWalk(walkless, walkless.standOff(palm, centre, r, { distance, mode: 'walk' }), 'walk');
+  if (!hidden) { console.log(`JAUNT VIEWS SELF-TEST FAIL — with no street walks, the Pullman palm house still reads as stood on a walk`); process.exit(1); }
+  // And where the ride stopped on 2026-11-22, at the foot of the Pullman stoop, a stand reads as on it.
+  const stoop = offWalk({ classAt: () => 'sidewalk' }, { e: 1424.31, n: -3171.19, front: {} }, 'walk');
+  if (!stoop) { console.log(`JAUNT VIEWS SELF-TEST FAIL — the foot of the Pullman stoop (e 1424.3 n -3171.2) reads as clear of every barrier`); process.exit(1); }
+  console.log(`JAUNT VIEWS SELF-TEST PASS — with no trunks given to the rule, ${failures.length} stop arrivals stand blocked (${line(jones)}); with no street walks the Pullman palm house stands ${hidden}; at the foot of the Pullman stoop a stand is ${stoop}`);
   process.exit(0);
 }
 if (failures.length) {
   for (const r of failures) console.log(`  FAIL ${line(r)}`);
-  console.log(`JAUNT VIEWS FAIL — ${failures.length} of ${stats} stand behind a trunk or post (over ${pct(VIEW_NEAR_BLOCKED)} near the eye) or with over ${pct(VIEW_BLOCKED)} of the house hidden`);
+  console.log(`JAUNT VIEWS FAIL — ${failures.length} of ${stats} stand behind a trunk or post (over ${pct(VIEW_NEAR_BLOCKED)} near the eye), with over ${pct(VIEW_BLOCKED)} of the house hidden, or off a public walk`);
   process.exit(1);
 }
 const worst = rows.reduce((m, r) => Math.max(m, r.blocked ?? 0), 0);
-console.log(`JAUNT VIEWS PASS — ${stats}; no stand is behind a trunk or post, and every one sees at least ${pct(1 - VIEW_BLOCKED)} of its house's front (worst ${pct(worst)} hidden)`);
+console.log(`JAUNT VIEWS PASS — ${stats}; no stand is behind a trunk or post, every one sees at least ${pct(1 - VIEW_BLOCKED)} of its house's front (worst ${pct(worst)} hidden), and every one on foot is on a public walk, off every stoop`);
