@@ -45997,7 +45997,9 @@ stands at those lights' sills.
 photographs' larger, looser leaves; their shafts are the kit's 0.16 m. The terrace's and the landing's depth before the bow's
 crown, its parapet's height and thickness are read as proportions of photographs taken looking up and from far
 down the street (about 0.15 m either way); the 1890s view does not show whether the bow's foot is a terrace with
-a parapet or the parapet's own wall, and a terrace is built. The basement door under the landing in the c. 1980s
+a parapet or the parapet's own wall, and a terrace is built. The terrace stops past the bow's crown, 1.5 m from the
+front's south corner, where the 1890s ledge runs on to the bow's south end: K07 lays a terrace's strips with its
+deepest last, and the stretch beyond the crown is left to the bow's own rusticated base. The basement door under the landing in the c. 1980s
 picture is not carried to 1904. The stack's stone is the gable slab's.
 
 **How to resolve:** a square-on photograph of the loggia replaces the kit's capitals; a view of the landing from

@@ -103,7 +103,7 @@ unresolved, so no side-by-side is kept). Liberty `L-k01-2110-rees-3715`.
   colonnettes, engaged in the piers, one beside each outer arch and one between each pair, from the lights' sill
   (10.3 m) to their springing (11.65 m), as both later photographs show them.
 - **The landing's parapet across the bow's foot** (`entrance_kit.terrace`, side `left`): the landing carried south
-  from the stoop to the bow's south end at its own height, faced to grade, 1.95 m out as the landing now is, its back stepped round the
+  from the stoop past the bow's crown (to 1.5 m from the south corner) at its own height, faced to grade, 1.95 m out as the landing now is, its back stepped round the
   bow, behind a solid stone parapet 0.5 m high whose top stands at the parlour lights' sills (the early-1890s
   photograph's level ledge; the c. 1980s photograph's block beside the stoop's south cheek, its face where the
   cheek begins to fall, so the landing is deepened to the same 1.95 m). A solid parapet is `holes` [0, 0], newly

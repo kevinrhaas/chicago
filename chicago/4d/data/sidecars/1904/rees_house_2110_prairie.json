@@ -654,7 +654,7 @@
           },
           "terrace": {
             "side": "left",
-            "to_v_m": 0.2,
+            "to_v_m": 1.5,
             "back": [
               [
                 5.15,
@@ -675,18 +675,6 @@
               [
                 2.0,
                 1.52
-              ],
-              [
-                1.5,
-                1.31
-              ],
-              [
-                1.0,
-                0.97
-              ],
-              [
-                0.35,
-                0.12
               ]
             ],
             "parapet": {
@@ -705,7 +693,7 @@
         "aic_rees_2110_c1980s_photo",
         "glessner_blog_2100_block_looking_nw_1890s"
       ],
-      "note": "A round-arched doorway, the arch's crown about 3 m over the stoop's head, its transom under the arch (the c. 1980s photograph, where it bears the number 2110), in a moulded ring with no keystone of its own; the kit's keystone is laid near flush. The front yard to the 1904 street line, 7.3 m (lot u 47.35 to 54.65). T-3715: the landing carried south from the stoop across the bow's foot at the landing's height, faced to grade, behind a plain stone parapet whose top stands at the parlour lights' sills (the early-1890s photograph shows its level top under the bow's lights from the stoop to the bow's south end; the c. 1980s photograph its solid block beside the stoop's south cheek, the rest behind a shrub): as deep as the landing, 1.95 m out from the flat front, its back stepped round the bow's plan 0.12 m clear of its plinth, the parapet 0.5 m high and 0.25 m thick. Its depth before the bow's crown and its thickness are read as proportions, not measured (L-k01-2110-rees-3715)."
+      "note": "A round-arched doorway, the arch's crown about 3 m over the stoop's head, its transom under the arch (the c. 1980s photograph, where it bears the number 2110), in a moulded ring with no keystone of its own; the kit's keystone is laid near flush. The front yard to the 1904 street line, 7.3 m (lot u 47.35 to 54.65). T-3715: the landing carried south from the stoop across the bow's foot at the landing's height, past its crown to 1.5 m from the south corner,, faced to grade, behind a plain stone parapet whose top stands at the parlour lights' sills (the early-1890s photograph shows its level top under the bow's lights from the stoop to the bow's south end; the c. 1980s photograph its solid block beside the stoop's south cheek, the rest behind a shrub): as deep as the landing, 1.95 m out from the flat front, its back stepped round the bow's plan 0.12 m clear of its plinth, the parapet 0.5 m high and 0.25 m thick. Its depth before the bow's crown and its thickness are read as proportions, not measured (L-k01-2110-rees-3715)."
     },
     "boundary": {
       "value": {
