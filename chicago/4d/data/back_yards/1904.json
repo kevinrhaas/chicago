@@ -53,9 +53,9 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 133,
+  "lots": 134,
   "surfaces": 279,
-  "doors": 125,
+  "doors": 126,
   "posts": 110,
   "gardens": 28,
   "by_kind": {
@@ -16336,6 +16336,59 @@
    "shrubs": [],
    "trees": [],
    "creeper": [],
+   "beds": []
+  },
+  {
+   "parcel": "prairie_2123",
+   "addresses": [
+    "2123"
+   ],
+   "street": "prairie",
+   "side": "east",
+   "structures": [
+    "house_2123_prairie",
+    "house_2123_prairie_coach_house"
+   ],
+   "scheme": "service_court",
+   "grade": "reconstructed",
+   "sources": [],
+   "note": "",
+   "surfaces": [],
+   "doors": [
+    {
+     "id": "prairie_2123:back_door",
+     "structure": "house_2123_prairie",
+     "e": 1452.18,
+     "n": -3680.09,
+     "facing_deg": 89.54,
+     "sill_m": 1.5,
+     "width_m": 0.95,
+     "height_m": 2.2,
+     "leaf": true,
+     "stoop": {
+      "depth_m": 1.1,
+      "width_m": 1.6,
+      "risers": 8,
+      "run_m": 3.06,
+      "material": "stone"
+     },
+     "grade": "reconstructed",
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+    }
+   ],
+   "posts": [],
+   "crops": [],
+   "shrubs": [],
+   "trees": [],
+   "creeper": [
+    [
+     1457.81,
+     -3679.04,
+     269.54,
+     2.76,
+     3.58
+    ]
+   ],
    "beds": []
   },
   {
