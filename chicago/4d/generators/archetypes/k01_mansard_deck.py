@@ -59,9 +59,12 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
     """The record's `mansard.deck`, bounded. `m` is the resolved mansard (its curb), `pitch`
     the deck's (roof_pitch_deg). Returns what dress() builds from."""
     crown = m.get("crown")
-    if crown and crown.get("form") != "hip":
-        raise ParamError("mansard.deck dresses a mansard's own deck; a mansard crown stands on it "
-                         "(a hipped crown may: the cresting stops short of it)")
+    # T-3713: a mansard crown over a street pavilion (2115's, the Armour photograph's tower)
+    # stands through the curb as a hipped one does, and the cresting stops short of it alike;
+    # a crown over a stretch of the front (`over_front`) is still refused
+    if crown and crown.get("form", "mansard") not in ("hip", "mansard") or crown and "over_bay" not in crown:
+        raise ParamError("mansard.deck dresses a mansard's own deck; a crown over a stretch of the front "
+                         "stands on it (a crown over a pavilion may: the cresting stops short of it)")
     run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
     # T-1890: a leaned street face stands the street curb its own run in
     u0, u1 = -overhang + run, depth + overhang - m.get("street_run_m", run)
@@ -163,12 +166,20 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         # T-3562: a hipped crown over a pavilion (1815's, Chicagology's square-on print) stands
         # through the curb, and the cresting either side of it stops short of its slates
         if deck.get("hoods") or deck.get("cross_roof") or (out.get("cresting") or {}).get("joined"):
-            raise ParamError("mansard.deck under a hipped crown: no hoods, cross roof or joined rail")
+            raise ParamError("mansard.deck under a crown: no hoods, cross roof or joined rail")
         E = float(crown.get("eave_m", m["curb_m"] - m["lower_rise_m"]))
         out["crown"] = {"x": [crown["x0"] - crown["overhang_m"], crown["x1"] + crown["overhang_m"]],
                         "v": [-crown["z1"] - crown["overhang_m"], -crown["z0"] + crown["overhang_m"]],
-                        "eave_m": E, "ridge_m": crown["ridge_m"],
-                        "pitch_deg": crown["pitch_deg"], "end_pitch_deg": crown["end_pitch_deg"]}
+                        "eave_m": E}
+        if crown.get("form", "mansard") == "hip":
+            out["crown"].update(ridge_m=crown["ridge_m"], pitch_deg=crown["pitch_deg"],
+                                end_pitch_deg=crown["end_pitch_deg"])
+        else:
+            # T-3713: a mansard crown's lower faces, drawn in at its own pitch from the main
+            # eave to its curb, are what the cresting's foot meets (its bulge is not followed:
+            # CROSS_CLEAR_M stands the rail clear of a convex face's few centimetres)
+            out["crown"].update(ridge_m=crown["curb_m"], pitch_deg=crown["lower_pitch_deg"],
+                                end_pitch_deg=crown["lower_pitch_deg"])
     if (out.get("cresting") or {}).get("joined") and (deck.get("hoods") or deck.get("cross_roof") or not fn):
         raise ParamError("mansard.deck.cresting.joined: a finial at every corner (finials), no hoods or cross roof")
     if deck.get("cross_roof"):
@@ -267,7 +278,8 @@ def _corner(dk, name):
 
 
 def crown_gap(dk, along, at, y):
-    """T-3562: where a hipped crown (k01_frontage_params._hip_crown) stands through a cresting
+    """T-3562: where a hipped crown (k01_frontage_params._hip_crown), or (T-3713) a mansard
+    crown's lower faces (k01_frontage_params._mansard_crown), stands through a cresting
     line at `at` (a v along u, or a u along v), the stretch of that line its slates cover at
     the cresting's foot `y`, widened CROSS_CLEAR_M each side; None where it stands clear. The
     crown's section at `y` is its fascia's rectangle drawn in by its pitches: the sides and
