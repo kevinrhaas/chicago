@@ -1,0 +1,85 @@
+{
+ "structure_id": "armour_house_2115_prairie",
+ "view": "chicagology_armour_photo",
+ "glb": "assets/gltf/armour_house_2115_prairie__as_mapped_1904.glb",
+ "glb_sha256": "78a19afe3c1bf38893664f1d5d14e61bff536e50b4291bdb2b8deb6948f6523b",
+ "camera_sha256": "ae483e0a78744bc01e41870fcb4cfc2922716959e999bcce049f66321f1f1b36",
+ "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
+ "side_by_side": "docs/RESEARCH/photo-match/armour_house_2115_prairie/chicagology_armour_photo-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "the door (T-3713): T-3712 laid it in the second column from the north with a window south of it (entrance_bay 2, K01 counting from its own 'south' end, the real north here); the print's door is the third opening, after two windows (x 1085-1180 px). Now bay 3: the door, its fanlight and the stoop stand at x 1100-1180, the two windows at x 830-890 and 970-1030 as the print's",
+   "status": "fixed"
+  },
+  {
+   "what": "the south pavilion's width (T-3713): built 4.8 m wide off the 1911 sheet, it ran to about x 1510 px with its lights at x 1285 and 1440; the print's pavilion runs x 1215-1440 with its lights at x 1290 and 1390. Now 3.7 m (its south corner back-projected through this camera), its lights at x 1285 and 1385, and the front's own wall carries one light a storey south of it (x 1460 against the print's 1495 px, its basement light under it)",
+   "status": "fixed"
+  },
+  {
+   "what": "the cornice (T-3713): the print's cornice is about 1 m deep at the north corner (y 400-475 px), corona over a close row of consoles; K10's moulded stone section is 0.36 m and stood at y 455-480, so the mansard and its dormers rode about 80 px low. The wall head now stands 0.6 m higher with K10's frieze and console blocks every 0.6 m under the section: the cornice spans y 400-475 and the mansard's foot and curb (y about 185 at the corner) are the print's",
+   "status": "fixed"
+  },
+  {
+   "what": "the mansard's rise (T-3713): 3.35 m from the cornice to the curb, the print's 220 px at the north corner where 3.0 m drew 195 px",
+   "status": "fixed"
+  },
+  {
+   "what": "the deck's iron cresting along the front and the north side (y 120-200 px), absent from T-3712's render: now K10's iron cresting 0.6 m tall, stopped short of the pavilion's crown (the deck dresser now stands a rail beside a mansard crown as beside a hipped one). Its pattern is the kit's; the print's is a denser pierced band",
+   "status": "fixed"
+  },
+  {
+   "what": "the stacks (T-3713): the front one stood about 50 px nearer the corner and 100 px lower than the print's tall stack (x 685-745, top y 40); the back one stood where the north side's first dormer is. Now at 13.8 m and 1.4 m from the rear, 2.6 m over the deck: the front stack at x 680-750, top about y 50; the back one at x 530-585, top about y 320 against the print's 520-570 and 325. The third, south of the crown (x 1230-1290 px over the crown), triangulated with the Tribune camera to 14.5 m / 10.4 m",
+   "status": "fixed"
+  },
+  {
+   "what": "the north flank (T-3713): T-3712 laid three columns of lights on every storey; the print shows the flank plain from its corner back to x 520 but for one tall round-headed light in the second storey (x 555-575 px). Now that one light, laid once at its own place (x about 565)",
+   "status": "fixed"
+  },
+  {
+   "what": "the north side's dormers (T-3713): T-3712 put two on the stretch the print shows plain slate (x 580-750 px); now one, at x 535-580 where the print's first stands (x about 550)",
+   "status": "fixed"
+  },
+  {
+   "what": "the mansard and its dormers carried on back past the main body: the print shows the north side's slated face continuing behind the first dormer with two more dormers (x 360-500 px, partly behind 2109's roof); the render's rear range is K01's flat-decked brick wing, which takes no mansard (rear_wings roof: flat, hip or gable)",
+   "status": "open"
+  },
+  {
+   "what": "the pavilion's crown carries iron cresting round its deck and a carved top at its north corner (x 1210-1390, y 120-230 px); the render's crown deck is bare. K01's mansard crown takes no cresting (mansard.deck dresses the main deck only)",
+   "status": "open"
+  },
+  {
+   "what": "the front's south end beyond the pavilion (x 1440-1555 px): the print shows it lower than the main cornice (its cornice about y 510-540), under a balustrade or cresting rather than the mansard, and the Tribune's 1928 photograph draws the same lower, railed end (x 880-1000 px); the render carries the main cornice and mansard over it. Likely the 1911 sheet's '2B' south piece, which no K01 part builds (liberty L-k01-2115-armour-3712)",
+   "status": "open"
+  },
+  {
+   "what": "the pavilion's south corner and the front's end: the render's front ends about x 1515 against the print's 1555 px and its south light stands at x 1460 against 1495 (about 0.4-0.6 m through this camera, whose distance is uncertain by about 15%); the sheet reads the pavilion about a metre wider than this camera does, a disagreement between a plan and a picture",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the paired street dormer: its lights at x 910 and 965 against the print's 885 and 940 px (about 0.35 m); the single dormer over the door and the crown's dormer stand on the print's",
+   "status": "within tolerance"
+  },
+  {
+   "what": "carving: the frieze's carved panels, the consoles' scrolls, the windows' moulded architraves and carved keys, the door's carved surround and crest, and the stoop's scrolled cheek blocks are K01's plain stone (each under about 0.3 m of relief); the pale hood blocks over the render's lights stand where the print draws moulded architraves",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the basement lights are segment-headed in the print and about 1.1 m tall; K06's flat-headed area light is 0.85 m (liberty)",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the north flank's light: its head at 9.2 m, clear of the new frieze, about 0.5 m short of the print's (y 630 px); the back stack's top about 0.5 m over the print's (the same kit stack as the front's)",
+   "status": "within tolerance"
+  },
+  {
+   "what": "colour: the print is monochrome. The stone front's pale tone agrees with the render's Lemont limestone; the north flank's buff common brick reads lighter against the front in the render (0.92 of the front's grey) than the print's flank does (0.67, in shade)",
+   "status": "not shown"
+  },
+  {
+   "what": "the south flank, the rear and the rear range's south side: out of the print's frame",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
