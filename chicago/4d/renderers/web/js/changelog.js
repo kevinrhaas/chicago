@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3196, ts: '2026-11-22T03:24:25.138Z', date: 'Nov 21, 2026, 9:24 PM CT', title: '2017 Prairie\'s porch parapet and chimney match its photograph', kind: 'improvement',
+    items: [
+      'The porch on the William Armour house at 2017 Prairie now has the parapet its photograph shows: a solid stone band pierced with a row of round openings, with a ball finial on each front corner, in place of a plain balustrade.',
+      'Its front chimney now rises from the mansard\'s cornice at the very edge of the house, where the photograph puts it, and stands a little taller.',
+    ] },
   { v: 3195, ts: '2026-11-22T01:59:06.076Z', date: 'Nov 21, 2026, 7:59 PM CT', title: '1871 streets gain lamps, telegraph poles, trees and a hack stand', kind: 'feature',
     items: [
       'Downtown, shop fronts now stand right on the plank walk, block after block, instead of behind a strip of lawn.',
