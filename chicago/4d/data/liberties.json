@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1228,
+  "count": 1229,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80901,6 +80901,38 @@
       "work_refs": [
         "T-2216",
         "T-3737"
+      ]
+    },
+    {
+      "id": "L-pullman-corner-elm-withdrawn-3739",
+      "title": "The Pullman corner's parkway elm left out, where the Detroit print shows a trunk near the 18th Street crossing",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "left out: the pictured elm at the north-east corner of Prairie Avenue and 18th Street (prairie__prairie ic 16 18#p04 in the pictured 1904 data), read off the Detroit Publishing print (Detroit Publishing Co. The Pullman residence, Chicago) and Taylor's no. 1445 at 259.8 m along Prairie's east planting line. There the trunk stood 0.9 m inside the 18th Street walk's corner crossing of the parkway (prairie__prairie ic 16 18.x.e18th), which the same Detroit print attests. Both readings were carried onto the planting line by assumption, and the two cameras disagree by 2-4 m along this front, so where the trunk stood against the crossing is not known to the foot."
+        },
+        {
+          "label": "Ruling",
+          "text": "The owner, 2026-11-23, looking north up the east walk from the corner: \"i am not sure that tree would be in the middle of the sidewalk\", then \"i think you should keep the crossing and lose the elm in that scene\", \"unless you are certain about that elm and that crossing\". We are not, so the crossing stays and no tree is planted for the reading; the reading is kept in the file, marked `withdrawn`."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture that shows the corner's trunk and the crossing's slabs together, near enough to place one against the other, puts the elm back on the side of the crossing it shows."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-23 (T-3739)."
+        }
+      ],
+      "work_refs": [
+        "T-3200",
+        "T-3161",
+        "T-3739"
       ]
     },
     {
