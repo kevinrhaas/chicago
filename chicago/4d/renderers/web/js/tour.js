@@ -1,7 +1,7 @@
 /**
  * Tour mode, the Field Check (T-2663, NAV-801; design doc section 11, M10).
  *
- * Ten steps (T-3642) the Navigator runs itself, framed as a Confluence Laboratory field check.
+ * Eleven steps (T-3742) the Navigator runs itself, framed as a Confluence Laboratory field check.
  * Every step waits for the visitor to actually do the thing — read from the page through
  * `probe()`, never assumed — and Skip is always there. Progress is kept per device
  * (localStorage, inside try/catch), so a reload mid-tour resumes at the same step; it can
@@ -20,6 +20,13 @@
  * T-3642 (the owner, 2026-11-17) brings it to the interface as it is after the T-3629 sweep:
  * an Interact step (talk to anyone, ride a horse, take a boat) and a Jaunts step take the
  * People step's place, and the bubbles say Shift / a full push runs.
+ *
+ * T-3742 (the owner, 2026-11-23: "update the first time user tour so it is current") brings
+ * it to what has landed since: Interact names Tell me a story and Ask a question (T-3553),
+ * Jaunts names the mysteries and the parts to play (T-3663, T-3678, T-3679, T-3693),
+ * Settings names Language, Reading age and Graphics (T-3680, T-3645, T-3736), and a Jump
+ * step, on the year chip, names 1871 and the Great Fire (T-3654, T-3687). Ready names
+ * Home's photo hunt (T-3657).
  *
  * Bubbles are 14 words or fewer (section 11). The last step's Finish ends the tour and calls
  * `onFinish`, which awards the Navigator License keepsake (T-2665, js/license.js); Skip
@@ -49,7 +56,7 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);
 
-/** The ten steps. `task` is the field-check line over the bubble; `target` the selector
+/** The eleven steps. `task` is the field-check line over the bubble; `target` the selector
  *  the spotlight rings (or a function of the probe); `done(p, base)` whether the step's
  *  real action has happened; `when(p)`, where given, whether the step applies here — a
  *  step that does not is passed over and not counted.
@@ -60,7 +67,11 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
  *  key, for a person (Greet, Tell me a story, Ask a question), a horse to ride, a boat's
  *  helm or a gate (T-3319, T-3553, T-3560, T-3612); Jaunts are narrated and told for the
  *  visitor's grade (T-3578, T-3590). People's own step gave way to Interact: the People
- *  key is labelled on the rail, and Ready names it. */
+ *  key is labelled on the rail, and Ready names it.
+ *
+ *  T-3742: Interact is said as what a visitor does with it most, talk; a horse to ride is
+ *  Move's ("ride"). Jump comes after Settings, so a year picked there reloads into Ready,
+ *  which the tour resumes. */
 export const STEPS = [
   { task: 'Your device',
     bubble: (p) => (p.touch ? 'This is your Navigator. Tap it open: every menu is a tab.'
@@ -87,13 +98,16 @@ export const STEPS = [
     target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected,
     escape: 'page' }, // T-3671: Esc is this step's own action, so the card does not take it to end the tour
   // T-3642: the Interact key, used during the step (a press, or its list opened on a person).
-  // 1904 has no boat to take; the ring is on the key once it shows.
+  // T-3742: walking up to someone opens their card by itself and never holds the walk
+  // (T-3553); the key's list is Greet, Tell me a story, Ask a question. The ring is on the
+  // key once it shows.
   { task: 'Interact',
-    bubble: (p) => { const what = String(p.scene) === '1904' ? 'a person or a horse' : 'a person, a horse or a boat';
-      return `Walk up to ${what}. ${p.touch ? 'Tap Interact' : 'Press R to interact'}.`; },
+    bubble: (p) => (p.touch ? 'Walk up to someone. Tap Interact: greet, hear a story, ask a question.'
+      : 'Walk up to someone. Press R: greet them, hear a story, ask a question.'),
     target: '#btn-interact', done: (p, base) => (p.acts ?? 0) > (base.acts ?? 0) },
-  // T-3642: Jaunts, narrated (T-3578) and told for the visitor's grade (T-3590, T-3629).
-  { task: 'Jaunts', bubble: menuOpen('Jaunts', 'narrated stories of this place, for your grade'),
+  // T-3642: Jaunts, narrated (T-3578) and told for the visitor's age (T-3590, T-3629).
+  // T-3742: and the case jaunts (Make your case) and play-a-part jaunts (T-3663, T-3679).
+  { task: 'Jaunts', bubble: menuOpen('Jaunts', 'stories read aloud, mysteries to solve, parts to play'),
     target: railKey('jaunts'), done: opened('jaunts') },
   // T-3629: Move left the rail; it is Home's Move tile. The ring goes dock, Home key, tile.
   { task: 'Move',
@@ -101,9 +115,19 @@ export const STEPS = [
       : 'Open Move on Home: walk, run, ride or fly.'),
     target: (p) => (p.touch && !(p.level > 0) ? '#navigator' : p.app === 'home' ? '#nav-tile-move' : railKey('home')(p)),
     done: opened('move') },
-  { task: 'Settings', bubble: menuOpen('Settings', 'name cards, light, season, time of day, sound'),
+  // T-3742: Display's Language and Reading age (T-3680, T-3645), the Graphics tab (T-3736).
+  { task: 'Settings', bubble: menuOpen('Settings', 'language, reading age, graphics, name cards, sound'),
     target: railKey('settings'), done: opened('settings') },
-  { task: 'Ready', bubble: () => 'Ready. Find People, Go to a photo, or Jump years.',
+  // T-3742: Jump, off the rail since T-3629: the year chip opens it, and Home's Other years
+  // key where Home is the open app. 1871 is the city the Great Fire burns (T-3654, T-3687).
+  { task: 'Jump years',
+    bubble: (p) => `${press(p)} the year to jump: 1812, 1835, 1871 and its Great Fire, 1904.`,
+    target: (p) => (p.level > 0 && p.app === 'home' ? '#nav-choice-years' : '#year-badge'), done: opened('jump') },
+  // T-3742: Home's Where and when? photo hunt (T-3657, T-3677), where the year has one
+  // (1835 and 1904: strings/photo-hunt.js `unavailableYear`); elsewhere, Jump.
+  { task: 'Ready', bubble: (p) => (['1835', '1904'].includes(String(p.scene))
+    ? 'Ready. Find People, Go to a photo, or play Home\'s photo hunt.'
+    : 'Ready. Find People, Go to a photo, or Jump years.'),
     target: '#navigator', action: 'finish' },
 ];
 

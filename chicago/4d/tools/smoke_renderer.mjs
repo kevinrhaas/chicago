@@ -15057,7 +15057,7 @@ for (const [label, viewport, touch] of [
       && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's ten steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's eleven steps (T-3742), read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -15079,7 +15079,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 10 && rows.length === 10 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 11 && rows.length === 11 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -15126,7 +15126,7 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the eleven tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
       // 1871 has its own Jaunts since The Last Sunday (T-3692): one to three suggested; the
@@ -18429,7 +18429,7 @@ for (const [label, viewport, touch] of [
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
     // release (Esc with a keyboard, the card's Close on touch); T-3642: 06 Interact, 07 Jaunts,
-    // 08 Move, 09 Settings.
+    // 08 Move, 09 Settings; T-3742: 10 Jump years, on the year chip.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -18495,7 +18495,8 @@ for (const [label, viewport, touch] of [
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
     // Replay, and a full pass to Finish: 06 on the Interact key's use (T-3642; its press is
     // counted by main.js's onPress, driven here through the key's own module), 07 on Jaunts,
-    // 08 on Move, 09 on Settings, 10 on Finish.
+    // 08 on Move, 09 on Settings, 10 on Jump (T-3742: a click on the year chip, as a visitor
+    // does), 11 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -18520,6 +18521,14 @@ for (const [label, viewport, touch] of [
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
     await tourWait(9);
+    const jumpStep = await tourView();
+    const jumpRing = await page.evaluate(() => { const h = document.querySelector('#tour .tour-hole'); const c = document.getElementById('year-badge');
+      const a = h?.getBoundingClientRect(); const b = c?.getBoundingClientRect();
+      return !!a && !!b && !h.hidden && b.width > 0 && a.left <= b.left && a.right >= b.right && a.top <= b.top && a.bottom >= b.bottom; });
+    // The year chip is the visitor's way in; it opens Jump (main.js). Should anything lie
+    // over it, Jump is opened as the chip would, and the ring reading above still fails.
+    await clickChrome('#year-badge').catch(() => page.evaluate(async () => { await window.__chicago4d.navigator.select('jump'); }));
+    await tourWait(10);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -18532,19 +18541,20 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642)`,
-      t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings, Jump — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642, T-3742)`,
+      t1.shown && t1.count === 'Field check · 1 / 11' && t1.pips === 11 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
-      && released.step === 5 && releasedCard === null && /^Walk up to .*(R to interact|Tap Interact)\.$/.test(released.bubble ?? '')
+      && released.step === 5 && releasedCard === null && /^Walk up to someone\. (Press R|Tap Interact): .*story.*question\.$/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
       && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
       && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
-      && settingsStep.step === 8 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 9 && /^Ready\./.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
+      && settingsStep.step === 8 && /Settings: .*language/.test(settingsStep.bubble ?? '')
+      && jumpStep.step === 9 && /^(Tap|Click) the year to jump: .*1871/.test(jumpStep.bubble ?? '') && jumpRing
+      && last.step === 10 && /^Ready\./.test(last.bubble ?? '') && last.lit === 11 && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, jumpStep, jumpRing, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
