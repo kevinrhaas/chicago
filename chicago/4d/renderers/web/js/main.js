@@ -4360,7 +4360,10 @@ async function boot() {
     // T-3573: following someone, the town is what to look at (Follow put the card away), so
     // walking up behind them, or past anyone, opens no card.
     if (approach && api.follow?.active) return;
-    if (!draws('residents')) { void openPersonCard(personId); return; }
+    // Kevin, 2026-11-23 ("the card if it was auto opened should close or not prevent you from
+    // moving around"): a card the visitor walked into opens beside the walk, never holding it,
+    // and goes again when they walk on (`closeApproachCard`, on `leave`).
+    if (!draws('residents')) { void openPersonCard(personId, { approach: !!approach }); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
@@ -5773,9 +5776,13 @@ async function boot() {
   // railway) and behind `pick`, the harness's reading of a record. Inspect opened this way
   // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
   // it go, back to where the Navigator was (docked, if it was docked).
-  let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
+  let handInspect = null; // { id, wasLevel, opening, approach } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null, photo = null } = {}) {
+  // `approach`: the person card opened because the visitor walked up to someone (humans.js
+  // `open` with approach). It is shown, not held: the pointer stays locked, focus stays on
+  // the town so WASD still walks, E and a click aim at the town as usual, and walking out of
+  // the person's reach puts it away. Clicking or tabbing into it makes it the visitor's own.
+  function openBuilding(id, { person = null, photo = null, approach = false } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -5784,29 +5791,53 @@ async function boot() {
     const inspecting = !!handInspect && navigatorUi.app === 'inspect';
     // `opening` until Inspect is on screen: the device passes through other states on its way
     // there (a first open loads Inspect), and those must not let the building go.
-    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
+    const quiet = !!(approach && person);
+    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true, approach: quiet ? person : null };
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
     // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
-    const link = person ? { app: 'inspect', id, tab: 'people', person }
+    const link = person ? { app: 'inspect', id, tab: 'people', person, ...(quiet ? { quiet: true } : {}) }
       : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
     });
-    // The panel is read and clicked, as the card was: the mouse is let go.
-    if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+    // The panel is read and clicked, as the card was: the mouse is let go. Not for a card
+    // the visitor walked into: they are still walking (Kevin, 2026-11-23).
+    if (!quiet && document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
     return { id, record };
   }
+  /** The person a walked-into card shows is still within their reach of the visitor. */
+  function approachNear(personId) {
+    const a = api.humans?.get?.(personId);
+    const r = a?.instance?.interaction?.radius_m;
+    return !!(a && r && Math.hypot(a.e - walker.state.e, a.n - walker.state.n) <= r);
+  }
+  /** Put away a card that opened because the visitor walked up to `personId`. */
+  function closeApproachCard(personId) {
+    if (!handInspect?.approach || handInspect.approach !== personId) return false;
+    return releaseInspect();
+  }
+  /** Clicking or tabbing into a walked-into card makes it the visitor's own: it holds as one they opened. */
+  function claimApproachCard(e) {
+    if (handInspect?.approach && e.target?.closest?.('#navigator')) handInspect.approach = null;
+  }
+  window.addEventListener('pointerdown', claimApproachCard, { capture: true });
+  window.addEventListener('focusin', claimApproachCard);
+  api.humans?.on?.('leave', ({ personId }) => { if (personId) closeApproachCard(personId); });
   /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
   const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
   // Held from the moment it is asked for, so Esc or the key a moment later lets it go even
   // while Inspect is still on its way (a slow frame, or its first load).
-  const inspectingByHand = () => !!handInspect && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
+  // A card the visitor walked into is not held (openBuilding `approach`).
+  const inspectingByHand = () => !!handInspect && !handInspect.approach && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
   function letGo(was) {
     if (navigatorUi?.app !== 'inspect') return false;
-    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
+    if (was.wasLevel === 0) navigatorUi.closeApp();
+    // Back by hand puts focus in the screen it goes to; one walked away from must not.
+    else if (was.approach) void navigatorUi.select(navigatorUi.backTo().id);
+    else void navigatorUi.back();
     return true;
   }
   function releaseInspect() {
@@ -6856,10 +6887,10 @@ async function boot() {
   }
   // One public person-card route for figure picks, firms, Go to and Navigator.
   // The existing later-scene reader follows the directory's own residents_root.
-  async function openSceneDirectoryPerson(id) {
+  async function openSceneDirectoryPerson(id, { approach = false } = {}) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     const at = [row?.lives_at, row?.works_at].find(s => s && loaded.registry.has(s));
-    if (at) return !!openBuilding(at, { person: id });
+    if (at) return !!openBuilding(at, approach ? { person: id, approach } : { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
   async function findSceneDirectoryPerson(id) {
@@ -6882,11 +6913,13 @@ async function boot() {
   function personCardOpen() {
     return [...document.querySelectorAll('.insp-person-card, .people-card-name')].some((n) => n.checkVisibility?.() ?? n.offsetParent !== null);
   }
-  async function openPersonCard(id) {
+  async function openPersonCard(id, { approach = false } = {}) {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
       hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
     }
-    const opened = await openSceneDirectoryPerson(id);
+    const opened = await openSceneDirectoryPerson(id, { approach });
+    // A visitor who walked past before the directory answered gets no card at all.
+    if (opened && approach && handInspect?.approach === id && !approachNear(id)) closeApproachCard(id);
     if (opened && momentSelectedPerson?.id !== id) rememberMomentPerson(id);
     return opened;
   }
