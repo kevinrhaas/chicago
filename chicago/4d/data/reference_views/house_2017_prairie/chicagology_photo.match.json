@@ -38,11 +38,11 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+      "sha256": "5cf6c35af8ed24b83036b24c9b4ca32864aea408c63b0624a35bed88e3ddb52c"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "b59ed55bc81dde94169575610b64e3d004ec78d61735aaf9332504463458aee4"
+      "sha256": "073a45f12f88f9099b245d0608c91c3deeb6e09ee440390c1f4f6ac424333e3c"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,7 +65,7 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "bcac9695e95f98ab6a705748e2e907cceac7e5b0edb186728346258e581bcc01",
+  "flora_sha256": "a9a64eaec1d2561de23821420e0ac7ff1afea9208da379bf62e02649ad12dd52",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
