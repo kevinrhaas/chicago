@@ -15,7 +15,7 @@ import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
 const data = (text) => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8');
-const { createHumanSpacing, keepOutOf, wallsFrom, BODY_R_M, MIN_M, RATE_M_S, MAX_M } = await import(data(await js('human-spacing.js')));
+const { createHumanSpacing, keepOutOf, wallsFrom, BODY_R_M, MIN_M, RATE_M_S, MAX_M, AHEAD_M } = await import(data(await js('human-spacing.js')));
 const { createHumanDays, planDay, dayOn, spanAt, POST_RE } = await import(data(await js('human-days.js')));
 const { createHumanDuties } = await import(data(await js('human-duties.js')));
 const doors = JSON.parse(await fs.readFile(new URL('data/humans/doors_1812.json', here), 'utf8'));
@@ -73,6 +73,26 @@ const apart = (a, b) => Math.hypot(at(a).e - at(b).e, at(a).n - at(b).n);
   assert.equal(t.spaceE, 0); assert.equal(t.spaceN, 0);
   assert(apart(s, t) >= MIN_M - 1e-3 && apart(w, t) >= MIN_M - 1e-3, 'others keep clear of the one on the tread');
   for (const a of [s, w]) assert(Math.hypot(a.spaceE, a.spaceN) <= MAX_M + 1e-9);
+}
+// ── T-3553 (owner, 2026-11-23: "people seem to still materialize through each other"): two
+// walking at each other on one line, drawn, at a walk each, step aside and pass, never through ──
+for (const [label, lat, other] of [['head on', 0, 'walk'], ['nearly head on', 0.2, 'walk'], ['overtaking', 0.1, 'slow'], ['to a stander', 0.05, 'stand']]) {
+  const a = actor('hi_a', 0, -10, { state: 'walking', heading: 0 }), b = actor('hi_b', lat, 10, { state: 'walking', heading: 180 });
+  if (other === 'stand') { b.state = 'standing'; b.n = 0; }
+  if (other === 'slow') { b.n = -6; b.heading = 0; }
+  a.root.visible = b.root.visible = true;
+  const sp = createHumanSpacing({ humans: { actors: [a, b] } });
+  const dt = 1 / 30;
+  let closest = Infinity;
+  for (let i = 0; i < 30 * 20; i++) {
+    a.n += 1.25 * dt;
+    if (other === 'walk') b.n -= 1.25 * dt;
+    if (other === 'slow') b.n += 0.5 * dt;
+    sp.update(dt);
+    if (Math.abs(a.n - b.n) < AHEAD_M) closest = Math.min(closest, apart(a, b));
+  }
+  assert(closest >= MIN_M - 0.02, `${label}: walkers pass a body's width apart (${closest.toFixed(3)} m)`);
+  if (other !== 'stand') assert(Math.hypot(a.spaceE, a.spaceN) < 0.05, `${label}: back on their own line once past`);
 }
 // ── never into a building ──
 {

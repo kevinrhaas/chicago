@@ -180,7 +180,7 @@ export const PLAY = Object.freeze({ off_m: [2.5, 6], spots: 2 });
  *  of them; they wait at it at most open_wait_s; it shuts once they are shut_past_m beyond it;
  *  a follower starts up follow_s after the last one; one waits for a way in use at most busy_s;
  *  a passage taking longer than stuck_s is let go. */
-export const PASSAGE = Object.freeze({ open_ahead_m: 2.2, open_wait_s: 5, shut_past_m: 1.3, follow_s: 3, busy_s: 25, stuck_s: 60 });
+export const PASSAGE = Object.freeze({ open_ahead_m: 2.2, open_wait_s: 5, shut_past_m: 1.3, follow_s: 3, busy_s: 25, stuck_s: 60, body_wait_s: 12 });
 /** T-3505: a break indoors: a door this near; a beat of every_s, the break for_s, in p of beats. */
 export const BREAK = Object.freeze({ reach_m: 45, every_s: [150, 330], for_s: [28, 75], p: 0.55 });
 /**
@@ -199,6 +199,8 @@ export const OUTING = Object.freeze({ for_s: 420, followed_s: 45, own_min_m: 40 
  * first: to work about their door when it is within by_door_m of the stand, else on an errand
  * up the street to errand_m short of it and back.
  */
+/** T-3553: within `m` of the visitor, the crowd's hand-over may build `extra` past `crowdNear`. */
+export const CROWD_CLOSE = Object.freeze({ m: 18, extra: 4 });
 export const JAUNT_LOCALS = Object.freeze({ r_m: 70, min_full: 3, min_light: 2, door_m: 65, by_door_m: 25, errand_m: 12, out_s: 240, every_s: 2, coming_s: 20 });
 /**
  * T-3520: children (the owner, 2026-11-08, of the 1812 fort yard: "the kids should not be all
@@ -961,6 +963,16 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       }, PASSAGE.busy_s);
     });
   }
+  /**
+   * T-3553 (owner, 2026-11-23: people "do not walk down or up steps sometimes to get into or out
+   * of their house. I would follow and the person should walk out ... and down and then you
+   * follow them"): a figure built for the door it comes out of (a resident, a jaunt's local, one
+   * asked for by Find or Follow) has no body until its model is built, and a walk is walked with
+   * or without one; so it came down its stoop unseen and appeared at the foot, or on the walk.
+   * Out of sight behind its door, it waits to be drawn (`body`, at most body_wait_s) first.
+   */
+  // (A figure with no `body` slot at all, a stand-in that draws nothing of its own, is drawn.)
+  const drawn = (a) => (a.body !== null && a.body !== false) || a.disposed || humans.shown === false || !a.walkPath;
   /** Bring `p` (indoors) out by `door` and call `out(from)` where they stand outside. */
   function exitBy(p, door, out) {
     const a = p.actor;
@@ -970,6 +982,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       a.e = step.e; a.n = step.n; a.standY = null; a.heading = door.outward_deg;
       a.setIndoors?.(false);
       a.place?.();
+      // Seen from near, they step out once drawn, not walk off unseen from the step.
+      if (near(step.e, step.n) && !drawn(a)) { const t = ++p.token; waitFor(p, () => drawn(a), () => { if (p.token === t) out(step); }, PASSAGE.body_wait_s); return; }
       out(step);
       return;
     }
@@ -982,15 +996,19 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       a.heading = bearing(back[1].e - back[0].e, back[1].n - back[0].n);
       a.setIndoors?.(false);
       a.place?.();
-      pass.hold(p);
       ++p.token;
-      waitFor(p, () => pass.isOpen(), () => {
-        const t2 = ++p.token;
-        const done = () => { offWay(p); out(back.at(-1)); };
-        if (!a.walkPath?.(back, { onArrive: () => { if (p.token === t2) done(); } })) { done(); return; }
-        // Once they are clear of its swing, it shuts behind them.
-        waitFor(p, () => dist(a, w.leaf) > PASSAGE.shut_past_m || !a.path, () => pass.release(p), PASSAGE.stuck_s);
-      }, PASSAGE.open_wait_s);
+      // Drawn behind the shut door first (see `drawn`), then it opens and they come out.
+      waitFor(p, () => drawn(a), () => {
+        pass.hold(p);
+        ++p.token;
+        waitFor(p, () => pass.isOpen(), () => {
+          const t2 = ++p.token;
+          const done = () => { offWay(p); out(back.at(-1)); };
+          if (!a.walkPath?.(back, { onArrive: () => { if (p.token === t2) done(); } })) { done(); return; }
+          // Once they are clear of its swing, it shuts behind them.
+          waitFor(p, () => dist(a, w.leaf) > PASSAGE.shut_past_m || !a.path, () => pass.release(p), PASSAGE.stuck_s);
+        }, PASSAGE.open_wait_s);
+      }, PASSAGE.body_wait_s);
     }, PASSAGE.busy_s);
   }
 
@@ -1954,7 +1972,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
      */
     materialize(person, at) {
       if (!spawn || !at || !Number.isFinite(at.e) || !Number.isFinite(at.n) || humans.shown === false) return null;
-      if (humans.crowdKept != null) return null;   // a jaunt holds the town as it is
+      // A jaunt holds the town as it is, but for the people it keeps (a stop's own, and at a
+      // plain stop the town's people about its stand, T-3553): those are built as anywhere.
+      if (!allows(person, at)) return null;
       const entry = insideOnly.find((x) => x.person === person);
       if (!entry?.asset_id || entry.care_only || spawned.some((p) => p.entry === entry)) return null;
       const today = date();
@@ -1965,8 +1985,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (handed.length >= crowdNear) {
         const v = visitor() ?? eyeAt();
         const off = v ? handed.filter((p) => free(p)).sort((a, b) => dist(b.actor, v) - dist(a.actor, v))[0] : null;
-        if (!off || !v || dist(off.actor, v) < dist(at, v) + 10) return null;
-        retire(off); handedBack++;
+        // T-3553 (owner, 2026-11-23: people "looked terrible relatively close up"): someone this
+        // near is never left to the crowd's coarse body for want of a place; a few more are
+        // built past the cap rather than that.
+        const close = !!v && dist(at, v) < CROWD_CLOSE.m && handed.length < crowdNear + CROWD_CLOSE.extra;
+        if (off && v && dist(off.actor, v) >= dist(at, v) + 10) { retire(off); handedBack++; }
+        else if (!close) return null;
       }
       const heading = Number.isFinite(at.heading_deg) ? at.heading_deg : (span.at.heading_deg ?? 0);
       const p = summon(entry, { structure: null, id: null, leaf: { local_e: at.e, local_n: at.n }, outward_deg: heading });
