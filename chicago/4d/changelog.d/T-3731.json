@@ -1,0 +1,9 @@
+{
+  "title": "1904's aerial views lighter on everyday computers",
+  "kind": "improvement",
+  "items": [
+    "On a computer with built-in graphics, the high view a jaunt ends on now draws about a quarter fewer triangles: 2.68 million where it drew 3.76 million over the Glessner corner, inside the Balanced limit of 2.75 million.",
+    "Far building detail smaller than a pixel on screen, and shadow detail smaller than a shadow texel, is drawn from a simpler copy, as the Light setting already does. About 0.1% of the picture's pixels change, by a shade.",
+    "People, horses and carriages are untouched, and nothing changes on other computers or settings."
+  ]
+}

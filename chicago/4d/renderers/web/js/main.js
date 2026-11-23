@@ -3443,6 +3443,37 @@ async function boot() {
    * phone — which starts at `light` without anybody touching the control —
    * boots into the same rig a desktop gets by choosing it.
    */
+  /**
+   * T-3731 (follow-on), 2026-11-23 — A WEAK COMPUTER'S AERIAL VIEW KEEPS INSIDE ITS CEILING.
+   *
+   * On Bill Tyre's class of computer (i5-10400 / UHD 630, `?device=weak`) a jaunt's
+   * closing overlook — 44 m up and 32 m back over its first stand (jaunt-pace.js
+   * CLOSING_VIEW) — drew 3.1 M triangles against Balanced's 2.75 M and ran 6-8 fps.
+   * Charged draw by draw (1920x1080, the Glessner tour corner's overlook) it was
+   * the structures: 1,415,818 in the colour pass and 1,577,888 in the sun's, every
+   * moulding of the Prairie Avenue houses seen whole from the air. The Light rung
+   * already carries the three stand-ins for exactly that: a far piece drawn from its
+   * clustered twin where the twin's edge moves under a pixel (far-colour.js), a
+   * structure casting from its twin where it moves under a texel (far-shadow.js), and
+   * a piece under a pixel across not drawn (sub-pixel.js). A build below `full` cuts
+   * the twins already (`colourTwins`), so on a weak computer at `balanced` this only
+   * switches them on. People, horses and carriages are not structures and are not
+   * touched; nor is any other rung, any other device, or a phone (which is `light`).
+   * Same page, switched off then on, 1920x1080, each closing overlook:
+   *   Glessner tour corner     3,757,915 -> 2,683,208   (sun 1,837,673 -> 842,616)
+   *   1910 Calumet coach house 3,641,205 -> 2,639,228
+   *   1729 Prairie (Pullman)   2,035,217 -> 1,634,007
+   *   1906 Prairie (Keith)     1,960,837 -> 1,477,568
+   * with 0.07-0.20 % of the picture's pixels changed by more than 8 levels. Walking
+   * Prairie at the 1800 block it is 4,574,174 -> 3,453,938.
+   * `?weaklod=0` keeps Balanced as typed on a weak computer, for the A/B.
+   */
+  const weakLod = { on: device.cls === 'weak' && !coarse && !headset
+    && new URLSearchParams(location.search).get('weaklod') !== '0' };
+  const WEAK_LOD = Object.freeze({ farColourLod: true, shadowTwinsByTexel: true, subPixelCull: true });
+  // A harness's live switch for the same-page A/B; it re-applies the current rung.
+  api.weakLod = { get on() { return weakLod.on; },
+    set on(v) { weakLod.on = !!v; applyShadowTier(detailLevel); } };
   function applyShadowTier(level) {
     const want = DETAIL[level] ?? DETAIL.full;
     const rig = world.setShadowRig(want.shadowReachM);
@@ -3450,9 +3481,12 @@ async function boot() {
     shadowCasters.on = want.castersTowardView === true;
     // T-3249: where the tier says so, a structure piece casts from its clustered
     // twin wherever the twin's edge moves no more than one texel of this map.
-    shadowCasters.sunTexelM = want.shadowTwinsByTexel === true ? rig.texelM : 0;
-    farColourTier.on = want.farColourLod === true;
-    farColourTier.subPixel = want.subPixelCull === true;
+    // T-3731 (follow-on): a weak computer at `balanced` also takes `light`'s three
+    // one-pixel / one-texel stand-ins (WEAK_LOD above); every other rung is as typed.
+    const lod = weakLod.on && level === 'balanced' ? WEAK_LOD : want;
+    shadowCasters.sunTexelM = lod.shadowTwinsByTexel === true ? rig.texelM : 0;
+    farColourTier.on = lod.farColourLod === true;
+    farColourTier.subPixel = lod.subPixelCull === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
