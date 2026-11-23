@@ -316,6 +316,27 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   assert(filterJaunts([{ id: 'a', title: 'A', narrated: true }, { id: 'b', title: 'B', narrated: true, music: true }], '', '', '', ['narrated', 'music']).map((r) => r.id).join() === 'b', 'two picked: only jaunts with both');
   assert.deepEqual(filterJaunts([{ id: 'a', title: 'A', narrated: true }, { id: 'b', title: 'B' }], 'narrated').map((r) => r.id), ['a'], 'a search for "narrated" finds them too');
 
+  // T-3735 (the owner, 2026-11-23): Narrated judges the telling for the reader's ages. With
+  // 11-12 picked and only the 6-8 telling voiced, the jaunt is not listed under Narrated (its
+  // 6-8 telling is never put in its place); with 6-8 picked it is.
+  {
+    const { listTellings } = await import('../renderers/web/js/jaunt-menu.js');
+    const t = (id, band, extra = {}) => ({ id, title: 'Walk', premise: '', category: 'walk', menu_group: 'Places', grade_band: band, ...extra });
+    const tellings = [t('walk', '6-8', { narrated: true }), t('walk-grades-11-12', '11-12', { version_of: 'walk' }), t('walk-grades-3-5', '3-5', { version_of: 'walk', narrated: true })];
+    const ids = (bands, listen = ['narrated']) => listTellings(tellings, { bands, listen }).map((r) => r.id);
+    assert.deepEqual(ids(['11-12']), [], 'an unvoiced telling is not listed as narrated, nor another age\'s in its place');
+    assert.deepEqual(ids(['11-12'], []), ['walk-grades-11-12'], 'without the pick the reader still gets their own telling');
+    assert.deepEqual(ids(['6-8']), ['walk']); assert.deepEqual(ids(['3-5']), ['walk-grades-3-5']);
+    assert.deepEqual(ids(['3-5', '11-12']).sort(), ['walk-grades-3-5'], 'several ages: each voiced telling of theirs, no other');
+    assert.deepEqual(ids([]), ['walk'], 'no age picked: the jaunt itself, as before');
+    for (const y of ['1812', '1904']) {
+      const all = JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts;
+      for (const band of ['3-5', '6-8', '9-10', '11-12'])
+        for (const r of listTellings(all, { bands: [band], listen: ['narrated'] }))
+          assert(r.narrated === true && voiced.has(r.id), `${y} ${band}: ${r.id} is listed under Narrated only as a voiced telling`);
+    }
+  }
+
   // The row, over the hand-made DOM.
   const base = { premise: 'Walk.', category: 'walk', menu_group: 'Places', grade_band: '6-8', availability: 'available', stop_count: 2,
     default_mode: 'walk', allowed_modes: ['walk'], destinations: [{ kind: 'structure', id: 'nowhere' }] };

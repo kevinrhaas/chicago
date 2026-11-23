@@ -58,6 +58,10 @@ into the apex, inside the coping, and on it K08's leafy relief (k08_bays._gable_
 up its middle, pairs of leaves leaning out from it, a boss at its foot and a fleuron at its head),
 and under it a carved `drop` that hangs from the panel's base over the light and opens into two
 arms ending in bosses. L-k01-2110-rees-carving-3714.
+
+T-3715: 2110's slates run on to the gable rather than hipping away a half-width short of it:
+`roof_to_gable` joins the hip's attic, carried on to the slab's back, into the roof
+(roof_to_gable()). L-k01-2110-rees-3715.
 """
 
 from __future__ import annotations
@@ -247,6 +251,26 @@ def element(a, k5, ye):
             return "parapet"          # the base's two ends
         return "coping"               # the outline: the kneelers' ledges and the curves
     return k5.extrude(g["outline"], g["xb"], g["xf"], k5.frame("x"), role, "parapet", "parapet")
+
+
+ROOF_INTO_SLAB_M = 0.02     # T-3715: the attic's street end runs this far into the slab's back
+
+
+def roof_to_gable(k5, p, E, ye, t, o, f, hs):
+    """T-3715: 2110 Prairie's slates run on to its gable (the c. 1980s photograph and the 2012
+    detail show them beside the rake, behind the kneelers), where K01's hip falls away from the
+    street a full half-width short of it. This is the hip's own attic carried on toward the street:
+    K05's gable prism over the block's width, its eaves and ridge the hip's (the same overhang,
+    pitch and fascia, so its flanks are the hip's flanks), from the middle of the block, inside
+    the hip's ridge, to ROOF_INTO_SLAB_M into the slab's back. The union with the hip leaves the
+    ridge running from the rear hip's apex straight on to the gable; where the roof stands over
+    the slab's outline its street end is a fascia set back the slab's thickness, which no view
+    from the walk sees past the coping. L-k01-2110-rees-3715."""
+    xb = geometry(p, ye)["xb"]
+    D, W = p.depth_m, p.width_m
+    solids, _, _, _ = k5.gable_element(D / 2, xb + ROOF_INTO_SLAB_M, -W, 0.0, E, t, o, 0.0, f, hs - 1.0, "x",
+                                       verge_ends=(), end_role="fascia")
+    return solids[0]   # the attic; the body under it is the hip's own
 
 
 def _variant(sg, k6):
