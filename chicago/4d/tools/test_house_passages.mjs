@@ -297,7 +297,14 @@ ok(door, 'the court door offers Ask for');
 const ask = interactions.actionsOf(door).find((a) => a.label === 'Ask for kate');
 ok(ask, 'Ask for kate at the court door');
 kate.track = [];
+// T-3553 (owner, 2026-11-23: people "do not walk down or up steps sometimes"): a figure not yet
+// drawn (no body) waits behind the shut door, and comes out and down once it is drawn.
+kate.body = null;
 interactions.act(door, ask.id);
+for (let t = 0; t < 3; t += 0.05) { for (const a of actors) a.step(0.05); days.update(0.05); layer.update(0.05); interactions.update(0.05); }
+ok(!kate.track.some((x) => x.y != null && x.y < sill - 0.05) && court.swing === 0 && !kate.path,
+  'not yet drawn, she waits behind the shut door, not down the stair unseen');
+kate.body = {};
 for (let t = 0; t < 30; t += 0.05) { for (const a of actors) a.step(0.05); days.update(0.05); layer.update(0.05); interactions.update(0.05); }
 ok(!kate.indoors && kate.track.some((x) => near(x.y ?? 0, sill, 1e-3)) && kate.track.some((x) => x.swing >= 0.9),
   'asked for, she opens the door and comes down the stair');

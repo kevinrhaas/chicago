@@ -21,6 +21,13 @@ the flight's place are read off the photograph through its solved camera
 (data/reference_views/hibbard_house_1701_prairie/ghm_rear.json); the sections of the posts,
 rails, balusters and spindles are this module's (docs/LIBERTIES.md L-k01-hibbard-1701-3242).
 Every other K01 house carries no `rear_veranda`, so its bytes are unchanged.
+
+T-1931: a veranda may stand THREE decks high (`decks_m` [lower, middle, upper]), the open back
+porch a three-storey building of flats carries up its rear wall (2127-2129 Prairie, the 1911
+sheet's dashed frame porch lettered '3'): the middle deck is railed along its front and ends with
+a frieze under it, as the upper is, and the paired posts run from grade to the upper deck. A
+two-deck veranda takes exactly the path it took before, so 1701's bytes are unchanged. The
+flights between the decks are not built (the module has none).
 """
 
 from __future__ import annotations
@@ -49,7 +56,10 @@ def resolve(spec, *, width, eave, wings, floor) -> dict:
                          f"its steps {sorted(STEP_KEYS)}")
     v0, v1 = (float(x) for x in spec["v_m"])
     out, dm, pm, gap = (float(spec[k]) for k in ("out_m", "deck_m", "post_m", "pair_gap_m"))
-    d0, d1 = (float(x) for x in spec["decks_m"])
+    if not isinstance(spec["decks_m"], list) or len(spec["decks_m"]) not in (2, 3):
+        raise ParamError("rear_veranda.decks_m: two decks [lower, upper] or three [lower, middle, upper]")
+    decks = [float(x) for x in spec["decks_m"]]
+    d0, d1 = decks[0], decks[-1]
     n, fz = int(spec["stations"]), float(spec["frieze_m"])
     if not (0.0 <= v0 < v1 <= width):
         raise ParamError(f"rear_veranda.v_m {spec['v_m']}: a run along the main rear wall, inside its 0..{width}")
@@ -58,13 +68,14 @@ def resolve(spec, *, width, eave, wings, floor) -> dict:
         if abs(w["rect"][1]) < 1e-9 and a < v1 + 0.3 and v0 - 0.3 < b:
             raise ParamError(f"rear_veranda (v {v0}-{v1}) is within 0.3 m of the wing {w['id']} (v {a}-{b}) "
                              f"standing on the rear wall")
-    if not (1.2 <= out <= 4.0 and 0.1 <= dm <= 0.4 and 0.08 <= pm <= 0.3 and 0.05 <= gap <= 0.5
+    if not (1.2 <= out <= 4.6 and 0.1 <= dm <= 0.4 and 0.08 <= pm <= 0.3 and 0.05 <= gap <= 0.5
             and 2 <= n <= 12 and 0.15 <= fz <= 0.8):
-        raise ParamError("rear_veranda: 1.2-4 m out from the wall, its decks 0.1-0.4 m thick on 0.08-0.3 m "
+        raise ParamError("rear_veranda: 1.2-4.6 m out from the wall, its decks 0.1-0.4 m thick on 0.08-0.3 m "
                          "posts paired 0.05-0.5 m apart at 2-12 stations, a 0.15-0.8 m frieze")
-    if not (0.6 <= d0 <= floor + 0.3 and d0 + 2.5 <= d1 - dm - fz and d1 + 1.0 <= eave):
+    if not (0.6 <= d0 <= floor + 0.3 and all(lo + 2.5 <= hi - dm - fz for lo, hi in zip(decks, decks[1:]))
+            and d1 + 1.0 <= eave):
         raise ParamError(f"rear_veranda.decks_m {spec['decks_m']}: the lower 0.6 m over grade and no higher than "
-                         f"0.3 m over the principal floor ({floor} m), 2.5 m of clear storey under the upper "
+                         f"0.3 m over the principal floor ({floor} m), 2.5 m of clear storey under each higher "
                          f"deck's frieze, the upper a metre under the eave ({eave} m)")
     pair = 2 * pm + gap
     pitch = (v1 - v0 - pair) / (n - 1)
@@ -88,7 +99,7 @@ def resolve(spec, *, width, eave, wings, floor) -> dict:
     for c in stations:
         if c + pair / 2 > lo - 0.02 and c - pair / 2 < hi + 0.02:
             raise ParamError(f"rear_veranda.steps (v {lo:.2f}-{hi:.2f}) run into the posts at station v {c}")
-    return {"wall": WALL, "v_m": [v0, v1], "out_m": out, "decks_m": [d0, d1], "deck_m": dm, "post_m": pm,
+    return {"wall": WALL, "v_m": [v0, v1], "out_m": out, "decks_m": decks, "deck_m": dm, "post_m": pm,
             "pair_gap_m": gap, "stations_v_m": stations, "frieze_m": fz, "balustrade": B,
             "steps": {**S, "risers": risers, "riser_m": round(d0 / risers, 4)}}
 
@@ -101,15 +112,17 @@ def dress(a):
     mat, smat = "bay_strip_paint", "stoop_stone"
     pr, ps = a.prim(mat), a.prim(smat)
     (v0, v1), out = V["v_m"], V["out_m"]
-    (d0, d1), dm, pm, gap = V["decks_m"], V["deck_m"], V["post_m"], V["pair_gap_m"]
+    dm, pm, gap = V["deck_m"], V["post_m"], V["pair_gap_m"]
+    d0, d1, mids = V["decks_m"][0], V["decks_m"][-1], tuple(V["decks_m"][1:-1])   # T-1931: mids on a three-deck
     B, S, fz = V["balustrade"], V["steps"], V["frieze_m"]
     X0, X1 = -out, 0.0
     za, zb = -v1, -v0                                    # z = -v: the run's south and north ends
     seed = a.instance("k01.rear_veranda", "veranda",
                       {"v0_m": v0, "v1_m": v1, "out_m": out, "lower_deck_m": d0, "upper_deck_m": d1,
-                       "stations": len(V["stations_v_m"])},
+                       "stations": len(V["stations_v_m"]), **({"middle_deck_m": mids[0]} if mids else {})},
                       {"lower_deck": ((X0 + X1) / 2, d0, (za + zb) / 2), "upper_deck": ((X0 + X1) / 2, d1, (za + zb) / 2),
-                       "steps_foot": (X0 - S["risers"] * S["tread_m"], 0.0, -S["v_m"])})
+                       "steps_foot": (X0 - S["risers"] * S["tread_m"], 0.0, -S["v_m"]),
+                       **({"middle_deck": ((X0 + X1) / 2, mids[0], (za + zb) / 2)} if mids else {})})
     X, Z = (1.0, 0.0, 0.0), (0.0, 0.0, 1.0)
     O = (0.0, 0.0, 0.0)
     bases = {m: (a.basis(m, O, X, Y, seed), a.basis(m, O, Z, Y, seed), a.basis(m, O, X, Z, seed))
@@ -133,7 +146,7 @@ def dress(a):
                 prim.face(pts, nrm, b, conf)
 
     # the decks, each a slab from the wall out to the front, its back against the wall
-    for d in (d0, d1):
+    for d in (d0, d1) + mids:
         box(X0, X1, d - dm, d, za, zb, skip=("+x",))
     # the paired posts at every station, from grade to the upper deck's underside
     xp0, xp1 = X0 + 0.04, X0 + 0.04 + pm
@@ -181,11 +194,17 @@ def dress(a):
             rail_run("z", q0, q1, xr, d0, h, r, bal, pit, "balusters")
         # the frieze under the upper deck: a bottom rail and a row of spindles to the deck
         rail_run("z", g0, g1, xr, d1 - dm - fz - 0.05, fz, 0.07, 0.04, 0.11, "spindles")
+        for dmid in mids:   # T-1931: a middle deck railed along the front, its frieze under it
+            rail_run("z", g0, g1, xr, dmid, h, r, bal, pit, "balusters")
+            rail_run("z", g0, g1, xr, dmid - dm - fz - 0.05, fz, 0.07, 0.04, 0.11, "spindles")
     # the ends, wall to front post: balustrades on both decks, and the frieze under the upper
     for z_ in (za + pm / 2, zb - pm / 2):   # on the corner posts' centres
         for y0 in (d0, d1):
             rail_run("x", xp1, X1, z_, y0, h, r, bal, pit, "balusters")
         rail_run("x", xp1, X1, z_, d1 - dm - fz - 0.05, fz, 0.07, 0.04, 0.11, "spindles")
+        for dmid in mids:   # T-1931: and the middle deck's
+            rail_run("x", xp1, X1, z_, dmid, h, r, bal, pit, "balusters")
+            rail_run("x", xp1, X1, z_, dmid - dm - fz - 0.05, fz, 0.07, 0.04, 0.11, "spindles")
         box(X1 - 0.06, X1, d0, d1 + h, z_ - pm / 2, z_ + pm / 2, skip=("+x", "bottom"))   # the wall post
     # newels over the upper deck at the front posts' heads
     for zc in posts_z:

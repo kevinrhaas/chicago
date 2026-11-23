@@ -277,6 +277,43 @@ FRONT_GAP_M = 0.6          # open ground this wide in the doorway's line ends wh
 FRONT_PASSED = ('fence', 'gate', 'walk', 'pier', 'kerb', 'curb')   # the lot's front line and its walk: passed by a gate, walked on
 
 
+def leafless_plan(parts, u: float, v: float, width: float, free=lambda u, v: True) -> tuple[dict | None, str]:
+    """T-3553 (owner, 2026-11-23: people "do not walk down or up steps sometimes to get into or
+    out of their house"): a frame house's front door is built into its model, no leaf of its own
+    to swing, so it was only stood at, at the foot of its porch, and a resident went in and came
+    out straight through the porch's steps. Its way up is read off the model as a built leaf's is
+    (stoop_way), from the landing before the door: the sill is the top built there, under a head.
+    A plan as house-doors.js hangs a passage, `leafless` (nothing swings: house-doors.js
+    hangOpenWay), its way ending on the landing before the door."""
+    tris = [t for name, t in parts if name.lower() not in LEAF_MATS and not any(g in name.lower() for g in GROUND_MATS)]
+    if not tris:
+        return None, 'nothing built'
+    T = np.concatenate(tris)
+    U, V, Y = T[:, :, 0], -T[:, :, 2], T[:, :, 1]
+    pu, pv = u + WAY_BEFORE_M, v
+    # The top under the landing point: the highest face over it below a head's height.
+    over = (U.min(1) <= pu) & (U.max(1) >= pu) & (V.min(1) <= pv) & (V.max(1) >= pv) & (Y.max(1) < 2.6)
+    if not over.any():
+        return None, 'no landing before the door'
+    sill = float(Y[over].max())
+    if sill < WAY_GROUND_M:
+        return None, 'the door is at grade'
+    way, why = stoop_way(parts, u, v, sill, free)
+    if way is None:
+        return None, why
+    sill = way[-1][2] if way[-1][2] is not None else sill
+    r = lambda x: round(float(x), 3)
+    half = width / 2
+    return {
+        'origin': [r(u), r(v)], 'outward': [1, 0], 'along': [0, 1],
+        'jambs': [r(-half), r(half)], 'sill': r(sill), 'head': r(sill + 2.1),
+        'leaf': {'front': 0, 'back': -0.1, 's': [r(-half), r(half)], 'foot': r(sill), 'top': r(sill + 2.1)},
+        'hinge': 'right', 'pair': False, 'leafless': True,
+        'way': way,
+        'grades': {'leaf': 'inferred', 'treads': 'inferred'},
+    }, ''
+
+
 def frame_house_front_door(sc: dict):
     """A frame house record's own front door (k16_timber.py `frame_house` blocks): the first door
     hung on a block's east wall, the street side of a Prairie plan, as (u, v, clear width) in the
@@ -349,6 +386,17 @@ def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict]
         basis = 'Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed.'
     elif (hung := frame_house_front_door(sc)) is not None:
         u, v, width = hung
+        plan, why = leafless_plan(parts, u, v, width, free)
+        if plan is not None:
+            foot = plan['way'][0]
+            door.update({'leaf': world(u, v), 'step': world(foot[0], foot[1]), 'outward_deg': round(angle, 1),
+                         'width_m': round(float(width), 2), 'passage': True,
+                         'plan': {'name': 'Front door', **plan},
+                         'reconstructed': 'The front door the frame house record hangs on its street wall (frame_house '
+                                          'blocks), which the model builds there; the way up to it is read off the '
+                                          "model's porch steps (derive_doors_scene.py stoop_way), and one answering "
+                                          'stands at its foot. Nothing swings: the door is part of the model (T-3553).'})
+            return [door], problems
         basis = ("The front door the frame house record hangs on its street wall (frame_house blocks), which "
                  'the model builds there; the answering place is at the foot of what the model builds before it. '
                  'Walking and doorstep use are reconstructed.')

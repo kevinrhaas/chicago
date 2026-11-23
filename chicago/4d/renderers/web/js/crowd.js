@@ -74,6 +74,8 @@ export const CROSS_S = 0.5;
 export const HYST_M = 3;
 /** A hand-over refused (too many built, a jaunt holding the town) is asked again after (s). */
 export const HAND_RETRY_S = 2;
+/** T-3553: how many hand-overs are asked for a sort (SORT_S), nearest first. */
+export const HAND_PER_SORT = 2;
 /** The card picture's size, pixels (w x h, one person standing in a 1 m x 2 m frame). */
 export const CARD_CELL = Object.freeze({ full: Object.freeze([32, 64]), balanced: Object.freeze([32, 64]), light: Object.freeze([24, 48]) });
 /** Headings a card is baked from, and the poses: idle, then two strides of the walk. */
@@ -128,16 +130,18 @@ export function hash01(key) {
  * boundary by HYST_M. `built`: a figure humans.js draws itself out to `drawM`; it is a card only
  * past that. Pure, so tools/test_crowd.mjs walks every boundary.
  */
-export function tierTargets(d, tier = 'full', { built = false, drawM = 140, was = null } = {}) {
+export function tierTargets(d, tier = 'full', { built = false, drawM = 140, was = null, held = false } = {}) {
   const [m0, m1] = MID[tier] ?? MID.full, f1 = FAR[tier] ?? FAR.full;
   if (!(d >= 0)) return { v: 0, t: was?.t ?? 0 };
   if (built) return { v: d > drawM && d < f1 ? 1 : 0, t: 1 };
+  // T-3553 (owner, 2026-11-23, on a jaunt: people "looked terrible relatively close up"): one a
+  // jaunt holds out of the scene (T-3495) is held out of it here too, inside the near edge,
+  // as their whole figure is; the coarse middle body is never drawn up close in its place.
   // Not built: drawn however near, never dissolved for the visitor coming up to them. Inside
   // the middle tier's near edge (m0) they are handed over to a whole figure (`handOver`) and
   // drawn here only until that figure stands.
-  void m0;
   const shownNow = was?.v > 0, farNow = was?.t > 0;
-  const v = d < (shownNow ? f1 + HYST_M : f1) ? 1 : 0;
+  const v = d < (shownNow ? f1 + HYST_M : f1) && !(held && d < (shownNow ? m0 - HYST_M : m0)) ? 1 : 0;
   const t = d > (farNow ? m1 - HYST_M : m1 + HYST_M) ? 1 : 0;
   return { v, t };
 }
@@ -1064,6 +1068,7 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       if (clock - sortAt > SORT_S || Math.abs(eye.x - sortEye.x) + Math.abs(eye.z - sortEye.z) > SORT_MOVE_M) {
         sortAt = clock; sortEye.copy(eye);
         order.length = 0;
+        const keeping = humans?.crowdKept != null && typeof humans.keeps === 'function';
         for (const p of people.values()) {
           if (p.built) {
             const a = p.actor;
@@ -1072,24 +1077,29 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           }
           const d = Math.hypot(p.e - eye.x, p.n + eye.z);
           p.d = d;
-          const goal = tierTargets(d, tier, { built: p.built, drawM, was: { v: p.tv ?? 0, t: p.tt ?? 0 } });
+          // T-3553: one a jaunt holds out of the scene (humans.keeps), inside the near edge.
+          const held = !p.built && keeping && !humans.keeps(p.key, p.e, p.n);
+          const goal = tierTargets(d, tier, { built: p.built, drawM, was: { v: p.tv ?? 0, t: p.tt ?? 0 }, held });
           // Someone new to the layer is already where they belong: no cross-fade from the middle.
           if (p.v == null) { p.v = 0; p.t = goal.t; }
           p.tv = goal.v; p.tt = goal.t;
           if (p.tv > 0 || p.v > 0) order.push(p);
         }
         order.sort((a, b) => a.d - b.d);
-        // The hand-over: the nearest not built inside the near edge, one a sort, is built where
-        // they stand (not from the air: a visitor flying over the town walks up to no one).
+        // The hand-over: the nearest not built inside the near edge, HAND_PER_SORT a sort, are
+        // built where they stand (not from the air: a visitor flying over the town walks up to
+        // no one). T-3553: more than one a sort, so a street come to at once (a jaunt's arrival,
+        // a jump) is not left to the coarse bodies for seconds, one person at a time.
         const m0 = (MID[tier] ?? MID.full)[0];
         if (days?.materialize && !visitor?.flying) {
+          let asked = 0;
           for (const p of order) {
-            if (p.d >= m0) break;
-            if (p.built || p.handing || clock < (p.refused ?? -Infinity) + HAND_RETRY_S) continue;
+            if (p.d >= m0 || asked >= HAND_PER_SORT) break;
+            if (p.built || p.handing || p.tv <= 0 || clock < (p.refused ?? -Infinity) + HAND_RETRY_S) continue;
             let actor = null;
+            asked++;
             try { actor = days.materialize(p.key, { e: p.e, n: p.n, heading_deg: p.heading }); } catch (err) { problems.push(`crowd: ${p.key} could not be handed over (${err?.message ?? err})`); }
             if (actor) { p.handing = actor; stats.handed = (stats.handed ?? 0) + 1; } else p.refused = clock;
-            break;
           }
         }
       }

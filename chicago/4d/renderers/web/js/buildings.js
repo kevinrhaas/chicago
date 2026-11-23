@@ -35,6 +35,7 @@
 import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
+import { installFastCull } from './batch-cull-index.js';
 import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
 import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, drawFarShadowAsTwins,
   SUN_CELL_M, groupTwin, rebaseGroupTwin,
@@ -1261,6 +1262,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.castShadow = true;
     batch.receiveShadow = true;
     batch.customDepthMaterial = depthMaterial;
+    // T-3731: three's per-instance cull, read off spheres cached once and asked a ground
+    // cell at a time (batch-cull-index.js), beneath every wrapper below: the same draws.
+    installFastCull(batch);
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);

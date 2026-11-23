@@ -38,6 +38,14 @@
  *     walker held off someone while walking): then they step aside, across the visitor's way
  *     (`bearing`), at STANDER_RATE_M_S, so nobody can block a stoop or a gate for good.
  *
+ *   - T-3553 (owner, 2026-11-23: "people seem to still materialize through each other"): two
+ *     walkers meeting head on were pushed apart along the line between them, which is straight
+ *     back along each one's own way; the push was capped at MAX_M and they walked through each
+ *     other. Now a walker gives way before they meet (`giveWay`): someone within AHEAD_M in front
+ *     of them and nearer their line than MIN_M is passed by a step to the side (the right when
+ *     dead ahead, so two meeting both keep right and part), a share each when both are walking
+ *     at each other, the whole step when the other stands or walks away.
+ *
  * Only figures within REACH_M of the visitor are spaced: no one further off is seen. Cost: a hash
  * of those figures into 1 m cells and a look at the nine cells about each, ~2 us a figure.
  * Nothing here knows three.js or the DOM; tools/test_human_spacing.mjs drives it with stand-ins.
@@ -60,6 +68,11 @@ export const VISITOR_M = 0.82;
 export const VISITOR_RATE_M_S = 1.6;
 export const STANDER_RATE_M_S = 0.6;
 export const WALL_MAX_M = 6;
+/** T-3553: how far ahead a walker looks for someone in their way (m), and how fast a drawn walker
+ *  sidesteps them (m/s): a step aside of MIN_M in well under the time two walkers take to close
+ *  AHEAD_M at a walk each. */
+export const AHEAD_M = 2.6;
+export const SIDESTEP_M_S = 1.1;
 const CELL = 1;
 
 function hashAngle(key) {
@@ -180,12 +193,19 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
         if (sb) { const q = push.get(b) ?? { e: 0, n: 0 }; q.e -= de * over * sb; q.n -= dn * over * sb; push.set(b, q); }
       }
     }
+    apply(push, dt, settle, RATE_M_S);
+    return { pairs, grid };
+  }
+
+  /** The pushes wanted, each within its limit (`rate` m/s while drawn), never into a wall,
+   *  a building or (standing) a stair. */
+  function apply(push, dt, settle, rate) {
     for (const [a, q] of push) {
       let { e, n } = q;
       const len = Math.hypot(e, n);
       const seen = a.root.visible && a.inRange;
       if (seen && settle) continue;           // a drawn figure takes one step a frame
-      const most = seen ? RATE_M_S * dt : Infinity;
+      const most = seen ? rate * dt : Infinity;
       if (len > most) { e *= most / len; n *= most / len; }
       let se = a.spaceE + e, sn = a.spaceN + n;
       const off = Math.hypot(se, sn), cap = walls.length && keepOutOf(walls, a.e, a.n) ? WALL_MAX_M : MAX_M;
@@ -197,7 +217,47 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
       a.place?.();
       stats.moved++;
     }
-    return { pairs, grid };
+  }
+
+  /**
+   * T-3553: a walker gives way to whoever is in front of them, before they meet: anyone within
+   * AHEAD_M ahead and nearer their line than MIN_M (+ a little) is passed by a step to the side.
+   * The side is away from where the other already is, and the right when dead ahead; two walking
+   * at each other each see the other on the same hand, so they part, half the step each.
+   */
+  function giveWay(list, dt) {
+    const grid = cells(list), reach = Math.ceil(AHEAD_M / CELL);
+    const push = new Map();
+    for (const a of list) {
+      a.givingWay = false;
+      if (fixed(a) || !walking(a) || !Number.isFinite(a.heading)) continue;
+      const h = a.heading * Math.PI / 180, fe = Math.sin(h), fn = Math.cos(h), re = fn, rn = -fe;
+      const pa = where(a);
+      const ce = Math.floor(pa.e / CELL), cn = Math.floor(pa.n / CELL);
+      let want = null;
+      for (let i = -reach; i <= reach; i++) for (let j = -reach; j <= reach; j++) {
+        for (const b of grid.get(`${ce + i},${cn + j}`) ?? []) {
+          if (b === a) continue;
+          const pb = where(b), de = pb.e - pa.e, dn = pb.n - pa.n;
+          const ahead = de * fe + dn * fn, lat = de * re + dn * rn;
+          if (ahead <= 0.05 || ahead > AHEAD_M || Math.abs(lat) >= MIN_M + 0.06) continue;
+          // Walking at each other (the other's way runs back along this one's): a half share.
+          let share = 1;
+          if (walking(b) && !fixed(b) && Number.isFinite(b.heading)) {
+            const hb = b.heading * Math.PI / 180;
+            if (Math.sin(hb) * fe + Math.cos(hb) * fn < -0.5) share = 0.5;
+          }
+          const side = Math.abs(lat) < 0.04 ? 1 : -Math.sign(lat);
+          const need = (MIN_M + 0.06 - Math.abs(lat)) * share;
+          // The nearest ahead decides.
+          if (!want || ahead < want.ahead) want = { ahead, e: re * side * need, n: rn * side * need };
+        }
+      }
+      if (!want) continue;
+      a.givingWay = true;
+      push.set(a, { e: want.e, n: want.n });
+    }
+    if (push.size) apply(push, dt, false, SIDESTEP_M_S);
   }
 
   /** T-3520: anyone whose body reaches into a keep-out wall is moved out past it. */
@@ -286,7 +346,7 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
   /** Walkers let their step aside go again, where that brings nobody too near. */
   function relax(list, grid, dt, v = null) {
     for (const a of list) {
-      if (!(a.spaceE || a.spaceN) || fixed(a)) continue;
+      if (!(a.spaceE || a.spaceN) || fixed(a) || a.givingWay) continue;
       const seen = a.root.visible && a.inRange;
       if (seen && !walking(a)) continue;
       const off = Math.hypot(a.spaceE, a.spaceN);
@@ -323,6 +383,8 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
       // T-3553: a passer-by goes round the visitor on foot.
       const v = body?.() ?? null;
       if (v) clearVisitor(list, v, dt);
+      // T-3553: walkers step aside for whoever is in their way before they meet.
+      giveWay(list, dt);
       // Figures not drawn are settled at once; a few passes take a crowd apart.
       for (let i = 0; i < ITERATIONS; i++) {
         last = pass(list, dt, i > 0);

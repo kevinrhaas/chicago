@@ -14,9 +14,9 @@
   "tuck_m": 0.04
  },
  "summary": {
-  "walk_ends": 110,
-  "joined": 87,
-  "already_met": 16,
+  "walk_ends": 113,
+  "joined": 89,
+  "already_met": 17,
   "not_street_ends": 7,
   "widest_gap_m": 1.6
  },
@@ -70,6 +70,7 @@
   {"id": "house_2027_prairie:front_walk:0", "house": "house_2027_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.319, "width_m": 1.2, "polygon_local_m": [[1415.811, -3572.028], [1415.824, -3573.228], [1415.425, -3573.231], [1415.416, -3572.031]]},
   {"id": "house_2101_prairie:front_walk:0", "house": "house_2101_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.067, "width_m": 1.2, "polygon_local_m": [[1415.921, -3618.913], [1415.934, -3620.113], [1415.787, -3620.114], [1415.778, -3618.914]]},
   {"id": "house_2120_prairie:front_walk:0", "house": "house_2120_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.287, "width_m": 1.2, "polygon_local_m": [[1396.278, -3678.831], [1396.264, -3677.631], [1396.631, -3677.627], [1396.642, -3678.827]]},
+  {"id": "house_2123_prairie:front_walk:0", "house": "house_2123_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.218, "width_m": 1.6, "polygon_local_m": [[1416.554, -3681.89], [1416.573, -3683.49], [1416.275, -3683.492], [1416.263, -3681.892]]},
   {"id": "house_2125_prairie:front_walk:0", "house": "house_2125_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_21_22", "gap_m": 0.249, "width_m": 1.2, "polygon_local_m": [[1416.639, -3688.711], [1416.653, -3689.911], [1416.324, -3689.913], [1416.315, -3688.713]]},
   {"id": "jones_house_1834_prairie:front_walk:0", "house": "jones_house_1834_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.326, "width_m": 1.2, "polygon_local_m": [[1393.008, -3317.97], [1392.995, -3316.77], [1393.401, -3316.766], [1393.413, -3317.966]]},
   {"id": "kellogg_house_1709_prairie:front_walk:0", "house": "kellogg_house_1709_prairie", "kind": "front_walk", "face": "prairie__prairie_ic_16_18", "gap_m": 0.284, "width_m": 1.5, "polygon_local_m": [[1410.848, -3102.684], [1410.859, -3104.184], [1410.503, -3104.189], [1410.484, -3102.689]]},
@@ -84,6 +85,7 @@
   {"id": "mayer_house_2009_prairie:front_walk:0", "house": "mayer_house_2009_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.28, "width_m": 1.6, "polygon_local_m": [[1415.295, -3510.351], [1415.312, -3511.95], [1414.953, -3511.953], [1414.94, -3510.353]]},
   {"id": "moulton_lowden_house_1912_prairie:front_walk:0", "house": "moulton_lowden_house_1912_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.311, "width_m": 1.28, "polygon_local_m": [[1393.746, -3390.016], [1393.732, -3388.736], [1394.123, -3388.732], [1394.135, -3390.012]]},
   {"id": "moulton_lowden_house_1912_prairie:service_walk:1", "house": "moulton_lowden_house_1912_prairie", "kind": "service_walk", "face": "prairie__indiana_prairie_18_20", "gap_m": 0.3, "width_m": 1.41, "polygon_local_m": [[1393.894, -3403.685], [1393.879, -3402.275], [1394.258, -3402.271], [1394.272, -3403.681]]},
+  {"id": "murdoch_house_2130_prairie:front_walk:0", "house": "murdoch_house_2130_prairie", "kind": "front_walk", "face": "prairie__indiana_prairie_21_22", "gap_m": 0.328, "width_m": 1.28, "polygon_local_m": [[1396.549, -3712.729], [1396.534, -3711.449], [1396.942, -3711.446], [1396.954, -3712.726]]},
   {"id": "otis_house_2033_prairie:front_walk:0", "house": "otis_house_2033_prairie", "kind": "front_walk", "face": "prairie__prairie_calumet_20_21", "gap_m": 0.295, "width_m": 1.28, "polygon_local_m": [[1415.868, -3582.47], [1415.881, -3583.75], [1415.506, -3583.752], [1415.496, -3582.473]]},
   {"id": "pullman_house_1729_prairie:drive:0", "house": "pullman_house_1729_prairie", "kind": "drive", "face": "e18th__prairie_ic_16_18", "gap_m": 0.309, "width_m": 2.4, "polygon_local_m": [[1450.661, -3195.592], [1448.261, -3195.608], [1448.264, -3195.997], [1450.664, -3195.981]]},
   {"id": "pullman_house_1729_prairie:drive:2", "house": "pullman_house_1729_prairie", "kind": "drive", "face": "e18th__prairie_ic_16_18", "gap_m": 0.313, "width_m": 2.0, "polygon_local_m": [[1476.061, -3195.416], [1474.061, -3195.436], [1474.063, -3195.827], [1476.063, -3195.81]]},

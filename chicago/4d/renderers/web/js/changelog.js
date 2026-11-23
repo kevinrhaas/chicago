@@ -1,4 +1,60 @@
 export const CHANGELOG = [ // newest first
+  { v: 3217, ts: '2026-11-23T10:44:53.441Z', date: 'Nov 23, 2026, 4:44 AM CT', title: '2130 Prairie\'s Murdoch house: rock-faced stone, a steep front gable and a round tower', kind: 'improvement',
+    items: [
+      '2130 Prairie Avenue now stands on the house kit: a rock-faced stone gable front, a round corner tower under a slated cone, and a brick body behind, read off the 1911 sheet and two photographs.',
+    ] },
+  { v: 3216, ts: '2026-11-23T08:43:07.913Z', date: 'Nov 23, 2026, 2:43 AM CT', title: 'People look right up close, pass each other and use their steps', kind: 'fix',
+    items: [
+      'On a jaunt stop, people near you are their real, full figures, never the rough distant stand-in.',
+      'People walking towards each other step aside and pass, instead of walking through one another.',
+      'Someone coming out of a house appears behind their door and walks out and down the steps, so you can follow them.',
+      'The frame houses at 1720, 2000 and 2010 Prairie have their porch steps walked going in and out.',
+    ] },
+  { v: 3215, ts: '2026-11-23T08:33:10.715Z', date: 'Nov 23, 2026, 2:33 AM CT', title: 'The flats at 2127-2129 Prairie are built', kind: 'feature',
+    items: [
+      'The three-storey brick flats at 2127-2129 Prairie, on the east side near 22nd Street, now stand in full in place of their rough model. The 1911 map gives the plan: two buildings of flats side by side behind one front, a door for each at the middle, and an open three-storey porch at the back. No picture of it is known, so the red brick front, arched doorway, cornice and porch are a careful best guess, and the building\'s card says so. The corner lot next door, 2141, stays open ground, as the map shows it.',
+    ] },
+  { v: 3214, ts: '2026-11-23T05:56:05.401Z', date: 'Nov 22, 2026, 11:56 PM CT', title: 'Low-powered computers run faster, walking and standing still', kind: 'improvement',
+    items: [
+      'On a low-powered computer, such as one with built-in graphics, the view is drawn softer while you move and a little softer when you stand still, and the sun\'s shadows refresh every other frame.',
+      'On a test computer of this class, walking went from about 10 to about 17 frames a second, and standing still from about 10 to about 17.',
+      'Photos you take are still made at full sharpness, and nobody in town is left out.',
+    ] },
+  { v: 3213, ts: '2026-11-23T05:34:54.422Z', date: 'Nov 22, 2026, 11:34 PM CT', title: '1936 Prairie built as its 1869 newspaper description reads', kind: 'improvement',
+    items: [
+      'The Thompson/Allerton house\'s walls are smooth pressed red brick all round, the tower included, as the 1869 Tribune describes them.',
+      'Every window, hood, crest, balustrade, the entrance porch, its steps and the reception room\'s bay are now Portland brownstone, not pale stone.',
+      'The six-foot brownstone basement shows its rustic joints, a moulded base and a water-table along the sides.',
+      'The low roof reads dark, for the Tribune\'s slate, instead of red.',
+    ] },
+  { v: 3212, ts: '2026-11-23T05:26:19.813Z', date: 'Nov 22, 2026, 11:26 PM CT', title: '1904 no longer freezes for seconds on modest computers', kind: 'fix',
+    items: [
+      'The grass between the lakefront railway\'s tracks is placed by a much faster lookup, so 1904\'s longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC. Every tuft stands where it stood before.',
+      'The town broughams\' cab windows are drawn as plain thin glass, so the first carriage you meet no longer freezes the page for many seconds, and the town is no longer drawn twice while one is in view.',
+      'Whatever first comes into view, such as a jaunt\'s people or the place it flies to, is prepared in the background and appears a moment later instead of stopping the picture.',
+      'When a jaunt changes the season, the buildings, yards and rails take the new season once it is ready, without a pause.',
+    ] },
+  { v: 3211, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: '1904 walks faster on everyday computers', kind: 'improvement',
+    items: [
+      'Walking down Prairie Avenue in 1904 on a computer with built-in graphics, each frame now takes about a third less time: 47 ms where it took 70 in our test.',
+      'The town looks exactly the same: every building piece is drawn as before, in the same order, and people, horses and carriages are untouched.',
+      'Name cards over people no longer make the page re-measure itself every frame.',
+    ] },
+  { v: 3210, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: 'Walking runs smoother on low-powered computers', kind: 'improvement',
+    items: [
+      'On a low-powered computer, such as one with built-in graphics, the picture is drawn a little softer while you move, and the sun\'s shadows refresh every other frame.',
+      'Walking 1904 on a test computer of this class went from about 10 to about 12 frames a second.',
+      'When you stop, the view is back at full sharpness with every shadow, and nobody in town is left out.',
+    ] },
+  { v: 3209, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: 'Two 1904 jaunts open at the Fort Dearborn monument', kind: 'feature',
+    items: [
+      'The Bronze at Eighteenth Street jaunt, and each of its retellings for younger and older readers, can now be walked. It visits Rohl-Smith\'s 1893 monument where it stood on 18th Street by Calumet Avenue.',
+      'The Every Building Modelled So Far jaunt, which stops at the monument, can now be walked too.',
+    ] },
+  { v: 3208, ts: '2026-11-23T03:40:14.660Z', date: 'Nov 22, 2026, 9:40 PM CT', title: '2123 Prairie: a brownstone front, a stone bow, a slated mansard', kind: 'feature',
+    items: [
+      '2123 Prairie is rebuilt from its rough draft. It is now a brick house with a brown stone front, read off the 1911 fire-insurance map and the right-hand edge of the Armour photograph: a stone bow on the north half of the front, round-headed windows on both floors, a deep cornice, and a slated mansard with dormers and iron cresting round its top. The two-storey back range stands behind it.',
+    ] },
   { v: 3207, ts: '2026-11-22T23:34:03.603Z', date: 'Nov 22, 2026, 5:34 PM CT', title: 'The finished Robbins house at 2126 Prairie, as a version', kind: 'feature',
     items: [
       '2126 Prairie still stands as a building site on 1 July 1904, but its finished front can now be opened beside it: add ?structure=robbins_house_2126_prairie&version=completed to the 1904 address.',

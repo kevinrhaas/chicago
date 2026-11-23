@@ -133,9 +133,9 @@
     },
     {
       "id": "flats_2127_prairie",
-      "name": "2127 Prairie Avenue — Brick masonry (district draft; refined by T-1931)",
+      "name": "2127-2129 Prairie Avenue — the double building of flats, K01 frontage assembly",
       "sidecar": "sidecars/1904/flats_2127_prairie.json",
-      "asset": "gltf/flats_2127_prairie__draft_1904.glb"
+      "asset": "gltf/flats_2127_prairie__as_mapped_1904.glb"
     },
     {
       "id": "forsyth_house_1635_prairie",
@@ -1207,9 +1207,9 @@
     },
     {
       "id": "house_2123_prairie",
-      "name": "2123 Prairie Avenue — Stone-front masonry (district draft; refined by T-1930)",
+      "name": "2123 Prairie Avenue — brick house with a brownstone front, a stone bow and a slated mansard, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2123_prairie.json",
-      "asset": "gltf/house_2123_prairie__draft_1904.glb"
+      "asset": "gltf/house_2123_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2123_prairie_coach_house",
@@ -1447,9 +1447,9 @@
     },
     {
       "id": "murdoch_house_2130_prairie",
-      "name": "2130 Prairie Avenue — Murdoch rounded-bay stone house (district draft; refined by T-1927)",
+      "name": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a steep street gable with a round corner tower, K01 frontage assembly",
       "sidecar": "sidecars/1904/murdoch_house_2130_prairie.json",
-      "asset": "gltf/murdoch_house_2130_prairie__draft_1904.glb"
+      "asset": "gltf/murdoch_house_2130_prairie__as_mapped_1904.glb"
     },
     {
       "id": "murdoch_house_2130_prairie_coach_house",

@@ -53,19 +53,19 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 134,
-  "surfaces": 281,
-  "doors": 126,
+  "lots": 133,
+  "surfaces": 278,
+  "doors": 125,
   "posts": 110,
-  "gardens": 29,
+  "gardens": 28,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 28,
    "drying_yard": 55,
    "front_walk": 8,
    "gangway": 30,
-   "garden_bed": 29,
-   "rear_terrace": 109
+   "garden_bed": 28,
+   "rear_terrace": 107
   }
  },
  "lots": [
@@ -16353,72 +16353,15 @@
    "grade": "reconstructed",
    "sources": [],
    "note": "",
-   "surfaces": [
-    {
-     "id": "prairie_2123:rear_terrace:0",
-     "kind": "rear_terrace",
-     "material": "yard_brick",
-     "polygon_local_m": [
-      [
-       1451.9,
-       -3681.03
-      ],
-      [
-       1451.92,
-       -3683.15
-      ],
-      [
-       1456.52,
-       -3683.11
-      ],
-      [
-       1456.5,
-       -3680.99
-      ]
-     ],
-     "along_deg": 179.54,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "prairie_2123:garden_bed:1",
-     "kind": "garden_bed",
-     "material": "loam",
-     "polygon_local_m": [
-      [
-       1451.37,
-       -3673.57
-      ],
-      [
-       1451.39,
-       -3676.12
-      ],
-      [
-       1454.98,
-       -3676.09
-      ],
-      [
-       1454.96,
-       -3673.54
-      ]
-     ],
-     "along_deg": 89.54,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A kitchen garden of a few dug rows against the sunny fence. No source names a garden on any lot of the district: this one is reconstructed (L-prairie-back-yards-3488)."
-    }
-   ],
+   "surfaces": [],
    "doors": [
     {
      "id": "prairie_2123:back_door",
      "structure": "house_2123_prairie",
-     "e": 1451.72,
-     "n": -3682.09,
+     "e": 1452.18,
+     "n": -3680.09,
      "facing_deg": 89.54,
-     "sill_m": 1.4,
+     "sill_m": 1.5,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
@@ -16427,48 +16370,14 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.50 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
-   "crops": [
-    {
-     "bed": "prairie_2123:garden_bed:1",
-     "rows": [
-      [
-       1451.63,
-       -3673.86,
-       1454.71,
-       -3673.84,
-       "pole_bean"
-      ],
-      [
-       1451.63,
-       -3674.52,
-       1454.71,
-       -3674.49,
-       "beet"
-      ],
-      [
-       1451.64,
-       -3675.17,
-       1454.72,
-       -3675.14,
-       "cabbage"
-      ],
-      [
-       1451.64,
-       -3675.82,
-       1454.72,
-       -3675.79,
-       "pole_bean"
-      ]
-     ]
-    }
-   ],
+   "crops": [],
    "shrubs": [],
    "trees": [],
    "creeper": [
@@ -16476,8 +16385,8 @@
      1457.81,
      -3679.04,
      269.54,
-     3.51,
-     4.36
+     2.76,
+     3.58
     ]
    ],
    "beds": []
@@ -16649,51 +16558,51 @@
     {
      "id": "prairie_2127:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1452.59,
-       -3706.49
+       1447.8,
+       -3701.53
       ],
       [
-       1452.61,
-       -3708.59
+       1447.83,
+       -3705.62
       ],
       [
-       1457.09,
-       -3708.56
+       1450.34,
+       -3705.6
       ],
       [
-       1457.07,
-       -3706.45
+       1450.31,
+       -3701.51
       ]
      ],
      "along_deg": 179.56,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_2127:alley_walk:1",
      "kind": "alley_walk",
-     "material": "cinder",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1457.08,
-       -3706.76
+       1450.32,
+       -3702.81
       ],
       [
-       1457.08,
-       -3707.76
+       1450.33,
+       -3703.81
       ],
       [
-       1471.17,
-       -3707.65
+       1471.14,
+       -3703.65
       ],
       [
-       1471.17,
-       -3706.65
+       1471.14,
+       -3702.65
       ]
      ],
      "along_deg": 179.56,
@@ -16707,116 +16616,35 @@
     {
      "id": "prairie_2127:back_door",
      "structure": "flats_2127_prairie",
-     "e": 1452.45,
-     "n": -3707.54,
+     "e": 1447.9,
+     "n": -3703.58,
      "facing_deg": 89.56,
-     "sill_m": 1.4,
+     "sill_m": 0.18,
      "width_m": 0.95,
-     "height_m": 2.2,
+     "height_m": 1.9,
      "leaf": true,
      "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
+      "depth_m": 0.0,
+      "width_m": 1.2,
+      "risers": 1,
+      "run_m": 0.28,
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.18 m up, 1 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],
    "crops": [],
    "shrubs": [
     [
-     1469.98,
-     -3714.66,
+     1470.16,
+     -3705.65,
      "lilac",
-     2.71,
-     2.53
-    ],
-    [
-     1467.48,
-     -3715.18,
-     "lilac",
-     2.97,
-     1.9
+     2.79,
+     2.25
     ]
    ],
-   "trees": [],
-   "creeper": [],
-   "beds": []
-  },
-  {
-   "parcel": "prairie_2130",
-   "addresses": [
-    "2130"
-   ],
-   "street": "prairie",
-   "side": "west",
-   "structures": [
-    "murdoch_house_2130_prairie",
-    "murdoch_house_2130_prairie_coach_house"
-   ],
-   "scheme": "service_court",
-   "grade": "reconstructed",
-   "sources": [],
-   "note": "",
-   "surfaces": [
-    {
-     "id": "prairie_2130:rear_terrace:0",
-     "kind": "rear_terrace",
-     "material": "yard_brick",
-     "polygon_local_m": [
-      [
-       1362.53,
-       -3709.89
-      ],
-      [
-       1362.55,
-       -3712.55
-      ],
-      [
-       1358.06,
-       -3712.59
-      ],
-      [
-       1358.04,
-       -3709.93
-      ]
-     ],
-     "along_deg": 179.45,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    }
-   ],
-   "doors": [
-    {
-     "id": "prairie_2130:back_door",
-     "structure": "murdoch_house_2130_prairie",
-     "e": 1362.72,
-     "n": -3711.22,
-     "facing_deg": 269.45,
-     "sill_m": 1.4,
-     "width_m": 0.95,
-     "height_m": 2.2,
-     "leaf": true,
-     "stoop": {
-      "depth_m": 1.1,
-      "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
-     },
-     "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
-    }
-   ],
-   "posts": [],
-   "crops": [],
-   "shrubs": [],
    "trees": [],
    "creeper": [],
    "beds": []
