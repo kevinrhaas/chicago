@@ -489,6 +489,8 @@ step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
 step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
   node tools/test_jaunt_start_finish.mjs
+step "Jaunt flights and Fly rides rise over the buildings and chimneys in their way (T-3734)" \
+  node tools/test_flight_clearance.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
@@ -533,6 +535,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
   node tools/test_coach_house.mjs
+step "a layer the scene does not list is never downloaded: main.js imports its module on demand and its empty layer is the factory's own (T-3732)" \
+  node tools/test_inert_layers.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \

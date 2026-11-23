@@ -34,6 +34,7 @@
  */
 
 import * as THREE from 'three';
+import { inertContext } from './inert-layers.js';
 
 const FADE_TO = [0.86, 0.87, 0.88];   // a pale, faintly cool grey, in sRGB
 // T-3388: a drawn building (one `group`) gives way whole when placed structures touch at
@@ -452,13 +453,9 @@ function touchesStructure(fps, e, n, w, d, bearing, grow = 1.0) {
 export async function createContext({
   dataBase, sceneId, terrain, footprints = [], confidence = null, detail = 'full', problems = [],
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'context';
-  const out = {
-    group, doc: null,
-    census: { buildings: 0, trees: 0, dropped: 0, triangles: 0, meshes: 0 },
-    pickAt: () => null, setSeason: () => {}, treeStems: () => [], dispose: () => {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertContext();
+  const { group } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {
@@ -585,6 +582,8 @@ export async function createContext({
     return list;
   };
   out.treeStems = treeStems;
+  // T-3734: what a flight must clear, each stand-in's outline and the top of its roof.
+  out.skyline = () => rows.map((r) => ({ pts: corners(r.e, r.n, r.w, r.d, r.bearing), top: r.y0 + r.eave + Math.max(r.rise ?? 0, 0.5) }));
 
   const material = patchFacade(new THREE.MeshStandardMaterial({
     color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, flatShading: true,

@@ -146,9 +146,19 @@ export function clipSeconds(clip) {
   return clip.chars > 0 ? clip.chars / 15 : null;
 }
 
+/**
+ * T-3735 (the owner, 2026-11-23: "if they are on 11-13 ... and you do not have narration for
+ * that then don't play that other wrong narration unless you have the correct one"): `voiced(jaunt)`
+ * says (or resolves to) whether this telling itself is read aloud: the catalog's `narrated`,
+ * from data/narration/voices.json. A clip is found by its words alone, and the tellings of one
+ * jaunt for other ages share words (the title and opening, a stop left as it was), so without
+ * this a telling nobody voiced spoke with another telling's recording. A telling that is not
+ * voiced, or one whose answer cannot be had, offers no Listen key and plays nothing; its words
+ * and its music go on as before.
+ */
 export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), base = AUDIO_BASE,
   speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
-  subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
+  subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null, voiced = () => true } = {}) {
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
   let heard = false;               // the part `at` names has been played or queued once
@@ -156,6 +166,9 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   let ended = null;                // the last clip that played to its end
   let opening = null;              // an outing's opening it showed that has not been heard yet
   const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
+  const retold = new Map();        // T-3735: slot → the other telling whose words it shows now ('none': no voice)
+  const pending = new Set();       // T-3735: slots whose words are being looked up again (no voice until known)
+  const serials = new Map(); let serial = 0;
   const prepared = new Map();      // jaunt id → the content it was prepared for
   const listeners = new Set([onChange]);
   const changed = () => { for (const fn of listeners) { try { fn(); } catch { /* a listener's own problem */ } } };
@@ -190,15 +203,61 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   async function lookUp(jaunt) {
     const found = await readIndex();
     if (!found) return;
+    let own = false;
+    try { own = (await voiced(jaunt)) === true; } catch { own = false; }
+    if (!own) return;   // T-3735: never another telling's voice
     let any = false;
     for (const script of narrationScripts(jaunt)) {
       const words = { sha: await textKey(script.text, subtle), speaker: script.speaker };
+      if (retold.has(slot(jaunt, script.part, script.id))) continue;   // T-3735: an age tab chose its words
       keys.set(slot(jaunt, script.part, script.id), words);
       any ||= !!clipFor(found, words.sha, words.speaker, narrator());
     }
     if (any) changed();
   }
-  const clipAt = key => { const w = keys.get(key); return w ? clipFor(index, w.sha, w.speaker, narrator()) : null; };
+  const clipAt = key => { if (pending.has(key)) return null; const w = keys.get(key); return w ? clipFor(index, w.sha, w.speaker, narrator()) : null; };
+  /**
+   * T-3735 (the owner, 2026-11-23: "when you switch tabs to an age that has its own recording,
+   * it should start playing that recording"): a part of the jaunt being walked now shows the
+   * words of `from`, another telling's part ({ jaunt, part, id }); `null` gives it back its
+   * own words, and `false` shows words no telling has a voice for. The part is then voiced by
+   * that telling's recording where that telling is voiced (`voiced`), and by none where it is
+   * not. When the words it is voiced by change, a voice reading the old ones stops, and the
+   * new one starts if the visitor is at that part with narration audible, as on arriving.
+   */
+  function retell(jaunt, part, id, from = null) {
+    if (!jaunt?.id) return Promise.resolve();
+    const key = slot(jaunt, part, id);
+    const sign = from === false ? 'none' : from?.jaunt?.id ? `${from.jaunt.id}:${from.part}:${from.id}` : '';
+    if ((retold.get(key) ?? '') === sign) return Promise.resolve();
+    if (sign) retold.set(key, sign); else retold.delete(key);
+    pending.add(key);
+    const mine = ++serial; serials.set(key, mine);
+    return (async () => {
+      let words = null;
+      try {
+        const source = from === false ? null : from?.jaunt?.id ? from : { jaunt, part, id };
+        if (source && await readIndex() && (await voiced(source.jaunt)) === true) {
+          const script = narrationScripts(source.jaunt).find(s => s.part === source.part && s.id === source.id);
+          if (script) words = { sha: await textKey(script.text, subtle), speaker: script.speaker };
+        }
+      } catch { words = null; }
+      if (serials.get(key) !== mine) return;
+      pending.delete(key);
+      const before = keys.get(key)?.sha ?? null;
+      if (words) keys.set(key, words); else keys.delete(key);
+      if ((words?.sha ?? null) !== before) {
+        if (queued === key) queued = null;
+        if (playing === key) stop();
+        if (at === key) heard = false;
+      }
+      if (at === key && !heard && clipAt(key) && speech()?.audible) {
+        heard = true;
+        if (!playing) start(key); else if (playing !== key) queued = key;
+      }
+      changed();
+    })();
+  }
   const clip = (jaunt, part, id) => clipAt(slot(jaunt, part, id));
 
   function element() {
@@ -279,7 +338,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     return true;
   }
   return {
-    prepare, clip, prime,
+    prepare, clip, prime, retell,
     get state() { return { index: index ? Object.keys(index.clips).length : failed ? 'unavailable' : 'pending', playing, paused, queued, at, error, primed }; },
     pause, resume,
     /** T-3671: whether a voice of this jaunt is speaking (or held), and held: for the panel's Pause key. */

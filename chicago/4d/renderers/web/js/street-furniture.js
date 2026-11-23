@@ -34,6 +34,7 @@
  */
 
 import * as THREE from 'three';
+import { inertStreetFurniture } from './inert-layers.js';
 import { onDaylight } from './time-of-day.js';
 import { glowTexture, windowGlowFor } from './night-lights.js';
 
@@ -427,13 +428,9 @@ function itemCard(it, doc) {
 export async function createStreetFurniture({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'street-furniture';
-  const stats = { items: 0, lamps: 0, hydrants: 0, near: 0, far: 0, hydrantsDrawn: 0, triangles: 0, drawCalls: 0, detail };
-  const out = {
-    group, stats, records: [],
-    pickAt: () => null, update() {}, setDetail() {}, cardFor: () => null, dispose() {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertStreetFurniture({ detail });
+  const { group, stats } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {

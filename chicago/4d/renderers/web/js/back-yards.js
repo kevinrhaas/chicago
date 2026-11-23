@@ -61,6 +61,7 @@
  */
 
 import * as THREE from 'three';
+import { inertBackYards } from './inert-layers.js';
 import { patchSeason } from './season.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import { KINDS as CROP_KINDS, growTemplate, seasonLook, cropAtlas } from './gardens.js';
@@ -772,16 +773,9 @@ export async function createBackYards({
   lowSpec = false, season = 'summer', bedOf = null, sharedMaps = null, doc: given = null, checkpoint = () => null,
   onGeometry = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'back-yards';
-  const stats = { lots: 0, surfaces: 0, doors: 0, stoops: 0, posts: 0, crops: 0, plants: 0, triangles: 0,
-    drawCalls: 0, meshes: 0, chunks: 0, textured: 0, flat: 0, fixtureBoxes: 0, detail, season };
-  const out = {
-    group, stats, records: [], doc: null,
-    pickAt: () => null, cardFor: () => null, update() {}, setDetail() {}, setSeason() {}, settle() {}, dispose() {},
-    /** The stoops as walker decks (stoopDecks), laid once with the first fixtures. */
-    stairDecks: [],
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertBackYards({ detail, season });
+  const { group, stats } = out;
   if ((!dataBase && !given) || !terrain) return out;
   let doc = given;
   if (!doc) {
