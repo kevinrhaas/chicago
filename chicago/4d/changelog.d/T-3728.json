@@ -1,0 +1,10 @@
+{
+  "title": "1904 no longer freezes for seconds on modest computers",
+  "kind": "fix",
+  "items": [
+    "The grass between the lakefront railway's tracks is placed by a much faster lookup, so 1904's longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC. Every tuft stands where it stood before.",
+    "The town broughams' cab windows are drawn as plain thin glass, so the first carriage you meet no longer freezes the page for many seconds, and the town is no longer drawn twice while one is in view.",
+    "Whatever first comes into view, such as a jaunt's people or the place it flies to, is prepared in the background and appears a moment later instead of stopping the picture.",
+    "When a jaunt changes the season, the buildings, yards and rails take the new season once it is ready, without a pause."
+  ]
+}

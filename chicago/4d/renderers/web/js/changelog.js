@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 3211, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: '1904 walks faster on everyday computers', kind: 'improvement',
+    items: [
+      'Walking down Prairie Avenue in 1904 on a computer with built-in graphics, each frame now takes about a third less time: 47 ms where it took 70 in our test.',
+      'The town looks exactly the same: every building piece is drawn as before, in the same order, and people, horses and carriages are untouched.',
+      'Name cards over people no longer make the page re-measure itself every frame.',
+    ] },
+  { v: 3210, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: 'Walking runs smoother on low-powered computers', kind: 'improvement',
+    items: [
+      'On a low-powered computer, such as one with built-in graphics, the picture is drawn a little softer while you move, and the sun\'s shadows refresh every other frame.',
+      'Walking 1904 on a test computer of this class went from about 10 to about 12 frames a second.',
+      'When you stop, the view is back at full sharpness with every shadow, and nobody in town is left out.',
+    ] },
+  { v: 3209, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: 'Two 1904 jaunts open at the Fort Dearborn monument', kind: 'feature',
+    items: [
+      'The Bronze at Eighteenth Street jaunt, and each of its retellings for younger and older readers, can now be walked. It visits Rohl-Smith\'s 1893 monument where it stood on 18th Street by Calumet Avenue.',
+      'The Every Building Modelled So Far jaunt, which stops at the monument, can now be walked too.',
+    ] },
   { v: 3208, ts: '2026-11-23T03:40:14.660Z', date: 'Nov 22, 2026, 9:40 PM CT', title: '2123 Prairie: a brownstone front, a stone bow, a slated mansard', kind: 'feature',
     items: [
       '2123 Prairie is rebuilt from its rough draft. It is now a brick house with a brown stone front, read off the 1911 fire-insurance map and the right-hand edge of the Armour photograph: a stone bow on the north half of the front, round-headed windows on both floors, a deep cornice, and a slated mansard with dormers and iron cresting round its top. The two-storey back range stands behind it.',
