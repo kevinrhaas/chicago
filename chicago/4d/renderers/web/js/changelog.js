@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3208, ts: '2026-11-23T03:40:14.660Z', date: 'Nov 22, 2026, 9:40 PM CT', title: '2123 Prairie: a brownstone front, a stone bow, a slated mansard', kind: 'feature',
+    items: [
+      '2123 Prairie is rebuilt from its rough draft. It is now a brick house with a brown stone front, read off the 1911 fire-insurance map and the right-hand edge of the Armour photograph: a stone bow on the north half of the front, round-headed windows on both floors, a deep cornice, and a slated mansard with dormers and iron cresting round its top. The two-storey back range stands behind it.',
+    ] },
   { v: 3207, ts: '2026-11-22T23:34:03.603Z', date: 'Nov 22, 2026, 5:34 PM CT', title: 'The finished Robbins house at 2126 Prairie, as a version', kind: 'feature',
     items: [
       '2126 Prairie still stands as a building site on 1 July 1904, but its finished front can now be opened beside it: add ?structure=robbins_house_2126_prairie&version=completed to the 1904 address.',
