@@ -933,8 +933,12 @@ export function createWorld({
   const groundDome = new THREE.Mesh(groundGeo, groundMat);
   groundDome.renderOrder = -1;
   // T-2481: baked again whenever the Season setting moves the sun.
+  // T-3728 (Bill's PC, 2026-11-23): ONE generator, kept. A new one each bake made its
+  // blur and filtering shaders afresh and `dispose` let their programs go, so every Season
+  // or hour change (a jaunt's own season, at its start) linked them again inside the frame:
+  // about 1.3 s of the jaunt start on the UHD 630. Kept, the second bake is draws only.
+  const pmrem = new THREE.PMREMGenerator(renderer);
   const bakeEnvironment = () => {
-    const pmrem = new THREE.PMREMGenerator(renderer);
     const envScene = new THREE.Scene();
     const skyParent = sky.parent;
     sky.material.uniforms.showSunDisc.value = false;
@@ -943,7 +947,6 @@ export function createWorld({
     const rt = pmrem.fromScene(envScene);
     skyParent.add(sky);
     sky.material.uniforms.showSunDisc.value = true;
-    pmrem.dispose();
     return rt;
   };
   let envRT = bakeEnvironment();
@@ -1347,6 +1350,7 @@ export function createWorld({
     setSunTime(time) { return this.setSun({ time: time || '' }); },
     dispose() {
       envRT.dispose();
+      pmrem.dispose();
       groundGeo.dispose();
       groundMat.dispose();
       sky.geometry.dispose();
