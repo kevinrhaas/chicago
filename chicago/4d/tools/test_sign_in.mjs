@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
-import { entryWrites, fromFields, deviceClass, autoId } from '../renderers/web/js/visitor-store.js';
+import { entryWrites, fromFields, deviceClass, autoId, MESSAGE_FIELDS } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
 
 const FULL = { apiKey: 'k', authDomain: 'p.firebaseapp.com', projectId: 'p', appId: 'a' };
@@ -87,7 +87,8 @@ const doc = readFileSync(new URL('../docs/SIGN-IN.md', import.meta.url), 'utf8')
 const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(/'([^']+)'/g).map(s => s.slice(1, -1)).sort());
 // T-3645 added readers/<uid> (the reading age), whose list tools/test_reading_level.mjs holds;
 // T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
-assert.equal(lists.length, 4, 'docs/SIGN-IN.md holds the visitors, readers, visits and people hasOnly lists');
+// T-3741 messages/<id>, the public contact page's (site/js/contact.js), checked below.
+assert.equal(lists.length, 5, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages and people hasOnly lists');
 const visitorRule = lists.find((l) => l.includes('firstSeen'));
 const visitRule = lists.find((l) => l.includes('uid'));
 assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');
@@ -101,6 +102,15 @@ assert.match(w.every[1].update.name, /\/documents\/visits\/v1$/);
 assert.deepEqual(w.first[0].currentDocument, { exists: false }, 'first-seen lands only once');
 assert.deepEqual(w.every[0].updateMask.fieldPaths.sort(), Object.keys(w.every[0].update.fields).sort(), 'the update touches only what it sends');
 assert.equal(w.every[1].update.fields.uid.stringValue, 'u1', 'a visit names its own visitor (the rule checks it)');
+
+// T-3741: the contact page writes exactly the messages rule's fields, to the same project.
+const messageRule = lists.find((l) => l.includes('message'));
+assert.deepEqual(messageRule, [...MESSAGE_FIELDS].sort(), 'messages/<id> rule lists the fields the visitors page reads');
+const contact = readFileSync(new URL('../../../site/js/contact.js', import.meta.url), 'utf8');
+const sent = contact.match(/fields: \{([\s\S]*?)\} \}\)/)[1].match(/\b([a-z]+): /g).map(s => s.slice(0, -2)).filter(k => !['stringValue', 'timestampValue'].includes(k)).sort();
+assert.deepEqual(sent, messageRule, 'site/js/contact.js writes exactly the fields the messages rule allows');
+assert.ok(contact.includes(`var PROJECT = '${SIGN_IN.firebase.projectId}'`), 'the contact page writes to the sign-in project');
+assert.ok(contact.includes(`KEY = '${SIGN_IN.firebase.apiKey}'`), 'with its public web key');
 
 // Reading back.
 assert.deepEqual(fromFields({ a: { stringValue: 'x' }, n: { integerValue: '3' }, y: { arrayValue: { values: [{ stringValue: '1904' }] } }, t: { timestampValue: '2026-11-13T00:00:00Z' } }),
