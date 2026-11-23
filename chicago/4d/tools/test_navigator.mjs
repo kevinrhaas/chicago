@@ -1658,6 +1658,19 @@ console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each 
   // A fresh public link to the same person must open it again.
   await inspect.shown(panel, { ...ctx, link: { ...link } }); await flush();
   assert.equal(panel.querySelector('.insp-person-card')?.dataset.personId, personId);
+  const personBack = () => panel.querySelector('.insp-person-card [data-person-back]');
+  assert.ok(personBack().focused > 0, 'a person card the visitor asked for takes focus');
+  // Kevin, 2026-11-23: a card opened because the visitor walked up to someone (link.quiet)
+  // leaves focus on the town, so WASD keeps walking; the same person picked later takes it.
+  panel.dispatch('click', { currentTarget: panel, target: personBack() });
+  await inspect.shown(panel, { ...ctx, link: { ...link, quiet: true } }); await flush();
+  assert.equal(panel.querySelector('.insp-person-card')?.dataset.personId, personId, 'a walked-into card still opens');
+  assert.equal(personBack().focused, 0, 'a walked-into card takes no focus');
+  assert.equal(panel._insp.quiet, true);
+  panel.dispatch('click', { currentTarget: panel, target: personBack() });
+  await inspect.shown(panel, { ...ctx, link: { ...link } }); await flush();
+  assert.equal(panel._insp.quiet, false);
+  assert.ok(personBack().focused > 0, 'picked by hand afterwards, the same card takes focus again');
   await inspect.shown(panel, { ...ctx, selected: 'glessner_house', link: { app: 'inspect', id: 'glessner_house', tab: 'people' } }); await flush();
   assert.equal(panel._insp.person, null, 'a different building must reset the person selection');
   assert.equal(panel.querySelector('.insp-person-card'), null);

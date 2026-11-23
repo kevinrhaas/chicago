@@ -506,7 +506,7 @@ await assert.rejects(() => actualAssemblyCallback(oldNullDirectory).make(actualD
 await assert.rejects(() => actualAssemblyCallback(sceneBindingSource).make({ ...actualDriverRow, driver_instance: { ...actualDriverRow.driver_instance, person_id: 'no_such_hans' } }), /not in sidecars/, 'No anonymous or invented-person fallback');
 // Execute actual shared public opener:1904 card targets Hans in his own building,
 // whose native Navigator household reader already uses residents_root.
-const openBegin = mainSource.indexOf('async function openSceneDirectoryPerson(id) {');
+const openBegin = mainSource.indexOf('async function openSceneDirectoryPerson(id');
 const openEnd = mainSource.indexOf('\n  async function openPersonCard', openBegin);
 assert(openBegin >= 0 && openEnd > openBegin);
 const opened = [], cardOpen = new Function('peopleDirectory', 'loaded', 'openBuilding', 'navigatorUi', mainSource.slice(openBegin, openEnd) + '\nreturn openSceneDirectoryPerson;')(
@@ -514,6 +514,9 @@ const opened = [], cardOpen = new Function('peopleDirectory', 'loaded', 'openBui
   (id, options) => { opened.push({ id, ...options }); return true; }, { select: () => true });
 assert.equal(await cardOpen(named.personId), true);
 assert.deepEqual(opened, [{ id: 'otis_house_2033_prairie', person: named.personId }]);
+// A card opened because the visitor walked up to them says so (it opens without holding the walk).
+opened.length = 0; assert.equal(await cardOpen(named.personId, { approach: true }), true);
+assert.deepEqual(opened, [{ id: 'otis_house_2033_prairie', person: named.personId, approach: true }]);
 assert(!mainSource.slice(mainSource.indexOf('// 1904 uses its existing scene-aware'), mainSource.indexOf("// …and the town's FIRMS")).includes('state:'), 'Adapter never synthesizes a card-open state');
 console.log('1904 actual392-person catalog: lazy eligible namedHans identity, native scene-aware card/Find path, no human-layer population or anonymous fallback PASS');
 // The real native person renderer exposes Find only through the supplied public
@@ -546,7 +549,7 @@ assert.equal(await findNativePerson(named.personId), true);
 assert.deepEqual(targets.map(({ kind, id }) => ({ kind, id })), [{ kind: 'person', id: named.personId }]);
 assert.equal(targets[0].home, named.person.lives_at, 'Find carries the house to fall back on');
 // Execute the exact1835 branch with the existing visible-tab fallback guard.
-const sharedBegin = mainSource.indexOf('async function openPersonCard(id) {'), sharedEnd = mainSource.indexOf('\n  // T-2618:', sharedBegin);
+const sharedBegin = mainSource.indexOf('async function openPersonCard(id'), sharedEnd = mainSource.indexOf('\n  // T-2618:', sharedBegin);
 const legacyCalls = [], sharedOpen = new Function('api', 'document', 'hud', 'openSceneDirectoryPerson', mainSource.slice(sharedBegin, sharedEnd) + '\nreturn openPersonCard;')(
  { people: { open: id => { legacyCalls.push(['open', id]); return true; } } },
  { querySelector: () => ({ hidden: false }) }, { setPanel: on => legacyCalls.push(['panel', on]), selectTab: tab => legacyCalls.push(['tab', tab]) }, () => { throw Error('visible1835 branch must not change'); });

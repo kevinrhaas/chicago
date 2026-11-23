@@ -30,6 +30,7 @@
 import { readingChoice, LEVEL_IDS, levelLabel } from './reading-level.js';
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
+import { autoPacing, autoAntialias, autoGraphicsLine, storedPacing, storedAntialias } from './graphics-settings.js'; // T-3736
 import { NARRATORS, normalNarrator } from './narrators.js'; // T-3627: not the player itself
 import { MOTION_CHOICES, MOTION_LABELS, motionChoice, setMotionChoice, onMotionChange } from './motion.js'; // T-3671
 import { LETTER_KEY_CHOICES, LETTER_KEY_LABELS, letterKeysChoice, setLetterKeys, onLetterKeysChange } from './letter-keys.js'; // T-3671, WCAG 2.1.4
@@ -219,25 +220,30 @@ const SHARP_WORD = Object.freeze({ 1: 'Low', 1.5: 'Medium', 2: 'High' });
 export function autoChoice(device) {
   const c = device?.choice;
   if (!c || !DETAIL_WORD[c.detail] || !SHARP_WORD[Number(c.sharpness)]) return null;
-  return { detail: c.detail, quality: Number(c.sharpness), governor: 'adaptive' };
+  // T-3736: and Fast pacing with antialiasing off on a weak computer (main.js sets weakDesktop).
+  const weakDesktop = !!device?.weakDesktop;
+  return { detail: c.detail, quality: Number(c.sharpness), pacing: autoPacing(weakDesktop),
+    antialias: autoAntialias(weakDesktop), weakDesktop };
 }
 
 /** "Auto for this device: Full detail, Medium sharpness, adaptive pacing." */
 export function autoLine(choice) {
   if (!choice) return '';
-  return str('settings.auto.line', { detail: DETAIL_WORD[choice.detail], sharpness: SHARP_WORD[choice.quality] });
+  return autoGraphicsLine(choice);
 }
 
-/** On Auto: the visitor has chosen neither detail nor sharpness, and pacing is adaptive. */
+/** On Auto: the visitor has chosen none of detail, sharpness, pacing and antialiasing. */
 export function onAuto(settings) {
-  return !settings?.detail && !settings?.quality && (settings?.governor || 'adaptive') === 'adaptive';
+  return !settings?.detail && !settings?.quality && !storedPacing(settings) && !storedAntialias(settings);
 }
 
 /** Put the settings back on Auto: no stored detail or sharpness, adaptive pacing. */
 export function useAuto(settings) {
   settings.detail = '';
   settings.quality = '';
-  settings.governor = 'adaptive';
+  settings.pacing = '';
+  settings.antialias = '';
+  delete settings.governor;
   return settings;
 }
 
@@ -533,15 +539,17 @@ export function wireSettingsApp({
     if (!auto) return;
     useAuto(settings);
     save();
-    const selects = { 's-detail': auto.detail, 's-quality': String(auto.quality), 's-governor': 'adaptive' };
+    const selects = { 's-detail': auto.detail, 's-quality': String(auto.quality), 's-governor': auto.pacing,
+      's-antialias': auto.antialias };
     for (const [id, value] of Object.entries(selects)) { const el = $(id); if (el) el.value = value; }
     onSetting?.('detail', auto.detail);
     onSetting?.('quality', auto.quality);
-    onSetting?.('governor', 'adaptive');
+    onSetting?.('pacing', '');
+    onSetting?.('antialias', '');
     paintAuto();
   });
   // A choice made by hand leaves Auto; the HUD stores it first (its listener came first).
-  for (const id of ['s-detail', 's-quality', 's-governor']) $(id)?.addEventListener('change', () => paintAuto());
+  for (const id of ['s-detail', 's-quality', 's-governor', 's-antialias']) $(id)?.addEventListener('change', () => paintAuto());
   paintAuto();
 
   // ---- Sound: five levels; main.js hands each move to js/sound.js (T-2659).

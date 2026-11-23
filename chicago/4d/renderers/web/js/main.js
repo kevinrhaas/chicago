@@ -176,7 +176,8 @@ import { spotTarget } from './photos-tab.js';
 import { createWhere, screenDate, spokenDay } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
-import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { createFrameGovernor, GOVERNOR } from './frame-governor.js';
+import { isWeakDesktop, resolveAntialias, resolvePacing, describeDrawing } from './graphics-settings.js'; // T-3736
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
@@ -1726,6 +1727,11 @@ function readDetailPreference() {
 }
 
 /** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+/** T-3736: the stored settings as they are on disk, for the choices read before the HUD. */
+function readStoredSettings() {
+  try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { return {}; }
+}
+
 function readQualityPreference() {
   try {
     return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
@@ -2181,10 +2187,19 @@ async function boot() {
    * i5-10400 / UHD 630) draws without multisampling. Measured on that PC, 1904 Balanced:
    * standing 16.6 -> 20.2 fps, at jaunt stops 15.2-17.3 -> 17.2-18.4, over the closing
    * overlook 12.1-12.5 -> 13.2-14.6. Every other device keeps it, as T-0157 above set it.
-   * `?msaa=1` keeps it on a weak computer too, for comparison.
+   * `?msaa=1` keeps it on a weak computer too, for comparison. T-3736 makes it the Auto of
+   * Settings › Graphics › Antialiasing, below.
    */
-  const weakDesktop = device.cls === 'weak' && !coarse && !headset;
-  const multisample = !weakDesktop || params.get('msaa') === '1';
+  /**
+   * T-3736: Settings › Graphics › Antialiasing (graphics-settings.js). Auto is on, as above,
+   * except on a weak computer, where it is off (about 3 fps standing on the owner's UHD 630
+   * test PC); a visitor's On or Off beats Auto, and `?msaa=1` / `?msaa=0` beat both. The
+   * context is made once, so a change takes effect on the next load and the Drawing now line
+   * says so. `weakDesktop` is also what Auto's Fast pacing reads (T-3728).
+   */
+  const weakDesktop = isWeakDesktop(device, { coarse, headset });
+  device.weakDesktop = weakDesktop;
+  const multisample = resolveAntialias(readStoredSettings(), weakDesktop, params);
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: multisample,
@@ -2237,10 +2252,19 @@ async function boot() {
   // frame at a lower resolution and the sun's shadow every second moving frame,
   // and its still frames a little softer too (captures and photos stay full),
   // rather than losing anything; a phone or headset keeps the governor as it was.
-  const governor = createFrameGovernor({ tier: detailLevel, weak: weakDesktop,
-    onChange: (state) => {
-      if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
-    } });
+  // T-3736: that is Settings' Fast pacing now — Auto's pick on a weak computer, and
+  // anyone's to choose (graphics-settings.js resolvePacing).
+  const bootPacing = resolvePacing(readStoredSettings(), weakDesktop);
+  // T-3736: the Drawing now line — detail, sharpness moving and still, antialiasing.
+  let drawingQuality = null;
+  const paintDrawing = (state = governor.state) => {
+    if (!governorLine) return;
+    governorLine.textContent = describeDrawing({ detail: detailLevel, state, multisample,
+      quality: drawingQuality ?? sharpnessCap, pendingAntialias: resolveAntialias(readStoredSettings(), weakDesktop, params) ? 'on' : 'off',
+      weakScale: GOVERNOR.weakScale, weakStillScale: GOVERNOR.weakStillScale });
+  };
+  const governor = createFrameGovernor({ tier: detailLevel, weak: bootPacing === 'fast',
+    enabled: bootPacing !== 'fixed', onChange: (state) => paintDrawing(state) });
   function applySharpness(value) {
     if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
     const ratio = sharpnessCap * governor.scale;
@@ -3991,6 +4015,7 @@ async function boot() {
       api.trees = trees;
       if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       detailLevel = level;
+      paintDrawing();
       blackbox.log('detail', { to: level });
       residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
@@ -4050,6 +4075,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    paintDrawing();
     contextCity.setDetail?.(level);
     blackbox.log('detail', { to: level });
     residency?.setTier(level);
@@ -4360,7 +4386,10 @@ async function boot() {
     // T-3573: following someone, the town is what to look at (Follow put the card away), so
     // walking up behind them, or past anyone, opens no card.
     if (approach && api.follow?.active) return;
-    if (!draws('residents')) { void openPersonCard(personId); return; }
+    // Kevin, 2026-11-23 ("the card if it was auto opened should close or not prevent you from
+    // moving around"): a card the visitor walked into opens beside the walk, never holding it,
+    // and goes again when they walk on (`closeApproachCard`, on `leave`).
+    if (!draws('residents')) { void openPersonCard(personId, { approach: !!approach }); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
@@ -4840,9 +4869,12 @@ async function boot() {
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
         applySharpness(value);
-      } else if (key === 'governor') {
-        governor.setEnabled(value !== 'fixed');
-        applySharpness();
+        drawingQuality = Number(value) || drawingQuality;
+        paintDrawing();
+      } else if (key === 'pacing') {
+        applyPacing(resolvePacing(hud.settings, weakDesktop));
+      } else if (key === 'antialias') {
+        paintDrawing();
       } else if (key === 'detail') {
         crashGuard.chosen('detail');
         applyDetail(value);
@@ -5223,7 +5255,8 @@ async function boot() {
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
   applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
-  governor.setEnabled(hud.settings.governor !== 'fixed');
+  drawingQuality = crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess);
+  applyPacing(resolvePacing(hud.settings, weakDesktop));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -5773,9 +5806,13 @@ async function boot() {
   // railway) and behind `pick`, the harness's reading of a record. Inspect opened this way
   // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
   // it go, back to where the Navigator was (docked, if it was docked).
-  let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
+  let handInspect = null; // { id, wasLevel, opening, approach } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null, photo = null } = {}) {
+  // `approach`: the person card opened because the visitor walked up to someone (humans.js
+  // `open` with approach). It is shown, not held: the pointer stays locked, focus stays on
+  // the town so WASD still walks, E and a click aim at the town as usual, and walking out of
+  // the person's reach puts it away. Clicking or tabbing into it makes it the visitor's own.
+  function openBuilding(id, { person = null, photo = null, approach = false } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -5784,29 +5821,53 @@ async function boot() {
     const inspecting = !!handInspect && navigatorUi.app === 'inspect';
     // `opening` until Inspect is on screen: the device passes through other states on its way
     // there (a first open loads Inspect), and those must not let the building go.
-    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
+    const quiet = !!(approach && person);
+    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true, approach: quiet ? person : null };
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
     // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
-    const link = person ? { app: 'inspect', id, tab: 'people', person }
+    const link = person ? { app: 'inspect', id, tab: 'people', person, ...(quiet ? { quiet: true } : {}) }
       : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
     });
-    // The panel is read and clicked, as the card was: the mouse is let go.
-    if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+    // The panel is read and clicked, as the card was: the mouse is let go. Not for a card
+    // the visitor walked into: they are still walking (Kevin, 2026-11-23).
+    if (!quiet && document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
     return { id, record };
   }
+  /** The person a walked-into card shows is still within their reach of the visitor. */
+  function approachNear(personId) {
+    const a = api.humans?.get?.(personId);
+    const r = a?.instance?.interaction?.radius_m;
+    return !!(a && r && Math.hypot(a.e - walker.state.e, a.n - walker.state.n) <= r);
+  }
+  /** Put away a card that opened because the visitor walked up to `personId`. */
+  function closeApproachCard(personId) {
+    if (!handInspect?.approach || handInspect.approach !== personId) return false;
+    return releaseInspect();
+  }
+  /** Clicking or tabbing into a walked-into card makes it the visitor's own: it holds as one they opened. */
+  function claimApproachCard(e) {
+    if (handInspect?.approach && e.target?.closest?.('#navigator')) handInspect.approach = null;
+  }
+  window.addEventListener('pointerdown', claimApproachCard, { capture: true });
+  window.addEventListener('focusin', claimApproachCard);
+  api.humans?.on?.('leave', ({ personId }) => { if (personId) closeApproachCard(personId); });
   /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
   const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
   // Held from the moment it is asked for, so Esc or the key a moment later lets it go even
   // while Inspect is still on its way (a slow frame, or its first load).
-  const inspectingByHand = () => !!handInspect && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
+  // A card the visitor walked into is not held (openBuilding `approach`).
+  const inspectingByHand = () => !!handInspect && !handInspect.approach && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
   function letGo(was) {
     if (navigatorUi?.app !== 'inspect') return false;
-    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
+    if (was.wasLevel === 0) navigatorUi.closeApp();
+    // Back by hand puts focus in the screen it goes to; one walked away from must not.
+    else if (was.approach) void navigatorUi.select(navigatorUi.backTo().id);
+    else void navigatorUi.back();
     return true;
   }
   function releaseInspect() {
@@ -6856,10 +6917,10 @@ async function boot() {
   }
   // One public person-card route for figure picks, firms, Go to and Navigator.
   // The existing later-scene reader follows the directory's own residents_root.
-  async function openSceneDirectoryPerson(id) {
+  async function openSceneDirectoryPerson(id, { approach = false } = {}) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     const at = [row?.lives_at, row?.works_at].find(s => s && loaded.registry.has(s));
-    if (at) return !!openBuilding(at, { person: id });
+    if (at) return !!openBuilding(at, approach ? { person: id, approach } : { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
   async function findSceneDirectoryPerson(id) {
@@ -6882,11 +6943,13 @@ async function boot() {
   function personCardOpen() {
     return [...document.querySelectorAll('.insp-person-card, .people-card-name')].some((n) => n.checkVisibility?.() ?? n.offsetParent !== null);
   }
-  async function openPersonCard(id) {
+  async function openPersonCard(id, { approach = false } = {}) {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
       hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
     }
-    const opened = await openSceneDirectoryPerson(id);
+    const opened = await openSceneDirectoryPerson(id, { approach });
+    // A visitor who walked past before the directory answered gets no card at all.
+    if (opened && approach && handInspect?.approach === id && !approachNear(id)) closeApproachCard(id);
     if (opened && momentSelectedPerson?.id !== id) rememberMomentPerson(id);
     return opened;
   }
@@ -8159,9 +8222,17 @@ async function boot() {
    * it in sight (12-15 fps on the UHD 630), and a hover is a camera that does not move, so it
    * was drawn as a still frame. On a weak computer it is drawn as the flight up to it is, at
    * the moving sharpness, until the visitor comes down. A capture or a photo still rests.
+   * T-3736: it follows Settings' Fast pacing (Auto on a weak computer), not the class alone.
    */
-  const weakOverlook = () => weakDesktop && !!walker.state.flying
+  const weakOverlook = () => governor.fast && !!walker.state.flying
     && ['closing', 'outcome'].includes(api.jaunts?.state?.phase);
+  /** T-3736: Frame pacing — Adaptive, Fast or Fixed — to the governor and the line. */
+  function applyPacing(pacing) {
+    governor.setFast(pacing === 'fast');
+    governor.setEnabled(pacing !== 'fixed');
+    applyGovernor();
+    paintDrawing();
+  }
   /** The governor's decision for the frame about to be drawn, put in force. */
   function applyGovernor() {
     applySharpness();
