@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling with a stone front (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-3724 (piece 2 of T-1930, the S18 package of the T-1837 programme) refines the district draft (T-2352) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a brown sandstone front, K06 round-headed sash, a K07 round-arched double door and stoop, a K08 stone bow and frame side bay, a K10 moulded cornice, a K05 slated mansard with dormers and the deck's iron cresting, and the attached two-storey rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size ('3B', brick with a stone front bowed over its north half, the key's dashed mansard line round the whole body, the entrance corner cut back at the south-west, a small frame bay on the north flank, the '2B' rear range) and the Armour photograph (data/sources/chicagology_2115_armour_photo.json), whose right edge shows the north half of this front and its north flank. The camera, the photo-match and the image-gate sign-off are T-3725's. Liberty L-k01-2123-prairie-3724; review: docs/RESEARCH/k01-2123-prairie-3724/README.md.",
+  "research_note": "T-3724 (piece 2 of T-1930, the S18 package of the T-1837 programme) refines the district draft (T-2352) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a brown sandstone front, K06 round-headed sash, a K07 round-arched double door and stoop, a K08 stone bow and frame side bay, a K10 moulded cornice, a K05 slated mansard with dormers and the deck's iron cresting, and the attached two-storey rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size ('3B', brick with a stone front bowed over its north half, the key's dashed mansard line round the whole body, the entrance corner cut back at the south-west, a small frame bay on the north flank, the '2B' rear range) and the Armour photograph (data/sources/chicagology_2115_armour_photo.json), whose right edge shows the north half of this front and its north flank. T-3725 solved the photograph's camera on this house and re-read its heights, dormers and stack through it (data/reference_views/house_2123_prairie/); the image-gate sign-off waits on the two differences its match record leaves open. Liberty L-k01-2123-prairie-3724; review: docs/RESEARCH/k01-2123-prairie-3724/README.md.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -91,7 +91,7 @@
             "fabric": "sandstone_brown",
             "dressing": "smooth",
             "trim_fabric": "dressed_trim",
-            "rusticated_base_courses": 2,
+            "rusticated_base_courses": 4,
             "coping_height_m": 0.23,
             "corner_bond": []
           },
@@ -100,26 +100,26 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2115_armour_photo"
           ],
-          "note": "The sheet's blue band makes the front stone. The Armour photograph shows it far darker than 2115's pale limestone beside it in the same light (x 1720-2000 px against x 820-1530), and smooth, with dressed mouldings round the lights: read as brown sandstone, the dark stone of the avenue's fronts of the 1870s. Which quarry cannot be read off a halftone."
+          "note": "The sheet's blue band makes the front stone. The Armour photograph shows it far darker than 2115's pale limestone beside it in the same light (x 1720-2000 px against x 820-1530), and smooth, with dressed mouldings round the lights: read as brown sandstone, the dark stone of the avenue's fronts of the 1870s. Which quarry cannot be read off a halftone. T-3725: the rusticated base runs four courses (0.44 m each) up to the basement lights' heads, 2.0 m over grade as the camera reads them."
         },
         "principal_floor_m": {
-          "value": 1.8,
+          "value": 2.55,
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's basement storey: the principal lights' sills stand about 1.8 m over the walk's kerb at the photograph's scale at this front (about 65 px a metre, from the principal lights taken as 2.6 m, x 1760-1890, y 860-1030 px); the garden kerb hides the grade itself."
+          "note": "The photograph's basement storey, read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade): the principal lights' sills stand 2.88 m over grade (y 1015 px), so the floor at 2.55 m under the record's 0.3 m sill. T-3724 had 1.8 m, read at an assumed 65 px a metre; the garden kerb hides the grade itself, so the grade is the camera's (the eye's height under its horizon)."
         },
         "storey_heights_m": {
           "value": [
-            4.0,
-            3.8
+            4.5,
+            4.6
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "Off the photograph at about 65 px a metre: sill to sill 260 px between the principal and chamber storeys (4.0 m), and about 240 px from the chamber sills to the cornice's bed (3.7 m), taken to 3.8 m so the round heads' keys clear the frieze."
+          "note": "Read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade): the principal and chamber lights' sills at 2.88 and 7.39 m (y 1015 and 752 px), a storey of 4.5 m; the cornice's frieze, blocks and corona standing over the chamber lights' heads as the print draws them (the corona's top at about y 506 px, the frieze's foot at about y 575), so the chamber storey 4.6 m to the wall head, as 2115's beside it is 4.5 m. T-3724's 4.0 and 3.8 m stood the cornice about 2 m low against the picture."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -226,13 +226,13 @@
         "mansard": {
           "value": {
             "variant": "k05.roof.mansard_convex",
-            "lower_rise_m": 3.0,
+            "lower_rise_m": 3.5,
             "bulge": 0.0,
             "lower_pitch_deg": 75,
             "dormers": [
               {
                 "face": "street",
-                "along_m": 2.8,
+                "along_m": 3.6,
                 "head": "round",
                 "sash": {
                   "variant": "k06.opening.sash_round_fanlight",
@@ -245,7 +245,7 @@
               },
               {
                 "face": "street",
-                "along_m": 5.75,
+                "along_m": 5.5,
                 "head": "round",
                 "sash": {
                   "variant": "k06.opening.sash_round_fanlight",
@@ -258,7 +258,7 @@
               },
               {
                 "face": "south",
-                "along_m": 11.0,
+                "along_m": 18.9,
                 "head": "round",
                 "sash": {
                   "variant": "k06.opening.sash_round_fanlight",
@@ -282,7 +282,7 @@
             "chicagology_2115_armour_photo",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "Off the photograph: a straight-faced slated mansard about 3 m high (y 320-510 px), two round-headed dormers on the street face over the bow and the light beside it (x 1840-1865 and 1915-1950, y 400-490 px), one on the north flank part way back (x 1580-1615, y 425-470 px; K01 names that face 'south', the house being turned to front west), and iron cresting with small finials round the deck (y 290-320 px). The photograph stops short of the door's end of the front, so no third street dormer is built; how many more stand on the north flank behind the one it shows cannot be read. The deck's 0.5 m cresting is the kit's."
+          "note": "Off the photograph: a straight-faced slated mansard about 3 m high (y 320-510 px), two round-headed dormers on the street face over the bow and the light beside it (x 1840-1865 and 1915-1950, y 400-490 px), one on the north flank part way back (x 1580-1615, y 425-470 px; K01 names that face 'south', the house being turned to front west), and iron cresting with small finials round the deck (y 290-320 px). The photograph stops short of the door's end of the front, so no third street dormer is built; how many more stand on the north flank behind the one it shows cannot be read. The deck's 0.5 m cresting is the kit's. T-3725, through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json): the mansard rises 3.5 m from the cornice to the deck's curb (the curb at y about 322 px, about 15.2 m over grade over the 11.65 m wall head; T-3724's 3.0 m on a 9.6 m wall stood it about 140 px low), and the two street dormers stand 3.6 and 5.5 m along the front (x about 1855 and 1935 px; T-3724 had 2.8 and 5.75 m, which this camera draws 30-70 px south of the print's): over the bow's south half and over the light beside it. The slate over the bow's middle is plain in the print. The north flank's one dormer (K01's 'south' face; x 1580-1615 px) stands 18.9 m from the rear wall, 2.6 m behind the front, through the same camera (T-3724 had 11.0 m, which this camera hides behind 2115)."
         },
         "roof_covering": {
           "value": {
@@ -371,26 +371,26 @@
             {
               "sill_above_floor_m": 0.3,
               "width_m": 1.0,
-              "height_m": 2.2
+              "height_m": 2.4
             }
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's front lights, about 1.0 m wide: 2.6 m tall in the principal storey (y 860-1030 px) and 2.2 m in the chamber storey (y 620-770 px), sills low to the floor."
+          "note": "The photograph's front lights, about 1.0 m wide, read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade): 2.6 m tall in the principal storey (y 860-1015 px, 2.66 m) and 2.4 m in the chamber storey (y 610-752 px, 2.43 m; T-3724 had 2.2), sills low to the floor."
         },
         "basement_lights": {
           "value": {
-            "sill_m": 0.25,
+            "sill_m": 0.55,
             "width_m": 0.9,
-            "height_m": 0.9
+            "height_m": 1.45
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph's square-headed basement openings between stone piers (y 1060-1150 px)."
+          "note": "The photograph's square-headed basement openings between stone piers (y 1060-1150 px): read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade), 0.57 to 2.11 m over grade, so a 1.45 m light on a 0.55 m sill (T-3724's 0.9 m light was read at an assumed scale)."
         },
         "window_kit": {
           "value": {
@@ -427,17 +427,17 @@
               1.0,
               0.75
             ],
-            "top_above_ridge_m": 1.6,
+            "top_above_ridge_m": 2.1,
             "cap_proud_m": 0.08,
             "cap_depth_m": 0.25,
             "stacks": [
               {
-                "u_m": 7.5,
-                "v_m": 0.85
+                "u_m": 16.75,
+                "v_m": 1.6
               },
               {
                 "u_m": 7.5,
-                "v_m": 8.63
+                "v_m": 8.4
               }
             ]
           },
@@ -445,7 +445,7 @@
           "sources": [
             "chicagology_2115_armour_photo"
           ],
-          "note": "The photograph shows one tall brick stack on the north wall well back from the front, standing about 1.5 m over the cresting (x 1545-1610, y 255-370 px): placed 7.5 m from the rear wall. Its partner on the south wall is reconstructed (no picture shows that side)."
+          "note": "The photograph shows one tall brick stack on the north wall (x 1545-1610, top y 252 px). Through the T-3725 camera (data/reference_views/house_2123_prairie/chicagology_armour_photo.json) it stands on the deck just inside the north curb (1.6 m in from the north wall; K01 refuses a stack astride the curb) at 16.75 m from the rear wall, 4.7 m behind the front, and its top 17.4 m over grade, about 2.1 m over the deck (T-3724 had placed it 7.5 m from the rear at 1.6 m, read at an assumed scale). Its partner on the south wall is reconstructed (no picture shows that side) and keeps T-3724's 7.5 m from the rear, drawn 1.1 m in from the south wall so the taller mansard's curb clears it; both share the kit's one height over the deck."
         },
         "entrance_kit": {
           "value": {
@@ -459,7 +459,7 @@
               "reveal_depth_m": 0.45,
               "arch": {
                 "ring_m": 0.28,
-                "keystone_top_m": 5.25,
+                "keystone_top_m": 6.0,
                 "keystone_m": [
                   0.22,
                   0.3
@@ -472,7 +472,7 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2115_armour_photo"
           ],
-          "note": "The front stands 7.43 m behind the street line (column 918 against the line at 878), on 2115's front line. The door is not in the photograph; it is laid round-arched like every opening the photograph shows on this front, a pair of leaves under a fanlight, deep in the stone."
+          "note": "The front stands 7.43 m behind the street line (column 918 against the line at 878), on 2115's front line. The door is not in the photograph; it is laid round-arched like every opening the photograph shows on this front, a pair of leaves under a fanlight, deep in the stone. T-3725: the arch's keystone top is carried up with the principal floor (1.8 to 2.55 m), 6.0 m over grade."
         },
         "boundary": {
           "value": {
@@ -525,34 +525,45 @@
               },
               "storeys": [
                 {
-                  "height_m": 5.8,
+                  "height_m": 7.05,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_round_fanlight",
                       "clear_width_m": 0.95,
                       "clear_height_m": 2.6,
-                      "sill_m": 2.1,
+                      "sill_m": 2.85,
                       "at_deg": [
                         -22,
                         22
                       ],
                       "why_not_ordinary": "the bow's pair of round-headed principal lights in the Armour photograph (x 1760-1890, y 860-1030 px)"
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.9,
+                      "clear_height_m": 1.4,
+                      "sill_m": 0.6,
+                      "at_deg": [
+                        -22,
+                        22
+                      ],
+                      "why_not_ordinary": "the bow's pair of square-headed basement lights between stone piers under its principal lights in the Armour photograph (x 1765-1830 and 1875-1935, y 1060-1150 px)"
                     }
                   ]
                 },
                 {
-                  "height_m": 3.5,
+                  "height_m": 4.3,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_round_fanlight",
                       "clear_width_m": 0.95,
-                      "clear_height_m": 2.2,
+                      "clear_height_m": 2.4,
                       "sill_m": 0.3,
                       "at_deg": [
                         -22,
                         22
                       ],
-                      "why_not_ordinary": "the bow's pair of round-headed chamber lights in the Armour photograph (x 1750-1880, y 620-770 px), the bow's top held under the cornice's bed"
+                      "why_not_ordinary": "the bow's pair of round-headed chamber lights in the Armour photograph (x 1750-1880, y 610-752 px), the bow's top held under the cornice's bed"
                     }
                   ]
                 }
@@ -569,7 +580,7 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2115_armour_photo"
           ],
-          "note": "The sheet's stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The sheet's frame bay on the north flank (yellow, columns 950-966, 3.0 m long, about 0.55 m out, no storey count) is not built: K08 cuts no light in a bay that shallow and refuses one without (liberty L-k01-2123-prairie-3724)."
+          "note": "The sheet's stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The sheet's frame bay on the north flank (yellow, columns 950-966, 3.0 m long, about 0.55 m out, no storey count) is not built: K08 cuts no light in a bay that shallow and refuses one without (liberty L-k01-2123-prairie-3724). T-3725: the bow's storeys follow the house's (7.05 m to the chamber floor, its top 0.3 m under the 11.65 m wall head), its basement carries the print's two square-headed lights under its principal pair, and its chamber lights are 2.4 m, as read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade)."
         },
         "rear_wings": {
           "value": [

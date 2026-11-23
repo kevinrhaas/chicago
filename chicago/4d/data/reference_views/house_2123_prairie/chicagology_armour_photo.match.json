@@ -1,0 +1,69 @@
+{
+ "structure_id": "house_2123_prairie",
+ "view": "chicagology_armour_photo",
+ "glb": "assets/gltf/house_2123_prairie__as_mapped_1904.glb",
+ "glb_sha256": "89c0f99277436e70f874188a31cc61c3983c05261f3fffdcf1ae0c8cce6dc513",
+ "camera_sha256": "da009b44edbd83f615c48d100fbeb0d30076f4c8662a42233c001feabb971fbf",
+ "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
+ "side_by_side": "docs/RESEARCH/photo-match/house_2123_prairie/chicagology_armour_photo-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "the storeys (T-3725): T-3724 read the front at an assumed 65 px a metre and stood the principal floor at 1.8 m and the storeys at 4.0 and 3.8 m, so through this camera every level of the front stood low: the principal sills about 40 px, the chamber sills about 75 px and the cornice about 95-140 px under the print's. Now the principal floor at 2.55 m and the storeys 4.5 and 4.6 m (11.65 m to the wall head): the principal lights at y 860-1015, the chamber lights at y 610-752 and the cornice's corona at about y 506, as the print's",
+   "status": "fixed"
+  },
+  {
+   "what": "the chamber lights (T-3725): 2.2 m tall in T-3724, the print's are 2.43 m (y 610-752 px); now 2.4 m, on the front and in the bow",
+   "status": "fixed"
+  },
+  {
+   "what": "the basement (T-3725): the print's square-headed basement lights stand 0.57-2.11 m over grade (y 1060-1150 px) between stone piers, under the light beside the bow and under each of the bow's principal lights; T-3724 drew one 0.9 m light beside the bow and none in the bow. Now 1.45 m lights on a 0.55 m sill in a four-course rusticated base (K02's brown sandstone widened to four courses for it), and the bow's own pair under its principal lights",
+   "status": "fixed"
+  },
+  {
+   "what": "the mansard (T-3725): 3.0 m over a wall head 2 m too low, its curb and cresting stood about 140 px under the print's (y 290-325 px at the north corner); now 3.5 m over the 11.65 m wall head, the cresting within about 20 px of the print's",
+   "status": "fixed"
+  },
+  {
+   "what": "the street dormers (T-3725): T-3724 laid them at 2.8 and 5.75 m along the front, over the bow's middle and the light beside it; through this camera the print's stand at x 1840-1870 and 1920-1950 px, and the slate over the bow's middle is plain. Now at 3.6 and 5.5 m: x about 1830-1885 and 1910-1965 in the render",
+   "status": "fixed"
+  },
+  {
+   "what": "the north flank's dormer (T-3725): T-3724 laid it 11.0 m from the rear, where this camera hides it far left of the print's (x 1580-1615 px); now 18.9 m from the rear, 2.6 m behind the front",
+   "status": "fixed"
+  },
+  {
+   "what": "the stack (T-3725): the print's one tall stack rises on the north side 4.7 m behind the front (x 1545-1610 px, top y 252); T-3724's stood 7.5 m from the rear, about 280 px left of it. Now 16.75 m from the rear, on the deck just inside the north curb, about 2.1 m over the deck: x 1540-1615, top about y 245",
+   "status": "fixed"
+  },
+  {
+   "what": "the skyline south of the bow: the print's crested deck line stops over the bow's south edge (x about 1855 px, y 290-320) and the outline south of it stands about 25 px (about 0.45 m) lower, with a corniced, crested head over the second street dormer (cornice y 390-410, cresting y 345-375, x 1910-1985 px) — either a taller crown over the bow's stretch or the dormers' own hooded heads. The render's deck is one level and its dormers round-headed under no hood. K01's front crown (T-3283) refuses the print's north-flank dormer inside its depth and K01's hooded dormer takes only a flat-headed sash, where the print's light is round-headed",
+   "status": "open"
+  },
+  {
+   "what": "the front's south end at the print's right edge (x 1960-2000 px, y 410-530): the mansard's face turns down there, about where the 1911 sheet cuts the front's south-west corner back 1.9 m round the entrance (v 7.2 m); the render carries the full-width mansard and front past the frame (liberty L-k01-2123-prairie-3724, the cut corner not built)",
+   "status": "open"
+  },
+  {
+   "what": "the camera's own residuals: the north corner at x 1680 against the print's 1700, the bow's principal lights 7 and 13 px south of the print's (under 0.35 m); the light beside the bow at x 1932 reads 5.79 m against the record's 5.75 m",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the flank dormer about 20 px left of the print's and its head about 0.3 m lower; the street dormers within about 15 px; the stack's top about 0.2 m over the print's",
+   "status": "within tolerance"
+  },
+  {
+   "what": "carving: the print's front is richly worked — incised pilaster panels between the lights, moulded architraves with carved heads, the belt course's projecting cornice between the storeys and the cornice's deep consoles; the render's are K01's plain dressed stone (each under about 0.3 m of relief)",
+   "status": "within tolerance"
+  },
+  {
+   "what": "colour: the print is monochrome. The front reads far darker than 2115's limestone beside it, as the render's brown sandstone does; the north flank's common brick reads lighter in the render than the print's (in shade)",
+   "status": "not shown"
+  },
+  {
+   "what": "the north flank below the cornice from x 1555 px leftward, the rear range and the rear: 2115's south end stands in front of them in the print (not drawn in this render: see the camera's solve); the door's end of the front and the south flank are out of frame",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
