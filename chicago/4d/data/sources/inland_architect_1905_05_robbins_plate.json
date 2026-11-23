@@ -1,0 +1,27 @@
+{
+ "id": "inland_architect_1905_05_robbins_plate",
+ "type": "photograph",
+ "citation": "'Residence for Edward F. Robbins, 2126 Prairie Ave., Chicago. Mann, MacNeille and Lindeberg, Architects, New York and Chicago.' Plate, The Inland Architect and News Record, vol. XLV no. 4 (May 1905); Inland Architect Press.",
+ "author": "unknown photographer; Mann, MacNeille & Lindeberg (architects of the Robbins house); Inland Architect Press",
+ "date": "May 1905",
+ "describes_date": "the finished house before May 1905, photographed with the trees bare (late 1904 or early 1905); the plate dates the completed house no earlier than its own printing allows, and says nothing about July 1904",
+ "repository": "Internet Archive, The Inland Architect and News Record vol. 45, https://archive.org/details/inlandarchitectv45nc/page/n36/mode/1up. Prairie library images dw-inland-1905-05-robbins-2126-plate (2400 x 1634 px) and a20-aic-ia-robbins-plate (1056 x 733 px, a second, smaller scan of the same plate), both in the image store at https://kevinrhaas.github.io/chicago-images/prairie-1904/files/<id>.jpg.",
+ "url": "https://archive.org/details/inlandarchitectv45nc/page/n36/mode/1up",
+ "locator": "The whole leaf: the Robbins front at 2126 Prairie square-on from the east walk, filling the plate between the brick flank of its southern neighbour at the left and the bracketed brick front of its northern neighbour at the right.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1905: public domain by date.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-22 (T-3721) from the image store's display copies: dw-inland-1905-05-robbins-2126-plate.jpg, 2400 x 1634 px, sha256 7442ccceb5f5df56decaa6fe845d90d7da028e044c24bb9b8ccea045ef19d44a, and a20-aic-ia-robbins-plate.jpg, 1056 x 733 px, sha256 4c3a177f09c9225da56dc92ddc225bdb719213cfd6cafdcbf596070601ee049b. Neither is committed here. The two are one photograph. Measured on the larger copy at about 95 px a metre of the front (the front's 12.19 m on sheet 35 of the 1911 Sanborn over its 1160 px), square-on, so heights and widths on the front's plane read within about 0.1 m; no camera is solved yet (T-3722).",
+ "note": "The finished front: three storeys of brick over a pale marble basement, five bays with a fanlit door in the middle. Principal-storey sash under flat marble lintels with a keystone, marble panels between the storeys, the second storey's sash rising to a marble entablature whose architrave is carried on four Ionic pilaster heads between the bays, a dentil course and a pale sill band over it, an attic storey of five short sash with eared marble dressings, and a moulded cornice on blocks at a flat top. Two end chimneys stand behind the cornice. Before the front a marble-capped area wall with an iron railing on it, two brick gate piers with ball finials at the walk, a brick wall with a ball-topped pier returned north and a scrolled marble stop at the south corner.",
+ "what_it_supplies": [
+  "the completed front's composition, openings, trim and boundary, as built by May 1905",
+  "the heights of its floors, openings and courses on the front's plane, scaled from the 1911 sheet's width"
+ ],
+ "what_it_does_not_supply": [
+  "the date the house was finished, or its state on 1 July 1904",
+  "colour: the print is monochrome; red brick and white marble are the register's reading",
+  "the flanks, the rear and the roof"
+ ]
+}

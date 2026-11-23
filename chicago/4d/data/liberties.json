@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1220,
+  "count": 1221,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80242,6 +80242,125 @@
       ],
       "work_refs": [
         "T-3686"
+      ]
+    },
+    {
+      "id": "L-k01-robbins-2126-3721",
+      "title": "2126 Prairie, the Robbins house completed, a structure version on K01 beside the July 1904 works shell: the front off the May 1905 plate, the plan off the 1911 sheet",
+      "section": "per_subject",
+      "subjects": [
+        "robbins_house_2126_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "robbins_house_2126_prairie",
+          "phase": "completed",
+          "aspect": "form.yard"
+        }
+      ],
+      "recorded": "2026-11-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the default record 2126 Prairie Avenue — Robbins Georgian/Federal transition stays the July 1904 building site the census ruling r35-robbins-2126 declares (the district draft's works shell, `“The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state”`): on the scene's date the house was still being built. The finished house is added BESIDE it as a structure version, the completed data, a k01 frontage record built by the new the k01 versions emit generator (the S15 package of the programme), opened with ?structure=2126 Prairie Avenue — Robbins Georgian/Federal transition&version=completed. Its phase is put on the 1904 scene's date only so the two can be compared from the same spot; its documented range is graded reconstructed and says so. The May 1905 plate dates the finished house and is never read as July 1904 evidence. **What is read, not invented.** From the May 1905 Inland Architect plate ('Residence for Edward F. Robbins, 2126 Prairie Ave., Chicago; the Prairie library's two images are scans of one photograph), square-on and scaled from the front's width on the 1911 sheet: three storeys over a pale basement with barred lights; five bays with the door in the middle; the bays' axes, the sash sizes, the principal floor (about 1.26 m), the storey heights, the entablature over the chamber storey (7.87-8.95 m), the attic's sill course, the attic's short lights, the moulded top cornice on blocks and a flat roof behind it; the two end chimneys; a round-headed doorway with a fanlight and a pale panelled door on a stone stoop; an iron railing on a pale curb and a two-leaf gate between ball-topped piers. From sheet 35 of the 1911 Sanborn at full size (0.1858 m a pixel): the main body 12.26 by 12.19 m (the draft's fit drew 11.25 by 9.5 m, inside the flanks' bays), the three-storey wing behind it 12.0 by 7.6 m, the house's corner 1.47 m south of the draft's, and the lot lines. **What is invented.** The flanks' and rear's lights and the wing's, which no picture shows; the wall thicknesses; the colours (the print is monochrome: red brick and white marble are the register's reading, the door's pale paint is chosen); how far back the chimneys stand (built 1.3 m behind the front and 1.7 m over the roof, which shows them about as far over the cornice as the plate does) and the roof's covering; the yard's condition. **What is built otherwise than the evidence, and why.** The kit has no marble: the basement face, lintels, entablature and sill course are K02's palest coursed ashlar (Bedford limestone), and the basement is laid in two shallow-channelled courses because a plain plinth cannot take barred lights. The entablature is three plain stone courses: its veined frieze, its dentils' teeth and the four Ionic pilaster heads under its architrave are not built, nor the marble panels between the storeys and the carved panel over the door (K01 lays a course, not its ornament, and a K01 generator change would restale every K01 house). The principal lintels' keystones and the attic lights' eared dressings are not built (K01 keys heads only on an all-brick front, and this one has a stone basement). The sash are two over two where the plate shows six over six (K06's working sash). The doorway's side lights and its cornice under the fanlight are not built; the door is K07's pair of leaves in the round head. The gate piers are K11's stone piers with urns, where the plate's are brick with balls; the side passage is shut by K11's side gate, where the plate shows a brick wall and ball-topped pier returned north; the scrolled stop at the south corner is not built. The principal floor is built 1.28 m, not 1.26, so K07's stoop and K01's stair agree on seven risers; the railing stands 0.3 m inside the walk, as K11 sets the block's other fronts. The sheet's two small iron-clad canted bays on the flanks near the rear, the wing's canted corner and the narrow grey edge along the front are not built."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work solves the plate's camera into the robbins house 2126 prairie data and works the side-by-side down (the pilaster heads, keystones and panels are the differences over the bar it inherits); a 1904 building permit or a dated progress photograph decides which state stands in the town on 1 July 1904 (then node the promote version tool makes the version the default, or the version stays a comparison)."
+        },
+        {
+          "label": "Covers",
+          "text": "`robbins_house_2126_prairie.completed.form.wall_thickness_front_m`, `robbins_house_2126_prairie.completed.form.wall_thickness_side_m`, `robbins_house_2126_prairie.completed.form.service_wall_brick`, `robbins_house_2126_prairie.completed.form.roof_pitch_deg`, `robbins_house_2126_prairie.completed.form.eave_overhang_m`, `robbins_house_2126_prairie.completed.form.roof_covering`, `robbins_house_2126_prairie.completed.form.stair_tread_m`, `robbins_house_2126_prairie.completed.form.stair_landing_depth_m`, `robbins_house_2126_prairie.completed.form.side_bays`, `robbins_house_2126_prairie.completed.form.north_bays`, `robbins_house_2126_prairie.completed.form.rear_bays`, `robbins_house_2126_prairie.completed.form.yard`, `robbins_house_2126_prairie.completed.documented_range`."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on robbins 2126."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-22 (T-3721)."
+        }
+      ],
+      "work_refs": [
+        "T-3721",
+        "T-1926",
+        "T-1837",
+        "T-1842",
+        "T-3722"
       ]
     },
     {
