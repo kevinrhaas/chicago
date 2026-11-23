@@ -191,6 +191,7 @@ import { createRegistration } from './today-register.js';
 import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
+import { warmBeforeDraw } from './program-warm.js'; // T-3728: nothing drawn before its program is built
 
 const VERSION = '0.1.0';
 
@@ -2957,24 +2958,44 @@ async function boot() {
     // chosen, so a summer visit compiles nothing for it.
     if (s !== 'summer' && !structuresSeasoned) {
       structuresSeasoned = true;
+      // T-3728: each patch below changes its material's program. Every building, yard, rail and
+      // road material at once was 5 s of links in the frames after a jaunt set its season on a
+      // UHD 630; programWarm.rekey builds the patched programs off the frame first and patches
+      // the materials once they are ready (at once where the GPU cannot link in parallel).
+      const changes = new Map();
+      const change = (o, m, apply) => {
+        let c = changes.get(m);
+        if (!c) changes.set(m, c = { change: apply, objects: [] });
+        c.objects.push(o);
+      };
       scene3d.traverse((o) => {
         if (!o.isMesh) return;
         for (const m of [].concat(o.material)) {
           if (m?.name !== 'merged') continue;
-          if (isWallVine(m)) patchFoliage(m, FOLIAGE.vine);
-          else patchSeason(m);
+          change(o, m, isWallVine(m) ? (x) => patchFoliage(x, FOLIAGE.vine) : (x) => patchSeason(x));
         }
       });
-      seasonYardGround(api.yards?.group);
+      api.yards?.group?.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) {
+          const kind = YARD_SEASON_KIND[/^yard-(.+)$/.exec(m?.name ?? '')?.[1]];
+          if (kind !== undefined) change(o, m, (x) => patchSeason(x, kind));
+        }
+      });
       // The faded city's roofs and streets, and the railway's ballast, the same way.
       for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
         if (!o.isMesh || /crowns/.test(o.name)) return;
-        for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
+        const kind = /street/.test(o.name) ? 0.3 : 1;
+        for (const m of [].concat(o.material)) if (m && !m.transparent) change(o, m, (x) => patchSeason(x, kind));
       });
       // T-2864: the earth roads of 1812 and 1835 (streets.js), as a travelled roadway.
       streets.group.traverse((o) => {
-        if (o.isMesh) for (const m of [].concat(o.material)) patchSeason(m, 0.3);
+        if (o.isMesh) for (const m of [].concat(o.material)) if (m) change(o, m, (x) => patchSeason(x, 0.3));
       });
+      // Not waited on: the season goes on (sky, sun, trees, people) while the programs build,
+      // and the buildings and grounds take it as theirs become ready.
+      if (api.programWarm) void api.programWarm.rekey(changes).catch(() => { for (const [m, c] of changes) c.change(m); });
+      else for (const [m, c] of changes) c.change(m);
     }
     seasonState.season = applySeasonLook(s);
     // T-3331: the season moves the date; a named hour (sunset, dusk) is solved again
@@ -7983,6 +8004,11 @@ async function boot() {
     const pause = bootCheckpoint(); if (pause) await pause;
   }
   await yieldToPaint();
+  // T-3728 (Bill's PC, 2026-11-22): from here on, whatever first appears later (a jaunt's stage,
+  // the yards, rails and buildings of the place it flies to) is drawn from the frame its
+  // program is ready, its link started off the frame, instead of the frame waiting on the link.
+  // `?warm=0` draws as before, for comparison.
+  api.programWarm = warmBeforeDraw(renderer, { scene: scene3d, camera, enabled: params.get('warm') !== '0' });
   // T-2555. Whether the camera moved in the frame just drawn — position or
   // facing, so a turn in place is moving too. The governor reads only this and
   // the interval between drawn frames.

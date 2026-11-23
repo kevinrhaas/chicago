@@ -17,25 +17,8 @@ import { applyHorseAppearance } from './horse-appearance.js';
 import { applyCoachwork } from './coachwork.js';
 import { createCabDoor } from './cab-door.js';
 import { seatInCab, passengerRoot } from './cab-passenger.js';
+import { plainTransmissiveGlass } from './glass.js';
 
-// Bill's PC (2026-11-22): the brougham's cabin glass is KHR_materials_transmission, and one
-// transmissive pane in view makes three draw every opaque object a second time into a target
-// and compile a second program for every material drawn there. On an Intel UHD 630 the first
-// brougham seen froze the page for 25 s (about 90 programs linked at once), and every frame
-// with one in view drew the town twice. As glass.js does for the houses' panes, the cabin
-// glass is drawn as thin alpha-blended glass; the GLB still says what it is.
-function plainCabinGlass(root) {
-  root?.traverse((node) => {
-    if (!node.isMesh) return;
-    for (const m of Array.isArray(node.material) ? node.material : [node.material]) {
-      if (!m || !(m.transmission > 0)) continue;
-      m.userData.cheapenedFrom = 'KHR_materials_transmission';
-      m.transmission = 0; m.transparent = true; m.opacity = 0.2; m.depthWrite = false;
-      m.needsUpdate = true;
-    }
-  });
-  return root;
-}
 
 /** T-3557: hoof support over an admitted carriage drive (a kerb ramp, a coach-house floor):
  *  the same nine samples as fitHorseSupport, their plane, with no standing bound (it is a
@@ -284,7 +267,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
         if (sha256 !== row.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from its row');
         return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href)
-          .then((gltf) => { plainCabinGlass(gltf.scene); return gltf; });
+          .then((gltf) => { plainTransmissiveGlass(gltf.scene); return gltf; });
       })() };
       wagons.set(key, entry);
     }
@@ -467,7 +450,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
           if (sha256 !== carriedNow.sha256) throw Error('driven assembly: actual vehicle differs from the seated binding');
           const parsed = await loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
-          plainCabinGlass(parsed.scene);
+          // T-3728: the cabin glass drawn thin, not as transmission (glass.js).
+          plainTransmissiveGlass(parsed.scene);
           return { vehicle: parsed, sha256 };
         })(),
         (async () => humanAssets.acquire(row.driver_asset, driverLod))(),

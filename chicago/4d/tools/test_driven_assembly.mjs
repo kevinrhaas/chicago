@@ -371,7 +371,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
     HumanActor: FixtureActor, prepareHorseTemplate, applyHorseAppearance, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
-    createHorseGait, attachHorseLods, loadGaitClip,
+    createHorseGait, attachHorseLods, loadGaitClip, plainTransmissiveGlass: root => root,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
       else if (value === gltfHorse) stats.horseDisposed++;
@@ -379,7 +379,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip, plainTransmissiveGlass } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
