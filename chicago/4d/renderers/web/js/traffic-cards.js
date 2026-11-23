@@ -27,6 +27,7 @@ import { cardMaterial } from './crowd.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 import { offHours } from './town-transport.js';
+import { plainTransmissiveGlass } from './glass.js';
 
 /** Headings a team's card is baked from (a long thing reads its heading more than a person). */
 export const TEAM_YAWS = 16;
@@ -132,6 +133,9 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
     let vehicle = null, lease = null;
     try {
       vehicle = await loader.loadAsync(url(r.vehicle_file_light || r.vehicle_file));
+      // T-3728: the brougham's cabin glass drawn thin here too; as transmission, the bake drew
+      // the team twice a heading and linked a second program for each of its materials.
+      plainTransmissiveGlass(vehicle.scene);
       if (spec?.file && spec.sha256) {
         lease = await acquireDraftHorse({ url: url(spec.file), sha256: spec.sha256,
           materialVariant: spec.material_variant ?? 'source_native', loader });
@@ -158,6 +162,16 @@ export function createTrafficCards({ renderer, transport, config, sceneId, tier 
       scene.add(new THREE.AmbientLight(0xffffff, Math.PI * 0.85));
       const key = new THREE.DirectionalLight(0xffffff, 0.6); key.position.set(0.3, 1, 0.4); scene.add(key);
       const cam = new THREE.OrthographicCamera(-w / 2, w / 2, w / 4, -w / 4, 0.1, 100);
+      // T-3728: the team's programs built off the frame (parallel compile where the GPU has it)
+      // before the bake draws it, not linked inside the bake's one long task. Compiled with the
+      // atlas bound, as the bake draws (a target's programs skip tone mapping and the output
+      // colour space), and the bound target given back before anything else can draw.
+      let warmed = null;
+      const wasTarget = renderer.getRenderTarget();
+      try { renderer.setRenderTarget(atlas); warmed = renderer.compileAsync(scene, cam); } catch { /* the bake's draw compiles them */ }
+      renderer.setRenderTarget(wasTarget);
+      await warmed?.catch(() => {});
+      if (disposed || !atlas) return;
       const prevTarget = renderer.getRenderTarget();
       const prevClear = renderer.getClearColor(new THREE.Color()), prevAlpha = renderer.getClearAlpha();
       const [cw, ch] = cell;
