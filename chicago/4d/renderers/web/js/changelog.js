@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3221, ts: '2026-11-23T14:58:03.783Z', date: 'Nov 23, 2026, 8:58 AM CT', title: 'Jaunts speak only in the voice recorded for your reading age', kind: 'fix',
+    items: [
+      'A jaunt reads aloud only when the telling you are on was recorded for its own ages. A telling for another age that has no recording of its own now plays no narration at all, rather than another age\'s voice where the words happen to match. Its text and music run as before.',
+      'This stops the 18+ tellings of the battle, the Lalime killing and the famous-names walk borrowing the student tellings\' voices.',
+      'Picking another age\'s tab on a stop or the opening switches the voice to that age\'s own recording straight away. If that age has no recording, the voice stops and Listen goes until you pick an age that has one.',
+      'The Narrated filter in Jaunts now lists a jaunt only when the telling for your reading age is narrated, instead of showing another age\'s narrated telling in its place.',
+    ] },
   { v: 3220, ts: '2026-11-23T14:49:13.511Z', date: 'Nov 23, 2026, 8:49 AM CT', title: '2110 Prairie\'s loggia on colonnettes, its landing parapet and its stone stack', kind: 'feature',
     items: [
       '2110 Prairie\'s five-arched loggia now stands on six round colonnettes with leafed capitals, the arches springing from them as both photographs of the house show; its slates run on to the gable instead of hipping short of it, the south chimney is laid in the front\'s pale stone, and the landing carries on across the foot of the bow behind a solid stone parapet level with the parlour windows\' sills.',
