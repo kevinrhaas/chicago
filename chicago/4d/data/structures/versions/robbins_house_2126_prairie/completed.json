@@ -15,7 +15,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3 brick dwelling (D), the Robbins house'; the plate titles it the residence for Edward F. Robbins."
   },
   "review_required": false,
-  "research_note": "T-3721 (piece 2 of T-1926): the completed Robbins house, built on the K01 frontage assembly from the May 1905 Inland Architect plate (two scans of one photograph, dw-inland-1905-05-robbins-2126-plate and a20-aic-ia-robbins-plate) and sheet 35 of the 1911 Sanborn, as a structure VERSION of the default record, which stays the July 1904 building site census ruling r35-robbins-2126 declares. What is built: the three-storey main body (12.26 by 12.19 m) and three-storey rear wing off the sheet; the plate's five-bay brick front over a pale stone basement with barred lights, flat stone lintels, the entablature over the chamber storey and the attic's sill course as stone courses, the attic storey's five short lights, the moulded top cornice on blocks over a flat roof, two end chimneys, a round-headed door with its fanlight on a marble stoop, the iron railing and the gate between piers. What is not: the pilaster heads, keystones, carved panels and the frieze's carving, the six-over-six glazing, the side lights, the brick piers' material, the returned brick wall and the corner scroll, and the sheet's flank bays (liberty L-k01-robbins-2126-3721). T-3722 solves the plate's camera and signs the image gate off.",
+  "research_note": "T-3721 (piece 2 of T-1926): the completed Robbins house, built on the K01 frontage assembly from the May 1905 Inland Architect plate (two scans of one photograph, dw-inland-1905-05-robbins-2126-plate and a20-aic-ia-robbins-plate) and sheet 35 of the 1911 Sanborn, as a structure VERSION of the default record, which stays the July 1904 building site census ruling r35-robbins-2126 declares. What is built: the three-storey main body (12.26 by 12.19 m) and three-storey rear wing off the sheet; the plate's five-bay brick front over a pale stone basement with barred lights, flat stone lintels, the entablature over the chamber storey and the attic's sill course as stone courses, the attic storey's five short lights, the moulded top cornice on blocks over a flat roof, two end chimneys, a round-headed door with its fanlight on a marble stoop, the iron railing and the gate between piers. What is not: the pilaster heads, keystones, carved panels and the frieze's carving, the six-over-six glazing, the side lights, the brick piers' material, the returned brick wall and the corner scroll, and the sheet's flank bays (liberty L-k01-robbins-2126-3721). T-3722 solves the plate's camera and signs the image gate off. T-3722 (piece 3) solved cameras on both scans of the plate (data/reference_views/robbins_house_2126_prairie/, matched against THIS version's mesh through the camera's `version`) and built the front's order (front_order: the Ionic pilaster heads, the marble panels with the carved one over the door, the keys and the corner scroll stops) and the brick gate piers with balls (boundary.piers); what still differs is open in the two match records (liberty L-k01-robbins-2126-3722).",
   "phases": [
     {
       "id": "completed",
@@ -425,7 +425,7 @@
             "entrance_gate": {
               "variant": "k11.gate.walk_gate_on_piers",
               "leaves": 2,
-              "clear_m": 1.75,
+              "clear_m": 2.1,
               "drawn_deg": 70
             },
             "side_gate": {
@@ -433,9 +433,10 @@
               "pier_s_m": 0.0,
               "drawn_deg": 0
             },
-            "posts": {
-              "section_m": 0.12,
-              "height_m": 1.5
+            "piers": {
+              "section_m": 0.48,
+              "height_m": 1.89,
+              "ball_m": 0.32
             }
           },
           "confidence": "inferred",
@@ -443,7 +444,7 @@
             "inland_architect_1905_05_robbins_plate",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The plate's iron railing on a pale curb across the front, and a two-leaf gate at the walk between two piers with ball finials. The piers are brick in the plate and K11's are stone with urns; the side passage is closed by K11's shut side gate on piers, as the block's other iron fronts are; the brick wall and pier returned north and the scrolled stop at the south corner are not built (liberty L-k01-robbins-2126-3721). The lot lines are the 1911 sheet's; the railing stands 0.3 m inside the walk at the lot line, as K11 sets the block's other fronts."
+          "note": "The plate's iron railing on a pale curb across the front, and a two-leaf gate at the walk between two piers with ball finials. The piers are brick in the plate and K11's are stone with urns; the side passage is closed by K11's shut side gate on piers, as the block's other iron fronts are; the brick wall and pier returned north and the scrolled stop at the south corner are not built (liberty L-k01-robbins-2126-3721). The lot lines are the 1911 sheet's; the railing stands 0.3 m inside the walk at the lot line, as K11 sets the block's other fronts. T-3722: the walk's gate hangs between two brick piers under stone caps and balls (the plate: read from T-3722's camera on the street line: about 0.48 m square, their caps' tops about 2.0 m over the walk, the balls about 0.32 m across, 2.1 m apart between their faces), in place of T-3721's iron posts."
         },
         "yard": {
           "value": {
@@ -525,6 +526,117 @@
             "sanborn_1911_chicago_v3_sheet_35"
           ],
           "note": "The 1911 sheet's three-storey brick wing behind the main body, 12.0 m deep and 7.6 m wide (columns 602-666.4, rows 1391.6-1432.4 at full size); its storeys carried from the main body's, its lights and flat roof reconstructed. The sheet's canted corner where its south wall meets the main body is drawn square."
+        },
+        "front_order": {
+          "value": {
+            "pilasters": {
+              "at_m": [
+                2.49,
+                4.77,
+                7.42,
+                9.7
+              ],
+              "width_m": 0.48,
+              "proud_m": 0.05,
+              "from_m": 1.28,
+              "to_m": 7.87,
+              "capital": {
+                "height_m": 0.32,
+                "width_m": 1.05,
+                "volute_m": 0.15
+              }
+            },
+            "panels": [
+              {
+                "at_m": 1.35,
+                "width_m": 1.13,
+                "y_m": [
+                  4.99,
+                  5.27
+                ],
+                "carved": false
+              },
+              {
+                "at_m": 3.65,
+                "width_m": 1.13,
+                "y_m": [
+                  4.99,
+                  5.27
+                ],
+                "carved": false
+              },
+              {
+                "at_m": 6.095,
+                "width_m": 1.26,
+                "y_m": [
+                  5.04,
+                  5.42
+                ],
+                "carved": true
+              },
+              {
+                "at_m": 8.54,
+                "width_m": 1.13,
+                "y_m": [
+                  4.99,
+                  5.27
+                ],
+                "carved": false
+              },
+              {
+                "at_m": 10.84,
+                "width_m": 1.13,
+                "y_m": [
+                  4.99,
+                  5.27
+                ],
+                "carved": false
+              }
+            ],
+            "keystones": [
+              {
+                "at_m": [
+                  1.35,
+                  3.65,
+                  8.54,
+                  10.84
+                ],
+                "y_m": [
+                  3.88,
+                  4.38
+                ],
+                "width_m": 0.22,
+                "proud_m": 0.09
+              },
+              {
+                "at_m": [
+                  1.35,
+                  3.65,
+                  6.095,
+                  8.54,
+                  10.84
+                ],
+                "y_m": [
+                  7.52,
+                  7.87
+                ],
+                "width_m": 0.2,
+                "proud_m": 0.09
+              }
+            ],
+            "scroll": {
+              "side": "both",
+              "width_m": 0.95,
+              "pier_top_m": 2.17,
+              "top_m": 3.44,
+              "depth_m": 0.45
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "T-3722: read off the May 1905 plate (dw-inland-1905-05-robbins-2126-plate, 2400 px; the front's corners 1162 px apart for its 12.19 m on sheet 35, about 95 px a metre, square-on), heights from the threshold at 1.28 m. Four brick pilasters between the five bays (axes 2.49, 4.77, 7.42 and 9.70 m, about 0.48 m broad) under Ionic heads about 1.05 m across and 0.32 m high whose tops meet the entablature at 7.87 m; four plain marble panels (1.13 x 0.28 m, their foot at 4.99 m) between the principal and chamber storeys under bays 1, 2, 4 and 5, and the carved panel over the door (1.26 x 0.38 m); key blocks over the principal lintels (3.88-4.38 m) of the four window bays and over the chamber heads of all five; a scrolled marble stop at each corner (the smaller scan, aic, shows the north one beside the south), about 0.95 m out from it, its foot at 2.17 m on a brick pier and its head at 3.44 m. Inferred, not documented: places and sizes are read off one square-on photograph to about 0.1 m, the pilasters' projection and every depth are not shown by a square-on view, and the volutes, the palmette and rosettes of the carving and the scroll's curve are stated forms in place of the carving the plate shows (liberty L-k01-robbins-2126-3722)."
         }
       }
     }
