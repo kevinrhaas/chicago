@@ -536,17 +536,6 @@
                     22
                   ],
                   "why_not_ordinary": "the bow's pair of round-headed principal lights in the Armour photograph (x 1760-1890, y 860-1030 px)"
-                },
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.9,
-                  "clear_height_m": 1.4,
-                  "sill_m": 0.6,
-                  "at_deg": [
-                    -22,
-                    22
-                  ],
-                  "why_not_ordinary": "the bow's pair of square-headed basement lights between stone piers under its principal lights in the Armour photograph (x 1765-1830 and 1875-1935, y 1060-1150 px)"
                 }
               ]
             },
@@ -579,7 +568,7 @@
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2115_armour_photo"
       ],
-      "note": "The sheet's stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The sheet's frame bay on the north flank (yellow, columns 950-966, 3.0 m long, about 0.55 m out, no storey count) is not built: K08 cuts no light in a bay that shallow and refuses one without (liberty L-k01-2123-prairie-3724). T-3725: the bow's storeys follow the house's (7.05 m to the chamber floor, its top 0.3 m under the 11.65 m wall head), its basement carries the print's two square-headed lights under its principal pair, and its chamber lights are 2.4 m, as read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade)."
+      "note": "The sheet's stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The sheet's frame bay on the north flank (yellow, columns 950-966, 3.0 m long, about 0.55 m out, no storey count) is not built: K08 cuts no light in a bay that shallow and refuses one without (liberty L-k01-2123-prairie-3724). T-3725: the bow's storeys follow the house's (7.05 m to the chamber floor, its top 0.3 m under the 11.65 m wall head); the print's two square-headed basement lights under the bow's principal pair are not built: K08 refuses them under its plinth's top, and over it the pair runs the bow past its light-tier triangle budget (open in the match record), and its chamber lights are 2.4 m, as read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade)."
     },
     "rear_wings": {
       "value": [

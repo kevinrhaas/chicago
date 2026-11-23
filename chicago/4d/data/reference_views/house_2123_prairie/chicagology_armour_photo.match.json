@@ -2,7 +2,7 @@
  "structure_id": "house_2123_prairie",
  "view": "chicagology_armour_photo",
  "glb": "assets/gltf/house_2123_prairie__as_mapped_1904.glb",
- "glb_sha256": "89c0f99277436e70f874188a31cc61c3983c05261f3fffdcf1ae0c8cce6dc513",
+ "glb_sha256": "c123d4a60fcbb8d24ed6324a9e9946f3ca3ddd34a19248a8a2a687a964e69f2b",
  "camera_sha256": "da009b44edbd83f615c48d100fbeb0d30076f4c8662a42233c001feabb971fbf",
  "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
  "side_by_side": "docs/RESEARCH/photo-match/house_2123_prairie/chicagology_armour_photo-side-by-side.jpg",
@@ -17,7 +17,7 @@
    "status": "fixed"
   },
   {
-   "what": "the basement (T-3725): the print's square-headed basement lights stand 0.57-2.11 m over grade (y 1060-1150 px) between stone piers, under the light beside the bow and under each of the bow's principal lights; T-3724 drew one 0.9 m light beside the bow and none in the bow. Now 1.45 m lights on a 0.55 m sill in a four-course rusticated base (K02's brown sandstone widened to four courses for it), and the bow's own pair under its principal lights",
+   "what": "the basement (T-3725): the print's square-headed basement lights stand 0.57-2.11 m over grade (y 1060-1150 px) between stone piers; T-3724 drew one 0.9 m light beside the bow. Now 1.45 m lights on a 0.55 m sill in a four-course rusticated base (K02's brown sandstone widened to four courses for it)",
    "status": "fixed"
   },
   {
@@ -35,6 +35,10 @@
   {
    "what": "the stack (T-3725): the print's one tall stack rises on the north side 4.7 m behind the front (x 1545-1610 px, top y 252); T-3724's stood 7.5 m from the rear, about 280 px left of it. Now 16.75 m from the rear, on the deck just inside the north curb, about 2.1 m over the deck: x 1540-1615, top about y 245",
    "status": "fixed"
+  },
+  {
+   "what": "the bow's own basement lights: the print shows a pair of square-headed lights between piers under the bow's principal pair (x 1765-1830 and 1875-1935, y 1060-1150 px); the render's bow basement is plain stone. K08 refuses a light under its plinth's 0.6 m top, and over it the pair (flat sash or area light) runs the bow past its 7000-triangle light-tier budget",
+   "status": "open"
   },
   {
    "what": "the skyline south of the bow: the print's crested deck line stops over the bow's south edge (x about 1855 px, y 290-320) and the outline south of it stands about 25 px (about 0.45 m) lower, with a corniced, crested head over the second street dormer (cornice y 390-410, cresting y 345-375, x 1910-1985 px) — either a taller crown over the bow's stretch or the dormers' own hooded heads. The render's deck is one level and its dormers round-headed under no hood. K01's front crown (T-3283) refuses the print's north-flank dormer inside its depth and K01's hooded dormer takes only a flat-headed sash, where the print's light is round-headed",
