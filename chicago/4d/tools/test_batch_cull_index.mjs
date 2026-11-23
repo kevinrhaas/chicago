@@ -227,4 +227,38 @@ console.log(`ok  ${cams.length} cameras, opaque and blended: every list three's,
   console.log('ok  the depth sort is three\'s stable sort, ties and signed zeros included, short lists and long');
 }
 
+{
+  // T-3728: each pass keeps its own list texture and sends it only when the list changed
+  const batch = town({ count: 900 });
+  cull.installFastCull(batch);
+  const eye = cams[0], sun = cams[3];
+  const pass = (cam) => {
+    const before = cull.passLists.sent;
+    batch.onBeforeRender(null, {}, cam, batch.geometry, batch.material);
+    return { sent: cull.passLists.sent - before, texture: batch._indirectTexture, drawn: list(batch) };
+  };
+  const e1 = pass(eye), s1 = pass(sun), e2 = pass(eye), s2 = pass(sun);
+  assert.equal(e1.sent + s1.sent, 2, 'each pass sends its list the first time');
+  assert.notEqual(e1.texture, s1.texture, 'the eye and the sun keep a list texture each');
+  assert.equal(e2.texture, e1.texture, 'the eye draws with its own texture again');
+  assert.equal(e2.sent + s2.sent, 0, 'an unchanged list, eye or sun, is not sent again');
+  assert.deepEqual(e2.drawn, e1.drawn, 'the eye list is the same list');
+  assert.deepEqual(s2.drawn, s1.drawn, 'the sun list is the same list');
+  assert.ok(s1.texture.version > 0 && s1.texture.image.width === e1.texture.image.width
+    && s1.texture.format === e1.texture.format && s1.texture.type === e1.texture.type, 'a new pass texture is three\'s kind, and sent');
+  // three's own list, made for the eye, is the list the eye texture holds
+  native.call(batch, null, {}, eye, batch.geometry, batch.material);
+  const want = list(batch);
+  assert.deepEqual(pass(eye).drawn, want, 'after three wrote a list, the eye list is still three\'s');
+  // a camera that moved sends its new list
+  const moved = cams[1];
+  pass(moved); const again = pass(moved);
+  assert.equal(again.sent, 0, 'a third camera keeps its list too');
+  let disposed = 0;
+  for (const t of new Set([e1.texture, s1.texture, again.texture])) t.addEventListener('dispose', () => { disposed += 1; });
+  batch.dispose();
+  assert.equal(disposed, 3, 'every pass texture goes with the batch');
+  console.log('ok  each pass keeps its own list texture and sends it only when it changed (T-3728)');
+}
+
 console.log('PASS — the cached cull draws what three draws');

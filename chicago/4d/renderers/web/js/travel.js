@@ -60,6 +60,7 @@ const TAU = Math.PI * 2;
 export { PACES, paceSpeed } from './travel-settings.js';
 import { PACES, paceSpeed, ARRIVAL_SETTLE_S, WALK, FLY } from './travel-settings.js';
 import { motionQuery } from './motion.js'; // T-3671: the one motion choice
+import { clearanceProfile, profileAt, floorAhead } from './flight-clearance.js'; // T-3734
 
 /**
  * What a speed is CALLED, per pace — the word a slider shows as it moves. Metres
@@ -143,7 +144,23 @@ export function glidePose(from, to, t) {
     yaw = lerpAngle(lerpAngle(from.yaw, heading, a), to.yaw, b);
     pitch = lerp(lerp(from.pitch, -14 * DEG, a), to.pitch, b);
   }
-  return { e: lerp(from.e, to.e, u), n: lerp(from.n, to.n, u), altitude, yaw, pitch };
+  return { e: lerp(from.e, to.e, u), n: lerp(from.n, to.n, u), altitude, yaw, pitch, u };
+}
+
+/**
+ * T-3734 (the owner, 2026-11-23: "when you fly on the jaunts ... you will often clip fly though
+ * a building or chimney ... you should fly over or around"): a glide's height at `t` lifted onto
+ * its clearance profile (flight-clearance.js). `s` is how far along its ground track the pose
+ * is. The envelope (which climbs before a building) is eased in over the glide's first and last
+ * fifth, while the eye rises off or settles onto its stand, so neither end jumps; the plain need
+ * (the building itself) is never eased.
+ */
+export const GLIDE_EASE = 0.2;
+export function liftGlide(pose, profile, s, k) {
+  if (!profile?.need?.length) return pose;
+  const ease = smoother(clamp(Math.min(k, 1 - k) / GLIDE_EASE, 0, 1));
+  const floor = Math.max(profileAt(profile.need, profile.step, s), ease * profileAt(profile.lift, profile.step, s));
+  return floor > pose.altitude ? { ...pose, altitude: floor } : pose;
 }
 
 function wrapPi(a) { return Math.atan2(Math.sin(a), Math.cos(a)); }
@@ -162,6 +179,9 @@ export function createTravel({
   // `boatway(from, to, { speed, plan })` -> { name, stand: [e, n], cross(done) } or null
   // (main.js, from crossings.js); null, or none, and the ride flies as before.
   boatway = null,
+  // T-3734: how high a flight must be to clear what stands under it (flight-clearance.js
+  // createSkyline: refresh(), needAt(e, n)); null and flights know only the ground, as before.
+  clearance = null,
 } = {}) {
   let mode = 'instantly';
   let headBob = settings.headBob !== false;
@@ -489,6 +509,17 @@ export function createTravel({
     return hold;
   }
 
+  /** T-3734: the eye height to keep now so the ride clears what it is about to pass over. */
+  function flightFloor(r, s, hSpeed, dt) {
+    if (!clearance?.needAt || r.aerial) return 0;
+    r.floorT = (r.floorT ?? Infinity) + dt;
+    if (r.floorT >= 0.1) {
+      r.floorT = 0;
+      r.floor = floorAhead(clearance.needAt, s.e, s.n, r.to.e, r.to.n, Math.max(30, hSpeed * 3));
+    }
+    return r.floor ?? 0;
+  }
+
   function steerFlight(intentNow, dt) {
     const r = ride;
     const s = walker.state;
@@ -503,6 +534,10 @@ export function createTravel({
     turnToward(intentNow, r.to.e, r.to.n, PACES.fly.turnRate, dt);
     intentNow.strafe = 0;
     intentNow.sprint = false;
+    // T-3734: the height that clears what lies ahead toward the stand, looked up ten times a
+    // second (never the town each frame); below it the ride climbs before it goes on.
+    const floor = flightFloor(r, s, hSpeed, dt);
+    const under = floor - alt;
 
     // T-3405: a flight to a raised view climbs to its height, slows over it and settles
     // into the view itself; it never comes down.
@@ -515,14 +550,14 @@ export function createTravel({
       return;
     }
     if (phase === 'ascending') {
-      intentNow.forward = horiz > 30 ? 0.5 : 0.15;
+      intentNow.forward = under > 0.5 ? 0 : horiz > 30 ? 0.5 : 0.15;
       intentNow.rise = 1;
-      pitchTo(intentNow, 12 * DEG, dt);
-      const inCone = !r.aerial && horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5;
-      if (alt >= r.cruise - 0.5 || inCone) phase = inCone ? 'descending' : 'cruising';
+      pitchTo(intentNow, under > 0.5 ? 0 : 12 * DEG, dt);
+      const inCone = !r.aerial && horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5 && under <= 0;
+      if ((alt >= Math.max(r.cruise, floor) - 0.5) || inCone) phase = inCone ? 'descending' : 'cruising';
     } else if (phase === 'cruising') {
-      intentNow.forward = 1;
-      intentNow.rise = clamp((r.cruise - alt) / 3, -1, 1);
+      intentNow.forward = under > 0.5 ? clamp(1 - under / 6, 0, 1) : 1;
+      intentNow.rise = clamp((Math.max(r.cruise, floor + 1) - alt) / 3, -1, 1);
       pitchTo(intentNow, 0, dt);
       if (horiz <= alt / GLIDE_TAN) phase = 'descending';
     } else if (phase === 'descending') {
@@ -535,6 +570,12 @@ export function createTravel({
       const needed = -(alt - 1.8) / eta;
       const fromPitch = hSpeed * intentNow.forward * Math.sin(s.pitch);
       intentNow.rise = clamp((needed - fromPitch) / vSpeed, -1, 1);
+      if (under > -0.5) {
+        // Something stands between here and the stand: over it first, then down.
+        intentNow.rise = Math.max(intentNow.rise, clamp((under + 0.5) / 2, 0, 1));
+        intentNow.forward = Math.min(intentNow.forward, under > 0.5 ? clamp(1 - under / 6, 0, 1) : 1);
+        pitchTo(intentNow, 0, dt);
+      }
       if (horiz <= LAND_HORIZ_M) phase = 'landing';
     } else if (phase === 'landing') {
       intentNow.forward = horiz > 0.6 ? clamp(horiz / 6, 0.05, 0.3) : 0;
@@ -548,6 +589,9 @@ export function createTravel({
         beginArrive(r);
       }
     }
+    // T-3734: climbing in place over what is ahead is not a stall; the window starts again
+    // once it is over.
+    if (under > 0.5) { r.progressT = 0; r.progressRef = horiz + (phase === 'landing' ? alt : 0); return; }
     stallWatch(r, dt, horiz + (phase === 'landing' ? alt : 0), false);
   }
 
@@ -618,6 +662,7 @@ export function createTravel({
       ride.cruise = PACES.fly.cruise(d);
       if (target.kind === 'anchor' && isAerial(target)) { ride.aerial = true; ride.cruise = target.altitude_m; }
       ride.progressRef = d;
+      clearance?.refresh?.();
       phase = 'ascending';
       paintBanner();
       return true;
@@ -702,8 +747,10 @@ export function createTravel({
   /** Where a glide is at `t`: on its one leg, or (with a `via`) on the first leg and then the
    *  second, each taking its share of the clock (by length, neither under a quarter). */
   function glideAt(g, t) {
-    if (!g.via) return glidePose(g.from, g.to, t);
-    return t < g.split ? glidePose(g.from, g.via, t / g.split) : glidePose(g.via, g.to, (t - g.split) / (1 - g.split));
+    if (!g.via) { const p = glidePose(g.from, g.to, t); return liftGlide(p, g.clear, p.u * g.d1, t); }
+    if (t < g.split) { const p = glidePose(g.from, g.via, t / g.split); return liftGlide(p, g.clear, p.u * g.d1, t); }
+    const p = glidePose(g.via, g.to, (t - g.split) / (1 - g.split));
+    return liftGlide(p, g.clear, g.d1 + p.u * g.d2, t);
   }
   /**
    * T-3432: fly from `from` to `to` ({ e, n, altitude, yaw, pitch }: the eye's height above
@@ -720,9 +767,18 @@ export function createTravel({
     if (Number.isFinite(asked) && asked > 0 && (seconds > 0 || hover)) seconds = Math.max(seconds, asked);
     if (!(seconds > 0) || reduceMotion?.matches) return false;
     if (phase !== 'idle') stop('replaced');
+    // T-3734: the ground track's clearance, worked out once as it sets off. A glide that ends in
+    // the air (the closing look) ends above whatever stands there, not inside it.
+    let clear = null;
+    if (clearance?.needAt) {
+      clearance.refresh?.();
+      clear = clearanceProfile(clearance.needAt, via ? [[from.e, from.n], [via.e, via.n], [to.e, to.n]] : [[from.e, from.n], [to.e, to.n]]);
+      if (hover) to = { ...to, altitude: Math.max(to.altitude ?? 0, clearance.needAt(to.e, to.n)) };
+    }
     setFly?.(true);
     ride = newRide({ kind: 'glide', label: label ?? 'the start' }, { e: to.e, n: to.n }, [[to.e, to.n]], 'fly', callbacks);
-    ride.glide = { from, to, via, split: via ? clamp(d1 / Math.max(d, 1), 0.25, 0.6) : 1, hover, seconds, elapsed: 0, t0: now() };
+    ride.glide = { from, to, via, split: via ? clamp(d1 / Math.max(d, 1), 0.25, 0.6) : 1, hover, seconds, elapsed: 0, t0: now(),
+      d1: via ? d1 : d2, d2, clear };
     phase = 'gliding';
     poseGlide(glideAt(ride.glide, 0));
     paintBanner();

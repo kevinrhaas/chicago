@@ -261,7 +261,8 @@ export function fastPrepare(renderer, scene, camera, geometry, material, group) 
   const info = this._instanceInfo;
   const multiDrawStarts = this._multiDrawStarts;
   const multiDrawCounts = this._multiDrawCounts;
-  const indirectArray = this._indirectTexture.image.data;
+  const list = passList(this, camera);
+  const indirectArray = list.texture.image.data;
 
   // the frustum, camera position and forward in the batch's frame, as three makes them
   _m.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse).multiply(this.matrixWorld);
@@ -303,20 +304,80 @@ export function fastPrepare(renderer, scene, camera, geometry, material, group) 
   // three's stable sort of a list pushed in instance order: depth, then instance
   const sorted = sortByDepth(w, k, material.transparent);
 
+  let changed = list.texture.version === 0 || k !== list.count;
   for (let j = 0; j < k; j += 1) {
     const i = kept[sorted[j]];
     multiDrawStarts[j] = drawStart[i] * bytesPerElement;
     multiDrawCounts[j] = drawCount[i];
-    indirectArray[j] = i;
+    if (indirectArray[j] !== i) { indirectArray[j] = i; changed = true; }
   }
-  this._indirectTexture.needsUpdate = true;
+  // T-3728: sent to the GPU only when this pass's list is not the one it already holds.
+  if (changed) { list.texture.needsUpdate = true; list.count = k; passLists.sent += 1; } else passLists.kept += 1;
+  this._indirectTexture = list.texture;
   this._multiDrawCount = k;
   this._visibilityChanged = false;
+}
+
+/**
+ * T-3728 — EACH PASS KEEPS ITS OWN DRAW LIST ON THE GPU, AND SENDS IT ONLY WHEN IT CHANGED.
+ *
+ * Bill's PC (UHD 630, ANGLE on D3D11), walking 1904, 2026-11-23: 1.65 s of 21.7 s of main
+ * thread went to texture uploads, nearly all of them the batches' draw lists. three keeps a
+ * batch's list (which instances, in which order: its "indirect" texture) in ONE texture,
+ * written and sent again in every pass. The town draws each batch twice a frame, for the eye
+ * and for the sun's shadow, so the one texture swapped between two lists and was sent twice a
+ * frame for every batch, about 1,400 sends, even standing still, when neither list changes.
+ *
+ * So each camera that draws a static batch (the eye, the sun's shadow camera, a pick) has its
+ * own list texture, the same size and kind as three's, and the list is sent only when it is
+ * not the one that texture already holds. The batch draws with that pass's texture (three
+ * binds `_indirectTexture` at the draw). What is drawn is the same list, entry for entry.
+ * A camera past PASS_SLOTS shares the last texture, which is then simply sent when it differs.
+ * `?passlists=0` sends every pass as before.
+ */
+const PASS_SLOTS = 4;
+const PASS_LISTS_ON = (() => {
+  try { return new URLSearchParams(globalThis.location?.search ?? '').get('passlists') !== '0'; } catch { return true; }
+})();
+/** Counters for a probe: lists sent and lists kept (`passLists.on` flips it live). */
+export const passLists = { on: PASS_LISTS_ON, sent: 0, kept: 0 };
+const _passes = new WeakMap();
+
+function passList(batch, camera) {
+  const current = batch._indirectTexture;
+  if (!passLists.on) return { texture: current, count: -1 };
+  let p = _passes.get(batch);
+  // three made a new list texture (an instance count change): start again from it
+  if (p && current !== p.own && !p.slots.some((s) => s.texture === current)) {
+    for (const s of p.slots) if (s.texture !== p.own) s.texture.dispose();
+    p = null;
+  }
+  if (!p) { p = { own: current, slots: [] }; _passes.set(batch, p); }
+  let slot = p.slots.find((s) => s.camera === camera);
+  if (!slot) {
+    if (p.slots.length < PASS_SLOTS) {
+      const own = p.own;
+      const texture = p.slots.length === 0 ? own : new THREE.DataTexture(new own.image.data.constructor(own.image.data.length),
+        own.image.width, own.image.height, own.format, own.type);
+      // never sent yet: the first draw sends it, whatever it holds
+      if (texture !== own) texture.needsUpdate = true;
+      slot = { camera, texture, count: -1 };
+      p.slots.push(slot);
+    } else slot = p.slots[p.slots.length - 1];
+  }
+  return slot;
 }
 
 /** Give a static batch the cached cull, beneath every wrapper installed after it. */
 export function installFastCull(batch) {
   if (!batch?.isBatchedMesh || batch.onBeforeRender !== native) return false;
   batch.onBeforeRender = fastPrepare;
+  // three disposes the list texture the batch holds; the other passes' go with it
+  const dispose = batch.dispose;
+  batch.dispose = function disposeWithPassLists() {
+    const p = _passes.get(this);
+    if (p) { for (const s of p.slots) if (s.texture !== this._indirectTexture) s.texture.dispose(); _passes.delete(this); }
+    return dispose.call(this);
+  };
   return true;
 }
