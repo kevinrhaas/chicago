@@ -36059,18 +36059,6 @@
         },
         {
           "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "murdoch_house_2130_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36171,7 +36159,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36261,37 +36249,13 @@
           "domain": "structure",
           "structure": "murdoch_house_2130_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.basement_lights"
         },
         {
           "domain": "structure",
           "structure": "murdoch_house_2130_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.boundary"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.entrance_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.principal_floor_m"
         },
         {
           "domain": "structure",
@@ -36309,18 +36273,6 @@
           "domain": "structure",
           "structure": "murdoch_house_2130_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.rear_wings"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.sash_by_storey"
         },
         {
@@ -36328,12 +36280,6 @@
           "structure": "murdoch_house_2130_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.shaped_gable"
         },
         {
           "domain": "structure",
@@ -36358,12 +36304,6 @@
           "structure": "murdoch_house_2130_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.stoop_width_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "murdoch_house_2130_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.storey_heights_m"
         },
         {
           "domain": "structure",
@@ -36397,7 +36337,7 @@
         },
         {
           "label": "Covers",
-          "text": "`murdoch_house_2130_prairie.as_mapped_1904.form.wall_thickness_front_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.wall_thickness_side_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.stair_tread_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.stair_landing_depth_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.service_wall_brick`, `murdoch_house_2130_prairie.as_mapped_1904.form.stoop_width_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.side_bays`, `murdoch_house_2130_prairie.as_mapped_1904.form.rear_bays`, `murdoch_house_2130_prairie.as_mapped_1904.form.sash_by_storey`, `murdoch_house_2130_prairie.as_mapped_1904.form.basement_lights`, `murdoch_house_2130_prairie.as_mapped_1904.form.entrance_kit`, `murdoch_house_2130_prairie.as_mapped_1904.form.rainwater`, `murdoch_house_2130_prairie.as_mapped_1904.form.yard`, `murdoch_house_2130_prairie.as_mapped_1904.form.bays`, `murdoch_house_2130_prairie.as_mapped_1904.form.shaped_gable`, `murdoch_house_2130_prairie.as_mapped_1904.form.boundary`, `murdoch_house_2130_prairie.as_mapped_1904.form.rear_wings`, `murdoch_house_2130_prairie.as_mapped_1904.form.principal_floor_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.storey_heights_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.roof_pitch_deg`, `murdoch_house_2130_prairie.as_mapped_1904.footprint`."
+          "text": "`murdoch_house_2130_prairie.as_mapped_1904.form.wall_thickness_front_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.wall_thickness_side_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.stair_tread_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.stair_landing_depth_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.service_wall_brick`, `murdoch_house_2130_prairie.as_mapped_1904.form.stoop_width_m`, `murdoch_house_2130_prairie.as_mapped_1904.form.side_bays`, `murdoch_house_2130_prairie.as_mapped_1904.form.rear_bays`, `murdoch_house_2130_prairie.as_mapped_1904.form.sash_by_storey`, `murdoch_house_2130_prairie.as_mapped_1904.form.basement_lights`, `murdoch_house_2130_prairie.as_mapped_1904.form.entrance_kit`, `murdoch_house_2130_prairie.as_mapped_1904.form.rainwater`, `murdoch_house_2130_prairie.as_mapped_1904.form.yard`."
         },
         {
           "label": "Review",
