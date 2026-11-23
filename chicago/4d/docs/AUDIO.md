@@ -189,9 +189,15 @@ correct one."* Clips are found by their words, and a jaunt's tellings for other 
 telling) share words with it, so the player now asks first whether the running telling is itself
 voiced (`createNarration({ voiced })`, main.js: its catalog row's `narrated`); one that is not, or
 whose catalog cannot be read, offers no Listen and plays nothing, while its words and music run
-on. A reading-age tab that puts another age's words on a stop or the opening puts that voice
-away too (jaunt-panel.js: Listen hides, the voice stops, arrival starts none) until the
-telling's own age is picked again. With **Narrated** picked, the menu keeps one telling per
+on. A reading-age tab that puts another telling's words on a stop or the opening is read in
+THAT telling's recording (owner, 2026-11-23: *"when you switch tabs to an age that has its own
+recording, it should start playing that recording"*): jaunt-panel.js finds the telling for the
+tab's age (main.js `tellings`, the siblings jaunt-preview.js already fetches for the tabs) and
+hands the part's words to `narration.retell(jaunt, part, id, from)`. The part keeps its own slot
+(Pause, the stop meter and the speaker's mouth follow it) but is keyed to the other telling's
+words: a voice reading the old words stops and the new one starts at once with narration
+audible. A tab whose telling is not voiced, or whose words no telling says as shown, has no
+voice (no Listen, nothing plays). With **Narrated** picked, the menu keeps one telling per
 picked age first and then filters (jaunt-menu.js `listTellings`), so an unvoiced telling is never
 replaced by another age's voiced one.
 

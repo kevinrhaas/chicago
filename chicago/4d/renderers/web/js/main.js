@@ -6380,6 +6380,7 @@ async function boot() {
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions, narration,
+        tellings: (jaunt) => jauntPreview.tellingsOf?.(jaunt?.id) ?? [], // T-3735: an age tab's own voice
         catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       let closingTimer = null;
       const closingClock = pace.createClosingClock({

@@ -240,6 +240,34 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
     assert.equal(t.state.playing, null, 'arriving in an unvoiced telling plays nothing');
     assert.equal(t.seconds(other, 'stop', 'john'), null, 'and times no voice');
     assert.equal(await t.toggle(other, 'stop', 'john'), false, 'a Listen tap there plays nothing either');
+    // T-3735 (the owner, 2026-11-23): "when you switch tabs to an age that has its own recording,
+    // it should start playing that recording": a part shown in a voiced telling's words is read
+    // in that telling's voice, at once; one shown in an unvoiced telling's words, in none.
+    {
+      const younger = { ...jaunt, id: `${jaunt.id}-grades-3-5`, stops: jaunt.stops.map((s, i) => (i === 1 ? { ...s, text: 'Frances says hello.' } : s)) };
+      const ks = narrationScripts(younger).find(s => s.part === 'stop' && s.id === younger.stops[1].id);
+      const ky = await textKey(ks.text);
+      const both = { version: 1, clips: { ...index.clips, [ky]: { text_sha256: ky, file: 'narration/y.mp3' } } };
+      const r = createNarration({ fetcher: async () => new Response(JSON.stringify(both)), location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+        media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), voiced: async j => j.id !== other.id });
+      audible = true;
+      await r.prepare(jaunt);
+      const sid = jaunt.stops[1].id;
+      r.at(jaunt, 'stop', sid); assert.match(el.src, /b\.mp3$/, 'its own words: its own voice');
+      await r.retell(jaunt, 'stop', sid, { jaunt: younger, part: 'stop', id: sid });
+      assert.match(el.src, /y\.mp3$/, 'another age with its own recording: that recording plays at once');
+      assert.equal(r.state.playing, `${jaunt.id}:stop:${sid}`, 'as this stop (Pause, the meter and the mouths follow it)');
+      const plays = el.plays.length;
+      await r.retell(jaunt, 'stop', sid, { jaunt: younger, part: 'stop', id: sid });
+      assert.equal(el.plays.length, plays, 'the same age again restarts nothing');
+      await r.retell(jaunt, 'stop', sid, { jaunt: { ...other }, part: 'stop', id: sid });
+      assert.equal(r.state.playing, null, 'an age whose telling is not voiced: the voice stops'); assert.equal(r.clip(jaunt, 'stop', sid), null, 'and offers no Listen');
+      await r.retell(jaunt, 'stop', sid, false);
+      assert.equal(r.clip(jaunt, 'stop', sid), null, 'words no telling says: no voice');
+      await r.retell(jaunt, 'stop', sid, null);
+      assert.match(el.src, /b\.mp3$/, 'back to its own age: its own voice again');
+      r.stop(); audible = false;
+    }
     const u = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
       media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), voiced: () => { throw Error('no catalog'); } });
     await u.prepare(jaunt);
