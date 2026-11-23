@@ -36,7 +36,7 @@ window.CHICAGO_FILMS = {
     "1904-prairie-glide": "1904-prairie-glide.bf654e42.mp4",
     "1904-stoops": "1904-stoops.1e52cb1c.mp4",
     "1904-winter": "1904-winter.cf6103e1.mp4",
-    "hero": "hero.33a5710c.mp4",
+    "hero": "hero.ce3770d0.mp4",
     "long-1812": "long-1812.ccaf6100.mp4",
     "long-1835": "long-1835.3dce3c8d.mp4",
     "long-1904": "long-1904.64b6ea94.mp4",
