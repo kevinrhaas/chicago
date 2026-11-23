@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3214, ts: '2026-11-23T05:56:05.401Z', date: 'Nov 22, 2026, 11:56 PM CT', title: 'Low-powered computers run faster, walking and standing still', kind: 'improvement',
+    items: [
+      'On a low-powered computer, such as one with built-in graphics, the view is drawn softer while you move and a little softer when you stand still, and the sun\'s shadows refresh every other frame.',
+      'On a test computer of this class, walking went from about 10 to about 17 frames a second, and standing still from about 10 to about 17.',
+      'Photos you take are still made at full sharpness, and nobody in town is left out.',
+    ] },
   { v: 3213, ts: '2026-11-23T05:34:54.422Z', date: 'Nov 22, 2026, 11:34 PM CT', title: '1936 Prairie built as its 1869 newspaper description reads', kind: 'improvement',
     items: [
       'The Thompson/Allerton house\'s walls are smooth pressed red brick all round, the tower included, as the 1869 Tribune describes them.',
