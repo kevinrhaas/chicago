@@ -36,12 +36,14 @@ export const COALESCE_ON = (() => {
 function scratchFor(batch, n, instances) {
   let s = batch.userData.coalesceScratch;
   if (!s || s.ids.length < n || s.slotOf.length < instances) {
-    const cap = Math.max(n, s?.ids.length ?? 0);
+    // T-3731: grown by half again, not to the exact count: a walk's lists creep up a
+    // few entries a frame, and each exact growth made all nine arrays afresh.
+    const cap = Math.min(instances, Math.max(n, Math.ceil((s?.ids.length ?? 0) * 1.5)));
     const slotOf = new Int32Array(Math.max(instances, s?.slotOf.length ?? 0)).fill(-1);
     s = {
       ids: new Int32Array(cap), starts: new Int32Array(cap), counts: new Int32Array(cap),
       runOf: new Int32Array(cap), runStart: new Int32Array(cap), runCount: new Int32Array(cap),
-      runId: new Int32Array(cap), runMin: new Int32Array(cap), slotOf,
+      runId: new Int32Array(cap), runMin: new Int32Array(cap), byId: new Int32Array(cap), slotOf,
     };
     batch.userData.coalesceScratch = s;
   }
@@ -101,9 +103,15 @@ export function joinRuns(batch, geometry, material) {
   // Walk the drawn entries in instance order — the order the pieces were added in,
   // and so the order of their ranges — and grow a run while the next one touches it
   // and draws the same instance data.
+  // T-3731: a short list (most of a walk's: the cull keeps a few of a batch's thousands)
+  // is visited by its own ids sorted, not by a scan of every instance; the same order.
   let runs = 0;
   let prev = -1;
-  for (let i = 0; i < instances; i += 1) {
+  const sparse = n * 8 < instances;
+  let byId = null;
+  if (sparse) { byId = s.byId.subarray(0, n); byId.set(s.ids.subarray(0, n)); byId.sort(); }
+  for (let v = 0, end = sparse ? n : instances; v < end; v += 1) {
+    const i = sparse ? byId[v] : v;
     const k = s.slotOf[i];
     if (k < 0) continue;
     s.slotOf[i] = -1;

@@ -25497,7 +25497,7 @@ darker than its brown sandstone, which a buff brick cannot do) and laid in the f
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `flats_2127_prairie.draft_1904.form.draft_elevation`, `flats_2127_prairie.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie.draft_1904.form.draft_elevation`, `house_2123_prairie.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25545,6 +25545,8 @@ buildings are T-1938's.
 **Retired in part:** 2109, the Roloson house, by T-3666 (piece 2 of T-1924, the S13 package), which refined it in place on the K01 frontage kit under `L-k01-2109-roloson-3666`, under the same id; its draft attributes are gone (its coach house is still the draft's, the R-series').
 **Retired in part:** 2115, the Kelley/Armour house, by T-3712 (piece 1 of T-1925, the S14 package), which refined it in place on the K01 frontage kit under `L-k01-2115-armour-3712`, under the same id; its draft attributes are gone (its coach house is still this draft's, T-1938's; its cameras and image-gate sign-off are T-3713's).
 **Retired in part:** 2125, the frame dwelling, by T-3723 (piece 1 of T-1930, the S18 package), which refined it in place on the K16 timber kit under `L-k16-2125-frame-3723`, under the same id; its draft attributes are gone (its alley stable is still this draft's, T-1938's).
+**Retired in part:** 2123, the stone-front masonry house, by T-3724 (piece 2 of T-1930, the S18 package), which refined it in place on the K01 frontage kit under `L-k01-2123-prairie-3724`, under the same id; its draft attributes are gone (its alley garage is still this draft's, T-1938's).
+**Retired in part:** 2127-2129, the double building of flats, by T-1931 (the S19 package), which refined it in place on the K01 frontage kit under `L-k01-2127-prairie-1931`, under the same id; its draft attributes are gone, its closed two-storey frame range at the rear rebuilt as the sheet's open three-storey porch (2141 stays open ground, as this draft left it).
 **Recorded:** 2026-10-11 (T-2352).
 
 ### L-k01-2115-armour-3712 — 2115 Prairie, the Kelley/Armour house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, roof and stoop off the Armour photograph, its unseen flanks and rear the kits'
@@ -25613,6 +25615,49 @@ match records): the mansard and its dormers carried back over the rear range, wh
 roof; the iron cresting and carved top on the pavilion's crown, which a K01 mansard crown does not take; and the
 front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B' piece), built
 under the main mansard.
+
+### L-k01-2123-prairie-3724 — 2123 Prairie, the stone-front masonry house, refined from the district draft onto K01: its plan off the 1911 sheet, the north half of its front, its roof and north stack off the Armour photograph, the rest the kits'
+
+**Decision:** the district draft at `house_2123_prairie` (T-2352) is refined in place, under its own id, to a
+`k01_frontage` record built by `generators/k01_emit.py` (T-3724, piece 2 of T-1930, the S18 package of the T-1837
+programme). The house's one picture is the right-hand edge of the Armour photograph
+(`chicagology_2115_armour_photo`, forms only), taken in winter from the west walk north of 2115: it shows the north
+half of this front and the top of its north flank, and stops short of the door.
+
+**What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.1858 m a pixel, through the
+committed trace's fit): the '3B' brick building with a stone front, its main body 21.47 m from the rear wall to the
+front and 9.48 m from the north wall to the south wall (the draft's fit drew it 15.25 by 5.75 m, and the house's
+corner moves with it); the front on 2115's front line, 7.43 m behind the street line; the stone band bowed out
+0.93 m over a 3.9 m chord on the front's north half; the key's dashed mansard line round the whole body; the front's
+south-west corner cut back round the entrance; a small frame bay on the north flank, 3.0 m long; the '2B' brick rear
+range, 6.78 by 6.69 m, its south wall on the main body's. From the photograph: a dark, smooth stone front (read as
+brown sandstone against 2115's pale limestone in the same light); round-headed lights in both storeys, a pair in the
+bow and one beside it, under moulded hoods; square-headed basement openings between piers; a deep cornice on blocks
+carried round the north flank; a straight slated mansard with round-headed dormers, two on the street face and one
+on the north flank; iron cresting with small finials round the deck; one tall brick stack on the north wall well back;
+the north flank dark and unlit; the yard open behind a low kerb.
+
+**What is invented.** The storey heights beyond the photograph's scale (a 1.8 m principal floor, 4.0 and 3.8 m
+storeys, the second taken 0.1 m over the reading so the round heads' keys clear the frieze), the walls' thickness,
+the brick of the flanks (K03's salmon common, the darkest it lays), the quarry of the stone, the deck and its fall,
+the cornice's profile and block spacing, the door and its round-arched surround (out of the photograph's frame), the
+stoop, every light of the south flank and the rear, the south stack, the rear
+range's floor, heights, lights and flat tin deck, the gutters, and the yard's flagged walk.
+
+**What is built otherwise than the evidence, and why.** The bow is K08's bowed bay with a low cone under the
+cornice's bed: K01 holds a bay below the wall head. Not built: the sheet's small frame bay on the north flank
+(K08 cuts no light in a bay 0.55 m deep and refuses a blind one; it stands in the 0.6 m gap beside 2115, where no
+picture reaches), the front's south-west corner
+cut back 1.9 m round the entrance (K01 lays a rectangular body; the door stands on the front plane instead), the
+south wall's 1.2 m step in over the rear 5.6 m, a third street dormer over the door (out of the photograph's frame),
+and any north-flank dormer beyond the one the photograph shows.
+
+**How to resolve:** T-3725 solves the Armour photograph's camera on this house and works the photo-match down; any
+picture of the door's end of the front, or of the south flank, would read first.
+**Covers:** `house_2123_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_2123_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_2123_prairie.as_mapped_1904.form.service_wall_brick`, `house_2123_prairie.as_mapped_1904.form.street_front_trim`, `house_2123_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_2123_prairie.as_mapped_1904.form.stair_tread_m`, `house_2123_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_2123_prairie.as_mapped_1904.form.north_bays`, `house_2123_prairie.as_mapped_1904.form.rear_bays`, `house_2123_prairie.as_mapped_1904.form.window_kit`, `house_2123_prairie.as_mapped_1904.form.rainwater`, `house_2123_prairie.as_mapped_1904.form.entrance_kit`
+**Ticket:** T-3724 (piece 2 of T-1930, S18).
+**Review:** `docs/RESEARCH/k01-2123-prairie-3724/README.md`.
+**Recorded:** 2026-11-22 (T-3724).
 
 ### L-k01-2013-reid-3625 — 2013 Prairie, the William H. Reid house, refined from the district draft onto K01: its front read off the Inland Architect's 1895 plate through a solved camera, its flanks and rear still the kits'
 
@@ -45112,6 +45157,48 @@ first.
 **Review:** `docs/RESEARCH/k01-2120-prairie-3720/README.md`.
 **Recorded:** 2026-11-22 (T-3720).
 
+### L-k01-2127-prairie-1931 — 2127-2129 Prairie, the double building of flats, refined from the district draft onto K01: its plan, party wall, two stoops and three-storey rear porch off the 1911 sheet, everything above the plan a bounded design
+
+**Decision:** the district draft at `flats_2127_prairie` (T-2352) is refined in place, under its own id, to a
+`k01_frontage` record built by `generators/k01_emit.py` (T-1931, the S19 package of the T-1837 programme). No
+photograph, plate or description of 2127 or 2129 is known: the Prairie library holds none under either number (its
+1890s view down the east side of the block shows a flat-topped block at its far edge behind the trees that no reading
+identifies), and the register's map-only rule applies ("map plan controls plan shape, not a supposedly measured
+facade").
+
+**What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.1858 m a pixel, through the
+committed trace's fit) and its key: '3B' and 'F' (the key's flat) in each half, so two three-storey buildings of flats
+on basements under one front; the brick main body, 24.0 m from the rear wall to the front and 13.85 m along the front,
+built to the south lot line (the draft's fit drew it 21.25 by 12.25 m, short of the front and of both flanks, so the
+corner moves 0.6 m to the north wall); the party wall from front to rear 6.74 m from the north wall, its thickness
+figure on it; the two small stoops at the front, one either side of the party wall; the key's composition-or-gravel
+roof dot in each half and on the porch; the open frame porch (dashed, '3') against the rear wall across the party wall,
+4.55 m out and from 3.54 to 10.06 m along it; the lot lines with 2125 and 2141. 2129 is the south half's number.
+
+**What is invented.** Every height (a 1.5 m principal floor, 3.8, 3.5 and 3.3 m storeys), the walls' thickness, the
+red pressed front over buff common brick, the five bays of the front, the principal storey's round-headed lights and
+the paired door under one arch band with stone keys, the flat lintels above, the bracketed cornice, every light of the
+flanks and the rear, the two stacks on the party wall, the broad stoop, the porch's posts, rails, frieze and flight,
+the flagged front walk.
+
+**What is built otherwise than the evidence, and why.** The sheet's two stoops are built as one broad flight to one
+round-headed opening on the party wall's line holding a pair of leaves, one a flat: K01 builds one entrance. The
+composition or gravel roof is built in flat-seam tin, the nearest flat covering the K04 kit carries. The light-court
+recesses in both flanks (about 0.6-0.9 m deep) are not cut: K01 lays the main body as one rectangle, and the flanks'
+lights are gathered where the courts are. The porch's top deck is open, and the flights between its decks are not
+built (the veranda module has none).
+
+**2141, the 22nd Street corner, is not a building.** The census ruling r35-2141-open-corner stands: the sheet draws
+nothing on the frontage, and the lot stays open ground. A 1911 empty lot is not proof of 1904 vacancy, so this is the
+working state, as the district draft left it; its yard and boundary are T-1945's.
+
+**How to resolve:** any picture of the flats before 1911: the front, its doors and the cornice are what it would read
+first; then a Sanborn of 1894-1905 for the stoops and the porch.
+**Covers:** `flats_2127_prairie.as_mapped_1904.form.principal_floor_m`, `flats_2127_prairie.as_mapped_1904.form.storey_heights_m`, `flats_2127_prairie.as_mapped_1904.form.wall_thickness_front_m`, `flats_2127_prairie.as_mapped_1904.form.wall_thickness_side_m`, `flats_2127_prairie.as_mapped_1904.form.service_wall_brick`, `flats_2127_prairie.as_mapped_1904.form.face_brick`, `flats_2127_prairie.as_mapped_1904.form.street_front_trim`, `flats_2127_prairie.as_mapped_1904.form.street_front_round_heads`, `flats_2127_prairie.as_mapped_1904.form.wall_head`, `flats_2127_prairie.as_mapped_1904.form.roof_pitch_deg`, `flats_2127_prairie.as_mapped_1904.form.eave_overhang_m`, `flats_2127_prairie.as_mapped_1904.form.roof_covering`, `flats_2127_prairie.as_mapped_1904.form.stair_tread_m`, `flats_2127_prairie.as_mapped_1904.form.stair_landing_depth_m`, `flats_2127_prairie.as_mapped_1904.form.stoop_width_m`, `flats_2127_prairie.as_mapped_1904.form.entrance_bay`, `flats_2127_prairie.as_mapped_1904.form.front_bays`, `flats_2127_prairie.as_mapped_1904.form.side_bays`, `flats_2127_prairie.as_mapped_1904.form.north_bays`, `flats_2127_prairie.as_mapped_1904.form.rear_bays`, `flats_2127_prairie.as_mapped_1904.form.sash_by_storey`, `flats_2127_prairie.as_mapped_1904.form.basement_lights`, `flats_2127_prairie.as_mapped_1904.form.window_kit`, `flats_2127_prairie.as_mapped_1904.form.chimneys`, `flats_2127_prairie.as_mapped_1904.form.entrance_kit`, `flats_2127_prairie.as_mapped_1904.form.rear_veranda`, `flats_2127_prairie.as_mapped_1904.form.boundary`, `flats_2127_prairie.as_mapped_1904.form.yard`
+**Ticket:** T-1931 (the S19 package of T-1837).
+**Review:** `docs/RESEARCH/k01-2127-flats-1931/README.md`.
+**Recorded:** 2026-11-22 (T-1931).
+
 ### L-k01-2033-otis-3659 — 2033 Prairie, the Otis house, refined from the district draft onto K01: its stone front, full-height bay, door and cornice read off Walker Evans' 1946 photograph, its flanks and rear still the kits'
 
 **Decision:** the district draft at `otis_house_2033_prairie` (T-2352) is refined in place, under its own id, to a
@@ -46031,6 +46118,32 @@ the two pictures' cameras and records what is left in their match records.
 **Ticket:** T-3686.
 **Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
 **Recorded:** 2026-11-21 (T-3686).
+
+### L-k01-1936-allerton-tribune-2026-11-22 — 1936 Prairie's materials laid as its 1869 Tribune describes them: pressed red brick all round, brownstone dressings, carving, steps and bay, a rusticated basement and a slate-dark roof
+
+**Decision:** the owner, 2026-11-22, reading the 1869 Tribune's description of the Thompson house on Chicagology, found
+the build "brick and reddish stone". The build's rough red-brown brick and its brownstone stood within a few points of one
+tone, the tower stood wholly in brownstone, and the dressings in pale limestone. The record now lays every wall above the
+basement in the K03 palette's pressed red face brick (`face_brick` all round); the tower in that brick on the basement's
+stone; every dressing, the K09 carving (crests, capitals) and the stoop in the walling's brownstone
+(`stone_front.trim_in_walling`, `carving_in_walling`, `steps_in_walling`, the last two new K01 keys); the reception room's
+half-octagonal bay in brownstone ashlar; the basement's facing on the flanks and the bays' plinths as rusticated ashlar on a
+base course under a two-step water-table (`side_base.rustic`, `bays[].plinth_rustic`, new K01/K08 options); and the main
+hip's standing seam painted black for the Tribune's slate.
+
+**What is read, not invented.** From the Tribune: the 6 ft Portland brownstone ashlar with rubbed face, square rustic joints
+and a heavy moulded base and water-table; the Baltimore pressed brick to every exterior wall above it; every window
+trimmed in brownstone; the stone porch, steps, columns and cornice; the stone bay; the slate roof. From the photograph: the
+tower's shaft printing in the brick walls' tone, and the bay's face printing apart from the brick beside it.
+
+**What is invented.** The shade within the pressed reds (the palette's recipe). The number of rustic courses, the channels'
+width and depth, and the base's and water-table's heights and projections. The bay's coursing. The roof is still the kit's
+painted metal: its slate cuts need 45 degrees, or a deeper headlap at 25 to 45, and the hip is pitched 25 degrees and less.
+
+**How to resolve:** a colour description or a surviving fragment of the stone and brick; a close photograph of the basement
+or the bay; a slate cut for a low hip in the K04 kit.
+**Ticket:** T-3727 (the owner's request of 2026-11-22).
+**Recorded:** 2026-11-22 (T-3727).
 
 ### L-k01-robbins-2126-3721 — 2126 Prairie, the Robbins house completed, a structure version on K01 beside the July 1904 works shell: the front off the May 1905 plate, the plan off the 1911 sheet
 

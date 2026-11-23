@@ -2588,7 +2588,56 @@ def _k02(front: dict) -> dict:
         # photograph draws its sills, rings, belts and dressings in the brownstone of the walls,
         # not a paler stone), laid to dressed_trim's profile numbers in the walling's fabric
         **({"trim_face": fab} if _trim_in_walling(front) else {}),
+        # 2026-11-22 (the owner, on 1936 Prairie's 1869 Tribune: "all the windows are trimmed
+        # with brown stone"): and the K09 carving too (hood crests, capitals' leaves), so no
+        # carved member stands out in the kit's pale limestone on a brownstone-trimmed house
+        **({"carving_face": fab} if _carving_in_walling(front) else {}),
+        # and its steps (`steps_in_walling`): the Tribune's 'flight of stone steps' under the
+        # stone porch, the stoop and its cheeks in the basement's brownstone, not the kit's grey
+        **({"steps_face": fab} if _flag(front, "steps_in_walling") else {}),
     }
+
+
+def _flag(front: dict, key: str) -> bool:
+    """A stone front's true/false key."""
+    v = front.get(key, False)
+    if v not in (True, False):
+        raise ParamError(f"stone_front.{key} is true or false")
+    return v
+
+
+RUSTIC_KEYS = {"courses", "channel_m", "depth_m", "water_table_m", "base_m"}
+
+
+def _rustic(r: dict, height: float, what: str) -> dict:
+    """2026-11-22 (the owner, on 1936 Prairie's 1869 Tribune: the basement's ashlar 'will have
+    rubbed surface, with square rustic joints ... 6 feet high, with heavy moulded base and
+    water-table'): a stone basement facing laid as that ashlar, `courses` courses parted by
+    square channels `channel_m` wide and `depth_m` deep, on a base course `base_m` high and
+    under a water-table `water_table_m` high, each standing proud of the courses."""
+    if not isinstance(r, dict) or set(r) != RUSTIC_KEYS:
+        raise ParamError(f"{what}.rustic takes {sorted(RUSTIC_KEYS)}")
+    n, ch, dp, wt, bs = (int(r["courses"]), float(r["channel_m"]), float(r["depth_m"]),
+                         float(r["water_table_m"]), float(r["base_m"]))
+    if not (2 <= n <= 8 and 0.01 <= ch <= 0.04 and 0.008 <= dp <= 0.03 and 0.12 <= wt <= 0.4
+            and 0.12 <= bs <= 0.45):
+        raise ParamError(f"{what}.rustic: 2-8 courses, channels 0.01-0.04 m wide and 0.008-0.03 m deep, "
+                         f"a water-table 0.12-0.4 m and a base 0.12-0.45 m high")
+    if (height - wt - bs - (n - 1) * ch) / n < 0.2:
+        raise ParamError(f"{what}.rustic: {n} courses leave less than 0.2 m a course in {height} m")
+    return {"courses": n, "channel_m": ch, "depth_m": dp, "water_table_m": wt, "base_m": bs}
+
+
+def _carving_in_walling(front: dict) -> bool:
+    """Does the record cut its carving, as its trim, from the walling's stone
+    (`carving_in_walling`, which needs `trim_in_walling`)?"""
+    c = front.get("carving_in_walling", False)
+    if c not in (True, False):
+        raise ParamError("stone_front.carving_in_walling is true or false")
+    if c and not _trim_in_walling(front):
+        raise ParamError("stone_front.carving_in_walling cuts the carving from the walling as the "
+                         "trim is: it needs trim_in_walling")
+    return c
 
 
 def _trim_in_walling(front: dict) -> bool:
@@ -3690,6 +3739,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.05-0.6 m, or the "
                                  f"stone basement's top (stone_front.brick_above_m)")
             v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
+        if "plinth_rustic" in e:   # 2026-11-22: a basement plinth laid as rusticated ashlar (_rustic)
+            if not (on_basement if "plinth_m" in e else False):
+                raise ParamError(f"bays: {e['id']}'s plinth_rustic lays a stone basement's plinth: its "
+                                 f"plinth_m is the basement's top (stone_front.brick_above_m)")
+            v["overrides"]["plinth"]["rustic"] = _rustic(e["plinth_rustic"], ph, f"bays: {e['id']}'s plinth")
         if "cap_band" in e:
             # T-2815: a carved band round the bay under its cap, read off a picture (Keith's
             # bow, the 1888 plate), carrying the frieze's guilloche (T-2778's keys)
@@ -9690,8 +9744,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_belts.append({"wall": sb["wall"], "from_m": y0, "to_m": y1, "proud_m": d})
     side_base = []
     for j, sb in enumerate(val("side_base") or ()):
-        if set(sb) != {"wall", "to_m", "proud_m"} or sb["wall"] not in ("k01.wall.side.north", "k01.wall.side.south"):
-            raise ParamError(f"side_base[{j}] takes wall (a side wall), to_m and proud_m, not {sb}")
+        if not {"wall", "to_m", "proud_m"} <= set(sb) <= {"wall", "to_m", "proud_m", "rustic"} \
+                or sb["wall"] not in ("k01.wall.side.north", "k01.wall.side.south"):
+            raise ParamError(f"side_base[{j}] takes wall (a side wall), to_m and proud_m (and rustic), not {sb}")
         if not stone or "brick_above_m" not in stone:
             raise ParamError(f"side_base[{j}] carries a stone basement's facing round its side; this front has none")
         y1, d = float(sb["to_m"]), float(sb["proud_m"])
@@ -9702,7 +9757,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if o.wall == sb["wall"] and o.sill_m < y1 and (o.head_m > y1 - 0.15 or o.sill_m < 0.15):
                 raise ParamError(f"side_base[{j}]: {o.component} at s {o.s_m} on {o.wall} stands across "
                                  f"its top or its foot")
-        side_base.append({"wall": sb["wall"], "to_m": y1, "proud_m": d})
+        if "rustic" in sb and not float((sb["rustic"] or {}).get("depth_m", 0.0)) < d:
+            raise ParamError(f"side_base[{j}].rustic: its channels ({sb['rustic'].get('depth_m')} m) cut "
+                             f"no deeper than the facing stands proud ({d} m)")
+        side_base.append({"wall": sb["wall"], "to_m": y1, "proud_m": d,
+                          **({"rustic": _rustic(sb["rustic"], y1, f"side_base[{j}]")} if "rustic" in sb else {})})
     street_iron = _street_iron(val("street_front_iron") or {}, openings, val("entrance_kit") or {})
     shutters = _window_shutters(val("window_shutters") or {}, openings,
                                 [round(pf + sum(heights[:k]), 4) for k in range(len(heights))], depth, width)
