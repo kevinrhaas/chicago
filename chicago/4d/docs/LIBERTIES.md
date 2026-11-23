@@ -46285,14 +46285,14 @@ the elevations; the front, its porch and roof are what it would show first.
 
 ### L-pullman-corner-elm-withdrawn-3739 — The Pullman corner's parkway elm left out, where the Detroit print shows a trunk near the 18th Street crossing
 
-**What is left out.** The pictured elm at the north-east corner of Prairie Avenue and 18th Street
+**Decision:** left out: the pictured elm at the north-east corner of Prairie Avenue and 18th Street
 (`prairie__prairie_ic_16_18#p04` in `data/street_trees/pictured_1904.json`), read off the Detroit
 Publishing print (`loc_det_4a08065_pullman_residence`) and Taylor's no. 1445 at 259.8 m along Prairie's
 east planting line. There the trunk stood 0.9 m inside the 18th Street walk's corner crossing of the
 parkway (`prairie__prairie_ic_16_18.x.e18th`, T-3200), which the same Detroit print attests. Both readings
 were carried onto the planting line by assumption, and the two cameras disagree by 2-4 m along this front
 (T-3161), so where the trunk stood against the crossing is not known to the foot.
-**The ruling.** The owner, 2026-11-23, looking north up the east walk from the corner: "i am not sure that
+**Ruling:** The owner, 2026-11-23, looking north up the east walk from the corner: "i am not sure that
 tree would be in the middle of the sidewalk", then "i think you should keep the crossing and lose the elm in
 that scene", "unless you are certain about that elm and that crossing". We are not, so the crossing stays
 and no tree is planted for the reading; the reading is kept in the file, marked `withdrawn`.
