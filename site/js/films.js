@@ -7,9 +7,12 @@ window.CHICAGO_FILMS = {
   "files": {
     "1812-ashes": "1812-ashes.f9b9b186.mp4",
     "1812-burning": "1812-burning.c9d9f96c.mp4",
+    "1812-burning-wide": "1812-burning-wide.a12880ad.mp4",
+    "1812-column": "1812-column.bafca2c4.mp4",
     "1812-crossing": "1812-crossing.515869ed.mp4",
     "1812-dawn": "1812-dawn.2ac5aaf4.mp4",
     "1812-fire-river": "1812-fire-river.70970791.mp4",
+    "1812-fort-fly": "1812-fort-fly.344848fb.mp4",
     "1812-order": "1812-order.48d83d17.mp4",
     "1812-torches": "1812-torches.8c99ab38.mp4",
     "1812-wagon": "1812-wagon.1354d1da.mp4",
