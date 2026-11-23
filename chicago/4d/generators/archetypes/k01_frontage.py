@@ -706,6 +706,16 @@ class Assembly:
                                      ("dress_stone", trim, round(st["trim_roughness"] + 0.02, 3))):
                 self.fabric[slot] = fab
                 self.spec[slot] |= {"color": (1.0, 1.0, 1.0), "roughness": rough}
+            if st.get("carving_face"):   # the K09 carving cut from the walling's stone too
+                self.fabric["carved_trim"] = st["carving_face"]
+                self.spec["carved_trim"] = dict(self.spec["carved_trim"], fabric=st["carving_face"],
+                                                color=(1.0, 1.0, 1.0),
+                                                roughness=round(st["trim_roughness"] + 0.04, 3))
+            if st.get("steps_face"):   # and the stoop cut from the walling's stone too
+                self.fabric["stoop_stone"] = st["steps_face"]
+                self.spec["stoop_stone"] = dict(self.spec["stoop_stone"], fabric=st["steps_face"],
+                                                color=(1.0, 1.0, 1.0),
+                                                roughness=round(st["fabric_roughness"] + 0.03, 3))
             # T-2350: a bay laid in the front's own stone (`front_stone`) wears its K02 fabric
             # too, a shade rougher so the web derivative keeps the bay's slot its own
             # T-2788: and on an all-stone house every stone bay and a timber bay's plinth
@@ -1169,7 +1179,13 @@ class Assembly:
             y0, y1, proud = band[:3]
             # T-3184: a basement's facing (side_base) framing the lights cut through it
             lights = band[3] if len(band) > 3 else ()
+            rustic = band[4] if len(band) > 4 else None   # 2026-11-22: laid as rusticated ashlar
             for s0, s1 in _pieces(0.0, length, list(gaps) + [(h0, h1) for h0, h1, _, _ in lights]):   # T-2308: stopped against a bay
+                if rustic:
+                    from . import k08_bays
+                    for r0, r1, x in k08_bays.rustic_courses(y1, rustic):
+                        self.proud_box("limestone_trim", (O, R, N), s0, s1, r0, r1, proud + x, seed, conf)
+                    continue
                 self.proud_box("limestone_trim", (O, R, N), s0, s1, y0, y1, proud, seed, conf)
             for h0, h1, hs, hh in lights:
                 self.proud_box("limestone_trim", (O, R, N), h0, h1, y0, hs, proud, seed, conf)
@@ -7280,6 +7296,7 @@ def build(params, structure_id: str):
             + tuple((0.0, b["to_m"], b["proud_m"], tuple((o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m)
                                                           for o in p.openings if o.wall == f"k01.wall.side.{which}"
                                                           and o.sill_m < b["to_m"]))
+                    + ((b["rustic"],) if b.get("rustic") else ())
                     for b in p.side_base if b["wall"] == f"k01.wall.side.{which}")   # T-3184
     walls = {
         # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
