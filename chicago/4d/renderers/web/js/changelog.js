@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 3234, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: 'The public site opens four ways in: play, teach, check, build', kind: 'feature',
+    items: [
+      'The home page opens on a film of all four years, then offers four ways in: Players, Educators, Historians and Technicians.',
+      'Each way in has its own page: the game features in detail, the reading levels and classroom tools, the research shown with photographs, and how the town is built.',
+      'Historians can drag between an archive photograph and the model drawn through the same camera, and read a Prairie Avenue household line by line from the census.',
+      '1871 and the Great Fire join the Eras page and every year picker on the site.',
+      'Messages from the contact page are now saved to the project as well as emailed, and the contact link sits in the menu and the footer.',
+      'The site\'s looping films no longer jump when they start again.',
+    ] },
+  { v: 3233, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: 'No street tree stands on a sidewalk in 1904', kind: 'fix',
+    items: [
+      'The elm on the 18th Street crossing at the Pullman corner is gone; the crossing stays.',
+      'Every 1904 street tree is now kept clear of walks, crossings and drives.',
+    ] },
+  { v: 3232, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: '2123 Prairie\'s bow gets its basement window', kind: 'fix',
+    items: [
+      'The stone bow at 2123 Prairie now has the square basement window the Armour photograph shows under its north window, with a plain pier beside it as in the picture.',
+    ] },
   { v: 3231, ts: '2026-11-23T20:06:48.574Z', date: 'Nov 23, 2026, 2:06 PM CT', title: '2126 Prairie\'s finished front gains its pilasters, panels and gate piers', kind: 'improvement',
     items: [
       'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now carries what its May 1905 photograph shows: four Ionic pilaster heads under the entablature, marble panels between the storeys with a carved one over the door, keyed lintels, scrolled stone stops at both corners, and brick gate piers topped with balls.',
