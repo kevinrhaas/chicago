@@ -1,0 +1,11 @@
+{
+  "title": "Graphics settings: antialiasing, a Fast pacing choice and a Drawing now line",
+  "kind": "feature",
+  "items": [
+    "Settings › Graphics starts with Auto, then Scene detail, Image sharpness, Frame pacing and Antialiasing, each showing what is in force on this device.",
+    "Frame pacing has a third choice, Fast: softer while you move and a little softer standing still, with the sun's shadows refreshed every other frame. Built-in graphics computers start on it, and any computer can pick it.",
+    "Antialiasing (smoother edges) can be turned on or off. Built-in graphics computers start with it off, which is quicker; a change shows the next time the page loads.",
+    "A Drawing now line says what is really being drawn, such as 67 % sharpness standing and 55 % moving, so nothing is quietly turned down.",
+    "Photos are still taken at full sharpness, and no choice here takes anyone out of town: people, horses, carriages and wagons stay on every setting."
+  ]
+}
