@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3228, ts: '2026-11-23T19:16:57.768Z', date: 'Nov 23, 2026, 1:16 PM CT', title: 'Prairie Avenue households no longer stand inside each other', kind: 'fix',
+    items: [
+      'Everyone on Prairie Avenue now has a place of their own outside their door: a household out together for the evening talk spreads along the walk instead of sharing one spot at the foot of the steps.',
+      'Someone whose figure is still being made is shown where that figure stands, stepping aside for others as it will, not left inside a neighbour.',
+    ] },
   { v: 3227, ts: '2026-11-23T18:57:21.012Z', date: 'Nov 23, 2026, 12:57 PM CT', title: 'Graphics settings: antialiasing, a Fast pacing choice and a Drawing now line', kind: 'feature',
     items: [
       'Settings › Graphics starts with Auto, then Scene detail, Image sharpness, Frame pacing and Antialiasing, each showing what is in force on this device.',
