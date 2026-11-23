@@ -223,6 +223,29 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   await n.toggle(jaunt, 'stop', 'frances'); assert.equal(n.state.playing, null, 'Listen again stops it'); assert.equal(ducked.at(-1), false);
   n.at(jaunt, 'stop', 'frances'); assert.equal(n.state.playing, null, 'arriving where you already are does not restart it');
   audible = false; n.at(jaunt, 'stop', 'john'); assert.equal(n.state.playing, null, 'with narration muted nothing starts by itself');
+  // T-3735 (the owner, 2026-11-23): a telling for another age, with the very same words, plays
+  // nothing unless that telling is voiced itself: never another telling's recording.
+  {
+    audible = true;
+    const other = { ...jaunt, id: `${jaunt.id}-grades-11-12` };
+    let asked = [];
+    const t = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }),
+      voiced: async j => { asked.push(j.id); return j.id === jaunt.id; } });
+    await t.prepare(jaunt); await t.prepare(other);
+    assert.deepEqual(asked, [jaunt.id, other.id], 'each telling is asked whether it is voiced');
+    assert.ok(t.clip(jaunt, 'stop', 'john'), 'the voiced telling keeps its clips');
+    for (const s of narrationScripts(other)) assert.equal(t.clip(other, s.part, s.id), null, `${s.part}:${s.id}: an unvoiced telling offers no clip, though its words match`);
+    t.at(other, 'opening', 'opening'); t.at(other, 'stop', 'john');
+    assert.equal(t.state.playing, null, 'arriving in an unvoiced telling plays nothing');
+    assert.equal(t.seconds(other, 'stop', 'john'), null, 'and times no voice');
+    assert.equal(await t.toggle(other, 'stop', 'john'), false, 'a Listen tap there plays nothing either');
+    const u = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), voiced: () => { throw Error('no catalog'); } });
+    await u.prepare(jaunt);
+    assert.equal(u.clip(jaunt, 'stop', 'john'), null, 'a telling whose voicing cannot be known stays silent');
+    audible = false;
+  }
   let woke = 0;
   const m = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
     media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), wake: () => { woke++; audible = true; } });

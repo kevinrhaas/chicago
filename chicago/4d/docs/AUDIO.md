@@ -183,6 +183,18 @@ no file, no jaunt has music. The Jaunts menu's **Listen** row shows a **Narrated
 **Music** pill once any jaunt has music); a picked pill lists only those jaunts, and each such
 card says *Narrated* / *Music* on its tags. Editing either list means compiling the jaunts again.
 
+**Only the telling's own voice (T-3735, owner 2026-11-23).** *"If they are on 11-13 … and you do
+not have narration for that then don't play that other wrong narration unless you have the
+correct one."* Clips are found by their words, and a jaunt's tellings for other ages (and its 18+
+telling) share words with it, so the player now asks first whether the running telling is itself
+voiced (`createNarration({ voiced })`, main.js: its catalog row's `narrated`); one that is not, or
+whose catalog cannot be read, offers no Listen and plays nothing, while its words and music run
+on. A reading-age tab that puts another age's words on a stop or the opening puts that voice
+away too (jaunt-panel.js: Listen hides, the voice stops, arrival starts none) until the
+telling's own age is picked again. With **Narrated** picked, the menu keeps one telling per
+picked age first and then filters (jaunt-menu.js `listTellings`), so an unvoiced telling is never
+replaced by another age's voiced one.
+
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices
 (L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
 

@@ -4,7 +4,7 @@
 // jaunt-cards.js, tour-overlay.js), no town: 390x780 phone and 1280x800 desktop.
 //
 //  1.2.1  a voiced opening, stop and ending show the words the voice says, lit while it reads;
-//         where the card shows another telling, a Transcript fold gives the voiced words
+//         where the card shows another age's telling, that voice is put away (T-3735)
 //  1.4.2  Pause / Resume narration on the controls and on the collapsed bar, while a voice speaks
 //  2.2.1  the closing scene's own clock is held once the visitor touches or keys in the panel
 //  4.1.3  one polite status line says started / arrived / closing / complete, once each
@@ -12,7 +12,7 @@
 //         card, the menu's list, its mode radios on the arrows, and the tour card taking focus,
 //         ending on Esc (not on its Release step) and giving focus back
 //
-// Pictures: C4D_TEST_OUT=<dir> saves jaunts-transcript-<width>-after.png there.
+// Pictures: C4D_TEST_OUT=<dir> saves jaunts-other-age-<width>-after.png there.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import http from 'node:http';
@@ -140,7 +140,7 @@ try {
     assert.deepEqual(await rig(() => ({ paused: window.__rig.narration.paused, media: window.__media.paused })), { paused: false, media: false }, 'and resumes');
     console.log(`PASS ${width} opening: transcript on the card, lit; Pause/Resume by keyboard; started said`);
 
-    // ---- arrival at stop 1: said once; the stop's words are its transcript; another telling shows the fold.
+    // ---- arrival at stop 1: said once; the stop's words are its transcript; another age's words put its voice away.
     await rig(() => { const r = window.__rig; r.narration.stop(); r.state = r.reduce(r.state, { type: 'ARRIVE', session: 1, leg: r.state.leg }); });
     await page.waitForFunction(() => window.__rig.narration.state.playing === 'a11y-walk:stop:one');
     assert.equal(await status(), 'Arrived at The Sauganash. Stop 1 of 2.');
@@ -150,23 +150,26 @@ try {
       return { role: m.getAttribute('role'), text: m.getAttribute('aria-valuetext'), now: m.getAttribute('aria-valuenow') };
     });
     assert.deepEqual(seen, { role: 'progressbar', text: 'Stop 1 of 2, 25 percent of the jaunt', now: '25' });
-    // A reading-age tab swaps the card's words in place (reading-level.js sayAt): the voice still reads the first telling.
+    // A reading-age tab swaps the card's words in place (reading-level.js sayAt). T-3735 (the
+    // owner, 2026-11-23): another age's words are not this voice's, so it stops, Listen goes and
+    // no Transcript is offered; the telling's own tab brings Listen back.
     await rig(() => { const p = document.querySelector('#jaunt-panel [data-voiced="stop"]'); p.firstChild.data = 'Start at the hotel. It is white with blue shutters.'; });
-    await page.waitForFunction(() => !document.querySelector('[data-transcript="stop:one"]')?.hidden);
+    await page.waitForFunction(() => window.__rig.narration.state.playing === null);
+    // The stopped voice repaints the panel; reading-level.js lays the picked age's words over the redrawn card again.
+    await new Promise(r => setTimeout(r, 50));
+    await rig(() => { const p = document.querySelector('#jaunt-panel [data-voiced="stop"]'); p.firstChild.data = 'Start at the hotel. It is white with blue shutters.'; });
+    await page.waitForFunction(() => document.querySelector('[data-transcript="stop:one"]')?.previousElementSibling?.hidden === true);
     seen = await rig(() => {
       const fold = document.querySelector('[data-transcript="stop:one"]'), listen = fold.previousElementSibling;
-      return { words: [...fold.querySelectorAll('p:not(.jaunt-transcript-note)')].map(p => p.textContent).join('\n'), skip: fold.hasAttribute('data-reading-skip'),
-        described: document.getElementById(listen.getAttribute('aria-describedby'))?.textContent, summary: fold.querySelector('summary').textContent };
+      return { fold: fold.hidden, listen: listen.dataset.action === 'listen' && listen.hidden, skip: fold.hasAttribute('data-reading-skip') };
     });
-    assert.equal(seen.words, 'Begin outside the Sauganash, a white house with blue shutters.', '1.2.1: the transcript is the exact voiced script');
-    assert(seen.skip, 'the age tabs never swap the transcript itself'); assert.equal(seen.summary, 'Transcript');
-    assert.match(seen.described, /Transcript/);
-    await page.locator('[data-transcript="stop:one"] summary').click();
-    await rig(() => document.querySelector('[data-transcript="stop:one"]').scrollIntoView({ block: 'end' }));
-    if (out) await page.screenshot({ path: path.join(out, `jaunts-transcript-${width}-after.png`) });
+    assert.deepEqual(seen, { fold: true, listen: true, skip: true }, 'another age shown: its voice stops, no Listen, no Transcript');
+    assert.equal(await rig(() => window.__rig.narration.state.playing), null, 'and it does not start again');
+    if (out) await page.screenshot({ path: path.join(out, `jaunts-other-age-${width}-after.png`) });
     await rig(() => { const p = document.querySelector('#jaunt-panel [data-voiced="stop"]'); p.firstChild.data = 'Begin outside the Sauganash, a white house with blue shutters.'; });
-    await page.waitForFunction(() => document.querySelector('[data-transcript="stop:one"]')?.hidden);
-    console.log(`PASS ${width} stop: arrival said, progressbar named, transcript fold for another telling`);
+    await page.waitForFunction(() => document.querySelector('[data-transcript="stop:one"]')?.previousElementSibling?.hidden === false);
+    assert(await rig(() => document.querySelector('[data-transcript="stop:one"]').hidden), 'its own words: the card is the transcript again');
+    console.log(`PASS ${width} stop: arrival said, progressbar named, another age's words put the voice away`);
 
     // ---- the way on: road notes close on Esc; arrival moves focus to the stop's heading.
     await rig(() => { const r = window.__rig; r.narration.stop(); let s = r.reduce(r.state, { type: 'NEXT' });

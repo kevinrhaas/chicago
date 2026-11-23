@@ -146,9 +146,19 @@ export function clipSeconds(clip) {
   return clip.chars > 0 ? clip.chars / 15 : null;
 }
 
+/**
+ * T-3735 (the owner, 2026-11-23: "if they are on 11-13 ... and you do not have narration for
+ * that then don't play that other wrong narration unless you have the correct one"): `voiced(jaunt)`
+ * says (or resolves to) whether this telling itself is read aloud: the catalog's `narrated`,
+ * from data/narration/voices.json. A clip is found by its words alone, and the tellings of one
+ * jaunt for other ages share words (the title and opening, a stop left as it was), so without
+ * this a telling nobody voiced spoke with another telling's recording. A telling that is not
+ * voiced, or one whose answer cannot be had, offers no Listen key and plays nothing; its words
+ * and its music go on as before.
+ */
 export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), base = AUDIO_BASE,
   speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
-  subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
+  subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null, voiced = () => true } = {}) {
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null, starved = false;
   let heard = false;               // the part `at` names has been played or queued once
@@ -190,6 +200,9 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   async function lookUp(jaunt) {
     const found = await readIndex();
     if (!found) return;
+    let own = false;
+    try { own = (await voiced(jaunt)) === true; } catch { own = false; }
+    if (!own) return;   // T-3735: never another telling's voice
     let any = false;
     for (const script of narrationScripts(jaunt)) {
       const words = { sha: await textKey(script.text, subtle), speaker: script.speaker };
