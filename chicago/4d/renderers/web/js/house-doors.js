@@ -437,6 +437,9 @@ export function passagePlan(plan) {
     // T-3554: a way read off the built stoop (derive_doors_scene.py), its risers eased there.
     const out = plan.way.map(([u, v, y]) => ({ u, v, y: y ?? null }));
     out.door = out.length - 1;
+    // T-3553: a door built into its model (a frame house's) does not open: in and out on its
+    // landing, where one going in is taken in and one coming out is first drawn.
+    if (plan.leafless) return out;
     for (const [u, v] of [planPoint(plan, 0, (plan.jambs[0] + plan.jambs[1]) / 2), inner]) out.push({ u, v, y: plan.sill });
     return out;
   }
@@ -853,8 +856,43 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
   }
 
   const passages = [];
+  /** T-3553: ways to doors built into their models (`plan.leafless`): { plan, matrix }. */
+  const openWays = [];
+  /**
+   * T-3553: a door built into its house's model (a frame house's front: nothing to swing) still
+   * has a way up its porch steps to it (derive_doors_scene.py leafless_plan), walked as a
+   * passage's is; it is always "open", and hung with no leaf, vestibule or mouth.
+   */
+  function hangOpenWay(plan, record) {
+    const m = buildings?.matrixOf?.(record.id);
+    if (!m) { problems.push(`${plan.id}: a way up to its door, but its house was not drawn`); return; }
+    const entry = { plan, matrix: m.clone() };
+    openWays.push(entry);
+    const v3 = new THREE.Vector3();
+    const enu = (u, v, y = 0) => { v3.set(u, y, -v).applyMatrix4(entry.matrix); return { e: v3.x, n: -v3.z, y: v3.y }; };
+    const holders = new Set();
+    passages.push({
+      id: plan.id, structureId: record.id, name: plan.name, kind: 'passage', plan, swing: 0, holders, leafless: true,
+      get state() { return 'open'; },
+      isOpen() { return true; },
+      hold(key) { holders.add(key); return this; },
+      release(key) { holders.delete(key); return this; },
+      setSwing(t) { this.swing = t; },
+      way() {
+        const pts = passagePlan(plan);
+        const out = pts.map((p) => { const w = enu(p.u, p.v, p.y ?? 0); return { e: w.e, n: w.n, y: p.y === null ? null : w.y }; });
+        out.door = pts.door;
+        const at = enu(...planPoint(plan, 0, (plan.jambs[0] + plan.jambs[1]) / 2));
+        out.leaf = { e: at.e, n: at.n };
+        const i0 = enu(...planPoint(plan, 1, 0)), i1 = enu(...planPoint(plan, 0, 0));
+        out.inward = (Math.atan2(i1.e - i0.e, i1.n - i0.n) * 180 / Math.PI + 360) % 360;
+        return out;
+      },
+    });
+  }
   /** T-3524: a door a drawn person opens — hung, with its vestibule and its way (the header). */
   function hangPassage(plan, record) {
+    if (plan.leafless) { hangOpenWay(plan, record); return; }
     const id = record.id;
     const m = buildings?.matrixOf?.(id);
     const pieces = buildings?.doorLeaves?.get(plan.id) ?? [];
@@ -1126,6 +1164,7 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
         if (!hangLeaf(entry, layer)) problems.push(`${entry.plan.id}: the rebuilt house carries no leaf to hang`);
         entry.thing.setSwing(entry.thing.swing);
       }
+      for (const entry of openWays) { const m = layer?.matrixOf?.(entry.plan.structureId); if (m) entry.matrix.copy(m); }
       for (const a of attached) a.rebind?.(layer);
     },
     /** The leaf's geometry and materials are the buildings layer's, freed with it. */

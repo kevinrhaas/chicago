@@ -6604,12 +6604,123 @@
       "local_n": -3490.37
      },
      "step": {
-      "local_e": 1388.93,
-      "local_n": -3490.33
+      "local_e": 1388.74,
+      "local_n": -3490.34
      },
      "outward_deg": 89.4,
      "width_m": 0.95,
-     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       22.58,
+       1.17
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.475,
+       0.475
+      ],
+      "sill": 1.15,
+      "head": 3.25,
+      "leaf": {
+       "front": 0,
+       "back": -0.1,
+       "s": [
+        -0.475,
+        0.475
+       ],
+       "foot": 1.15,
+       "top": 3.25
+      },
+      "hinge": "right",
+      "pair": false,
+      "leafless": true,
+      "way": [
+       [
+        26.28,
+        1.17,
+        null
+       ],
+       [
+        25.85,
+        1.17,
+        null
+       ],
+       [
+        25.61,
+        1.17,
+        0.192
+       ],
+       [
+        25.65,
+        1.17,
+        0.192
+       ],
+       [
+        25.41,
+        1.17,
+        0.383
+       ],
+       [
+        25.35,
+        1.17,
+        0.383
+       ],
+       [
+        25.11,
+        1.17,
+        0.575
+       ],
+       [
+        25.05,
+        1.17,
+        0.575
+       ],
+       [
+        24.81,
+        1.17,
+        0.767
+       ],
+       [
+        24.75,
+        1.17,
+        0.767
+       ],
+       [
+        24.51,
+        1.17,
+        0.958
+       ],
+       [
+        24.45,
+        1.17,
+        0.958
+       ],
+       [
+        24.21,
+        1.17,
+        1.15
+       ],
+       [
+        23.08,
+        1.17,
+        1.15
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the way up to it is read off the model's porch steps (derive_doors_scene.py stoop_way), and one answering stands at its foot. Nothing swings: the door is part of the model (T-3553)."
     }
    ],
    "model_inputs_sha256": "048e8cd793dcefaf90163fce0b9d04e8461e89125232616f77029750afbbefd6",
@@ -7254,12 +7365,123 @@
       "local_n": -3516.31
      },
      "step": {
-      "local_e": 1389.28,
+      "local_e": 1389.11,
       "local_n": -3516.27
      },
      "outward_deg": 89.4,
      "width_m": 0.95,
-     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       20.64,
+       0.36
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.475,
+       0.475
+      ],
+      "sill": 1.15,
+      "head": 3.25,
+      "leaf": {
+       "front": 0,
+       "back": -0.1,
+       "s": [
+        -0.475,
+        0.475
+       ],
+       "foot": 1.15,
+       "top": 3.25
+      },
+      "hinge": "right",
+      "pair": false,
+      "leafless": true,
+      "way": [
+       [
+        24.64,
+        0.36,
+        null
+       ],
+       [
+        24.21,
+        0.36,
+        null
+       ],
+       [
+        23.97,
+        0.36,
+        0.192
+       ],
+       [
+        23.91,
+        0.36,
+        0.192
+       ],
+       [
+        23.67,
+        0.36,
+        0.383
+       ],
+       [
+        23.71,
+        0.36,
+        0.383
+       ],
+       [
+        23.47,
+        0.36,
+        0.575
+       ],
+       [
+        23.41,
+        0.36,
+        0.575
+       ],
+       [
+        23.17,
+        0.36,
+        0.767
+       ],
+       [
+        23.11,
+        0.36,
+        0.767
+       ],
+       [
+        22.87,
+        0.36,
+        0.958
+       ],
+       [
+        22.81,
+        0.36,
+        0.958
+       ],
+       [
+        22.57,
+        0.36,
+        1.15
+       ],
+       [
+        21.14,
+        0.36,
+        1.15
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the way up to it is read off the model's porch steps (derive_doors_scene.py stoop_way), and one answering stands at its foot. Nothing swings: the door is part of the model (T-3553)."
     }
    ],
    "model_inputs_sha256": "4b347f4614035f03b1344a5c1dba1d20853e5e42ae882f0b44d28f60ba776ba7",
@@ -14263,12 +14485,188 @@
       "local_n": -3135.03
      },
      "step": {
-      "local_e": 1386.18,
-      "local_n": -3134.98
+      "local_e": 1385.95,
+      "local_n": -3134.89
      },
      "outward_deg": 89.4,
      "width_m": 1.1,
-     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
+     "passage": true,
+     "plan": {
+      "name": "Front door",
+      "origin": [
+       22.25,
+       5.0
+      ],
+      "outward": [
+       1,
+       0
+      ],
+      "along": [
+       0,
+       1
+      ],
+      "jambs": [
+       -0.55,
+       0.55
+      ],
+      "sill": 1.55,
+      "head": 3.65,
+      "leaf": {
+       "front": 0,
+       "back": -0.1,
+       "s": [
+        -0.55,
+        0.55
+       ],
+       "foot": 1.55,
+       "top": 3.65
+      },
+      "hinge": "right",
+      "pair": false,
+      "leafless": true,
+      "way": [
+       [
+        26.35,
+        5.1,
+        null
+       ],
+       [
+        26.385,
+        5.135,
+        null
+       ],
+       [
+        26.215,
+        4.965,
+        0.12
+       ],
+       [
+        26.25,
+        5.0,
+        0.12
+       ],
+       [
+        26.32,
+        5.0,
+        0.12
+       ],
+       [
+        26.08,
+        5.0,
+        0.12
+       ],
+       [
+        26.22,
+        5.0,
+        0.12
+       ],
+       [
+        25.98,
+        5.0,
+        0.12
+       ],
+       [
+        26.12,
+        5.0,
+        0.12
+       ],
+       [
+        25.88,
+        5.0,
+        0.121
+       ],
+       [
+        26.02,
+        5.0,
+        0.121
+       ],
+       [
+        25.78,
+        5.0,
+        0.194
+       ],
+       [
+        25.72,
+        5.0,
+        0.194
+       ],
+       [
+        25.48,
+        5.0,
+        0.387
+       ],
+       [
+        25.42,
+        5.0,
+        0.387
+       ],
+       [
+        25.18,
+        5.0,
+        0.581
+       ],
+       [
+        25.12,
+        5.0,
+        0.581
+       ],
+       [
+        24.88,
+        5.0,
+        0.775
+       ],
+       [
+        24.82,
+        5.0,
+        0.775
+       ],
+       [
+        24.58,
+        5.0,
+        0.969
+       ],
+       [
+        24.52,
+        5.0,
+        0.969
+       ],
+       [
+        24.28,
+        5.0,
+        1.163
+       ],
+       [
+        24.22,
+        5.0,
+        1.163
+       ],
+       [
+        23.98,
+        5.0,
+        1.356
+       ],
+       [
+        23.92,
+        5.0,
+        1.356
+       ],
+       [
+        23.68,
+        5.0,
+        1.55
+       ],
+       [
+        22.75,
+        5.0,
+        1.55
+       ]
+      ],
+      "grades": {
+       "leaf": "inferred",
+       "treads": "inferred"
+      }
+     },
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the way up to it is read off the model's porch steps (derive_doors_scene.py stoop_way), and one answering stands at its foot. Nothing swings: the door is part of the model (T-3553)."
     },
     {
      "id": "walker_house_1720_prairie:back",
