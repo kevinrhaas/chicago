@@ -244,7 +244,7 @@
           },
           {
             "face": "street",
-            "along_m": 5.5,
+            "along_m": 5.55,
             "head": "round",
             "sash": {
               "variant": "k06.opening.sash_round_fanlight",
@@ -281,7 +281,7 @@
         "chicagology_2115_armour_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Off the photograph: a straight-faced slated mansard about 3 m high (y 320-510 px), two round-headed dormers on the street face over the bow and the light beside it (x 1840-1865 and 1915-1950, y 400-490 px), one on the north flank part way back (x 1580-1615, y 425-470 px; K01 names that face 'south', the house being turned to front west), and iron cresting with small finials round the deck (y 290-320 px). The photograph stops short of the door's end of the front, so no third street dormer is built; how many more stand on the north flank behind the one it shows cannot be read. The deck's 0.5 m cresting is the kit's. T-3725, through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json): the mansard rises 3.5 m from the cornice to the deck's curb (the curb at y about 322 px, about 15.2 m over grade over the 11.65 m wall head; T-3724's 3.0 m on a 9.6 m wall stood it about 140 px low), and the two street dormers stand 3.6 and 5.5 m along the front (x about 1855 and 1935 px; T-3724 had 2.8 and 5.75 m, which this camera draws 30-70 px south of the print's): over the bow's south half and over the light beside it. The slate over the bow's middle is plain in the print. The north flank's one dormer (K01's 'south' face; x 1580-1615 px) stands 18.9 m from the rear wall, 2.6 m behind the front, through the same camera (T-3724 had 11.0 m, which this camera hides behind 2115)."
+      "note": "Off the photograph: a straight-faced slated mansard about 3 m high (y 320-510 px), two round-headed dormers on the street face over the bow and the light beside it (x 1840-1865 and 1915-1950, y 400-490 px), one on the north flank part way back (x 1580-1615, y 425-470 px; K01 names that face 'south', the house being turned to front west), and iron cresting with small finials round the deck (y 290-320 px). The photograph stops short of the door's end of the front, so no third street dormer is built; how many more stand on the north flank behind the one it shows cannot be read. The deck's 0.5 m cresting is the kit's. T-3725, through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json): the mansard rises 3.5 m from the cornice to the deck's curb (the curb at y about 322 px, about 15.2 m over grade over the 11.65 m wall head; T-3724's 3.0 m on a 9.6 m wall stood it about 140 px low), and the two street dormers stand 3.6 and 5.55 m along the front (x about 1855 and 1935 px; the second read at 5.5 m and set 5 cm on, under 3 px at this front and finer than the print reads, because at exactly 5.5 m the K05 roof kit's union leaves a doubled sliver of slate between the two dormers' cheeks; T-3724 had 2.8 and 5.75 m, which this camera draws 30-70 px south of the print's): over the bow's south half and over the light beside it. The slate over the bow's middle is plain in the print. The north flank's one dormer (K01's 'south' face; x 1580-1615 px) stands 18.9 m from the rear wall, 2.6 m behind the front, through the same camera (T-3724 had 11.0 m, which this camera hides behind 2115)."
     },
     "roof_covering": {
       "value": {
