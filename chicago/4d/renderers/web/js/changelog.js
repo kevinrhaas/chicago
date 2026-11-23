@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3236, ts: '2026-11-23T23:29:08.328Z', date: 'Nov 23, 2026, 5:29 PM CT', title: 'The first-time tour catches up: stories, questions and mysteries', kind: 'feature',
+    items: [
+      'The tour\'s Interact step says what to do with someone: greet them, hear a story, or ask a question.',
+      'The Jaunts step names stories read aloud, mysteries to solve and parts to play. The Settings step names Language, Reading age and Graphics.',
+      'Its last step sends you on in the year you are in: pick a Jaunt, Go to someone, or Free roam.',
+    ] },
   { v: 3235, ts: '2026-11-23T22:34:06.120Z', date: 'Nov 23, 2026, 4:34 PM CT', title: 'House numbers are quieter, and each house has its own', kind: 'improve',
     items: [
       'The street numbers over the front doors no longer glow. They are muted gold leaf or white paint, as they would look on glass from the walk.',
