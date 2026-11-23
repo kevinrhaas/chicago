@@ -71,6 +71,18 @@ for (const tier of ['full', 'balanced', 'light']) {
   const b = tierTargets(150, tier, { built: true, drawM: 140 });
   ok(b.v === 1 && b.t === 1, `${tier}: a built figure past its range is a card`);
 }
+// T-3553 (owner, 2026-11-23, flying: a maid "appears and disappears on her route"): a built
+// figure counts as drawn only once its body is made; one drawn stays drawn a little past its
+// range (humans.js DRAW_HYST_M), so a walker along the edge is not drawn and let go each frame.
+ok(crowd.figureDrawn({ inRange: true, body: {} }) && !crowd.figureDrawn({ inRange: true, body: null })
+  && !crowd.figureDrawn({ inRange: false, body: {} }), 'a built figure is drawn only in range with its body made');
+{
+  const humansMod = await import(new URL('../renderers/web/js/humans.js', import.meta.url).href);
+  const { chooseHumanLod, DRAW_M, DRAW_HYST_M } = humansMod;
+  ok(chooseHumanLod(DRAW_M + 1, 'full', -1) === -1, 'not drawn: one just past the range is not taken in');
+  ok(chooseHumanLod(DRAW_M + DRAW_HYST_M - 0.5, 'full', 3) >= 0, 'drawn: one just past the range is kept');
+  ok(chooseHumanLod(DRAW_M + DRAW_HYST_M + 0.5, 'full', 3) === -1, 'drawn: one past the margin is let go');
+}
 for (let v = 0; v <= 1; v += 0.125) for (let t = 0; t <= 1; t += 0.125) {
   const w = tierWeights(v, t);
   ok(w.mid >= 0 && w.far >= 0 && w.mid + w.far <= v + 1e-9, `weights at v ${v} t ${t} never sum past v`);
