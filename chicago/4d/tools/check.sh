@@ -1682,6 +1682,11 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
   python3 tools/test_k01_deck_crenellation.py
 
+# T-3713. 2115 Prairie's pavilion crown carries iron cresting round its own deck in the Armour
+# photograph, and K01 dressed the main deck only.
+step "a K01 mansard crown over a pavilion may carry iron cresting round its own deck (T-3713)" \
+  python3 tools/test_k01_crown_cresting.py
+
 # T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
 # and the K08 bay kit cut no light in a gable's face.
 step "a K08 projection's coped gable may carry square-headed lights cut in its face (T-3634)" \

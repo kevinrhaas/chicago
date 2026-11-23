@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 3218, ts: '2026-11-23T11:09:46.169Z', date: 'Nov 23, 2026, 5:09 AM CT', title: '2115 Prairie\'s pavilion tower gets its iron cresting', kind: 'fix',
+    items: [
+      'The tall roof over the Armour house\'s pavilion now carries a rail of iron cresting round its top, as in its photograph.',
+      'The tall chimney behind that roof stands higher, so it rises over the tower as both old pictures show it.',
+      'What looked like a carved ornament on the tower\'s corner in the 1890s photograph turned out to be that chimney.',
+      'Still different from the pictures: the dormers on the back roof and the lower south end of the front.',
+    ] },
+  { v: 3217, ts: '2026-11-23T10:44:53.441Z', date: 'Nov 23, 2026, 4:44 AM CT', title: '2130 Prairie\'s Murdoch house: rock-faced stone, a steep front gable and a round tower', kind: 'improvement',
+    items: [
+      '2130 Prairie Avenue now stands on the house kit: a rock-faced stone gable front, a round corner tower under a slated cone, and a brick body behind, read off the 1911 sheet and two photographs.',
+    ] },
   { v: 3216, ts: '2026-11-23T08:43:07.913Z', date: 'Nov 23, 2026, 2:43 AM CT', title: 'People look right up close, pass each other and use their steps', kind: 'fix',
     items: [
       'On a jaunt stop, people near you are their real, full figures, never the rough distant stand-in.',
