@@ -14,7 +14,9 @@ const T = await import(vendor);
 const asData = (text) => 'data:text/javascript;base64,' + Buffer.from(text).toString('base64');
 const read = (name) => fs.readFileSync(new URL(`../renderers/web/js/${name}`, import.meta.url), 'utf8')
   .replaceAll("from 'three'", 'from ' + JSON.stringify(vendor));
-const casters = asData(read('shadow-casters.js'));
+// T-3731: shadow-casters.js reads its spheres off batch-cull-index.js's cache.
+const cullIndex = asData(read('batch-cull-index.js'));
+const casters = asData(read('shadow-casters.js').replace("from './batch-cull-index.js'", 'from ' + JSON.stringify(cullIndex)));
 const S = await import(asData(read('far-shadow.js').replace("from './shadow-casters.js'", 'from ' + JSON.stringify(casters))));
 const C = await import(asData(read('far-colour.js')));
 const checks = []; const test = (name, fn) => { fn(); checks.push(name); console.log('PASS ' + name); };
