@@ -1,0 +1,10 @@
+{
+  "title": "Jaunts speak only in the voice recorded for your reading age",
+  "kind": "fix",
+  "items": [
+    "A jaunt reads aloud only when the telling you are on was recorded for its own ages. A telling for another age that has no recording of its own now plays no narration at all, rather than another age's voice where the words happen to match. Its text and music run as before.",
+    "This stops the 18+ tellings of the battle, the Lalime killing and the famous-names walk borrowing the student tellings' voices.",
+    "Picking another age's tab on a stop or the opening switches the voice to that age's own recording straight away. If that age has no recording, the voice stops and Listen goes until you pick an age that has one.",
+    "The Narrated filter in Jaunts now lists a jaunt only when the telling for your reading age is narrated, instead of showing another age's narrated telling in its place."
+  ]
+}

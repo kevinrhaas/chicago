@@ -6371,6 +6371,10 @@ async function boot() {
         duck: on => api.sound?.setSpeechActive(on),
         // T-3578: Settings › Sound › Narrator (the essayist unless the visitor chose otherwise).
         narrator: () => api.hud?.settings?.narrator ?? soundNow().saved.narrator,
+        // T-3735 (the owner, 2026-11-23): only a telling voiced for its own ages speaks; the
+        // catalog's `narrated` (data/narration/voices.json) says which. A telling for another
+        // age that shares words with a voiced one stays silent rather than borrow its voice.
+        voiced: async (jaunt) => ((api.jaunts.catalog ?? await routeJaunts()) || []).some((row) => row?.id === jaunt?.id && row.narrated === true),
       });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         fetcher: jauntFetch, // T-3694: the catalog and daybook Home read ahead
@@ -6403,6 +6407,7 @@ async function boot() {
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions, narration,
+        tellings: (jaunt) => jauntPreview.tellingsOf?.(jaunt?.id) ?? [], // T-3735: an age tab's own voice
         catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       let closingTimer = null;
       const closingClock = pace.createClosingClock({

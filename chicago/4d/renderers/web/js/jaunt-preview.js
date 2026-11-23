@@ -235,7 +235,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   // T-3645: the jaunt last loaded reads its other tellings' words at the reader's other ages
   // (reading-level.js § tellingTable): its siblings are fetched alongside, once, and their
   // table takes the place of the one before.
-  let dropTellings = null, tellingsFor = null;
+  let dropTellings = null, tellingsFor = null, siblings = null;
   async function tellings(content) {
     if (tellingsFor === content.id) return;
     tellingsFor = content.id;
@@ -247,6 +247,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (tellingsFor !== content.id) return;
     dropTellings?.();
     dropTellings = addTable(tellingTable(content, others));
+    siblings = { id: content.id, list: others };   // T-3735: for the voice an age tab reads in
   }
   async function load(id, options) {
     const content = await fetchContent(id, options);
@@ -318,5 +319,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     try { const [rows] = await Promise.all([catalog(), daybook().catch(() => null)]); if (request === serial) list(rows, returnId, true); }
     catch { if (request === serial) root.replaceChildren(node('p', 'Jaunts could not load. You can still explore on your own.'), button('Try again', open)); }
   }
-  return { open, load, award, daybook };
+  /** T-3735: the other tellings of the jaunt last loaded (compiled), once they have been read. */
+  const tellingsOf = (id) => (siblings?.id === id ? siblings.list : []);
+  return { open, load, award, daybook, tellingsOf };
 }

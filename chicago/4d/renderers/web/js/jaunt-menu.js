@@ -102,6 +102,17 @@ export function oneTellingEach(rows, grade = '') {
   }
   return rows.filter((row) => keep.has(row));
 }
+/**
+ * T-3735 (the owner, 2026-11-23: narration "should always match the age band of the story you
+ * are running"): the list as the menu shows it. A search and a group filter run first, then one
+ * telling of each jaunt for the ages picked (`oneTellingEach`), and only then the Listen picks,
+ * on the telling the reader would start. Picked before, Narrated kept only the voiced tellings
+ * and the reader's own (unvoiced) telling fell back to the base, another age's.
+ */
+export function listTellings(rows, { query = '', group = '', bands = [], listen = [] } = {}) {
+  const want = LISTENS.filter((l) => listen.includes(l.id));
+  return oneTellingEach(filterJaunts(rows, query, group), bands).filter((row) => want.every((l) => hears(row, l.id)));
+}
 /** T-3629: the grade band a visitor picked, kept on this device. Since T-3645 the reading
  *  ages (reading-level.js, `chicago4d.reading.ages`) hold the choice; this key is read once. */
 export const GRADE_KEY = 'chicago4d.jaunts.grade';
@@ -247,7 +258,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
     // T-3629: one telling of each jaunt, the picked grade's where it has one.
-    const matches = oneTellingEach(filterJaunts(rows, query, family, '', [...listen]), picked());
+    // T-3735: the Listen picks judge the telling for the reader's ages, not one in its place.
+    const matches = listTellings(rows, { query, group: family, bands: picked(), listen: [...listen] });
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
