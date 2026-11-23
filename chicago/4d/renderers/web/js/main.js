@@ -176,7 +176,8 @@ import { spotTarget } from './photos-tab.js';
 import { createWhere, screenDate, spokenDay } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
-import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { createFrameGovernor, GOVERNOR } from './frame-governor.js';
+import { isWeakDesktop, resolveAntialias, resolvePacing, describeDrawing } from './graphics-settings.js'; // T-3736
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
@@ -1726,6 +1727,11 @@ function readDetailPreference() {
 }
 
 /** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+/** T-3736: the stored settings as they are on disk, for the choices read before the HUD. */
+function readStoredSettings() {
+  try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { return {}; }
+}
+
 function readQualityPreference() {
   try {
     return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
@@ -2181,10 +2187,19 @@ async function boot() {
    * i5-10400 / UHD 630) draws without multisampling. Measured on that PC, 1904 Balanced:
    * standing 16.6 -> 20.2 fps, at jaunt stops 15.2-17.3 -> 17.2-18.4, over the closing
    * overlook 12.1-12.5 -> 13.2-14.6. Every other device keeps it, as T-0157 above set it.
-   * `?msaa=1` keeps it on a weak computer too, for comparison.
+   * `?msaa=1` keeps it on a weak computer too, for comparison. T-3736 makes it the Auto of
+   * Settings › Graphics › Antialiasing, below.
    */
-  const weakDesktop = device.cls === 'weak' && !coarse && !headset;
-  const multisample = !weakDesktop || params.get('msaa') === '1';
+  /**
+   * T-3736: Settings › Graphics › Antialiasing (graphics-settings.js). Auto is on, as above,
+   * except on a weak computer, where it is off (about 3 fps standing on the owner's UHD 630
+   * test PC); a visitor's On or Off beats Auto, and `?msaa=1` / `?msaa=0` beat both. The
+   * context is made once, so a change takes effect on the next load and the Drawing now line
+   * says so. `weakDesktop` is also what Auto's Fast pacing reads (T-3728).
+   */
+  const weakDesktop = isWeakDesktop(device, { coarse, headset });
+  device.weakDesktop = weakDesktop;
+  const multisample = resolveAntialias(readStoredSettings(), weakDesktop, params);
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: multisample,
@@ -2237,10 +2252,19 @@ async function boot() {
   // frame at a lower resolution and the sun's shadow every second moving frame,
   // and its still frames a little softer too (captures and photos stay full),
   // rather than losing anything; a phone or headset keeps the governor as it was.
-  const governor = createFrameGovernor({ tier: detailLevel, weak: weakDesktop,
-    onChange: (state) => {
-      if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
-    } });
+  // T-3736: that is Settings' Fast pacing now — Auto's pick on a weak computer, and
+  // anyone's to choose (graphics-settings.js resolvePacing).
+  const bootPacing = resolvePacing(readStoredSettings(), weakDesktop);
+  // T-3736: the Drawing now line — detail, sharpness moving and still, antialiasing.
+  let drawingQuality = null;
+  const paintDrawing = (state = governor.state) => {
+    if (!governorLine) return;
+    governorLine.textContent = describeDrawing({ detail: detailLevel, state, multisample,
+      quality: drawingQuality ?? sharpnessCap, pendingAntialias: resolveAntialias(readStoredSettings(), weakDesktop, params) ? 'on' : 'off',
+      weakScale: GOVERNOR.weakScale, weakStillScale: GOVERNOR.weakStillScale });
+  };
+  const governor = createFrameGovernor({ tier: detailLevel, weak: bootPacing === 'fast',
+    enabled: bootPacing !== 'fixed', onChange: (state) => paintDrawing(state) });
   function applySharpness(value) {
     if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
     const ratio = sharpnessCap * governor.scale;
@@ -3991,6 +4015,7 @@ async function boot() {
       api.trees = trees;
       if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       detailLevel = level;
+      paintDrawing();
       blackbox.log('detail', { to: level });
       residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
@@ -4050,6 +4075,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    paintDrawing();
     contextCity.setDetail?.(level);
     blackbox.log('detail', { to: level });
     residency?.setTier(level);
@@ -4843,9 +4869,12 @@ async function boot() {
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
         applySharpness(value);
-      } else if (key === 'governor') {
-        governor.setEnabled(value !== 'fixed');
-        applySharpness();
+        drawingQuality = Number(value) || drawingQuality;
+        paintDrawing();
+      } else if (key === 'pacing') {
+        applyPacing(resolvePacing(hud.settings, weakDesktop));
+      } else if (key === 'antialias') {
+        paintDrawing();
       } else if (key === 'detail') {
         crashGuard.chosen('detail');
         applyDetail(value);
@@ -5226,7 +5255,8 @@ async function boot() {
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
   applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
-  governor.setEnabled(hud.settings.governor !== 'fixed');
+  drawingQuality = crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess);
+  applyPacing(resolvePacing(hud.settings, weakDesktop));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -8192,9 +8222,17 @@ async function boot() {
    * it in sight (12-15 fps on the UHD 630), and a hover is a camera that does not move, so it
    * was drawn as a still frame. On a weak computer it is drawn as the flight up to it is, at
    * the moving sharpness, until the visitor comes down. A capture or a photo still rests.
+   * T-3736: it follows Settings' Fast pacing (Auto on a weak computer), not the class alone.
    */
-  const weakOverlook = () => weakDesktop && !!walker.state.flying
+  const weakOverlook = () => governor.fast && !!walker.state.flying
     && ['closing', 'outcome'].includes(api.jaunts?.state?.phase);
+  /** T-3736: Frame pacing — Adaptive, Fast or Fixed — to the governor and the line. */
+  function applyPacing(pacing) {
+    governor.setFast(pacing === 'fast');
+    governor.setEnabled(pacing !== 'fixed');
+    applyGovernor();
+    paintDrawing();
+  }
   /** The governor's decision for the frame about to be drawn, put in force. */
   function applyGovernor() {
     applySharpness();

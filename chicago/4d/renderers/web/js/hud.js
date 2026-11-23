@@ -20,6 +20,7 @@ import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
 import { wireSettingsApp, wireSettingsTabs, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
+import { storedPacing, storedAntialias, resolvePacing, autoAntialias } from './graphics-settings.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
 import { languageRow } from './language.js';
@@ -41,11 +42,16 @@ const DEFAULT_SETTINGS = {
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
   // stored number is the visitor's own choice and is never overridden.
   quality: '',
-  // T-2555: Frame pacing — 'adaptive' lets the frame governor draw a moving
-  // frame at fewer pixels or a steady 30 fps on a device that cannot hold 60,
-  // and is back at the Sharpness above the moment the camera rests; 'fixed'
-  // draws every frame exactly at that Sharpness.
-  governor: 'adaptive',
+  // T-2555 / T-3736: Frame pacing — 'adaptive' lets the frame governor draw a moving
+  // frame at fewer pixels or a steady 30 fps on a device that cannot hold 60, and is
+  // back at the Sharpness above the moment the camera rests; 'fast' is T-3728's
+  // weak-computer rule (softer moving and standing, the shadow every other frame);
+  // 'fixed' draws every frame exactly at that Sharpness. '' = Auto: Fast on a weak
+  // computer, Adaptive elsewhere (graphics-settings.js). It was `governor` before.
+  pacing: '',
+  // T-3736: Antialiasing — '' = Auto (off on a weak computer), 'on' or 'off'. Read when
+  // the page is made, so a change shows on the next load.
+  antialias: '',
   // R-A1. The road-legibility aid is OFF by default and off is the frame that
   // shipped before it existed. It is a viewing accommodation, not an
   // alternative reconstruction — see streets.js § R-A1 and ROADMAP R-A1.
@@ -132,6 +138,9 @@ function readSettings() {
     saved.jauntsFollowChoice = jauntsFollowFrom(saved);
     // T-2941: sound is off unless the visitor chose a level (settings-app.js § soundLevelsFrom).
     Object.assign(saved, soundLevelsFrom(saved));
+    // T-3736: Frame pacing left `governor` for `pacing`; only Fixed was ever a choice there.
+    saved.pacing = storedPacing(saved);
+    delete saved.governor;
     return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
@@ -643,7 +652,27 @@ export function createHud({
       store(SET_KEY, JSON.stringify(settings));
     });
   };
-  wireSelect('s-governor', 'governor', 'adaptive');
+  // T-3736: Frame pacing and Antialiasing show what is in force — Auto's pick until the
+  // visitor makes one (graphics-settings.js), like Scene detail and Image sharpness above.
+  const weakDesktop = !!device?.weakDesktop;
+  const pacingSel = $('s-governor');
+  if (pacingSel) {
+    pacingSel.value = resolvePacing(settings, weakDesktop);
+    pacingSel.addEventListener('change', () => {
+      settings.pacing = pacingSel.value;
+      onSetting?.('pacing', settings.pacing);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
+  const aaSel = $('s-antialias');
+  if (aaSel) {
+    aaSel.value = storedAntialias(settings) || autoAntialias(weakDesktop);
+    aaSel.addEventListener('change', () => {
+      settings.antialias = aaSel.value;
+      onSetting?.('antialias', settings.antialias);
+      store(SET_KEY, JSON.stringify(settings));
+    });
+  }
   wireSelect('s-season', 'season', 'summer');
   // T-3331: Time of day — the named times, and the slider over the day in 10-minute
   // steps. main.js paints both from the hour in force (a name is solved on the date).
