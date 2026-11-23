@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3215, ts: '2026-11-23T08:33:10.715Z', date: 'Nov 23, 2026, 2:33 AM CT', title: 'The flats at 2127-2129 Prairie are built', kind: 'feature',
+    items: [
+      'The three-storey brick flats at 2127-2129 Prairie, on the east side near 22nd Street, now stand in full in place of their rough model. The 1911 map gives the plan: two buildings of flats side by side behind one front, a door for each at the middle, and an open three-storey porch at the back. No picture of it is known, so the red brick front, arched doorway, cornice and porch are a careful best guess, and the building\'s card says so. The corner lot next door, 2141, stays open ground, as the map shows it.',
+    ] },
   { v: 3214, ts: '2026-11-23T05:56:05.401Z', date: 'Nov 22, 2026, 11:56 PM CT', title: 'Low-powered computers run faster, walking and standing still', kind: 'improvement',
     items: [
       'On a low-powered computer, such as one with built-in graphics, the view is drawn softer while you move and a little softer when you stand still, and the sun\'s shadows refresh every other frame.',

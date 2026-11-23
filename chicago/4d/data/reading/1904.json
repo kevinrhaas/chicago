@@ -5281,6 +5281,14 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
+   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2123-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2123-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
+   "own": "16-17",
+   "levels": {
+    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
+   }
+  },
+  {
+   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2123-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -5309,14 +5317,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2127-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s35fp-2127-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 85% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The main part is brick, and a back part is wood. The boxes cover most of each part. How many floors each box has, and its roof, are our guesses."
    }
   },
   {
@@ -15788,14 +15788,6 @@
   },
   {
    "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
-   "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: A three-storey brick building of flats, one front under one roof numbered 2127 and 2129 (the sheet's F; census: two flats, not a house): flat behind a bracketed cornice, six bays across its wide front with one central entrance standing for the two numbers; its three-storey frame porch range at the rear as the sheet traces it. Other work reads its two doors. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1039057675 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. A brick building of flats, three floors high: one front under one roof, numbered 2127 and 2129. The map marks it as flats, and the count of homes says two flats, not one house. It has a flat roof behind a trim with brackets, and six rows of windows across its wide front, with one door in the middle for both numbers. Its wood porches, three floors high, stand at the back as the map draws them. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
    "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The 1886 brick house at 1637, the Corps of Engineers' Chicago office in 1904: the brick family's hip over three storeys, every face closed; its stable on the alley is the draft's. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 524225842 only tints the fabric inside +-6 %. Liberty “The seven Indiana lots the two plans disagree on, read against dated sources: five 1886 houses stood from Robinson's plate, 1619 from the 1911 sheet, and 1605-1613 left a building site”.",
    "own": "16-17",
    "levels": {
@@ -15888,6 +15880,14 @@
    "own": "16-17",
    "levels": {
     "8-10": "Our rules for this part of town built it. Our list gives it a steep-sided roof over a brick body, with its back part as the map draws it. The copper bay, the stone porch, the roof windows and the high stoop we will add later. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
+   }
+  },
+  {
+   "card": "why:RECONSTRUCTED by the draft rules, family row 'Stone-front' o…",
+   "text": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: 3B brick with a stone front (Thomas H. Hubbart's in the 1904 Blue Book): the stone-front family's plain flat roof over three storeys and its rear range, the sheet's stone piece as its bay. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1053726426 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "Our rules for this part of town built it. Brick, three floors high, with a stone front. A book of 1904 lists Thomas H. Hubbart here. It has a plain flat roof over three floors and its back part, with the map's stone piece as its bay. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
    }
   },
   {
@@ -19200,14 +19200,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "The 1911 map calls this a wooden home with a porch. That is from 1911. We do not carry it back to 1904. A list calls it a wooden house. So we think it was a home in 1904."
-   }
-  },
-  {
-   "card": "why:The 1911 sheet labels the building with a 1911 use, '3B bric…",
-   "text": "The 1911 sheet labels the building with a 1911 use, '3B brick building of flats (F), one front under one roof, numbered 2127 and 2129', which the draft does not carry back to 1904 (the register warns not to assume the 1904 use from it). The register's family row, 'Brick masonry', names it a house, so the 1904 function is inferred residence on that row and the census ruling (present as mapped).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The 1911 map calls this brick building flats, numbered 2127 and 2129. That is a use from 1911. We do not carry it back to 1904. A list calls it a house. So we think it was a home in 1904."
    }
   },
   {
@@ -23332,14 +23324,6 @@
   },
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 23…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 23.500, v -5.500 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.313 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 23…",
    "text": "The rear corner of the main body's rectangle (lot frame u 23.750, v -3.875 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.593 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
@@ -23477,6 +23461,14 @@
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 28…",
    "text": "The rear corner of the main body's rectangle (lot frame u 28.000, v -3.500 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.151 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+   "own": "16-17",
+   "levels": {
+    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
+   }
+  },
+  {
+   "card": "why:The rear corner of the main body's rectangle (lot frame u 28…",
+   "text": "The rear corner of the main body's rectangle (lot frame u 28.000, v -4.250 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.318 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
     "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
