@@ -46196,3 +46196,29 @@ the elevations; the front, its porch and roof are what it would show first.
 **Ticket:** T-3723 (piece 1 of T-1930, S18).
 **Review:** `docs/RESEARCH/k16-2125-frame-3723/README.md`.
 **Recorded:** 2026-11-22 (T-3723).
+
+### L-k01-robbins-2126-3722 — 2126 Prairie completed: the front's order (pilaster heads, panels, keys, scroll stops) and brick gate piers, with stated forms for the carving
+
+**Recorded:** 2026-11-23 (T-3722).
+
+**Decision:** the completed version of the Robbins house (`data/structures/versions/robbins_house_2126_prairie/completed.json`,
+L-k01-robbins-2126-3721) takes the front's order off the May 1905 Inland Architect plate, through the new K01 helper
+`generators/archetypes/k01_front_order.py` (`front_order`): four brick pilasters between the five bays under Ionic heads,
+four plain marble panels and the carved one over the door between the principal and chamber storeys, key blocks over the
+principal lintels and the chamber heads, and a scrolled marble stop on a brick pier at each corner; and the walk's gate
+hangs between brick piers under stone caps and turned balls (`boundary.piers`, K11), in place of T-3721's iron posts.
+
+**What is read, not invented.** Places and heights on the front, from the plate square-on at about 95 px a metre (the
+cameras `data/reference_views/robbins_house_2126_prairie/dw_plate.json` and `aic_plate.json` say how): the pilasters' axes
+and breadth, the capitals' breadth and their top at the entablature, each panel's place and size, the keys' places and
+heights, the scroll stops' reach and heights; the piers' section, height, ball and spacing, read on the street line through
+the same camera.
+
+**What is invented (stated forms).** The Ionic heads are a bell, two stepped discs for the volutes and an abacus, not the
+carved spiral; the carved panel is a palmette and two rosettes in relief, not the anthemion the plate shows; the scroll's
+curve is a stated sweep to a drum; every projection (the pilasters' 0.05 m, the capitals', the keys', the panels') and the
+scroll stops' depth, which a square-on view does not show; the balls' profile.
+
+**Not built, and open in the match records:** six-over-six glazing; the single leaf with two side lights under a brick
+arch at the door; the wall head (the K01 flat roof stands its deck about 1 m over the plate's cornice crown); the brick
+wall and ball-topped pier returned north at the street line.

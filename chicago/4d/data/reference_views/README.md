@@ -83,6 +83,14 @@ Section drawings may supply optional `clip_planes`, each `{normal: [east,north,u
 
 Distant drawing cameras can set `near_m` (positive, below the 500 m far plane) to keep fine layers distinguishable in the depth buffer. Place it in front of the subject, state it in `solve`, and retain the same value for before/after comparisons. Ordinary photographic views default to 0.1 m.
 
+## A picture of a structure version
+
+A picture of a later (or earlier) state than the default record stands — 2126 Prairie's May 1905 plate shows the
+finished house, while on 1 July 1904 the record stands its works shell — names that state's structure version with
+`version: "<label>"` (docs/STRUCTURE-VERSIONS.md). `photo_match.mjs` then renders, and `image_gate.mjs` binds the match
+to, that version's one master in `assets/manifest.versions.json` instead of the record's GLB (T-3722). A version renders
+alone: it does not combine with `also_render`.
+
 ## A picture of several structures
 
 Use `scene: "1812"` (or another scene id) and `also_render: ["other_structure_id", ...]`

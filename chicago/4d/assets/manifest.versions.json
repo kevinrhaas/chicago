@@ -48,14 +48,14 @@
     "versions/robbins_house_2126_prairie/completed/robbins_house_2126_prairie__completed.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5024312,
+      "bytes": 5180756,
       "generator": "generators/k01_versions_emit.py",
-      "inputs_sha256": "83e2bcca9f25ec67acf29a8cca7117fcf64be861d0a1675569e522c5f4d86c81",
+      "inputs_sha256": "21215eeeaa094bf44142415ce3c21a5b6ea6093d06ff74a43d4fa20b5688db66",
       "kind": "generated",
       "phase_id": "completed",
       "structure_id": "robbins_house_2126_prairie",
       "version_label": "completed",
-      "web_master_sha256": "76fe42b1a06c3a0586132a568f09c96d47a05cc32afac4c4213794fd953cbc47"
+      "web_master_sha256": "8f89389d883fcd564226e3ed818987ae6a9c4a0ab364575bb6444e9d7e29945b"
     },
     "versions/tremont_house_1/gale-reading/tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
