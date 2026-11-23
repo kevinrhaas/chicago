@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Technicians — 4D Chicago</title>
+<meta name="description" content="How 4D Chicago is built: JSON records with sources and grades, Python generators driving a pinned Blender, sixteen architectural component kits measured from photographs, a gate of checks, and a three.js renderer that runs on phones and school laptops. Open code and data.">
+<meta name="theme-color" content="#0A1426">
+<meta property="og:title" content="Technicians — 4D Chicago">
+<meta property="og:description" content="How 4D Chicago is built: JSON records with sources and grades, Python generators driving a pinned Blender, sixteen architectural component kits measured from photographs, a gate of checks, and a three.js renderer that runs on phones and school laptops. Open code and data.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://chicago.polecat.live/media/match/g2135-a.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='17' fill='%230A1426' stroke='%238CF5A8'/%3E%3Cpath d='M30 20H20L10 10M20 20L10 30' fill='none' stroke='%238CF5A8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/barlow-semi-condensed-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/show.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="../js/films.js" defer></script>
+<script src="../js/show.js" defer></script>
+</head>
+<body data-page="technicians">
+<a class="skip" href="#main">Skip to content</a>
+<div class="field" aria-hidden="true"></div>
+
+<header class="bar" id="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="../" aria-label="4D Chicago, home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="menu" id="menu" aria-label="Site">
+      <a href="../players/">Players</a>
+      <a href="../educators/">Educators</a>
+      <a href="../historians/">Historians</a>
+      <a href="../technicians/">Technicians</a>
+      <span class="sep" aria-hidden="true"></span>
+      <a href="../eras/">Eras</a>
+      <a class="menu-contact" href="../contact/">Contact</a>
+    </nav>
+    <span class="status" aria-hidden="true"><i></i>4 ERAS ONLINE</span>
+  </div>
+</header>
+
+
+<main id="main">
+
+<section class="hero short" aria-labelledby="t">
+  <div class="hero-media film-bg" data-film="1871-downtown-fly" data-cover><img src="../media/films/1871-downtown-fly.jpg" alt=""></div>
+  <div class="viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hero-in">
+    <span class="label" style="color:#E58B7E">For technicians</span>
+    <h1 id="t">A research dataset <em>with a renderer attached.</em></h1>
+    <p class="lede">4D Chicago is records first: every building, person and street is a JSON record with its sources and
+    grades. Python generators turn the records into models through a pinned Blender, a gate of checks holds every change,
+    and three.js draws the year in the browser. Here is how it fits together, and how to work with it.</p>
+    <div class="acts"><a class="btn go" href="https://github.com/kevinrhaas/chicago">The repository <svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="btn ghost" href="#library">The asset library</a></div>
+  </div>
+</section>
+
+<section class="sec tight" aria-label="The project in numbers">
+  <div class="wrap">
+    <div class="telemetry rv">
+      <div><b>1,150</b><span>Models generated from their records, as glTF</span></div>
+      <div><b>777</b><span>Source records, each cited by id from the data</span></div>
+      <div><b>16</b><span>Architectural component kits, measured from photographs</span></div>
+      <div><b>0</b><span>Installs. A year streams into the browser</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pipeline" aria-labelledby="pl" style="padding-top:0">
+  <div class="wrap">
+    <div class="feature">
+      <div class="copy rv">
+        <span class="label" style="color:#E58B7E">How it works</span>
+        <h2 class="h sm" id="pl">From a census page <em>to a street you can walk.</em></h2>
+        <ol class="steps" style="margin-top:8px">
+          <li><b>Records.</b> Structures, people, households, streets, terrain and sources are JSON, checked against schemas.
+          Every value carries a confidence and the ids of the sources behind it.</li>
+          <li><b>Ground.</b> Maps and plats are pinned to UTM coordinates; terrain, the river and the lake shore are generated
+          per year from surveys and soundings.</li>
+          <li><b>Generators.</b> Python reads a record and builds its model in a pinned version of Blender, from the component
+          kits below. The same record always builds the same model.</li>
+          <li><b>Checks.</b> A gate of checks runs on every change: schemas, provenance, model budgets, photo matches,
+          reading levels, memory ceilings, and the app itself driven on a phone-sized and a desktop screen.</li>
+          <li><b>Renderer.</b> three.js in the browser: buildings batched, textures compressed and streamed in as you walk,
+          people and horses animated from shared rigs, each frame paced to the device.</li>
+        </ol>
+      </div>
+      <figure class="rv" style="--d:1"><pre class="code"><i>// data/structures/glessner_house.json (trimmed)</i>
+{
+  "id": "glessner_house",
+  "archetype": "masonry_house",
+  "built": { "value": 1887, <b>"confidence": "attested"</b>,
+             "sources": ["hmdb_prairie_heritage_preserved"] },
+  "phases": [{
+    "id": "as_built_1887",
+    "documented_range": { "from": "1887-12-01", <b>"confidence": "attested"</b>,
+      "sources": ["glessner_story_of_a_house_1923",
+                  "habs_glessner_house_il_1015_data_pages", …] },
+    "position": { "utm_e": 448411.39, "utm_n": 4634155.38,
+                  <b>"confidence": "inferred"</b>, "sources": ["sanborn_1911_vol3_sheet_28", …] },
+    "form": { "frame_ft": { "value": { "length_ft": 161.25, "depth_ft": 74.0 },
+              <b>"confidence": "attested"</b>, "sources": ["habs_glessner_house_il_1015_drawings"] } }
+  }]
+}</pre>
+        <figcaption class="cap"><b>A record, not a model.</b> The model is built from this; the card you open in town is read from it.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="library" aria-labelledby="lib" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label amber">The architectural library</span>
+      <h2 class="h sm" id="lib">Sixteen kits, <em>one street of 1904.</em></h2>
+      <p>The Prairie Avenue houses are built from a library of components, each measured from photographs, HABS drawings
+      and period builders' catalogues. A house record names its parts and their sizes; the kits supply the stone, brick,
+      windows and cornices. Change a kit and every house that uses it is rebuilt and checked against its photographs again.</p>
+    </div>
+    <div class="lib-grid rv"><div><b>K01</b><span><strong style="color:var(--ink);font-weight:500">Contract.</strong> The metric rules every part obeys: storey heights, wall depths, openings, the door datum. <i style="color:var(--ink-faint);font-style:normal">20 measures</i></span></div><div><b>K02</b><span><strong style="color:var(--ink);font-weight:500">Stone.</strong> Rock-faced, tooled and rubbed stone, with their joint and edge profiles. <i style="color:var(--ink-faint);font-style:normal">7 fabrics</i></span></div><div><b>K03</b><span><strong style="color:var(--ink);font-weight:500">Face brick.</strong> Pressed fronts and common side and rear walls, each a period brick recipe. <i style="color:var(--ink-faint);font-style:normal">13 recipes</i></span></div><div><b>K04</b><span><strong style="color:var(--ink);font-weight:500">Roof coverings.</strong> Slate, tile, tin and copper, gutters and downpipes. <i style="color:var(--ink-faint);font-style:normal">11 fabrics</i></span></div><div><b>K05</b><span><strong style="color:var(--ink);font-weight:500">Roof forms.</strong> Mansard, hip, gable and tower roofs, built to the plan. <i style="color:var(--ink-faint);font-style:normal">11 variants</i></span></div><div><b>K06</b><span><strong style="color:var(--ink);font-weight:500">Windows.</strong> Sash, plate glass and leaded lights, with visible depth behind the glass. <i style="color:var(--ink-faint);font-style:normal">27 variants</i></span></div><div><b>K07</b><span><strong style="color:var(--ink);font-weight:500">Entrances.</strong> Stoops, porches, doors and carriage doors. <i style="color:var(--ink-faint);font-style:normal">20 parts</i></span></div><div><b>K08</b><span><strong style="color:var(--ink);font-weight:500">Bays.</strong> Bays, oriels and towers. <i style="color:var(--ink-faint);font-style:normal">10 parts</i></span></div><div><b>K09</b><span><strong style="color:var(--ink);font-weight:500">Trim.</strong> Carved entrances, classical and Gothic trim. <i style="color:var(--ink-faint);font-style:normal">13 parts</i></span></div><div><b>K10</b><span><strong style="color:var(--ink);font-weight:500">Cornices.</strong> Cornices, parapets, dormer faces and cresting. <i style="color:var(--ink-faint);font-style:normal">10 parts</i></span></div><div><b>K11</b><span><strong style="color:var(--ink);font-weight:500">Ironwork.</strong> Fences, gates, canopies and boundary walls. <i style="color:var(--ink-faint);font-style:normal">14 parts</i></span></div><div><b>K12</b><span><strong style="color:var(--ink);font-weight:500">Coach houses.</strong> Stables, their fittings and the service wings. <i style="color:var(--ink-faint);font-style:normal">18 parts</i></span></div><div><b>K13</b><span><strong style="color:var(--ink);font-weight:500">Conservatories.</strong> Glass houses, from a bay to the Pullman range. <i style="color:var(--ink-faint);font-style:normal">9 assemblies</i></span></div><div><b>K14</b><span><strong style="color:var(--ink);font-weight:500">Condition.</strong> Age, soot, weathering and where a wall meets the ground. <i style="color:var(--ink-faint);font-style:normal">16 responses</i></span></div><div><b>K15</b><span><strong style="color:var(--ink);font-weight:500">Chimneys.</strong> Stacks, flues, pots and roof services. <i style="color:var(--ink-faint);font-style:normal">8 parts</i></span></div><div><b>K16</b><span><strong style="color:var(--ink);font-weight:500">Timber.</strong> Frame cladding and exterior woodwork, painted to period colours. <i style="color:var(--ink-faint);font-style:normal">11 paints</i></span></div></div>
+    <div class="feature" style="margin-top:clamp(40px,6vw,72px)">
+      <figure class="rv">
+        <div class="compare">
+          <img src="../media/match/g2135-r.jpg" alt="Glessner House built from the library, drawn through the photograph's camera" loading="lazy">
+          <div class="top"><img src="../media/match/g2135-a.jpg" alt="Glessner House, J. W. Taylor photograph" loading="lazy"></div>
+          <div class="handle" aria-hidden="true"></div>
+          <span class="lab l">Archive</span><span class="lab r">4D · same camera</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Slide between the photograph and the model of Glessner House">
+        </div>
+        <figcaption class="cap"><b>Glessner House.</b> J. W. Taylor photograph no. 2135, c. 1887–1889, Art Institute of Chicago.</figcaption>
+      </figure>
+      <div class="copy rv" style="--d:1">
+        <span class="label">Beyond the houses</span>
+        <h3 class="h sm" style="font-size:clamp(24px,2.6vw,34px)">Everything else <em>in town.</em></h3>
+        <ul class="specs"><li><b>People</b>Bodies, faces and clothing built from period sources and CC0 MakeHuman faces, with shared walking, riding, rowing and talking rigs, and 144 human assets.</li><li><b>Transport</b>Horses standing and in harness, broughams, wagons and the boats of 1812 and 1835, each from its own measured record.</li><li><b>Ground</b>Generated terrain and streets for every year: plank walks, cobbles and dirt, trees by species, lamps, fences and yards.</li><li><b>Sound</b>Birds by season, wind that follows the trees, horses, the river and the lake, and an original score for the jaunts.</li><li><b>Print</b>Any building exports to a watertight 3MF for a home 3-D printer. Glessner House comes out at 1:250 on a 220 mm bed.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work" aria-labelledby="wk" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="label sky">Work with it</span>
+      <h2 class="h sm" id="wk">Open the code, <em>open the data.</em></h2>
+      <p>The code, the records and the source catalogue live in one repository. Every building's record, every liberty and
+      every source can be read there, and every change to them goes through the same checks.</p>
+    </div>
+    <div class="feature" style="align-items:start">
+      <div class="copy rv">
+        <h3 class="h sm" style="font-size:clamp(20px,2vw,26px);margin:0 0 6px">Links that open a place</h3>
+        <ul class="specs"><li><b style="width:auto;flex:1 1 320px;text-transform:none;letter-spacing:0;font-size:13px">/4d/1904/</b><span style="flex:1 1 320px">A year's front door. Each of the four years has one.</span></li><li><b style="width:auto;flex:1 1 320px;text-transform:none;letter-spacing:0;font-size:13px">?anchor=glessner_house</b><span style="flex:1 1 320px">Open at a named viewpoint, here the sidewalk facing Glessner House.</span></li><li><b style="width:auto;flex:1 1 320px;text-transform:none;letter-spacing:0;font-size:13px">?structure=tremont_house_1&amp;version=gifford-reading</b><span style="flex:1 1 320px">Swap one building for a committed alternate build of it, to compare two readings of the evidence.</span></li><li><b style="width:auto;flex:1 1 320px;text-transform:none;letter-spacing:0;font-size:13px">?debug=1</b><span style="flex:1 1 320px">The frame-time and memory read-outs the team works with.</span></li></ul>
+        <h3 class="h sm" style="font-size:clamp(20px,2vw,26px);margin:26px 0 10px">The console handle</h3>
+        <p style="color:var(--ink-dim);margin:0 0 12px">The app's own checks drive it through one object on the page. You can too.</p>
+        <pre class="code"><i>// In the browser console, with a year open</i>
+const town = window.__chicago4d;
+await town.timeOfDay.set('sunset');   <i>// daybreak … night, or 'HH:MM'</i>
+await town.season.set('fall');        <i>// spring, summer, fall, winter</i>
+town.player;                          <i>// where you stand, in UTM metres</i>
+town.roll;                            <i>// every building: expected, drawn, standing</i></pre>
+      </div>
+      <div class="copy rv" style="--d:1">
+        <div class="xlinks" style="grid-template-columns:1fr">
+          <a href="https://github.com/kevinrhaas/chicago"><span>Repository</span><b>kevinrhaas/chicago</b><small>Data, generators, renderer, tools and the research corpus the data cites.</small></a>
+          <a href="https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/docs/PROVENANCE.md"><span>Rules</span><b>How a fact gets in</b><small>The provenance rules every record follows, and what each grade means.</small></a>
+          <a href="https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/docs/LIBERTIES.md"><span>Liberties</span><b>Every reconstruction, numbered</b><small>What was made up, why, and how far it goes.</small></a>
+          <a href="https://github.com/kevinrhaas/chicago/blob/main/chicago/4d/docs/PRINT-3MF.md"><span>Print</span><b>Print a building</b><small>The 3MF export: scale, minimum features, roofs.</small></a>
+          <a href="../contact/"><span>Contact</span><b>Build something with it</b><small>A museum kiosk, a class project, a research question: tell us.</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="perf" aria-labelledby="pf" style="padding-top:0">
+  <div class="wrap">
+    <div class="feature flip">
+      <figure class="rv"><div class="film" data-film="1835-lake-street"><img src="../media/films/1835-lake-street.jpg" alt="Lake Street in 1835 with people and wagons, drawn in the browser" loading="lazy"><span class="tag"><i></i>Drawn live in the browser</span></div><figcaption class="cap"><b>Every figure is drawn live.</b> Every film on this site was recorded in the app.</figcaption></figure>
+      <div class="copy rv" style="--d:1">
+        <span class="label amber">Performance</span>
+        <h2 class="h sm" id="pf">A whole town <em>on a school laptop.</em></h2>
+        <p>The town has to run where students and visitors are: a five-year-old office PC, a school Chromebook, a phone.
+      Every device keeps the living town, people, horses and carriages included; a weaker machine gets a softer picture,
+      never an emptier street.</p><ul class="specs"><li><b>Profiles</b>The device is recognised at load, from phones to Chromebooks to gaming PCs, and the detail, sharpness and texture sizes follow it.</li><li><b>Memory</b>Each year has a measured memory ceiling for each class of device, held by the checks on every change.</li><li><b>Streaming</b>Compressed textures come and go as you walk; buildings, people and their shaders are prepared while the year loads, so walking does not stutter.</li><li><b>Offline</b>A year can be saved to a device ahead of a class and opened with no network.</li></ul>
+        
+      </div>
+    </div>
+    <div class="panel rv" style="padding:clamp(22px,3.5vw,34px);margin-top:clamp(36px,5vw,56px);display:grid;gap:10px">
+      <span class="label amber">On the way</span>
+      <h3 class="h sm" style="font-size:clamp(22px,2.4vw,30px);margin:0">Full detail, <em>streamed.</em></h3>
+      <p style="margin:0;color:var(--ink-dim);max-width:780px">Being built: the town rendered on cloud GPUs and streamed to any
+      screen, so the oldest classroom computer sees the same detail as the newest. The records, sources and checks stay exactly
+      as they are; only where the frame is drawn changes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight" aria-labelledby="more" style="padding-top:0">
+  <div class="wrap">
+    <div class="xlinks rv">
+      <a href="../historians/"><span>Historians</span><b>The research behind the records</b><small>Photo matching, census households and newspapers, shown.</small></a>
+      <a href="../world/"><span>World</span><b>What the renderer draws</b><small>Light, weather, seasons, trees, water and the two fires.</small></a>
+      <a href="../research/"><span>Research</span><b>The source library</b><small>Dossiers, transcriptions and rulings, open to read.</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec launch" id="launch" aria-labelledby="launch-title">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="label">Destination controls · all cleared for entry</span>
+      <h2 class="h" id="launch-title">See it running. <em>Pick a year.</em></h2>
+      <p>Open a year, press C for the confidence view, and click any building to read its record.</p>
+    </div>
+    <div class="launch-years four rv"><a class="launch-year" href="../4d/1812/"><b>1812</b><span>Fort Dearborn<em>14 Aug 1812</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1835/"><b>1835</b><span>The river town<em>1 Jul 1835</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1871/"><b>1871</b><span>Before the Fire<em>8 Oct 1871</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1904/"><b>1904</b><span>Prairie Avenue<em>1 Jul 1904</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+    <div class="launch-main rv"><a class="btn go" href="../4d/">Enter 4D Chicago <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="launch-fine">Opens the Temporal Observatory · pick a destination · W A S D to walk, or the thumb stick on a phone</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-contact">
+      <div>
+        <h4>Bring us a place, a picture or a correction.</h4>
+        <p>A family photograph of a Prairie Avenue house, an ancestor in the 1835 town, a mistake you found on a card, or a class that would like a visit.</p>
+      </div>
+      <a class="btn go" href="../contact/">Contact us <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="foot-in">
+      <div>
+        <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
+        <p>A researched reconstruction of early Chicago. The machine is fiction; the town is real research.</p>
+      </div>
+      <div class="foot-cols five">
+        <div><h5>Players</h5><ul><li><a href="../players/">Overview</a></li><li><a href="../jaunts/">Jaunts</a></li><li><a href="../people/">People</a></li><li><a href="../rides/">Horses &amp; boats</a></li><li><a href="../world/">World</a></li></ul></div>
+        <div><h5>Educators</h5><ul><li><a href="../educators/">Overview</a></li><li><a href="../educators/#levels">Reading levels</a></li><li><a href="../educators/#class">In the classroom</a></li><li><a href="../jaunts/#catalogue">Every jaunt</a></li></ul></div>
+        <div><h5>Historians</h5><ul><li><a href="../historians/">Overview</a></li><li><a href="../evidence/">Evidence</a></li><li><a href="../research/">Research</a></li><li><a href="../prairie-1904/viewer/">Prairie Avenue atlas</a></li><li><a href="../pre-fire/viewer/">Before the Fire</a></li></ul></div>
+        <div><h5>Technicians</h5><ul><li><a href="../technicians/">Overview</a></li><li><a href="../technicians/#library">The library</a></li><li><a href="../technicians/#work">Work with it</a></li><li><a href="https://github.com/kevinrhaas/chicago">Source on GitHub</a></li></ul></div>
+        <div><h5>More</h5><ul><li><a href="../eras/">Eras</a></li><li><a href="../4d/">Enter 4D Chicago</a></li><li><a href="../contact/">Contact</a></li><li><a href="https://polecat.live/">polecat.live</a></li></ul></div>
+      </div>
+      <div class="lab"><span>Confluence Laboratory · Wolf Point aperture</span><span>Every surface carries its evidence</span></div>
+    </div>
+  </div>
+</footer>
+
+<dialog class="player" id="player" aria-label="Film">
+  <div class="player-bar"><span id="player-title">4D Chicago</span><button type="button" data-close aria-label="Close the film"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <video controls playsinline preload="none"></video>
+</dialog>
+</body>
+</html>
