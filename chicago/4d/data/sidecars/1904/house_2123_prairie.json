@@ -464,7 +464,7 @@
           }
         }
       },
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2115_armour_photo"
@@ -559,56 +559,6 @@
             "pitch": 0.05,
             "covering": "tin_flat_seam_painted"
           }
-        },
-        {
-          "id": "north_frame_bay",
-          "variant": "k08.bay.canted",
-          "wall": "k01.wall.side.south",
-          "s_m": 14.0,
-          "fabric": "frame",
-          "plan": {
-            "kind": "polyline",
-            "points": [
-              [
-                -1.5,
-                0.0
-              ],
-              [
-                -1.38,
-                0.55
-              ],
-              [
-                1.38,
-                0.55
-              ],
-              [
-                1.5,
-                0.0
-              ]
-            ]
-          },
-          "storeys": [
-            {
-              "height_m": 5.8,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.8,
-                  "clear_height_m": 2.2,
-                  "sill_m": 2.4,
-                  "at": [
-                    0.5
-                  ],
-                  "why_not_ordinary": "the frame bay's one light on its face (reconstructed: no picture shows it)"
-                }
-              ]
-            }
-          ],
-          "roof": {
-            "kind": "hip",
-            "pitch": 0.25,
-            "covering": "tin_flat_seam_painted"
-          }
         }
       ],
       "confidence": "inferred",
@@ -616,7 +566,7 @@
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2115_armour_photo"
       ],
-      "note": "The sheet's two projections. The stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The frame bay: yellow, columns 950-966 on the north wall, 3.0 m long and about 0.55 m out, no storey count printed: built one storey on K08's canted bay drawn near square (0.12 m cants: the kit's square-sided bay takes no size of its own), its design reconstructed."
+      "note": "The sheet's stone bow: the blue band bowed out to column 912-913 over rows 1309-1330, 0.93 m proud of the front over a 3.9 m chord centred 2.79 m from the north wall; the photograph shows its pair of round-headed lights in both storeys. The sheet's frame bay on the north flank (yellow, columns 950-966, 3.0 m long, about 0.55 m out, no storey count) is not built: K08 cuts no light in a bay that shallow and refuses one without (liberty L-k01-2123-prairie-3724)."
     },
     "rear_wings": {
       "value": [

@@ -25599,12 +25599,13 @@ the north flank dark and unlit; the yard open behind a low kerb.
 storeys, the second taken 0.1 m over the reading so the round heads' keys clear the frieze), the walls' thickness,
 the brick of the flanks (K03's salmon common, the darkest it lays), the quarry of the stone, the deck and its fall,
 the cornice's profile and block spacing, the door and its round-arched surround (out of the photograph's frame), the
-stoop, every light of the south flank and the rear, the frame bay's height and light, the south stack, the rear
+stoop, every light of the south flank and the rear, the south stack, the rear
 range's floor, heights, lights and flat tin deck, the gutters, and the yard's flagged walk.
 
 **What is built otherwise than the evidence, and why.** The bow is K08's bowed bay with a low cone under the
-cornice's bed: K01 holds a bay below the wall head. The north flank's frame bay is K08's canted bay drawn near square
-(0.12 m cants), because the kit's square-sided bay takes no size of its own. Not built: the front's south-west corner
+cornice's bed: K01 holds a bay below the wall head. Not built: the sheet's small frame bay on the north flank
+(K08 cuts no light in a bay 0.55 m deep and refuses a blind one; it stands in the 0.6 m gap beside 2115, where no
+picture reaches), the front's south-west corner
 cut back 1.9 m round the entrance (K01 lays a rectangular body; the door stands on the front plane instead), the
 south wall's 1.2 m step in over the rear 5.6 m, a third street dormer over the door (out of the photograph's frame),
 and any north-flank dormer beyond the one the photograph shows.

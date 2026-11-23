@@ -25,7 +25,7 @@ north corner.
 | dashed line inside the whole outline | about 1 m inside every wall | the key's mansard roof, all round |
 | the front's south-west corner cut back | to column 928, rows 1343-1355.5 | the entrance corner, 1.9 m deep, 2.4 m wide: **not built** |
 | south wall stepping in | row 1349 from column 1003 | 1.2 m in over the rear 5.6 m: **not built** |
-| frame bay on the north flank (yellow, no count) | columns 950-966, rows 1302-1304.5 | u 12.5-15.5, about 0.55 m out: one storey |
+| frame bay on the north flank (yellow, no count) | columns 950-966, rows 1302-1304.5 | u 12.5-15.5, about 0.55 m out: **not built** |
 | '2B' rear range (pink) | columns 1033.5-1070, rows 1320-1355.5 | u -6.78-0, v 2.79-9.48 |
 | lot lines | rows 1301.6 / 1368.8 | v -0.54 / 11.95 |
 
@@ -58,6 +58,8 @@ round heads in both storeys, the plain north flank, the slated mansard with its 
 
 ## Not built (recorded in the liberty)
 
+- the small frame bay on the north flank: K08 cuts no light in a bay 0.55 m deep (its recess reaches the house wall) and
+  refuses a blind one (its light tier cannot be cheaper than its full); it stands in the 0.6 m gap beside 2115;
 - the entrance corner's recess: K01 lays a rectangular body, so the door stands on the front plane at v 8.3;
 - the south wall's step in over the rear 5.6 m;
 - a third street dormer over the door, and any north-flank dormer beyond the one the photograph shows;
@@ -66,7 +68,7 @@ round heads in both storeys, the plain north flank, the slated mansard with its 
 ## Checks
 
 `node tools/photo_match.mjs` with throwaway review cameras: the front from the south-west and the rear from the
-north-east, and the draft from the same front pose. The first builds were refused by the kit four times, each fixed in
-the record: a stack within the north wall's thickness, the frame bay's square plan (the kit's square bay takes no size),
+north-east (rendered before the frame bay was dropped, so it still shows it in green), and the draft from the same front pose. The first builds were refused by the kit four times, each fixed in
+the record: a stack within the north wall's thickness,
 the rear wall's lights where the range covers it, and the chamber storey's round heads reaching the cornice's frieze
 (the second storey taken 0.1 m higher, the frieze 0.3 m and its blocks 0.3 m).
