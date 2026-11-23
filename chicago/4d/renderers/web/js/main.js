@@ -149,6 +149,7 @@ import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
 import { createRouter, WINDOW_CELLS } from './route.js';
 import { createTravel, PACES } from './travel.js';
+import { createSkyline } from './flight-clearance.js'; // T-3734
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
@@ -5283,9 +5284,39 @@ async function boot() {
       },
     };
   }
+  // T-3734 (the owner, 2026-11-23: "when you fly ... you will often clip fly though a building
+  // or chimney ... you should fly over or around"): what a flight must clear. Every drawn
+  // structure's whole box (chimneys, towers, cresting) over its footprint, and the context
+  // city's stand-ins, indexed once and again only when the drawn set changes.
+  const skyline = createSkyline({
+    ground: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    stamp: () => `${Object.keys(buildings.instanceBounds()).length}|${contextCity?.census?.buildings ?? 0}|${contextCity?.group?.uuid ?? ''}`,
+    sources: () => {
+      const outlines = new Map();
+      for (const f of footprints) { if (!outlines.has(f.id)) outlines.set(f.id, []); outlines.get(f.id).push(f.pts); }
+      const corner = new THREE.Vector3(), list = [];
+      for (const [id, box] of Object.entries(buildings.instanceBounds())) {
+        const matrix = buildings.matrixOf(id);
+        if (!matrix) continue;
+        let top = -Infinity, bottom = Infinity;
+        const rect = [];
+        for (const [x, z] of [[box.min[0], box.min[2]], [box.max[0], box.min[2]], [box.max[0], box.max[2]], [box.min[0], box.max[2]]]) {
+          corner.set(x, box.max[1], z).applyMatrix4(matrix); top = Math.max(top, corner.y); rect.push([corner.x, -corner.z]);
+          corner.set(x, box.min[1], z).applyMatrix4(matrix); bottom = Math.min(bottom, corner.y);
+        }
+        const own = outlines.get(id);
+        // A structure with no walls of its own (a bridge, a pen) counts only where it stands tall.
+        if (own) for (const pts of own) list.push({ pts, top });
+        else if (top - bottom > 4) list.push({ pts: rect, top });
+      }
+      for (const o of contextCity?.skyline?.() ?? []) list.push(o);
+      return list;
+    },
+  });
+  api.skyline = skyline;
   travel = createTravel({
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
-    focusPoint, structurePosition,
+    focusPoint, structurePosition, clearance: skyline,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
     // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
     // (A ride says `card: false` when it opens nothing; any other ride opens the building.)

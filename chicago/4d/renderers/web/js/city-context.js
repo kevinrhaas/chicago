@@ -276,6 +276,16 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     out.census.districtCounts[r.district]=(out.census.districtCounts[r.district] ?? 0)+1;
   }
   out.containsBuilding = (e,n,pad=.25) => (collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? []).some(r=>contains(r,e,n,pad));
+  // T-3734: what a flight must clear, each building's outline and its roof's top (the kit's
+  // eave-to-ridge rise scaled as the building is, and a metre for its chimneys).
+  out.skyline = () => {
+    const list = [];
+    for (const tile of tiles.values()) for (const rows of tile.sets.values()) for (const r of rows) {
+      if (r.isTree || !r.pts) continue;
+      list.push({ pts:r.pts, top:r.base + r.h * (1 + (Number(r.t?.rise_m) || 0) / Math.max(Number(r.t?.eave_m) || r.h, 0.1)) + 1 });
+    }
+    return list;
+  };
   out.footprintsNear = (e,n) => collisions.get(`${Math.floor(e/collisionCellM)},${Math.floor(n/collisionCellM)}`) ?? [];
   // T-3691 (the owner, 2026-11-21, on The Last Sunday: "we ran into a wall ... the default walk
   // should follow sidewalks etc"): the route planner is handed what the walker meets here, the
