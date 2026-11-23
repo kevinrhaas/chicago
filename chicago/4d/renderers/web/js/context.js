@@ -585,6 +585,8 @@ export async function createContext({
     return list;
   };
   out.treeStems = treeStems;
+  // T-3734: what a flight must clear, each stand-in's outline and the top of its roof.
+  out.skyline = () => rows.map((r) => ({ pts: corners(r.e, r.n, r.w, r.d, r.bearing), top: r.y0 + r.eave + Math.max(r.rise ?? 0, 0.5) }));
 
   const material = patchFacade(new THREE.MeshStandardMaterial({
     color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, flatShading: true,
