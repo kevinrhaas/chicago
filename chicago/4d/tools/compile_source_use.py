@@ -43,7 +43,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # K01 photographs in one tree, read 296 593; 304 000, the compressed first-open limit unchanged.
 # T-3689: the North and West Side fire places' pictures (the Water Tower and works, the O'Leary
 # cottage, the Ogden house, St. Michael's) read 313 267; 320 000, the compressed limit unchanged.
-INDEX_BUDGET = 320_000
+# T-3729: the Glessner House blog's print of 2140, the second photograph of 2130 Prairie's Murdoch
+# house, read 320 502; 328 000, the compressed first-open limit unchanged.
+INDEX_BUDGET = 328_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
