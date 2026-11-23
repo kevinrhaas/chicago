@@ -18542,7 +18542,7 @@ for (const [label, viewport, touch] of [
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
       && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
       && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
-      && settingsStep.step === 8 && /Settings: .*language/.test(settingsStep.bubble ?? '')
+      && settingsStep.step === 8 && /Settings[^:]*: language/.test(settingsStep.bubble ?? '')
       && last.step === 9 && /^Ready\. Pick a Jaunt/.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
       JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
     // ---- end T-2663
