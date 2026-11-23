@@ -180,6 +180,8 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
             # CROSS_CLEAR_M stands the rail clear of a convex face's few centimetres)
             out["crown"].update(ridge_m=crown["curb_m"], pitch_deg=crown["lower_pitch_deg"],
                                 end_pitch_deg=crown["lower_pitch_deg"])
+        if crown.get("deck"):   # T-3713: the crown's own deck, dressed after the main one's (crown_dress)
+            out["crown"]["deck"] = crown["deck"]
     if (out.get("cresting") or {}).get("joined") and (deck.get("hoods") or deck.get("cross_roof") or not fn):
         raise ParamError("mansard.deck.cresting.joined: a finial at every corner (finials), no hoods or cross roof")
     if deck.get("cross_roof"):
@@ -724,7 +726,53 @@ def dress(a, dk, conf):
                   FINIAL_SEGS)
             k10_frontage._lay(a, [pc], conf, "k01.roof.deck_finial")
             laid["finials"].append({"corner": name, "foot_m": round(foot, 3), "on": host})
+    if (dk.get("crown") or {}).get("deck"):
+        laid["crown"] = crown_dress(a, dk["crown"]["deck"], conf)
     a.deck = laid
+
+
+#: T-3713: a crown deck's cresting stops this far short of each corner, as the main deck's
+#: does where no finial or hood stands (dress's `stop`)
+CROWN_STOP_M = 0.25
+
+
+def crown_dress(a, cd, conf):
+    """T-3713: a mansard crown's own deck (k01_frontage_params._crown_deck_dress), as the
+    Armour photograph draws 2115's pavilion crown: the K10 kit's iron cresting along each side
+    of its curb, `inset_m` onto the deck, stopped CROWN_STOP_M short of every corner."""
+    from . import k10_frontage
+    K = k10_frontage._kit()
+    data = K.load()
+    u0, u1, v0, v1 = cd["curb"]
+    laid = {"cresting": []}
+    cr = cd.get("cresting")
+    if cr:
+        ins = cr["inset_m"]
+        y_cap = deck_y(cd, ins)
+        for side, along, at, lo, hi in (("south", "u", v0 + ins, u0, u1), ("north", "u", v1 - ins, u0, u1),
+                                        ("street", "v", u1 - ins, v0, v1), ("rear", "v", u0 + ins, v0, v1)):
+            s0, s1 = lo + CROWN_STOP_M, hi - CROWN_STOP_M
+            L = s1 - s0
+            if L < k10_frontage.MIN_CRESTING_M:
+                continue
+            mid = (s0 + s1) / 2
+            ridge = (mid, y_cap, -at) if along == "u" else (at, y_cap, -mid)
+            seed = a.instance(CRESTING, "cresting", {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4),
+                                                     "height_m": cr["height_m"], "host": "mansard crown",
+                                                     "side": side}, {"ridge": ridge})
+            var = K.Variant(dict(next(v for v in data["variants"] if v["id"] == CRESTING)), data)
+            var.seed, var.rng = seed, random.Random(seed)
+            if along == "u":
+                posts = var.cresting(mid, L, y_cap, -at, host="mansard crown")
+            else:
+                posts = var.cresting(0.0, L, y_cap, 0.0, host="mansard crown")
+                _turn(var.pieces, at, -mid)
+            top = max(q[1] for pc in var.pieces for q in pc.mesh.pos)
+            _stretch(var.pieces, y_cap - 0.007, cr["height_m"] / (top - (y_cap - 0.007)))
+            laid["cresting"].append({"side": side, "from_m": round(s0, 3), "to_m": round(s1, 3),
+                                     "posts": len(posts)})
+            k10_frontage._lay(a, var.pieces, conf, CRESTING)
+    return laid
 
 
 def crenel_pieces(L: float, y0: float, height: float, merlon: float, pitch: float, rise: float, host: str):
