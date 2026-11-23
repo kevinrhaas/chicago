@@ -111,6 +111,18 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['uid', 'email', 'method', 'year', 'device', 'at'])
         && request.resource.data.email is string && request.resource.data.email.size() <= 254;
     }
+    // T-3741: the public site's contact page (site/js/contact.js). Anyone may leave a
+    // message, signed in or not; only the owner reads or deletes them (visitors.html).
+    match /messages/{id} {
+      allow read, delete: if isOwner();
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'topic', 'message', 'page', 'at'])
+        && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string && request.resource.data.email.size() <= 200
+        && request.resource.data.topic is string && request.resource.data.topic.size() <= 60
+        && request.resource.data.message is string && request.resource.data.message.size() > 0 && request.resource.data.message.size() <= 5000
+        && request.resource.data.page is string && request.resource.data.page.size() <= 200
+        && request.resource.data.at is timestamp;
+    }
     // T-3644: the visitor's own person (renderers/web/js/visitor-person.js), theirs alone.
     match /people/{uid} {
       allow read, delete: if request.auth != null && request.auth.uid == uid;
@@ -126,6 +138,13 @@ service cloud.firestore {
 `hasOnly` lists above, so a new field cannot ship without its rule; `tools/test_reading_level.mjs`
 holds `readers/{uid}` to the fields `reading-level.js` writes (T-3645). Until the
 `readers/{uid}` rule is pasted, a reader's ages stay on their device and the console says so once.
+
+**Contact messages (T-3741)** are kept at `messages/<auto id>`: the public site's contact
+form writes one per message, unauthenticated, before it asks FormSubmit to email the owner,
+so a message survives FormSubmit failing. The owner reads them on the visitors page, newest
+first. Until the rule above is pasted the write is refused, the page says the messages are
+not readable yet, and the form still sends through FormSubmit (or offers the mailto).
+`tools/test_sign_in.mjs` holds `site/js/contact.js`'s write to the `hasOnly` list.
 
 **The visitor's own person (T-3644)** is kept at `people/<uid>`: the choice made on the
 Settings card's You tab, as one JSON string, readable and writable by that visitor only.

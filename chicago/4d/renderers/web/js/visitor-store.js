@@ -149,3 +149,17 @@ export async function listVisits({ projectId, idToken, since, fetchFn = fetch })
     limit: 10000,
   }, fetchFn);
 }
+
+/**
+ * T-3741: messages left on the public site's contact page (site/js/contact.js writes
+ * them, signed in or not; the rules in docs/SIGN-IN.md let only the owner read them).
+ * Newest first.
+ */
+export const MESSAGE_FIELDS = ['name', 'email', 'topic', 'message', 'page', 'at'];
+export async function listMessages({ projectId, idToken, fetchFn = fetch }) {
+  return runQuery(projectId, idToken, {
+    from: [{ collectionId: 'messages' }],
+    orderBy: [{ field: { fieldPath: 'at' }, direction: 'DESCENDING' }],
+    limit: 500,
+  }, fetchFn);
+}
