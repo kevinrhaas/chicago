@@ -606,7 +606,7 @@ class Assembly:
             if params.roof.get("lower_covering"):
                 self.fabric["mansard_slate"] = params.roof["lower_covering"]
         for w in params.rear_wings:   # T-2841: one slate for every pitched wing (k01_frontage_params)
-            if w["roof"]["kind"] != "flat":
+            if w["roof"]["kind"] not in ("flat", "mansard"):   # T-3713: a mansard wing is the house's slate
                 self.fabric["wing_slate"] = w["roof"]["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
         # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
@@ -1220,7 +1220,7 @@ class Assembly:
         # this wing's own, from the host's top to its wall top
         host = next((x for x in p.rear_wings if w["host_wall"] == f"k01.wall.wing.{x['id']}.rear"), None)
         host_top = p.eave_m if host is None else host["top_m"]
-        if "front" not in walls and w["roof"]["kind"] != "flat" and w["roof"]["axis"] == "v" \
+        if "front" not in walls and w["roof"]["kind"] in ("hip", "gable") and w["roof"]["axis"] == "v" \
                 and w["top_m"] > host_top + 1e-6:
             u1, v1 = w["rect"][1], w["rect"][3]
             walls["front"] = ((u1, 0.0, -v0), (0.0, 0.0, -1.0), v1 - v0)
@@ -1276,7 +1276,7 @@ class Assembly:
         self.soffit_m = keep
         if w["roof"]["kind"] == "flat":
             self.wing_deck(w)
-        else:
+        elif w["roof"]["kind"] != "mansard":   # T-3713: a mansard wing is roofed by roof(), joined in
             self.wing_roof(w)
         if w.get("roof_porch"):
             # T-3626: an open, roofed porch on the deck (2013's rear block)
@@ -4821,6 +4821,19 @@ class Assembly:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if m:
+            # T-3713: a rear wing roofed with the house's mansard (2115's rear range): the same
+            # ring stack over the wing's wall line, run on into the main body past the main rear
+            # face's foot so its own end lies inside the main roof, and joined into it, so a
+            # side face flush with the main one is one plane from the street to the wing's rear
+            for w in p.rear_wings:
+                if w["roof"]["kind"] != "mansard":
+                    continue
+                u0, _, wv0, wv1 = w["rect"]
+                into = min(D / 2, m["lower_rise_m"] + o + 1.0)
+                wing, _, _ = k5.mansard_element(u0, into, -wv1, -wv0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
+                                                m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+                solids += [wing, k5.body_box(u0, 0.0, -wv1, -wv0, hs - 1.0, hs)]
         if (p.shaped_gable or {}).get("roof_to_gable"):   # T-3715: the ridge run on to the gable
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.roof_to_gable(k5, p, E, ye, tp, o, f, hs))

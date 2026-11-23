@@ -2,7 +2,7 @@
   "structure_id": "armour_house_2115_prairie",
   "view": "chicagology_armour_photo",
   "glb": "assets/gltf/armour_house_2115_prairie__as_mapped_1904.glb",
-  "glb_sha256": "db41154c6a0ca535af5aea7fef22c9ac44f070cf3c159bf91854ba1e6d8f2d07",
+  "glb_sha256": "bc3d2f1c84943ede352ffe7eee5500116276e054b11bde1dc68c04f4b3a2810c",
   "camera_sha256": "ae483e0a78744bc01e41870fcb4cfc2922716959e999bcce049f66321f1f1b36",
   "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
   "side_by_side": "docs/RESEARCH/photo-match/armour_house_2115_prairie/chicagology_armour_photo-side-by-side.jpg",
@@ -41,8 +41,16 @@
       "status": "fixed"
     },
     {
-      "what": "the mansard and its dormers carried on back past the main body: the print shows the north side's slated face continuing behind the first dormer with two more dormers (x 360-500 px, partly behind 2109's roof); the render's rear range is K01's flat-decked brick wing, which takes no mansard (rear_wings roof: flat, hip or gable)",
-      "status": "open"
+      "what": "the mansard and its dormers carried on back past the main body (T-3713, rear range pass): the print shows the north side's slated face continuing behind the first dormer with two more dormers (x 360-600 px, partly behind 2109's roof); the rear range is now roofed with the house's own mansard (K01 rear_wings roof kind 'mansard', joined into the main roof), its north face one plane with the main body's, and carries two more of the flank dormer at -0.55 and -4.0 m along it: three dormers on the flank, as the print draws",
+      "status": "fixed"
+    },
+    {
+      "what": "the flank's three dormers stand at x about 515, 487 and 460 in the render against the print's about 567, 500 and 447: this camera, fitted on the front, foreshortens the whole north flank more than the print does (the range's rear cornice at x about 440 against the print's about 370, the plan's 24.4 m being the 1911 sheet's), so the two new dormers are spaced evenly behind the first (3.45 m) rather than read through it; their count, form and order stand on the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the lower dormer past the range (x 320-395, y 560-625 px), its head well under the line the flank's three descend on: on a lower roof further back, likely the coach house's (its own record, the district draft's), which this view does not render",
+      "status": "not shown"
     },
     {
       "what": "the pavilion's crown's iron cresting round its deck (x 1220-1440, y 160-230 px), bare in T-3713's first render: now the K10 kit's rail, 0.6 m as the main deck's, round all four sides of the crown's own curb. Its pattern is the kit's; the print's is a denser pierced band with taller spears at the corners",

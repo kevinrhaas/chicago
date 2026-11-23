@@ -2375,8 +2375,43 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             **({"base_ledge_half_m": base_in} if base_in is not None else {})}
 
 
+def _mansard_reach(wings, width: float) -> dict:
+    """T-3713: how far back each side face of the main mansard runs on: past the rear wall onto
+    a rear wing roofed with the house's mansard (`rear_wings[].roof.kind` "mansard") whose side
+    wall is flush with the main body's, the face carried on in one plane to the wing's rear
+    (k01_frontage.roof joins the two). {face: the wing's rear u}, for "south" (v 0) and "north"
+    (v = width)."""
+    out = {}
+    for e in wings or ():
+        if (e.get("roof") or {}).get("kind") != "mansard" or abs(float(e["rect"][1])) > 1e-9:
+            continue
+        u0, v0, v1 = float(e["rect"][0]), float(e["rect"][2]), float(e["rect"][3])
+        if abs(v0) < 1e-9:
+            out["south"] = min(out.get("south", 0.0), u0)
+        if abs(v1 - width) < 1e-9:
+            out["north"] = min(out.get("north", 0.0), u0)
+    return out
+
+
+def _mansard_wings(wings, m, eave: float) -> None:
+    """T-3713: a wing roofed with the house's mansard stands under one: the house is roofed
+    with a mansard, and the wing's wall top is the main eave, so the two lower faces rise from
+    one cornice line to one curb."""
+    for w in wings:
+        if w["roof"]["kind"] != "mansard":
+            continue
+        if not m:
+            raise ParamError(f"rear_wings: {w['id']}'s roof is the house's mansard, and the house has none")
+        if abs(w["top_m"] - eave) > 1e-6:
+            raise ParamError(f"rear_wings: {w['id']}'s wall top {w['top_m']} m is not the main eave {eave} m "
+                             f"its mansard rises from")
+        if m.get("walled_ends") or m.get("straight") or m.get("side_parapet") or m.get("street_run_m"):
+            raise ParamError(f"rear_wings: {w['id']}'s mansard is carried over a plain ring only (no walled "
+                             f"ends, straight walls, side parapet or leaned street face)")
+
+
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
-                     chimneys, cant=None) -> list:
+                     chimneys, cant=None, reach=None) -> list:
     """T-2411: round-headed dormers in the main mansard's lower faces — the 1874 engraving's
     two on 1620's north face — each the crown dormer's construction (`_round_dormer`) on a
     face the record names, at a centre along it. Each stands clear of the face's hips, of
@@ -2416,7 +2451,8 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
         d = _round_dormer(e, what, frun, hood=True, flat_ok=True)
         ax = MANSARD_FACES[face]
         c, r = float(e["along_m"]), d["width_m"] / 2
-        lo, hi = -overhang + run + 0.3 + r, lengths[ax] + overhang - (face_lower(m, "street")[1] if ax == "u"
+        # T-3713: a side face carried on over a mansard wing runs back to the wing's rear hip
+        lo, hi = (reach or {}).get(face, 0.0) - overhang + run + 0.3 + r, lengths[ax] + overhang - (face_lower(m, "street")[1] if ax == "u"
                                                                       else run) - 0.3 - r
         if not lo <= c <= hi:
             raise ParamError(f"{what}.along_m {c}: its face stands clear of the hips only for {lo:.2f}-{hi:.2f} m")
@@ -5907,8 +5943,11 @@ def wing_walls(w: dict) -> dict:
     return walls
 
 
-#: T-2841: what a wing is roofed with — K04's tin deck (T-2343), or a slated hip or gable
-WING_ROOFS = ("flat", "hip", "gable")
+#: T-2841: what a wing is roofed with — K04's tin deck (T-2343), or a slated hip or gable;
+#: T-3713: or the house's own mansard carried on over it ("mansard"), its lower faces, curb and
+#: deck the main roof's, joined into it (k01_frontage.roof) — 2115's rear range in the Armour
+#: photograph, the north flank's slated face and its dormers running on behind the main body
+WING_ROOFS = ("flat", "hip", "gable", "mansard")
 #: T-2841: the sides a wing's gable may face; north or south runs the ridge along the
 #: wing (v), so both of its flank walls carry a gable, and rear runs it across (u) into
 #: the host wall, so the rear wall carries the one gable
@@ -6243,11 +6282,20 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         if kind not in WING_ROOFS:
             raise ParamError(f"rear_wings: {wid}'s roof is a {kind}; a K01 wing is decked flat, hipped or "
                              f"gabled ({', '.join(WING_ROOFS)})")
-        ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
+        if kind == "mansard":
+            # T-3713: the house's mansard carried on over the wing: it stands on the main rear
+            # wall with its wall top at the main eave (checked where the mansard is known,
+            # `_mansard_wings`), and its eave is the main roof's, so it names no deck of its own
+            if host is not None or set(roof) != {"kind"}:
+                raise ParamError(f"rear_wings: {wid}'s roof is the house's mansard carried over it: it stands on "
+                                 f"the main rear wall and names nothing but its kind")
+            ov = fas = 0.0
+        else:
+            ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
         # T-1902: a deck carrying the house's bracketed cornice reaches over its brackets, as
         # far as a main eave may (1936's range, under brackets 0.7 m out)
         ov_max = 0.8 if roof.get("cornice") is not None else 0.6
-        if not (0.0 <= ov <= ov_max and 0.1 <= fas <= 0.5):
+        if kind != "mansard" and not (0.0 <= ov <= ov_max and 0.1 <= fas <= 0.5):
             raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
                              f"0-{ov_max} m and 0.1-0.5 m")
         # T-3257: a flat wing may carry the house's bracketed timber cornice round its three
@@ -6264,6 +6312,11 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
             pitched = None
             deck = cover = round(top + fas, 4)
+        elif kind == "mansard":
+            # T-3713: the host wall above the wing's wall top is the main mansard's, so the wing
+            # covers it to its wall top, the cornice line the two share
+            pitched = {"kind": "mansard"}
+            deck = cover = top
         else:
             # T-2841: a hipped or gabled wing, slated. What its plan and its gable say fixes the
             # ridge: across the wing (along u) it dies into the host wall, along it (v) the front
@@ -6438,7 +6491,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             except PorchError as err:
                 raise ParamError(str(err)) from None
         out.append(wing)
-    slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
+    slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] not in ("flat", "mansard")}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
                          f"wings share one slate (the assembly's wing_slate)")
@@ -9469,7 +9522,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("rainwater.downpipes: a shared pipe stands on a party wall carried up through the mansard")
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
-                                                   float(val("eave_overhang_m")), chimneys, val("cant_corner"))
+                                                   float(val("eave_overhang_m")), chimneys, val("cant_corner"),
+                                                   reach=_mansard_reach(val("rear_wings"), width))
     if (val("mansard") or {}).get("deck"):
         # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
@@ -9491,6 +9545,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""),
                         stone=bool(val("stone_front")), kit=kit)
+    _mansard_wings(wings, mansard_roof, eave)
     if wing_towers:
         wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
                                    float(val("eave_overhang_m")))
