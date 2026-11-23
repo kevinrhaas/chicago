@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 3207, ts: '2026-11-22T23:34:03.603Z', date: 'Nov 22, 2026, 5:34 PM CT', title: 'The finished Robbins house at 2126 Prairie, as a version', kind: 'feature',
+    items: [
+      '2126 Prairie still stands as a building site on 1 July 1904, but its finished front can now be opened beside it: add ?structure=robbins_house_2126_prairie&version=completed to the 1904 address.',
+      'Built from the May 1905 Inland Architect plate: five bays of red brick over a pale basement with barred windows, a stone entablature over the second storey, a short attic storey, a cornice on blocks, two end chimneys and a fanlit door behind an iron railing.',
+      'Its plan comes from the 1911 fire-insurance map: a 12 m square main house with a three-storey wing behind. The pilaster capitals, keystones and carved panels are not drawn yet.',
+    ] },
+  { v: 3206, ts: '2026-11-22T23:22:28.883Z', date: 'Nov 22, 2026, 5:22 PM CT', title: '2017 Prairie\'s tall gable matches its photograph', kind: 'improvement',
+    items: [
+      'The steep gable on the William Armour house at 2017 Prairie now stands on a deep cornice with a row of dentils across its foot, as its photograph shows.',
+      'Its rakes run down to the corners on deep bargeboards at the photograph\'s pitch, and a small diamond-lattice ventilator sits in its peak.',
+    ] },
+  { v: 3205, ts: '2026-11-22T22:12:35.090Z', date: 'Nov 22, 2026, 4:12 PM CT', title: '2125 Prairie is built', kind: 'feature',
+    items: [
+      '2125 Prairie, the one wooden house among the brick ones on the east side between 21st and 22nd Streets, now stands as a full house in place of its draft. Its plan comes from the 1911 map: two storeys over a raised basement, a porch across the whole front, a square bay on its north side, an angled bay on its south side and a one-storey range behind. No picture of it is known, so the clapboard, the windows, the steep slate gable facing the avenue and the olive paint with cream trim are a careful best guess, and the house\'s card says so.',
+    ] },
+  { v: 3204, ts: '2026-11-22T20:27:14.936Z', date: 'Nov 22, 2026, 2:27 PM CT', title: 'Jaunt stops at hidden buildings no longer end against a wall', kind: 'fix',
+    items: [
+      'Pullman\'s Other Son and The Pullman Twins no longer stop against the front of the Pullman house on the way to the palm house behind it. You now stand on the 18th Street sidewalk and look at the glasshouse across the yard.',
+      'Every stop at a building that another building hides from its own street, such as a coach house or a rear cottage, now stands on a sidewalk of a street that can see it, never on a doorstep or in a yard.',
+    ] },
   { v: 3203, ts: '2026-11-22T19:39:03.139Z', date: 'Nov 22, 2026, 1:39 PM CT', title: '2100 Prairie\'s balcony reaches the library, on a pier and pierced rail', kind: 'feature',
     items: [
       '2100 Prairie\'s porch balcony now runs from the library\'s projecting front to beside the parlour\'s upper window, as the old photograph and the 1876 plan show. A plain square stone pier carries its south end, and the cluster of three columns now stands just inside its north end. The balcony\'s rail is now a stone band pierced with round openings instead of square balusters. The flight is narrowed to the photograph\'s 2.3 m, between the pier and the columns, with a low stone terrace on each side.',

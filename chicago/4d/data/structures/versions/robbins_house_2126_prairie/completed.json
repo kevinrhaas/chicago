@@ -1,0 +1,536 @@
+{
+  "id": "robbins_house_2126_prairie",
+  "name": "2126 Prairie Avenue — the Robbins house completed (Mann, MacNeille & Lindeberg), K01 frontage assembly: a version beside the July 1904 works shell",
+  "aka": [
+    "2126 S. Prairie Avenue"
+  ],
+  "archetype": "k01_frontage",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35",
+      "inland_architect_1905_05_robbins_plate"
+    ],
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '3 brick dwelling (D), the Robbins house'; the plate titles it the residence for Edward F. Robbins."
+  },
+  "review_required": false,
+  "research_note": "T-3721 (piece 2 of T-1926): the completed Robbins house, built on the K01 frontage assembly from the May 1905 Inland Architect plate (two scans of one photograph, dw-inland-1905-05-robbins-2126-plate and a20-aic-ia-robbins-plate) and sheet 35 of the 1911 Sanborn, as a structure VERSION of the default record, which stays the July 1904 building site census ruling r35-robbins-2126 declares. What is built: the three-storey main body (12.26 by 12.19 m) and three-storey rear wing off the sheet; the plate's five-bay brick front over a pale stone basement with barred lights, flat stone lintels, the entablature over the chamber storey and the attic's sill course as stone courses, the attic storey's five short lights, the moulded top cornice on blocks over a flat roof, two end chimneys, a round-headed door with its fanlight on a marble stoop, the iron railing and the gate between piers. What is not: the pilaster heads, keystones, carved panels and the frieze's carving, the six-over-six glazing, the side lights, the brick piers' material, the returned brick wall and the corner scroll, and the sheet's flank bays (liberty L-k01-robbins-2126-3721). T-3722 solves the plate's camera and signs the image gate off.",
+  "phases": [
+    {
+      "id": "completed",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "reconstructed",
+        "sources": [
+          "inland_architect_1905_05_robbins_plate",
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "A VERSION, not the town's 1904: on 1 July 1904 the house was still being built (census ruling r35-robbins-2126; the default record stands that works shell). This is the completed house the May 1905 plate shows, put on the 1904 scene's date only so it can be compared with the shell from the same spot (?structure=robbins_house_2126_prairie&version=completed). The plate dates the finished house to May 1905 at the latest and is never read as July 1904 evidence; the 1911 sheet still draws it.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448450.104,
+        "utm_n": 4633693.958,
+        "rotation_deg": -0.685,
+        "symbolic_location": "2126 S. Prairie Avenue, parcel prairie_2126 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The rear corner of the main body at its south wall: column 666.4, row 1451.6 of sheet 35 at full size (T-3721), carried through 2120's committed corner (column 644, row 1357.5) at 0.1858 m a pixel on the T-1250 fit of the sheet; 0.19 m behind and 1.47 m south of the draft's corner, whose rectangle fit stopped inside the flanks' bays. The fit's own residual is 0.05 m RMS on its control crossings, plus about a pixel of reading. Rotation -0.685 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            12.26,
+            0.0
+          ],
+          [
+            12.26,
+            12.19
+          ],
+          [
+            0.0,
+            12.19
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The main body off sheet 35 of the 1911 Sanborn at full size (T-3721): 12.26 m from the rear wall (column 666.4) to the front (column 732.4), 12.19 m along the front from the south wall (row 1451.6) to the north wall (row 1386), at 0.1858 m a pixel. The draft's fit drew it 11.25 by 9.5 m. The plate's front scales to the same width (its five bays and door read at ordinary sizes on it). The sheet's two small grey canted bays on the flanks near the rear (iron clad) and a narrow grey edge along the front are not built (liberty L-k01-robbins-2126-3721)."
+      },
+      "form": {
+        "stories": {
+          "value": 3,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35",
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "'3' printed on the 1911 sheet; the plate shows the principal storey, the chamber storey and an attic storey over the entablature."
+        },
+        "construction": {
+          "value": "brick_with_stone_front",
+          "confidence": "attested",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's brick front over a pale stone basement; the register reads the stone as marble. Built with K02's palest coursed ashlar (Bedford limestone) for the basement face and the courses: the kit has no marble (liberty L-k01-robbins-2126-3721)."
+        },
+        "stone_front": {
+          "value": {
+            "fabric": "limestone_bedford",
+            "dressing": "smooth",
+            "trim_fabric": "dressed_trim",
+            "rusticated_base_courses": 2,
+            "coping_height_m": 0.25,
+            "corner_bond": [],
+            "brick_above_m": 1.28,
+            "belts": [
+              [
+                7.87,
+                8.2
+              ],
+              [
+                8.2,
+                8.6
+              ],
+              [
+                8.6,
+                8.95
+              ],
+              [
+                9.1,
+                9.45
+              ]
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "Read off the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: the pale basement face from grade to the principal floor (1.28 m), laid in two courses under its coping with K02's shallow channel (a plain plinth cannot take the barred lights); the entablature over the chamber storey's heads as three stone courses, its architrave 7.87-8.2 m, its frieze 8.2-8.6 m and its dentil course 8.6-8.95 m, and the pale sill course under the attic lights at 9.1-9.45 m. The frieze's carving, the dentils' teeth and the four Ionic pilaster heads under the architrave are not built (the kit lays a course, not its ornament; liberty L-k01-robbins-2126-3721)."
+        },
+        "principal_floor_m": {
+          "value": 1.28,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The door's threshold over the walk, the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: about 1.26 m, built 1.28 m so K07's stoop and K01's stair solve it in the same seven risers."
+        },
+        "storey_heights_m": {
+          "value": [
+            3.65,
+            4.1,
+            2.8
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "From the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: the chamber storey's floor about 0.83 m under its sills (as the principal storey's), the attic's floor at the sill course's top, the attic storey's wall to the top of the cornice at about 11.8 m, the cornice hanging under that eave from about 11.2 m."
+        },
+        "wall_thickness_front_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "K01's working front wall for a three-storey brick house."
+        },
+        "wall_thickness_side_m": {
+          "value": 0.33,
+          "confidence": "reconstructed",
+          "note": "K01's working side wall."
+        },
+        "service_wall_brick": {
+          "value": "common_buff_common_6",
+          "confidence": "reconstructed",
+          "note": "Common brick on the walls the plate does not show, as K01's other brick houses of the block."
+        },
+        "face_brick": {
+          "value": {
+            "front": "pressed_red_deep",
+            "sides": "common_buff"
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The register's 'red-brick front' (the plate is monochrome and reads the brick dark against the marble); the flanks, which no picture shows, in common brick."
+        },
+        "street_front_trim": {
+          "value": {
+            "by_storey": [
+              "k01.flat_lintel",
+              "k01.flat_lintel",
+              "k01.flat_lintel"
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's pale flat lintels over the principal sash; the chamber storey's heads under the architrave and the attic's under the cornice drawn as the same flat lintel. The principal lintels' keystones and the attic lights' eared dressings are not built (K01 keys a brick front's heads only on an all-brick front; liberty L-k01-robbins-2126-3721)."
+        },
+        "wall_head": {
+          "value": {
+            "cornice": "k10.cornice.moulded_stone",
+            "blocks": {
+              "spacing_m": 0.65,
+              "height_m": 0.22,
+              "projection_m": 0.2,
+              "width_m": 0.18
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's moulded top cornice on a row of blocks, from 11.2 m to about 11.8 m (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35); its section is K10's moulded stone eave."
+        },
+        "roof_form": {
+          "value": "flat",
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate shows a level cornice with nothing over it but the two end chimneys: a flat roof behind it."
+        },
+        "roof_pitch_deg": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "A flat roof's fall to its gutters."
+        },
+        "eave_overhang_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "The cornice's reach, about a third of a metre past the blocks in the plate; K05's working eave."
+        },
+        "roof_covering": {
+          "value": {
+            "fabric": "tin_flat_seam_painted",
+            "flashing": "painted_tin_sheet"
+          },
+          "confidence": "reconstructed",
+          "note": "A flat roof in flat-seam tin, as the block's other flat-topped houses."
+        },
+        "window_kit": {
+          "value": {
+            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.area_light": {
+              "variant": "k06.opening.area_light",
+              "well": false,
+              "grille": {
+                "bars": 5,
+                "set_back_m": 0.04,
+                "ring_radius_m": 0.4
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "Double-hung sash on every storey and barred basement lights, as the plate shows them. The plate's sash are divided six lights over six; K06's working sash is two over two (liberty L-k01-robbins-2126-3721)."
+        },
+        "stair_tread_m": {
+          "value": 0.3,
+          "confidence": "reconstructed",
+          "note": "K07's working tread."
+        },
+        "stair_landing_depth_m": {
+          "value": 1.2,
+          "confidence": "reconstructed",
+          "note": "A short landing before the door; the plate, square-on, cannot show its depth."
+        },
+        "stoop_width_m": {
+          "value": 1.75,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's marble steps, about 1.75 m across (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35)."
+        },
+        "entrance_bay": {
+          "value": 3,
+          "confidence": "attested",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's door in the middle of the five bays."
+        },
+        "front_bays": {
+          "value": [
+            1.35,
+            3.65,
+            6.095,
+            8.54,
+            10.84
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The five bays' axes off the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35, made symmetric about the front's middle (the reading is within 0.1 m of it)."
+        },
+        "side_bays": {
+          "value": [
+            3.0,
+            9.0
+          ],
+          "confidence": "reconstructed",
+          "note": "Two lights a storey on the south flank, which no picture shows."
+        },
+        "north_bays": {
+          "value": [
+            3.0,
+            9.0
+          ],
+          "confidence": "reconstructed",
+          "note": "Two lights a storey on the north flank, which no picture shows."
+        },
+        "rear_bays": {
+          "value": [
+            1.8
+          ],
+          "confidence": "reconstructed",
+          "note": "One light a storey in the main body's rear wall south of the wing."
+        },
+        "sash_by_storey": {
+          "value": [
+            {
+              "sill_above_floor_m": 0.83,
+              "width_m": 1.07,
+              "height_m": 1.76
+            },
+            {
+              "sill_above_floor_m": 0.83,
+              "width_m": 1.07,
+              "height_m": 1.76
+            },
+            {
+              "sill_above_floor_m": 0.5,
+              "width_m": 0.85,
+              "height_m": 1.2
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The front's lights off the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: the principal and chamber sash about 1.07 by 1.76 m, the attic's about 0.85 by 1.2 m."
+        },
+        "basement_lights": {
+          "value": {
+            "sill_m": 0.2,
+            "width_m": 1.07,
+            "height_m": 0.7
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's barred basement lights in the marble face, under the principal sash (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35)."
+        },
+        "chimneys": {
+          "value": {
+            "plan_m": [
+              0.8,
+              0.75
+            ],
+            "top_above_ridge_m": 1.7,
+            "cap_proud_m": 0.05,
+            "cap_depth_m": 0.15,
+            "stacks": [
+              {
+                "u_m": 11.0,
+                "v_m": 0.9
+              },
+              {
+                "u_m": 11.0,
+                "v_m": 11.3
+              }
+            ]
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's two end chimneys, about 0.8 m broad, showing about 0.7 m over the cornice at the two ends of the front (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35): built 1.7 m over the flat roof (which lies under the cornice's top) about 1.3 m behind the front, which shows that much past the cornice from the walk; the set-back is reconstructed until T-3722 solves the camera."
+        },
+        "entrance_kit": {
+          "value": {
+            "k01.opening.door_leaf": {
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 6.89,
+              "reveal_depth_m": 0.3,
+              "opening_m": [
+                1.6,
+                3.35
+              ],
+              "arch": {
+                "ring_m": 0.2,
+                "keystone_top_m": 4.9,
+                "keystone_m": [
+                  0.22,
+                  0.3
+                ]
+              },
+              "leaf": {
+                "panels": [
+                  1,
+                  3
+                ],
+                "rails_y_m": [
+                  0.9,
+                  1.8
+                ],
+                "panel_recess_m": 0.03,
+                "raised_field": {
+                  "margin_m": 0.06,
+                  "proud_m": 0.015
+                },
+                "color": [
+                  0.6,
+                  0.58,
+                  0.52
+                ]
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "The plate's round-headed doorway, about 1.6 m across with its side lights and its crown about 4.6 m over the walk, glazed in its head as a fanlight, the door painted pale and panelled as the plate shows it (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35; the paint's colour is reconstructed, the print being monochrome). The side lights, the door's own cornice under the fanlight and the carved panel over the arch are not built (liberty L-k01-robbins-2126-3721)."
+        },
+        "boundary": {
+          "value": {
+            "street_line_m": 6.59,
+            "lot_s_m": [
+              -1.907,
+              15.343
+            ],
+            "fence": "k11.fence.spear_on_curb",
+            "entrance_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "leaves": 2,
+              "clear_m": 1.75,
+              "drawn_deg": 70
+            },
+            "side_gate": {
+              "variant": "k11.gate.walk_gate_on_piers",
+              "pier_s_m": 0.0,
+              "drawn_deg": 0
+            },
+            "posts": {
+              "section_m": 0.12,
+              "height_m": 1.5
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The plate's iron railing on a pale curb across the front, and a two-leaf gate at the walk between two piers with ball finials. The piers are brick in the plate and K11's are stone with urns; the side passage is closed by K11's shut side gate on piers, as the block's other iron fronts are; the brick wall and pier returned north and the scrolled stop at the south corner are not built (liberty L-k01-robbins-2126-3721). The lot lines are the 1911 sheet's; the railing stands 0.3 m inside the walk at the lot line, as K11 sets the block's other fronts."
+        },
+        "yard": {
+          "value": {
+            "kit": "k14_condition",
+            "built": 1904,
+            "lawn": "none",
+            "grass_edge": "street_front",
+            "under_stoop": "earth",
+            "front_walk": {
+              "surface": "stone_flags",
+              "flag_m": 0.75,
+              "top_m": 0.06,
+              "wear_tone": 0.9,
+              "width_m": 1.75
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "The front yard's condition as K14's new work; the walk as wide as the steps."
+        },
+        "rear_wings": {
+          "value": [
+            {
+              "id": "rear_wing",
+              "rect": [
+                -12.0,
+                0.0,
+                3.57,
+                11.15
+              ],
+              "floor_m": 1.28,
+              "storey_heights_m": [
+                3.65,
+                4.1,
+                2.8
+              ],
+              "sash_by_storey": [
+                {
+                  "sill_above_floor_m": 0.83,
+                  "width_m": 0.9,
+                  "height_m": 1.76
+                },
+                {
+                  "sill_above_floor_m": 0.83,
+                  "width_m": 0.9,
+                  "height_m": 1.76
+                },
+                {
+                  "sill_above_floor_m": 0.5,
+                  "width_m": 0.85,
+                  "height_m": 1.5
+                }
+              ],
+              "windows": {
+                "north": [
+                  2.5,
+                  6.0,
+                  9.5
+                ],
+                "south": [
+                  2.5,
+                  6.0,
+                  9.5
+                ],
+                "rear": [
+                  1.9,
+                  5.7
+                ]
+              },
+              "roof": {
+                "kind": "flat",
+                "overhang_m": 0.15,
+                "fascia_m": 0.3,
+                "covering": "painted_tin_sheet"
+              }
+            }
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The 1911 sheet's three-storey brick wing behind the main body, 12.0 m deep and 7.6 m wide (columns 602-666.4, rows 1391.6-1432.4 at full size); its storeys carried from the main body's, its lights and flat roof reconstructed. The sheet's canted corner where its south wall meets the main body is drawn square."
+        }
+      }
+    }
+  ],
+  "version": {
+    "label": "completed",
+    "summary": "The finished Robbins house as the May 1905 Inland Architect plate shows it, beside the default July 1904 building site."
+  }
+}

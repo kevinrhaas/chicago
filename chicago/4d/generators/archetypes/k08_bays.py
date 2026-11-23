@@ -2847,12 +2847,15 @@ class Bay:
             return
         c = self.GABLE_LIGHT_CLEAR_M
         up = float(self.v["roof"]["gable"]["upstand_m"])
+        # T-3634: under bargeboards, a light's dressings stand clear of the boards' foot instead
+        bd = float((self.v["roof"]["gable"].get("bargeboards") or {}).get("depth_m", 0.0))
         holes = sorted(self.gable_holes)
         for j, (x0, x1, y0, y1, yt, tx0, tx1) in enumerate(holes):
             if not (xa + c <= tx0 and tx1 <= xb - c and y_top + 1e-6 <= y0
-                    and yt <= min(under(tx0), under(tx1)) - c):
+                    and yt <= min(under(tx0), under(tx1)) - bd - c):
                 raise ValueError(f"{self.v['id']}: a gable light ({x0:.3f}-{x1:.3f} m, to {yt:.3f} m) stands "
-                                 f"{c} m inside the kneelers and under the copings' beds, over the wall top")
+                                 f"{c} m inside the kneelers and under the copings' beds (and any bargeboards), "
+                                 f"over the wall top")
             # its recess stands under the roof's slopes (a coping's bed less the upstand)
             if y1 > min(under(x0), under(x1)) - up - 1e-6:
                 raise ValueError(f"{self.v['id']}: a gable light's recess (head {y1:.3f} m) runs back into the "
@@ -2988,6 +2991,20 @@ class Bay:
             meta["behind"] = behind
         if g.get("panel"):
             meta["panel"] = self._gable_panel(world, g["panel"], xa, xb, xc, y_top, under, p, pitch)
+        # T-3634: 2017 Prairie's gable (Chicagology's photograph): a dentilled cornice across its
+        # foot, bargeboards under its rakes and a latticed ventilator under its apex
+        if g.get("foot_cornice"):
+            if shallow or chamfer or on_gable or il or ir:
+                raise ValueError(f"{self.v['id']}: a gable's foot cornice runs across a deep projection's whole "
+                                 f"front, under kneelers on its corners")
+            meta["foot_cornice"] = self._gable_foot_cornice(world, g["foot_cornice"], knees, xl, xr, y_top, p, cp)
+        bg = g.get("bargeboards")
+        if bg:
+            meta["bargeboards"] = self._gable_bargeboards(world, bg, xa, xb, xc, under, p, cp, pitch)
+        if g.get("ventilator"):
+            drop = float(bg["depth_m"]) if bg else 0.0
+            meta["ventilator"] = self._gable_ventilator(world, g["ventilator"], xc, under, drop, p, pitch,
+                                                        max([h[4] for h in self.gable_holes] or [y_top]))
         zm = (zb + zf) / 2
         pn = g.get("pinnacle")
         if pn:
@@ -3013,6 +3030,169 @@ class Bay:
             self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
             meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
         self.meta["roof"] = meta
+
+    def _gable_foot_cornice(self, world, fc, knees, xl, xr, y_top, p, cp):
+        """T-3634: a moulded stone cornice across a coped gable's foot (2017 Prairie's south
+        projection, Chicagology's photograph: the gable stands on a shelf with a row of dentils
+        under it, a fillet at their foot). The SHELF is `height_m` high under the wall top, its
+        front `proud_m` past the gable's face (at least the copings' proud, so the kneelers and
+        rakes land on it), running from one kneeler's outer face to the other's and returned on
+        the flanks to the wall plane; under it the DENTILS, blocks `width_m` wide and `drop_m`
+        high standing `out_m` from the face at `spacing_m` across the front between its corners;
+        and, when named, a FILLET `[height_m, proud_m]` under them, returned round the corners
+        as the shelf is. The light tier keeps the shelf and the fillet."""
+        keys, dk = {"height_m", "proud_m", "dentils", "fillet"}, {"width_m", "drop_m", "spacing_m", "out_m"}
+        dn = fc.get("dentils") if isinstance(fc, dict) else None
+        if not isinstance(dn, dict) or not ({"height_m", "proud_m", "dentils"} <= set(fc) <= keys) or set(dn) != dk:
+            raise ValueError(f"{self.v['id']}: a gable's foot cornice takes height_m, proud_m, dentils "
+                             f"{sorted(dk)} and an optional fillet")
+        h, pr = float(fc["height_m"]), float(fc["proud_m"])
+        w, dr, sp, out = (float(dn[k]) for k in ("width_m", "drop_m", "spacing_m", "out_m"))
+        fl = fc.get("fillet")
+        fh, fp = (float(fl[0]), float(fl[1])) if fl else (0.0, 0.0)
+        if not (0.1 <= h <= 0.4 and cp <= pr <= 0.5 and 0.04 <= w <= 0.2 and 0.05 <= dr <= 0.25
+                and w + 0.04 <= sp <= 0.5 and 0.04 <= out <= pr - 0.05
+                and (not fl or (0.03 <= fh <= 0.15 and 0.0 < fp <= out))):
+            raise ValueError(f"{self.v['id']}: a foot cornice 0.1-0.4 m high and from the copings' proud to "
+                             f"0.5 m proud; dentils 0.04-0.2 m wide, 0.05-0.25 m high, 0.04 m apart or more "
+                             f"(0.5 m centres at most) and 0.05 m inside the shelf; a fillet 0.03-0.15 m high, "
+                             f"no prouder than the dentils")
+        if self.v["storeys"][-1]["windows"] or float(self.v["storeys"][-1]["height_m"]) < h + dr + fh:
+            raise ValueError(f"{self.v['id']}: a foot cornice hangs in a windowless top storey as deep as it is")
+        x0, x1 = knees[0][0], knees[1][1]
+        y_s, zt, zf = y_top - h, p + pr, p + cp
+        # the shelf: its front, underside and ends; its top only where the sky sees it, before the
+        # kneelers' fronts and between them before the gable's face (the kneelers stand on the rest),
+        # and no back, which is on the wall plane
+        F_, D_ = (0.0, 0.0, 1.0), (0.0, -1.0, 0.0)
+        world.face("band", [(x0, y_s, zt), (x1, y_s, zt), (x1, y_top, zt), (x0, y_top, zt)], F_)
+        world.face("band", [(x0, y_s, 0.0), (x1, y_s, 0.0), (x1, y_s, zt), (x0, y_s, zt)], D_)
+        for x_, hx in ((x0, -1.0), (x1, 1.0)):
+            world.face("band", [(x_, y_s, 0.0), (x_, y_s, zt), (x_, y_top, zt), (x_, y_top, 0.0)], (hx, 0.0, 0.0))
+        if zt > zf + 1e-9:
+            world.face("band", [(x0, y_top, zf), (x1, y_top, zf), (x1, y_top, zt), (x0, y_top, zt)], Y)
+        # between the kneelers, before the face, round the sills of any gable lights standing on it
+        xa_, xb_ = knees[0][1], knees[1][0]
+        sp_ = (self.prims.get("sill").pos if self.prims.get("sill") else [])
+        cuts = []
+        for h_ in sorted(self.gable_holes):
+            q_ = [q for q in sp_ if abs(q[1] - y_top) < 1e-6 and q[2] >= p - 1e-6 and h_[5] - 1e-6 <= q[0] <= h_[6] + 1e-6]
+            if q_:
+                cuts.append((min(q[0] for q in q_), max(q[0] for q in q_), max(q[2] for q in q_)))
+        xs_, x_ = [], xa_
+        for c0, c1, cz in cuts:
+            xs_ += [(x_, c0, p), (c0, c1, cz)]
+            x_ = c1
+        for a_, b_, z_ in xs_ + [(x_, xb_, p)]:
+            if b_ - a_ > 1e-9 and zf - z_ > 1e-9:
+                world.face("band", [(a_, y_top, z_), (b_, y_top, z_), (b_, y_top, zf), (a_, y_top, zf)], Y)
+        y_d = y_s - dr
+        n = math.floor((xr - xl - w) / sp + 1e-9) + 1
+        gap = (xr - xl - n * w) / (n - 1)
+        meta = {"shelf_m": [round(y_s, 4), round(y_top, 4)], "dentils": 0}
+        if fl:   # its front, underside, ends and the top the dentils leave; no back, on the wall plane
+            f0, f1, y_f, zp = xl - fp, xr + fp, y_d - fh, p + fp
+            world.face("band", [(f0, y_f, zp), (f1, y_f, zp), (f1, y_d, zp), (f0, y_d, zp)], F_)
+            world.face("band", [(f0, y_f, 0.0), (f1, y_f, 0.0), (f1, y_f, zp), (f0, y_f, zp)], D_)
+            for x_, hx in ((f0, -1.0), (f1, 1.0)):
+                world.face("band", [(x_, y_f, 0.0), (x_, y_f, zp), (x_, y_d, zp), (x_, y_d, 0.0)], (hx, 0.0, 0.0))
+            world.face("band", [(f0, y_d, p), (f1, y_d, p), (f1, y_d, zp), (f0, y_d, zp)], Y)
+            for a_, b_ in ((f0, xl), (xr, f1)):   # its returns' tops, beside the projection's flanks
+                world.face("band", [(a_, y_d, 0.0), (b_, y_d, 0.0), (b_, y_d, p), (a_, y_d, p)], Y)
+            meta["fillet_m"] = [round(y_f, 4), round(y_d, 4)]
+        if self.tier == "light":
+            return meta
+        zo = p + out
+        for k in range(n):   # front, sides and underside: their backs on the face, their tops the shelf's
+            a, b = xl + k * (w + gap), xl + k * (w + gap) + w
+            world.face("band", [(a, y_d, zo), (b, y_d, zo), (b, y_s, zo), (a, y_s, zo)], (0.0, 0.0, 1.0))
+            # its underside past the fillet's top, which is the rest of it
+            world.face("band", [(a, y_d, p + fp), (b, y_d, p + fp), (b, y_d, zo), (a, y_d, zo)], (0.0, -1.0, 0.0))
+            for x_, hx in ((a, -1.0), (b, 1.0)):
+                world.face("band", [(x_, y_d, p), (x_, y_d, zo), (x_, y_s, zo), (x_, y_s, p)], (hx, 0.0, 0.0))
+        meta["dentils"] = n
+        return meta
+
+    def _gable_bargeboards(self, world, bg, xa, xb, xc, under, p, cp, pitch):
+        """T-3634: a BARGEBOARD under each of a coped gable's rakes (2017 Prairie's, Chicagology's
+        photograph: deep raking boards standing out of the face under the copings, the shadow of
+        their soffits along both rakes): from the kneeler's inner face to the apex, `depth_m`
+        deep under the coping's bed and `proud_m` out of the gable's face, the coping
+        oversailing it by at least 0.03 m. Gable lights stand clear of the boards' foot."""
+        if not isinstance(bg, dict) or set(bg) != {"depth_m", "proud_m"}:
+            raise ValueError(f"{self.v['id']}: a gable's bargeboards take depth_m and proud_m")
+        d, bp = float(bg["depth_m"]), float(bg["proud_m"])
+        if not (0.08 <= d <= 0.5 and 0.03 <= bp <= cp - 0.03):
+            raise ValueError(f"{self.v['id']}: bargeboards 0.08-0.5 m deep, 0.03 m proud or more and 0.03 m "
+                             f"inside the copings' proud ({cp} m)")
+        zb_ = p + bp
+        for xs in (xa, xb):
+            n = (-1.0 if xs < xc else 1.0, 0.0, 0.0)
+            world.face("band", [(xs, under(xs) - d, zb_), (xc, under(xc) - d, zb_), (xc, under(xc), zb_),
+                                (xs, under(xs), zb_)], (0.0, 0.0, 1.0))
+            world.face("band", [(xs, under(xs) - d, p), (xc, under(xc) - d, p), (xc, under(xc) - d, zb_),
+                                (xs, under(xs) - d, zb_)], _mul(_add(Y, _mul(n, pitch)), -1.0))
+        return {"depth_m": d, "proud_m": bp}
+
+    def _gable_ventilator(self, world, vt, xc, under, drop, p, pitch, lights_top):
+        """T-3634: a VENTILATOR under a coped gable's apex (2017 Prairie's, Chicagology's
+        photograph: a small triangle of diamond lattice in the gable's peak). A triangle
+        `height_m` high, its sides parallel to the rakes and its top `gap_m` under the rakes'
+        foot (the bargeboards', where the gable has them, else the copings' beds): a dark FIELD
+        standing `proud_m` out of the face, and on it a LATTICE of stone bars `bar_m` wide and
+        proud again (one rake's family half as proud once more), laid along both rakes `cell_m` apart so they cross in diamonds, in a border a bar wide and prouder than both. It
+        stands 0.3 m over any gable light. The light tier keeps the field."""
+        keys = {"height_m", "gap_m", "proud_m", "bar_m", "cell_m"}
+        if not isinstance(vt, dict) or set(vt) != keys:
+            raise ValueError(f"{self.v['id']}: a gable's ventilator takes {sorted(keys)}")
+        H, gp, pr, bw, cl = (float(vt[k]) for k in ("height_m", "gap_m", "proud_m", "bar_m", "cell_m"))
+        if not (0.2 <= H <= 1.2 and 0.0 <= gp <= 0.3 and 0.01 <= pr <= 0.05 and 0.02 <= bw <= 0.08
+                and 2 * bw <= cl <= H / 2):
+            raise ValueError(f"{self.v['id']}: a ventilator 0.2-1.2 m high, 0-0.3 m under the rakes, 0.01-0.05 m "
+                             f"proud, its bars 0.02-0.08 m and two cells high at least")
+        top = under(xc) - drop - gp
+        base = top - H
+        if base < lights_top + 0.3:
+            raise ValueError(f"{self.v['id']}: a ventilator stands 0.3 m over the gable's lights")
+        half = H / pitch
+        tri = [(xc - half, base), (xc + half, base), (xc, top)]
+        world.plane("backing", tri, -(p + pr))
+        world.tube("backing", tri, -p, -(p + pr), inward=False)
+        meta = {"y_m": [round(base, 4), round(top, 4)], "bars": 0}
+        if self.tier == "light":
+            return meta
+        z0 = -(p + pr)
+        k = math.sqrt(1.0 + pitch * pitch)
+        ti = top - bw * k                       # the inner apex: both rakes' lines a bar's width in
+        hi_ = (ti - base - bw) / pitch
+        inner = [(xc - hi_, base + bw), (xc + hi_, base + bw), (xc, ti)]
+        # the bars run into the border, so their ends are inside it: each family's to its own line in
+        # it (a third and two thirds of its width), so neither's ends lie on the other's
+
+        def within(t):
+            tm, hm_ = top - t * k, (top - t * k - base - t) / pitch
+            return [(xc - hm_, base + t), (xc + hm_, base + t), (xc, tm)]
+        # each bar along a rake, offset across the triangle: the lines y = top - pitch*|x - xc| + c; the
+        # two families stand at different depths (the right rake's prouder), so neither's face is the other's
+        for sg, kd, mid in ((-1.0, 1.0, within(bw / 3)), (1.0, 1.5, within(2 * bw / 3))):
+            c = -cl
+            while c > -H * 2:
+                lo, hi = c - bw * k / 2, c + bw * k / 2
+                f_lo = lambda q, lo=lo, sg=sg: q[1] - (top + sg * pitch * (q[0] - xc) + lo)
+                f_hi = lambda q, hi=hi, sg=sg: (top + sg * pitch * (q[0] - xc) + hi) - q[1]
+                poly = clip_half(clip_half(mid, f_lo), f_hi)
+                if len(poly) >= 3 and abs(area(poly)) > 1e-6:
+                    world.plane("band", poly, z0 - kd * pr)
+                    world.tube("band", poly, z0, z0 - kd * pr, inward=False)
+                    meta["bars"] += 1
+                c -= cl
+        # its border, a bar's width round the triangle's edge and prouder than both families: its
+        # front in three pieces, its sides the outer and inner rings
+        for a_, b_, ia, ib in zip(tri, tri[1:] + tri[:1], inner, inner[1:] + inner[:1]):
+            world.plane("band", [a_, b_, ib, ia], z0 - 2 * pr)
+        world.tube("band", tri, z0, z0 - 2 * pr, inward=False)
+        world.tube("band", inner, z0, z0 - 2 * pr, inward=True)
+        return meta
 
     #: T-3293: a gable crocket's outline, (along the rake toward the apex, out of the coping's
     #: back) as fractions of its size: a hooked leaf leaning up the rake, its root sunk in the stone
