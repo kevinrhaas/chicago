@@ -46282,3 +46282,18 @@ the elevations; the front, its porch and roof are what it would show first.
 **Ticket:** T-3723 (piece 1 of T-1930, S18).
 **Review:** `docs/RESEARCH/k16-2125-frame-3723/README.md`.
 **Recorded:** 2026-11-22 (T-3723).
+
+### L-k01-2110-rees-3716 — 2110 Prairie re-read through its two photographs' cameras: broader bow lights with transoms, a narrower loggia, a lower gable light and carved field, corbels under the kneelers, a taller south stack
+
+**Decision:** T-3716 (piece 3 of T-1923, the S12B package) solves the cameras of the two pictures of the house the image store holds whole and on its own site — the c. 1980s Ryerson & Burnham photograph and the Glessner House blog's 2012 detail (`data/reference_views/rees_house_2110_prairie/`) — and changes what they read differently from the record. The bow's lights are 1.15 m clear in both storeys, not 0.95; the parlour's three take K06's transom sash (`k06.opening.sash_transom_flat`, 2.55 m clear); the loggia's colonnettes stand 0.86 m apart from 1.63 to 5.93 m, its lights 0.6 m across, not 0.98 m apart from 1.15 m; the gable's light stands from 13.4 m and its carved field's base at 15.0 m, not 14.0 and 15.35; each kneeler stands over K01's scroll console at the front's corner (`shaped_gable.kneelers.scroll`, bed 10.55 m, 0.5 m wide, a carved rosette in its roll); and the south stack's head stands at 18.4 m (`top_m`), not the kit's ridge + 0.6.
+
+**What is read, not invented.** Through the c. 1980s camera (RMS 11 px): the bow's centre lights about 1.26-1.33 m over their dark frames on piers about 0.6 m; a transom bar in each parlour light about 0.55 m under its head; the loggia's outer colonnettes at 1.63 and 5.93 m from the south corner; the light from about 13.4 to 14.4 m and the carved field's base at about 15.1 m; a carved corbel under each end of the gable's foot from about 10.3-10.5 m; the stack's cap about 0.45 m over the render's. The 2012 camera (RMS 17 px, its depth held) reads the light and the field's base within 0.1 m of the same.
+
+**What is invented.** The widths are rounded to the kit's, the frames' own width (about 0.1 m) taken from the photograph's dark outline; K06's transom is three lights where the photograph's reads as one. The corbels are K01's scroll console with the kit's carving, not the photograph's leaves, and its size is read at the print's resolution (about 0.15 m either way). The pictures are of their own dates (c. 1980s, 2012), the house's 1888 front argued unchanged in these respects to 1904 as in `L-k01-2110-rees-1922`.
+
+**What is still not as the photographs show** (written in the two match records, `open`): the gable's slab stands 0.32 m before the wall on a base run out across the whole front where the photographs carry the wall's own face up into the gable; the loggia's arches are framed lights set nearly in the face, where the photographs show deep open arches on free-standing colonnettes under a carved band; the carved field is a narrow strip of relief where the photographs fill it edge to edge; and the kit's pinnacles stand on the ledge's ends where the photographs show none at the south and a tall pier at the north.
+
+**How to resolve:** a flush option for K01's shaped gable (the hip's street eave stopped behind the slab), a recessed arcade for the loggia, and a fuller carved field; then the photo-match re-run against both cameras. The NRHP nomination's 2006 photographs and the 2009 Park District photographs, not in the image store, would give square-on and side views.
+**Ticket:** T-3716 (piece 3 of T-1923, the S12B package of T-1837).
+**Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3716); `data/reference_views/rees_house_2110_prairie/`.
+**Recorded:** 2026-11-23 (T-3716).

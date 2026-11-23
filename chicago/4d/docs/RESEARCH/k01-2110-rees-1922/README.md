@@ -116,3 +116,40 @@ unresolved, so no side-by-side is kept). Liberty `L-k01-2110-rees-3715`.
 Left for T-3716's photo-match: the kneelers' carved corbels, the finial's leaves, the carved fleurons over the
 bow's upper lights, the carved band over the loggia's arches, the capitals' leaves against the pictures', and
 the cameras and match records of the pictures.
+
+## T-3716 — the pictures' cameras and the photo-match (piece 3 of T-1923)
+
+Of the eleven pictures the Prairie library lists for the house, the image store holds five. Two are of the
+house whole on its own site, and their cameras are solved:
+
+| view | picture | camera | fit |
+|---|---|---|---|
+| `aic_c1980s_front` | Ryerson & Burnham, c. 1980s, the front from the walk | inclined, 28 mm-equivalent, eye 12.7 m before the front | RMS 11 px over 16 points |
+| `glessner_2012_gable` | Glessner House blog, January 2012, the gable and loggia from below | inclined and rolled, depth held at 22 m | RMS 17 px over 14 points; a cross-check, not a measure |
+
+Both reference copies are committed unaltered at `data/sources/assets/rees_2110_photos_t3716/`, the
+side-by-sides at `docs/RESEARCH/photo-match/rees_house_2110_prairie/`. The other three are not solved: the 1970s
+café postcard shows the house only in a small oval inset among four interiors; the November 2014 move photograph
+is 240 x 320 px of the front on a mover's cribbing, half hidden by scaffold and a banner, off its site; the 2014
+coach-house photograph shows the coach house (T-1937's), not the house. The NRHP nomination's four 2006
+photographs, the 2009 Park District photographs and the Tribune's 2014 move photograph are not in the store
+(each 404), so they could not be read.
+
+**Fixed against the c. 1980s camera** (and the 2012 one where it sees them): the bow's lights 1.15 m clear in
+both storeys (were 0.95: the bow read as slots in stone), each parlour light under a transom; the loggia 4.3 m
+across on colonnettes 0.86 m apart (was 4.9 m, its south end 0.5 m out); the gable's light down to 13.4 m and its
+carved field's base to 15.0 m (both photographs read them about 0.6 and 0.35 m lower than T-3714 built them); a
+carved corbel under each kneeler at the front's corners; the south stack's head at 18.4 m.
+`L-k01-2110-rees-3716`.
+
+**Open in both match records**, so the image gate still reads `differs` and the ticket is released, not closed:
+
+1. The gable's foot. K01's shaped gable is a slab standing over the hip's street eave, 0.32 m before the wall,
+   on a base run out past both side walls; seen from the walk it is a heavy ledge with a dark soffit across the
+   whole front. In both photographs the wall's own face runs up into the gable. A flush option is a
+   `k01_shaped_gable` change (the hip's street eave stopped behind the slab).
+2. The loggia's arches: deep and open in the photographs, the glass far back, the colonnettes free-standing
+   shafts under a carved band; K06 framed lights nearly in the face in the render.
+3. The carved field: filled edge to edge in both photographs; a narrow strip of the kit's relief in the render.
+4. The kneelers over the foot: none shows at the south end, and a tall pier with a cap at about 13 m at the
+   north; the kit's pinnacles stand on both ends of the ledge.
