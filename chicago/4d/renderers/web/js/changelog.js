@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3216, ts: '2026-11-23T08:43:07.913Z', date: 'Nov 23, 2026, 2:43 AM CT', title: 'People look right up close, pass each other and use their steps', kind: 'fix',
+    items: [
+      'On a jaunt stop, people near you are their real, full figures, never the rough distant stand-in.',
+      'People walking towards each other step aside and pass, instead of walking through one another.',
+      'Someone coming out of a house appears behind their door and walks out and down the steps, so you can follow them.',
+      'The frame houses at 1720, 2000 and 2010 Prairie have their porch steps walked going in and out.',
+    ] },
   { v: 3215, ts: '2026-11-23T08:33:10.715Z', date: 'Nov 23, 2026, 2:33 AM CT', title: 'The flats at 2127-2129 Prairie are built', kind: 'feature',
     items: [
       'The three-storey brick flats at 2127-2129 Prairie, on the east side near 22nd Street, now stand in full in place of their rough model. The 1911 map gives the plan: two buildings of flats side by side behind one front, a door for each at the middle, and an open three-storey porch at the back. No picture of it is known, so the red brick front, arched doorway, cornice and porch are a careful best guess, and the building\'s card says so. The corner lot next door, 2141, stays open ground, as the map shows it.',
