@@ -189,8 +189,8 @@ Re-measure and check with:
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
 node tools/measure_boot_payload.mjs --check  # exit 1 past the 49.6 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3651-boot-payload-entries.json
-                                           # what grew since § 4r's reading, file by file
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3732-boot-payload-entries.json
+                                           # what grew since § 4s's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -975,6 +975,67 @@ were measured but not cut:
 Each is a change to an asset its own ticket qualified, so each is a cut for its owner's ticket,
 measured against this reading:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3651-boot-payload-entries.json`.
+
+### 4s. The breach went to a cut: a layer the scene does not list is never downloaded (T-3732, 2026-11-23)
+
+§ 4r asked that the next breach go to a cut first, and it came five days later. Every PR's
+desktop `1-2` leg went red at **Enforce the first-visit boot payload budget** on dev `ef2ef1ecc`
+(after #2311), and PR #2300's head read the same figure request for request. Re-read on dev
+`abcc5bc5d`, published by `publish.sh` and measured `--against` § 4r's committed entries, it is
+**49.657 MB across 1,395 requests: +0.325 MB since § 4r**. A second named figure arrived in the
+first view (Patrick Mahoney's `lod1`, 0.154 MB, with seven small cloth sheets: he drives nine of
+the ten 1835 wagons in `data/transport/driven/loops.json`), plus about 30 small walk modules
+(`person-card`, `teacher-route`, `photo-hunt`, `met-found`, `field-notebook` and others,
+0.1 MB together) and growth in 98 files. This reading does not bisect which change put Mahoney
+in the first view.
+
+**The cut.** Chromium's JS coverage of the same boot (ready plus the 3 s settle) found nine walk
+modules the 1835 first visit downloads and asks for nothing but an empty layer. Each factory,
+handed no data base because 1835's scene does not list its layer, returns an empty layer having
+called one or two of its dozens of functions:
+
+| left the boot | on the wire | functions run at boot |
+|---|---|---|
+| `street-grid.js` (1904 carriageways, walks, alleys, parcels) | 0.028 MB | 2 of 110 |
+| `railway.js` (the Illinois Central) | 0.026 MB | 2 of 86 |
+| `back-yards.js` | 0.024 MB | 2 of 78 |
+| `crossings.js` (the boats a visitor takes across; 1835 lists no `crossings`) | 0.023 MB | 3 of 69 |
+| `coach-house.js` (Glessner's, T-3557) | 0.015 MB | 1 of 84 |
+| `context.js` (the 1904 context city) | 0.013 MB | 1 of 41 |
+| `front-yards.js` | 0.012 MB | 2 of 35 |
+| `street-furniture.js` (the gas lamps) | 0.012 MB | 2 of 63 |
+| `street-trees.js` (the parkway elms) | 0.007 MB | 2 of 24 |
+| *came back* | +0.003 MB | `inert-layers.js` (0.002 MB) and the loader in `main.js` |
+
+`main.js` now imports each of the eight layer modules only where the scene lists the layer, and
+the coach house only where Glessner's record stands. Both gates are the factory's own first
+test, so nothing a scene draws changes. Where the layer is not listed, the same empty layer
+stands in from `renderers/web/js/inert-layers.js`, which each factory also builds its own empty
+layer from, so the two cannot drift. A year that does list a layer starts its module's download
+the moment the scene's layers are known, beside the boot's other fetches, so importing on demand
+adds that year no round trip. `tools/test_inert_layers.mjs` (a `check.sh` step) holds each empty
+layer equal to its factory's, field for field, and holds `main.js` to importing none of the nine
+statically.
+
+**This is a real saving, not a meter trick** (§ 4q's test, where sign-in was left in the cut on
+purpose): a visitor to 1835 never downloads these modules at all, not later and not on first use,
+because 1835 never draws them.
+
+Measured on the same machine one after the other, dev `abcc5bc5d` reads 49.657 MB across 1,395
+requests and this change reads **49.499 MB across 1,387 requests**: **−0.157 MB and 8 requests
+fewer**. The reading is committed as `docs/measurements/T-3732-boot-payload-entries.json`.
+
+**The budget stays 49.6 MB.** The cut clears the breach with **0.101 MB of room**, about a day
+and a half of the walk's code at this window's pace, or less if another parcel arrives whole. The
+levers § 4r named are still the next ones, both unpulled because each is its own asset's
+qualified form: the wagon's far level (0.963 MB on the wire; its exporter keeps Float32 shader
+attributes on purpose, `tools/transport/farm_box/export_lods.mjs`) and the people's shared alpha
+sheet (`sheets/a1b15bfceb53f2c5.png`, 0.801 MB, the `lod1` hair and skin kept PNG for its alpha
+by `tools/human_web_texture_inputs.py`). Next in walk code, measured but not cut: the `human-*`
+dressers (`human-hair`, `human-skirt`, `human-gait`, `human-life`, about 70 KB, no function run
+by ready) are called synchronously as each figure is built, so they would need a load ahead of
+the first figure rather than an import on demand. The next reading to beat:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3732-boot-payload-entries.json`.
 
 ## 5. What the gate does now
 

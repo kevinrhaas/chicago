@@ -2094,7 +2094,7 @@ def _wall_gable_arch(ar: dict, at: list, dormer: dict) -> dict:
 
 
 def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: float, pitch: float,
-                  overhang: float, mansard: dict | None = None) -> dict:
+                  overhang: float, mansard: dict | None = None, depth: float = 0.0) -> dict:
     """T-2543: the street front's shaped gable — 1812 Prairie's, which its photograph shows
     standing over the whole front: `profile_m`, the outline's half-width over grade from its
     foot to its apex ([half-width, height] pairs, rising, the last on the centre line); the
@@ -2280,6 +2280,14 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     tg = sg.get("takes_gutter", False)
     if not isinstance(tg, bool):
         raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
+    # T-3715: the hip's ridge carried on to the slab's back, as 2110's slates run on to its gable
+    # (k01_shaped_gable.roof_to_gable); a hip whose ridge runs toward the street, so deeper than wide
+    rg = sg.get("roof_to_gable", False)
+    if not isinstance(rg, bool):
+        raise ParamError("shaped_gable.roof_to_gable: true or false (T-3715)")
+    if rg and (roof_form != "hip" or sg.get("run_on") or not depth > width + 0.2):
+        raise ParamError("shaped_gable.roof_to_gable: a hip's ridge run on to the gable, on a block deeper than "
+                         "it is wide by 0.2 m, its outline not run on down a side")
     base_in = None
     if sg.get("base_ledge_half_m") is not None:
         # T-3090: the slab's base drawn in from its foot to the ledge, where the print's outline
@@ -2360,6 +2368,7 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             **({"tympanum": ty} if ty else {}),
             **({"takes_gutter": True} if tg else {}),
+            **({"roof_to_gable": True} if rg else {}),
             **({"run_on": ro} if ro else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
                        **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
@@ -7899,7 +7908,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     slope_dormers =_slope_dormers(val("slope_dormers"), roof_form, depth, width, eave, pitch,
                                    float(val("eave_overhang_m")), rear_section)
     shaped = _shaped_gable(val("shaped_gable") or {}, roof_form, dormer, width, eave, pitch,
-                           float(val("eave_overhang_m")), mansard_roof)
+                           float(val("eave_overhang_m")), mansard_roof, depth=depth)
 
     # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
     # rectangular hole, so only a flat-headed variant fits it; an arched head is a
@@ -8147,14 +8156,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # (1812's beside its stair's head, the Levy print)
             if "parapet" in t:
                 pp = t["parapet"]
-                if set(pp) != {"height_m", "thickness_m", "holes", "hole_m"} or len(pp["holes"]) != 2 \
-                        or len(pp["hole_m"]) != 2:
+                # T-3715: or SOLID, `holes` [0, 0] and no hole_m (2110's landing parapet across its
+                # bow's foot, a plain stone wall in the early-1890s and c. 1980s photographs)
+                solid = list(pp.get("holes") or ()) == [0, 0]
+                if set(pp) != {"height_m", "thickness_m", "holes"} | (set() if solid else {"hole_m"}) \
+                        or (not solid and (len(pp["holes"]) != 2 or len(pp["hole_m"]) != 2)):
                     raise ParamError("entrance_kit.terrace.parapet takes height_m, thickness_m, holes [rows, "
-                                     "columns] and hole_m [width, height]")
+                                     "columns] and hole_m [width, height]; or holes [0, 0] alone, solid")
                 ph, pt = float(pp["height_m"]), float(pp["thickness_m"])
-                (rows, cols), (hw, hh) = (int(x) for x in pp["holes"]), (float(x) for x in pp["hole_m"])
-                if not 0.3 <= ph <= 1.1 or not 0.1 <= pt <= 0.4 or not 1 <= rows <= 4 or not 1 <= cols <= 20 \
-                        or not 0.03 <= hw <= 0.3 or not 0.03 <= hh <= 0.3 or rows * hh > ph - 0.2:
+                (rows, cols), (hw, hh) = (int(x) for x in pp["holes"]), \
+                    ((0.0, 0.0) if solid else (float(x) for x in pp["hole_m"]))
+                if not 0.3 <= ph <= 1.1 or not 0.1 <= pt <= 0.4 or (not solid and (
+                        not 1 <= rows <= 4 or not 1 <= cols <= 20
+                        or not 0.03 <= hw <= 0.3 or not 0.03 <= hh <= 0.3 or rows * hh > ph - 0.2)):
                     raise ParamError(f"entrance_kit.terrace.parapet {pp}: 0.3-1.1 m high, 0.1-0.4 m thick, 1-4 rows "
                                      f"of 1-20 holes 0.03-0.3 m across, a coping and a foot left round them")
                 terraces[-1]["parapet"] = {"height_m": ph, "thickness_m": pt, "holes": [rows, cols],

@@ -49,6 +49,7 @@
  */
 
 import * as THREE from 'three';
+import { inertStreetGrid } from './inert-layers.js';
 import { createLazyRoadTriangleHeight } from './road-triangle-height.js';
 import { createMaskedPedestrianHeight } from './pedestrian-ground.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
@@ -808,21 +809,9 @@ function carriageDriveCard(x, face, grid, section) {
 export async function createStreetGrid({
   dataBase, assetBase = null, sceneId, terrain, confidence = null, problems = [],
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'street-grid';
-  const out = {
-    group,
-    grid: null,
-    surfaces: null,
-    census: { carriageways: 0, faces: 0, alleys: 0, parcels: 0, triangles: 0, surfaced: 0, textured: 0 },
-    parcelAt: () => null,
-    carriagewayHeight: () => null,
-    pedestrianHeight: () => null,
-    pedestrianSupportReading: () => ({ initialized: false, owned_buffer_bytes: 0, duplicated_xyz_bytes: 0 }),
-    setLotLines: () => {},
-    pickAt: () => null,
-    dispose: () => {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertStreetGrid();
+  const { group } = out;
   if (!dataBase || !terrain) return out;
   let grid;
   try {

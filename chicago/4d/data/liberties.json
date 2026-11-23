@@ -80520,6 +80520,40 @@
       ]
     },
     {
+      "id": "L-k01-2110-rees-3715",
+      "title": "2110 Prairie's loggia colonnettes, its landing's parapet across the bow's foot, its stone stack and its roof run on to the gable: the kits' forms where the stone's own is not read",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the S12B package) builds four things `“2110 Prairie, the Harriet Rees house, refined from the district draft onto K01: its plan off the 1911 sheet, its bow, pale stone and stoop off the early-1890s street photograph, its gable, loggia and copper-capped bow off two later photographs of the house on this site, everything none of them shows the kits'”` left as K01's defaults. The loggia's piers carry six engaged colonnettes, one beside each outer arch and one on each pier between, from the lights' sill (10.3 m over grade) to their springing (11.65 m): K09's foliate colonnette (street front trim loggia, a new K09 placement in the k09 frontage generator), its plinth, attic base, shaft and eight-leaved bell capital under a square abacus. The stoop's landing runs on south across the bow's foot as a terrace at the landing's height, faced to grade, 1.95 m out from the flat front (the landing deepened from the kit's 1.3 m to the same 1.95 m, the parapet's face in line with its edge), its back stepped round the bow's plan 0.12 m clear of its plinth, behind a solid stone parapet 0.5 m high and 0.25 m thick (entrance kit terrace with `parapet.holes` [0, 0], a solid parapet newly allowed in the k01 frontage params generator). The south stack is laid in the front's stone to its cap (`fabric: \"stone\"`, 's). The hip's ridge runs on to the gable's back (shaped gable roof to gable, a new K01 element in the k01 shaped gable generator: the hip's attic carried on from the middle of the block into the slab), where it had hipped away a half-width short of it. **What is read, not invented.** From the c. 1980s photograph (Rees, Harriet, Residence. Black-and-white photograph of the front (east) of…, forms only) and the 2012 detail ([Rees house exterior, gable detail.] Photograph, Glessner House Museum, in…, forms only): six round shafts on moulded bases under carved capitals from which the five arches spring, the end two beside the outer arches; a pale stone stack on the south flank against the gable, capped; slates beside the rake behind each kneeler, which a hip falling away from the gable would not show. From the early-1890s street photograph ([The 2100 block of Prairie Avenue looking north-west, early 1890s.] Street…, forms only) and the c. 1980s photograph: a level stone ledge at the landing's height under the bow's parlour lights from the stoop to the bow's south end, and a solid stone block beside the stoop's south cheek whose top stands at those lights' sills. **What is invented.** The colonnettes' and capitals' design is the kit's newly designed foliate order, not the photographs' larger, looser leaves; their shafts are the kit's 0.16 m. The terrace's and the landing's depth before the bow's crown, its parapet's height and thickness are read as proportions of photographs taken looking up and from far down the street (about 0.15 m either way); the 1890s view does not show whether the bow's foot is a terrace with a parapet or the parapet's own wall, and a terrace is built. The terrace stops past the bow's crown, 1.5 m from the front's south corner, where the 1890s ledge runs on to the bow's south end: K07 lays a terrace's strips with its deepest last, and the stretch beyond the crown is left to the bow's own rusticated base. The basement door under the landing in the c. 1980s picture is not carried to 1904. The stack's stone is the gable slab's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a square-on photograph of the loggia replaces the kit's capitals; a view of the landing from the side settles its depth; later work solves the pictures' cameras and records what is left in their match records."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2110 rees (§)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-22 (T-3715)."
+        }
+      ],
+      "work_refs": [
+        "T-1923",
+        "T-3003",
+        "T-3715",
+        "T-3716",
+        "T-1837"
+      ]
+    },
+    {
       "id": "L-1871-streetscape",
       "title": "The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand",
       "section": "per_subject",
