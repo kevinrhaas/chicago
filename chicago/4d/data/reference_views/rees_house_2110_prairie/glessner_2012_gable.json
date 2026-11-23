@@ -1,0 +1,41 @@
+{
+ "structure_id": "rees_house_2110_prairie",
+ "source_id": "glessner_blog_rees_2110_gable_2012",
+ "library_image": "a20-glessner-rees-exterior-2012",
+ "photo": "../../sources/assets/rees_2110_photos_t3716/glessner_rees_2110_gable_2012.jpg",
+ "image_px": [
+  563,
+  750
+ ],
+ "principal_px": [
+  281.5,
+  375.0
+ ],
+ "focal_px": 1349.1,
+ "eye": [
+  22.0,
+  0.46,
+  1.6
+ ],
+ "yaw_deg": -74.31,
+ "basis_right_up_forward": [
+  [
+   0.1193,
+   0.9756,
+   -0.18429
+  ],
+  [
+   0.65228,
+   0.06293,
+   0.75537
+  ],
+  [
+   -0.74853,
+   0.21033,
+   0.62886
+  ]
+ ],
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "Fitted for T-3716 to the Glessner House blog's January 2012 detail (the image store's 563 x 750 px copy, colour), in the same frame as aic_c1980s_front.json. The picture looks steeply up at the gable and loggia from below and south of the bow, and is rolled: its horizontals climb to the right. The points the fit can use lie nearly in one plane (the front), so its depth is not determined by them: a free fit runs away to an orthographic camera hundreds of metres off. So the eye is held 1.6 m up and 22 m east of the house's rear, on the roadway's near edge where the c. 1980s camera stands, and the rest solved by least squares on 14 points: the loggia's six colonnettes at foot and springing (x 100-478 px, y 453-494 and 359-425; at T-3716's spacing, read off the c. 1980s camera), the light over the door's upper south corner (466, 616) and the bow's centre upper light's head (284, 578). Result: v 0.47, yaw -74.31, pitch about 39 degrees up, roll -13.7, focal 1349 px, RMS 17 px (worst 51 px, at the bow's light, which stands 1.5 m nearer the camera than the front). Holding the eye at 18-45 m moves the RMS between 16 and 24 px and the readings with it, so this camera is a cross-check on proportions in the gable, not a measure: read through it the light stands from about 13.3 to 14.2 m and the carved field's base at about 15.0 m, as the c. 1980s camera reads them. Daylight is diffuse, no cast shadows: overcast."
+}

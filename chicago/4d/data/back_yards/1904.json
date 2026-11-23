@@ -54,7 +54,7 @@
  },
  "summary": {
   "lots": 133,
-  "surfaces": 278,
+  "surfaces": 281,
   "doors": 125,
   "posts": 110,
   "gardens": 28,
@@ -62,8 +62,8 @@
    "alley_walk": 22,
    "coach_walk": 28,
    "drying_yard": 55,
-   "front_walk": 8,
-   "gangway": 30,
+   "front_walk": 10,
+   "gangway": 31,
    "garden_bed": 28,
    "rear_terrace": 107
   }
@@ -16353,7 +16353,92 @@
    "grade": "reconstructed",
    "sources": [],
    "note": "",
-   "surfaces": [],
+   "surfaces": [
+    {
+     "id": "prairie_2123:gangway:0",
+     "kind": "gangway",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1454.37,
+       -3679.97
+      ],
+      [
+       1454.41,
+       -3685.17
+      ],
+      [
+       1455.61,
+       -3685.16
+      ],
+      [
+       1455.57,
+       -3679.96
+      ]
+     ],
+     "along_deg": 179.54,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The gangway down the side passage, in Portland cement walk: the way tradesmen and the household came round from the street to the back (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2123:front_walk:1",
+     "kind": "front_walk",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1417.4,
+       -3684.27
+      ],
+      [
+       1417.41,
+       -3685.47
+      ],
+      [
+       1455.61,
+       -3685.16
+      ],
+      [
+       1455.6,
+       -3683.96
+      ]
+     ],
+     "along_deg": 179.54,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk round to the front steps, in Portland cement walk: the way tradesmen and the household came round from the street to the back (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2123:front_walk:2",
+     "kind": "front_walk",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1417.39,
+       -3683.52
+      ],
+      [
+       1417.41,
+       -3685.47
+      ],
+      [
+       1418.61,
+       -3685.46
+      ],
+      [
+       1418.59,
+       -3683.51
+      ]
+     ],
+     "along_deg": 179.54,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk round to the front steps, in Portland cement walk: the way tradesmen and the household came round from the street to the back (L-prairie-back-yards-3488)."
+    }
+   ],
    "doors": [
     {
      "id": "prairie_2123:back_door",
