@@ -1,0 +1,28 @@
+{
+ "id": "glessner_blog_2015_08_2140_photo",
+ "type": "photograph",
+ "citation": "[2140 S. Prairie Ave.] Photograph from the south-east, on Prairie Avenue near 22nd Street, looking west at the Tucker/Smith house with the Murdoch house at 2130 at right; unknown photographer, undated (after 1890). Illustration in Glessner House Museum, 'John M. Van Osdel, Chicago's First Architect', The Story of a House (blog), 31 August 2015.",
+ "author": "unknown photographer",
+ "date": "undated (after 1890: the 1890 Murdoch house at 2130 stands at right)",
+ "describes_date": "1890s-1900s",
+ "repository": "Glessner House Museum blog (secondary reproduction; the original holder is not credited). Prairie library image a20-glessner-vanosdel-2140-photo (stream-2000-2100.json).",
+ "url": "https://glessnerhouse.blogspot.com/2015/08/john-m-van-osdel-chicagos-first.html",
+ "locator": "The photograph of 2140 S. Prairie Avenue in the post; 2130's round tower and street gable at its right-hand edge (x 545-650 px of 675).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original holder and rights are not stated (the Prairie library's ruling: 'unknown - link only'). Only what stands in the street and its forms are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-23 (T-3729) from the image store's reference copy (kevinrhaas/chicago-images, prairie-1904/files/a20-glessner-vanosdel-2140-photo.jpg, 675 x 526 px, sha256 5e814cbc...).",
+ "note": "A small print, taken nearer the front of 2130 than the Chicagology photograph: it shows the tower's three stages, its steep slated cone and finial, and the street gable's south rake over the columned porch.",
+ "what_it_supplies": [
+  "2130's round tower: three stages of lights, the steep cone and its finial",
+  "2130's street gable and the columned porch south of the tower",
+  "the front's pale rock-faced stone"
+ ],
+ "what_it_does_not_supply": [
+  "a date: undated, after 1890",
+  "2130's south flank, rear or roof behind the gable",
+  "dimensions: no scale stands in the frame"
+ ]
+}
