@@ -196,31 +196,41 @@ OUT_M = (0.8, 1.2, 1.6, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0)   # how far out from 
 SIDE_M = tuple(x / 2 for x in range(-6, 7))                    # and along the frontage
 WALK_M = (3.0, 2.0)                                             # the length of a frontage walk
 CORE_M = 0.15        # where no walk keeps a skirt's width (a narrow front gate), the body itself still clears
+# T-3553 (owner, 2026-11-23, 1729 Prairie: Emma Scott stood inside the coachman at the stoop foot):
+# each person stands and walks to a place of their own, APART_M from every place already given
+# (at their door or a neighbour's), so two never share one spot (the crowd's distant bodies are not
+# spaced at run time, and a whole household is out together for the evening talk).
+APART_M = 0.8
+APART_SIDE_M = tuple(x / 2 for x in range(-12, 13))
 
 
-def outdoor_points(pid, door, rings):
+def outdoor_points(pid, door, rings, taken=()):
     """Where `pid`'s outdoor spans stand and walk to: (at, end) in local E/N, the seeded
     first choice (0.8 m out, up to 1.5 m along, a 3 m walk along the frontage) where it is clear,
     else the nearest clear one; where no way out from the door keeps a skirt's width (a narrow
     gate in a front railing), the nearest whose way out keeps the body itself clear (CORE_M);
-    None when the frontage has none."""
+    None when the frontage has none. `taken`: places already given others; one
+    APART_M from all of them is chosen where any is, else one as above."""
     angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
     base = (door['step']['local_e'], door['step']['local_n'])
     side = (draw(pid, 'side') - .5) * 3
     pt = lambda o, s: (round(base[0] + o * de + s * dn, 2), round(base[1] + o * dn - s * de, 2))
-    sides = sorted({round(side, 6), *SIDE_M}, key=lambda s: (abs(s - side), s))
-    for r in (None, CORE_M):
-        leg = (lambda a, b: rings.clear_leg(a, b)) if r is None else (lambda a, b: rings.clear_leg(a, b, r))
-        for o in OUT_M:
-            for s in sides:
-                at = pt(o, s)
-                if not rings.clear_point(at, STAND_M) or not leg(base, at):
-                    continue
-                for length in WALK_M:
-                    for sign in (1, -1):
-                        end = (round(at[0] + sign * length * dn, 2), round(at[1] - sign * length * de, 2))
-                        if rings.clear_point(end, STAND_M) and rings.clear_leg(at, end):
-                            return at, end
+    own = lambda q: all(math.hypot(q[0] - t[0], q[1] - t[1]) >= APART_M for t in taken)
+    for apart in ((True, False) if taken else (False,)):
+        # a place apart may be further along the frontage (a big household at a short stoop)
+        sides = sorted({round(side, 6), *(APART_SIDE_M if apart else SIDE_M)}, key=lambda s: (abs(s - side), s))
+        for r in (None, CORE_M):
+            leg = (lambda a, b: rings.clear_leg(a, b)) if r is None else (lambda a, b: rings.clear_leg(a, b, r))
+            for o in OUT_M:
+                for s in sides:
+                    at = pt(o, s)
+                    if (apart and not own(at)) or not rings.clear_point(at, STAND_M) or not leg(base, at):
+                        continue
+                    for length in WALK_M:
+                        for sign in (1, -1):
+                            end = (round(at[0] + sign * length * dn, 2), round(at[1] - sign * length * de, 2))
+                            if rings.clear_point(end, STAND_M) and rings.clear_leg(at, end):
+                                return at, end
     return None
 
 
@@ -242,9 +252,10 @@ def scene_rings(door_data):
     return pb.Rings(rings)
 
 
-def routine(pid, home, door, role, age=None, rings=None):
-    # All outdoor points are beyond the answering place, along its frontage, clear of what is built there.
-    got = outdoor_points(pid, door, rings) if rings is not None else None
+def routine(pid, home, door, role, age=None, rings=None, taken=None):
+    # All outdoor points are beyond the answering place, along its frontage, clear of what is built
+    # there, and (T-3553) apart from those already given (`taken`).
+    got = outdoor_points(pid, door, rings, taken if taken is not None else ()) if rings is not None else None
     if got is None and rings is not None:
         raise ValueError(f'{pid}: no clear outdoor place before {door["id"]}')
     if got is None:
@@ -252,6 +263,8 @@ def routine(pid, home, door, role, age=None, rings=None):
         base = door['step']; side = (draw(pid, 'side') - .5) * 3
         got = ((round(base['local_e'] + .8 * de + side * dn, 2), round(base['local_n'] + .8 * dn - side * de, 2)), None)
         got = (got[0], (round(got[0][0] + 3 * dn, 2), round(got[0][1] - 3 * de, 2)))
+    if taken is not None:
+        taken.append(got[0])
     at = {'local_e': got[0][0], 'local_n': got[0][1], 'heading_deg': door['outward_deg']}
     end = {'local_e': got[1][0], 'local_n': got[1][1]}
     if role in CHILD_HEIGHT:
@@ -375,6 +388,7 @@ def generate():
     byhome = {x['structure']: x['doors'] for x in door_data['structures']}
     rings = scene_rings(door_data)
     roles = {x['person']: x.get('role') for x in catalog}
+    taken = []
     for entry in inside + care:
         ds = byhome[entry['home']]
         door = next((d for d in ds if d['id'] == entry['door']), ds[0])
@@ -382,7 +396,8 @@ def generate():
         if entry.get('care_only'):
             entry['day'] = [{'spans': [{'from': a, 'to': b, 'indoors': True, 'where': entry['home'], 'doing': doing} for a, b, doing in [(0, 7, 'sleeping in household care'), (7, 10, 'being fed and cared for'), (10, 12, 'playing quietly in household care'), (12, 15, 'being fed or taking a nap'), (15, 18, 'awake with a household caregiver'), (18, 24, 'receiving evening care or sleeping')]]}]
         else:
-            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'), rings)
+            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'), rings,
+                                   taken)
         entry.setdefault('routine_liberty', LIBERTY)
     # Keep the door compiler's canonical byte representation as well as its values.
     outputs['data/humans/doors_1904.json'] = json.dumps(door_data, indent=1) + '\n'
