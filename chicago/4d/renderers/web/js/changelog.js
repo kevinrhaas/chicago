@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3213, ts: '2026-11-23T05:34:54.422Z', date: 'Nov 22, 2026, 11:34 PM CT', title: '1936 Prairie built as its 1869 newspaper description reads', kind: 'improvement',
+    items: [
+      'The Thompson/Allerton house\'s walls are smooth pressed red brick all round, the tower included, as the 1869 Tribune describes them.',
+      'Every window, hood, crest, balustrade, the entrance porch, its steps and the reception room\'s bay are now Portland brownstone, not pale stone.',
+      'The six-foot brownstone basement shows its rustic joints, a moulded base and a water-table along the sides.',
+      'The low roof reads dark, for the Tribune\'s slate, instead of red.',
+    ] },
   { v: 3212, ts: '2026-11-23T05:26:19.813Z', date: 'Nov 22, 2026, 11:26 PM CT', title: '1904 no longer freezes for seconds on modest computers', kind: 'fix',
     items: [
       'The grass between the lakefront railway\'s tracks is placed by a much faster lookup, so 1904\'s longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC. Every tuft stands where it stood before.',
