@@ -4837,9 +4837,16 @@ async function boot() {
   // their name is, clicking on the card brings up their detail" — in every year, for the town's
   // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
   // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
+  // T-3731: the canvas's CSS height, read when it changes. Read every frame, `clientHeight`
+  // forced a synchronous layout whenever the HUD had written to the page that frame:
+  // about 2 ms a frame on the owner's weak test PC class, walking 1904. The same number.
+  let canvasCssHeight = null;
+  try {
+    new ResizeObserver(() => { canvasCssHeight = renderer.domElement.clientHeight; }).observe(renderer.domElement);
+  } catch { /* no ResizeObserver: read it each time, as before */ }
   api.nameCards = createNameCards({
     THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false, grades: nameCardGrades(hud.settings),
-    viewHeight: () => renderer.domElement.clientHeight,
+    viewHeight: () => canvasCssHeight ?? renderer.domElement.clientHeight,
     // The card's edge and light: the person's grade in the Confidence view's colour for it.
     gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
     theme: () => {
