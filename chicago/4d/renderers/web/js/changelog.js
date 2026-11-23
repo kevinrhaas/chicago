@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3223, ts: '2026-11-23T16:17:45.220Z', date: 'Nov 23, 2026, 10:17 AM CT', title: 'Low-powered computers: fewer pauses and a faster town', kind: 'improvement',
+    items: [
+      'On a computer with built-in graphics, 1904 loads without its long pauses, and the first moments in town no longer stop while the sun\'s shadows get ready.',
+      'Starting a jaunt is quicker: the season and the route ahead are made ready without holding the view still.',
+      'These computers now draw the town a little faster, standing, walking and on the closing view over the town.',
+      'Everybody in town is still there, and photos you take are still made at full sharpness.',
+    ] },
+  { v: 3222, ts: '2026-11-23T15:18:07.953Z', date: 'Nov 23, 2026, 9:18 AM CT', title: 'Jaunt flights go over the houses and chimneys in their way', kind: 'fix',
+    items: [
+      'Flying to a jaunt\'s first stop, flying between stops and the last look over the town no longer pass through buildings, chimneys or towers, in every year.',
+      'The flight climbs before it reaches a roof and comes down onto the stand instead of through the house in front of it.',
+    ] },
   { v: 3221, ts: '2026-11-23T14:58:03.783Z', date: 'Nov 23, 2026, 8:58 AM CT', title: 'Jaunts speak only in the voice recorded for your reading age', kind: 'fix',
     items: [
       'A jaunt reads aloud only when the telling you are on was recorded for its own ages. A telling for another age that has no recording of its own now plays no narration at all, rather than another age\'s voice where the words happen to match. Its text and music run as before.',

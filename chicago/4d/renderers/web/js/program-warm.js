@@ -61,6 +61,7 @@ export function warmBeforeDraw(renderer, { scene, camera: worldCamera = null, en
 
   function flush() {
     flushing = false;
+    if (shadowQueue.length) flushShadows();
     const list = [...queued];
     queued.clear();
     if (!list.length || !camera) return;
@@ -87,7 +88,88 @@ export function warmBeforeDraw(renderer, { scene, camera: worldCamera = null, en
     job.then(() => done(true), () => done(false));
   }
 
+  /*
+   * T-3728, second pass (Bill's PC, 2026-11-23): the sun's shadow. Its depth pass draws with
+   * three's own depth materials (scene null), which the boot's `compileAsync` never builds, so
+   * the first shadow frame linked a dozen depth programs inside it: the 1.4-2.3 s pause after
+   * boot. A caster whose depth program is not ready is left out of that shadow refresh and its
+   * program built off the frame, as for the world's own draws: a copy of the depth material in
+   * the state three set for this caster, on the caster itself (Object.create), compiled against
+   * the shadow map's own target and in no scene, which is what decides the program's key (no
+   * tone mapping, the working colour space, no fog). One check per kind of caster and depth
+   * state, not per caster.
+   */
+  const shadowChecks = new Map();   // signature -> { clone, program, since, ready, queued }
+  const shadowSeen = new WeakMap(); // caster -> { material, side, map, alphaTest, check }
+  const shadowQueue = [];
+  let shadowTarget = null;
+  const lights = [];
+  const lightsOnly = { traverseVisible(cb) { for (const l of lights) cb(l); } };
+  const builtIn = (m) => m.onBeforeCompile === Object.getPrototypeOf(m).onBeforeCompile
+    && !Object.prototype.hasOwnProperty.call(m, 'customProgramCacheKey');
+  const shadowSignature = (o, m) => [m.type, builtIn(m) ? '' : m.uuid, m.side, m.map ? m.map.channel : -1,
+    m.alphaTest > 0 ? 1 : 0, m.alphaMap ? m.alphaMap.channel : -1, m.displacementMap ? 1 : 0,
+    m.clipShadows ? m.clippingPlanes?.length ?? 0 : 0, m.depthPacking ?? -1, m.wireframe ? 1 : 0,
+    o.isBatchedMesh ? (o._colorsTexture ? 2 : 1) : 0,
+    o.isInstancedMesh ? (o.instanceColor ? 2 : 1) + (o.morphTexture ? 4 : 0) : 0, o.isSkinnedMesh ? 1 : 0,
+    o.geometry?.morphAttributes?.position?.length ?? 0, o.geometry?.morphAttributes?.normal?.length ?? 0,
+    o.geometry?.morphAttributes?.color?.length ?? 0].join('|');
+  function shadowCheckFor(o, m) {
+    const seen = shadowSeen.get(o);
+    if (seen && seen.material === m && seen.side === m.side && seen.map === m.map && seen.alphaTest === m.alphaTest) return seen.check;
+    const sig = shadowSignature(o, m);
+    let check = shadowChecks.get(sig);
+    if (!check) {
+      let clone = null;
+      try {
+        clone = m.clone();
+        clone.onBeforeCompile = m.onBeforeCompile;
+        if (Object.prototype.hasOwnProperty.call(m, 'customProgramCacheKey')) clone.customProgramCacheKey = m.customProgramCacheKey;
+      } catch { clone = null; }
+      check = { clone, program: null, since: performance.now(), ready: !clone, stand: null };
+      if (clone) { check.stand = Object.create(o, { material: { value: clone, writable: true } }); shadowQueue.push(check); }
+      shadowChecks.set(sig, check);
+    }
+    shadowSeen.set(o, { material: m, side: m.side, map: m.map, alphaTest: m.alphaTest, check });
+    return check;
+  }
+  function flushShadows() {
+    const list = shadowQueue.splice(0);
+    if (!list.length || !camera || !shadowTarget) { for (const c of list) c.ready = true; return; }
+    counters.shadowBatches = (counters.shadowBatches ?? 0) + 1;
+    const before = renderer.getRenderTarget(), face = renderer.getActiveCubeFace(), mip = renderer.getActiveMipmapLevel();
+    try {
+      renderer.setRenderTarget(shadowTarget);
+      const root = { traverse(cb) { for (const c of list) cb(c.stand); }, traverseVisible(cb) { for (const c of list) cb(c.stand); } };
+      // The depth pass draws in no scene (three's empty one: no fog, which keys a program even
+      // where the material draws none) under the world's lights: the same lights, on their own.
+      lights.length = 0;
+      scene.traverseVisible((o) => { if (o.isLight) lights.push(o); });
+      renderer.compile(root, camera, lightsOnly);
+      for (const c of list) { c.program = properties.get(c.clone).currentProgram ?? null; c.since = performance.now(); if (!c.program) c.ready = true; }
+    } catch { for (const c of list) c.ready = true; }
+    finally { renderer.setRenderTarget(before, face, mip); }
+  }
+  function holdShadow(material, object) {
+    const check = shadowCheckFor(object, material);
+    if (check.ready) return false;
+    if (check.program) {
+      if (check.program.isReady() || performance.now() - check.since > GIVE_UP_MS) {
+        check.ready = true;
+        counters.shadowWarmed = (counters.shadowWarmed ?? 0) + 1;
+        return false;
+      }
+    } else {
+      shadowTarget = renderer.getRenderTarget();
+      if (!flushing) { flushing = true; queueMicrotask(flush); }
+    }
+    counters.shadowHeld = (counters.shadowHeld ?? 0) + 1;
+    return true;
+  }
+
   renderer.renderBufferDirect = function warmedDraw(cam, drawScene, geometry, material, object, group) {
+    if (drawScene === null && object && material && (material.isMeshDepthMaterial || material.isMeshDistanceMaterial)
+      && holdShadow(material, object)) return undefined;
     if (drawScene === scene && object && material && !drawAnyway.has(material) && owns(object, material)
       && !ready(material)) {
       const now = performance.now();
