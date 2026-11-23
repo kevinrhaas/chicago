@@ -46031,6 +46031,56 @@ the side settles its depth; T-3716 solves the pictures' cameras and records what
 **Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
 **Recorded:** 2026-11-21 (T-3686).
 
+### L-k01-robbins-2126-3721 — 2126 Prairie, the Robbins house completed, a structure version on K01 beside the July 1904 works shell: the front off the May 1905 plate, the plan off the 1911 sheet
+
+**Decision:** the default record `robbins_house_2126_prairie` stays the July 1904 building site the T-1842 census ruling
+r35-robbins-2126 declares (the district draft's works shell, `L-draft-prairie-20-22-west-2351`): on the scene's date the
+house was still being built. The finished house is added BESIDE it as a structure version,
+`data/structures/versions/robbins_house_2126_prairie/completed.json`, a `k01_frontage` record built by the new
+`generators/k01_versions_emit.py` (T-3721, piece 2 of T-1926, the S15 package of the T-1837 programme), opened with
+`?structure=robbins_house_2126_prairie&version=completed`. Its phase is put on the 1904 scene's date only so the two can be
+compared from the same spot; its `documented_range` is graded reconstructed and says so. The May 1905 plate dates the
+finished house and is never read as July 1904 evidence.
+
+**What is read, not invented.** From the May 1905 Inland Architect plate (`inland_architect_1905_05_robbins_plate`; the
+Prairie library's two images are scans of one photograph), square-on and scaled from the front's width on the 1911 sheet:
+three storeys over a pale basement with barred lights; five bays with the door in the middle; the bays' axes, the sash
+sizes, the principal floor (about 1.26 m), the storey heights, the entablature over the chamber storey (7.87-8.95 m), the
+attic's sill course, the attic's short lights, the moulded top cornice on blocks and a flat roof behind it; the two end
+chimneys; a round-headed doorway with a fanlight and a pale panelled door on a stone stoop; an iron railing on a pale
+curb and a two-leaf gate between ball-topped piers. From sheet 35 of the 1911 Sanborn at full size (0.1858 m a pixel):
+the main body 12.26 by 12.19 m (the draft's fit drew 11.25 by 9.5 m, inside the flanks' bays), the three-storey wing
+behind it 12.0 by 7.6 m, the house's corner 1.47 m south of the draft's, and the lot lines.
+
+**What is invented.** The flanks' and rear's lights and the wing's, which no picture shows; the wall thicknesses;
+the colours (the print is monochrome: red brick and white marble are the register's reading, the door's pale paint
+is chosen); how far back the chimneys stand (built 1.3 m behind the front and 1.7 m over the roof, which shows them
+about as far over the cornice as the plate does) and the roof's covering; the yard's condition.
+
+**What is built otherwise than the evidence, and why.** The kit has no marble: the basement face, lintels, entablature
+and sill course are K02's palest coursed ashlar (Bedford limestone), and the basement is laid in two shallow-channelled
+courses because a plain plinth cannot take barred lights. The entablature is three plain stone courses: its veined
+frieze, its dentils' teeth and the four Ionic pilaster heads under its architrave are not built, nor the marble panels
+between the storeys and the carved panel over the door (K01 lays a course, not its ornament, and a K01 generator change
+would restale every K01 house). The principal lintels' keystones and the attic lights' eared dressings are not built
+(K01 keys heads only on an all-brick front, and this one has a stone basement). The sash are two over two where the plate
+shows six over six (K06's working sash). The doorway's side lights and its cornice under the fanlight are not built; the
+door is K07's pair of leaves in the round head. The gate piers are K11's stone piers with urns, where the plate's are
+brick with balls; the side passage is shut by K11's side gate, where the plate shows a brick wall and ball-topped pier
+returned north; the scrolled stop at the south corner is not built. The principal floor is built 1.28 m, not 1.26, so
+K07's stoop and K01's stair agree on seven risers; the railing stands 0.3 m inside the walk, as K11 sets the block's
+other fronts. The sheet's two small iron-clad canted bays on the flanks near the rear, the wing's canted corner and the
+narrow grey edge along the front are not built.
+
+**How to resolve:** T-3722 solves the plate's camera into `data/reference_views/robbins_house_2126_prairie/` and works
+the side-by-side down (the pilaster heads, keystones and panels are the differences over the bar it inherits); a 1904
+building permit or a dated progress photograph decides which state stands in the town on 1 July 1904 (then
+`node tools/promote_version.mjs` makes the version the default, or the version stays a comparison).
+**Covers:** `robbins_house_2126_prairie.completed.form.wall_thickness_front_m`, `robbins_house_2126_prairie.completed.form.wall_thickness_side_m`, `robbins_house_2126_prairie.completed.form.service_wall_brick`, `robbins_house_2126_prairie.completed.form.roof_pitch_deg`, `robbins_house_2126_prairie.completed.form.eave_overhang_m`, `robbins_house_2126_prairie.completed.form.roof_covering`, `robbins_house_2126_prairie.completed.form.stair_tread_m`, `robbins_house_2126_prairie.completed.form.stair_landing_depth_m`, `robbins_house_2126_prairie.completed.form.side_bays`, `robbins_house_2126_prairie.completed.form.north_bays`, `robbins_house_2126_prairie.completed.form.rear_bays`, `robbins_house_2126_prairie.completed.form.yard`, `robbins_house_2126_prairie.completed.documented_range`.
+**Ticket:** T-3721 (piece 2 of T-1926, S15).
+**Review:** `docs/RESEARCH/k01-robbins-2126-3721/README.md`.
+**Recorded:** 2026-11-22 (T-3721).
+
 ### L-k16-2125-frame-3723 — 2125 Prairie, the frame dwelling, refined from the district draft to a whole K16 clapboard frame house on the outline the 1911 sheet draws, everything above the plan the kit's
 
 **Decision:** the frame dwelling at 2125 Prairie Avenue (T-3723, piece 1 of T-1930, the S18 package of the
