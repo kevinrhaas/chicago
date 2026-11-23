@@ -91,7 +91,7 @@ import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
 import { createResidentWalk } from './resident-estimate.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
-  closeUploadedImages } from './upload-release.js';
+  closeUploadedImages, RELEASE_KEEP } from './upload-release.js';
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceTextures } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
@@ -149,6 +149,7 @@ import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
 import { createRouter, WINDOW_CELLS } from './route.js';
 import { createTravel, PACES } from './travel.js';
+import { createSkyline } from './flight-clearance.js'; // T-3734
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
@@ -2175,9 +2176,18 @@ async function boot() {
    * Settings drops the pixel ratio to 1, which cuts the multisampled pixel count
    * by 56 % — measured at 4 stations rather than asserted, see STATUS.md.
    */
+  /*
+   * T-3728 (Bill's PC, 2026-11-23): a WEAK computer (the integrated-graphics class, Bill's
+   * i5-10400 / UHD 630) draws without multisampling. Measured on that PC, 1904 Balanced:
+   * standing 16.6 -> 20.2 fps, at jaunt stops 15.2-17.3 -> 17.2-18.4, over the closing
+   * overlook 12.1-12.5 -> 13.2-14.6. Every other device keeps it, as T-0157 above set it.
+   * `?msaa=1` keeps it on a weak computer too, for comparison.
+   */
+  const weakDesktop = device.cls === 'weak' && !coarse && !headset;
+  const multisample = !weakDesktop || params.get('msaa') === '1';
   const renderer = new THREE.WebGLRenderer({
     canvas,
-    antialias: true,
+    antialias: multisample,
     powerPreference: 'high-performance',
     stencil: false,
   });
@@ -2188,6 +2198,11 @@ async function boot() {
    * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
    */
   const placementRender = renderer.render.bind(renderer);
+  // T-3728 (Bill's PC, 2026-11-23): three reads every new program's three info logs back from
+  // the driver to look for errors (`checkShaderErrors`), which ANGLE on D3D11 answers slowly.
+  // A weak computer skips the reading; the shaders are the same ones every other device and the
+  // gate check, so an error would show there. `?shadercheck=1` reads them there too.
+  if (weakDesktop && params.get('shadercheck') !== '1') renderer.debug.checkShaderErrors = false;
   /**
    * T-2970. What the GL driver receives, which is what every draw budget is held
    * to: `renderer.info.render.calls` counts a BatchedMesh's multi-draw as one call
@@ -2222,7 +2237,7 @@ async function boot() {
   // frame at a lower resolution and the sun's shadow every second moving frame,
   // and its still frames a little softer too (captures and photos stay full),
   // rather than losing anything; a phone or headset keeps the governor as it was.
-  const governor = createFrameGovernor({ tier: detailLevel, weak: device.cls === 'weak' && !coarse && !headset,
+  const governor = createFrameGovernor({ tier: detailLevel, weak: weakDesktop,
     onChange: (state) => {
       if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
     } });
@@ -2448,7 +2463,7 @@ async function boot() {
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
    *  tier never shows. */
-  const settleOnGpu = (layer) => {
+  const settleNow = (layer) => {
     if (!lowMem) return;
     const want = DETAIL[detailLevel] ?? DETAIL.full;
     // What the reach will hold back from where the visitor stands is left for
@@ -2468,6 +2483,23 @@ async function boot() {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
         || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
     });
+  };
+  /**
+   * T-3728 (Bill's PC, 2026-11-23): the upload above is a real draw, so every program the
+   * layer needs was linked inside it, and the boot stood still while each linked: 7.1, 2.8,
+   * 2.3 and 1.6 s on the UHD 630. The layer's programs are built first with `compileAsync`,
+   * whose links run on the driver's own threads where it can (KHR_parallel_shader_compile) and
+   * are polled, never waited on; the draw then finds them built. The same programs, so the
+   * same frames; without the extension a link is waited on either way, as before.
+   * `?settlecompile=0` uploads as before, for comparison.
+   */
+  const settleCompiles = params.get('settlecompile') !== '0';
+  const settleOnGpu = async (layer) => {
+    if (!lowMem) return;
+    if (settleCompiles && RELEASE_KEEP[layer?.name] && layer.visible) {
+      try { await renderer.compileAsync(layer, camera, scene3d); } catch { /* the upload links what is missing */ }
+    }
+    settleNow(layer);
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
@@ -2536,7 +2568,7 @@ async function boot() {
     const at = anchorFor(loaded.scene, params.get('anchor')) ?? loaded.scene.spawn ?? {};
     attachResidency(buildings.group, enuToWorld(at.local_e ?? 0, at.local_n ?? 0), { flat: true });
   }
-  settleOnGpu(buildings.group);
+  await settleOnGpu(buildings.group);
   // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
   // of the source geometry and the decoded images (upload-release.js).
   if (lowMem) {
@@ -2609,7 +2641,7 @@ async function boot() {
   const interactions = createInteractions();
   api.interactions = interactions;
   // From where the visitor will stand, so the ground's reach can be read.
-  settleOnGpu(terrain.group);
+  await settleOnGpu(terrain.group);
 
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
@@ -2629,7 +2661,7 @@ async function boot() {
   /** T-2710: whether the streets came prebuilt, and if not, why not. */
   api.streetsPrebuilt = streets.prebuilt;
   scene3d.add(streets.group);
-  settleOnGpu(streets.group);
+  await settleOnGpu(streets.group);
   if (groundProof) {
     api.groundStrip = await groundProof.createGroundStrip({
       terrain, assetBase: bases.assetBase, problems,
@@ -2762,7 +2794,7 @@ async function boot() {
   // T-2775: on a phone the yard goes to the GPU now and lets go of its page arrays,
   // with the zones near the spawn already deciding which rails they draw.
   railway.update(camera);
-  settleOnGpu(railway.group);
+  await settleOnGpu(railway.group);
 
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
@@ -3095,7 +3127,7 @@ async function boot() {
     dir: loaded.scene.enclosures_dir ?? 'enclosures/',
   });
   scene3d.add(enclosures.group);
-  settleOnGpu(enclosures.group);
+  await settleOnGpu(enclosures.group);
   api.enclosures = enclosures;
 
   /**
@@ -3122,7 +3154,7 @@ async function boot() {
   performance.measure('yards', 'yards:start');
   if (seasonState.season !== 'summer') seasonYardGround(yards.group);
   scene3d.add(yards.group);
-  settleOnGpu(yards.group);
+  await settleOnGpu(yards.group);
   api.yards = yards;
 
   // The boards the businesses hung out over the footway. Like a fence, a
@@ -3167,7 +3199,7 @@ async function boot() {
     problems: layerProblems('standing_horses'), hostMissing,
     groundHeight: (e, n, recordId, regionId) => yards.drawnBaseHeightAt(e, n, recordId, regionId),
   });
-  scene3d.add(standingHorses.group); settleOnGpu(standingHorses.group);
+  scene3d.add(standingHorses.group); await settleOnGpu(standingHorses.group);
   api.standingHorses = standingHorses;
   standingHorses.update(camera);
   const yard = await createYardGoods({
@@ -3179,7 +3211,7 @@ async function boot() {
     dir: loaded.scene.yard_dir ?? 'yard/',
   });
   scene3d.add(yard.group);
-  settleOnGpu(yard.group);
+  await settleOnGpu(yard.group);
   api.yard = yard;
   parkedTransport.setFallback((id, visible) => yard.setReplacementVisible(id, visible));
   parkedTransport.update(camera);
@@ -3200,7 +3232,7 @@ async function boot() {
   // Read by tools/measure_boot_phases.mjs: the layer has no boot phase of its own.
   performance.measure('frontage', 'frontage:start');
   scene3d.add(frontage.group);
-  settleOnGpu(frontage.group);
+  await settleOnGpu(frontage.group);
   api.frontage = frontage;
   // T-2600: the distant base's cells are cut on the job pool. T-2709: unless it
   // came prebuilt, when it is already the batch and this resolves false at once.
@@ -3773,7 +3805,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(trees.group);
-  settleOnGpu(trees.group);
+  await settleOnGpu(trees.group);
   /**
    * T-2864 — the Season on the plants: the sward and its forbs (flora.js, one
    * Lambert family) and the woods (trees.js setSeason: the grown trees re-grown
@@ -3928,7 +3960,7 @@ async function boot() {
         attachResidency(buildings.group, camera.position);
         for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
         if (lowMem) {
-          settleOnGpu(buildings.group);
+          settleNow(buildings.group);
           releaseSources(loaded.registry);
           closeUploadedImages(buildings.group, renderer);
         }
@@ -5283,9 +5315,39 @@ async function boot() {
       },
     };
   }
+  // T-3734 (the owner, 2026-11-23: "when you fly ... you will often clip fly though a building
+  // or chimney ... you should fly over or around"): what a flight must clear. Every drawn
+  // structure's whole box (chimneys, towers, cresting) over its footprint, and the context
+  // city's stand-ins, indexed once and again only when the drawn set changes.
+  const skyline = createSkyline({
+    ground: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    stamp: () => `${Object.keys(buildings.instanceBounds()).length}|${contextCity?.census?.buildings ?? 0}|${contextCity?.group?.uuid ?? ''}`,
+    sources: () => {
+      const outlines = new Map();
+      for (const f of footprints) { if (!outlines.has(f.id)) outlines.set(f.id, []); outlines.get(f.id).push(f.pts); }
+      const corner = new THREE.Vector3(), list = [];
+      for (const [id, box] of Object.entries(buildings.instanceBounds())) {
+        const matrix = buildings.matrixOf(id);
+        if (!matrix) continue;
+        let top = -Infinity, bottom = Infinity;
+        const rect = [];
+        for (const [x, z] of [[box.min[0], box.min[2]], [box.max[0], box.min[2]], [box.max[0], box.max[2]], [box.min[0], box.max[2]]]) {
+          corner.set(x, box.max[1], z).applyMatrix4(matrix); top = Math.max(top, corner.y); rect.push([corner.x, -corner.z]);
+          corner.set(x, box.min[1], z).applyMatrix4(matrix); bottom = Math.min(bottom, corner.y);
+        }
+        const own = outlines.get(id);
+        // A structure with no walls of its own (a bridge, a pen) counts only where it stands tall.
+        if (own) for (const pts of own) list.push({ pts, top });
+        else if (top - bottom > 4) list.push({ pts: rect, top });
+      }
+      for (const o of contextCity?.skyline?.() ?? []) list.push(o);
+      return list;
+    },
+  });
+  api.skyline = skyline;
   travel = createTravel({
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
-    focusPoint, structurePosition,
+    focusPoint, structurePosition, clearance: skyline,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
     // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
     // (A ride says `card: false` when it opens nothing; any other ride opens the building.)
@@ -6340,9 +6402,35 @@ async function boot() {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
       };
-      const estimateOptions = mode => ({ resolve: target => {
-        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
-      }, settings: hud.settings, router: travel.router });
+      // T-3728 (Bill's PC, 2026-11-23): the outing's time remaining is priced on the stand and
+      // the route of the stop it is at or going to, and building to building past that, as the
+      // Jaunts list times its cards (T-3694). Every stop's stand worked out at once (each a
+      // stand-off search with its sight-line tests, and a route planned for every leg) was
+      // about 2.8 s of the jaunt start on the UHD 630, and came back at every leg. A stand is
+      // worked out once a visit; the stop being walked to has its own anyway.
+      const jauntStands = new Map();
+      const realStand = (target, mode) => {
+        const key = `${target?.kind}:${target?.id}:${mode}`;
+        if (!jauntStands.has(key)) {
+          const resolved = resolveJaunt(target);
+          jauntStands.set(key, (resolved && travel.destinationOf(resolved, { mode, card: false })) ?? null);
+        }
+        return jauntStands.get(key);
+      };
+      const sameStop = (a, b) => !!a && !!b && (a === b || (a.kind === b.kind && a.id === b.id));
+      const estimateOptions = (mode, near = null) => ({ resolve: target => {
+        if (!near || sameStop(target, near)) return realStand(target, mode);
+        const place = jauntPlace(target);
+        return place && { e: place.e, n: place.n, building: true };
+      }, settings: hud.settings, router: { plan(from, to, options) {
+        // Building to building is this estimate's way of timing a later leg, not a route that
+        // failed to plan: the list's own figure (a third again on the straight line).
+        if (from?.building || to?.building) {
+          const length_m = Math.hypot(to.e - from.e, to.n - from.n) * 1.3;
+          return { points: [[from.e, from.n], [to.e, to.n]], length_m };
+        }
+        return travel.router?.plan?.(from, to, options) ?? null;
+      } } });
       // T-3694 (the owner, 2026-11-19: "i dont want to blow everyones memory up again"): the
       // Jaunts list times its cards from the stops' own places, building to building, and never
       // plans a route. Planning one built the whole town's route grid (11.9 million cells, about
@@ -6491,7 +6579,7 @@ async function boot() {
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
-        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode, state.jaunt?.stops?.[state.stopIndex]?.destination ?? null),
           startIndex: state.stopIndex, includeOpening: state.stopIndex === 0, chosen: state.modeChosen,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
@@ -8066,6 +8154,14 @@ async function boot() {
     lastPose.seen = true;
     return moved;
   }
+  /**
+   * T-3728 (Bill's PC, 2026-11-23): a jaunt's closing view hovers over the town, the whole of
+   * it in sight (12-15 fps on the UHD 630), and a hover is a camera that does not move, so it
+   * was drawn as a still frame. On a weak computer it is drawn as the flight up to it is, at
+   * the moving sharpness, until the visitor comes down. A capture or a photo still rests.
+   */
+  const weakOverlook = () => weakDesktop && !!walker.state.flying
+    && ['closing', 'outcome'].includes(api.jaunts?.state?.phase);
   /** The governor's decision for the frame about to be drawn, put in force. */
   function applyGovernor() {
     applySharpness();
@@ -8096,7 +8192,7 @@ async function boot() {
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();
-      governor.frameDrawn(t, cameraMoved());
+      governor.frameDrawn(t, cameraMoved() || weakOverlook());
     } catch (err) {
       renderer.setAnimationLoop(null);
       if (bootController.readyAt === null) rejectFirstFrame(err);

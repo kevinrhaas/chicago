@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 3225, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2123 Prairie stands as tall as its photograph', kind: 'improvement',
+    items: [
+      'The brownstone at 2123 Prairie is now measured against the winter photograph of its neighbour, from that picture\'s own camera.',
+      'Its storeys, cornice and slate roof rise about two metres higher, as the photograph draws them.',
+      'Its basement windows are taller, as the photograph draws them.',
+      'The roof\'s dormers and its tall chimney now stand where the photograph puts them.',
+    ] },
+  { v: 3224, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2110 Prairie against its photographs: broader bow windows, truer loggia', kind: 'feature',
+    items: [
+      '2110 Prairie\'s bow now has the broad windows its photographs show, three a storey on narrow stone piers, each parlour window with a transom light; its five-arched loggia is narrowed to the photographs\' width, the gable\'s slit window and carved panel sit lower as both photographs place them, carved corbels stand under the gable\'s corners, and the south chimney rises higher.',
+    ] },
+  { v: 3223, ts: '2026-11-23T16:17:45.220Z', date: 'Nov 23, 2026, 10:17 AM CT', title: 'Low-powered computers: fewer pauses and a faster town', kind: 'improvement',
+    items: [
+      'On a computer with built-in graphics, 1904 loads without its long pauses, and the first moments in town no longer stop while the sun\'s shadows get ready.',
+      'Starting a jaunt is quicker: the season and the route ahead are made ready without holding the view still.',
+      'These computers now draw the town a little faster, standing, walking and on the closing view over the town.',
+      'Everybody in town is still there, and photos you take are still made at full sharpness.',
+    ] },
+  { v: 3222, ts: '2026-11-23T15:18:07.953Z', date: 'Nov 23, 2026, 9:18 AM CT', title: 'Jaunt flights go over the houses and chimneys in their way', kind: 'fix',
+    items: [
+      'Flying to a jaunt\'s first stop, flying between stops and the last look over the town no longer pass through buildings, chimneys or towers, in every year.',
+      'The flight climbs before it reaches a roof and comes down onto the stand instead of through the house in front of it.',
+    ] },
+  { v: 3221, ts: '2026-11-23T14:58:03.783Z', date: 'Nov 23, 2026, 8:58 AM CT', title: 'Jaunts speak only in the voice recorded for your reading age', kind: 'fix',
+    items: [
+      'A jaunt reads aloud only when the telling you are on was recorded for its own ages. A telling for another age that has no recording of its own now plays no narration at all, rather than another age\'s voice where the words happen to match. Its text and music run as before.',
+      'This stops the 18+ tellings of the battle, the Lalime killing and the famous-names walk borrowing the student tellings\' voices.',
+      'Picking another age\'s tab on a stop or the opening switches the voice to that age\'s own recording straight away. If that age has no recording, the voice stops and Listen goes until you pick an age that has one.',
+      'The Narrated filter in Jaunts now lists a jaunt only when the telling for your reading age is narrated, instead of showing another age\'s narrated telling in its place.',
+    ] },
   { v: 3220, ts: '2026-11-23T14:49:13.511Z', date: 'Nov 23, 2026, 8:49 AM CT', title: '2110 Prairie\'s loggia on colonnettes, its landing parapet and its stone stack', kind: 'feature',
     items: [
       '2110 Prairie\'s five-arched loggia now stands on six round colonnettes with leafed capitals, the arches springing from them as both photographs of the house show; its slates run on to the gable instead of hipping short of it, the south chimney is laid in the front\'s pale stone, and the landing carries on across the foot of the bow behind a solid stone parapet level with the parlour windows\' sills.',

@@ -1,0 +1,24 @@
+{
+  "structure_id": "house_2123_prairie",
+  "source_id": "chicagology_2115_armour_photo",
+  "library_image": "a20-chicagology-2115-armour-photo",
+  "photo": "../../sources/assets/roloson_2109_photo_t3666/chicagology_2115_armour.jpg",
+  "image_px": [
+    2000,
+    1525
+  ],
+  "principal_px": [
+    1000.0,
+    1090.0
+  ],
+  "focal_px": 2105.0,
+  "eye": [
+    49.93,
+    -24.93,
+    1.6
+  ],
+  "yaw_deg": -66.69,
+  "sky": "overcast",
+  "scene": "1904",
+  "solve": "Fitted for T-3725 on 2123 itself, in its K01 record's frame (u from the main body's rear toward the street, v from the north wall southward: the house is turned 180 degrees, as 2115's is, so the frame's 'north' is the real south). This is the print 2109's and 2115's cameras were fitted on, and 2123 stands at its right edge, about 36 m off. A level camera, its principal point (1000, 1090) px and its focal length (2105 px) held at the fits on the same print, the eye 1.6 m over grade. The yaw is 2115's own fit's, -66.69 degrees, unchanged: the two records stand on one bearing (179.318 degrees), so one camera has one heading in both frames. Carried through the two houses' scene placements, 2115's eye lands at u 48.95, v -26.72 in this frame, and through it 2123's front draws 100-130 px south of the print's (the north corner at x 1803 against 1700, the bow's lights at 1919 and 2000 against 1789 and 1866): 2115's fit holds its distance only through its held focal length (its solve: 1800-2500 px move the eye 4-5 m along the line of sight), and a joint fit of both houses' front points leaves 13-40 px residuals at every focal length from 1600 to 3400 px, so the two records' relative placement and that camera do not agree to better than about 2 m here. So this camera is fitted on 2123 alone. On the front's three readable points alone (the north corner at x 1700, and the bow's two principal lights at x 1789 and 1866, at +/-22 degrees on the sheet's 3.9 m chord) the distance runs to 43.5 m and is weakly held: it would make the principal storey 5.4 m and the wall head 12.9 m, far past the row's. Two readings agree on about 36 m instead: 2115's carried camera (35.8 m to this corner) and the principal storey's sill-to-sill 263 px drawn at 2115's own 4.5 m storey. So the eye is held 36.0 m from the north corner along the line of sight, and only its lateral place fitted: eye u 49.93, v -24.93 (2.0 m from 2115's carried eye), residuals -20, +7 and +13 px (under 0.35 m). Through it the light beside the bow (x 1932 px) reads 5.79 m along the front, the record's 5.75 m from the sheet, a check it was not fitted on. 2115 is not drawn beside it (no also_render): through this camera 2115 stands about 2 m out of its place in the print, and would hide or bare the wrong stretch of 2123's north flank. No shadow falls in the print (a winter sky, snow on the lawns), so the render is overcast."
+}

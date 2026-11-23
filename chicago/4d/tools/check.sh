@@ -489,6 +489,8 @@ step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
 step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
   node tools/test_jaunt_start_finish.mjs
+step "Jaunt flights and Fly rides rise over the buildings and chimneys in their way (T-3734)" \
+  node tools/test_flight_clearance.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \

@@ -2933,9 +2933,9 @@
     "house_2123_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8675768,
+      "bytes": 8555240,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1b01cea9a5ec175c475283c61a27008ffe26bb3a339ebf5400999fbd4cb0f6de",
+      "inputs_sha256": "7f2c17f53568056ff495cd8c23db88a6dfb0f5dee69a2a8180594b857a8f6473",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2123_prairie"
@@ -9988,9 +9988,9 @@
     "rees_house_2110_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5637820,
+      "bytes": 5804824,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "bb96ebf3e72ed750d98415dd7e330637aebd110d147084e6482d9767099829ea",
+      "inputs_sha256": "12c3af9205114136037cbeb410a9d32a5735f96db340c56f2f7abe72fc9141d8",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "rees_house_2110_prairie"
