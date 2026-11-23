@@ -273,7 +273,10 @@ def main() -> int:
     import k01_emit
     pictured = {"kimball_house_1801_prairie": {"r3", "r3b", "r2"},
                 "marshall_field_jr_house_1919_prairie": {"middle_range", "rear_range", "garage"},
-                "high_house_2021_prairie": {"south_wing", "main_rear"}}
+                "high_house_2021_prairie": {"south_wing", "main_rear"},
+                # T-3713: 2115's rear range under the house's own mansard, the Armour
+                # photograph's north flank running on behind the main body with two dormers
+                "armour_house_2115_prairie": {"rear_range"}}
     n = 0
     for st, phase, _ in k01_emit.records():
         for w in (phase["form"].get("rear_wings") or {}).get("value", ()):
