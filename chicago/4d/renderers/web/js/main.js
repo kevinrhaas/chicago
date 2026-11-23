@@ -100,7 +100,6 @@ import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxR
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
-import { createCrossings } from './crossings.js';
 import { createVessels } from './vessels.js';
 import { insideDeck } from './deck-surface.js';
 import { mountHumans, useFightMotions } from './humans.js';
@@ -131,19 +130,13 @@ import { floorDecks, stairSurface } from './house-floors.js';
 import { createHouseErrands } from './house-errands.js';
 import { blockLoop, footprintCentre, walkDoing, BLOCK_WAYS } from './block-walk.js';
 import { createNightLights } from './night-lights.js';
-import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
-import { createStreetTrees } from './street-trees.js';
-import { createStreetFurniture } from './street-furniture.js';
-import { createFrontYards } from './front-yards.js';
-import { createBackYards } from './back-yards.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
-import { createContext } from './context.js';
-import { createRailway } from './railway.js';
+import { inertStreetGrid, inertStreetTrees, inertStreetFurniture, inertBackYards, inertFrontYards, inertRailway, inertContext, inertCrossings } from './inert-layers.js';
 import { createViewOcclusion } from './view-occlusion.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
@@ -192,6 +185,34 @@ import { announce } from './a11y-announce.js'; // T-3671: the screen reader's st
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
 import { warmBeforeDraw } from './program-warm.js'; // T-3728: nothing drawn before its program is built
+// T-3732 (docs/SITE-BUDGET.md § 4s): a layer the scene does not list is never downloaded. Each
+// of these factories, handed no data base, returns its empty layer and nothing else, so until
+// T-3732 the 1835 first visit fetched 0.16 MB of 1904 code (the street grid, parkway elms, gas
+// lamps, yards, railway and context city) and the crossings to be told "nothing here". Each name
+// below is the factory itself where the layer is drawn, imported then, and the same empty layer
+// (inert-layers.js, which the factory also builds from) where it is not. The test is the
+// factory's own first one; tools/test_inert_layers.mjs holds the two forms equal.
+const LAYER_MODULES = Object.freeze({
+  street_grid: () => import('./street-grid.js'),
+  street_trees: () => import('./street-trees.js'),
+  street_furniture: () => import('./street-furniture.js'),
+  back_yards: () => import('./back-yards.js'),
+  front_yards: () => import('./front-yards.js'),
+  railway: () => import('./railway.js'),
+  context: () => import('./context.js'),
+  crossings: () => import('./crossings.js'),
+});
+const lazyLayer = (layer, name, given, empty) => (opts = {}) => (given(opts)
+  ? LAYER_MODULES[layer]().then((m) => m[name](opts)) : Promise.resolve(empty(opts)));
+const hasBase = (o) => !!o.dataBase;
+const createStreetGrid = lazyLayer('street_grid', 'createStreetGrid', hasBase, inertStreetGrid);
+const createStreetTrees = lazyLayer('street_trees', 'createStreetTrees', hasBase, inertStreetTrees);
+const createStreetFurniture = lazyLayer('street_furniture', 'createStreetFurniture', hasBase, inertStreetFurniture);
+const createBackYards = lazyLayer('back_yards', 'createBackYards', (o) => !!(o.dataBase || o.doc), inertBackYards);
+const createFrontYards = lazyLayer('front_yards', 'createFrontYards', (o) => !!(o.dataBase || o.back?.lots?.length), inertFrontYards);
+const createRailway = lazyLayer('railway', 'createRailway', hasBase, inertRailway);
+const createContext = lazyLayer('context', 'createContext', hasBase, inertContext);
+const createCrossings = lazyLayer('crossings', 'createCrossings', hasBase, inertCrossings);
 
 const VERSION = '0.1.0';
 
@@ -2335,6 +2356,10 @@ async function boot() {
   const draws = (layer) => sceneLayers.has(layer);
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
+  // T-3732: a listed layer's module starts downloading now, beside the boot's other fetches, so
+  // importing it on demand costs the year that draws it no round trip at its turn (an import of
+  // the same module is fetched once); the year that does not list it never asks for it.
+  for (const [layer, load] of Object.entries(LAYER_MODULES)) if (draws(layer)) void load().catch(() => {});
   api.sceneLayers = [...sceneLayers];
   // T-2677: the frontage's timber, prebuilt at publish, starts downloading now so
   // it arrives under the phases ahead of the layer instead of after them. It
@@ -3403,7 +3428,9 @@ async function boot() {
   // door opens for people, a dark room behind; api.coachHouse.drivePath()/clearFor() for the ride.
   // Swung, rebound and freed with the house doors (houseDoors.attach). Null where no coach house.
   api.coachHouse = null;
-  try {
+  // T-3732: imported only where Glessner's record stands, which is createCoachHouse's own first
+  // test (it returns null without it), so a year with no Glessner house never downloads it.
+  if (loaded.registry?.get?.('glessner_house')?.sidecar) try {
     const { createCoachHouse } = await import('./coach-house.js');
     api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
       visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
