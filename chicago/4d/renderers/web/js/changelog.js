@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3222, ts: '2026-11-23T15:18:07.953Z', date: 'Nov 23, 2026, 9:18 AM CT', title: 'Jaunt flights go over the houses and chimneys in their way', kind: 'fix',
+    items: [
+      'Flying to a jaunt\'s first stop, flying between stops and the last look over the town no longer pass through buildings, chimneys or towers, in every year.',
+      'The flight climbs before it reaches a roof and comes down onto the stand instead of through the house in front of it.',
+    ] },
   { v: 3221, ts: '2026-11-23T14:58:03.783Z', date: 'Nov 23, 2026, 8:58 AM CT', title: 'Jaunts speak only in the voice recorded for your reading age', kind: 'fix',
     items: [
       'A jaunt reads aloud only when the telling you are on was recorded for its own ages. A telling for another age that has no recording of its own now plays no narration at all, rather than another age\'s voice where the words happen to match. Its text and music run as before.',
