@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3231, ts: '2026-11-23T20:06:48.574Z', date: 'Nov 23, 2026, 2:06 PM CT', title: '2126 Prairie\'s finished front gains its pilasters, panels and gate piers', kind: 'improvement',
+    items: [
+      'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now carries what its May 1905 photograph shows: four Ionic pilaster heads under the entablature, marble panels between the storeys with a carved one over the door, keyed lintels, scrolled stone stops at both corners, and brick gate piers topped with balls.',
+      'Its photograph is matched from a solved camera; the roofline, the door\'s side lights and the small-paned sash still differ and are listed on its record.',
+    ] },
   { v: 3230, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Prairie Avenue\'s houses show their street numbers', kind: 'add',
     items: [
       'In 1904, 124 houses on Prairie, Indiana and Calumet avenues show their numbers in gilt figures over the front door, as they were then.',
