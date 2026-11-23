@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3237, ts: '2026-11-23T23:48:16.733Z', date: 'Nov 23, 2026, 5:48 PM CT', title: '2017 Prairie\'s low iron railing now matches its photograph', kind: 'improvement',
+    items: [
+      'The William Armour house at 2017 Prairie now has the low iron railing its photograph shows, on a stone curb close before the barred basement windows on either side of the stoop.',
+      'The tall spear fence and gates that stood on the street line, which no picture shows, are gone, so the walk comes straight up to the stoop.',
+      'With that, every part of the house\'s front now matches its photograph.',
+    ] },
   { v: 3236, ts: '2026-11-23T23:29:08.328Z', date: 'Nov 23, 2026, 5:29 PM CT', title: 'The first-time tour catches up: stories, questions and mysteries', kind: 'feature',
     items: [
       'The tour\'s Interact step says what to do with someone: greet them, hear a story, or ask a question.',
