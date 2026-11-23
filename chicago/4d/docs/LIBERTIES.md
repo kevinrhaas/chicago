@@ -25612,9 +25612,14 @@ cameras. **Read:** every place and height above, through the cameras (residuals 
 the console blocks' spacing and section and the cresting's pattern (the kit's); the flank light's head, 0.5 m
 under the print's to clear the frieze; the north side's hidden rear 2 m, laid with no light. **Left open** (the
 match records): the mansard and its dormers carried back over the rear range, which K01's rear wing cannot
-roof; the iron cresting and carved top on the pavilion's crown, which a K01 mansard crown does not take; and the
-front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B' piece), built
-under the main mansard.
+roof; and the front's south end beyond the pavilion, lower and railed in both pictures (likely the sheet's '2B'
+piece), built under the main mansard. **T-3713 (crown pass):** the pavilion's crown now carries the K10 kit's
+iron cresting round its own deck (`mansard.crown.cresting`, k01_mansard_deck.crown_dress), 0.6 m as the main
+deck's, its pattern the kit's, not the print's (invented). The 'carved top' the first pass read at the crown's
+north corner is the south stack seen past the crown (the Armour camera reaches that stretch only from the stack
+the Tribune camera triangulated); the stack now stands 18.35 m, between the two pictures' readings (about 0.3 m
+over the photograph's top, about 0.3 m under the halftone's), and its ornamented head is the kit's plain cap
+(invented).
 
 ### L-k01-2123-prairie-3724 — 2123 Prairie, the stone-front masonry house, refined from the district draft onto K01: its plan off the 1911 sheet, the north half of its front, its roof and north stack off the Armour photograph, the rest the kits'
 
@@ -46106,6 +46111,46 @@ the two pictures' cameras and records what is left in their match records.
 **Ticket:** T-3714 (piece 1 of T-1923, the S12B package of T-1837).
 **Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3714).
 **Recorded:** 2026-11-21 (T-3714).
+
+### L-k01-2110-rees-3715 — 2110 Prairie's loggia colonnettes, its landing's parapet across the bow's foot, its stone stack and its roof run on to the gable: the kits' forms where the stone's own is not read
+
+**Decision:** T-3715 (piece 2 of T-1923, the S12B package) builds four things `L-k01-2110-rees-1922` left as K01's
+defaults. The loggia's piers carry six engaged colonnettes, one beside each outer arch and one on each pier
+between, from the lights' sill (10.3 m over grade) to their springing (11.65 m): K09's foliate colonnette
+(`street_front_trim.loggia`, a new K09 placement in `generators/archetypes/k09_frontage.py`), its plinth,
+attic base, shaft and eight-leaved bell capital under a square abacus. The stoop's landing runs on south across
+the bow's foot as a terrace at the landing's height, faced to grade, 1.95 m out from the flat front (the landing
+deepened from the kit's 1.3 m to the same 1.95 m, the parapet's face in line with its edge), its back
+stepped round the bow's plan 0.12 m clear of its plinth, behind a solid stone parapet 0.5 m high and 0.25 m
+thick (`entrance_kit.terrace` with `parapet.holes` [0, 0], a solid parapet newly allowed in
+`generators/archetypes/k01_frontage_params.py`). The south stack is laid in the front's stone to its cap
+(`fabric: "stone"`, T-3003's). The hip's ridge runs on to the gable's back (`shaped_gable.roof_to_gable`, a new
+K01 element in `generators/archetypes/k01_shaped_gable.py`: the hip's attic carried on from the middle of the
+block into the slab), where it had hipped away a half-width short of it.
+
+**What is read, not invented.** From the c. 1980s photograph (`aic_rees_2110_c1980s_photo`, forms only) and the
+2012 detail (`glessner_blog_rees_2110_gable_2012`, forms only): six round shafts on moulded bases under carved
+capitals from which the five arches spring, the end two beside the outer arches; a pale stone stack on the
+south flank against the gable, capped; slates beside the rake behind each kneeler, which a hip falling away
+from the gable would not show. From the early-1890s street photograph (`glessner_blog_2100_block_looking_nw_1890s`,
+forms only) and the c. 1980s photograph: a level stone ledge at the landing's height under the bow's parlour
+lights from the stoop to the bow's south end, and a solid stone block beside the stoop's south cheek whose top
+stands at those lights' sills.
+
+**What is invented.** The colonnettes' and capitals' design is the kit's newly designed foliate order, not the
+photographs' larger, looser leaves; their shafts are the kit's 0.16 m. The terrace's and the landing's depth before the bow's
+crown, its parapet's height and thickness are read as proportions of photographs taken looking up and from far
+down the street (about 0.15 m either way); the 1890s view does not show whether the bow's foot is a terrace with
+a parapet or the parapet's own wall, and a terrace is built. The terrace stops past the bow's crown, 1.5 m from the
+front's south corner, where the 1890s ledge runs on to the bow's south end: K07 lays a terrace's strips with its
+deepest last, and the stretch beyond the crown is left to the bow's own rusticated base. The basement door under the landing in the c. 1980s
+picture is not carried to 1904. The stack's stone is the gable slab's.
+
+**How to resolve:** a square-on photograph of the loggia replaces the kit's capitals; a view of the landing from
+the side settles its depth; T-3716 solves the pictures' cameras and records what is left in their match records.
+**Ticket:** T-3715 (piece 2 of T-1923, the S12B package of T-1837).
+**Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3715).
+**Recorded:** 2026-11-22 (T-3715).
 
 ### L-1871-streetscape — The 1871 streetscape: fronts on the walk, lamps, telegraph poles, hitching posts, street trees and the Clark Street hack stand
 

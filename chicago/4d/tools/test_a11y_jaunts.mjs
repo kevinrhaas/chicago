@@ -4,7 +4,7 @@
 // jaunt-cards.js, tour-overlay.js), no town: 390x780 phone and 1280x800 desktop.
 //
 //  1.2.1  a voiced opening, stop and ending show the words the voice says, lit while it reads;
-//         where the card shows another telling, a Transcript fold gives the voiced words
+//         an age tab is read in that telling's own recording, or in none (T-3735)
 //  1.4.2  Pause / Resume narration on the controls and on the collapsed bar, while a voice speaks
 //  2.2.1  the closing scene's own clock is held once the visitor touches or keys in the panel
 //  4.1.3  one polite status line says started / arrived / closing / complete, once each
@@ -12,7 +12,7 @@
 //         card, the menu's list, its mode radios on the arrows, and the tour card taking focus,
 //         ending on Esc (not on its Release step) and giving focus back
 //
-// Pictures: C4D_TEST_OUT=<dir> saves jaunts-transcript-<width>-after.png there.
+// Pictures: C4D_TEST_OUT=<dir> saves jaunts-other-age-<width>-after.png there.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import http from 'node:http';
@@ -82,11 +82,19 @@ try {
           { id: 'two', destination: { kind: 'structure', id: 's2' }, since: 'An hour later', text: 'This is the old mail corner by Hogan’s store.', evidence: ['c2'], links: [], next: '$end' },
         ],
         endings: [{ id: 'end', default: true, completion_eligible: true, text: 'You have two corners to start from.' }],
-        evidence: [claim('c1'), claim('c2')], keepsake: { title: 'A note', text: 'Two corners.' } };
+        evidence: [claim('c1'), claim('c2')], keepsake: { title: 'A note', text: 'Two corners.' }, grade_band: '6-8' };
+      // T-3735: its telling for ages 8-10, voiced too (its first stop's words differ).
+      const younger = { ...jaunt, id: 'a11y-walk-grades-3-5', version_of: 'a11y-walk', grade_band: '3-5',
+        stops: [{ ...jaunt.stops[0], text: 'Start at the hotel. It is white with blue shutters.' }, jaunt.stops[1]] };
+      // ... and for ages 14-15, not voiced.
+      const older = { ...jaunt, id: 'a11y-walk-grades-9-10', version_of: 'a11y-walk', grade_band: '9-10',
+        stops: [{ ...jaunt.stops[0], text: 'Begin by the tavern, a white building with blue shutters.' }, jaunt.stops[1]] };
+      const R = await import('/js/reading-level.js');
+      R.addTable(R.tellingTable(jaunt, [younger, older]));
       const clips = {};
-      for (const s of N.narrationScripts(jaunt)) {
+      for (const j of [jaunt, younger, older]) for (const s of N.narrationScripts(j)) {
         const sha = await N.textKey(s.text);
-        clips[N.clipKey(sha, s.speaker)] = { text_sha256: sha, file: `narration/${s.part}-${s.id}.mp3`, bytes: 160000, output_format: 'mp3_44100_64' };
+        clips[N.clipKey(sha, s.speaker)] ??= { text_sha256: sha, file: `narration/${j.id}-${s.part}-${s.id}.mp3`, bytes: 160000, output_format: 'mp3_44100_64' };
       }
       class FakeAudio extends EventTarget {
         constructor() { super(); this.paused = true; this.currentTime = 0; this.duration = 20; this.readyState = 4; this.src = ''; window.__media = this; }
@@ -96,14 +104,14 @@ try {
         load() {}
       }
       const ctx = { createMediaElementSource: () => ({ connect() {}, disconnect() {} }) };
-      const narration = N.createNarration({ media: () => new FakeAudio(), speech: () => ({ ctx, bus: {}, audible: true }),
+      const narration = N.createNarration({ media: () => new FakeAudio(), speech: () => ({ ctx, bus: {}, audible: true }), voiced: (j) => j.id !== older.id,
         fetcher: async (url) => (String(url).endsWith('catalog.json') ? { ok: false } : { ok: true, json: async () => ({ version: 1, clips }) }) });
       const calls = [];
       let state;
       const panelRef = {};
       const act = (name) => (...args) => { calls.push(name); if (name === 'dismissContext') { state = { ...state, contextDismissed: true }; panelRef.panel.render(state); } };
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish', 'closeOverlay'].map(n => [n, act(n)]));
-      const panel = panelRef.panel = createJauntPanel({ destinations: { byId: () => null }, actions, narration });
+      const panel = panelRef.panel = createJauntPanel({ destinations: { byId: () => null }, actions, narration, tellings: () => [younger, older] });
       await narration.prepare(jaunt);
       window.__rig = { panel, narration, reduce, emptyState, jaunt, calls, jauntMeter,
         get state() { return state; }, set state(v) { state = v; panel.render(v); } };
@@ -140,7 +148,7 @@ try {
     assert.deepEqual(await rig(() => ({ paused: window.__rig.narration.paused, media: window.__media.paused })), { paused: false, media: false }, 'and resumes');
     console.log(`PASS ${width} opening: transcript on the card, lit; Pause/Resume by keyboard; started said`);
 
-    // ---- arrival at stop 1: said once; the stop's words are its transcript; another telling shows the fold.
+    // ---- arrival at stop 1: said once; the stop's words are its transcript; another age's words put its voice away.
     await rig(() => { const r = window.__rig; r.narration.stop(); r.state = r.reduce(r.state, { type: 'ARRIVE', session: 1, leg: r.state.leg }); });
     await page.waitForFunction(() => window.__rig.narration.state.playing === 'a11y-walk:stop:one');
     assert.equal(await status(), 'Arrived at The Sauganash. Stop 1 of 2.');
@@ -150,23 +158,25 @@ try {
       return { role: m.getAttribute('role'), text: m.getAttribute('aria-valuetext'), now: m.getAttribute('aria-valuenow') };
     });
     assert.deepEqual(seen, { role: 'progressbar', text: 'Stop 1 of 2, 25 percent of the jaunt', now: '25' });
-    // A reading-age tab swaps the card's words in place (reading-level.js sayAt): the voice still reads the first telling.
-    await rig(() => { const p = document.querySelector('#jaunt-panel [data-voiced="stop"]'); p.firstChild.data = 'Start at the hotel. It is white with blue shutters.'; });
-    await page.waitForFunction(() => !document.querySelector('[data-transcript="stop:one"]')?.hidden);
-    seen = await rig(() => {
-      const fold = document.querySelector('[data-transcript="stop:one"]'), listen = fold.previousElementSibling;
-      return { words: [...fold.querySelectorAll('p:not(.jaunt-transcript-note)')].map(p => p.textContent).join('\n'), skip: fold.hasAttribute('data-reading-skip'),
-        described: document.getElementById(listen.getAttribute('aria-describedby'))?.textContent, summary: fold.querySelector('summary').textContent };
-    });
-    assert.equal(seen.words, 'Begin outside the Sauganash, a white house with blue shutters.', '1.2.1: the transcript is the exact voiced script');
-    assert(seen.skip, 'the age tabs never swap the transcript itself'); assert.equal(seen.summary, 'Transcript');
-    assert.match(seen.described, /Transcript/);
-    await page.locator('[data-transcript="stop:one"] summary').click();
-    await rig(() => document.querySelector('[data-transcript="stop:one"]').scrollIntoView({ block: 'end' }));
-    if (out) await page.screenshot({ path: path.join(out, `jaunts-transcript-${width}-after.png`) });
-    await rig(() => { const p = document.querySelector('#jaunt-panel [data-voiced="stop"]'); p.firstChild.data = 'Begin outside the Sauganash, a white house with blue shutters.'; });
-    await page.waitForFunction(() => document.querySelector('[data-transcript="stop:one"]')?.hidden);
-    console.log(`PASS ${width} stop: arrival said, progressbar named, transcript fold for another telling`);
+    // A reading-age tab swaps the card's words in place (reading-level.js sayAt) and names the age
+    // on the panel's body. T-3735 (the owner, 2026-11-23): the words of a telling with its own
+    // recording are read in that recording, at once; words no voiced telling says have no voice.
+    const tab = (age) => page.locator(`#jaunt-panel .reading-tab[data-reading-age="${age}"]`).click();
+    assert.deepEqual(await rig(() => [...document.querySelectorAll('#jaunt-panel .reading-tab')].map(t => t.dataset.readingAge)), ['8-10', '11-13', '14-15'], 'the stop has a tab for each telling');
+    await tab('8-10');
+    await page.waitForFunction(() => /a11y-walk-grades-3-5-stop-one\.mp3$/.test(window.__media.src) && !window.__media.paused);
+    seen = await rig(() => ({ playing: window.__rig.narration.state.playing, fold: document.querySelector('[data-transcript="stop:one"]')?.hidden,
+      listen: (l => l?.dataset.action === 'listen' && !l.hidden)(document.querySelector('[data-transcript="stop:one"]')?.previousElementSibling), words: document.querySelector('#jaunt-panel [data-voiced="stop"]')?.textContent }));
+    assert.deepEqual(seen, { playing: 'a11y-walk:stop:one', fold: true, listen: true, words: 'Start at the hotel. It is white with blue shutters.' },
+      'an age with its own recording: that recording plays at once, its card its transcript');
+    if (out) await page.screenshot({ path: path.join(out, `jaunts-other-age-${width}-after.png`) });
+    await tab('14-15');
+    await page.waitForFunction(() => window.__rig.narration.state.playing === null && !document.querySelector('[data-transcript="stop:one"]'));
+    assert.equal(await rig(() => document.querySelectorAll('#jaunt-panel [data-action="listen"]').length), 1, 'an age with no recording: no voice, no Listen at the stop (only the opening\'s), no Transcript');
+    await tab('11-13');
+    await page.waitForFunction(() => /a11y-walk-stop-one\.mp3$/.test(window.__media.src) && !window.__media.paused);
+    assert(await rig(() => document.querySelector('[data-transcript="stop:one"]').hidden), 'its own age: its own recording again, the card its transcript');
+    console.log(`PASS ${width} stop: arrival said, progressbar named, an age tab plays that telling's own recording, or none`);
 
     // ---- the way on: road notes close on Esc; arrival moves focus to the stop's heading.
     await rig(() => { const r = window.__rig; r.narration.stop(); let s = r.reduce(r.state, { type: 'NEXT' });

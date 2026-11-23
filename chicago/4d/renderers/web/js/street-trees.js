@@ -32,6 +32,7 @@
  */
 
 import * as THREE from 'three';
+import { inertStreetTrees } from './inert-layers.js';
 import { SPECIES } from './trees.js';
 import { TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials } from './tree-instances.js';
@@ -267,13 +268,9 @@ export async function createStreetTrees({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full',
   lowSpec = false, mode = 'summer', checkpoint = () => null, levelAt = null, contextTrees = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'street-trees';
-  const stats = { trees: 0, young: 0, triangles: 0, drawCalls: 0, mode, detail, crowns: 0, context: 0 };
-  const out = {
-    group, stats, records: [],
-    pickAt: () => null, update() {}, setMode: async () => {}, setDetail: async () => {}, dispose() {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertStreetTrees({ mode, detail });
+  const { group, stats } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {

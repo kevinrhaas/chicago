@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { inertFrontYards } from './inert-layers.js';
 import { TreeInstances, createGrownTreeMaterials } from './tree-instances.js';
 import { TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { resolveBases } from './scene-loader.js';
@@ -367,15 +368,9 @@ export async function createFrontYards({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
   lowSpec = false, mode = 'summer', grownMaterials = null, checkpoint = () => null, back = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'front-yards';
-  const stats = { lots: 0, shrubs: 0, trees: 0, beds: 0, bedPlants: 0, creeper: 0, plants: 0,
-    triangles: 0, drawCalls: 0, detail, mode };
-  const out = {
-    group, stats, records: [],
-    pickAt: () => null, update() {}, setDetail: async () => {}, setSeason: async () => {}, settle() {},
-    cardFor: () => null, dispose() {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertFrontYards({ detail, mode });
+  const { group, stats } = out;
   // T-3488: the back yards' lots, marked, after the front yards' own
   const backLots = (back?.lots ?? []).map((lot) => ({ ...lot, _back: true }));
   if ((!dataBase && !backLots.length) || !terrain) return out;

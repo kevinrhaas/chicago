@@ -533,6 +533,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
   node tools/test_coach_house.mjs
+step "a layer the scene does not list is never downloaded: main.js imports its module on demand and its empty layer is the factory's own (T-3732)" \
+  node tools/test_inert_layers.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
@@ -1679,6 +1681,11 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 # photograph, not the K10 kit's scroll cresting.
 step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
   python3 tools/test_k01_deck_crenellation.py
+
+# T-3713. 2115 Prairie's pavilion crown carries iron cresting round its own deck in the Armour
+# photograph, and K01 dressed the main deck only.
+step "a K01 mansard crown over a pavilion may carry iron cresting round its own deck (T-3713)" \
+  python3 tools/test_k01_crown_cresting.py
 
 # T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
 # and the K08 bay kit cut no light in a gable's face.
