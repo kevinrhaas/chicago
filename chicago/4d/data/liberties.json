@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1226,
+  "count": 1227,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -80833,6 +80833,40 @@
       "work_refs": [
         "T-1923",
         "T-3716",
+        "T-1837"
+      ]
+    },
+    {
+      "id": "L-k01-2110-rees-gable-3716",
+      "title": "2110 Prairie's gable carried flush off the wall, its kneelers set apart, its loggia's arches deepened under a carved band and its carved field filled",
+      "section": "per_subject",
+      "subjects": [
+        "rees_house_2110_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work's sign-off works down the four differences the first pass (`“2110 Prairie re-read through its two photographs' cameras: broader bow lights with transoms, a narrower loggia, a lower gable light and carved field, corbels under the kneelers, a taller south stack”`) left open in both match records. The gable's slab stands flush (shaped gable flush): its face 0.02 m before the wall's own, its base no wider than the front, and the hip's street eave cut off behind it, so the front runs straight up into the gable and the flanks' eaves end at the front's plane. The kneelers are set apart end by end (`kneelers.ends`): no pinnacle over the south corner's corbel, and at the north a plain pier standing 0.1 m before the gable's face from the corbel's cap to a cap at 13.0 m. The loggia's lights stand 0.23 m back in their arches (window kit reveal depth (m)), its colonnettes clear of the wall (street front trim loggia stand (m) 0.11), and a carved band runs its width over the arch heads (street front windows carved bands, a panel from s 1.42 to 6.14 m, 12.02-12.32 m up). The gable's carved field is filled out to its edges with rows of scrolls (tympanum.relief.fill (m) 0.22). **What is read, not invented.** Through the c. 1980s camera (RMS 11 px) and the 2012 detail's (RMS 17 px): the gable's face and the front's are one plane, nothing projecting across the front at the gable's foot; no pinnacle stands over the south corner and a pier capped at about 13 m stands at the north; the loggia's glass stands well back in its arches, its colonnettes stand clear as round shafts, and a carved band runs over its arch heads from capital to capital; the carved field is carved edge to edge. **What is invented.** The pier's depth before the gable's face (0.1 m) and its square section, the kit's shaft, are reconstructed. The lights' depth is K06's deepest reveal, the kit's limit, not measured; the colonnettes' 0.11 m before the wall is chosen so the plinth's back stands on it, and their shafts are the kit's 0.16 m where the photographs' read about 0.1 m thicker. The loggia's band is the kit's interlace on a level panel laid just over the arches' crowns, where the photographs' scrolled foliage stands about 0.2 m lower with the arch heads cut into it. The field's scrolls are the kit's rings in rows, not the photographs' foliage read scroll by scroll. Each of these is marked `within tolerance` in the match records: under a foot, or the carving's pattern where its place, extent and depth are right."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a carving kit read off these two photographs' foliage would replace the interlace and the rings; a band that the arch heads cut into would need the arcade's arches to cut the band."
+        },
+        {
+          "label": "Review",
+          "text": "the rees house 2110 prairie data (both match records, verdict `matches`); the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-23 (T-3716)."
+        }
+      ],
+      "work_refs": [
+        "T-3716",
+        "T-1923",
         "T-1837"
       ]
     },

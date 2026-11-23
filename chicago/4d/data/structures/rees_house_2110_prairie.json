@@ -168,7 +168,8 @@
                 5.93
               ],
               "foot_m": 10.3,
-              "spring_m": 11.65
+              "spring_m": 11.65,
+              "stand_m": 0.11
             }
           },
           "confidence": "inferred",
@@ -176,7 +177,7 @@
             "aic_rees_2110_c1980s_photo",
             "glessner_blog_rees_2110_gable_2012"
           ],
-          "note": "The flat part of the front has one square-headed light in the upper storey, over the door, set plain in the ashlar (the c. 1980s photograph); the loggia's round heads are its own arches. T-3715: the loggia's six colonnettes, one beside each outer arch and one on each pier between, each a round shaft on a moulded base under a carved bell capital from which the arches spring (both later photographs, the 2012 detail close to): from the lights' sill (10.3 m) to their springing (11.65 m), engaged in the piers. The kit's foliate colonnette stands for them: its plinth, base and leafed bell are newly designed, not read stone by stone off the photographs' capitals, whose leaves are larger and looser (L-k01-2110-rees-3715). T-3716: the c. 1980s photograph's own camera (data/reference_views/rees_house_2110_prairie/aic_c1980s_front.json) reads the outer colonnettes at 1.63 and 5.93 m from the south corner, 0.86 m apart, where T-3715 had them at 1.15 and 6.05 (0.98 m): the loggia is 4.3 m across, not 4.9, its south end about 0.5 m further in."
+          "note": "The flat part of the front has one square-headed light in the upper storey, over the door, set plain in the ashlar (the c. 1980s photograph); the loggia's round heads are its own arches. T-3715: the loggia's six colonnettes, one beside each outer arch and one on each pier between, each a round shaft on a moulded base under a carved bell capital from which the arches spring (both later photographs, the 2012 detail close to): from the lights' sill (10.3 m) to their springing (11.65 m), engaged in the piers. The kit's foliate colonnette stands for them: its plinth, base and leafed bell are newly designed, not read stone by stone off the photographs' capitals, whose leaves are larger and looser (L-k01-2110-rees-3715). T-3716: the c. 1980s photograph's own camera (data/reference_views/rees_house_2110_prairie/aic_c1980s_front.json) reads the outer colonnettes at 1.63 and 5.93 m from the south corner, 0.86 m apart, where T-3715 had them at 1.15 and 6.05 (0.98 m): the loggia is 4.3 m across, not 4.9, its south end about 0.5 m further in. T-3716: both photographs show the colonnettes standing clear as round shafts, light between each shaft and the pier behind it, where T-3715 had them engaged with only their capitals showing: each now stands with its axis 0.11 m before the wall, the plinth's back on it (stand_m; the gap is reconstructed, L-k01-2110-rees-gable-3716)."
         },
         "wall_head": {
           "value": {},
@@ -258,6 +259,7 @@
             "foot_m": 12.02,
             "thickness_m": 0.6,
             "proud_m": 0.02,
+            "flush": true,
             "fabric": "front",
             "lights": {
               "variant": "k06.opening.sash_1over1_segmental",
@@ -273,7 +275,7 @@
               "proud_m": 0.05
             },
             "kneelers": {
-              "at_m": 3.86,
+              "at_m": 3.72,
               "shaft_m": 0.34,
               "top_m": 13.5,
               "cap_m": 0.08,
@@ -284,6 +286,16 @@
                 "radius_m": 0.2,
                 "proud_m": 0.25,
                 "rosette": 8
+              },
+              "ends": {
+                "south": {
+                  "pinnacle": false
+                },
+                "north": {
+                  "top_m": 13.0,
+                  "spire_m": 0.0,
+                  "proud_m": 0.1
+                }
               }
             },
             "finial": {
@@ -301,7 +313,8 @@
                 "stem_m": 0.07,
                 "leaf_m": 0.55,
                 "pitch_m": 0.2,
-                "margin_m": 0.05
+                "margin_m": 0.05,
+                "fill_m": 0.22
               },
               "drop": {
                 "length_m": 0.3,
@@ -316,16 +329,19 @@
             "aic_rees_2110_c1980s_photo",
             "glessner_blog_rees_2110_gable_2012"
           ],
-          "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). T-3714: the gable's head carved as both photographs show it, a carved field from a level base a little over the light's head (15.35 m) up into the apex, just inside the coping, and under it a carved drop over the light opening into two curled arms either side of it; the kit's stem, leaves and curls stand for the photographs' scrolled foliage (L-k01-2110-rees-carving-3714). The kneelers' corbels and the finial's leaves are left to T-3716's photo-match; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts. T-3715: the slates run on to the gable's back (roof_to_gable), as both photographs show them beside the rake behind each kneeler, where the hip had fallen away a half-width short of it (L-k01-2110-rees-3715). T-3716: through both photographs' cameras (data/reference_views/rees_house_2110_prairie/) the light stands from about 13.3-13.45 m to 14.25-14.4 m and the carved field's base at about 15.0 m, where T-3714 had them at 14.0-14.95 and 15.35: both are lowered (the light's sill to 13.4 m, the field's base to 15.0 m), so the field is as deep as the photographs' and the light sits as far under it. Under each kneeler, at the front's corner, the c. 1980s photograph shows a carved corbel from about 10.3-10.5 m up to the gable's foot; K01's scroll console stands for it (bed 10.55 m, 0.5 m wide, a carved rosette in its roll), its carving the kit's, not read leaf by leaf (L-k01-2110-rees-3716)."
+          "note": "The tall gable over the whole front, in the front's stone: its coped rakes from a kneeler at each corner to a carved finial at the apex, about 6.4 m over the wall head; one narrow light high in its face under the carved tympanum (both photographs). T-3714: the gable's head carved as both photographs show it, a carved field from a level base a little over the light's head (15.35 m) up into the apex, just inside the coping, and under it a carved drop over the light opening into two curled arms either side of it; the kit's stem, leaves and curls stand for the photographs' scrolled foliage (L-k01-2110-rees-carving-3714). The kneelers' corbels and the finial's leaves are left to T-3716's photo-match; the light is drawn round-headed and stands here segment-headed, the head the slab's kit cuts. T-3715: the slates run on to the gable's back (roof_to_gable), as both photographs show them beside the rake behind each kneeler, where the hip had fallen away a half-width short of it (L-k01-2110-rees-3715). T-3716: through both photographs' cameras (data/reference_views/rees_house_2110_prairie/) the light stands from about 13.3-13.45 m to 14.25-14.4 m and the carved field's base at about 15.0 m, where T-3714 had them at 14.0-14.95 and 15.35: both are lowered (the light's sill to 13.4 m, the field's base to 15.0 m), so the field is as deep as the photographs' and the light sits as far under it. Under each kneeler, at the front's corner, the c. 1980s photograph shows a carved corbel from about 10.3-10.5 m up to the gable's foot; K01's scroll console stands for it (bed 10.55 m, 0.5 m wide, a carved rosette in its roll), its carving the kit's, not read leaf by leaf (L-k01-2110-rees-3716). T-3716 (the gable's foot and kneelers): the c. 1980s photograph's front runs straight up into the gable, its ashlar unbroken over the loggia and nothing projecting across it, where K01's slab stood 0.32 m before the wall over the hip's street eave with a dark soffit under a ledge across the whole front: `flush` stands the slab's face 0.02 m before the wall's own, its base no wider than the front, and stops the hip's eave behind it, so the flanks' eaves end at the front's plane. Over the corners the photograph shows the rakes ending on short level kneeler stones over the carved corbels; at the south corner nothing stands over it, and at the north a plain pier, standing a little before the gable's face, rises from the corbel to a cap about 13 m up: `kneelers.ends` draws no pinnacle south and the north one as that pier (its height read through the photograph's camera, its depth before the face reconstructed, L-k01-2110-rees-gable-3716). The kneelers stand 3.72 m from the centre, over the corbels at the front's corners. T-3716 (the carved field): both photographs show the field filled edge to edge with scrolled foliage, where T-3714's stem and leaves ran as a narrow strip down its middle: `relief.fill_m` lays rows of the leaves' own scrolls every 0.22 m out to the panel's inner line beyond the leaves' reach, its carving the kit's, not read scroll by scroll (L-k01-2110-rees-gable-3716)."
         },
         "window_kit": {
           "value": {
             "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
             "k01.opening.street_sash": "k06.opening.sash_2over2_flat",
-            "k01.opening.street_arcade": "k06.opening.sash_round_fanlight"
+            "k01.opening.street_arcade": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "reveal_depth_m": 0.23
+            }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in the square-headed lights, round-headed sash under a fanlight in the loggia's arches (L-k01-2110-rees-1922)"
+          "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in the square-headed lights, round-headed sash under a fanlight in the loggia's arches (L-k01-2110-rees-1922) T-3716: the loggia's lights stand at the far end of K06's reveal range (0.23 m back from the face, where the kit's is 0.115), since both later photographs show the glass well back in its arches, each arch a deep shadow round its sash; the depth is the kit's limit, not measured."
         },
         "street_front_windows": {
           "value": {
@@ -379,7 +395,35 @@
                 "height_m": 1.7
               }
             ],
-            "base_top_m": 1.2
+            "base_top_m": 1.2,
+            "belts": [
+              [
+                5.5,
+                5.7
+              ],
+              [
+                9.15,
+                9.3
+              ]
+            ],
+            "carved_bands": [
+              {
+                "bed_m": 12.02,
+                "top_m": 12.32,
+                "s_m": [
+                  1.42,
+                  6.14
+                ],
+                "interlace": {
+                  "strap_m": 0.045,
+                  "proud_m": 0.025,
+                  "margin_m": 0.03,
+                  "wavelength_m": 0.43,
+                  "segments": 12
+                },
+                "panel": true
+              }
+            ]
           },
           "confidence": "inferred",
           "sources": [
@@ -387,7 +431,7 @@
             "glessner_blog_rees_2110_gable_2012",
             "glessner_blog_2100_block_looking_nw_1890s"
           ],
-          "note": "North of the bow, one square-headed light in the upper storey over the door (the c. 1980s photograph; the early-1890s photograph shows the light over the door's arch); in the third storey the loggia's five round-arched lights in a row over the bow's cap, from about a sixth of the front's width in from its south corner to a quarter in from its north (both later photographs), 0.98 m apart. Their colonnettes and carved capitals stand on the piers between the lights and beside the outer two (street_front_trim.loggia, T-3715). T-3716: the loggia's lights re-read through the c. 1980s photograph's camera: 0.86 m apart (centres 2.06 to 5.5 m), each 0.6 m across between colonnettes about 0.26 m thick, where 0.98 m and 0.7 m had made the arcade 0.6 m too wide."
+          "note": "North of the bow, one square-headed light in the upper storey over the door (the c. 1980s photograph; the early-1890s photograph shows the light over the door's arch); in the third storey the loggia's five round-arched lights in a row over the bow's cap, from about a sixth of the front's width in from its south corner to a quarter in from its north (both later photographs), 0.98 m apart. Their colonnettes and carved capitals stand on the piers between the lights and beside the outer two (street_front_trim.loggia, T-3715). T-3716: the loggia's lights re-read through the c. 1980s photograph's camera: 0.86 m apart (centres 2.06 to 5.5 m), each 0.6 m across between colonnettes about 0.26 m thick, where 0.98 m and 0.7 m had made the arcade 0.6 m too wide. T-3716: a carved band runs the loggia's width over its arch heads in both later photographs, scrolled foliage on a level stone from the outer colonnettes' capitals out; the kit's interlace on a dressed panel stands for it (carved_bands, a panel from 12.02 to 12.32 m, from s 1.42 to 6.14 m), its carving not read leaf by leaf and its bed laid just over the arches' crowns where the photographs' band dips between them (L-k01-2110-rees-gable-3716). `belts` names K01's own two string courses, unchanged, since a front with carved bands names them."
         },
         "stair_tread_m": {
           "value": 0.3,
