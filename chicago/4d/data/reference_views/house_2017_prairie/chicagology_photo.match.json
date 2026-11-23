@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0fc166301c7285cc08788003c4ca1fb5ed494d362796f2869f492f4acb0359e5",
+  "glb_sha256": "b41b8816b9366ae14ad0032d9696e6ab1a94522b0a655766df8b1752f7f56e0a",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -65,9 +65,9 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "8d28baecd63ca0ef01889e42d6e9ebe8d465c9af06d73271daf6b877e4f0a7a3",
+  "flora_sha256": "bcac9695e95f98ab6a705748e2e907cceac7e5b0edb186728346258e581bcc01",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's flat-roofed stone-front box is now the photograph's front: the north part under a slated mansard rising from a stone cornice, the south part carried up as a projection under a steep gable, the porch between them; the mansard's curb prints at y 230 px as the photograph's, the gable's apex at y 85 against 70 (0.15 m)",
@@ -130,8 +130,8 @@
       "status": "fixed"
     },
     {
-      "what": "the railing: the photograph shows a low iron railing along the front's foot before the basement; the render's is the parcel's iron spear fence on the street line, which stands taller in the frame",
-      "status": "open"
+      "what": "the railing (T-3634): the photograph's low iron railing along the front's foot before the basement lights is now built as one: the kit's spear run on a stone curb 1.0 m before the front, from the north corner to the stoop's north cheek and from its south cheek to the projection's south corner, its bars crossing the basement grilles at their middle as the photograph's do (the render's top rail at about y 1130 px and its curb at about 1160, against about 1128 and 1165); the spear fence and gates on the parcel's street line, which the photograph does not show, are gone. The posts' acorn finials stand about 0.15 m over the bars where the halftone shows none, and the bars carry the kit's spear heads where it shows a plain top rail; both are under the bar",
+      "status": "fixed"
     },
     {
       "what": "the stone's colour and the windows' paint: the print is monochrome",
