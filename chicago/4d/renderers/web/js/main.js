@@ -90,7 +90,7 @@ import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js'
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
 import { createResidentWalk } from './resident-estimate.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
+import { releaseAfterUpload, uploadLayerNow, uploadLayerSliced, uploadSceneSliced, uploadReleaseState, releaseSources,
   closeUploadedImages, RELEASE_KEEP } from './upload-release.js';
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceTextures } from './texture-residency.js';
@@ -2487,8 +2487,7 @@ async function boot() {
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
    *  tier never shows. */
-  const settleNow = (layer) => {
-    if (!lowMem) return;
+  const settleOptions = (layer) => {
     const want = DETAIL[detailLevel] ?? DETAIL.full;
     // What the reach will hold back from where the visitor stands is left for
     // the walk to upload when it comes near, as it always was.
@@ -2503,10 +2502,14 @@ async function boot() {
       return eye.distanceTo(sphere.center) - sphere.radius > reach;
     };
     layer.updateWorldMatrix(true, true);
-    uploadLayerNow(renderer, scene3d, camera, layer, {
+    return {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
         || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
-    });
+    };
+  };
+  const settleNow = (layer) => {
+    if (!lowMem) return;
+    uploadLayerNow(renderer, scene3d, camera, layer, settleOptions(layer));
   };
   /**
    * T-3728 (Bill's PC, 2026-11-23): the upload above is a real draw, so every program the
@@ -2518,12 +2521,23 @@ async function boot() {
    * `?settlecompile=0` uploads as before, for comparison.
    */
   const settleCompiles = params.get('settlecompile') !== '0';
+  /**
+   * T-3728 (Bill's PC, 2026-11-23, second profile): with the programs built ahead, the
+   * longest boot task left was one layer's upload itself, 2.55 s: its bounds, then every
+   * buffer and texture at once. `uploadLayerSliced` works the bounds out in slices and
+   * hands the layer over a piece at a time, with the page painting in between (40 ms
+   * slices): the same uploads, the same arrays let go. `?settleslice=0` uploads in one
+   * pass, as before, for comparison.
+   */
+  const settleSlices = params.get('settleslice') !== '0';
+  const settlePause = createCheckpoint({ budgetMs: 40 });
   const settleOnGpu = async (layer) => {
     if (!lowMem) return;
     if (settleCompiles && RELEASE_KEEP[layer?.name] && layer.visible) {
       try { await renderer.compileAsync(layer, camera, scene3d); } catch { /* the upload links what is missing */ }
     }
-    settleNow(layer);
+    if (!settleSlices) { settleNow(layer); return; }
+    await uploadLayerSliced(renderer, scene3d, camera, layer, { ...settleOptions(layer), pause: settlePause });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
@@ -8208,6 +8222,15 @@ async function boot() {
     if (layer.isLight) continue; // targetScene already supplies the lights
     await renderer.compileAsync(layer, camera, scene3d);
     const pause = bootCheckpoint(); if (pause) await pause;
+  }
+  // T-3728 (Bill's PC, 2026-11-23): a weak computer's first frame stood for a second
+  // uploading the textures it drew first, and painting the back yards' leaf atlas for the
+  // crops it planted. The yards plant what the first frame would (`settle`), and that
+  // frame's uploads go up a layer at a time while the loader still paints
+  // (upload-release.js uploadSceneSliced). `?firstupload=0` leaves them to the frame.
+  if (weakDesktop && params.get('firstupload') !== '0') {
+    backYards.settle?.(camera);
+    await uploadSceneSliced(renderer, scene3d, camera, { pause: bootCheckpoint });
   }
   await yieldToPaint();
   // T-3728 (Bill's PC, 2026-11-22): from here on, whatever first appears later (a jaunt's stage,

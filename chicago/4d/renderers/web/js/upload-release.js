@@ -173,39 +173,51 @@ function markRailwayStaticMatrices(layer) {
   }
 }
 
+/** A geometry this pass will let go of; the others keep their arrays and are passed over. */
+function releasable(o) {
+  const geo = o.geometry;
+  if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return false;
+  if (geo.userData.rereadBeforeRelease) return false;
+  const pos = geo.attributes.position;
+  return !!pos && pos.usage === THREE.StaticDrawUsage;
+}
+
+/**
+ * T-2646: the Confidence view's ghost pass reads which grades a geometry holds off its
+ * `_confidence` channel; once the channel's page copy is gone, it reads the range kept here.
+ */
+function readConfidenceRange(geo, keep) {
+  const conf = geo.attributes._confidence;
+  if (!conf?.array || conf.itemSize !== 1 || keep.includes('_confidence')) return;
+  let lo = Infinity, hi = -Infinity;
+  for (let i = 0; i < conf.count; i += 1) {
+    const v = conf.getX(i);
+    if (v < lo) lo = v;
+    if (v > hi) hi = v;
+  }
+  if (conf.count && Number.isFinite(lo) && Number.isFinite(hi)) geo.userData.confidenceRange = [lo, hi];
+}
+
+function markObject(o, keep) {
+  if (!releasable(o)) return;
+  const geo = o.geometry;
+  geo.userData.uploadReleased = true;
+  if (!geo.boundingSphere) geo.computeBoundingSphere();
+  if (!geo.boundingBox) geo.computeBoundingBox();
+  if (o.isBatchedMesh) batchBounds(o);
+  census.geometries += 1;
+  if (!geo.userData.confidenceRange) readConfidenceRange(geo, keep);
+  for (const [attrName, attr] of Object.entries(geo.attributes)) {
+    if (!keep.includes(attrName)) release(attr);
+  }
+  if (geo.index && !keep.includes('index')) release(geo.index, o.isBatchedMesh ? emptyArray : dropArray);
+  if (keep.includes('position')) pickWithoutReleased(o);
+}
+
 /** Mark one layer's geometries to let go of their page arrays once uploaded. */
 function markLayer(layer, keep) {
   markRailwayStaticMatrices(layer);
-  layer.traverse((o) => {
-    const geo = o.geometry;
-    if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return;
-    if (geo.userData.rereadBeforeRelease) return;
-    const pos = geo.attributes.position;
-    if (!pos || pos.usage !== THREE.StaticDrawUsage) return;
-    geo.userData.uploadReleased = true;
-    if (!geo.boundingSphere) geo.computeBoundingSphere();
-    if (!geo.boundingBox) geo.computeBoundingBox();
-    if (o.isBatchedMesh) batchBounds(o);
-    census.geometries += 1;
-    // T-2646: the Confidence view's ghost pass reads which grades a geometry
-    // holds off its `_confidence` channel; once the channel's page copy is gone,
-    // it reads the range kept here instead.
-    const conf = geo.attributes._confidence;
-    if (conf?.array && conf.itemSize === 1 && !keep.includes('_confidence')) {
-      let lo = Infinity, hi = -Infinity;
-      for (let i = 0; i < conf.count; i += 1) {
-        const v = conf.getX(i);
-        if (v < lo) lo = v;
-        if (v > hi) hi = v;
-      }
-      if (conf.count && Number.isFinite(lo) && Number.isFinite(hi)) geo.userData.confidenceRange = [lo, hi];
-    }
-    for (const [attrName, attr] of Object.entries(geo.attributes)) {
-      if (!keep.includes(attrName)) release(attr);
-    }
-    if (geo.index && !keep.includes('index')) release(geo.index, o.isBatchedMesh ? emptyArray : dropArray);
-    if (keep.includes('position')) pickWithoutReleased(o);
-  });
+  layer.traverse((o) => markObject(o, keep));
 }
 
 const _box = new THREE.Box3();
@@ -323,11 +335,22 @@ function holdDraws(gl) {
  * town had settled (docs/measurements/t-2824-boot-upload-pass.json). So the draw
  * calls are held for the length of the pass: the same uploads as before, no errors.
  */
-export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => false } = {}) {
+export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => false, only = null, lights = null } = {}) {
   const keep = RELEASE_KEEP[layer?.name];
   if (!keep || !layer.visible) return;
   markLayer(layer, keep);
   const restore = [];
+  // T-3728: a piece of the layer only (`uploadLayerSliced`), picked by a layer bit the
+  // camera alone tests for this pass; the lights take the bit too, so the programs are
+  // still the ones the real frame uses.
+  const tagged = [];
+  const mask = camera.layers.mask;
+  if (only) {
+    for (const o of [...only, ...(lights ?? [])]) {
+      if (!o.layers.isEnabled(PIECE_LAYER)) { o.layers.enable(PIECE_LAYER); tagged.push(o); }
+    }
+    camera.layers.set(PIECE_LAYER);
+  }
   for (const c of scene.children) {
     if (c !== layer && !c.isLight && c.visible) { restore.push([c, 'visible', true]); c.visible = false; }
   }
@@ -357,6 +380,161 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
     shadow.autoUpdate = auto;
     shadow.needsUpdate = needs;
     for (const [o, key, value] of restore) o[key] = value;
+    for (const o of tagged) o.layers.disable(PIECE_LAYER);
+    camera.layers.mask = mask;
+  }
+}
+
+/**
+ * T-3728 (Bill's PC, 2026-11-23). ONE LAYER'S UPLOAD WAS ONE TASK: 2.55 s on the UHD 630,
+ * 1.44 s of it the bounds `markLayer` computes off the positions before they can go, and
+ * 0.97 s the pass above handing every buffer and texture to the driver at once. Nothing
+ * can paint while either runs, so the boot stood still.
+ *
+ * So first the bounds, worked out in slices (`pause()` returns a promise when a yield is
+ * due): the same box and sphere three would compute, figure for figure — a box is the
+ * least and greatest of each axis whatever the order, and the sphere is centred on the box
+ * and reaches the farthest vertex, as `computeBoundingSphere` has it (a geometry with
+ * morph targets is left to three). A batch's geometries are each three's own, a few at a
+ * time. Then the pass above runs once per piece of the layer, a piece being the drawables
+ * whose page arrays come to about `pieceBytes`, re-sized so each takes about `pieceMs`,
+ * with a yield between pieces. The same objects are uploaded, with the same programs, as
+ * in one pass; every piece puts back everything it touched before the yield.
+ */
+export async function uploadLayerSliced(renderer, scene, camera, layer, {
+  hide = () => false, pause = () => null, pieceBytes = 4 << 20, pieceMs = 40,
+} = {}) {
+  const keep = RELEASE_KEEP[layer?.name];
+  if (!keep || !layer.visible) return;
+  const wait = async () => { const p = pause(); if (p) await p; };
+  const objects = [];
+  layer.traverse((o) => { if (releasable(o)) objects.push(o); });
+  for (const o of objects) {
+    if (!releasable(o)) continue;
+    await sliceBounds(o.geometry, wait);
+    if (o.isBatchedMesh) await sliceBatchBounds(o, wait);
+    if (!o.geometry.userData.confidenceRange) readConfidenceRange(o.geometry, keep);
+    await wait();
+  }
+  if (!layer.visible) return;
+  markLayer(layer, keep);
+  // What the pass would draw: shown, not held back by `hide`, and a drawable.
+  const pieces = [];
+  const walk = (o) => {
+    if (!o.visible || (o !== layer && hide(o))) return;
+    if ((o.isMesh || o.isLine || o.isPoints || o.isSprite) && o.geometry && o.layers.test(camera.layers)) pieces.push(o);
+    for (const c of o.children) walk(c);
+  };
+  walk(layer);
+  const lights = [];
+  scene.traverse((o) => { if (o.isLight) lights.push(o); });
+  let budget = pieceBytes;
+  for (let i = 0; i < pieces.length;) {
+    const only = [];
+    let bytes = 0;
+    while (i < pieces.length && (only.length === 0 || bytes < budget)) {
+      bytes += pageBytes(pieces[i].geometry);
+      only.push(pieces[i]);
+      i += 1;
+    }
+    if (!layer.visible) return;
+    const t0 = performance.now();
+    uploadLayerNow(renderer, scene, camera, layer, { hide, only, lights });
+    const ms = performance.now() - t0;
+    if (bytes > 0 && ms > 0) budget = Math.min(64 << 20, Math.max(Math.min(1 << 20, pieceBytes), bytes * pieceMs / ms));
+    if (i < pieces.length) await wait();
+  }
+}
+
+/**
+ * T-3728 (Bill's PC, 2026-11-23, second profile): the town's first frame still stood for
+ * 1.0 s, handing the textures it was the first to draw to the driver (0.53 s of them) in
+ * the frame. This is that frame's upload, made ahead while the loader covers the canvas:
+ * one layer of the scene at a time, as the camera stands, culled as the frame culls it —
+ * so what goes up is what the first frame would have sent, nothing more — drawn into one
+ * held pixel as `uploadLayerNow` draws, with a yield between layers. A layer's programs
+ * must be built already (main.js compiles them just before); nothing is let go here that
+ * the settle passes did not already mark.
+ */
+export async function uploadSceneSliced(renderer, scene, camera, { pause = () => null } = {}) {
+  const gl = renderer.getContext();
+  for (const layer of [...scene.children]) {
+    if (layer.isLight || !layer.visible) continue;
+    const restore = [];
+    for (const c of scene.children) {
+      if (c !== layer && !c.isLight && c.visible) { restore.push(c); c.visible = false; }
+    }
+    const shadow = renderer.shadowMap;
+    const auto = shadow.autoUpdate, needs = shadow.needsUpdate, scissorTest = renderer.getScissorTest();
+    renderer.getScissor(_scissor);
+    shadow.autoUpdate = false; shadow.needsUpdate = false;
+    renderer.setScissorTest(true); renderer.setScissor(0, 0, 1, 1);
+    const lift = holdDraws(gl);
+    try {
+      renderer.render(scene, camera);
+    } finally {
+      lift();
+      renderer.setScissor(_scissor); renderer.setScissorTest(scissorTest);
+      shadow.autoUpdate = auto; shadow.needsUpdate = needs;
+      for (const c of restore) c.visible = true;
+    }
+    const p = pause(); if (p) await p;
+  }
+}
+
+/** A layer bit no other pass sets (the Confidence view's ghosts are on 31). */
+const PIECE_LAYER = 30;
+
+/** What a drawable still holds in the page, priced for a piece; a small floor for each. */
+function pageBytes(geo) {
+  let bytes = 4096;
+  const seen = new Set();
+  for (const attr of [...Object.values(geo.attributes), geo.index]) {
+    const array = attr?.isInterleavedBufferAttribute ? attr.data.array : attr?.array;
+    if (array && !seen.has(array)) { seen.add(array); bytes += array.byteLength; }
+  }
+  return bytes;
+}
+
+const SLICE_VERTICES = 32768;
+const _sv = new THREE.Vector3();
+
+/** `computeBoundingBox` and `computeBoundingSphere`, the same figures, with a yield due now and then. */
+async function sliceBounds(geo, wait) {
+  if (geo.boundingBox && geo.boundingSphere) return;
+  const pos = geo.attributes.position;
+  if (!pos || pos.isGLBufferAttribute || geo.morphAttributes?.position || pos.count < SLICE_VERTICES) {
+    if (!geo.boundingSphere) geo.computeBoundingSphere();
+    if (!geo.boundingBox) geo.computeBoundingBox();
+    return;
+  }
+  const box = new THREE.Box3();
+  for (let i = 0, n = pos.count; i < n; i += 1) {
+    box.expandByPoint(_sv.fromBufferAttribute(pos, i));
+    if (i % SLICE_VERTICES === SLICE_VERTICES - 1) await wait();
+  }
+  if (!geo.boundingSphere) {
+    const center = box.getCenter(new THREE.Vector3());
+    let maxRadiusSq = 0;
+    for (let i = 0, n = pos.count; i < n; i += 1) {
+      maxRadiusSq = Math.max(maxRadiusSq, center.distanceToSquared(_sv.fromBufferAttribute(pos, i)));
+      if (i % SLICE_VERTICES === SLICE_VERTICES - 1) await wait();
+    }
+    // A frame drawn under a yield may have asked three for it meanwhile: the same figures.
+    if (!geo.boundingSphere) geo.boundingSphere = new THREE.Sphere(center, Math.sqrt(maxRadiusSq));
+  }
+  if (!geo.boundingBox) geo.boundingBox = box;
+}
+
+/** Each geometry of a batch has three's own box and sphere cached, a few at a time. */
+async function sliceBatchBounds(batch, wait) {
+  if (batch.userData.compactBounds) return;
+  const n = batch._geometryCount ?? batch._geometryInfo?.length ?? 0;
+  for (let id = 0; id < n; id += 1) {
+    if (batch._geometryInfo?.[id]?.active === false) continue;
+    batch.getBoundingBoxAt(id, _box);
+    batch.getBoundingSphereAt(id, _sphere);
+    if (id % 64 === 63) await wait();
   }
 }
 
