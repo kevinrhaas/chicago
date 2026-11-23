@@ -791,6 +791,37 @@ def proud(o, role, run, y0, y1, out, top=True, bottom=True):
         ledge(o, role, run, y0, 0.0, out, (0.0, -1.0, 0.0))
 
 
+def rustic_courses(h: float, r: dict) -> list:
+    """2026-11-22: a rusticated basement's members from grade to `h`, as (y0, y1, extra
+    proud), bottom to top: the base course (+0.05), each course (0) with the square channel
+    over it (-depth) but the last, and the water-table in two steps (+0.04, +0.075)."""
+    n, ch, dp, wt, bs = r["courses"], r["channel_m"], r["depth_m"], r["water_table_m"], r["base_m"]
+    out = [(0.0, bs, 0.05)]
+    y, c = bs, (h - wt - bs - (n - 1) * ch) / n
+    for k in range(n):
+        out.append((y, y + c, 0.0))
+        if k < n - 1:
+            out.append((y + c, y + c + ch, -dp))
+        y += c + ch
+    out += [(h - wt, h - wt * 0.45, 0.04), (h - wt * 0.45, h, 0.075)]
+    return out
+
+
+def rusticated(o, role, run, h, out, r):
+    """A plinth `h` high laid as rusticated ashlar (rustic_courses) about `out` proud (a run
+    whose plinth is broken by a door or cut by basement lights keeps the plain plinth)."""
+    m = [(y0, y1, max(out + x, 0.005)) for y0, y1, x in rustic_courses(h, r)]
+    for y0, y1, d in m:
+        o.plane(role, K6.box(run.s_start(d), run.s_end(d), y0, y1), -d)
+    # each step between two members is one ledge across the difference, facing the open side
+    for (_, y, d0), (_, _, d1) in zip(m, m[1:]):
+        if d0 > d1:
+            ledge(o, role, run, y, d1, d0, Y)
+        elif d1 > d0:
+            ledge(o, role, run, y, d0, d1, (0.0, -1.0, 0.0))
+    ledge(o, role, run, h, 0.0, m[-1][2], Y)
+
+
 def prism(o, role, poly2, d0, d1):
     """T-2525: a closed bar: the (s, y) polygon `poly2` carried from depth d0 to d1 behind
     the face (d1 > d0), its front, its back and its sides."""
@@ -1841,6 +1872,8 @@ class Bay:
                     for x, hx in ((x0, 1.0), (x1, -1.0)):
                         flat.face("plinth", [flat.P(x, 0.0, -d_), flat.P(x, 0.0, -pp), flat.P(x, ph, -pp),
                                              flat.P(x, ph, -d_)], (hx, 0.0, 0.0))
+            elif grade and plinth.get("rustic"):
+                rusticated(flat, "plinth", run, plinth["height_m"], plinth["proud_m"], plinth["rustic"])
             elif grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             for x0, x1, rise, n, tr in flights:

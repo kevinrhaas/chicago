@@ -191,6 +191,7 @@ import { createRegistration } from './today-register.js';
 import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
+import { warmBeforeDraw } from './program-warm.js'; // T-3728: nothing drawn before its program is built
 
 const VERSION = '0.1.0';
 
@@ -2196,9 +2197,14 @@ async function boot() {
    */
   let sharpnessCap = renderer.getPixelRatio();
   const governorLine = document.getElementById('governor-line');
-  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
-    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
-  } });
+  // T-3728: a weak computer (Bill's integrated-graphics class) draws every moving
+  // frame at a lower resolution and the sun's shadow every second moving frame,
+  // and its still frames a little softer too (captures and photos stay full),
+  // rather than losing anything; a phone or headset keeps the governor as it was.
+  const governor = createFrameGovernor({ tier: detailLevel, weak: device.cls === 'weak' && !coarse && !headset,
+    onChange: (state) => {
+      if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
+    } });
   function applySharpness(value) {
     if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
     const ratio = sharpnessCap * governor.scale;
@@ -2957,24 +2963,44 @@ async function boot() {
     // chosen, so a summer visit compiles nothing for it.
     if (s !== 'summer' && !structuresSeasoned) {
       structuresSeasoned = true;
+      // T-3728: each patch below changes its material's program. Every building, yard, rail and
+      // road material at once was 5 s of links in the frames after a jaunt set its season on a
+      // UHD 630; programWarm.rekey builds the patched programs off the frame first and patches
+      // the materials once they are ready (at once where the GPU cannot link in parallel).
+      const changes = new Map();
+      const change = (o, m, apply) => {
+        let c = changes.get(m);
+        if (!c) changes.set(m, c = { change: apply, objects: [] });
+        c.objects.push(o);
+      };
       scene3d.traverse((o) => {
         if (!o.isMesh) return;
         for (const m of [].concat(o.material)) {
           if (m?.name !== 'merged') continue;
-          if (isWallVine(m)) patchFoliage(m, FOLIAGE.vine);
-          else patchSeason(m);
+          change(o, m, isWallVine(m) ? (x) => patchFoliage(x, FOLIAGE.vine) : (x) => patchSeason(x));
         }
       });
-      seasonYardGround(api.yards?.group);
+      api.yards?.group?.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) {
+          const kind = YARD_SEASON_KIND[/^yard-(.+)$/.exec(m?.name ?? '')?.[1]];
+          if (kind !== undefined) change(o, m, (x) => patchSeason(x, kind));
+        }
+      });
       // The faded city's roofs and streets, and the railway's ballast, the same way.
       for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
         if (!o.isMesh || /crowns/.test(o.name)) return;
-        for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
+        const kind = /street/.test(o.name) ? 0.3 : 1;
+        for (const m of [].concat(o.material)) if (m && !m.transparent) change(o, m, (x) => patchSeason(x, kind));
       });
       // T-2864: the earth roads of 1812 and 1835 (streets.js), as a travelled roadway.
       streets.group.traverse((o) => {
-        if (o.isMesh) for (const m of [].concat(o.material)) patchSeason(m, 0.3);
+        if (o.isMesh) for (const m of [].concat(o.material)) if (m) change(o, m, (x) => patchSeason(x, 0.3));
       });
+      // Not waited on: the season goes on (sky, sun, trees, people) while the programs build,
+      // and the buildings and grounds take it as theirs become ready.
+      if (api.programWarm) void api.programWarm.rekey(changes).catch(() => { for (const [m, c] of changes) c.change(m); });
+      else for (const [m, c] of changes) c.change(m);
     }
     seasonState.season = applySeasonLook(s);
     // T-3331: the season moves the date; a named hour (sunset, dusk) is solved again
@@ -4833,9 +4859,16 @@ async function boot() {
   // their name is, clicking on the card brings up their detail" — in every year, for the town's
   // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
   // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
+  // T-3731: the canvas's CSS height, read when it changes. Read every frame, `clientHeight`
+  // forced a synchronous layout whenever the HUD had written to the page that frame:
+  // about 2 ms a frame on the owner's weak test PC class, walking 1904. The same number.
+  let canvasCssHeight = null;
+  try {
+    new ResizeObserver(() => { canvasCssHeight = renderer.domElement.clientHeight; }).observe(renderer.domElement);
+  } catch { /* no ResizeObserver: read it each time, as before */ }
   api.nameCards = createNameCards({
     THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false, grades: nameCardGrades(hud.settings),
-    viewHeight: () => renderer.domElement.clientHeight,
+    viewHeight: () => canvasCssHeight ?? renderer.domElement.clientHeight,
     // The card's edge and light: the person's grade in the Confidence view's colour for it.
     gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
     theme: () => {
@@ -7983,6 +8016,11 @@ async function boot() {
     const pause = bootCheckpoint(); if (pause) await pause;
   }
   await yieldToPaint();
+  // T-3728 (Bill's PC, 2026-11-22): from here on, whatever first appears later (a jaunt's stage,
+  // the yards, rails and buildings of the place it flies to) is drawn from the frame its
+  // program is ready, its link started off the frame, instead of the frame waiting on the link.
+  // `?warm=0` draws as before, for comparison.
+  api.programWarm = warmBeforeDraw(renderer, { scene: scene3d, camera, enabled: params.get('warm') !== '0' });
   // T-2555. Whether the camera moved in the frame just drawn — position or
   // facing, so a turn in place is moving too. The governor reads only this and
   // the interval between drawn frames.
