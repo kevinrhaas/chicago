@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 3225, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2123 Prairie stands as tall as its photograph', kind: 'improvement',
+    items: [
+      'The brownstone at 2123 Prairie is now measured against the winter photograph of its neighbour, from that picture\'s own camera.',
+      'Its storeys, cornice and slate roof rise about two metres higher, as the photograph draws them.',
+      'Its basement windows are taller, as the photograph draws them.',
+      'The roof\'s dormers and its tall chimney now stand where the photograph puts them.',
+    ] },
+  { v: 3224, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2110 Prairie against its photographs: broader bow windows, truer loggia', kind: 'feature',
+    items: [
+      '2110 Prairie\'s bow now has the broad windows its photographs show, three a storey on narrow stone piers, each parlour window with a transom light; its five-arched loggia is narrowed to the photographs\' width, the gable\'s slit window and carved panel sit lower as both photographs place them, carved corbels stand under the gable\'s corners, and the south chimney rises higher.',
+    ] },
   { v: 3223, ts: '2026-11-23T16:17:45.220Z', date: 'Nov 23, 2026, 10:17 AM CT', title: 'Low-powered computers: fewer pauses and a faster town', kind: 'improvement',
     items: [
       'On a computer with built-in graphics, 1904 loads without its long pauses, and the first moments in town no longer stop while the sun\'s shadows get ready.',
