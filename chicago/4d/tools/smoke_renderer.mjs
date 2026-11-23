@@ -21929,8 +21929,10 @@ for (const [label, viewport, touch] of [
         // T-3567: the Fort Dearborn Massacre monument is the 1904 scene's first record carrying
         // `review_required`. The loader retains that annotation as a problem line (owner ruling
         // 2026-10-16: it does not block release), so — as the 1835 boot does — pin the exact
-        // annotated records first, and only then hold everything else to zero.
-        const REVIEWED_1904 = ['fort_dearborn_massacre_monument_1893'];
+        // annotated records first, and only then hold everything else to zero. The owner
+        // approved the monument on 2026-11-22 ("approved for now") and its flag came off, so
+        // the 1904 scene now declares none; a record flagged later must be named here.
+        const REVIEWED_1904 = [];
         const reviews1904 = at.problems.filter((p) => /review_required is set/.test(p))
           .map((p) => p.split(':', 1)[0]).sort();
         check(`${label}: the 1904 scene declares its exact review annotations (T-3567)`,

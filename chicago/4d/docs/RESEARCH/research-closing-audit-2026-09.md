@@ -100,7 +100,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | --- | ---: |
 | Structure records | 1,145 |
 | Carrying occupants | 403 |
-| Flagged `review_required` | 41 |
+| Flagged `review_required` | 40 |
 
 | Graded phase attribute | Values |
 | --- | ---: |

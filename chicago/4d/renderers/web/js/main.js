@@ -2196,9 +2196,13 @@ async function boot() {
    */
   let sharpnessCap = renderer.getPixelRatio();
   const governorLine = document.getElementById('governor-line');
-  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
-    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
-  } });
+  // T-3728: a weak computer (Bill's integrated-graphics class) draws every moving
+  // frame at a lower resolution and the sun's shadow every second moving frame,
+  // rather than losing anything; a phone or headset keeps the governor as it was.
+  const governor = createFrameGovernor({ tier: detailLevel, weak: device.cls === 'weak' && !coarse && !headset,
+    onChange: (state) => {
+      if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
+    } });
   function applySharpness(value) {
     if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
     const ratio = sharpnessCap * governor.scale;
