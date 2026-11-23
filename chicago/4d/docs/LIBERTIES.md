@@ -46035,6 +46035,32 @@ the two pictures' cameras and records what is left in their match records.
 **Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
 **Recorded:** 2026-11-21 (T-3686).
 
+### L-k01-1936-allerton-tribune-2026-11-22 — 1936 Prairie's materials laid as its 1869 Tribune describes them: pressed red brick all round, brownstone dressings, carving, steps and bay, a rusticated basement and a slate-dark roof
+
+**Decision:** the owner, 2026-11-22, reading the 1869 Tribune's description of the Thompson house on Chicagology, found
+the build "brick and reddish stone". The build's rough red-brown brick and its brownstone stood within a few points of one
+tone, the tower stood wholly in brownstone, and the dressings in pale limestone. The record now lays every wall above the
+basement in the K03 palette's pressed red face brick (`face_brick` all round); the tower in that brick on the basement's
+stone; every dressing, the K09 carving (crests, capitals) and the stoop in the walling's brownstone
+(`stone_front.trim_in_walling`, `carving_in_walling`, `steps_in_walling`, the last two new K01 keys); the reception room's
+half-octagonal bay in brownstone ashlar; the basement's facing on the flanks and the bays' plinths as rusticated ashlar on a
+base course under a two-step water-table (`side_base.rustic`, `bays[].plinth_rustic`, new K01/K08 options); and the main
+hip's standing seam painted black for the Tribune's slate.
+
+**What is read, not invented.** From the Tribune: the 6 ft Portland brownstone ashlar with rubbed face, square rustic joints
+and a heavy moulded base and water-table; the Baltimore pressed brick to every exterior wall above it; every window
+trimmed in brownstone; the stone porch, steps, columns and cornice; the stone bay; the slate roof. From the photograph: the
+tower's shaft printing in the brick walls' tone, and the bay's face printing apart from the brick beside it.
+
+**What is invented.** The shade within the pressed reds (the palette's recipe). The number of rustic courses, the channels'
+width and depth, and the base's and water-table's heights and projections. The bay's coursing. The roof is still the kit's
+painted metal: its slate cuts need 45 degrees, or a deeper headlap at 25 to 45, and the hip is pitched 25 degrees and less.
+
+**How to resolve:** a colour description or a surviving fragment of the stone and brick; a close photograph of the basement
+or the bay; a slate cut for a low hip in the K04 kit.
+**Ticket:** T-3727 (the owner's request of 2026-11-22).
+**Recorded:** 2026-11-22 (T-3727).
+
 ### L-k01-robbins-2126-3721 — 2126 Prairie, the Robbins house completed, a structure version on K01 beside the July 1904 works shell: the front off the May 1905 plate, the plan off the 1911 sheet
 
 **Decision:** the default record `robbins_house_2126_prairie` stays the July 1904 building site the T-1842 census ruling
