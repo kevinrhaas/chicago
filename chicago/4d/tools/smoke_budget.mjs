@@ -356,6 +356,9 @@ const COVERAGE = [
   // T-2927: it joins the drawn pieces of every batch spatial-batch.js makes and of the
   // structures' cells (buildings.js), so it is read wherever either is.
   ['renderers/web/js/batch-coalesce.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the drawn cells and ground pieces that touch, joined into one draw each'],
+  // T-3731: the cull beneath every structure batch's wrappers (buildings.js), read where
+  // the structures are drawn: the parts shadow-casters.js and the building cells are read in.
+  ['renderers/web/js/batch-cull-index.js', [1, 2, 7, 8, 9, 10, 11, 12, 14], 'each structure piece culled off bounds cached once, a ground cell at a time'],
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],

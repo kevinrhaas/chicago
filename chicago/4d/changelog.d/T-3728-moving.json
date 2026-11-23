@@ -1,9 +1,0 @@
-{
-  "title": "Walking runs smoother on low-powered computers",
-  "kind": "improvement",
-  "items": [
-    "On a low-powered computer, such as one with built-in graphics, the picture is drawn a little softer while you move, and the sun's shadows refresh every other frame.",
-    "Walking 1904 on a test computer of this class went from about 10 to about 12 frames a second.",
-    "When you stop, the view is back at full sharpness with every shadow, and nobody in town is left out."
-  ]
-}
