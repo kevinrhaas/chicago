@@ -1,8 +1,8 @@
 {
-  "title": "1904 no longer freezes for seconds while it loads on modest computers",
+  "title": "1904 no longer freezes for seconds on modest computers",
   "kind": "fix",
   "items": [
-    "The grass between the lakefront railway's tracks is placed by a much faster lookup, so 1904's longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC.",
-    "Every tuft stands exactly where it stood before."
+    "The grass between the lakefront railway's tracks is placed by a much faster lookup, so 1904's longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC. Every tuft stands where it stood before.",
+    "The town broughams' cab windows are drawn as plain thin glass, so the first carriage you meet no longer freezes the page for many seconds, and the town is no longer drawn twice while one is in view."
   ]
 }
