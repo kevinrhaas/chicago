@@ -3393,6 +3393,17 @@ async function boot() {
   });
   scene3d.add(nightLights.group);
   api.nightLights = nightLights;
+  // T-3737 — each house's street number on its front door's transom (data/house_numbers/<scene>.json),
+  // gilt figures from one canvas atlas, one draw for the district, through the buildings' own placements.
+  // Imported only where the scene lists the layer (T-3732: a year that does not draw it never fetches it).
+  const houseNumbers = draws('house_numbers')
+    ? await import('./house-numbers.js').then((m) => m.createHouseNumbers({
+      dataBase: layerBase('house_numbers'), sceneId: loaded.scene.id ?? YEAR, buildings,
+      problems: layerProblems('house_numbers'),
+    }))
+    : { group: new THREE.Group(), census: { numbers: 0 }, doc: null, mesh: null };
+  scene3d.add(houseNumbers.group);
+  api.houseNumbers = houseNumbers;
   api.interactions = interactions;
 
   /**

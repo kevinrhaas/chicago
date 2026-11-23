@@ -1386,6 +1386,16 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
+# T-3737. ...and each house's street number over its front door: the 1911 sheet's number (the old one
+# where it prints both), on the transom of the door the house's own model draws, one to a house, never
+# a second number for Glessner, whose grille carries 1800; then the file is what the tool writes.
+step "the 1904 house numbers sit on each house's own front door, one number to a house (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --check
+selftest "the house-number check refuses a number shown twice, a second 1800 for Glessner, foot-tall figures, an unread attested form and a letter for a figure (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --self-test
+step "the house numbers read left to right from the street, sit on their doors through each house's placement, in one draw (T-3737)" \
+  node tools/test_house_numbers.mjs
+
 # T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
 # rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying
 # yards, kitchen gardens and side-lawn planting. Nothing it lays may stand in a building, a fence or a
