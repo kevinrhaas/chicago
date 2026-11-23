@@ -7572,6 +7572,10 @@ def build(params, structure_id: str):
     if p.corner_pilasters:
         # T-3255: the main block's corners as stone pilasters under capitals (1701's)
         k01_dressings.corner_pilasters(a, frames)
+    if p.front_order:
+        # T-3722: a brick front's pilasters, Ionic heads, panels, keys and corner scroll (2126's)
+        from . import k01_front_order
+        k01_front_order.dress(a, frames)
     if p.hip_deck:
         # T-3241: the rail round the deck the hip is cut off at (1701's)
         from . import k01_hip_deck

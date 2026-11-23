@@ -302,6 +302,8 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 step "A structure batch's cull reads its bounds once and asks a ground cell at a time, making three's own multi-draw entry for entry in both passes (T-3731)" \
   node tools/test_batch_cull_index.mjs
+step "A weak computer's boot upload, worked in slices, finds three's own bounds and uploads every object the one pass does, each once, putting everything back between pieces (T-3728)" \
+  node tools/test_upload_sliced.mjs
 step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
   node tools/test_short_index.mjs
 step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \
@@ -1385,6 +1387,16 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
   python3 tools/plant_prairie_1904_front_yards.py --check
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
+
+# T-3737. ...and each house's street number over its front door: the 1911 sheet's number (the old one
+# where it prints both), on the transom of the door the house's own model draws, one to a house, never
+# a second number for Glessner, whose grille carries 1800; then the file is what the tool writes.
+step "the 1904 house numbers sit on each house's own front door, one number to a house (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --check
+selftest "the house-number check refuses a number shown twice, a second 1800 for Glessner, foot-tall figures, an unread attested form and a letter for a figure (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --self-test
+step "the house numbers read left to right from the street, sit on their doors through each house's placement, in one draw (T-3737)" \
+  node tools/test_house_numbers.mjs
 
 # T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
 # rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying

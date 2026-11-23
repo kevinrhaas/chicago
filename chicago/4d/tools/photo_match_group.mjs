@@ -15,13 +15,33 @@ export function primaryGlb(root, id) {
   return path.join('assets/gltf', hit[0]);
 }
 
+/** T-3722: the GLB of a structure VERSION (docs/STRUCTURE-VERSIONS.md) — a picture of a later
+ *  or earlier state than the default record stands is matched against that version's mesh
+ *  (2126 Prairie's May 1905 plate shows the completed house; the record stands the July 1904
+ *  works shell). Its one master in assets/manifest.versions.json, by structure and label. */
+export function versionGlb(root, id, label) {
+  if (typeof label !== 'string' || !/^[a-z0-9_]+$/.test(label)) throw Error(`version ${JSON.stringify(label)} is not a version label`);
+  const file = path.join(root, 'assets/manifest.versions.json');
+  const manifest = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {assets: {}};
+  const hits = Object.entries(manifest.assets || {}).filter(([, v]) => v?.structure_id === id && v?.version_label === label);
+  if (hits.length !== 1) throw Error(`${hits.length ? 'more than one' : 'no'} GLB for ${id} version ${label} in assets/manifest.versions.json`);
+  return path.join('assets/gltf', hits[0][0]);
+}
+
+/** The GLB a camera's own building is matched against: its version's, or the record's. */
+export function cameraGlb(root, camera) {
+  return camera.version !== undefined ? versionGlb(root, camera.structure_id, camera.version)
+    : primaryGlb(root, camera.structure_id);
+}
+
 /** Resolve every requested member before launching the browser; never drop one. */
 export function renderGroup(root, camera, {glb} = {}) {
   if (camera.also_render !== undefined && !Array.isArray(camera.also_render))
     throw Error('also_render must be an array of distinct structure ids');
   const extra = camera.also_render || [];
   if (!extra.length) return [{structure_id: camera.structure_id,
-    glb: glb || primaryGlb(root, camera.structure_id), position: [0, 0, 0], rotation_y: 0}];
+    glb: glb || cameraGlb(root, camera), position: [0, 0, 0], rotation_y: 0}];
+  if (camera.version !== undefined) throw Error('version renders one building alone, not with also_render');
   const ids = [camera.structure_id, ...extra];
   if (ids.some(id => typeof id !== 'string' || !idPattern.test(id)) || new Set(ids).size !== ids.length)
     throw Error('also_render requires distinct structure ids and must not repeat the anchor');

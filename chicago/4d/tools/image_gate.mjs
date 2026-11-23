@@ -48,7 +48,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import os from 'node:os';
-import {renderGroup, groupReview} from './photo_match_group.mjs';
+import {renderGroup, groupReview, cameraGlb} from './photo_match_group.mjs';
 import {enclosureReview} from './photo_match_enclosures.mjs';
 import {floraReview} from './photo_match_flora.mjs';
 import {testRenderGroups} from './test_photo_match_group.mjs';
@@ -93,6 +93,9 @@ function malformed(structureId, v) {
   if (cam.also_render !== undefined) {
     try { renderGroup(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
   }
+  if (cam.version !== undefined) {   // T-3722: a picture of a structure version names it
+    try { cameraGlb(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
+  }
   if (cam.enclosures !== undefined) {
     try { enclosureReview(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
   }
@@ -118,7 +121,7 @@ function blocker(structureId, v) {
   const m = JSON.parse(fs.readFileSync(v.matchFile, 'utf8'));
   const camera = JSON.parse(fs.readFileSync(v.cameraFile, 'utf8'));
   const members = camera.also_render?.length ? renderGroup(ROOT, camera) : null;
-  const glb = members ? members[0].glb : glbFor(structureId);
+  const glb = members ? members[0].glb : camera.version !== undefined ? cameraGlb(ROOT, camera) : glbFor(structureId);
   if (!glb || !fs.existsSync(path.join(ROOT, glb))) return `${v.view}: ${structureId} has no GLB in assets/manifest.json`;
   if (m.glb_sha256 !== sha(path.join(ROOT, glb))) return `${v.view}: the GLB changed after the match — rerun node tools/photo_match.mjs ${rel(v.cameraFile)} and look again`;
   if (m.camera_sha256 !== sha(v.cameraFile)) return `${v.view}: the camera changed after the match — rerun photo_match`;

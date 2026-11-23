@@ -262,6 +262,10 @@ class K01FrontageParams:
     # (`corner_pilasters`), k01_dressings; 1701's, off its photograph
     eared_hoods: dict = field(default_factory=dict)
     corner_pilasters: dict = field(default_factory=dict)
+    # T-3722: a brick street front's order — pilasters between the bays under Ionic heads, stone
+    # panels between storeys (one carved), key blocks over the lintels and a scroll stop at a
+    # corner (`front_order`, k01_front_order; 2126's, off its May 1905 plate)
+    front_order: dict = field(default_factory=dict)
     # T-3239: a columned porch on a side wall under a balustraded balcony, on a podium
     # (`side_porch`, k01_porte_cochere; 1906's on its south flank, off the engraving)
     side_porch: dict = field(default_factory=dict)
@@ -347,6 +351,7 @@ CONSUMED = frozenset({
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
     "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters", "rear_terrace", "wall_lanterns",
+    "front_order",
     "alley_wall", "alley_wall_height", "face_brick",
 })
 
@@ -9784,6 +9789,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         corner_pilasters = resolve_pilasters(val("corner_pilasters"), floor=pf, eave=pf + sum(heights))
     except DressError as e:
         raise ParamError(str(e)) from None
+    from .k01_front_order import ParamError as OrderError, resolve as resolve_order
+    try:
+        front_order = resolve_order(val("front_order"), width=width, floor=pf, eave=pf + sum(heights))
+    except OrderError as e:
+        raise ParamError(str(e)) from None
     from .k01_rear_veranda import ParamError as VerandaError, resolve as resolve_veranda
     try:
         rear_veranda = resolve_veranda(val("rear_veranda"), width=width, eave=pf + sum(heights), wings=wings,
@@ -9905,7 +9915,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, rear_terrace=rear_terrace, wall_lanterns=wall_lanterns, side_porch=side_porch, shutters=shutters,
-        eared_hoods=eared_hoods, corner_pilasters=corner_pilasters,
+        eared_hoods=eared_hoods, corner_pilasters=corner_pilasters, front_order=front_order,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

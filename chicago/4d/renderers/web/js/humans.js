@@ -102,6 +102,11 @@ export const DRAW_M = 140;
  * bodies and textures (+70 MB at spawn); at this distance it holds those near the visitor.
  */
 export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: DRAW_M });
+/**
+ * T-3553 (owner, 2026-11-23, flying on a MacBook: a maid "appears and disappears on her route"):
+ * metres past its drawing range a figure already drawn keeps being drawn.
+ */
+export const DRAW_HYST_M = 6;
 /** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
 export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
 /**
@@ -143,7 +148,10 @@ const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
  * Returns -1 beyond DRAW_M (not drawn).
  */
 export function chooseHumanLod(distance, tier = 'full', current = -1, { policy = 'auto', fixed = 0 } = {}) {
-  if (!(distance <= (DRAW_M_BY_TIER[tier] ?? DRAW_M))) return -1;
+  // T-3553: one drawn stays drawn DRAW_HYST_M past the edge, so a walker along it is not
+  // drawn and let go to the crowd's card frame by frame.
+  const drawM = DRAW_M_BY_TIER[tier] ?? DRAW_M;
+  if (!(distance <= (current >= 0 ? drawM + DRAW_HYST_M : drawM))) return -1;
   const allowed = HUMAN_TIERS[tier] ?? HUMAN_TIERS.full;
   const clamp = (lod) => Math.min(Math.max(lod, allowed[0]), allowed[allowed.length - 1]);
   if (policy === 'fixed') return clamp(fixed);
@@ -993,7 +1001,8 @@ export class HumanActor {
     }
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
-    const lod = chooseHumanLod(this.distance, this.tier, this.lod, this.instance.lod);
+    // (`current` only while drawn: out of range the body kept is not drawn, T-3553.)
+    const lod = chooseHumanLod(this.distance, this.tier, this.inRange ? this.lod : -1, this.instance.lod);
     this.inRange = lod >= 0;
     if (this.parked.size) this.prune(!this.inRange);
     if (!this.inRange) {

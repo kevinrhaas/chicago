@@ -60,6 +60,7 @@
 
 import * as THREE from 'three';
 import { inertRailway } from './inert-layers.js';
+import { createCheckpoint } from './boot-phases.js';
 import { spatialBatchAsync } from './spatial-batch.js';
 import { compactStreams, constantConfidence } from './compact-streams.js';
 const { compactNormals, uniformGrade } = compactStreams(THREE);
@@ -111,6 +112,16 @@ const HEAD_SIDE = new THREE.Color(0x6b5546);
 
 const wx = (e) => e;
 const wz = (n) => -n;
+
+/**
+ * T-3728 (Bill's PC, 2026-11-23): the yard was built in two tasks of 1.35 and 1.47 s while
+ * 1904 loaded (its five ground strips, then its zones), and the loading page stood still
+ * through both. It now lets the page draw every BUILD_SLICE_MS of work, between strips and
+ * between zones: the same meshes in the same order, made in shorter tasks.
+ */
+const BUILD_SLICE_MS = 40;
+const buildCheckpoint = createCheckpoint({ budgetMs: BUILD_SLICE_MS });
+const yieldBuild = () => buildCheckpoint() ?? Promise.resolve();
 
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -955,7 +966,10 @@ export async function createRailway({
   // and draws the fine cut everywhere at any level, as before.
   const farGround = [];
   const withFar = Number.isFinite(REACH[detail]?.ground);
-  const surface = (name, kind, lib, runs) => {
+  const surface = async (name, kind, lib, runs) => {
+    // Its far piece keeps its place in the call order, whichever surface's slice ends first.
+    const slot = withFar ? farGround.push(null) - 1 : -1;
+    await yieldBuild();
     const fine = buffers(); const far = withFar ? buffers() : null;
     for (const [stations, opts, farStations = stations] of runs) {
       ribbon(stations, { ...opts, out: fine });
@@ -963,7 +977,7 @@ export async function createRailway({
     }
     const grade = sharedGroundGrade(fine, far);
     const mat = groundMaterial(name, kind, lib, confidence, grade);
-    if (far) farGround.push(groundMesh(`${name}-far`, far, kind, mat, grade));
+    if (far) { farGround[slot] = groundMesh(`${name}-far`, far, kind, mat, grade); await yieldBuild(); }
     return groundMesh(name, fine, kind, mat, grade);
   };
   const ground = maps.get(spec.ballast?.right_of_way_material ?? 'trodden_cinders');
@@ -1289,6 +1303,7 @@ export async function createRailway({
     rocks: (stones?.per_m2?.light ?? 0.45) / (stones?.per_m2?.full ?? 1.5),
   } : null;
   for (const [zi, z] of zones.entries()) {
+    await yieldBuild();
     if (builtShare) {
       z.tufts = z.tufts.filter((t) => t.keep < builtShare.tufts);
       z.rocks = z.rocks.filter((r) => r.keep < builtShare.rocks);
