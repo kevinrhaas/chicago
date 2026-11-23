@@ -3987,9 +3987,9 @@
     "murdoch_house_2130_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5308956,
+      "bytes": 5345232,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "524f3a7ba9b862188a12ec2af8beae3dd95e44ec9be0008e56b572a49cc9f0a5",
+      "inputs_sha256": "b81a39204159881fe10926fe1abdc65e9002cb854f39c06c55cd41562cc48841",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "murdoch_house_2130_prairie"

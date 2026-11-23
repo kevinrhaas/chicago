@@ -25188,8 +25188,8 @@ of each, unplaced); the railing's pattern and the piers' caps; the front walk's 
 entablature under the second storey's lights): K01's corner porch stands on a podium at a corner, not under a
 front gable, and no K01 part stands a recessed loggia. The tower's centre about 0.6 m inside the front's face on a
 ring about 2.8 m in radius (the sheet's dashed circle): K01 stands a single-capped front tower's centre on the face
-or before it, so it is built 2.5 m in radius on the face, bowing 2.5 m proud (the sheet's 2.2) on a 5.0 m chord
-(the sheet's about 6.3). The north wall's step in by about 0.9 m over the rear 11.8 m (the body is one rectangle).
+or before it, so it is built 2.4 m in radius on a centre 0.1 m before the face, bowing 2.5 m proud (the sheet's 2.2)
+on a 4.8 m chord (the sheet's about 6.3). The north wall's step in by about 0.9 m over the rear 11.8 m (the body is one rectangle).
 The rear range's chamfered rear corners (built square). The gable's carved and moulded detail and the tower's
 moulded string courses beyond the kit's plain bands.
 **How to resolve:** T-3730 solves the two pictures' cameras, works the photo-match down and signs off the image

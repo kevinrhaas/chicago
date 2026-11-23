@@ -48,7 +48,8 @@ taken nearer this front. Read off them:
 
 - the columned porch: K01's corner porch stands on a podium at a corner, and no K01 part stands a recessed loggia;
 - the tower's centre inside the face: K01 stands a single-capped front tower's centre on the face, so the drum is
-  2.5 m in radius there (2.5 m proud where the sheet reads 2.2, a 5.0 m chord where it reads about 6.3);
+  2.4 m in radius on a centre 0.1 m before the face (2.5 m proud where the sheet reads 2.2, a 4.8 m chord where it
+  reads about 6.3; a centre on the face itself splits the finial on the wall's plane);
 - the north wall's rear step, and the rear range's chamfered corners;
 - carved and moulded detail beyond the kits'.
 
