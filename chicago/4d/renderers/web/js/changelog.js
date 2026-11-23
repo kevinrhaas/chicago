@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3227, ts: '2026-11-23T18:57:21.012Z', date: 'Nov 23, 2026, 12:57 PM CT', title: 'Graphics settings: antialiasing, a Fast pacing choice and a Drawing now line', kind: 'feature',
+    items: [
+      'Settings › Graphics starts with Auto, then Scene detail, Image sharpness, Frame pacing and Antialiasing, each showing what is in force on this device.',
+      'Frame pacing has a third choice, Fast: softer while you move and a little softer standing still, with the sun\'s shadows refreshed every other frame. Built-in graphics computers start on it, and any computer can pick it.',
+      'Antialiasing (smoother edges) can be turned on or off. Built-in graphics computers start with it off, which is quicker; a change shows the next time the page loads.',
+      'A Drawing now line says what is really being drawn, such as 67 % sharpness standing and 55 % moving, so nothing is quietly turned down.',
+      'Photos are still taken at full sharpness, and no choice here takes anyone out of town: people, horses, carriages and wagons stay on every setting.',
+    ] },
+  { v: 3226, ts: '2026-11-23T18:57:21.012Z', date: 'Nov 23, 2026, 12:57 PM CT', title: 'Walking up to someone no longer stops you in your tracks', kind: 'fix',
+    items: [
+      'A person\'s card that opens because you walked up to them now opens beside your walk: WASD and the mouse keep working.',
+      'Walk on and their card closes by itself. Click into it, or press E on them, and it stays until you close it.',
+    ] },
   { v: 3225, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2123 Prairie stands as tall as its photograph', kind: 'improvement',
     items: [
       'The brownstone at 2123 Prairie is now measured against the winter photograph of its neighbour, from that picture\'s own camera.',
