@@ -3054,8 +3054,24 @@ for (const [label, viewport, touch] of [
       await still();
       const adaptive = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
       const sel = document.getElementById('s-governor');
-      return { atRest, shadowAuto, fixed, adaptive,
-        options: sel ? [...sel.options].map((o) => o.value) : null, selected: sel?.value ?? null };
+      const selected = sel?.value ?? null;
+      // T-3736: Fast from Settings reaches the governor and the line, and Adaptive comes back.
+      let fast = null;
+      if (sel) {
+        const was = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').pacing ?? '';
+        sel.value = 'fast'; sel.dispatchEvent(new Event('change'));
+        await still();
+        fast = { on: a.governor.fast === true, shadowEvery: a.governor.shadowEvery,
+          line: document.getElementById('governor-line')?.textContent ?? null };
+        sel.value = 'adaptive'; sel.dispatchEvent(new Event('change'));
+        fast.back = a.governor.fast === false;
+        // Put the stored choice back as found (Auto stays Auto for the checks after this one).
+        const st = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
+        st.pacing = was; localStorage.setItem('chicago4d.settings', JSON.stringify(st));
+        if (a.hud?.settings) a.hud.settings.pacing = was;
+      }
+      return { atRest, shadowAuto, fixed, adaptive, fast,
+        options: sel ? [...sel.options].map((o) => o.value) : null, selected };
     });
     check(`${label}: the frame governor reports its state and rests at the Sharpness ceiling (T-2555)`,
       ['mode', 'scale', 'pace', 'fps', 'moving', 'shadowEvery', 'ratio', 'ceiling'].every((k) => k in governor.atRest)
@@ -3063,11 +3079,16 @@ for (const [label, viewport, touch] of [
         && governor.atRest.scale === 1 && governor.atRest.pace === 1 && governor.atRest.fps === 60
         && Math.abs(governor.atRest.ratio - governor.atRest.ceiling) < 1e-9 && governor.shadowAuto === true,
       JSON.stringify(governor.atRest) + ` shadowMap.autoUpdate=${governor.shadowAuto}`);
-    check(`${label}: Frame pacing offers Adaptive and Fixed, and each reaches the page and Settings (T-2555)`,
-      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fixed']) && governor.selected === 'adaptive'
-        && governor.fixed.mode === 'fixed' && /^Fixed/.test(governor.fixed.line || '')
-        && governor.adaptive.mode === 'adaptive' && /^Adaptive/.test(governor.adaptive.line || ''),
+    // T-3736: three choices now (Fast is the weak-computer rule), and the line says what is drawn.
+    check(`${label}: Frame pacing offers Adaptive, Fast and Fixed, and each reaches the page and the Drawing now line (T-2555, T-3736)`,
+      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fast', 'fixed']) && governor.selected === 'adaptive'
+        && governor.fixed.mode === 'fixed' && /^Drawing now: .* on every frame, antialiasing on\./.test(governor.fixed.line || '')
+        && governor.adaptive.mode === 'adaptive' && /^Drawing now: .* eased off only if moving gets slow, antialiasing on\./.test(governor.adaptive.line || ''),
       `options ${JSON.stringify(governor.options)}; fixed "${governor.fixed.line}"; adaptive "${governor.adaptive.line}"`);
+    check(`${label}: Fast pacing from Settings draws the weak-computer rule and says so (T-3736)`,
+      governor.fast?.on === true && governor.fast.shadowEvery === 2 && governor.fast.back === true
+        && /standing and 55 % moving, the shadow every other frame/.test(governor.fast.line || ''),
+      JSON.stringify(governor.fast));
 
     // --- the scene-detail ladder is a ladder, and every rung says what it is
     // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
@@ -17125,7 +17146,7 @@ for (const [label, viewport, touch] of [
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
     check(`${label}: Auto names this device's levels, Sound has five sliders with their own Ambience/Effects/Narration examples and no extra notes, About opens What's new (T-2656, T-3544, T-3578)`,
-      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, (Adaptive|Fast) pacing, antialiasing (on|off)\.$/.test(settingsApp.auto)
       && settingsApp.sound === 5 && settingsApp.soundTotal === 5 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)

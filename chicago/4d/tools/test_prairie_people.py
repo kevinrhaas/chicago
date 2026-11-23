@@ -113,6 +113,14 @@ def main():
             pass
         else:
             raise AssertionError(f'{role}: missing skin material was accepted')
+    # T-3553 (owner, 2026-11-23, 1729 Prairie: Emma Scott stood inside the coachman): nobody's
+    # outdoor place is another's; a whole household is out together for the evening talk.
+    from prairie_people import APART_M
+    places = sorted({(s['at']['local_e'], s['at']['local_n'], p['person']) for p in inside
+                     for day in p.get('day') or [] for s in day['spans'] if not s['indoors'] and s.get('at')})
+    shared = [(a[2], b[2]) for i, a in enumerate(places) for b in places[i + 1:]
+              if a[2] != b[2] and abs(a[0] - b[0]) < APART_M and math.hypot(a[0] - b[0], a[1] - b[1]) < APART_M - .01]
+    assert not shared, f'outdoor places shared: {shared[:5]}'
     print(f'ok Prairie Avenue: {len(ids)} cards, {len(inside)} distinct lazy residents, complete seasonal days and canonical doors')
 
 

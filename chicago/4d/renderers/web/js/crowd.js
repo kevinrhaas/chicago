@@ -76,6 +76,8 @@ export const HYST_M = 3;
 export const HAND_RETRY_S = 2;
 /** T-3553: how many hand-overs are asked for a sort (SORT_S), nearest first. */
 export const HAND_PER_SORT = 2;
+/** T-3553: flying, the hand-over is asked only for those within this of the eye (height counted). */
+export const FLY_HAND_M = 20;
 /** The card picture's size, pixels (w x h, one person standing in a 1 m x 2 m frame). */
 export const CARD_CELL = Object.freeze({ full: Object.freeze([32, 64]), balanced: Object.freeze([32, 64]), light: Object.freeze([24, 48]) });
 /** Headings a card is baked from, and the poses: idle, then two strides of the walk. */
@@ -147,6 +149,9 @@ export function tierTargets(d, tier = 'full', { built = false, drawM = 140, was 
 }
 
 /** The weights the shaders draw at, from the eased `v` and `t`: complementary, never both whole. */
+/** T-3553: a built figure humans.js is drawing now (in its range, its body made). */
+export const figureDrawn = (a) => !!a?.inRange && !!a.body;
+
 export function tierWeights(v, t) { return { mid: v * (1 - t), far: v * t }; }
 
 /** The 4x4 ordered-dither threshold shared by both tiers' shaders (complementary fades). */
@@ -1070,16 +1075,23 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         order.length = 0;
         const keeping = humans?.crowdKept != null && typeof humans.keeps === 'function';
         for (const p of people.values()) {
+          let waiting = false;
           if (p.built) {
             const a = p.actor;
-            if (!a || a.disposed || a.indoors || a.inRange || humans.isHeld?.(a)) { p.tv = 0; p.v = 0; continue; }
+            if (!a || a.disposed || a.indoors || humans.isHeld?.(a) || figureDrawn(a)) { p.tv = 0; p.v = 0; p.byFigure = !!a && figureDrawn(a); continue; }
+            // T-3553 (owner, 2026-11-23, flying: a maid "appears and disappears on her route"):
+            // in range with no body yet, they are drawn here as anyone not built is, until it stands.
+            waiting = !!a.inRange;
             p.e = a.e; p.n = a.n;
           }
           const d = Math.hypot(p.e - eye.x, p.n + eye.z);
           p.d = d;
           // T-3553: one a jaunt holds out of the scene (humans.keeps), inside the near edge.
           const held = !p.built && keeping && !humans.keeps(p.key, p.e, p.n);
-          const goal = tierTargets(d, tier, { built: p.built, drawM, was: { v: p.tv ?? 0, t: p.tt ?? 0 }, held });
+          const goal = tierTargets(d, tier, { built: p.built && !waiting, drawM, was: { v: p.tv ?? 0, t: p.tt ?? 0 }, held });
+          // T-3553: the figure just let go (out of its range) is the same person, in place: the
+          // card is there at once, not dissolved in after a gap.
+          if (p.byFigure) { p.byFigure = false; p.v = goal.v; p.t = goal.t; }
           // Someone new to the layer is already where they belong: no cross-fade from the middle.
           if (p.v == null) { p.v = 0; p.t = goal.t; }
           p.tv = goal.v; p.tt = goal.t;
@@ -1087,15 +1099,18 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
         }
         order.sort((a, b) => a.d - b.d);
         // The hand-over: the nearest not built inside the near edge, HAND_PER_SORT a sort, are
-        // built where they stand (not from the air: a visitor flying over the town walks up to
-        // no one). T-3553: more than one a sort, so a street come to at once (a jaunt's arrival,
+        // built where they stand (not from high in the air: a visitor flying over the town walks
+        // up to no one; FLY_HAND_M). T-3553: more than one a sort, so a street come to at once (a jaunt's arrival,
         // a jump) is not left to the coarse bodies for seconds, one person at a time.
         const m0 = (MID[tier] ?? MID.full)[0];
-        if (days?.materialize && !visitor?.flying) {
+        if (days?.materialize) {
           let asked = 0;
           for (const p of order) {
             if (p.d >= m0 || asked >= HAND_PER_SORT) break;
             if (p.built || p.handing || p.tv <= 0 || clock < (p.refused ?? -Infinity) + HAND_RETRY_S) continue;
+            // T-3553 (owner, 2026-11-23, flying 12 ft up on a MacBook: "the people near look very
+            // bad"): flying low over a street, those near the eye are built as on foot.
+            if (visitor?.flying && !(Number.isFinite(p.y) && Math.hypot(p.d, eye.y - p.y) < FLY_HAND_M)) continue;
             let actor = null;
             asked++;
             try { actor = days.materialize(p.key, { e: p.e, n: p.n, heading_deg: p.heading }); } catch (err) { problems.push(`crowd: ${p.key} could not be handed over (${err?.message ?? err})`); }
@@ -1113,15 +1128,22 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
       for (const p of order) {
         if (p.built) {
           const a = p.actor;
-          if (!a || a.disposed || a.indoors || a.inRange) continue;
+          if (!a || a.disposed || a.indoors || figureDrawn(a)) continue;
           p.e = a.e; p.n = a.n; p.heading = a.heading; p.walk = a.state === 'walking' || a.path || a.route ? 1 : 0;
         } else if (p.handing) {
-          // Handed over: drawn here, standing where they were, until their figure stands; then
-          // the figure is theirs and this layer lets them go (no fade: the same person, in place).
+          // Handed over: drawn here until their figure stands; then the figure is theirs and
+          // this layer lets them go (no fade: the same person, in place).
           const a = p.handing;
           if (a.disposed) p.handing = null;
           else if (a.body || a.indoors) { p.tv = 0; p.v = 0; people.delete(`d:${p.key}`); continue; }
-          else p.walk = 0;
+          else {
+            // T-3553 (owner, 2026-11-23, 1729 Prairie: the coachman's stand-in stood inside Emma
+            // Scott): drawn where the figure is, with the room the others make it (spaceE/N,
+            // human-spacing.js), not left on the spot it was handed over at.
+            p.walk = a.state === 'walking' || a.path || a.route ? 1 : 0;
+            if (Number.isFinite(a.e) && Number.isFinite(a.n)) { p.e = a.e + (a.spaceE ?? 0); p.n = a.n + (a.spaceN ?? 0); }
+            if (Number.isFinite(a.heading)) p.heading = a.heading;
+          }
         } else placeWalker(p, clock);
         // The fades, in time: in or out over FADE_S, the middle to the card over CROSS_S.
         p.v = p.tv > p.v ? Math.min(p.tv, p.v + step / FADE_S) : Math.max(p.tv, p.v - step / FADE_S);

@@ -139,6 +139,8 @@ const quantile = (xs, p) => {
 export function createFrameGovernor({ enabled = true, tier = 'full', weak = false, onChange = null } = {}) {
   const G = GOVERNOR;
   let on = !!enabled;
+  // T-3736: the weak rule is Settings' Fast pacing now, so it can be switched live.
+  let weakOn = !!weak;
   let level = tier;
   let scale = 1;
   let pace = 1;
@@ -160,12 +162,12 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
 
   const snapshot = () => ({
     mode: on ? 'adaptive' : 'fixed', scale, pace, fps: pace === 2 ? 30 : 60,
-    moving, shadowEvery: on && (weak || (moving && level === 'light')) ? 2 : 1,
+    moving, shadowEvery: on && (weakOn || (moving && level === 'light')) ? 2 : 1, fast: on && weakOn,
     decisions, p80: lastP80, tier: level, scaleHeld: futile,
   });
   let told = '';
   const tell = () => {
-    const key = `${on}|${scale}|${pace}|${moving}`;
+    const key = `${on}|${weakOn}|${scale}|${pace}|${moving}`;
     if (key === told) return;
     told = key;
     onChange?.(snapshot());
@@ -252,9 +254,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
       still += 1;
       if (still >= G.restFrames) {
         rest();
-        if (weak) scale = G.weakStillScale;
+        if (weakOn) scale = G.weakStillScale;
       }
-      shadowFresh = !weak || drawn % 2 === 0;
+      shadowFresh = !weakOn || drawn % 2 === 0;
       tell();
       return;
     }
@@ -270,8 +272,8 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
       samples = [];
       decide(p80, p50);
     }
-    if (weak && scale > G.weakScale) scale = G.weakScale;
-    shadowFresh = (level !== 'light' && !weak) || drawn % 2 === 0;
+    if (weakOn && scale > G.weakScale) scale = G.weakScale;
+    shadowFresh = (level !== 'light' && !weakOn) || drawn % 2 === 0;
     tell();
   }
 
@@ -281,6 +283,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
     /** Neutral now — for a capture, a forced harness frame, a setting change. */
     rest() { rest(); tell(); },
     setEnabled(v) { on = !!v; futile = false; rest(); tell(); return on; },
+    /** T-3736: Fast pacing on or off (the weak rule above), from the next frame. */
+    setFast(v) { weakOn = !!v; futile = false; rest(); tell(); return weakOn; },
+    get fast() { return weakOn; },
     /** HARNESS ONLY: put the governor where a slow moving window would have —
      *  `scale` (clamped to [floor, 1]) and `pace` — so a runner whose frames are
      *  too slow to drive it there can still ask what a rest does after it. */

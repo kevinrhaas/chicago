@@ -46300,6 +46300,15 @@ the elevations; the front, its porch and roof are what it would show first.
 **Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3716); `data/reference_views/rees_house_2110_prairie/`.
 **Recorded:** 2026-11-23 (T-3716).
 
+### L-prairie-house-numbers-3737 — The 1904 houses' street numbers: the sheet's numbers, shown as gilt figures on each front door's transom
+
+**Decision:** the owner, 2026-11-23: *"i noticed there were no street addresses on most of the buildings could you do a sweep of what the street address numbers/plaque would have been on most buildings and then include them accordingly?"*, then *"yes start with 1904"*. **The number (inferred):** each Prairie, Indiana and Calumet lot takes the number the 1911 Sanborn prints on it (`addresses_1911`, data/street_grid/1904.json), carried back to 1904 because the 1909 renumbering left this district's avenue numbers alone (Glessner's 1887 address is 1800; Pullman's 1729 and Coleman's 1811 are the 1880s sources'; a permit of June 1888 already gives 2110). Where the sheet prints an old number in parentheses beside the new one, the old one is 1904's: the Allerton house is 1936, not 1918 (ruling r28-allerton). Cross-street lots were renumbered in 1909 and show none. A lot the sheet gives several numbers gives each house the number its own record names; a lot whose doors and numbers cannot be paired shows none. **The form:** two readings of the street put the number over the front door: 1815's photograph (`chicagology_1815_sears_two_views`) shows light serif figures "1815" centred on the transom glass, and the Inter Ocean of 2 January 1887 (`chicagology_1612_prairie_occupants`) calls 1612 the house "with the number 1612 over the portals". Those two are attested in form. Every other house's figures are **reconstructed** by that rule: gilt serif figures, outlined dark, centred on the front door's transom light at about 0.42 of its height (3.5 to 6.3 in), or on the leaf's top rail where a door has no transom. Only dwellings take one: no shed, stable or church. Glessner's 1800 is already in its door grille (sheet 95, T-2216) and nothing is added there. The typeface is the browser's serif, not a period face read from any picture.
+
+**How to resolve:** a photograph of a house's door showing its number's form, place or finish (a plaque, a stoop riser, a carved lintel, painted glass) replaces the rule for that house in `READ_FORM` (tools/place_prairie_1904_house_numbers.py); a directory of 1904 resolving a double lot's two numbers to its doors.
+**Ticket:** T-3737.
+**Review:** `tools/place_prairie_1904_house_numbers.py`, `data/house_numbers/1904.json`, `renderers/web/js/house-numbers.js`.
+**Recorded:** 2026-11-23 (T-3737).
+
 ### L-pullman-corner-elm-withdrawn-3739 — The Pullman corner's parkway elm left out, where the Detroit print shows a trunk near the 18th Street crossing
 
 **Decision:** left out: the pictured elm at the north-east corner of Prairie Avenue and 18th Street
