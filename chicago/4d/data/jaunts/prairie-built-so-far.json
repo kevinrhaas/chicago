@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 169278110,
+  "content_version": 126657695,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -972,7 +972,7 @@
         "kind": "structure",
         "id": "house_1621_prairie"
       },
-      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: walk on to the 2026-2115 Prairie area, starting at 2026 Prairie.",
+      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: walk on to the 2026-2110 Prairie area, starting at 2026 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-45",
@@ -1035,7 +1035,7 @@
         "kind": "structure",
         "id": "mark_kimball_house_2108_prairie"
       },
-      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Roloson House, 2109 Prairie.",
+      "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Rees House, 2110 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-48",
@@ -1054,10 +1054,10 @@
       "id": "stop-49",
       "destination": {
         "kind": "structure",
-        "id": "roloson_house_2109_prairie"
+        "id": "rees_house_2110_prairie"
       },
-      "text": "Roloson House, 2109 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Kelley-Armour House, 2115 Prairie.",
-      "read_s": 13,
+      "text": "Rees House, 2110 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 11 of the pictures on the Images tab show it. Next: Roloson House, 2109 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-49",
         "tour"
@@ -1065,7 +1065,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "roloson_house_2109_prairie",
+          "id": "rees_house_2110_prairie",
           "label": "About this building"
         }
       ],
@@ -1075,19 +1075,18 @@
       "id": "stop-50",
       "destination": {
         "kind": "structure",
-        "id": "armour_house_2115_prairie"
+        "id": "roloson_house_2109_prairie"
       },
-      "text": "Kelley-Armour House, 2115 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1937. Last stop of the walk so far; it grows as more buildings are built out.",
-      "read_s": 21,
+      "text": "Roloson House, 2109 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Last stop of the walk so far; it grows as more buildings are built out.",
+      "read_s": 18,
       "evidence": [
         "stood-50",
-        "razed-50",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "armour_house_2115_prairie",
+          "id": "roloson_house_2109_prairie",
           "label": "About this building"
         }
       ],
@@ -1728,31 +1727,22 @@
     },
     {
       "id": "stood-49",
+      "text": "Rees House, 2110 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2100_block_looking_nw_1890s"
+      ],
+      "confidence": "inferred",
+      "reasoning": "Built in 1888 (Cobb & Frost, the register's row frontage-35-066), shown in the early-1890s street photograph and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more; the house stood here until it was moved in November 2014."
+    },
+    {
+      "id": "stood-50",
       "text": "Roloson House, 2109 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
       "confidence": "inferred",
       "reasoning": "The 1911 sheet draws the house and the T-1842 census rules it present in 1904 (present_as_mapped); the Armour photograph is undated. Its building date is not read; the register reports its loss in 1933."
-    },
-    {
-      "id": "stood-50",
-      "text": "Kelley-Armour House, 2115 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_35",
-        "chicago_tribune_1928_07_08_armour_famous_homes"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1842 census rules it present in 1904 (present_as_mapped), and the Tribune's photograph shows it standing in 1928. Built 1871 (the marker); its loss is not read here."
-    },
-    {
-      "id": "razed-50",
-      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
-      "confidence": "attested",
-      "sources": [
-        "hmdb_prairie_lost_houses_2000_2100"
-      ],
-      "locator": "The 2115 S. Prairie Avenue entry."
     }
   ],
   "liberties": [
