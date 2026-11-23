@@ -533,6 +533,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
   node tools/test_coach_house.mjs
+step "a layer the scene does not list is never downloaded: main.js imports its module on demand and its empty layer is the factory's own (T-3732)" \
+  node tools/test_inert_layers.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \

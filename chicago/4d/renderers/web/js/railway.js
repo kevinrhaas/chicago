@@ -59,6 +59,7 @@
  */
 
 import * as THREE from 'three';
+import { inertRailway } from './inert-layers.js';
 import { spatialBatchAsync } from './spatial-batch.js';
 import { compactStreams, constantConfidence } from './compact-streams.js';
 const { compactNormals, uniformGrade } = compactStreams(THREE);
@@ -901,17 +902,9 @@ export async function createRailway({
   dataBase, assetBase = null, sceneId, terrain, confidence = null, problems = [], detail = 'full',
   onGeometry = () => {},
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'railway';
-  const out = {
-    group,
-    data: null,
-    census: { tracks: 0, track_m: 0, ties: 0, tufts: 0, zones: 0, nearZones: 0, textured: false, rocks: 0, piles: 0, edge_m: 0 },
-    update: () => {},
-    setDetail: () => {},
-    pickAt: () => null,
-    dispose: () => {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertRailway();
+  const { group } = out;
   if (!dataBase || !terrain) return out;
   let data;
   try {

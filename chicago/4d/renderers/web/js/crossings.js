@@ -40,6 +40,7 @@
  */
 
 import * as THREE from 'three';
+import { inertCrossings } from './inert-layers.js';
 import { enuToWorld } from './terrain.js';
 import { bearingToYaw } from './angles.js';
 import { loadedSubstrate } from './wall-relief.js';
@@ -853,13 +854,9 @@ export async function createCrossings({
   dataBase, terrain, confidence = null, problems = [], detail = 'full', coarse = false,
   walkEye = () => 1.6, onRide = () => {}, lowSpec = false, pilot = () => null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'crossings';
-  const out = {
-    group, boats: [], things: [], keepOut: [], riding: null,
-    census: { boats: 0, dugout: 0, bark_canoe: 0, skiff: 0, refused: 0 },
-    pickAt: () => null, update: () => {}, holdVisitor: () => false, dispose: () => {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertCrossings();
+  const { group } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {
