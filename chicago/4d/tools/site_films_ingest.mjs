@@ -3,6 +3,13 @@
  *
  *   node tools/site_films_ingest.mjs DIR [id ...]     ingest DIR/<id>.mp4 (+ DIR/<id>.jpg poster)
  *   node tools/site_films_ingest.mjs --check          films.js, site-films/ and the posters agree
+ *   node tools/site_films_ingest.mjs DIR --fade 1 [id ...]   ...and make each loop seamless
+ *
+ * --fade S: the site plays films on a loop, and a film whose camera ends somewhere else
+ * than it starts JUMPS at the loop (Kevin, 2026-11-23: "none of the videos should jump").
+ * So the last S seconds are cross-faded into the first S, and the film starts S seconds in:
+ * its final frame is then exactly the frame it loops back to. The film is S seconds shorter.
+ * The poster is remade from the faded film's first frame (poster = first frame).
  *
  * Each film is copied to site-films/<id>.<sha8>.mp4 (repository root, never published by
  * deploy.yml; .github/workflows/chicago-site-films.yml uploads it to the media host), any
@@ -64,6 +71,8 @@ if (argv[0] === '--check') {
   process.exit(0);
 }
 
+const fadeAt = argv.indexOf('--fade');
+const FADE = fadeAt > -1 ? Number(argv.splice(fadeAt, 2)[1]) : 0;
 const dir = path.resolve(argv[0] ?? '');
 if (!argv[0] || !fs.existsSync(dir)) { console.error('usage: node tools/site_films_ingest.mjs DIR [id ...] | --check'); process.exit(2); }
 const ids = argv.slice(1).length ? argv.slice(1) : fs.readdirSync(dir).filter(f => f.endsWith('.mp4')).map(f => f.slice(0, -4));
@@ -79,6 +88,21 @@ for (const id of ids) {
     execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-vf', 'minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1',
       '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-crf', '26', '-preset', 'slow', '-movflags', '+faststart', '-an', smooth]);
     src = smooth;
+  }
+  if (FADE > 0) {
+    const dur = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src], { encoding: 'utf8' }).trim());
+    // A short film gets a shorter fade: at most a third of it, so most of it still plays clear.
+    const S = Math.min(FADE, Math.floor(dur / 3 * 24) / 24);
+    const looped = path.join(dir, `${id}.loop.mp4`);
+    const f = S.toFixed(3), mid = (dur - S).toFixed(3);
+    // head = [0,S], body = [S, D-S], tail = [D-S, D]; tail dissolves into head, after the body.
+    const graph = `[0:v]split=3[a][b][c];[a]trim=0:${f},setpts=PTS-STARTPTS[head];`
+      + `[b]trim=${f}:${mid},setpts=PTS-STARTPTS[body];[c]trim=${mid},setpts=PTS-STARTPTS[tail];`
+      + `[tail][head]xfade=transition=fade:duration=${f}:offset=0[seam];[body][seam]concat=n=2:v=1:a=0,format=yuv420p[out]`;
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', src, '-filter_complex', graph, '-map', '[out]', '-an',
+      '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-crf', '24', '-preset', 'slow', '-movflags', '+faststart', looped]);
+    execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-i', looped, '-frames:v', '1', '-q:v', '4', path.join(dir, `${id}.jpg`)]);
+    src = looped;
   }
   const bytes = fs.readFileSync(src);
   const sha = crypto.createHash('sha256').update(bytes).digest('hex').slice(0, 8);
