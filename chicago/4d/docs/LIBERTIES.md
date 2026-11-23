@@ -46286,6 +46286,32 @@ the elevations; the front, its porch and roof are what it would show first.
 **Review:** `docs/RESEARCH/k16-2125-frame-3723/README.md`.
 **Recorded:** 2026-11-22 (T-3723).
 
+### L-k01-robbins-2126-3722 — 2126 Prairie completed: the front's order (pilaster heads, panels, keys, scroll stops) and brick gate piers, with stated forms for the carving
+
+**Recorded:** 2026-11-23 (T-3722).
+
+**Decision:** the completed version of the Robbins house (`data/structures/versions/robbins_house_2126_prairie/completed.json`,
+L-k01-robbins-2126-3721) takes the front's order off the May 1905 Inland Architect plate, through the new K01 helper
+`generators/archetypes/k01_front_order.py` (`front_order`): four brick pilasters between the five bays under Ionic heads,
+four plain marble panels and the carved one over the door between the principal and chamber storeys, key blocks over the
+principal lintels and the chamber heads, and a scrolled marble stop on a brick pier at each corner; and the walk's gate
+hangs between brick piers under stone caps and turned balls (`boundary.piers`, K11), in place of T-3721's iron posts.
+
+**What is read, not invented.** Places and heights on the front, from the plate square-on at about 95 px a metre (the
+cameras `data/reference_views/robbins_house_2126_prairie/dw_plate.json` and `aic_plate.json` say how): the pilasters' axes
+and breadth, the capitals' breadth and their top at the entablature, each panel's place and size, the keys' places and
+heights, the scroll stops' reach and heights; the piers' section, height, ball and spacing, read on the street line through
+the same camera.
+
+**What is invented (stated forms).** The Ionic heads are a bell, two stepped discs for the volutes and an abacus, not the
+carved spiral; the carved panel is a palmette and two rosettes in relief, not the anthemion the plate shows; the scroll's
+curve is a stated sweep to a drum; every projection (the pilasters' 0.05 m, the capitals', the keys', the panels') and the
+scroll stops' depth, which a square-on view does not show; the balls' profile.
+
+**Not built, and open in the match records:** six-over-six glazing; the single leaf with two side lights under a brick
+arch at the door; the wall head (the K01 flat roof stands its deck about 1 m over the plate's cornice crown); the brick
+wall and ball-topped pier returned north at the street line.
+
 ### L-k01-2110-rees-3716 — 2110 Prairie re-read through its two photographs' cameras: broader bow lights with transoms, a narrower loggia, a lower gable light and carved field, corbels under the kneelers, a taller south stack
 
 **Decision:** T-3716 (piece 3 of T-1923, the S12B package) solves the cameras of the two pictures of the house the image store holds whole and on its own site — the c. 1980s Ryerson & Burnham photograph and the Glessner House blog's 2012 detail (`data/reference_views/rees_house_2110_prairie/`) — and changes what they read differently from the record. The bow's lights are 1.15 m clear in both storeys, not 0.95; the parlour's three take K06's transom sash (`k06.opening.sash_transom_flat`, 2.55 m clear); the loggia's colonnettes stand 0.86 m apart from 1.63 to 5.93 m, its lights 0.6 m across, not 0.98 m apart from 1.15 m; the gable's light stands from 13.4 m and its carved field's base at 15.0 m, not 14.0 and 15.35; each kneeler stands over K01's scroll console at the front's corner (`shaped_gable.kneelers.scroll`, bed 10.55 m, 0.5 m wide, a carved rosette in its roll); and the south stack's head stands at 18.4 m (`top_m`), not the kit's ridge + 0.6.
@@ -46300,3 +46326,12 @@ the elevations; the front, its porch and roof are what it would show first.
 **Ticket:** T-3716 (piece 3 of T-1923, the S12B package of T-1837).
 **Review:** `docs/RESEARCH/k01-2110-rees-1922/README.md` (§ T-3716); `data/reference_views/rees_house_2110_prairie/`.
 **Recorded:** 2026-11-23 (T-3716).
+
+### L-prairie-house-numbers-3737 — The 1904 houses' street numbers: the sheet's numbers, shown as gilt figures on each front door's transom
+
+**Decision:** the owner, 2026-11-23: *"i noticed there were no street addresses on most of the buildings could you do a sweep of what the street address numbers/plaque would have been on most buildings and then include them accordingly?"*, then *"yes start with 1904"*. **The number (inferred):** each Prairie, Indiana and Calumet lot takes the number the 1911 Sanborn prints on it (`addresses_1911`, data/street_grid/1904.json), carried back to 1904 because the 1909 renumbering left this district's avenue numbers alone (Glessner's 1887 address is 1800; Pullman's 1729 and Coleman's 1811 are the 1880s sources'; a permit of June 1888 already gives 2110). Where the sheet prints an old number in parentheses beside the new one, the old one is 1904's: the Allerton house is 1936, not 1918 (ruling r28-allerton). Cross-street lots were renumbered in 1909 and show none. A lot the sheet gives several numbers gives each house the number its own record names; a lot whose doors and numbers cannot be paired shows none. **The form:** two readings of the street put the number over the front door: 1815's photograph (`chicagology_1815_sears_two_views`) shows light serif figures "1815" centred on the transom glass, and the Inter Ocean of 2 January 1887 (`chicagology_1612_prairie_occupants`) calls 1612 the house "with the number 1612 over the portals". Those two are attested in form. Every other house's figures are **reconstructed** by that rule: gilt serif figures, outlined dark, centred on the front door's transom light at about 0.42 of its height (3.5 to 6.3 in), or on the leaf's top rail where a door has no transom. Only dwellings take one: no shed, stable or church. Glessner's 1800 is already in its door grille (sheet 95, T-2216) and nothing is added there. The typeface is the browser's serif, not a period face read from any picture.
+
+**How to resolve:** a photograph of a house's door showing its number's form, place or finish (a plaque, a stoop riser, a carved lintel, painted glass) replaces the rule for that house in `READ_FORM` (tools/place_prairie_1904_house_numbers.py); a directory of 1904 resolving a double lot's two numbers to its doors.
+**Ticket:** T-3737.
+**Review:** `tools/place_prairie_1904_house_numbers.py`, `data/house_numbers/1904.json`, `renderers/web/js/house-numbers.js`.
+**Recorded:** 2026-11-23 (T-3737).

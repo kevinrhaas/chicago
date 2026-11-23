@@ -810,7 +810,11 @@
         </div>
       </div>
       <div class="settings-group" data-set-pane="graphics">
-        <h4>Performance</h4>
+        <h4>Graphics</h4>
+        <!-- T-2656: Auto puts back what this device's profile recommends (js/settings-app.js).
+             T-3736: first, so the four choices below read as changes from it. -->
+        <div class="field row perf-auto"><span id="s-perf-auto-line">Auto</span>
+          <button class="setting-button" id="s-perf-auto" type="button">Use Auto</button></div>
         <label class="field row"><span>Scene detail</span>
           <select id="s-detail">
             <option value="full">Full — every plant and tree</option>
@@ -823,15 +827,19 @@
             <option value="1.5">Medium</option>
             <option value="2">High — sharper</option>
           </select></label>
+        <!-- T-3736 (js/graphics-settings.js): Fast is the weak-computer rule, now anyone's. -->
         <label class="field row"><span>Frame pacing</span>
           <select id="s-governor">
-            <option value="adaptive">Adaptive — steadier while moving</option>
+            <option value="adaptive">Adaptive — eases off only when slow</option>
+            <option value="fast">Fast — softer, quicker on slow computers</option>
             <option value="fixed">Fixed — always the sharpness above</option>
           </select></label>
-        <!-- T-2656: Auto puts back what this device's profile recommends (js/settings-app.js). -->
-        <div class="field row perf-auto"><span id="s-perf-auto-line">Auto</span>
-          <button class="setting-button" id="s-perf-auto" type="button">Use Auto</button></div>
-        <p class="legend-note" id="governor-line"></p>
+        <label class="field row"><span>Antialiasing</span>
+          <select id="s-antialias">
+            <option value="on">On — smoother edges</option>
+            <option value="off">Off — faster</option>
+          </select></label>
+        <p class="legend-note graphics-now" id="governor-line" role="status"></p>
         <p class="legend-note" id="device-line" hidden></p>
         <!-- T-2732: dev preview (or ?pacing=read) only — pacing-read.js unhides it. -->
         <div class="field row" id="pacing-read" hidden><span>Frame pacing reading</span>

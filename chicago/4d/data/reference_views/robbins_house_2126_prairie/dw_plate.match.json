@@ -1,0 +1,78 @@
+{
+  "structure_id": "robbins_house_2126_prairie",
+  "view": "dw_plate",
+  "glb": "assets/gltf/versions/robbins_house_2126_prairie/completed/robbins_house_2126_prairie__completed.glb",
+  "glb_sha256": "8f89389d883fcd564226e3ed818987ae6a9c4a0ab364575bb6444e9d7e29945b",
+  "camera_sha256": "bb764222da58ea55721c1774d47975ce36509180ab1ce89309331a919c9c88e3",
+  "photo_sha256": "7442ccceb5f5df56decaa6fe845d90d7da028e044c24bb9b8ccea045ef19d44a",
+  "side_by_side": "docs/RESEARCH/photo-match/robbins_house_2126_prairie/dw_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the front's composition: five bays, the fanlit door in the middle, three storeys of brick over the pale basement, the entablature over the chamber storey, the attic's five short lights and the two end chimneys stand where the plate draws them (T-3721's build, on this camera: the principal heads print at 3.87 m, the chamber sills at 5.76, within about 0.1 m)",
+      "status": "fixed"
+    },
+    {
+      "what": "the four Ionic pilaster heads between the bays under the entablature, missing at T-3721: built (front_order.pilasters), each a bell, two volutes with their eyes, the channel and an abacus, 1.05 m across, their tops on the entablature at 7.87 m",
+      "status": "fixed"
+    },
+    {
+      "what": "the marble panels between the principal and chamber storeys, missing: the four plain ones under bays 1, 2, 4 and 5 and the carved one over the door built (front_order.panels)",
+      "status": "fixed"
+    },
+    {
+      "what": "the key blocks over the principal storey's four window lintels and over all five chamber heads, missing: built (front_order.keystones)",
+      "status": "fixed"
+    },
+    {
+      "what": "the scrolled marble stops at the front's corners, missing: built on brick piers at both corners (front_order.scroll); the aic scan shows the north one plainly",
+      "status": "fixed"
+    },
+    {
+      "what": "the gate piers: T-3721 hung the walk's gate on iron posts where the plate draws brick piers under stone caps and balls; built as brick piers 0.48 m square, caps about 2.0 m over the walk, balls 0.32 m (boundary.piers)",
+      "status": "fixed"
+    },
+    {
+      "what": "the pilasters' shafts: brick on brick 0.05 m proud, they read in the plate as faint vertical lines and in the render barely at all under an overcast key; their places and breadth are built",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the carving of the panel over the door and of the volutes: the plate shows a carved anthemion frieze panel and true spiral volutes; built as a palmette and two rosettes in relief and as stepped discs (liberty L-k01-robbins-2126-3722), right in place, size and tone",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the attic lights' eared dressings (small blocks at the heads' upper corners, about 0.25 m) are built as plain flat heads",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the entablature's frieze: the plate shows veined marble slabs and a dentil course under the cornice of the attic sill; built as plain stone courses at the same heights",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the sash: the plate's lights are six over six (the attic's six over six); K06's sash is two over two. The openings, their sizes and frames match; the glazing bars are a K06 variant the kit does not yet carry",
+      "status": "open"
+    },
+    {
+      "what": "the wall head: the plate's brick stops at about 11.1 m under a cornice of about 0.4 m that breaks forward over each pilaster and a blocking course over it, crown about 11.8 m; the render's flat K05 roof puts its fascia at 11.6-12.0 m and a blocking course and coping up to 12.8 m, about 1 m over the plate's crown. The K01 flat roof stands its deck above the eave datum by the kit's fascia and upstand, so this needs a flat roof whose deck lies behind the cornice's crown: a generator change beyond T-3722's run",
+      "status": "open"
+    },
+    {
+      "what": "the door: the plate draws a single panelled leaf between two narrow side lights and slender colonnettes under the fanlight, in a brick arch with a stone keystone; the render has K07's double leaf under a stone arch ring and surround. The mouth's width and the fanlight match; the leaf count, the side lights and the surround's material do not",
+      "status": "open"
+    },
+    {
+      "what": "the area: the plate's iron railing stands on a low brick wall under a stone coping, with evergreens in window boxes behind it; built as K11's spear railing on its stone curb. The boxes and shrubs are planting of the photograph's day",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flanks, the rear, the roof deck and colour: the plate is a monochrome square-on view; red brick and white marble are the register's reading",
+      "status": "not shown"
+    },
+    {
+      "what": "the south end: the larger scan's edge cuts close beyond the south scroll; the render's end pier and side gate on the street line at the south lot line are not shown",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-3722, 2026-11-23: the side-by-side read element by element against the plate (both scans are one photograph)"
+}

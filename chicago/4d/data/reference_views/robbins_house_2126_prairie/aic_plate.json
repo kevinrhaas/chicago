@@ -1,0 +1,25 @@
+{
+ "structure_id": "robbins_house_2126_prairie",
+ "version": "completed",
+ "source_id": "inland_architect_1905_05_robbins_plate",
+ "library_image": "a20-aic-ia-robbins-plate",
+ "photo": "../../sources/assets/robbins_2126_plate_t3722/a20-aic-ia-robbins-plate.jpg",
+ "image_px": [
+  1056,
+  733
+ ],
+ "principal_px": [
+  520.0,
+  543.8
+ ],
+ "focal_px": 1090.7,
+ "eye": [
+  38.26,
+  6.095,
+  1.5
+ ],
+ "yaw_deg": -90.0,
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "Fitted for T-3722 to the second, smaller scan of the same plate (1056 x 733 px, the whole leaf with its caption and margins) exactly as the larger copy's camera is (dw_plate.json): the same eye and heading, since both are one photograph, with this copy's own scale and centre. The front's corners stand at x 262 and 775 px, 513 px for the front's 12.19-12.23 m: 41.95 px a metre, f = 41.95 x 26 m. The door's axis is at x 520 px (the principal column); the threshold, 1.28 m over grade, at y 553, the house's grade under the front at 606.7 and the principal row, the eye's 1.5 m, at 543.8. CHECKS: the principal heads at y 452 (3.89 m), the chamber sills at 371 (5.82 m), the cornice's crown at 116 (11.9 m). This copy shows both corners' scroll stops and the brick wall and ball-topped pier returned north beyond the north corner more plainly than the larger copy, whose edge is cut closer. WHAT IS SOFT: a square-on view fixes the front's plane and its scale and nothing of the camera's distance, which trades against f and moves only what stands before the front (the gate piers, the railing, the stoop and the scroll stops); 26 m is the far walk of Prairie Avenue (6.59 m to the street line, 66 ft of right of way), and the eye's height, 1.5 m over the house's grade, is the height at which the street line's foot (the dwarf wall's base) and the house's grade under the threshold fall where the plate draws them to within about 10 px; the walk and the curb beyond do not agree with any one height to better than about 0.5 m (the walk lies under the yard, by how much no source says). Places on the front are good to about 0.1 m. LIGHT: a bare-tree winter day under a pale sky; the reveals and the cornice cast only soft shade and no hard shadow falls: overcast. VERSION: the plate shows the finished house; on 1 July 1904 it was a building site (census ruling r35-robbins-2126), so this camera is matched against the completed version's mesh (`version`: completed, data/structures/versions/robbins_house_2126_prairie/completed.json), never against the July 1904 works shell the town stands."
+}
