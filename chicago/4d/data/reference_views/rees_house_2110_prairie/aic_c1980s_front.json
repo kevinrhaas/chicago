@@ -1,0 +1,41 @@
+{
+ "structure_id": "rees_house_2110_prairie",
+ "source_id": "aic_rees_2110_c1980s_photo",
+ "library_image": "a20-aic-rees-c1980s-photo",
+ "photo": "../../sources/assets/rees_2110_photos_t3716/aic_rees_2110_c1980s.jpg",
+ "image_px": [
+  724,
+  1056
+ ],
+ "principal_px": [
+  362.0,
+  528.0
+ ],
+ "focal_px": 824.7,
+ "eye": [
+  22.39,
+  4.25,
+  2.09
+ ],
+ "yaw_deg": -93.67,
+ "basis_right_up_forward": [
+  [
+   -0.06006,
+   0.99816,
+   0.00875
+  ],
+  [
+   0.41142,
+   0.01677,
+   0.91129
+  ],
+  [
+   -0.90946,
+   -0.05833,
+   0.41167
+  ]
+ ],
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "Fitted for T-3716 to the Ryerson & Burnham print (the image store's 724 x 1056 px copy) in the K01 record's frame (u east toward Prairie Avenue from the main body's rear, the front at u 9.65; v north from the south wall, the front's s). The print is a whole 35 mm frame, its black border kept, so the principal point is held at the frame's middle (362, 528). The camera looks steeply up from the walk before the house, so it is solved inclined (basis_right_up_forward: pitch 24.3 degrees up, roll 0.55). Least squares on 16 points of the record against the print: the gable's apex (x 372, y 100) and its light's middle (372, 251); the loggia's outer colonnettes at their foot and springing (x 262 and 500 at y 398 and 342, before T-3716 moved them); the light over the door, all four corners (x 502-588, y 498-617); the door's arch head and its sill (575, 702 and 922); and the bow's centre lights at their heads and sills (x 298-303, y 452, 578, 672, 880), on the bow's face. Result: eye u 22.39, v 4.25 (in the roadway's near edge, about 12.7 m before the front, on its middle), 2.09 m up, yaw -93.67, focal 824.7 px (a 28 mm lens on the 36 mm frame is about 810 px), RMS 11 px. Adding four points on the front's corners (x 152 and 613 at y 450; 122 and 655 at y 850) and re-running moves the eye 0.5 m (u 22.91, v 3.97, 1.69 m up) and the focal to 871 px with the same residual pattern; the first fit is kept. Its residuals are not random, and the patterns are what the photo-match then read: the loggia's south end 22-27 px north of T-3715's colonnettes (the loggia 4.3 m wide, not 4.9), the gable light about 0.6 m under the record's. Read back through this camera the front measures 7.66-8.1 m across against the record's 7.8. The gable slab's face stands 0.32 m before the wall in the record, so points on it are read on u 9.97. No shadow falls in the print (an overcast winter day, the walls evenly lit), so the render is overcast. The camera was then held fixed through T-3716's rebuilds."
+}
