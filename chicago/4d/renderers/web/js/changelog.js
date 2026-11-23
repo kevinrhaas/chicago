@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3235, ts: '2026-11-23T22:34:06.120Z', date: 'Nov 23, 2026, 4:34 PM CT', title: 'House numbers are quieter, and each house has its own', kind: 'improve',
+    items: [
+      'The street numbers over the front doors no longer glow. They are muted gold leaf or white paint, as they would look on glass from the walk.',
+      'Each house\'s number is lettered in its own style: gold or white, plain or sloped or block letters, outlined or shaded in black. Neighbours differ, the way sign-writers lettered them.',
+      '1815 Prairie keeps the gold Roman figures its photograph shows.',
+    ] },
   { v: 3234, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: 'The public site opens four ways in: play, teach, check, build', kind: 'feature',
     items: [
       'The home page opens on a film of all four years, then offers four ways in: Players, Educators, Historians and Technicians.',
