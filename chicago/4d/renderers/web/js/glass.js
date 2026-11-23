@@ -94,6 +94,26 @@ export function cheapenGlass(material, mode = DEFAULT_GLASS) {
   return glass;
 }
 
+/** T-3728 (Bill's PC, 2026-11-22): every transmissive material under `root` drawn as thin
+ * alpha-blended glass, in place. One transmissive pane in view makes three draw every opaque
+ * object a second time into a target and compile a second program for every material drawn
+ * there: on an Intel UHD 630 the first town brougham seen froze the page for 25 s (about 90
+ * programs linked at once), and every frame with one in view drew the town twice. Used for
+ * vehicles (the brougham's cabin glass), whose materials are their own GLB's, not shared;
+ * a house's glass keeps `cheapenGlass`. The GLB still says what the glass is. */
+export function plainTransmissiveGlass(root) {
+  root?.traverse((node) => {
+    if (!node.isMesh) return;
+    for (const m of Array.isArray(node.material) ? node.material : [node.material]) {
+      if (!isTransmissive(m)) continue;
+      m.userData.cheapenedFrom = 'KHR_materials_transmission';
+      m.transmission = 0; m.transparent = true; m.opacity = 0.2; m.depthWrite = false;
+      m.needsUpdate = true;
+    }
+  });
+  return root;
+}
+
 /** The key a pane-patched batch is grouped under, and the program it compiles. */
 export const PANE_PATCH = 'glass-panes-v1';
 
