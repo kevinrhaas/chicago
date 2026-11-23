@@ -112,7 +112,12 @@ for (const year of ['1812', '1835', '1904']) {
   assert(!catalog.jaunts.some((j) => jaunts.find((r) => r.id === j.id).audience === 'adults'), 'never an 18+ telling');
   for (const j of catalog.jaunts) {
     const { stops, dropped } = jauntStops(j, catalog);
-    assert.equal(dropped, 0, `${year} ${j.id}: every stop is a building or viewpoint the town holds`);
+    // Every stop the town holds; a jaunt longer than a route (prairie-built-so-far's 50
+    // stops, open since the owner approved the monument on 2026-11-22) keeps its first
+    // ROUTE_LIMITS.stops and says how many it could not add.
+    const unknown = (j.destinations ?? []).filter((d) => jauntStops({ destinations: [d] }, catalog).dropped).length;
+    assert.equal(unknown, 0, `${year} ${j.id}: every stop is a building or viewpoint the town holds`);
+    assert(dropped === 0 || stops.length === ROUTE_LIMITS.stops, `${year} ${j.id}: only stops past the route's limit are left out`);
     assert(stops.length > 0 && stops.length <= 20);
     const r = normalRoute({ year, title: j.title.slice(0, 80), jaunt: j.id, stops: stops.map((s) => ({ ...s, question: 'What do you notice here?' })) });
     const href = routeLink(r, `https://chicago.polecat.live/4d/${year}/`);
