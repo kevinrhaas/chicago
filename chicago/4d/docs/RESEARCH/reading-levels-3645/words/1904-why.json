@@ -6520,11 +6520,6 @@
    "This says where the back corner of the main part of the building stands. We read it off an old fire map. It could be off by about a meter. We turned the plan to face the street."
   ]
  },
- "The rear corner of the main body's rectangle (lot frame u 23.500, v -5.500 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.313 degrees turns the plan's u axis onto the lot's own rear-to-street line.": {
-  "8-10": [
-   "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-  ]
- },
  "The rear corner of the main body's rectangle (lot frame u 23.750, v -2.250 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.681 degrees turns the plan's u axis onto the lot's own rear-to-street line.": {
   "8-10": [
    "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."

@@ -53,19 +53,19 @@
   "garden_bed": "kitchen garden bed"
  },
  "summary": {
-  "lots": 133,
-  "surfaces": 279,
-  "doors": 125,
+  "lots": 134,
+  "surfaces": 281,
+  "doors": 126,
   "posts": 110,
   "gardens": 29,
   "by_kind": {
-   "alley_walk": 21,
+   "alley_walk": 22,
    "coach_walk": 28,
    "drying_yard": 55,
    "front_walk": 8,
    "gangway": 30,
    "garden_bed": 29,
-   "rear_terrace": 108
+   "rear_terrace": 109
   }
  },
  "lots": [
@@ -16626,6 +16626,116 @@
    "posts": [],
    "crops": [],
    "shrubs": [],
+   "trees": [],
+   "creeper": [],
+   "beds": []
+  },
+  {
+   "parcel": "prairie_2127",
+   "addresses": [
+    "2127",
+    "2129"
+   ],
+   "street": "prairie",
+   "side": "east",
+   "structures": [
+    "flats_2127_prairie"
+   ],
+   "scheme": "service_court",
+   "grade": "reconstructed",
+   "sources": [],
+   "note": "",
+   "surfaces": [
+    {
+     "id": "prairie_2127:rear_terrace:0",
+     "kind": "rear_terrace",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1447.8,
+       -3701.53
+      ],
+      [
+       1447.83,
+       -3705.62
+      ],
+      [
+       1450.34,
+       -3705.6
+      ],
+      [
+       1450.31,
+       -3701.51
+      ]
+     ],
+     "along_deg": 179.56,
+     "lift_m": 0.03,
+     "order": 0,
+     "grade": "reconstructed",
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2127:alley_walk:1",
+     "kind": "alley_walk",
+     "material": "yard_brick",
+     "polygon_local_m": [
+      [
+       1450.32,
+       -3702.81
+      ],
+      [
+       1450.33,
+       -3703.81
+      ],
+      [
+       1471.14,
+       -3703.65
+      ],
+      [
+       1471.14,
+       -3702.65
+      ]
+     ],
+     "along_deg": 179.56,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "A walk from the back door to the alley, where the ash box and the deliveries were (L-prairie-back-yards-3488)."
+    }
+   ],
+   "doors": [
+    {
+     "id": "prairie_2127:back_door",
+     "structure": "flats_2127_prairie",
+     "e": 1447.9,
+     "n": -3703.58,
+     "facing_deg": 89.56,
+     "sill_m": 0.18,
+     "width_m": 0.95,
+     "height_m": 1.9,
+     "leaf": true,
+     "stoop": {
+      "depth_m": 0.0,
+      "width_m": 1.2,
+      "risers": 1,
+      "run_m": 0.28,
+      "material": "stone"
+     },
+     "grade": "reconstructed",
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.18 m up, 1 steps down to the yard (L-prairie-back-yards-3488)."
+    }
+   ],
+   "posts": [],
+   "crops": [],
+   "shrubs": [
+    [
+     1470.16,
+     -3705.65,
+     "lilac",
+     2.79,
+     2.25
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []
