@@ -300,6 +300,8 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+step "A structure batch's cull reads its bounds once and asks a ground cell at a time, making three's own multi-draw entry for entry in both passes (T-3731)" \
+  node tools/test_batch_cull_index.mjs
 step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
   node tools/test_short_index.mjs
 step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \

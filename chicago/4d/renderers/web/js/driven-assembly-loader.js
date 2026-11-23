@@ -17,6 +17,8 @@ import { applyHorseAppearance } from './horse-appearance.js';
 import { applyCoachwork } from './coachwork.js';
 import { createCabDoor } from './cab-door.js';
 import { seatInCab, passengerRoot } from './cab-passenger.js';
+import { plainTransmissiveGlass } from './glass.js';
+
 
 /** T-3557: hoof support over an admitted carriage drive (a kerb ramp, a coach-house floor):
  *  the same nine samples as fitHorseSupport, their plane, with no standing bound (it is a
@@ -264,7 +266,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         const bytes = await response.arrayBuffer();
         const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
         if (sha256 !== row.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from its row');
-        return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
+        return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href)
+          .then((gltf) => { plainTransmissiveGlass(gltf.scene); return gltf; });
       })() };
       wagons.set(key, entry);
     }
@@ -447,6 +450,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
           if (sha256 !== carriedNow.sha256) throw Error('driven assembly: actual vehicle differs from the seated binding');
           const parsed = await loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
+          // T-3728: the cabin glass drawn thin, not as transmission (glass.js).
+          plainTransmissiveGlass(parsed.scene);
           return { vehicle: parsed, sha256 };
         })(),
         (async () => humanAssets.acquire(row.driver_asset, driverLod))(),
