@@ -225,7 +225,7 @@ def dress(a, frames):
             prism(a, trim, frame, [(s - w / 2, ya), (s + w / 2, ya), (s + w * 0.62, yb), (s - w * 0.62, yb)],
                   0.0, d, seed, conf)
     if fo.get("keystones"):
-        meta["keystones"] = sum(len(q["at_m"]) for q in fo["keystones"])
+        meta["keystones"] = len([at for q in fo["keystones"] for at in q["at_m"]])
     sc = fo.get("scroll")
     if sc:
         for side in (("low", "high") if sc["side"] == "both" else (sc["side"],)):
