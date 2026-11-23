@@ -113,6 +113,36 @@ OPEN = "open"
 RUNS = ("south", "north")
 
 
+PIER_KEYS = {"section_m", "height_m", "ball_m"}
+
+
+def piers_spec(t) -> dict | None:
+    """T-3722: the record's brick gate piers (`boundary.piers`), or None for the kit's stone ones."""
+    pb = t.get("piers")
+    if pb is None:
+        return None
+    if t.get("posts") or not isinstance(pb, dict) or set(pb) != PIER_KEYS:
+        raise ValueError(f"boundary.piers takes {sorted(PIER_KEYS)}, and not beside boundary.posts")
+    sec, h, b = (float(pb[k]) for k in ("section_m", "height_m", "ball_m"))
+    if not (0.3 <= sec <= 0.9 and 1.0 <= h <= 2.6 and 0.2 <= b <= min(0.6, sec)):
+        raise ValueError(f"boundary.piers {pb}: 0.3-0.9 m square, 1.0-2.6 m high, a ball 0.2 m across up to the pier's "
+                         f"section")
+    return {"section_m": sec, "height_m": h, "ball_m": b}
+
+
+def ball(dia) -> list:
+    """A turned ball on a short neck and a square-edged plinth, `dia` across, as a lathe profile
+    (radius, height) from the cap up."""
+    r = dia / 2
+    out = [(0.0, 0.0), (r * 0.62, 0.0), (r * 0.62, r * 0.22), (r * 0.34, r * 0.32), (r * 0.3, r * 0.48)]
+    c = r * 0.48 + r                                  # the ball's centre
+    for k in range(-6, 7):                            # from just under its waist round to the top
+        t = math.radians(-75 + 165 * (k + 6) / 12)
+        out.append((round(r * math.cos(t), 5), round(c + r * math.sin(t), 5)))
+    out[-1] = (0.0, out[-1][1])
+    return out
+
+
 def _kit():
     # imported late, as k10_frontage does: the kit imports k01_frontage's vector helpers
     from . import k11_ironwork
@@ -302,10 +332,21 @@ def dress(a):
     po = t.get("posts")
     if po:
         ps = po["section_m"]
+    # T-3722: or on brick piers under stone caps and turned balls (2126's plate): `piers` names
+    # their section, height and ball, in place of the kit's stone piers and urns
+    pb = piers_spec(t)
+    if pb:
+        ps = pb["section_m"]
 
     def pier(x):
         if po:
             return var.pier(x, urn=False, half=ps / 2, h=po["height_m"], role="iron", cap_role="iron")
+        if pb:
+            pr = var.pier(x, urn=False, half=ps / 2, h=pb["height_m"], role="brick")
+            cap = var.pieces[-1]                       # the pier's cap, the last member it laid
+            var.finial(cap.name, x, 0.0, pb["height_m"] - Pr["cap_sink_m"] + Pr["cap_height_m"], ball(pb["ball_m"]),
+                       sink=Pr["urn_sink_m"], role="stone")
+            return pr
         return var.pier(x)
     s_south, s_north = t["lot_s_m"]
     street = D + t["street_line_m"]

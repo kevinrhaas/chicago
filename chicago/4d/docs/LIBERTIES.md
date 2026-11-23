@@ -46285,6 +46285,32 @@ the elevations; the front, its porch and roof are what it would show first.
 **Review:** `docs/RESEARCH/k16-2125-frame-3723/README.md`.
 **Recorded:** 2026-11-22 (T-3723).
 
+### L-k01-robbins-2126-3722 — 2126 Prairie completed: the front's order (pilaster heads, panels, keys, scroll stops) and brick gate piers, with stated forms for the carving
+
+**Recorded:** 2026-11-23 (T-3722).
+
+**Decision:** the completed version of the Robbins house (`data/structures/versions/robbins_house_2126_prairie/completed.json`,
+L-k01-robbins-2126-3721) takes the front's order off the May 1905 Inland Architect plate, through the new K01 helper
+`generators/archetypes/k01_front_order.py` (`front_order`): four brick pilasters between the five bays under Ionic heads,
+four plain marble panels and the carved one over the door between the principal and chamber storeys, key blocks over the
+principal lintels and the chamber heads, and a scrolled marble stop on a brick pier at each corner; and the walk's gate
+hangs between brick piers under stone caps and turned balls (`boundary.piers`, K11), in place of T-3721's iron posts.
+
+**What is read, not invented.** Places and heights on the front, from the plate square-on at about 95 px a metre (the
+cameras `data/reference_views/robbins_house_2126_prairie/dw_plate.json` and `aic_plate.json` say how): the pilasters' axes
+and breadth, the capitals' breadth and their top at the entablature, each panel's place and size, the keys' places and
+heights, the scroll stops' reach and heights; the piers' section, height, ball and spacing, read on the street line through
+the same camera.
+
+**What is invented (stated forms).** The Ionic heads are a bell, two stepped discs for the volutes and an abacus, not the
+carved spiral; the carved panel is a palmette and two rosettes in relief, not the anthemion the plate shows; the scroll's
+curve is a stated sweep to a drum; every projection (the pilasters' 0.05 m, the capitals', the keys', the panels') and the
+scroll stops' depth, which a square-on view does not show; the balls' profile.
+
+**Not built, and open in the match records:** six-over-six glazing; the single leaf with two side lights under a brick
+arch at the door; the wall head (the K01 flat roof stands its deck about 1 m over the plate's cornice crown); the brick
+wall and ball-topped pier returned north at the street line.
+
 ### L-k01-2110-rees-3716 — 2110 Prairie re-read through its two photographs' cameras: broader bow lights with transoms, a narrower loggia, a lower gable light and carved field, corbels under the kneelers, a taller south stack
 
 **Decision:** T-3716 (piece 3 of T-1923, the S12B package) solves the cameras of the two pictures of the house the image store holds whole and on its own site — the c. 1980s Ryerson & Burnham photograph and the Glessner House blog's 2012 detail (`data/reference_views/rees_house_2110_prairie/`) — and changes what they read differently from the record. The bow's lights are 1.15 m clear in both storeys, not 0.95; the parlour's three take K06's transom sash (`k06.opening.sash_transom_flat`, 2.55 m clear); the loggia's colonnettes stand 0.86 m apart from 1.63 to 5.93 m, its lights 0.6 m across, not 0.98 m apart from 1.15 m; the gable's light stands from 13.4 m and its carved field's base at 15.0 m, not 14.0 and 15.35; each kneeler stands over K01's scroll console at the front's corner (`shaped_gable.kneelers.scroll`, bed 10.55 m, 0.5 m wide, a carved rosette in its roll); and the south stack's head stands at 18.4 m (`top_m`), not the kit's ridge + 0.6.
