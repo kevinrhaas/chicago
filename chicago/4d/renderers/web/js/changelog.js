@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3230, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Prairie Avenue\'s houses show their street numbers', kind: 'add',
+    items: [
+      'In 1904, 124 houses on Prairie, Indiana and Calumet avenues show their numbers in gilt figures over the front door, as they were then.',
+      'That\'s how an 1890s photograph shows 1815 Prairie, and how a newspaper of 1887 describes 1612, "with the number 1612 over the portals".',
+      'The numbers are the 1904 ones. Where Chicago\'s 1909 renumbering changed one, the house keeps its old number: the Allerton house is 1936, not 1918.',
+      'Glessner\'s 1800 is already worked into his front door\'s iron grille, so his door is unchanged.',
+    ] },
+  { v: 3229, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Low-powered computers: 1904 loads without its last long pauses', kind: 'improvement',
+    items: [
+      'On a computer with built-in graphics, the loading screen keeps moving while the buildings, the lakefront railway and the ground are handed to the graphics card.',
+      'The first view of town comes up without a stop, because what it shows first is made ready while the town loads.',
+    ] },
   { v: 3228, ts: '2026-11-23T19:16:57.768Z', date: 'Nov 23, 2026, 1:16 PM CT', title: 'Prairie Avenue households no longer stand inside each other', kind: 'fix',
     items: [
       'Everyone on Prairie Avenue now has a place of their own outside their door: a household out together for the evening talk spreads along the walk instead of sharing one spot at the foot of the steps.',
