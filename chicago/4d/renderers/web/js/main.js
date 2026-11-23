@@ -6833,7 +6833,7 @@ async function boot() {
   async function openSceneDirectoryPerson(id, { approach = false } = {}) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     const at = [row?.lives_at, row?.works_at].find(s => s && loaded.registry.has(s));
-    if (at) return !!openBuilding(at, { person: id, approach });
+    if (at) return !!openBuilding(at, approach ? { person: id, approach } : { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
   async function findSceneDirectoryPerson(id) {
