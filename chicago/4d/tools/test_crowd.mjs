@@ -62,6 +62,11 @@ for (const tier of ['full', 'balanced', 'light']) {
   ok(tierTargets(m0 - HYST_M - 0.5, tier, { was: { v: 1, t: 0 } }).v === 1, `${tier}: someone drawn is still drawn inside the near edge`);
   ok(tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).v === 1 && tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).t === 0, `${tier}: someone close by is the middle body, not nothing`);
   // Built figures: only a card, and only past their own range.
+  // T-3553 (owner, 2026-11-23, on a jaunt: people "looked terrible relatively close up"): one a
+  // jaunt holds out of the scene is never the coarse middle body up close; still drawn far off.
+  ok(tierTargets(6, tier, { was: { v: 1, t: 0 }, held: true }).v === 0, `${tier}: a held person up close is not drawn here`);
+  ok(tierTargets(m0 - HYST_M + 0.5, tier, { was: { v: 1, t: 0 }, held: true }).v === 1, `${tier}: a held person drawn is held just inside the near edge`);
+  ok(tierTargets(m0 + 5, tier, { was: null, held: true }).v === 1, `${tier}: a held person past the near edge is drawn`);
   ok(tierTargets(100, tier, { built: true, drawM: 140 }).v === 0, `${tier}: a built figure in its range is humans.js's`);
   const b = tierTargets(150, tier, { built: true, drawM: 140 });
   ok(b.v === 1 && b.t === 1, `${tier}: a built figure past its range is a card`);
