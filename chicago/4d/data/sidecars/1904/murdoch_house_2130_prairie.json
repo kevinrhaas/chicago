@@ -360,8 +360,8 @@
           "s_m": 6.6,
           "fabric": "front_stone",
           "plan": {
-            "radius_m": 2.5,
-            "centre_proud_m": 0.0
+            "radius_m": 2.4,
+            "centre_proud_m": 0.1
           },
           "storeys": [
             {
@@ -426,7 +426,7 @@
             "cornice": "k10.cornice.moulded_stone"
           },
           "finial": {
-            "height_m": 0.6,
+            "height_m": 1.2,
             "radius_m": 0.1,
             "form": "turned",
             "segments": 6
@@ -439,7 +439,7 @@
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "note": "The round tower the sheet draws at the front's north corner ('3B' in a circle, its stone bowed out over the front from row 1500.5 to the north wall, about 2.2 m proud at column 750) and both photographs show: a drum of rough ashlar in three stages, two storeys of tall lights and a short top stage of smaller ones over the main eave, under a slated cone on a moulded course with a finial. The sheet's dashed circle (columns 720-749.5) reads a drum about 2.8 m in radius on a centre about 0.6 m inside the front's face; K01 stands a single-capped front tower's centre on the face or before it, so it is built 2.5 m in radius on the face, 6.6 m along it: it bows 2.5 m proud (the sheet's 2.2 m) on a 5.0 m chord (the sheet's about 6.3 m), narrower along the front (L-k01-2130-murdoch-3729); its cone at 2.0 rise to 1 run, the print's steep cone (its height about its base's width). Three lights a stage, evenly round the drum's face: the pictures see two or three of each, and T-3730's cameras place them."
+      "note": "The round tower the sheet draws at the front's north corner ('3B' in a circle, its stone bowed out over the front from row 1500.5 to the north wall, about 2.2 m proud at column 750) and both photographs show: a drum of rough ashlar in three stages, two storeys of tall lights and a short top stage of smaller ones over the main eave, under a slated cone on a moulded course with a finial. The sheet's dashed circle (columns 720-749.5) reads a drum about 2.8 m in radius on a centre about 0.6 m inside the front's face; K01 stands a single-capped front tower's centre on the face or before it, so it is built 2.4 m in radius on a centre 0.1 m before the face, 6.6 m along it: it bows 2.5 m proud (the sheet's 2.2 m) on a 4.8 m chord (the sheet's about 6.3 m), narrower along the front (L-k01-2130-murdoch-3729); its cone at 2.0 rise to 1 run, the print's steep cone (its height about its base's width). Three lights a stage, evenly round the drum's face: the pictures see two or three of each, and T-3730's cameras place them."
     },
     "chimneys": {
       "value": {
