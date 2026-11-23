@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3219, ts: '2026-11-23T14:45:48.289Z', date: 'Nov 23, 2026, 8:45 AM CT', title: '1835 opens lighter: no 1904 street code downloaded for it', kind: 'fix',
+    items: [
+      'A first visit to 1835 no longer downloads the code for 1904\'s street grid, parkway elms, gas lamps, yards, railway, context city, crossings and Glessner\'s coach house, none of which 1835 draws: 0.16 MB and eight requests less before you can walk.',
+    ] },
   { v: 3218, ts: '2026-11-23T11:09:46.169Z', date: 'Nov 23, 2026, 5:09 AM CT', title: '2115 Prairie\'s pavilion tower gets its iron cresting', kind: 'fix',
     items: [
       'The tall roof over the Armour house\'s pavilion now carries a rail of iron cresting round its top, as in its photograph.',
