@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // T-2663 (NAV-801): Tour mode, the Field Check. Drives the real engine (js/tour.js) over a
-// fake page: each of the eleven steps completes only on its own action, taken during it;
+// fake page: each of the ten steps completes only on its own action, taken during it;
 // progress survives a reload (QA-16: resume at 4, skip at 6, replay); bubbles are 14 words
 // or fewer. T-2954 made it the basics: select a building and release it, open Move, open
 // Settings; no Confidence view step. T-3445 added People and the card's tabs. T-3642 put
 // Interact (the town's one use key) and Jaunts in People's place; the count names only the
 // steps that apply. T-3742 named stories, questions, mysteries, Language, Reading age and
-// Graphics, and added Jump years (1871 and its Great Fire) before Ready. The smoke (part 13)
-// runs it in a page by touch and by mouse.
+// Graphics, and Ready points at Home's three ways in; the tour never leaves the year it is
+// taken in (the owner, 2026-11-23). The smoke (part 13) runs it in a page by touch and by mouse.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,9 +28,9 @@ const storage = store();
 const make = () => createTour({ probe: () => ({ ...page, apps: { ...page.apps } }), render: (v) => views.push(v), onFinish: () => finished++, storage });
 const openApp = (id) => { page.apps[id] = (page.apps[id] ?? 0) + 1; page.level = 1; };
 
-// ---- the eleven steps, and their words -----------------------------------------------------
-assert.equal(STEPS.length, 11);
-assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Interact', 'Jaunts', 'Move', 'Settings', 'Jump years', 'Ready']);
+// ---- the ten steps, and their words -----------------------------------------------------
+assert.equal(STEPS.length, 10);
+assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Interact', 'Jaunts', 'Move', 'Settings', 'Ready']);
 assert(!STEPS.some((s) => /confidence/i.test(s.task + s.bubble({}))), 'no Confidence view step (T-2954)');
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 for (const scene of ['1904', '1835', '1812', '1871']) {
@@ -75,22 +75,12 @@ assert.equal(STEPS[7].target({ touch: true, level: 1, app: 'home' }), '#nav-tile
 assert.equal(STEPS[8].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
 assert.equal(STEPS[8].bubble({ touch: true, level: 0 }), 'Open the Navigator, then Settings: language, reading age, graphics, name cards, sound.',
   'Settings names Language, Reading age and Graphics (T-3742)');
-// T-3742: Jump years, on the year chip (Home's Other years where Home is open), names 1871.
-assert.equal(STEPS[9].bubble({}), 'Click the year to jump: 1812, 1835, 1871 and its Great Fire, 1904.');
-assert.match(STEPS[9].bubble({ touch: true }), /^Tap the year/);
-assert.equal(STEPS[9].target({ level: 0 }), '#year-badge', 'Jump rings the year chip');
-assert.equal(STEPS[9].target({ level: 1, app: 'settings' }), '#year-badge', 'over another app too');
-assert.equal(STEPS[9].target({ level: 1, app: 'home' }), '#nav-choice-years', 'or Home\'s Other years key, where Home is open');
-assert.match(html0(), /id="year-badge"/, 'the year chip is on the page');
-assert.match(html0(), /id="nav-choice-years"[^>]*data-app="jump"/, 'and Home\'s Other years opens Jump');
-for (const scene of ['1812', '1835', '1871', '1904']) {
-  assert.match(STEPS[10].bubble({ scene }), /photo/, 'Ready names Go to by photo (T-3436)');
-  assert.match(STEPS[10].bubble({ scene }), /People/, 'and People, whose step Interact took');
-}
-assert.match(STEPS[10].bubble({ scene: '1904' }), /photo hunt/, 'and the photo hunt where the year has one (T-3742)');
-assert.match(STEPS[10].bubble({ scene: '1835' }), /photo hunt/);
-assert.doesNotMatch(STEPS[10].bubble({ scene: '1871' }), /hunt/, 'not where it has none');
-assert.doesNotMatch(STEPS[10].bubble({ scene: '1812' }), /hunt/);
+// T-3742 (the owner, 2026-11-23): the tour stays in the year it is taken in — loading another
+// takes too long — and Ready sends the visitor on: a Jaunt, Home's Go to, or Free roam.
+assert(!STEPS.some((s) => [false, true].some((touch) => /\b(1812|1835|1871|1904|jump)\b/i.test(s.bubble({ scene: '1904', touch })))), 'no step sends the visitor to another year');
+assert.equal(STEPS[9].bubble({}), 'Ready. Pick a Jaunt, Go to someone, or Free roam.');
+assert.match(html0(), /class="nav-choice" type="button" data-segment="goto"><strong>Go to…<\/strong>/, 'Home has Go to…');
+assert.match(html0(), /class="nav-choice" type="button" data-segment="roam"><strong>Free roam<\/strong>/, 'and Free roam');
 
 // ---- each step waits for its own action -----------------------------------------------------
 let tour = make();
@@ -133,7 +123,7 @@ page.selected = false; tour.tick(); assert.equal(tour.step, 5, 'released');
 
 // 06: Interact used during the step (T-3642).
 assert.equal(views.at(-1).task, 'Interact');
-assert.equal(views.at(-1).of, 11, 'eleven steps');
+assert.equal(views.at(-1).of, 10, 'ten steps');
 page.level = 1; openApp('people'); tour.tick(); assert.equal(tour.step, 5, 'opening a menu is not Interact');
 page.acts = (page.acts ?? 0) + 1; tour.tick(); assert.equal(tour.step, 6, 'Interact used');
 
@@ -154,14 +144,8 @@ openApp('move'); tour.tick(); assert.equal(tour.step, 8, 'Move opened');
 openApp('move'); tour.tick(); assert.equal(tour.step, 8, 'another app is not Settings');
 openApp('settings'); tour.tick(); assert.equal(tour.step, 9, 'Settings opened');
 
-// 10: Jump years, opened during the step (T-3742).
-assert.equal(views.at(-1).task, 'Jump years');
-assert.equal(views.at(-1).target, '#year-badge');
-openApp('settings'); tour.tick(); assert.equal(tour.step, 9, 'another app is not Jump');
-openApp('jump'); tour.tick(); assert.equal(tour.step, 10, 'Jump opened');
-
-// 11: Finish.
-tour.tick(); assert.equal(tour.step, 10, 'step 11 waits for Finish');
+// 10: Finish.
+tour.tick(); assert.equal(tour.step, 9, 'step 10 waits for Finish');
 assert.equal(views.at(-1).action, 'finish');
 tour.press();
 assert.equal(tour.running, false); assert.equal(finished, 1, 'Finish ends the tour');
@@ -252,4 +236,4 @@ assert(/rgb\(0 0 0 \/ 55%\)/.test(css), 'the rest of the screen dims to 55 %');
 assert(/prefers-reduced-motion: reduce/.test(css), 'and keeps still with reduced motion');
 assert(/\.tour \{[^}]*pointer-events: none/.test(css) && /\.tour-card \{[^}]*pointer-events: auto/.test(css), 'only the card takes the pointer');
 
-console.log('test_tour: eleven steps, each on its own action (select, release, Interact, Jaunts, Move, Settings, Jump); resume at 4, skip at 6, replay; bubbles of 14 words or fewer');
+console.log('test_tour: ten steps, each on its own action (select, release, Interact, Jaunts, Move, Settings); resume at 4, skip at 6, replay; bubbles of 14 words or fewer');

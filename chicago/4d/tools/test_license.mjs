@@ -44,7 +44,6 @@ function runTour(tour, probe) {
   probe.apps = { ...probe.apps, jaunts: (probe.apps.jaunts ?? 0) + 1 }; tour.tick(); // T-3642
   probe.apps = { ...probe.apps, move: (probe.apps.move ?? 0) + 1 }; tour.tick();
   probe.apps = { ...probe.apps, settings: (probe.apps.settings ?? 0) + 1 }; tour.tick();
-  probe.apps = { ...probe.apps, jump: (probe.apps.jump ?? 0) + 1 }; tour.tick(); // T-3742: Jump years
   assert.equal(tour.step, STEPS.length - 1, 'on the last step');
 }
 {

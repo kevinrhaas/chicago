@@ -1,7 +1,7 @@
 /**
  * Tour mode, the Field Check (T-2663, NAV-801; design doc section 11, M10).
  *
- * Eleven steps (T-3742) the Navigator runs itself, framed as a Confluence Laboratory field check.
+ * Ten steps (T-3642, T-3742) the Navigator runs itself, framed as a Confluence Laboratory field check.
  * Every step waits for the visitor to actually do the thing — read from the page through
  * `probe()`, never assumed — and Skip is always there. Progress is kept per device
  * (localStorage, inside try/catch), so a reload mid-tour resumes at the same step; it can
@@ -24,9 +24,11 @@
  * T-3742 (the owner, 2026-11-23: "update the first time user tour so it is current") brings
  * it to what has landed since: Interact names Tell me a story and Ask a question (T-3553),
  * Jaunts names the mysteries and the parts to play (T-3663, T-3678, T-3679, T-3693),
- * Settings names Language, Reading age and Graphics (T-3680, T-3645, T-3736), and a Jump
- * step, on the year chip, names 1871 and the Great Fire (T-3654, T-3687). Ready names
- * Home's photo hunt (T-3657).
+ * Settings names Language, Reading age and Graphics (T-3680, T-3645, T-3736), and Ready
+ * sends the visitor on: a Jaunt, Home's Go to, or Free roam. The owner, the
+ * same day: "dont you just go to jaunt or free roam or find after the tour?" A Jump step
+ * was tried and dropped for that, and because "1871 ... is kind of early in development,
+ * 1904 is much more refined": the tour names no other year.
  *
  * Bubbles are 14 words or fewer (section 11). The last step's Finish ends the tour and calls
  * `onFinish`, which awards the Navigator License keepsake (T-2665, js/license.js); Skip
@@ -56,7 +58,7 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);
 
-/** The eleven steps. `task` is the field-check line over the bubble; `target` the selector
+/** The ten steps. `task` is the field-check line over the bubble; `target` the selector
  *  the spotlight rings (or a function of the probe); `done(p, base)` whether the step's
  *  real action has happened; `when(p)`, where given, whether the step applies here — a
  *  step that does not is passed over and not counted.
@@ -67,11 +69,10 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
  *  key, for a person (Greet, Tell me a story, Ask a question), a horse to ride, a boat's
  *  helm or a gate (T-3319, T-3553, T-3560, T-3612); Jaunts are narrated and told for the
  *  visitor's grade (T-3578, T-3590). People's own step gave way to Interact: the People
- *  key is labelled on the rail, and Ready names it.
+ *  key is labelled on the rail.
  *
  *  T-3742: Interact is said as what a visitor does with it most, talk; a horse to ride is
- *  Move's ("ride"). Jump comes after Settings, so a year picked there reloads into Ready,
- *  which the tour resumes. */
+ *  Move's ("ride"). Ready sends the visitor on and never to another year. */
 export const STEPS = [
   { task: 'Your device',
     bubble: (p) => (p.touch ? 'This is your Navigator. Tap it open: every menu is a tab.'
@@ -118,16 +119,9 @@ export const STEPS = [
   // T-3742: Display's Language and Reading age (T-3680, T-3645), the Graphics tab (T-3736).
   { task: 'Settings', bubble: menuOpen('Settings', 'language, reading age, graphics, name cards, sound'),
     target: railKey('settings'), done: opened('settings') },
-  // T-3742: Jump, off the rail since T-3629: the year chip opens it, and Home's Other years
-  // key where Home is the open app. 1871 is the city the Great Fire burns (T-3654, T-3687).
-  { task: 'Jump years',
-    bubble: (p) => `${press(p)} the year to jump: 1812, 1835, 1871 and its Great Fire, 1904.`,
-    target: (p) => (p.level > 0 && p.app === 'home' ? '#nav-choice-years' : '#year-badge'), done: opened('jump') },
-  // T-3742: Home's Where and when? photo hunt (T-3657, T-3677), where the year has one
-  // (1835 and 1904: strings/photo-hunt.js `unavailableYear`); elsewhere, Jump.
-  { task: 'Ready', bubble: (p) => (['1835', '1904'].includes(String(p.scene))
-    ? 'Ready. Find People, Go to a photo, or play Home\'s photo hunt.'
-    : 'Ready. Find People, Go to a photo, or Jump years.'),
+  // T-3742 (the owner, 2026-11-23): Ready sends the visitor on, in the year they are in: the
+  // Jaunts key, or Home's Go to and Free roam (T-3629).
+  { task: 'Ready', bubble: () => 'Ready. Pick a Jaunt, Go to someone, or Free roam.',
     target: '#navigator', action: 'finish' },
 ];
 
