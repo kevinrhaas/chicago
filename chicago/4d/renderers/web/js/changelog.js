@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3220, ts: '2026-11-23T14:49:13.511Z', date: 'Nov 23, 2026, 8:49 AM CT', title: '2110 Prairie\'s loggia on colonnettes, its landing parapet and its stone stack', kind: 'feature',
+    items: [
+      '2110 Prairie\'s five-arched loggia now stands on six round colonnettes with leafed capitals, the arches springing from them as both photographs of the house show; its slates run on to the gable instead of hipping short of it, the south chimney is laid in the front\'s pale stone, and the landing carries on across the foot of the bow behind a solid stone parapet level with the parlour windows\' sills.',
+    ] },
   { v: 3219, ts: '2026-11-23T14:45:48.289Z', date: 'Nov 23, 2026, 8:45 AM CT', title: '1835 opens lighter: no 1904 street code downloaded for it', kind: 'fix',
     items: [
       'A first visit to 1835 no longer downloads the code for 1904\'s street grid, parkway elms, gas lamps, yards, railway, context city, crossings and Glessner\'s coach house, none of which 1835 draws: 0.16 MB and eight requests less before you can walk.',
