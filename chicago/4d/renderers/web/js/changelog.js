@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3212, ts: '2026-11-23T05:26:19.813Z', date: 'Nov 22, 2026, 11:26 PM CT', title: '1904 no longer freezes for seconds on modest computers', kind: 'fix',
+    items: [
+      'The grass between the lakefront railway\'s tracks is placed by a much faster lookup, so 1904\'s longest pause while loading drops from about 15 seconds to about 2 on an everyday office PC. Every tuft stands where it stood before.',
+      'The town broughams\' cab windows are drawn as plain thin glass, so the first carriage you meet no longer freezes the page for many seconds, and the town is no longer drawn twice while one is in view.',
+      'Whatever first comes into view, such as a jaunt\'s people or the place it flies to, is prepared in the background and appears a moment later instead of stopping the picture.',
+      'When a jaunt changes the season, the buildings, yards and rails take the new season once it is ready, without a pause.',
+    ] },
   { v: 3211, ts: '2026-11-23T05:10:35.747Z', date: 'Nov 22, 2026, 11:10 PM CT', title: '1904 walks faster on everyday computers', kind: 'improvement',
     items: [
       'Walking down Prairie Avenue in 1904 on a computer with built-in graphics, each frame now takes about a third less time: 47 ms where it took 70 in our test.',
