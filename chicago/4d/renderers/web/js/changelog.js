@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 3235, ts: '2026-11-23T22:34:06.120Z', date: 'Nov 23, 2026, 4:34 PM CT', title: 'House numbers are quieter, and each house has its own', kind: 'improve',
+    items: [
+      'The street numbers over the front doors no longer glow. They are muted gold leaf or white paint, as they would look on glass from the walk.',
+      'Each house\'s number is lettered in its own style: gold or white, plain or sloped or block letters, outlined or shaded in black. Neighbours differ, the way sign-writers lettered them.',
+      '1815 Prairie keeps the gold Roman figures its photograph shows.',
+    ] },
+  { v: 3234, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: 'The public site opens four ways in: play, teach, check, build', kind: 'feature',
+    items: [
+      'The home page opens on a film of all four years, then offers four ways in: Players, Educators, Historians and Technicians.',
+      'Each way in has its own page: the game features in detail, the reading levels and classroom tools, the research shown with photographs, and how the town is built.',
+      'Historians can drag between an archive photograph and the model drawn through the same camera, and read a Prairie Avenue household line by line from the census.',
+      '1871 and the Great Fire join the Eras page and every year picker on the site.',
+      'Messages from the contact page are now saved to the project as well as emailed, and the contact link sits in the menu and the footer.',
+      'The site\'s looping films no longer jump when they start again.',
+    ] },
+  { v: 3233, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: 'No street tree stands on a sidewalk in 1904', kind: 'fix',
+    items: [
+      'The elm on the 18th Street crossing at the Pullman corner is gone; the crossing stays.',
+      'Every 1904 street tree is now kept clear of walks, crossings and drives.',
+    ] },
+  { v: 3232, ts: '2026-11-23T22:05:04.099Z', date: 'Nov 23, 2026, 4:05 PM CT', title: '2123 Prairie\'s bow gets its basement window', kind: 'fix',
+    items: [
+      'The stone bow at 2123 Prairie now has the square basement window the Armour photograph shows under its north window, with a plain pier beside it as in the picture.',
+    ] },
+  { v: 3231, ts: '2026-11-23T20:06:48.574Z', date: 'Nov 23, 2026, 2:06 PM CT', title: '2126 Prairie\'s finished front gains its pilasters, panels and gate piers', kind: 'improvement',
+    items: [
+      'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now carries what its May 1905 photograph shows: four Ionic pilaster heads under the entablature, marble panels between the storeys with a carved one over the door, keyed lintels, scrolled stone stops at both corners, and brick gate piers topped with balls.',
+      'Its photograph is matched from a solved camera; the roofline, the door\'s side lights and the small-paned sash still differ and are listed on its record.',
+    ] },
   { v: 3230, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Prairie Avenue\'s houses show their street numbers', kind: 'add',
     items: [
       'In 1904, 124 houses on Prairie, Indiana and Calumet avenues show their numbers in gilt figures over the front door, as they were then.',

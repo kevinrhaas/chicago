@@ -18,7 +18,7 @@
 <script src="../js/show.js" defer></script>
 
 </head>
-<body data-page="jaunts">
+<body data-page="jaunts" data-section="players">
 <a class="skip" href="#main">Skip to content</a>
 <div class="field" aria-hidden="true"></div>
 
@@ -27,17 +27,19 @@
     <a class="brand" href="../" aria-label="4D Chicago, home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <nav class="menu" id="menu" aria-label="Site">
+      <a href="../players/">Players</a>
+      <a href="../educators/">Educators</a>
+      <a href="../historians/">Historians</a>
+      <a href="../technicians/">Technicians</a>
+      <span class="sep" aria-hidden="true"></span>
       <a href="../eras/">Eras</a>
-      <a href="../jaunts/">Jaunts</a>
-      <a href="../people/">People</a>
-      <a href="../rides/">Horses &amp; boats</a>
-      <a href="../world/">World</a>
-      <a href="../evidence/">Evidence</a>
-      <a href="../research/">Research</a>
+      <a class="menu-contact" href="../contact/">Contact</a>
     </nav>
-    <span class="status" aria-hidden="true"><i></i>3 ERAS ONLINE</span>
+    <span class="status" aria-hidden="true"><i></i>4 ERAS ONLINE</span>
   </div>
 </header>
+<nav class="subnav" aria-label="Players pages"><div class="wrap"><a href="../players/">Overview</a><a href="../jaunts/">Jaunts</a><a href="../people/">People</a><a href="../rides/">Horses &amp; boats</a><a href="../world/">World</a></div></nav>
+<nav class="subnav" aria-label="Players pages"><div class="wrap"><a href="../players/">Overview</a><a href="../jaunts/">Jaunts</a><a href="../people/">People</a><a href="../rides/">Horses &amp; boats</a><a href="../world/">World</a></div></nav>
 
 <main id="main">
 
@@ -204,29 +206,37 @@
       <h2 class="h" id="launch-title">Start a jaunt. <em>Pick your year.</em></h2>
       <p>Every year opens on its arrival menu, where Jaunts lists what that year holds.</p>
     </div>
-    <div class="launch-years rv">
-      <a class="launch-year" href="../4d/1812/"><b>1812</b><span>Fort Dearborn<em>14 Aug 1812</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-      <a class="launch-year" href="../4d/1835/"><b>1835</b><span>The river town<em>1 Jul 1835</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-      <a class="launch-year" href="../4d/1904/"><b>1904</b><span>Prairie Avenue<em>1 Jul 1904</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-    </div>
+    <div class="launch-years four rv"><a class="launch-year" href="../4d/1812/"><b>1812</b><span>Fort Dearborn<em>14 Aug 1812</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1835/"><b>1835</b><span>The river town<em>1 Jul 1835</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1871/"><b>1871</b><span>Before the Fire<em>8 Oct 1871</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="launch-year" href="../4d/1904/"><b>1904</b><span>Prairie Avenue<em>1 Jul 1904</em></span><svg class="ic" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
     <div class="launch-main rv"><a class="btn go" href="../4d/">Enter 4D Chicago <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <p class="launch-fine">Opens the Temporal Observatory · pick a destination · W A S D to walk, or the thumb stick on a phone</p>
   </div>
 </section>
 
 </main>
 
 <footer class="foot">
-  <div class="wrap foot-in">
-    <div>
-      <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
-      <p>A researched reconstruction of early Chicago. The machine is fiction; the town is real research.</p>
+  <div class="wrap">
+    <div class="foot-contact">
+      <div>
+        <h4>Bring us a place, a picture or a correction.</h4>
+        <p>A family photograph of a Prairie Avenue house, an ancestor in the 1835 town, a mistake you found on a card, or a class that would like a visit.</p>
+      </div>
+      <a class="btn go" href="../contact/">Contact us <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="foot-cols">
-      <div><h5>Explore</h5><ul><li><a href="../eras/">Eras</a></li><li><a href="../jaunts/">Jaunts</a></li><li><a href="../people/">People</a></li><li><a href="../rides/">Horses &amp; boats</a></li><li><a href="../world/">World</a></li></ul></div>
-      <div><h5>The record</h5><ul><li><a href="../evidence/">Evidence</a></li><li><a href="../research/">Research</a></li><li><a href="../prairie-1904/viewer/">Prairie Avenue library</a></li><li><a href="../pre-fire/viewer/">Before the Fire</a></li><li><a href="../rebuilding-1870s/viewer/">Chicago Rebuilds</a></li></ul></div>
-      <div><h5>More</h5><ul><li><a href="../">Home</a></li><li><a href="../4d/">Enter 4D Chicago</a></li><li><a href="../contact/">Contact</a></li><li><a href="https://polecat.live/">polecat.live</a></li></ul></div>
+    <div class="foot-in">
+      <div>
+        <a class="brand" href="../"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor"/><path d="M29 16H17L7 6M17 16L7 26" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>CHICAGO <b>4D</b></a>
+        <p>A researched reconstruction of early Chicago. The machine is fiction; the town is real research.</p>
+      </div>
+      <div class="foot-cols five">
+        <div><h5>Players</h5><ul><li><a href="../players/">Overview</a></li><li><a href="../jaunts/">Jaunts</a></li><li><a href="../people/">People</a></li><li><a href="../rides/">Horses &amp; boats</a></li><li><a href="../world/">World</a></li></ul></div>
+        <div><h5>Educators</h5><ul><li><a href="../educators/">Overview</a></li><li><a href="../educators/#levels">Reading levels</a></li><li><a href="../educators/#class">In the classroom</a></li><li><a href="../jaunts/#catalogue">Every jaunt</a></li></ul></div>
+        <div><h5>Historians</h5><ul><li><a href="../historians/">Overview</a></li><li><a href="../evidence/">Evidence</a></li><li><a href="../research/">Research</a></li><li><a href="../prairie-1904/viewer/">Prairie Avenue atlas</a></li><li><a href="../pre-fire/viewer/">Before the Fire</a></li></ul></div>
+        <div><h5>Technicians</h5><ul><li><a href="../technicians/">Overview</a></li><li><a href="../technicians/#library">The library</a></li><li><a href="../technicians/#work">Work with it</a></li><li><a href="https://github.com/kevinrhaas/chicago">Source on GitHub</a></li></ul></div>
+        <div><h5>More</h5><ul><li><a href="../eras/">Eras</a></li><li><a href="../4d/">Enter 4D Chicago</a></li><li><a href="../contact/">Contact</a></li><li><a href="https://polecat.live/">polecat.live</a></li></ul></div>
+      </div>
+      <div class="lab"><span>Confluence Laboratory · Wolf Point aperture</span><span>Every surface carries its evidence</span></div>
     </div>
-    <div class="lab"><span>Confluence Laboratory · Wolf Point aperture</span><span>Every surface carries its evidence</span></div>
   </div>
 </footer>
 
@@ -234,6 +244,5 @@
   <div class="player-bar"><span id="player-title">4D Chicago</span><button type="button" data-close aria-label="Close the film"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <video controls playsinline preload="none"></video>
 </dialog>
-
 </body>
 </html>

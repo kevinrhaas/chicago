@@ -16,6 +16,8 @@
  *            normal turns to; a structure with no placement is counted unplaced, never thrown;
  *   cheap    the whole district is ONE mesh with ONE material on one atlas texture, casts no
  *            shadow, and is folded away past REACH_M in its vertex stage;
+ *   hands    each hand the file defines gets its own atlas row, a number reads only its own row,
+ *            neighbours on a street are not all one hand, and the gilt is lit, not lamp-bright;
  *   inert    no data base and no list: an empty group, nothing fetched.
  */
 import assert from 'node:assert/strict';
@@ -30,7 +32,7 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 }`)}`, import.meta.url);
 
 const THREE = await import('three');
-const { createHouseNumbers, numberQuads, REACH_M } = await import('../renderers/web/js/house-numbers.js');
+const { createHouseNumbers, numberQuads, drawAtlas, REACH_M, EMISSIVE } = await import('../renderers/web/js/house-numbers.js');
 
 // A canvas that measures each figure 0.55 of the font's size and paints nothing.
 const fakeDocument = {
@@ -130,6 +132,31 @@ check('every number but the unplaced one is carried through its structure\'s own
     at += figs * 6;
   }
   assert.equal(at, pos.count, 'nothing else is in the mesh');
+});
+
+check('each hand its own atlas row; a number samples only its own; not lamp-bright', () => {
+  const atlas = drawAtlas(doc.hands, fakeDocument);
+  const ids = Object.keys(doc.hands);
+  assert.ok(ids.length >= 4, 'several hands');
+  assert.equal(new Set(ids.map((id) => atlas.hands[id].row)).size, ids.length, 'a row a hand');
+  const span = (row) => {
+    const q = numberQuads('18', [0, 0, 0], [0, 0, 1], 0.1, atlas.hands[ids[row]].widths, atlas.hands[ids[row]].row);
+    const vs = q.uvs.filter((_, i) => i % 2 === 1);
+    return [Math.min(...vs), Math.max(...vs)];
+  };
+  for (let r = 0; r + 1 < ids.length; r++) {
+    const [a0, a1] = span(r), [b0, b1] = span(r + 1);
+    assert.ok(a1 <= 1 && b0 >= 0 && (b1 < a0 || a1 < b0), `rows ${r} and ${r + 1} overlap`);
+  }
+  assert.ok(EMISSIVE <= 0.25, `emissive ${EMISSIVE}: the figures glow`);
+  for (const h of Object.values(doc.hands)) {
+    const c = parseInt(h.fill.slice(1), 16);
+    const lum = (0.2126 * (c >> 16) + 0.7152 * ((c >> 8) & 255) + 0.0722 * (c & 255)) / 255;
+    assert.ok(lum < 0.85, `fill ${h.fill} is near white`);
+  }
+  const used = new Set(doc.numbers.map((r) => r.hand));
+  assert.ok(used.size >= 4, `only ${used.size} hands used on the street`);
+  assert.ok(layer.census.hands && Object.keys(layer.census.hands).length === used.size, 'census counts each hand');
 });
 
 const empty = await createHouseNumbers({ buildings });
