@@ -90,3 +90,29 @@ the pictures' rights are unresolved, so no side-by-side is kept). Liberty `L-k01
 Left for T-3715: the loggia's colonnettes and carved capitals, the landing's parapet, the stack's stone and
 the roof run on to the gable. Left for T-3716's photo-match: the kneelers' carved corbels, the finial's
 leaves, the carved fleurons over the bow's upper lights, and the carving's density against the pictures.
+
+## T-3715 — the loggia's colonnettes, the landing's parapet, the stone stack and the roof (piece 2 of T-1923)
+
+![from the walk south-east of the house: the terrace and its parapet across the bow's foot](landing-and-loggia-3715.jpg)
+![from above the south-east: the slates run on to the gable, the south stack in stone](roof-run-on-3715.jpg)
+
+Rendered with `node tools/photo_match.mjs` through approximate cameras (not committed: the pictures' rights are
+unresolved, so no side-by-side is kept). Liberty `L-k01-2110-rees-3715`.
+
+- **The loggia's colonnettes** (`street_front_trim.loggia`, new in `k09_frontage.py`): six of K09's foliate
+  colonnettes, engaged in the piers, one beside each outer arch and one between each pair, from the lights' sill
+  (10.3 m) to their springing (11.65 m), as both later photographs show them.
+- **The landing's parapet across the bow's foot** (`entrance_kit.terrace`, side `left`): the landing carried south
+  from the stoop past the bow's crown (to 1.5 m from the south corner) at its own height, faced to grade, 1.95 m out as the landing now is, its back stepped round the
+  bow, behind a solid stone parapet 0.5 m high whose top stands at the parlour lights' sills (the early-1890s
+  photograph's level ledge; the c. 1980s photograph's block beside the stoop's south cheek, its face where the
+  cheek begins to fall, so the landing is deepened to the same 1.95 m). A solid parapet is `holes` [0, 0], newly
+  allowed.
+- **The stack's stone**: the south stack is `fabric: "stone"` (T-3003's), the gable slab's stone.
+- **The roof run on to the gable** (`shaped_gable.roof_to_gable`, new in `k01_shaped_gable.py`): the hip's attic
+  carried on from the block's middle 0.02 m into the slab's back, so the ridge runs straight on to the gable and
+  the slates show beside the rake behind each kneeler, as in both photographs. The rear stays hipped.
+
+Left for T-3716's photo-match: the kneelers' carved corbels, the finial's leaves, the carved fleurons over the
+bow's upper lights, the carved band over the loggia's arches, the capitals' leaves against the pictures', and
+the cameras and match records of the pictures.
