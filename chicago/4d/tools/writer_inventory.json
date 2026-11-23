@@ -2493,6 +2493,13 @@
       "measured": "2026-11-21",
       "finding": "Reproduces: a bare run on the committed tree rewrote data/street_furniture/1871.json and data/street_trees/1871.json byte for byte and changed no other committed byte; --check writes nothing (T-3686).",
       "placed": "Reads data/context/1871.json (generators/city_1871_emit.py's output, itself not in the manifest), the 1904 lamp kind in data/street_furniture/1904.json and data/sources/. Its slot is after city_1871_emit.py and tools/lay_prairie_1904_street_furniture.py; placing it waits on the 1871 city writer's own placement."
+    },
+    "place_prairie_1904_house_numbers.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-23",
+      "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1904.json byte for byte and changed no other byte; with the output emptied, --check failed and a bare run restored it to the same bytes; --check writes nothing (T-3737).",
+      "placed": "Reads data/street_grid/1904.json (tools/trace_prairie_1904_grid.py's lots and their 1911 numbers), the committed 1904 sidecars and their baked models' door leaves and glass, as tools/plant_prairie_1904_front_yards.py reads them. Its slot is after the grid tracer and every 1904 bake; nothing reads its output but the renderer."
     }
   }
 }

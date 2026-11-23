@@ -18,6 +18,7 @@ import {
 } from '../renderers/web/js/settings-app.js';
 import { lookScale } from '../renderers/web/js/controls/intent.js';
 import { decide } from '../renderers/web/js/device-profile.js';
+import * as graphicsSettings from '../renderers/web/js/graphics-settings.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WEB = path.join(ROOT, 'renderers/web');
@@ -28,11 +29,19 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
 {
   const heads = [...settingsHtml.matchAll(/<h4[^>]*>([^<]*)<\/h4>/g)].map((m) => m[1].replace('&amp;', '&'));
   // T-3563: the groups in the order of the card's tabs — Display (Display, Machine, Units), Show,
-  // Look (Look, Movement), Graphics (Performance), Sound, About — and Research last (the owner,
+  // Look (Look, Movement), Graphics (Graphics; Performance until T-3736), Sound, About — and Research last (the owner,
   // 2026-11-12: "the research mode should be at the end").
   // T-3629: Show holds two groups, On screen and The town.
-  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'On screen', 'The town', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
-    'Settings reads Display, Appearance, Units, On screen, The town, Look, Movement, Performance, Sound, About, Research');
+  assert.deepEqual(heads, ['Display', 'Appearance', 'Units', 'On screen', 'The town', 'Look', 'Movement', 'Graphics', 'Sound', 'About', 'Research'],
+    'Settings reads Display, Appearance, Units, On screen, The town, Look, Movement, Graphics, Sound, About, Research');
+  // T-3736: Graphics reads Auto first, then Scene detail, Image sharpness, Frame pacing (Adaptive,
+  // Fast, Fixed), Antialiasing (On, Off), and the Drawing now line.
+  const graphics = settingsHtml.slice(settingsHtml.indexOf('data-set-pane="graphics"'), settingsHtml.indexOf('data-set-pane="sound"'));
+  const order = ['s-perf-auto-line', 's-detail', 's-quality', 's-governor', 's-antialias', 'governor-line'].map((id) => graphics.indexOf(`id="${id}"`));
+  assert(order.every((i, n) => i > 0 && (n === 0 || i > order[n - 1])), `Graphics reads Auto, detail, sharpness, pacing, antialiasing, the line: ${order}`);
+  const opts = (id) => [...graphics.slice(graphics.indexOf(`id="${id}"`)).split('</select>')[0].matchAll(/<option value="(\w+)"/g)].map((m) => m[1]);
+  assert.deepEqual(opts('s-governor'), ['adaptive', 'fast', 'fixed']);
+  assert.deepEqual(opts('s-antialias'), ['on', 'off']);
   // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
   // its own) sits between About and Research.
   const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
@@ -50,7 +59,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert(controls.indexOf('id="s-look-speed"') > 0 && controls.indexOf('id="s-look-speed"') < controls.indexOf('<h4>Movement</h4>'));
   assert.match(settingsHtml, /<input type="range" id="s-look-speed" min="0\.2" max="3" step="0\.1"/);
   const kept = ['s-units', 's-fov', 'v-fov', 's-road-aid', 'v-road-aid', 's-brightness', 'v-brightness',
-    's-detail', 's-quality', 's-governor', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
+    's-detail', 's-quality', 's-governor', 's-antialias', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
     's-pacing-copy', 'pacing-read-status', 'pacing-read-out', 's-compass', 's-overview-map', 's-street-names',
     's-street-names-label', 's-look-tag', 'row-season', 's-season', 'row-street-trees', 's-street-trees', 'row-lot-lines',
     's-lot-lines', 's-show-control-help', 's-about', 's-about-build', 's-about-dev', 's-about-dev-note'];
@@ -138,15 +147,60 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.equal(volumeReadout(0.8), '80 %');
   // Auto is the profile's own choice, on a phone and on a desktop.
   const phone = autoChoice({ choice: decide('standard', { touch: true }) });
-  assert.deepEqual(phone, { detail: 'light', quality: 1, governor: 'adaptive' });
-  assert.equal(autoLine(phone), 'Auto for this device: Light detail, Low sharpness, adaptive pacing.');
-  assert.equal(autoLine(autoChoice({ choice: decide('strong') })), 'Auto for this device: Full detail, High sharpness, adaptive pacing.');
+  assert.deepEqual(phone, { detail: 'light', quality: 1, pacing: 'adaptive', antialias: 'on', weakDesktop: false });
+  assert.equal(autoLine(phone), 'Auto for this device: Light detail, Low sharpness, Adaptive pacing, antialiasing on.');
+  assert.equal(autoLine(autoChoice({ choice: decide('strong') })), 'Auto for this device: Full detail, High sharpness, Adaptive pacing, antialiasing on.');
+  // T-3736: a weak computer's Auto is Fast pacing with antialiasing off (main.js sets weakDesktop).
+  const weakPc = autoChoice({ choice: decide('weak'), weakDesktop: true });
+  assert.deepEqual(weakPc, { detail: 'balanced', quality: 1, pacing: 'fast', antialias: 'off', weakDesktop: true });
+  assert.equal(autoLine(weakPc), 'Auto for this device: Balanced detail, Low sharpness, Fast pacing, antialiasing off.');
   assert.equal(autoChoice(null), null);
   assert.equal(autoChoice({ choice: { detail: 'ultra', sharpness: 3 } }), null);
   assert.equal(onAuto({ detail: '', quality: '', governor: 'adaptive' }), true);
   assert.equal(onAuto({ detail: 'full', quality: '', governor: 'adaptive' }), false);
   assert.equal(onAuto({ detail: '', quality: '', governor: 'fixed' }), false);
-  assert.deepEqual(useAuto({ detail: 'full', quality: 2, governor: 'fixed', fov: 80 }), { detail: '', quality: '', governor: 'adaptive', fov: 80 });
+  assert.equal(onAuto({ detail: '', quality: '', pacing: '' , antialias: '' }), true);
+  assert.equal(onAuto({ detail: '', quality: '', pacing: 'adaptive' }), false, 'Adaptive picked by hand is a choice now');
+  assert.equal(onAuto({ detail: '', quality: '', antialias: 'off' }), false);
+  assert.deepEqual(useAuto({ detail: 'full', quality: 2, governor: 'fixed', pacing: 'fast', antialias: 'off', fov: 80 }),
+    { detail: '', quality: '', pacing: '', antialias: '', fov: 80 });
+  // T-3736: Frame pacing and Antialiasing (graphics-settings.js): Auto per device, the old key
+  // carried over, the query wins, and the Drawing now line says what is drawn.
+  {
+    const G = graphicsSettings;
+    assert.equal(G.isWeakDesktop({ cls: 'weak' }), true);
+    assert.equal(G.isWeakDesktop({ cls: 'weak' }, { coarse: true }), false, 'a weak phone keeps its own setup');
+    assert.equal(G.isWeakDesktop({ cls: 'weak' }, { headset: true }), false);
+    assert.equal(G.isWeakDesktop({ cls: 'standard' }), false);
+    assert.equal(G.storedPacing({}), '');
+    assert.equal(G.storedPacing({ governor: 'adaptive' }), '', 'the old default carries over as Auto');
+    assert.equal(G.storedPacing({ governor: 'fixed' }), 'fixed', 'the old Fixed is kept');
+    assert.equal(G.storedPacing({ pacing: '', governor: 'fixed' }), 'fixed');
+    assert.equal(G.storedPacing({ pacing: 'fast' }), 'fast');
+    assert.equal(G.storedPacing({ pacing: 'turbo' }), '');
+    assert.equal(G.resolvePacing({}, true), 'fast');
+    assert.equal(G.resolvePacing({}, false), 'adaptive');
+    assert.equal(G.resolvePacing({ pacing: 'adaptive' }, true), 'adaptive', 'a weak computer can still pick Adaptive');
+    assert.equal(G.resolvePacing({ pacing: 'fast' }, false), 'fast', 'any device can pick Fast');
+    assert.equal(G.resolveAntialias({}, false), true);
+    assert.equal(G.resolveAntialias({}, true), false);
+    assert.equal(G.resolveAntialias({ antialias: 'on' }, true), true);
+    assert.equal(G.resolveAntialias({ antialias: 'off' }, false), false);
+    assert.equal(G.resolveAntialias({ antialias: 'off' }, false, new URLSearchParams('msaa=1')), true, '?msaa=1 wins');
+    assert.equal(G.resolveAntialias({}, false, new URLSearchParams('msaa=0')), false, '?msaa=0 wins');
+    const base = { mode: 'adaptive', scale: 1, pace: 1, moving: false, fast: false };
+    assert.equal(G.describeDrawing({ detail: 'full', quality: 1.5, multisample: true, state: base }),
+      'Drawing now: Full detail at Medium sharpness, eased off only if moving gets slow, antialiasing on.');
+    assert.equal(G.describeDrawing({ detail: 'balanced', quality: 1, multisample: false, state: { ...base, fast: true } }),
+      'Drawing now: Balanced detail at 67 % of Low sharpness standing and 55 % moving, the shadow every other frame, antialiasing off. Photos are taken at full sharpness.');
+    assert.equal(G.describeDrawing({ detail: 'full', quality: 2, multisample: true, state: { ...base, mode: 'fixed' } }),
+      'Drawing now: Full detail at High sharpness on every frame, antialiasing on.');
+    assert.equal(G.describeDrawing({ detail: 'light', quality: 1, multisample: true, state: { ...base, moving: true, scale: 0.8, pace: 2 } }),
+      'Drawing now: Light detail at 80 % of Low sharpness while you move, a steady 30 frames a second, antialiasing on.');
+    assert.match(G.describeDrawing({ detail: 'full', quality: 1.5, multisample: true, state: base, pendingAntialias: 'off' }),
+      / Antialiasing turns off when the page next loads\.$/);
+    assert.doesNotMatch(G.describeDrawing({ detail: 'full', quality: 1.5, multisample: true, state: base, pendingAntialias: 'on' }), /next loads/);
+  }
   // T-3563: look sensitivity. 1 is Standard (the turn the app always had); kept to 0.2x..3x in tenths.
   assert.deepEqual({ ...LOOK_SPEED }, { min: 0.2, max: 3, step: 0.1, standard: 1 });
   assert.equal(normalLookSpeed(undefined), 1);
@@ -295,7 +349,7 @@ function fakePage() {
   make('button', { cls: ['seg-btn'], data: { themeChoice: 'dark' }, parent: seg });
   make('button', { cls: ['seg-btn'], data: { themeChoice: 'light' }, parent: seg });
   make('select', { id: 's-text-size', parent: root });
-  for (const id of ['s-detail', 's-quality', 's-governor']) make('select', { id, parent: root });
+  for (const id of ['s-detail', 's-quality', 's-governor', 's-antialias']) make('select', { id, parent: root });
   const row = make('div', { cls: ['field', 'row'], parent: root });
   make('span', { id: 's-perf-auto-line', parent: row });
   make('button', { id: 's-perf-auto', parent: row });
@@ -345,14 +399,14 @@ function fakePage() {
   assert.equal(settings.textScale, 1, 'an unknown size falls back to 100 %');
   assert.equal(doc.documentElement.dataset.textScale, undefined);
   // Auto: the line names the device's levels; off Auto the key offers it, on it says so.
-  assert.equal($('s-perf-auto-line').textContent, 'Auto for this device: Full detail, Medium sharpness, adaptive pacing.');
+  assert.equal($('s-perf-auto-line').textContent, 'Auto for this device: Full detail, Medium sharpness, Adaptive pacing, antialiasing on.');
   assert.equal($('s-perf-auto').textContent, 'Use Auto');
   assert.equal($('s-perf-auto').disabled, false);
   told.length = 0;
   $('s-perf-auto').click();
-  assert.deepEqual([settings.detail, settings.quality, settings.governor], ['', '', 'adaptive']);
-  assert.deepEqual(told, [['detail', 'full'], ['quality', 1.5], ['governor', 'adaptive']]);
-  assert.deepEqual([$('s-detail').value, $('s-quality').value, $('s-governor').value], ['full', '1.5', 'adaptive']);
+  assert.deepEqual([settings.detail, settings.quality, settings.pacing, settings.antialias, settings.governor], ['', '', '', '', undefined]);
+  assert.deepEqual(told, [['detail', 'full'], ['quality', 1.5], ['pacing', ''], ['antialias', '']]);
+  assert.deepEqual([$('s-detail').value, $('s-quality').value, $('s-governor').value, $('s-antialias').value], ['full', '1.5', 'adaptive', 'on']);
   assert.equal(JSON.parse(saved.at(-1)).detail, '');
   assert.equal($('s-perf-auto').textContent, 'Using Auto');
   assert.equal($('s-perf-auto').disabled, true);

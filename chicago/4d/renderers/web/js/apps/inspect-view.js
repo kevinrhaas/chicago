@@ -400,7 +400,8 @@ function render(root, ctx) {
   }
   head.append(bar);
   root.append(head, panes);
-  root._insp = { id, sum, ctx, person, photo };
+  // A person card the visitor walked into (link.quiet) leaves focus on the town, so WASD walks on.
+  root._insp = { id, sum, ctx, person, photo, quiet: !!(person && ctx.link?.quiet) };
   // T-3645: Overview's words at the reader's age, where they are written at more than one.
   readingTabs(page, { after: page.querySelector('h2, h1') });
   selectTab(root, tab);
@@ -614,7 +615,9 @@ async function openPersonCard(pane, personId, ctx) {
   const first = draw(personModel({ row, sceneYear }));
   const scroller = pane.closest('.insp-panes')?.parentElement;
   if (scroller) scroller.scrollTop = 0;
-  first.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  const st = scroller?._insp;
+  const quiet = !!(st?.quiet && st.person === personId);
+  if (!quiet) first.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
   const [household, citations, likeness, told] = await Promise.all([
     Promise.resolve(ctx?.actions?.householdRecord?.(row.file)).catch(() => null),
     Promise.resolve(ctx?.actions?.residentCitations?.()).catch(() => null),
@@ -625,7 +628,7 @@ async function openPersonCard(pane, personId, ctx) {
   const person = (household?.persons ?? []).find((p) => p.id === personId) ?? null;
   const card = draw(personModel({ row, person, household, citations, sceneYear, face: likeness?.face ?? null, looks: likeness?.looks ?? null, assetBase: likeness?.base ?? null, told }));
   if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person\u2019s household record could not be read.'));
-  if (doc.activeElement === doc.body || !doc.activeElement) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
+  if (!quiet && (doc.activeElement === doc.body || !doc.activeElement)) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
   return true;
 }
 

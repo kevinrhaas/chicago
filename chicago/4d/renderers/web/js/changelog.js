@@ -1,4 +1,39 @@
 export const CHANGELOG = [ // newest first
+  { v: 3231, ts: '2026-11-23T20:06:48.574Z', date: 'Nov 23, 2026, 2:06 PM CT', title: '2126 Prairie\'s finished front gains its pilasters, panels and gate piers', kind: 'improvement',
+    items: [
+      'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now carries what its May 1905 photograph shows: four Ionic pilaster heads under the entablature, marble panels between the storeys with a carved one over the door, keyed lintels, scrolled stone stops at both corners, and brick gate piers topped with balls.',
+      'Its photograph is matched from a solved camera; the roofline, the door\'s side lights and the small-paned sash still differ and are listed on its record.',
+    ] },
+  { v: 3230, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Prairie Avenue\'s houses show their street numbers', kind: 'add',
+    items: [
+      'In 1904, 124 houses on Prairie, Indiana and Calumet avenues show their numbers in gilt figures over the front door, as they were then.',
+      'That\'s how an 1890s photograph shows 1815 Prairie, and how a newspaper of 1887 describes 1612, "with the number 1612 over the portals".',
+      'The numbers are the 1904 ones. Where Chicago\'s 1909 renumbering changed one, the house keeps its old number: the Allerton house is 1936, not 1918.',
+      'Glessner\'s 1800 is already worked into his front door\'s iron grille, so his door is unchanged.',
+    ] },
+  { v: 3229, ts: '2026-11-23T19:20:30.591Z', date: 'Nov 23, 2026, 1:20 PM CT', title: 'Low-powered computers: 1904 loads without its last long pauses', kind: 'improvement',
+    items: [
+      'On a computer with built-in graphics, the loading screen keeps moving while the buildings, the lakefront railway and the ground are handed to the graphics card.',
+      'The first view of town comes up without a stop, because what it shows first is made ready while the town loads.',
+    ] },
+  { v: 3228, ts: '2026-11-23T19:16:57.768Z', date: 'Nov 23, 2026, 1:16 PM CT', title: 'Prairie Avenue households no longer stand inside each other', kind: 'fix',
+    items: [
+      'Everyone on Prairie Avenue now has a place of their own outside their door: a household out together for the evening talk spreads along the walk instead of sharing one spot at the foot of the steps.',
+      'Someone whose figure is still being made is shown where that figure stands, stepping aside for others as it will, not left inside a neighbour.',
+    ] },
+  { v: 3227, ts: '2026-11-23T18:57:21.012Z', date: 'Nov 23, 2026, 12:57 PM CT', title: 'Graphics settings: antialiasing, a Fast pacing choice and a Drawing now line', kind: 'feature',
+    items: [
+      'Settings › Graphics starts with Auto, then Scene detail, Image sharpness, Frame pacing and Antialiasing, each showing what is in force on this device.',
+      'Frame pacing has a third choice, Fast: softer while you move and a little softer standing still, with the sun\'s shadows refreshed every other frame. Built-in graphics computers start on it, and any computer can pick it.',
+      'Antialiasing (smoother edges) can be turned on or off. Built-in graphics computers start with it off, which is quicker; a change shows the next time the page loads.',
+      'A Drawing now line says what is really being drawn, such as 67 % sharpness standing and 55 % moving, so nothing is quietly turned down.',
+      'Photos are still taken at full sharpness, and no choice here takes anyone out of town: people, horses, carriages and wagons stay on every setting.',
+    ] },
+  { v: 3226, ts: '2026-11-23T18:57:21.012Z', date: 'Nov 23, 2026, 12:57 PM CT', title: 'Walking up to someone no longer stops you in your tracks', kind: 'fix',
+    items: [
+      'A person\'s card that opens because you walked up to them now opens beside your walk: WASD and the mouse keep working.',
+      'Walk on and their card closes by itself. Click into it, or press E on them, and it stays until you close it.',
+    ] },
   { v: 3225, ts: '2026-11-23T17:33:15.063Z', date: 'Nov 23, 2026, 11:33 AM CT', title: '2123 Prairie stands as tall as its photograph', kind: 'improvement',
     items: [
       'The brownstone at 2123 Prairie is now measured against the winter photograph of its neighbour, from that picture\'s own camera.',
