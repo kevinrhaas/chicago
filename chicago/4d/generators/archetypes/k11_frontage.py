@@ -1245,7 +1245,7 @@ def open_front(a, t):
         for i in range(0, len(pr.idx) - 2, 3):
             tri = [pr.pos[j] for j in pr.idx[i:i + 3]]
             xs, ss = [q[0] for q in tri], [-q[2] for q in tri]
-            if max(xs) > D + 0.05 and abs(sum(ss) / 3 - axis) < reach:
+            if max(xs) > D + 0.05 and abs((ss[0] + ss[1] + ss[2]) / 3 - axis) < reach:
                 stoop.append((min(xs), max(xs), min(ss), max(ss)))
         posts = area_railing(a, t, stoop)
     a.boundary = {"line_x_m": round(public, 4), "stoop_foot_x_m": round(max(feet), 4) if feet else None,
