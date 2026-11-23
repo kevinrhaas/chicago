@@ -1207,9 +1207,9 @@
     },
     {
       "id": "house_2123_prairie",
-      "name": "2123 Prairie Avenue — Stone-front masonry (district draft; refined by T-1930)",
+      "name": "2123 Prairie Avenue — brick house with a brownstone front, a stone bow and a slated mansard, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_2123_prairie.json",
-      "asset": "gltf/house_2123_prairie__draft_1904.glb"
+      "asset": "gltf/house_2123_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2123_prairie_coach_house",
