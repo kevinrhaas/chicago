@@ -2198,6 +2198,7 @@ async function boot() {
   const governorLine = document.getElementById('governor-line');
   // T-3728: a weak computer (Bill's integrated-graphics class) draws every moving
   // frame at a lower resolution and the sun's shadow every second moving frame,
+  // and its still frames a little softer too (captures and photos stay full),
   // rather than losing anything; a phone or headset keeps the governor as it was.
   const governor = createFrameGovernor({ tier: detailLevel, weak: device.cls === 'weak' && !coarse && !headset,
     onChange: (state) => {

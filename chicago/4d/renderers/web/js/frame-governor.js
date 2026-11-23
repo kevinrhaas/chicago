@@ -30,7 +30,10 @@
  * twentieth of a second at 60 and short of the frame a mouse look skips an
  * event on — all three go back to neutral at once: scale 1, pace 1, a shadow every frame. That is what keeps
  * every still frame, and so every capture, exactly what it was before the
- * governor existed. `Fixed` in Settings holds them neutral always.
+ * governor existed. `Fixed` in Settings holds them neutral always. The one
+ * exception is a weak computer (T-3728), whose still frames are drawn at
+ * `weakStillScale`; a capture, a photo and the welcome still call `rest()` and
+ * are drawn at full Sharpness there too.
  *
  * Pure logic, no three.js and no DOM, so `tools/test_frame_governor.mjs` drives
  * it with synthetic frame times in Node.
@@ -49,6 +52,12 @@ export const GOVERNOR = Object.freeze({
    *  untouched: full Sharpness and a shadow every frame, so every capture is
    *  what it was. */
   weakScale: 0.67,
+  /** T-3728, second pass (the owner, 2026-11-23: "get that fps up as high as
+   *  you can"). On a weak computer a STILL frame is drawn at this multiple of
+   *  Sharpness too, once the camera has rested `restFrames`. Measured standing
+   *  still on the same UHD 630: 1.0 = 10.3 fps, 0.8 = 13.4 fps. A capture, a
+   *  photo, the welcome and Fixed are still drawn at full Sharpness (`rest()`). */
+  weakStillScale: 0.8,
   /** Drawn moving frames read per decision; one decision per window, so a
    *  change is always followed by a full window of frames drawn under it. */
   window: 10,
@@ -117,7 +126,8 @@ const quantile = (xs, p) => {
  * @param {boolean} [o.enabled=true]  false = Fixed
  * @param {string} [o.tier='full']    the scene-detail level in force
  * @param {boolean} [o.weak=false]    a weak computer (T-3728): moving frames at
- *                                    `weakScale` and a shadow every second one
+ *                                    `weakScale` and a shadow every second one;
+ *                                    still frames at `weakStillScale`
  * @param {(state) => void} [o.onChange]  called when scale, pace or mode changes
  */
 export function createFrameGovernor({ enabled = true, tier = 'full', weak = false, onChange = null } = {}) {
@@ -234,7 +244,10 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
     }
     if (!moved) {
       still += 1;
-      if (still >= G.restFrames) rest();
+      if (still >= G.restFrames) {
+        rest();
+        if (weak) scale = G.weakStillScale;
+      }
       shadowFresh = true;
       tell();
       return;
@@ -287,6 +300,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', weak = fals
 /** The Settings sentence for a governor state at a pixel ratio. */
 export function describeGovernor(s, ratio) {
   if (s.mode === 'fixed') return 'Fixed: every frame is drawn at the sharpness chosen above.';
+  if (!s.moving && s.scale < 1) {
+    return `Adaptive: this computer draws at ${Math.round(s.scale * 100)} % of the sharpness chosen above (pixel ratio ${ratio.toFixed(2)}), and fewer pixels while you move. Photos are taken at full sharpness.`;
+  }
   if (!s.moving || (s.scale === 1 && s.pace === 1)) {
     return 'Adaptive: at the sharpness chosen above. While you move, a slow device draws fewer pixels or a steady 30 frames a second.';
   }

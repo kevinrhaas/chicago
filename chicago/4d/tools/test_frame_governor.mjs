@@ -167,19 +167,29 @@ ok('a weak computer draws moving frames at weakScale from the first, with a shad
   assert.ok(slow.scale >= GOVERNOR.floor - 1e-9 && slow.scale <= GOVERNOR.weakScale + 1e-9);
 });
 
-ok('a weak computer at rest is full sharpness with a shadow every frame', () => {
+ok('a weak computer at rest draws at weakStillScale with a shadow every frame; a capture is full (T-3728)', () => {
   const g = createFrameGovernor({ weak: true });
   drive(g, { frames: 30, costMs: () => 9 });
   const f = drive(g, { frames: 30, costMs: () => 9, moving: () => false });
   const rested = f.slice(GOVERNOR.restFrames);
-  assert.ok(rested.length > 0 && rested.every((x) => x.scale === 1 && x.pace === 1 && x.shadow));
+  assert.ok(rested.length > 0 && rested.every((x) => x.scale === GOVERNOR.weakStillScale && x.pace === 1 && x.shadow));
   assert.equal(g.state.shadowEvery, 1);
+  assert.equal(g.state.moving, false);
+  assert.match(describeGovernor(g.state, GOVERNOR.weakStillScale), /80 % of the sharpness chosen above/);
+  // A capture asks for neutral: full sharpness for that frame.
+  g.rest();
+  assert.equal(g.scale, 1);
   const still = createFrameGovernor({ weak: true });
-  assert.ok(drive(still, { frames: 30, costMs: () => 9, moving: () => false })
-    .every((x) => x.scale === 1 && x.shadow), 'a weak computer that never moves is never touched');
-  // And Fixed holds a weak computer neutral too.
+  const s = drive(still, { frames: 30, costMs: () => 9, moving: () => false });
+  assert.ok(s.slice(0, GOVERNOR.restFrames).every((x) => x.scale === 1), 'nothing changes before the rest is earned');
+  assert.ok(s.slice(GOVERNOR.restFrames).every((x) => x.scale === GOVERNOR.weakStillScale && x.shadow));
+  // Fixed holds a weak computer neutral, still or moving.
   const fixed = createFrameGovernor({ enabled: false, weak: true });
   assert.ok(drive(fixed, { frames: 30, costMs: () => 9 }).every((x) => x.scale === 1 && x.shadow));
+  assert.ok(drive(fixed, { frames: 30, costMs: () => 9, moving: () => false }).every((x) => x.scale === 1 && x.shadow));
+  // And a device that is not weak still rests at exactly 1.
+  const std = createFrameGovernor();
+  assert.ok(drive(std, { frames: 30, costMs: () => 9, moving: () => false }).every((x) => x.scale === 1));
 });
 
 ok('Fixed holds every frame neutral, however slow', () => {
