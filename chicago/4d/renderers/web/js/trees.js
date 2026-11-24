@@ -3098,17 +3098,40 @@ export async function createTrees({
   const clearedPlots = (records.plantings ?? []).map((r) => r.clears_local_enu_m).filter(Boolean);
   const inClearedPlot = (e, n) => clearedPlots.some((p) =>
     e >= p.west_e && e <= p.east_e && n <= p.north_n && n >= p.south_n);
+  // THE NEAREST BUILDING, FROM ITS OWN NEIGHBOURHOOD (weak PC, 2026-11-24). The
+  // factor is 1 from `CLEAR_REACH` out, so only a building within that reach
+  // can change it, and every such building sits in the sample's own grid cell
+  // or one of the eight around it when the cells are that wide. Walking every
+  // footprint in town for every sample was 5.7 s of a single 8.9 s freeze when
+  // 1835 changed detail on an i5-10400; the answer is the same number.
+  const CLEAR_REACH = 135;
+  const clearCell = (v) => Math.floor(v / CLEAR_REACH);
+  const clearKey = (ix, iy) => (ix + 32768) * 65536 + (iy + 32768);
+  const clearGrid = new Map();
+  for (const p of fps) {
+    const k = clearKey(clearCell(p.e), clearCell(p.n));
+    const bucket = clearGrid.get(k);
+    if (bucket) bucket.push(p); else clearGrid.set(k, [p]);
+  }
   function clearedFactor(e, n) {
     // The factor only rises with distance, so the nearest building decides it:
     // the same value as taking the least over every building, without boxing
     // a number per building per sample — about 4 GB of garbage over a load
     // (T-2158).
     let nearest = Infinity;
-    for (const p of fps) {
-      const d = Math.hypot(e - p.e, n - p.n);
-      if (d < nearest) nearest = d;
+    const ix = clearCell(e);
+    const iy = clearCell(n);
+    for (let dx = -1; dx <= 1; dx += 1) {
+      for (let dy = -1; dy <= 1; dy += 1) {
+        const bucket = clearGrid.get(clearKey(ix + dx, iy + dy));
+        if (!bucket) continue;
+        for (const p of bucket) {
+          const d = Math.hypot(e - p.e, n - p.n);
+          if (d < nearest) nearest = d;
+        }
+      }
     }
-    return nearest === Infinity ? 1 : Math.min(1, lerp(0.20, 1, smoothstep(50, 135, nearest)));
+    return nearest === Infinity ? 1 : Math.min(1, lerp(0.20, 1, smoothstep(50, CLEAR_REACH, nearest)));
   }
 
   /**

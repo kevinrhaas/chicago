@@ -4012,12 +4012,14 @@ async function boot() {
           next.contextCity.group.visible = contextCity.group.visible;
         }
         next.flora = await createFlora({
+          checkpoint: switchCheckpoint,
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
+          checkpoint: switchCheckpoint,
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
@@ -4187,28 +4189,37 @@ async function boot() {
     applyGroundDetailReach(level);
     // Serialise: a visitor clicking through the options faster than the rebuild
     // would otherwise interleave two plantings into one scene.
+    // PLANTED A FEW ROWS AT A TIME, AND SWAPPED WHEN READY (weak PC, 2026-11-24).
+    // Without a checkpoint the replanting ran as one task: on an i5-10400 a 1812
+    // switch froze the page for 20-33 s, with the old wood already taken away.
+    // Now the new planting is built while the old one still stands and the page
+    // keeps drawing, then each layer is swapped in one turn, as boot plants them.
     const run = (detailPending ?? Promise.resolve()).then(async () => {
-      scene3d.remove(flora.group);
-      flora.dispose?.();
-      flora = await createFlora({
+      const nextFlora = await createFlora({
+        checkpoint: switchCheckpoint,
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
-      scene3d.add(flora.group);
+      scene3d.add(nextFlora.group);
+      scene3d.remove(flora.group);
+      flora.dispose?.();
+      flora = nextFlora;
 
-      scene3d.remove(trees.group);
-      trees.dispose?.();
-      trees = await createTrees({
+      const nextTrees = await createTrees({
+        checkpoint: switchCheckpoint,
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
-        zoneAt: (e, n) => flora.zoneAt(e, n),
+        zoneAt: (e, n) => nextFlora.zoneAt(e, n),
         ...detailOpts(),
       });
-      scene3d.add(trees.group);
+      scene3d.add(nextTrees.group);
+      scene3d.remove(trees.group);
+      trees.dispose?.();
+      trees = nextTrees;
       await streetsRebuilt;
       if (lowMem) releaseAfterUpload(scene3d);
       api.flora = flora;
