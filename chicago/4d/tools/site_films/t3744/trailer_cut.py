@@ -9,12 +9,12 @@ W, H, FPS = 1920, 1080, 24
 # (source film or None for black, start in source, length, card, card in, card out, fade in, fade out)
 T = [
  (None,                 0,   3.6, 'c-open',   0.5, 3.0, 0,   0),
- ('1812-fort-fly',      0.5, 6.9, 'y-1812',   0.8, 6.0, 0.8, 0.5),
+ ('1812-fort-fly',      0.4, 5.3, 'y-1812',   0.8, 4.5, 0.8, 0.5),   # ends before its hitch at 5.75 s
  ('1835-forks-fly',     0.5, 6.0, 'y-1835',   0.6, 5.2, 0.5, 0.5),
- ('1871-downtown-fly',  0.5, 6.0, 'y-1871',   0.6, 5.2, 0.5, 0.5),
+ ('1871-clark-street',  0.3, 6.2, 'y-1871',   0.6, 5.4, 0.5, 0.5),
  ('1904-prairie-walk',  0.5, 8.5, 'y-1904',   0.8, 7.4, 0.5, 0.7),
  (None,                 0,   3.0, 'c-record', 0.3, 2.6, 0,   0),
- ('1904-people-cards',  0.0, 5.8, 'c-meet',   0.8, 5.0, 0.6, 0.4),
+ ('1904-people-cards',  1.0, 5.8, 'c-meet',   0.8, 5.0, 0.6, 0.4),
  ('1904-host',          0.5, 3.9, None,       0,   0,   0.3, 0.5),
  (None,                 0,   1.4, 'c-saw',    0.1, 1.3, 0,   0),
  ('1812-column',        2.0, 4.0, None,       0,   0,   0,   0),
@@ -22,7 +22,7 @@ T = [
  ('1871-fire-night',    1.0, 3.0, None,       0,   0,   0,   0),
  ('1904-prairie-walk', 62.0, 3.0, None,       0,   0,   0,   0),
  ('1812-column',       16.2, 3.0, None,       0,   0,   0,   0),
- ('1904-prairie-walk', -7.5, 5.8, None,       0,   0,   0,   0.8),
+ ('1904-prairie-walk', -7.5, 4.8, None,       0,   0,   0,   0.8),
 ]
 total = sum(t[2] for t in T)
 # The theme swells again in its last four seconds as if to begin over (Kevin, 2026-11-24): the trailer

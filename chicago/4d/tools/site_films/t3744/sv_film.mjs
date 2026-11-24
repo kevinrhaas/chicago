@@ -44,11 +44,15 @@ await page.addInitScript(() => {
   localStorage.setItem('chicago4d.entered', '1');
   localStorage.setItem('chicago4d.help.seen', '1');
   localStorage.setItem('chicago4d.tour.done', '1');
+  // The one-time hints (js/tour-offer.js HINTS_KEY) count as seen, so none pops over the film
+  // ("Interact works what is in reach…" showed for 6 s as the walk passed the saddle horse).
+  localStorage.setItem('chicago4d.hintsSeen', JSON.stringify(['jaunt', 'jump', 'reconstructed', 'interact', 'follow']));
   const s = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
   s.detail = 'full'; s.quality = 'high';
   localStorage.setItem('chicago4d.settings', JSON.stringify(s));
 });
 const t0 = Date.now();
+if (argv.includes('--small')) await page.addInitScript(() => { window.__svBig = false; });
 await page.goto(URL_, { waitUntil: 'domcontentloaded' });
 await page.waitForFunction(() => window.__chicago4d?.ready === true || window.__chicago4d?.error, null, { polling: 1000 });
 log(`ready in ${((Date.now() - t0) / 1000).toFixed(0)} s`);
@@ -64,7 +68,8 @@ await page.evaluate(async () => {
 log(`in the town; settling ${SETTLE} s`);
 await page.waitForTimeout(SETTLE * 1000);
 // Anything still over the view (a tour card, a hint) goes; the app's own interface stays.
-await page.addStyleTag({ content: '#look-tag { display: none !important; }' });
+// The dev preview's own banner (.github/chicago-4d-dev-preview.mjs) is not part of the app.
+await page.addStyleTag({ content: '#look-tag, #__dev, #__devpill { display: none !important; }' });
 await page.evaluate(() => { for (const b of document.querySelectorAll('button')) if (/got it|dismiss|skip|not now/i.test(b.textContent ?? '')) b.click(); document.exitPointerLock?.(); });
 
 // ---- record ----------------------------------------------------------------------------
@@ -108,7 +113,10 @@ const result = await page.evaluate(async () => {
   notes.push('today pressed');
   for (let i = 0; i < 40; i++) { if (document.getElementById('today-view')?.dataset.mode === 'live') break; await wait(250); }
   notes.push(`mode ${document.getElementById('today-view')?.dataset.mode}`);
-  await wait(3500);                                              // both views of the corner, side by side
+  await wait(2000);
+  // The window made big, as a class would have it on a projector (Kevin's own screenshots).
+  if (window.__svBig !== false) document.getElementById('today-expand')?.click();
+  await wait(2500);                                              // both views of the corner, side by side
   await beat(4, { yaw: 180 });                                   // turn down Prairie Avenue
   await wait(1200);
   // South along the avenue at a stroll, west of the crown (the saddle horse stands tied at the
