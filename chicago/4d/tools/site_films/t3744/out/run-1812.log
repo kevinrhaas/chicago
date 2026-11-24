@@ -1,0 +1,4 @@
+t3744-00-eval {"job": "eval", "ms": 1, "result": ["battle-of-fort-dearborn", "atStop river-mouth", "09:00"], "error": null}
+t3744-01-eval {"job": "eval", "ms": 2518, "result": [true, 2.5885999994277955, 137], "error": null}
+t3744-02-1812-column {"job": "film", "ms": 49869, "result": {"id": "1812-column", "frames": 480, "seconds": 49.852, "bytes": 101075378}, "error": null}
+exit 0
