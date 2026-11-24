@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3244, ts: '2026-11-24T20:35:49.666Z', date: 'Nov 24, 2026, 2:35 PM CT', title: 'A trailer for the public site, and films behind every page', kind: 'feature',
+    items: [
+      'Watch the trailer on the home page: the four years in a little over a minute, with title cards and the main title theme.',
+      'The films behind the home page and every audience page now play. They had been hidden under their still pictures.',
+      'A walk down Prairie Avenue in 1904, from Glessner House past the Kimball house, back up past the Pullman house and along Eighteenth Street to the conservatory.',
+      'A new film of the 1812 column leaving Fort Dearborn: the escort, the families, the wagons with the children, the regulars and Captain Wells, seen from beside it and from above.',
+      'Educators can compare 1904 with Google Street View today at three Prairie Avenue corners, with questions for a class discussion.',
+      'Historians read a household one person at a time, opening each line for its sources.',
+    ] },
   { v: 3243, ts: '2026-11-24T20:23:29.448Z', date: 'Nov 24, 2026, 2:23 PM CT', title: 'The tour shows the bug key on phones too', kind: 'fix',
     items: [
       'On a phone, the tour\'s Report a bug step closes the Navigator, so the bug key is in view and ringed.',
