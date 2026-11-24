@@ -29,7 +29,9 @@
  * `track` follows something that moves: `track.js` returns { e, n, heading } each frame
  * (heading in degrees, clockwise from north), and the camera sits at `track.offset`
  * ({ back, side, alt }) in that frame, looking at it (`track.look_h` above its ground),
- * optionally swinging round it by `track.swing` degrees over the film.
+ * optionally swinging round it by `track.swing` degrees over the film. `track.js` gets (api, u), u
+ * running 0 → 1 over the film, and may return its own `offset` and `look_h` for that frame
+ * (a dolly down the side of a column, then a rise over it).
  *
  * Time is virtual while filming: performance.now() advances exactly 1/fps per frame, so
  * people, horses and water move at their true speed whatever the frame costs to draw.
@@ -210,16 +212,17 @@ async function trackFrame(track, u, steps, ms) {
   return page.evaluate(({ track, u, steps, ms }) => {
     const api = window.__chicago4d;
     for (let i = 0; i < steps; i++) { if (ms) window.__film.advance(ms / steps); if (i < steps - 1) api.step(); }
-    const at = new Function('api', track.js)(api);
+    const at = new Function('api', 'u', track.js)(api, u);
     if (!at) return null;
-    const o = track.offset ?? { back: 8, side: 2, alt: 2.5 };
+    // track.js may steer the camera itself, frame by frame: { offset: { back, side, alt }, look_h }.
+    const o = { ...(track.offset ?? { back: 8, side: 2, alt: 2.5 }), ...(at.offset ?? {}) };
     const h = ((at.heading ?? 0) + (track.swing ?? 0) * (u - 0.5) + (track.turn ?? 0)) * Math.PI / 180;
     // Behind (back) and to the right (side) of the heading.
     const fe = Math.sin(h), fn = Math.cos(h);
     const e = at.e - fe * o.back + fn * (o.side ?? 0), n = at.n - fn * o.back - fe * (o.side ?? 0);
     const de = at.e + fe * (track.lead ?? 0) - e, dn = at.n + fn * (track.lead ?? 0) - n;
     const yaw = (Math.atan2(de, dn) * 180 / Math.PI + 360) % 360;
-    const pitch = Math.atan2((track.look_h ?? 1.5) - o.alt, Math.hypot(de, dn)) * 180 / Math.PI;
+    const pitch = Math.atan2((at.look_h ?? track.look_h ?? 1.5) - o.alt, Math.hypot(de, dn)) * 180 / Math.PI;
     api.setFly(true);
     api.walker.teleport({ local_e: e, local_n: n, yaw_deg: yaw, pitch_deg: pitch, altitude_m: o.alt });
     api.step();
