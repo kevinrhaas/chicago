@@ -23,6 +23,7 @@ import { wireSettingsApp, wireSettingsTabs, SOUND_DEFAULTS, soundLevelsFrom } fr
 import { storedPacing, storedAntialias, resolvePacing, autoAntialias } from './graphics-settings.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
+import './strings/bugs.js';
 import { languageRow } from './language.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
 // beside its looks, so all three carry to the next page and year together.
@@ -88,6 +89,9 @@ const DEFAULT_SETTINGS = {
   // T-3614 (owner, 2026-11-16): a small card hovering over each person with their name, on by
   // default; a click or tap on it opens their card (name-cards.js).
   nameCards: true,
+  // T-3743 (owner, 2026-11-24): the small Report a bug key at the upper right, on by default;
+  // Settings › Show › On screen turns it off.
+  bugKey: true,
   // The owner, 2026-11-17: which name cards show, by grade, any mix (all three by default).
   nameCardsAttested: true, nameCardsInferred: true, nameCardsReconstructed: true,
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
@@ -632,6 +636,21 @@ export function createHud({
       + '</span>';
     after.after(row);
   }
+  // T-3743: the Report a bug key's switch, last in Show › On screen. Built here, not in
+  // index.html, for the same 64 KiB door floor as the row above.
+  function bugKeyRow() {
+    const group = $('row-look-tag-hold')?.parentElement;
+    if (!group || $('s-bug-key')) return;
+    const row = document.createElement('label');
+    row.className = 'field row check-field';
+    row.id = 'row-bug-key';
+    const span = document.createElement('span');
+    span.textContent = str('bugs.settings.row');
+    const box = document.createElement('input');
+    box.type = 'checkbox'; box.id = 's-bug-key';
+    row.append(span, box);
+    group.append(row);
+  }
   function wireToggle(id, key) {
     const el = $(id);
     if (!el) return;
@@ -715,6 +734,8 @@ export function createHud({
   wireToggle('s-today-view', 'todayView');
   wireToggle('s-look-tag', 'lookTag');
   wireToggle('s-name-cards', 'nameCards');
+  bugKeyRow();
+  wireToggle('s-bug-key', 'bugKey');
   // The owner, 2026-11-17: which name cards, by grade, any mix of the three. Built here, not in
   // index.html: the page is copied to every year's door, and at 64 KiB a copy is a merge refusal
   // (validate.py SITE_DUPE_FLOOR, T-0722), which index.html had 40 bytes left before.

@@ -1,0 +1,10 @@
+{
+  "title": "Report a bug from the upper right, and crashes report themselves",
+  "kind": "feature",
+  "items": [
+    "A small bug key sits left of the compass row. It takes a picture of the town and asks what went wrong, then sends that with the year, where you stand and your device.",
+    "Settings › Show › On screen turns the key off.",
+    "If the page is cut off, for example a phone running out of memory or the display resetting, the next visit sends a report of it.",
+    "The first-time tour points out the key."
+  ]
+}

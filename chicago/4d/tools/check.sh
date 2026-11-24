@@ -296,6 +296,8 @@ step "The sign-in gate asks only where it is switched on, never locks a visitor 
   node tools/test_sign_in.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
+step "Crash reports and Report a bug write only what the bugs rule allows, only from the live hosts, a crash once, and cap their emails (T-3743)" \
+  node tools/test_bug_report.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \

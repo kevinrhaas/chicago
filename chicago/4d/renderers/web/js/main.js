@@ -97,6 +97,7 @@ import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceText
 import { createCrashGuard } from './crash-guard.js';
 import { countDriverDraws } from './driver-draws.js';
 import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport, SAMPLE_MS as BLACKBOX_SAMPLE_MS } from './blackbox.js';
+import { createBugReports, mountBugKey, frameJpeg } from './bug-report.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -1842,10 +1843,15 @@ const crashBoot = crashGuard.boot({
 let blackboxSample = () => null;
 const blackbox = createBlackbox({ year: YEAR, build: document.getElementById('gate-build')?.textContent?.trim() || VERSION, sample: () => blackboxSample() });
 api.blackbox = blackbox;
+// T-3743: crash reports and the Report a bug key (bug-report.js). Made this early so an
+// error in the boot is caught; it sends nothing until sign-in has said who is here.
+const bugs = createBugReports({ config: SIGN_IN, year: YEAR, build: blackbox.box.build });
+api.bugs = bugs;
 if (wasCut(blackbox.previous)) {
   const line = blackboxSummary(blackbox.previous);
   crashGuard.show(crashGuard.state.notice ? `${crashGuard.state.notice} ${line}` : line,
     { copyText: blackboxReport(blackbox.previous) });
+  bugs.crash(blackbox.previous, line);
 }
 blackbox.log('boot', { to: `${crashBoot.detail}@${crashBoot.quality}` });
 window.addEventListener('pagehide', () => blackbox.end('left'));
@@ -2034,6 +2040,7 @@ async function boot() {
   // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
   // once, loads nothing) until js/sign-in-config.js names a Firebase project.
   api.signIn = await signInGate({ year: YEAR, gate });
+  bugs.signedIn(api.signIn.account ?? null);
   // T-3603: "Signed in as … · Sign out" on the Settings card's About tab.
   showAccount(document, api.signIn.account);
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
@@ -2309,7 +2316,7 @@ async function boot() {
     if (!contextPaused && frameLoop) renderer.setAnimationLoop(frameLoop);
   });
   crashGuard.watchContext(renderer.domElement, { needsReload: contextNeedsReload });
-  renderer.domElement.addEventListener('webglcontextlost', () => blackbox.log('lost'));
+  renderer.domElement.addEventListener('webglcontextlost', () => { blackbox.log('lost'); bugs.contextLost(blackbox.box); });
   renderer.domElement.addEventListener('webglcontextrestored', () => blackbox.log('restored'));
   setPickLog((kind, data) => blackbox.log(kind, data));
   api.pickResources = pickResources;
@@ -4940,6 +4947,8 @@ async function boot() {
         applyDetail(value);
       } else if (key === 'compass') {
         navigation.setCompassVisible(value);
+      } else if (key === 'bugKey') {
+        api.bugKey?.setShown(value);
       } else if (key === 'overviewMap') {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
@@ -7765,6 +7774,40 @@ async function boot() {
       return photoPromise;
     },
   };
+  // T-3743: the Report a bug key's picture, one small JPEG of the next frame drawn, read
+  // inside that frame (bug-report.js § frameJpeg); nothing is kept between presses.
+  let pendingBugShot = null;
+  const bugShot = () => new Promise((resolve) => {
+    if (!api.ready || contextPaused || renderer.xr.isPresenting) { resolve(''); return; }
+    const request = { resolve };
+    request.timer = setTimeout(() => { if (pendingBugShot === request) { pendingBugShot = null; resolve(''); } }, 4000);
+    pendingBugShot = request;
+  });
+  // What a report says about the scene, read only when one is filed.
+  bugs.setExtra(() => {
+    let spot = null;
+    try { spot = readMoment(); } catch { spot = null; }
+    const st = walker.state;
+    const { render, memory } = renderer.info;
+    const sig = device?.signals ?? {};
+    return {
+      gpu: [sig.vendor, sig.renderer].filter(Boolean).join(' · '),
+      place: spot?.place ?? '', link: spot?.url ?? '',
+      position: { e: Math.round(st.e * 10) / 10, n: Math.round(st.n * 10) / 10, bearing: Math.round(walker.bearingDeg),
+        pitch: Math.round(st.pitch / DEG), flying: !!st.flying, altitude: Math.round(st.altitude ?? 0) },
+      profile: { cls: device?.cls ?? null, why: device?.why ?? null, webgl2: sig.webgl2 ?? null, maxTexture: sig.maxTexture ?? null,
+        formats: sig.formats ?? null, lowMemory: !!device?.choice?.lowMemory },
+      scene: { detail: detailLevel, sharpness: drawingQuality, ratio: +renderer.getPixelRatio().toFixed(2),
+        draws: driverDraws.draws, tris: render.triangles, geometries: memory.geometries, textures: memory.textures,
+        heapMB: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null, sinceReadyS: bootController.readyAt != null ? Math.round((performance.now() - bootController.readyAt) / 1000) : null },
+      open: { card: popup.openId ?? null, app: navigatorUi?.app ?? null, level: navigatorUi?.level ?? null,
+        jaunt: api.jaunts?.state?.id ?? api.jaunts?.state?.jaunt?.id ?? null },
+      crashGuard: { notice: crashGuard.state.notice ?? null, stepdown: crashGuard.state.stepdown ?? null },
+      settings: hud.settings,
+    };
+  });
+  api.bugKey = mountBugKey({ doc: document, reports: bugs, capture: bugShot, steps: () => blackbox.box,
+    shown: hud.settings.bugKey !== false });
   // Use the usual arrival gate. Scene coverage and collision checks reject stale views;
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
@@ -7912,7 +7955,8 @@ async function boot() {
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         acts: tourCounts.acts, apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
+        bugKey: !!api.bugKey && !api.bugKey.key.hidden };
     },
     render: (v) => {
       tourOverlay.paint(v);
@@ -8192,7 +8236,7 @@ async function boot() {
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
     // something the renderer reads has moved. Out in the town, every frame.
-    if (!gateOpen || force || pendingCapture || pendingPhoto || gateFrame.due()) {
+    if (!gateOpen || force || pendingCapture || pendingPhoto || pendingBugShot || gateFrame.due()) {
       // T-2646: `renderer.render(scene3d, camera)`, and — only while a grade is
       // ghosted with the Confidence view on — that grade drawn see-through, last,
       // in a pass of its own (confidence.js § render).
@@ -8219,6 +8263,13 @@ async function boot() {
         if (!metadata) throw new Error('The town view is not ready.');
         stampMoment(renderer.domElement, metadata).then(request.resolve, request.reject);
       } catch (error) { request.reject(error); }
+    }
+    if (pendingBugShot) {
+      const request = pendingBugShot;
+      pendingBugShot = null; clearTimeout(request.timer);
+      let url = '';
+      try { url = frameJpeg(renderer.domElement); } catch { url = ''; }
+      request.resolve(url);
     }
 
     const st = walker.state;
@@ -8328,7 +8379,7 @@ async function boot() {
       // and are drawn exactly as they were before the governor existed.
       // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
       // stale or black eye — and at its own framebuffer scale, never the governor's.
-      if (pendingCapture || pendingPhoto || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
+      if (pendingCapture || pendingPhoto || pendingBugShot || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();

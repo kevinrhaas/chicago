@@ -163,3 +163,26 @@ export async function listMessages({ projectId, idToken, fetchFn = fetch }) {
     limit: 500,
   }, fetchFn);
 }
+
+/**
+ * T-3743: crash reports and Report a bug (js/bug-report.js writes them; the rules in
+ * docs/SIGN-IN.md let only the owner read). The list reads the short fields only; the
+ * picture, the environment, the errors and the steps come with `getBug`, one at a time.
+ */
+export const BUG_LIST_FIELDS = ['uid', 'email', 'kind', 'comment', 'year', 'site', 'build', 'device', 'gpu', 'place', 'link', 'at'];
+export async function listBugs({ projectId, idToken, fetchFn = fetch, limit = 300 }) {
+  return runQuery(projectId, idToken, {
+    select: { fields: BUG_LIST_FIELDS.map(fieldPath => ({ fieldPath })) },
+    from: [{ collectionId: 'bugs' }],
+    orderBy: [{ field: { fieldPath: 'at' }, direction: 'DESCENDING' }],
+    limit,
+  }, fetchFn);
+}
+export async function getBug({ projectId, idToken, id, fetchFn = fetch }) {
+  const res = await fetchFn(`${docsBase(projectId)}/bugs/${encodeURIComponent(id)}`, {
+    headers: { Authorization: `Bearer ${idToken}` },
+  });
+  if (!res.ok) throw new Error(`That report did not load (${res.status}).`);
+  const doc = await res.json();
+  return { id, ...fromFields(doc.fields) };
+}
