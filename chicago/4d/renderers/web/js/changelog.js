@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3240, ts: '2026-11-24T01:55:26.039Z', date: 'Nov 23, 2026, 7:55 PM CT', title: '2110 Prairie\'s gable flush with its front, its loggia arches deep', kind: 'feature',
+    items: [
+      '2110 Prairie\'s front now runs straight up into its tall gable, as both of its photographs show it, with no heavy ledge across the front; a plain stone pier rises at the north corner and nothing stands over the south one; the five loggia windows sit deep in their arches between free-standing columns under a carved band; and the gable\'s carved panel is carved edge to edge. The house now matches both of its photographs.',
+    ] },
   { v: 3239, ts: '2026-11-24T01:13:51.235Z', date: 'Nov 23, 2026, 7:13 PM CT', title: '2115 Prairie\'s mansard runs on over its rear range', kind: 'change',
     items: [
       '2115 Prairie\'s slated mansard now carries on behind the house over its back range, as the old photograph of its north side shows, with two more round-headed dormers in it: three along that side instead of one, and the flat-topped back block is gone.',
