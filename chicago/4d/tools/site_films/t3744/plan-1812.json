@@ -9,7 +9,7 @@
  },
  {
   "type": "eval",
-  "js": "const ok = api.jaunts.replay(); api.setFly(true); api.walker.teleport({local_e:1160,local_n:-420,yaw_deg:270,pitch_deg:0,altitude_m:3}); for (let i = 0; i < 20; i++) api.step(); const c = api.jauntStage.snapshot().cast.filter(a => !a.hidden && a.drawn !== false).length; return [ok, api.jauntStage.clock, c];"
+  "js": "try { window.__film.release(); } catch {} const ok = api.jaunts.replay(); api.setFly(true); api.walker.teleport({local_e:1160,local_n:-420,yaw_deg:270,pitch_deg:0,altitude_m:3}); const drawn = () => api.jauntStage.snapshot().cast.filter(a => !a.hidden && a.drawn !== false).length; for (let i = 0; i < 400 && (api.jauntStage.clock < 2.5 || drawn() < 130); i++) { api.step(); await new Promise(r => setTimeout(r, 100)); } return [ok, api.jauntStage.clock, drawn()];"
  },
  {
   "type": "film",
