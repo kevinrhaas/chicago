@@ -29,8 +29,8 @@ const make = () => createTour({ probe: () => ({ ...page, apps: { ...page.apps } 
 const openApp = (id) => { page.apps[id] = (page.apps[id] ?? 0) + 1; page.level = 1; };
 
 // ---- the ten steps, and their words -----------------------------------------------------
-assert.equal(STEPS.length, 10);
-assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Interact', 'Jaunts', 'Move', 'Settings', 'Ready']);
+assert.equal(STEPS.length, 11);
+assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Interact', 'Jaunts', 'Move', 'Settings', 'Report a bug', 'Ready']);
 assert(!STEPS.some((s) => /confidence/i.test(s.task + s.bubble({}))), 'no Confidence view step (T-2954)');
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 for (const scene of ['1904', '1835', '1812', '1871']) {
@@ -78,7 +78,15 @@ assert.equal(STEPS[8].bubble({ touch: true, level: 0 }), 'Open the Navigator, th
 // T-3742 (the owner, 2026-11-23): the tour stays in the year it is taken in — loading another
 // takes too long — and Ready sends the visitor on: a Jaunt, Home's Go to, or Free roam.
 assert(!STEPS.some((s) => [false, true].some((touch) => /\b(1812|1835|1871|1904|jump)\b/i.test(s.bubble({ scene: '1904', touch })))), 'no step sends the visitor to another year');
-assert.equal(STEPS[9].bubble({}), 'Ready. Pick a Jaunt, Go to someone, or Free roam.');
+// T-3743 (the owner, 2026-11-24): the Report a bug key, rung where it shows, passed over where
+// Settings has hidden it.
+assert.equal(STEPS[9].bubble({}), 'Something wrong? Click the bug key to tell us. Settings can hide it.');
+assert.equal(STEPS[9].bubble({ touch: true }), 'Something wrong? Tap the bug key to tell us. Settings can hide it.');
+assert.equal(STEPS[9].target, '#bug-key');
+assert.equal(STEPS[9].action, 'next', 'it waits for Next, not for a report');
+assert.equal(STEPS[9].when({ bugKey: false }), false, 'a hidden key is passed over');
+assert.equal(STEPS[9].when({ bugKey: true }), true);
+assert.equal(STEPS[10].bubble({}), 'Ready. Pick a Jaunt, Go to someone, or Free roam.');
 assert.match(html0(), /class="nav-choice" type="button" data-segment="goto"><strong>Go to…<\/strong>/, 'Home has Go to…');
 assert.match(html0(), /class="nav-choice" type="button" data-segment="roam"><strong>Free roam<\/strong>/, 'and Free roam');
 
@@ -123,7 +131,7 @@ page.selected = false; tour.tick(); assert.equal(tour.step, 5, 'released');
 
 // 06: Interact used during the step (T-3642).
 assert.equal(views.at(-1).task, 'Interact');
-assert.equal(views.at(-1).of, 10, 'ten steps');
+assert.equal(views.at(-1).of, 11, 'eleven steps');
 page.level = 1; openApp('people'); tour.tick(); assert.equal(tour.step, 5, 'opening a menu is not Interact');
 page.acts = (page.acts ?? 0) + 1; tour.tick(); assert.equal(tour.step, 6, 'Interact used');
 
@@ -144,8 +152,14 @@ openApp('move'); tour.tick(); assert.equal(tour.step, 8, 'Move opened');
 openApp('move'); tour.tick(); assert.equal(tour.step, 8, 'another app is not Settings');
 openApp('settings'); tour.tick(); assert.equal(tour.step, 9, 'Settings opened');
 
-// 10: Finish.
-tour.tick(); assert.equal(tour.step, 9, 'step 10 waits for Finish');
+// 10: Report a bug, Next.
+tour.tick(); assert.equal(tour.step, 9, 'step 10 waits for Next');
+assert.equal(views.at(-1).target, '#bug-key', 'and rings the key');
+assert.equal(views.at(-1).action, 'next');
+tour.press(); assert.equal(tour.step, 10, 'Next moves on');
+
+// 11: Finish.
+tour.tick(); assert.equal(tour.step, 10, 'step 11 waits for Finish');
 assert.equal(views.at(-1).action, 'finish');
 tour.press();
 assert.equal(tour.running, false); assert.equal(finished, 1, 'Finish ends the tour');
@@ -168,8 +182,13 @@ assert.equal(views.at(-1), null);
 assert.equal(make().resume(), false, 'a skipped tour does not come back on reload');
 assert.equal(make().start(), true, 'Replay starts it again from 01');
 
-// T-3642: every step applies everywhere now; the count is the whole tour.
-assert(STEPS.every((x) => !x.when), 'no step is passed over');
+// T-3642: every step applies everywhere but Report a bug, which Settings can hide (T-3743).
+assert.deepEqual(STEPS.filter((x) => x.when).map((x) => x.task), ['Report a bug'], 'only the bug key\u2019s step can be passed over');
+{
+  const hidden = createTour({ probe: () => ({ ...page, bugKey: false }), render: (v) => views.push(v), storage: store() });
+  hidden.start();
+  assert.equal(views.at(-1).of, 10, 'with the key hidden the tour is ten steps');
+}
 
 // Storage refused: the tour still runs, for this page.
 const refusing = { getItem() { throw new Error('no'); }, setItem() { throw new Error('no'); } };
@@ -236,4 +255,4 @@ assert(/rgb\(0 0 0 \/ 55%\)/.test(css), 'the rest of the screen dims to 55 %');
 assert(/prefers-reduced-motion: reduce/.test(css), 'and keeps still with reduced motion');
 assert(/\.tour \{[^}]*pointer-events: none/.test(css) && /\.tour-card \{[^}]*pointer-events: auto/.test(css), 'only the card takes the pointer');
 
-console.log('test_tour: ten steps, each on its own action (select, release, Interact, Jaunts, Move, Settings); resume at 4, skip at 6, replay; bubbles of 14 words or fewer');
+console.log('test_tour: eleven steps, each on its own action (select, release, Interact, Jaunts, Move, Settings), the bug key passed over where hidden; resume at 4, skip at 6, replay; bubbles of 14 words or fewer');

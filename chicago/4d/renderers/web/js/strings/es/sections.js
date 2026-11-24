@@ -1,6 +1,27 @@
 /** Spanish string-table sections, keyed as js/strings/<section>.js (tools/test_strings.mjs holds
  * every key and placeholder to the English). */
 export default {
+ "bugs": {
+  "key": "Informar de un error",
+  "title": "Informar de un error",
+  "close": "Cerrar",
+  "includeShot": "Incluir esta imagen del pueblo",
+  "noShot": "Sin imagen: el pueblo aún no se había dibujado.",
+  "shotAlt": "La vista que estás informando",
+  "comment": "¿Qué salió mal?",
+  "placeholder": "Qué hiciste, qué viste, qué esperabas.",
+  "what": "Se envía con él: tu inicio de sesión, el año, dónde estás, ajustes, dispositivo, gráficos, memoria y errores recientes.",
+  "cancel": "Cancelar",
+  "send": "Enviar",
+  "copy": "Copiar el informe",
+  "sending": "Enviando…",
+  "sent": "Enviado. Gracias.",
+  "failed": "No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.",
+  "notLive": "Los informes solo se envían desde el sitio publicado. Cópialo en su lugar.",
+  "copied": "Informe copiado.",
+  "copyFailed": "Este navegador no permitió copiar.",
+  "settings.row": "Botón para informar de un error"
+ },
  "arrival": {
   "eyebrow": "4D Chicago · Llegada",
   "title.0": "Preparando tu llegada",

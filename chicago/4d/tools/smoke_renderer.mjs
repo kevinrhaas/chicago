@@ -15079,7 +15079,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 10 && rows.length === 10 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 11 && rows.length === 11 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -15126,7 +15126,7 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the eleven tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
       // 1871 has its own Jaunts since The Last Sunday (T-3692): one to three suggested; the
@@ -18520,6 +18520,13 @@ for (const [label, viewport, touch] of [
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
     await tourWait(9);
+    // T-3743: Report a bug, rung on its key, then Next.
+    const bugStep = await tourView();
+    const bugRing = await page.evaluate(() => { const h = document.querySelector('#tour .tour-hole'); const k = document.getElementById('bug-key');
+      if (!h || h.hidden || !k) return false; const a = h.getBoundingClientRect(), b = k.getBoundingClientRect();
+      return a.left <= b.left + 1 && a.right >= b.right - 1 && a.top <= b.top + 1 && a.bottom >= b.bottom - 1; });
+    await clickChrome('#tour-next');
+    await tourWait(10);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -18532,8 +18539,8 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642, T-3742)`,
-      t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings, then Report a bug on its key — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642, T-3742, T-3743)`,
+      t1.shown && t1.count === 'Field check · 1 / 11' && t1.pips === 11 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
@@ -18543,9 +18550,36 @@ for (const [label, viewport, touch] of [
       && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
       && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
       && settingsStep.step === 8 && /Settings[^:]*: language/.test(settingsStep.bubble ?? '')
-      && last.step === 9 && /^Ready\. Pick a Jaunt/.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
+      && bugStep.step === 9 && /bug key/.test(bugStep.bubble ?? '') && bugRing
+      && last.step === 10 && /^Ready\. Pick a Jaunt/.test(last.bubble ?? '') && last.lit === 11 && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, bugStep, bugRing, last, done }));
     // ---- end T-2663
+    // >>> T-3743: the Report a bug key at the upper right opens its sheet with a picture of the
+    // town taken before the sheet covers it; here (not the live site) Send copies and nothing is
+    // sent; Esc closes it; Settings' switch hides the key and shows it again.
+    await clickChrome('#bug-key');
+    await page.waitForFunction(() => { const s = document.getElementById('bug-sheet'); return s && !s.hidden; }, null, { timeout: 60_000 }).catch(() => {});
+    const bugOpen = await page.evaluate(() => {
+      const s = document.getElementById('bug-sheet'); const img = s?.querySelector('.bug-shot');
+      const r = s?.getBoundingClientRect();
+      return { open: !!s && !s.hidden, shot: img?.getAttribute('src')?.slice(0, 23) ?? null, shotKB: Math.round((img?.getAttribute('src')?.length ?? 0) / 1024),
+        focus: document.activeElement?.id ?? null, fits: !!r && r.left >= 0 && r.right <= innerWidth + 0.5 && r.top >= 0,
+        send: s?.querySelector('.bug-send')?.textContent ?? null, live: window.__chicago4d.bugs.live, site: window.__chicago4d.bugs.site };
+    });
+    await page.keyboard.press('Escape');
+    const bugClosed = await page.evaluate(() => {
+      const api = window.__chicago4d; const k = document.getElementById('bug-key');
+      const closed = document.getElementById('bug-sheet')?.hidden === true;
+      api.bugKey.setShown(false); const hid = k.hidden && getComputedStyle(k).display === 'none';
+      api.bugKey.setShown(true);
+      return { closed, hid, back: !k.hidden, sent: api.bugs.sentLog.length, row: !!document.getElementById('s-bug-key') };
+    });
+    check(`${label}: Report a bug opens its sheet with a picture of the town, sends nothing off the live site, closes on Esc, and its Settings switch hides the key (T-3743)`,
+      bugOpen.open && bugOpen.shot === 'data:image/jpeg;base64' && bugOpen.shotKB > 2 && bugOpen.focus === 'bug-comment' && bugOpen.fits
+      && bugOpen.live === false && bugOpen.send === 'Copy report'
+      && bugClosed.closed && bugClosed.hid && bugClosed.back && bugClosed.sent === 0 && bugClosed.row,
+      JSON.stringify({ bugOpen, bugClosed }));
+    // ---- end T-3743
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
     // again; no hint shows while the tour runs; a Reconstructed building's card hints once.

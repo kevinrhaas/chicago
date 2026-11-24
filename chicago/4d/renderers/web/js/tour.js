@@ -1,7 +1,7 @@
 /**
  * Tour mode, the Field Check (T-2663, NAV-801; design doc section 11, M10).
  *
- * Ten steps (T-3642, T-3742) the Navigator runs itself, framed as a Confluence Laboratory field check.
+ * Eleven steps (T-3642, T-3742, T-3743) the Navigator runs itself, framed as a Confluence Laboratory field check.
  * Every step waits for the visitor to actually do the thing — read from the page through
  * `probe()`, never assumed — and Skip is always there. Progress is kept per device
  * (localStorage, inside try/catch), so a reload mid-tour resumes at the same step; it can
@@ -58,7 +58,7 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);
 
-/** The ten steps. `task` is the field-check line over the bubble; `target` the selector
+/** The eleven steps. `task` is the field-check line over the bubble; `target` the selector
  *  the spotlight rings (or a function of the probe); `done(p, base)` whether the step's
  *  real action has happened; `when(p)`, where given, whether the step applies here — a
  *  step that does not is passed over and not counted.
@@ -119,6 +119,11 @@ export const STEPS = [
   // T-3742: Display's Language and Reading age (T-3680, T-3645), the Graphics tab (T-3736).
   { task: 'Settings', bubble: menuOpen('Settings', 'language, reading age, graphics, name cards, sound'),
     target: railKey('settings'), done: opened('settings') },
+  // T-3743 (the owner, 2026-11-24: "And add that to the tour"): the Report a bug key at the
+  // upper right. Passed over where Settings has hidden it.
+  { task: 'Report a bug',
+    bubble: (p) => `Something wrong? ${press(p)} the bug key to tell us. Settings can hide it.`,
+    target: '#bug-key', action: 'next', when: (p) => p.bugKey !== false },
   // T-3742 (the owner, 2026-11-23): Ready sends the visitor on, in the year they are in: the
   // Jaunts key, or Home's Go to and Free roam (T-3629).
   { task: 'Ready', bubble: () => 'Ready. Pick a Jaunt, Go to someone, or Free roam.',

@@ -75,6 +75,12 @@
   .messages .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink-dim); }
   .messages .meta b { color: var(--ink); font-weight: 600; }
   .messages p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .messages .meta a { color: var(--accent, inherit); }
+  .messages button { justify-self: start; }
+  .bug-crash, .bug-context { border-left: 3px solid #d9822b; }
+  .bug-detail { display: grid; gap: 8px; }
+  .bug-detail img { max-width: 100%; border: 1px solid var(--edge); border-radius: 4px; }
+  .bug-detail pre { margin: 6px 0 0; max-height: 320px; overflow: auto; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
   [hidden] { display: none !important; }
   @media (max-width: 600px) {
     th:nth-child(4), td:nth-child(4) { display: none; }
@@ -104,6 +110,16 @@
   <section id="messages" class="panel" hidden>
     <h2 id="messages-head">Messages from the contact page</h2>
     <ol class="messages" id="message-rows"></ol>
+  </section>
+  <!-- T-3743: crash reports and Report a bug, newest first; ?bug=<id> opens one. -->
+  <section id="bugs" class="panel" hidden>
+    <div class="tools">
+      <h2 id="bugs-head">Bug reports and crashes</h2>
+      <select id="bug-site" aria-label="Which site">
+        <option value="">Live and dev</option><option value="live">Live site</option><option value="dev">Dev preview</option><option value="local">Local</option>
+      </select>
+    </div>
+    <ol class="messages" id="bug-rows"></ol>
   </section>
   <section id="people" class="panel" hidden>
     <div class="tools">

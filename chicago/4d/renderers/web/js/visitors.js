@@ -9,7 +9,7 @@
  */
 import { SIGN_IN } from './sign-in-config.js';
 import { configured, signedInUser, METHOD_LABEL } from './sign-in.js';
-import { listVisitors, listVisits, listMessages } from './visitor-store.js';
+import { listVisitors, listVisits, listMessages, listBugs, getBug } from './visitor-store.js';
 
 const $ = id => document.getElementById(id);
 const status = (text, bad = false) => { $('status').textContent = text; $('status').classList.toggle('bad', bad); };
@@ -135,6 +135,75 @@ export function drawMessages(messages) {
   }));
 }
 
+/**
+ * T-3743: crash reports and bug reports, newest first; `null` when they could not be read.
+ * `open(id)` reads one whole report (picture, environment, errors, steps) when asked.
+ */
+const KIND_WORDS = { bug: 'Bug report', crash: 'Crash', context: 'Display reset', error: 'Error' };
+export function drawBugs(bugs, { open = async () => null, focus = '' } = {}) {
+  $('bugs').hidden = false;
+  if (bugs === null) {
+    $('bugs-head').textContent = 'Bug reports and crashes: not readable yet (paste the bugs rule from docs/SIGN-IN.md)';
+    $('bug-rows').replaceChildren();
+    return;
+  }
+  const paint = () => {
+    const site = $('bug-site').value;
+    const shown = bugs.filter(b => !site || b.site === site);
+    $('bugs-head').textContent = `Bug reports and crashes · ${shown.length}`;
+    $('bug-rows').replaceChildren(...shown.map(b => {
+      const li = document.createElement('li');
+      li.id = `bug-${b.id}`;
+      li.className = `bug bug-${b.kind || 'bug'}`;
+      const meta = document.createElement('div'); meta.className = 'meta';
+      const kind = document.createElement('b'); kind.textContent = KIND_WORDS[b.kind] || 'Report';
+      const who = document.createElement(b.email ? 'a' : 'span'); who.textContent = b.email || 'not signed in';
+      if (b.email) who.href = `mailto:${b.email}?subject=${encodeURIComponent('Re: your 4D Chicago report')}`;
+      const where = document.createElement('span'); where.textContent = [b.year, b.site, b.place].filter(Boolean).join(' · ');
+      const at = document.createElement('span'); at.textContent = when(b.at);
+      meta.append(kind, who, where, at);
+      const body = document.createElement('p'); body.textContent = b.comment || '—';
+      const kit = document.createElement('div'); kit.className = 'meta';
+      const dev = document.createElement('span'); dev.textContent = [b.device, b.gpu].filter(Boolean).join(' · ');
+      kit.append(dev);
+      // Anyone can file a report, so its link and picture are opened only as what they claim to be.
+      if (/^https:\/\/(dev\.)?chicago\.polecat\.live\//.test(b.link || '')) { const go = document.createElement('a'); go.href = b.link; go.textContent = 'Open this spot'; go.target = '_blank'; go.rel = 'noopener'; kit.append(go); }
+      const more = document.createElement('button'); more.type = 'button'; more.textContent = 'Details';
+      const detail = document.createElement('div'); detail.className = 'bug-detail'; detail.hidden = true;
+      more.onclick = async () => {
+        if (!detail.hidden) { detail.hidden = true; more.textContent = 'Details'; return; }
+        more.disabled = true; more.textContent = 'Loading…';
+        try {
+          const full = await open(b.id);
+          detail.replaceChildren();
+          if (/^data:image\/jpeg;base64,/.test(full?.shot || '')) { const img = document.createElement('img'); img.src = full.shot; img.alt = 'What the visitor saw'; detail.append(img); }
+          for (const [key, label] of [['env', 'Device, scene and settings'], ['errors', 'Recent errors'], ['steps', 'Last steps (black box)']]) {
+            if (!full?.[key]) continue;
+            const d = document.createElement('details'); const sm = document.createElement('summary'); sm.textContent = label;
+            const pre = document.createElement('pre');
+            try { pre.textContent = JSON.stringify(JSON.parse(full[key]), null, 1); } catch { pre.textContent = full[key]; }
+            d.append(sm, pre); detail.append(d);
+          }
+          const line = document.createElement('p'); line.className = 'meta'; line.textContent = `Build ${full?.build || '?'} · ${full?.page || ''}`;
+          detail.append(line);
+          detail.hidden = false; more.textContent = 'Hide';
+        } catch (err) { more.textContent = 'Details'; status(err.message, true); }
+        finally { more.disabled = false; }
+      };
+      kit.append(more);
+      li.append(meta, body, kit, detail);
+      return li;
+    }));
+  };
+  $('bug-site').onchange = paint;
+  paint();
+  if (focus) {
+    const row = $(`bug-${focus}`);
+    row?.scrollIntoView({ block: 'start' });
+    row?.querySelector('button')?.click();
+  }
+}
+
 /** Invented rows for ?demo: example.com addresses, nothing real. */
 export function demoRows(now = Date.now()) {
   const years = ['1812', '1835', '1904'];
@@ -165,6 +234,11 @@ async function main() {
     drawMessages([
       { name: 'Sample Sender', email: 'sender@example.com', topic: 'A building, photo or source', message: 'A sample message, invented for the demo.', at: new Date().toISOString() },
     ]);
+    const demoBugs = [
+      { id: 'demo1', kind: 'bug', email: 'visitor1@example.com', year: '1904', site: 'live', place: 'Prairie Avenue at 18th Street', device: 'computer · Windows · Chrome 131', gpu: 'Google Inc. (Intel) · ANGLE (Intel, Intel(R) UHD Graphics 630)', comment: 'A sample report, invented for the demo: the door went black after I walked away.', link: '', at: new Date().toISOString() },
+      { id: 'demo2', kind: 'crash', email: 'visitor2@example.com', year: '1835', site: 'dev', place: '', device: 'phone · iPhone · Safari 18', gpu: 'Apple Inc. · Apple GPU', comment: 'Page stopped 45.0 s into the visit.', link: '', at: new Date(Date.now() - DAY).toISOString() },
+    ];
+    drawBugs(demoBugs, { open: async (id) => ({ ...demoBugs.find(b => b.id === id), env: '{"device":{"class":"computer"}}', errors: '[]', steps: '' }) });
     return;
   }
   if (!configured(SIGN_IN.firebase)) {
@@ -198,6 +272,10 @@ async function main() {
     ]);
     draw(visitors, visits);
     drawMessages(await listMessages({ projectId, idToken }).catch(() => null));
+    drawBugs(await listBugs({ projectId, idToken }).catch(() => null), {
+      open: (id) => getBug({ projectId, idToken, id }),
+      focus: new URLSearchParams(location.search).get('bug') || '',
+    });
   } catch (err) {
     status(err.code === 'denied' ? 'This account cannot read the visitor list.' : err.message, true);
   }
