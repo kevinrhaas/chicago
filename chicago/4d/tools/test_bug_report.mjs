@@ -183,6 +183,7 @@ assert(/bugs\.signedIn\(api\.signIn\.account \?\? null\)/.test(main), 'reports g
 assert(/bugs\.crash\(blackbox\.previous, line\)/.test(main), 'a cut-off page is filed by the next load');
 assert(/webglcontextlost', \(\) => \{ blackbox\.log\('lost'\); bugs\.contextLost\(blackbox\.box\); \}/.test(main), 'a display reset is filed at once');
 assert(/pendingBugShot \|\| gateFrame\.due\(\)/.test(main), 'a picture asked for forces a frame');
+assert(/v\?\.target === '#bug-key' && backends\.name === 'touch'[^\n]*navigatorUi\.dock\(\)/.test(main), 'on a phone the tour docks the Navigator, which hides the key, at the bug step');
 assert(/key === 'bugKey'[\s\S]{0,80}api\.bugKey\?\.setShown\(value\)/.test(main), 'the Settings switch shows and hides the key');
 const hud = read('renderers/web/js/hud.js');
 assert(/bugKey: true,/.test(hud), 'the key is on by default');
