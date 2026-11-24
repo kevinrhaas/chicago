@@ -2158,8 +2158,20 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     foot, t, proud = float(sg["foot_m"]), float(sg["thickness_m"]), float(sg["proud_m"])
     if not eave - 2.0 <= foot < ye - 0.3:
         raise ParamError("shaped_gable.foot_m: the slab starts under the street fascia, within 2.0 m of the wall head")
-    if not 0.02 <= proud <= 0.2 or not overhang + proud + 0.1 <= t <= 1.0:
-        raise ParamError("shaped_gable: its face 0.02-0.2 m proud of the fascia, its back over the wall")
+    # T-3716: `flush` stands the slab's face on the wall's own face (proud_m before IT, not before
+    # the fascia) and stops the hip's eave behind it, as 2110 Prairie's photographs show its front
+    # carried straight up into the gable with no ledge across it (k01_shaped_gable.flush_cut)
+    flush = sg.get("flush", False)
+    if flush not in (True, False):
+        raise ParamError("shaped_gable.flush: true or false")
+    if flush and roof_form != "hip":
+        raise ParamError("shaped_gable.flush: a flush gable stops a hip's street eave behind it (T-3716)")
+    if flush and sg.get("run_on"):
+        raise ParamError("shaped_gable.flush: not with a run_on (T-3365 cuts the eave its own way)")
+    over = 0.0 if flush else overhang
+    if not 0.02 <= proud <= 0.2 or not over + proud + 0.1 <= t <= 1.0:
+        raise ParamError("shaped_gable: its face 0.02-0.2 m proud of the fascia (of the wall, flush), "
+                         "its back over the wall")
     li = sg["lights"]
     kit = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
     if kit.get(li["variant"], {}).get("head") not in ("flat", "segmental"):
@@ -2230,9 +2242,31 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     kne = {}
     if kn:
         kne = {k_: float(kn[k_]) for k_ in ("at_m", "shaft_m", "top_m", "cap_m", "spire_m")}
-        hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
+        hb, hl = width / 2 + (ksg.FLUSH_BASE_M if flush else overhang + 0.02), ksg.half_width(q, ledge)
         if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
             raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
+        # T-3716: `ends` sets one end's pinnacle apart from the other's — `south`/`north`, each
+        # {pinnacle: false} for none over its scroll, or its own `top_m`/`spire_m` (0: no pyramid,
+        # a pier under its cap) and `proud_m`, its shaft's face that far before the slab's
+        ends = {}
+        for side, e in (kn.get("ends") or {}).items():
+            if side not in ("south", "north") or not isinstance(e, dict) \
+                    or not set(e) <= {"pinnacle", "top_m", "spire_m", "proud_m"}:
+                raise ParamError(f"shaped_gable.kneelers.ends.{side}: south or north, taking pinnacle, "
+                                 f"top_m, spire_m and proud_m")
+            en = {"pinnacle": e.get("pinnacle", True)}
+            if en["pinnacle"] not in (True, False):
+                raise ParamError(f"shaped_gable.kneelers.ends.{side}.pinnacle: true or false")
+            for k_ in ("top_m", "spire_m", "proud_m"):
+                if k_ in e:
+                    en[k_] = float(e[k_])
+            if en.get("top_m", kne["top_m"]) <= ledge + 0.2 or not 0.0 <= en.get("spire_m", 0.0) <= 1.0 \
+                    or not 0.0 <= en.get("proud_m", 0.0) <= 0.3:
+                raise ParamError(f"shaped_gable.kneelers.ends.{side}: top 0.2 m over the ledge, spire 0-1 m, "
+                                 f"0-0.3 m proud")
+            ends[side] = en
+        if ends:
+            kne["ends"] = ends
         if kn.get("scroll"):   # T-2951: a carved scroll console under each, at the front's corner
             sc = {k_: float(kn["scroll"][k_]) for k_ in ("bed_m", "width_m", "radius_m", "proud_m")}
             if not 0.1 <= sc["radius_m"] <= sc["width_m"] / 2 + 1e-9 or not 0.2 <= sc["width_m"] <= 0.8:
@@ -2359,13 +2393,20 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         tk, rk, dk = {"base_m", "border_m", "proud_m", "relief"}, \
             {"proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"}, {"length_m", "arm_m", "width_m"}
         rl, dr = t_.get("relief"), t_.get("drop")
-        if not tk <= set(t_) <= tk | {"drop"} or not isinstance(rl, dict) or set(rl) != rk \
+        if not tk <= set(t_) <= tk | {"drop"} or not isinstance(rl, dict) or not rk <= set(rl) <= rk | {"fill_m"} \
                 or (dr is not None and (not isinstance(dr, dict) or set(dr) != dk)):
             raise ParamError(f"shaped_gable.tympanum takes {sorted(tk)} and optionally drop {sorted(dk)}, its "
                              f"relief {sorted(rk)}; not {t_}")
         ty = {k_: float(t_[k_]) for k_ in ("base_m", "border_m", "proud_m")}
         ty["relief"] = {k_: float(rl[k_]) for k_ in sorted(rk)}
         r_ = ty["relief"]
+        # T-3716: `fill_m` carries the carving out to the panel's edges, as both of 2110's
+        # photographs show its field filled with scrolled foliage: a scroll every fill_m beyond the
+        # leaves' reach (k01_shaped_gable._tympanum_fill)
+        if "fill_m" in rl:
+            r_["fill_m"] = float(rl["fill_m"])
+            if not 0.15 <= r_["fill_m"] <= 0.5:
+                raise ParamError("shaped_gable.tympanum.relief.fill_m: a scroll every 0.15-0.5 m")
         if not (0.03 <= ty["border_m"] <= 0.3 and 0.01 <= ty["proud_m"] <= 0.06 and 0.01 <= r_["proud_m"] <= 0.06
                 and 0.04 <= r_["stem_m"] <= 0.2 and 0.15 <= r_["leaf_m"] <= 0.8 and 0.15 <= r_["pitch_m"] <= 0.8
                 and 0.02 <= r_["margin_m"] <= 0.15):
@@ -2390,6 +2431,7 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             **({"tympanum": ty} if ty else {}),
             **({"takes_gutter": True} if tg else {}),
             **({"roof_to_gable": True} if rg else {}),
+            **({"flush": True} if flush else {}),
             **({"run_on": ro} if ro else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
                        **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
@@ -8000,6 +8042,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # put a basement light's sill above grade and so leave its area well out
         entry = {"variant": entry} if isinstance(entry, str) else dict(entry)
         kit[comp] = {"variant": entry["variant"], "well": bool(entry.get("well", True))}
+        if "reveal_depth_m" in entry:
+            # T-3716: the glass set further back than the variant's reveal (2110 Prairie's loggia,
+            # whose photographs show its lights deep in their arches), inside K06's own range
+            lo, hi = json.loads(WINDOW_KIT.read_text())["parts"]["reveal_depth_m"]["range"]
+            rv = float(entry["reveal_depth_m"])
+            if not lo <= rv <= hi:
+                raise ParamError(f"window_kit: {comp}'s reveal_depth_m {rv} stands outside K06's range [{lo}, {hi}]")
+            kit[comp]["reveal_depth_m"] = rv
         # T-3195: a plain front's basement lights barred as a bay's are (1827's, from the Doane
         # photograph): K08's bar grille in each light's reveal (k08_bays.grille), on the area
         # lights only, and only where no well is dug, so the bars stand in a reveal above grade

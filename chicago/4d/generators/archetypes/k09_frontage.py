@@ -37,7 +37,9 @@ What the record's `street_front_trim` names, and what is built for it:
                    where the arches over its lights spring from the capitals: the kit's own
                    colonnette (plinth, attic base, shaft and leafed bell capital under its
                    abacus), as 2110 Prairie's arcade shows them in the c. 1980s photograph
-                   and the 2012 detail. Each is checked clear of every street light beside it
+                   and the 2012 detail. Each is checked clear of every street light beside it.
+                   T-3716: an optional `stand_m` stands each shaft clear of the wall, its axis
+                   that far before it (2110's stand free in their deep arches)
 
 A generic kit motif is allowed here because 1808's own carving is not read in any source
 this project holds (k09_trim.json `restrictions`: a generic motif never replaces a
@@ -118,10 +120,17 @@ def spec(params) -> dict | None:
                          "of each other, up to 1.5 m) and block_m (0-0.2 m)")
     lg = t.get("loggia")
     if lg is not None:
-        if set(lg) != {"at_m", "foot_m", "spring_m"} or not lg["at_m"] \
-                or not LOGGIA_MIN_M <= lg["spring_m"] - lg["foot_m"] <= LOGGIA_MAX_M:
+        if not {"at_m", "foot_m", "spring_m"} <= set(lg) <= {"at_m", "foot_m", "spring_m", "stand_m"} \
+                or not lg["at_m"] or not LOGGIA_MIN_M <= lg["spring_m"] - lg["foot_m"] <= LOGGIA_MAX_M:
             raise ValueError(f"street_front_trim.loggia takes at_m (a list), foot_m and spring_m, the "
-                             f"colonnettes {LOGGIA_MIN_M}-{LOGGIA_MAX_M} m from foot to spring; not {lg}")
+                             f"colonnettes {LOGGIA_MIN_M}-{LOGGIA_MAX_M} m from foot to spring, and "
+                             f"optionally stand_m (T-3716); not {lg}")
+        # T-3716: `stand_m`, how far each shaft's axis stands before the wall: from engaged (the
+        # default, three-eighths of the shaft) out to its abacus's half, the plinth's back on the wall
+        co_ = _kit().load()["parts"]["colonnette"]
+        if "stand_m" in lg and not co_["shaft_diameter_m"] * 0.375 <= lg["stand_m"] <= co_["abacus_m"] / 2:
+            raise ValueError(f"street_front_trim.loggia.stand_m {lg['stand_m']}: from "
+                             f"{co_['shaft_diameter_m'] * 0.375:.3f} (engaged) to {co_['abacus_m'] / 2:.3f} m")
         # T-3715: each stands clear of every street light whose height it shares, by its abacus
         half = max(_kit().load()["parts"]["colonnette"][k] for k in ("plinth_m", "abacus_m")) / 2
         for s in lg["at_m"]:
@@ -146,7 +155,7 @@ def loggia(a, frame, conf):
     data = kit.load()
     co = data["parts"]["colonnette"]
     col_v = _variant(kit, data, "k09.trim.colonnette_foliate")
-    cz = co["shaft_diameter_m"] * 0.375
+    cz = lg.get("stand_m", co["shaft_diameter_m"] * 0.375)   # T-3716: or standing clear
     h = lg["spring_m"] - lg["foot_m"] - SEAT_GAP_M
     for j, s in enumerate(lg["at_m"]):
         seed = a.instance(LOGGIA, "trim", {"height_m": h, "order": col_v["order"]},

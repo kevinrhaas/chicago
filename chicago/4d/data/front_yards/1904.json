@@ -153,7 +153,7 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 157,
+  "shrubs": 156,
   "trees": 12,
   "beds": 11,
   "creeper_patches": 55,
@@ -7096,15 +7096,7 @@
    ],
    "scheme": "group",
    "grade": "reconstructed",
-   "shrubs": [
-    [
-     1391.43,
-     -3655.09,
-     "hydrangea",
-     1.12,
-     1.36
-    ]
-   ],
+   "shrubs": [],
    "trees": [],
    "beds": [],
    "creeper": []

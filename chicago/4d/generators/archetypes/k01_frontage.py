@@ -3180,11 +3180,12 @@ class Assembly:
             v["tiers"] = dict(lt["tiers"])
         if not entry["well"]:
             v["well"] = False
+        if "reveal_depth_m" in entry:   # T-3716: the record's own reveal, deeper than the variant's
+            v["overrides"] = {**v.get("overrides", {}), "reveal_depth_m": entry["reveal_depth_m"]}
         return v
 
     def kit_reveal(self, op) -> float:
-        self.kit_variant(op)
-        v = next(x for x in self._kit["variants"] if x["id"] == self.p.window_kit[op.component]["variant"])
+        v = self.kit_variant(op)
         return v.get("overrides", {}).get("reveal_depth_m", self._kit["parts"]["reveal_depth_m"]["value"])
 
     def glaze(self, op, frame, body_mat, stone_trim, seed, conf, skip=(), head=False, head_mat=None):
@@ -4821,6 +4822,9 @@ class Assembly:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        if (p.shaped_gable or {}).get("flush"):   # T-3716: the hip's eave stopped behind a flush gable
+            from . import k01_shaped_gable
+            solids[0] = k01_shaped_gable.flush_cut(k5, p, ye, solids[0])
         if m:
             # T-3713: a rear wing roofed with the house's mansard (2115's rear range): the same
             # ring stack over the wing's wall line, run on into the main body past the main rear
@@ -6817,6 +6821,14 @@ class Assembly:
                 d1 = starts[1] + A + run_on["back_m"]
                 dead += [(starts[3] + xb + A, P), (0.0, d1)]
                 stop_ends.append((d1 % P, -1.0))
+            elif p.shaped_gable.get("flush"):
+                # T-3716: a flush gable's flank eaves stop at the front's plane, so each side run
+                # stops there too, closed with an end cap
+                from . import k01_shaped_gable
+                xc = self.shaped_gable_geom["xf"] - k01_shaped_gable.FLUSH_CUT_M - 0.005
+                d0, d1 = starts[3] + xc + A, starts[1] + D + A - xc
+                dead += [(d0, P), (0.0, d1)]
+                stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
             else:
                 dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
         # T-3384: and none along a wall carried up through the mansard, the same way
