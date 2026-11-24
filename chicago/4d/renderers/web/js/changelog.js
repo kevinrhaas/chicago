@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3246, ts: '2026-11-24T23:20:39.041Z', date: 'Nov 24, 2026, 5:20 PM CT', title: 'People turn instead of flipping, and a Street View film for educators', kind: 'fix',
+    items: [
+      'Seen from the air (Fly, or a film\'s camera), the people near you no longer jump into their next place or flip round where they stand. They walk there and turn.',
+      'Educators can watch the Today window in use: from the Glessner corner down Prairie Avenue to the Kimball house, Google Street View turning and walking beside 1904.',
+      'The trailer is recut: smooth flights over Fort Dearborn and the river town, Clark Street and the hack stand for 1871, the Kimball household with their name cards, and the music ends before the theme starts over.',
+      'Clark Street in 1871, past the hack stand to the Court House, on the home and Eras pages.',
+    ] },
   { v: 3245, ts: '2026-11-24T21:27:12.564Z', date: 'Nov 24, 2026, 3:27 PM CT', title: 'Detail changes and 1871 Go to no longer freeze for long', kind: 'fix',
     items: [
       'On weaker computers, changing Scene detail in 1835 no longer stalls the page for 7 to 14 seconds; the longest pause is now under a second.',
