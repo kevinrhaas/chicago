@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3239, ts: '2026-11-24T01:13:51.235Z', date: 'Nov 23, 2026, 7:13 PM CT', title: '2115 Prairie\'s mansard runs on over its rear range', kind: 'change',
+    items: [
+      '2115 Prairie\'s slated mansard now carries on behind the house over its back range, as the old photograph of its north side shows, with two more round-headed dormers in it: three along that side instead of one, and the flat-topped back block is gone.',
+    ] },
   { v: 3238, ts: '2026-11-24T00:35:16.427Z', date: 'Nov 23, 2026, 6:35 PM CT', title: '2126 Prairie\'s finished front now matches its 1905 photograph', kind: 'improvement',
     items: [
       'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now has small-paned six-over-six windows on every floor and a single pale front door between two narrow side lights. Its fanlight now sits in a brick arch.',
