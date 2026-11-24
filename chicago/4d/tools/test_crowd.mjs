@@ -62,9 +62,26 @@ for (const tier of ['full', 'balanced', 'light']) {
   ok(tierTargets(m0 - HYST_M - 0.5, tier, { was: { v: 1, t: 0 } }).v === 1, `${tier}: someone drawn is still drawn inside the near edge`);
   ok(tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).v === 1 && tierTargets(0.5, tier, { was: { v: 1, t: 0 } }).t === 0, `${tier}: someone close by is the middle body, not nothing`);
   // Built figures: only a card, and only past their own range.
+  // T-3553 (owner, 2026-11-23, on a jaunt: people "looked terrible relatively close up"): one a
+  // jaunt holds out of the scene is never the coarse middle body up close; still drawn far off.
+  ok(tierTargets(6, tier, { was: { v: 1, t: 0 }, held: true }).v === 0, `${tier}: a held person up close is not drawn here`);
+  ok(tierTargets(m0 - HYST_M + 0.5, tier, { was: { v: 1, t: 0 }, held: true }).v === 1, `${tier}: a held person drawn is held just inside the near edge`);
+  ok(tierTargets(m0 + 5, tier, { was: null, held: true }).v === 1, `${tier}: a held person past the near edge is drawn`);
   ok(tierTargets(100, tier, { built: true, drawM: 140 }).v === 0, `${tier}: a built figure in its range is humans.js's`);
   const b = tierTargets(150, tier, { built: true, drawM: 140 });
   ok(b.v === 1 && b.t === 1, `${tier}: a built figure past its range is a card`);
+}
+// T-3553 (owner, 2026-11-23, flying: a maid "appears and disappears on her route"): a built
+// figure counts as drawn only once its body is made; one drawn stays drawn a little past its
+// range (humans.js DRAW_HYST_M), so a walker along the edge is not drawn and let go each frame.
+ok(crowd.figureDrawn({ inRange: true, body: {} }) && !crowd.figureDrawn({ inRange: true, body: null })
+  && !crowd.figureDrawn({ inRange: false, body: {} }), 'a built figure is drawn only in range with its body made');
+{
+  const humansMod = await import(new URL('../renderers/web/js/humans.js', import.meta.url).href);
+  const { chooseHumanLod, DRAW_M, DRAW_HYST_M } = humansMod;
+  ok(chooseHumanLod(DRAW_M + 1, 'full', -1) === -1, 'not drawn: one just past the range is not taken in');
+  ok(chooseHumanLod(DRAW_M + DRAW_HYST_M - 0.5, 'full', 3) >= 0, 'drawn: one just past the range is kept');
+  ok(chooseHumanLod(DRAW_M + DRAW_HYST_M + 0.5, 'full', 3) === -1, 'drawn: one past the margin is let go');
 }
 for (let v = 0; v <= 1; v += 0.125) for (let t = 0; t <= 1; t += 0.125) {
   const w = tierWeights(v, t);

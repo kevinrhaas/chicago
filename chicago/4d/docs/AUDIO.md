@@ -143,7 +143,7 @@ a re-recording's cost is read off the run, not estimated. A run voices in the or
 `voices.json`'s `jaunts` list, which is the narration budget plan's order (1812 battle and 1904
 first, grades 6-8 originals first, English first; the owner approved it 2026-11-19, T-3697), up to
 `max_chars_per_run` and what the quota has left above `quota_reserve`; what does not fit waits for
-the next run, which picks up where this one stopped. Jaunts in `voices.json`'s `held` list are not voiced at all: a batch waits there while the month's credits are uncertain (month 2 of the plan, held 2026-11-20 until the monthly limit is known) and is released by moving its entries back into `jaunts`. A jaunt entry may name its narrators
+the next run, which picks up where this one stopped. Jaunts in `voices.json`'s `held` list are not voiced at all: a batch waits there while the month's credits are uncertain (month 2 of the plan was held there on 2026-11-20 until the owner gave the balance, 98,961 credits left, and released the same day) and is released by moving its entries back into `jaunts`. A jaunt entry may name its narrators
 (`{ "id": …, "narrators": ["essayist"] }`): the owner, 2026-11-19, chose the Cultivated Essayist
 alone for new jaunts and the Storyteller later, and the app plays the Essayist's clip to a visitor
 who chose the Storyteller until hers exists. `docs/RESEARCH/narration-smooth-3696/smooth.py`
@@ -175,8 +175,95 @@ still speaking; travelling on does not cut a voice off; muting Narration or all 
 the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. A jaunt's Start, Continue, Next Stop and Straight-there taps also prime the element, so the opening (the title, then the Background) plays as the jaunt begins and John follows it at the first stop. The
 Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
 
+**Finding the narrated jaunts (T-3711, owner 2026-11-20).** `tools/compile_jaunts.py` writes
+`narrated: true` on the catalog row of every jaunt listed in this file's `jaunts` (not `held`),
+and `music: true` on every jaunt listed in `data/music/jaunts.json` `jaunts` (same form: an id or
+`{id, ...}`). The music work (T-3710) fills that file in as it attaches a jaunt's score cues; with
+no file, no jaunt has music. The Jaunts menu's **Listen** row shows a **Narrated** pill (and a
+**Music** pill once any jaunt has music); a picked pill lists only those jaunts, and each such
+card says *Narrated* / *Music* on its tags. Editing either list means compiling the jaunts again.
+
+**Only the telling's own voice (T-3735, owner 2026-11-23).** *"If they are on 11-13 … and you do
+not have narration for that then don't play that other wrong narration unless you have the
+correct one."* Clips are found by their words, and a jaunt's tellings for other ages (and its 18+
+telling) share words with it, so the player now asks first whether the running telling is itself
+voiced (`createNarration({ voiced })`, main.js: its catalog row's `narrated`); one that is not, or
+whose catalog cannot be read, offers no Listen and plays nothing, while its words and music run
+on. A reading-age tab that puts another telling's words on a stop or the opening is read in
+THAT telling's recording (owner, 2026-11-23: *"when you switch tabs to an age that has its own
+recording, it should start playing that recording"*): jaunt-panel.js finds the telling for the
+tab's age (main.js `tellings`, the siblings jaunt-preview.js already fetches for the tabs) and
+hands the part's words to `narration.retell(jaunt, part, id, from)`. The part keeps its own slot
+(Pause, the stop meter and the speaker's mouth follow it) but is keyed to the other telling's
+words: a voice reading the old words stops and the new one starts at once with narration
+audible. A tab whose telling is not voiced, or whose words no telling says as shown, has no
+voice (no Listen, nothing plays). With **Narrated** picked, the menu keeps one telling per
+picked age first and then filters (jaunt-menu.js `listTellings`), so an unvoiced telling is never
+replaced by another age's voiced one.
+
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices
 (L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
+
+## Generated music trials (T-3710)
+
+The owner (2026-11-20) wanted to hear what generated period music might sound like, without
+deciding yet whether it belongs in the app. `tools/fal_music.mjs` makes trial clips through
+[fal](https://fal.ai)'s queue API from the cues and models in `data/music/fal_trials.json`;
+nothing it makes is played by the app.
+
+- **Key.** `FAL_KEY`, from the environment, or `--env-file PATH` (a `FAL_KEY='…'` line). Make
+  one at <https://fal.ai/dashboard/keys> (API preset); revoke it there. It is sent only to
+  `https://queue.fal.run` in an `Authorization: Key …` header, never printed, written or put in
+  a URL, and never committed. A CI job would take it as a repository secret named `FAL_KEY`;
+  there is no workflow yet.
+- **Plan first.** `node tools/fal_music.mjs --plan` lists every clip and its list price
+  (read from each model's `https://fal.ai/models/<id>/llms.txt` on 2026-11-20; three cues on
+  four models is $2.75). `--make --out DIR` refuses a run over `--max-usd` (default $5).
+  `--cue` and `--model` narrow it.
+- **Models tried.** CassetteAI music-generator ($0.02/min), Stable Audio 2.5 ($0.20/clip),
+  Lyria 2 ($0.10 per 30 s, always 30 s, negative prompt keeps vocals and modern kit out),
+  ElevenLabs Music ($0.60 per started minute, `force_instrumental`, or a cue's `plan` sent as
+  its composition plan), MiniMax Music v2 (sung, public-domain period lyrics) and v2.5
+  (`is_instrumental`).
+- **Queue.** Submit, poll the returned `status_url`, read `response_url`, download the audio
+  (from fal's media store, without the key). Queue URLs off fal's origin are refused. A submit
+  is a billable job, so one whose answer is unclear is never resent: the run stops and the
+  receipt keeps the request id. A 403 is the account (credits, or a lock), not the clip.
+- **Receipt.** `DIR/receipt.json`: endpoint, exact input, request id, seed, bytes, SHA-256.
+- **If a clip is kept**, it goes through the ordinary intake like any recording (an original
+  under `assets/audio/originals/`, a literal line in `assets/LICENSES.md` with the model's
+  terms, `prepare_audio.py`), and a liberty records that the music is generated, not a period
+  performance or score.
+- **The score.** The owner then asked for a whole instrumental score: one main theme (the
+  Portage), era overtures, shared motifs and beds for the narrated jaunts, in a cinematic
+  orchestral style with period and (respectfully, mostly 1812) Native instruments. The plan is
+  the "Chicago 4D Score" doc (https://claude.ai/artifact/ACXQqZ3pvHqLpofx2ZuqUP). He picked
+  ElevenLabs Music over MiniMax v2.5 and Stable Audio after a main-title comparison; MiniMax
+  v2 sings even when asked not to. `tools/build_music_score.py` writes `data/music/score.json`
+  (the generated cues as ElevenLabs composition plans: sections with durations and styles, no
+  words); make them with `--cues data/music/score.json`. The main theme is a FIXED recording the
+  owner chose and is never regenerated: the title, idents, stings, jaunt opening phrases and
+  closing cadences are cut from it, and the era overtures continue it through Stable Audio 2.5
+  inpaint (the exact fanfare kept, only what follows generated). Regenerating a theme from words
+  changes its notes every time.
+- `node tools/test_fal_music.mjs` checks all of this offline against a fake fal.
+- **In the jaunts.** The owner, 2026-11-20: "Ok can you go ahead and add the music to the
+  jaunts correctly". The kept cues (score set v1, owner-selected) are originals under
+  `assets/audio/originals/score-v1/`. `tools/build_jaunt_music.py` writes
+  `data/music/jaunts.json`: the eighteen cues (file, era, role, target loudness) and, for each
+  narrated jaunt and every version of it, its opening, bed, per-stop cues and closing.
+  `prepare_audio.py --score-only` encodes them (beds lose their lead silence and closing fade
+  and are crossfaded 3 s tail into head, so the player's loop has no seam; a closing keeps its
+  last 32 s) and writes the plans into the catalogue as `jaunt_score`. Score cues are music
+  with `playlist: false`, so `musicFor` keeps them out of the era playlists.
+  `recorded-audio.js § scoreCueFor` picks the cue: the opening during the flight to the first
+  stop, then the bed (or the stop's own cue, the battle's four movements, taken up as you set
+  out for the stop); the closing once over the closing scene and Outing complete, then rest;
+  the era playlist when the jaunt is over. The same gesture-unlocked element plays both; a
+  change dips a fader over about a second, and a closing cue is never cut. Narration ducks it
+  like any music. Deliveries go to R2 like the rest (`package_audio.py`, then
+  `verify_audio_host.py`). The scandal jaunts use the stories bed until `bed-1904-scandal` is
+  made. Liberty: L-score-3710.
 
 ## Implemented foundation
 

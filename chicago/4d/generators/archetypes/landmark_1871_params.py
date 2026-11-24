@@ -32,11 +32,12 @@ CONSUMED = {"composition"}
 
 #: the fabrics a composition may name, each the 1904 kit's own (see landmark_1871.MATERIALS)
 WALLS = ("marble", "lockport_marble", "limestone", "brick_red", "brick_cream", "iron_stone",
-         "lockport_weathered", "limestone_pale")
-ROOFS = ("slate", "tin", "tin_dark")
+         "lockport_weathered", "limestone_pale", "clapboard", "clapboard_bare", "boards", "sod", "sand",
+         "limestone_rubble", "wrought_iron")
+ROOFS = ("slate", "tin", "tin_dark", "shingle", "stone_trim", "sod", "sand", "rubble_stone", "wrought_iron")
 OPENINGS = ("flat", "segment", "round", "pair_round", "store", "door_round", "door_flat",
-            "oculus", "blank")
-HOODS = ("none", "cornice", "arch", "pediment", "segment")
+            "oculus", "blank", "pointed", "door_pointed")
+HOODS = ("none", "cornice", "arch", "pediment", "segment", "crown")
 CAPS = ("dome", "bell", "pyramid", "flat", "lantern_dome")
 FACES = ("S", "N", "E", "W")
 
@@ -68,14 +69,17 @@ class LandmarkParams:
             if not (x1 - x0 < 120 and y1 - y0 < 120):
                 raise ParamError(f"{where}: box over 120 m — no 1871 building was that long")
             st = b.get("storeys") or []
-            if not st or any(not (1.0 <= h <= 15.0) for h in st):
-                raise ParamError(f"{where}: storey heights must each be 1-15 m (a hall "
-                                 f"storey, like the Chamber of Commerce's exchange room, is one)")
+            if not st or any(not (0.15 <= h <= 15.0) for h in st):
+                raise ParamError(f"{where}: storey heights must each be 0.15-15 m (a grave's mound or a "
+                                 f"frame cottage's floor raised on posts is a storey; a hall storey, like "
+                                 f"the Chamber of Commerce's exchange room, is one)")
             if b.get("wall", "limestone") not in WALLS:
                 raise ParamError(f"{where}: wall {b.get('wall')!r} is not one of {WALLS}")
             roof = b.get("roof") or {"kind": "flat"}
-            if roof.get("kind") not in ("flat", "mansard", "hip"):
-                raise ParamError(f"{where}: roof kind must be flat, mansard or hip")
+            if roof.get("kind") not in ("flat", "mansard", "hip", "gable"):
+                raise ParamError(f"{where}: roof kind must be flat, mansard, hip or gable")
+            if roof.get("kind") == "gable" and roof.get("ridge", "x") not in ("x", "y"):
+                raise ParamError(f"{where}: a gable's ridge runs along x or y")
             if roof.get("covering", "slate") not in ROOFS:
                 raise ParamError(f"{where}: roof covering must be one of {ROOFS}")
             for fk, f in (b.get("faces") or {}).items():

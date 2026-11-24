@@ -121,10 +121,14 @@ PURE_PYTHON_HELPERS = {
                                        "k01_rear_veranda.py",
                                        # T-1881: a raised stone terrace under an awning on the rear wall
                                        "k01_rear_terrace.py",
+                                       # T-3626: an open, roofed porch on a rear wing's deck
+                                       "k01_wing_porch.py",
                                        # T-1881: a hanging lantern on a bracket on the street front
                                        "k01_wall_lanterns.py",
                                        # T-3255: eared and crested hoods, and corner pilasters
                                        "k01_dressings.py",
+                                       # T-3722: a brick front's order: pilasters, Ionic heads, panels, keys, scroll
+                                       "k01_front_order.py",
                                        # T-3384: side walls carried up through a mansard, and the deck's fret
                                        "k01_mansard_walled.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers

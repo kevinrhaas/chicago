@@ -28,6 +28,13 @@
       "finding": "Reproduces: two bare write runs in a clean isolated Git fixture with exact current modules, numeric structure record and original texture inputs/outputs advance all three target mtimes with identical bytes and clean Git status. All deliberately perturbed outputs are repaired. The fixture is not a claim that the active application tree was clean. See docs/RESEARCH/glessner-finish-T-2226/finish-writer-measurement.json.",
       "placed": "The original flat-brick maps read authored surface_finish and existing committed original clay/mortar maps, before the Blender master and reduced derivative. Generated explicitly before those bakes and checked read-only in check.sh. Eventual manifest placement must follow the original-fabric writer and precede asset baking; this ordering is not appended blindly."
     },
+    "town_people_1871.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-19",
+      "finding": "Reproduces: a bare write run on a clean tree rewrites data/residents_1871/households/, data/humans/inside_1871.json and data/humans/variation/{dress,looks}_1871_town.json byte for byte and changes no committed byte (T-3690).",
+      "placed": "Reads only authored inputs (data/transport/driven/drivers_1871.json and its own tables). Its outputs are read by tools/human_variation_kit.py (the 1871 persons), tools/lay_driven_1871.mjs (the drivers), tools/build_tales.py and the 1871 resident sidecars, so its slot is before those; that order is not yet measured into the manifest."
+    },
     "native_cards_1812.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2479,6 +2486,20 @@
       "measured": "2026-11-19",
       "finding": "Reproduces: hashed the 249 overlay files under data/sidecars/{1812,1835,1904}/jaunts/es/, ran the bare writer twice, hashes identical. Appended a byte to 1835/a-decent-coat.json: --check exited 1 naming it; the bare writer restored the identical bytes (T-3681).",
       "placed": "after compile_jaunts.py (it reads the same data/jaunts/*.json the compiler does, and the words files in data/jaunts/_es/); writes only jaunts/es/ under each scene's sidecars, which compile_jaunts leaves alone (T-3681)"
+    },
+    "lay_1871_street_furniture.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-21",
+      "finding": "Reproduces: a bare run on the committed tree rewrote data/street_furniture/1871.json and data/street_trees/1871.json byte for byte and changed no other committed byte; --check writes nothing (T-3686).",
+      "placed": "Reads data/context/1871.json (generators/city_1871_emit.py's output, itself not in the manifest), the 1904 lamp kind in data/street_furniture/1904.json and data/sources/. Its slot is after city_1871_emit.py and tools/lay_prairie_1904_street_furniture.py; placing it waits on the 1871 city writer's own placement."
+    },
+    "place_prairie_1904_house_numbers.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-23",
+      "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1904.json byte for byte and changed no other byte; with the output emptied, --check failed and a bare run restored it to the same bytes; --check writes nothing (T-3737).",
+      "placed": "Reads data/street_grid/1904.json (tools/trace_prairie_1904_grid.py's lots and their 1911 numbers), the committed 1904 sidecars and their baked models' door leaves and glass, as tools/plant_prairie_1904_front_yards.py reads them. Its slot is after the grid tracer and every 1904 bake; nothing reads its output but the renderer."
     }
   }
 }

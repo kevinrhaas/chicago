@@ -895,6 +895,15 @@ textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_normal_gl_web.
 textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm.png
 textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_orm_web.jpg
 textures/prairie_1904_brick/brick/rough_red_brown/rough_red_brown_roughness.png
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_basecolor.png
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_basecolor_web.jpg
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_height16.png
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_normal_gl.png
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_normal_gl_web.jpg
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_orm.png
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_orm_web.jpg
+textures/prairie_1904_brick/brick/cream_rough/cream_rough_roughness.png
+textures/prairie_1904_brick/brick/cream_rough/material.json
 textures/prairie_1904_brick/mortar/mortar_dark/material.json
 textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor.png
 textures/prairie_1904_brick/mortar/mortar_dark/mortar_dark_basecolor_web.jpg
@@ -949,6 +958,15 @@ textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_runnin
 textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm.png
 textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_orm_web.jpg
 textures/prairie_1904_brick/panel/rough_red_brown_running/rough_red_brown_running_roughness.png
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_basecolor.png
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_basecolor_web.jpg
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_height16.png
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_normal_gl.png
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_normal_gl_web.jpg
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_orm.png
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_orm_web.jpg
+textures/prairie_1904_brick/panel/cream_rough_running/cream_rough_running_roughness.png
+textures/prairie_1904_brick/panel/cream_rough_running/material.json
 textures/prairie_1904_brick/profiles.json
 textures/prairie_1904_brick/tools/generate_prairie_1904_brick.py
 ```
@@ -2480,7 +2498,7 @@ The MakeHuman graphical targets below are **CC0-1.0**, each carrying its own CC0
 from the same pinned [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482);
 `SOURCE-variation.json` records each one's upstream URL, size and SHA-256 (the macro age targets it also
 lists are the ones `SOURCE.json` already pins, unchanged). No MakeHuman program code is copied.
-`hm08_variation_kit.bin`, `.json`, `hm08_variation_persons.json` and the 1835 town's own table `hm08_variation_persons_1835.json` (T-3556) are generated from them by `tools/human_variation_kit.py` (original,
+`hm08_variation_kit.bin`, `.json`, `hm08_variation_persons.json` and the 1835 and 1871 towns' own tables `hm08_variation_persons_1835.json` (T-3556) and `hm08_variation_persons_1871.json` (T-3690) are generated from them by `tools/human_variation_kit.py` (original,
 GPL-3.0-or-later code) and are CC0-1.0, like `prepared.json` they are carried onto. Every value a person
 draws from the kit is a reconstruction (L-human-variation-3412), not a likeness. The nine `expression/units/caucasian/mouth-*`
 targets (T-3553) are not axes of the kit: `tools/bake_likeness_skin.py` reads them to fit a person's smile
@@ -2608,6 +2626,7 @@ humans/web/hm08_variation_kit.bin
 humans/web/hm08_variation_kit.json
 humans/web/hm08_variation_persons.json
 humans/web/hm08_variation_persons_1835.json
+humans/web/hm08_variation_persons_1871.json
 ```
 
 ### A named resident's portrait and fitted face — `humans/web/portraits/` (T-3413)
@@ -2774,6 +2793,7 @@ files; originals are never copied to the published site. The app's Audio library
 | `audio/originals/1-Border-Ballad.m4a`, `audio/originals/2-Border-Ballad-2.m4a` | Owner-supplied Suno-generated score, assigned to 1835. Owner explicitly authorized use and app distribution in chat on 2026-11-10. No open asset license or archival performance is asserted. |
 | `audio/originals/3-Salon-Waltz.m4a`, `audio/originals/5-Elegant-Waltz.m4a` | Same owner authorization; assigned to 1904, retired from playback 2026-11-12 (T-3569) and kept for provenance. |
 | `audio/originals/1904-ragtime/Brass-Trolley.mp3`, `audio/originals/1904-ragtime/Main-Street-Trot.mp3`, `audio/originals/1904-ragtime/Nickel-Stroll.mp3`, `audio/originals/1904-ragtime/Patent-Leather.mp3`, `audio/originals/1904-ragtime/Pocket-Change.mp3`, `audio/originals/1904-ragtime/Ragtime-Avenue.mp3`, `audio/originals/1904-ragtime/Sidewalk-Ticker.mp3`, `audio/originals/1904-ragtime/Sunday-Best.mp3`, `audio/originals/1904-ragtime/Tin-Pan-Stroll.mp3`, `audio/originals/1904-ragtime/Trolley-Hop.mp3` | Owner-supplied ragtime (file tags: artist Kevin R Haas, album "Made with Mozart"), the 1904 playlist since 2026-11-12 (T-3569). Owner asked for them in the app in chat that day. No open asset license or archival performance is asserted. |
+| `audio/originals/score-v1/23-theme-remembrance.mp3`, `audio/originals/score-v1/30-jaunt-opening-1812.mp3`, `audio/originals/score-v1/30-jaunt-opening-1904.mp3`, `audio/originals/score-v1/31-jaunt-closing-1812.mp3`, `audio/originals/score-v1/31-jaunt-closing-1904.mp3`, `audio/originals/score-v1/40-bed-1812-fort.mp3`, `audio/originals/score-v1/41-bed-1812-mystery.mp3`, `audio/originals/score-v1/42-battle-1-buildup.mp3`, `audio/originals/score-v1/43-battle-2-march.mp3`, `audio/originals/score-v1/44-battle-3-fight.mp3`, `audio/originals/score-v1/45-battle-4-aftermath.mp3`, `audio/originals/score-v1/46-bed-1904-places.mp3`, `audio/originals/score-v1/47-bed-1904-household.mp3`, `audio/originals/score-v1/48-bed-1904-people.mp3`, `audio/originals/score-v1/49-bed-1904-stories.mp3`, `audio/originals/score-v1/50-bed-1904-architecture.mp3`, `audio/originals/score-v1/51-bed-1904-ghosts.mp3`, `audio/originals/score-v1/52-bed-1904-bronze.mp3` | The jaunts' score, set v1 (T-3710): generated for the app on the owner's fal account (ElevenLabs Music; Stable Audio 2.5 inpainting for joins) from the cue plans in `data/music/score.json`, and selected by the owner on 2026-11-20, who asked for it in the jaunts that day. The main theme's phrases are cut from his fixed recording. Instrumental; a modern score in period colours, not an archival performance. No open asset license is asserted. |
 | `audio/originals/4-Reel-of-the-Frontier.m4a`, `audio/originals/6-Reel-of-the-Frontier-2.m4a`, `audio/originals/7-Reel-of-the-Frontier-3.m4a` | Same owner authorization; assigned to 1812. Separate collection from 1835, per owner. |
 | `audio/originals/475448_7009965-hq.mp3` | o_ciz, Wind(leaves).WAV, https://freesound.org/people/o_ciz/sounds/475448/ — CC0 1.0; HQ preview acquired 2026-11-10. |
 | `audio/originals/577323_97550-hq.mp3` | TRP, Waves, gentle lapping, river, water, close, PEI, 2011.wav, https://freesound.org/people/TRP/sounds/577323/ — CC0 1.0; HQ preview acquired 2026-11-10. |

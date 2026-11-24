@@ -1,0 +1,2439 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "The Great Fire",
+  "menu_group": "Stories",
+  "grade_band": "11-12",
+  "featured": true,
+  "review_required": false,
+  "id": "the-great-fire-grades-11-12",
+  "scene": "1871",
+  "title": "The Great Chicago Fire",
+  "premise": "From a cow barn on Sunday night, 8 October 1871, to the rain on Monday night: twelve stops at their recorded and inferred hours, tracing the Great Chicago Fire across two rivers, through the commercial centre and over the North Side.",
+  "default_mode": "fly",
+  "allowed_modes": [
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE GREAT CHICAGO FIRE. Sunday night, 8 October 1871, at the close of a prolonged drought: since the third of July only two and a half inches of rain have fallen on Chicago, a city whose West Side consists overwhelmingly of wooden cottages, sheds, planing mills and lumber yards. A persistent south-westerly wind is blowing, and the fire department is exhausted, because its companies spent last night and much of this afternoon battling a considerable fire beside the river.\n\nTwelve stops follow the conflagration hour by hour, from a cow barn on the West Side, across both branches of the river, to the northern limit of the city, through the night and the smoke-darkened day that followed. Long rides go Instantly; every place keeps its stop.\n\nIt begins in a barn on DeKoven Street, at about nine o'clock.",
+    "read_s": 37
+  },
+  "stops": [
+    {
+      "id": "oleary-barn",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_oleary_barn"
+      },
+      "text": "Sunday 8 October 1871, about nine in the evening, on DeKoven Street. Behind the cottage at No. 137 stands the barn of Patrick and Catherine O'Leary, who keep cows and supply milk to neighbouring families; its loft \"had recently been filled with hay\". According to legend, Mrs. O'Leary was milking when her cow kicked over a lamp, although the official inquiry, finding the O'Learys in bed, reported \"no proof that any person had been in the barn after nightfall that evening.\" Daniel Sullivan, a drayman opposite, noticed the flames, and although \"he has a wooden leg\", he hurried across and rescued a calf. William Lee, who lives two doors along, hastens to the drug store for the key to the alarm box, which the druggist refuses to surrender. \"The clock struck nine.\" Across the river, the watchman in the Court House tower has not yet observed the light.",
+      "read_s": 39,
+      "evidence": [
+        "barn",
+        "legend",
+        "inquiry",
+        "sullivan",
+        "lee",
+        "alarm",
+        "wind",
+        "drought",
+        "stand",
+        "stage"
+      ],
+      "next": "st-pauls",
+      "hour": "21:00",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "lee"
+      ],
+      "stage": {
+        "caption": "Neighbours come out into DeKoven Street to watch the barn burn, and families carry what they can out of the cottages behind it.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_oleary_barn_watch_0",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              -312.5,
+              -1958.0
+            ],
+            "heading": 343.0
+          },
+          {
+            "extra": "fire_oleary_barn_watch_1",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              -310.7,
+              -1957.0
+            ],
+            "heading": 341.5
+          },
+          {
+            "extra": "fire_oleary_barn_watch_2",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              -308.5,
+              -1959.0
+            ],
+            "heading": 340.0
+          },
+          {
+            "extra": "fire_oleary_barn_watch_3",
+            "dress": "child_girl_1904",
+            "name": "A child watching (unnamed)",
+            "at": [
+              -306.7,
+              -1956.0
+            ],
+            "heading": 338.0
+          },
+          {
+            "extra": "fire_oleary_barn_watch_4",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              -305.3,
+              -1960.5
+            ],
+            "heading": 339.0
+          },
+          {
+            "extra": "fire_oleary_barn_flee_0",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              -313.8,
+              -1948.0
+            ],
+            "heading": 170.0,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    -308.0,
+                    -1964.0
+                  ],
+                  [
+                    -285.0,
+                    -1965.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_oleary_barn_flee_1",
+            "dress": "glessner_john_j_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              -303.5,
+              -1956.5
+            ],
+            "heading": 160.0,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    -300.0,
+                    -1964.0
+                  ],
+                  [
+                    -275.0,
+                    -1965.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_oleary_barn_flee_2",
+            "dress": "child_girl_1904",
+            "name": "A child getting away (unnamed)",
+            "at": [
+              -297.0,
+              -1956.5
+            ],
+            "heading": 160.0,
+            "beats": [
+              {
+                "t": 7,
+                "walk": [
+                  [
+                    -294.0,
+                    -1964.0
+                  ],
+                  [
+                    -268.0,
+                    -1965.0
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "st-pauls",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_st_pauls"
+      },
+      "text": "Half past ten, at Clinton and Mather Streets. The alarm was both delayed and misdirected: at 9:28 Mathias Schaffer, the watchman in the Court House tower, identified the glow through his spy-glass and signalled Box 342, which was \"nearly a mile from the fire\". Only one engine, the Little Giant, arrived promptly, and \"For more than thirty minutes this engine battled alone.\" Then the gale carried the fire over the firemen's heads; Richard Riley, a railroad contractor positioned on a lumber pile, watched \"A large mass of fire\" go \"whirling through the air for more than three blocks\" before settling on the cupola of this church, St. Paul's. The church has collapsed, and behind it William B. Bateham's mills, with a thousand cords of kindling, are burning as well. Bateham, an alderman, concludes: \"The materials from this mill will fire the South Side, and nothing can prevent it now.\"",
+      "read_s": 39,
+      "evidence": [
+        "alarm",
+        "little-giant",
+        "riley",
+        "st-pauls",
+        "bateham",
+        "wind",
+        "stand",
+        "stage"
+      ],
+      "next": "parmelee",
+      "hour": "22:30",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "bateham"
+      ],
+      "since": "Ninety minutes later",
+      "stage": {
+        "caption": "Families from the blocks round the church hurry north with bundles and a mattress, and a few men stop at the corner to watch the mills go.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_st_pauls_watch_0",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              -264.85,
+              -1543.64
+            ],
+            "heading": 20.3
+          },
+          {
+            "extra": "fire_st_pauls_watch_1",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              -262.55,
+              -1542.24
+            ],
+            "heading": 18.6
+          },
+          {
+            "extra": "fire_st_pauls_watch_2",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              -258.53,
+              -1544.49
+            ],
+            "heading": 13.9
+          },
+          {
+            "extra": "fire_st_pauls_watch_3",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              -258.1,
+              -1547.75
+            ],
+            "heading": 12.8
+          },
+          {
+            "extra": "fire_st_pauls_flee_0",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              -262.93,
+              -1532.73
+            ],
+            "heading": 202.1,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    -270.21,
+                    -1546.73
+                  ],
+                  [
+                    -274.62,
+                    -1561.59
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_st_pauls_flee_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              -245.98,
+              -1505.45
+            ],
+            "heading": 193.8,
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    -251.97,
+                    -1536.02
+                  ],
+                  [
+                    -260.83,
+                    -1565.73
+                  ]
+                ],
+                "pace": "run"
+              }
+            ]
+          },
+          {
+            "extra": "fire_st_pauls_flee_2",
+            "dress": "child_boy_1904",
+            "name": "A child getting away (unnamed)",
+            "at": [
+              -259.3,
+              -1532.78
+            ],
+            "heading": 199.5,
+            "beats": [
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    -266.1,
+                    -1547.44
+                  ],
+                  [
+                    -270.02,
+                    -1562.97
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_st_pauls_flee_3",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              -257.0,
+              -1532.42
+            ],
+            "heading": 195.8,
+            "beats": [
+              {
+                "t": 8,
+                "walk": [
+                  [
+                    -260.06,
+                    -1548.73
+                  ],
+                  [
+                    -266.0,
+                    -1564.18
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "parmelee",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_parmelee_stables"
+      },
+      "text": "Half past eleven, at Jackson and Franklin Streets, across the South Branch of the river. Since half past nine incandescent brands have been descending on this side, and now one has ignited the new stable of the Parmelee Omnibus and Stage Company, \"the finest of its kind in the country\", completed at a cost of $80,000 and scheduled to be \"occupied for the first time on Wednesday\". At the stable, the fire \"swept down upon them with such rapidity and terrific force as to compel them to flee for their lives.\" By midnight the gas works on Adams Street are ablaze, together with the shanties of Conley's Patch beside them. Beyond rise the stone and marble blocks of LaSalle Street, a double row of supposedly \"fire-proof\" commercial buildings, and one observer wondered: \"Would these succumb to the shower of brands and the triple-heated furnace which had been thrown about them?\"",
+      "read_s": 40,
+      "evidence": [
+        "parmelee",
+        "gasworks",
+        "stand",
+        "stage"
+      ],
+      "next": "court-house",
+      "hour": "23:30",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "parmelee"
+      ],
+      "since": "One hour later",
+      "stage": {
+        "caption": "Stablemen lead nothing out in time; men run from the burning stable up Franklin Street, and others stand at the corner looking at the sky to the south-west.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_parmelee_stables_watch_0",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              202.09,
+              -914.62
+            ],
+            "heading": 152.1
+          },
+          {
+            "extra": "fire_parmelee_stables_watch_1",
+            "dress": "glessner_john_j_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              199.63,
+              -918.4
+            ],
+            "heading": 147.1
+          },
+          {
+            "extra": "fire_parmelee_stables_watch_2",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              196.55,
+              -916.74
+            ],
+            "heading": 145.0
+          },
+          {
+            "extra": "fire_parmelee_stables_flee_0",
+            "dress": "glessner_john_j_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              220.92,
+              -945.31
+            ],
+            "heading": 332.0,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    209.05,
+                    -919.79
+                  ],
+                  [
+                    194.61,
+                    -895.81
+                  ]
+                ],
+                "pace": "run"
+              }
+            ]
+          },
+          {
+            "extra": "fire_parmelee_stables_flee_1",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              215.68,
+              -946.09
+            ],
+            "heading": 327.1,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    199.73,
+                    -924.16
+                  ],
+                  [
+                    186.35,
+                    -900.7
+                  ]
+                ],
+                "pace": "run"
+              }
+            ]
+          },
+          {
+            "extra": "fire_parmelee_stables_flee_2",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              216.47,
+              -943.29
+            ],
+            "heading": 330.0,
+            "beats": [
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    204.76,
+                    -920.01
+                  ],
+                  [
+                    190.48,
+                    -898.25
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "court-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_court_house"
+      },
+      "text": "Half past one on Monday morning, in the Court House square at the administrative centre of the city. Mathias Schaffer, the watchman whose erroneous alarm dispatched the engines astray, remains at his post in the tower; since ten o'clock sparks have been accumulating on the roof, which has ignited \"five or six times\", and he has extinguished it with two Babcock fire-extinguishers. In the basement, Mayor Roswell B. Mason has been issuing orders since midnight, requisitioning gunpowder to demolish buildings in the fire's path and directing that the jail be evacuated. Captain Hickey has had the cells unlocked, the prisoners \"rushed into the street\", and those charged with murder departed in handcuffs. Now the tower itself is burning. Schaffer and his relief, Dennis Denene, set the enormous bell swinging and descend the stairs; it weighs 10,849 pounds, and it is still ringing.",
+      "read_s": 37,
+      "evidence": [
+        "tower",
+        "mason",
+        "prisoners",
+        "stand",
+        "stage"
+      ],
+      "next": "sherman-house",
+      "hour": "01:30",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "tower"
+      ],
+      "since": "Two hours later",
+      "stage": {
+        "caption": "Released prisoners run out of the square, and men who came to save the city's records stand back across Clark Street to watch the tower.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_court_house_watch_0",
+            "dress": "glessner_john_j_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              563.38,
+              -396.17
+            ],
+            "heading": 319.6
+          },
+          {
+            "extra": "fire_court_house_watch_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              563.98,
+              -392.86
+            ],
+            "heading": 317.8
+          },
+          {
+            "extra": "fire_court_house_watch_2",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              568.33,
+              -392.9
+            ],
+            "heading": 315.7
+          },
+          {
+            "extra": "fire_court_house_watch_3",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              568.61,
+              -389.9
+            ],
+            "heading": 314.2
+          },
+          {
+            "extra": "fire_court_house_flee_0",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              544.65,
+              -375.35
+            ],
+            "heading": 141.0,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    559.97,
+                    -396.62
+                  ],
+                  [
+                    577.48,
+                    -415.84
+                  ]
+                ],
+                "pace": "run"
+              }
+            ]
+          },
+          {
+            "extra": "fire_court_house_flee_1",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              553.34,
+              -375.42
+            ],
+            "heading": 132.9,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    571.32,
+                    -390.1
+                  ],
+                  [
+                    587.11,
+                    -406.82
+                  ]
+                ],
+                "pace": "flee"
+              }
+            ]
+          },
+          {
+            "extra": "fire_court_house_flee_2",
+            "dress": "glessner_john_j_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              550.45,
+              -375.4
+            ],
+            "heading": 139.2,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    565.06,
+                    -394.59
+                  ],
+                  [
+                    581.86,
+                    -411.74
+                  ]
+                ],
+                "pace": "run"
+              }
+            ]
+          },
+          {
+            "extra": "fire_court_house_flee_3",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              547.55,
+              -375.37
+            ],
+            "heading": 132.6,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    567.11,
+                    -391.3
+                  ],
+                  [
+                    584.49,
+                    -409.28
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "sherman-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_sherman_house"
+      },
+      "text": "Five past two, at the corner of Clark and Randolph. Behind you the Court House bell comes \"crashing and clanging down\", and Mayor Mason, who remained until it fell, emerges to discover LaSalle Street \"like a furnace, all fire\". Across Clark Street stands the Sherman House, seven stories high and accommodating more than three hundred guests, whose awnings men were tearing down hours earlier in an attempt to protect it. A correspondent for the Post recorded the outcome: \"for nearly an hour the house held good. Suddenly, a spirit of flame came from a window in the third story on the southern face\". Only the night clerk and a single assistant remain to rouse every room, while five ladies lie sick in bed. North of the hotel flows the main river, the final natural barrier between the conflagration and the North Side, and the wind is already transporting it across.",
+      "read_s": 40,
+      "evidence": [
+        "mason",
+        "sherman",
+        "sherman-hour",
+        "crossing",
+        "stand",
+        "stage"
+      ],
+      "next": "crosbys",
+      "hour": "02:05",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "mason",
+        "sherman-hour"
+      ],
+      "since": "35 minutes later",
+      "stage": {
+        "caption": "Hotel guests come out with what luggage they can carry and hurry away north and east; a few stop on the corner and look back at the hotel.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_sherman_house_watch_0",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              567.69,
+              -269.62
+            ],
+            "heading": 43.7
+          },
+          {
+            "extra": "fire_sherman_house_watch_1",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              570.07,
+              -270.27
+            ],
+            "heading": 40.6
+          },
+          {
+            "extra": "fire_sherman_house_watch_2",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              571.59,
+              -274.1
+            ],
+            "heading": 35.6
+          },
+          {
+            "extra": "fire_sherman_house_flee_0",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              590.58,
+              -243.31
+            ],
+            "heading": 217.1,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    572.86,
+                    -264.26
+                  ],
+                  [
+                    557.47,
+                    -287.1
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_sherman_house_flee_1",
+            "dress": "peck_philip_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              592.75,
+              -246.19
+            ],
+            "heading": 215.7,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    578.12,
+                    -269.11
+                  ],
+                  [
+                    561.18,
+                    -290.14
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_sherman_house_flee_2",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              592.2,
+              -244.64
+            ],
+            "heading": 220.5,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    573.21,
+                    -264.54
+                  ],
+                  [
+                    556.54,
+                    -286.34
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "extra": "fire_sherman_house_flee_3",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              592.56,
+              -248.62
+            ],
+            "heading": 214.4,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    578.96,
+                    -271.09
+                  ],
+                  [
+                    563.04,
+                    -291.66
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "crosbys",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_crosbys"
+      },
+      "text": "Twenty past two, on Washington Street between Dearborn and State. From the Court House the fire has veered eastward toward Crosby's Opera House, opened in 1865 and accommodating 2,500; throughout the summer it remained closed while $80,000 was expended on ornament, upholstery and frescoes. It was scheduled to reopen tomorrow evening with Theodore Thomas and his orchestra, and tonight, \"only an hour or two before the fire, it was lit up for the first time, that its effects might be seen by gaslight.\" Now the roof ignites; \"In almost the time it takes to write these lines,\" wrote James Sheahan and George Upton, two Chicago newspapermen, the most magnificent auditorium in the country was obliterated. The St. James Hotel adjoining it, which \"had two or three times before stood the test of fire\", collapses simultaneously, and on the far side of the main river the North Side has caught.",
+      "read_s": 39,
+      "evidence": [
+        "crosbys",
+        "reopening",
+        "crosbys-falls",
+        "crosbys-hour",
+        "stand",
+        "stage"
+      ],
+      "next": "north-side",
+      "hour": "02:20",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "crosbys-hour"
+      ],
+      "since": "Fifteen minutes later",
+      "stage": {
+        "caption": "People from the hotels and the stores on Washington Street hurry east toward the lake; two men stand in the roadway and watch the opera house roof.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_crosbys_watch_0",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              767.3,
+              -382.0
+            ],
+            "heading": 9.6
+          },
+          {
+            "extra": "fire_crosbys_watch_1",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              772.25,
+              -381.0
+            ],
+            "heading": 351.5
+          },
+          {
+            "extra": "fire_crosbys_watch_2",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              774.05,
+              -384.0
+            ],
+            "heading": 347.3
+          },
+          {
+            "extra": "fire_crosbys_flee_0",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              766.5,
+              -374.0
+            ],
+            "heading": 188.2,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    762.85,
+                    -389.0
+                  ],
+                  [
+                    762.2,
+                    -404.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_crosbys_flee_1",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              773.5,
+              -374.0
+            ],
+            "heading": 171.8,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    777.15,
+                    -389.0
+                  ],
+                  [
+                    777.8,
+                    -404.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_crosbys_flee_2",
+            "dress": "child_boy_1904",
+            "name": "A child getting away (unnamed)",
+            "at": [
+              770.0,
+              -374.0
+            ],
+            "heading": 173.2,
+            "beats": [
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    770.3,
+                    -389.0
+                  ],
+                  [
+                    773.6,
+                    -404.0
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "north-side",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_state_kinzie"
+      },
+      "text": "Half past two, north of the main river, where the State Street viaduct descends to Kinzie Street. The river provided no protection: \"About the time that the Sherman House was ablaze\", the wind conveyed the fire across the water, and it \"broke out just north of the bridge, at State street.\" Now Wright's stable, on this corner, is burning; an hour earlier Judge Lambert Tree crossed the bridge when it \"was then burning in spots\". Mayor Mason and his son, isolated on the South Side, are detouring by the Wells Street bridge in an attempt to outflank the fire, and will encounter it here before them. North of this corner most families are sleeping, and many will awaken to find themselves \"surrounded by fire.\" Half a mile distant on the lake shore stands the solitary building that pumps the water for the entire city.",
+      "read_s": 37,
+      "evidence": [
+        "crossing",
+        "wright",
+        "mason-north",
+        "asleep",
+        "one-works",
+        "stand",
+        "stage"
+      ],
+      "next": "water-works",
+      "hour": "02:30",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "wright"
+      ],
+      "since": "Ten minutes later",
+      "stage": {
+        "caption": "North Side people woken by the glare come out half-dressed, and the first of them start away north up State Street with what they can carry.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_state_kinzie_watch_0",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              835.86,
+              226.2
+            ],
+            "heading": 16.2
+          },
+          {
+            "extra": "fire_state_kinzie_watch_1",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              838.94,
+              227.56
+            ],
+            "heading": 12.6
+          },
+          {
+            "extra": "fire_state_kinzie_watch_2",
+            "dress": "glessner_john_j_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              841.13,
+              225.02
+            ],
+            "heading": 9.1
+          },
+          {
+            "extra": "fire_state_kinzie_watch_3",
+            "dress": "child_girl_1904",
+            "name": "A child watching (unnamed)",
+            "at": [
+              842.01,
+              222.78
+            ],
+            "heading": 7.5
+          },
+          {
+            "extra": "fire_state_kinzie_flee_0",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              844.32,
+              261.2
+            ],
+            "heading": 196.6,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    834.83,
+                    234.63
+                  ],
+                  [
+                    828.27,
+                    207.41
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_state_kinzie_flee_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              847.98,
+              258.33
+            ],
+            "heading": 189.1,
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    845.15,
+                    231.29
+                  ],
+                  [
+                    839.39,
+                    204.92
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_state_kinzie_flee_2",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              846.69,
+              262.15
+            ],
+            "heading": 191.4,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    839.53,
+                    234.32
+                  ],
+                  [
+                    835.3,
+                    205.83
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "water-works",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_water_works"
+      },
+      "text": "Twenty past three, Chicago Avenue at the lake shore. These are the Water Works: the engine house and, a hundred and fifty feet west of it, the Water Tower, a stone enclosure surrounding an iron column 130 feet high, up which the pumps propel water for the whole city. The engineer, Frank Trautman, has his engines operating at thirty million gallons a day. D. W. Fuller observes \"a fire-brand, apparently twelve feet in length,\" revolving through the air toward the tower until it strikes the corner of the engine house. \"In an instant, the roof was aflame.\" The roof is constructed of wood, and Fuller consults his watch: \"exactly twenty minutes past three.\" A few minutes before four, the intense heat expels the men. The tower will survive, but the engines will not, and henceforth the firemen can operate only where they can draw water from the river.",
+      "read_s": 39,
+      "evidence": [
+        "waterworks",
+        "one-works",
+        "water-tower",
+        "tower-stands",
+        "stand",
+        "stage"
+      ],
+      "next": "tribune",
+      "hour": "03:20",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "waterworks"
+      ],
+      "since": "Fifty minutes later",
+      "stage": {
+        "caption": "Men from the works and the breweries along the shore come out on Chicago Avenue to watch the engine house roof, and families go by toward the lake.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_water_works_watch_0",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              1103.87,
+              1114.85
+            ],
+            "heading": 56.1
+          },
+          {
+            "extra": "fire_water_works_watch_1",
+            "dress": "glessner_john_j_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              1107.09,
+              1113.88
+            ],
+            "heading": 54.0
+          },
+          {
+            "extra": "fire_water_works_watch_2",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              1106.57,
+              1109.56
+            ],
+            "heading": 51.5
+          },
+          {
+            "extra": "fire_water_works_watch_3",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              1109.52,
+              1108.96
+            ],
+            "heading": 49.7
+          },
+          {
+            "extra": "fire_water_works_flee_0",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              1110.69,
+              1122.44
+            ],
+            "heading": 239.0,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    1095.15,
+                    1114.83
+                  ],
+                  [
+                    1081.41,
+                    1104.82
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_water_works_flee_1",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              1120.59,
+              1115.85
+            ],
+            "heading": 229.0,
+            "beats": [
+              {
+                "t": 4,
+                "walk": [
+                  [
+                    1107.1,
+                    1102.16
+                  ],
+                  [
+                    1091.82,
+                    1090.88
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_water_works_flee_2",
+            "dress": "child_boy_1904",
+            "name": "A child getting away (unnamed)",
+            "at": [
+              1112.02,
+              1117.31
+            ],
+            "heading": 239.5,
+            "beats": [
+              {
+                "t": 7,
+                "walk": [
+                  [
+                    1097.25,
+                    1110.34
+                  ],
+                  [
+                    1084.28,
+                    1100.97
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tribune",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_tribune"
+      },
+      "text": "Half past seven on Monday morning, at Dearborn and Madison Streets, in a dim and smoky daylight. On this corner stands the Tribune building, which its proprietors consider fireproof. At daybreak William Bross, a former lieutenant governor of Illinois and one of the newspaper's owners, rode here and \"found everything safe\", and when fire crept beneath the sidewalk into the barber's shop in the basement, Bross extinguished it with his partners, Joseph Medill, one of the principal stockholders, and Horace White, the editor, \"with water and one of Babcock's fire-extinguishers.\" The printing forms descended for the morning edition. Then the fire returned from the south, past the immense Palmer House, to McVicker's Theatre across a narrow alley. \"The iron shutters on the alley side, bent by the fire, sprung out of place\". The Tribune is destroyed, and without the Water Works nothing can impede what follows.",
+      "read_s": 38,
+      "evidence": [
+        "bross",
+        "medill-white",
+        "tribune-falls",
+        "tribune-hour",
+        "stand",
+        "stage"
+      ],
+      "next": "state-street",
+      "hour": "07:30",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "tribune-hour"
+      ],
+      "since": "Four hours later",
+      "stage": {
+        "caption": "Printers and clerks come out of the Tribune with armfuls of papers and hurry up Dearborn Street; a few men stand on the burned corner opposite.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_tribune_watch_0",
+            "dress": "glessner_john_j_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              695.19,
+              -507.7
+            ],
+            "heading": 144.8
+          },
+          {
+            "extra": "fire_tribune_watch_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              692.97,
+              -512.1
+            ],
+            "heading": 138.1
+          },
+          {
+            "extra": "fire_tribune_watch_2",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              689.68,
+              -510.91
+            ],
+            "heading": 135.8
+          },
+          {
+            "extra": "fire_tribune_flee_0",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              709.88,
+              -526.7
+            ],
+            "heading": 326.7,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    698.9,
+                    -507.27
+                  ],
+                  [
+                    685.59,
+                    -489.73
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_tribune_flee_1",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              707.88,
+              -530.9
+            ],
+            "heading": 316.8,
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    690.92,
+                    -515.05
+                  ],
+                  [
+                    676.29,
+                    -497.31
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "extra": "fire_tribune_flee_2",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              706.99,
+              -526.47
+            ],
+            "heading": 321.7,
+            "beats": [
+              {
+                "t": 6,
+                "walk": [
+                  [
+                    695.13,
+                    -509.05
+                  ],
+                  [
+                    680.94,
+                    -493.52
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "state-street",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_field_leiter"
+      },
+      "text": "Eight o'clock, State Street at Washington. This store of white Massachusetts marble belongs to Potter Palmer, the developer responsible for the Palmer House hotel several blocks south, who leases it to Field, Leiter and Co., importers of dry goods, for $52,000 annually. At first light the company's employees were \"showering that massive pile of pure marble and iron with water from their own pumping engines.\" Now the streams \"had ceased to run\", because the Water Works have failed, and men are transferring merchandise from the lower floor into waiting wagons. The fire advances \"from the north and eastwardly in the rear, and it soon yielded.\" Farther along State Street the Palmer House is already a ruin, and on the North Side the conflagration has been advancing continuously since half past two.",
+      "read_s": 34,
+      "evidence": [
+        "palmer",
+        "field-leiter",
+        "field-hour",
+        "stand",
+        "stage"
+      ],
+      "next": "ogden-house",
+      "hour": "08:00",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "field-hour"
+      ],
+      "since": "Thirty minutes later",
+      "stage": {
+        "caption": "Wagons wait at the kerb while men carry bolts of cloth out of the store; shoppers' carriages and porters hurry the goods away up State Street.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_field_leiter_watch_0",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man watching (unnamed)",
+            "at": [
+              839.81,
+              -386.48
+            ],
+            "heading": 48.2
+          },
+          {
+            "extra": "fire_field_leiter_watch_1",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              845.98,
+              -388.85
+            ],
+            "heading": 30.7
+          },
+          {
+            "extra": "fire_field_leiter_watch_2",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              844.88,
+              -393.1
+            ],
+            "heading": 27.8
+          },
+          {
+            "extra": "fire_field_leiter_flee_0",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              850.61,
+              -375.37
+            ],
+            "heading": 226.6,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    836.07,
+                    -387.06
+                  ],
+                  [
+                    823.88,
+                    -400.63
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_field_leiter_flee_1",
+            "dress": "peck_philip_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              853.35,
+              -377.56
+            ],
+            "heading": 211.5,
+            "beats": [
+              {
+                "t": 2,
+                "walk": [
+                  [
+                    844.94,
+                    -394.15
+                  ],
+                  [
+                    834.19,
+                    -408.87
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          },
+          {
+            "extra": "fire_field_leiter_flee_2",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              852.25,
+              -376.69
+            ],
+            "heading": 220.6,
+            "beats": [
+              {
+                "t": 5,
+                "walk": [
+                  [
+                    839.24,
+                    -389.59
+                  ],
+                  [
+                    828.56,
+                    -404.37
+                  ]
+                ],
+                "pace": "brisk"
+              }
+            ]
+          },
+          {
+            "extra": "fire_field_leiter_flee_3",
+            "dress": "bardwell_otis_1835",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              854.44,
+              -378.43
+            ],
+            "heading": 210.8,
+            "beats": [
+              {
+                "t": 8,
+                "walk": [
+                  [
+                    846.19,
+                    -395.15
+                  ],
+                  [
+                    835.59,
+                    -410.0
+                  ]
+                ],
+                "pace": "hurry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ogden-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_ogden_house"
+      },
+      "text": "Midday on Monday, on the North Side, before the house of Mahlon D. Ogden, brother of William B. Ogden, Chicago's first mayor; it is constructed entirely of wood, and it is still standing. Before it lies Washington Park, which filled overnight with refugees and their possessions until the fire swept through and consumed \"the accumulated furniture of fifty families.\" The men remaining inside defended it, tearing up the carpets, spreading them across the walls and keeping them saturated, and when the hydrant failed, \"Several barrels of cider were used to saturate the carpets\". Surrounding it now there is \"nothing but this solitary building in an area of 2,600 acres.\" A mile north the fire has reached St. Michael's, the immense brick church of the German parish, whose steeple is burning, while the population of the North Side retreats toward the lake and the old cemetery.",
+      "read_s": 38,
+      "evidence": [
+        "ogden",
+        "first-mayor",
+        "st-michaels",
+        "monday",
+        "ogden-hour",
+        "stand",
+        "stage"
+      ],
+      "next": "old-cemetery",
+      "hour": "12:00",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "ogden-hour"
+      ],
+      "since": "Four hours later",
+      "stage": {
+        "caption": "The men who saved the house stand in the burnt park looking at it; a family picks through what is left of their furniture.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_ogden_house_watch_0",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              612.85,
+              1430.75
+            ],
+            "heading": 3.1
+          },
+          {
+            "extra": "fire_ogden_house_watch_1",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              615.39,
+              1432.94
+            ],
+            "heading": 355.8
+          },
+          {
+            "extra": "fire_ogden_house_watch_2",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              618.31,
+              1430.15
+            ],
+            "heading": 348.8
+          },
+          {
+            "extra": "fire_ogden_house_watch_3",
+            "dress": "reynolds_mary_1904_maid",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              611.34,
+              1426.63
+            ],
+            "heading": 6.0
+          },
+          {
+            "extra": "fire_ogden_house_watch_4",
+            "dress": "child_boy_1904",
+            "name": "A child watching (unnamed)",
+            "at": [
+              610.52,
+              1425.57
+            ],
+            "heading": 7.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "old-cemetery",
+      "destination": {
+        "kind": "anchor",
+        "id": "fire_old_cemetery"
+      },
+      "text": "Nightfall on Monday, at the old City Cemetery on the southern edge of Lincoln Park, from which most of the dead were removed years ago, leaving \"some old headstones scattered about\" among the grass and small oaks. \"By nightfall on Monday there could not have been less than thirty thousand men, women, and children, huddled within this ghostly inclosure.\" They carried in beds, chairs and bundles, and many have watched their possessions \"burn up before their eyes.\" Farther south along the shore, \"Along the beach were judges, merchants, doctors, workingmen, women and children\", and \"Ladies were seen moving their chairs into the water, and sitting on the top of the backs\". Thousands more have escaped westward to the open prairie. Everywhere they are \"blinded by smoke, weakened by hunger, and choking with thirst\", and nobody can predict where the conflagration will finally terminate.",
+      "read_s": 38,
+      "evidence": [
+        "cemetery",
+        "chapel-chairs",
+        "beach",
+        "prairie",
+        "cemetery-hour",
+        "stand",
+        "stage"
+      ],
+      "next": "the-rain",
+      "hour": "18:30",
+      "date": "1871-10-09",
+      "hour_evidence": [
+        "cemetery-hour"
+      ],
+      "since": "Six hours later",
+      "stage": {
+        "caption": "Families sit among the old graves with their bundles and chairs, looking south at the glow; others are still coming in from the burning streets.",
+        "liberty": "L-1871-great-fire-jaunt",
+        "cast": [
+          {
+            "extra": "fire_old_cemetery_watch_0",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              471.59,
+              2851.71
+            ],
+            "heading": 186.8
+          },
+          {
+            "extra": "fire_old_cemetery_watch_1",
+            "dress": "peck_philip_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              469.13,
+              2849.97
+            ],
+            "heading": 186.5
+          },
+          {
+            "extra": "fire_old_cemetery_watch_2",
+            "dress": "child_girl_1904",
+            "name": "A child watching (unnamed)",
+            "at": [
+              466.78,
+              2853.25
+            ],
+            "heading": 186.2
+          },
+          {
+            "extra": "fire_old_cemetery_watch_3",
+            "dress": "ryan_kate_1904_cook",
+            "name": "A woman watching (unnamed)",
+            "at": [
+              464.32,
+              2851.51
+            ],
+            "heading": 185.9
+          },
+          {
+            "extra": "fire_old_cemetery_watch_4",
+            "dress": "mahoney_patrick_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              462.2,
+              2848.73
+            ],
+            "heading": 185.6
+          },
+          {
+            "extra": "fire_old_cemetery_watch_5",
+            "dress": "bardwell_otis_1835",
+            "name": "A man watching (unnamed)",
+            "at": [
+              473.6,
+              2853.5
+            ],
+            "heading": 187.0
+          },
+          {
+            "extra": "fire_old_cemetery_flee_0",
+            "dress": "flynn_mary_1835_dress_study",
+            "name": "A woman getting away (unnamed)",
+            "at": [
+              466.16,
+              2810.06
+            ],
+            "heading": 5.4,
+            "beats": [
+              {
+                "t": 1,
+                "walk": [
+                  [
+                    470.68,
+                    2841.75
+                  ],
+                  [
+                    472.23,
+                    2873.78
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          },
+          {
+            "extra": "fire_old_cemetery_flee_1",
+            "dress": "anonymous_working_driver_1904",
+            "name": "A man getting away (unnamed)",
+            "at": [
+              460.85,
+              2806.62
+            ],
+            "heading": 5.6,
+            "beats": [
+              {
+                "t": 3,
+                "walk": [
+                  [
+                    462.66,
+                    2840.63
+                  ],
+                  [
+                    467.46,
+                    2874.31
+                  ]
+                ],
+                "pace": "slow"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "legs": [
+    {
+      "note": "North-east from the barn, the way the wind blew: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "North-east across Taylor Street through the wooden cottages, in the direction the prevailing wind is driving the fire.",
+      "evidence": [
+        "wind"
+      ],
+      "story_evidence": [
+        "wind"
+      ]
+    },
+    {
+      "note": "Across the South Branch to Jackson Street: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Over the South Branch of the river, as incandescent brands descend on the South Side.",
+      "evidence": [
+        "parmelee"
+      ],
+      "story_evidence": [
+        "parmelee"
+      ]
+    },
+    {
+      "note": "North through the business district to the Court House square: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "North and east, two hours later, through the illumination of the burning gas works toward the commercial centre.",
+      "evidence": [
+        "gasworks"
+      ],
+      "story_evidence": [
+        "gasworks"
+      ]
+    },
+    {
+      "story": "Across the square to its corner at Clark and Randolph.",
+      "evidence": [
+        "sherman"
+      ],
+      "story_evidence": [
+        "sherman"
+      ]
+    },
+    {
+      "story": "East along Randolph and down to Washington Street, following the fire's eastward deflection.",
+      "evidence": [
+        "crosbys-falls"
+      ],
+      "story_evidence": [
+        "crosbys-falls"
+      ]
+    },
+    {
+      "note": "North over the main river by the State Street bridge: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Over the main river, where the State Street bridge is burning intermittently.",
+      "evidence": [
+        "wright"
+      ],
+      "story_evidence": [
+        "wright"
+      ]
+    },
+    {
+      "note": "Half a mile north-east to the lake shore: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "North-east through the residential North Side to the lake shore at Chicago Avenue.",
+      "evidence": [
+        "waterworks"
+      ],
+      "story_evidence": [
+        "waterworks"
+      ]
+    },
+    {
+      "note": "Back over the river to the South Side, four hours on: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Back over the river to the South Side, where the sun has risen invisibly behind the smoke.",
+      "evidence": [
+        "bross"
+      ],
+      "story_evidence": [
+        "bross"
+      ]
+    },
+    {
+      "story": "East along Madison and up State Street to Washington.",
+      "evidence": [
+        "field-leiter"
+      ],
+      "story_evidence": [
+        "field-leiter"
+      ]
+    },
+    {
+      "note": "Over the river again to the North Side: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Over the river again to the North Side, where the conflagration has advanced northward throughout the morning.",
+      "evidence": [
+        "monday"
+      ],
+      "story_evidence": [
+        "monday"
+      ]
+    },
+    {
+      "note": "North with the crowds to Lincoln Park: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "North with the refugees, to the old cemetery at the southern edge of Lincoln Park.",
+      "evidence": [
+        "cemetery"
+      ],
+      "story_evidence": [
+        "cemetery"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "the-rain",
+      "default": true,
+      "completion_eligible": true,
+      "read_s": 39,
+      "text": "Monday night, 9 October 1871. At approximately half past ten the fire reaches the northern extremity of Lincoln Park and consumes the house of Dr. John H. Foster on Fullerton Avenue, \"just twenty-five hours from the commencement of the fire, and about four miles distant from the place of its origin.\" There it finally \"spent itself\", and then \"About eleven o'clock Monday night, the sky, as if in remorse at what the fiery element had done, poured down floods of rain.\" In the cemetery and on the prairie the refugees stand in it, drenched. The eventual accounting: 2,124 acres burned, 17,450 buildings destroyed, 98,500 people homeless, and \"more than 250\" dead. The mayor's first proclamation pledged the city's credit \"for the necessary expenses for the relief of the suffering\", and concluded: \"It is believed the fire has spent its force and all will soon be well.\""
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "mason-proclamation-grades-11-12",
+    "title": "Mayor Mason's proclamation, October 1871",
+    "text": "\"Public order will be preserved.\" The first proclamation of the mayor after the fire, as Sheahan and Upton printed it that autumn."
+  },
+  "evidence": [
+    {
+      "id": "barn",
+      "text": "Andreas: \"About fifteen minutes before nine o'clock on the evening of Sunday, October 8, 1871, fire was discovered in a barn on the rear of lot No. 137 DeKoven Street. The property was owned by Patrick O'Leary.\" The barn \"contained several cows, a calf and a horse, all belonging to the O'Leary family. Mrs. O'Leary was engaged in the business of supplying milk to neighboring families.\" Its upper part \"had recently been filled with hay\". Patrick and Catharine O'Leary signed their affidavit of 15 October 1871 with their marks (Andreas spells her Catharine; she is the Catherine of the legend).",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 707-708, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the opening of \"The Great Conflagration\""
+    },
+    {
+      "id": "legend",
+      "text": "Andreas: \"For all time, the legend of Mrs. O'Leary's cow will be accepted. While the city was still enveloped in flames, some now-forgotten tongue declared that Mrs. O'Leary was engaged in milking a cow, when the unruly animal kicked over a lighted lamp, and so ignited the straw and refuse on the barn floor\". \"There is no proof that Mrs. O'Leary is responsible for the fire.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 708, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: \"The Origin of the Fire\""
+    },
+    {
+      "id": "inquiry",
+      "text": "The Board of Police and Fire Commissioners found \"that the fire originated in a two-story barn in the rear of No. 137 DeKoven Street\", first seen by \"a drayman by the name of Daniel [Dennis] Sullivan\". \"There is no proof that any person had been in the barn after nightfall that evening.\" \"Mr. O'Leary and all his family prove to have been in bed and asleep at the time.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 709, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the Board's report on the inquiry begun 23 November 1871"
+    },
+    {
+      "id": "sullivan",
+      "text": "Daniel Sullivan, of No. 134 DeKoven Street, testified that from across the street he saw fire in O'Leary's barn. \"He ran across the street as fast as he could — he has a wooden leg — and cried out \"Fire\" as loud as he could\". He cut two cows loose, but they would not leave; \"his wooden leg went between two boards\", and \"just then saw a calf with a rope around its neck. The hair on its back was on fire\". He pulled it out of the barn.",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 427-428, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: the testimony of Daniel Sullivan, of No. 134 DeKoven Street, before the commissioners"
+    },
+    {
+      "id": "lee",
+      "text": "William Lee, \"two doors east of the O'Leary cottage\", saw \"fire coming out of the roof\" of the O'Leary barn, and ran to \"Bruno Goll's drug store, on the corner of Canal and Twelfth streets\", for the key to the alarm box; the druggist would not give it to him. \"Mr. Lee returned to his house. The clock struck nine.\" The calf, \"the only animal saved from the O'Leary barn\", stood all night beside the Lees' baby in its cradle in a vacant lot across the street.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 714-715, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the statement of William Lee, of No. 133 DeKoven Street"
+    },
+    {
+      "id": "alarm",
+      "text": "\"Mathias Schaffer, the watchman in the tower, says that it was 9:28 p. m., when he first discovered the light of the fire. Observing it through his spy-glass, he located the scene near the corner of Canalport Avenue and Halsted Street, and rang up the night operator, signaling him to give Box 342.\" John Campion, of the \"Little Giant\": \"The alarm first received from the Court-house tower was for Box 342, which was nearly a mile from the fire\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 711-712, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the statements of Mathias Schaffer and John Campion"
+    },
+    {
+      "id": "wind",
+      "text": "The Board of Police and Fire Commissioners, reporting on the inquiry: the fire spread \"with the wind then blowing strongly from the southwest, and carrying the fire from building to building in a neighborhood composed wholly of dry wooden buildings, with wood shavings piled in every barn and under every house\". The firemen were worn out: \"A large part of the Department had worked on Saturday night, and Sunday until 3 p. m.\", eighteen hours on end, \"and they were nearly exhausted when this fire commenced\". The firemen could not \"prevent the wind, which soon became a gale, from carrying burning shingles and brands over their heads\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 709, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the report of the Board of Police and Fire Commissioners, 1871"
+    },
+    {
+      "id": "drought",
+      "text": "Andreas: \"One and a half inches of rain fell in Chicago on the 3d of July, but from that date to the time of the fire, on the 9th of October, only two and a half inches fell, whereas the quantity falling in that line had averaged eight and three-quarter inches in former years.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 702, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the drought of 1871"
+    },
+    {
+      "id": "stand",
+      "text": "Each stop is watched from a reconstructed stand in the street, at a distance where the building and the fire read: its corner from the modern street grid (the corners survive), not a surveyed 1871 point.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1871-great-fire-jaunt"
+    },
+    {
+      "id": "stage",
+      "text": "The Great Chicago Fire: the people on the streets at each stop are unnamed figures standing for the crowds the accounts describe, watching, carrying what they can, and getting away. Where each stands, when each moves and how, and the clothes they are drawn in (the town's 1835 and 1904 wardrobes, until 1871 dress is drawn) are reconstruction. Nobody is shown hurt.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1871-great-fire-jaunt"
+    },
+    {
+      "id": "little-giant",
+      "text": "The \"Little Giant\", engine No. 6, took the plug at DeKoven and Jefferson streets and laid its hose through Patrick O'Leary's lot: \"For more than thirty minutes this engine battled alone.\" Its foreman, William Musham: \"It was too much for us.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 711, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the statement of William Musham, foreman of the \"Little Giant\" No. 6"
+    },
+    {
+      "id": "riley",
+      "text": "Richard Riley, \"a railroad contractor\", watched from a pile of lumber at Taylor and Canal streets: \"A large mass of fire, seemingly two feet in length and one foot in thickness, arose from a spot just north of Taylor Street, and went whirling through the air for more than three blocks, alighting on the cupola of the German Catholic Church, on the northeast corner of Mather and Clinton streets. The entire building was almost instantaneously enveloped in flames.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 715-716, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the statement of Richard Riley"
+    },
+    {
+      "id": "st-pauls",
+      "text": "The church at Clinton and Mather streets that the brand fell on was St. Paul's, the German Catholic parish church.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Andreas, vol. II p. 406: \"St. Paul's Church was established in 1868, at the corner of Mather and Clinton streets, by members from the Church of St. Francis D'Assissium\" (a German parish) and served \"until the buildings were destroyed by the great fire occurring that year\"; Riley (p. 715) calls the church on that corner \"the German Catholic Church\". The same corner and the same fire make them one church."
+    },
+    {
+      "id": "bateham",
+      "text": "William B. Bateham, \"member of the Common Council in 1871\", owned the mills on Canal Street south of Harrison, with \"a thousand cords of fire-kindling wood, in piles twenty-five feet high\" in the yard. \"At ten o'clock it looked as if this were possible, for the church had gone down in ruins in advance of the main body of flame.\" \"At half-past ten, the heroic men were driven from Bateham's works by the intense heat. As Mr. Bateham turned from his property he remarked: \"The materials from this mill will fire the South Side, and nothing can prevent it now.\"\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 717-718, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the statement of William B. Bateham"
+    },
+    {
+      "id": "parmelee",
+      "text": "Andreas: \"From as early as half-past nine, showers of sparks and burning brands fell upon the South Side\". \"The first building to ignite on the South Side was the new stable owned by the Parmelee Omnibus and Stage Company, situated on southeast corner of Jackson and Franklin streets. This spacious structure had just been completed at an expense of $80,000, and would have been occupied for the first time on Wednesday, October 11. The building was the finest of its kind in the country.\" J. W. Parmelee and J. E. Sullivan were at the stable: \"At half-past eleven, October 8, 1871, the fire swept down upon them with such rapidity and terrific force as to compel them to flee for their lives.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 719, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: \"The Fire crosses to the South Side\""
+    },
+    {
+      "id": "gasworks",
+      "text": "Holden's timetable: \"At about twelve o'clock, the gas works and \"Conley's Patch\" were on fire.\" Colbert, quoted by Andreas, puts the first South Side fire \"in a building of the South Division gas works on Adams Street\", and asks of what lay beyond the shanties of Conley's Patch, \"along LaSalle Street\", a \"splendid double row of \"fire-proof\" mercantile buildings\": \"Would these succumb to the shower of brands and the triple-heated furnace which had been thrown about them?\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 719-720, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Holden's timetable, and Colbert as Andreas quotes him"
+    },
+    {
+      "id": "tower",
+      "text": "Mathias Schaffer, the watchman in the Court House tower, \"was relieved at eleven o'clock by Dennis Denene, but remained in the tower. By ten o'clock, cinders and burning materials were seen flying over the South Side. The roof of the Court House caught fire five or six times before he left the building, which was at half-past one. He used two Babcock fire-extinguishers.\" \"Schaffer and Denene caused the Court-house bell to be rung constantly until they were driven from the tower.\" The bell \"weighed 10,849 pounds\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 724-725, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the burning of the Court House; Mathias Schaffer's statement"
+    },
+    {
+      "id": "mason",
+      "text": "The mayor, Roswell B. Mason (Andreas's index; \"Mayor R. B. Mason\" in the text): he \"reached the Court House soon after twelve o'clock. He was busily occupied giving orders from the office of the Police Commissioners, which was in the basement of the building. It was then that the mayor issued orders to Alderman J. H. Hildreth, to use powder in blowing up buildings, at about one a. m. The mayor also went to the jail, in the same basement, and ordered the prisoners removed to a place of safety.\" He stayed until \"the famous bell came crashing and clanging down\": \"By this incident, we fix the instant of the falling of the bell at five minutes past two.\" In the street, LaSalle Street \"appeared like a furnace, all fire\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 725, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Mayor Mason's statement; the volume's index (Mason, Roswell B.)"
+    },
+    {
+      "id": "prisoners",
+      "text": "\"Captain Hickey, seeing that there was no hope of saving the building, ordered the cells to be unlocked, and in a moment the released prisoners, all bareheaded, many barefooted, rushed into the street, yelling like demons. A large truck, loaded with ready-made clothing, was passing the corner of Randolph Street at the time. In an instant the ex-prisoners swarmed upon it, emptied it of its contents\". The men \"charged with murder\" were \"securely handcuffed and led away between guards.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 725, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the county jail in the Court House basement"
+    },
+    {
+      "id": "sherman",
+      "text": "Alonzo Hannis crossed to the South Side \"shortly after half-past eleven\", when \"men were trying to save the Sherman House, by tearing down awnings and other combustible materials.\" It was \"the seven-story Sherman\". A writer in the Post: \"The woodwork and roof were smoking in places, but for nearly an hour the house held good. Suddenly, a spirit of flame came from a window in the third story on the southern face\". W. S. Walker: \"Upwards of three hundred guests were lodged there\", with \"only the night clerk and an assistant\" left in charge, and of the ladies \"five were so sick as to be confined to their beds.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 725-727, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Alonzo Hannis; a writer in the Post; W. S. Walker"
+    },
+    {
+      "id": "sherman-hour",
+      "text": "The Sherman House, across Clark Street from the Court House, was burning by about five past two on Monday morning.",
+      "confidence": "inferred",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Sheahan and Upton (pp. 76-77): after the Court House dome fell, \"The Sherman House was the next to go\"; and (p. 105) before the Court House roof fell in at twenty past two, \"about the time that the Sherman House was ablaze\", the fire had reached the North Side. Andreas (p. 725) puts the bell's fall at five past two."
+    },
+    {
+      "id": "crossing",
+      "text": "Sheahan and Upton: \"Precisely at twenty minutes past two o'clock, the roof of the centre building of the Court House fell in, and before that event, and about the time that the Sherman House was ablaze, the fire, carried by the wind, had fallen upon the north side, and broke out just north of the bridge, at State street. North of the bridge was a long viaduct of wood, erected on trestle work.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "p. 105, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: \"The Fire in the North Division\""
+    },
+    {
+      "id": "crosbys",
+      "text": "Colbert and Chamberlin: \"Crosby's Opera-house was completed in the summer of 1865. It stood on the north side of Washington Street\", seating \"2500 people\"; \"it cost $375,000\". \"In 1871 the Opera-house was also remodeled.\"",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "pp. 147-148, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected: the public buildings of 1865-1871"
+    },
+    {
+      "id": "reopening",
+      "text": "Sheahan and Upton, two Chicago newspapermen writing that autumn: \"The Crosby Opera House, had been closed during the summer and fall for renovation. Its proprietor had expended $80,000 upon it in ornamentation, upholstery and frescoing. It was to have been reopened to the public on Monday evening, the night after the fire, by the Theodore Thomas orchestral troupe, and on Sunday evening, only an hour or two before the fire, it was lit up for the first time, that its effects might be seen by gaslight.\" \"The carpet and upholstery were made expressly for it in France\".",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 94-95, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: the Crosby Opera House"
+    },
+    {
+      "id": "crosbys-falls",
+      "text": "Colbert and Chamberlin: \"From the Court-house the course of the main column seemed to tend eastward, and Hooley's Opera-house, the Times building, Crosby's magnificent Opera-house (to be re-opened that very night), fell rapidly before it.\" Sheahan and Upton: the fire \"caught the roof of Crosby's Opera House. In almost the time it takes to write these lines, that noble building, with the handsomest operatic auditorium in the country\", was destroyed, \"while the St. James Hotel adjoining it on the east, which had two or three times before stood the test of fire, at last yielded and fell.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "Sheahan and Upton pp. 77-78, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected; Colbert and Chamberlin p. 207, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected"
+    },
+    {
+      "id": "crosbys-hour",
+      "text": "Crosby's Opera House was burning by about twenty past two on Monday morning.",
+      "confidence": "inferred",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Colbert and Chamberlin (p. 207) have the main column turn east from the Court House and Crosby's fall \"rapidly before it\"; the Court House bell fell at five past two (Andreas p. 725). Some minutes after that is the earliest the column can have reached Washington Street between Dearborn and State."
+    },
+    {
+      "id": "wright",
+      "text": "Holden's timetable: \"At not later than 1:30, Judge Lambert Tree crossed State-street bridge, which was then burning in spots. At 2:30, Wright's stable on the southeast corner of State and Kinzie streets, at the northern end of the viaduct, took fire.\" Tree lived on the North Side, \"at the corner of Ohio and Cass streets\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 719 and 724, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Holden's timetable; Judge Tree"
+    },
+    {
+      "id": "mason-north",
+      "text": "Cut off on the South Side, Mayor Mason and his son crossed by the Wells Street bridge to the North Side, and \"inferred that the fire had attacked Wright's stables, just northeast of the State-street viaduct.\" They went on east to the Rush Street bridge, \"which they reached ahead of the fire\", and \"reached their home at half-past four.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 725, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: Mayor Mason's statement"
+    },
+    {
+      "id": "asleep",
+      "text": "Andreas: \"The people of that section, for the most part, were awakened to a consciousness of peril only by finding themselves surrounded by fire.\" (The OCR reads \"conif peril\".)",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 754-755, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the North Side"
+    },
+    {
+      "id": "one-works",
+      "text": "The Board: \"The single set of pumping works, upon which the salvation of the city depended, were roofed with wood, had no appliance by which water could be raised to the roof in case of fire\". \"After the Water Works burned, the firemen could do little good with their engines, except on the banks of the river.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 709-710, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the Board's report"
+    },
+    {
+      "id": "waterworks",
+      "text": "Frank Trautman, the engineer, had his engines \"running at the rate of thirty million gallons a day. The reservoir was full\". \"Soon after three o'clock, D. W. Fuller, who was standing just north of the main building, noticed a fire-brand, apparently twelve feet in length, whirling through the air, directly toward the water-tower, located about one hundred and fifty feet west of the engine building.\" It struck the corner of the engine-house. \"In an instant, the roof was aflame. Mr. Fuller glanced at his watch; the time was exactly twenty minutes past three.\" \"A few minutes before four o'clock, they were driven from the buildings by the intense heat.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 741-742, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the burning of the Water Works"
+    },
+    {
+      "id": "water-tower",
+      "text": "Colbert and Chamberlin: the water tower \"consists essentially of an iron column, three feet in internal diameter, and 130 feet high, up which the water is forced by powerful pumps\", and \"The column is surrounded by a spiral stairway, inside a stone tower\". Beside it were \"buildings to contain the four pumping engines\".",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "pp. 154-155, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected: the water tower and the lake tunnel"
+    },
+    {
+      "id": "tower-stands",
+      "text": "The stone Water Tower stood through the fire.",
+      "confidence": "inferred",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "reasoning": "Colbert and Chamberlin, writing weeks after the fire, describe the tower in the present tense: \"It is situated about half a block west of the old pumping works, on the east end of Chicago Avenue\" (p. 154), where of every building burned they write in the past; Andreas (p. 742) has the brand fly \"toward the water-tower\" and the engine-house roof, not the tower, catch."
+    },
+    {
+      "id": "bross",
+      "text": "William Bross, \"Ex-Lieutenant-Governor Bross\" of Illinois and one of the Tribune's owners, reached home on Michigan Avenue toward five, as \"the day was beginning to break\", and \"rode as fast as I could to the Tribune office. I found everything safe\". The fire had \"crawled under the sidewalk from the wooden pavement, and caught the woodwork of the barber's shop, which comprised a portion of our basement\". They put it out \"believing, as we did, that the building was fire-proof. My associates, Mr. Medill and Mr. White, were present, and, with the help of some of our employes, we went to work with water and one of Babcock's fire-extinguishers.\" \"The forms had been sent down stairs\", to issue the paper.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 731-732, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the narrative of ex-Lieutenant-Governor Bross"
+    },
+    {
+      "id": "medill-white",
+      "text": "Andreas: \"Mr. Horace White, at that time editor of the Tribune\". Colbert and Chamberlin: \"Joseph Medill, one of its chief stockholders (since elected mayor of the city)\". The Tribune building stood \"on the corner of Madison and Dearborn Streets\" and was counted among the city's fire-proof buildings (Colbert and Chamberlin, p. 151).",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "Andreas p. 734, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected; Colbert and Chamberlin pp. 379-380, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected"
+    },
+    {
+      "id": "tribune-falls",
+      "text": "Sheahan and Upton: \"The Tribune building, one of the noblest structures in the city, on the southeast corner of Dearborn and Madison streets, had already stood the test bravely.\" Then \"far to the south the flames had seized the huge eight-story Palmer House, and came sweeping northward with fearful rapidity to McVicker's Theatre, separated from the east wall of the Tribune building only by a narrow alley. This new onset of the fire was irresistible.\" \"Its roof yielded. The iron shutters on the alley side, bent by the fire, sprung out of place\". Colbert and Chamberlin: \"It surrounded the fated structure, and ruined it too.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "Sheahan and Upton pp. 78-79, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected; Colbert and Chamberlin p. 209, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected"
+    },
+    {
+      "id": "tribune-hour",
+      "text": "The Tribune building was lost at about half past seven on Monday morning.",
+      "confidence": "inferred",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Colbert and Chamberlin (p. 209) give \"half-past seven in the evening\", but the building's own owner found it standing at daybreak and the fire back upon it that morning (Bross, in Andreas pp. 731-732), and the paper was then printed elsewhere; the hour is theirs and the morning is Bross's."
+    },
+    {
+      "id": "palmer",
+      "text": "Colbert and Chamberlin: the fire \"fell upon Potter Palmer's store of Massachusetts marble, for which Field, Leiter & Co., dry goods importers, were paying the owner $52,000 a year rent. This splendid building, with such of its contents as had not been removed in wagons, went like all the rest.\" Andreas: \"The Palmer House was built in 1869-70, by Potter Palmer, at the northwest corner of State and Quincy streets\", a hotel \"with handsome stone fronts\".",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "locator": "Colbert and Chamberlin pp. 209-210, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected; Andreas vol. II, \"Hotels\", the Palmer House, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected"
+    },
+    {
+      "id": "field-leiter",
+      "text": "Horace White, after daylight, saw \"that the employes of Messrs. Field, Leiter & Co.'s immense dry goods store were showering that massive pile of pure marble and iron with water from their own pumping engines.\" Later, at State Street, \"the streams of water, which had before been showering it as though it had been a great artificial fountain, had ceased to run.\" \"But why were men carrying out goods from the lower story?\" Sheahan and Upton: \"At Field & Leiter's mammoth establishment, on the corner of State and Washington streets, a determined effort was made to save the building but it was useless. The flames attacked it from the north and eastwardly in the rear, and it soon yielded.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "Andreas pp. 734-735 (Horace White's narrative), Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected; Sheahan and Upton p. 79, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected"
+    },
+    {
+      "id": "field-hour",
+      "text": "Field, Leiter & Co.'s store was burning by about eight on Monday morning.",
+      "confidence": "inferred",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Colbert and Chamberlin (pp. 209-210) take the fire from the Tribune building through Booksellers' Row to Potter Palmer's store, in that order; Horace White saw the store's own streams playing after daylight and stopped by the time he came back from breakfast (Andreas p. 735). After the Tribune (about half past seven) and after breakfast makes about eight."
+    },
+    {
+      "id": "ogden",
+      "text": "Colbert and Chamberlin: \"the residence of Mahlon D. Ogden, brother of Wm. B. Ogden\", which \"faces Washington Park\", and \"the Ogden mansion is of wood\". Sheahan and Upton: \"Its escape is a marvel.\" \"In front of the house and between it and the approaching fire was a small park — just one vacant block. But this park early in the night was filled with fugitives and their furniture.\" The men left in the house \"tore up the carpets, and used all the blankets on the premises. These they spread over the fronts of the house and of the barn exposed to the fire\", and kept them wet; when the hydrant failed, \"Several barrels of cider were used to saturate the carpets\". \"In front was the grand blaze from the accumulated furniture of fifty families.\" By dawn the fire had passed north, \"leaving nothing but this solitary building in an area of 2,600 acres.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "Sheahan and Upton pp. 209-211, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected; Colbert and Chamberlin p. 348, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected"
+    },
+    {
+      "id": "first-mayor",
+      "text": "Sheahan and Upton: \"In 1837 the Legislature incorporated the City of Chicago, and in May following the Hon. William B. Ogden was elected Mayor of Chicago.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "p. 28, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: the city charter of 1837"
+    },
+    {
+      "id": "st-michaels",
+      "text": "St. Michael's, the German congregation of the Redemptorist Fathers, built at Hurlbut and Linden streets \"a very large brick building two hundred feet long by eighty feet wide, with a tower surmounted by a low steeple containing a chime of bells\". In the great fire its walls \"remained substantially intact. The steeple, however, was burned, and the bells fell to the ground.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 405, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: St. Michael's Church"
+    },
+    {
+      "id": "monday",
+      "text": "Andreas: \"The day of the 9th (Monday) was one of excitement and dread. On the North Side, all the people were still flying from the scourge which pursued them.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 737, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the North Side on Monday"
+    },
+    {
+      "id": "ogden-hour",
+      "text": "At midday on Monday the Ogden house stood alone, and the fire was burning north toward North Avenue.",
+      "confidence": "inferred",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration",
+        "andreas_1885_v2"
+      ],
+      "reasoning": "Sheahan and Upton (p. 210): the house was saved by dawn, after \"three or four hours of hard labor\". The fire burned on north all Monday (Andreas p. 737) and took both sides of North Avenue before it reached the groves beyond (p. 757); St. Michael's stood near North Avenue. Midday is a time inside that day, not a recorded hour."
+    },
+    {
+      "id": "cemetery",
+      "text": "Colbert and Chamberlin: the refugees were at \"Lincoln Park and the old cemetery to the south of it, and along the Lake-shore Drive\", \"compelled to see the household gods and valuables which they had moved into the cemetery or the park burn up before their eyes.\" \"It is an old burial-ground, from which many of the bodies had been removed, leaving some old headstones scattered about\", graves standing \"among the thick undergrowth of grass and small oak trees\". The refugees were \"blinded by smoke, weakened by hunger, and choking with thirst\". \"By nightfall on Monday there could not have been less than thirty thousand men, women, and children, huddled within this ghostly inclosure.\"",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "pp. 265-268, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected: \"The Night after the Fire\""
+    },
+    {
+      "id": "chapel-chairs",
+      "text": "On the lake shore: \"Ladies were seen moving their chairs into the water, and sitting on the top of the backs, while resting their feet on the seats of the chairs.\" At Lincoln Park the fire came \"entering this area of solitude, in which stood the old chapel of the cemetery, built of brick\", and \"desolated and scorched that structure. This chapel was surrounded by no buildings\".",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 737, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: a North Side narrative"
+    },
+    {
+      "id": "beach",
+      "text": "Sheahan and Upton: \"Along the beach were judges, merchants, doctors, workingmen, women and children\".",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 113-114, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: the North Division beach"
+    },
+    {
+      "id": "prairie",
+      "text": "Thousands fled west and north-west over the North Branch bridges: \"After reaching the prairie, the army of fugitives settled down, wherever they could find room.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 757, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the fugitives"
+    },
+    {
+      "id": "cemetery-hour",
+      "text": "The refugees in the cemetery are seen at nightfall on Monday, about half past six.",
+      "confidence": "inferred",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "reasoning": "Colbert and Chamberlin count the cemetery's thirty thousand \"By nightfall on Monday\" (p. 266); the sun set a little before half past five that day, and full dark is an hour later."
+    },
+    {
+      "id": "end",
+      "text": "\"The fire finally spent itself in burning the residence of Dr. John H. Foster, on the north end of Lincoln Park, as then located, being on Fullerton Avenue.\" \"As nearly as I can learn, his house was burned at half past ten o'clock on Monday night — just twenty-five hours from the commencement of the fire, and about four miles distant from the place of its origin.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "pp. 754-755, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: a North Side narrative"
+    },
+    {
+      "id": "rain",
+      "text": "Andreas: \"About eleven o'clock Monday night, the sky, as if in remorse at what the fiery element had done, poured down floods of rain.\" The refugees on the prairie, \"Hungry, fatigued, worn out in body and fainting in soul\", were \"subjected to a penetrating rainstorm\". \"The rain, which began about eleven o'clock Monday night, effected a perceptible check on the flames.\"",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "p. 757, Andreas vol. II (1885), Internet Archive historyofchicago02andr plain-text OCR read as corrected: the fugitives on the prairie"
+    },
+    {
+      "id": "toll",
+      "text": "Colbert and Chamberlin: \"The total area burned over in the city, including streets, was 2124 acres\". \"The number of buildings destroyed was 17,450; of persons rendered homeless, 98,500. Of the latter, more than 250 paid the last debt of nature\".",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_chicago_great_conflagration"
+      ],
+      "locator": "pp. 287-288, Colbert and Chamberlin (1871), Internet Archive cu31924028806814 plain-text OCR read as corrected: the burnt district"
+    },
+    {
+      "id": "proclamation",
+      "text": "Mayor Mason's first proclamation, as Sheahan and Upton print it: \"Be it known, That the faith and credit of the City of Chicago is hereby pledged for the necessary expenses for the relief of the suffering. Public order will be preserved.\" It ends: \"It is believed the fire has spent its force and all will soon be well. R. B. Mason, Mayor.\"",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "p. 104, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: \"the first proclamation of the Mayor of the city\""
+    },
+    {
+      "id": "the-lost",
+      "text": "Sheahan and Upton, of the North Side in the night: on the beach, \"Hemmed in between pier and lumber yard, were many fugitives, men, women and children, of whom many are known to have perished, and it is feared the number is very great.\" \"The clothing of the women was repeatedly on fire, and bundles of rescued articles had to be thrown into the lake to extinguish them.\" Among the houses of the poor to the west, \"Here and there sidewalks would fall in, precipitating all upon them into the vaults beneath. It is assumed, that of necessity, many hundreds perished in this flight.\" \"In a district embracing 75,000 people, there were necessarily many who were upon beds of sickness.\" The number of those who perished there, \"whole families\", \"will never be known.\" (Their \"many hundreds\" is a guess of that week; Colbert and Chamberlin's count is more than 250 dead in all.)",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 113-114, Sheahan and Upton (1871), Internet Archive cu31924028806855 plain-text OCR read as corrected: the flight from the North Division"
+    }
+  ],
+  "liberties": [
+    "L-1871-great-fire-jaunt"
+  ],
+  "version_of": "the-great-fire"
+}

@@ -5,7 +5,7 @@ import { formatEstimate } from './travel-estimate.js';
 import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
 import { clockText } from './jaunt-pace.js';
-import { readingTabs, forgetAge } from './reading-level.js';
+import { readingTabs, forgetAge, levelOfGrade, WRITTEN } from './reading-level.js';
 import { narrationScripts } from './narration.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
@@ -58,7 +58,7 @@ const pauseIcon = size => {
 };
 
 /** The scrollable story and persistent controls have separate layout ownership. */
-export function createJauntPanel({ destinations, actions, catalogRow = () => null, narration = null }) {
+export function createJauntPanel({ destinations, actions, catalogRow = () => null, narration = null, tellings = () => [] }) {
   // T-2946: a stop is headed by the jaunt's own name for it, the one its road notes use.
   const stopName = (state, stop) => state.jaunt.places?.[stop.destination.id]
     || destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id;
@@ -151,26 +151,58 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   // script's), so the card is its own transcript, lit while it is read. Where the card shows
   // other words (a reading-age tab on another telling), a Transcript fold beside Listen gives
   // the words the voice reads.
+  // T-3735 (the owner, 2026-11-23: "if they are on 11-13 ... and you do not have narration for
+  // that then don't play that other wrong narration"; "when you switch tabs to an age that has
+  // its own recording, it should start playing that recording"): a reading-age tab that puts
+  // another telling's words on the opening or a stop is read in THAT telling's voice
+  // (narration.js `retell`): a voice reading the old words stops and the new one starts, and
+  // where that telling has no recording the part has none (no Listen, nothing plays). Words no
+  // telling of this jaunt says, as shown, have no voice either.
   const voiceNote = node('span', 'Read aloud in a synthetic voice: the words on this card.', 'jaunt-status'); voiceNote.id = 'jaunt-voice-card';
   const voiceNoteOther = node('span', 'Read aloud in a synthetic voice: the words in its Transcript.', 'jaunt-status'); voiceNoteOther.id = 'jaunt-voice-transcript';
-  let voiced = [];
+  let voiced = [], shownParts = [];
+  const shownWords = p => p.els.map(el => el.textContent).join(' ');
+  /** T-3735: whose words a part shows now: null, its own (as drawn); { jaunt, part, id }, the
+   *  telling for the age tab picked; false, words no telling of this jaunt says as shown. */
+  function sourceOf(p) {
+    const shown = shownWords(p);
+    if (sameWords(shown, p.first)) return null;
+    const age = body.dataset.readingAge, own = levelOfGrade(state.jaunt?.grade_band) || WRITTEN;
+    const telling = age && age !== own ? (tellings(state.jaunt) ?? []).find(t => t?.audience !== 'adults' && (levelOfGrade(t.grade_band) || WRITTEN) === age) : null;
+    const at = p.part === 'opening' ? 'opening' : telling?.stops?.[state.jaunt.stops.findIndex(s => s.id === p.id)]?.id;
+    if (!telling || !at) return false;
+    return sameWords(shown, scriptFor(telling, p.part, at)) ? { jaunt: telling, part: p.part, id: at } : false;
+  }
+  /** T-3735: each part on the card is voiced by the telling whose words it shows. */
+  function retellShown() {
+    for (const p of shownParts) if (p.els[0]?.isConnected) void narration?.retell?.(state.jaunt, p.part, p.id, sourceOf(p));
+  }
   function transcript(part, id, els, hear) {
+    const own = scriptFor(state.jaunt, part, id);
+    if (!own) return;
+    const first = els.map(el => el.textContent).join(' ');   // the card's words as drawn, before any age tab
+    if (part !== 'ending') shownParts.push({ part, id, els, first });
     if (!hear) return;
-    const script = scriptFor(state.jaunt, part, id);
-    if (!script) return;
     const fold = node('details', '', 'jaunt-transcript'); fold.dataset.readingSkip = ''; fold.dataset.transcript = `${part}:${id}`; fold.hidden = true;
-    fold.append(node('summary', 'Transcript'), node('p', 'The voice reads the words as first written:', 'jaunt-transcript-note'),
-      ...script.split(/\n\s*\n/).map(t => node('p', t.trim())));
     hear.after(fold);
     const on = narration.isPlaying(state.jaunt, part, id);
     for (const el of els) { el.dataset.voiced = part; el.classList.toggle('jaunt-voicing', on); }
-    voiced.push({ els, fold, script, hear });
+    voiced.push({ els, fold, script: null, own, hear, part, id, first });
   }
   function syncTranscripts() {
+    retellShown();
     for (const v of voiced) {
       if (!v.fold.isConnected) continue;
-      const same = sameWords(v.els.map(el => el.textContent).join(' '), v.script);
-      v.fold.hidden = same; if (same) v.fold.open = false;
+      const from = v.part === 'ending' ? null : sourceOf(v);
+      const script = from ? scriptFor(from.jaunt, from.part, from.id) : v.own;   // the words its voice reads
+      if (script !== v.script) {
+        v.script = script;
+        v.fold.replaceChildren(node('summary', 'Transcript'), node('p', 'The voice reads the words as first written:', 'jaunt-transcript-note'),
+          ...script.split(/\n\s*\n/).map(t => node('p', t.trim())));
+      }
+      const same = sameWords(shownWords(v), script), away = from === false;
+      v.hear.hidden = away;
+      v.fold.hidden = same || away; if (v.fold.hidden) v.fold.open = false;
       v.hear.setAttribute('aria-describedby', same ? voiceNote.id : voiceNoteOther.id);
     }
   }
@@ -380,7 +412,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     progress.append(icon('finish', 15), node('span', 'Closing'));
     const heading = node('h2', state.jaunt.title); heading.tabIndex = -1;
     body.replaceChildren(progress, heading);
-    voiced = [];
+    voiced = []; shownParts = [];
     if (!same) engaged = false;
     const hear = listen('ending', state.outcome.id); if (hear) body.append(hear);
     const ending = String(state.outcome.text).split(/\n\s*\n/).map(t => node('p', t.trim(), 'jaunt-closing-text'));
@@ -417,7 +449,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       key = null; overlayView = null; setCollapsed(false, { focus: false }); return;
     }
     if (state.phase === 'closing') { closingScene(old); return; }
-    voiced = [];
+    voiced = []; shownParts = [];
     const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
     if (old?.session !== state.session) {
       mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
@@ -569,6 +601,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     readingTabs(body, opening ? { into: body } : { after: heading });
     body.scrollTop = scroll; key = nextKey;
     if (!open) restoreView();
+    retellShown();   // T-3735: before arriving, so a part shown at another age speaks in its telling's voice
     narration?.at(state.jaunt, ...(opening ? ['opening', 'opening'] : state.phase === 'atStop' && !state.hostWaiting && !withheld ? ['stop', stop.id] : [null]));
     syncTranscripts(); paintVoice(); tell(outingNews(state, place, where));
     if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });

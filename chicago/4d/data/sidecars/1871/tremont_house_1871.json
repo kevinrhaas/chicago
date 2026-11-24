@@ -1,0 +1,435 @@
+{
+  "id": "tremont_house_1871",
+  "phase": "hotel_1850_1871",
+  "name": "The Tremont House, Lake and Dearborn Streets",
+  "aka": [],
+  "archetype": "landmark_1871",
+  "asset": "gltf/tremont_house_1871__hotel_1850_1871.glb",
+  "scene": "1871",
+  "target_date": "1871-10-08",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "loc_stereo_1s47905_tremont_house"
+    ]
+  },
+  "documented_range": {
+    "from": "1850-09-29",
+    "to": "1871-10-09",
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "Opened 29 September 1850; burned 9 October 1871 (Andreas vol. 2)."
+  },
+  "change_note": "Built T-3688 (2026-11-21): the Tremont House stands in the 1871 scene on the landmark_1871 archetype.",
+  "placement": {
+    "local_e": 710.988,
+    "local_n": -180.782,
+    "rotation_deg": 359.4,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "andreas_1885_v2_buildings",
+      "loc_stereo_1s47905_tremont_house",
+      "mitchell_1870_chicago_map"
+    ],
+    "position_note": "Its Lake Street front on the south building line of Lake Street and its Dearborn Street front on the east building line of Dearborn Street, at the corner Carbutt's stereograph shows it on (the card: 'Tremont House, cor. Lake and Dearborn streets'), its long front running south down Dearborn as the stereograph shows it from across the corner. The building lines are the 1871 scene's streets: today's centrelines, off which each street's carriageway half-width and walk are measured. IT LAPS THE 1835 PLAT'S LAKE STREET BY 2.52 m, AND THAT IS REFUSED IN WRITING, NOT REPAIRED (T-3688; tools/corridor_intrusion_baseline.json `refused`): the corridor is derived from the 1835 street control, and the two tracings disagree by about 2.5 m here; moving the hotel 2.5 m south would set it back from the walk it fronts in its own scene. The footprint's origin is local E 710.99 N -180.78.",
+    "symbolic_location": "South-east corner of Lake and Dearborn Streets.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        42.67,
+        0
+      ],
+      [
+        42.67,
+        54.86
+      ],
+      [
+        0,
+        54.86
+      ]
+    ],
+    "confidence": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "One hundred and forty feet on Lake Street by one hundred and eighty feet on Dearborn (Andreas vol. 2, p. 502)."
+  },
+  "attributes": {
+    "composition": {
+      "value": {
+        "confidence": "inferred",
+        "fire": {
+          "fate": "burned",
+          "left": "walls",
+          "time": "1871-10-09T02:15",
+          "sources": [
+            "andreas_1885_v2_buildings"
+          ],
+          "note": "Burned in the small hours of 9 October, when the fire swept north-east from the Court House to the river; it lay in ruins by four o'clock (Andreas vol. 2, p. 739)."
+        },
+        "blocks": [
+          {
+            "name": "the hotel",
+            "box": [
+              0,
+              0,
+              42.67,
+              54.86
+            ],
+            "storeys": [
+              4.6,
+              3.7,
+              3.5,
+              3.4,
+              3.3,
+              2.3
+            ],
+            "wall": "brick_red",
+            "belts": [
+              1
+            ],
+            "water_table": 0.3,
+            "cornice": {
+              "kind": "bracketed",
+              "proj": 1.0,
+              "brackets": 0.9
+            },
+            "roof": {
+              "kind": "flat",
+              "covering": "tin"
+            },
+            "faces": {
+              "N": {
+                "bays": {
+                  "at": [
+                    1.422,
+                    4.267,
+                    7.112,
+                    9.956,
+                    12.801,
+                    15.646,
+                    18.49,
+                    21.335,
+                    24.18,
+                    27.024,
+                    29.869,
+                    32.714,
+                    35.558,
+                    38.403,
+                    41.248
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "store",
+                    "w": 2.6,
+                    "h": 3.9,
+                    "sill": 0.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.4,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.3,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.2,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.1,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 0.7,
+                    "sill": 1.1,
+                    "hood": "none"
+                  }
+                ]
+              },
+              "W": {
+                "bays": {
+                  "at": [
+                    1.371,
+                    4.114,
+                    6.857,
+                    9.6,
+                    12.343,
+                    15.086,
+                    17.829,
+                    20.573,
+                    23.316,
+                    26.058,
+                    28.802,
+                    31.544,
+                    34.287,
+                    37.03,
+                    39.773,
+                    42.516,
+                    45.259,
+                    48.002,
+                    50.745,
+                    53.488
+                  ]
+                },
+                "storeys": [
+                  {
+                    "kind": "store",
+                    "w": 2.6,
+                    "h": 3.9,
+                    "sill": 0.2,
+                    "hood": "none"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.4,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.3,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.2,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 1.15,
+                    "h": 2.1,
+                    "sill": 0.9,
+                    "hood": "cornice"
+                  },
+                  {
+                    "kind": "flat",
+                    "w": 0.9,
+                    "h": 0.7,
+                    "sill": 1.1,
+                    "hood": "none"
+                  }
+                ],
+                "override": [
+                  {
+                    "bays": [
+                      11
+                    ],
+                    "storeys": [
+                      0
+                    ],
+                    "kind": "door_round",
+                    "w": 2.4,
+                    "h": 3.9,
+                    "sill": 0.0,
+                    "hood": "arch"
+                  }
+                ]
+              },
+              "S": "blank",
+              "E": "blank"
+            },
+            "confidence": "inferred",
+            "note": "Five and a half storeys of brick (Andreas: 'a magnificent brick structure ... five and a half stories high'), the half storey an attic of small frieze windows under a bracketed cornice; shops on the ground floor and the hotel's columned entrance on Dearborn Street, as Carbutt's stereograph shows them. Storey heights read through the stereograph's camera."
+          }
+        ],
+        "porches": [
+          {
+            "block": 0,
+            "face": "W",
+            "s0": 28.9,
+            "s1": 34.9,
+            "h": 4.4,
+            "depth": 2.6,
+            "columns": 4,
+            "balcony": true,
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s47905_tremont_house"
+            ],
+            "note": "The columned porch over the Dearborn Street entrance, with a balcony on it, as the stereograph shows it."
+          }
+        ],
+        "towers": [
+          {
+            "name": "the belvedere",
+            "at": [
+              9.0,
+              49.36
+            ],
+            "z0": 20.900000000000002,
+            "plan": "octagon",
+            "wall": "iron_stone",
+            "stages": [
+              {
+                "w": 7.6,
+                "h": 2.6,
+                "openings": {
+                  "kind": "flat",
+                  "w": 1.0,
+                  "h": 1.6,
+                  "sill": 0.5
+                },
+                "balustrade": true
+              },
+              {
+                "w": 5.2,
+                "h": 2.4,
+                "openings": {
+                  "kind": "flat",
+                  "w": 0.9,
+                  "h": 1.5,
+                  "sill": 0.5
+                }
+              }
+            ],
+            "cap": {
+              "kind": "dome",
+              "h": 1.8,
+              "covering": "tin_dark"
+            },
+            "finial": 0.6,
+            "confidence": "inferred",
+            "sources": [
+              "loc_stereo_1s47905_tremont_house"
+            ],
+            "note": "The octagonal belvedere on the roof with its railed gallery and little dome, as the stereograph shows it.",
+            "cornice_proj": 0.2
+          }
+        ],
+        "flagpoles": [
+          {
+            "at": [
+              9.0,
+              49.36,
+              27.8
+            ],
+            "h": 12.0
+          }
+        ],
+        "note": "Plan size and storeys from Andreas (vol. 2, p. 502); the fronts read off Carbutt's stereograph (Library of Congress, stereo 1s47905)."
+      },
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1885_v2_buildings",
+        "loc_stereo_1s47905_tremont_house"
+      ],
+      "note": "Plan size and storeys from Andreas; the fronts, the porch and the belvedere from the stereograph; heights read off it."
+    },
+    "wall_material": {
+      "value": "Brick",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "'A magnificent brick structure' (Andreas vol. 2, p. 502); its colour read off the stereograph as a dark common brick.",
+      "geometry": "simplified"
+    },
+    "function": {
+      "value": "hotel",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Ira Couch's hotel (Andreas vol. 2, pp. 501-502)."
+    },
+    "built": {
+      "value": 1850,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ],
+      "note": "Opened on Saturday, 29 September 1850 (Andreas vol. 2, p. 502)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1885_v2_buildings",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 2, From 1857 until the Fire of 1871. Chicago: A. T. Andreas, 1885.",
+      "url": "https://archive.org/details/historyofchicago02andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the size, storeys, stone, architect, cost and date of the 1871 scene's landmark buildings",
+        "when and how each burned on 8-9 October 1871"
+      ],
+      "what_it_does_not_supply": [
+        "measured drawings or surveyed positions: street corners only",
+        "the walls no writer describes"
+      ]
+    },
+    {
+      "source_id": "loc_stereo_1s47905_tremont_house",
+      "citation": "John Carbutt, '55.—Tremont House, cor. Lake and Dearborn Streets', stereograph (Chicago: J. Carbutt, 131 Lake Street, [between 1860 and 1870]). Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s47905.",
+      "url": "https://www.loc.gov/item/2023636832/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Tremont House's massing, storeys and bays on Lake and Dearborn Streets",
+        "its shop fronts, porch, cornice and belvedere"
+      ],
+      "what_it_does_not_supply": [
+        "the south and east walls",
+        "measured storey heights",
+        "colour"
+      ]
+    },
+    {
+      "source_id": "mitchell_1870_chicago_map",
+      "citation": "S. Augustus Mitchell, Jr. Chicago. 1870. Approximately 1:31,000. University of Illinois Map and Geography Library; Wikimedia Commons surrogate.",
+      "url": "https://commons.wikimedia.org/wiki/File:1870_Chicago_map_by_Mitchell.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Named streets and diagonals, river courses, lake edge, lakefront railroad and lagoon relationships, rail corridors and named parks.",
+        "Coverage from Fullerton Avenue to Thirty-first Street and Western Avenue to Lake Michigan."
+      ],
+      "what_it_does_not_supply": [
+        "Individual building footprints, occupants, exact paving, engineered widths or elevations.",
+        "The western extension to Fortieth Avenue or southern continuation to Egan Avenue; these require separate evidence and reconstructed geometry."
+      ]
+    }
+  ],
+  "research_note": "THE TREMONT HOUSE, built by T-3688 for the 1871 scene: Ira Couch's third Tremont, 'a magnificent brick structure', five and a half storeys high on 140 feet of Lake Street by 180 feet of Dearborn, opened in September 1850 at a cost of $75,000 (J. M. Van Osdel, architect; Andreas vol. 2, pp. 501-502). Built to Carbutt's stereograph of it from across the corner. It burned in the small hours of 9 October 1871.",
+  "research_doc": "",
+  "review_required": false
+}

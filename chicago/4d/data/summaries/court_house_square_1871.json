@@ -1,0 +1,68 @@
+{
+  "id": "court_house_square_1871",
+  "scene": "1871",
+  "name": "Court House Square",
+  "address": "Clark, Randolph, LaSalle and Washington Streets",
+  "status": {
+    "text": "The fire swept through it in 1871",
+    "today": "The City Hall and County Building stands on the square",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "The Court House in the middle burned out; the square stayed the seat of the city and county."
+  },
+  "built": {
+    "year": 1853,
+    "grade": "inferred",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Laid out round the Court House finished in 1853."
+  },
+  "use": "Public square",
+  "summary": "The open square round the Court House. The building stood in the middle, back from the streets, behind an iron fence on a stone base. Trees and lamps stood along the walks.",
+  "key": [
+    {
+      "label": "In the middle",
+      "value": "The Court House and City Hall",
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12325_court_house"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "A photograph from 1871 shows the iron fence along Randolph Street. A gate stands before the north steps.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s12325_court_house"
+      ]
+    },
+    {
+      "text": "Where the fence ran and its other gateways are a guess.",
+      "about": "structure",
+      "grade": "reconstructed",
+      "sources": [
+        "loc_stereo_1s12325_court_house"
+      ],
+      "note": "Only the Randolph Street side is pictured."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "Around midnight the Court House cupola catches fire. Its bell falls at 2:05 a.m.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

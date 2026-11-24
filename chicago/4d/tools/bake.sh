@@ -87,6 +87,9 @@ fi
 # T-2266: the K01 assemblies write their glTF in pure Python (no Blender, seconds), and
 # hand what they wrote to the same list, so a bake derives and publishes them too.
 python3 generators/k01_emit.py "$@" --wrote "$WROTE"
+# T-3721: and the K01 structure versions (data/structures/versions/), the same way; a
+# separate command so the emitter every K01 mesh hashes is untouched.
+python3 generators/k01_versions_emit.py "$@" --wrote "$WROTE"
 # T-2306: and the K13 conservatories a structure record names, the same way.
 python3 generators/k13_emit.py "$@" --wrote "$WROTE"
 # T-2323: and the K16 timber fronts a structure record names, the same way.
@@ -164,8 +167,9 @@ tools/publish.sh
 # (CI's own gate runs it as eight parts summing 38-42 minutes), after a twenty-minute
 # derivative step, so the content build's bake job hit its fifty-minute cap inside
 # this step on every whole-town bake of 11-07/08. `chicago-4d-bake.yml` sets
-# SKIP_GATE=1 and runs the gate as eight parallel `--part k/8` jobs on the tree this
-# bake pushed; no bake PR opens and no scene bundle publishes unless all eight pass.
+# SKIP_GATE=1 and runs the gate as sixteen parallel `--part k/16` jobs on the tree
+# this bake pushed (eight until T-3707, when a slow runner put part 6/8 past its
+# 600 s cap); no bake PR opens and no scene bundle publishes unless all of them pass.
 # Run without it (the default) and the gate runs here, whole, as it always has.
 if [ "${SKIP_GATE:-0}" = "1" ]; then
   echo

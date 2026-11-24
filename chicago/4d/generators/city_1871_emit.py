@@ -29,6 +29,7 @@ PLAN = ROOT / "data/context/1871/plan.json"
 CLIP = ROOT / "data/context/1871/modern_clip.json"
 NAMES = ROOT / "data/context/1871/street_names_1871.json"
 STREETS_1835 = ROOT / "data/streets/1835.json"
+PAVING = ROOT / "data/context/1871/paving_1871.json"
 OUT = ROOT / "data/context/1871"
 EPOCH = ROOT / "data/terrain/epochs/e1871_prefire"
 GENERATOR = "generators/city_1871_emit.py"
@@ -73,9 +74,14 @@ ROW_FACADES = {"central_business": (("brick", .42), ("stone", .36), ("painted", 
                "strip": (("brick", .55), ("painted", .30), ("stone", .15))}
 BOUNDS = (-7300., 3500., -7100., 4350.)
 GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.34
+# T-3685: the street walks are raised plank walks, a step above the roadway
+# (the renderer draws their kerb boards and end risers from walk_surfaces); a
+# plank crossing lies on a dirt carriageway where a walk is cut at a corner.
+PLANK_Y, CROSSING_Y = 3.38, 3.27
 CELL = 10.
 LIBERTY = "L-1871-city-baseline"
 NETWORK_LIBERTY = "L-1871-street-network"
+SURFACE_LIBERTY = "L-1871-street-surfaces"
 ANCHOR = (837.63, -525.27)
 ANGLE = math.radians(.71)
 C, S = math.cos(ANGLE), math.sin(ANGLE)
@@ -88,7 +94,7 @@ def encoded(doc):
 def inputs_sha():
     """One recipe stamp for all products; used by the repository's stale gate."""
     h = hashlib.sha256(b"city-context-1871-v1\0")
-    for p in (Path(__file__), PLAN, ROOT / "data/datum.json", CLIP, NAMES, STREETS_1835):
+    for p in (Path(__file__), PLAN, ROOT / "data/datum.json", CLIP, NAMES, STREETS_1835, PAVING):
         h.update(p.relative_to(ROOT).as_posix().encode() + b"\0")
         h.update(p.read_bytes())
     return h.hexdigest()
@@ -333,6 +339,10 @@ def corners(e,n,width,depth,bearing):
     return [(e+c*x+s*z,n+s*x-c*z) for x,z in [(-width/2,-depth/2),(width/2,-depth/2),(width/2,depth/2),(-width/2,depth/2),(0,0)]]
 
 
+# T-3686, owner 2026-11-21: an attached business row stands on the walk's outer
+# edge (a hand's breadth clear of the planks, so the front never z-fights them).
+ROW_FRONT_GAP_M=0.06
+
 class SpatialLines:
     """Small uniform index: per-lot exclusions never scan the whole city's roads."""
     def __init__(self, lines, cell=200):
@@ -363,13 +373,14 @@ class Mesh:
         "iron": ([.15,.17,.16,1],.66), "ballast": ([.36,.34,.30,1],1),
         "timber": ([.30,.23,.16,1],.98), "sand": ([.59,.51,.37,1],1),
         "charred": ([.20,.18,.15,1],1),
+        "setts": ([.42,.41,.38,1],.9),
     }
 
     def __init__(self, name, tiled=True):
         self.name, self.tiled = name, tiled
         self.parts = collections.defaultdict(lambda: {"p":[], "n":[], "uv":[], "i":[]})
 
-    def face(self, mat, pts, layer=None):
+    def face(self, mat, pts, layer=None, uvs=None):
         # points already use glTF axes; wind the face counterclockwise outside.
         tile = (math.floor(pts[0][0]/500), math.floor(-pts[0][2]/500)) if self.tiled else (0,0)
         q = self.parts[(layer or mat, mat, *tile)]
@@ -380,8 +391,28 @@ class Mesh:
         normal = [t/length for t in normal]
         off = len(q["p"])
         q["p"].extend(pts); q["n"].extend([normal]*len(pts))
-        q["uv"].extend([[p[0]/2, p[2]/2] for p in pts])
+        q["uv"].extend([list(t) for t in uvs] if uvs else [[p[0]/2, p[2]/2] for p in pts])
         for i in range(1,len(pts)-1): q["i"].extend([off,off+i,off+i+1])
+
+    def strip(self, mat, a, b, width, y, layer, along0=0.):
+        """A ribbon whose UVs follow the street (T-3685): u is metres along the
+        run from its start and v metres across it from the centreline, both
+        halved like face()'s world UVs, so ruts, block courses and boards run
+        with the street instead of the map grid."""
+        dx, dn = b[0]-a[0], b[1]-a[1]
+        length = math.hypot(dx,dn)
+        if length < .01: return
+        if self.tiled and length>480:
+            count=math.ceil(length/480)
+            for i in range(count):
+                aa=(a[0]+dx*i/count,a[1]+dn*i/count)
+                bb=(a[0]+dx*(i+1)/count,a[1]+dn*(i+1)/count)
+                self.strip(mat,aa,bb,width,y,layer,along0+length*i/count)
+            return
+        x,n = -dn/length*width/2, dx/length*width/2
+        u0,u1,w=along0/2,(along0+length)/2,width/4
+        self.face(mat, [(a[0]+x,y,-a[1]-n),(a[0]-x,y,-a[1]+n),(b[0]-x,y,-b[1]+n),(b[0]+x,y,-b[1]-n)],
+                  layer, [(u0,w),(u0,-w),(u1,-w),(u1,w)])
 
     def ribbon(self, mat, a, b, width, y, layer=None):
         dx, dn = b[0]-a[0], b[1]-a[1]
@@ -434,6 +465,7 @@ class Mesh:
                     elif mat=="woodblock":
                         row=y//14;grain*=.64 if y%14<1 or (x+(row%2)*9)%18<1 else .91+((x//18+row*7)%5)*.04
                     elif mat=="ballast":grain*=.8+((x*7+y*11)%13)/35
+                    elif mat=="setts":grain*=.7 if y%12<1 or (x+(y//12%2)*6)%12<1 else .9+((x//12+y//12*5)%4)*.05
                     for c in col[:3]:
                         linear=max(0,min(1,c*grain));srgb=12.92*linear if linear<=.0031308 else 1.055*linear**(1/2.4)-.055
                         pixels.append(round(srgb*255))
@@ -458,7 +490,7 @@ class Mesh:
             if mat not in matids:
                 col,rough=self.PALETTE[mat];matids[mat]=len(materials)
                 materials.append({"name":"1871_"+mat,"pbrMetallicRoughness":{"baseColorFactor":col,"roughnessFactor":rough,"metallicFactor":.45 if mat=="iron" else 0},"doubleSided":False})
-                if mat in ("woodblock","plank","dirt","ballast","timber","charred"):
+                if mat in ("woodblock","plank","dirt","ballast","timber","charred","setts"):
                     pbr=materials[-1]["pbrMetallicRoughness"];pbr["baseColorTexture"]={"index":texture(mat)};pbr["baseColorFactor"]=[1,1,1,1]
             primitive={"attributes":{"POSITION":acc(q["p"],"VEC3",3),"NORMAL":acc(q["n"],"VEC3",3),"TEXCOORD_0":acc(q["uv"],"VEC2",2),"_CONFIDENCE":acc([1.]*len(q["p"]),"SCALAR",1)},"indices":acc(q["i"],"SCALAR",1,"I"),"material":matids[mat]}
             name=f"{self.name}__{layer}__{tx}_{ty}"
@@ -553,8 +585,8 @@ class City:
     def park(self,p):
         return any(inside(p,k["polygon"]) for k in self.parks)
 
-    def lot_clear(self,points):
-        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,2) for p in points)
+    def lot_clear(self,points,street_extra=2):
+        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,street_extra) for p in points)
 
     def district(self,e,n):
         zone=next((z for z in self.zones if inside((e,n),z["polygon"])),None)
@@ -828,6 +860,116 @@ class City:
             core=out
             if not changed:break
         return core
+
+    def surface_plan(self,runs):
+        """T-3685: each drawn segment's surface, and the evidence for it.
+
+        The Board of Public Works' report for the year to 31 March 1871
+        (data/context/1871/paving_1871.json) names the stretches it paved with
+        wooden block, each between two cross streets; those draw as wood block.
+        It gives the city's wooden-block and boulder pavement by division in
+        lineal feet but does not list the streets paved before April 1870, so
+        the rest of each division's wood block goes on its principal
+        thoroughfares (the widest named streets, nearest the Court House
+        first), and its boulder pavement on the river streets nearest the
+        water, each only up to the report's figure. Every other street is dirt.
+
+        A drawn segment can run several blocks, so the surface is decided block
+        by block: each run is cut at the junctions on it, and a cut is kept
+        only where the surface changes. Returns (runs, surfaces), one
+        (surface, basis) per segment of the returned runs."""
+        pav=json.loads(PAVING.read_text())
+        def base(name):
+            # "N. La Salle st" and "North LaSalle Street" are one street; the
+            # division prefix goes, but not from "North Avenue" or "West Street".
+            t=(name or "").lower().replace("."," ").split()
+            if t:t[-1]={"st":"street","ave":"avenue","av":"avenue","pl":"place"}.get(t[-1],t[-1])
+            if len(t)>2 and t[0] in ("north","south","west","east","n","s","w","e"):t=t[1:]
+            x=" ".join(t).replace("la salle","lasalle")
+            return alias.get(x,x)
+        alias={}
+        alias={base(k):base(v) for k,v in pav.get("aliases",{}).items() if not k.startswith("_")}
+        meet=collections.defaultdict(list);on=collections.defaultdict(list)
+        for e,n,a,b in self.junctions:
+            meet[base(a),base(b)].append((e,n));meet[base(b),base(a)].append((e,n))
+            on[a].append((e,n));on[b].append((e,n))
+        # pieces: every run cut at the junctions that lie on it
+        pieces=[]
+        for ri,(r,run) in enumerate(runs):
+            row=[]
+            for si,(a,b) in enumerate(zip(run,run[1:])):
+                L=math.dist(a,b);cuts=[]
+                for q in on.get(r.get("name"),()):
+                    u=((q[0]-a[0])*(b[0]-a[0])+(q[1]-a[1])*(b[1]-a[1]))/L/L
+                    if 2/L<u<1-2/L and segdist(q,a,b)<.75:cuts.append(u)
+                pts=[a]+[(round(a[0]+(b[0]-a[0])*u,3),round(a[1]+(b[1]-a[1])*u,3)) for u in sorted(set(round(u,4) for u in cuts))]+[b]
+                for k,(c,d) in enumerate(zip(pts,pts[1:])):row.append([c,d,k==len(pts)-2])
+            pieces.append(row)
+        surf=[[("dirt","unpaved")]*len(row) for row in pieces]
+        segs=[(ri,pi,c,d,base(runs[ri][0].get("name")),runs[ri][0]) for ri,row in enumerate(pieces) for pi,(c,d,_) in enumerate(row)]
+        by_base=collections.defaultdict(list)
+        for x in segs:
+            if x[4]:by_base[x[4]].append(x)
+        mid=lambda a,b:((a[0]+b[0])/2,(a[1]+b[1])/2)
+        lengths=collections.defaultdict(lambda:collections.defaultdict(float));self.paving_unlocated=[]
+        def mark(x,kind,basis):
+            ri,pi,a,b,_,_=x
+            if surf[ri][pi][1]!="unpaved":return
+            surf[ri][pi]=(kind,basis);lengths[self.division(mid(a,b))][kind]+=math.dist(a,b)
+        for st in pav["stretches"]:
+            S=base(st["street"]);name=st["street"].strip()
+            hint={"N":"north","S":"south","W":"west"}.get(name[:1]) if name[1:2]=="." else None
+            ends=[]
+            for key in ("from","to"):
+                c=base(st[key])
+                if "river" in c:
+                    # the street's end at the river: its drawn point nearest the water
+                    pts=[q for x in by_base.get(S,[]) for q in (x[2],x[3])]
+                    ends.append([min(pts,key=self.river_distance)] if pts else [])
+                else:ends.append(meet.get((S,c),[]))
+            pairs=[(f,t) for f in ends[0] for t in ends[1] if f!=t]
+            # the report's division prefix picks among same-named stretches; the
+            # drawn divisions are not its boundaries, so it never rules one out
+            pairs=[q for q in pairs if self.division(mid(*q))==hint] or pairs
+            if not pairs:self.paving_unlocated.append(f"{st['street']}: {st['from']} to {st['to']}");continue
+            f,t=min(pairs,key=lambda q:math.dist(*q));L=math.dist(f,t)
+            for x in by_base.get(S,[]):
+                m=mid(x[2],x[3]);u=((m[0]-f[0])*(t[0]-f[0])+(m[1]-f[1])*(t[1]-f[1]))/L/L
+                if 0<=u<=1 and segdist(m,f,t)<25:mark(x,"woodblock","report_1871")
+        budget=lambda kind,div:pav["totals"][kind+"_lineal_ft"].get(div,0)*.3048
+        named=[x for x in segs if x[4] and x[5].get("alignment")!="reconstructed_grid"]
+        # boulders: the river streets, the blocks running along the water (within
+        # 100 m of the bank and within 25 degrees of its line), nearest first, to
+        # each division's figure
+        def along_river(x):
+            m=mid(x[2],x[3]);best=None
+            for a,b,w in self.river_index.bins[math.floor(m[0]/250),math.floor(m[1]/250)]:
+                d=segdist(m,a,b)-(w-13)
+                if best is None or d<best[0]:best=(d,a,b)
+            if best is None or best[0]>100:return None
+            d,a,b=best;u=(b[0]-a[0],b[1]-a[1]);v=(x[3][0]-x[2][0],x[3][1]-x[2][1])
+            cos=abs(u[0]*v[0]+u[1]*v[1])/(math.hypot(*u)*math.hypot(*v) or 1)
+            return d if cos>=math.cos(math.radians(25)) else None
+        river_blocks=[(d,x) for x in named for d in [along_river(x)] if d is not None]
+        for _,x in sorted(river_blocks,key=lambda q:q[0]):
+            div=self.division(mid(x[2],x[3]))
+            if lengths[div]["setts"]+math.dist(x[2],x[3])<=budget("boulder",div):mark(x,"setts","river_street")
+        # the rest of each division's wood block: the principal thoroughfares
+        court=(838.,-526.)
+        for x in sorted(named,key=lambda x:(-x[5].get("width_m",14),math.dist(court,mid(x[2],x[3])))):
+            if self.district(*mid(x[2],x[3]))=="outer_settlement":continue
+            div=self.division(mid(x[2],x[3]))
+            if lengths[div]["woodblock"]+math.dist(x[2],x[3])<=budget("woodblock",div):mark(x,"woodblock","principal_thoroughfare")
+        self.paving_lengths={d:{k:round(v,1) for k,v in sorted(kinds.items())} for d,kinds in sorted(lengths.items())}
+        # merge the pieces back: keep a cut only at a vertex of the run or where the surface changes
+        out=[];plan=[]
+        for ri,row in enumerate(pieces):
+            pts=[row[0][0]];kinds=[]
+            for pi,(c,d,vertex) in enumerate(row):
+                last=pi==len(row)-1
+                if last or vertex or surf[ri][pi]!=surf[ri][pi+1]:pts.append(d);kinds.append(surf[ri][pi])
+            out.append((runs[ri][0],pts));plan.append(kinds)
+        return out,plan
 
     def close_gaps(self,lines):
         """One 1871 street, broken today by an expressway, a superblock or a
@@ -1430,25 +1572,44 @@ class City:
 
     def core_row(self,place,street,si,gi,side,axis,a,d,L,edge,district,fronts):
         """T-3686 on a platted face: attached fronts fill the face from corner
-        to corner at the building line, with the gap to the walk paved
-        (walk_gap_m); a front a cross street's lot already holds is left out."""
+        to corner, built to the walk; a front a cross street's lot already
+        holds is left out.
+
+        Owner, 2026-11-21: the fronts stand on the walk's outer edge, as every
+        photograph of the 1871 business streets shows them, not 5 m behind it
+        on the corridor margin the free-standing lots keep. Each end of the row
+        stops at the cross street's own walk edge, found by probing the street
+        index, so a corner store's flank lines that walk too."""
         (ua,va),(du,dv)=a,d
         kind="central_business" if district=="central_business" else "strip"
         draw=random.Random(f"1871-core-row-{si}-{gi}-{side}")
-        gap=edge+.05-street.get("width_m",14)/2-street.get("walk_m",2.3)
-        # The row runs from one cross street's building line to the next; the
-        # front stands just outside the corridor margin lot_clear keeps.
-        s0=edge+.05
-        if L-2*s0<16:return
-        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-2*s0,kind,draw,district,f"core-{si}-{gi}-{side}")):
+        walk_edge=street.get("width_m",14)/2+street.get("walk_m",2.3)
+        front=walk_edge+ROW_FRONT_GAP_M
+        # A point's clearance from every street's walk edge: the index's own
+        # width is half + walk + 3, so an extra of -3 + gap is the walk edge.
+        extra=-3+ROW_FRONT_GAP_M*.5
+
+        def at_uv(s,off):
+            c=(ua+du*s/L,va+dv*s/L)
+            return en(c[0],c[1]+side*off) if axis=="ew" else en(c[0]+side*off,c[1])
+
+        def end_clear(from_start):
+            for s in [x*.25 for x in range(16,int(edge*4)+2)]:
+                t=s if from_start else L-s
+                if all(self.mapped_index.clear(at_uv(t,off),extra) for off in (front+.02,front+3,front+8)):return s
+            return edge+.05
+        s_start,s_end=end_clear(True),end_clear(False)
+        s0=s_start
+        if L-s_start-s_end<16:return
+        for j,(width,kit,facade,eave,tone) in enumerate(fronts(L-s_start-s_end,kind,draw,district,f"core-{si}-{gi}-{side}")):
             at=s0+width/2;s0+=width
             full=max(10.,draw.uniform(22,36) if kind!="strip" else draw.uniform(16,26))
             c=(ua+du*at/L,va+dv*at/L)
             # A wider mapped corridor or a shallow block: set the front back a
             # little, or build shallower, before leaving the lot empty.
-            for push in (0.,.3,.8,1.5,2.5):
+            for push in (0.,.3,.8,1.5,2.5,5.):
                 for depth in dict.fromkeys((full,max(10.,full*.7),max(10.,full*.5),10.)):
-                    back=edge+.05+push+depth/2
+                    back=front+push+depth/2
                     if axis=="ew":
                         u,v=c[0],c[1]+side*back;eu,ev=width,depth
                         bearing=-math.degrees(ANGLE)+(180 if side>0 else 0)
@@ -1456,11 +1617,11 @@ class City:
                         u,v=c[0]+side*back,c[1];eu,ev=depth,width
                         bearing=-math.degrees(ANGLE)+(-90 if side>0 else 90)
                     pts4=[en(u+x,v+y) for x,y in [(-eu/2,-ev/2),(eu/2,-ev/2),(eu/2,ev/2),(-eu/2,ev/2),(0,0)]]
-                    if not self.lot_clear(pts4):continue
+                    if not self.lot_clear(pts4,extra):continue
                     # Backs meeting the row behind (a half block between two
                     # platted streets) build shallower rather than leave a gap.
                     e,n=en(u,v)
-                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(gap+push,2)},probe=True):break
+                    if place({"id":f"context1871_core_{si:04}_{gi:03}_{'n' if side>0 else 's'}_r{j:02}","e":round(e,2),"n":round(n,2),"width_m":round(width,2),"depth_m":round(depth,2),"eave_m":round(eave,2),"bearing_deg":round(bearing,2),"kit":kit,"tone":tone,"district":district,"base_m":GRADE,"row":"attached","facade":facade,"walk_gap_m":round(ROW_FRONT_GAP_M+push,2)},probe=True):break
                 else:continue
                 break
 
@@ -1520,6 +1681,8 @@ class City:
                 if segdist(run[k],run[i],run[j])>tol:keep[k]=True;stack+=[(i,k),(k,j)]
             return [q for q,f in zip(run,keep) if f]
         runs=[(r,[tuple(round(v,3) for v in q) for q in simplify(run)]) for r,run in runs]
+        self.junctions=self.street_junctions(runs)
+        runs,surface=self.surface_plan(runs)
         carriage=collections.defaultdict(list)
         for ri,(r,run) in enumerate(runs):
             half=r.get("width_m",14)/2
@@ -1545,8 +1708,14 @@ class City:
             L=math.dist(wa,wb)
             return [(p0,p1) for p0,p1 in pieces if (p1-p0)*L>.5]
         self.runs=runs
+        def surface_at(p):
+            """The surface of the carriageway under p, or None off every street."""
+            for rec in carriage[math.floor(p[0]/100),math.floor(p[1]/100)]:
+                if segdist(p,rec[2],rec[3])<=rec[4]:return surface[rec[0]][rec[1]][0]
+            return None
+        crossing_w=2.4
         for ri,(r,run) in enumerate(runs):
-            width=r.get("width_m",14);walk=r.get("walk_m",2.3);half=width/2
+            width=r.get("width_m",14);walk=r.get("walk_m",2.3);half=width/2;along=0.
             bend=[(0.,0)]*len(run)
             for i in range(1,len(run)-1):
                 a,b,c=run[i-1],run[i],run[i+1]
@@ -1556,22 +1725,38 @@ class City:
             for si,(a,b) in enumerate(zip(run,run[1:])):
                 L=math.dist(a,b);dx,dn=(b[0]-a[0])/L,(b[1]-a[1])/L;nx,nn=-dn,dx
                 ta,oa=bend[si];tb,ob=bend[si+1]
-                district=self.district(*a);mat="dirt" if district=="outer_settlement" else "woodblock"
+                mat,basis=surface[ri][si]
                 start=(round(a[0]-dx*half*ta,3),round(a[1]-dn*half*ta,3));end=(round(b[0]+dx*half*tb,3),round(b[1]+dn*half*tb,3))
-                roads.ribbon(mat,start,end,width,ROAD_Y,"streets")
+                roads.strip(mat,start,end,width,ROAD_Y,"streets",along-half*ta)
                 surface_id=f"{r['id']}__{len(segments)}"
                 self.walk_surfaces.append({"id":surface_id+"_road","kind":"road","a":start,"b":end,"width_m":width,"y":ROAD_Y})
                 for side in (-1,1):
                     off=side*(half+walk/2)
                     ea=(half+walk)*ta if oa==side else 0.;eb=(half+walk)*tb if ob==side else 0.
                     wa=(a[0]+nx*off-dx*ea,a[1]+nn*off-dn*ea);wb=(b[0]+nx*off+dx*eb,b[1]+nn*off+dn*eb)
-                    for k,(p0,p1) in enumerate(cut_walk(ri,si,wa,wb,half+walk+30)):
-                        aa=tuple(round(wa[i]+(wb[i]-wa[i])*p0,3) for i in (0,1));bb=tuple(round(wa[i]+(wb[i]-wa[i])*p1,3) for i in (0,1))
-                        roads.ribbon("plank",aa,bb,walk,WALK_Y,"walks")
-                        self.walk_surfaces.append({"id":surface_id+f"_walk_{side}"+(f"_{k}" if k else ""),"kind":"walk","a":aa,"b":bb,"width_m":walk,"y":WALK_Y})
-                total+=L
-                segments.append({"street_id":r["id"],"name":r.get("name"),"alignment":r.get("alignment","reconstructed_grid"),"name_basis":r.get("name_basis","reconstructed"),"run":ri,"a":[round(t,2) for t in a],"b":[round(t,2) for t in b],"width_m":width,"walk_m":walk,"surface":mat,**({"source_name":r["source_name"],"trace_id":r["source_id"]} if r.get("source_name") else {})})
-        self.junctions=self.street_junctions(runs)
+                    pieces=cut_walk(ri,si,wa,wb,half+walk+30);WL=math.dist(wa,wb)
+                    at=lambda t:tuple(round(wa[i]+(wb[i]-wa[i])*t,3) for i in (0,1))
+                    for k,(p0,p1) in enumerate(pieces):
+                        aa,bb=at(p0),at(p1)
+                        roads.strip("plank",aa,bb,walk,PLANK_Y,"walks",along-ea+WL*p0)
+                        self.walk_surfaces.append({"id":surface_id+f"_walk_{side}"+(f"_{k}" if k else ""),"kind":"walk","a":aa,"b":bb,"width_m":walk,"y":PLANK_Y})
+                    # Where a walk is cut by another street that is dirt, planks are
+                    # laid across that street from kerb to kerb, on the walk's line.
+                    # A gap at the run's own first or last end is where the street
+                    # stops, not a corner, and gets none.
+                    t=0.;gaps=[]
+                    for p0,p1 in pieces+[(1.,1.)]:
+                        if p0-t>1e-6:gaps.append((t,p0))
+                        t=max(t,p1)
+                    for g,(g0,g1) in enumerate(gaps):
+                        if (g0<1e-6 and si==0) or (g1>1-1e-6 and si==len(run)-2) or not pieces:continue
+                        ga,gb=at(g0),at(g1)
+                        if math.dist(ga,gb)<.5 or self.district(*ga)=="outer_settlement" or surface_at(((ga[0]+gb[0])/2,(ga[1]+gb[1])/2))!="dirt":continue
+                        cw=min(walk,crossing_w)
+                        roads.strip("plank",ga,gb,cw,CROSSING_Y,"crossings",0.)
+                        self.walk_surfaces.append({"id":surface_id+f"_x{side}"+(f"_{g}" if g else ""),"kind":"crossing","a":ga,"b":gb,"width_m":cw,"y":CROSSING_Y})
+                total+=L;along+=L
+                segments.append({"street_id":r["id"],"name":r.get("name"),"alignment":r.get("alignment","reconstructed_grid"),"name_basis":r.get("name_basis","reconstructed"),"run":ri,"a":[round(t,2) for t in a],"b":[round(t,2) for t in b],"width_m":width,"walk_m":walk,"surface":mat,"surface_basis":basis,**({"source_name":r["source_name"],"trace_id":r["source_id"]} if r.get("source_name") else {})})
         bridge_records=self.plan.get("bridges",[])
         for i,rec in enumerate(bridge_records):
             p=rec["point"]
@@ -1842,7 +2027,7 @@ def generate():
     trees=[t for t in trees if unoccupied(t)]
     names={"central_business":"Central business district","river_industry":"River warehouses and industrial yards","south_residential":"South Side residential streets","north_residential":"North Division mixed residential streets","west_residential":"West Division working neighborhoods","mixed_neighborhood":"Mixed shops and dwellings","outer_settlement":"Sparse outer settlement and platted streets"}
     stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"trees":len(trees),"street_segments":len(segments),"named_street_segments":sum(1 for x in segments if x.get("name")),"junctions":len(city.junctions),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
-    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":WALK_Y,"bridge":DECK_Y,"quay":WALK_Y}}
+    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":PLANK_Y,"crossing":CROSSING_Y,"bridge":DECK_Y,"quay":WALK_Y},"paving":{"rules":"data/context/1871/paving_1871.json","liberty":SURFACE_LIBERTY,"lengths_m":city.paving_lengths,"unlocated":city.paving_unlocated,"note":"T-3685. surface_basis on each segment: report_1871 = a stretch the Board of Public Works' 1871 report names as wooden-block paved; principal_thoroughfare = wood block drawn to make up the report's per-division wooden-block mileage, which it does not list by street; river_street = boulder pavement on the river streets, bounded by the report's lineal feet of boulders; unpaved = dirt. Walks are raised plank walks with a kerb board; crossings are planks laid across dirt streets."}}
     # T-3686: where the fronts are built at full detail (a list the jaunt stops extend).
     doc["detail_rings"]="context/1871/detail-rings.json"
     outputs={ROOT/"data/context/1871.json":encoded(doc),OUT/"streets.glb":roads.glb(digest),OUT/"bridges.glb":bridges.glb(digest),OUT/"rail.glb":rail.glb(digest)}

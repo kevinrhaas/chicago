@@ -1,0 +1,37 @@
+{
+  "structure_id": "palmer_house_1871",
+  "view": "andreas_p509",
+  "glb": "assets/gltf/palmer_house_1871__hotel_1870_1871.glb",
+  "glb_sha256": "59875b144f1d7b9cad399ccc4e5045db45baeb69ca68fc012ee3649c59505015",
+  "camera_sha256": "e2e8bedf107ec36d2c5072735fb9650291799172b85c21ff9f1ed6986c539cb0",
+  "photo_sha256": "f677d336429b6d8fdbdc81839893391cdccaea707d5c1bd179a2a79f406265d1",
+  "side_by_side": "docs/RESEARCH/photo-match/palmer_house_1871/andreas_p509-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Six storeys of pale stone under a two-tier slated mansard with a row of large dormers and a row of small ones over them, the Quincy Street front to the left and the State Street front to the right, where the engraving shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The Quincy Street ground floor in round arches, the State Street shop fronts, and the columned entrance with its balcony under the raised centre pavilion",
+      "status": "fixed"
+    },
+    {
+      "what": "Chimney stacks rising from the mansard",
+      "status": "fixed"
+    },
+    {
+      "what": "The engraving's window hoods, quoins and the pavilion's paired windows are drawn as plain arched windows with hoods",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The Quincy Street front runs past the engraving's left edge; its length beyond is reconstructed",
+      "status": "not shown"
+    },
+    {
+      "what": "Its balcony's railing is now built open, rails, bars and posts, as the picture draws it, where it was a solid band (T-3688, the landmarks' shared railing)",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -22,13 +22,18 @@
  *           between 60 and 30 (T-2829, below).
  *   shadow  whether the sun's shadow map is re-rendered this frame. On `light`
  *           while moving it is re-rendered every second drawn frame: the sun
- *           does not move during a walk, only the eye does.
+ *           does not move during a walk, only the eye does. A weak computer
+ *           (T-3728) does the same at every tier, and draws every moving frame
+ *           at `weakScale` from the first.
  *
  * At rest — the camera has not moved for `restFrames` drawn frames, which is a
  * twentieth of a second at 60 and short of the frame a mouse look skips an
  * event on — all three go back to neutral at once: scale 1, pace 1, a shadow every frame. That is what keeps
  * every still frame, and so every capture, exactly what it was before the
- * governor existed. `Fixed` in Settings holds them neutral always.
+ * governor existed. `Fixed` in Settings holds them neutral always. The one
+ * exception is a weak computer (T-3728), whose still frames are drawn at
+ * `weakStillScale` with a shadow every second frame; a capture, a photo and the welcome still call `rest()` and
+ * are drawn at full Sharpness there too.
  *
  * Pure logic, no three.js and no DOM, so `tools/test_frame_governor.mjs` drives
  * it with synthetic frame times in Node.
@@ -37,6 +42,27 @@
 export const GOVERNOR = Object.freeze({
   /** The lowest multiple of the Sharpness ratio a moving frame is drawn at. */
   floor: 0.67,
+  /** T-3728, Bill Tyre's class of computer (the owner's i5-10400 / UHD 630 test
+   *  PC, 2026-11-22; the owner prefers a lower resolution over losing anything).
+   *  On a WEAK computer every moving frame is drawn at this multiple of the
+   *  Sharpness ratio from its first frame, without waiting for a slow window to
+   *  ask for it, and the sun's shadow map is re-rendered every second drawn
+   *  moving frame at any detail tier, as `light` does. Measured walking 1904 on
+   *  Balanced on that PC: 9.6 fps before, 11.4-12.3 fps after. Still frames are
+   *  untouched: full Sharpness and a shadow every frame, so every capture is
+   *  what it was. Second pass, swept on the same PC (Prairie walk, twice):
+   *  0.55 travels at about 17 fps; 0.5 bought nothing more (CPU-bound, 16.9). */
+  weakScale: 0.55,
+  /** T-3728, second pass (the owner, 2026-11-23: "get that fps up as high as
+   *  you can"). On a weak computer a STILL frame is drawn at this multiple of
+   *  Sharpness too, once the camera has rested `restFrames`, and its sun shadow
+   *  is re-rendered every second still frame as well. Swept standing still on
+   *  the same UHD 630: 1.0 = 10.3 fps, 0.8 = 12.9-14.5, 0.67 = 15.3-17.2, and
+   *  with the shadow every second frame about 17; 0.5 was faster but too soft.
+   *  A capture, a photo, the welcome and Fixed still go through `rest()`: full
+   *  Sharpness and a fresh shadow. Travel and stops on that PC: 9-10 / 10-11 fps
+   *  before T-3728, about 17 / 16-18 after. */
+  weakStillScale: 0.67,
   /** Drawn moving frames read per decision; one decision per window, so a
    *  change is always followed by a full window of frames drawn under it. */
   window: 10,
@@ -104,11 +130,17 @@ const quantile = (xs, p) => {
  * @param {object} [o]
  * @param {boolean} [o.enabled=true]  false = Fixed
  * @param {string} [o.tier='full']    the scene-detail level in force
+ * @param {boolean} [o.weak=false]    a weak computer (T-3728): moving frames at
+ *                                    `weakScale` and a shadow every second one;
+ *                                    still frames at `weakStillScale`, their
+ *                                    shadow every second one too
  * @param {(state) => void} [o.onChange]  called when scale, pace or mode changes
  */
-export function createFrameGovernor({ enabled = true, tier = 'full', onChange = null } = {}) {
+export function createFrameGovernor({ enabled = true, tier = 'full', weak = false, onChange = null } = {}) {
   const G = GOVERNOR;
   let on = !!enabled;
+  // T-3736: the weak rule is Settings' Fast pacing now, so it can be switched live.
+  let weakOn = !!weak;
   let level = tier;
   let scale = 1;
   let pace = 1;
@@ -130,12 +162,12 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
 
   const snapshot = () => ({
     mode: on ? 'adaptive' : 'fixed', scale, pace, fps: pace === 2 ? 30 : 60,
-    moving, shadowEvery: on && moving && level === 'light' ? 2 : 1,
+    moving, shadowEvery: on && (weakOn || (moving && level === 'light')) ? 2 : 1, fast: on && weakOn,
     decisions, p80: lastP80, tier: level, scaleHeld: futile,
   });
   let told = '';
   const tell = () => {
-    const key = `${on}|${scale}|${pace}|${moving}`;
+    const key = `${on}|${weakOn}|${scale}|${pace}|${moving}`;
     if (key === told) return;
     told = key;
     onChange?.(snapshot());
@@ -220,8 +252,11 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     }
     if (!moved) {
       still += 1;
-      if (still >= G.restFrames) rest();
-      shadowFresh = true;
+      if (still >= G.restFrames) {
+        rest();
+        if (weakOn) scale = G.weakStillScale;
+      }
+      shadowFresh = !weakOn || drawn % 2 === 0;
       tell();
       return;
     }
@@ -237,7 +272,8 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
       samples = [];
       decide(p80, p50);
     }
-    shadowFresh = level !== 'light' || drawn % 2 === 0;
+    if (weakOn && scale > G.weakScale) scale = G.weakScale;
+    shadowFresh = (level !== 'light' && !weakOn) || drawn % 2 === 0;
     tell();
   }
 
@@ -247,6 +283,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     /** Neutral now — for a capture, a forced harness frame, a setting change. */
     rest() { rest(); tell(); },
     setEnabled(v) { on = !!v; futile = false; rest(); tell(); return on; },
+    /** T-3736: Fast pacing on or off (the weak rule above), from the next frame. */
+    setFast(v) { weakOn = !!v; futile = false; rest(); tell(); return weakOn; },
+    get fast() { return weakOn; },
     /** HARNESS ONLY: put the governor where a slow moving window would have —
      *  `scale` (clamped to [floor, 1]) and `pace` — so a runner whose frames are
      *  too slow to drive it there can still ask what a rest does after it. */
@@ -272,6 +311,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
 /** The Settings sentence for a governor state at a pixel ratio. */
 export function describeGovernor(s, ratio) {
   if (s.mode === 'fixed') return 'Fixed: every frame is drawn at the sharpness chosen above.';
+  if (!s.moving && s.scale < 1) {
+    return `Adaptive: this computer draws at ${Math.round(s.scale * 100)} % of the sharpness chosen above (pixel ratio ${ratio.toFixed(2)}), and fewer pixels while you move. Photos are taken at full sharpness.`;
+  }
   if (!s.moving || (s.scale === 1 && s.pace === 1)) {
     return 'Adaptive: at the sharpness chosen above. While you move, a slow device draws fewer pixels or a steady 30 frames a second.';
   }

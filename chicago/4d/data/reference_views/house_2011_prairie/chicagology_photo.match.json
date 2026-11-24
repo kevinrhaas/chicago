@@ -2,7 +2,7 @@
   "structure_id": "house_2011_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2011_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5096fd7422a6227a38c42790b0b0961f2e8e8d5d11f8e1ef86650105768585af",
+  "glb_sha256": "7c922ea47e81ef9bca407d01021724003a20b8006e1ad79a4d0bd166402e2897",
   "camera_sha256": "2c3968a2f379a9b50967395fd9b22700712c9919303cffa4e493b730326f34ae",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "rendered_flora": {
@@ -72,9 +72,9 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "4062167ba627e5fd95414dc6fdf17d75dcf7d053b62c6db8df3a2a91b4ca6beb",
+  "flora_sha256": "e301a8db54560ccd873d9718d4e9468fff8c45abf2640c63a9255e3291f5dd2d",
   "side_by_side": "docs/RESEARCH/photo-match/house_2011_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's 23 x 5.5 m box with a generic corner turret is now the sheet's '2½B' front block, 12.82 x 7.27 m, its rock-faced ashlar front standing flush with 2009's and the '2B' rear block behind it; the front's north edge prints at x 1150 px against the photograph's 1145",
@@ -89,12 +89,16 @@
       "status": "fixed"
     },
     {
-      "what": "the round turret: its outline from about x 1375 px, its tall ground-storey lights (sill y 1440, head y 1215), the near second-storey light at its north edge and the band of small square lights round a short top stage standing on the front's head course, all within about 25 px (0.3 m) of the photograph's",
+      "what": "the round turret: T-3616 set its centre 0.8 m inside the front's face (the sheet's bow, about 1.2-1.3 m proud; the plate sees the door and cross window clear of it). Its massing and outline hold: the drum's north silhouette at about x 1370 against about 1365, the ground light at x 1437-1519 against 1415-1505 (about 20 px), the eave and the band's head course within about 15 px",
       "status": "fixed"
     },
     {
-      "what": "the turret's roof: the photograph shows it in two stages, a flared slate skirt from the turret's eave (y 590 px) to a ledge at about y 480, and a narrower, steeper faceted cone over it to the apex (x 1445, y 385); K08 builds a tower one plain cone, so the render's single cone is the wrong shape. T-3616 (the next piece of T-1915) builds the two stages",
-      "status": "open"
+      "what": "the turret's lights round the inset centre. The top band is five plain lights evenly round the drum (T-3616), three of them in this view at x 1423-1452, 1503-1534 and 1583-1612 px against the photograph's 1390-1440, 1480-1525 and 1565-1605: the same square plain openings at the same spacing (80 px against 85-88), 12-23 px (0.14-0.26 m) south of them, less than the 31 px by which this picture puts the whole turret north of the render (its apex too); the band's course under them stands about 0.25 m below their foot where the photograph's lights sit nearly on it. The second storey's near light prints at 1444-1503 against 1385-1450, 56 px (0.64 m) south: 31 px of that is the same whole-turret offset, which the Inland Architect plate contradicts (it prints the drum about 0.2 m SOUTH of the render), and the 25 px (0.28 m) left is under the bar; K08 still refuses that light nearer the junction below the eave, where its recess would run into the front wall",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the turret's roof in two stages (T-3616, k08_bays._two_stage_cone): a flared slate skirt from the eaves (y about 590 px in both), a ledge with the upper stage's eave standing out over it (the photograph's at y 475-490, the render's 485-525 with its soffit seen from below), and a steeper upper cone to the finial; the upper stage's ledge about 185 px across in both",
+      "status": "fixed"
     },
     {
       "what": "the gabled dormer on the street slope over the door: its apex within about 15 px (0.15 m) of the photograph's, about 2 m across; the photograph's dormer is a deep gabled hood over a recessed light with a lantern hung in it, which the render draws as a plain dormer face with one sash",
@@ -119,6 +123,14 @@
     {
       "what": "the stoop and the yard: the photograph hides the flight behind 2009's cheek wall and shows the yard strewn with cut stone and planks (building work); the render's straight stoop and coped wall are the record's reconstruction",
       "status": "not shown"
+    },
+    {
+      "what": "the cap's apex: the render's at about x 1512, y 392 px against the photograph's x 1480, y 380 (about 0.35 m south and 0.13 m lower); the plate, from the other side, puts it about 0.5 m higher than its picture and 0.3 m north, so the two pictures disagree about where it stands and the build is set between them",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the skirt's profile: the photograph's skirt reads as a broad, low flare whose foot overhangs the drum by about 25 px; the render's is a straight cone at pitch 1.05 from a moulded stone eave, its foot within about 15 px of the photograph's at the drum's north side",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

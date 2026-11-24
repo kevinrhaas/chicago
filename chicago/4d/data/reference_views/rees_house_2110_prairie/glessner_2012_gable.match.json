@@ -1,0 +1,81 @@
+{
+  "structure_id": "rees_house_2110_prairie",
+  "view": "glessner_2012_gable",
+  "glb": "assets/gltf/rees_house_2110_prairie__as_mapped_1904.glb",
+  "glb_sha256": "a7c43f969f4952c73a0afeaf5721f22e78a4d932c2614abb8ca711ac00fd33db",
+  "camera_sha256": "d0951e8076f6b2a7dfb771b9d35a0d15af5c8dbaf55f541116c186cbc5656847",
+  "photo_sha256": "fc56395ba8560455e5aede68133af32a7c16dc2866ac56f0d744331899654237",
+  "side_by_side": "docs/RESEARCH/photo-match/rees_house_2110_prairie/glessner_2012_gable-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the loggia's width (T-3716): T-3715's colonnettes ran from 1.15 to 6.05 m, 0.98 m apart, so the arcade's south end stood 22-27 px (about 0.5 m) south of the photograph's; the photograph's outer colonnettes read at 1.63 and 5.93 m, 0.86 m apart. Now there, the lights 0.6 m across",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's light and carved field (T-3716): the light stood from 14.0 to 14.95 m and the field's base at 15.35 m, about 30 px over the photograph's; both photographs read the light from about 13.4 to 14.35 m and the field's base at about 15.0 m. Now there",
+      "status": "fixed"
+    },
+    {
+      "what": "the kneelers' corbels (T-3716): a carved corbel stands under each end of the gable's foot at the front's corners, from about 10.3-10.5 m up; now K01's scroll console with a carved rosette in its roll (bed 10.55 m, 0.5 m wide), its carving the kit's",
+      "status": "fixed"
+    },
+    {
+      "what": "the south stack's head (T-3716): it stood at the kit's ridge + 0.6 (17.95 m), its cap about 20 px under the photograph's; now 18.4 m",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's foot (T-3716): K01's shaped gable stood as a slab 0.32 m before the wall over the hip's street eave, its base run out past both side walls, so a heavy ledge with a dark soffit crossed the whole front at about 12-12.5 m. Now `flush`: the slab's face stands 0.02 m before the wall's own, its base no wider than the front, and the hip's eave is stopped behind it (k01_shaped_gable.flush_cut), so the front's face runs straight up into the gable and the flanks' eaves end at the front's plane",
+      "status": "fixed"
+    },
+    {
+      "what": "the loggia's arches (T-3716): their lights now stand 0.23 m back in the arches (K06's deepest reveal, where they stood at its 0.115), so each arch reads as a deep head over its glass; the six colonnettes stand clear of the wall as round shafts on their plinths (stand_m 0.11) with their bell capitals; and a carved band runs the loggia's width over the arch heads, from s 1.42 to 6.14 m, 12.02-12.32 m up",
+      "status": "fixed"
+    },
+    {
+      "what": "the carved field (T-3716): it was a narrow strip of stem and leaves down the field's middle; rows of the leaves' own scrolls now fill it out to the panel's inner line beyond the leaves' reach (relief.fill_m 0.22), so the field reads carved edge to edge",
+      "status": "fixed"
+    },
+    {
+      "what": "the kneelers (T-3716): the kit's square pinnacle, cap and pyramid stood over each end of the ledge. Now the south corner's carved corbel carries no pinnacle, and the north one carries a plain pier standing 0.1 m before the gable's face from the corbel's cap to a cap at 13.0 m, as the photograph draws them (kneelers.ends)",
+      "status": "fixed"
+    },
+    {
+      "what": "this camera's own fit is loose (RMS 17 px, its depth held, see its solve), so offsets in place up to about 50 px between the picture and the render, most at the bow, which stands nearest, are read as the camera's, not the building's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the copper cap's colour, green with age, and its moulded section: as built in T-3714",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the bow's lights' widths, now 1.15 m clear: the picture's centre upper light over its frame and the render's agree within the camera's fit",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the slates on the north flank behind the gable: present",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the parlour storey, the door and everything under the bow's upper lights: out of the picture",
+      "status": "not shown"
+    },
+    {
+      "what": "the loggia's carved band: the photograph's is scrolled foliage whose arch heads cut into it, its foot near the springing; the render's is the kit's interlace on a level panel just over the crowns, about 0.2 m higher (L-k01-2110-rees-gable-3716)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the carved field's carving: the photograph's scrolled foliage against the kit's rings and leaves in rows (L-k01-2110-rees-gable-3716)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the colonnettes read thicker in the photograph than the kit's 0.16 m shaft, by about 0.1 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the loggia's sash frames: dark in the photograph, of its own date; K06's paint for 1904 in the render (L-k01-2110-rees-1922)",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -114,6 +114,10 @@ IDENTICAL_ONLY = [("tools/research_spend_baseline.json", "raised"),
 # leaves the same key elsewhere held, and an entry whose key has left its file is
 # reported so it is deleted rather than left to excuse a later list.
 MULTISETS: dict[tuple[str, str], str] = {
+    ("data/structures/versions/robbins_house_2126_prairie/completed.json", "by_storey"):
+        "one K09 head per storey of a K01 front, on a structure version (T-3721); storeys may take the same head",
+    ("data/sidecars/1904/versions/robbins_house_2126_prairie/completed.json", "by_storey"):
+        "the version's by_storey compiled onto its card: one head per storey (T-3721)",
     ("data/structures/george_glessner_house_1706_prairie.json", "by_storey"):
         "one K09 head per storey, read under brick_heads (T-3211)",
     ("data/sidecars/1904/george_glessner_house_1706_prairie.json", "by_storey"):
@@ -146,6 +150,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3667); two storeys may take the same head",
     ("data/sidecars/1904/mark_kimball_house_2108_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3667)",
+    ("data/structures/rees_house_2110_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-1922); three storeys may take the same head",
+    ("data/sidecars/1904/rees_house_2110_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-1922)",
     ("data/structures/marsh_house_1824_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3167); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/marsh_house_1824_prairie.json", "by_storey"):
@@ -190,6 +198,14 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K01 head per storey of a brick front (T-3281); both storeys wear the flat lintel",
     ("data/sidecars/1904/armour_corwith_house_1945_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one head per storey (T-3281)",
+    ("data/structures/armour_house_2115_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3712); two storeys may take the same head",
+    ("data/sidecars/1904/armour_house_2115_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3712)",
+    ("data/structures/house_2123_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3724); two storeys wear the flat lintel",
+    ("data/sidecars/1904/house_2123_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3724)",
     ("data/structures/marshall_field_house_1905_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3260); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/marshall_field_house_1905_prairie.json", "by_storey"):
@@ -254,6 +270,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3633); two storeys may take the same head",
     ("data/sidecars/1904/high_house_2021_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3633)",
+    ("data/structures/roloson_house_2109_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3666); two storeys may take the same head",
+    ("data/sidecars/1904/roloson_house_2109_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3666)",
     ("data/structures/otis_house_2033_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3659); two storeys may take the same head",
     ("data/sidecars/1904/otis_house_2033_prairie.json", "by_storey"):
@@ -330,6 +350,14 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-2348); two storeys may take the same head",
     ("data/sidecars/1904/house_1636_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-2348)",
+    ("data/structures/murdoch_house_2130_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3729); both storeys wear the flat lintel",
+    ("data/sidecars/1904/murdoch_house_2130_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3729)",
+    ("data/structures/flats_2127_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-1931); the flats' two upper storeys take the same flat lintel",
+    ("data/sidecars/1904/flats_2127_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-1931)",
     ("data/research/directories/claims/fergus_1843_civic.json", "by_ward"):
         "one element per person; two people in one ward print the ward twice",
     ("data/research/directories/claims/fergus_1843_civic.json", "names"):

@@ -51,6 +51,24 @@ to the front's corner (the slab a band under it); run_on_wall_holes() cuts the f
 party wall down under the line, and run_on_solids() takes the hip's eave and covering off over
 it in front of a cheek, closing the cut with that cheek over a slated floor along the line.
 L-k01-2009-meyer-gable-run-on-3365.
+
+T-3714: 2110 Prairie's gable carries a carved panel in its head, over its one narrow light (the
+c. 1980s photograph and the 2012 detail): `tympanum` lays a dressed triangle from `base_m` up
+into the apex, inside the coping, and on it K08's leafy relief (k08_bays._gable_panel's: a stem
+up its middle, pairs of leaves leaning out from it, a boss at its foot and a fleuron at its head),
+and under it a carved `drop` that hangs from the panel's base over the light and opens into two
+arms ending in bosses. L-k01-2110-rees-carving-3714.
+
+T-3715: 2110's slates run on to the gable rather than hipping away a half-width short of it:
+`roof_to_gable` joins the hip's attic, carried on to the slab's back, into the roof
+(roof_to_gable()). L-k01-2110-rees-3715.
+
+T-3716: 2110's gable is the front's own face carried up, its ashlar unbroken over the loggia, with
+no ledge across the front: `flush` stands the slab's face on the wall's face (`proud_m` before the
+WALL), its base no wider than the front, and flush_cut() takes the hip's eave off in front of it so
+the flanks' eaves stop at the front's plane. `kneelers.ends` sets each end apart: the c. 1980s
+photograph shows no pinnacle over the south corner's carved stone and a tall pier, capped, standing
+proud at the north one. L-k01-2110-rees-gable-3716.
 """
 
 from __future__ import annotations
@@ -61,6 +79,8 @@ LEDGE_OVER_FASCIA_M = 0.12  # the kneelers' ledge: this far over the street fasc
 JOINT_M = 0.008             # half a coping joint
 PIN_CAP_PROUD_M = 0.04      # a kneeler's cap before its shaft, all round
 FINIAL_SINK_M = 0.06        # the finial's foot let into the apex
+FLUSH_BASE_M = 0.02         # T-3716: a flush slab's base this far past each side wall, over its corner
+FLUSH_CUT_M = 0.01          # and the hip's eave stopped this far behind the slab's face
 
 
 def _af():
@@ -94,13 +114,16 @@ def geometry(p, ye):
     seen from the street."""
     sg = p.shaped_gable
     D, W, o = p.depth_m, p.width_m, p.eave_overhang_m
-    xf = D + o + sg["proud_m"]
+    flush = sg.get("flush")           # T-3716: the face on the wall's, the eave cut behind it
+    xf = D + (0.0 if flush else o) + sg["proud_m"]
     xb = xf - sg["thickness_m"]
     zc = -W / 2
     ledge = sg.get("ledge_m") or ye + LEDGE_OVER_FASCIA_M   # T-2865: a ledge over the eave
     hb = W / 2 + o + 0.02             # the base covers the eave's corners
     if sg.get("takes_gutter"):        # T-2889: and the gutter's two side runs, which die into it
         hb = max(hb, W / 2 + gutter_lip(p) + 0.02)
+    if flush:                         # T-3716: no wider than the front; the eave stops behind it
+        hb = W / 2 + FLUSH_BASE_M
     hl = half_width(sg, ledge)
     up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
     right = [(hl, ledge)] + up        # foot to apex, the last on the centre line
@@ -219,6 +242,19 @@ def run_on_solids(a, k5):
     return solids, cutters
 
 
+def flush_cut(k5, p, ye, solid):
+    """T-3716: a flush slab's face stands on the wall's, so the hip's street eave would run out
+    0.3 m before it and its flank eaves on past its ends. Take the hip off in front of a plane
+    FLUSH_CUT_M behind the slab's face, before the union: inside the slab the cut is the slab's,
+    and beside it each flank eave ends square at the front's plane, its end a fascia."""
+    xc = geometry(p, ye)["xf"] - FLUSH_CUT_M
+    W = p.width_m
+    lo, hi = p.eave_m - 3.0, p.ridge_m + 3.0
+    box = k5.extrude([(-W - 3.0, lo), (3.0, lo), (3.0, hi), (-W - 3.0, hi)], xc, p.depth_m + 3.0,
+                     k5.frame("x"), "hidden", "fascia", "hidden")
+    return k5.subtract(solid, box)
+
+
 def element(a, k5, ye):
     """The gable as one closed solid for the roof's union."""
     g = geometry(a.p, ye)
@@ -240,6 +276,26 @@ def element(a, k5, ye):
             return "parapet"          # the base's two ends
         return "coping"               # the outline: the kneelers' ledges and the curves
     return k5.extrude(g["outline"], g["xb"], g["xf"], k5.frame("x"), role, "parapet", "parapet")
+
+
+ROOF_INTO_SLAB_M = 0.02     # T-3715: the attic's street end runs this far into the slab's back
+
+
+def roof_to_gable(k5, p, E, ye, t, o, f, hs):
+    """T-3715: 2110 Prairie's slates run on to its gable (the c. 1980s photograph and the 2012
+    detail show them beside the rake, behind the kneelers), where K01's hip falls away from the
+    street a full half-width short of it. This is the hip's own attic carried on toward the street:
+    K05's gable prism over the block's width, its eaves and ridge the hip's (the same overhang,
+    pitch and fascia, so its flanks are the hip's flanks), from the middle of the block, inside
+    the hip's ridge, to ROOF_INTO_SLAB_M into the slab's back. The union with the hip leaves the
+    ridge running from the rear hip's apex straight on to the gable; where the roof stands over
+    the slab's outline its street end is a fascia set back the slab's thickness, which no view
+    from the walk sees past the coping. L-k01-2110-rees-3715."""
+    xb = geometry(p, ye)["xb"]
+    D, W = p.depth_m, p.width_m
+    solids, _, _, _ = k5.gable_element(D / 2, xb + ROOF_INTO_SLAB_M, -W, 0.0, E, t, o, 0.0, f, hs - 1.0, "x",
+                                       verge_ends=(), end_role="fascia")
+    return solids[0]   # the attic; the body under it is the hip's own
 
 
 def _variant(sg, k6):
@@ -348,7 +404,7 @@ def _scroll(a, frame, sg, W, sgn, conf):
     xs = s0 + w / 2
     seed = a.instance("k01.roof.gable_scroll", "roof", dict(sc),
                       {"foot": (a.shaped_gable_geom["xf"], round(sc["bed_m"], 4), round(-xs, 4))})
-    d = -(a.p.eave_overhang_m + sg["proud_m"])   # the wall's face under the slab, behind its face
+    d = -((0.0 if sg.get("flush") else a.p.eave_overhang_m) + sg["proud_m"])   # the wall's face, behind the slab's
     _prism(a, "limestone_trim", frame, _circle(xs, yc, r), d, d + pr, seed, conf)
     if sc.get("rosette"):
         # T-3090: the print's eye is carved, a rosette: a boss at its middle and its petals
@@ -613,6 +669,8 @@ def dress(a, roof_seed):
         _oculus(a, frame, sg, g, gseed, conf)
     if sg.get("shoulders"):
         _shoulders(a, frame, sg, gseed, conf)
+    if sg.get("tympanum"):
+        _tympanum(a, frame, sg, g, W, conf)
     # the kneelers: a square pinnacle on each ledge, a cap and a pyramid over it
     kn = sg["kneelers"]
     xm = g["xf"] - sg["thickness_m"] / 2
@@ -620,16 +678,26 @@ def dress(a, roof_seed):
     hw = kn["shaft_m"] / 2 if kn else 0.0
     for sgn in ((-1, 1) if kn else ()):  # T-2730: a plain coped gable's ledge is its kneeler
         s = W / 2 + sgn * kn["at_m"]
-        y0, y1 = g["ledge"], kn["top_m"]
-        pseed = a.instance("k01.roof.gable_pinnacle", "roof",
-                           {"shaft_m": kn["shaft_m"], "top_m": y1, "cap_m": kn["cap_m"], "spire_m": kn["spire_m"]},
-                           {"foot": (xm, round(y0, 4), round(-s, 4))})
-        af._box(a, "limestone_trim", Fr, s - hw, s + hw, y0, y1, -hw, hw, pseed, conf, skip=("bottom", "top"))
-        c = hw + PIN_CAP_PROUD_M
-        af._box(a, "limestone_trim", Fr, s - c, s + c, y1, y1 + kn["cap_m"], -c, c, pseed, conf)
-        from . import k01_wall_gable
-        k01_wall_gable._pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + kn["cap_m"], hw,
-                                y1 + kn["cap_m"] + kn["spire_m"], pseed, conf)
+        # T-3716: one end's pinnacle set apart from the other's (s runs from the south end)
+        en = (kn.get("ends") or {}).get("south" if sgn < 0 else "north", {})
+        y0, y1 = g["ledge"], en.get("top_m", kn["top_m"])
+        spire = en.get("spire_m", kn["spire_m"])
+        fwd = hw
+        if "proud_m" in en:   # a pier standing before the slab, from the console's cap at its foot
+            fwd, y0 = sg["thickness_m"] / 2 + en["proud_m"], sg["foot_m"]
+        if en.get("pinnacle", True):
+            pseed = a.instance("k01.roof.gable_pinnacle", "roof",
+                               {"shaft_m": kn["shaft_m"], "top_m": y1, "cap_m": kn["cap_m"], "spire_m": spire},
+                               {"foot": (xm, round(y0, 4), round(-s, 4))})
+            sk = ("top",) if "proud_m" in en and not kn.get("scroll") else ("bottom", "top")
+            af._box(a, "limestone_trim", Fr, s - hw, s + hw, y0, y1, -hw, fwd, pseed, conf, skip=sk)
+            c = hw + PIN_CAP_PROUD_M
+            af._box(a, "limestone_trim", Fr, s - c, s + c, y1, y1 + kn["cap_m"], -c, fwd + PIN_CAP_PROUD_M,
+                    pseed, conf)
+            if spire > 0.0:
+                from . import k01_wall_gable
+                k01_wall_gable._pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + kn["cap_m"], hw,
+                                        y1 + kn["cap_m"] + spire, pseed, conf)
         if kn.get("scroll"):
             _scroll(a, frame, sg, W, sgn, conf)
     # the finial: a turned stone on the apex, let into it
@@ -656,3 +724,143 @@ def dress(a, roof_seed):
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya, ya + 0.3 * hgt, rr, rr * 1.1, fseed, conf)
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.3 * hgt, ya + 0.55 * hgt, rr * 1.1, rr * 0.5, fseed, conf)
     af._frustum(a, "limestone_trim", Ff, 0.0, 0.0, ya + 0.55 * hgt, ya + hgt, rr * 0.5, 0.004, fseed, conf)
+
+
+# T-3714: the tympanum's carving, as k08_bays._gable_panel lays its relief
+TYMPANUM_STEPS = 12          # the panel's sides, in this many heights from its base to its head
+TYMPANUM_LEAF_RISE = 0.5     # a leaf climbs half its length as it leans out
+TYMPANUM_LEAF_WIDTH = 0.9    # and is this share of its length across
+TYMPANUM_LEAF_DEPTHS = (0.8, 0.65, 0.5)   # each of three overlapping leaves its own depth
+TYMPANUM_FLEURON = 0.12      # the fleuron's height, as a share of the relief's
+DROP_FALL = 0.6              # the drop's arms fall this share of its length to their ends
+TYMPANUM_CURL = 0.3          # a leaf's curl: its radius, and its centre's distance from the tip, this share of the leaf's length
+TYMPANUM_CURL_MAX_M = 0.18   # and no more than this
+TYMPANUM_CURL_RING_M = 0.045  # the curl's ring, this broad
+TYMPANUM_CURL_SIDES = 12
+
+
+def _curl(a, frame, sc, yc, r, d0, d1, seed, conf):
+    """T-3714: a carved ring `r` in radius at (sc, yc), standing from d0 to d1: a curl."""
+    w, k = TYMPANUM_CURL_RING_M, TYMPANUM_CURL_SIDES
+    pt = lambda rr, t: (sc + rr * math.cos(2 * math.pi * t / k), yc + rr * math.sin(2 * math.pi * t / k))
+    for t in range(k):
+        _prism(a, "limestone_trim", frame, [pt(r - w, t), pt(r, t), pt(r, t + 1), pt(r - w, t + 1)],
+               d0, d1, seed, conf)
+
+
+def _inner_half(sg, y, d):
+    """The half-width at height y of the line `d` inside the outline, measured square to it."""
+    pr = sg["profile_m"]
+    for (w0, y0), (w1, y1) in zip(pr, pr[1:]):
+        if y0 <= y <= y1:
+            m = (y1 - y0) / max(w0 - w1, 1e-9)          # the rake's rise over its run
+            return half_width(sg, y) - d * math.sqrt(1.0 + m * m) / m
+    return 0.0
+
+
+TYMPANUM_FILL_R = 0.45       # T-3716: a fill scroll's radius, this share of the fill's spacing
+TYMPANUM_FILL_RISE = 0.8     # and its rows this share of the spacing apart, each row's set half over
+TYMPANUM_FILL_REACH = 0.4    # the scrolls start this share of a leaf's length out from the stem
+
+
+def _tympanum_fill(a, frame, rl, xc, y0, top, half, pp, rp, seed, conf):
+    """T-3716: the rest of 2110's field, carved out to the panel's edges as both photographs
+    show it: rows of scrolls (the leaves' own curl) every `fill_m`, each row's set half a step
+    over the one under it, laid beyond the leaves' reach out to the panel's inner line. The
+    photographs' foliage is not read scroll by scroll (L-k01-2110-rees-gable-3716)."""
+    f = rl["fill_m"]
+    r = TYMPANUM_FILL_R * f
+    reach = rl["stem_m"] / 2 + TYMPANUM_FILL_REACH * rl["leaf_m"]
+    y, row = y0 + r + 0.02, 0
+    while y + r < top:
+        out = half(y + r) - r          # the row's outer centre, inside the panel's line at its top
+        k = 0
+        while True:
+            x = reach + r + (k + (0.5 if row % 2 else 0.0)) * f
+            if x > out + 1e-9:
+                break
+            for sgn in (-1.0, 1.0):
+                _curl(a, frame, xc + sgn * x, y, r, pp, pp + rp, seed, conf)
+            k += 1
+        row += 1
+        y += TYMPANUM_FILL_RISE * f
+
+
+def _tympanum(a, frame, sg, g, W, conf):
+    """T-3714: the carved panel in the gable's head (2110 Prairie's): a dressed triangle
+    `proud_m` before the slab, from `base_m` up to where the line `border_m` inside the
+    coping's inner edge meets the centre line; on it a stem, pairs of leaves, a boss at its
+    foot and a fleuron at its head, standing the relief's `proud_m` past it; and the `drop`
+    under it, a stem down the centre line and two arms out and down, a boss at each end."""
+    ty = sg["tympanum"]
+    rl = ty["relief"]
+    d = sg["coping"]["width_m"] + ty["border_m"]
+    yb, pp, rp = ty["base_m"], ty["proud_m"], rl["proud_m"]
+    lo, hi = yb, g["apex"]
+    for _ in range(40):          # the head: where the inner line meets the centre line
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if _inner_half(sg, mid, d) > 0.0 else (lo, mid)
+    yt = lo
+    seed = a.instance("k01.roof.gable_tympanum", "roof",
+                      {"base_m": yb, "head_m": round(yt, 4), "proud_m": pp, "relief_proud_m": rp},
+                      {"base": (g["xf"], yb, g["zc"])})
+    xc = W / 2
+    hs = [yb + (yt - yb) * i / TYMPANUM_STEPS for i in range(TYMPANUM_STEPS)]
+    right = [(xc + _inner_half(sg, y, d), y) for y in hs]
+    poly = right + [(xc, yt)] + [(2 * xc - s, y) for s, y in reversed(right)]
+    _prism(a, "limestone_trim", frame, poly, 0.0, pp, seed, conf)
+
+    def lay(q, k=1.0):
+        _prism(a, "limestone_trim", frame, q, pp, pp + k * rp, seed, conf)
+
+    sw, lm, pm, mg = rl["stem_m"], rl["leaf_m"], rl["pitch_m"], rl["margin_m"]
+    y0, top = yb + mg, yt - mg
+
+    def half(y):
+        return _inner_half(sg, y, d) - mg
+
+    lay([(xc, y0), (xc + 2 * sw, y0 + 2 * sw), (xc, y0 + 4 * sw), (xc - 2 * sw, y0 + 2 * sw)])
+    hf = (top - y0) * TYMPANUM_FLEURON
+    lay([(xc - sw / 2, y0 + 4 * sw), (xc + sw / 2, y0 + 4 * sw), (xc + sw / 2, top - hf), (xc - sw / 2, top - hf)])
+    fw = min(3 * sw, 2 * max(half(top - hf / 2), sw / 2))
+    lay([(xc, top - hf), (xc + fw / 2, top - hf / 2), (xc, top), (xc - fw / 2, top - hf / 2)])
+    n, y = 0, y0 + 4 * sw + pm / 2
+    rise, wl = TYMPANUM_LEAF_RISE, TYMPANUM_LEAF_WIDTH
+    while y < top - hf - 0.05:
+        L = min(lm, half(y + rise * lm) - sw / 2)
+        if L < 0.12:
+            break
+        for sgn in (-1.0, 1.0):
+            x0 = xc + sgn * sw / 2
+            tip = (x0 + sgn * L, y + rise * L)
+            mid_ = lambda t, o: (x0 + sgn * L * t - sgn * o * rise, y + rise * L * t + o)
+            leaf = [(x0, y), mid_(0.45, wl * L / 2), tip, mid_(0.55, -wl * L / 2)]
+            cx, cy = x0 + sgn * L / 2, y + rise * L / 2
+            lay(sorted(leaf, key=lambda q: math.atan2(q[1] - cy, q[0] - cx)), TYMPANUM_LEAF_DEPTHS[n % 3])
+            # the leaf rolls over into a curl toward its end, as the carving's foliage scrolls:
+            # a ring on the leaf, inside its length, so it stands inside the panel as the leaf does
+            r = min(TYMPANUM_CURL * L, TYMPANUM_CURL_MAX_M)
+            if r > 2 * TYMPANUM_CURL_RING_M:
+                _curl(a, frame, *mid_(1.0 - TYMPANUM_CURL, 0.0), r, pp, pp + rp, seed, conf)
+        n += 1
+        y += pm
+    if rl.get("fill_m"):
+        _tympanum_fill(a, frame, rl, xc, y0, top - hf, half, pp, rp, seed, conf)
+    dr = ty.get("drop")
+    if not dr:
+        return
+    w2, yf = dr["width_m"] / 2, yb - dr["length_m"]
+    _prism(a, "limestone_trim", frame, [(xc - w2, yf - w2), (xc + w2, yf - w2), (xc + w2, yb), (xc - w2, yb)],
+           0.0, pp, seed, conf)
+    fall = DROP_FALL * dr["length_m"]
+    for sgn in (-1.0, 1.0):
+        for (s0, t0), (s1, t1) in (((0.0, yf), (dr["arm_m"] / 4, yf)),
+                                   ((dr["arm_m"] / 4, yf), (dr["arm_m"] / 2, yf - fall))):
+            dx, dy = s1 - s0, t1 - t0
+            L = math.hypot(dx, dy)
+            nx, ny = -dy / L * w2, dx / L * w2
+            q = [(xc + sgn * s0 - nx, t0 - ny), (xc + sgn * s1 - nx, t1 - ny),
+                 (xc + sgn * s1 + nx, t1 + ny), (xc + sgn * s0 + nx, t0 + ny)]
+            _prism(a, "limestone_trim", frame, q, 0.0, pp, seed, conf)
+        _prism(a, "limestone_trim", frame, _af()._disc(xc + sgn * dr["arm_m"] / 2, yf - fall, 2 * w2, 2 * w2, 10),
+               0.0, pp + rp, seed, conf)

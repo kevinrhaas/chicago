@@ -1,0 +1,24 @@
+{
+ "id": "aic_rba_index_1815_meeker_residence",
+ "type": "dataset",
+ "citation": "Art Institute of Chicago, Ryerson and Burnham Archives, building-name index ('Building Name' finding aid), entry 'Meeker, Arthur, Residence; Heath, D.C., and Company Building', 1815 S. Prairie Ave.: Burnham and Root 1882; 'Heun, Arthur [1902 remodeling]'; 'Sold to Arthur Meeker, 1902, who drastically remodeled the residence'; demolished 1967.",
+ "author": "Ryerson and Burnham Archives, Art Institute of Chicago",
+ "describes_date": "1882-1967",
+ "url": "https://artic.contentdm.oclc.org/digital/api/collection/findingaids/id/16290/download",
+ "locator": "The entry under 'Meeker, Arthur, Residence', its architect lines and note.",
+ "tier": 4,
+ "rights_status": "check_required",
+ "rights_note": "An archive's finding aid; its dates quoted as a fact, nothing reproduced.",
+ "asset_use": "text_only",
+ "verified": false,
+ "access_notes": "NOT READ ON THE PAGE. On 2026-11-21 (T-3562) the finding aid's download refused this runner (403, a browser challenge); the entry's wording above is as two web-search excerpts of that document gave it, consistent with each other. `verified` stays false until someone opens the finding aid and reads the entry.",
+ "note": "The only record found that dates the remodel itself, to 1902, rather than the sale. An archive index's year can be the sale's carried over, so it is weighed as a strong lead, not a finding: see L-k01-1815-sears-1893.",
+ "what_it_supplies": [
+  "the remodel dated 1902 by the archive's index",
+  "Heun as the remodel's architect, the remodel called drastic"
+ ],
+ "what_it_does_not_supply": [
+  "what the remodel changed",
+  "a permit or a dated drawing"
+ ]
+}

@@ -19,7 +19,7 @@ function entryOf(value, { id, now } = {}) {
   if (value.kind === 'photo' && !photo) return null;
   return {
     id: text(id || value.id, 100), kind: value.kind, title: text(value.title, 200),
-    year: ['1812', '1835', '1904'].includes(String(value.year)) ? String(value.year) : '',
+    year: ['1812', '1835', '1871', '1904'].includes(String(value.year)) ? String(value.year) : '',
     place: text(value.place, 300), person: text(value.person, 200), grade: text(value.grade, 40),
     text: text(value.text, LIMITS.noteChars), excerpt: text(value.excerpt, 12000),
     sources: sourceRows(value.sources), photo, link: safeNotebookURL(value.link),

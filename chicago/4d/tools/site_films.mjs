@@ -1,7 +1,11 @@
 /**
  * site_films.mjs — film the public site's feature films from the app itself.
  *
- *   node tools/site_films.mjs --year 1904 --ctl DIR [--view 1280x720] [--detail full]
+ *   node tools/site_films.mjs --year 1904 --ctl DIR [--view 1280x720] [--detail full] [--gpu] [--headed]
+ *
+ * --gpu draws on the machine's own graphics card instead of SwiftShader (a Mac's Metal
+ * GPU draws a 1904 frame in well under a second, against ~25 s in software); --headed
+ * opens a visible window, which some GPUs need. PW_CHANNEL=chrome uses installed Chrome.
  *
  * The public site (site/, chicago.polecat.live) shows the app's features as short
  * cinematic films: people coming and going, horse teams, boats, seasons, jaunts. Every
@@ -16,12 +20,18 @@
  *   { "type": "film",  "id": "...", "seconds": 8, "fps": 24, "setup": "js", "keys": [...] | "track": {...} }
  *   { "type": "quit" }
  *
+ * A film with `"ui": true` keeps the interface (name cards' person cards, the HUD) and grabs each
+ * frame as a page screenshot instead of the bare canvas; `"each": "js"` runs with (api, u)
+ * before every keyed frame (open a card at u > .5, say).
+ *
  * A pose is { e, n, alt, yaw, pitch } or { e, n, alt, look: [e, n, h] }. `keys` are poses
  * with a `t` in [0, 1], eased between (smoothstep per segment, yaw the short way round).
  * `track` follows something that moves: `track.js` returns { e, n, heading } each frame
  * (heading in degrees, clockwise from north), and the camera sits at `track.offset`
  * ({ back, side, alt }) in that frame, looking at it (`track.look_h` above its ground),
- * optionally swinging round it by `track.swing` degrees over the film.
+ * optionally swinging round it by `track.swing` degrees over the film. `track.js` gets (api, u), u
+ * running 0 → 1 over the film, and may return its own `offset` and `look_h` for that frame
+ * (a dolly down the side of a column, then a rise over it).
  *
  * Time is virtual while filming: performance.now() advances exactly 1/fps per frame, so
  * people, horses and water move at their true speed whatever the frame costs to draw.
@@ -75,8 +85,12 @@ await new Promise(r => server.listen(0, '127.0.0.1', r));
 const base = `http://127.0.0.1:${server.address().port}`;
 
 const { chromium } = await loadPlaywright();
+const GPU = argv.includes('--gpu');
+const GL_ARGS = GPU
+  ? ['--ignore-gpu-blocklist', '--enable-gpu-rasterization', '--enable-zero-copy', ...(process.platform === 'darwin' ? ['--use-angle=metal'] : [])]
+  : ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'];
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined,
-  args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  channel: process.env.PW_CHANNEL || undefined, headless: !argv.includes('--headed'), args: GL_ARGS });
 const page = await browser.newPage({ viewport: { width: VW, height: VH }, deviceScaleFactor: 1 });
 page.setDefaultTimeout(1_800_000);
 const errors = [];
@@ -145,32 +159,70 @@ function keyPose(keys, t) {
   }
   return ks[ks.length - 1];
 }
+// A cinematic path: `"path": "spline"` runs the camera through every key on one Catmull-Rom
+// curve (position and look point alike) at an even pace, easing only at the very start and
+// end (`ease_ends`, a fraction of the film, default 0.15; 0 for a film that loops). The
+// smoothstep path above stops at every key, which reads as a robot arm, not a crane.
+const cr = (p0, p1, p2, p3, s) => 0.5 * ((2 * p1) + (-p0 + p2) * s + (2 * p0 - 5 * p1 + 4 * p2 - p3) * s * s + (-p0 + 3 * p1 - 3 * p2 + p3) * s * s * s);
+function splinePose(keys, u, easeEnds = 0.15) {
+  const k = easeEnds > 0 ? (() => {
+    // Even pace in the middle, a smooth start and stop over easeEnds at each end.
+    const a = Math.min(0.49, easeEnds), v = 1 / (1 - a);
+    if (u < a) return v * u * u / (2 * a);
+    if (u > 1 - a) { const r = 1 - u; return 1 - v * r * r / (2 * a); }
+    return v * (u - a / 2);
+  })() : u;
+  const pts = keys.map(p => {
+    const look = p.look ?? (() => { const y = (p.yaw ?? 0) * Math.PI / 180, pi = (p.pitch ?? 0) * Math.PI / 180;
+      return [p.e + Math.sin(y) * 100 * Math.cos(pi), p.n + Math.cos(y) * 100 * Math.cos(pi), (p.alt ?? 1.6) + Math.sin(pi) * 100]; })();
+    return [p.e, p.n, p.alt ?? 1.6, look[0], look[1], look[2] ?? 0];
+  });
+  const m = pts.length - 1, x = Math.max(0, Math.min(1, k)) * m, i = Math.min(m - 1, Math.floor(x)), s = x - i;
+  const P = j => pts[Math.max(0, Math.min(m, j))];
+  const q = P(i).map((_, d) => cr(P(i - 1)[d], P(i)[d], P(i + 1)[d], P(i + 2)[d], s));
+  return solve({ e: q[0], n: q[1], alt: q[2], look: [q[3], q[4], q[5]] });
+}
+const posePath = (job, u) => (job.path === 'spline' ? splinePose(job.keys, u, job.ease_ends ?? 0.15) : keyPose(job.keys, u));
 const toTeleport = p => ({ local_e: p.e, local_n: p.n, yaw_deg: p.yaw, pitch_deg: p.pitch, altitude_m: p.alt });
 
-async function frame(pose, steps, ms) {
-  return page.evaluate(({ pose, steps, ms }) => {
+async function frame(pose, steps, ms, each = null, u = 0, ui = false) {
+  return page.evaluate(({ pose, steps, ms, each, u, ui }) => {
     const api = window.__chicago4d;
+    if (each) new Function('api', 'u', each)(api, u);
     api.setFly(typeof pose.altitude_m === 'number');
     api.walker.teleport(pose);
     for (let i = 0; i < steps; i++) { if (ms) window.__film.advance(ms / steps); api.step(); }
-    return api.renderer.domElement.toDataURL('image/jpeg', 0.95);
-  }, { pose, steps, ms });
+    return ui ? 'ui' : api.renderer.domElement.toDataURL('image/jpeg', 0.95);
+  }, { pose, steps, ms, each, u, ui });
+}
+// With the interface showing, the frame is the page itself.
+const HIDE_CSS = 'body > *:not(#view):not(canvas) { visibility: hidden !important; }';
+async function setUi(on) {
+  await page.evaluate(({ on, css }) => {
+    document.getElementById('__film-hide')?.remove();
+    if (!on) { const s = document.createElement('style'); s.id = '__film-hide'; s.textContent = css; document.head.append(s); }
+  }, { on, css: HIDE_CSS });
+}
+async function grab(img) {
+  if (img !== 'ui') return img;
+  return 'data:image/jpeg;base64,' + (await page.screenshot({ type: 'jpeg', quality: 92 })).toString('base64');
 }
 // A tracked pose is worked out in the page, where the moving thing is.
 async function trackFrame(track, u, steps, ms) {
   return page.evaluate(({ track, u, steps, ms }) => {
     const api = window.__chicago4d;
     for (let i = 0; i < steps; i++) { if (ms) window.__film.advance(ms / steps); if (i < steps - 1) api.step(); }
-    const at = new Function('api', track.js)(api);
+    const at = new Function('api', 'u', track.js)(api, u);
     if (!at) return null;
-    const o = track.offset ?? { back: 8, side: 2, alt: 2.5 };
+    // track.js may steer the camera itself, frame by frame: { offset: { back, side, alt }, look_h }.
+    const o = { ...(track.offset ?? { back: 8, side: 2, alt: 2.5 }), ...(at.offset ?? {}) };
     const h = ((at.heading ?? 0) + (track.swing ?? 0) * (u - 0.5) + (track.turn ?? 0)) * Math.PI / 180;
     // Behind (back) and to the right (side) of the heading.
     const fe = Math.sin(h), fn = Math.cos(h);
     const e = at.e - fe * o.back + fn * (o.side ?? 0), n = at.n - fn * o.back - fe * (o.side ?? 0);
     const de = at.e + fe * (track.lead ?? 0) - e, dn = at.n + fn * (track.lead ?? 0) - n;
     const yaw = (Math.atan2(de, dn) * 180 / Math.PI + 360) % 360;
-    const pitch = Math.atan2((track.look_h ?? 1.5) - o.alt, Math.hypot(de, dn)) * 180 / Math.PI;
+    const pitch = Math.atan2((at.look_h ?? track.look_h ?? 1.5) - o.alt, Math.hypot(de, dn)) * 180 / Math.PI;
     api.setFly(true);
     api.walker.teleport({ local_e: e, local_n: n, yaw_deg: yaw, pitch_deg: pitch, altitude_m: o.alt });
     api.step();
@@ -228,7 +280,8 @@ async function run(job) {
     await page.evaluate(() => window.__film.freeze());
     const started = Date.now();
     // Settle: a few still frames at the first pose so streamed detail has arrived.
-    const p0 = job.track || job.pov ? null : toTeleport(keyPose(job.keys, 0));
+    if (job.ui) await setUi(true);
+    const p0 = job.track || job.pov ? null : toTeleport(posePath(job, 0));
     for (let k = 0; k < (job.settle ?? 6); k++) {
       if (p0) await frame(p0, 1, 0); else if (job.track) await trackFrame(job.track, 0, 1, 0); else await povFrame(1, 0);
     }
@@ -238,12 +291,13 @@ async function run(job) {
       const u = n > 1 ? k / (n - 1) : 0;
       const ms = 1000 / fps;
       const img = job.track ? await trackFrame(job.track, u, step, ms) : job.pov ? await povFrame(step, ms, job.pov, u)
-        : await frame(toTeleport(keyPose(job.keys, u)), step, ms);
+        : await grab(await frame(toTeleport(posePath(job, u)), step, ms, job.each ?? null, u, !!job.ui));
       if (!img) throw new Error(`${job.id}: nothing to track at frame ${k}`);
       save(path.join(dir, `${String(k).padStart(4, '0')}.jpg`), img);
       if (k % 24 === 0) log(`${job.id}: frame ${k}/${n} after ${((Date.now() - started) / 1000).toFixed(0)} s`);
     }
     await page.evaluate(() => window.__film.release());
+    if (job.ui) await setUi(false);
     const bytes = encode(dir, path.join(CTL, 'out', job.id), fps, job.crf ?? 26);
     return { id: job.id, frames: n, seconds: (Date.now() - started) / 1000, bytes };
   }

@@ -10,7 +10,7 @@
   "source_limit": "Ruger's contemporary bird's-eye lithograph supports a varied low-rise city with frame dwellings, masonry business blocks and industrial buildings. Colbert and Chamberlin (1871, pp. 146-147) report a spring 1868 enumeration of 35,654 wooden buildings to 3,712 of brick and stone, so frame forms dominate outside the business centre. Neither source establishes these footprints, storey heights, window patterns, colours or individual addresses. Pre-fire stereographs of Lake, State and Clark streets (NYPL Dennis collection, Carbutt's Views of Chicago) show the business streets built wall to wall in Italianate and commercial-palace fronts of brick, pale stone and painted brick, with cast-iron storefronts, signboards, awnings, hooded and arched windows and bracketed cornices, and North Side houses behind fenced yards with stoops; they inform these period forms, not any generated front. Every kit dimension and facade is a bounded reconstruction, and no template represents a named building.",
   "license": "Original procedural geometry and textures, and for the detail ring the project's own wall textures (textures/chicago_1835_pbr brick and clapboard, textures/prairie_1904_stone limestone and trim); project license. No third-party image pixels are embedded or sampled.",
   "coordinates": "Y up; footprint centred at origin; width +X; front -Z; base Y=0; bearing clockwise from grid north",
-  "input_sha256": "88fdb1222988ba96f4470251ff5bd96267f0f74eb61f5e59bb4b32013bafad4b",
+  "input_sha256": "6ea2446e5d1965c9a883e89bd21b55b2d1215f9bcfef4e6894ccfc4a5e93e52e",
   "citations": [
     {
       "source_id": "chicago_evening_post_1869_city_limits",
@@ -36,7 +36,8 @@
       "tier_label": "period/eyewitness",
       "what_it_supplies": [
         "Bridge existence, construction years, reported lengths and March 31 traffic counts. Madison bridge is specified as all iron; others distinguish wooden or iron chords.",
-        "Contracted sidewalk work, park improvements and canal-opening chronology."
+        "Contracted sidewalk work, park improvements and canal-opening chronology.",
+        "Wooden-block paving by street stretch (the warrants of 1870-71) and the city's wooden-block and boulder pavement by division, in lineal feet (T-3685)."
       ],
       "what_it_does_not_supply": [
         "October 8 operating conditions, Sunday traffic volume, exact truss members, road widths or continuous pavement on every block.",

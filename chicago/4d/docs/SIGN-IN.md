@@ -39,6 +39,16 @@ with some usage numbers.
 - **Sign out.** Settings → About shows "Signed in as …" with a **Sign out** button
   (T-3603, `showAccount` in `js/sign-in.js`). It ends the Firebase session, forgets the
   typed email and reloads, so the gate asks again. The visitors page has its own.
+- **Crash reports and Report a bug** (T-3743, `js/bug-report.js`). A small bug key at the
+  upper right (Settings › Show › On screen turns it off) opens a sheet: a picture of the
+  town, the visitor's words, and the device, graphics, memory, year, settings, place and
+  recent errors, saved as `bugs/<id>` under their uid. A page the device killed is filed by
+  the next load from its black box (`crash`), a display reset at once (`context`), an
+  uncaught error once per message (`error`). Bugs, crashes and resets are also emailed to
+  the owner through FormSubmit (automatic ones at most three a device a day). Each row says
+  `live`, `dev` or `local`: one Firebase project serves both sites (the owner, 2026-11-24).
+  Nothing is sent from any other host or under automation. The owner reads them on
+  `visitors.html`, and an email's link opens its report there (`?bug=<id>`).
 - **Preview.** `?signin=preview` shows the panel with no Firebase at all;
   `visitors.html?demo` draws the visitors page from invented example.com rows.
 
@@ -92,6 +102,28 @@ service cloud.firestore {
         && request.resource.data.email is string && request.resource.data.email.size() <= 254
         && request.resource.data.name is string && request.resource.data.name.size() <= 200;
     }
+    function bugFields(d) {
+      return d.keys().hasOnly(['uid', 'email', 'kind', 'comment', 'year', 'site', 'build', 'device', 'gpu', 'place', 'link', 'page', 'env', 'errors', 'steps', 'shot', 'at'])
+        && ((request.auth == null && d.uid == '') || (request.auth != null && d.uid == request.auth.uid))
+        && d.kind in ['bug', 'crash', 'context', 'error']
+        && d.uid is string && d.uid.size() <= 128
+        && d.email is string && d.email.size() <= 254
+        && d.kind is string && d.kind.size() <= 10
+        && d.comment is string && d.comment.size() <= 4000
+        && d.year is string && d.year.size() <= 10
+        && d.site is string && d.site.size() <= 10
+        && d.build is string && d.build.size() <= 80
+        && d.device is string && d.device.size() <= 160
+        && d.gpu is string && d.gpu.size() <= 200
+        && d.place is string && d.place.size() <= 200
+        && d.link is string && d.link.size() <= 600
+        && d.page is string && d.page.size() <= 300
+        && d.env is string && d.env.size() <= 20000
+        && d.errors is string && d.errors.size() <= 8000
+        && d.steps is string && d.steps.size() <= 20000
+        && d.shot is string && d.shot.size() <= 900000
+        && d.at is timestamp;
+    }
     match /visitors/{uid} {
       allow read, delete: if isOwner();
       allow create, update: if request.auth != null && request.auth.uid == uid && visitorFields();
@@ -111,6 +143,25 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['uid', 'email', 'method', 'year', 'device', 'at'])
         && request.resource.data.email is string && request.resource.data.email.size() <= 254;
     }
+    // T-3741: the public site's contact page (site/js/contact.js). Anyone may leave a
+    // message, signed in or not; only the owner reads or deletes them (visitors.html).
+    match /messages/{id} {
+      allow read, delete: if isOwner();
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'topic', 'message', 'page', 'at'])
+        && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string && request.resource.data.email.size() <= 200
+        && request.resource.data.topic is string && request.resource.data.topic.size() <= 60
+        && request.resource.data.message is string && request.resource.data.message.size() > 0 && request.resource.data.message.size() <= 5000
+        && request.resource.data.page is string && request.resource.data.page.size() <= 200
+        && request.resource.data.at is timestamp;
+    }
+    // T-3743: crash reports and Report a bug (renderers/web/js/bug-report.js). Anyone in the
+    // app may file one under their own uid, or with none when sign-in let them in without
+    // one; only the owner reads or deletes them (visitors.html).
+    match /bugs/{id} {
+      allow read, delete: if isOwner();
+      allow create: if bugFields(request.resource.data);
+    }
     // T-3644: the visitor's own person (renderers/web/js/visitor-person.js), theirs alone.
     match /people/{uid} {
       allow read, delete: if request.auth != null && request.auth.uid == uid;
@@ -122,10 +173,21 @@ service cloud.firestore {
 }
 ```
 
+`tools/test_bug_report.mjs` holds the fields and lengths `bug-report.js` writes to the
+`bugFields` rule above (T-3743). Until that rule is pasted, reports are refused and only the
+email copy reaches the owner.
+
 `tools/test_sign_in.mjs` holds the fields `visitor-store.js` writes to the two
 `hasOnly` lists above, so a new field cannot ship without its rule; `tools/test_reading_level.mjs`
 holds `readers/{uid}` to the fields `reading-level.js` writes (T-3645). Until the
 `readers/{uid}` rule is pasted, a reader's ages stay on their device and the console says so once.
+
+**Contact messages (T-3741)** are kept at `messages/<auto id>`: the public site's contact
+form writes one per message, unauthenticated, before it asks FormSubmit to email the owner,
+so a message survives FormSubmit failing. The owner reads them on the visitors page, newest
+first. Until the rule above is pasted the write is refused, the page says the messages are
+not readable yet, and the form still sends through FormSubmit (or offers the mailto).
+`tools/test_sign_in.mjs` holds `site/js/contact.js`'s write to the `hasOnly` list.
 
 **The visitor's own person (T-3644)** is kept at `people/<uid>`: the choice made on the
 Settings card's You tab, as one JSON string, readable and writable by that visitor only.

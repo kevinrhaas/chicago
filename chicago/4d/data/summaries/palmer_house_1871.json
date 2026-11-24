@@ -1,0 +1,102 @@
+{
+  "id": "palmer_house_1871",
+  "scene": "1871",
+  "name": "The Palmer House",
+  "address": "Northwest corner of State and Quincy Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Later buildings stand on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "It burned on 9 October 1871. A larger Palmer House was later built nearby; the corner's later history is not researched here."
+  },
+  "built": {
+    "year": 1870,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Hotel",
+  "summary": "Potter Palmer's first hotel, eight storeys with stone fronts on State Street. It opened in September 1870, barely a year before the fire. At four in the morning it was the last great hotel standing.",
+  "key": [
+    {
+      "label": "Built by",
+      "value": "Potter Palmer",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Storeys",
+      "value": "Eight",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Rooms",
+      "value": "225",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "A balcony runs over the State Street entrance.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_downtown_plates"
+      ]
+    },
+    {
+      "text": "Two rows of dormers climb its tall slate roof.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_downtown_plates"
+      ]
+    },
+    {
+      "text": "It fell at about the same time as the Academy of Design.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1870-09-26",
+      "text": "The Palmer House opens.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "It falls after daylight.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

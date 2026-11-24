@@ -1,0 +1,25 @@
+{
+ "id": "chicago_tribune_1998_03_03_odds_improve",
+ "type": "newspaper",
+ "citation": "[DeBartolo, Anthony.] 'Odds Improve That a Hot Game of Craps in Mrs. O'Leary's Barn Touched Off Chicago Fire'. Chicago Tribune, 3 March 1998.",
+ "author": "Chicago Tribune (credited to Anthony DeBartolo by Wikipedia's 'Great Chicago Fire')",
+ "date": "1998-03-03",
+ "describes_date": "1871-10-08; the 1997 resolution; Cohn's claim",
+ "repository": "Chicago Tribune online archive",
+ "url": "https://www.chicagotribune.com/1998/03/03/odds-improve-that-a-hot-game-of-craps-in-mrs-olearys-barn-touched-off-chicago-fire/",
+ "locator": "By paragraph: the City Council resolution (1); Daniel 'Peg Leg' Sullivan and Richard Bales's argument from the land records (3-5); Cohn's claim again (8-14).",
+ "tier": 3,
+ "rights_status": "check_required",
+ "rights_note": "Cited for short quoted fragments in text only; the article text is (c) Chicago Tribune and is not reproduced or derived from beyond those fragments.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3693) on the live page; the page itself shows no byline.",
+ "note": "The clearest short statement of Bales's case against Sullivan (the blocked view, the 193 feet on a wooden leg), told by a writer arguing for a different suspect.",
+ "what_it_supplies": [
+  "Bales's two objections to Sullivan's testimony, and his conclusion",
+  "that Ald. Edward M. Burke 'ushered through the City Council a resolution exonerating Catherine O'Leary and her cow of all blame'"
+ ],
+ "what_it_does_not_supply": [
+  "Bales's own text (his 1997 article and 2002 book were not read)"
+ ]
+}

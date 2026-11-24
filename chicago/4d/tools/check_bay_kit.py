@@ -139,6 +139,13 @@ def rule_data(v, data, b):
             fails.append(f"pier: {w['opening']} on run {w['run']} reaches s {a:.3f}..{z:.3f} of a {run.L:.3f} m run, "
                          f"closer than {pier} m to its end")
         k = w["storey"]
+        if w.get("gable"):
+            # T-3634: a light in a coped gable's face stands over the wall top; the kit itself
+            # holds it inside the kneelers and under the copings' beds (k08_bays._gable_face)
+            if w["y_all"][0] < levels[-1] - EPS or w["y_all"][1] > b.meta["roof"]["gable_top_m"] + EPS:
+                fails.append(f"storey: a gable light spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, outside "
+                             f"its gable {levels[-1]:.3f}..{b.meta['roof']['gable_top_m']:.3f}")
+            continue
         floor = levels[k] + (band["height_m"] / 2 if k else (plinth["height_m"] if v["base"] == "grade" else 0))
         if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
             floor = levels[0] - k06["parts"]["sill"]["height_m"]
@@ -291,7 +298,9 @@ def rule_keyed(b, v):
             fails.append(f"keyed: the plan's end at x {p[0]:.3f} is {p[2]:.4f} m off the host wall's face")
     # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
     # roof and finial reach behind the face, inside its eaves' circle and nowhere else
-    whole = ("roof", "finial") if v.get("cap_whole") else ()
+    # T-3616: and so does a two-stage cap on a tower whose centre stands inside its wall (2011's)
+    staged_whole = ((v.get("roof") or {}).get("upper") is not None and b.plan["centre"][1] < 0)
+    whole = ("roof", "finial") if v.get("cap_whole") or staged_whole else ()
     # T-1890: a shallow pavilion's roof behind its gable (`roof.gable.behind`, 1801's south
     # pavilion) runs back into its host's roof, as deep as `run_back_m` and no deeper (below)
     behind_roof = (((v.get("roof") or {}).get("gable") or {}).get("behind")) if v.get("shallow") else None
@@ -323,9 +332,22 @@ def rule_keyed(b, v):
     # from its lowest point (its corbel table under its foot) up
     sg = b.meta.get("stage") or {}
     clear = (lambda p: p[1] >= sg["bottom_m"] - 1e-6) if sg.get("whole") else (lambda p: False)
+    # T-3616: a through-plane light's recess stands behind the plane inside the hole its host
+    # opens round it, no deeper than the recess reaches (rule_through holds the hole to it)
+    tp = [w for w in b.windows if w.get("through_plane")]
+    tp_deep = max((w["recess_m"] for w in tp), default=0.0)
+    in_hole = (lambda role, p: role in K.WINDOW_ROLES and p[2] >= -tp_deep - 1e-6
+               and any(h[0] - 1e-6 <= p[0] <= h[1] + 1e-6 and h[2] - 1e-6 <= p[1] <= h[3] + 1e-6
+                       for h in b.host_holes)) if tp else (lambda role, p: False)
+    # T-3562: a back carried `back_m` along the side wall (k08_bays.Bay._back_over, 1815's set-out
+    # entrance block) closes it behind the plane, inside its x and y span and no deeper than back_m
+    bo = b.meta.get("back_over") or {}
+    back = (lambda role, p: role in ("roof", "roof_back") and p[2] >= -bo["back_m"] - 1e-6
+            and bo["x"][0] - 1e-6 <= p[0] <= bo["x"][1] + 1e-6
+            and bo["y"][0] - 1e-6 <= p[1] <= bo["y"][1] + 1e-6) if bo.get("back_m") else (lambda role, p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p) and not clear(p)), default=(0.0, None))
+                if not cut(p) and not clear(p) and not in_hole(role, p) and not back(role, p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
@@ -342,7 +364,7 @@ def rule_keyed(b, v):
         if far[0] < -deep - 1e-6:
             fails.append(f"behind: a shallow projection's {far[1]} reaches {-far[0]:.4f} m behind the host wall's "
                          f"face, past its recesses' {deep:.4f} m")
-    if whole and v.get("cap_whole"):
+    if whole and (v.get("cap_whole") or staged_whole):
         (cx, cz), reach = b.plan["centre"], b.plan["R"] + b.meta["overhang_m"]
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
@@ -400,9 +422,13 @@ def inside_point(b):
                  ((dh["x_m"][1] + xb) / 2, zf_ - 0.3), ((dh["x_m"][0] + xa) / 2, zf_ - 0.3))
     lv = b.meta["levels_m"]
 
+    # T-3562: over raked cheeks the bay has no eaves: its top is the wall top between them
+    # (k08_bays._raked_top), and over the wall top is the crown's
+    raked = (b.v["storeys"][-1].get("cheeks") or {}).get("raked")
+
     def points(cand):
         return [(cand[0], (lv[k] + lv[k + 1]) / 2, cand[1]) for k in range(len(lv) - 1)] + \
-               [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])]
+               ([] if raked else [(cand[0], b.meta["wall_top_m"] + 0.05, cand[1])])
 
     for cand in cands:
         if not any(in_hull(cand, w["footprint"], edge=True) for w in b.windows) and \
@@ -500,7 +526,9 @@ def rule_recesses(b, v, data):
                 continue
             if slab is not None and w["run"] == -1 and slab((p[0], b.meta["wall_top_m"], p[1])):
                 continue
-            if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
+            # T-3616: a through-plane light's recess runs back through the plane into the roof
+            # space over the eave, where its host opens round it (rule_through checks the hole)
+            if (inside(p[0], p[1]) if inside is not None else p[1] < floor) and not w.get("through_plane"):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
             # T-1890: a staged tower's stage window is held inside the stage's ring, not the shaft's
@@ -521,6 +549,30 @@ def rule_recesses(b, v, data):
             if w1["y"][0] < w2["y"][1] and w2["y"][0] < w1["y"][1] and convex_overlap(w1["footprint"], w2["footprint"]):
                 fails.append(f"recess: the recesses of two windows on storey {w1['storey']} (runs {w1['run']} and "
                              f"{w2['run']}) run into each other")
+    return fails
+
+
+def rule_through(b):
+    """T-3616: a through-plane light's recess crosses the wall plane only inside a hole its
+    host opens there (K08 `host_holes`), so no host face is drawn across its room."""
+    fails = []
+    for w in b.windows:
+        if not w.get("through_plane"):
+            continue
+        foot = w["footprint"]
+        xs = [p[0] for p in foot if p[1] < -EPS]
+        for a, c in zip(foot, foot[1:] + foot[:1]):
+            if (a[1] < 0.0) != (c[1] < 0.0):
+                xs.append(a[0] + (c[0] - a[0]) * (0.0 - a[1]) / (c[1] - a[1]))
+        if not xs:
+            fails.append(f"through: {w['opening']} (run {w['run']}) is marked through_plane but its recess "
+                         f"stays in front of the wall plane")
+            continue
+        y0, y1 = w["y"]
+        if not any(h[0] <= min(xs) + EPS and max(xs) - EPS <= h[1] and h[2] <= y0 + EPS and y1 - EPS <= h[3]
+                   for h in b.host_holes):
+            fails.append(f"through: {w['opening']} (run {w['run']})'s recess crosses the wall plane at x "
+                         f"{min(xs):.3f}..{max(xs):.3f} outside every hole its host opens")
     return fails
 
 
@@ -558,6 +610,14 @@ def rule_curves(b, data, tier):
                     f = math.atan2(p[2] - r.c[1], p[0] - r.c[0])
                     pt = b.meta["roof"]["pitch"]
                     want = K._unit((pt * math.cos(f), 1.0, pt * math.sin(f)))
+                    up = b.meta["roof"].get("upper")
+                    if up:
+                        # T-3616: a two-stage cap's vertex is shaded as the surface it is on: the
+                        # skirt, the ledge's soffit or lip, or the upper cone
+                        p2 = up["pitch"]
+                        want = max((K._unit((pt * math.cos(f), 1.0, pt * math.sin(f))), (0.0, -1.0, 0.0),
+                                    (math.cos(f), 0.0, math.sin(f)), K._unit((p2 * math.cos(f), 1.0, p2 * math.sin(f)))),
+                                   key=lambda w: K._dot(n, w))
                 else:
                     continue
                 worst = max(worst, math.acos(max(-1.0, min(1.0, K._dot(n, want)))))
@@ -814,7 +874,7 @@ def check_variant(v, data, full=None, light=None):
     light = light or K.build_variant(v, data, "light", board=False)
     tracer = Tracer(full)
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
-            + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
+            + rule_recesses(full, v, data) + rule_through(full) + rule_doubled(full) + rule_curves(full, data, "full")
             + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
             + rule_costs(full, data, "full") + rule_costs(light, data, "light")
             + rule_winding(full, "full") + rule_winding(light, "light"))

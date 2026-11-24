@@ -1,0 +1,28 @@
+{
+  "structure_id": "reid_house_2013_prairie",
+  "source_id": "nrhp_2003_reid_house_nomination",
+  "library_image": "a20-reid-nrhp-2003-photo-north-side",
+  "photo": "../../sources/assets/reid_2013_nomination_photos_t3626/reid_nrhp_2003_north_side.jpg",
+  "image_px": [
+    1400,
+    999
+  ],
+  "principal_px": [
+    700.0,
+    727.9
+  ],
+  "focal_px": 1914.4,
+  "eye": [
+    41.71,
+    -31.72,
+    1.35
+  ],
+  "yaw_deg": 315.64,
+  "sun_uvy": [
+    0.6,
+    -0.5,
+    0.7
+  ],
+  "solve": "Solved by T-3626 on the 2003 nomination photograph of the north side (PDF p. 36; the image store's 1400 x 999 px display copy), in the record's frame (u 0-18.2 toward the street from the front block's rear corner, v 0-7.62 SOUTH from the north line). WHICH WAY IT LOOKS: south-east, from the west side of the vacant lot of 2009-2011 at the avenue, the north party wall receding to the left and the front seen steeply at the right. FIT: a least-squares fit of the eye (u, v, height), heading, focal length and horizon, the principal point's x held at the picture's centre (its verticals are vertical, so the camera is level), to five points on the front whose heights the plate's camera (inland_architect_plate.json) and the record already fix: the cornice's crown at the north and south corners (14.2 m; x 963, y 100 and x 1160, y 177), and down the broad light's axis (v 3.7) the lunette's crown (12.6 m, y 207), the third storey's sill (9.7 m, y 348) and the second's (6.2 m, y 505); and to two verticals: the north-west corner (x 963) and the house's rear end (x 214, taken at the record's u -10.25). RESULT: the eye at u 41.7, v -31.7 (23.5 m out from the front and 31.7 m north of the north line), 1.35 m over the house's grade, heading 315.6 degrees in the frame, f 1914 px (a 35 mm-equivalent of about 49 mm), the horizon at y 728. RESIDUALS: 1.9 px RMS, the worst 5.0 px (the rear end's vertical). CHECKS it was not fitted to: the front's grade falls at y 794, on the fence's foot (y 790); the north wall's parapet reads 14.2-15.0 m along its length; the rear end, re-read on its own edge (x 222), at u -9.8, 0.45 m short of the 1911 sheet's -10.25; the parging's east edge at u 5.8, where 2011's record ends its main block (u 5.38 here). LIGHT: winter sun from the south-west behind the camera's left, the north wall in shade; the review sun is set low from the south-west.",
+  "scene": "1904"
+}

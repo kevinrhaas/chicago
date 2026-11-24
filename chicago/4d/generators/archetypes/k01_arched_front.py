@@ -56,6 +56,8 @@ def plan(a, frame):
     p, af = a.p, a.p.arched_front
     rects = []
     for g in af["groups"]:
+        if g.get("on_block_m") is not None:   # T-3562: turned in the entrance block's face, not this
+            continue
         L, R = g["cuts"][0], g["cuts"][-1]
         rects.append((g["lights"][0][0], g["lights"][-1][1], g["sill_m"], g["spring_m"]))   # the clear hole
         rects.append((L, R, g["spring_m"], g["top_m"]))                                      # the voussoir block
@@ -456,6 +458,8 @@ def _voussoirs(a, frame, g, conf, recess):
     j = 0
     if g.get("extrados") == "curved":
         j = _curved(a, frame, g, conf, recess, cid, inst)
+    # T-3722: a ring of the front's brick round a stone keystone (2126's door, the May 1905 plate)
+    ring_mat = a.front_brick if g.get("ring_fabric") == "brick" else "rough_stone_trim"
     for i, (s0, s1, spring, r, sill) in enumerate(g["lights"] if g.get("extrados") != "curved" else ()):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
@@ -465,7 +469,7 @@ def _voussoirs(a, frame, g, conf, recess):
               else wedges(cx, spring, r, L, Rr, g["top_m"]))
         for pts, kinds, mid in ws:
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
-            a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
+            a.stone(frame, pts, [hj] * len(pts), ring_mat, a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
             j += 1
     # the piers between paired lights, from the sill to the spring: one stone each
@@ -1262,6 +1266,12 @@ def _balconette(a, frame, bc, conf):
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:
+        if g.get("on_block_m") is not None:
+            # T-3562: a door's arch turned in the face of the set-out entrance block that carries it
+            O, R, N = frame
+            k = _k01()
+            _voussoirs(a, (k._add(O, k._mul(N, g["on_block_m"])), R, N), g, conf, recess)
+            continue
         _voussoirs(a, frame, g, conf, recess)
     if af.get("carved_band"):
         _carved_band(a, frame, af, length, conf)

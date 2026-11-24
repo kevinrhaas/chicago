@@ -142,7 +142,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   const legacy = await import('../renderers/web/js/transport-loop.js');
   assert.equal(legacy.supportsTownTransport, supportsTownTransport, 'old export is the same tiny guard');
   // T-3497: 1812 has its fort wagons.
-  for (const value of ['1812', '1835', '1904', 1812, 1835, 1904, new String('1835'), { toString: () => '1904' }])
+  for (const value of ['1812', '1835', '1871', '1904', 1812, 1835, 1871, 1904, new String('1835'), { toString: () => '1904' }])
     assert.equal(supportsTownTransport(value), true);
   for (const value of ['1880', '1905', null, undefined, false, {}, Symbol('1835')])
     assert.equal(supportsTownTransport(value), false);

@@ -32,6 +32,7 @@
  */
 
 import * as THREE from 'three';
+import { inertStreetTrees } from './inert-layers.js';
 import { SPECIES } from './trees.js';
 import { TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials } from './tree-instances.js';
@@ -181,6 +182,39 @@ function treeCard(t, doc) {
   // T-1934: a tree a solved picture places carries its reading and sources; its spot is
   // inferred from the picture, not the rule's reconstruction
   const pictured = t.placed === 'pictured';
+  // T-3686: another year's file names its own trees and notes (data/street_trees/1871.json).
+  const own = doc.card ?? null;
+  const file = `data/street_trees/${doc.scene ?? '1904'}.json`;
+  if (own) {
+    return {
+      id: t.id,
+      sidecar: {
+        name: young ? own.young_name : own.name,
+        phase: null,
+        change_note: own.note,
+        placement: {
+          symbolic_location: t.face ?? null,
+          position_confidence: pl.tier ?? 'reconstructed',
+          position_sources: [],
+          position_note: pl.note ?? '',
+        },
+        attributes: {
+          species: {
+            value: sp.common ?? 'street tree', confidence: sp.tier ?? 'reconstructed',
+            sources: sp.sources ?? [], note: sp.note ?? '',
+          },
+          position: {
+            value: `${Math.round(t.e * 10) / 10} E, ${Math.round(t.n * 10) / 10} N`,
+            confidence: pl.tier ?? 'reconstructed', sources: [],
+            note: `About ${pl.spacing_ft ?? 30} ft from the next tree, at the curb. ${pl.liberty ?? ''}`.trim(),
+          },
+        },
+        citations: [],
+        research_doc: own.research_doc ?? null,
+        research_note: `Tree ${t.id} of ${file} (${doc.ticket ?? ''}). ${pl.liberty ?? ''}`.trim(),
+      },
+    };
+  }
   return {
     id: t.id,
     sidecar: {
@@ -234,13 +268,9 @@ export async function createStreetTrees({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full',
   lowSpec = false, mode = 'summer', checkpoint = () => null, levelAt = null, contextTrees = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'street-trees';
-  const stats = { trees: 0, young: 0, triangles: 0, drawCalls: 0, mode, detail, crowns: 0, context: 0 };
-  const out = {
-    group, stats, records: [],
-    pickAt: () => null, update() {}, setMode: async () => {}, setDetail: async () => {}, dispose() {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertStreetTrees({ mode, detail });
+  const { group, stats } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {
@@ -270,7 +300,9 @@ export async function createStreetTrees({
 
   /* ---- where each tree stands ------------------------------------------- */
   const placed = trees.map((t) => {
-    const y = terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
+    // T-3686: a tree in a box at the edge of a raised plank walk stands at the walk's height.
+    const y = Number.isFinite(t.y_m) ? t.y_m
+      : terrain.surfaceHeight(t.e, t.n) + (levelAt?.(t.e, t.n) ?? 0) + PARKWAY_LIFT_M;
     return { t, y, variant: t.variant ?? 0, h: 20 };
   });
 

@@ -124,7 +124,7 @@ for (const d of DESTINATIONS) {
     for (const c of chosen) assert(!beats(r, c), `${d.year}: ${r.title} is not suggested, so it cannot beat ${c.title}`);
   }
 }
-assert.equal(picks[1871].length, 0, '1871 has no authored Jaunts yet; the baseline does not borrow another year’s');
+assert.deepEqual([...picks[1871]].sort(), ['The Great Chicago Fire', 'The Last Sunday', 'Who Started the Fire?'], '1871 suggests its own Jaunts, the Great Fire (T-3691), The Last Sunday (T-3692) and Who Started the Fire? (T-3693), not their retellings and never another year’s');
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
 assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');
@@ -133,8 +133,8 @@ assert.equal(picks[1812].length, 3, '1812 has three to suggest (the Fort Dearbor
 // ---- the steps are the tour's own ------------------------------------------------------------
 for (const scene of ['1835', '1904', '1812', '1871']) {
   const m = handoutModel({ steps: STEPS, scene, destinations: DESTINATIONS, catalogs: {} });
-  assert.equal(m.steps.length, 10);
-  assert.deepEqual(m.steps.map((s) => s.n), ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10']);
+  assert.equal(m.steps.length, 11);
+  assert.deepEqual(m.steps.map((s) => s.n), ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11']);
   assert.deepEqual(m.steps.map((s) => s.task), STEPS.map((s) => s.task), 'each step\'s task, as the tour has it');
   assert.deepEqual(m.steps.map((s) => s.bubble), STEPS.map((s) => s.bubble({ scene, front: null })), 'each bubble, as the tour says it there');
   assert.deepEqual(m.destinations.map((d) => d.year), [1835, 1904, 1812, 1871], 'the Observatory\'s destinations, in its order');
@@ -162,7 +162,7 @@ assert.deepEqual(asked, [1835, 1904, 1812, 1871], 'every destination\'s catalog,
 const handout = byId(block, 'guide-handout');
 const words = handout.textContent;
 const stepEls = byClass(handout, 'handout-step');
-assert.equal(stepEls.length, 10, 'ten steps');
+assert.equal(stepEls.length, 11, 'eleven steps (T-3743 added Report a bug)');
 STEPS.forEach((s, i) => {
   assert.equal(byClass(stepEls[i], 'handout-task')[0].textContent, s.task);
   assert.equal(byClass(stepEls[i], 'handout-bubble')[0].textContent, s.bubble({ scene: '1904', front: null }));
@@ -219,7 +219,7 @@ await settle(); await settle();
 const off = byClass(byId(offline, 'guide-handout'), 'handout-dest');
 assert.equal(byClass(off[1], 'handout-empty')[0]?.textContent, 'The Jaunts could not be read just now.');
 assert.equal(byClass(off[0], 'handout-jaunt-title').length, 3, 'the others still list theirs');
-assert.equal(byClass(byId(offline, 'guide-handout'), 'handout-step').length, 10);
+assert.equal(byClass(byId(offline, 'guide-handout'), 'handout-step').length, 11);
 assert.equal(off[0].dataset.here, 'true');
 unmount(offline);
 // A destination whose catalog is read and holds no Jaunts says so (1812 did, until T-3325).
@@ -250,4 +250,4 @@ const main = read('renderers/web/js/main.js');
 assert(/jauntCatalog: \(year\) => \(jauntCatalogs\[year\] \?\?= fetch\(new URL\(`sidecars\/\$\{encodeURIComponent\(year\)\}\/jaunts\/catalog\.json`/.test(main),
   'each destination\'s catalog is read when Guide asks, never at boot');
 
-console.log(`test_teacher_handout: ten tour steps and available Jaunts for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);
+console.log(`test_teacher_handout: eleven tour steps and available Jaunts for ${Object.entries(picks).map(([y, p]) => `${y} (${p.length})`).join(', ')}, printed as one top-level copy`);

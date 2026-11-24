@@ -189,34 +189,94 @@
             "face": "street",
             "along_m": 1.6,
             "head": "gable",
-            "gable_pitch_deg": 48,
+            "gable_pitch_deg": 45,
             "sash": {
               "variant": "k06.opening.sash_paired_flat",
-              "width_m": 1.25,
-              "height_m": 1.05,
-              "sill_m": 0.15
+              "width_m": 1.3,
+              "height_m": 1.0,
+              "sill_m": 0.1
             },
-            "surround_m": 0.3,
-            "face_setback_m": 0.05,
+            "surround_m": 0.38,
+            "face_setback_m": 0.01,
             "over_curb": {
               "back_m": 1.0
+            },
+            "frieze_m": 0.17,
+            "dress": {
+              "cornice_m": [
+                0.25,
+                0.22
+              ],
+              "return_m": 0.2,
+              "rake": [
+                [
+                  0.1,
+                  0.15
+                ],
+                [
+                  0.06,
+                  0.08
+                ]
+              ],
+              "pilasters": {
+                "width_m": 0.34,
+                "proud_m": 0.05,
+                "cap_m": 0.15
+              },
+              "cheeks": "slate",
+              "lunette": {
+                "radius_m": 0.38,
+                "ring_m": 0.07,
+                "proud_m": 0.1,
+                "flutes": 9
+              }
             }
           },
           {
             "face": "street",
             "along_m": 4.9,
             "head": "gable",
-            "gable_pitch_deg": 48,
+            "gable_pitch_deg": 45,
             "sash": {
               "variant": "k06.opening.sash_2over2_flat",
               "width_m": 0.7,
               "height_m": 1.0,
-              "sill_m": 0.15
+              "sill_m": 0.1
             },
-            "surround_m": 0.3,
-            "face_setback_m": 0.05,
+            "surround_m": 0.33,
+            "face_setback_m": 0.01,
             "over_curb": {
               "back_m": 1.0
+            },
+            "frieze_m": 0.22,
+            "dress": {
+              "cornice_m": [
+                0.25,
+                0.22
+              ],
+              "return_m": 0.2,
+              "rake": [
+                [
+                  0.1,
+                  0.15
+                ],
+                [
+                  0.06,
+                  0.08
+                ]
+              ],
+              "pilasters": {
+                "width_m": 0.3,
+                "proud_m": 0.05,
+                "cap_m": 0.15
+              },
+              "cheeks": "slate",
+              "lunette": {
+                "radius_m": 0.28,
+                "ring_m": 0.06,
+                "proud_m": 0.1,
+                "flutes": 7
+              }
             }
           }
         ],
@@ -236,7 +296,7 @@
       "sources": [
         "chicagology_2017_armour_photo"
       ],
-      "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (x 45-255 px) with a pair of lights (x 90-205, y 300-400) and the south one (x 375-515) with one light (x 415-475), each under a stone pediment of about 48 degrees between pilasters standing up over the curb (their apexes at y 150 and 190 px, about 0.8 and 0.4 m over it; K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them; along the curb a crenellated cresting (y 222-240): square merlons about 0.15 m wide (13-14 px) at about 0.34 m centres (31 px) rising about 0.09 m over a solid band, about 0.2 m in all, built in iron as the deck's crenellated pattern (T-3634); its material is not shown in the print and is inferred. The pediments' carved lunettes are not built (the match record)."
+      "note": "The photograph's mansard: its slated lower slope from the cornice (y 410 px) to the curb (y 230 px, about 2 m), steep; the north dormer (pilasters at x 52-240 px, about 2.05 m) with a pair of lights (x 85-207, y 312-400, about 1.3 x 1.0 m) and the south one (pilasters at x 382-505, about 1.35 m) with one light (x 415-475, y 312-400), each dressed as a classical pediment standing up over the curb (K01's over_curb, carried 1 m back over the deck), on the axes of the windows below them (T-3634): a pilaster with its capital either side of the lights (about 0.35 and 0.3 m wide), a frieze over them, a level cornice about 0.25 m deep whose top lies 0.55 m over the lights' heads (y 262 against 312 px) and whose ends return past the pilasters, the raking cornice pitched about 45 degrees to the apexes at y 152 and 184 px, and in each tympanum a carved lunette standing on the level cornice, a moulded ring round a carved fan (x 117-180 and 422-470 px, about 0.38 and 0.28 m in radius); the fan's carving is read only as a fan of leaves at the print's grain and its count is inferred. The dress is laid in the front's stone, the tone it has in the print. Along the curb a crenellated cresting (y 222-240): square merlons about 0.15 m wide (13-14 px) at about 0.34 m centres (31 px) rising about 0.09 m over a solid band, about 0.2 m in all, built in iron as the deck's crenellated pattern (T-3634); its material is not shown in the print and is inferred."
     },
     "roof_covering": {
       "value": {
@@ -455,13 +515,22 @@
             "brackets": "k08.bay.canted_hooded",
             "railing": {
               "height_m": 0.45,
-              "post_m": 0.25,
-              "baluster_m": 0.06,
-              "pitch_m": 0.25,
+              "post_m": 0.3,
               "rail_m": [
-                0.2,
-                0.08
-              ]
+                0.24,
+                0.1
+              ],
+              "pierced": {
+                "rings": 5,
+                "diameter_m": 0.27
+              },
+              "finials": {
+                "plinth_m": [
+                  0.32,
+                  0.1
+                ],
+                "ball_m": 0.34
+              }
             },
             "columns": {
               "diameter_m": 0.32,
@@ -486,7 +555,7 @@
         "chicagology_2017_armour_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The porch in the photograph: two columns with carved capitals (x 320-355 and 535-575 px, y 785-1050) on the stoop's landing carry a stone deck whose soffit is at about 4.5 m, level with the door's head (y 770 px) and whose parapet stands about 0.4 m over it (y 665-700), its ball finials (y 610-665) not built; 2.8 m across, built 2.6 so that its deck's frame stands clear of the projection's flank (0.1 m each side). Its depth, 1.75 m, is the sheet's one-storey stone part before the front. The parapet's rings are built as K01's stone railing (the match record)."
+      "note": "The porch in the photograph: two columns with carved capitals (x 320-355 and 535-575 px, y 785-1050) on the stoop's landing carry a stone deck whose soffit is at about 4.5 m, level with the door's head (y 770 px) and whose parapet stands about 0.4 m over it (y 665-700), a ball finial on a square plinth over each front corner (y 610-665, about 0.55 m); 2.8 m across, built 2.6 so that its deck's frame stands clear of the projection's flank (0.1 m each side). Its depth, 1.75 m, is the sheet's one-storey stone part before the front. The parapet is a coped solid band with five round piercings across its front (x 365-535 px, each about 22 px, 0.27 m, across at about 0.45 m centres) between its corner pedestals, built so (T-3634); its returns, which the square-on photograph does not show, are pierced at the front's spacing (three rings each), and the finials' turning (a ball on a plinth) is read at the halftone's resolution."
     },
     "door_clear_height_m": {
       "value": 2.75,
@@ -508,12 +577,13 @@
         "stacks": [
           {
             "u_m": 14.8,
-            "v_m": 0.7,
+            "v_m": 0.0,
             "plan_m": [
               1.0,
               0.7
             ],
-            "top_m": 12.1
+            "top_m": 12.5,
+            "on_cornice": true
           },
           {
             "u_m": 5.0,
@@ -529,7 +599,7 @@
       "sources": [
         "chicagology_2017_armour_photo"
       ],
-      "note": "The north stack at the photograph's left edge (x 0-50 px, its top at y 80, about 12.1 m), built inside the north flank toward the front, about 0.7 m south of where the photograph's left edge puts it (K01 stands a stack on a flank's outer face only on a mansard's side parapet, which the photograph does not show; the match record); a second stack on the south flank toward the rear is reconstructed."
+      "note": "The north stack at the photograph's left edge (x 0-50 px, its top at y 80, about 12.5 m), built on the mansard's cornice astride the flank wall toward the front (T-3634: its centre on the wall's line, its outer face at the cornice's 0.35 m edge, rising from the wall head as 1620's front stack does, the deck's cresting stopping either side of it), where the photograph's left edge puts it; until T-3634 it stood 0.7 m inside the flank and 0.4 m low, because K01 then let no stack stand through a mansard's curb. A second stack on the other flank toward the rear is reconstructed."
     },
     "rainwater": {
       "value": {
@@ -630,7 +700,7 @@
           ],
           "roof": {
             "kind": "gable",
-            "pitch": 1.5,
+            "pitch": 1.4,
             "covering": "slate_pennsylvania",
             "gable": {
               "inset_m": [
@@ -641,17 +711,56 @@
               "coping": {
                 "width_m": 0.3,
                 "height_m": 0.18,
-                "proud_m": 0.12
+                "proud_m": 0.15
               },
               "kneeler": {
-                "width_m": 0.35,
+                "width_m": 0.1,
                 "out_m": 0.03
+              },
+              "foot_cornice": {
+                "height_m": 0.2,
+                "proud_m": 0.3,
+                "dentils": {
+                  "width_m": 0.1,
+                  "drop_m": 0.2,
+                  "spacing_m": 0.19,
+                  "out_m": 0.14
+                },
+                "fillet": [
+                  0.08,
+                  0.1
+                ]
+              },
+              "bargeboards": {
+                "depth_m": 0.27,
+                "proud_m": 0.1
+              },
+              "ventilator": {
+                "height_m": 0.55,
+                "gap_m": 0.05,
+                "proud_m": 0.03,
+                "bar_m": 0.03,
+                "cell_m": 0.11
               },
               "finial": {
                 "width_m": 0.2,
                 "shaft_m": 0.35,
                 "cap_m": 0.3
-              }
+              },
+              "lights": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.62,
+                  "clear_height_m": 1.12,
+                  "sill_m": 0.1,
+                  "at": [
+                    0.4043,
+                    0.5957
+                  ],
+                  "recess_m": 0.33,
+                  "why_not_ordinary": "the gable's two attic lights in the photograph (x 667-730 and 750-812 px, y 240-350), standing side by side on the gable's foot either side of its middle, about 0.68 m across their frames with a 0.2 m pier between, and about 1.2 m tall (T-3634; built 0.62 by 1.12 m clear on 0.9 m centres, their sills 0.1 m over the wall top so the K06 sill stands on it)"
+                }
+              ]
             }
           },
           "gable_through_eave": true
@@ -662,7 +771,7 @@
         "chicagology_2017_armour_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past the cornice into a steep gable (its foot at the dentilled band, y 360-420 px, about 9 m; its apex at y 70, about 12.2 m; so a pitch of about 1.5) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. Its gable's bargeboards are built as K08's coping and its two attic lights are not built (the match record)."
+      "note": "The south part of the front in the photograph (x 555-930 px), about 4.1 m of the sheet's 10.25 m front (built 3.9 m, so the porch's deck stands clear of its flank, within tolerance), carried up past a dentilled cornice into a steep gable (its foot at the cornice's shelf, y 360 px, 9 m; its apex at y 70, about 12.2 m; its rakes run down to the shelf at the projection's corners at a pitch of about 1.4, read off both rakes) under a finial (y 10). It stands proud of the north part, its flank catching the cornice's end and the porch's deck; 0.4 m is a reading of those shadows, not a measurement. The gable's foot cornice (a shelf over a row of dentils and a fillet, y 355-425 px), the bargeboards under its rakes and the latticed ventilator in its peak (y 120-170 px) are built as the photograph shows them, in the front's stone since the print is monochrome; its two attic lights are cut in the gable's face as the photograph shows them (T-3634)."
     },
     "rear_wings": {
       "value": [
@@ -718,30 +827,30 @@
     },
     "boundary": {
       "value": {
-        "street_line_m": 9.15,
+        "layout": "open",
         "lot_s_m": [
           -2.845,
           12.345
         ],
-        "fence": "k11.fence.spear_on_curb",
-        "entrance_gate": {
-          "variant": "k11.gate.walk_gate_on_piers",
-          "leaves": 2,
-          "clear_m": 1.3,
-          "drawn_deg": 70
-        },
-        "side_gate": {
-          "variant": "k11.gate.walk_gate_on_piers",
-          "pier_s_m": -1.5,
-          "drawn_deg": 0
-        },
-        "posts": {
-          "section_m": 0.12,
-          "height_m": 1.2
+        "area_railing": {
+          "fence": "k11.fence.spear_on_curb",
+          "line_m": 1.0,
+          "runs_s_m": [
+            [
+              0.12,
+              3.12
+            ],
+            [
+              6.68,
+              10.13
+            ]
+          ],
+          "rail_top_m": 0.3,
+          "curb_height_m": 0.15
         }
       },
       "confidence": "reconstructed",
-      "note": "The lot's street line off the 1904 parcel (prairie_2017); an iron spear fence on a curb, as the photograph's railing along the front's foot is iron. The photograph's railing stands close before the basement; where the lot line ran is the parcel's. (L-k01-2017-armour-3634)"
+      "note": "T-3634: the photograph's railing, not the lot line's: a low iron railing of plain bars on a stone curb along the front's foot before the basement lights, either side of the stoop, its bars running into the stoop's cheeks (x 0-290 and 600-932 px, its top at about y 1128 px and its curb at about 1165, about 0.65 m and 0.15 m over grade on the camera's solve). Built as the kit's spear run lowered to that: a 0.15 m curb, the top rail 0.30 m over it, the spears to about 0.65 m, 1.0 m before the street front (clear of the projection's 0.4 m), from the front's north corner to the stoop's north cheek and from its south cheek to the projection's south corner. No fence or gate on the street line: the photograph shows none before the railing, and the walk comes up to the stoop's foot. Reconstructed: the railing's distance before the front and its ends past the picture's edges are not read off it, and the bars' heads are the kit's spears where the halftone shows only a top rail's line. (L-k01-2017-armour-3634)"
     },
     "yard": {
       "value": {
@@ -754,7 +863,8 @@
           "surface": "stone_flags",
           "flag_m": 0.75,
           "top_m": 0.06,
-          "wear_tone": 0.9
+          "wear_tone": 0.9,
+          "width_m": 1.3
         }
       },
       "confidence": "reconstructed",

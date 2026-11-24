@@ -237,7 +237,9 @@ export function footprintsFrom(registry, { camps = false } = {}) {
     for (const [index, poly] of polygons.entries()) {
       const fp = { id: record.id, pts: poly.map(toWorld) };
       // Preserve the native parade-ground floor flag on its original core.
-      if (index === 0 && record.sidecar?.attributes?.kind?.value === 'parade') fp.ground = true;
+      // T-3689: open ground (a square, a cemetery) is walked on as a parade is: its
+      // footprint keeps the context city's buildings off it, never the visitor.
+      if (index === 0 && ['parade', 'open_ground'].includes(record.sidecar?.attributes?.kind?.value)) fp.ground = true;
       // Existing passages belong to the core, not a separate annex component.
       const lanes = index === 0
         ? (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean)
@@ -399,6 +401,51 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
    *   would sink a visitor into a hill to walk a bridge over a stream that is not
    *   drawn. The ground is what they can see, so the ground is what they walk.
    */
+  /**
+   * THE DECKS NEAR A POINT (weak PC, 2026-11-24). `surfaceAt` tested every deck in
+   * the scene with a point-in-polygon for every point it was asked, and the route
+   * planner asks it for every cell of a new walking grid: on 1871, after a Go to,
+   * that was 20 s of a 52 s profile and single freezes of 4-10 s on an i5-10400.
+   * The decks are filed once by the grid cells their bounds touch, and again
+   * whenever layers have added more (they are only ever pushed); a point then
+   * tests only its own cell's decks, in the same order, so the answer is the same.
+   */
+  const DECK_CELL_M = 32;
+  const NO_DECKS = [];
+  let deckGrid = null;
+  let deckGridLength = -1;
+  // A deck with a non-finite corner has no bounds to file it by, yet the
+  // point-in-polygon can still say yes for it; then every point asks every deck,
+  // exactly as before. No dataset deck is like that.
+  let deckGridAll = false;
+  const deckKey = (ix, iy) => (ix + 32768) * 65536 + (iy + 32768);
+  function decksNear(e, n) {
+    if (deckGridLength !== decks.length) {
+      deckGrid = new Map();
+      deckGridAll = false;
+      for (const d of decks) {
+        if (!d?.pts?.length) continue;
+        let w = Infinity, s = Infinity, east = -Infinity, north = -Infinity;
+        for (const [x, y] of d.pts) {
+          if (!Number.isFinite(x) || !Number.isFinite(y)) { deckGridAll = true; break; }
+          if (x < w) w = x; if (x > east) east = x;
+          if (y < s) s = y; if (y > north) north = y;
+        }
+        if (deckGridAll) break;
+        for (let ix = Math.floor(w / DECK_CELL_M); ix <= Math.floor(east / DECK_CELL_M); ix++) {
+          for (let iy = Math.floor(s / DECK_CELL_M); iy <= Math.floor(north / DECK_CELL_M); iy++) {
+            const k = deckKey(ix, iy);
+            const cell = deckGrid.get(k);
+            if (cell) cell.push(d); else deckGrid.set(k, [d]);
+          }
+        }
+      }
+      deckGridLength = decks.length;
+    }
+    if (deckGridAll) return decks;
+    return deckGrid.get(deckKey(Math.floor(e / DECK_CELL_M), Math.floor(n / DECK_CELL_M))) ?? NO_DECKS;
+  }
+
   function surfaceAt(e, n) {
     let deckY = null;
     // A context city's rendered roads/boardwalks are real walk surfaces too.
@@ -407,7 +454,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       const y=contextFloor(e,n);
       if (Number.isFinite(y)) deckY=y;
     }
-    for (const d of decks) {
+    for (const d of decksNear(e, n)) {
       if (!inside(e, n, d.pts)) continue;
       const y = deckHeightAt(d, e, n);
       if (typeof y === 'number' && (deckY === null || y > deckY)) deckY = y;

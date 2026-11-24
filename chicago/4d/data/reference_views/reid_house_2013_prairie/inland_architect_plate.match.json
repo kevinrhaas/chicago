@@ -2,7 +2,7 @@
   "structure_id": "reid_house_2013_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/reid_house_2013_prairie__as_mapped_1904.glb",
-  "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d",
+  "glb_sha256": "3a6c945243cf07b0efbcbb049d2bdfcba5bd495a042a034411ec8825d6970a68",
   "camera_sha256": "d75115f65a3c0acbbd765768fd311a98d37827caa59410d0e90379dca186c99a",
   "photo_sha256": "ba02574f08ce82750adba9895b34fe475244d9ee395336c152379c069899d63b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "26079ecdeac402ab05307cb6f4fbc86c08360432786401c3764313c3b8d9ff6d"
+      "glb_sha256": "3a6c945243cf07b0efbcbb049d2bdfcba5bd495a042a034411ec8825d6970a68"
     },
     {
       "structure_id": "house_2011_prairie",
@@ -42,18 +42,18 @@
         7.885140492844279
       ],
       "rotation_y": 0,
-      "glb_sha256": "5096fd7422a6227a38c42790b0b0961f2e8e8d5d11f8e1ef86650105768585af"
+      "glb_sha256": "7c922ea47e81ef9bca407d01021724003a20b8006e1ad79a4d0bd166402e2897"
     },
     {
       "structure_id": "house_2017_prairie",
-      "glb": "assets/gltf/house_2017_prairie__draft_1904.glb",
+      "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
       "placement": {
         "local_e": 1441.061,
         "local_n": -3530.462,
         "rotation_deg": 179.389,
         "scene": "1904",
         "target_date": "1904-07-01",
-        "phase": "draft_1904"
+        "phase": "as_mapped_1904"
       },
       "position": [
         -0.06633137903880316,
@@ -61,12 +61,12 @@
         -10.370315576112317
       ],
       "rotation_y": -0.00010471975511966374,
-      "glb_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
+      "glb_sha256": "78818943e4f2f34ae5aa72efca8a077b068f05caf4ef0ec6274680d4232dbdf5"
     }
   ],
-  "group_sha256": "76aac937ecd2d46ce865ae39cac282a494b06310945d8601d6c81594bd24a2e9",
+  "group_sha256": "0a23a2a4a52ee78c8a2e1cb96a9a6e4523e21482b3996b4d0ccc71b13f30463c",
   "side_by_side": "docs/RESEARCH/photo-match/reid_house_2013_prairie/inland_architect_plate-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a narrow three-storey front over a raised basement filling its lot between 2011 and 2017, flat behind a cornice and a roof balustrade, where the draft stood a 5.5 m body 2 m south of the sheet's",
@@ -86,7 +86,7 @@
     {
       "what": "the upper storeys' three lights each, a broad one between two narrow ones, and the third storey's broad light carried up under a round arch",
       "status": "fixed",
-      "how": "T-3625: named street sash at 2.36, 3.7 and 4.97 m on both floors, the third's broad one K06's round-headed fanlight sash to 12.6 m"
+      "how": "T-3625: named street sash at 2.36, 3.7 and 4.97 m on both floors, the third's broad one K06's round-headed fanlight sash to 12.6 m; T-3626 re-reads the third's broad light as a square light under the hood and a lunette over it (below)"
     },
     {
       "what": "the belt under the second floor's sills, the cornice over the whole front and the balustrade over it",
@@ -100,23 +100,43 @@
     },
     {
       "what": "the two oval lights in the upper wall, at the frame's two sides about 7.3 m up (x 340-370 and 575-600 px)",
-      "status": "open",
-      "how": "not cut: K01 cuts no oval in a plain wall (L-k01-2013-reid-3625); T-3626"
+      "status": "fixed",
+      "how": "T-3626: two oval lights 0.75 by 1.2 m over their moulded stone rings at 0.83 and 6.54 m, 7.3 m up (street_front_windows.frame.ovals), a dark field in each ring for the grilled light, no hole cut (L-k01-2013-reid-3626); the render's rings at x 343-370 and 572-605 px, y 620-705 and 590-670, against the plate's 340-370 and 565-602"
     },
     {
       "what": "the frame round the three-light storeys: pilasters at 1.85 and 5.27 m from the second floor's belt to the frieze, sunk panels between the two floors' lights and a corniced hood over each storey's lights",
-      "status": "open",
-      "how": "not built (L-k01-2013-reid-3625); T-3626"
+      "status": "fixed",
+      "how": "T-3626: street_front_windows.frame: a stone pilaster up each side of the frame and one in each pier between its lights, 5.95-11.45 m; a raised border round a sunk panel under each third-storey light, 8.4-9.55 m; one corniced hood across the whole frame at 11.45-11.8 m, on the pilasters. The render's frame edges at x 393 and 470 px against the plate's 385-400 and about 470, its hood's foot at y 375 px at the north end against the plate's about 380"
     },
     {
-      "what": "the entablature's frieze of garlands and wreaths and the dentils under the cornice's corona (x 300-615 px, y 160-335)",
-      "status": "open",
-      "how": "K10's moulded section stands for them uncarved (L-k01-2013-reid-3625); T-3626"
+      "what": "the third storey's broad light: a tall square-headed light under the frame's hood, its head at the hood, and a round-headed lunette over the hood in its own moulded arch (x 445-495 px, y 300-345)",
+      "status": "fixed",
+      "how": "T-3626: the one round-headed light T-3625 built 9.7-12.6 m is now the two the plate draws: a broad square light 1.2 m wide, 9.7-11.45 m, and a round-headed light 0.9 m wide, 11.9-12.6 m, over the hood; the top storey's narrow lights cut to 1.6 m (heads 11.3 m), under the pilasters' capitals as the plate has them. The lunette's arch moulding is K06's own (no separate carved arch)"
+    },
+    {
+      "what": "the pilasters' carved capitals under the hood, and the small carved roundels in the narrow panels",
+      "status": "within tolerance",
+      "how": "T-3626: the pilasters stand where the plate draws them and stop under the hood; their carved capitals (about 0.3 m) and the narrow panels' small roundels are carving on parts that are built, under the bar a street visitor would notice (L-k01-2013-reid-3626)"
+    },
+    {
+      "what": "the carved border up the front's south edge, from the frieze down past the second storey (x 600-640 px, y 250-600), its foot on a carved bracket",
+      "status": "fixed",
+      "how": "T-3626: a raised border 0.4 m wide and 0.05 m proud up the south corner (street_front_windows.frame.pilasters[4], s 7.22-7.62 m), from the belt's top (5.95 m) to under the cornice (12.95 m); the render's strip at the front's south edge, under the cornice to the second storey, where the plate's is. Its carving and its carved bracket at about 7.7 m are not cut, under the bar (L-k10-2013-reid-blocks-3626)"
+    },
+    {
+      "what": "the row of blocks under the cornice's corona (x 300-615 px, y 160-335)",
+      "status": "fixed",
+      "how": "T-3626: wall_head.blocks: thirteen of K10's stone consoles under the moulded cornice's corona, 0.65 m apart, 0.22 m tall, 0.18 m wide and 0.2 m out (12.91-13.13 m); in the render a toothed course under the corona from corner to corner, about 25 px apart as in the plate (L-k10-2013-reid-blocks-3626)"
+    },
+    {
+      "what": "the frieze's garlands and wreaths between the lunette's crown and the blocks",
+      "status": "within tolerance",
+      "how": "the plate's frieze stands where K10's moulded section does (about 12.9-13.3 m), its foot on the lunette's crown, so the band is there; its garlands are low-relief carving on it, under the bar. A separate frieze band under the section would strike the lunette's head (L-k10-2013-reid-blocks-3626)"
     },
     {
       "what": "the front's tone: the plate prints it the palest front on the block, near white beside 2011's pale stone, where the render's cream brick reads a warm tan",
-      "status": "open",
-      "how": "K03's palest front recipe is cream_sooted, smoke-greyed; the register's 'cream textured brick' of 1894 wants a cleaner, paler face; T-3626"
+      "status": "fixed",
+      "how": "T-3626: the front is laid in the K03 library's new cream_rough panel (rough cream face brick in a fine struck joint, the recipe `cream_rough`), the colour the 2003 nomination documents ('faced with cream colored, rough textured brick', p. 4) and the owner's 'You can add colors' (2026-11-20) allowed. Measured on the side-by-side: the front's mean luma 178 against 2011's stone at 143, where the last render's tan brick read 130, darker than 2011; the plate prints 2013 at 230 against 2011's 222. The order now matches the plate: 2013 is the palest front on the block. The plate's near-white is a monochrome halftone's highlight on cream brick; the exact tint is reconstructed (L-k03-brick-library-2290)"
     },
     {
       "what": "the portico's entablature and the door",
@@ -136,14 +156,19 @@
     {
       "what": "the flanks, the rear and the roof",
       "status": "not shown",
-      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck; T-3626 reads the 2003 photographs"
+      "how": "2011 and 2017 stand against the party walls and the balustrade hides the deck. T-3626 brought the 2003 nomination photographs into the image store and read them: the north wall has its own view now (nrhp_2003_north_side.json); the rear photograph is read in the record's rear_wings note, its camera not yet solved. The two stacks moved to the south party wall (the nomination's fireplaces) fall, from this camera, behind 2017's front gable, which the plate draws in front of them."
     },
     {
       "what": "2011 and 2017 themselves",
       "status": "not shown",
       "how": "rendered as the 1904 scene's own records for context only; their pictures are their own tickets'; 2011's K01 turret (T-3615, built off the Chicagology photograph's camera) falls where the plate draws it, its cone at x 90-290 px of the render against the plate's 160-320 px, an independent check on this camera"
+    },
+    {
+      "what": "a plain strip up the north corner, from the frieze to the balcony",
+      "status": "within tolerance",
+      "how": "about 0.2 m wide in the plate (x 322-332 px), under the bar; not built"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-17"
+  "reviewed": "2026-11-21"
 }

@@ -1,0 +1,26 @@
+{
+  "id": "loc_stereo_1s47902_crosbys_opera_house",
+  "type": "photograph",
+  "citation": "John Carbutt, '139.—Crosby's Opera House, Washington Street', stereograph (Chicago: J. Carbutt, 131 Lake Street, [between ca. 1860 and 1870]). Library of Congress Prints and Photographs Division, LC-DIG-stereo-1s47902.",
+  "author": "John Carbutt (1832-1905), photographer and publisher",
+  "date": "[between ca. 1865 and 1870] (the Library dates the card between ca. 1860 and 1870; the opera house opened in April 1865)",
+  "describes_date": "1865-1870",
+  "repository": "Library of Congress, Prints and Photographs Division (LOT 12069). The left half of the card is committed at data/sources/assets/landmarks_1871_t3688/loc_1s47902_crosbys_opera_house_left.jpg.",
+  "url": "https://www.loc.gov/item/93500569/",
+  "locator": "The left half of the card: Crosby's Opera House's Washington Street front from up and across the street to the south-west, the arched shop fronts either side of the great arched entrance, the round-arched windows, the slated mansard with arched dormers, and the raised centre with its sculpture group; a neighbour hides the west wall.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published before 1871.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-21 (T-3688) from the Library's master TIFF of the whole card (tile.loc.gov storage-services, master/pnp/stereo/1s40000/1s47000/1s47900/1s47902u.tif); the left half cropped and committed at 1400 x 1355 px, sha256 f54a7c0b010db2510c0f59d2e0fa6fe69ef92f7c1d21567b67c6d38471c4d6a3.",
+  "note": "The opera house's whole front as it stood, in one photograph. Monochrome.",
+  "what_it_supplies": [
+    "the Washington Street front's width, storeys, bays, arches, entrance, mansard and dormers"
+  ],
+  "what_it_does_not_supply": [
+    "the depth of the building and its other walls",
+    "measured storey heights",
+    "the stone's colour"
+  ]
+}

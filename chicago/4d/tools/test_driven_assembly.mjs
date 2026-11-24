@@ -371,7 +371,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
     HumanActor: FixtureActor, prepareHorseTemplate, applyHorseAppearance, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
-    createHorseGait, attachHorseLods, loadGaitClip,
+    createHorseGait, attachHorseLods, loadGaitClip, plainTransmissiveGlass: root => root,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
       else if (value === gltfHorse) stats.horseDisposed++;
@@ -379,7 +379,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch, createHorseGait, attachHorseLods, loadGaitClip, plainTransmissiveGlass } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
@@ -471,7 +471,7 @@ const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
 assert(!actualScene1904.layers.includes('residents') && actualScene1904.layers.includes('humans'));
 assert.equal(actualPeople1904.people.length, 445); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
-for (const id of ['1812', '1835', '1904', 1812, 1835, 1904]) assert(supportsTownTransport(id));
+for (const id of ['1812', '1835', '1871', '1904', 1812, 1835, 1871, 1904]) assert(supportsTownTransport(id));
 for (const id of ['1880', '1905', null]) assert(!supportsTownTransport(id));
 assert(sceneBindingSource.includes('if (!supportsTownTransport(sceneId)) return null;'), 'Mount shares the same eligibility guard');
 // T-3468 (owner, 2026-11-07): every scene without the 1835 drawer directory (1812 and 1904)
@@ -506,7 +506,7 @@ await assert.rejects(() => actualAssemblyCallback(oldNullDirectory).make(actualD
 await assert.rejects(() => actualAssemblyCallback(sceneBindingSource).make({ ...actualDriverRow, driver_instance: { ...actualDriverRow.driver_instance, person_id: 'no_such_hans' } }), /not in sidecars/, 'No anonymous or invented-person fallback');
 // Execute actual shared public opener:1904 card targets Hans in his own building,
 // whose native Navigator household reader already uses residents_root.
-const openBegin = mainSource.indexOf('async function openSceneDirectoryPerson(id) {');
+const openBegin = mainSource.indexOf('async function openSceneDirectoryPerson(id');
 const openEnd = mainSource.indexOf('\n  async function openPersonCard', openBegin);
 assert(openBegin >= 0 && openEnd > openBegin);
 const opened = [], cardOpen = new Function('peopleDirectory', 'loaded', 'openBuilding', 'navigatorUi', mainSource.slice(openBegin, openEnd) + '\nreturn openSceneDirectoryPerson;')(
@@ -514,6 +514,9 @@ const opened = [], cardOpen = new Function('peopleDirectory', 'loaded', 'openBui
   (id, options) => { opened.push({ id, ...options }); return true; }, { select: () => true });
 assert.equal(await cardOpen(named.personId), true);
 assert.deepEqual(opened, [{ id: 'otis_house_2033_prairie', person: named.personId }]);
+// A card opened because the visitor walked up to them says so (it opens without holding the walk).
+opened.length = 0; assert.equal(await cardOpen(named.personId, { approach: true }), true);
+assert.deepEqual(opened, [{ id: 'otis_house_2033_prairie', person: named.personId, approach: true }]);
 assert(!mainSource.slice(mainSource.indexOf('// 1904 uses its existing scene-aware'), mainSource.indexOf("// …and the town's FIRMS")).includes('state:'), 'Adapter never synthesizes a card-open state');
 console.log('1904 actual392-person catalog: lazy eligible namedHans identity, native scene-aware card/Find path, no human-layer population or anonymous fallback PASS');
 // The real native person renderer exposes Find only through the supplied public
@@ -546,7 +549,7 @@ assert.equal(await findNativePerson(named.personId), true);
 assert.deepEqual(targets.map(({ kind, id }) => ({ kind, id })), [{ kind: 'person', id: named.personId }]);
 assert.equal(targets[0].home, named.person.lives_at, 'Find carries the house to fall back on');
 // Execute the exact1835 branch with the existing visible-tab fallback guard.
-const sharedBegin = mainSource.indexOf('async function openPersonCard(id) {'), sharedEnd = mainSource.indexOf('\n  // T-2618:', sharedBegin);
+const sharedBegin = mainSource.indexOf('async function openPersonCard(id'), sharedEnd = mainSource.indexOf('\n  // T-2618:', sharedBegin);
 const legacyCalls = [], sharedOpen = new Function('api', 'document', 'hud', 'openSceneDirectoryPerson', mainSource.slice(sharedBegin, sharedEnd) + '\nreturn openPersonCard;')(
  { people: { open: id => { legacyCalls.push(['open', id]); return true; } } },
  { querySelector: () => ({ hidden: false }) }, { setPanel: on => legacyCalls.push(['panel', on]), selectTab: tab => legacyCalls.push(['tab', tab]) }, () => { throw Error('visible1835 branch must not change'); });

@@ -1,0 +1,31 @@
+{
+ "id": "greatchicagofire_touring_the_fire_2011",
+ "type": "website",
+ "citation": "Smith, Carl, and others. 'Touring the Fire' (landmark pages: Court House, Sherman House, Chamber of Commerce, Crosby's Opera House, Field & Leiter, Palmer House, Water Tower, Saturday Night Fire, O'Leary Home, South Water Street) and 'Timeline: Chicago in 1871'. The Great Chicago Fire and the Web of Memory. Chicago History Museum and Northwestern University, 2011.",
+ "author": "Chicago History Museum and Northwestern University (Carl Smith, principal author)",
+ "date": "2011",
+ "describes_date": "Chicago before and during the fire of 8-10 October 1871",
+ "repository": "Chicago History Museum and Northwestern University",
+ "url": "https://greatchicagofire.org/landmarks/court-house/",
+ "locator": "The landmark page named in each claim, at https://greatchicagofire.org/landmarks/<name>/ (court-house, sherman-house, chamber-of-commerce, crosbys-opera-house, field-leiter, palmer-house, water-tower, saturday-night-fire, oleary-home, south-water-street), by the caption or paragraph the claim names; the timeline entries at https://greatchicagofire.org/timeline/item/1871-10-07/ and /1871-10-08/.",
+ "tier": 4,
+ "rights_status": "check_required",
+ "rights_note": "Site text and images (c) 2011 Chicago Historical Society and Northwestern University. Cited for facts in text only; no image or asset is derived from it.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-19 (T-3692) on the live pages named in the locator; the captions quoted are copied from the page text.",
+ "note": "Modern museum interpretation written to accompany the Chicago History Museum's pictures of the pre-fire city, each caption naming its picture (ichi- numbers). Used for the Last Sunday jaunt's places: what each building was, who built it and what it held on 8 October 1871. Where it disagrees with Andreas (the Palmer House: it puts the hotel standing at the fire on the southeast corner of State and Monroe, opened in March 1871; Andreas puts it at the northwest corner of State and Quincy, opened 26 September 1870), the jaunt says only what both agree on.",
+ "what_it_supplies": [
+  "the Court House's block, cupola, watchman's balcony 120 feet up, clock and 10,849-pound bell",
+  "the Sherman House's Athens marble, its Clark Street portico, and William Gallagher's letter placing Theodore Thomas there",
+  "the Chamber of Commerce's dedication on 30 August 1865 and its commodities exchange",
+  "Crosby's Opera House: its front, shops, 3,000 seats, summer renovation and the Thomas reopening set for 9 October",
+  "Potter Palmer's State Street, the Field & Leiter store and the Palmer House",
+  "the Water Tower and Pumping Station, the lake tunnel and crib",
+  "the Saturday Night Fire of 7-8 October and the O'Leary cottage and barn"
+ ],
+ "what_it_does_not_supply": [
+  "measured dimensions or surveyed positions for any building",
+  "who was on any street on the afternoon of 8 October"
+ ]
+}

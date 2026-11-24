@@ -1,0 +1,62 @@
+{
+  "id": "lake_shore_sands_1871",
+  "scene": "1871",
+  "name": "The lake shore sands",
+  "address": "The lake shore by the old City Cemetery",
+  "status": {
+    "text": "A refuge in the fire",
+    "today": "Lincoln Park's lakefront",
+    "grade": "attested",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration",
+      "sheahan_upton_1871_great_conflagration"
+    ],
+    "note": "Refugees along the shore and the Lake-shore Drive (Colbert and Chamberlin, p. 265; Sheahan and Upton, pp. 113-114)."
+  },
+  "built": {
+    "year": 1830,
+    "grade": "reconstructed",
+    "sources": [
+      "colbert_chamberlin_1871_great_conflagration"
+    ],
+    "note": "A natural shore; the year only opens the record."
+  },
+  "use": "Open beach",
+  "summary": "Open sand between the town and the lake. When the North Side burned, all kinds of people crowded down here. Judges and merchants sat beside workingmen and their families, with the water at their backs.",
+  "key": [
+    {
+      "label": "On the beach",
+      "value": "Judges, merchants, doctors, workingmen, women and children",
+      "grade": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "How wide the sand ran here is a guess.",
+      "about": "structure",
+      "grade": "reconstructed",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "note": "The 1870 map traces the shore line, not the beach's width."
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1871-10-09",
+      "text": "The North Side's people crowd the shore as the fire comes north.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration",
+        "sheahan_upton_1871_great_conflagration"
+      ]
+    }
+  ]
+}

@@ -34,6 +34,7 @@
  */
 
 import * as THREE from 'three';
+import { inertStreetFurniture } from './inert-layers.js';
 import { onDaylight } from './time-of-day.js';
 import { glowTexture, windowGlowFor } from './night-lights.js';
 
@@ -48,8 +49,11 @@ const RINGS = {
 const REDEAL_M = 3;
 // A hydrant is under a metre tall: past this it is a speck, so it is not drawn at all.
 const HYDRANT_FAR_M = { full: 160, balanced: 130, light: 90 };
-const KINDS = ['gas_lamp', 'fire_hydrant', 'utility_pole'];
-const POLE_CLASSES = ['street', 'alley', 'trolley'];
+const KINDS = ['gas_lamp', 'fire_hydrant', 'utility_pole', 'hitching_post'];
+// 'telegraph': the 1871 business streets' poles of five crossarms (data/street_furniture/1871.json).
+const POLE_CLASSES = ['street', 'alley', 'trolley', 'telegraph'];
+// A hitching post is a little over a metre: past this it is a speck (the 1871 shop walks).
+const HITCH_FAR_M = { full: 120, balanced: 95, light: 60 };
 
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -278,6 +282,22 @@ function hydrantGeometry(m) {
   return { near, far };
 }
 
+/** A cast-iron hitching post (1871): a turned shaft on a foot, a ball head and a ring for the rein. */
+function hitchGeometry(m) {
+  const H = m.height_m ?? 1.1;
+  const r = m.r_m ?? 0.045;
+  const cap = m.cap_r_m ?? 0.07;
+  const ring = m.ring_r_m ?? 0.06;
+  const near = merge([
+    lathe([[0, 0], [r * 2, 0], [r * 2, 0.05], [r * 1.3, 0.1], [r, 0.16], [r, H - 0.14], [r * 1.35, H - 0.1],
+      [r * 1.35, H - 0.07], [0, H - 0.07]], 10),
+    at(new THREE.SphereGeometry(cap, 10, 6), H - 0.02),
+    (() => { const g = new THREE.TorusGeometry(ring, 0.009, 4, 10); g.translate(0, H - 0.2 - ring, r + 0.01); return g; })(),
+  ]);
+  const far = merge([at(new THREE.CylinderGeometry(r, r * 1.6, H, 5), H / 2)]);
+  return { near, far };
+}
+
 /**
  * A wooden pole (T-3202), in its own frame: y up from the ground, local x along its line, so a
  * crossarm lies along local z. `m` is one class of the data file's `model_m`. Returns
@@ -390,8 +410,8 @@ function itemCard(it, doc) {
         },
       },
       citations: citationsOf(doc, [...(it.sources ?? []), ...(kind.form_sources ?? [])]),
-      research_doc: 'docs/RESEARCH/prairie_1904_street_furniture.md',
-      research_note: `Item ${it.id} of data/street_furniture/1904.json (${kind.ticket ?? 'T-3199'}). ${it.liberty ?? ''}`.trim(),
+      research_doc: doc.research_doc ?? 'docs/RESEARCH/prairie_1904_street_furniture.md',
+      research_note: `Item ${it.id} of data/street_furniture/${doc.scene ?? '1904'}.json (${kind.ticket ?? 'T-3199'}). ${it.liberty ?? ''}`.trim(),
     },
   };
 }
@@ -408,13 +428,9 @@ function itemCard(it, doc) {
 export async function createStreetFurniture({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
 } = {}) {
-  const group = new THREE.Group();
-  group.name = 'street-furniture';
-  const stats = { items: 0, lamps: 0, hydrants: 0, near: 0, far: 0, hydrantsDrawn: 0, triangles: 0, drawCalls: 0, detail };
-  const out = {
-    group, stats, records: [],
-    pickAt: () => null, update() {}, setDetail() {}, cardFor: () => null, dispose() {},
-  };
+  // T-3732: the empty layer is built in inert-layers.js, the one source main.js stands in from.
+  const out = inertStreetFurniture({ detail });
+  const { group, stats } = out;
   if (!dataBase || !terrain) return out;
   let doc;
   try {
@@ -423,12 +439,16 @@ export async function createStreetFurniture({
     problems.push(`street furniture: ${err.message} — no street furniture is drawn`);
     return out;
   }
-  const items = (doc.items ?? []).filter((it) => KINDS.includes(it.kind));
+  // A file may state the fields its items share once (1871: grade, sources, liberty).
+  const defaults = doc.item_defaults ?? null;
+  const items = (doc.items ?? []).filter((it) => KINDS.includes(it.kind))
+    .map((it) => (defaults ? { ...defaults, ...it } : it));
   out.records = items;
   stats.items = (doc.items ?? []).length;
   stats.lamps = items.filter((it) => it.kind === 'gas_lamp').length;
   stats.hydrants = items.filter((it) => it.kind === 'fire_hydrant').length;
   stats.poles = items.filter((it) => it.kind === 'utility_pole').length;
+  stats.hitchingPosts = items.filter((it) => it.kind === 'hitching_post').length;
   if (!items.length) return out;
 
   /* ---- the parts, each one instanced geometry per level ------------------ */
@@ -441,6 +461,9 @@ export async function createStreetFurniture({
   const isLamp = (it) => it.kind === 'gas_lamp';
   const isHydrant = (it) => it.kind === 'fire_hydrant';
   const isPole = (it) => it.kind === 'utility_pole';
+  const isHitch = (it) => it.kind === 'hitching_post';
+  const hitchModel = doc.kinds?.hitching_post?.model_m ?? {};
+  const hitch = hitchGeometry(hitchModel);
   const poleModels = doc.kinds?.utility_pole?.model_m ?? {};
   // Classes built alike share one geometry, so they share their draws.
   const poleKey = (c) => JSON.stringify(poleModels[c]);
@@ -470,6 +493,7 @@ export async function createStreetFurniture({
     { name: 'lamp-glass', geo: lamp, key: 'glass', mat: mats.glass, lift: (it) => (it.footing ? footH : 0), on: isLamp },
     { name: 'lamp-footing', geo: footing, key: null, mat: mats.stone, lift: () => 0, on: (it) => !!it.footing },
     { name: 'hydrant', geo: hydrant, key: null, mat: mats.hydrant, lift: () => 0, on: isHydrant, far: HYDRANT_FAR_M },
+    { name: 'hitching-post', geo: hitch, key: null, mat: mats.iron, lift: () => 0, on: isHitch, far: HITCH_FAR_M },
     ...Object.values(poles).flatMap(({ classes, geo }) => [
       { name: `pole-${classes.join('-')}-wood`, geo, key: 'wood', mat: mats.wood, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
       { name: `pole-${classes.join('-')}-glass`, geo, key: 'glass', mat: mats.insulator, lift: () => 0, on: (it) => isPole(it) && classes.includes(it.class) },
@@ -479,7 +503,9 @@ export async function createStreetFurniture({
   /* ---- where each lamp stands, once ------------------------------------- */
   const up = new THREE.Vector3(0, 1, 0);
   const placed = items.map((it) => {
-    const y = terrain.surfaceHeight(it.e, it.n) + (levelAt?.(it.e, it.n) ?? 0) + PARKWAY_LIFT_M;
+    // 1871: an item on a raised plank walk carries the walk's own height (y_m).
+    const y = Number.isFinite(it.y_m) ? it.y_m
+      : terrain.surfaceHeight(it.e, it.n) + (levelAt?.(it.e, it.n) ?? 0) + PARKWAY_LIFT_M;
     // heading_deg is a compass bearing; the post's local x is turned onto it.
     const q = new THREE.Quaternion().setFromAxisAngle(up, (90 - (it.heading_deg ?? 0)) * Math.PI / 180);
     return { it, y, q, x: it.e, z: -it.n, conf: CONF[it.grade] ?? 1 };
@@ -506,7 +532,7 @@ export async function createStreetFurniture({
     }
   }
   for (const g of [lamp.near.iron, lamp.near.tin, lamp.near.glass, lamp.far.iron, lamp.far.tin, lamp.far.glass, footing.near, footing.far,
-    hydrant.near, hydrant.far]) g.dispose();
+    hydrant.near, hydrant.far, hitch.near, hitch.far]) g.dispose();
   for (const { geo: g } of Object.values(poles)) for (const l of [g.near, g.far]) for (const x of [l.wood, l.glass]) x?.dispose();
 
   /* ---- the wires (T-3202): one static set of line segments, off on light -- */
@@ -582,12 +608,15 @@ export async function createStreetFurniture({
   const m4 = new THREE.Matrix4(); const pos = new THREE.Vector3(); const one = new THREE.Vector3(1, 1, 1);
   const deal = (eye) => {
     const ring = RINGS[tier];
-    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0; let poleN = 0;
+    let triangles = 0; let calls = 0; let nearN = 0; let farN = 0; let hydN = 0; let poleN = 0; let hitchN = 0;
+    // Only what stands within the far ring can be dealt: the 1871 city lists thousands.
+    const reach = ring.far;
+    const within = placed.filter((p) => Math.abs(p.x - eye.x) <= reach && Math.abs(p.z - eye.z) <= reach);
     for (const mesh of meshes) {
       const { part, level } = mesh.userData;
       const conf = mesh.geometry.getAttribute('_confidence');
       let k = 0;
-      for (const p of placed) {
+      for (const p of within) {
         if (!part.on(p.it)) continue;
         const d = Math.hypot(p.x - eye.x, p.z - eye.z);
         const farM = part.far ? Math.min(ring.far, part.far[tier] ?? ring.far) : ring.far;
@@ -609,6 +638,7 @@ export async function createStreetFurniture({
         triangles += k * (mesh.geometry.attributes.position.count / 3);
         if (part.name === 'lamp-iron') { if (level === 'near') nearN = k; else farN = k; }
         if (part.name === 'hydrant') hydN += k;
+        if (part.name === 'hitching-post') hitchN += k;
         if (part.name.startsWith('pole-') && part.name.endsWith('-wood')) poleN += k;
       }
     }
@@ -617,7 +647,7 @@ export async function createStreetFurniture({
       wires.visible = tier !== 'light';
       if (wires.visible) { calls += 1; }
     }
-    stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.polesDrawn = poleN;
+    stats.near = nearN; stats.far = farN; stats.hydrantsDrawn = hydN; stats.polesDrawn = poleN; stats.hitchingPostsDrawn = hitchN;
     stats.wiresShown = !!wires?.visible; stats.triangles = triangles; stats.drawCalls = calls; stats.detail = tier;
     last.copy(eye);
   };
@@ -649,7 +679,7 @@ export async function createStreetFurniture({
     let best = null;
     for (const p of placed) {
       const lift = p.it.footing ? footH : 0;
-      const hyd = isHydrant(p.it);
+      const hyd = isHydrant(p.it) || isHitch(p.it);
       const isP = isPole(p.it);
       const dx = o.x - p.x; const dz = o.z - p.z;
       const tt = -(dx * d.x + dz * d.z) / a;
@@ -658,7 +688,7 @@ export async function createStreetFurniture({
       const yy = o.y + d.y * tt;
       // The column is thin; the pick takes a lantern's width so a post can be hit.
       const r = isP ? 0.25 : (hyd ? 0.24 : (yy > p.y + lift + 2.3 ? 0.26 : 0.16));
-      const top = isP ? poleH(p.it.class) : (hyd ? hydrantH : height);
+      const top = isP ? poleH(p.it.class) : (isHitch(p.it) ? (hitchModel.height_m ?? 1.1) : (hyd ? hydrantH : height));
       if (px * px + pz * pz < r * r && yy > p.y - 0.1 && yy < p.y + lift + top
         && (!best || tt < best.distance)) {
         best = { p, distance: tt, point: new THREE.Vector3(o.x + d.x * tt, yy, o.z + d.z * tt) };

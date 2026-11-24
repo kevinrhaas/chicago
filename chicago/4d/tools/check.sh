@@ -66,6 +66,12 @@
 # that equivalence for every k, including a prerequisite in the middle. No
 # assertion or timeout changes; CI keeps all eight parts and its required gate.
 #
+# T-3707, 2026-11-20: the content build's own gate (chicago-4d-bake.yml `gate`)
+# kept 600 s per part and lost part 6/8 to it on two PRs while dev passed it in
+# 323 s, so that job raised N to sixteen by the rule above: k/8 is exactly k/16
+# and (k+8)/16, which the harness proves. The PR gate (chicago-4d-check.yml) keeps
+# its eight parts and T-3656's 900 s.
+#
 #   tools/check.sh                the gate, whole (CI runs it this way)
 #   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
 #   tools/check.sh --strict       warnings are errors (used before a release)
@@ -290,10 +296,16 @@ step "The sign-in gate asks only where it is switched on, never locks a visitor 
   node tools/test_sign_in.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
+step "Crash reports and Report a bug write only what the bugs rule allows, only from the live hosts, a crash once, and cap their emails (T-3743)" \
+  node tools/test_bug_report.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+step "A structure batch's cull reads its bounds once and asks a ground cell at a time, making three's own multi-draw entry for entry in both passes (T-3731)" \
+  node tools/test_batch_cull_index.mjs
+step "A weak computer's boot upload, worked in slices, finds three's own bounds and uploads every object the one pass does, each once, putting everything back between pieces (T-3728)" \
+  node tools/test_upload_sliced.mjs
 step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
   node tools/test_short_index.mjs
 step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \
@@ -481,6 +493,8 @@ step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
 step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
   node tools/test_jaunt_start_finish.mjs
+step "Jaunt flights and Fly rides rise over the buildings and chimneys in their way (T-3734)" \
+  node tools/test_flight_clearance.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
@@ -505,6 +519,8 @@ step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and
   node tools/test_fort_gates.mjs
 step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
   node tools/test_route_unreachable.mjs
+step "an 1871 jaunt plans in a window round the visitor, round the city's buildings and along its plank walks (T-3691)" \
+  node tools/test_route_window.mjs
 step "the Tell me a story library re-derives from its stories and the drawn town (T-3553)" \
   python3 tools/build_tales.py --check
 step "everyone in town tells a story, their own first, and none twice until all are told (T-3553)" \
@@ -523,6 +539,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "Glessner's coach-house doors swing, the man door lets people in, and a carriage drives in over its drive (T-3557)" \
   node tools/test_coach_house.mjs
+step "a layer the scene does not list is never downloaded: main.js imports its module on demand and its empty layer is the factory's own (T-3732)" \
+  node tools/test_inert_layers.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
@@ -731,6 +749,8 @@ step "The 1812 fort wagons' rows are what their layer writes: roads, stops and h
   node tools/lay_driven_wagons_1812.mjs --check
 step "The 1835 town's ten wagons' rows are what their layer writes: one district each, their teamsters, stops and hours (T-3558)" \
   node tools/lay_driven_wagons_1835.mjs --check
+step "1871's Sunday wagons go round their blocks as lay_driven_1871.mjs writes them, on streets their turns fit (T-3690)" \
+  node tools/lay_driven_1871.mjs --check
 step "The town's riders and stabled saddle horses are what their layer writes: rounds on the worked streets, hours, seasons and stables (T-3560)" \
   node tools/lay_town_riders.mjs --check
 step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
@@ -789,6 +809,10 @@ step "The 1835 town's people, their homes, places of business, doors, days, dres
   python3 tools/town_people_1835.py --check
 step "1835's townspeople go in and out of their homes and places of business by the hour: a day whole in summer and winter, asked for at the door of where they are, out of that door, several about the visitor and never more than the scene's number (T-3556)" \
   node tools/test_town_people_1835.mjs
+step "The 1871 city's people, their households, cards, days, dress and looks are what town_people_1871.py writes, bounded by the 1870 census (T-3690)" \
+  python3 tools/town_people_1871.py --check
+step "1871's people stand on the context city's walks at their own doors, most out on the Sunday afternoon, and each wagon is led by its carded driver (T-3690)" \
+  node tools/test_town_people_1871.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
@@ -1000,6 +1024,8 @@ step "Glessner's canonical UV caches are complete and reject stale or corrupt la
   python3 tools/test_stone_occlusion_uv.py
 step "the K01 assemblies are the bytes their records build (T-2266)" \
   python3 generators/k01_emit.py --check
+step "the K01 structure versions are the bytes their version records build (T-3721)" \
+  python3 generators/k01_versions_emit.py --check
 step "the K13 conservatories in the scene are the bytes their records build (T-2306)" \
   python3 generators/k13_emit.py --check
 step "the K16 timber fronts in the scene are the bytes their records build (T-2323)" \
@@ -1364,6 +1390,16 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
+# T-3737. ...and each house's street number over its front door: the 1911 sheet's number (the old one
+# where it prints both), on the transom of the door the house's own model draws, one to a house, never
+# a second number for Glessner, whose grille carries 1800; then the file is what the tool writes.
+step "the 1904 house numbers sit on each house's own front door, one number to a house (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --check
+selftest "the house-number check refuses a number shown twice, a second 1800 for Glessner, foot-tall figures, an unread attested form and a letter for a figure (T-3737)" \
+  python3 tools/place_prairie_1904_house_numbers.py --self-test
+step "the house numbers read left to right from the street, sit on their doors through each house's placement, in one draw (T-3737)" \
+  node tools/test_house_numbers.mjs
+
 # T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
 # rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying
 # yards, kitchen gardens and side-lawn planting. Nothing it lays may stand in a building, a fence or a
@@ -1629,6 +1665,15 @@ step "a K08 oriel may be round and stand on a rear wing's wall (T-1890)" \
 step "a K08 finial may be turned on a crocketed collar and a hooded dormer's face slated (T-1890)" \
   python3 tools/test_k08_turned_finial.py
 
+# T-3616. ...and a K08 light may be PLAIN (no sill or lintel of its own, cut square in the stone)
+# and, near the ends of a round tower standing into its wall over the eave, THROUGH-PLANE, its
+# recess back through the wall plane inside a hole its host opens (2011 Prairie's turret band,
+# five lights junction to junction off the Chicagology photograph and the 1895 Inland Architect
+# plate); the hole taken away, an unmarked light behind the plane, a dressed or unreasoned plain
+# light, and a through-plane light off an inset round tower or under the eave all refused.
+step "a K08 light may be plain, and through-plane over the eave on an inset round tower (T-3616)" \
+  python3 tools/test_k08_plain_through_plane.py
+
 # T-1890. ...and a hooded dormer's hood may flare at its foot, wider than its face and out in
 # front of it, sweeping in to its top (1801 Prairie's three, off HABS photographs 1 and 2 and the
 # Taylor print): the foot and shelf flare_m wider and further out, the top unmoved, the slating
@@ -1652,6 +1697,21 @@ step "a K01 mansard deck's cross roof may end under a slated hood, its finial on
 # photograph, not the K10 kit's scroll cresting.
 step "a K01 mansard deck's cresting may be crenellated, square merlons on a band in iron (T-3634)" \
   python3 tools/test_k01_deck_crenellation.py
+
+# T-3713. 2115 Prairie's pavilion crown carries iron cresting round its own deck in the Armour
+# photograph, and K01 dressed the main deck only.
+step "a K01 mansard crown over a pavilion may carry iron cresting round its own deck (T-3713)" \
+  python3 tools/test_k01_crown_cresting.py
+
+# T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
+# and the K08 bay kit cut no light in a gable's face.
+step "a K08 projection's coped gable may carry square-headed lights cut in its face (T-3634)" \
+  python3 tools/test_k08_gable_lights.py
+
+# T-3634. 2017 Prairie's two mansard dormers are classical pediments with a carved lunette in
+# each tympanum in Chicagology's photograph, and the dressed pediment (T-3307) built none.
+step "a dressed dormer pediment may carry a carved lunette in its tympanum (T-3634)" \
+  python3 tools/test_k10_dormer_lunette.py
 
 # T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
 # the slate with a light in it and a capped top, and the house's slate set back behind it over
@@ -1699,6 +1759,19 @@ step "a bay light's lintel may carry the front's carved crest (T-1886)" \
 # hood's railing) in the front's trim stone; refused past the crowns or out past the cornice.
 step "a corner porch's cornice may stand on modillions, its balcony in the trim stone (T-3370)" \
   python3 tools/test_k01_porch_balcony.py
+
+# T-3634. 2017 Prairie's porch parapet and north stack as Chicagology's photograph shows them: a
+# hood railing may be a coped band pierced with rings (no balusters) under ball finials on its
+# front posts; a stack on a mansard's cornice may stand through the deck's curb, the cresting
+# stopping short of it; refused when the rings do not clear the band, oversized, or at a corner.
+step "a hood's parapet may be pierced with rings under finials; a cornice stack may break the curb (T-3634)" \
+  python3 tools/test_k01_pierced_parapet.py
+
+# T-3634. 2017 Prairie's gable as Chicagology's photograph shows it: a K08 coped gable may stand on
+# a dentilled foot cornice, carry bargeboards under its rakes and a latticed ventilator in its peak,
+# each opt-in; refused shallower than the copings, onto the gable's lights, or past the top storey.
+step "a coped gable may take a dentilled foot cornice, bargeboards and a ventilator (T-3634)" \
+  python3 tools/test_k08_gable_dress.py
 
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
@@ -1824,6 +1897,13 @@ step "a K01 brick wing's stone belts and corner quoins (T-3353)" \
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
 
+# T-3626. An open, roofed porch on a K01 rear wing's deck (k01_wing_porch), held on 2013
+# Prairie's record: its posts, railings and roof built on the rear block's deck, its roof under
+# the deck of the part it stands against; a pitched wing, a roof over the host, a post crowding
+# a corner, an unknown railing side and an unknown key refused.
+step "a K01 rear wing carries an open, roofed porch on its deck (T-3626)" \
+  python3 tools/test_k01_wing_porch.py
+
 # T-1881. A raised stone terrace under a striped awning on a K01 house's rear wall
 # (k01_rear_terrace), held on 1729 Prairie's record: its podium, balustrade, posts and
 # striped canvas built where the record puts them, nothing inside the main block, the old
@@ -1887,6 +1967,13 @@ step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365
 step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
   python3 tools/test_k01_window_hoods.py
 
+# T-3626. The stone frame of a K01 named-window front (2013 Prairie, the Inland Architect's 1895
+# plate): pilasters carrying one corniced hood over the top storey's lights, a sunk panel under
+# each of them, a lunette over the hood and two oval lights in moulded rings, every part proud of
+# the brick and clear of every light. Held on the committed record; each part refused out of range.
+step "a K01 named-window front takes a stone frame of pilasters, panels, a hood and oval lights (T-3626)" \
+  python3 tools/test_k01_front_frame.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,
@@ -1927,6 +2014,14 @@ step "front_bays_by_storey takes a light read off the picture on an upper storey
 # nothing. Each refusal round both says why.
 step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's end (T-2900)" \
   python3 tools/test_k01_wing_past_host.py
+
+# T-3713. A K01 rear wing may be roofed with the house's own mansard (`roof.kind` "mansard",
+# 2115's rear range in the Armour photograph): on the main rear wall, its wall top the main
+# eave, the ring stack carried over it and joined into the main one, so a flush side face is
+# one slated plane to the wing's rear and the main mansard's dormers may stand on it. Each
+# refusal says why.
+step "a K01 rear wing carries the house's mansard on over it (T-3713)" \
+  python3 tools/test_k01_wing_mansard.py
 
 # T-3006. A K01 front block may round a corner (`round_corner`, 1811's south corner off the
 # 1888 plate): a quarter round in the front's stone, coursed on its beds and corbelled to the
@@ -4759,6 +4854,12 @@ step "1871 portable period kit is reproducible" \
 
 step "1871 city, infrastructure and terrain are reproducible" \
   python3 generators/city_1871_emit.py --check
+
+# T-3686. The 1871 streetscape (owner, 2026-11-21): the lamps, telegraph poles and wires and
+# hitching posts on the walks, and the street trees on the house streets, are laid from the
+# city above; the committed files are what the tool writes, item for item.
+step "1871 street furniture and street trees re-lay from the city (T-3686)" \
+  python3 tools/lay_1871_street_furniture.py --check
 
 step "1871 buildings, crossings and generated surfaces are spatially coherent" \
   python3 tools/check_city_1871.py

@@ -1,0 +1,37 @@
+{
+  "structure_id": "st_michaels_church_1871",
+  "view": "andreas_v2_p405_ruins",
+  "glb": "assets/gltf/st_michaels_church_1871__church_1869_1871.glb",
+  "glb_sha256": "4e0372a0097a5d41577eacf0f093eaec6aa75342a68fead80f19e80571e3f1ba",
+  "camera_sha256": "dbcd746caf087d113955d7e57856ffd0719649e5d9c67cd427ac379bbd2e5551",
+  "photo_sha256": "4fd37a22d50669a2e3c4b5bd83a3ae7179046a17c49dd6835f6240ab8b58b36a",
+  "side_by_side": "docs/RESEARCH/photo-match/st_michaels_church_1871/andreas_v2_p405_ruins-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "A long brick church seen from the north-west: the tower on the front's east corner, the nave's tall gable in the middle, the west aisle's own gable beside it, a pinnacled corner buttress, and the Hurlbut Street side running away with its tall round-arched windows, where the engraving shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The heights of the nave gable, the west aisle's gable and the side wall, scaled to the engraving's apex and ground line",
+      "status": "fixed"
+    },
+    {
+      "what": "The tower's low steeple and the slate roofs: the engraving shows the ruin after they burned; both are reconstructed",
+      "status": "not shown"
+    },
+    {
+      "what": "The great round window sits in the nave's upper storey, a little below where the engraving draws it in the gable; the window rhythm on the front is simpler than the engraving's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The buttresses between the Hurlbut Street side's tall windows, and a gable rising over the far (south) end of the side, where the engraving shows them",
+      "status": "fixed"
+    },
+    {
+      "what": "The far gable's own detail (its crocketed edge and the pinnacle beside it) is simpler than the engraving draws it, at the far end of the view",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

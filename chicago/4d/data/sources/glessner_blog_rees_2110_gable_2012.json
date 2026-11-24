@@ -1,0 +1,29 @@
+{
+ "id": "glessner_blog_rees_2110_gable_2012",
+ "type": "photograph",
+ "citation": "[Rees house exterior, gable detail.] Photograph, Glessner House Museum, in 'Prairie Avenue mansion designated', The Story of a House (blog), January 2012.",
+ "author": "Glessner House Museum",
+ "date": "January 2012 (the post's date)",
+ "describes_date": "2011-2012",
+ "repository": "Glessner House Museum blog 'The Story of a House'. Prairie library image a20-glessner-rees-exterior-2012, its rights recorded there as copyright, link only; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a20-glessner-rees-exterior-2012.jpg).",
+ "url": "https://glessnerhouse.blogspot.com/2012/01/prairie-avenue-mansion-designated.html",
+ "locator": "The gable from its apex and finial (y 50-80 of 750 px) to the bow's copper cap (y 495-580), the loggia between (y 320-495), slates over the north flank at the right edge (x 505-563, y 230-300).",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A museum's own photograph on its blog, under its copyright. Only forms, counts and places are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-21 (T-1922) from the image store's copy, 563 x 750 px, colour. The image store's copy is committed unaltered at data/sources/assets/rees_2110_photos_t3716/glessner_rees_2110_gable_2012.jpg for the image gate (T-3716), and its camera solved at data/reference_views/rees_house_2110_prairie/glessner_2012_gable.json.",
+ "note": "A picture of its own date, on the house's original site before its 2014 move: read for the gable's and loggia's forms and the cap's material, argued unchanged from 1888 in docs/RESEARCH/k01-2110-rees-1922/README.md.",
+ "what_it_supplies": [
+  "the front's stone: pale, smooth, dressed ashlar in even courses",
+  "the gable's coped rakes, its carved tympanum, its narrow round-headed light and the kneelers' carved corbels",
+  "the loggia's five round arches on colonettes with carved capitals, under a carved band",
+  "the bow's cap: a copper cornice, green with age",
+  "slate on the flank behind the gable"
+ ],
+ "what_it_does_not_supply": [
+  "any measure: it looks steeply up",
+  "the lower front, the flanks and the rear"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "loc_cph_3b04902_ogden_house",
+  "type": "photograph",
+  "citation": "Melander & Henderson, 'No. 51. Residence of Mahlon D. Ogden, Esq.', stereograph, Views of Chicago Ruins, Great Fire of October 1871 (Aurora, Ill.: Melander & Henderson, 1871). Library of Congress Prints and Photographs Division, LC-USZ62-57071 (cph 3b04902).",
+  "author": "Melander & Henderson, photographers and publishers (18 Fox Street, Aurora, Illinois; the card's mount)",
+  "date": "[October-November 1871]",
+  "describes_date": "1871, just after the fire of 8-9 October",
+  "repository": "Library of Congress, Prints and Photographs Division. The left half of the card is committed at data/sources/assets/landmarks_1871_t3689/loc_3b04902_ogden_house_left.jpg.",
+  "url": "https://www.loc.gov/pictures/item/2004682838/",
+  "locator": "The left half of the card: the Ogden house behind the elms of its grounds, its front and veranda to the camera; the rubble of a burnt brick house and an iron fence in the foreground.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The Library of Congress: 'No known restrictions on publication.' A photograph published in 1871.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-20 (T-3689) from the Library's TIFF of the whole card (1536 x 798 px, tile.loc.gov service/pnp/cph/3b00000/3b04000/3b04902); the left half cropped and committed at 620 x 650 px, sha256 6dde084c42c251a8f2e20eca38daf0db82fbd5c59124b07be7d0eb32f09be0b8.",
+  "note": "The house that survived the fire in the middle of the burnt North Side. Small, soft and half hidden by trees; monochrome.",
+  "what_it_supplies": [
+    "the house's storeys, front, veranda, cornice and roof",
+    "that it stood after the fire among its trees"
+  ],
+  "what_it_does_not_supply": [
+    "its sides and rear",
+    "its size",
+    "colour"
+  ]
+}

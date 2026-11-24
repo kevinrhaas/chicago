@@ -59,9 +59,12 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
     """The record's `mansard.deck`, bounded. `m` is the resolved mansard (its curb), `pitch`
     the deck's (roof_pitch_deg). Returns what dress() builds from."""
     crown = m.get("crown")
-    if crown and crown.get("form") != "hip":
-        raise ParamError("mansard.deck dresses a mansard's own deck; a mansard crown stands on it "
-                         "(a hipped crown may: the cresting stops short of it)")
+    # T-3713: a mansard crown over a street pavilion (2115's, the Armour photograph's tower)
+    # stands through the curb as a hipped one does, and the cresting stops short of it alike;
+    # a crown over a stretch of the front (`over_front`) is still refused
+    if crown and crown.get("form", "mansard") not in ("hip", "mansard") or crown and "over_bay" not in crown:
+        raise ParamError("mansard.deck dresses a mansard's own deck; a crown over a stretch of the front "
+                         "stands on it (a crown over a pavilion may: the cresting stops short of it)")
     run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
     # T-1890: a leaned street face stands the street curb its own run in
     u0, u1 = -overhang + run, depth + overhang - m.get("street_run_m", run)
@@ -163,24 +166,40 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
         # T-3562: a hipped crown over a pavilion (1815's, Chicagology's square-on print) stands
         # through the curb, and the cresting either side of it stops short of its slates
         if deck.get("hoods") or deck.get("cross_roof") or (out.get("cresting") or {}).get("joined"):
-            raise ParamError("mansard.deck under a hipped crown: no hoods, cross roof or joined rail")
+            raise ParamError("mansard.deck under a crown: no hoods, cross roof or joined rail")
         E = float(crown.get("eave_m", m["curb_m"] - m["lower_rise_m"]))
         out["crown"] = {"x": [crown["x0"] - crown["overhang_m"], crown["x1"] + crown["overhang_m"]],
                         "v": [-crown["z1"] - crown["overhang_m"], -crown["z0"] + crown["overhang_m"]],
-                        "eave_m": E, "ridge_m": crown["ridge_m"],
-                        "pitch_deg": crown["pitch_deg"], "end_pitch_deg": crown["end_pitch_deg"]}
+                        "eave_m": E}
+        if crown.get("form", "mansard") == "hip":
+            out["crown"].update(ridge_m=crown["ridge_m"], pitch_deg=crown["pitch_deg"],
+                                end_pitch_deg=crown["end_pitch_deg"])
+        else:
+            # T-3713: a mansard crown's lower faces, drawn in at its own pitch from the main
+            # eave to its curb, are what the cresting's foot meets (its bulge is not followed:
+            # CROSS_CLEAR_M stands the rail clear of a convex face's few centimetres)
+            out["crown"].update(ridge_m=crown["curb_m"], pitch_deg=crown["lower_pitch_deg"],
+                                end_pitch_deg=crown["lower_pitch_deg"])
+        if crown.get("deck"):   # T-3713: the crown's own deck, dressed after the main one's (crown_dress)
+            out["crown"]["deck"] = crown["deck"]
     if (out.get("cresting") or {}).get("joined") and (deck.get("hoods") or deck.get("cross_roof") or not fn):
         raise ParamError("mansard.deck.cresting.joined: a finial at every corner (finials), no hoods or cross roof")
     if deck.get("cross_roof"):
         out["cross_roof"] = _cross_roof(deck["cross_roof"], out, bays, depth)
-    # a stack across the curb line would cut the rail: none may stand on it
+    # a stack across the curb line would cut the rail: none may stand on it, but T-3634: a
+    # stack on the cornice astride a side wall (2017's north stack, at the photograph's left
+    # edge) stands through the side's curb, and that side's cresting stops either side of it
     for c in chimneys:
         sx, sz = c["plan_m"]
-        lines = ((("v", u0, u1, None, v0),) if "south" not in walled else ()) + \
-                ((("v", u0, u1, None, v1),) if "north" not in walled else ()) + \
-                (("u", v0, v1, u0, None), ("u", v0, v1, u1, None))
-        for along, lo, hi, cu, cv in lines:
+        lines = ((("v", u0, u1, None, v0, "south"),) if "south" not in walled else ()) + \
+                ((("v", u0, u1, None, v1, "north"),) if "north" not in walled else ()) + \
+                (("u", v0, v1, u0, None, None), ("u", v0, v1, u1, None, None))
+        for along, lo, hi, cu, cv, side in lines:
             if cv is not None and abs(c["v_m"] - cv) < sz / 2 + 0.1 and lo < c["u_m"] < hi:
+                if c.get("on_cornice") and lo + sx / 2 + 0.3 < c["u_m"] < hi - sx / 2 - 0.3:
+                    out.setdefault("stack_gaps", {}).setdefault(side, []).append(
+                        (round(c["u_m"] - sx / 2 - CROSS_CLEAR_M, 4), round(c["u_m"] + sx / 2 + CROSS_CLEAR_M, 4)))
+                    continue
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at v {cv:.2f}")
             if cu is not None and abs(c["u_m"] - cu) < sx / 2 + 0.1 and lo < c["v_m"] < hi:
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at u {cu:.2f}")
@@ -261,7 +280,8 @@ def _corner(dk, name):
 
 
 def crown_gap(dk, along, at, y):
-    """T-3562: where a hipped crown (k01_frontage_params._hip_crown) stands through a cresting
+    """T-3562: where a hipped crown (k01_frontage_params._hip_crown), or (T-3713) a mansard
+    crown's lower faces (k01_frontage_params._mansard_crown), stands through a cresting
     line at `at` (a v along u, or a u along v), the stretch of that line its slates cover at
     the cresting's foot `y`, widened CROSS_CLEAR_M each side; None where it stands clear. The
     crown's section at `y` is its fascia's rectangle drawn in by its pitches: the sides and
@@ -592,6 +612,7 @@ def dress(a, dk, conf):
             gaps = [g for g in [crown_gap(dk, along, at, y_cap)] if g]
             if side == "street":   # T-1894: and either side of a dormer standing over the curb
                 gaps += [tuple(g) for g in dk.get("dormer_gaps", ())]
+            gaps += [tuple(g) for g in (dk.get("stack_gaps") or {}).get(side, ())]   # T-3634
             if gaps:   # T-3562: and either side of a hipped crown standing through its line
                 pieces = [(s0, s1)]
                 for g0, g1 in sorted(gaps):
@@ -705,7 +726,53 @@ def dress(a, dk, conf):
                   FINIAL_SEGS)
             k10_frontage._lay(a, [pc], conf, "k01.roof.deck_finial")
             laid["finials"].append({"corner": name, "foot_m": round(foot, 3), "on": host})
+    if (dk.get("crown") or {}).get("deck"):
+        laid["crown"] = crown_dress(a, dk["crown"]["deck"], conf)
     a.deck = laid
+
+
+#: T-3713: a crown deck's cresting stops this far short of each corner, as the main deck's
+#: does where no finial or hood stands (dress's `stop`)
+CROWN_STOP_M = 0.25
+
+
+def crown_dress(a, cd, conf):
+    """T-3713: a mansard crown's own deck (k01_frontage_params._crown_deck_dress), as the
+    Armour photograph draws 2115's pavilion crown: the K10 kit's iron cresting along each side
+    of its curb, `inset_m` onto the deck, stopped CROWN_STOP_M short of every corner."""
+    from . import k10_frontage
+    K = k10_frontage._kit()
+    data = K.load()
+    u0, u1, v0, v1 = cd["curb"]
+    laid = {"cresting": []}
+    cr = cd.get("cresting")
+    if cr:
+        ins = cr["inset_m"]
+        y_cap = deck_y(cd, ins)
+        for side, along, at, lo, hi in (("south", "u", v0 + ins, u0, u1), ("north", "u", v1 - ins, u0, u1),
+                                        ("street", "v", u1 - ins, v0, v1), ("rear", "v", u0 + ins, v0, v1)):
+            s0, s1 = lo + CROWN_STOP_M, hi - CROWN_STOP_M
+            L = s1 - s0
+            if L < k10_frontage.MIN_CRESTING_M:
+                continue
+            mid = (s0 + s1) / 2
+            ridge = (mid, y_cap, -at) if along == "u" else (at, y_cap, -mid)
+            seed = a.instance(CRESTING, "cresting", {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4),
+                                                     "height_m": cr["height_m"], "host": "mansard crown",
+                                                     "side": side}, {"ridge": ridge})
+            var = K.Variant(dict(next(v for v in data["variants"] if v["id"] == CRESTING)), data)
+            var.seed, var.rng = seed, random.Random(seed)
+            if along == "u":
+                posts = var.cresting(mid, L, y_cap, -at, host="mansard crown")
+            else:
+                posts = var.cresting(0.0, L, y_cap, 0.0, host="mansard crown")
+                _turn(var.pieces, at, -mid)
+            top = max(q[1] for pc in var.pieces for q in pc.mesh.pos)
+            _stretch(var.pieces, y_cap - 0.007, cr["height_m"] / (top - (y_cap - 0.007)))
+            laid["cresting"].append({"side": side, "from_m": round(s0, 3), "to_m": round(s1, 3),
+                                     "posts": len(posts)})
+            k10_frontage._lay(a, var.pieces, conf, CRESTING)
+    return laid
 
 
 def crenel_pieces(L: float, y0: float, height: float, merlon: float, pitch: float, rise: float, host: str):

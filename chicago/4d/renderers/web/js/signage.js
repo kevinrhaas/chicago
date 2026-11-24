@@ -78,6 +78,7 @@
  */
 
 import * as THREE from 'three';
+import { createCheckpoint } from './boot-phases.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -324,11 +325,58 @@ function fontOf(f, size) {
   return `${f.style || 'normal'} ${f.weight} ${size}px ${f.family}`;
 }
 
+/**
+ * ONE LETTER'S ADVANCE, measured once per font. Painting the atlas measured
+ * every letter of every line again for each size the fitting tried and twice
+ * more to draw it: on a weak PC that was seconds of a single frozen boot task
+ * (1835's signs: 1.7 s in `lineWidth` alone). Keyed on the exact font string,
+ * so a width read from here is the width `measureText` gives. Cleared at each
+ * atlas build, since a web face that has loaded since measures differently.
+ */
+const ADVANCE = new Map();
+let measurer = null;
+let measurerFont = '';
+function advanceOf(ctx, font, ch) {
+  let m = ADVANCE.get(font);
+  if (!m) { m = new Map(); ADVANCE.set(font, m); }
+  let w = m.get(ch);
+  if (w === undefined) {
+    // A context of its own, so measuring never disturbs the font, transform
+    // or state of the atlas being painted.
+    if (!measurer) {
+      measurer = (typeof document !== 'undefined' && document.createElement('canvas').getContext('2d')) || ctx;
+    }
+    if (measurerFont !== font || measurer === ctx) { measurer.font = font; measurerFont = font; }
+    w = measurer.measureText(ch).width;
+    m.set(ch, w);
+  }
+  return w;
+}
+
+/** A line's advance at `font`, letter by letter, untracked and unscaled. */
+function advanceSum(ctx, font, str) {
+  let w = 0;
+  for (const ch of str) w += advanceOf(ctx, font, ch);
+  return w;
+}
+
 /** The width one line takes at a size, tracking and horizontal scale included. */
 function lineWidth(ctx, str, size, f) {
-  ctx.font = fontOf(f, size);
-  let w = 0;
-  for (const ch of str) w += ctx.measureText(ch).width;
+  let w = advanceSum(ctx, fontOf(f, size), str);
+  if (str.length > 1) w += f.track * size * (str.length - 1);
+  return w * f.scaleX;
+}
+
+/**
+ * The same width for FITTING, read off one reference size and scaled. The size
+ * search tries a dozen sizes per arrangement and the slack search fourteen more
+ * fractional ones, each a font string of its own, so exact widths there meant
+ * measuring every letter at every trial. Canvas advances scale with the size to
+ * well under a pixel; the chosen layout's own widths are exact (`lineWidth`).
+ */
+const FIT_REF = 100;
+function fitWidth(ctx, str, size, f) {
+  let w = advanceSum(ctx, fontOf(f, FIT_REF), str) * (size / FIT_REF);
   if (str.length > 1) w += f.track * size * (str.length - 1);
   return w * f.scaleX;
 }
@@ -387,17 +435,17 @@ function drawTracked(ctx, str, cx, cy, size, f) {
   ctx.save();
   ctx.translate(cx, cy);
   ctx.scale(f.scaleX, 1);
-  ctx.font = fontOf(f, size);
+  const font = fontOf(f, size);
+  ctx.font = font;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'left';
   const tr = f.track * size;
-  let w = 0;
-  for (const ch of str) w += ctx.measureText(ch).width;
+  let w = advanceSum(ctx, font, str);
   if (str.length > 1) w += tr * (str.length - 1);
   let x = -w / 2;
   for (const ch of str) {
     ctx.fillText(ch, x, 0);
-    x += ctx.measureText(ch).width + tr;
+    x += advanceOf(ctx, font, ch) + tr;
   }
   ctx.restore();
 }
@@ -541,7 +589,7 @@ function layoutCell(ctx, x, y, cellW, sign) {
         const far = Math.max(Math.abs(yAt), Math.abs(yAt + h)) / (th * 0.5 * 0.94);
         room = far >= 1 ? 0 : tw * 0.90 * Math.sqrt(1 - far * far);
       }
-      if (lineWidth(ctx, r.text, size * r.w, r.f) > room) return false;
+      if (fitWidth(ctx, r.text, size * r.w, r.f) > room) return false;
       yAt += h;
     }
     return true;
@@ -723,16 +771,35 @@ function giltFill(ctx, letter) {
  * lighter and darker grains here, and the roughness atlas makes it matte. The
  * grit is under the lettering, as the sanding was.
  */
+/**
+ * The grains are the same seeded grains as ever — same places, sizes and tones,
+ * drawn in the same order of the generator — but a board's twenty thousand of
+ * them went down one `fillRect` and one parsed colour string at a time, 3.4 s
+ * of a frozen boot on a weak PC for 1835's boards. Each grain's alpha now falls
+ * in one of `SMALT_STEPS` bands per tone, and each band is filled as one path:
+ * the steps are under half a percent of opacity apart, which no eye can tell.
+ */
+const SMALT_STEPS = 8;
 function smaltGround(ctx, L, sign) {
   const rnd = seeded(`${sign.structure_id}#smalt`);
   const n = Math.round(L.rw * L.rh * 0.16);
-  ctx.save();
+  const light = [];
+  const dark = [];
+  for (let s = 0; s < SMALT_STEPS; s += 1) { light.push(new Path2D()); dark.push(new Path2D()); }
   for (let k = 0; k < n; k += 1) {
-    const light = rnd() < 0.55;
-    ctx.fillStyle = light ? `rgba(255, 255, 255, ${0.03 + rnd() * 0.06})`
-      : `rgba(0, 0, 0, ${0.10 + rnd() * 0.14})`;
+    const isLight = rnd() < 0.55;
+    const t = rnd();
+    const step = Math.min(SMALT_STEPS - 1, Math.floor(t * SMALT_STEPS));
     const sz = 0.6 + rnd() * 1.1;
-    ctx.fillRect(L.rx + rnd() * L.rw, L.ry + rnd() * L.rh, sz, sz);
+    (isLight ? light : dark)[step].rect(L.rx + rnd() * L.rw, L.ry + rnd() * L.rh, sz, sz);
+  }
+  ctx.save();
+  for (let s = 0; s < SMALT_STEPS; s += 1) {
+    const mid = (s + 0.5) / SMALT_STEPS;
+    ctx.fillStyle = `rgba(0, 0, 0, ${0.10 + mid * 0.14})`;
+    ctx.fill(dark[s]);
+    ctx.fillStyle = `rgba(255, 255, 255, ${0.03 + mid * 0.06})`;
+    ctx.fill(light[s]);
   }
   ctx.restore();
 }
@@ -817,18 +884,18 @@ function paintCell(ctx, x, y, cellW, sign) {
       ctx.save();
       ctx.translate(ln.cx, ln.cy);
       ctx.scale(ln.f.scaleX, 1);
-      ctx.font = fontOf(ln.f, ln.size);
+      const font = fontOf(ln.f, ln.size);
+      ctx.font = font;
       ctx.textBaseline = 'middle';
       ctx.strokeStyle = 'rgba(40, 24, 6, 0.55)';
       ctx.lineWidth = Math.max(1, ln.size * 0.035);
       const tr = ln.f.track * ln.size;
-      let w = 0;
-      for (const c of ln.text) w += ctx.measureText(c).width;
+      let w = advanceSum(ctx, font, ln.text);
       if (ln.text.length > 1) w += tr * (ln.text.length - 1);
       let px = -w / 2;
       for (const c of ln.text) {
         ctx.strokeText(c, px, 0);
-        px += ctx.measureText(c).width + tr;
+        px += advanceOf(ctx, font, c) + tr;
       }
       ctx.restore();
     }
@@ -1555,8 +1622,9 @@ export function shrinkForPhone(canvas, factor = 2) {
   return small;
 }
 
-function buildAtlas(signs, wood = null, lowSpec = false) {
+async function buildAtlas(signs, wood = null, lowSpec = false) {
   if (typeof document === 'undefined') return null;
+  ADVANCE.clear();
   const canvas = document.createElement('canvas');
   const cells = [];
   // Cell 0 is plain timber, for every bracket, post, hood and strap in the town.
@@ -1649,7 +1717,15 @@ function buildAtlas(signs, wood = null, lowSpec = false) {
   }
   const legibility = [];
   let lettersOnly = 0;
+  // THE CELLS ARE PAINTED A FEW AT A TIME (weak PC, 2026-11-24): 1835's boards
+  // painted in one go froze its boot for 7 s on an integrated-graphics desktop.
+  // The checkpoint hands the page back between cells once its budget is spent.
+  const checkpoint = createCheckpoint();
+  let painted = 0;
   for (const cell of cells) {
+    const due = checkpoint(painted, cells.length);
+    if (due) await due;
+    painted += 1;
     const x = cell.col * TILE_W;
     const y = cell.row * TILE_H;
     const cellW = cell.span * TILE_W;
@@ -2250,7 +2326,7 @@ export async function createSignage({
   // every triangle needs the uv it hands back.
   const wood = await woodLoading;
   const fonts = await fontsLoading;
-  const atlas = buildAtlas(all, wood, lowSpec);
+  const atlas = await buildAtlas(all, wood, lowSpec);
   if (!atlas) {
     problems.push('signage: no canvas to paint the signs on — the boards are drawn '
       + 'blank, in plain timber');

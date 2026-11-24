@@ -41,14 +41,17 @@ OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
 # T-3556: a scene whose townspeople are thousands keeps their rows in a table of its own, which only
 # that scene fetches (humans.js SCENE_PERSONS): everyone drawn only from its inside file.
-SCENE_PERSONS = {'1835': ROOT / 'assets/humans/web/hm08_variation_persons_1835.json'}
+SCENE_PERSONS = {'1835': ROOT / 'assets/humans/web/hm08_variation_persons_1835.json',
+                 # T-3690: the 1871 city's carded people (tools/town_people_1871.py).
+                 '1871': ROOT / 'assets/humans/web/hm08_variation_persons_1871.json'}
 FITS = ROOT / 'data/humans/variation/fits'
 TRACES = ROOT / 'data/humans/variation/traces'   # T-3553
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
 SKINS = ROOT / 'data/humans/variation/skins'   # T-3553: a stand-in's pictures baked as the fitted face's own skin
 WEB = ROOT / 'assets/humans/web'
 DRESS = ROOT / 'data/humans/variation'   # T-3506/T-3522: dress_1812_*.json, each person's own dress, hat and hair
-RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
+RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1871': ROOT / 'data/residents_1871',
+             '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
 RAW = f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{COMMIT}/makehuman/data/targets/'
 REF_UNIT_M = 1e-4      # reference positions: int16 tenths of a millimetre (|x| < 3.2 m)

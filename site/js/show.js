@@ -8,8 +8,11 @@
   const saveData = navigator.connection && navigator.connection.saveData;
 
   // The current page in the menu.
-  const page = document.body.dataset.page;
-  $$('.menu a').forEach(a => { if (a.getAttribute('href').replace(/\.\.\//g, '').replace(/\/$/, '') === page) a.setAttribute('aria-current', 'page'); });
+  // A page under an audience (Jaunts under Players, say) lights that audience: data-section.
+  const page = document.body.dataset.page, section = document.body.dataset.section || page;
+  const norm = a => a.getAttribute('href').replace(/\.\.\//g, '').replace(/\/$/, '');
+  $$('.menu a').forEach(a => { if (norm(a) === section) a.setAttribute('aria-current', 'page'); });
+  $$('.subnav a').forEach(a => { if (norm(a) === page) a.setAttribute('aria-current', 'page'); });
 
   // The phone menu.
   const bar = $('#bar'), btn = $('.menu-btn');
@@ -169,6 +172,30 @@
     document.fonts?.ready?.then(layout);
     new IntersectionObserver((e) => { visible = e[0].isIntersecting; last = 0; if (visible && !raf) { layout(); raf = requestAnimationFrame(frame); } }, { threshold: 0.05 }).observe(flow);
   })();
+
+  // Photo matching: drag (or arrow-key) the line between the archive picture and the app's view
+  // through the same solved camera.
+  $$('.compare').forEach(c => {
+    const input = $('input', c);
+    if (!input) return;
+    const set = () => c.style.setProperty('--x', `${input.value}%`);
+    input.addEventListener('input', set); set();
+  });
+
+  // Tabs: one stop's text at every reading level.
+  $$('[role=tablist]').forEach(list => {
+    const tabs = $$('[role=tab]', list);
+    const pick = t => tabs.forEach(o => {
+      const on = o === t; o.setAttribute('aria-selected', String(on)); o.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(o.getAttribute('aria-controls')); if (panel) panel.hidden = !on;
+    });
+    tabs.forEach(t => t.addEventListener('click', () => pick(t)));
+    list.addEventListener('keydown', e => {
+      const i = tabs.indexOf(document.activeElement); if (i < 0) return;
+      const j = e.key === 'ArrowRight' ? (i + 1) % tabs.length : e.key === 'ArrowLeft' ? (i - 1 + tabs.length) % tabs.length : -1;
+      if (j > -1) { e.preventDefault(); tabs[j].focus(); pick(tabs[j]); }
+    });
+  });
 
   // Season switcher: chips swap the stills of one camera.
   $$('.switcher').forEach(sw => {

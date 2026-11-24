@@ -1,0 +1,23 @@
+{
+ "structure_id": "st_michaels_church_1871",
+ "scene": "1871",
+ "source_id": "andreas_1885_v2_st_michaels_plates",
+ "photo": "../../sources/assets/landmarks_1871_t3689/andreas_v2_p405_st_michaels_ruins.jpg",
+ "image_px": [
+  1140,
+  1035
+ ],
+ "principal_px": [
+  570.0,
+  770.0
+ ],
+ "focal_px": 1250.0,
+ "eye": [
+  -17.42,
+  107.76,
+  1.6
+ ],
+ "yaw_deg": 158.19,
+ "sky": "overcast",
+ "solve": "Fitted by T-3689 to the wood engraving 'Ruins, St. Michael's Church' (Blomgren Bros., Chicago) in Andreas's History of Chicago, vol. 2 (1885), p. 405, cut from the Internet Archive scan to 1140 x 1035 px. The engraver stood north-west of the church, across Linden Street, and looked south-east along its front and down its Hurlbut Street side. Three points were solved for together, for an engraver's lens of about 1250 px: the front's east corner under the tower (x about 115 px), its west corner (x about 600 px) and the far end of the west side (x about 850 px). That puts the stand about 50 m from the front's west corner, heading 158 degrees in the church's own frame. The horizon was then set at y 770 px, so that the ground line (y about 795) and the nave gable's apex (y about 235) fall where the engraving has them; the heights in the record were scaled from that. UNCERTAINTY: large. An engraving is drawn, not photographed, and its verticals may be stretched; it shows the burnt-out walls after the fire, so the roof, the steeple and the window glass are not in it. It is good for the plan's proportions, the three-part front, the tower's place and the walls' heights, not for a dimension. LIGHT: overcast."
+}

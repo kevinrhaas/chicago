@@ -50,6 +50,12 @@ evidence, and four more completed outings offer one (1812 twice, 1835, 1904). Ea
 refused unless every named claim is still cited, visited and graded as recorded.
 `docs/RESEARCH/investigations-3678.md` records each case's evidence and why it conflicts.
 
+T-3693 adds the 1871 case jaunt *Who Started the Fire?* to that table. It compares four
+accounts, each the telling's own cited claim on the stop that cites it: Catherine O'Leary's
+testimony, Sullivan's affidavit, the Board's finding and the Tribune's account of Richard
+Bales's case against Sullivan. Its four student tellings offer it; the 18+ telling, like the
+other later cases', does not.
+
 ## Teacher routes (item 11)
 
 T-3672 adds a teacher's own route without a server, account or upload. In Guide ›

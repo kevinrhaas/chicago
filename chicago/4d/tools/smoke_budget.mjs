@@ -184,6 +184,7 @@ const COVERAGE = [
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
   ['data/components/', NONE, 'component contract + measured baseline: k01_contract.mjs --check'],
+  ['data/music/', NONE, 'generated-music cue files (T-3710), never served themselves; tools/fal_music.mjs reads them, and prepare_audio.py --score-only copies jaunts.json into the audio catalogue: test_fal_music.mjs, test_sound.mjs'],
   // T-2288: the K02 stone library. No scene binds it yet (T-2289 lays it on the 1808
   // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
   // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
@@ -211,6 +212,9 @@ const COVERAGE = [
   // fetches a people.json only for a scene that draws `residents`, which 1904 does not
   // (T-1740), so no module reads either; test_people_scene.py holds them in check.sh.
   ['data/residents_1904/', NONE, '1904 household cards, read by no module: test_people_scene.py'],
+  // T-3690: the 1871 town's household cards (tools/town_people_1871.py), compiled into the
+  // 1871 directory and resident sidecars the cards read, as data/residents/ is for 1835.
+  ['data/residents_1871/', [1, 3, 4, 5, 13, 14], 'the 1871 town\'s household cards, compiled into its resident cards'],
   ['data/sidecars/1904/people.json', NONE, 'the 1904 directory, fetched by no module (1904 draws no residents): test_people_scene.py'],
   // Which files git tracks. What publish.sh writes into the untracked mirror is held by
   // check_published.mjs in check.sh, not by the renderer.
@@ -352,6 +356,9 @@ const COVERAGE = [
   // T-2927: it joins the drawn pieces of every batch spatial-batch.js makes and of the
   // structures' cells (buildings.js), so it is read wherever either is.
   ['renderers/web/js/batch-coalesce.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the drawn cells and ground pieces that touch, joined into one draw each'],
+  // T-3731: the cull beneath every structure batch's wrappers (buildings.js), read where
+  // the structures are drawn: the parts shadow-casters.js and the building cells are read in.
+  ['renderers/web/js/batch-cull-index.js', [1, 2, 7, 8, 9, 10, 11, 12, 14], 'each structure piece culled off bounds cached once, a ground cell at a time'],
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],

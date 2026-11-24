@@ -54,11 +54,26 @@ export function ambienceLabel(ambience) {
   const season = ambience.season ? ambience.season[0].toUpperCase() + ambience.season.slice(1) : '';
   return [hour, season].filter(Boolean).join(' · ');
 }
-export function filterJaunts(rows, query = '', group = '', grade = '') {
+/**
+ * T-3711 (owner, 2026-11-20: "for all the jaunts with music or narration allow that to be
+ * added as a filter so we can filter and include only those jaunts with narration"): what a
+ * jaunt gives the ear, as the catalog says it (tools/compile_jaunts.py: `narrated` for a
+ * jaunt the voicer reads aloud, `music` for one with its own music). A picked pill lists only
+ * the jaunts that have it; two picked, only those with both. A year shows the pills its
+ * jaunts have, and none when they have neither.
+ */
+export const LISTENS = Object.freeze([
+  Object.freeze({ id: 'narrated', label: 'Narrated', tag: 'Narrated', icon: 'listen', title: 'Only the jaunts read aloud', card: 'Read aloud: turn sound on to hear it' }),
+  Object.freeze({ id: 'music', label: 'Music', tag: 'Music', icon: 'music', title: 'Only the jaunts with music of their own', card: 'Has music of its own' }),
+]);
+const hears = (row, id) => row?.[id] === true;
+export function filterJaunts(rows, query = '', group = '', grade = '', listen = []) {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const want = LISTENS.filter((l) => listen.includes(l.id));
   const byId = new Map(rows.map(row => [row.id, row]));
-  return rows.filter(row => (!group || groupOf(row) === group) && (!grade || (grade === ADULTS ? isAdults(row) : gradeOf(row) === grade)) && words.every(word =>
-    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${isAdults(row) ? ADULTS : `${gradeLabel(row.grade_band)} ${ageLabel(row.grade_band)}`}`.toLocaleLowerCase().includes(word)))
+  return rows.filter(row => (!group || groupOf(row) === group) && (!grade || (grade === ADULTS ? isAdults(row) : gradeOf(row) === grade))
+    && want.every((l) => hears(row, l.id)) && words.every(word =>
+    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${isAdults(row) ? ADULTS : `${gradeLabel(row.grade_band)} ${ageLabel(row.grade_band)}`} ${LISTENS.filter((l) => hears(row, l.id)).map((l) => l.tag).join(' ')}`.toLocaleLowerCase().includes(word)))
     .sort((a, b) => jauntOrder(a, b, row => byId.get(row.version_of)));
 }
 
@@ -87,6 +102,17 @@ export function oneTellingEach(rows, grade = '') {
   }
   return rows.filter((row) => keep.has(row));
 }
+/**
+ * T-3735 (the owner, 2026-11-23: narration "should always match the age band of the story you
+ * are running"): the list as the menu shows it. A search and a group filter run first, then one
+ * telling of each jaunt for the ages picked (`oneTellingEach`), and only then the Listen picks,
+ * on the telling the reader would start. Picked before, Narrated kept only the voiced tellings
+ * and the reader's own (unvoiced) telling fell back to the base, another age's.
+ */
+export function listTellings(rows, { query = '', group = '', bands = [], listen = [] } = {}) {
+  const want = LISTENS.filter((l) => listen.includes(l.id));
+  return oneTellingEach(filterJaunts(rows, query, group), bands).filter((row) => want.every((l) => hears(row, l.id)));
+}
 /** T-3629: the grade band a visitor picked, kept on this device. Since T-3645 the reading
  *  ages (reading-level.js, `chicago4d.reading.ages`) hold the choice; this key is read once. */
 export const GRADE_KEY = 'chicago4d.jaunts.grade';
@@ -99,10 +125,11 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
+  const listen = new Set(); // T-3711: the Listen row's picks (narrated, music)
   // T-3645: the ages are the reader's (Settings › Display › Reading age); this row is a view of them.
   const picked = () => choice.get().map(bandOfAge).filter(Boolean);
   choice.subscribe(() => { if (list?.isConnected !== false && grades) { offset = 0; windowRows(); } });
-  let rows = [], list, search, pills, grades, clear, previous, more;
+  let rows = [], list, search, pills, grades, listens, clear, previous, more;
   const node = (tag, text = '', cls = '') => {
     const el = document.createElement(tag); el.textContent = text; el.className = cls; return el;
   };
@@ -140,6 +167,11 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     if (grades) { const tag = node('span', grades, 'jaunt-grade'); tag.title = `Written for US school ${grades.toLowerCase()}`; meta.append(tag); }
     const ages = ageLabel(gradeOf(row));
     if (ages) { const tag = node('span', ages, 'jaunt-grade jaunt-age'); tag.title = `Written for readers ${ages.toLowerCase()}`; meta.append(tag); }
+    // T-3711: read aloud, and music of its own, where the jaunt has them.
+    for (const l of LISTENS) if (hears(row, l.id)) {
+      const tag = node('span', '', `jaunt-hear jaunt-hear-${l.id}`); tag.title = l.card; tag.dataset.hear = l.id;
+      tag.append(icon(l.icon, 12), node('span', l.tag)); meta.append(tag);
+    }
     const light = ambienceLabel(row.ambience);
     if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
@@ -226,14 +258,16 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
   function windowRows({ focus = false } = {}) {
     // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
     // T-3629: one telling of each jaunt, the picked grade's where it has one.
-    const matches = oneTellingEach(filterJaunts(rows, query, family), picked());
+    // T-3735: the Listen picks judge the telling for the reader's ages, not one in its place.
+    const matches = listTellings(rows, { query, group: family, bands: picked(), listen: [...listen] });
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));
     list.querySelector('.jaunt-empty')?.setAttribute('role', 'listitem');
     previous.hidden = offset === 0; more.hidden = offset + WINDOW_SIZE >= matches.length;
-    clear.hidden = !query.trim() && !family;
+    clear.hidden = !query.trim() && !family && !listen.size;
     for (const pill of pills.children) if (pill.dataset.family !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.family === family));
+    for (const pill of listens.children) if (pill.dataset.listen !== undefined) pill.setAttribute('aria-pressed', String(listen.has(pill.dataset.listen)));
     const ages = choice.get();
     for (const pill of grades.children) if (pill.dataset.age !== undefined) pill.setAttribute('aria-pressed', String(pill.dataset.age ? ages.includes(pill.dataset.age) : !ages.length));
     if (focus) {
@@ -277,8 +311,20 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       pill.dataset.grade = band; pill.dataset.age = age; grades.append(pill);
     }
     grades.hidden = bands.length < 2;
+    // T-3711: the Listen row, with the pills this year's jaunts have; a pick it no longer
+    // offers (another year's) is let go, so the list never filters on a pill it cannot show.
+    listens = node('div', '', 'jaunt-categories jaunt-hears'); listens.setAttribute('role', 'group'); listens.setAttribute('aria-label', 'Listen');
+    listens.append(node('span', 'Listen', 'jaunt-grades-label'));
+    const heard = LISTENS.filter((l) => rows.some((row) => hears(row, l.id)));
+    for (const id of [...listen]) if (!heard.some((l) => l.id === id)) listen.delete(id);
+    for (const l of heard) {
+      const pill = button('', () => { if (listen.has(l.id)) listen.delete(l.id); else listen.add(l.id); offset = 0; windowRows(); }, 'jaunt-pill jaunt-hears-pill');
+      pill.append(icon(l.icon, 15), node('span', l.label));
+      pill.title = l.title; pill.setAttribute('aria-label', l.title); pill.dataset.listen = l.id; listens.append(pill);
+    }
+    listens.hidden = !heard.length;
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });
-    clear = button('Clear filters', () => { query = family = ''; offset = 0; search.value = ''; windowRows(); search.focus(); });
+    clear = button('Clear filters', () => { query = family = ''; listen.clear(); offset = 0; search.value = ''; windowRows(); search.focus(); });
     clear.classList.add('jaunt-clear'); pills.append(clear);
     const find = node('div', '', 'jaunt-find'); find.append(icon('search', 16), search);
     // The daybook rides on the search row rather than taking a line of its own.
@@ -287,7 +333,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const findRow = node('div', '', 'jaunt-find-row'); findRow.append(find, ...(chip ? [chip] : []));
     // T-3653: only the search row is pinned (css/walk.css § .jaunt-find-row), so it stands
     // beside the list rather than inside the filter block; the group and age rows scroll away.
-    const filters = node('div', '', 'jaunt-filters'); filters.append(pills, grades);
+    const filters = node('div', '', 'jaunt-filters'); filters.append(pills, grades, listens);
     list = node('div', '', 'jaunt-list'); list.setAttribute('aria-label', 'All jaunts'); list.setAttribute('role', 'list');
     previous = button('Earlier outings', () => { offset -= WINDOW_SIZE; windowRows({ focus: true }); });
     more = button('More outings', () => { offset += WINDOW_SIZE; windowRows({ focus: true }); });

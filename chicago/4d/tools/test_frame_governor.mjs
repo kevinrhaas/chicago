@@ -151,6 +151,74 @@ ok('on light, a moving frame re-renders the shadow every second frame; elsewhere
   assert.ok(drive(full, { frames: 60, costMs: () => 9 }).every((x) => x.shadow));
 });
 
+ok('a weak computer draws moving frames at weakScale from the first, with a shadow every second one (T-3728)', () => {
+  const g = createFrameGovernor({ tier: 'balanced', weak: true });
+  // A device that holds 60: nothing would ever ask for a step, the weak rule does.
+  const f = drive(g, { frames: 60, costMs: () => 9 });
+  assert.equal(f[0].scale, 1, 'the frame before any movement is at full sharpness');
+  assert.equal(f[1].scale, GOVERNOR.weakScale, 'the frame after the first moving one is at weakScale');
+  assert.ok(f.slice(1).every((x) => x.scale === GOVERNOR.weakScale && x.pace === 1));
+  const shadows = f.slice(1).map((x) => x.shadow);
+  for (let i = 1; i < shadows.length; i++) assert.notEqual(shadows[i], shadows[i - 1], 'the shadow alternates');
+  assert.equal(g.state.shadowEvery, 2);
+  // A slow weak device still steps no lower than the floor.
+  const slow = createFrameGovernor({ weak: true });
+  drive(slow, { frames: 300, costMs: (s) => 60 * s * s });
+  assert.ok(slow.scale >= Math.min(GOVERNOR.floor, GOVERNOR.weakScale) - 1e-9 && slow.scale <= GOVERNOR.weakScale + 1e-9);
+});
+
+ok('a weak computer at rest draws at weakStillScale with a shadow every second frame; a capture is full, with a fresh shadow (T-3728)', () => {
+  const g = createFrameGovernor({ weak: true });
+  drive(g, { frames: 30, costMs: () => 9 });
+  const f = drive(g, { frames: 30, costMs: () => 9, moving: () => false });
+  const rested = f.slice(GOVERNOR.restFrames);
+  assert.ok(rested.length > 0 && rested.every((x) => x.scale === GOVERNOR.weakStillScale && x.pace === 1));
+  const sh = rested.map((x) => x.shadow);
+  for (let i = 1; i < sh.length; i++) assert.notEqual(sh[i], sh[i - 1], 'the still shadow alternates');
+  assert.equal(g.state.shadowEvery, 2);
+  assert.equal(g.state.moving, false);
+  assert.match(describeGovernor(g.state, GOVERNOR.weakStillScale),
+    new RegExp(`${Math.round(GOVERNOR.weakStillScale * 100)} % of the sharpness chosen above`));
+  // A capture asks for neutral: full sharpness and a fresh shadow for that frame.
+  g.rest();
+  assert.equal(g.scale, 1);
+  assert.equal(g.shadowFresh, true);
+  const still = createFrameGovernor({ weak: true });
+  const s = drive(still, { frames: 30, costMs: () => 9, moving: () => false });
+  assert.ok(s.slice(0, GOVERNOR.restFrames).every((x) => x.scale === 1), 'nothing changes before the rest is earned');
+  assert.ok(s.slice(GOVERNOR.restFrames).every((x) => x.scale === GOVERNOR.weakStillScale));
+  // Fixed holds a weak computer neutral, still or moving.
+  const fixed = createFrameGovernor({ enabled: false, weak: true });
+  assert.ok(drive(fixed, { frames: 30, costMs: () => 9 }).every((x) => x.scale === 1 && x.shadow));
+  assert.ok(drive(fixed, { frames: 30, costMs: () => 9, moving: () => false }).every((x) => x.scale === 1 && x.shadow));
+  // And a device that is not weak still rests at exactly 1.
+  const std = createFrameGovernor();
+  assert.ok(drive(std, { frames: 30, costMs: () => 9, moving: () => false }).every((x) => x.scale === 1 && x.shadow));
+  assert.equal(std.state.shadowEvery, 1);
+});
+
+ok('Fast pacing (Settings, T-3736) switches the weak rule on and off live, from a rest', () => {
+  const g = createFrameGovernor();
+  assert.equal(g.fast, false);
+  assert.equal(g.state.fast, false);
+  assert.equal(g.setFast(true), true);
+  assert.equal(g.state.fast, true);
+  const f = drive(g, { frames: 30, costMs: () => 9 });
+  assert.ok(f.slice(1).every((x) => x.scale === GOVERNOR.weakScale), 'moving at weakScale once Fast is on');
+  assert.equal(g.state.shadowEvery, 2);
+  const still = drive(g, { frames: 30, costMs: () => 9, moving: () => false });
+  assert.ok(still.slice(GOVERNOR.restFrames).every((x) => x.scale === GOVERNOR.weakStillScale));
+  g.setFast(false);
+  assert.equal(g.scale, 1, 'off: neutral at once');
+  assert.ok(drive(g, { frames: 30, costMs: () => 9, moving: () => false }).every((x) => x.scale === 1 && x.shadow));
+  assert.equal(g.state.shadowEvery, 1);
+  // Fixed wins over Fast: every frame neutral, and the state does not call itself fast.
+  g.setFast(true);
+  g.setEnabled(false);
+  assert.ok(drive(g, { frames: 30, costMs: () => 9 }).every((x) => x.scale === 1 && x.shadow));
+  assert.equal(g.state.fast, false);
+});
+
 ok('Fixed holds every frame neutral, however slow', () => {
   const g = createFrameGovernor({ enabled: false, tier: 'light' });
   const f = drive(g, { frames: 300, costMs: (s) => 40 * s * s });

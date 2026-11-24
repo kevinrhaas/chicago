@@ -1,0 +1,45 @@
+{
+  "structure_id": "armour_house_2115_prairie",
+  "view": "tribune_1928_front",
+  "glb": "assets/gltf/armour_house_2115_prairie__as_mapped_1904.glb",
+  "glb_sha256": "bc3d2f1c84943ede352ffe7eee5500116276e054b11bde1dc68c04f4b3a2810c",
+  "camera_sha256": "9ede48c5d5d7a0f7ab858bd05ce8fbed44a76bfe6840fb7569c80dc44344b990",
+  "photo_sha256": "e7a6cf89a2d7c814cd804c860b6035d403633b336d6855d47a45aa3b8a9309d7",
+  "side_by_side": "docs/RESEARCH/photo-match/armour_house_2115_prairie/tribune_1928_front-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the front's openings: the three north columns (x 400, 520, 630 px), the door over the middle of the straight stoop, the pavilion's two lights a storey and the south end's light (x 975) stand on the halftone's. T-3712's door in the second column would have stood at x 520, over a window here",
+      "status": "fixed"
+    },
+    {
+      "what": "the mansard, its dormers and the deck's cresting between the two tall stacks (the caption's 'tall mansard storey' and the photograph's cresting at y 200-230 px) stand on the halftone's",
+      "status": "fixed"
+    },
+    {
+      "what": "the south stack: the halftone's tall stack at the crown's south end (x about 855 px), which T-3712 had reconstructed mid-depth; now triangulated with the Armour camera",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's south end beyond the pavilion: lower, under a railed roof (x 880-1000, y 350-380 px), where the render carries the main mansard (as in the Armour photograph's record)",
+      "status": "open"
+    },
+    {
+      "what": "the pavilion's crown's top, dark and ragged against the sky (y 110-200 px): the crown's own deck now carries the K10 kit's iron cresting round its curb, its posts standing over the slates as the halftone's do, and the tall dark spike at x about 855 is the south stack, now 18.35 m: its top at y 117 against the halftone's about 105 (at the kit's 17.71 m it stood at about y 145), about 0.3 m short here where the Armour photograph reads it about 0.3 m over; the two readings disagree by about 0.6 m and the stack stands between them",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the halftone is dark and coarse: window heads, the frieze, the cornice's consoles and every carved member read only as light and dark patches; the north stack stands about 30 px left of and 0.6 m under the halftone's (two cameras fitted on a resampled copy, pixel_aspect 1.195)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the halftone's principal storey reads as a pale arcade of piers between the lights (x 340-560, y 640-800 px): the lights' architraves and the pilaster strips between them at this screen; not read as a porch (the Armour photograph shows none)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: a newspaper halftone; and the picture is of 1928, twenty-four years after the scene (nothing it shows is read as an alteration)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

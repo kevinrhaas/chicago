@@ -87,6 +87,12 @@ builder reads, the hash differs and `--stale` demands a real bake. A full rebake
 (`tools/bake.sh` with no `--only`, the nightly) rebuilds every version with the town, so a
 generators/ edit never strands one.
 
+A version of a **K01** record (`archetype: k01_frontage`) never reaches Blender: it is written in pure Python by
+`generators/k01_versions_emit.py` (T-3721), through the same `k01_emit.glb_for` the canonical K01 houses use, and
+`tools/bake.sh --only <id>` runs it beside `k01_emit.py`. It is its own command because `k01_emit.py` is hashed into
+every K01 mesh's inputs; `check.sh` holds its committed bytes with `--check`. 2126 Prairie's `completed` (the finished
+Robbins house beside the July 1904 works shell) is the first.
+
 `python3 tools/structure_versions.py list` shows what exists; `status <id>` names any mesh
 of a structure or its versions that needs a bake.
 

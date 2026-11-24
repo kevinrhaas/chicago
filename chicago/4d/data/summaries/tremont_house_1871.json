@@ -1,0 +1,110 @@
+{
+  "id": "tremont_house_1871",
+  "scene": "1871",
+  "name": "The Tremont House",
+  "address": "Southeast corner of Lake and Dearborn Streets",
+  "status": {
+    "text": "Gone in 1871",
+    "today": "Later buildings stand on the corner",
+    "grade": "inferred",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ],
+    "note": "It burned on 9 October 1871. The corner's later buildings are not researched here."
+  },
+  "built": {
+    "year": 1850,
+    "grade": "attested",
+    "sources": [
+      "andreas_1885_v2_buildings"
+    ]
+  },
+  "use": "Hotel",
+  "summary": "The third Tremont House, five and a half storeys of brick on Lake and Dearborn. It opened in 1850 and was one of the city's great hotels. It burned in the small hours of 9 October 1871.",
+  "key": [
+    {
+      "label": "Built by",
+      "value": "Ira Couch",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Architect",
+      "value": "J. M. Van Osdel",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Size",
+      "value": "140 feet on Lake, 180 on Dearborn",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "label": "Cost",
+      "value": "$75,000",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "A columned porch with a balcony marks the Dearborn Street door.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s47905_tremont_house"
+      ]
+    },
+    {
+      "text": "A little eight-sided lookout with a dome sits on the roof.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "loc_stereo_1s47905_tremont_house"
+      ]
+    },
+    {
+      "text": "It lay in ruins by four in the morning.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1850-09-29",
+      "text": "The new Tremont House opens.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    },
+    {
+      "date": "1871-10-09",
+      "text": "The fire takes it after two in the morning.",
+      "era": "1871",
+      "grade": "attested",
+      "sources": [
+        "andreas_1885_v2_buildings"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-/** Make your case: the case table (T-3663, T-3678). One row per jaunt whose own cited
+/** Make your case: the case table (T-3663, T-3678, T-3693). One row per jaunt whose own cited
  * evidence argues a question both ways. A row names the jaunt (its tellings match by
  * `version_of`), the scene year, and the readings to compare; each reading is a set of
  * the jaunt's compiled evidence ids, with the stop that cites it, the grade it must still
@@ -41,5 +41,13 @@ export const CASES = Object.freeze([
       'wikipedia_fort_dearborn_massacre_monument', 'chicagoandcook_2017_1812_massacre_site')]),
     reading('historian', [claim('statue-doubt', 'bronze', 'attested', 'karamanski_2004_monuments_lost_nation_p6'),
       claim('statue-models', 'bronze', 'attested', 'karamanski_2004_monuments_lost_nation_p6')]),
+  ]) }),
+  // T-3693: Who Started the Fire? Four accounts of the barn: Catherine O'Leary's sworn
+  // testimony, Sullivan's affidavit, the Board's finding, and Bales's modern theory.
+  Object.freeze({ id: 'fire', jaunt: 'who-started-the-fire', year: '1871', readings: Object.freeze([
+    reading('oleary', [claim('oleary-testimony', 'catherine', 'attested', 'greatchicagofire_oleary_legend_2011')]),
+    reading('sullivan', [claim('sullivan-affidavit', 'the-barn', 'attested', 'andreas_1885_v2')]),
+    reading('board', [claim('board-finding', 'the-inquiry', 'attested', 'greatchicagofire_oleary_legend_2011')]),
+    reading('bales', [claim('peg-leg', 'other-suspects', 'attested', 'chicago_tribune_1998_03_03_odds_improve')]),
   ]) }),
 ]);

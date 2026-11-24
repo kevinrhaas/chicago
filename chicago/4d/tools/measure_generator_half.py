@@ -714,8 +714,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1126 -> 1129 on 2026-11-19 (T-3688): the Court House, the Chamber of Commerce and the
 # Sherman House in 1871, the first records of the new pure-Python `landmark_1871`
 # archetype (generators/landmark_1871_emit.py), restaling on none of the shared rows.
+# 1129 -> 1143 on 2026-11-20 (T-3689): the fire's North and West Side places (the
+# Water Tower and works, the DeKoven Street lots, the Ogden house, St. Michael's, the
+# old City Cemetery and its dead-house, Washington Square, the lake shore sands) on the
+# same landmark_1871 archetype, restaling on none of the shared rows.
+# 1143 -> 1144 on 2026-11-21 (T-3689): the Water Tower's grounds, open ground with its
+# kerb and railing, on the same archetype (the owner asked for the houses off its block).
+# 1144 -> 1149 on 2026-11-21 (T-3688): the Tremont House, Crosby's Opera House, Field,
+# Leiter & Co., the Palmer House and the Tribune building, on the same archetype,
+# restaling on none of the shared rows. 1149 -> 1150 the same day (T-3689): the
+# pumping works' grounds across Pine Street, open ground like the Water Tower's.
+# 1150 -> 1151 on 2026-11-21 (T-3688): Court House Square, open ground round the Court
+# House with its kerb and iron fence, on the same archetype (its photograph shows no
+# other building in the square).
 STATED = {
-    "assets": 1129,
+    "assets": 1151,
     "restales": {
         "generators/common/*.py": 820,
         "generators/common/__init__.py": 0,

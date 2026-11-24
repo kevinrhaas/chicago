@@ -173,7 +173,7 @@ async function run(opts) {
     'data/context/1871/kit.json', 'data/context/1871/generated-assets.json',
     'data/context/1871/streets.glb', 'data/context/1871/bridges.glb', 'data/context/1871/rail.glb',
     'data/terrain/epochs/e1871_prefire/heightfield.json', 'data/terrain/epochs/e1871_prefire/heightfield.bin',
-    'walk/js/main.js', 'walk/js/city-context.js', 'walk/js/walker.js',
+    'walk/js/main.js', 'walk/js/city-context.js', 'walk/js/street-surfaces-1871.js', 'walk/js/walker.js',
     'walk/js/world.js', 'walk/js/time-of-day.js'];
   const snapshot = () => Object.fromEntries(snapshotPaths.map(rel => [rel,
     createHash('sha256').update(fs.readFileSync(path.join(opts.root, rel))).digest('hex')]));
@@ -242,6 +242,14 @@ async function run(opts) {
         check(Object.keys(row.boot.census.styleCounts).length >= 8 && Object.keys(row.boot.census.districtCounts).length >= 6,
           `${vp.name}: varied forms in multiple districts`);
         check(Object.values(uses).every(rows => rows.length > 0), `${vp.name}: commercial, residential and industrial forms present`);
+        // T-3685: wood block, boulders, dirt and planks each painted, at the phone's smaller tile on light,
+        // and the raised walks' kerb boards and crossing steps built from the floors.
+        const surfacing = row.boot.census.streetSurfaces;
+        check(surfacing?.dressed >= 4 && surfacing.edgeQuads > 10_000 && surfacing.tilePx === (surfacing.detail === 'light' ? 256 : 512),
+          `${vp.name}: street surfaces painted (${surfacing?.dressed} materials, ${surfacing?.tilePx} px) with ${surfacing?.edgeQuads} kerb and step faces`);
+        // Roadways, crossings and walks draw as ordered ground decals, so where two lie
+        // one on the other (every junction and corner) they no longer blink (Kevin 2026-11-21).
+        check(surfacing?.decals >= 3, `${vp.name}: street layers drawn as ordered decals (${surfacing?.decals} batches)`);
         const extents = buildings.reduce((b, r) => [Math.min(b[0], r.e), Math.max(b[1], r.e), Math.min(b[2], r.n), Math.max(b[3], r.n)], [Infinity, -Infinity, Infinity, -Infinity]);
         check(extents[1] - extents[0] > 5_000 && extents[3] - extents[2] > 7_000, `${vp.name}: city spans north, south and western districts`);
         check(row.boot.streetLines > 30 && (doc.walk_decks?.length ?? 0) > 0, `${vp.name}: dated streets and bridge decks available`);

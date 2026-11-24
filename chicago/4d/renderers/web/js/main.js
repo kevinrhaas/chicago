@@ -90,17 +90,17 @@ import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js'
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
 import { createResidentWalk } from './resident-estimate.js';
 import { createFarMerge } from './far-merge.js';
-import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
-  closeUploadedImages } from './upload-release.js';
+import { releaseAfterUpload, uploadLayerNow, uploadLayerSliced, uploadSceneSliced, uploadReleaseState, releaseSources,
+  closeUploadedImages, RELEASE_KEEP } from './upload-release.js';
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency, hasReleasedTextureLevels, hasRequiredSourceTextures } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
 import { countDriverDraws } from './driver-draws.js';
 import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport, SAMPLE_MS as BLACKBOX_SAMPLE_MS } from './blackbox.js';
+import { createBugReports, mountBugKey, frameJpeg } from './bug-report.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
-import { createCrossings } from './crossings.js';
 import { createVessels } from './vessels.js';
 import { insideDeck } from './deck-surface.js';
 import { mountHumans, useFightMotions } from './humans.js';
@@ -131,19 +131,13 @@ import { floorDecks, stairSurface } from './house-floors.js';
 import { createHouseErrands } from './house-errands.js';
 import { blockLoop, footprintCentre, walkDoing, BLOCK_WAYS } from './block-walk.js';
 import { createNightLights } from './night-lights.js';
-import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
-import { createStreetTrees } from './street-trees.js';
-import { createStreetFurniture } from './street-furniture.js';
-import { createFrontYards } from './front-yards.js';
-import { createBackYards } from './back-yards.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
-import { createContext } from './context.js';
-import { createRailway } from './railway.js';
+import { inertStreetGrid, inertStreetTrees, inertStreetFurniture, inertBackYards, inertFrontYards, inertRailway, inertContext, inertCrossings } from './inert-layers.js';
 import { createViewOcclusion } from './view-occlusion.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
@@ -154,8 +148,9 @@ import { mountResidents } from './residents.js';
 import { mountGround } from './ground.js';
 import { mountCityCensus } from './census.js';
 import { mountLiberties } from './liberties.js';
-import { createRouter } from './route.js';
+import { createRouter, WINDOW_CELLS } from './route.js';
 import { createTravel, PACES } from './travel.js';
+import { createSkyline } from './flight-clearance.js'; // T-3734
 import { mountPeople } from './people.js';
 import { openPictureViewer } from './pictures.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
@@ -182,7 +177,8 @@ import { spotTarget } from './photos-tab.js';
 import { createWhere, screenDate, spokenDay } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
-import { createFrameGovernor, describeGovernor } from './frame-governor.js';
+import { createFrameGovernor, GOVERNOR } from './frame-governor.js';
+import { isWeakDesktop, resolveAntialias, resolvePacing, describeDrawing } from './graphics-settings.js'; // T-3736
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
 import { advanceGust, syncGustUniform } from './wind-gust.js';
@@ -191,6 +187,35 @@ import { createRegistration } from './today-register.js';
 import { announce } from './a11y-announce.js'; // T-3671: the screen reader's status line
 import { withStory } from './tale-actions.js'; // T-3627: the teller itself (tale-teller.js) loads when first asked
 import { reducedMotion, motionQuery } from './motion.js'; // T-3671: the one motion choice
+import { warmBeforeDraw } from './program-warm.js'; // T-3728: nothing drawn before its program is built
+// T-3732 (docs/SITE-BUDGET.md § 4s): a layer the scene does not list is never downloaded. Each
+// of these factories, handed no data base, returns its empty layer and nothing else, so until
+// T-3732 the 1835 first visit fetched 0.16 MB of 1904 code (the street grid, parkway elms, gas
+// lamps, yards, railway and context city) and the crossings to be told "nothing here". Each name
+// below is the factory itself where the layer is drawn, imported then, and the same empty layer
+// (inert-layers.js, which the factory also builds from) where it is not. The test is the
+// factory's own first one; tools/test_inert_layers.mjs holds the two forms equal.
+const LAYER_MODULES = Object.freeze({
+  street_grid: () => import('./street-grid.js'),
+  street_trees: () => import('./street-trees.js'),
+  street_furniture: () => import('./street-furniture.js'),
+  back_yards: () => import('./back-yards.js'),
+  front_yards: () => import('./front-yards.js'),
+  railway: () => import('./railway.js'),
+  context: () => import('./context.js'),
+  crossings: () => import('./crossings.js'),
+});
+const lazyLayer = (layer, name, given, empty) => (opts = {}) => (given(opts)
+  ? LAYER_MODULES[layer]().then((m) => m[name](opts)) : Promise.resolve(empty(opts)));
+const hasBase = (o) => !!o.dataBase;
+const createStreetGrid = lazyLayer('street_grid', 'createStreetGrid', hasBase, inertStreetGrid);
+const createStreetTrees = lazyLayer('street_trees', 'createStreetTrees', hasBase, inertStreetTrees);
+const createStreetFurniture = lazyLayer('street_furniture', 'createStreetFurniture', hasBase, inertStreetFurniture);
+const createBackYards = lazyLayer('back_yards', 'createBackYards', (o) => !!(o.dataBase || o.doc), inertBackYards);
+const createFrontYards = lazyLayer('front_yards', 'createFrontYards', (o) => !!(o.dataBase || o.back?.lots?.length), inertFrontYards);
+const createRailway = lazyLayer('railway', 'createRailway', hasBase, inertRailway);
+const createContext = lazyLayer('context', 'createContext', hasBase, inertContext);
+const createCrossings = lazyLayer('crossings', 'createCrossings', hasBase, inertCrossings);
 
 const VERSION = '0.1.0';
 
@@ -1703,6 +1728,11 @@ function readDetailPreference() {
 }
 
 /** The visitor's stored Sharpness, '' when never chosen (hud.js stores '' for that). */
+/** T-3736: the stored settings as they are on disk, for the choices read before the HUD. */
+function readStoredSettings() {
+  try { return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { return {}; }
+}
+
 function readQualityPreference() {
   try {
     return JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}')?.quality ?? '';
@@ -1813,10 +1843,15 @@ const crashBoot = crashGuard.boot({
 let blackboxSample = () => null;
 const blackbox = createBlackbox({ year: YEAR, build: document.getElementById('gate-build')?.textContent?.trim() || VERSION, sample: () => blackboxSample() });
 api.blackbox = blackbox;
+// T-3743: crash reports and the Report a bug key (bug-report.js). Made this early so an
+// error in the boot is caught; it sends nothing until sign-in has said who is here.
+const bugs = createBugReports({ config: SIGN_IN, year: YEAR, build: blackbox.box.build });
+api.bugs = bugs;
 if (wasCut(blackbox.previous)) {
   const line = blackboxSummary(blackbox.previous);
   crashGuard.show(crashGuard.state.notice ? `${crashGuard.state.notice} ${line}` : line,
     { copyText: blackboxReport(blackbox.previous) });
+  bugs.crash(blackbox.previous, line);
 }
 blackbox.log('boot', { to: `${crashBoot.detail}@${crashBoot.quality}` });
 window.addEventListener('pagehide', () => blackbox.end('left'));
@@ -1862,6 +1897,7 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
   .then(({ createSound }) => (api.sound = createSound({
     audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
     settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
+    jaunt: () => api.jaunts?.state ?? null, // T-3710: the jaunts' score
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
       snowCover: seasonUniforms.uChiSnow.value,
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
@@ -2004,6 +2040,7 @@ async function boot() {
   // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
   // once, loads nothing) until js/sign-in-config.js names a Firebase project.
   api.signIn = await signInGate({ year: YEAR, gate });
+  bugs.signedIn(api.signIn.account ?? null);
   // T-3603: "Signed in as … · Sign out" on the Settings card's About tab.
   showAccount(document, api.signIn.account);
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
@@ -2152,9 +2189,27 @@ async function boot() {
    * Settings drops the pixel ratio to 1, which cuts the multisampled pixel count
    * by 56 % — measured at 4 stations rather than asserted, see STATUS.md.
    */
+  /*
+   * T-3728 (Bill's PC, 2026-11-23): a WEAK computer (the integrated-graphics class, Bill's
+   * i5-10400 / UHD 630) draws without multisampling. Measured on that PC, 1904 Balanced:
+   * standing 16.6 -> 20.2 fps, at jaunt stops 15.2-17.3 -> 17.2-18.4, over the closing
+   * overlook 12.1-12.5 -> 13.2-14.6. Every other device keeps it, as T-0157 above set it.
+   * `?msaa=1` keeps it on a weak computer too, for comparison. T-3736 makes it the Auto of
+   * Settings › Graphics › Antialiasing, below.
+   */
+  /**
+   * T-3736: Settings › Graphics › Antialiasing (graphics-settings.js). Auto is on, as above,
+   * except on a weak computer, where it is off (about 3 fps standing on the owner's UHD 630
+   * test PC); a visitor's On or Off beats Auto, and `?msaa=1` / `?msaa=0` beat both. The
+   * context is made once, so a change takes effect on the next load and the Drawing now line
+   * says so. `weakDesktop` is also what Auto's Fast pacing reads (T-3728).
+   */
+  const weakDesktop = isWeakDesktop(device, { coarse, headset });
+  device.weakDesktop = weakDesktop;
+  const multisample = resolveAntialias(readStoredSettings(), weakDesktop, params);
   const renderer = new THREE.WebGLRenderer({
     canvas,
-    antialias: true,
+    antialias: multisample,
     powerPreference: 'high-performance',
     stencil: false,
   });
@@ -2165,6 +2220,11 @@ async function boot() {
    * `measure_walk_frames.mjs`) must neither skip it nor count it as a draw.
    */
   const placementRender = renderer.render.bind(renderer);
+  // T-3728 (Bill's PC, 2026-11-23): three reads every new program's three info logs back from
+  // the driver to look for errors (`checkShaderErrors`), which ANGLE on D3D11 answers slowly.
+  // A weak computer skips the reading; the shaders are the same ones every other device and the
+  // gate check, so an error would show there. `?shadercheck=1` reads them there too.
+  if (weakDesktop && params.get('shadercheck') !== '1') renderer.debug.checkShaderErrors = false;
   /**
    * T-2970. What the GL driver receives, which is what every draw budget is held
    * to: `renderer.info.render.calls` counts a BatchedMesh's multi-draw as one call
@@ -2195,9 +2255,23 @@ async function boot() {
    */
   let sharpnessCap = renderer.getPixelRatio();
   const governorLine = document.getElementById('governor-line');
-  const governor = createFrameGovernor({ tier: detailLevel, onChange: (state) => {
-    if (governorLine) governorLine.textContent = describeGovernor(state, sharpnessCap * state.scale);
-  } });
+  // T-3728: a weak computer (Bill's integrated-graphics class) draws every moving
+  // frame at a lower resolution and the sun's shadow every second moving frame,
+  // and its still frames a little softer too (captures and photos stay full),
+  // rather than losing anything; a phone or headset keeps the governor as it was.
+  // T-3736: that is Settings' Fast pacing now — Auto's pick on a weak computer, and
+  // anyone's to choose (graphics-settings.js resolvePacing).
+  const bootPacing = resolvePacing(readStoredSettings(), weakDesktop);
+  // T-3736: the Drawing now line — detail, sharpness moving and still, antialiasing.
+  let drawingQuality = null;
+  const paintDrawing = (state = governor.state) => {
+    if (!governorLine) return;
+    governorLine.textContent = describeDrawing({ detail: detailLevel, state, multisample,
+      quality: drawingQuality ?? sharpnessCap, pendingAntialias: resolveAntialias(readStoredSettings(), weakDesktop, params) ? 'on' : 'off',
+      weakScale: GOVERNOR.weakScale, weakStillScale: GOVERNOR.weakStillScale });
+  };
+  const governor = createFrameGovernor({ tier: detailLevel, weak: bootPacing === 'fast',
+    enabled: bootPacing !== 'fixed', onChange: (state) => paintDrawing(state) });
   function applySharpness(value) {
     if (value !== undefined) sharpnessCap = Math.min(window.devicePixelRatio || 1, value);
     const ratio = sharpnessCap * governor.scale;
@@ -2242,7 +2316,7 @@ async function boot() {
     if (!contextPaused && frameLoop) renderer.setAnimationLoop(frameLoop);
   });
   crashGuard.watchContext(renderer.domElement, { needsReload: contextNeedsReload });
-  renderer.domElement.addEventListener('webglcontextlost', () => blackbox.log('lost'));
+  renderer.domElement.addEventListener('webglcontextlost', () => { blackbox.log('lost'); bugs.contextLost(blackbox.box); });
   renderer.domElement.addEventListener('webglcontextrestored', () => blackbox.log('restored'));
   setPickLog((kind, data) => blackbox.log(kind, data));
   api.pickResources = pickResources;
@@ -2328,6 +2402,10 @@ async function boot() {
   const draws = (layer) => sceneLayers.has(layer);
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
+  // T-3732: a listed layer's module starts downloading now, beside the boot's other fetches, so
+  // importing it on demand costs the year that draws it no round trip at its turn (an import of
+  // the same module is fetched once); the year that does not list it never asks for it.
+  for (const [layer, load] of Object.entries(LAYER_MODULES)) if (draws(layer)) void load().catch(() => {});
   api.sceneLayers = [...sceneLayers];
   // T-2677: the frontage's timber, prebuilt at publish, starts downloading now so
   // it arrives under the phases ahead of the layer instead of after them. It
@@ -2416,8 +2494,7 @@ async function boot() {
   /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
    *  and lets go of its page arrays (upload-release.js), keeping back what this
    *  tier never shows. */
-  const settleOnGpu = (layer) => {
-    if (!lowMem) return;
+  const settleOptions = (layer) => {
     const want = DETAIL[detailLevel] ?? DETAIL.full;
     // What the reach will hold back from where the visitor stands is left for
     // the walk to upload when it comes near, as it always was.
@@ -2432,10 +2509,42 @@ async function boot() {
       return eye.distanceTo(sphere.center) - sphere.radius > reach;
     };
     layer.updateWorldMatrix(true, true);
-    uploadLayerNow(renderer, scene3d, camera, layer, {
+    return {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
         || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
-    });
+    };
+  };
+  const settleNow = (layer) => {
+    if (!lowMem) return;
+    uploadLayerNow(renderer, scene3d, camera, layer, settleOptions(layer));
+  };
+  /**
+   * T-3728 (Bill's PC, 2026-11-23): the upload above is a real draw, so every program the
+   * layer needs was linked inside it, and the boot stood still while each linked: 7.1, 2.8,
+   * 2.3 and 1.6 s on the UHD 630. The layer's programs are built first with `compileAsync`,
+   * whose links run on the driver's own threads where it can (KHR_parallel_shader_compile) and
+   * are polled, never waited on; the draw then finds them built. The same programs, so the
+   * same frames; without the extension a link is waited on either way, as before.
+   * `?settlecompile=0` uploads as before, for comparison.
+   */
+  const settleCompiles = params.get('settlecompile') !== '0';
+  /**
+   * T-3728 (Bill's PC, 2026-11-23, second profile): with the programs built ahead, the
+   * longest boot task left was one layer's upload itself, 2.55 s: its bounds, then every
+   * buffer and texture at once. `uploadLayerSliced` works the bounds out in slices and
+   * hands the layer over a piece at a time, with the page painting in between (40 ms
+   * slices): the same uploads, the same arrays let go. `?settleslice=0` uploads in one
+   * pass, as before, for comparison.
+   */
+  const settleSlices = params.get('settleslice') !== '0';
+  const settlePause = createCheckpoint({ budgetMs: 40 });
+  const settleOnGpu = async (layer) => {
+    if (!lowMem) return;
+    if (settleCompiles && RELEASE_KEEP[layer?.name] && layer.visible) {
+      try { await renderer.compileAsync(layer, camera, scene3d); } catch { /* the upload links what is missing */ }
+    }
+    if (!settleSlices) { settleNow(layer); return; }
+    await uploadLayerSliced(renderer, scene3d, camera, layer, { ...settleOptions(layer), pause: settlePause });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
@@ -2504,7 +2613,7 @@ async function boot() {
     const at = anchorFor(loaded.scene, params.get('anchor')) ?? loaded.scene.spawn ?? {};
     attachResidency(buildings.group, enuToWorld(at.local_e ?? 0, at.local_n ?? 0), { flat: true });
   }
-  settleOnGpu(buildings.group);
+  await settleOnGpu(buildings.group);
   // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
   // of the source geometry and the decoded images (upload-release.js).
   if (lowMem) {
@@ -2577,7 +2686,7 @@ async function boot() {
   const interactions = createInteractions();
   api.interactions = interactions;
   // From where the visitor will stand, so the ground's reach can be read.
-  settleOnGpu(terrain.group);
+  await settleOnGpu(terrain.group);
 
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
@@ -2597,7 +2706,7 @@ async function boot() {
   /** T-2710: whether the streets came prebuilt, and if not, why not. */
   api.streetsPrebuilt = streets.prebuilt;
   scene3d.add(streets.group);
-  settleOnGpu(streets.group);
+  await settleOnGpu(streets.group);
   if (groundProof) {
     api.groundStrip = await groundProof.createGroundStrip({
       terrain, assetBase: bases.assetBase, problems,
@@ -2730,7 +2839,7 @@ async function boot() {
   // T-2775: on a phone the yard goes to the GPU now and lets go of its page arrays,
   // with the zones near the spawn already deciding which rails they draw.
   railway.update(camera);
-  settleOnGpu(railway.group);
+  await settleOnGpu(railway.group);
 
   let glessnerOcclusion=null;
   function refreshGlessnerOcclusion() {
@@ -2747,6 +2856,12 @@ async function boot() {
     // heap for Full's backing triangles. Balanced shares Light's asset and stands inside
     // its ceiling without it. Receipts: docs/RESEARCH/calumet-walk-budget-3012/.
     if (!inspectionLod || detailLevel==='balanced') return;
+    // NOT ON A WEAK DESKTOP (2026-11-24). The filter trades CPU for triangles, and
+    // an integrated-graphics desktop is CPU-bound: on an i5-10400 / UHD 630 it
+    // tested ~10,000 pieces a frame to leave out 44,000 of 2.7M triangles, and
+    // took Light from 22.1 fps to 8.4 (Light then ran at less than half of
+    // Balanced's 20.9). Phones keep it; `?viewocclude=1` forces it on to compare.
+    if (weakDesktop && params.get('viewocclude') !== '1') return;
     const batches=[...buildings.batches];
     for(const group of [railway.group,terrain.group,streets.group])
       group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
@@ -2956,24 +3071,44 @@ async function boot() {
     // chosen, so a summer visit compiles nothing for it.
     if (s !== 'summer' && !structuresSeasoned) {
       structuresSeasoned = true;
+      // T-3728: each patch below changes its material's program. Every building, yard, rail and
+      // road material at once was 5 s of links in the frames after a jaunt set its season on a
+      // UHD 630; programWarm.rekey builds the patched programs off the frame first and patches
+      // the materials once they are ready (at once where the GPU cannot link in parallel).
+      const changes = new Map();
+      const change = (o, m, apply) => {
+        let c = changes.get(m);
+        if (!c) changes.set(m, c = { change: apply, objects: [] });
+        c.objects.push(o);
+      };
       scene3d.traverse((o) => {
         if (!o.isMesh) return;
         for (const m of [].concat(o.material)) {
           if (m?.name !== 'merged') continue;
-          if (isWallVine(m)) patchFoliage(m, FOLIAGE.vine);
-          else patchSeason(m);
+          change(o, m, isWallVine(m) ? (x) => patchFoliage(x, FOLIAGE.vine) : (x) => patchSeason(x));
         }
       });
-      seasonYardGround(api.yards?.group);
+      api.yards?.group?.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) {
+          const kind = YARD_SEASON_KIND[/^yard-(.+)$/.exec(m?.name ?? '')?.[1]];
+          if (kind !== undefined) change(o, m, (x) => patchSeason(x, kind));
+        }
+      });
       // The faded city's roofs and streets, and the railway's ballast, the same way.
       for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
         if (!o.isMesh || /crowns/.test(o.name)) return;
-        for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
+        const kind = /street/.test(o.name) ? 0.3 : 1;
+        for (const m of [].concat(o.material)) if (m && !m.transparent) change(o, m, (x) => patchSeason(x, kind));
       });
       // T-2864: the earth roads of 1812 and 1835 (streets.js), as a travelled roadway.
       streets.group.traverse((o) => {
-        if (o.isMesh) for (const m of [].concat(o.material)) patchSeason(m, 0.3);
+        if (o.isMesh) for (const m of [].concat(o.material)) if (m) change(o, m, (x) => patchSeason(x, 0.3));
       });
+      // Not waited on: the season goes on (sky, sun, trees, people) while the programs build,
+      // and the buildings and grounds take it as theirs become ready.
+      if (api.programWarm) void api.programWarm.rekey(changes).catch(() => { for (const [m, c] of changes) c.change(m); });
+      else for (const [m, c] of changes) c.change(m);
     }
     seasonState.season = applySeasonLook(s);
     // T-3331: the season moves the date; a named hour (sunset, dusk) is solved again
@@ -3043,7 +3178,7 @@ async function boot() {
     dir: loaded.scene.enclosures_dir ?? 'enclosures/',
   });
   scene3d.add(enclosures.group);
-  settleOnGpu(enclosures.group);
+  await settleOnGpu(enclosures.group);
   api.enclosures = enclosures;
 
   /**
@@ -3070,7 +3205,7 @@ async function boot() {
   performance.measure('yards', 'yards:start');
   if (seasonState.season !== 'summer') seasonYardGround(yards.group);
   scene3d.add(yards.group);
-  settleOnGpu(yards.group);
+  await settleOnGpu(yards.group);
   api.yards = yards;
 
   // The boards the businesses hung out over the footway. Like a fence, a
@@ -3096,9 +3231,12 @@ async function boot() {
   const parkedDrawingBuffer = new THREE.Vector2();
   const parkedTransport = await createParkedTransport({
     dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
-    stationaryTeams: String(YEAR) === '1904',
+    stationaryTeams: ['1871', '1904'].includes(String(YEAR)),
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
-    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
+    // T-3686: an 1871 hack stands on the paved roadway the context city lays over the field.
+    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n)
+      : String(YEAR) === '1871' && typeof contextCity.floorHeight === 'function'
+        ? (e, n) => contextCity.floorHeight(e, n) ?? terrain.surfaceHeight(e, n) : null,
     getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
     // T-3300: fetch a vehicle when the eye comes within 60 m of where it is drawn,
     // not at boot — 1835's wagons were 2.0 MB of the first visit, all out of reach.
@@ -3112,7 +3250,7 @@ async function boot() {
     problems: layerProblems('standing_horses'), hostMissing,
     groundHeight: (e, n, recordId, regionId) => yards.drawnBaseHeightAt(e, n, recordId, regionId),
   });
-  scene3d.add(standingHorses.group); settleOnGpu(standingHorses.group);
+  scene3d.add(standingHorses.group); await settleOnGpu(standingHorses.group);
   api.standingHorses = standingHorses;
   standingHorses.update(camera);
   const yard = await createYardGoods({
@@ -3124,7 +3262,7 @@ async function boot() {
     dir: loaded.scene.yard_dir ?? 'yard/',
   });
   scene3d.add(yard.group);
-  settleOnGpu(yard.group);
+  await settleOnGpu(yard.group);
   api.yard = yard;
   parkedTransport.setFallback((id, visible) => yard.setReplacementVisible(id, visible));
   parkedTransport.update(camera);
@@ -3145,7 +3283,7 @@ async function boot() {
   // Read by tools/measure_boot_phases.mjs: the layer has no boot phase of its own.
   performance.measure('frontage', 'frontage:start');
   scene3d.add(frontage.group);
-  settleOnGpu(frontage.group);
+  await settleOnGpu(frontage.group);
   api.frontage = frontage;
   // T-2600: the distant base's cells are cut on the job pool. T-2709: unless it
   // came prebuilt, when it is already the batch and this resolves false at once.
@@ -3306,6 +3444,17 @@ async function boot() {
   });
   scene3d.add(nightLights.group);
   api.nightLights = nightLights;
+  // T-3737 — each house's street number on its front door's transom (data/house_numbers/<scene>.json),
+  // gilt figures from one canvas atlas, one draw for the district, through the buildings' own placements.
+  // Imported only where the scene lists the layer (T-3732: a year that does not draw it never fetches it).
+  const houseNumbers = draws('house_numbers')
+    ? await import('./house-numbers.js').then((m) => m.createHouseNumbers({
+      dataBase: layerBase('house_numbers'), sceneId: loaded.scene.id ?? YEAR, buildings,
+      problems: layerProblems('house_numbers'),
+    }))
+    : { group: new THREE.Group(), census: { numbers: 0 }, doc: null, mesh: null };
+  scene3d.add(houseNumbers.group);
+  api.houseNumbers = houseNumbers;
   api.interactions = interactions;
 
   /**
@@ -3373,7 +3522,9 @@ async function boot() {
   // door opens for people, a dark room behind; api.coachHouse.drivePath()/clearFor() for the ride.
   // Swung, rebound and freed with the house doors (houseDoors.attach). Null where no coach house.
   api.coachHouse = null;
-  try {
+  // T-3732: imported only where Glessner's record stands, which is createCoachHouse's own first
+  // test (it returns null without it), so a year with no Glessner house never downloads it.
+  if (loaded.registry?.get?.('glessner_house')?.sidecar) try {
     const { createCoachHouse } = await import('./coach-house.js');
     api.coachHouse = createCoachHouse({ registry: loaded.registry, buildings, footprints, decks, interactions,
       visitor: () => (walker.state.flying || api.townTransport?.ride?.actor ? null : { e: walker.state.e, n: walker.state.n }),
@@ -3716,7 +3867,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(trees.group);
-  settleOnGpu(trees.group);
+  await settleOnGpu(trees.group);
   /**
    * T-2864 — the Season on the plants: the sward and its forbs (flora.js, one
    * Lambert family) and the woods (trees.js setSeason: the grown trees re-grown
@@ -3754,6 +3905,15 @@ async function boot() {
    * and changing back gives you the town you had, not a reshuffled one.
    */
   let detailPending = null;
+  // THE SWITCH TAKES MORE OF EACH FRAME than the boot's 12 ms (weak PC,
+  // 2026-11-24). The town keeps rendering while the new detail is built off
+  // scene, and on an integrated GPU a frame is ~70 ms, so 12 ms of building per
+  // frame stretched 13 s of work to 64-106 s. The visitor has just asked for
+  // the change from Settings; 40 ms a frame, the settle pass's own budget,
+  // costs a little smoothness for well under half the wait.
+  const switchCheckpoint = createCheckpoint({ budgetMs: 40 });
+  // Released models re-read at once during a switch: 4 on a low-memory device, 8 elsewhere.
+  const rereadLanes = lowMem ? 4 : 8;
   // The one opt-in structure whose geometry changes with Settings. Everything
   // is prepared off-scene, then committed in one turn so no empty lot or mismatched
   // budget is rendered between the two. Ordinary scenes keep their existing path.
@@ -3776,7 +3936,21 @@ async function boot() {
     next.retired = [];
     const rows = [...next.registry.values()].filter((row) => row.id !== skipId
       && (row.sourceReleased || hasReleasedTextureLevels(row.gltf)));
-    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    // A FEW AT A TIME (weak PC, 2026-11-24): every released model in town was
+    // fetched and decoded at once, and on an 8 GB integrated-graphics desktop
+    // the switch to or from Full peaked near 2 GB of script memory with under
+    // half a gigabyte of the machine left free. A short queue keeps the decode
+    // buffers in flight to a handful; the reads still overlap.
+    const got = new Array(rows.length);
+    let nextRow = 0;
+    const lane = async () => {
+      while (nextRow < rows.length) {
+        const i = nextRow++;
+        try { got[i] = { status: 'fulfilled', value: await loaded.loadDetailAsset(rows[i], rows[i].assetDetail) }; }
+        catch (reason) { got[i] = { status: 'rejected', reason }; }
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(rereadLanes, rows.length) }, lane));
     got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
     const failed = got.find((r) => r.status === 'rejected');
     if (failed) throw failed.reason;
@@ -3798,7 +3972,13 @@ async function boot() {
       const next = {};
       try {
         const record = loaded.registry.get('glessner_house');
-        if (String(detailAssetUrl(record, level, bases)) !== record.assetUrl) {
+        // A LOW-MEMORY DEVICE KEEPS THE HOUSE IT BOOTED WITH (weak PC, 2026-11-24).
+        // Only the Glessner house has a Full model of its own, but swapping it
+        // rebuilds every building in town and re-reads each released model:
+        // 51-90 s and ~1.8 GB of script memory on an 8 GB integrated-graphics
+        // desktop, with a few hundred megabytes of the machine left. Everything
+        // else Full changes (planting, trees, shadows, reach, tiers) still applies.
+        if (!lowMem && String(detailAssetUrl(record, level, bases)) !== record.assetUrl) {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
@@ -3809,7 +3989,7 @@ async function boot() {
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             shadowCasters, colourTwins: level !== 'full', farColourTier,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: lowMem,
+            checkpoint: switchCheckpoint, preserveMaterials: true, lowSpec: lowMem,
             collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
@@ -3832,12 +4012,14 @@ async function boot() {
           next.contextCity.group.visible = contextCity.group.visible;
         }
         next.flora = await createFlora({
+          checkpoint: switchCheckpoint,
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
           verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level, renderer, placementRender,
         });
         next.trees = await createTrees({
+          checkpoint: switchCheckpoint,
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
@@ -3871,7 +4053,7 @@ async function boot() {
         attachResidency(buildings.group, camera.position);
         for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
         if (lowMem) {
-          settleOnGpu(buildings.group);
+          settleNow(buildings.group);
           releaseSources(loaded.registry);
           closeUploadedImages(buildings.group, renderer);
         }
@@ -3902,6 +4084,7 @@ async function boot() {
       api.trees = trees;
       if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       detailLevel = level;
+      paintDrawing();
       blackbox.log('detail', { to: level });
       residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
@@ -3961,6 +4144,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    paintDrawing();
     contextCity.setDetail?.(level);
     blackbox.log('detail', { to: level });
     residency?.setTier(level);
@@ -4005,28 +4189,37 @@ async function boot() {
     applyGroundDetailReach(level);
     // Serialise: a visitor clicking through the options faster than the rebuild
     // would otherwise interleave two plantings into one scene.
+    // PLANTED A FEW ROWS AT A TIME, AND SWAPPED WHEN READY (weak PC, 2026-11-24).
+    // Without a checkpoint the replanting ran as one task: on an i5-10400 a 1812
+    // switch froze the page for 20-33 s, with the old wood already taken away.
+    // Now the new planting is built while the old one still stands and the page
+    // keeps drawing, then each layer is swapped in one turn, as boot plants them.
     const run = (detailPending ?? Promise.resolve()).then(async () => {
-      scene3d.remove(flora.group);
-      flora.dispose?.();
-      flora = await createFlora({
+      const nextFlora = await createFlora({
+        checkpoint: switchCheckpoint,
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: swardBlocked, growthEdges: swardEdges, growthPatch: swardPatch,
         verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(), renderer, placementRender,
       });
-      scene3d.add(flora.group);
+      scene3d.add(nextFlora.group);
+      scene3d.remove(flora.group);
+      flora.dispose?.();
+      flora = nextFlora;
 
-      scene3d.remove(trees.group);
-      trees.dispose?.();
-      trees = await createTrees({
+      const nextTrees = await createTrees({
+        checkpoint: switchCheckpoint,
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
-        zoneAt: (e, n) => flora.zoneAt(e, n),
+        zoneAt: (e, n) => nextFlora.zoneAt(e, n),
         ...detailOpts(),
       });
-      scene3d.add(trees.group);
+      scene3d.add(nextTrees.group);
+      scene3d.remove(trees.group);
+      trees.dispose?.();
+      trees = nextTrees;
       await streetsRebuilt;
       if (lowMem) releaseAfterUpload(scene3d);
       api.flora = flora;
@@ -4239,7 +4432,9 @@ async function boot() {
   // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
   // otherwise swallow a shoe whose trousers come down over it.
   const figureGround = (e, n) => figureGroundHeight(terrain, decks, e, n,
-    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null : null);
+    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null
+      // T-3690: the 1871 city's people stand on its plank walks and roadways, not under them.
+      : String(YEAR) === '1871' ? api.contextCity?.floorHeight?.(e, n) ?? null : null);
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -4269,7 +4464,10 @@ async function boot() {
     // T-3573: following someone, the town is what to look at (Follow put the card away), so
     // walking up behind them, or past anyone, opens no card.
     if (approach && api.follow?.active) return;
-    if (!draws('residents')) { void openPersonCard(personId); return; }
+    // Kevin, 2026-11-23 ("the card if it was auto opened should close or not prevent you from
+    // moving around"): a card the visitor walked into opens beside the walk, never holding it,
+    // and goes again when they walk on (`closeApproachCard`, on `leave`).
+    if (!draws('residents')) { void openPersonCard(personId, { approach: !!approach }); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
@@ -4300,14 +4498,25 @@ async function boot() {
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
-  if (['1812', '1835', '1904'].includes(daysScene)) {
+  if (['1812', '1835', '1871', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
-      : daysScene === '1812' && doorsFile1812 ? doorsFile1812 : getOptional(`humans/doors_${daysScene}.json`),
+    let [doors, inside] = await Promise.all([daysScene === '1835' && doorsFile1835 ? doorsFile1835
+      : daysScene === '1812' && doorsFile1812 ? doorsFile1812
+      : daysScene === '1871' ? null : getOptional(`humans/doors_${daysScene}.json`),
       // T-3556: and 1835's townspeople (tools/town_people_1835.py), each in and out of their home
       // and place of business by the hour.
-      ['1812', '1835', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
+      getOptional(`humans/inside_${daysScene}.json`)]);
+    // T-3690: the 1871 city's people (tools/town_people_1871.py) are given their doors and the
+    // places outside them on the context city's own walks, as the city stands today.
+    if (daysScene === '1871' && inside) {
+      const { placeTown1871, roadHeightOf } = await import('./town-1871.js');
+      api.roadHeight1871 = roadHeightOf(api.contextCity?.doc?.walk_surfaces ?? []);
+      const placed = placeTown1871(inside, api.contextCity);
+      doors = placed.doors;
+      api.town1871 = placed.census;
+      if (placed.census.dropped) layerProblems('humans').push(`town-1871: ${placed.census.dropped} of ${placed.census.households} households have no walk near their place and are not drawn`);
+    }
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
     // skirt's width off and nobody is stepped aside into (house-barriers.js).
@@ -4367,7 +4576,7 @@ async function boot() {
       standClear: houseBarriers ? (q) => houseBarriers.clearOf(q.e, q.n, BARRIER_STAND_M, (r) => dayClear(r, r)) : null,
       // T-3556: 1835's town is thousands under its roofs, so more of them are out about the
       // visitor at once; fewer on a lighter detail (a phone), never none (people are core).
-      residentsNear: daysScene === '1835' ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
+      residentsNear: ['1835', '1871'].includes(daysScene) ? ({ full: 8, balanced: 6 }[detailLevel] ?? 4) : 3,
       // T-3555: of those who may step out near the visitor, one the crowd draws out here first.
       prefer: (id) => api.crowd?.draws?.(id) ?? false,
       // T-3555: how many people the crowd may hand over as whole figures at once, as the visitor
@@ -4468,6 +4677,8 @@ async function boot() {
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
+          // T-3690: 1871's teams ride the context city's roadway ribbons where it lays them.
+          : String(YEAR) === '1871' ? (e, n) => api.roadHeight1871?.(e, n) ?? profiledGroundHeight(terrain, decks, e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         // Kevin, 2026-11-17: a team waits for a horse in its way (riding.js obstacles).
@@ -4614,9 +4825,17 @@ async function boot() {
     // T-3263: the trunks and posts a stand must see past — the parkway elms, the lamps
     // and poles, and the grown timber's trunks (re-read when a detail change re-grows it).
     occluders: standOccluders,
+    // T-3691: and never on a stoop, area wall or railing (house-barriers.js, read with the people).
+    standClear: (e, n) => !api.houseBarriers?.near(e, n, BARRIER_STAND_M),
     // The walker's own capsule and step rule, so a route that plans is a route that walks.
     radius: WALK.radius, stepUp: WALK.stepUp, cell: 1, inflate: 0.1,
     passageNeed: WALK.eyeHeight + HEADROOM_MARGIN_M,
+    // T-3691: a world too big for one grid (1871) keeps a window round the visitor, held
+    // still while they fly, and half the size on a phone or at the Light detail.
+    focus: () => (walker.state.flying ? null : walker.state),
+    windowCells: () => (prefersTouch() || detailLevel === 'light' ? WINDOW_CELLS / 2 : WINDOW_CELLS),
+    // T-3691: the 1871 context city's buildings, streets and plank walks (city-context.js).
+    extra: (box) => contextCity?.routeFeatures?.(box) ?? null,
   });
   let travel = null;
   api.router = router;
@@ -4728,14 +4947,19 @@ async function boot() {
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
         applySharpness(value);
-      } else if (key === 'governor') {
-        governor.setEnabled(value !== 'fixed');
-        applySharpness();
+        drawingQuality = Number(value) || drawingQuality;
+        paintDrawing();
+      } else if (key === 'pacing') {
+        applyPacing(resolvePacing(hud.settings, weakDesktop));
+      } else if (key === 'antialias') {
+        paintDrawing();
       } else if (key === 'detail') {
         crashGuard.chosen('detail');
         applyDetail(value);
       } else if (key === 'compass') {
         navigation.setCompassVisible(value);
+      } else if (key === 'bugKey') {
+        api.bugKey?.setShown(value);
       } else if (key === 'overviewMap') {
         navigation.setMapVisible(value);
       } else if (key === 'streetNames') {
@@ -4806,9 +5030,16 @@ async function boot() {
   // their name is, clicking on the card brings up their detail" — in every year, for the town's
   // people, the drivers on their boxes and a jaunt's hosts and castmates, at any hour. One
   // instanced draw over one atlas (name-cards.js); Settings › Show › Name cards over people.
+  // T-3731: the canvas's CSS height, read when it changes. Read every frame, `clientHeight`
+  // forced a synchronous layout whenever the HUD had written to the page that frame:
+  // about 2 ms a frame on the owner's weak test PC class, walking 1904. The same number.
+  let canvasCssHeight = null;
+  try {
+    new ResizeObserver(() => { canvasCssHeight = renderer.domElement.clientHeight; }).observe(renderer.domElement);
+  } catch { /* no ResizeObserver: read it each time, as before */ }
   api.nameCards = createNameCards({
     THREE, renderer, camera, tier: detailLevel, shown: hud.settings.nameCards !== false, grades: nameCardGrades(hud.settings),
-    viewHeight: () => renderer.domElement.clientHeight,
+    viewHeight: () => canvasCssHeight ?? renderer.domElement.clientHeight,
     // The card's edge and light: the person's grade in the Confidence view's colour for it.
     gradeColors: () => Object.fromEntries(['attested', 'inferred', 'reconstructed'].map((l) => [l, confidence.grade(l)?.color ?? null])),
     theme: () => {
@@ -5104,7 +5335,8 @@ async function boot() {
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
   applySharpness(crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess));
-  governor.setEnabled(hud.settings.governor !== 'fixed');
+  drawingQuality = crashGuard.state.stepdown?.quality || resolveSharpness(hud.settings.quality, coarse, qualityGuess);
+  applyPacing(resolvePacing(hud.settings, weakDesktop));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -5196,9 +5428,39 @@ async function boot() {
       },
     };
   }
+  // T-3734 (the owner, 2026-11-23: "when you fly ... you will often clip fly though a building
+  // or chimney ... you should fly over or around"): what a flight must clear. Every drawn
+  // structure's whole box (chimneys, towers, cresting) over its footprint, and the context
+  // city's stand-ins, indexed once and again only when the drawn set changes.
+  const skyline = createSkyline({
+    ground: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    stamp: () => `${Object.keys(buildings.instanceBounds()).length}|${contextCity?.census?.buildings ?? 0}|${contextCity?.group?.uuid ?? ''}`,
+    sources: () => {
+      const outlines = new Map();
+      for (const f of footprints) { if (!outlines.has(f.id)) outlines.set(f.id, []); outlines.get(f.id).push(f.pts); }
+      const corner = new THREE.Vector3(), list = [];
+      for (const [id, box] of Object.entries(buildings.instanceBounds())) {
+        const matrix = buildings.matrixOf(id);
+        if (!matrix) continue;
+        let top = -Infinity, bottom = Infinity;
+        const rect = [];
+        for (const [x, z] of [[box.min[0], box.min[2]], [box.max[0], box.min[2]], [box.max[0], box.max[2]], [box.min[0], box.max[2]]]) {
+          corner.set(x, box.max[1], z).applyMatrix4(matrix); top = Math.max(top, corner.y); rect.push([corner.x, -corner.z]);
+          corner.set(x, box.min[1], z).applyMatrix4(matrix); bottom = Math.min(bottom, corner.y);
+        }
+        const own = outlines.get(id);
+        // A structure with no walls of its own (a bridge, a pen) counts only where it stands tall.
+        if (own) for (const pts of own) list.push({ pts, top });
+        else if (top - bottom > 4) list.push({ pts: rect, top });
+      }
+      for (const o of contextCity?.skyline?.() ?? []) list.push(o);
+      return list;
+    },
+  });
+  api.skyline = skyline;
   travel = createTravel({
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
-    focusPoint, structurePosition,
+    focusPoint, structurePosition, clearance: skyline,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
     // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
     // (A ride says `card: false` when it opens nothing; any other ride opens the building.)
@@ -5624,9 +5886,13 @@ async function boot() {
   // railway) and behind `pick`, the harness's reading of a record. Inspect opened this way
   // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
   // it go, back to where the Navigator was (docked, if it was docked).
-  let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
+  let handInspect = null; // { id, wasLevel, opening, approach } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null, photo = null } = {}) {
+  // `approach`: the person card opened because the visitor walked up to someone (humans.js
+  // `open` with approach). It is shown, not held: the pointer stays locked, focus stays on
+  // the town so WASD still walks, E and a click aim at the town as usual, and walking out of
+  // the person's reach puts it away. Clicking or tabbing into it makes it the visitor's own.
+  function openBuilding(id, { person = null, photo = null, approach = false } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -5635,29 +5901,53 @@ async function boot() {
     const inspecting = !!handInspect && navigatorUi.app === 'inspect';
     // `opening` until Inspect is on screen: the device passes through other states on its way
     // there (a first open loads Inspect), and those must not let the building go.
-    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
+    const quiet = !!(approach && person);
+    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true, approach: quiet ? person : null };
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
     // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
-    const link = person ? { app: 'inspect', id, tab: 'people', person }
+    const link = person ? { app: 'inspect', id, tab: 'people', person, ...(quiet ? { quiet: true } : {}) }
       : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
     });
-    // The panel is read and clicked, as the card was: the mouse is let go.
-    if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+    // The panel is read and clicked, as the card was: the mouse is let go. Not for a card
+    // the visitor walked into: they are still walking (Kevin, 2026-11-23).
+    if (!quiet && document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
     return { id, record };
   }
+  /** The person a walked-into card shows is still within their reach of the visitor. */
+  function approachNear(personId) {
+    const a = api.humans?.get?.(personId);
+    const r = a?.instance?.interaction?.radius_m;
+    return !!(a && r && Math.hypot(a.e - walker.state.e, a.n - walker.state.n) <= r);
+  }
+  /** Put away a card that opened because the visitor walked up to `personId`. */
+  function closeApproachCard(personId) {
+    if (!handInspect?.approach || handInspect.approach !== personId) return false;
+    return releaseInspect();
+  }
+  /** Clicking or tabbing into a walked-into card makes it the visitor's own: it holds as one they opened. */
+  function claimApproachCard(e) {
+    if (handInspect?.approach && e.target?.closest?.('#navigator')) handInspect.approach = null;
+  }
+  window.addEventListener('pointerdown', claimApproachCard, { capture: true });
+  window.addEventListener('focusin', claimApproachCard);
+  api.humans?.on?.('leave', ({ personId }) => { if (personId) closeApproachCard(personId); });
   /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
   const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
   // Held from the moment it is asked for, so Esc or the key a moment later lets it go even
   // while Inspect is still on its way (a slow frame, or its first load).
-  const inspectingByHand = () => !!handInspect && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
+  // A card the visitor walked into is not held (openBuilding `approach`).
+  const inspectingByHand = () => !!handInspect && !handInspect.approach && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
   function letGo(was) {
     if (navigatorUi?.app !== 'inspect') return false;
-    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
+    if (was.wasLevel === 0) navigatorUi.closeApp();
+    // Back by hand puts focus in the screen it goes to; one walked away from must not.
+    else if (was.approach) void navigatorUi.select(navigatorUi.backTo().id);
+    else void navigatorUi.back();
     return true;
   }
   function releaseInspect() {
@@ -6253,9 +6543,35 @@ async function boot() {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
       };
-      const estimateOptions = mode => ({ resolve: target => {
-        const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
-      }, settings: hud.settings, router: travel.router });
+      // T-3728 (Bill's PC, 2026-11-23): the outing's time remaining is priced on the stand and
+      // the route of the stop it is at or going to, and building to building past that, as the
+      // Jaunts list times its cards (T-3694). Every stop's stand worked out at once (each a
+      // stand-off search with its sight-line tests, and a route planned for every leg) was
+      // about 2.8 s of the jaunt start on the UHD 630, and came back at every leg. A stand is
+      // worked out once a visit; the stop being walked to has its own anyway.
+      const jauntStands = new Map();
+      const realStand = (target, mode) => {
+        const key = `${target?.kind}:${target?.id}:${mode}`;
+        if (!jauntStands.has(key)) {
+          const resolved = resolveJaunt(target);
+          jauntStands.set(key, (resolved && travel.destinationOf(resolved, { mode, card: false })) ?? null);
+        }
+        return jauntStands.get(key);
+      };
+      const sameStop = (a, b) => !!a && !!b && (a === b || (a.kind === b.kind && a.id === b.id));
+      const estimateOptions = (mode, near = null) => ({ resolve: target => {
+        if (!near || sameStop(target, near)) return realStand(target, mode);
+        const place = jauntPlace(target);
+        return place && { e: place.e, n: place.n, building: true };
+      }, settings: hud.settings, router: { plan(from, to, options) {
+        // Building to building is this estimate's way of timing a later leg, not a route that
+        // failed to plan: the list's own figure (a third again on the straight line).
+        if (from?.building || to?.building) {
+          const length_m = Math.hypot(to.e - from.e, to.n - from.n) * 1.3;
+          return { points: [[from.e, from.n], [to.e, to.n]], length_m };
+        }
+        return travel.router?.plan?.(from, to, options) ?? null;
+      } } });
       // T-3694 (the owner, 2026-11-19: "i dont want to blow everyones memory up again"): the
       // Jaunts list times its cards from the stops' own places, building to building, and never
       // plans a route. Planning one built the whole town's route grid (11.9 million cells, about
@@ -6284,6 +6600,10 @@ async function boot() {
         duck: on => api.sound?.setSpeechActive(on),
         // T-3578: Settings › Sound › Narrator (the essayist unless the visitor chose otherwise).
         narrator: () => api.hud?.settings?.narrator ?? soundNow().saved.narrator,
+        // T-3735 (the owner, 2026-11-23): only a telling voiced for its own ages speaks; the
+        // catalog's `narrated` (data/narration/voices.json) says which. A telling for another
+        // age that shares words with a voiced one stays silent rather than borrow its voice.
+        voiced: async (jaunt) => ((api.jaunts.catalog ?? await routeJaunts()) || []).some((row) => row?.id === jaunt?.id && row.narrated === true),
       });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         fetcher: jauntFetch, // T-3694: the catalog and daybook Home read ahead
@@ -6316,6 +6636,7 @@ async function boot() {
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
       jauntPanel = panel.createJauntPanel({ destinations, actions, narration,
+        tellings: (jaunt) => jauntPreview.tellingsOf?.(jaunt?.id) ?? [], // T-3735: an age tab's own voice
         catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       let closingTimer = null;
       const closingClock = pace.createClosingClock({
@@ -6399,7 +6720,7 @@ async function boot() {
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
-        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
+        estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode, state.jaunt?.stops?.[state.stopIndex]?.destination ?? null),
           startIndex: state.stopIndex, includeOpening: state.stopIndex === 0, chosen: state.modeChosen,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
@@ -6676,10 +6997,10 @@ async function boot() {
   }
   // One public person-card route for figure picks, firms, Go to and Navigator.
   // The existing later-scene reader follows the directory's own residents_root.
-  async function openSceneDirectoryPerson(id) {
+  async function openSceneDirectoryPerson(id, { approach = false } = {}) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     const at = [row?.lives_at, row?.works_at].find(s => s && loaded.registry.has(s));
-    if (at) return !!openBuilding(at, { person: id });
+    if (at) return !!openBuilding(at, approach ? { person: id, approach } : { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
   async function findSceneDirectoryPerson(id) {
@@ -6702,11 +7023,13 @@ async function boot() {
   function personCardOpen() {
     return [...document.querySelectorAll('.insp-person-card, .people-card-name')].some((n) => n.checkVisibility?.() ?? n.offsetParent !== null);
   }
-  async function openPersonCard(id) {
+  async function openPersonCard(id, { approach = false } = {}) {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
       hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
     }
-    const opened = await openSceneDirectoryPerson(id);
+    const opened = await openSceneDirectoryPerson(id, { approach });
+    // A visitor who walked past before the directory answered gets no card at all.
+    if (opened && approach && handInspect?.approach === id && !approachNear(id)) closeApproachCard(id);
     if (opened && momentSelectedPerson?.id !== id) rememberMomentPerson(id);
     return opened;
   }
@@ -7462,6 +7785,40 @@ async function boot() {
       return photoPromise;
     },
   };
+  // T-3743: the Report a bug key's picture, one small JPEG of the next frame drawn, read
+  // inside that frame (bug-report.js § frameJpeg); nothing is kept between presses.
+  let pendingBugShot = null;
+  const bugShot = () => new Promise((resolve) => {
+    if (!api.ready || contextPaused || renderer.xr.isPresenting) { resolve(''); return; }
+    const request = { resolve };
+    request.timer = setTimeout(() => { if (pendingBugShot === request) { pendingBugShot = null; resolve(''); } }, 4000);
+    pendingBugShot = request;
+  });
+  // What a report says about the scene, read only when one is filed.
+  bugs.setExtra(() => {
+    let spot = null;
+    try { spot = readMoment(); } catch { spot = null; }
+    const st = walker.state;
+    const { render, memory } = renderer.info;
+    const sig = device?.signals ?? {};
+    return {
+      gpu: [sig.vendor, sig.renderer].filter(Boolean).join(' · '),
+      place: spot?.place ?? '', link: spot?.url ?? '',
+      position: { e: Math.round(st.e * 10) / 10, n: Math.round(st.n * 10) / 10, bearing: Math.round(walker.bearingDeg),
+        pitch: Math.round(st.pitch / DEG), flying: !!st.flying, altitude: Math.round(st.altitude ?? 0) },
+      profile: { cls: device?.cls ?? null, why: device?.why ?? null, webgl2: sig.webgl2 ?? null, maxTexture: sig.maxTexture ?? null,
+        formats: sig.formats ?? null, lowMemory: !!device?.choice?.lowMemory },
+      scene: { detail: detailLevel, sharpness: drawingQuality, ratio: +renderer.getPixelRatio().toFixed(2),
+        draws: driverDraws.draws, tris: render.triangles, geometries: memory.geometries, textures: memory.textures,
+        heapMB: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null, sinceReadyS: bootController.readyAt != null ? Math.round((performance.now() - bootController.readyAt) / 1000) : null },
+      open: { card: popup.openId ?? null, app: navigatorUi?.app ?? null, level: navigatorUi?.level ?? null,
+        jaunt: api.jaunts?.state?.id ?? api.jaunts?.state?.jaunt?.id ?? null },
+      crashGuard: { notice: crashGuard.state.notice ?? null, stepdown: crashGuard.state.stepdown ?? null },
+      settings: hud.settings,
+    };
+  });
+  api.bugKey = mountBugKey({ doc: document, reports: bugs, capture: bugShot, steps: () => blackbox.box,
+    shown: hud.settings.bugKey !== false });
   // Use the usual arrival gate. Scene coverage and collision checks reject stale views;
   // a shared link cannot load another world or manufacture an out-of-bounds stand.
   if (sharedMoment) {
@@ -7609,9 +7966,13 @@ async function boot() {
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         acts: tourCounts.acts, apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level, app,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
+        bugKey: !!api.bugKey && !api.bugKey.key.hidden };
     },
     render: (v) => {
+      // T-3743: on a phone an open Navigator hides the compass row and its bug key, so the
+      // Report a bug step docks it, and the key is there to ring.
+      if (v?.target === '#bug-key' && backends.name === 'touch' && (navigatorUi?.level ?? 0) > 0) navigatorUi.dock();
       tourOverlay.paint(v);
       if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
       if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
@@ -7889,7 +8250,7 @@ async function boot() {
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
     // something the renderer reads has moved. Out in the town, every frame.
-    if (!gateOpen || force || pendingCapture || pendingPhoto || gateFrame.due()) {
+    if (!gateOpen || force || pendingCapture || pendingPhoto || pendingBugShot || gateFrame.due()) {
       // T-2646: `renderer.render(scene3d, camera)`, and — only while a grade is
       // ghosted with the Confidence view on — that grade drawn see-through, last,
       // in a pass of its own (confidence.js § render).
@@ -7916,6 +8277,13 @@ async function boot() {
         if (!metadata) throw new Error('The town view is not ready.');
         stampMoment(renderer.domElement, metadata).then(request.resolve, request.reject);
       } catch (error) { request.reject(error); }
+    }
+    if (pendingBugShot) {
+      const request = pendingBugShot;
+      pendingBugShot = null; clearTimeout(request.timer);
+      let url = '';
+      try { url = frameJpeg(renderer.domElement); } catch { url = ''; }
+      request.resolve(url);
     }
 
     const st = walker.state;
@@ -7955,7 +8323,21 @@ async function boot() {
     await renderer.compileAsync(layer, camera, scene3d);
     const pause = bootCheckpoint(); if (pause) await pause;
   }
+  // T-3728 (Bill's PC, 2026-11-23): a weak computer's first frame stood for a second
+  // uploading the textures it drew first, and painting the back yards' leaf atlas for the
+  // crops it planted. The yards plant what the first frame would (`settle`), and that
+  // frame's uploads go up a layer at a time while the loader still paints
+  // (upload-release.js uploadSceneSliced). `?firstupload=0` leaves them to the frame.
+  if (weakDesktop && params.get('firstupload') !== '0') {
+    backYards.settle?.(camera);
+    await uploadSceneSliced(renderer, scene3d, camera, { pause: bootCheckpoint });
+  }
   await yieldToPaint();
+  // T-3728 (Bill's PC, 2026-11-22): from here on, whatever first appears later (a jaunt's stage,
+  // the yards, rails and buildings of the place it flies to) is drawn from the frame its
+  // program is ready, its link started off the frame, instead of the frame waiting on the link.
+  // `?warm=0` draws as before, for comparison.
+  api.programWarm = warmBeforeDraw(renderer, { scene: scene3d, camera, enabled: params.get('warm') !== '0' });
   // T-2555. Whether the camera moved in the frame just drawn — position or
   // facing, so a turn in place is moving too. The governor reads only this and
   // the interval between drawn frames.
@@ -7968,6 +8350,22 @@ async function boot() {
     lastPose.quaternion.copy(camera.quaternion);
     lastPose.seen = true;
     return moved;
+  }
+  /**
+   * T-3728 (Bill's PC, 2026-11-23): a jaunt's closing view hovers over the town, the whole of
+   * it in sight (12-15 fps on the UHD 630), and a hover is a camera that does not move, so it
+   * was drawn as a still frame. On a weak computer it is drawn as the flight up to it is, at
+   * the moving sharpness, until the visitor comes down. A capture or a photo still rests.
+   * T-3736: it follows Settings' Fast pacing (Auto on a weak computer), not the class alone.
+   */
+  const weakOverlook = () => governor.fast && !!walker.state.flying
+    && ['closing', 'outcome'].includes(api.jaunts?.state?.phase);
+  /** T-3736: Frame pacing — Adaptive, Fast or Fixed — to the governor and the line. */
+  function applyPacing(pacing) {
+    governor.setFast(pacing === 'fast');
+    governor.setEnabled(pacing !== 'fixed');
+    applyGovernor();
+    paintDrawing();
   }
   /** The governor's decision for the frame about to be drawn, put in force. */
   function applyGovernor() {
@@ -7995,11 +8393,11 @@ async function boot() {
       // and are drawn exactly as they were before the governor existed.
       // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
       // stale or black eye — and at its own framebuffer scale, never the governor's.
-      if (pendingCapture || pendingPhoto || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
+      if (pendingCapture || pendingPhoto || pendingBugShot || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();
-      governor.frameDrawn(t, cameraMoved());
+      governor.frameDrawn(t, cameraMoved() || weakOverlook());
     } catch (err) {
       renderer.setAnimationLoop(null);
       if (bootController.readyAt === null) rejectFirstFrame(err);

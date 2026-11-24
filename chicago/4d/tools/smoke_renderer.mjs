@@ -869,6 +869,56 @@ const BRIGHT_AID_MIN_MEAN = 15;
 // critic frame this suite takes is read here. world.js § BASE_EXPOSURE.
 const BASE_EXPOSURE = 0.95;
 
+// T-3706 — A STILL FRAME FOR THE CAMERA. Each road-contrast pass sets its state and
+// calls `a.step()`, and that draw IS the frame being measured. A bare
+// `page.screenshot` then waited behind the app's own animation loop too. Each rAF
+// is a full tick, 8-11 s at desktop on the software-GL runner (T-2412), and the
+// capture has to wait out the tick in flight plus whatever the loop asks for next.
+// Five of these shots per station were ~5 minutes of desktop part 8 on a green
+// run (PR #2252, 0:50 -> 6:11 for one station). On a runner a little slower
+// (dev's town ready in 68-78 s, not 46-57) one shot passed the 90 s default and
+// part 8 went red on #2251, #2254 and #2255, none of which touch a road.
+//
+// So the shot holds the loop for its own length and no longer. The rAF the
+// loop has already asked for runs once, before the shot, and draws the same
+// state. Requests made while held are queued and handed back to the real rAF
+// afterwards. The canvas keeps showing the last frame it presented, the same
+// pixels as before, with no queue in front of the camera. The bar is not moved
+// and the 90 s timeout stays.
+async function stillShot(page) {
+  await page.evaluate(() => new Promise((done) => {
+    const w = window;
+    if (!w.__chiRafHold) {
+      const raf = w.requestAnimationFrame.bind(w);
+      const caf = w.cancelAnimationFrame.bind(w);
+      const h = { raf, on: false, held: new Map(), next: 0 };
+      w.requestAnimationFrame = (cb) => {
+        if (!h.on) return raf(cb);
+        const id = -(++h.next);
+        h.held.set(id, cb);
+        return id;
+      };
+      w.cancelAnimationFrame = (id) => (id < 0 ? h.held.delete(id) : caf(id));
+      w.__chiRafHold = h;
+    }
+    w.__chiRafHold.on = true;
+    // Native rAF callbacks run in the order asked, so this one resolves after
+    // the frame the loop had already requested: nothing is drawing at the shot.
+    w.__chiRafHold.raf(() => done());
+  }));
+  try {
+    return await page.screenshot({ type: 'png' });
+  } finally {
+    await page.evaluate(() => {
+      const h = window.__chiRafHold;
+      h.on = false;
+      const queued = [...h.held.values()];
+      h.held.clear();
+      for (const cb of queued) h.raf(cb);
+    });
+  }
+}
+
 /** Project the street centrelines, then read R, M and O. Restores what it moved. */
 async function roadContrast(page, station) {
   const shot = await page.evaluate((st) => {
@@ -948,7 +998,7 @@ async function roadContrast(page, station) {
     return { probes: out, cssWidth: w };
   }, station);
 
-  const shotR = await page.screenshot({ type: 'png' });
+  const shotR = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     a.__roadMarkers = [];
@@ -968,7 +1018,7 @@ async function roadContrast(page, station) {
     });
     a.step();
   });
-  const shotM = await page.screenshot({ type: 'png' });
+  const shotM = await stillShot(page);
   // DIAGNOSTIC PASS — the same markers with the sward and the trees hidden. A
   // probe marked here but not in `shotM` is a road that is ON SCREEN and
   // COVERED BY VEGETATION, which the marked-only denominator drops instead of
@@ -980,7 +1030,7 @@ async function roadContrast(page, station) {
     if (a.trees?.group) a.trees.group.visible = false;
     a.step();
   });
-  const shotMF = await page.screenshot({ type: 'png' });
+  const shotMF = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     if (a.flora?.group) a.flora.group.visible = a.__floraWas[0] ?? true;
@@ -991,7 +1041,7 @@ async function roadContrast(page, station) {
     a.streets.group.visible = false;
     a.step();
   });
-  const shotO = await page.screenshot({ type: 'png' });
+  const shotO = await stillShot(page);
   // DIAGNOSTIC PASS — the road painted at FULL opacity. A near band that still
   // scores flat here is not an alpha fault: it is the ribbon and the ground
   // sharing a lightness.
@@ -1015,7 +1065,7 @@ async function roadContrast(page, station) {
     });
     a.step();
   });
-  const shotOP = await page.screenshot({ type: 'png' });
+  const shotOP = await stillShot(page);
   await page.evaluate(() => {
     const a = window.__chicago4d;
     for (const [m, t, at, dw] of a.__roadOpaque) {
@@ -3004,8 +3054,24 @@ for (const [label, viewport, touch] of [
       await still();
       const adaptive = { ...a.governor, line: document.getElementById('governor-line')?.textContent ?? null };
       const sel = document.getElementById('s-governor');
-      return { atRest, shadowAuto, fixed, adaptive,
-        options: sel ? [...sel.options].map((o) => o.value) : null, selected: sel?.value ?? null };
+      const selected = sel?.value ?? null;
+      // T-3736: Fast from Settings reaches the governor and the line, and Adaptive comes back.
+      let fast = null;
+      if (sel) {
+        const was = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').pacing ?? '';
+        sel.value = 'fast'; sel.dispatchEvent(new Event('change'));
+        await still();
+        fast = { on: a.governor.fast === true, shadowEvery: a.governor.shadowEvery,
+          line: document.getElementById('governor-line')?.textContent ?? null };
+        sel.value = 'adaptive'; sel.dispatchEvent(new Event('change'));
+        fast.back = a.governor.fast === false;
+        // Put the stored choice back as found (Auto stays Auto for the checks after this one).
+        const st = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
+        st.pacing = was; localStorage.setItem('chicago4d.settings', JSON.stringify(st));
+        if (a.hud?.settings) a.hud.settings.pacing = was;
+      }
+      return { atRest, shadowAuto, fixed, adaptive, fast,
+        options: sel ? [...sel.options].map((o) => o.value) : null, selected };
     });
     check(`${label}: the frame governor reports its state and rests at the Sharpness ceiling (T-2555)`,
       ['mode', 'scale', 'pace', 'fps', 'moving', 'shadowEvery', 'ratio', 'ceiling'].every((k) => k in governor.atRest)
@@ -3013,11 +3079,16 @@ for (const [label, viewport, touch] of [
         && governor.atRest.scale === 1 && governor.atRest.pace === 1 && governor.atRest.fps === 60
         && Math.abs(governor.atRest.ratio - governor.atRest.ceiling) < 1e-9 && governor.shadowAuto === true,
       JSON.stringify(governor.atRest) + ` shadowMap.autoUpdate=${governor.shadowAuto}`);
-    check(`${label}: Frame pacing offers Adaptive and Fixed, and each reaches the page and Settings (T-2555)`,
-      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fixed']) && governor.selected === 'adaptive'
-        && governor.fixed.mode === 'fixed' && /^Fixed/.test(governor.fixed.line || '')
-        && governor.adaptive.mode === 'adaptive' && /^Adaptive/.test(governor.adaptive.line || ''),
+    // T-3736: three choices now (Fast is the weak-computer rule), and the line says what is drawn.
+    check(`${label}: Frame pacing offers Adaptive, Fast and Fixed, and each reaches the page and the Drawing now line (T-2555, T-3736)`,
+      JSON.stringify(governor.options) === JSON.stringify(['adaptive', 'fast', 'fixed']) && governor.selected === 'adaptive'
+        && governor.fixed.mode === 'fixed' && /^Drawing now: .* on every frame, antialiasing on\./.test(governor.fixed.line || '')
+        && governor.adaptive.mode === 'adaptive' && /^Drawing now: .* eased off only if moving gets slow, antialiasing on\./.test(governor.adaptive.line || ''),
       `options ${JSON.stringify(governor.options)}; fixed "${governor.fixed.line}"; adaptive "${governor.adaptive.line}"`);
+    check(`${label}: Fast pacing from Settings draws the weak-computer rule and says so (T-3736)`,
+      governor.fast?.on === true && governor.fast.shadowEvery === 2 && governor.fast.back === true
+        && /standing and 55 % moving, the shadow every other frame/.test(governor.fast.line || ''),
+      JSON.stringify(governor.fast));
 
     // --- the scene-detail ladder is a ladder, and every rung says what it is
     // --- for (T-0135, the owner's ruling of 2026-09-21) ---------------------
@@ -8245,21 +8316,25 @@ for (const [label, viewport, touch] of [
       });
       return { census: v?.census ?? null, keepOut: (v?.keepOut ?? []).length, stands,
         beached: stands.filter((s) => s.beached).length, oldBoats: a.boats?.census?.boats ?? null,
+        mooredBerths: (v?.vessels ?? []).filter((x) => x.rec.mode === 'moored')
+          .reduce((k, x) => k + 1 + (x.rec.dated ?? []).filter((d) => d.berth).length, 0),
         crew: v?.crewState?.() ?? null };
     });
     // Fifteen vessels: five named schooners, the schooner in the offing and her
     // lighter, six rowboats and two bark canoes, and ZERO refused — every berth was
     // laid by tools/lay_vessels.py against the committed heightfield, so a refusal
     // means the terrain moved under the record. One planting keep-out per beached
-    // hull. The T-0063 boat layer draws nothing now: every record names its
-    // successor.
+    // hull, and one per berth of a moored boat (2026-11-21: no reed grows up through a
+    // boat at her mooring). The T-0063 boat layer draws nothing now: every record names
+    // its successor.
     check(`${label}: every vessel is laid and none refused`,
       flotilla.census?.vessels === 15 && flotilla.census?.refused === 0
-        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached
+        && flotilla.census?.schooners === 6 && flotilla.keepOut === flotilla.beached + flotilla.mooredBerths
         && flotilla.beached === 5 && flotilla.oldBoats === 0,
       `${flotilla.census?.vessels} vessel(s) (${flotilla.census?.schooners} schooner(s)), `
       + `${flotilla.census?.refused} refused, ${flotilla.keepOut} keep-out(s) for `
-      + `${flotilla.beached} beached hull(s), ${flotilla.oldBoats} drawn by the old boat layer`);
+      + `${flotilla.beached} beached hull(s) and ${flotilla.mooredBerths} moored berth(s), `
+      + `${flotilla.oldBoats} drawn by the old boat layer`);
     // An afloat hull floats on the plane in its own water: clear of the bed by its
     // draft (the harbour's dredged channel by its own depth), of every pier and
     // wharf, and of the drawbridge's span. The pilot's own
@@ -15004,7 +15079,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 10 && rows.length === 10 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 11 && rows.length === 11 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -15051,15 +15126,17 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the ten tour steps, available Jaunts and the empty 1871 baseline on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the eleven tour steps and every destination's available Jaunts on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn|1871 · Pre-fire Chicago'
-      // The new 1871 baseline has no authored Jaunts; all three earlier destinations retain theirs.
+      // 1871 has its own Jaunts since The Last Sunday (T-3692): one to three suggested; the
+      // three earlier destinations keep three each.
       && handoutRead.dests.every((d) => d.name.startsWith('1871')
-        ? d.jaunts === 0 && d.empty === 'No Jaunts here yet.' : d.jaunts === 3 && d.empty === null)
+        ? d.jaunts >= 1 && d.jaunts <= 3 && d.empty === null : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10 && s.jaunts === 9)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10
+        && s.jaunts === 9 + (handoutRead.dests.find((d) => d.name.startsWith('1871'))?.jaunts ?? 0))
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -17069,7 +17146,7 @@ for (const [label, viewport, touch] of [
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
     check(`${label}: Auto names this device's levels, Sound has five sliders with their own Ambience/Effects/Narration examples and no extra notes, About opens What's new (T-2656, T-3544, T-3578)`,
-      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
+      settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, (Adaptive|Fast) pacing, antialiasing (on|off)\.$/.test(settingsApp.auto)
       && settingsApp.sound === 5 && settingsApp.soundTotal === 5 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
@@ -18131,7 +18208,8 @@ for (const [label, viewport, touch] of [
     // The rail is a tablist of labelled tabs (an ARIA read of the live tree), and the
     // device opens and closes by keyboard alone: N opens it with focus inside and visible,
     // a digit opens the rail's app at that place, the arrows walk the tabs and Enter opens
-    // one, Escape closes it and leaves focus, visibly, on the grip.
+    // one, Escape closes it and leaves focus, visibly, on the grip (a phone) or the open
+    // app's rail key (a desktop).
     await page.evaluate(() => { document.activeElement?.blur?.(); window.__chicago4d.navigator.dock(); });
     const visibleFocus = () => page.evaluate(() => {
       const el = document.activeElement;
@@ -18172,7 +18250,9 @@ for (const [label, viewport, touch] of [
       && keyOpen.level > 0 && keyOpen.focus.inNav && keyOpen.focus.visible
       && keyJump.app === 'map' && keyJump.focus.id === 'nav-app-map' && keyJump.focus.visible
       && tabHome === 'home' && keyHome.app === 'home' && keyHome.focus.id === 'nav-home' && keyHome.focus.visible
-      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-collapse') && keyShut.focus.visible,
+      // T-3671 (WCAG 2.4.3) hands focus on close to the rail key of the app that was open,
+      // Home's here, on a desktop whose rail stays; a phone's grip is still the handle (T-3703).
+      && keyShut.level === 0 && keyShut.focus.id === (touch ? 'nav-grip' : 'nav-tab-home') && keyShut.focus.visible,
       JSON.stringify({ aria, keyOpen, jumpAt, keyJump, tabHome, keyHome, keyShut }));
 
     // --- Jump (T-2655): the year chip opens it; HERE, RECALL, and the ring ---------
@@ -18349,7 +18429,7 @@ for (const [label, viewport, touch] of [
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
     // release (Esc with a keyboard, the card's Close on touch); T-3642: 06 Interact, 07 Jaunts,
-    // 08 Move, 09 Settings.
+    // 08 Move, 09 Settings; T-3742: the words of 06, 07, 09 and 10.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -18440,6 +18520,15 @@ for (const [label, viewport, touch] of [
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
     await tourWait(9);
+    // T-3743: Report a bug, rung on its key, then Next.
+    const bugStep = await tourView();
+    // The ring glides from the Settings key, so it is waited for rather than read at once.
+    const bugRing = await page.waitForFunction(() => { const h = document.querySelector('#tour .tour-hole'); const k = document.getElementById('bug-key');
+      if (!h || h.hidden || !k) return false; const a = h.getBoundingClientRect(), b = k.getBoundingClientRect();
+      return a.left <= b.left + 1 && a.right >= b.right - 1 && a.top <= b.top + 1 && a.bottom >= b.bottom - 1; },
+      null, { timeout: 5000, polling: 100 }).then(() => true, () => false);
+    await clickChrome('#tour-next');
+    await tourWait(10);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -18452,20 +18541,47 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642)`,
-      t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings, then Report a bug on its key — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642, T-3742, T-3743)`,
+      t1.shown && t1.count === 'Field check · 1 / 11' && t1.pips === 11 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
-      && released.step === 5 && releasedCard === null && /^Walk up to .*(R to interact|Tap Interact)\.$/.test(released.bubble ?? '')
+      && released.step === 5 && releasedCard === null && /^Walk up to someone\. (Press R|Tap Interact): .*story.*question\.$/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
       && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
       && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
-      && settingsStep.step === 8 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 9 && /^Ready\./.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
+      && settingsStep.step === 8 && /Settings[^:]*: language/.test(settingsStep.bubble ?? '')
+      && bugStep.step === 9 && /bug key/.test(bugStep.bubble ?? '') && bugRing
+      && last.step === 10 && /^Ready\. Pick a Jaunt/.test(last.bubble ?? '') && last.lit === 11 && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, bugStep, bugRing, last, done }));
     // ---- end T-2663
+    // >>> T-3743: the Report a bug key at the upper right opens its sheet with a picture of the
+    // town taken before the sheet covers it; here (not the live site) Send copies and nothing is
+    // sent; Esc closes it; Settings' switch hides the key and shows it again.
+    await clickChrome('#bug-key');
+    await page.waitForFunction(() => { const s = document.getElementById('bug-sheet'); return s && !s.hidden; }, null, { timeout: 60_000 }).catch(() => {});
+    const bugOpen = await page.evaluate(() => {
+      const s = document.getElementById('bug-sheet'); const img = s?.querySelector('.bug-shot');
+      const r = s?.getBoundingClientRect();
+      return { open: !!s && !s.hidden, shot: img?.getAttribute('src')?.slice(0, 23) ?? null, shotKB: Math.round((img?.getAttribute('src')?.length ?? 0) / 1024),
+        focus: document.activeElement?.id ?? null, fits: !!r && r.left >= 0 && r.right <= innerWidth + 0.5 && r.top >= 0,
+        send: s?.querySelector('.bug-send')?.textContent ?? null, live: window.__chicago4d.bugs.live, site: window.__chicago4d.bugs.site };
+    });
+    await page.keyboard.press('Escape');
+    const bugClosed = await page.evaluate(() => {
+      const api = window.__chicago4d; const k = document.getElementById('bug-key');
+      const closed = document.getElementById('bug-sheet')?.hidden === true;
+      api.bugKey.setShown(false); const hid = k.hidden && getComputedStyle(k).display === 'none';
+      api.bugKey.setShown(true);
+      return { closed, hid, back: !k.hidden, sent: api.bugs.sentLog.length, row: !!document.getElementById('s-bug-key') };
+    });
+    check(`${label}: Report a bug opens its sheet with a picture of the town, sends nothing off the live site, closes on Esc, and its Settings switch hides the key (T-3743)`,
+      bugOpen.open && bugOpen.shot === 'data:image/jpeg;base64,' && bugOpen.shotKB > 2 && bugOpen.focus === 'bug-comment' && bugOpen.fits
+      && bugOpen.live === false && bugOpen.send === 'Copy report'
+      && bugClosed.closed && bugClosed.hid && bugClosed.back && bugClosed.sent === 0 && bugClosed.row,
+      JSON.stringify({ bugOpen, bugClosed }));
+    // ---- end T-3743
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
     // again; no hint shows while the tour runs; a Reconstructed building's card hints once.
@@ -18538,7 +18654,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
     // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
-    // which is read first. Then, the license set aside, the Field Check is put back at step 10 (its last since T-3642)
+    // which is read first. Then, the license set aside, the Field Check is put back at step 11 (its last since T-3743)
     // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
     // for, since on the desktop runner its few seconds can pass inside one frame). A second
     // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
@@ -18558,7 +18674,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 10, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -18575,7 +18691,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 10, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -18617,7 +18733,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 9 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 10 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
@@ -21870,8 +21986,10 @@ for (const [label, viewport, touch] of [
         // T-3567: the Fort Dearborn Massacre monument is the 1904 scene's first record carrying
         // `review_required`. The loader retains that annotation as a problem line (owner ruling
         // 2026-10-16: it does not block release), so — as the 1835 boot does — pin the exact
-        // annotated records first, and only then hold everything else to zero.
-        const REVIEWED_1904 = ['fort_dearborn_massacre_monument_1893'];
+        // annotated records first, and only then hold everything else to zero. The owner
+        // approved the monument on 2026-11-22 ("approved for now") and its flag came off, so
+        // the 1904 scene now declares none; a record flagged later must be named here.
+        const REVIEWED_1904 = [];
         const reviews1904 = at.problems.filter((p) => /review_required is set/.test(p))
           .map((p) => p.split(':', 1)[0]).sort();
         check(`${label}: the 1904 scene declares its exact review annotations (T-3567)`,

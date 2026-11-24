@@ -73,6 +73,13 @@ What the record's `boundary` names, and what is built for it:
             and 1625's 1890 photograph show each front yard running straight out to the
             public walk with no fence, wall or coping across it, so nothing is laid; the
             yard's walk (K14) comes out from the stoop across the lot's whole open front.
+            (T-3634) an open front may name `area_railing`: a LOW iron railing close before
+            the house, not on the street line: the kit's spear or scroll run on its own curb,
+            its rails and curb lowered to the picture's, parallel to the street front
+            `line_m` before it, in `runs_s_m` stretches either side of the stoop and stopped
+            clear of its built cheeks. No gate: the stoop's flight passes between the runs,
+            and the street line stays open to the K14 walk (2017's photograph: a low railing
+            along the front's foot before the basement lights, the stoop's newels between).
 
 A generic kit part is allowed here because 1808's own boundary is not read in any source
 this project holds (k11_ironwork.json `restrictions`: a generic part never stands in place
@@ -111,6 +118,36 @@ COPING = "stone_coping_wall"
 OPEN = "open"
 # T-3212: the street line's two runs, either side of the entrance; a record may lay one alone
 RUNS = ("south", "north")
+
+
+PIER_KEYS = {"section_m", "height_m", "ball_m"}
+
+
+def piers_spec(t) -> dict | None:
+    """T-3722: the record's brick gate piers (`boundary.piers`), or None for the kit's stone ones."""
+    pb = t.get("piers")
+    if pb is None:
+        return None
+    if t.get("posts") or not isinstance(pb, dict) or set(pb) != PIER_KEYS:
+        raise ValueError(f"boundary.piers takes {sorted(PIER_KEYS)}, and not beside boundary.posts")
+    sec, h, b = (float(pb[k]) for k in ("section_m", "height_m", "ball_m"))
+    if not (0.3 <= sec <= 0.9 and 1.0 <= h <= 2.6 and 0.2 <= b <= min(0.6, sec)):
+        raise ValueError(f"boundary.piers {pb}: 0.3-0.9 m square, 1.0-2.6 m high, a ball 0.2 m across up to the pier's "
+                         f"section")
+    return {"section_m": sec, "height_m": h, "ball_m": b}
+
+
+def ball(dia) -> list:
+    """A turned ball on a short neck and a square-edged plinth, `dia` across, as a lathe profile
+    (radius, height) from the cap up."""
+    r = dia / 2
+    out = [(0.0, 0.0), (r * 0.62, 0.0), (r * 0.62, r * 0.22), (r * 0.34, r * 0.32), (r * 0.3, r * 0.48)]
+    c = r * 0.48 + r                                  # the ball's centre
+    for k in range(-6, 7):                            # from just under its waist round to the top
+        t = math.radians(-75 + 165 * (k + 6) / 12)
+        out.append((round(r * math.cos(t), 5), round(c + r * math.sin(t), 5)))
+    out[-1] = (0.0, out[-1][1])
+    return out
 
 
 def _kit():
@@ -302,10 +339,21 @@ def dress(a):
     po = t.get("posts")
     if po:
         ps = po["section_m"]
+    # T-3722: or on brick piers under stone caps and turned balls (2126's plate): `piers` names
+    # their section, height and ball, in place of the kit's stone piers and urns
+    pb = piers_spec(t)
+    if pb:
+        ps = pb["section_m"]
 
     def pier(x):
         if po:
             return var.pier(x, urn=False, half=ps / 2, h=po["height_m"], role="iron", cap_role="iron")
+        if pb:
+            pr = var.pier(x, urn=False, half=ps / 2, h=pb["height_m"], role="brick")
+            cap = var.pieces[-1]                       # the pier's cap, the last member it laid
+            var.finial(cap.name, x, 0.0, pb["height_m"] - Pr["cap_sink_m"] + Pr["cap_height_m"], ball(pb["ball_m"]),
+                       sink=Pr["urn_sink_m"], role="stone")
+            return pr
         return var.pier(x)
     s_south, s_north = t["lot_s_m"]
     street = D + t["street_line_m"]
@@ -1138,13 +1186,82 @@ def coping_wall(a, t):
 def open_spec(params, t):
     """`layout: open`: the lot's sides (`lot_s_m`, holding the street front) and nothing else.
     No fence, wall, gate or coping is named, so none may be."""
-    extra = set(t) - {"layout", "lot_s_m"}
+    extra = set(t) - {"layout", "lot_s_m", "area_railing"}
     if extra:
         raise ValueError(f"boundary layout open lays nothing, so it names no {sorted(extra)}")
     s0, s1 = t["lot_s_m"]
     if not s0 <= 0.0 < params.width_m <= s1 + 0.25:
         raise ValueError(f"boundary.lot_s_m {t['lot_s_m']} does not hold the street front 0..{params.width_m}")
+    _check_area_railing(params, t)
     return t
+
+
+AREA_RAILING = {"fence", "line_m", "runs_s_m", "rail_top_m", "curb_height_m"}
+
+
+def _check_area_railing(params, t):
+    """T-3634: an open front's low railing close before the house (open_front). The kit's iron
+    `fence` (spear or scroll) on its own curb, `line_m` (0.6-2.5 m) before the street front and
+    clear of every bay's face, in one or two `runs_s_m` stretches [a, b] at least 0.6 m long
+    inside the lot, its top rail `rail_top_m` (0.2-0.95 m) over a curb `curb_height_m`
+    (0.05-0.25 m) high. Each run's clearance from the stoop is checked on the built mesh."""
+    f = t.get("area_railing")
+    if f is None:
+        return
+    if not isinstance(f, dict) or not {"fence", "line_m", "runs_s_m"} <= set(f) <= AREA_RAILING:
+        raise ValueError(f"boundary.area_railing takes {sorted(AREA_RAILING)}")
+    if FENCES.get(f["fence"]) not in ("spear", "scroll"):
+        raise ValueError("boundary.area_railing builds the kit's iron spear or scroll fence")
+    curb = _kit().load()["parts"]["curb"]["width_m"]
+    proud = max([0.0] + [float((b.get("plan") or {}).get("proud_m", 0.0)) for b in (getattr(params, "bays", None) or ())
+                         if b.get("wall") == STREET_FRONT])
+    if not 0.6 <= f["line_m"] <= 2.5 or f["line_m"] - curb / 2 < proud + 0.2:
+        raise ValueError(f"boundary.area_railing.line_m {f['line_m']}: 0.6-2.5 m before the street front, its curb "
+                         f"at least 0.2 m clear of the front's most proud bay ({proud} m)")
+    s0, s1 = t["lot_s_m"]
+    runs = f["runs_s_m"]
+    if not 1 <= len(runs) <= 2 or any(b - a < 0.6 or a - 0.12 < s0 - 1e-6 or b + 0.12 > s1 + 1e-6 for a, b in runs) \
+            or (len(runs) == 2 and runs[0][1] >= runs[1][0]):
+        raise ValueError(f"boundary.area_railing.runs_s_m {runs}: one or two stretches south to north, each at "
+                         f"least 0.6 m, their curbs' ends 0.12 m past them inside the lot {t['lot_s_m']}")
+    if not 0.2 <= f.get("rail_top_m", 0.95) <= 0.95 or not 0.05 <= f.get("curb_height_m", 0.25) <= 0.25:
+        raise ValueError("boundary.area_railing: rail_top_m 0.2-0.95 m, curb_height_m 0.05-0.25 m")
+
+
+def area_railing(a, t, stoop):
+    """Lay `area_railing` (_check_area_railing): the kit's run, its rail and curb lowered to the
+    record's, on the line `line_m` before the street front. `stoop` is the stoop's built
+    triangles as (X0, X1, s0, s1) spans; a run whose curb comes within CLEAR_M of one that
+    crosses the curb's width on the line is refused. Returns its posts' s."""
+    import copy
+    p = a.p
+    f = t["area_railing"]
+    K = _kit()
+    data = copy.deepcopy(K.load())
+    if "rail_top_m" in f:
+        data["parts"]["rail"]["top_m"] = f["rail_top_m"]
+    if "curb_height_m" in f:
+        data["parts"]["curb"]["height_m"] = f["curb_height_m"]
+    line = p.depth_m + f["line_m"]
+    half = data["parts"]["curb"]["width_m"] / 2 + CLEAR_M
+    across = [(s0, s1) for x0, x1, s0, s1 in stoop if x0 <= line + half and x1 >= line - half]
+    if across:
+        lo, hi = min(s0 for s0, _ in across), max(s1 for _, s1 in across)
+        for a0, b0 in f["runs_s_m"]:
+            if a0 - 0.12 < hi + CLEAR_M and b0 + 0.12 > lo - CLEAR_M:
+                raise ValueError(f"boundary.area_railing run s {a0}..{b0} (its curb 0.12 m past each end) runs into "
+                                 f"the stoop, whose cheeks stand at s {lo:.3f}..{hi:.3f}")
+    var = K.Variant({"id": f["fence"], "kind": "fence"}, data)
+    posts = []
+    for i, (sa, sb) in enumerate(f["runs_s_m"]):
+        posts += var.fence_run(sa, sb, FENCES[f["fence"]], f"area run {i + 1}")
+    for pc in var.pieces:
+        _to_fence(pc.mesh, line)
+    for i, (sa, sb) in enumerate(f["runs_s_m"]):
+        a.instance(f["fence"], "fence", {"length_m": round(sb - sa, 4), "runs": 1, "area": True},
+                   {"end_a": (line, 0.0, -sa), "end_b": (line, 0.0, -sb)})
+    _lay(a, var.pieces, p.conf("boundary"), f["fence"])
+    return posts
 
 
 def open_front(a, t):
@@ -1160,8 +1277,21 @@ def open_front(a, t):
     south, north = t["lot_s_m"]
     a.instance("k11.boundary.open", "boundary", {"lot_s_m": [south, north]},
                {"south": (public, 0.0, -south), "north": (public, 0.0, -north)})
+    posts = []
+    if t.get("area_railing"):
+        # the stoop as built, triangle by triangle (a cheek is a box: its vertices stand at its
+        # ends, not on the line it crosses), as each one's X span and s span
+        pr, axis = a.prim("stoop_stone"), p.stoop_s_m(door.s_m)
+        stoop = []
+        for i in range(0, len(pr.idx) - 2, 3):
+            tri = [pr.pos[j] for j in pr.idx[i:i + 3]]
+            xs, ss = [q[0] for q in tri], [-q[2] for q in tri]
+            if max(xs) > D + 0.05 and abs((ss[0] + ss[1] + ss[2]) / 3 - axis) < reach:
+                stoop.append((min(xs), max(xs), min(ss), max(ss)))
+        posts = area_railing(a, t, stoop)
     a.boundary = {"line_x_m": round(public, 4), "stoop_foot_x_m": round(max(feet), 4) if feet else None,
-                  "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [], "fence_posts_s_m": [],
+                  "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [],
+                  "fence_posts_s_m": [round(x, 3) for x in posts],
                   "wall_piers_x_m": [], "inner_x_m": round(public, 4),
                   "openings_s_m": [[round(south, 4), round(north, 4)]]}
 

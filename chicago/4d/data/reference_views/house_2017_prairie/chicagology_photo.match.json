@@ -2,7 +2,7 @@
   "structure_id": "house_2017_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_2017_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bba29eb2c05b06e3daf1c25881d52cce86584eebfa535c8d9e9f42faab2f3a53",
+  "glb_sha256": "b41b8816b9366ae14ad0032d9696e6ab1a94522b0a655766df8b1752f7f56e0a",
   "camera_sha256": "20eacc6a7d22952ef195d0172a210ff5058e5b6bb0df3e7d5447ee8f935f49dd",
   "photo_sha256": "0586ba59683607672112e12b5c3429e8a139820061ffc9189c90826302e2b226",
   "rendered_flora": {
@@ -38,11 +38,11 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+      "sha256": "5cf6c35af8ed24b83036b24c9b4ca32864aea408c63b0624a35bed88e3ddb52c"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+      "sha256": "073a45f12f88f9099b245d0608c91c3deeb6e09ee440390c1f4f6ac424333e3c"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -65,9 +65,9 @@
       "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "445d2c8626bbb94571e93f7330b83669a9eb5fc2406352ad0a276ff44470c4a4",
+  "flora_sha256": "a9a64eaec1d2561de23821420e0ac7ff1afea9208da379bf62e02649ad12dd52",
   "side_by_side": "docs/RESEARCH/photo-match/house_2017_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's flat-roofed stone-front box is now the photograph's front: the north part under a slated mansard rising from a stone cornice, the south part carried up as a projection under a steep gable, the porch between them; the mansard's curb prints at y 230 px as the photograph's, the gable's apex at y 85 against 70 (0.15 m)",
@@ -78,12 +78,16 @@
       "status": "fixed"
     },
     {
-      "what": "the dormers: two gabled dormers on the mansard on the axes the photograph gives them, a pair of lights in the north one and one in the other, their pediments standing up over the curb to y 150 and 190 px as the photograph's",
+      "what": "the dormers: two gabled dormers on the mansard on the axes the photograph gives them, a pair of lights in the north one and one in the other, their pediments standing up over the curb, the north one's pilasters at x 52-240 px and the south one's at x 382-505 as the photograph's (T-3634 re-read their widths off the pilasters: 2.06 and 1.36 m)",
       "status": "fixed"
     },
     {
-      "what": "the dormers' dress: the photograph's dormers carry a moulded pediment over an entablature, pilasters either side of the lights and a carved lunette in each pediment; the render's are plain stone faces under a plain gable. The outline and size match; the mouldings and carving are under the bar in size but the carved lunettes are an element missing",
-      "status": "open"
+      "what": "the dormers' dress (T-3634): each is now the photograph's classical pediment in the front's stone: a pilaster with its capital either side of the lights, a frieze over them, a level cornice 0.25 m deep returned past the pilasters, its top 0.55 m over the lights' heads as the photograph's (50 px), the raking cornice in two bands pitched 45 degrees, and in each tympanum a carved lunette standing on the level cornice, a moulded ring round a fan of leaves and a boss at their foot, 0.38 and 0.28 m in radius against about 0.38 and 0.28 m (x 117-180 and 422-470 px). The capitals' carving and the fan's own carving are under the bar",
+      "status": "fixed"
+    },
+    {
+      "what": "the dormers' height: the whole dormer, lights, cornice, lunette and apex together, prints about 20 px (0.2 m) over the photograph's: the render's lights run y 295-385 against 312-400 px and its level cornice tops out at y 245 against 262. K01 stands a dormer's light at least 0.1 m over its face's foot on the lower face, where the photograph's lights run down behind the main cornice; the record takes that least sill and the face's least setback. Under the bar",
+      "status": "within tolerance"
     },
     {
       "what": "the cresting: the photograph's crest along the mansard's curb is a row of square crenellations (y 222-240 px), merlons about 13-14 px wide at about 31 px centres over a solid band; the render's is now the deck's crenellated iron cresting, merlons 0.15 m wide at 0.34 m centres rising 0.09 m over a band, 0.2 m in all, printing along the curb in the photograph's rhythm and stopping either side of each dormer as the photograph's does (T-3634; it was K10's iron scroll cresting, a different shape)",
@@ -94,20 +98,24 @@
       "status": "within tolerance"
     },
     {
-      "what": "the projection's gable: the photograph's has projecting bargeboards and a dentilled band across its foot (y 360-420 px) with a ventilator in its peak; the render's is K08's coped gable with a kneeler at each foot and no band across",
-      "status": "open"
+      "what": "the projection's gable (T-3634): now the photograph's: its rakes run down to a dentilled cornice across its foot at the projection's corners (a shelf 0.3 m proud over a row of 21 dentils and a fillet, y 355-425 px, built 8.52-9.0 m), at the rakes' pitch of about 1.4 so its apex stands at the photograph's 12.2 m; bargeboards 0.27 m deep under both rakes, the copings oversailing them; and a triangle of diamond lattice in its peak (y 120-170 px, built 0.55 m high). The photograph's cornice is about 0.2 m deeper (y 355-425 against the built 0.48 m, the projection's windowless top storey), under the bar",
+      "status": "fixed"
     },
     {
-      "what": "the gable's two attic lights (x 668-808 px, y 240-350): not built, K08 cutting no light in a gable's face",
-      "status": "open"
+      "what": "the gable's finial: the photograph's is a ball on a collared stem; the render's is K08's stone block under a pyramid, the same 0.2 m across and standing to the same height over the apex, its head's profile a few pixels, under the bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the gable's two attic lights (x 667-730 and 750-812 px, y 240-350): now cut in the gable's face, side by side either side of its middle, their heads at y 240 against 237 px and their sills at y 340 against 350, each about 55 px across against 60 (T-3634: K08's coped gable takes square-headed lights in its face). They print about 25 px south of the photograph's with the gable itself, whose apex stands at x 759 against 733 (the projection's place, 0.3 m, the camera fit's soft depth), and their sashes are the house's two-over-two in green where the print shows them dark: under the bar",
+      "status": "fixed"
     },
     {
       "what": "the porch: two columns with carved capitals carrying a stone deck at the photograph's height (render y 655-710 against 665-700 px), on a stoop between newels; built 2.6 m wide against about 2.8 m",
       "status": "within tolerance"
     },
     {
-      "what": "the porch's parapet: the photograph's is a solid band pierced with rings, a ball finial on each front corner (y 610-665 px); the render's is K01's stone railing of posts and balusters, without the finials",
-      "status": "open"
+      "what": "the porch's parapet (T-3634): now the photograph's coped solid band pierced with five rings across its front (render y 665-690 px against 675-695, at the photograph's spacing), between corner pedestals, each front pedestal carrying a ball finial on a square plinth (render y 610-650 against 608-660 px); K01's hood railing takes a pierced band in place of balusters. The parapet's top prints about 10 px (0.1 m) over the photograph's coping, and its returns, which the picture does not see, are pierced at the front's spacing",
+      "status": "fixed"
     },
     {
       "what": "the door: the photograph's opening is dark and deep, with a glazed double door and a transom; the render's is a single panelled leaf in a reveal",
@@ -118,12 +126,12 @@
       "status": "fixed"
     },
     {
-      "what": "the north stack: the photograph's stands at its left edge (x 0-50 px, top y 80); the render's at x 47-122, top y 120, about 0.7 m south of it and 0.4 m low (K01 stands a stack on a flank's outer face only on a mansard's side parapet)",
-      "status": "open"
+      "what": "the north stack (T-3634): now on the mansard's cornice astride the flank wall, where the photograph's left edge puts it (render x 0-35 px at the frame's edge against 0-50, its top at y 85 against 80); K01's mansard deck now lets a stack on the cornice stand through its curb, its cresting stopping either side. Until T-3634 it stood 0.7 m inside the flank and 0.4 m low",
+      "status": "fixed"
     },
     {
-      "what": "the railing: the photograph shows a low iron railing along the front's foot before the basement; the render's is the parcel's iron spear fence on the street line, which stands taller in the frame",
-      "status": "open"
+      "what": "the railing (T-3634): the photograph's low iron railing along the front's foot before the basement lights is now built as one: the kit's spear run on a stone curb 1.0 m before the front, from the north corner to the stoop's north cheek and from its south cheek to the projection's south corner, its bars crossing the basement grilles at their middle as the photograph's do (the render's top rail at about y 1130 px and its curb at about 1160, against about 1128 and 1165); the spear fence and gates on the parcel's street line, which the photograph does not show, are gone. The posts' acorn finials stand about 0.15 m over the bars where the halftone shows none, and the bars carry the kit's spear heads where it shows a plain top rail; both are under the bar",
+      "status": "fixed"
     },
     {
       "what": "the stone's colour and the windows' paint: the print is monochrome",

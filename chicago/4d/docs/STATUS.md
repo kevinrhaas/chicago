@@ -1,3 +1,53 @@
+## T-3709 — the 1835 phone's js heap back to 100 MB (20 November 2026)
+
+T-3708 found the phone's js heap at 130 MB against 100 on main's 2026-11-17 run, and nobody
+had accounted for it. A heap snapshot of dev 9ca8931b8 at spawn (124.1 MB after two GCs)
+answered it: 35.8 MB of the heap was strings whose text another string already held.
+
+- **The registry, 15.5 MB.** `tools/pack_boot_sidecars.mjs` ships a value three or more
+  records repeat once, in `boot/shared.json`, and `scene-loader.js` put each back with
+  `structuredClone`. That copied the strings as well as the objects, so the wire saving came
+  back as a heap cost: one 650-character roof note ("INVENTED, NOT DERIVED…") sat in the heap
+  6,339 times, 8.3 MB on its own. `rehydrate` now copies objects and arrays (two records still
+  never share one, and the self-test now changes an array to prove it) and hands every record
+  the same strings, which cannot be changed in place. The tool's copy of the function is now
+  compared with the loader's word for word, so the gate keeps checking what the loader runs.
+- **The household joins, 6.0 MB.** `readerCopy` made a fresh string for every occurrence: JSON.parse
+  does, and so does `applyEdits` for an edited sentence. The 1835 address book repeats one
+  807-character note 363 times and another 1,278 times. It now says each distinct text once
+  per copy and gives every place it sits that string.
+
+Probe heap 124.1 -> 108.9 -> 99.8 MB. `measure_memory.mjs` on the same machine: phone
+550.8 -> 521.1 MB (js heap 130.4 -> 101.7), desktop 1341.4 -> 1319.2 (155.4 -> 130.8). By
+the file's rule the 1835 lines come down: phone 600 -> 575 MiB, desktop 1500 -> 1475
+(`docs/measurements/T-3709-memory-1835.json`). The kept-geometry self-test reads 667.7 MB, still over
+575. What is left in the snapshot's duplicates is small and spread out (the registry's
+remaining 2.7 MB of strings fewer than three records share, enclosures 0.9, population 0.7).
+
+## T-3708 — five memory ceilings re-argued after the 2026-11-20 promotion (20 November 2026)
+
+The frame-time workflow's memory job runs nightly on main and on pushes that touch its
+own tools, never on dev, so dev's growth surfaced all at once: main's run on 137da5c8a held
+every row on 2026-11-17, and its run on c0d4f425a, the promotion that brought 810 dev
+commits across, read five rows over (run 44697689969). Every 4D PR carried that red, since a
+PR's frame-time run measures the dev tree it merges into, and pr-automerge refused #2261 on
+it. Nothing was cut here. The five rows are re-argued in `tools/memory_ceilings.json` with
+their readings (`docs/measurements/T-3708-memory-*.json`, dev b008aa7f9) and the CI runs:
+
+| row | was | CI main / CI dev / here (MB) | now (MiB) | what grew since 2026-11-17 |
+|---|---|---|---|---|
+| 1904 desktop | 1425 | 1464.6 / 1529.1 / 1494.5 | 1700 | Prairie Avenue houses onto K01 (structure textures 742 -> 946, +25 MB geometry), name cards, js heap |
+| 1835 desktop | 1325 | 1347.6 / 1355.3 / 1341.4 | 1500 | js heap +30 (people, jaunts, outings, Spanish), name cards |
+| 1904 shared | 600 | 628.5 / 620.2 / 611.3 | 700 | the same K01 houses, name cards, renderbuffers 3.0 -> 6.3 |
+| 1835 phone | 525 | 551.5 / 551.6 (567.2 on #2262) / 550.8 | 600 | js heap 100 -> 130, the phone's people and name cards |
+| 1904 phone | 475 | 492.1 / 501.2 / 491.3 | 550 | the K01 houses, name cards, renderbuffers 3.0 -> 4.9 |
+
+Desktop and shared rows take the file's rule (highest reading x 1.1, rounded up to 25 MiB).
+The phone rows are kept under the rule (625 and 575; 1835's at 600 after CI read 567.2 on this PR's own head), as T-3538 and T-3603 kept them on the
+owner's choice. The self-test's kept-geometry phone still reads over 1835's new phone line
+(708.7 MB on CI against 600). The 1835 phone's heap growth is the largest part nobody has
+accounted for, and is filed to be brought back down (T-3709).
+
 ## T-3678 — Four more Make your case mysteries (19 November 2026)
 
 The Gossip comparison's hard-wired check is now a case table

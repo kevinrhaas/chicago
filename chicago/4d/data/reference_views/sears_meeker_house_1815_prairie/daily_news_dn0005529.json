@@ -1,0 +1,27 @@
+{
+ "structure_id": "sears_meeker_house_1815_prairie",
+ "source_id": "cdn_dn0005529_meeker_residence_1908",
+ "photo": "../../sources/assets/meeker_1815_dn0005529_t3562/meeker_1815_daily_news_dn0005529.png",
+ "image_px": [
+  640,
+  461
+ ],
+ "principal_px": [
+  320,
+  326.26
+ ],
+ "focal_px": 718.72,
+ "eye": [
+  47.55,
+  23.72,
+  1.6
+ ],
+ "yaw_deg": 241.58,
+ "sky": "overcast",
+ "sun_uvy": [
+  1.0,
+  0.5,
+  1.2
+ ],
+ "solve": "Fitted by T-3562 to the Chicago Daily News negative DN-0005529 (1908, 'Arthur Meeker residence'; the owner's 640 x 461 px copy), the front and south flank from the south-west across Prairie Avenue. LEVEL: the walls' verticals stand vertical in the print, so the camera is level, its principal point on the print's centre line (x 320 px) and its horizon at principal_px's y. POINTS: the upper storeys the 1902 remodel left as they were, placed in 3-D by the square-on Chicagology camera (chicagology_square_on, the front's plane u 17.46 or the pavilion's face u 17.56): the attic's paired lights (their centre top and foot and both top corners, x 200-230, y 141-183 px), the pavilion's second-storey window (three corners, x 207-225, y 205-246), the narrow light over the old door (x 249-256, y 213-235), the second storey's window south of it (x 275-297, y 195-239), the main cornice's south-west corner (x 350, y 151; 9.6 m over grade) and the south stack's top (x 376, y 54; 14.45 m); and the south flank's cornice as a line through (400, 173) and (455, 198) px. Those lie close to one plane, so distance and focal length trade (as T-3156 found on the oblique); the eye's height was held at 1.6 m, a man standing on the walk across the avenue (the print looks level at the fence's top), and grade was held at three feet read off the remodelled ground floor: the arched door's foot (x 183, y 363) and the bay's basement lights' feet (x 215 and 276, y 362), each on its own plane. RESULT (least squares): the eye 30 m before the front (u 47.55, in Prairie Avenue's far walk; the street line at u 26.71) and 14 m south of the south wall (v 23.72), heading 241.6 degrees, f 718.7 px. RESIDUALS: 3.3 px rms over the points and the line; the grade feet 1-5 px. UNCERTAINTY: eye heights from 0.8 to 2.0 m fit within 0.05 px rms of each other (the eye moving 2.3 m along the line of sight, f 773-693 px); 1.6 m is the walker's. Below the remodel's line the camera reads the new work: the one-storey bay (its face 1.2 m proud), the entrance block (0.2 m proud) and the street railing on the street line."
+}

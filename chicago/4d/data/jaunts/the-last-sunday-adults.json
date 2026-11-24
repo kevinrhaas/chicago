@@ -1,0 +1,591 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Great Fire 1871",
+  "menu_group": "Stories",
+  "grade_band": "9-10",
+  "review_required": false,
+  "id": "the-last-sunday-adults",
+  "scene": "1871",
+  "title": "The Last Sunday",
+  "premise": "Sunday 8 October 1871, afternoon to dusk: the busiest, proudest city in the West on its last ordinary day, from Lake Street to State Street, the Water Tower and a barn on DeKoven Street. Nine stops.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: THE LAST SUNDAY. Sunday 8 October 1871, early afternoon. No rain since the end of September, a dry summer behind it, and a hot wind blowing hard out of the southwest. Last night a planing mill on the West Side caught fire and took four blocks of lumber, coal and workers' houses with it; the firemen who fought it all night are still on the ruins. This morning's Tribune gave the fire three columns and then got back to business: land, money, schemes.\n\nNine stops, from the wholesale blocks to the marble hotels, the grain exchange, the new shops of State Street and the mansions by the Water Tower, and then, at dusk, a rented cottage and a milk barn on DeKoven Street. Start on Lake Street.",
+    "read_s": 34
+  },
+  "stops": [
+    {
+      "id": "lake-street",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_lake_street"
+      },
+      "text": "Lake Street at Clark, two in the afternoon. Until the mid-1860s this was 'the retail center of Chicago', and the wholesale houses that made the city's money still crowd the blocks down to the river. Stone fronts, arched windows, iron awnings, telegraph wires. Under some of them the ground was once several feet lower: from 1859 George M. Pullman, later the sleeping-car king, jacked whole blocks of brick and stone up to the new street grade 'without even disturbing the operations of business inside'. Nothing here stops for long, except on Sunday. The stores are shut today, and the men who own them are reading the Tribune, where a watcher of the land market summed up the mood: 'Every body seems to be swelled up with big schemes.' One block south is the grandest scheme in town, a hotel of white marble.",
+      "evidence": [
+        "lake-wholesale",
+        "pullman-raising",
+        "tribune-oct8",
+        "weather",
+        "sunday-walk"
+      ],
+      "next": "sherman-house",
+      "read_s": 37,
+      "hour": "14:00",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "sherman-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_sherman_house"
+      },
+      "text": "The Sherman House, at Clark and Randolph. Francis C. Sherman put up a hotel on this corner in 1836-37, did well enough to serve two terms as mayor, and tore it down in 1861 for this: six storeys of 'the finest Athens marble, from the quarries at Lemont', a two-storey portico on Clark Street, and a view over the Court House square. This week a celebrated orchestra is upstairs. Theodore Thomas has brought 'his concert organization of sixty performers' to open a season of ten concerts tomorrow night. Across Randolph Street hangs a bronze bell of more than five tons, in a tower that is also the city's fire lookout.",
+      "evidence": [
+        "sherman",
+        "thomas",
+        "court-house",
+        "sunday-walk"
+      ],
+      "next": "court-house",
+      "read_s": 29,
+      "hour": "14:20",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "court-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_court_house"
+      },
+      "text": "Court House Square, the block between Randolph, Clark, Washington and LaSalle. Lawns, trees and a fountain give it 'the appearance of a park' behind an iron fence. John M. Van Osdel's building of 1853 holds nearly the whole machinery of city and county, 'from the jail in its basement to the mayor's quarters': the prisoners, the debtors, the aldermen and the courts under one roof. Since then the city has added wings, a new clock and a bell of 10,849 pounds. Up in the cupola, 120 feet above the street, is the fire watchman's walk. Tonight Mathias Schaffer will stand there with a spy-glass, the city's first line of defence, reading the distance of a fire by its glow. Below him is the telegraph office that sends out the engines. Across LaSalle Street, the grain of the West is traded.",
+      "evidence": [
+        "court-house",
+        "watchman",
+        "sunday-walk"
+      ],
+      "next": "chamber",
+      "read_s": 37,
+      "hour": "14:40",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "chamber",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_chamber"
+      },
+      "text": "The Chamber of Commerce, at the southeast corner of Washington and LaSalle. Edward Burling designed it; Charles Randolph, president of the Board of Trade, dedicated it on 30 August 1865. Its great hall is 'decorated with frescoes and paintings', and what happens under them is the Board's commodities exchange, where the grain of the prairie is bought and sold, and fortunes with it. On Sunday it is empty. LaSalle Street around it, all stone fronts and mansard roofs, has become 'the home of Insurance Companies and commission merchants', and the banks are crowding in. Two blocks east, on Washington Street, workmen are working through the Sabbath to finish a theatre.",
+      "evidence": [
+        "chamber",
+        "lasalle",
+        "sunday-walk"
+      ],
+      "next": "crosbys",
+      "read_s": 29,
+      "hour": "15:00",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "crosbys",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_crosbys"
+      },
+      "text": "Crosby's Opera House, on Washington Street between State and Dearborn. Uranus Crosby built it in 1865 with the architect W. W. Boyington: five storeys, a mansard roof, and statues of Painting, Sculpture, Music and Commerce over the arch, Commerce included without embarrassment. Shops fill the ground floor; the auditorium behind seats three thousand. The house has had about $80,000 spent on it this summer, and this morning's Tribune promised that 'the whole house, gallery and all, is nearly sold for the first night.' Tomorrow Theodore Thomas opens the season. Late this evening the gas jets will be lit inside for the first time, 'that its effects might be seen by gaslight'. One block east is the street Potter Palmer built.",
+      "evidence": [
+        "crosbys",
+        "crosby-tribune",
+        "crosby-gaslight",
+        "sunday-walk"
+      ],
+      "next": "state-street",
+      "read_s": 32,
+      "hour": "15:20",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "state-street",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_state_street"
+      },
+      "text": "State Street at Washington. Four years ago this stretch was a frame house, an ale store and a furniture shop. Potter Palmer, who had made one fortune in trade and part of it speculating in wartime cotton, bought 'three-quarters of a mile of property along State Street south of Lake', cleared it, and persuaded his old partners to follow. On the northeast corner is their six-storey store, Field & Leiter, almost 150 feet along State. Marshall Field and Levi Leiter left Lake Street for it, and their clerks are drilled to treat the carriage trade 'like guests rather than mere customers'. A few blocks south is Palmer's new hotel, the Palmer House, under his own name. Across the river, on the North Side, the old money lives under great elms.",
+      "evidence": [
+        "palmer-state",
+        "field-leiter",
+        "palmer-house",
+        "north-side",
+        "sunday-walk"
+      ],
+      "next": "water-tower",
+      "read_s": 34,
+      "hour": "15:40",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "water-tower",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_water_tower"
+      },
+      "text": "The Water Tower, Pine Street at Chicago Avenue. The city threw a parade for it in 1867. Across the street the Pumping Station pulls water through a tunnel two miles out under the lake, because the river the city drinks from is 'unspeakably polluted'. W. W. Boyington dressed both buildings in 'castellated Gothic' stone. South of here are the mansions, 'substantial and elegant, and shaded with grand elms'; the working families live west of LaSalle. For years the Board of Police and Fire Commissioners has warned that 'the water supply was insufficient', that the hydrants were twice too far apart, and that 'wooden cornices were an abomination'. 'None of these things was noticed by the mayor, the Common Council, or the newspapers.' The whole city depends on one set of pumps, under a wooden roof.",
+      "evidence": [
+        "water-works",
+        "one-pump",
+        "north-side",
+        "sunday-walk"
+      ],
+      "next": "saturday-ruins",
+      "read_s": 36,
+      "hour": "16:30",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "saturday-ruins",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_van_buren_bridge"
+      },
+      "text": "The east end of the Van Buren Street bridge, looking across to the West Side. Last night between ten and eleven, the boiler room of Lull & Holmes's planing mill on Canal Street caught fire, in a district the insurance trade calls the 'Red Flash' for how fast it burns. By this afternoon four blocks and close to a million dollars were gone, and about one hundred families were out of their homes. 'The piles of coal and lumber burned all day on Sunday', and thousands came to stare. Much of the Fire Department worked eighteen hours straight, until three this afternoon; the men are 'nearly exhausted', short-handed, some of their equipment damaged. The weather has not changed: no rain, and a hard southwest wind. Ten blocks south, on DeKoven Street, a woman has done the evening milking.",
+      "evidence": [
+        "saturday-fire",
+        "saturday-sunday",
+        "firemen-tired",
+        "weather",
+        "sunday-walk"
+      ],
+      "next": "dekoven",
+      "read_s": 37,
+      "hour": "17:10",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    },
+    {
+      "id": "dekoven",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_dekoven"
+      },
+      "text": "137 DeKoven Street, at dusk. A neighbourhood of small wooden houses, sheds and fences, with 'wood shavings piled in every barn and under every house', kindling from the mills. Patrick and Catherine O'Leary live in the back of this cottage with their five children and rent the front to the McLaughlins. Behind is the barn, sixteen by twenty feet, its loft freshly packed with hay for the winter, with five cows, a calf, a horse and a wagon, and not one cent of insurance on any of it. Catherine peddles milk; she milked at half past four and will feed the horse at about seven. Next door tonight there will be a party for a cousin just arrived from Ireland, with a fiddle. The wind has not dropped.",
+      "evidence": [
+        "oleary-place",
+        "oleary-affidavit",
+        "party",
+        "shavings",
+        "sunday-walk"
+      ],
+      "next": "the-barn",
+      "read_s": 34,
+      "hour": "17:45",
+      "date": "1871-10-08",
+      "hour_evidence": [
+        "sunday-walk"
+      ]
+    }
+  ],
+  "legs": [
+    {
+      "story": "One block south on Clark Street, to the corner of Randolph.",
+      "evidence": [
+        "sherman"
+      ],
+      "story_evidence": [
+        "sherman"
+      ]
+    },
+    {
+      "story": "Across Randolph Street and through the gate into the square.",
+      "evidence": [
+        "court-house"
+      ],
+      "story_evidence": [
+        "court-house"
+      ]
+    },
+    {
+      "story": "Across the square to the corner of Washington and LaSalle.",
+      "evidence": [
+        "chamber"
+      ],
+      "story_evidence": [
+        "chamber"
+      ]
+    },
+    {
+      "story": "East along Washington Street, past Clark and Dearborn.",
+      "evidence": [
+        "crosbys"
+      ],
+      "story_evidence": [
+        "crosbys"
+      ]
+    },
+    {
+      "story": "On to the corner of State Street.",
+      "evidence": [
+        "field-leiter"
+      ],
+      "story_evidence": [
+        "field-leiter"
+      ]
+    },
+    {
+      "note": "Across the river to the North Side, more than a mile: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "water-works"
+      ]
+    },
+    {
+      "note": "Back across the river and south to Van Buren Street, nearly two miles: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "saturday-fire"
+      ]
+    },
+    {
+      "note": "Ten blocks south on the West Side, to DeKoven Street: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "oleary-place"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "the-barn",
+      "text": "At about nine that night Daniel Sullivan, a drayman sitting on the sidewalk across the street, saw fire in the O'Leary barn. Within thirty minutes it 'was beyond the control of the Fire Department.' In the Court House cupola Mathias Schaffer read the glow as farther off than it was and called the wrong box; when he knew it, no correct alarm went out, and engines that might have come stayed home. By Monday morning the Court House bell had fallen through the burning building, the Sherman House was 'one of the most complete wrecks of the night', and Crosby's never reopened. At about three in the morning the pumping works, under their wooden roof, became 'an utter wreck'. Theodore Thomas 'was compelled to run for his life'.\n\nAccording to legend, Mrs. O'Leary's cow kicked over a lamp, and a milkwoman took the blame for a city. The historian A. T. Andreas, writing fourteen years later: 'There is no proof that Mrs. O'Leary is responsible for the fire.' The Great Chicago Fire jaunt begins in that barn.",
+      "read_s": 47,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "the-last-sunday-card-adults",
+    "title": "The Tribune, Sunday morning, 8 October 1871",
+    "text": "'There has scarcely been a time for ten years past when there seemed to be so many schemes of one kind or another on foot'."
+  },
+  "evidence": [
+    {
+      "id": "lake-wholesale",
+      "text": "Colbert and Chamberlin (1871): 'Up to about 1868 the wholesale business of the city was concentrated between the river and Lake Streets.' Then 'the wholesale merchants invaded the avenues', and 'at the time of the fire some of the largest stocks in the city were burned up on the avenues, and on the three northern blocks on State Street.' The Chicago History Museum: 'until the mid-1860s Lake Street was the retail center of Chicago'; Potter Palmer persuaded Marshall Field and Levi Leiter 'to abandon Lake Street for a magnificent new store at State and Washington streets.'",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Colbert and Chamberlin pp. 137-138, the paragraph beginning 'Up to about 1868'; museum, landmark 'Palmer House', the first caption ('As Harold M. Mayer and Richard C. Wade explain')."
+    },
+    {
+      "id": "pullman-raising",
+      "text": "Colbert and Chamberlin (1871), on raising the city to its new street grade: 'George M. Pullman, since better known as the sleeping-car patentee, who began the work of lifting up bodily the buildings that had previously been erected on a lower grade line. Mr. Pullman began in 1859', and had hotels, warehouses on South Water Street 'and of wholesale stores on Lake Street, lifted up by jack-screws', a whole block of brick or stone 'lifted up, with all its contents, without even disturbing the operations of business inside'.",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "locator": "pp. 97-98, the paragraph naming Harry Fox and George M. Pullman."
+    },
+    {
+      "id": "tribune-oct8",
+      "text": "Colbert and Chamberlin (1871): 'On the morning of the eighth of October — the day of Chicago's doom — the Tribune' carried 'three columns' describing 'a fire which had broken out after midnight on the night of the seventh', and 'over one thousand advertisements'. Its real-estate article began: 'There has scarcely been a time for ten years past when there seemed to be so many schemes of one kind or another on foot', and quoted a watcher of the market: 'Every body seems to be swelled up with big schemes.' The authors: the papers of 8 October recorded that the people 'were never so active, never so prosperous, never so ambitious, never so sanguine of the future as on the morning of that fatal day.'",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "locator": "Ch. XXI, 'The Newspapers and the Fire', pp. 375-376, the paragraphs beginning 'On the morning of the eighth of October' and 'The Tribune, in the article referred to'."
+    },
+    {
+      "id": "weather",
+      "text": "The National Weather Service's reconstruction: from 7 July to 8 October 1871 'only 3.55 inches of precipitation were recorded'; 'From September 29th through October 8th, Chicago saw no precipitation at all.' On 8 October highs were 'in the low to mid 80s across most of northern Illinois', and 'southwest winds peaked at around 35 to 45 mph, including within the city of Chicago.' Chicago's own weather records were lost in the fire.",
+      "confidence": "attested",
+      "sources": [
+        "nws_chicago_2021_great_fire_weather"
+      ],
+      "locator": "'Weather Prior to the Fire' (The Months Leading Up to the Fire; The Week Leading Up to the Fire) and 'Weather During the Fire: October 8th'; the Overview's paragraph on the lost station records."
+    },
+    {
+      "id": "sunday-walk",
+      "text": "The walk is an imagined Sunday afternoon: its route through the city, the order of its stops and the hour at each (14:00 at Lake Street to 17:45, dusk, at DeKoven Street) are chosen for the walk, so the light moves from afternoon to dusk. That the downtown streets are quiet and the stores shut for the Sunday, and that the morning's Tribune is about, are scene-setting, not a record of that afternoon. So is the look of the streets the narrator describes (stone fronts with arched windows and mansard roofs, iron awnings and fences, a fountain in the square, telegraph wires): it is drawn from pre-fire views of Lake Street, LaSalle Street and the square from the 1850s and 1860s, used as pictures to build from, not cited, until their holding institutions are found.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-1871-last-sunday-3692"
+    },
+    {
+      "id": "sherman",
+      "text": "Andreas (1885): 'The Sherman House was built in 1836-37, by Hon. F. C. Sherman, who was subsequently Mayor of Chicago', first called the City Hotel; in 1844 Sherman added two stories and renamed it. In May 1861 it was torn down for a new hotel, opened on 8 July 1861: 'The new Sherman House was six stories high, and had a frontage of one hundred and eighty feet on Clark, and one hundred and fifty feet on Randolph Street, the latter overlooking the public square. The material of the structure was the finest Athens marble, from the quarries at Lemont'. The museum: Francis C. Sherman 'served two terms as Chicago's mayor in the early 1860s'; 'The hotel's main entrance was on Clark Street, through a two-story portico.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'Hotel History', pp. 502-503, the paragraph beginning 'The Sherman House was built in 1836-37'; museum, landmark 'Sherman House', captions 'View from Court House Cupola, North' and 'Sherman House before the Fire'."
+    },
+    {
+      "id": "thomas",
+      "text": "The Opera House's announcement, printed by Andreas: 'The season at the Opera House will be inaugurated on Monday, October 9 [1871], by Theodore Thomas, with his concert organization of sixty performers, who will give a series of ten grand symphony and popular concerts.' After the fire William Gallagher wrote to his sister: 'Theodore Thomas was at the Sherman House with his orchestra,' and 'was to have commenced his concerts on the Monday night after the fire. He was compelled to run for his life'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'Music and Drama', p. 607, the announcement beginning 'The season at the Opera House'; museum, landmark 'Sherman House', the caption quoting William Gallagher's letter."
+    },
+    {
+      "id": "court-house",
+      "text": "The museum: the 1853 Court House and City Hall 'occupied ... the entire downtown block formed by Randolph, Clark, Washington, and LaSalle streets', its footprint small enough 'to allow the block to include a good deal of landscaping, which gave what was called Court House Square the appearance of a park.' It was 'originally two stories and an above-ground basement'; the city 'soon added a third floor and the cupola, with a spiral staircase leading to an observatory balcony 120 feet high, which served as a fire watchman's walk.' 'By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a 10,849-pound bronze bell'. It 'housed virtually all city and country offices, from the jail in its basement to the mayor's quarters, the debtors' prison, the city council, the board of public works, and the courtrooms on the upper floors.' 'The designer of the 1853 structure was John M. Van Osdel, who also built the previous court house.' A fence 'enclosed Court House Square'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Court House', captions 'Courthouse Square' (ichi-62080) and 'The Court House Shortly Before the Fire' (ichi-64281); landmark 'Sherman House', caption 'Sherman House before the Fire' (the fence)."
+    },
+    {
+      "id": "watchman",
+      "text": "The Board of Police and Fire Commissioners' report, printed by Andreas: the first alarm 'was given by Mathias Schaffer, from the Court-house cupola, he being the night watchman on duty at the time, and having sighted the fire.' Schaffer's own statement, as Andreas condenses it: 'Observing it through his spy-glass, he located the scene near the corner of Canalport Avenue and Halsted Street, and rang up the night operator, signaling him to give Box 342. Brown struck the alarm. A short time after that, Schaefer called to Brown, and told him the fire was not so far off; but as the engines would have to pass the spot, it was decided not to send a different alarm'. Andreas: 'The error made by Mr. Schaffer consisted in not sounding a correct alarm, when his mistake was discovered by himself. Had he done so, several engines not in service under the call of 342 would have been brought out.' William J. Brown was the night operator. The fire-alarm telegraph office was 'in the Court-house tower'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 709-711: the report's paragraph beginning 'The first information received by the Fire Department', and the statements of William J. Brown and Mathias Schaffer."
+    },
+    {
+      "id": "chamber",
+      "text": "The museum: 'The Chamber of Commerce dedicated its new building on August 30, 1865. The building was designed by Edward Burling. Charles Randolph, President of the Board of Trade, delivered the main address of the day. By far the most important business conducted in this building, whose grand hall was decorated with frescoes and paintings, was the commodities exchange overseen by the Board.' It stood on the southeast corner of LaSalle and Washington streets, just south of Court House Square.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Chamber of Commerce', caption 'Chamber of Commerce' (ichi-63073); landmark 'Court House', second caption."
+    },
+    {
+      "id": "lasalle",
+      "text": "Colbert and Chamberlin (1871): after 1868 'Lasalle Street was improved, and became popular as the home of Insurance Companies and commission merchants, while the banks moved toward that and Washington Street, as the newspapers were gathering on and near Dearborn.'",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "locator": "p. 138, the paragraph continuing from 'Up to about 1868'."
+    },
+    {
+      "id": "crosbys",
+      "text": "The museum: Crosby's Opera House 'stood for less than six-and-a-half years on the north side of Washington Street between State and Dearborn.' Its builder Uranus Crosby and the architect W. W. Boyington 'erected this five-story Italianate palace, topped with a mansard roof. Allegorical statues of Painting, Sculpture, Music, and Commerce (after all, this was Chicago)' stood over its entry arch. The first floor held shops, 'including music publishers Root & Cady ..., the piano store of W. W. Kimball, and the confectioner and restauranteur H. M. Kinsley'; in the rear was the opera house itself, 'with seats for three thousand patrons.' It opened in April 1865. 'By early 1871 he made plans for a major renovation of the theater, which took place that summer. The much anticipated re-opening was scheduled for October 9, with a concert led by maestro Theodore Thomas.' Andreas names him Uranus H. Crosby, and says the proprietary interest had since passed to Albert Crosby.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011",
+        "andreas_1885_v2"
+      ],
+      "locator": "Museum, landmark 'Crosby's Opera House', the captions 'Crosby's Opera House' (ichi-62079); Andreas vol. II, 'Music and Drama', pp. 603-607."
+    },
+    {
+      "id": "crosby-tribune",
+      "text": "Andreas (1885): 'During the summer of 1871, Crosby's Opera House underwent material alterations', 'the cost of the improvements being stated at about $80,000.' 'The Tribune of October 8, 1871, remarked: \"The decorators and upholsterers are still busy putting the finishing touches on the Opera House. * * * The house is virtually ready, with the exception of the locating of the large bronzes and a few other ornaments and the laying down of the carpets.\" ... \"The box-office sheets are crossed to an extent which indicates that the whole house, gallery and all, is nearly sold for the first night.\"'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'Music and Drama', p. 607, the paragraphs beginning 'During the summer of 1871' and 'The Tribune of October 8, 1871, remarked'."
+    },
+    {
+      "id": "crosby-gaslight",
+      "text": "Sheahan and Upton (1871): 'The Crosby Opera House, had been closed during the summer and fall for renovation. Its proprietor had expended $80,000 upon it in ornamentation, upholstery and frescoing. It was to have been re-opened to the public on Monday evening, the night after the fire, by the Theodore Thomas orchestral troupe, and on Sunday evening, only an hour or two before the fire, it was lit up for the first time, that its effects might be seen by gaslight.'",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 94-95, the paragraph beginning 'The Crosby Opera House, had been closed'."
+    },
+    {
+      "id": "palmer-state",
+      "text": "The museum: 'In 1867, Potter Palmer, who had made his first fortune in wholesale and retail goods, including wartime speculation in cotton, turned his attention mainly to real estate. Palmer purchased three-quarters of a mile of property along State Street south of Lake with the intention of developing it into the city's primary retail area.' Among his key steps was to persuade Marshall Field and Levi Leiter, his former partners, to move to State and Washington; 'Another was to build a grand hotel, named after himself'. The Potter Palmer Real Estate Album (1868-69) shows what the street was before: a two-story frame dwelling on Monroe Street, 'Lill's Premiun Stock Ales, 167 State St.', and Charles Tobey's furniture store, all cleared for his buildings.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Palmer House', the first three captions (ichi-64382, ichi-39659); landmark 'Field & Leiter', caption 'Charles Tobey Furniture and Bedding' (ichi-64383)."
+    },
+    {
+      "id": "field-leiter",
+      "text": "The museum: 'The six-story Field & Leiter pre-fire store was located on the northeast corner of State and Washington streets. Its frontage on State was almost 150 feet.' Field and Leiter had joined Potter Palmer on Lake Street in 1865; 'Palmer sold his interest to them in 1867'. 'The new Field & Leiter store was the biggest enterpise of its kind outside of New York', its goods 'elegantly displayed in separate departments ... staffed by well-dressed and carefully trained sales clerks who treated their fashionable clientele like guests rather than mere customers.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Field & Leiter', caption 'Field & Leiter Store before the Fire' (ichi-64398)."
+    },
+    {
+      "id": "palmer-house",
+      "text": "The Palmer House stood a few blocks south of Washington Street on State Street at the fire, and burned in it; the sources disagree on its corner and its opening. Andreas: 'The Palmer House was built in 1869-70, by Potter Palmer, at the northwest corner of State and Quincy streets', 'eight stories in height, with handsome stone fronts, and contained two hundred and twenty-five rooms', opened 'on Monday, September 26, 1870', and 'was, of course, destroyed in the fire of 1871'. The museum: the first Palmer House was at State and Quincy, and a second 'opened a few blocks north, on the southeast corner of State and Monroe, in March of 1871' and 'did business for six short months before being leveled by the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'Hotel History', the paragraph beginning 'The Palmer House was built in 1869-70'; museum, landmark 'Palmer House', captions 'The Palmer House before the Fire' (ichi-39580) and 'The Palmer House after the Fire' (ichi-26749)."
+    },
+    {
+      "id": "north-side",
+      "text": "Colbert and Chamberlin (1871) on the North Division: 'occupied, near the river and along Clark Street, by stores and factories, the rest mainly by residences. The homes of the humble lie mostly west of Lasalle Street', while the residences of the wealthy, once 'confined to select tracts in the south-east quarter-section of this Division — the \"old Chicago,\" substantial and elegant, and shaded with grand elms', had lately spread toward Lincoln Park. Of the Newberry, the Ogden (Wm. B.) and the Arnold places, 'with the famous McCagg place, on North Clark Street': each 'occupied territory which alone was worth at least a quarter of a million'.",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "locator": "p. 203, the paragraph beginning 'the newspaper offices, the two grand union railroad depots'; p. 262, the paragraph beginning 'There were many homes in the North Division'."
+    },
+    {
+      "id": "water-works",
+      "text": "The museum: 'Designed by W. W. Boyington and dedicated at a great celebration in March of 1867', the waterworks had 'the limestone Water Tower and Pumping Station on either side of Pine Street (now Michigan Avenue) at Chicago Avenue, and a two-mile tunnel beneath the lake, at the end of which was an intake known as the \"crib.\"' The Board of Public Works called the style 'castellated Gothic'. City Engineer Ellis S. Chesbrough proposed the works 'to draw water from far enough out in the lake so that it would not be contaminated by the unspeakably polluted Chicago River'. The cornerstone of the Water Tower was laid on 25 March 1867.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Water Tower', captions 'Laying of the cornerstone for the Water Tower, March 25, 1867' (ichi-64424) and 'Chicago Water Works' (ichi-06859)."
+    },
+    {
+      "id": "one-pump",
+      "text": "The Board of Police and Fire Commissioners' report (printed by Andreas): 'The single set of pumping works, upon which the salvation of the city depended, were roofed with wood, had no appliance by which water could be raised to the roof in case of fire, and was one of the earliest buildings to burn in the North Division.' The Board had warned 'year by year' that 'the water supply was insufficient', that 'our fire hydrants were twice too far apart', that 'wooden cornices were an abomination', and that the city should not be left 'to the mercy of chance, or accident, with a single set.' 'None of these things was noticed by the mayor, the Common Council, or the newspapers.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 710, the report's paragraphs beginning 'The single set of pumping works' and 'The Board of Police have, year by year'."
+    },
+    {
+      "id": "saturday-fire",
+      "text": "Andreas (1885): 'Some time between ten and eleven o'clock, on Saturday night', an alarm from Box 248 called the Fire Department to No. 209 South Canal Street, where 'a fire was raging in the boiler-room of Lull & Holmes's planing mill'. 'The greater portion of the block was filled with lumber, sheds, outbuildings, and dwelling houses'. The museum: it burned 'well into Sunday afternoon', by which time 'four square blocks and close to a million dollars in property had gone up in smoke'; the neighbourhood 'was popularly known to insurance brokers as the \"Red Flash\" because of the combustibility of the local buildings and their contents', and the fire 'left Chicago's already undermanned and underequipped firefighters critically shorthanded and overtired, and some of their equipment badly damaged.' The Great Fire would erupt 'about twenty-four hours later and ten blocks to the south.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 705-706, the paragraphs beginning 'Some time between ten and eleven' and 'In the rear of the planing mill'; museum, landmark 'Saturday Night Fire' and timeline entry 'A Fiery Prelude' (1871-10-07)."
+    },
+    {
+      "id": "saturday-sunday",
+      "text": "Sheahan and Upton (1871): 'Between Canal street and the river were a number of coal yards, and the extensive lumber yard of Chapin & Foss. The piles of coal and lumber burned all day on Sunday, and when night set in the sky reflected the brilliant light of the blazing mass below.' 'The neighborhood was visited during the day by thousands of persons. About one hundred families were turned out of their homes by the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 63-64, the paragraphs ending the account of the Saturday fire."
+    },
+    {
+      "id": "firemen-tired",
+      "text": "The Board's report (printed by Andreas): 'A large part of the Department had worked on Saturday night, and Sunday until 3 p.m. — eighteen hours' steady work, — and they were nearly exhausted when this fire commenced'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, p. 710, the report's paragraph beginning 'The firemen and their officers were sober'."
+    },
+    {
+      "id": "oleary-place",
+      "text": "The museum: 'The O'Learys and their five children lived in the rear section of this double cottage, renting the front to a family named McLaughlin.' Behind it was the barn, with 'a horse and the five cows that provided the milk that Catherine O'Leary sold locally'; 'a calf was saved'. Andreas: the barn, on the rear of lot No. 137 DeKoven Street, 'was constructed of wood, sixteen by twenty feet in size, and fourteen feet in height'; 'The upper portion of the building had recently been filled with hay', and 'High wooden fences ran from the barn to sheds on contiguous lots'. Catherine O'Leary told the Board: 'I had two tons of coal and two tons of hay. I had everything that I wanted in for the winter.'",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011",
+        "andreas_1885_v2",
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Museum, landmark 'O'Leary Home', caption 'The Cottage of Patrick and Catherine O'Leary' (ichi-02741); Andreas vol. II, 'The Burning of Chicago', pp. 707-708, the paragraphs beginning 'About fifteen minutes before nine' and 'The barn contained several cows'; museum, O'Leary Legend Library, '“Kate the barn is afire”', her first answer."
+    },
+    {
+      "id": "oleary-affidavit",
+      "text": "The O'Learys' affidavit of 15 October 1871, sworn before Michael McDermott and printed by Andreas: 'they had five cows, a horse and wagon, on all of which they had not one cent of insurance. She milked her cows at 4:30 p.m. and 5 a.m., as Mrs. O'Leary peddled her milk. Mrs. O'Leary fed the horse beside the fence at about 7 o'clock p.m., and then put him in the barn. She had no lighted lamp in the house or barn that evening.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 708, the affidavit beginning 'Patrick O'Leary and Catharine, his wife, being duly sworn'."
+    },
+    {
+      "id": "party",
+      "text": "Andreas, condensing the testimony: a family named McLaughlin, who lived in the front of the O'Leary house, 'was enjoying a social party in honor of the arrival of a relative from Ireland'; Catharine McLaughlin testified that 'Some young people were celebrating the arrival of a cousin from Ireland that evening'. Catherine O'Leary to the Board: 'There was a little music there.' 'Her husband was a fiddler.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Andreas vol. II, pp. 708-709, the paragraph beginning 'That Dennis Sullivan discovered the fire' and the testimony of Catharine McLaughlin; museum, O'Leary Legend Library, '“Kate the barn is afire”', the questions on the party."
+    },
+    {
+      "id": "shavings",
+      "text": "The Board's report (printed by Andreas): the wind was carrying the fire 'from building to building in a neighborhood composed wholly of dry wooden buildings, with wood shavings piled in every barn and under every house'. Catherine O'Leary, asked whether her neighbours got shavings from the planing mills to burn: 'There was shavings in every house there.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_oleary_legend_2011"
+      ],
+      "locator": "Andreas vol. II, p. 709, the report's paragraph beginning 'In consequence of this early sighting'; museum, O'Leary Legend Library, '“Kate the barn is afire”', the questions on shavings."
+    },
+    {
+      "id": "first-seen",
+      "text": "The Board's report (printed by Andreas): the fire 'was first discovered by a drayman by the name of Daniel [Dennis] Sullivan, who saw it while sitting on the sidewalk on the south side of DeKoven Street, and nearly opposite O'Leary's premises. He fixes the time at not more than twenty or twenty-five minutes past nine o'clock'. Andreas's own account, from interviews of 1884-1885, has the fire discovered 'About fifteen minutes before nine o'clock'; 'within thirty minutes' it 'was beyond the control of the Fire Department.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 707-709, the paragraphs beginning 'About fifteen minutes before nine', 'Who first discovered the fire' and 'Before organized resistance'; the report's first paragraph."
+    },
+    {
+      "id": "legend",
+      "text": "Andreas (1885): 'For all time, the legend of Mrs. O'Leary's cow will be accepted. While the city was still enveloped in flames, some now-forgotten tongue declared that Mrs. O'Leary was engaged in milking a cow, when the unruly animal kicked over a lighted lamp'. 'There is no proof that Mrs. O'Leary is responsible for the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 708, the paragraphs beginning 'The Origin of the Fire must ever remain a mystery' and 'But even the existence'."
+    },
+    {
+      "id": "what-burned",
+      "text": "What the fire took of the walk. The museum: the Court House bell rang the alarm 'for over five hours' 'until it fell through the collapsing building'; the Sherman House became 'one of the most complete wrecks of the night'; flames shot out of 'the Chamber of Commerce and Crosby's Opera House'; of the Field & Leiter store, 'Ruins of the Mammoth Store'; at the waterworks, city engineer DeWitt Cregier wrote, 'at about 3 o'clock in the morning of the 9th of October the pumping works became an utter wreck'. Andreas: at Crosby's, 'On that night the books of the Opera House were forever closed'; the Palmer House 'was, of course, destroyed in the fire of 1871'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011",
+        "andreas_1885_v2"
+      ],
+      "locator": "Museum, landmarks 'Court House' (ichi-64281), 'Sherman House' (ichi-20909), 'Chamber of Commerce' (ichi-63127), 'Field & Leiter' (ichi-21537), 'Water Tower' (ichi-13918); Andreas vol. II pp. 607 and the hotel history, the Palmer House paragraph."
+    }
+  ],
+  "liberties": [
+    "L-1871-last-sunday-3692"
+  ],
+  "version_of": "the-last-sunday",
+  "audience": "adults",
+  "content_warning": "Told in full, for adults.",
+  "featured": false
+}

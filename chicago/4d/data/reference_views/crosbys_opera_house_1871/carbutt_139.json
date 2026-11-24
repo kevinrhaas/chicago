@@ -1,0 +1,23 @@
+{
+ "structure_id": "crosbys_opera_house_1871",
+ "scene": "1871",
+ "source_id": "loc_stereo_1s47902_crosbys_opera_house",
+ "photo": "../../sources/assets/landmarks_1871_t3688/loc_1s47902_crosbys_opera_house_left.jpg",
+ "image_px": [
+  1400,
+  1355
+ ],
+ "principal_px": [
+  700.0,
+  778.04
+ ],
+ "focal_px": 1837.0,
+ "eye": [
+  -44.1,
+  -23.91,
+  11.64
+ ],
+ "yaw_deg": 68.63,
+ "sky": "overcast",
+ "solve": "Fitted by T-3688 to the left half of John Carbutt's stereograph '139 - Crosby's Opera House, Washington Street' (Library of Congress, stereo 1s47902), cut from the Library's master TIFF and scaled to 1400 x 1355 px. The camera stood up a storey or two on the south side of Washington Street, west of the opera house, looking east along the street at its front. The lens was taken as that of Carbutt's Tremont House card (1837 px at this scale), and the eye, heading, horizon and the front's width were solved together from the front's west and east ends at the main cornice and the pavement (x 469 and 906) and the centre of the entrance arch (x 769). Residuals are under 5 px except the entrance's 12 px. The front's width so read is 46.1 m, about 151 feet. UNCERTAINTY: moderate; the width hangs on the assumed lens and the storey heights."
+}

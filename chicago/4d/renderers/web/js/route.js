@@ -90,6 +90,22 @@ function throughGates(points, spans, laneOf) {
   return out;
 }
 
+/** T-3691: a world whose whole 1 m grid is over this many cells keeps a window instead (1812's
+ *  whole grid is 19.3 M cells, 1835's 11.9 M; 1871's would be 124 M). */
+export const WHOLE_GRID_MAX_CELLS = 24e6;
+/** T-3691: the window's size in cells, 23 bytes each: 12 M is 3.5 km square at 1 m, ~280 MB. */
+export const WINDOW_CELLS = 12e6;
+/** T-3691: the bucket an extra layer's buildings are filed in for clearSegment's near test. */
+const EXTRA_BUCKET_M = 40;
+/** T-3691: a yard-to-yard walk this near the straight line is taken over the street round. */
+const DIRECT_STRAIGHT_RATIO = 1.5;
+/** T-3691: two points this near are tried straight across before the street round. */
+const DIRECT_TRY_M = 80;
+/** T-3691: how far inside the window's edges the visitor (and a walk's two ends) are held. */
+const HOLD_MARGIN_M = 250;
+/** T-3691: a building's stand is searched 150 m round its front: the window keeps that much. */
+const PIN_MARGIN_M = 160;
+
 /** Cost classes stored per cell. Kept small so the field is a Uint8Array. */
 const CLS_OPEN = 0;
 const CLS_CORRIDOR = 1;
@@ -335,14 +351,20 @@ function makeHeap(capacity = 4096) {
  * @param {number} [o.inflate=0.6]  extra clearance around footprints beyond the radius
  * @param {number} [o.passageNeed=0]  the headroom a footprint's passage lane must clear to be
  *   walked (T-3264: the walker's eye plus its margin; a lower soffit stays a wall)
+ * @param {(e:number,n:number)=>boolean} [o.standClear]  T-3691: false where a body may not
+ *   stand (a 1904 house's stoop, area walls and railings, house-barriers.js); a side stand
+ *   (standOff's second look) is never put there
  */
 export function createRouter({
   terrain = null, streets = null, footprints = [], decks = [], surfaceAt = null,
-  streetGrid = null, walks = [], occluders = null,
+  streetGrid = null, walks = [], occluders = null, standClear = null,
   cell = 2, radius = 0.34, stepUp = 0.35, inflate = 0.6, passageNeed = 0,
+  maxCells = WHOLE_GRID_MAX_CELLS, windowCells = WINDOW_CELLS, focus = null, extra = null,
 } = {}) {
   const stats = {
     cells: 0, blocked: 0, streetCells: 0, deckCells: 0, fineCells: 0,
+    /** T-3691: true when the world is too big for one grid and a window round the visitor is kept. */
+    windowed: false, recentres: 0, world: null,
     buildMs: 0, lastPlanMs: 0, lastExpanded: 0, plans: 0,
     /** True when SHORE_Y disagreed with terrain.isWater() and the slow path ran. */
     shoreMismatch: false,
@@ -389,23 +411,129 @@ export function createRouter({
     return { e0, e1, n0, n1 };
   }
 
-  function build() {
+  // T-3691 (the owner, 2026-11-21, on his phone: the Great Fire and The Last Sunday would not
+  // start): 1871's heightfield is 10.8 x 11.45 km, so the whole-world grid at 1 m was 124
+  // million cells, 2.9 GB of arrays and 12 s, built by the first stand check of a jaunt. A world
+  // over `maxCells` keeps a WINDOW instead: `windowCells` round the visitor (`focus()`, null
+  // while flying), moved when the visitor nears its edge, its arrays reused. Off the window the
+  // planner answers as it does before it is built: no plan (travel flies), nothing blocked.
+  // 1812, 1835 and 1904 fit under `maxCells` and keep their whole grid, unchanged.
+  let world = null, windowed = false, pool = null;
+  function measureWorld() {
+    if (world) return;
+    world = bounds();
+    const cols = Math.max(2, Math.ceil((world.e1 - world.e0) / cell));
+    const rows = Math.max(2, Math.ceil((world.n1 - world.n0) / cell));
+    windowed = cols * rows > maxCells;
+    stats.windowed = windowed;
+    stats.world = { ...world, cols, rows };
+  }
+  /** The window's metre bounds, centred on (e, n) as near as the world's edges allow. */
+  function windowAt(e, n) {
+    const want = Math.max(4, Math.floor(typeof windowCells === 'function' ? windowCells() : windowCells));
+    const wc = Math.max(2, Math.ceil((world.e1 - world.e0) / cell)), wr = Math.max(2, Math.ceil((world.n1 - world.n0) / cell));
+    const side = Math.floor(Math.sqrt(want));
+    const cols = Math.min(wc, side), rows = Math.min(wr, Math.floor(want / cols));
+    const fit = (c, lo, cells, total) => {
+      const span = cells * cell, start = Math.round((c - span / 2 - lo) / cell) * cell + lo;
+      return Math.min(Math.max(start, lo), lo + Math.max(0, total * cell - span));
+    };
+    const e0 = fit(e, world.e0, cols, wc), n0 = fit(n, world.n0, rows, wr);
+    return { e0, e1: e0 + cols * cell, n0, n1: n0 + rows * cell, cols, rows };
+  }
+  const inWorld = (e, n) => e >= world.e0 && e < world.e1 && n >= world.n0 && n < world.n1;
+  /** The points are well inside the window: HOLD_MARGIN_M (at most a quarter of its width)
+   *  from each edge, except an edge that is the world's own (nothing past it to move toward). */
+  function holds(g, ...pts) {
+    const w = g.cols * cell, h = g.rows * cell, x1 = g.e0 + w, y1 = g.n0 + h;
+    const me = Math.min(HOLD_MARGIN_M, w / 4), mn = Math.min(HOLD_MARGIN_M, h / 4);
+    return pts.every(p => (g.e0 <= world.e0 || p.e >= g.e0 + me) && (x1 >= world.e1 || p.e <= x1 - me)
+      && (g.n0 <= world.n0 || p.n >= g.n0 + mn) && (y1 >= world.n1 || p.n <= y1 - mn));
+  }
+  /** A walk the visitor asks for: the window is moved to hold both ends when it can (a
+   *  leg under about 1.9 km on a phone, 2.9 km on a computer), so a jaunt's walk across
+   *  downtown is walked; a longer one is flown. True when the grid holds both ends. */
+  function cover(a, b) {
+    measureWorld();
+    if (!windowed) return false;
+    const ok = (q) => Number.isFinite(q.e) && Number.isFinite(q.n) && inWorld(q.e, q.n);
+    if (!ok(a) || !ok(b)) return false;
+    if (grid && holds(grid, a, b)) return true;
+    const w = windowAt((a.e + b.e) / 2, (a.n + b.n) / 2);
+    if (!holds(w, a, b)) return false;
+    if (grid) { stats.recentres++; fronts.clear(); stands.clear(); gateLines.clear(); }
+    grid = null;
+    build(w, w);
+    return true;
+  }
+
+  /** T-3691: the extra layer's features within `b`, its buildings bucketed for near lookups. */
+  function buildExtra(b) {
+    const got = typeof extra === 'function' ? extra({ e0: b.e0 - 60, e1: b.e1 + 60, n0: b.n0 - 60, n1: b.n1 + 60 }) : null;
+    if (!got) return null;
+    const fps = (got.footprints ?? []).filter(f => f?.pts?.length >= 3);
+    const buckets = new Map();
+    for (const f of fps) {
+      const bb = f.bbox ?? bboxOf(f.pts);
+      for (let i = Math.floor(bb.e0 / EXTRA_BUCKET_M); i <= Math.floor(bb.e1 / EXTRA_BUCKET_M); i++) {
+        for (let j = Math.floor(bb.n0 / EXTRA_BUCKET_M); j <= Math.floor(bb.n1 / EXTRA_BUCKET_M); j++) {
+          const key = `${i},${j}`;
+          if (!buckets.has(key)) buckets.set(key, []);
+          buckets.get(key).push(f);
+        }
+      }
+    }
+    return { footprints: fps, streets: got.streets ?? [], walks: got.walks ?? [], buckets };
+  }
+  /** The street records the grid was painted with: the layer's own and any extra's. */
+  const streetRecords = () => grid?.records ?? streets?.records ?? [];
+  /** Every footprint whose box comes within `pad` of the box (e0..e1, n0..n1). */
+  function footprintsIn(e0, e1, n0, n1, pad) {
+    const out = footprints.filter(f => {
+      const b = bboxOf(f.pts);
+      return b.e1 + pad >= e0 && b.e0 - pad <= e1 && b.n1 + pad >= n0 && b.n0 - pad <= n1;
+    });
+    const ex = grid?.ex;
+    if (!ex) return out;
+    const seen = new Set();
+    for (let i = Math.floor((e0 - pad) / EXTRA_BUCKET_M); i <= Math.floor((e1 + pad) / EXTRA_BUCKET_M); i++) {
+      for (let j = Math.floor((n0 - pad) / EXTRA_BUCKET_M); j <= Math.floor((n1 + pad) / EXTRA_BUCKET_M); j++) {
+        for (const f of ex.buckets.get(`${i},${j}`) ?? []) {
+          if (seen.has(f)) continue;
+          seen.add(f);
+          const b = f.bbox ?? bboxOf(f.pts);
+          if (b.e1 + pad >= e0 && b.e0 - pad <= e1 && b.n1 + pad >= n0 && b.n0 - pad <= n1) out.push(f);
+        }
+      }
+    }
+    return out;
+  }
+
+  function build(b = bounds(), dims = null) {
     const t0 = now();
-    const b = bounds();
-    const cols = Math.max(2, Math.ceil((b.e1 - b.e0) / cell));
-    const rows = Math.max(2, Math.ceil((b.n1 - b.n0) / cell));
+    const cols = dims?.cols ?? Math.max(2, Math.ceil((b.e1 - b.e0) / cell));
+    const rows = dims?.rows ?? Math.max(2, Math.ceil((b.n1 - b.n0) / cell));
     const N = cols * rows;
-    const cls = new Uint8Array(N);
-    const hgt = new Float32Array(N);
+    // A moved window is the same size: its arrays are cleared and reused, never a second set
+    // alongside the first (the GC need not keep up with a walk across the city).
+    const reuse = windowed && pool?.N === N ? pool : null;
+    if (reuse) { reuse.cls.fill(0); reuse.fine.fill(0); reuse.network.fill(0); reuse.seen.fill(0); reuse.done.fill(0); }
+    const cls = reuse?.cls ?? new Uint8Array(N);
+    const hgt = reuse?.hgt ?? new Float32Array(N);
     /** 1 where the cell needs EXACT tests: it touches water at any of its five
      *  samples, or a deck polygon's bbox touches it (a deck edge may cut through
      *  it). Cell-scale answers are trusted everywhere else. */
-    const fine = new Uint8Array(N);
+    const fine = reuse?.fine ?? new Uint8Array(N);
     // Bit 1: roadway/bridge; bit 2: footway/shoulder. Kept separate from cost:
     // lowering a cell's cost must never turn a sidewalk into a horse route.
-    const network = new Uint8Array(N);
+    const network = reuse?.network ?? new Uint8Array(N);
     const e0 = b.e0;
     const n0 = b.n0;
+    // T-3691: what a layer outside the registry lays within these bounds (1871's context city:
+    // its buildings, which the walker meets, its streets and its plank walks and crossings).
+    const ex = buildExtra(b);
+    const records = ex ? [...(streets?.records ?? []), ...ex.streets] : (streets?.records ?? []);
+    const allFootprints = ex ? footprints.concat(ex.footprints) : footprints;
     const cE = (i) => e0 + (i + 0.5) * cell;
     const cN = (j) => n0 + (j + 0.5) * cell;
 
@@ -530,7 +658,6 @@ export function createRouter({
         }
       }
     };
-    const records = streets?.records ?? [];
     for (const r of records) paint(r.path, (r.corridor_width_m ?? 24.384) * 0.5, CLS_CORRIDOR, 2);
     for (const r of records) paint(r.drawn ?? r.path, (r.track_width_m ?? 6) * 0.5, CLS_TRACK, 1);
     const paintPolygon = (pts, c, mask) => {
@@ -560,7 +687,7 @@ export function createRouter({
         + (b.p[1] - a.p[1]) * (a.other[1] - a.p[1])) / (d * len));
       if (along < 0.15 || along > 0.98) paint([a.p, b.p], 0.8, CLS_CORRIDOR, 2);
     }
-    for (const w of walks) paint(w.centreline_local_enu_m, (w.width_m ?? 1.22) / 2,
+    for (const w of ex ? walks.concat(ex.walks) : walks) paint(w.centreline_local_enu_m, (w.width_m ?? 1.22) / 2,
       w.kind === 'board_crossing' ? CLS_CROSSING : CLS_WALK, 2);
 
     // 4. Footprints, inflated by the capsule radius plus a margin so a planned
@@ -569,7 +696,7 @@ export function createRouter({
     // Cover the whole cell, not only its centre: a thin wall or rotated corner
     // between centres must not disappear from the planner's blocked mask.
     const R = radius + inflate + cell * Math.SQRT1_2;
-    for (const fp of footprints) {
+    for (const fp of allFootprints) {
       if (!(fp?.pts?.length >= 3)) continue;
       // T-3405: what the walker meets is what the planner refuses (walker.js pushOut).
       // A parade is ground; an enclosure (a fort's stockade, fort-gates.js) is its walls,
@@ -604,7 +731,7 @@ export function createRouter({
     // 4b. T-3264: a passage the walker may use (walker.js laneAt: Glessner's carriage
     //    passage) is reopened through its footprint, cell centres held the capsule's
     //    width off the passage's side walls, so a route plans what the walker walks.
-    for (const fp of footprints) {
+    for (const fp of allFootprints) {
       for (const lane of lanesOf(fp)) {
         const s = span(bboxOf(lane.lane), 0);
         for (let j = s.j0; j <= s.j1; j++) {
@@ -623,13 +750,13 @@ export function createRouter({
     //    down its middle, GATE_LANE_M either side of its span, wherever the cell is
     //    outside every other footprint; plan() then walks a route that uses it through
     //    the gateway's middle (throughGates), where the capsule clears both jambs.
-    for (const fp of footprints) {
+    for (const fp of allFootprints) {
       for (const w of Array.isArray(fp.walls) ? fp.walls : []) {
         if (!w.span) continue;
         const lane = gateLine(w);
         if (!lane) continue;
         const box = bboxOf(lane.lane);
-        const near = footprints.filter(f => {
+        const near = allFootprints.filter(f => {
           if (f.ground) return false;
           const b = bboxOf(f.pts);
           return b.e1 >= box.e0 && b.e0 <= box.e1 && b.n1 >= box.n0 && b.n0 <= box.n1;
@@ -668,16 +795,41 @@ export function createRouter({
       cols, rows, N, e0, n0, cls, hgt, fine, network, deckBoxes, surf, waterOf,
       // Search scratch, allocated once. `seen`/`done` are generation stamps so
       // a plan never clears 400k entries before it starts.
-      g: new Float32Array(N), parent: new Int32Array(N),
-      seen: new Uint32Array(N), done: new Uint32Array(N), gen: 0,
+      g: reuse?.g ?? new Float32Array(N), parent: reuse?.parent ?? new Int32Array(N),
+      seen: reuse?.seen ?? new Uint32Array(N), done: reuse?.done ?? new Uint32Array(N), gen: 0,
       heap: makeHeap(),
       reach: [],   // T-3695: reach sets of plain searches that ran out (remember)
+      records, ex,
     };
+    if (windowed) pool = grid;
     stats.buildMs = now() - t0;
     return grid;
   }
 
-  function ensure() { return grid ?? build(); }
+  /** The grid, built (or, windowed, moved to the visitor) as needed. `at` is the point the
+   *  caller asks about: the first window is built round it when there is no visitor to follow,
+   *  and with `pin` (a building's stand or front, asked for by Go to) the window goes to it. */
+  function ensure(at = null, pin = false) {
+    measureWorld();
+    if (!windowed) return grid ?? build(world);
+    const ok = (q) => q && Number.isFinite(q.e) && Number.isFinite(q.n) && inWorld(q.e, q.n);
+    let c = null;
+    if (pin && ok(at)) {
+      const m = PIN_MARGIN_M;
+      if (grid && at.e >= grid.e0 + m && at.e <= grid.e0 + grid.cols * cell - m
+        && at.n >= grid.n0 + m && at.n <= grid.n0 + grid.rows * cell - m) return grid;
+      c = at;
+    } else {
+      const p = typeof focus === 'function' ? focus() : null;
+      const centre = ok(p) ? p : null;
+      if (grid && (!centre || holds(grid, centre))) return grid;
+      c = centre ?? (ok(at) ? at : { e: (world.e0 + world.e1) / 2, n: (world.n0 + world.n1) / 2 });
+    }
+    const w = windowAt(c.e, c.n);
+    if (grid) { stats.recentres++; fronts.clear(); stands.clear(); gateLines.clear(); }
+    grid = null;
+    return build(w, w);
+  }
 
   // ---------------------------------------------------------------- lookups
 
@@ -903,6 +1055,9 @@ export function createRouter({
   function anchor(p, snapCells = 4, reverse = false) {
     const k = indexAt(p.e, p.n);
     if (k >= 0 && grid.cls[k] !== CLS_BLOCKED) return { k, e: p.e, n: p.n, snapped: false };
+    // T-3691: off a window but in the world is ground the planner has not looked at: no plan
+    // (a straight line from the window's edge would cross whatever stands there).
+    if (k < 0 && windowed && inWorld(p.e, p.n)) return null;
     // Outside the grid: clamp toward the grid before searching.
     const e = Math.min(grid.e0 + grid.cols * cell - cell * 0.5, Math.max(grid.e0 + cell * 0.5, p.e));
     const n = Math.min(grid.n0 + grid.rows * cell - cell * 0.5, Math.max(grid.n0 + cell * 0.5, p.n));
@@ -1003,7 +1158,10 @@ export function createRouter({
 
   function plan(from, to, { mode = null } = {}) {
     if (![from?.e, from?.n, to?.e, to?.n].every(Number.isFinite)) return null;
-    ensure();
+    // T-3691: the visitor's own walk (it starts where they stand) may move the window to hold
+    // both its ends; anyone else's plan is made in the window the visitor keeps.
+    const me = windowed && typeof focus === 'function' ? focus() : null;
+    if (!(me && Math.hypot(from.e - me.e, from.n - me.n) < 5 && cover(from, to))) ensure(from);
     const t0 = now();
     stats.plans++;
     const a = anchor(from);
@@ -1023,7 +1181,7 @@ export function createRouter({
     let cells;
     const mask = mode === 'walk' ? 3 : 1;
     const onStreet = k => !!(grid.network[k] & mask);
-    const hasStreets = (streets?.records?.length ?? 0) + (streetGrid?.carriageways?.length ?? 0) > 0;
+    const hasStreets = streetRecords().length + (streetGrid?.carriageways?.length ?? 0) > 0;
     if (mode && hasStreets) {
       // Three legs: collision-safe access, a street-only journey, then access
       // to the requested destination. The backwards search respects step-up
@@ -1038,9 +1196,15 @@ export function createRouter({
       // straight line is shorter than the two access legs, so a ride between houses
       // that stand at their walks still keeps to the street.
       const access = (enter.length - 1) + (leave.length - 1);
-      if (enter.length > 1 && leave.length > 1 && Math.hypot(b.e - a.e, b.n - a.n) < access * cell) {
+      const straight = Math.hypot(b.e - a.e, b.n - a.n);
+      const onFoot = mode === 'walk';
+      if ((enter.length > 1 && leave.length > 1 && straight < access * cell) || (onFoot && straight < DIRECT_TRY_M)) {
         const direct = search(a.k, b.k);
-        if (direct && direct.length - 1 <= access) cells = direct;
+        // T-3691 (the owner, 2026-11-21: "the default walk should follow sidewalks etc ...
+        // unless possible to walk straight"): a way across the yards near as short as the
+        // straight line is walked, not out to the walk and round the block.
+        if (direct && (direct.length - 1 <= access
+          || (onFoot && (direct.length - 1) * cell <= DIRECT_STRAIGHT_RATIO * straight + cell))) cells = direct;
       }
       if (!cells) {
         const middle = search(enter.at(-1), leave.at(-1), {
@@ -1100,12 +1264,8 @@ export function createRouter({
   /** Exact capsule check for the short connection from an arbitrary start to
    * the grid, and for the controller's next step. No snapping across a wall. */
   function clearSegment(ae, an, be, bn) {
-    ensure();
-    const near = footprints.filter(f => {
-      const b = bboxOf(f.pts);
-      return b.e1 + radius >= Math.min(ae, be) && b.e0 - radius <= Math.max(ae, be)
-        && b.n1 + radius >= Math.min(an, bn) && b.n0 - radius <= Math.max(an, bn);
-    });
+    ensure({ e: ae, n: an });
+    const near = footprintsIn(Math.min(ae, be), Math.max(ae, be), Math.min(an, bn), Math.max(an, bn), radius);
     const steps = Math.max(1, Math.ceil(Math.hypot(be - ae, bn - an) / 0.2));
     let prev = exactHeight(ae, an);
     if (prev === null) return false;
@@ -1140,7 +1300,7 @@ export function createRouter({
    * no street is within 150 m — the walker's own default stance.
    */
   function frontBearing(centre) {
-    ensure();
+    ensure(centre, true);
     const track = nearestCell(centre.e, centre.n, Math.ceil(150 / cell), CLS_TRACK);
     if (track < 0) return 200 * DEG;
     return Math.atan2(centreE(track % grid.cols) - centre.e, centreN((track / grid.cols) | 0) - centre.n);
@@ -1149,12 +1309,13 @@ export function createRouter({
   function frontage(id, centre) {
     const key = `${id}:${centre.e}:${centre.n}`;
     if (fronts.has(key)) return fronts.get(key);
+    ensure(centre, true);
     // A corner house fronts its addressed parcel's street, which need not be
     // the closest street to its centroid (Glessner's long side is on 18th).
     const parcel = streetGrid?.parcels?.find(p => inside(centre.e, centre.n, p.polygon_local_m));
     const face = streetGrid?.faces?.find(f => f.id === parcel?.street_face);
     let road = null, roadDistance = Infinity;
-    for (const r of streets?.records ?? []) for (let i = 1; i < r.path.length; i++) {
+    for (const r of streetRecords()) for (let i = 1; i < r.path.length; i++) {
       const d = segDist(centre.e, centre.n, ...r.path[i - 1], ...r.path[i]);
       if (d < roadDistance) { road = r; roadDistance = d; }
     }
@@ -1191,7 +1352,7 @@ export function createRouter({
    */
   function standOff(id, centre, radiusM = 0, { distance = null, mode = 'walk' } = {}) {
     if (!centre || !Number.isFinite(centre.e) || !Number.isFinite(centre.n)) return centre;
-    ensure();
+    ensure(centre, true);
     const d = Number.isFinite(distance) && distance > 0 ? distance : Math.max(8, (Number(radiusM) || 0) + 5);
     const all = occluderList();
     const key = `${id}:${centre.e}:${centre.n}:${d}:${mode}`;
@@ -1204,7 +1365,7 @@ export function createRouter({
     // neighbouring lawn. Prefer the opposite sidewalk for a full facade view.
     const mask = mode === 'horse' || mode === 'wagon' ? 1 : 2;
     const ne = Math.sin(bearing), nn = Math.cos(bearing);
-    const road = streets?.records?.find(r => r.id === front.street);
+    const road = streetRecords().find(r => r.id === front.street);
     let best = null, score = Infinity;
     for (let j = Math.max(0, cellJ(front.n - 100)); j <= Math.min(grid.rows - 1, cellJ(front.n + 100)); j++) {
       for (let i = Math.max(0, cellI(front.e - 100)); i <= Math.min(grid.cols - 1, cellI(front.e + 100)); i++) {
@@ -1240,6 +1401,14 @@ export function createRouter({
       }
     }
     if (best) { stands.set(key, best); return best; }
+    // T-3691 (the owner, 2026-11-22, Pullman's Other Son at the Pullman conservatory: "one more
+    // jaunt that ended in a blocked path"): a building behind another on its own lot — the palm
+    // house behind the Pullman house — has no clear view from its parcel's street, and the ring
+    // below stood the visitor on the house's front stoop, where the walk stopped against the
+    // stone. Look from any street's walk that sees the side of it turned that way instead
+    // (where the street grid draws its walks: 1904).
+    const side = streetGrid && sideStand(id, centre, d, mask, all.filter(o => Math.abs(o.e - centre.e) < 110 && Math.abs(o.n - centre.n) < 110));
+    if (side) { stands.set(key, side); return side; }
     // 0, +30, -30, +60, -60, … 180; the first with a clear view of the front, else the
     // first free one (T-3263).
     let free = null;
@@ -1261,6 +1430,72 @@ export function createRouter({
     return { e: centre.e, n: centre.n };
   }
 
+  /**
+   * standOff's second look (T-3691): the same rule as the parcel street's (out near the
+   * framing distance, little along, a clear and unshaded view), asked of every face of the
+   * building — each outward edge normal of its footprint — from a public walk of ANY street
+   * (a carriageway on horseback) within 100 m, seen clear of every other footprint. So the
+   * Pullman palm house is seen head-on across its court from 18th Street, as J. W. Taylor
+   * photographed it, not at a slant past the house. Null when no walk sees a face.
+   */
+  function sideStand(id, centre, d, mask, near) {
+    const fp = footprints.find(f => f.id === id);
+    const pts = fp?.pts ?? [];
+    if (pts.length < 3) return null;
+    let area = 0;
+    for (let i = 0; i < pts.length; i++) {
+      const [ae, an] = pts[i], [be, bn] = pts[(i + 1) % pts.length];
+      area += ae * bn - be * an;
+    }
+    // Each face's outward bearing, from edges 2 m or longer, one per 10 degrees.
+    const bearings = [];
+    for (let i = 0; i < pts.length; i++) {
+      const [ae, an] = pts[i], [be, bn] = pts[(i + 1) % pts.length];
+      const len = Math.hypot(be - ae, bn - an);
+      if (len < 2) continue;
+      // Counter-clockwise (area > 0) puts the outside on the right of each edge.
+      const oe = (area > 0 ? bn - an : an - bn) / len, on = (area > 0 ? ae - be : be - ae) / len;
+      const b = Math.atan2(oe, on);
+      if (!bearings.some(x => Math.abs(Math.atan2(Math.sin(x - b), Math.cos(x - b))) < 10 * DEG)) bearings.push(b);
+    }
+    const onPublic = (e, n) => (mask === 2
+      ? (streetGrid?.faces ?? []).some(f => (f.bands?.walk ?? []).some(q => inside(e, n, q)))
+      : (streetGrid?.carriageways ?? []).some(r => (r.quads_local_m ?? []).some(q => inside(e, n, q))));
+    let best = null, score = Infinity;
+    for (const bearing of bearings) {
+      const ne = Math.sin(bearing), nn = Math.cos(bearing);
+      let depth = -Infinity, lo = Infinity, hi = -Infinity;
+      for (const [pe, pn] of pts) {
+        depth = Math.max(depth, (pe - centre.e) * ne + (pn - centre.n) * nn);
+        const along = (pe - centre.e) * nn - (pn - centre.n) * ne;
+        lo = Math.min(lo, along); hi = Math.max(hi, along);
+      }
+      const mid = (lo + hi) / 2;
+      const front = { bearing, street: null, width: hi - lo,
+        e: centre.e + ne * depth + nn * mid, n: centre.n + nn * depth - ne * mid };
+      for (let j = Math.max(0, cellJ(front.n - 100)); j <= Math.min(grid.rows - 1, cellJ(front.n + 100)); j++) {
+        for (let i = Math.max(0, cellI(front.e - 100)); i <= Math.min(grid.cols - 1, cellI(front.e + 100)); i++) {
+          const k = j * grid.cols + i;
+          if (grid.cls[k] === CLS_BLOCKED || !(grid.network[k] & mask)) continue;
+          if (mask === 2 && grid.cls[k] !== CLS_WALK) continue;
+          const e = centreE(i), n = centreN(j), de = e - front.e, dn = n - front.n;
+          const out = de * ne + dn * nn, along = Math.abs(de * nn - dn * ne);
+          if (out < 3 || along > Math.max(3, out)) continue;
+          let v = Math.abs(out - d) + along * 4;
+          if (v >= score) continue;
+          if (!onPublic(e, n)) continue;
+          if (typeof standClear === 'function' && !standClear(e, n)) continue;
+          if (!clearView(e, n, front.e + ne * (radius + 0.1), front.n + nn * (radius + 0.1), id)) continue;
+          const view = near.length ? frontView({ e, n }, front, near) : null;
+          if (view) v += view.hidden * VIEW_COST + (view.near > VIEW_NEAR_BLOCKED || view.hidden > VIEW_BLOCKED ? VIEW_REFUSED : 0);
+          if (v >= score) continue;
+          score = v; best = { e, n, front, blocked: view?.hidden ?? 0 };
+        }
+      }
+    }
+    return best;
+  }
+
   function clearView(ae, an, be, bn, id) {
     const steps = Math.ceil(Math.hypot(be - ae, bn - an));
     return !footprints.some(f => f.id !== id && Array.from({ length: steps + 1 }, (_, i) => i / Math.max(1, steps))
@@ -1269,14 +1504,16 @@ export function createRouter({
 
   /** True where the planner will not put a route: footprint, water, off-grid. */
   function blockedAt(e, n) {
-    ensure();
+    ensure({ e, n });
     const k = indexAt(e, n);
-    return k < 0 || grid.cls[k] === CLS_BLOCKED;
+    // T-3691: off a window, but in the world, the planner has not looked: as before it is built.
+    if (k < 0) return !(windowed && inWorld(e, n));
+    return grid.cls[k] === CLS_BLOCKED;
   }
 
   /** The cost class under a point, by name — a debugging aid for harnesses. */
   function classAt(e, n) {
-    ensure();
+    ensure({ e, n });
     const k = indexAt(e, n);
     if (k < 0) return 'outside';
     const c = grid.cls[k];
@@ -1285,7 +1522,7 @@ export function createRouter({
 
   /** The walk surface the grid sampled under a point (NaN off-grid). */
   function heightAt(e, n) {
-    ensure();
+    ensure({ e, n });
     const k = indexAt(e, n);
     return k < 0 ? NaN : grid.hgt[k];
   }
