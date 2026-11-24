@@ -5,8 +5,9 @@
 // or fewer. T-2954 made it the basics: select a building and release it, open Move, open
 // Settings; no Confidence view step. T-3445 added People and the card's tabs. T-3642 put
 // Interact (the town's one use key) and Jaunts in People's place; the count names only the
-// steps that apply. The smoke (part 13) runs it in a page by touch and by
-// mouse.
+// steps that apply. T-3742 named stories, questions, mysteries, Language, Reading age and
+// Graphics, and Ready points at Home's three ways in; the tour never leaves the year it is
+// taken in (the owner, 2026-11-23). The smoke (part 13) runs it in a page by touch and by mouse.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,6 +17,7 @@ import GUIDE from '../renderers/web/js/apps/guide.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
+const html0 = () => read('renderers/web/index.html');
 const store = () => { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), m }; };
 
 // The page, as the probe reads it.
@@ -31,7 +33,7 @@ assert.equal(STEPS.length, 10);
 assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Interact', 'Jaunts', 'Move', 'Settings', 'Ready']);
 assert(!STEPS.some((s) => /confidence/i.test(s.task + s.bubble({}))), 'no Confidence view step (T-2954)');
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
-for (const scene of ['1904', '1835', '1812']) {
+for (const scene of ['1904', '1835', '1812', '1871']) {
   for (const touch of [false, true]) {
     for (const level of [0, 1]) {
       for (const s of STEPS) {
@@ -56,24 +58,29 @@ assert.match(STEPS[1].bubble({}), /Click the scene, then move the mouse/, 'look:
 assert.match(STEPS[1].bubble({ touch: true }), /Drag the right side/, 'and a drag on touch');
 assert.match(STEPS[2].bubble({}), /W A S D\. Hold Shift to run/, 'walk names W A S D and Shift');
 assert.match(STEPS[2].bubble({ touch: true }), /left thumb\. Push it all the way to run/, 'and the thumb on touch');
-// T-3642: Interact, the town's one use key — a person, a horse, a boat where there is one.
-assert.equal(STEPS[5].bubble({ scene: '1835' }), 'Walk up to a person, a horse or a boat. Press R to interact.');
-assert.equal(STEPS[5].bubble({ scene: '1904', touch: true }), 'Walk up to a person or a horse. Tap Interact.', '1904 has no boat to take');
+// T-3642: Interact, the town's one use key. T-3742: said as talk — greet, a story, a question.
+assert.equal(STEPS[5].bubble({ scene: '1835' }), 'Walk up to someone. Press R: greet them, hear a story, ask a question.');
+assert.equal(STEPS[5].bubble({ scene: '1904', touch: true }), 'Walk up to someone. Tap Interact: greet, hear a story, ask a question.');
 assert.equal(STEPS[5].target, '#btn-interact', 'Interact rings its key');
 assert.equal(STEPS[5].done({ acts: 1 }, { acts: 0 }), true, 'a press during the step');
 assert.equal(STEPS[5].done({ acts: 1 }, { acts: 1 }), false, 'not one before it');
-// Jaunts: on the rail, narrated, for your grade.
+// Jaunts: on the rail; T-3742: read aloud, mysteries (Make your case), parts to play.
 assert.equal(STEPS[6].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Jaunts rings the dock first');
 assert.equal(STEPS[6].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="jaunts"]', 'then its rail key');
-assert.match(STEPS[6].bubble({}), /^Open Jaunts on the rail: .*grade\.$/);
+assert.equal(STEPS[6].bubble({}), 'Open Jaunts on the rail: stories read aloud, mysteries to solve, parts to play.');
 // T-3629: Move left the rail for Home's Move tile; the ring goes to Home's key, then the tile.
 assert.equal(STEPS[7].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
 assert.equal(STEPS[7].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="home"]', 'then the Home key');
 assert.equal(STEPS[7].target({ touch: true, level: 1, app: 'home' }), '#nav-tile-move', 'then Home\'s Move tile');
 assert.equal(STEPS[8].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
-assert.match(STEPS[8].bubble({ touch: true, level: 0 }), /^Open the Navigator, then Settings: name cards/);
-assert.match(STEPS[9].bubble({}), /photo/, 'Ready names Go to by photo (T-3436)');
-assert.match(STEPS[9].bubble({}), /People/, 'and People, whose step Interact took');
+assert.equal(STEPS[8].bubble({ touch: true, level: 0 }), 'Open the Navigator, then Settings: language, reading age, graphics, name cards, sound.',
+  'Settings names Language, Reading age and Graphics (T-3742)');
+// T-3742 (the owner, 2026-11-23): the tour stays in the year it is taken in — loading another
+// takes too long — and Ready sends the visitor on: a Jaunt, Home's Go to, or Free roam.
+assert(!STEPS.some((s) => [false, true].some((touch) => /\b(1812|1835|1871|1904|jump)\b/i.test(s.bubble({ scene: '1904', touch })))), 'no step sends the visitor to another year');
+assert.equal(STEPS[9].bubble({}), 'Ready. Pick a Jaunt, Go to someone, or Free roam.');
+assert.match(html0(), /class="nav-choice" type="button" data-segment="goto"><strong>Go to…<\/strong>/, 'Home has Go to…');
+assert.match(html0(), /class="nav-choice" type="button" data-segment="roam"><strong>Free roam<\/strong>/, 'and Free roam');
 
 // ---- each step waits for its own action -----------------------------------------------------
 let tour = make();

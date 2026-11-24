@@ -108,6 +108,33 @@ READ_FORM = {
 # What a house number was put over: a dwelling's front door (a house, a double house, flats).
 FUNCTIONS = {"residence"}
 
+# THE HANDS. A sign-writer lettered each transom by hand, so no two streets of the 1890s show one
+# style: gold leaf or white enamel, a Roman, a block (grotesque) or a sloped letter, outlined
+# or shaded in black, larger or smaller on the light. The owner, 2026-11-23, of the first cut:
+# "they seem very bright and they are all identical?". Each house takes one of these hands,
+# dealt by a stable hash of its structure id (`hand_of`), so neighbours differ and a rebake
+# does not reshuffle them. 1815 keeps the light gilt Roman its photograph shows. Gold leaf on
+# glass is lit by the street, not a lamp: the fills are leaf and enamel, the shading the dark edge.
+# `scale` is the hand's share of the figure height the light allows (FIG_SHARE).
+HANDS = {
+    "gilt_roman":     {"face": "serif", "weight": "bold",   "style": "normal", "fill": "#cfae62", "edge": "#2e2312", "edge_px": 3, "scale": 1.0},
+    "white_roman":    {"face": "serif", "weight": "normal", "style": "normal", "fill": "#d9d4c8", "edge": "#262422", "edge_px": 3, "scale": 0.9},
+    "gilt_shaded":    {"face": "serif", "weight": "bold",   "style": "normal", "fill": "#c7a55a", "edge": "#0e0b07", "edge_px": 5, "scale": 0.95},
+    "gilt_block":     {"face": "sans",  "weight": "bold",   "style": "normal", "fill": "#ccab63", "edge": "#2a2216", "edge_px": 3, "scale": 0.85},
+    "gilt_italic":    {"face": "serif", "weight": "bold",   "style": "italic", "fill": "#d2b36b", "edge": "#2b2214", "edge_px": 3, "scale": 0.9},
+    "white_block":    {"face": "sans",  "weight": "normal", "style": "normal", "fill": "#d0cbbf", "edge": "#1f1e1c", "edge_px": 4, "scale": 0.8},
+}
+HAND_READ = {"sears_meeker_house_1815_prairie": "gilt_roman"}
+
+
+def hand_of(sid: str) -> str:
+    """The hand a house's figures are lettered in: its photograph's, or dealt by its id."""
+    if sid in HAND_READ:
+        return HAND_READ[sid]
+    import hashlib
+    names = sorted(HANDS)
+    return names[int(hashlib.sha1(sid.encode()).hexdigest(), 16) % len(names)]
+
 
 def r3(x: float) -> float:
     return round(float(x), 3)
@@ -322,7 +349,7 @@ def place(grid=None, sidecars=None):
             t = transom(d, outward)
             if t:
                 foot, head, face, l0, l1 = t
-                h = min(FIG_MAX_M, max(FIG_MIN_M, FIG_SHARE * (head - foot)))
+                h = min(FIG_MAX_M, max(FIG_MIN_M, FIG_SHARE * HANDS[hand_of(sid)]["scale"] * (head - foot)))
                 y = (foot + head) / 2
                 mid_lat = (l0 + l1) / 2
                 form = "transom"
@@ -341,6 +368,7 @@ def place(grid=None, sidecars=None):
             found.append({
                 "structure": sid, "lot": lid, "street": lot["street"], "number": number,
                 "at": [r3(v) for v in p], "normal": [r3(v) for v in n], "height_m": r3(h), "form": form,
+                "hand": hand_of(sid),
                 "grade": "attested" if read else "reconstructed",
                 "number_grade": "inferred",
                 "sources": sorted(set((read or {}).get("sources", []) + lot["sources"])),
@@ -369,11 +397,15 @@ def build():
         "number_rule": ("The 1911 Sanborn's number for each avenue lot, carried to 1904 because the 1909 renumbering "
                         "left this district's avenue numbers alone (Glessner's 1887 address is 1800; Pullman's 1729 and "
                         "Coleman's 1811 are the 1880s sources'; an 1888 permit gives 2110). Cross-street lots take none."),
-        "form_rule": ("Gilt serif figures centred on the front door's transom light, as 1815's photograph shows them "
+        "form_rule": ("Sign-written figures centred on the front door's transom light, as 1815's photograph shows them "
                       "and as 1612 was 'the house with the number 1612 over the portals' (Inter Ocean, 2 Jan 1887); "
                       "on the leaf's top rail where a door has no transom. Glessner's 1800 is in its door grille already."),
-        "style": {"fill": "#e6c66e", "edge": "#5a4417", "face": "serif", "weight": "bold"},
-        "summary": {"numbers": len(found), "forms": forms, "attested_form": sum(1 for f in found if f["grade"] == "attested"),
+        "hand_rule": ("Each transom was lettered by a sign-writer, so the houses differ: gold leaf or white enamel, a "
+                      "Roman, block or sloped letter, outlined or shaded dark, larger or smaller on the light. Each "
+                      "house's hand is dealt by a stable hash of its id; 1815 keeps the gilt Roman of its photograph."),
+        "hands": HANDS,
+        "summary": {"numbers": len(found), "forms": forms,
+                    "hands": {h: sum(1 for f in found if f["hand"] == h) for h in sorted(HANDS)}, "attested_form": sum(1 for f in found if f["grade"] == "attested"),
                     "skipped": len(skipped)},
         "numbers": found,
         "skipped": skipped,
@@ -381,7 +413,7 @@ def build():
 
 
 def check(doc) -> list[str]:
-    faults = []
+    faults = hand_faults(doc)
     seen = set()
     for f in doc["numbers"]:
         key = (f["street"], f["number"])
@@ -396,8 +428,29 @@ def check(doc) -> list[str]:
             faults.append(f"{f['structure']}: attested with no reading of its own")
         if abs(sum(v * v for v in f["normal"]) - 1) > 1e-6:
             faults.append(f"{f['structure']}: normal is not a unit")
+        if f.get("hand") not in doc.get("hands", {}):
+            faults.append(f"{f['structure']}: hand {f.get('hand')!r} is not one of the file's hands")
+        elif f["structure"] in HAND_READ and f["hand"] != HAND_READ[f["structure"]]:
+            faults.append(f"{f['structure']}: lettered {f['hand']}, but its photograph shows {HAND_READ[f['structure']]}")
         if not f["number"].isdigit():
             faults.append(f"{f['structure']}: number {f['number']!r} is not figures")
+    return faults
+
+
+def hand_faults(doc) -> list[str]:
+    """Neighbours differ: no hand holds more than a third of the street, and no run of four doors shares one."""
+    faults = []
+    rows = doc["numbers"]
+    for h in doc.get("hands", {}):
+        n = sum(1 for f in rows if f.get("hand") == h)
+        if n > len(rows) / 3:
+            faults.append(f"hand {h} letters {n} of {len(rows)} houses: the street reads as one hand")
+    for street in {f["street"] for f in rows}:
+        run = [f["hand"] for f in rows if f["street"] == street]
+        for i in range(len(run) - 3):
+            if len(set(run[i:i + 4])) == 1:
+                faults.append(f"{street}: four doors in a row lettered {run[i]}")
+                break
     return faults
 
 
@@ -415,6 +468,13 @@ def self_test() -> int:
     d = copy.deepcopy(doc); t = next(x for x in d["numbers"] if x["form"] == "transom"); t["height_m"] = 0.4; cases.append(("figures a foot tall", d))
     d = copy.deepcopy(doc); t = next(x for x in d["numbers"] if x["structure"] not in READ_FORM); t["grade"] = "attested"; cases.append(("attested without a reading", d))
     d = copy.deepcopy(doc); d["numbers"][0]["number"] = "18O0"; cases.append(("a letter for a figure", d))
+    d = copy.deepcopy(doc)
+    for x in d["numbers"]:
+        if x["structure"] not in HAND_READ:
+            x["hand"] = "gilt_roman"
+    cases.append(("every house in one hand", d))
+    d = copy.deepcopy(doc); d["numbers"][0]["hand"] = "neon"; cases.append(("a hand the file does not define", d))
+    d = copy.deepcopy(doc); t = next(x for x in d["numbers"] if x["structure"] in HAND_READ); t["hand"] = "white_block"; cases.append(("1815 lettered off its photograph", d))
     for name, case in cases:
         got = check(case)
         print(f"   self-test | {name}: {'refused' if got else 'FAIL (passed)'}")

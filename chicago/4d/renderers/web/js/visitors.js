@@ -9,7 +9,7 @@
  */
 import { SIGN_IN } from './sign-in-config.js';
 import { configured, signedInUser, METHOD_LABEL } from './sign-in.js';
-import { listVisitors, listVisits } from './visitor-store.js';
+import { listVisitors, listVisits, listMessages } from './visitor-store.js';
 
 const $ = id => document.getElementById(id);
 const status = (text, bad = false) => { $('status').textContent = text; $('status').classList.toggle('bad', bad); };
@@ -111,6 +111,30 @@ export function draw(visitors, visits, now = Date.now()) {
   status(visitors.length ? `${visitors.length} ${visitors.length === 1 ? 'person has' : 'people have'} signed in.` : 'Nobody has signed in yet.');
 }
 
+/** T-3741: the contact page's messages, newest first; `null` when they could not be read. */
+export function drawMessages(messages) {
+  $('messages').hidden = false;
+  if (messages === null) {
+    $('messages-head').textContent = 'Messages from the contact page: not readable yet (paste the messages rule from docs/SIGN-IN.md)';
+    $('message-rows').replaceChildren();
+    return;
+  }
+  $('messages-head').textContent = `Messages from the contact page · ${messages.length}`;
+  $('message-rows').replaceChildren(...messages.map(m => {
+    const li = document.createElement('li');
+    const meta = document.createElement('div'); meta.className = 'meta';
+    const who = document.createElement('b'); who.textContent = m.name || '—';
+    const mail = document.createElement('a'); mail.textContent = m.email || '—';
+    if (m.email) mail.href = `mailto:${m.email}?subject=${encodeURIComponent('Re: 4D Chicago — ' + (m.topic || 'your message'))}`;
+    const topic = document.createElement('span'); topic.textContent = m.topic || '';
+    const at = document.createElement('span'); at.textContent = when(m.at);
+    meta.append(who, mail, topic, at);
+    const body = document.createElement('p'); body.textContent = m.message || '';
+    li.append(meta, body);
+    return li;
+  }));
+}
+
 /** Invented rows for ?demo: example.com addresses, nothing real. */
 export function demoRows(now = Date.now()) {
   const years = ['1812', '1835', '1904'];
@@ -138,6 +162,9 @@ async function main() {
     const { visitors, visits } = demoRows();
     $('who').textContent = 'Sample data';
     draw(visitors, visits);
+    drawMessages([
+      { name: 'Sample Sender', email: 'sender@example.com', topic: 'A building, photo or source', message: 'A sample message, invented for the demo.', at: new Date().toISOString() },
+    ]);
     return;
   }
   if (!configured(SIGN_IN.firebase)) {
@@ -170,6 +197,7 @@ async function main() {
       listVisits({ projectId, idToken, since: new Date(Date.now() - 30 * DAY) }),
     ]);
     draw(visitors, visits);
+    drawMessages(await listMessages({ projectId, idToken }).catch(() => null));
   } catch (err) {
     status(err.code === 'denied' ? 'This account cannot read the visitor list.' : err.message, true);
   }
