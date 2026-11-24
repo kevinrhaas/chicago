@@ -1,0 +1,221 @@
+{
+ "job": "eval",
+ "ms": 10959,
+ "result": {
+  "time": "16:30",
+  "actors": [
+   "pa1904_kimball_william_w_c1900_mary_peterson",
+   "pa1904_kimball_william_w_c1900_lillie_zillieber",
+   "pa1904_kimball_william_w",
+   "pa1904_kimball_william_w_c1900_minnie_flum",
+   "pa1904_kimball_mrs_william_w",
+   "pa1904_kimball_william_w_c1900_marie_annie_hoff",
+   "pa1904_kimball_william_w_c1900_ernest_sibbald",
+   "pa1904_glessner_john_j_c1900_christine_nelson",
+   "pa1904_mcbirney_hugh",
+   "pa1904_mcbirney_hugh_c1900_minnie_corkin"
+  ],
+  "events": [
+   {
+    "k": 174,
+    "id": "pa1904_kimball_william_w_c1900_marie_annie_hoff",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   },
+   {
+    "k": 253,
+    "id": "pa1904_kimball_william_w",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   },
+   {
+    "k": 344,
+    "id": "pa1904_kimball_william_w_c1900_marie_annie_hoff",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   },
+   {
+    "k": 355,
+    "id": "pa1904_kimball_william_w",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   },
+   {
+    "k": 509,
+    "id": "pa1904_kimball_william_w_c1900_marie_annie_hoff",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.84,
+     "n": -3218.3,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   },
+   {
+    "k": 565,
+    "id": "pa1904_kimball_william_w",
+    "dh": 90.5,
+    "dry": 90.5,
+    "dp": 0,
+    "from": {
+     "h": 269.5,
+     "ry": -89.5,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    },
+    "to": {
+     "h": 0,
+     "ry": 180,
+     "vis": false,
+     "e": 1415.87,
+     "n": -3220.8,
+     "st": "standing",
+     "lod": -1,
+     "path": false,
+     "inR": true,
+     "mode": null,
+     "ch": 1
+    }
+   }
+  ],
+  "total": 6
+ },
+ "error": null
+}
