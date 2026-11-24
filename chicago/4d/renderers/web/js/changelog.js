@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3238, ts: '2026-11-24T00:35:16.427Z', date: 'Nov 23, 2026, 6:35 PM CT', title: '2126 Prairie\'s finished front now matches its 1905 photograph', kind: 'improvement',
+    items: [
+      'The completed Robbins house (open it with ?structure=robbins_house_2126_prairie&version=completed on the 1904 scene) now has small-paned six-over-six windows on every floor and a single pale front door between two narrow side lights. Its fanlight now sits in a brick arch.',
+      'Its roofline drops to the photograph\'s: a slim stone course just over the cornice, with the chimneys showing above it. North of the house, a brick wall with a ball-topped pier now carries on from the corner. Both views of the photograph now match.',
+    ] },
   { v: 3237, ts: '2026-11-23T23:48:16.733Z', date: 'Nov 23, 2026, 5:48 PM CT', title: '2017 Prairie\'s low iron railing now matches its photograph', kind: 'improvement',
     items: [
       'The William Armour house at 2017 Prairie now has the low iron railing its photograph shows, on a stone curb close before the barred basement windows on either side of the stoop.',
