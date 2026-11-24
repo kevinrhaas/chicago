@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3242, ts: '2026-11-24T17:50:35.945Z', date: 'Nov 24, 2026, 11:50 AM CT', title: 'Report a bug from the upper right, and crashes report themselves', kind: 'feature',
+    items: [
+      'A small bug key sits left of the compass row. It takes a picture of the town and asks what went wrong, then sends that with the year, where you stand and your device.',
+      'Settings › Show › On screen turns the key off.',
+      'If the page is cut off, for example a phone running out of memory or the display resetting, the next visit sends a report of it.',
+      'The first-time tour points out the key.',
+    ] },
   { v: 3241, ts: '2026-11-24T11:58:08.745Z', date: 'Nov 24, 2026, 5:58 AM CT', title: '1835 loads without a long freeze, and Full detail switches at once', kind: 'fix',
     items: [
       'On weaker computers 1835\'s shop signs are painted a few at a time, so the town no longer freezes for seven seconds while it loads.',
