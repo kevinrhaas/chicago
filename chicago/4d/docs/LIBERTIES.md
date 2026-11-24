@@ -25620,6 +25620,18 @@ north corner is the south stack seen past the crown (the Armour camera reaches t
 the Tribune camera triangulated); the stack now stands 18.35 m, between the two pictures' readings (about 0.3 m
 over the photograph's top, about 0.3 m under the halftone's), and its ornamented head is the kit's plain cap
 (invented).
+**T-3713 (rear range pass):** the mansard and its dormers now run on over the '3B' rear range, as the Armour
+photograph's north flank shows (its slated face carried on behind the first dormer, two more dormers in it, x
+360-600 px). K01 gained the roof: a rear wing may say `roof.kind` "mansard", and the main roof's ring stack is
+built over the wing's wall line and joined into the main one (k01_frontage.roof), so the north face is one plane
+from the front to the range's rear; the range stands two storeys to the main eave (10.7 m, not its old three to
+a flat deck), its attic the mansard's. **Read:** the face carried on and the count of its dormers (three on the
+flank); the sheet's three storeys ('3B'), the mansard's attic being the third. **Invented:** the two new
+dormers' places, -0.55 and -4.0 m along the flank (spaced 3.45 m behind the first, as evenly as the print
+draws them: this camera, fitted on the front, foreshortens the flank more than the print does — the range's
+rear stands near x 440 px where the print's flank runs to about 370 — so their x is not read through it); their
+form, the first flank dormer's; the range's rear and south faces (unseen) and its plain fascia where the main
+walls carry K10's cornice; the main deck's cresting run on along its old rear curb across the joined deck.
 
 ### L-k01-2123-prairie-3724 — 2123 Prairie, the stone-front masonry house, refined from the district draft onto K01: its plan off the 1911 sheet, the north half of its front, its roof and north stack off the Armour photograph, the rest the kits'
 

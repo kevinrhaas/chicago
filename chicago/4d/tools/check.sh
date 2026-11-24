@@ -2013,6 +2013,14 @@ step "front_bays_by_storey takes a light read off the picture on an upper storey
 step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's end (T-2900)" \
   python3 tools/test_k01_wing_past_host.py
 
+# T-3713. A K01 rear wing may be roofed with the house's own mansard (`roof.kind` "mansard",
+# 2115's rear range in the Armour photograph): on the main rear wall, its wall top the main
+# eave, the ring stack carried over it and joined into the main one, so a flush side face is
+# one slated plane to the wing's rear and the main mansard's dormers may stand on it. Each
+# refusal says why.
+step "a K01 rear wing carries the house's mansard on over it (T-3713)" \
+  python3 tools/test_k01_wing_mansard.py
+
 # T-3006. A K01 front block may round a corner (`round_corner`, 1811's south corner off the
 # 1888 plate): a quarter round in the front's stone, coursed on its beds and corbelled to the
 # square in its last course, the front and side wall stopped at its tangents; a front pipe may
