@@ -748,3 +748,29 @@ await import('./test_human_days_routing.mjs');
   humans.crowdKept = []; assert.equal(layer.ask('infant').ok, false); assert.equal(layer.ask('small_child').ok, false, 'jaunts retain priority');
 }
 console.log('Prairie younger residents: supervision, shared walks, door care, menus, return and jaunt priority hold');
+
+// T-3744 (owner, 2026-11-24: people in front of the Kimball house "flip front to back in a scene
+// and ... suddenly jump"): a visitor in the air (Fly, a film's camera) has no feet in the town,
+// but within NEAR_M of their eye people still walk between places and turn on the spot.
+{
+  const run = (eyeAt) => {
+    const w = actorOf(rec('fly_worker', { day: [{ spans: [OUT(0, 24, 1103, 347, 0, { activity: 'work', spots: [{ local_e: 1106, local_n: 347 }] })] }] }), 'A worker');
+    const turns = []; const turnTo = w.turnTo; w.turnTo = (h, o) => { turns.push(h); return turnTo(h, o); };
+    const hs = { actors: [w], shown: true };
+    const l = createHumanDays({ humans: hs, three, hour: () => 10, date: () => '1812-08-14', doors, visitor: () => null,
+      eye: () => ({ x: eyeAt[0], y: 30, z: -eyeAt[1] }) });
+    let jumped = 0;
+    for (let i = 0; i < 600; i++) {
+      if (w.pending) { w.pending.t -= 0.1; if (w.pending.t <= 0) { const p = w.pending; w.pending = null; w.e = p.end.e; w.n = p.end.n; w.heading = p.endHeading ?? w.heading; w.state = 'standing'; p.onArrive?.(w); } }
+      const e0 = w.e, n0 = w.n; // the stub's walk lands in one step; only the day's own moves count
+      l.update(0.1);
+      if (!w.pending && Math.hypot(w.e - e0, w.n - n0) > 1) jumped++;
+    }
+    return { walks: w.walks.length, jumped, turns };
+  };
+  const seen = run([1110, 340]);
+  assert(seen.walks > 0 && seen.jumped === 0, `under a flying eye, a worker walks between his places (${JSON.stringify(seen)})`);
+  const far = run([3000, 3000]);
+  assert(far.walks === 0 && far.jumped > 0, 'far from any eye, he is put there');
+}
+console.log('T-3744: people seen from the air walk and turn, never jump');
