@@ -23,15 +23,7 @@
     },
     {
       "path": "/4d/dev/",
-      "must_contain": "id=\"__dev\""
-    },
-    {
-      "path": "/4d/dev/1835/",
-      "must_contain": "id=\"gate-build\">DEV PREVIEW \u00b7 dev@"
-    },
-    {
-      "path": "/4d/dev/walk/",
-      "must_contain": "id=\"gate-build\">DEV PREVIEW \u00b7 dev@"
+      "must_contain": "data-c4d-dev-moved"
     },
     {
       "path": "/prairie-1904/viewer/",
