@@ -606,7 +606,7 @@ class Assembly:
             if params.roof.get("lower_covering"):
                 self.fabric["mansard_slate"] = params.roof["lower_covering"]
         for w in params.rear_wings:   # T-2841: one slate for every pitched wing (k01_frontage_params)
-            if w["roof"]["kind"] != "flat":
+            if w["roof"]["kind"] not in ("flat", "mansard"):   # T-3713: a mansard wing is the house's slate
                 self.fabric["wing_slate"] = w["roof"]["covering"]
         self.soffit_m = None   # set by build(); the soot band hangs from it
         # T-2358: a record that names the K14 condition kit weathers to its own age in 1904
@@ -1220,7 +1220,7 @@ class Assembly:
         # this wing's own, from the host's top to its wall top
         host = next((x for x in p.rear_wings if w["host_wall"] == f"k01.wall.wing.{x['id']}.rear"), None)
         host_top = p.eave_m if host is None else host["top_m"]
-        if "front" not in walls and w["roof"]["kind"] != "flat" and w["roof"]["axis"] == "v" \
+        if "front" not in walls and w["roof"]["kind"] in ("hip", "gable") and w["roof"]["axis"] == "v" \
                 and w["top_m"] > host_top + 1e-6:
             u1, v1 = w["rect"][1], w["rect"][3]
             walls["front"] = ((u1, 0.0, -v0), (0.0, 0.0, -1.0), v1 - v0)
@@ -1276,7 +1276,7 @@ class Assembly:
         self.soffit_m = keep
         if w["roof"]["kind"] == "flat":
             self.wing_deck(w)
-        else:
+        elif w["roof"]["kind"] != "mansard":   # T-3713: a mansard wing is roofed by roof(), joined in
             self.wing_roof(w)
         if w.get("roof_porch"):
             # T-3626: an open, roofed porch on the deck (2013's rear block)
@@ -4825,6 +4825,19 @@ class Assembly:
         if (p.shaped_gable or {}).get("flush"):   # T-3716: the hip's eave stopped behind a flush gable
             from . import k01_shaped_gable
             solids[0] = k01_shaped_gable.flush_cut(k5, p, ye, solids[0])
+        if m:
+            # T-3713: a rear wing roofed with the house's mansard (2115's rear range): the same
+            # ring stack over the wing's wall line, run on into the main body past the main rear
+            # face's foot so its own end lies inside the main roof, and joined into it, so a
+            # side face flush with the main one is one plane from the street to the wing's rear
+            for w in p.rear_wings:
+                if w["roof"]["kind"] != "mansard":
+                    continue
+                u0, _, wv0, wv1 = w["rect"]
+                into = min(D / 2, m["lower_rise_m"] + o + 1.0)
+                wing, _, _ = k5.mansard_element(u0, into, -wv1, -wv0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
+                                                m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
+                solids += [wing, k5.body_box(u0, 0.0, -wv1, -wv0, hs - 1.0, hs)]
         if (p.shaped_gable or {}).get("roof_to_gable"):   # T-3715: the ridge run on to the gable
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.roof_to_gable(k5, p, E, ye, tp, o, f, hs))
@@ -5573,6 +5586,9 @@ class Assembly:
         top, high = fl["parapet_top_m"], fl["deck_high_m"]
         finish = p.stone_finish
         deck_bottom = E
+        crown = fl.get("crown_m") is not None    # T-3722: the deck already dropped (params)
+        if crown:
+            deck_bottom = E - fl["drop_m"]
         if finish:
             drop = finish["deck_drop_m"]
             er, high, deck_bottom = er - drop, high - drop, E - drop
@@ -5603,7 +5619,7 @@ class Assembly:
         # parapet stops at the return's back rather than running across its face, and the
         # wall head it stood on is the return's (the stone core caps it, so it is no roof face)
         north_end = D - finish["lattice"]["return_m"] if finish and finish.get("return_ashlar") else D
-        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not finish else [deck,
+        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not (finish or crown) else [deck,
             k5.body_box(0, D, -tw, 0, deck_bottom-.2, E),
             k5.body_box(0, north_end, -W, -W+tw, deck_bottom-.2, E),
             k5.body_box(0, tw, -W, 0, deck_bottom-.2, E),
@@ -5624,11 +5640,11 @@ class Assembly:
                     solids += k5.parapet_element({}, path, (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
         else:
             solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
-        if finish:
+        if finish or crown:
             solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (0, tw), "x", tw, E, cp, dr, 0.0, 0.0)
         # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
         # line and its top at the deck's rear eave, ended flush with the side walls' planes
-        cornice_top = E + .12 if finish else er
+        cornice_top = E + .12 if finish else E if crown else er
         # T-2679: a stone finish may read the box as a narrow fillet under its lattice
         ob = finish.get("cornice_box_m", o) if finish else o
         # T-2680: over a stone cornice lifted toward the lattice, the box stands on its top

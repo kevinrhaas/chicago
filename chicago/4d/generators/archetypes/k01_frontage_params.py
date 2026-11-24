@@ -351,7 +351,7 @@ CONSUMED = frozenset({
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
     "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters", "rear_terrace", "wall_lanterns",
-    "front_order",
+    "front_order", "flat_crown_m",
     "alley_wall", "alley_wall_height", "face_brick",
 })
 
@@ -599,6 +599,27 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
     return {"variant": FLAT_ROOF, "fascia_m": f, "parapet_m": tw, "coping_m": p["coping"]["thickness_m"],
             "drip_m": p["coping"]["drip_m"], "upstand_m": float(v["upstand_m"]), "deck_eave_m": round(er, 4),
             "deck_high_m": round(high, 4), "parapet_top_m": round(high + float(v["upstand_m"]), 4)}
+def _flat_crown(fl: dict, crown: float, eave: float) -> dict:
+    """T-3722: a flat roof whose blocking course is coped at `crown` over grade, a little over the
+    street cornice, where K05's stands its deck on the wall head and its course an upstand over
+    that (2126's, the May 1905 plate: the brick stops at about 11.3 m under a cornice to about
+    11.55 m and a blocking course to about 11.8 m). The deck drops into the walls, as a stone
+    finish's does (T-2564), until its high line clears the course by K05's least upstand; the
+    walls stand to the eave datum round it, coped at the course's level, and the cornice box
+    rises to the eave datum, the course showing over it."""
+    k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
+    least = float(k5["parts"]["parapet"]["upstand_min_m"])
+    top = round(crown - fl["coping_m"], 4)
+    if not eave + 0.05 <= top < fl["parapet_top_m"]:
+        raise ParamError(f"flat_crown_m {crown}: the blocking course's coping at least 0.05 m over the "
+                         f"{eave} m eave datum, under K05's own {fl['parapet_top_m'] + fl['coping_m']:.3f} m")
+    drop = round(max(0.0, fl["deck_high_m"] + least - top), 4)
+    if drop > 1.0:
+        raise ParamError(f"flat_crown_m {crown}: the deck would drop {drop} m into the walls, over a metre")
+    return {**fl, "deck_eave_m": round(fl["deck_eave_m"] - drop, 4), "deck_high_m": round(fl["deck_high_m"] - drop, 4),
+            "parapet_top_m": top, "crown_m": crown, "drop_m": drop}
+
+
 def _flat_balustrade(fb: dict, flat_roof: dict, width: float, eave: float) -> dict:
     """T-1879: the blocking course pierced as a balustrade over a stretch of the street front
     (1721's recessed front, the 1891 plate): from `from_s_m` to `to_s_m` along the front the
@@ -2422,8 +2443,43 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             **({"base_ledge_half_m": base_in} if base_in is not None else {})}
 
 
+def _mansard_reach(wings, width: float) -> dict:
+    """T-3713: how far back each side face of the main mansard runs on: past the rear wall onto
+    a rear wing roofed with the house's mansard (`rear_wings[].roof.kind` "mansard") whose side
+    wall is flush with the main body's, the face carried on in one plane to the wing's rear
+    (k01_frontage.roof joins the two). {face: the wing's rear u}, for "south" (v 0) and "north"
+    (v = width)."""
+    out = {}
+    for e in wings or ():
+        if (e.get("roof") or {}).get("kind") != "mansard" or abs(float(e["rect"][1])) > 1e-9:
+            continue
+        u0, v0, v1 = float(e["rect"][0]), float(e["rect"][2]), float(e["rect"][3])
+        if abs(v0) < 1e-9:
+            out["south"] = min(out.get("south", 0.0), u0)
+        if abs(v1 - width) < 1e-9:
+            out["north"] = min(out.get("north", 0.0), u0)
+    return out
+
+
+def _mansard_wings(wings, m, eave: float) -> None:
+    """T-3713: a wing roofed with the house's mansard stands under one: the house is roofed
+    with a mansard, and the wing's wall top is the main eave, so the two lower faces rise from
+    one cornice line to one curb."""
+    for w in wings:
+        if w["roof"]["kind"] != "mansard":
+            continue
+        if not m:
+            raise ParamError(f"rear_wings: {w['id']}'s roof is the house's mansard, and the house has none")
+        if abs(w["top_m"] - eave) > 1e-6:
+            raise ParamError(f"rear_wings: {w['id']}'s wall top {w['top_m']} m is not the main eave {eave} m "
+                             f"its mansard rises from")
+        if m.get("walled_ends") or m.get("straight") or m.get("side_parapet") or m.get("street_run_m"):
+            raise ParamError(f"rear_wings: {w['id']}'s mansard is carried over a plain ring only (no walled "
+                             f"ends, straight walls, side parapet or leaned street face)")
+
+
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
-                     chimneys, cant=None) -> list:
+                     chimneys, cant=None, reach=None) -> list:
     """T-2411: round-headed dormers in the main mansard's lower faces — the 1874 engraving's
     two on 1620's north face — each the crown dormer's construction (`_round_dormer`) on a
     face the record names, at a centre along it. Each stands clear of the face's hips, of
@@ -2463,7 +2519,8 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
         d = _round_dormer(e, what, frun, hood=True, flat_ok=True)
         ax = MANSARD_FACES[face]
         c, r = float(e["along_m"]), d["width_m"] / 2
-        lo, hi = -overhang + run + 0.3 + r, lengths[ax] + overhang - (face_lower(m, "street")[1] if ax == "u"
+        # T-3713: a side face carried on over a mansard wing runs back to the wing's rear hip
+        lo, hi = (reach or {}).get(face, 0.0) - overhang + run + 0.3 + r, lengths[ax] + overhang - (face_lower(m, "street")[1] if ax == "u"
                                                                       else run) - 0.3 - r
         if not lo <= c <= hi:
             raise ParamError(f"{what}.along_m {c}: its face stands clear of the hips only for {lo:.2f}-{hi:.2f} m")
@@ -5078,6 +5135,7 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
                     **({"segmental": seg} if seg else {}),
                     **({"elliptical": ell} if ell else {}),
                     **({"moulding": g["moulding"]} if g.get("moulding") else {}),
+                    **({"ring_fabric": g["ring_fabric"]} if g.get("ring_fabric") else {}),
                     **({"pilasters": g["pilasters"]} if g.get("pilasters") else {})})
     # T-3562: a door past the front's corner is arched on the entrance block that carries it
     # (from_phase hands its block the group), so the front's corners do not bound it
@@ -5954,8 +6012,11 @@ def wing_walls(w: dict) -> dict:
     return walls
 
 
-#: T-2841: what a wing is roofed with — K04's tin deck (T-2343), or a slated hip or gable
-WING_ROOFS = ("flat", "hip", "gable")
+#: T-2841: what a wing is roofed with — K04's tin deck (T-2343), or a slated hip or gable;
+#: T-3713: or the house's own mansard carried on over it ("mansard"), its lower faces, curb and
+#: deck the main roof's, joined into it (k01_frontage.roof) — 2115's rear range in the Armour
+#: photograph, the north flank's slated face and its dormers running on behind the main body
+WING_ROOFS = ("flat", "hip", "gable", "mansard")
 #: T-2841: the sides a wing's gable may face; north or south runs the ridge along the
 #: wing (v), so both of its flank walls carry a gable, and rear runs it across (u) into
 #: the host wall, so the rear wall carries the one gable
@@ -6290,11 +6351,20 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         if kind not in WING_ROOFS:
             raise ParamError(f"rear_wings: {wid}'s roof is a {kind}; a K01 wing is decked flat, hipped or "
                              f"gabled ({', '.join(WING_ROOFS)})")
-        ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
+        if kind == "mansard":
+            # T-3713: the house's mansard carried on over the wing: it stands on the main rear
+            # wall with its wall top at the main eave (checked where the mansard is known,
+            # `_mansard_wings`), and its eave is the main roof's, so it names no deck of its own
+            if host is not None or set(roof) != {"kind"}:
+                raise ParamError(f"rear_wings: {wid}'s roof is the house's mansard carried over it: it stands on "
+                                 f"the main rear wall and names nothing but its kind")
+            ov = fas = 0.0
+        else:
+            ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
         # T-1902: a deck carrying the house's bracketed cornice reaches over its brackets, as
         # far as a main eave may (1936's range, under brackets 0.7 m out)
         ov_max = 0.8 if roof.get("cornice") is not None else 0.6
-        if not (0.0 <= ov <= ov_max and 0.1 <= fas <= 0.5):
+        if kind != "mansard" and not (0.0 <= ov <= ov_max and 0.1 <= fas <= 0.5):
             raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
                              f"0-{ov_max} m and 0.1-0.5 m")
         # T-3257: a flat wing may carry the house's bracketed timber cornice round its three
@@ -6311,6 +6381,11 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
             pitched = None
             deck = cover = round(top + fas, 4)
+        elif kind == "mansard":
+            # T-3713: the host wall above the wing's wall top is the main mansard's, so the wing
+            # covers it to its wall top, the cornice line the two share
+            pitched = {"kind": "mansard"}
+            deck = cover = top
         else:
             # T-2841: a hipped or gabled wing, slated. What its plan and its gable say fixes the
             # ridge: across the wing (along u) it dies into the host wall, along it (v) the front
@@ -6485,7 +6560,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             except PorchError as err:
                 raise ParamError(str(err)) from None
         out.append(wing)
-    slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
+    slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] not in ("flat", "mansard")}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
                          f"wings share one slate (the assembly's wing_slate)")
@@ -7843,6 +7918,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             arched_rows.append(comp)
 
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
+    if val("flat_crown_m") is not None:
+        if not flat or val("flat_balustrade") or val("stone_finish"):
+            raise ParamError("flat_crown_m copes a flat roof's blocking course, with no flat_balustrade or "
+                             "stone_finish (which set their own)")
+        flat_roof = _flat_crown(flat_roof, float(val("flat_crown_m")), eave)
     if val("flat_balustrade"):
         flat_roof["balustrade"] = _flat_balustrade(val("flat_balustrade"), flat_roof, width, eave)
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
@@ -8043,9 +8123,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # T-2531: optionally the ring's curved extrados (`extrados`, the ring `ring_proud_m`
         # before the wall) and a band over its crown (`band_m`, a belt course [foot, top])
         if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span", "head", "moulding",
-                                          "pilasters"}:
+                                          "pilasters", "ring_fabric"}:
             raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m, band_m, "
-                             f"rise_over_span, head, moulding and pilasters")
+                             f"rise_over_span, head, moulding, pilasters and ring_fabric")
+        # T-3722: the ring laid in the front's brick round a stone keystone (2126's, the May 1905
+        # plate: a ring of headers over the fanlight), where K02's is the front's stone
+        if da.get("ring_fabric", "stone") not in ("stone", "brick") or ("ring_fabric" in da and (
+                "extrados" in da or "moulding" in da)):
+            raise ParamError("entrance_kit.arch.ring_fabric is 'stone' or 'brick', in a voussoir block with a "
+                             "keystone (no curved extrados or moulding)")
         if "pilasters" in da:
             # T-3294: a plain stone pilaster each side of the door's arch, from the floor to the
             # keystone's top, under a capital in two tiers, a bell and an abacus, each stepping out
@@ -8111,6 +8197,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                               "keystone_m": tuple(float(x) for x in da["keystone_m"]),
                               **({"rise_over_span": float(da["rise_over_span"])} if "rise_over_span" in da else {}),
                               **({"head": da["head"]} if "head" in da else {}),
+                              **({"ring_fabric": da["ring_fabric"]} if da.get("ring_fabric") == "brick" else {}),
                               **({"moulding": {k: [float(x) for x in da["moulding"][k]] for k in ("steps_m", "proud_m")}}
                                  if "moulding" in da else {}),
                               **({"pilasters": {k: (float(v) if k != "pinnacles" else
@@ -8360,14 +8447,27 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "side_light" in door_kit_in:
         sl = door_kit_in["side_light"]
         if not door_arch or "opening_m" not in door_kit_in or "porch_door" in door_kit_in \
-                or set(sl) != {"width_m", "pier_m", "sill_m"}:
-            raise ParamError("entrance_kit.side_light takes width_m, pier_m and sill_m, under a round- or "
-                             "segmental-arched door's own mouth (`arch`, `opening_m`; no porch_door)")
+                or not {"width_m", "pier_m", "sill_m"} <= set(sl) <= {"width_m", "pier_m", "sill_m", "pair"}:
+            raise ParamError("entrance_kit.side_light takes width_m, pier_m and sill_m (and pair), under a round- "
+                             "or segmental-arched door's own mouth (`arch`, `opening_m`; no porch_door)")
         lw, pw, ls = (float(sl[k]) for k in ("width_m", "pier_m", "sill_m"))
-        if not 0.5 <= lw <= 1.5 or not 0.15 <= pw <= 0.5 or not 0.3 <= ls <= 1.5 or door_w - lw - pw < 1.0:
+        if sl.get("pair", False) is not False:
+            # T-3722: a door case under a round head's fanlight (2126's, the May 1905 plate): one
+            # leaf in the middle between two narrow lights `width_m` across on panels `sill_m`
+            # high, each between slender posts `pier_m` broad, the leaf keeping 0.8 m of the mouth
+            if sl["pair"] is not True or "rise_over_span" in door_arch or "head" in door_arch:
+                raise ParamError("entrance_kit.side_light.pair is true, under a round-headed door's fanlight")
+            if not 0.15 <= lw <= 0.5 or not 0.05 <= pw <= 0.2 or not 0.3 <= ls <= 1.5 \
+                    or door_w - 2 * lw - 4 * pw < 0.8:
+                raise ParamError(f"entrance_kit.side_light {sl}: a pair of lights 0.15-0.5 m across between "
+                                 f"0.05-0.2 m posts, their sills 0.3-1.5 m up, leaving the leaf 0.8 m of the "
+                                 f"{door_w} m mouth")
+            door_kit["side_light"] = {"width_m": lw, "pier_m": pw, "sill_m": ls, "pair": True}
+        elif not 0.5 <= lw <= 1.5 or not 0.15 <= pw <= 0.5 or not 0.3 <= ls <= 1.5 or door_w - lw - pw < 1.0:
             raise ParamError(f"entrance_kit.side_light {sl}: a light 0.5-1.5 m across beside a 0.15-0.5 m pier, "
                              f"its sill 0.3-1.5 m up, leaving the door 1.0 m of the {door_w} m mouth")
-        door_kit["side_light"] = {"width_m": lw, "pier_m": pw, "sill_m": ls}
+        else:
+            door_kit["side_light"] = {"width_m": lw, "pier_m": pw, "sill_m": ls}
     # T-3134: under such a mouth a heavy moulded transom beam `depth_m` deep (a cap and a bead,
     # each [high, proud]), and the fanlight over it parted by two narrow columns of small panes
     # (`width_m` between their posts, `rows` panes up), over the leaves' meeting and the pier
@@ -9524,7 +9624,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("rainwater.downpipes: a shared pipe stands on a party wall carried up through the mansard")
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
-                                                   float(val("eave_overhang_m")), chimneys, val("cant_corner"))
+                                                   float(val("eave_overhang_m")), chimneys, val("cant_corner"),
+                                                   reach=_mansard_reach(val("rear_wings"), width))
     if (val("mansard") or {}).get("deck"):
         # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
@@ -9546,6 +9647,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""),
                         stone=bool(val("stone_front")), kit=kit)
+    _mansard_wings(wings, mansard_roof, eave)
     if wing_towers:
         wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
                                    float(val("eave_overhang_m")))

@@ -97,6 +97,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "armour_house_2115_prairie/as_mapped_1904/form.rear_wings": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2115_armour_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "armour_house_2115_prairie/as_mapped_1904/form.roof_covering": {
       "kind": "structure",
       "blocked_sources": [

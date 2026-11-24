@@ -134,13 +134,13 @@
           "value": [
             3.65,
             4.1,
-            2.8
+            2.63
           ],
           "confidence": "inferred",
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "From the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: the chamber storey's floor about 0.83 m under its sills (as the principal storey's), the attic's floor at the sill course's top, the attic storey's wall to the top of the cornice at about 11.8 m, the cornice hanging under that eave from about 11.2 m."
+          "note": "From the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35: the chamber storey's floor about 0.83 m under its sills (as the principal storey's), the attic's floor at the sill course's top, the attic storey's wall to the top of the cornice at about 11.8 m, the cornice hanging under that eave from about 11.2 m. T-3722, through the plate's camera (the 2400 px scan, about 95.3 px a metre, grade 1.28 m under the threshold at y 1247 px): the brick stops under the cornice at about 11.32 m (y 290), the cornice's top at about 11.55 m (y 268) and the blocking course's crown at about 11.77 m (y 247), so the attic storey is 2.63 m to an eave datum of 11.66 m, the cornice's soffit at 11.45 m (K10's moulded section and its blocks hang about 0.4 m under it, and the attic lintels' heads keep them there, about 0.13 m over the plate's), in place of T-3721's 2.8 m (the attic lights' heads, 10.77 m on the plate and 10.73 m built, do not move)."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -187,7 +187,7 @@
             "cornice": "k10.cornice.moulded_stone",
             "blocks": {
               "spacing_m": 0.65,
-              "height_m": 0.22,
+              "height_m": 0.2,
               "projection_m": 0.2,
               "width_m": 0.18
             }
@@ -196,7 +196,7 @@
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "The plate's moulded top cornice on a row of blocks, from 11.2 m to about 11.8 m (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35); its section is K10's moulded stone eave."
+          "note": "The plate's moulded top cornice on a row of blocks, from 11.2 m to about 11.8 m (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35); its section is K10's moulded stone eave. T-3722: through the plate's camera the cornice hangs from about 11.32 m to its top at about 11.55 m, under the blocking course (flat_crown_m); built from the 11.45 m soffit of the 2.63 m attic storey (storey_heights_m), the blocks 0.2 m deep (0.22 at T-3721; the plate cannot tell them to 0.1 m) so they clear the attic lintels' heads, which the plate's eared dressings carry to about 11.0 m."
         },
         "roof_form": {
           "value": "flat",
@@ -216,6 +216,14 @@
           "confidence": "reconstructed",
           "note": "The cornice's reach, about a third of a metre past the blocks in the plate; K05's working eave."
         },
+        "flat_crown_m": {
+          "value": 11.8,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1905_05_robbins_plate"
+          ],
+          "note": "T-3722: the blocking course's crown over the cornice, about 11.77 m over grade (built at 11.8, as T-3721 read it, so the course stands 0.06 m over the 2.63 m attic storey's eave datum) on the May 1905 plate through its camera (the 2400 px scan, y 247 px, about 95.3 px a metre, grade at y 1369), about 0.2 m over the cornice's top. K05's flat roof stands its deck on the wall head and its course 0.45 m over that, about 1 m over the plate's crown; here the deck lies behind the course instead, clearing it by K05's least upstand. The deck's depth behind the course is not shown."
+        },
         "roof_covering": {
           "value": {
             "fabric": "tin_flat_seam_painted",
@@ -226,7 +234,7 @@
         },
         "window_kit": {
           "value": {
-            "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+            "k01.opening.sash_flat": "k06.opening.sash_6over6_flat",
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false,
@@ -241,7 +249,7 @@
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "Double-hung sash on every storey and barred basement lights, as the plate shows them. The plate's sash are divided six lights over six; K06's working sash is two over two (liberty L-k01-robbins-2126-3721)."
+          "note": "Double-hung sash on every storey and barred basement lights, as the plate shows them, each sash divided six lights over six as the plate draws them on all three storeys (T-3722: K06's six-over-six sash, in place of T-3721's working two-over-two). The flanks and the rear, which no picture shows, are glazed as the front."
         },
         "stair_tread_m": {
           "value": 0.3,
@@ -348,7 +356,7 @@
               0.8,
               0.75
             ],
-            "top_above_ridge_m": 1.7,
+            "top_above_ridge_m": 1.5,
             "cap_proud_m": 0.05,
             "cap_depth_m": 0.15,
             "stacks": [
@@ -366,7 +374,7 @@
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "The plate's two end chimneys, about 0.8 m broad, showing about 0.7 m over the cornice at the two ends of the front (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35): built 1.7 m over the flat roof (which lies under the cornice's top) about 1.3 m behind the front, which shows that much past the cornice from the walk; the set-back is reconstructed until T-3722 solves the camera."
+          "note": "The plate's two end chimneys, about 0.8 m broad, showing about 0.7 m over the cornice at the two ends of the front (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35): built 1.7 m over the flat roof (which lies under the cornice's top) about 1.3 m behind the front, which shows that much past the cornice from the walk; the set-back is reconstructed until T-3722 solves the camera. T-3722: the stacks show about 0.75 m over the blocking course's crown on the plate (30 px at its 40 px a metre in the side-by-side), read through the camera with their set-back; built 1.5 m over the deck, which now drops behind the blocking course (flat_crown_m)."
         },
         "entrance_kit": {
           "value": {
@@ -380,10 +388,28 @@
               ],
               "arch": {
                 "ring_m": 0.2,
+                "ring_fabric": "brick",
                 "keystone_top_m": 4.9,
                 "keystone_m": [
                   0.22,
                   0.3
+                ]
+              },
+              "side_light": {
+                "width_m": 0.2,
+                "pier_m": 0.1,
+                "sill_m": 0.85,
+                "pair": true
+              },
+              "transom_beam": {
+                "depth_m": 0.3,
+                "cap_m": [
+                  0.1,
+                  0.05
+                ],
+                "bead_m": [
+                  0.04,
+                  0.02
                 ]
               },
               "leaf": {
@@ -412,7 +438,7 @@
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "The plate's round-headed doorway, about 1.6 m across with its side lights and its crown about 4.6 m over the walk, glazed in its head as a fanlight, the door painted pale and panelled as the plate shows it (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35; the paint's colour is reconstructed, the print being monochrome). The side lights, the door's own cornice under the fanlight and the carved panel over the arch are not built (liberty L-k01-robbins-2126-3721)."
+          "note": "The plate's round-headed doorway, about 1.6 m across with its side lights and its crown about 4.6 m over the walk, glazed in its head as a fanlight, the door painted pale and panelled as the plate shows it (the May 1905 plate, square-on, scaled at about 95 px a metre from the front's 12.19 m on sheet 35; the paint's colour is reconstructed, the print being monochrome). The carved panel over the arch is T-3722's front_order. T-3722, through the plate's camera: under the fanlight the door case's moulded beam about 0.3 m deep at the spring, and under it one panelled leaf about 0.94 m across between two leaded side lights about 0.2 m across on panels about 0.85 m high, each between slender pale posts about 0.1 m broad (K07's paired side light, in place of the kit's pair of leaves); the arch's ring is a ring of the front's brick round the stone keystone, as the plate draws it, not K02's stone. The posts are flat where the plate's are turned colonnettes with caps, the side lights' leading is drawn as one pane, and the case's beam stops at the mouth's jambs where the plate's runs a little past them (liberty L-k01-robbins-2126-3722)."
         },
         "boundary": {
           "value": {
@@ -478,7 +504,7 @@
               "storey_heights_m": [
                 3.65,
                 4.1,
-                2.8
+                2.63
               ],
               "sash_by_storey": [
                 {
@@ -525,7 +551,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The 1911 sheet's three-storey brick wing behind the main body, 12.0 m deep and 7.6 m wide (columns 602-666.4, rows 1391.6-1432.4 at full size); its storeys carried from the main body's, its lights and flat roof reconstructed. The sheet's canted corner where its south wall meets the main body is drawn square."
+          "note": "The 1911 sheet's three-storey brick wing behind the main body, its attic storey 2.63 m as the main body's (T-3722), 12.0 m deep and 7.6 m wide (columns 602-666.4, rows 1391.6-1432.4 at full size); its storeys carried from the main body's, its lights and flat roof reconstructed. The sheet's canted corner where its south wall meets the main body is drawn square."
         },
         "front_order": {
           "value": {
@@ -629,14 +655,21 @@
               "width_m": 0.95,
               "pier_top_m": 2.17,
               "top_m": 3.44,
-              "depth_m": 0.45
+              "depth_m": 0.45,
+              "wall": {
+                "side": "high",
+                "to_m": 2.45,
+                "pier_m": 0.4,
+                "pier_top_m": 2.3,
+                "ball_m": 0.3
+              }
             }
           },
           "confidence": "inferred",
           "sources": [
             "inland_architect_1905_05_robbins_plate"
           ],
-          "note": "T-3722: read off the May 1905 plate (dw-inland-1905-05-robbins-2126-plate, 2400 px; the front's corners 1162 px apart for its 12.19 m on sheet 35, about 95 px a metre, square-on), heights from the threshold at 1.28 m. Four brick pilasters between the five bays (axes 2.49, 4.77, 7.42 and 9.70 m, about 0.48 m broad) under Ionic heads about 1.05 m across and 0.32 m high whose tops meet the entablature at 7.87 m; four plain marble panels (1.13 x 0.28 m, their foot at 4.99 m) between the principal and chamber storeys under bays 1, 2, 4 and 5, and the carved panel over the door (1.26 x 0.38 m); key blocks over the principal lintels (3.88-4.38 m) of the four window bays and over the chamber heads of all five; a scrolled marble stop at each corner (the smaller scan, aic, shows the north one beside the south), about 0.95 m out from it, its foot at 2.17 m on a brick pier and its head at 3.44 m. Inferred, not documented: places and sizes are read off one square-on photograph to about 0.1 m, the pilasters' projection and every depth are not shown by a square-on view, and the volutes, the palmette and rosettes of the carving and the scroll's curve are stated forms in place of the carving the plate shows (liberty L-k01-robbins-2126-3722)."
+          "note": "T-3722: read off the May 1905 plate (dw-inland-1905-05-robbins-2126-plate, 2400 px; the front's corners 1162 px apart for its 12.19 m on sheet 35, about 95 px a metre, square-on), heights from the threshold at 1.28 m. Four brick pilasters between the five bays (axes 2.49, 4.77, 7.42 and 9.70 m, about 0.48 m broad) under Ionic heads about 1.05 m across and 0.32 m high whose tops meet the entablature at 7.87 m; four plain marble panels (1.13 x 0.28 m, their foot at 4.99 m) between the principal and chamber storeys under bays 1, 2, 4 and 5, and the carved panel over the door (1.26 x 0.38 m); key blocks over the principal lintels (3.88-4.38 m) of the four window bays and over the chamber heads of all five; a scrolled marble stop at each corner (the smaller scan, aic, shows the north one beside the south), about 0.95 m out from it, its foot at 2.17 m on a brick pier and its head at 3.44 m. Inferred, not documented: places and sizes are read off one square-on photograph to about 0.1 m, the pilasters' projection and every depth are not shown by a square-on view, and the volutes, the palmette and rosettes of the carving and the scroll's curve are stated forms in place of the carving the plate shows (liberty L-k01-robbins-2126-3722). North of the house the plate draws the north scroll's pier carried on as a brick wall at its height under a stone coping (its top about 2.15 m over grade) to a brick pier about 0.4 m broad whose axis stands about 2.45 m out from the corner (233 px), under a stone cap (its top about 2.26 m) and a ball (its top about 2.62 m); built in the front's plane at the scroll pier's own height and depth (scroll.wall), the cap's top at 2.3 m and the ball 0.3 m across. Its depth behind the railing is not shown by a square-on view, and the plate shows no matching wall at the south end, where K11's side gate still closes the passage."
         }
       }
     }

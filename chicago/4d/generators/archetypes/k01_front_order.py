@@ -15,6 +15,9 @@ wall's frame (s along the front from its low-s, south end; y over grade; d out o
   k01.front.scroll          a stone scroll stop at a corner of the front (or both): a console whose
                             back stands against the corner and whose top sweeps down and out
                             to a volute, on a brick pier of its own
+  k01.front.screen_wall     (T-3722) the scroll's pier carried on past the front's end as a
+                            brick screen wall at its height under a stone coping, to a brick
+                            pier under a stone cap and a turned ball (`scroll.wall`)
 
 2126 Prairie's, off its May 1905 Inland Architect plate (`inland_architect_1905_05_robbins_plate`):
 four Ionic pilaster heads between the five bays under the entablature, the marble panels
@@ -35,6 +38,10 @@ CAPITAL_KEYS = {"height_m", "width_m", "volute_m"}
 PANEL_KEYS = {"at_m", "width_m", "y_m", "carved"}
 KEY_KEYS = {"at_m", "y_m", "width_m", "proud_m"}
 SCROLL_KEYS = {"side", "width_m", "pier_top_m", "top_m", "depth_m"}
+SCREEN_KEYS = {"side", "to_m", "pier_m", "pier_top_m", "ball_m"}
+COPING_M = (0.07, 0.04)    # the screen wall's coping: its height, and its overhang each face
+CAP_M = (0.13, 0.05)       # the end pier's cap: its height, and its overhang all round
+BALL_SIDES = 12
 DISC_SIDES = 16
 PANEL_PROUD_M = 0.035
 CARVING_PROUD_M = 0.03     # the carving stands this much proud of its panel
@@ -118,13 +125,29 @@ def resolve(spec, *, width, floor, eave) -> dict:
         out["keystones"] = rows
     sc = spec.get("scroll")
     if sc is not None:
-        if not isinstance(sc, dict) or set(sc) != SCROLL_KEYS or sc["side"] not in ("low", "high", "both"):
-            raise ParamError(f"front_order.scroll takes {sorted(SCROLL_KEYS)}, its side low (s 0), high or both")
+        if not isinstance(sc, dict) or set(sc) - {"wall"} != SCROLL_KEYS or sc["side"] not in ("low", "high", "both"):
+            raise ParamError(f"front_order.scroll takes {sorted(SCROLL_KEYS)} (and wall), its side low (s 0), "
+                             f"high or both")
         w, y0, y1, dp = (_num(sc[k], f"scroll.{k}") for k in ("width_m", "pier_top_m", "top_m", "depth_m"))
         if not (0.4 <= w <= 1.6 and 0.5 <= y0 <= 3.5 and 0.6 <= y1 - y0 <= 2.0 and 0.2 <= dp <= 0.8):
             raise ParamError("front_order.scroll: 0.4-1.6 m across, its pier 0.5-3.5 m high, the scroll 0.6-2.0 m "
                              "over it and 0.2-0.8 m deep")
         out["scroll"] = {"side": sc["side"], "width_m": w, "pier_top_m": y0, "top_m": y1, "depth_m": dp}
+        sw = sc.get("wall")
+        if sw is not None:
+            # T-3722: the scroll's pier carried on as a screen wall to a ball-topped pier (2126's
+            # north end on the May 1905 plate): `to_m` the end pier's axis out from the corner,
+            # `pier_m` its section, `pier_top_m` its cap's top over grade, `ball_m` the ball
+            if not isinstance(sw, dict) or set(sw) != SCREEN_KEYS or sw["side"] not in ("low", "high") \
+                    or sc["side"] not in (sw["side"], "both"):
+                raise ParamError(f"front_order.scroll.wall takes {sorted(SCREEN_KEYS)}, on a side that has a scroll")
+            to, pm, pt, bm = (_num(sw[k], f"scroll.wall.{k}") for k in ("to_m", "pier_m", "pier_top_m", "ball_m"))
+            if not (0.25 <= pm <= 0.8 and w + pm / 2 + 0.3 <= to <= w + 6.0 and y0 + 0.05 <= pt <= y0 + 1.0
+                    and 0.15 <= bm <= pm):
+                raise ParamError(f"front_order.scroll.wall {sw}: a pier 0.25-0.8 m square at least 0.3 m past the "
+                                 f"scroll's pier and at most 6 m, its cap 0.05-1.0 m over the wall, a ball "
+                                 f"0.15 m across up to its section")
+            out["scroll"]["wall"] = {"side": sw["side"], "to_m": to, "pier_m": pm, "pier_top_m": pt, "ball_m": bm}
     return out
 
 
@@ -231,6 +254,8 @@ def dress(a, frames):
         for side in (("low", "high") if sc["side"] == "both" else (sc["side"],)):
             _scroll(a, frame, dict(sc, side=side), p.width_m, brick, trim, conf)
         meta["scroll"] = sc["side"]
+        if sc.get("wall"):
+            meta["screen_wall"] = _screen_wall(a, frame, sc, p.width_m, brick, trim, conf)
     a.front_order_meta = meta
 
 
@@ -283,3 +308,64 @@ def _scroll(a, frame, sc, width, brick, trim, conf):
     sv = S(w - r)
     prism(a, trim, frame, _disc(sv, y0 + r, r), d1, d1 + 0.03, seed, conf)
     prism(a, trim, frame, _disc(sv, y0 + r, r * 0.4, 10), d1 + 0.03, d1 + 0.06, seed, conf)
+
+
+def _screen_wall(a, frame, sc, width, brick, trim, conf):
+    """T-3722: the scroll's pier carried on past the front's end as a brick wall at its height,
+    in the front's plane and as deep as the pier, under a stone coping, to a brick pier under
+    a stone cap and a turned ball. Returns the wall's and the pier's places, for the meta."""
+    sw = sc["wall"]
+    w, y0, dp = sc["width_m"], sc["pier_top_m"], sc["depth_m"]
+    to, pm, pt, bm = sw["to_m"], sw["pier_m"], sw["pier_top_m"], sw["ball_m"]
+    sign = -1.0 if sw["side"] == "low" else 1.0
+    end = 0.0 if sw["side"] == "low" else width
+    S = lambda x: end + sign * x
+    seed = a.instance("k01.front.screen_wall", "masonry",
+                      {"length_m": round(to - w, 4), "height_m": y0, "pier_m": pm, "pier_top_m": pt, "ball_m": bm},
+                      {"start": _P(frame, S(w), 0.0, 0.0), "pier": _P(frame, S(to), 0.0, 0.0)})
+    # the wall, from the scroll's pier to the end pier's face; its ends stand against them
+    lo, hi = sorted((S(w), S(to - pm / 2)))
+    _box(a, brick, frame, lo, hi, 0.0, y0, -dp, 0.0, seed, conf, skip=("y0", "s0", "s1"))
+    ch, co = COPING_M
+    _box(a, trim, frame, lo, hi, y0, y0 + ch, -dp - co, co, seed, conf, skip=("s0", "s1"))
+    # the pier, as deep as the wall and as proud as its coping, and its cap
+    lo, hi = sorted((S(to - pm / 2), S(to + pm / 2)))
+    dc = (-dp + co) / 2
+    d0, d1 = dc - max(pm, dp + co) / 2, dc + max(pm, dp + co) / 2
+    yc = pt - CAP_M[0]
+    _box(a, brick, frame, lo, hi, 0.0, yc, d0, d1, seed, conf, skip=("y0",))
+    o = CAP_M[1]
+    _box(a, trim, frame, lo - o, hi + o, yc, pt, d0 - o, d1 + o, seed, conf, skip=("y0",))
+    _ball(a, trim, frame, S(to), pt, dc, bm, seed, conf)
+    return {"s_m": [round(S(w), 4), round(S(to), 4)], "pier_top_m": pt}
+
+
+def _ball(a, mat, frame, s, y, d, dia, seed, conf):
+    """A turned ball on a short neck and plinth, `dia` across, standing on (s, y, d): the
+    K11 gate piers' profile (k11_frontage.ball) turned in BALL_SIDES facets."""
+    from .k01_frontage import Y, _add, _cross, _dot, _mul, _sub
+    from .k11_frontage import ball
+    O, R, N = frame
+    prof = ball(dia)
+    angs = [2 * math.pi * k / BALL_SIDES for k in range(BALL_SIDES)]
+    pr = a.prim(mat)
+    P = lambda r, h, t: _P(frame, s + r * math.cos(t), y + h, d + r * math.sin(t))
+    axis = _P(frame, s, y, d)
+    for (r0, h0), (r1, h1) in zip(prof, prof[1:]):
+        for k, t0 in enumerate(angs):
+            t1 = angs[(k + 1) % BALL_SIDES]
+            pts = [P(r0, h0, t0), P(r0, h0, t1), P(r1, h1, t1), P(r1, h1, t0)]
+            pts = [q for i, q in enumerate(pts) if all(_dot(_sub(q, u), _sub(q, u)) > 1e-12 for u in pts[:i])]
+            if len(pts) < 3:
+                continue
+            n = _cross(_sub(pts[1], pts[0]), _sub(pts[2], pts[0]))
+            ln = math.sqrt(_dot(n, n))
+            if ln < 1e-12:
+                continue
+            n = _mul(n, 1.0 / ln)
+            c = _mul(_add(_add(pts[0], pts[1]), pts[2]), 1.0 / 3.0)
+            out = _sub(c, _add(axis, _mul(Y, (h0 + h1) / 2)))
+            if _dot(n, out) < 0:
+                n = _mul(n, -1.0)
+            tm = (t0 + t1) / 2
+            _face(a, pr, mat, pts, n, pts[0], _add(_mul(R, -math.sin(tm)), _mul(N, math.cos(tm))), Y, seed, conf)

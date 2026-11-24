@@ -458,6 +458,8 @@ def _voussoirs(a, frame, g, conf, recess):
     j = 0
     if g.get("extrados") == "curved":
         j = _curved(a, frame, g, conf, recess, cid, inst)
+    # T-3722: a ring of the front's brick round a stone keystone (2126's door, the May 1905 plate)
+    ring_mat = a.front_brick if g.get("ring_fabric") == "brick" else "rough_stone_trim"
     for i, (s0, s1, spring, r, sill) in enumerate(g["lights"] if g.get("extrados") != "curved" else ()):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
@@ -467,7 +469,7 @@ def _voussoirs(a, frame, g, conf, recess):
               else wedges(cx, spring, r, L, Rr, g["top_m"]))
         for pts, kinds, mid in ws:
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
-            a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
+            a.stone(frame, pts, [hj] * len(pts), ring_mat, a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
             j += 1
     # the piers between paired lights, from the sill to the spring: one stone each

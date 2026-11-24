@@ -104,6 +104,8 @@
     {"id": "k06.opening.casement_four_transom_mullioned", "head": "flat", "ordinary": false, "why_not_ordinary": "a grouped window: four casement lights under a stone transom and four fixed lights over it, divided by stone mullions", "clear_width_m": 2.15, "clear_height_m": 2.3, "operation": "casement_transom", "panes": [3, 4], "mullion_m": 0.1, "bays": 4, "transom_m": 0.85, "transom_lights": 3, "use": "principal",
      "confidence": "reconstructed", "note": "The four-light mullioned and transomed window over the door of 1625 Prairie's 1890 photograph (T-2752). The bars are the kit's, as the casement pair's."},
     {"id": "k06.opening.sash_2over2_segmental", "head": "segmental", "ordinary": false, "why_not_ordinary": "a narrow light of a pair, about 0.6 m wide, under the ordinary sash's range", "clear_width_m": 0.62, "clear_height_m": 1.58, "operation": "double_hung", "panes": [2, 1], "use": "principal",
-     "confidence": "reconstructed", "note": "A narrow two-over-two sash under a segmental head: the frontispiece's paired upper lights in 1625 Prairie's 1890 photograph (T-2752)."}
+     "confidence": "reconstructed", "note": "A narrow two-over-two sash under a segmental head: the frontispiece's paired upper lights in 1625 Prairie's 1890 photograph (T-2752)."},
+    {"id": "k06.opening.sash_6over6_flat", "head": "flat", "ordinary": true, "clear_width_m": 0.95, "clear_height_m": 2.0, "operation": "double_hung", "panes": [3, 2], "use": "principal",
+     "confidence": "reconstructed", "note": "A double-hung sash divided six lights over six, three across and two up in each sash, under a flat head: the Georgian-revival front's glazing, as the May 1905 Inland Architect plate draws 2126 Prairie's on every storey (T-3722)."}
   ]
 }
