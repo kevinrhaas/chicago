@@ -2,7 +2,7 @@
  "structure_id": "house_2123_prairie",
  "view": "chicagology_armour_photo",
  "glb": "assets/gltf/house_2123_prairie__as_mapped_1904.glb",
- "glb_sha256": "c123d4a60fcbb8d24ed6324a9e9946f3ca3ddd34a19248a8a2a687a964e69f2b",
+ "glb_sha256": "57ae5d8329176fb22dbd1ab7b62d8ecf148615bb7c75423da6538d13cf998cd1",
  "camera_sha256": "da009b44edbd83f615c48d100fbeb0d30076f4c8662a42233c001feabb971fbf",
  "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
  "side_by_side": "docs/RESEARCH/photo-match/house_2123_prairie/chicagology_armour_photo-side-by-side.jpg",
@@ -37,7 +37,11 @@
    "status": "fixed"
   },
   {
-   "what": "the bow's own basement lights: the print shows a pair of square-headed lights between piers under the bow's principal pair (x 1765-1830 and 1875-1935, y 1060-1150 px); the render's bow basement is plain stone. K08 refuses a light under its plinth's 0.6 m top, and over it the pair (flat sash or area light) runs the bow past its 7000-triangle light-tier budget",
+   "what": "the bow's own basement light (T-3725): the print shows one square-headed opening between piers under the bow's north principal light (x 1763-1833, y 1057-1150 px) and a pale pier under its south light (x 1850-1877); the render's bow basement was plain stone. Now one 1.15 m light on a 0.72 m sill at the principal pair's -22 degrees: x 1762-1823, y 1062-1140 in the render. The dark opening south of the pier (x 1877-1940) is the front's basement light beside the bow (next entry), not a second light in the bow, as earlier reads had it",
+   "status": "fixed"
+  },
+  {
+   "what": "the front's basement light beside the bow: the print's dark opening reads x 1877-1940 px, the render's light x 1907-1943 (its south jamb within a few px, its north jamb about 30 px, about 0.5 m, short of the print's). The print's is not under its own principal light (x 1933-1987), so it is not the bay's place that is off; a deeper reveal or the bow's junction in shadow may widen it at this print's grain, and no second picture settles which",
    "status": "open"
   },
   {

@@ -5582,6 +5582,9 @@ class Assembly:
         top, high = fl["parapet_top_m"], fl["deck_high_m"]
         finish = p.stone_finish
         deck_bottom = E
+        crown = fl.get("crown_m") is not None    # T-3722: the deck already dropped (params)
+        if crown:
+            deck_bottom = E - fl["drop_m"]
         if finish:
             drop = finish["deck_drop_m"]
             er, high, deck_bottom = er - drop, high - drop, E - drop
@@ -5612,7 +5615,7 @@ class Assembly:
         # parapet stops at the return's back rather than running across its face, and the
         # wall head it stood on is the return's (the stone core caps it, so it is no roof face)
         north_end = D - finish["lattice"]["return_m"] if finish and finish.get("return_ashlar") else D
-        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not finish else [deck,
+        solids = [deck, k5.body_box(0.0, D, -W, 0.0, E - 1.0, E)] if not (finish or crown) else [deck,
             k5.body_box(0, D, -tw, 0, deck_bottom-.2, E),
             k5.body_box(0, north_end, -W, -W+tw, deck_bottom-.2, E),
             k5.body_box(0, tw, -W, 0, deck_bottom-.2, E),
@@ -5633,11 +5636,11 @@ class Assembly:
                     solids += k5.parapet_element({}, path, (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
         else:
             solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (D - tw, D), "x", tw, E, cp, dr, 0.0, 0.0)
-        if finish:
+        if finish or crown:
             solids += k5.parapet_element({}, [(-W, top), (0.0, top)], (0, tw), "x", tw, E, cp, dr, 0.0, 0.0)
         # the cornice box: from the front wall's face out `o`, its soffit at the wall head's
         # line and its top at the deck's rear eave, ended flush with the side walls' planes
-        cornice_top = E + .12 if finish else er
+        cornice_top = E + .12 if finish else E if crown else er
         # T-2679: a stone finish may read the box as a narrow fillet under its lattice
         ob = finish.get("cornice_box_m", o) if finish else o
         # T-2680: over a stone cornice lifted toward the lattice, the box stands on its top

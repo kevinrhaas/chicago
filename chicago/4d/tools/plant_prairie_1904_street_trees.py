@@ -38,6 +38,15 @@ plainly unlike the grown elm's may name its habit as `form` (T-3164: `broad_head
 its leader; `limbed_head`, the same clear to about 5 m; T-1881: `high_head`, a tall leader under a
 narrow head from about half its height), which renderers/web/js/street-trees.js
 grows; without one it is the parkway elm.
+
+NO TREE ON THE PAVING (owner, 2026-11-23, at the Pullman corner: "i am not sure that tree would be
+in the middle of the sidewalk"). A trunk stands clear of every paved surface the street draws: the
+public walk, the carriage walks, the corner crossings (T-3200) and the carriage drives (T-3564),
+ramps included. The rule's trees step off a crossing or a drive to its nearer side, as they do off a
+carriage walk. A pictured tree the owner has withdrawn keeps its reading in pictured_1904.json with
+`"withdrawn": "<who, when>"` and its reason in its note, and is not planted (the Pullman corner's,
+on 18th Street's crossing: "keep the crossing and lose the elm"). Any tree still on the paving stops
+the tool, so `--check` and the gate refuse it.
 """
 from __future__ import annotations
 
@@ -64,6 +73,8 @@ YOUNG_SHARE = 0.08           # replacement saplings (the 1901 photograph's)
 GAP_SHARE = 0.04             # a tree lost and not yet replaced
 VARIANTS = 12                # mature crowns the renderer builds and shares
 WALK_CLEAR_M = 3.0           # either side of a carriage walk's centre: the walk, its block and a trunk
+TRUNK_M = 0.33               # the elm's bole radius at scale 1 (street-trees.js draws it about 0.66 m across)
+TRUNK_CLEAR_M = 0.1          # and a hand's breadth of grass between the bark and the paving's edge
 
 
 def rng(seed: str):
@@ -148,6 +159,79 @@ def walk_marks(pts, acc, walks):
     return out
 
 
+def paving_marks(pts, acc, polys):
+    """Intervals along the face that a corner crossing or a carriage drive takes, widened by a
+    trunk: the polygons across this face's parkway, read where they come near its planting line."""
+    out = []
+    for _, poly in polys:
+        hits = [project(pts, acc, p) for p in poly]
+        near = [s for d, s in hits if d < 4.0]
+        if len(near) >= 2:
+            out.append((min(near) - TRUNK_M - TRUNK_CLEAR_M, max(near) + TRUNK_M + TRUNK_CLEAR_M))
+    return out
+
+
+def inside(p, poly):
+    x, y = p
+    c = False
+    for i in range(len(poly)):
+        a, b = poly[i], poly[(i + 1) % len(poly)]
+        if (a[1] > y) != (b[1] > y) and x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]:
+            c = not c
+    return c
+
+
+def edge_distance(p, poly):
+    best = float("inf")
+    for i in range(len(poly)):
+        a, b = poly[i], poly[(i + 1) % len(poly)]
+        vx, vy = b[0] - a[0], b[1] - a[1]
+        L2 = vx * vx + vy * vy or 1.0
+        t = max(0.0, min(1.0, ((p[0] - a[0]) * vx + (p[1] - a[1]) * vy) / L2))
+        best = min(best, math.dist(p, (a[0] + vx * t, a[1] + vy * t)))
+    return best
+
+
+def paving(grid, section):
+    """Every paved surface a parkway trunk stands clear of, as (name, polygon): the public walk
+    bands, the carriage walks as street-grid.js lays them, the corner crossings and the carriage
+    drives, flat and ramp."""
+    out = []
+    for f in grid["faces"]:
+        for q in f["bands"].get("walk") or []:
+            out.append((f"walk {f['id']}", q))
+    for w in (section or {}).get("carriage_walks", {}).get("walks", []):
+        half = w["width_ft"] * FT / 2
+        s0, s1 = w["from_ft"] * FT - (w.get("tuck_m") or 0.0), w["to_ft"] * FT
+
+        def pt(a, k, w=w):
+            return (w["at"][0] + w["out"][0] * a + w["along"][0] * k,
+                    w["at"][1] + w["out"][1] * a + w["along"][1] * k)
+        out.append((f"carriage walk {w['id']}", [pt(s0, -half), pt(s0, half), pt(s1, half), pt(s1, -half)]))
+    for x in crossings_of(section):
+        out.append((f"crossing {x['id']}", x["flat"]))
+        out.append((f"crossing ramp {x['id']}", x["ramp"]))
+    return out
+
+
+def crossings_of(section):
+    section = section or {}
+    return (section.get("corner_crossings", {}).get("crossings", [])
+            + section.get("carriage_drives", {}).get("drives", []))
+
+
+def on_paving(trees, paved):
+    """The trees whose trunk touches a paved surface, with what it stands on."""
+    bad = []
+    for t in trees:
+        p, r = (t["e"], t["n"]), TRUNK_M * t["scale"] + TRUNK_CLEAR_M
+        for name, poly in paved:
+            if inside(p, poly) or edge_distance(p, poly) < r:
+                bad.append(f"{t['id']} on the {name}")
+                break
+    return bad
+
+
 def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
     """The trees a picture places on one stretch of a face (T-1934). `first` numbers them on
     from the face's earlier stretches (T-1881: 18th Street's north parkway has two), so every
@@ -158,6 +242,8 @@ def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
         s = t["at_m"]
         if not (stretch["from_m"] <= s <= stretch["to_m"] and 0.0 <= s <= acc[-1]):
             raise ValueError(f"{face_id}: pictured tree at {s} m is off its stretch or its face")
+        if t.get("withdrawn"):
+            continue  # the owner withdrew it; the reading stays on record, no tree stands
         r = rng(f"T-1934|{face_id}|{s}")
         (e, nn), _ = at(pts, acc, s)
         young = t["kind"] == "young"
@@ -184,8 +270,9 @@ def pictured_trees(face_id, pts, acc, stretch, views=None, liberty="", first=0):
     return out
 
 
-def plant(grid, walks_by_face=None, pictured=None):
+def plant(grid, walks_by_face=None, pictured=None, crossings=None):
     trees = []
+    crossings = crossings or []
     faces_out = []
     walks_by_face = walks_by_face or {}
     stretches = {}
@@ -200,6 +287,8 @@ def plant(grid, walks_by_face=None, pictured=None):
         length = acc[-1]
         blocked = alley_blocks(pts, acc, grid.get("alleys", []))
         marks = walk_marks(pts, acc, walks_by_face.get(face["id"], []))
+        marks += paving_marks(pts, acc, [(x["id"], x["flat"] + x["ramp"]) for x in crossings
+                                         if x["face"] == face["id"]])
         r = rng(f"T-2473|{face['id']}")
         usable = length - 2 * CORNER_SETBACK_M
         if usable <= 0:
@@ -254,8 +343,9 @@ def plant(grid, walks_by_face=None, pictured=None):
 def build():
     grid = json.loads(GRID.read_text())
     walks_by_face = {}
-    if SECTION.exists():
-        for w in json.loads(SECTION.read_text())["carriage_walks"]["walks"]:
+    section = json.loads(SECTION.read_text()) if SECTION.exists() else None
+    if section:
+        for w in section["carriage_walks"]["walks"]:
             walks_by_face.setdefault(w["face"], []).append(w)
     pictured = json.loads(PICTURED.read_text()) if PICTURED.exists() else None
     if pictured:
@@ -263,7 +353,10 @@ def build():
         for st in pictured["stretches"]:
             if st["face"] not in known:
                 raise ValueError(f"pictured_1904.json: no face {st['face']} in the grid")
-    trees, faces = plant(grid, walks_by_face, pictured)
+    trees, faces = plant(grid, walks_by_face, pictured, crossings_of(section))
+    bad = on_paving(trees, paving(grid, section))
+    if bad:
+        raise ValueError("street trees on the paving (owner, 2026-11-23): " + "; ".join(bad))
     return {
         "_doc": ("The 1904 Prairie Avenue district's parkway trees (T-2473). GENERATED by "
                  "tools/plant_prairie_1904_street_trees.py from the parkway bands of "
@@ -297,6 +390,8 @@ def build():
             "young_share": YOUNG_SHARE,
             "gap_share": GAP_SHARE,
             "variants": VARIANTS,
+            "clear_of_paving": ("every trunk (a bole {:.2f} m in radius at scale 1, and {:.2f} m of grass more) stands off the "
+                                "walks, carriage walks, corner crossings and carriage drives".format(TRUNK_M, TRUNK_CLEAR_M)),
             "pictured": ("data/street_trees/pictured_1904.json: stretches whose trees are read off "
                          "solved pictures and stand in place of the rule's (T-1934, "
                          "L-pullman-18th-street-trees-1934)."),

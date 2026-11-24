@@ -18429,7 +18429,7 @@ for (const [label, viewport, touch] of [
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
     // release (Esc with a keyboard, the card's Close on touch); T-3642: 06 Interact, 07 Jaunts,
-    // 08 Move, 09 Settings.
+    // 08 Move, 09 Settings; T-3742: the words of 06, 07, 09 and 10.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -18532,18 +18532,18 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642)`,
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Interact, Jaunts, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445, T-3642, T-3742)`,
       t1.shown && t1.count === 'Field check · 1 / 10' && t1.pips === 10 && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
-      && released.step === 5 && releasedCard === null && /^Walk up to .*(R to interact|Tap Interact)\.$/.test(released.bubble ?? '')
+      && released.step === 5 && releasedCard === null && /^Walk up to someone\. (Press R|Tap Interact): .*story.*question\.$/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
       && interactStep.step === 5 && jauntsStep.step === 6 && /Jaunts/.test(jauntsStep.bubble ?? '')
       && moveStep.step === 7 && /^Open (the Navigator, then )?Move/.test(moveStep.bubble ?? '')
-      && settingsStep.step === 8 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 9 && /^Ready\./.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
+      && settingsStep.step === 8 && /Settings[^:]*: language/.test(settingsStep.bubble ?? '')
+      && last.step === 9 && /^Ready\. Pick a Jaunt/.test(last.bubble ?? '') && last.lit === 10 && !done.running && done.finished && !done.shown,
       JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, interactStep, jauntsStep, moveStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
