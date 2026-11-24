@@ -20,6 +20,10 @@
  *   { "type": "film",  "id": "...", "seconds": 8, "fps": 24, "setup": "js", "keys": [...] | "track": {...} }
  *   { "type": "quit" }
  *
+ * A film with `"ui": true` keeps the interface (name cards' person cards, the HUD) and grabs each
+ * frame as a page screenshot instead of the bare canvas; `"each": "js"` runs with (api, u)
+ * before every keyed frame (open a card at u > .5, say).
+ *
  * A pose is { e, n, alt, yaw, pitch } or { e, n, alt, look: [e, n, h] }. `keys` are poses
  * with a `t` in [0, 1], eased between (smoothstep per segment, yaw the short way round).
  * `track` follows something that moves: `track.js` returns { e, n, heading } each frame
@@ -179,14 +183,27 @@ function splinePose(keys, u, easeEnds = 0.15) {
 const posePath = (job, u) => (job.path === 'spline' ? splinePose(job.keys, u, job.ease_ends ?? 0.15) : keyPose(job.keys, u));
 const toTeleport = p => ({ local_e: p.e, local_n: p.n, yaw_deg: p.yaw, pitch_deg: p.pitch, altitude_m: p.alt });
 
-async function frame(pose, steps, ms) {
-  return page.evaluate(({ pose, steps, ms }) => {
+async function frame(pose, steps, ms, each = null, u = 0, ui = false) {
+  return page.evaluate(({ pose, steps, ms, each, u, ui }) => {
     const api = window.__chicago4d;
+    if (each) new Function('api', 'u', each)(api, u);
     api.setFly(typeof pose.altitude_m === 'number');
     api.walker.teleport(pose);
     for (let i = 0; i < steps; i++) { if (ms) window.__film.advance(ms / steps); api.step(); }
-    return api.renderer.domElement.toDataURL('image/jpeg', 0.95);
-  }, { pose, steps, ms });
+    return ui ? 'ui' : api.renderer.domElement.toDataURL('image/jpeg', 0.95);
+  }, { pose, steps, ms, each, u, ui });
+}
+// With the interface showing, the frame is the page itself.
+const HIDE_CSS = 'body > *:not(#view):not(canvas) { visibility: hidden !important; }';
+async function setUi(on) {
+  await page.evaluate(({ on, css }) => {
+    document.getElementById('__film-hide')?.remove();
+    if (!on) { const s = document.createElement('style'); s.id = '__film-hide'; s.textContent = css; document.head.append(s); }
+  }, { on, css: HIDE_CSS });
+}
+async function grab(img) {
+  if (img !== 'ui') return img;
+  return 'data:image/jpeg;base64,' + (await page.screenshot({ type: 'jpeg', quality: 92 })).toString('base64');
 }
 // A tracked pose is worked out in the page, where the moving thing is.
 async function trackFrame(track, u, steps, ms) {
@@ -260,6 +277,7 @@ async function run(job) {
     await page.evaluate(() => window.__film.freeze());
     const started = Date.now();
     // Settle: a few still frames at the first pose so streamed detail has arrived.
+    if (job.ui) await setUi(true);
     const p0 = job.track || job.pov ? null : toTeleport(posePath(job, 0));
     for (let k = 0; k < (job.settle ?? 6); k++) {
       if (p0) await frame(p0, 1, 0); else if (job.track) await trackFrame(job.track, 0, 1, 0); else await povFrame(1, 0);
@@ -270,12 +288,13 @@ async function run(job) {
       const u = n > 1 ? k / (n - 1) : 0;
       const ms = 1000 / fps;
       const img = job.track ? await trackFrame(job.track, u, step, ms) : job.pov ? await povFrame(step, ms, job.pov, u)
-        : await frame(toTeleport(posePath(job, u)), step, ms);
+        : await grab(await frame(toTeleport(posePath(job, u)), step, ms, job.each ?? null, u, !!job.ui));
       if (!img) throw new Error(`${job.id}: nothing to track at frame ${k}`);
       save(path.join(dir, `${String(k).padStart(4, '0')}.jpg`), img);
       if (k % 24 === 0) log(`${job.id}: frame ${k}/${n} after ${((Date.now() - started) / 1000).toFixed(0)} s`);
     }
     await page.evaluate(() => window.__film.release());
+    if (job.ui) await setUi(false);
     const bytes = encode(dir, path.join(CTL, 'out', job.id), fps, job.crf ?? 26);
     return { id: job.id, frames: n, seconds: (Date.now() - started) / 1000, bytes };
   }
