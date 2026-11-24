@@ -1,0 +1,9 @@
+{
+  "title": "1835 detail changes and 1871 Go to no longer freeze for long",
+  "kind": "fix",
+  "items": [
+    "On weaker computers, changing Scene detail in 1835 no longer stalls the page for 7 to 14 seconds; the longest pause is now under 4 seconds.",
+    "Go to, Find and Follow in 1871 no longer freeze for up to 24 seconds after the jump; the longest pause is now under a second and a half.",
+    "The town looks exactly as before: the trees stand where they stood and you walk on the same ground."
+  ]
+}
