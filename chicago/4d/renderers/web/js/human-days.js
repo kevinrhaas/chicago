@@ -854,9 +854,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!ok) p.pendingHostMove = { to, heading, done, from, speed, direct, token, retry: clock + 0.5 };
       return;
     }
-    const seen = !hidden && a.root?.visible !== false && (near(start.e, start.n) || near(to.e, to.n));
     // T-3744: told to face another way where they stand, someone in sight turns round on the
     // spot at the walk's turn rate; set straight to the new heading, they flipped front to back.
+    // Not only a drawn figure: one whose body has not come yet is drawn by the crowd, which
+    // copies its heading, so it turns too (a turn on the spot is never a jump).
+    const seen = near(start.e, start.n) || near(to.e, to.n);
     if (seen && dist(start, to) < 0.05 && Number.isFinite(heading) && typeof a.turnTo === 'function'
       && Math.abs(((heading - (a.heading ?? heading) + 540) % 360) - 180) > 1) {
       a.e = to.e; a.n = to.n; a.standY = null;

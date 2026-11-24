@@ -25,7 +25,9 @@ T = [
  ('1904-prairie-walk', -7.5, 5.8, None,       0,   0,   0,   0.8),
 ]
 total = sum(t[2] for t in T)
-DUR = float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',music]))
+# The theme swells again in its last four seconds as if to begin over (Kevin, 2026-11-24): the trailer
+# ends before that, faded out over the held title card.
+DUR = min(float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',music])), 70.2)
 TITLE = DUR - total
 T.append((None, 0, TITLE, 'c-title', 0.4, TITLE - 1.6, 0, 1.4))
 os.makedirs('seg', exist_ok=True)
@@ -54,7 +56,7 @@ for i, (src, ss, ln, card, cin, cout, fin, fout) in enumerate(T):
     subprocess.check_call(args); segs.append(seg)
 open('seg/list.txt', 'w').write(''.join(f"file '{os.path.basename(s)}'\n" for s in segs))
 subprocess.check_call(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', 'seg/list.txt', '-i', music,
-    '-filter_complex', f'[1:a]afade=t=out:st={DUR - 2.0:.2f}:d=2[a]', '-map', '0:v', '-map', '[a]',
+    '-filter_complex', f'[1:a]atrim=0:{DUR:.2f},afade=t=out:st={DUR - 2.4:.2f}:d=2.4[a]', '-map', '0:v', '-map', '[a]',
     '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-crf', '22', '-preset', 'slow',
     '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-shortest', out])
 print(out, total + TITLE, os.path.getsize(out))

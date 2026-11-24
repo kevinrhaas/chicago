@@ -22,7 +22,7 @@ html,body{margin:0;width:1920px;height:1080px;background:transparent;color:#F2ED
 .rule{width:120px;height:2px;background:#8CF5A8;margin:40px auto}
 `;
 const cards = {
-  'c-open': `<div class=c><div class=mid>Four moments in <em>Chicago's life.</em></div></div>`,
+  'c-open': `<div class=c><div class=mid>Chicago, <em>as it was.</em></div></div>`,
   'y-1812': `<div class=lt><div class=y>1812</div><div class=p><i></i>Fort Dearborn</div></div>`,
   'y-1835': `<div class=lt><div class=y>1835</div><div class=p><i></i>The river town</div></div>`,
   'y-1871': `<div class=lt><div class=y>1871</div><div class=p><i></i>Before the fire</div></div>`,
