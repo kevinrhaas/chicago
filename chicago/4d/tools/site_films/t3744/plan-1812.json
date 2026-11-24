@@ -1,0 +1,5 @@
+[
+ {"type": "eval", "js_file": "goto-stop.js", "replace": {"JID": "'battle-of-fort-dearborn'", "TARGET": "'river-mouth'"}},
+ {"type": "eval", "js": "const ok = api.jaunts.replay(); api.setFly(true); api.walker.teleport({local_e:1160,local_n:-420,yaw_deg:270,pitch_deg:0,altitude_m:3}); for (let i = 0; i < 3; i++) api.step(); return [ok, api.jauntStage.clock];"},
+ {"type": "film", "id": "1812-column", "seconds": 20, "fps": 24, "crf": 22, "track_file": "column-track.js"}
+]

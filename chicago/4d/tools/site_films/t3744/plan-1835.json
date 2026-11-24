@@ -1,0 +1,47 @@
+[
+ {
+  "type": "eval",
+  "js": "api.timeOfDay.set('10:30'); for (let i = 0; i < 4; i++) api.step(); const A = api.humans?.actors ?? []; return [api.timeOfDay.current.hhmm, A.length, A.slice(0, 3).map(a => [a.id ?? a.personId, a.e, a.n, a.heading])];"
+ },
+ {
+  "type": "film",
+  "id": "1835-people-cards",
+  "seconds": 16,
+  "fps": 24,
+  "crf": 22,
+  "path": "spline",
+  "ease_ends": 0.1,
+  "keys": [
+   {
+    "e": -40,
+    "n": -105,
+    "alt": 1.72,
+    "look": [
+     10,
+     -108,
+     1.6
+    ]
+   },
+   {
+    "e": -5,
+    "n": -106,
+    "alt": 1.72,
+    "look": [
+     45,
+     -110,
+     1.6
+    ]
+   },
+   {
+    "e": 30,
+    "n": -107,
+    "alt": 1.72,
+    "look": [
+     89,
+     -112,
+     2
+    ]
+   }
+  ]
+ }
+]
