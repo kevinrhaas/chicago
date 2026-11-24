@@ -1,7 +1,15 @@
 [
  {
   "type": "eval",
-  "js": "api.timeOfDay.set('10:30'); for (let i = 0; i < 4; i++) api.step(); const A = api.humans?.actors ?? []; return [api.timeOfDay.current.hhmm, A.length, A.slice(0, 3).map(a => [a.id ?? a.personId, a.e, a.n, a.heading])];"
+  "js": "api.timeOfDay.set('10:30'); api.setFly(true); api.walker.teleport({local_e:95,local_n:-100,yaw_deg:90,pitch_deg:0,altitude_m:1.72}); for (let i = 0; i < 4; i++) api.step(); return api.timeOfDay.current.hhmm;"
+ },
+ {
+  "type": "step",
+  "seconds": 25
+ },
+ {
+  "type": "eval",
+  "js": "const A = (api.humans?.actors ?? []).filter(a => a && Number.isFinite(a.e)); return [A.length, A.filter(a => Math.hypot(a.e - 135, a.n + 100) < 60).map(a => [a.id ?? a.personId, Math.round(a.e), Math.round(a.n)]).slice(0, 20)];"
  },
  {
   "type": "film",
@@ -13,33 +21,33 @@
   "ease_ends": 0.1,
   "keys": [
    {
-    "e": -40,
-    "n": -105,
+    "e": 95,
+    "n": -101,
     "alt": 1.72,
     "look": [
-     10,
-     -108,
+     140,
+     -104,
      1.6
     ]
    },
    {
-    "e": -5,
-    "n": -106,
+    "e": 125,
+    "n": -100,
     "alt": 1.72,
     "look": [
-     45,
-     -110,
+     170,
+     -104,
      1.6
     ]
    },
    {
-    "e": 30,
-    "n": -107,
+    "e": 155,
+    "n": -101,
     "alt": 1.72,
     "look": [
-     89,
-     -112,
-     2
+     205,
+     -104,
+     1.8
     ]
    }
   ]
