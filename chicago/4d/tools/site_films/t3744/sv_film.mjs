@@ -19,7 +19,10 @@ const argv = process.argv.slice(2);
 const arg = (k, d) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : d; };
 const OUT = path.resolve(arg('--out', 'sv-film'));
 const URL_ = arg('--url', 'https://dev.chicago.polecat.live/4d/dev/1904/');
-const [VW, VH] = arg('--view', '1600x900').split('x').map(Number);
+const [VW, VH] = arg('--view', '1280x720').split('x').map(Number);
+// The page is laid out at --view and drawn at --scale (1.5: a 1280 x 720 layout, as on a laptop, filmed
+// at 1920 x 1080), so the Today window is the size a visitor sees it, and sharp.
+const SCALE = Number(arg('--scale', '1.5'));
 const SETTLE = Number(arg('--settle', '25'));
 fs.mkdirSync(path.join(OUT, 'frames'), { recursive: true });
 const logf = path.join(OUT, 'log.txt');
@@ -33,7 +36,7 @@ try { pw = await import('playwright'); } catch {
 const { chromium } = pw.chromium ? pw : pw.default;
 const browser = await chromium.launch({ channel: process.env.PW_CHANNEL || undefined, headless: !argv.includes('--headed'),
   args: ['--ignore-gpu-blocklist', '--enable-gpu-rasterization', '--enable-zero-copy', ...(process.platform === 'darwin' ? ['--use-angle=metal'] : [])] });
-const page = await browser.newPage({ viewport: { width: VW, height: VH }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ viewport: { width: VW, height: VH }, deviceScaleFactor: SCALE });
 page.setDefaultTimeout(900_000);
 page.on('pageerror', e => log('pageerror', String(e).slice(0, 200)));
 await page.addInitScript(() => {
@@ -73,7 +76,7 @@ cdp.on('Page.screencastFrame', async (f) => {
   fs.writeFileSync(path.join(OUT, 'frames', `${String(k).padStart(5, '0')}.jpg`), Buffer.from(f.data, 'base64'));
   try { await cdp.send('Page.screencastFrameAck', { sessionId: f.sessionId }); } catch {}
 });
-await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidth: VW, maxHeight: VH, everyNthFrame: 1 });
+await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 92, maxWidth: Math.round(VW * SCALE), maxHeight: Math.round(VH * SCALE), everyNthFrame: 1 });
 log('recording');
 // The walk, in real time, in the page: a list of beats, each eased; the Today key is pressed
 // by the page's own button so the window pops out as a visitor sees it.
@@ -108,11 +111,13 @@ const result = await page.evaluate(async () => {
   await wait(3500);                                              // both views of the corner, side by side
   await beat(4, { yaw: 180 });                                   // turn down Prairie Avenue
   await wait(1200);
-  // South along the avenue at a stroll, the eye drifting to the Kimball house across the way.
-  await beat(14, { e: 1403.2, n: -3236, look: (p) => yawLerp(180, bearing(p.e, p.n, 1428, -3222), Math.max(0, Math.min(1, (-3214 - p.n) / 18))) }, { evenPace: true });
-  await beat(3, { yaw: bearing(1403.2, -3236, 1428, -3222), pitch: 6 });   // the Kimball house, settled
+  // South along the avenue at a stroll, west of the crown (the saddle horse stands tied at the
+  // east kerb), the eye drifting to the Kimball house across the way.
+  await beat(2.5, { e: 1400.4, n: -3213 });
+  await beat(14, { e: 1399.8, n: -3236, look: (p) => yawLerp(180, bearing(p.e, p.n, 1428, -3222), Math.max(0, Math.min(1, (-3214 - p.n) / 18))) }, { evenPace: true });
+  await beat(3, { yaw: bearing(1399.8, -3236, 1428, -3222), pitch: 6 });   // the Kimball house, settled
   await wait(4500);
-  await beat(5, { yaw: bearing(1403.2, -3236, 1401, -3196) - 25, pitch: 3 }); // back up the avenue to the corner
+  await beat(5, { yaw: bearing(1399.8, -3236, 1401, -3196) - 25, pitch: 3 }); // back up the avenue to the corner
   await wait(3500);
   notes.push(`end mode ${document.getElementById('today-view')?.dataset.mode}`, document.getElementById('today-where')?.textContent ?? '');
   return notes;
@@ -131,7 +136,7 @@ for (let k = 0; k < frames.length; k++) {
 list.push(`file 'frames/${String(frames.length - 1).padStart(5, '0')}.jpg'`);
 fs.writeFileSync(path.join(OUT, 'frames.txt'), list.join('\n'));
 execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', path.join(OUT, 'frames.txt'),
-  '-vf', `fps=30,scale=${VW}:${VH}:flags=lanczos`, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'slow',
+  '-vf', `fps=30,scale=${Math.round(VW * SCALE)}:${Math.round(VH * SCALE)}:flags=lanczos`, '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', '-preset', 'slow',
   '-movflags', '+faststart', path.join(OUT, 'walk.mp4')]);
 const span = frames.length > 1 ? frames.at(-1) - frames[0] : 0;
 log(`walk.mp4: ${span.toFixed(1)} s, ${frames.length} frames (${(frames.length / Math.max(1, span)).toFixed(1)} fps captured)`);
