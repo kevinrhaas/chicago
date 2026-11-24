@@ -251,7 +251,36 @@ class Entrance(Opening):
         has_glass = False
         mouth = day   # T-3228: the backing closes the whole mouth, side light and fanlight included
         sl = v.get("side_light")
-        if sl and head.kind != "flat":
+        if sl and sl.get("pair") and head.kind == "round":
+            # T-3722: a round head's door case (2126's, the May 1905 plate): under the radial
+            # fanlight a bar, or the case's moulded beam, at the spring, and under it one leaf in
+            # the middle between two narrow side lights, each on a panel `sill_m` high, parted
+            # from the leaf and from the jamb by a slender painted post `pier_m` broad
+            tb = v.get("transom_beam")
+            y_leaf = head.spring - (tb["depth_m"] if tb else bar)
+            self._bar(day, y_leaf, head.spring, d, rev + fr["depth_m"])
+            if tb:
+                self._beam(day, y_leaf, head.spring, d, tb)
+            fan = Region(day.s0, day.s1, head.spring, head=head, head_inset=fr["face_m"])
+            self._fanlight(fan, head, d, v.get("fanlight_bars", 5), mu)
+            lw, pw, ls = sl["width_m"], sl["pier_m"], sl["sill_m"]
+            lights = ((day.s0 + pw, day.s0 + pw + lw), (day.s1 - pw - lw, day.s1 - pw))
+            posts = ((day.s0, day.s0 + pw), (lights[0][1], lights[0][1] + pw),
+                     (lights[1][0] - pw, lights[1][0]), (day.s1 - pw, day.s1))
+            # the posts and the panels in the leaf's own paint: the case is one piece of joinery
+            for a0, b0 in posts:
+                self.plane("leaf", box(a0, b0, 0.0, y_leaf), d)
+            for k, (a0, b0) in enumerate(lights):
+                self.plane("leaf", box(a0, b0, 0.0, ls), d)
+                self._sash("sash_outer", Region(a0, b0, ls, top_y=y_leaf), d, sa, mu, (1, 1),
+                           (st, st, st, st), f"side_light_{k}")
+            self.meta["side_light"] = {"pair": True, "s_m": [[round(a, 4), round(b, 4)] for a, b in lights],
+                                       "sill_m": ls, "posts_m": [[round(a, 4), round(b, 4)] for a, b in posts]}
+            day = Region(posts[1][1], posts[2][0], 0.0, top_y=y_leaf)
+            has_glass = True
+        elif sl and sl.get("pair"):
+            raise ValueError(f"{v['id']}: a pair of side lights stands under a round head's fanlight")
+        elif sl and head.kind != "flat":
             # T-2952: a broad arch's mouth (1812's, the Levy print): the transom at the spring, the
             # segment over it glazed in lights, and under it the leaves, a pier and a side light
             # T-3134: or a heavy moulded beam `transom_beam` deep, the fanlight standing on it
@@ -293,7 +322,8 @@ class Entrance(Opening):
             if head.kind != "flat":
                 raise ValueError(f"{v['id']}: an arched head needs a transom_m or a round fanlight")
             y_leaf = top
-        nl = v["leaves"]
+        # T-3722: a paired side light's door case hangs one leaf between its lights
+        nl = 1 if sl and sl.get("pair") else v["leaves"]
         w = (day.s1 - day.s0) / nl
         lf = p["leaf"]
         for k in range(nl):

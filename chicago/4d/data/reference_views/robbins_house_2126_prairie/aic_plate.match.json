@@ -2,11 +2,11 @@
   "structure_id": "robbins_house_2126_prairie",
   "view": "aic_plate",
   "glb": "assets/gltf/versions/robbins_house_2126_prairie/completed/robbins_house_2126_prairie__completed.glb",
-  "glb_sha256": "8f89389d883fcd564226e3ed818987ae6a9c4a0ab364575bb6444e9d7e29945b",
+  "glb_sha256": "7f53875337d31669a01362175c3da5d1dac70dc0dd98191259c902ff0ba78045",
   "camera_sha256": "4885430b11b67f88382e471cb9a8d558dddb2870182518c4df1edec0b4a33068",
   "photo_sha256": "4c3a177f09c9225da56dc92ddc225bdb719213cfd6cafdcbf596070601ee049b",
   "side_by_side": "docs/RESEARCH/photo-match/robbins_house_2126_prairie/aic_plate-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the front's composition: five bays, the fanlit door in the middle, three storeys of brick over the pale basement, the entablature over the chamber storey, the attic's five short lights and the two end chimneys stand where the plate draws them (T-3721's build, on this camera: the principal heads print at 3.87 m, the chamber sills at 5.76, within about 0.1 m)",
@@ -49,16 +49,16 @@
       "status": "within tolerance"
     },
     {
-      "what": "the sash: the plate's lights are six over six (the attic's six over six); K06's sash is two over two. The openings, their sizes and frames match; the glazing bars are a K06 variant the kit does not yet carry",
-      "status": "open"
+      "what": "the sash: the plate's lights are six over six on every storey (the attic's six over six too); T-3721 built K06's two over two. T-3722: built in K06's new six-over-six sash (k06.opening.sash_6over6_flat), three lights across and two up in each sash, in the same openings and frames",
+      "status": "fixed"
     },
     {
-      "what": "the wall head: the plate's brick stops at about 11.1 m under a cornice of about 0.4 m that breaks forward over each pilaster and a blocking course over it, crown about 11.8 m; the render's flat K05 roof puts its fascia at 11.6-12.0 m and a blocking course and coping up to 12.8 m, about 1 m over the plate's crown. The K01 flat roof stands its deck above the eave datum by the kit's fascia and upstand, so this needs a flat roof whose deck lies behind the cornice's crown: a generator change beyond T-3722's run",
-      "status": "open"
+      "what": "the wall head: the plate's brick stops at about 11.3 m under a cornice to about 11.55 m and a thin blocking course over it, crown about 11.8 m; T-3721's K05 flat roof stood its deck on the wall head and its fascia, blocking course and coping up to 12.8 m, about 1 m over the plate's crown. T-3722: the attic storey 2.63 m (the cornice's soffit at 11.45 m) and the blocking course coped at 11.8 m (flat_crown_m), the deck dropped behind it; the stacks show about 0.7 m over it, as the plate's do",
+      "status": "fixed"
     },
     {
-      "what": "the door: the plate draws a single panelled leaf between two narrow side lights and slender colonnettes under the fanlight, in a brick arch with a stone keystone; the render has K07's double leaf under a stone arch ring and surround. The mouth's width and the fanlight match; the leaf count, the side lights and the surround's material do not",
-      "status": "open"
+      "what": "the door: the plate draws a single panelled leaf between two narrow side lights and slender posts under the door case's beam and the fanlight, in a brick arch with a stone keystone; T-3721 built K07's double leaf under a stone ring. T-3722: one pale leaf about 0.94 m across between two side lights about 0.2 m across on panels, each between pale posts about 0.1 m broad, under a moulded beam about 0.3 m deep at the spring (K07's paired side light), and the arch's ring laid in the front's brick round the stone keystone",
+      "status": "fixed"
     },
     {
       "what": "the area: the plate's iron railing stands on a low brick wall under a stone coping, with evergreens in window boxes behind it; built as K11's spear railing on its stone curb. The boxes and shrubs are planting of the photograph's day",
@@ -69,10 +69,26 @@
       "status": "not shown"
     },
     {
-      "what": "north of the house the plate shows a brick wall under a stone coping with a ball-topped pier at its street end, returned north; the render's railing runs on to the lot line there and the K11 end pier stands at the south end instead",
-      "status": "open"
+      "what": "north of the house the plate shows a brick wall under a stone coping with a ball-topped pier at its end, carrying on the north scroll's pier past the corner; T-3721's railing ran on to the lot line with nothing behind it. T-3722: built as a brick screen wall at the scroll pier's height under a stone coping to a brick pier about 0.4 m broad whose axis stands 2.45 m out from the corner, under a stone cap (its top 2.3 m) and a 0.3 m ball (front_order.scroll.wall)",
+      "status": "fixed"
+    },
+    {
+      "what": "the door case's detail: the plate's posts are turned colonnettes with small caps and its side lights are leaded; built as flat painted posts and single panes, the case's beam stopping at the mouth's jambs where the plate's runs a little past them, the frame round the mouth and the fanlight's radial bars in the joinery's dark paint where the plate reads them pale (liberty L-k01-robbins-2126-3722)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the arch's ring: the plate's is one ring of headers round the fanlight; built as K01's voussoir block laid in the front's brick, its joints radial, the block's corners filled out to the wall's coursing",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the wall head's heights: the cornice's soffit stands about 0.13 m over the plate's (11.45 m against about 11.32; K10's blocks must clear the attic lintels' heads) and the crown about 0.03 m over it (11.8 m against about 11.77)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the screen wall's pier: its cap and ball stand within about 0.05 m of the plate's; its depth behind the railing and the wall's thickness are not shown by a square-on view and are the scroll pier's",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-3722, 2026-11-23: the side-by-side read element by element against the plate (both scans are one photograph)"
+  "reviewed": "T-3722, 2026-11-23: the side-by-side read element by element against the plate again after the sash, door, wall head and north wall were built (both scans are one photograph); nothing a street visitor would notice is left open"
 }

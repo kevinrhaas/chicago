@@ -46310,9 +46310,20 @@ carved spiral; the carved panel is a palmette and two rosettes in relief, not th
 curve is a stated sweep to a drum; every projection (the pilasters' 0.05 m, the capitals', the keys', the panels') and the
 scroll stops' depth, which a square-on view does not show; the balls' profile.
 
-**Not built, and open in the match records:** six-over-six glazing; the single leaf with two side lights under a brick
-arch at the door; the wall head (the K01 flat roof stands its deck about 1 m over the plate's cornice crown); the brick
-wall and ball-topped pier returned north at the street line.
+**Built by T-3722's second run, so both match records now read `matches`:** six-over-six sash on every storey (K06's
+new `k06.opening.sash_6over6_flat`); at the door one pale panelled leaf between two narrow side lights on panels and
+slender posts, under the door case's moulded beam and the fanlight, in a ring of the front's brick round the stone
+keystone (K07's paired side light, `entrance_kit.side_light.pair`; K01's `arch.ring_fabric: brick`); the wall head, the
+attic storey 2.63 m and the blocking course coped at 11.8 m just over the cornice with the deck dropped behind it (K01's
+`flat_crown_m`), and the stacks 1.5 m over that deck; and the north scroll's pier carried on as a brick screen wall under
+a stone coping to a brick pier under a stone cap and ball (`front_order.scroll.wall`). Read, not invented: the side
+lights', posts' and leaf's breadths, the side lights' sills and the beam's depth (the 1.6 m mouth at about 206 px in a
+2.08x crop of the 2400 px scan); the brick stop, the cornice's top and the crown (11.32, 11.55 and 11.77 m at about 95.3 px
+a metre from grade); the screen wall's pier, its place, cap and ball. Invented (stated forms): the posts are flat where the
+plate's are turned colonnettes; the side lights are single panes where the plate's are leaded; the case's beam stops at
+the mouth's jambs; the ring is K01's voussoir block laid in brick, not one ring of headers; the cornice's soffit stands
+about 0.13 m over the plate's because K10's blocks must clear the attic lintels' heads, and the crown is built at 11.8 m;
+the screen wall's depth and thickness are the scroll pier's, which a square-on view does not show.
 
 ### L-k01-2110-rees-3716 — 2110 Prairie re-read through its two photographs' cameras: broader bow lights with transoms, a narrower loggia, a lower gable light and carved field, corbels under the kneelers, a taller south stack
 
