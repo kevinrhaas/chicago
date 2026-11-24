@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3245, ts: '2026-11-24T21:27:12.564Z', date: 'Nov 24, 2026, 3:27 PM CT', title: 'Detail changes and 1871 Go to no longer freeze for long', kind: 'fix',
+    items: [
+      'On weaker computers, changing Scene detail in 1835 no longer stalls the page for 7 to 14 seconds; the longest pause is now under a second.',
+      'In 1812, quick runs of detail changes no longer freeze the page for over 20 seconds; the town keeps moving while its trees and plants are replanted.',
+      'Go to, Find and Follow in 1871 no longer freeze for up to 24 seconds after the jump; the longest pause is now under a second and a half.',
+      'The town looks exactly as before: the trees stand where they stood and you walk on the same ground.',
+    ] },
   { v: 3244, ts: '2026-11-24T20:35:49.666Z', date: 'Nov 24, 2026, 2:35 PM CT', title: 'A trailer for the public site, and films behind every page', kind: 'feature',
     items: [
       'Watch the trailer on the home page: the four years in a little over a minute, with title cards and the main title theme.',
