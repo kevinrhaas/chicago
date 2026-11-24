@@ -18522,9 +18522,11 @@ for (const [label, viewport, touch] of [
     await tourWait(9);
     // T-3743: Report a bug, rung on its key, then Next.
     const bugStep = await tourView();
-    const bugRing = await page.evaluate(() => { const h = document.querySelector('#tour .tour-hole'); const k = document.getElementById('bug-key');
+    // The ring glides from the Settings key, so it is waited for rather than read at once.
+    const bugRing = await page.waitForFunction(() => { const h = document.querySelector('#tour .tour-hole'); const k = document.getElementById('bug-key');
       if (!h || h.hidden || !k) return false; const a = h.getBoundingClientRect(), b = k.getBoundingClientRect();
-      return a.left <= b.left + 1 && a.right >= b.right - 1 && a.top <= b.top + 1 && a.bottom >= b.bottom - 1; });
+      return a.left <= b.left + 1 && a.right >= b.right - 1 && a.top <= b.top + 1 && a.bottom >= b.bottom - 1; },
+      null, { timeout: 5000, polling: 100 }).then(() => true, () => false);
     await clickChrome('#tour-next');
     await tourWait(10);
     const last = await tourView();
@@ -18575,7 +18577,7 @@ for (const [label, viewport, touch] of [
       return { closed, hid, back: !k.hidden, sent: api.bugs.sentLog.length, row: !!document.getElementById('s-bug-key') };
     });
     check(`${label}: Report a bug opens its sheet with a picture of the town, sends nothing off the live site, closes on Esc, and its Settings switch hides the key (T-3743)`,
-      bugOpen.open && bugOpen.shot === 'data:image/jpeg;base64' && bugOpen.shotKB > 2 && bugOpen.focus === 'bug-comment' && bugOpen.fits
+      bugOpen.open && bugOpen.shot === 'data:image/jpeg;base64,' && bugOpen.shotKB > 2 && bugOpen.focus === 'bug-comment' && bugOpen.fits
       && bugOpen.live === false && bugOpen.send === 'Copy report'
       && bugClosed.closed && bugClosed.hid && bugClosed.back && bugClosed.sent === 0 && bugClosed.row,
       JSON.stringify({ bugOpen, bugClosed }));
@@ -18652,7 +18654,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
     // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
-    // which is read first. Then, the license set aside, the Field Check is put back at step 10 (its last since T-3642)
+    // which is read first. Then, the license set aside, the Field Check is put back at step 11 (its last since T-3743)
     // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
     // for, since on the desktop runner its few seconds can pass inside one frame). A second
     // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
@@ -18672,7 +18674,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 10, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -18689,7 +18691,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 9, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 10, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -18731,7 +18733,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 9 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 10 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored

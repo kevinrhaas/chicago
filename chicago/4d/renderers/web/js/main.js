@@ -7959,6 +7959,9 @@ async function boot() {
         bugKey: !!api.bugKey && !api.bugKey.key.hidden };
     },
     render: (v) => {
+      // T-3743: on a phone an open Navigator hides the compass row and its bug key, so the
+      // Report a bug step docks it, and the key is there to ring.
+      if (v?.target === '#bug-key' && backends.name === 'touch' && (navigatorUi?.level ?? 0) > 0) navigatorUi.dock();
       tourOverlay.paint(v);
       if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
       if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
