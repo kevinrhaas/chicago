@@ -2849,6 +2849,12 @@ async function boot() {
     // heap for Full's backing triangles. Balanced shares Light's asset and stands inside
     // its ceiling without it. Receipts: docs/RESEARCH/calumet-walk-budget-3012/.
     if (!inspectionLod || detailLevel==='balanced') return;
+    // NOT ON A WEAK DESKTOP (2026-11-24). The filter trades CPU for triangles, and
+    // an integrated-graphics desktop is CPU-bound: on an i5-10400 / UHD 630 it
+    // tested ~10,000 pieces a frame to leave out 44,000 of 2.7M triangles, and
+    // took Light from 22.1 fps to 8.4 (Light then ran at less than half of
+    // Balanced's 20.9). Phones keep it; `?viewocclude=1` forces it on to compare.
+    if (weakDesktop && params.get('viewocclude') !== '1') return;
     const batches=[...buildings.batches];
     for(const group of [railway.group,terrain.group,streets.group])
       group.traverse(o=>{if(o.isBatchedMesh)batches.push(o);});
@@ -3892,6 +3898,15 @@ async function boot() {
    * and changing back gives you the town you had, not a reshuffled one.
    */
   let detailPending = null;
+  // THE SWITCH TAKES MORE OF EACH FRAME than the boot's 12 ms (weak PC,
+  // 2026-11-24). The town keeps rendering while the new detail is built off
+  // scene, and on an integrated GPU a frame is ~70 ms, so 12 ms of building per
+  // frame stretched 13 s of work to 64-106 s. The visitor has just asked for
+  // the change from Settings; 40 ms a frame, the settle pass's own budget,
+  // costs a little smoothness for well under half the wait.
+  const switchCheckpoint = createCheckpoint({ budgetMs: 40 });
+  // Released models re-read at once during a switch: 4 on a low-memory device, 8 elsewhere.
+  const rereadLanes = lowMem ? 4 : 8;
   // The one opt-in structure whose geometry changes with Settings. Everything
   // is prepared off-scene, then committed in one turn so no empty lot or mismatched
   // budget is rendered between the two. Ordinary scenes keep their existing path.
@@ -3914,7 +3929,21 @@ async function boot() {
     next.retired = [];
     const rows = [...next.registry.values()].filter((row) => row.id !== skipId
       && (row.sourceReleased || hasReleasedTextureLevels(row.gltf)));
-    const got = await Promise.allSettled(rows.map((row) => loaded.loadDetailAsset(row, row.assetDetail)));
+    // A FEW AT A TIME (weak PC, 2026-11-24): every released model in town was
+    // fetched and decoded at once, and on an 8 GB integrated-graphics desktop
+    // the switch to or from Full peaked near 2 GB of script memory with under
+    // half a gigabyte of the machine left free. A short queue keeps the decode
+    // buffers in flight to a handful; the reads still overlap.
+    const got = new Array(rows.length);
+    let nextRow = 0;
+    const lane = async () => {
+      while (nextRow < rows.length) {
+        const i = nextRow++;
+        try { got[i] = { status: 'fulfilled', value: await loaded.loadDetailAsset(rows[i], rows[i].assetDetail) }; }
+        catch (reason) { got[i] = { status: 'rejected', reason }; }
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(rereadLanes, rows.length) }, lane));
     got.forEach((r) => { if (r.status === 'fulfilled') next.reread.push(r.value.gltf); });
     const failed = got.find((r) => r.status === 'rejected');
     if (failed) throw failed.reason;
@@ -3936,7 +3965,13 @@ async function boot() {
       const next = {};
       try {
         const record = loaded.registry.get('glessner_house');
-        if (String(detailAssetUrl(record, level, bases)) !== record.assetUrl) {
+        // A LOW-MEMORY DEVICE KEEPS THE HOUSE IT BOOTED WITH (weak PC, 2026-11-24).
+        // Only the Glessner house has a Full model of its own, but swapping it
+        // rebuilds every building in town and re-reads each released model:
+        // 51-90 s and ~1.8 GB of script memory on an 8 GB integrated-graphics
+        // desktop, with a few hundred megabytes of the machine left. Everything
+        // else Full changes (planting, trees, shadows, reach, tiers) still applies.
+        if (!lowMem && String(detailAssetUrl(record, level, bases)) !== record.assetUrl) {
           next.asset = await loaded.loadDetailAsset(record, level);
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
@@ -3947,7 +3982,7 @@ async function boot() {
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             shadowCasters, colourTwins: level !== 'full', farColourTier,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: lowMem,
+            checkpoint: switchCheckpoint, preserveMaterials: true, lowSpec: lowMem,
             collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
