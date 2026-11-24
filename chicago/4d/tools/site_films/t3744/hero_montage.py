@@ -4,9 +4,9 @@ whose last shot dissolves back into its first so the loop never jumps (T-3744)."
 import os, subprocess, sys
 films, out = sys.argv[1:3]
 W, H, FPS, X = 1600, 900, 24, 1.0
-S = [('1904-prairie-walk', 1.0, 6.0), ('1812-fort-fly', 1.0, 5.5), ('1904-people-cards', 0.0, 5.5),
+S = [('1904-prairie-walk', 1.0, 6.0), ('1812-fort-fly', 0.2, 5.5), ('1904-people-cards', 1.0, 5.5),
      ('1812-column', 3.0, 5.5), ('1835-forks-fly', 1.0, 5.0), ('1904-prairie-walk', 60.0, 6.0),
-     ('1871-fire-night', 1.0, 5.0), ('1904-prairie-walk', 84.5, 6.5)]
+     ('1871-clark-street', 0.3, 5.5), ('1871-fire-night', 1.0, 5.0), ('1904-prairie-walk', 84.5, 6.5)]
 args = ['ffmpeg', '-v', 'error', '-y']
 for f, ss, ln in S: args += ['-ss', str(ss), '-t', str(ln), '-i', os.path.join(films, f + '.mp4')]
 fc = ''.join(f'[{i}:v]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},setsar=1,format=yuv420p,tpad=stop_mode=clone:stop_duration={ln},trim=duration={ln},setpts=PTS-STARTPTS[v{i}];' for i, (_, _, ln) in enumerate(S))

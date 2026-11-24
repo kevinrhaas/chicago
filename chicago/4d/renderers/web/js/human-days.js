@@ -804,7 +804,13 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   };
   const look = (actor, at, seconds) => { const p = headOf(at); if (p) actor.life?.attend?.(p, seconds); };
   const talk = (actor, on) => actor.actions?.setTalk?.(on);
-  const near = (e, n) => { const v = visitor(); return !!v && Math.hypot(v.e - e, v.n - n) < NEAR_M; };
+  // T-3744: a visitor in the air (Fly, a film's camera) has no feet in the town, but their eye
+  // still sees it: within NEAR_M of the eye, people walk and turn rather than jump into place.
+  const near = (e, n) => {
+    let v = visitor();
+    if (!v) { const w = eye?.(); v = w ? { e: w.x, n: -w.z } : null; }
+    return !!v && Math.hypot(v.e - e, v.n - n) < NEAR_M;
+  };
 
   /** The way from a to b, on foot. */
   function way(a, b) {
@@ -847,6 +853,16 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         onArrive: () => { if (p.token === token) done?.(); } });
       if (!ok) p.pendingHostMove = { to, heading, done, from, speed, direct, token, retry: clock + 0.5 };
       return;
+    }
+    // T-3744: told to face another way where they stand, someone in sight turns round on the
+    // spot at the walk's turn rate; set straight to the new heading, they flipped front to back.
+    // Not only a drawn figure: one whose body has not come yet is drawn by the crowd, which
+    // copies its heading, so it turns too (a turn on the spot is never a jump).
+    const seen = near(start.e, start.n) || near(to.e, to.n);
+    if (seen && dist(start, to) < 0.05 && Number.isFinite(heading) && typeof a.turnTo === 'function'
+      && Math.abs(((heading - (a.heading ?? heading) + 540) % 360) - 180) > 1) {
+      a.e = to.e; a.n = to.n; a.standY = null;
+      if (a.turnTo(heading) !== false) { done?.(); return; }
     }
     if ((safe && hidden) || (!safe && !near(start.e, start.n) && !near(to.e, to.n)) || typeof a.walkPath !== 'function' || dist(start, to) < 0.05) {
       a.path = null;

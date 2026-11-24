@@ -9,12 +9,12 @@ W, H, FPS = 1920, 1080, 24
 # (source film or None for black, start in source, length, card, card in, card out, fade in, fade out)
 T = [
  (None,                 0,   3.6, 'c-open',   0.5, 3.0, 0,   0),
- ('1812-fort-fly',      0.5, 6.9, 'y-1812',   0.8, 6.0, 0.8, 0.5),
+ ('1812-fort-fly',      0.4, 5.3, 'y-1812',   0.8, 4.5, 0.8, 0.5),   # ends before its hitch at 5.75 s
  ('1835-forks-fly',     0.5, 6.0, 'y-1835',   0.6, 5.2, 0.5, 0.5),
- ('1871-downtown-fly',  0.5, 6.0, 'y-1871',   0.6, 5.2, 0.5, 0.5),
+ ('1871-clark-street',  0.3, 6.2, 'y-1871',   0.6, 5.4, 0.5, 0.5),
  ('1904-prairie-walk',  0.5, 8.5, 'y-1904',   0.8, 7.4, 0.5, 0.7),
  (None,                 0,   3.0, 'c-record', 0.3, 2.6, 0,   0),
- ('1904-people-cards',  0.0, 5.8, 'c-meet',   0.8, 5.0, 0.6, 0.4),
+ ('1904-people-cards',  1.0, 5.8, 'c-meet',   0.8, 5.0, 0.6, 0.4),
  ('1904-host',          0.5, 3.9, None,       0,   0,   0.3, 0.5),
  (None,                 0,   1.4, 'c-saw',    0.1, 1.3, 0,   0),
  ('1812-column',        2.0, 4.0, None,       0,   0,   0,   0),
@@ -22,10 +22,12 @@ T = [
  ('1871-fire-night',    1.0, 3.0, None,       0,   0,   0,   0),
  ('1904-prairie-walk', 62.0, 3.0, None,       0,   0,   0,   0),
  ('1812-column',       16.2, 3.0, None,       0,   0,   0,   0),
- ('1904-prairie-walk', -7.5, 5.8, None,       0,   0,   0,   0.8),
+ ('1904-prairie-walk', -7.5, 4.8, None,       0,   0,   0,   0.8),
 ]
 total = sum(t[2] for t in T)
-DUR = float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',music]))
+# The theme swells again in its last four seconds as if to begin over (Kevin, 2026-11-24): the trailer
+# ends before that, faded out over the held title card.
+DUR = min(float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',music])), 70.2)
 TITLE = DUR - total
 T.append((None, 0, TITLE, 'c-title', 0.4, TITLE - 1.6, 0, 1.4))
 os.makedirs('seg', exist_ok=True)
@@ -54,7 +56,7 @@ for i, (src, ss, ln, card, cin, cout, fin, fout) in enumerate(T):
     subprocess.check_call(args); segs.append(seg)
 open('seg/list.txt', 'w').write(''.join(f"file '{os.path.basename(s)}'\n" for s in segs))
 subprocess.check_call(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', 'seg/list.txt', '-i', music,
-    '-filter_complex', f'[1:a]afade=t=out:st={DUR - 2.0:.2f}:d=2[a]', '-map', '0:v', '-map', '[a]',
+    '-filter_complex', f'[1:a]atrim=0:{DUR:.2f},afade=t=out:st={DUR - 2.4:.2f}:d=2.4[a]', '-map', '0:v', '-map', '[a]',
     '-c:v', 'libx264', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-crf', '22', '-preset', 'slow',
     '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart', '-shortest', out])
 print(out, total + TITLE, os.path.getsize(out))
