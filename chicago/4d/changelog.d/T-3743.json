@@ -1,7 +1,0 @@
-{
-  "title": "The tour shows the bug key on phones too",
-  "kind": "fix",
-  "items": [
-    "On a phone, the tour's Report a bug step closes the Navigator, so the bug key is in view and ringed."
-  ]
-}

@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3243, ts: '2026-11-24T20:23:29.448Z', date: 'Nov 24, 2026, 2:23 PM CT', title: 'The tour shows the bug key on phones too', kind: 'fix',
+    items: [
+      'On a phone, the tour\'s Report a bug step closes the Navigator, so the bug key is in view and ringed.',
+    ] },
   { v: 3242, ts: '2026-11-24T17:50:35.945Z', date: 'Nov 24, 2026, 11:50 AM CT', title: 'Report a bug from the upper right, and crashes report themselves', kind: 'feature',
     items: [
       'A small bug key sits left of the compass row. It takes a picture of the town and asks what went wrong, then sends that with the year, where you stand and your device.',
