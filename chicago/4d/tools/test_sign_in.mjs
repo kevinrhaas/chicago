@@ -88,9 +88,10 @@ const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(
 // T-3645 added readers/<uid> (the reading age), whose list tools/test_reading_level.mjs holds;
 // T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
 // T-3741 messages/<id>, the public contact page's (site/js/contact.js), checked below.
-assert.equal(lists.length, 5, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages and people hasOnly lists');
+// T-3743 bugs/<id>, crash and bug reports (tools/test_bug_report.mjs holds its fields).
+assert.equal(lists.length, 6, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages, bugs and people hasOnly lists');
 const visitorRule = lists.find((l) => l.includes('firstSeen'));
-const visitRule = lists.find((l) => l.includes('uid'));
+const visitRule = lists.find((l) => l.includes('uid') && !l.includes('kind'));
 assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');
 const w = entryWrites({ projectId: 'p', uid: 'u1', email: 'a@b.co', name: 'A', method: 'google', year: '1835', device: 'phone', visitId: 'v1' });
 const fieldsOf = write => [...Object.keys(write.update.fields), ...(write.updateTransforms || []).map(t => t.fieldPath)];
