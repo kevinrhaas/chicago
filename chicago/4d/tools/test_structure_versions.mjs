@@ -418,8 +418,8 @@ try {
     const discardStart = mainSource.indexOf('  const discardDetail = (next) => {');
     const discardEnd = mainSource.indexOf('  /**', discardStart);
     if ([rereadStart, rereadEnd, discardStart, discardEnd].some(n => n < 0)) throw new Error('Actual main reread/discard definitions absent');
-    const reread = new Function('loaded', 'hasReleasedTextureLevels', 'hasRequiredSourceTextures', `${mainSource.slice(rereadStart, rereadEnd)}; return rereadReleased;`)(
-      noBankScene, hasReleasedTextureLevels, hasRequiredSourceTextures);
+    const reread = new Function('loaded', 'hasReleasedTextureLevels', 'hasRequiredSourceTextures', 'rereadLanes', `${mainSource.slice(rereadStart, rereadEnd)}; return rereadReleased;`)(
+      noBankScene, hasReleasedTextureLevels, hasRequiredSourceTextures, 8);
     const discard = new Function('disposeLoadedAsset', `${mainSource.slice(discardStart, discardEnd)}; return discardDetail;`)(actualLoader.disposeLoadedAsset);
     const neighbor = { ...noBankRecord, id: 'neighbor_house', sidecar: { ...noBankRecord.sidecar, asset: 'gltf/neighbor_house.glb' } };
     Object.assign(neighbor, await noBankScene.loadDetailAsset(neighbor, 'full'));

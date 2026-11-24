@@ -548,8 +548,13 @@ if (part('1904')) {
   check('phone: /1904/ switches to full and back with no page error',
     switched.full === 'full' && switched.back === 'light' && !switched.error && errors.length === 0,
     errors.slice(0, 3).join(' | ') || JSON.stringify(switched));
-  check('phone: /1904/ after the switch banks nothing and holds no source geometry',
-    after.banked === 0 && after.kept === 0 && after.census.sources > before.census.sources,
+  // A phone is a low-memory device, so its switch keeps the Glessner house it booted
+  // with and rebuilds nothing (weak PC, 2026-11-24): no source is re-read, so the
+  // released sources stay exactly the boot's. Before that, the switch re-read every
+  // released model and this count grew.
+  check('phone: /1904/ after the switch banks nothing, holds no source geometry and re-reads nothing',
+    after.banked === 0 && after.kept === 0 && after.census.sources === before.census.sources
+    && after.census.sourceBytes === before.census.sourceBytes,
     JSON.stringify(after));
   check('phone: /1904/ draws the frame it drew before the switch', moved <= 2,
     `largest cell change ${moved} of 255`);
