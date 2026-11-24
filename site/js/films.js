@@ -8,7 +8,7 @@ window.CHICAGO_FILMS = {
     "1812-ashes": "1812-ashes.f9b9b186.mp4",
     "1812-burning": "1812-burning.c9d9f96c.mp4",
     "1812-burning-wide": "1812-burning-wide.a12880ad.mp4",
-    "1812-column": "1812-column.bafca2c4.mp4",
+    "1812-column": "1812-column.27d9f542.mp4",
     "1812-crossing": "1812-crossing.515869ed.mp4",
     "1812-dawn": "1812-dawn.2ac5aaf4.mp4",
     "1812-fire-river": "1812-fire-river.70970791.mp4",
@@ -33,14 +33,16 @@ window.CHICAGO_FILMS = {
     "1904-glessner-orbit": "1904-glessner-orbit.5a96d1c1.mp4",
     "1904-host": "1904-host.8de0a5ab.mp4",
     "1904-monument": "1904-monument.b271de68.mp4",
+    "1904-people-cards": "1904-people-cards.7ccca864.mp4",
     "1904-prairie-glide": "1904-prairie-glide.bf654e42.mp4",
+    "1904-prairie-walk": "1904-prairie-walk.1284cc8b.mp4",
     "1904-stoops": "1904-stoops.1e52cb1c.mp4",
     "1904-winter": "1904-winter.cf6103e1.mp4",
-    "hero": "hero.ce3770d0.mp4",
+    "hero": "hero.a7d28629.mp4",
     "long-1812": "long-1812.ccaf6100.mp4",
     "long-1835": "long-1835.3dce3c8d.mp4",
     "long-1904": "long-1904.64b6ea94.mp4",
     "long-walk": "long-walk.aafa384c.mp4",
-    "reel": "reel.0591e089.mp4"
+    "reel": "reel.6cd919b6.mp4"
   }
 };
