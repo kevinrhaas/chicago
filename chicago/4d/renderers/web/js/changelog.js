@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3241, ts: '2026-11-24T11:58:08.745Z', date: 'Nov 24, 2026, 5:58 AM CT', title: '1835 loads without a long freeze, and Full detail switches at once', kind: 'fix',
+    items: [
+      'On weaker computers 1835\'s shop signs are painted a few at a time, so the town no longer freezes for seven seconds while it loads.',
+      'On computers with little memory, switching to or from Full detail takes a moment instead of over a minute. The Glessner house stays as it loaded; everything else Full changes still applies.',
+      'Light and Full run much smoother on integrated-graphics desktops.',
+    ] },
   { v: 3240, ts: '2026-11-24T01:55:26.039Z', date: 'Nov 23, 2026, 7:55 PM CT', title: '2110 Prairie\'s gable flush with its front, its loggia arches deep', kind: 'feature',
     items: [
       '2110 Prairie\'s front now runs straight up into its tall gable, as both of its photographs show it, with no heavy ledge across the front; a plain stone pier rises at the north corner and nothing stands over the south one; the five loggia windows sit deep in their arches between free-standing columns under a carved band; and the gable\'s carved panel is carved edge to edge. The house now matches both of its photographs.',

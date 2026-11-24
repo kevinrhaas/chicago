@@ -1,9 +1,0 @@
-{
-  "title": "1835 loads without a long freeze, and Full detail switches at once",
-  "kind": "fix",
-  "items": [
-    "On weaker computers 1835's shop signs are painted a few at a time, so the town no longer freezes for seven seconds while it loads.",
-    "On computers with little memory, switching to or from Full detail takes a moment instead of over a minute. The Glessner house stays as it loaded; everything else Full changes still applies.",
-    "Light and Full run much smoother on integrated-graphics desktops."
-  ]
-}
