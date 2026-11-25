@@ -41318,8 +41318,8 @@ by the sheet's fitted similarity; '2' storeys; the brick; the label BARN; its no
 wall 0.49 m inside the 2027/2031 lot line (row 762.70), clear of 2031's garage; one of the key's window marks on the
 alley wall, the sign 1816's, 1824's and 1900's walls carry, 7.54 m from the north wall (row 722.5, read to about a
 pixel); and the east face of the house's one-storey frame back porch 6.92 m west of the yard wall (column 1075.93,
-rows 745.4-761.5). The draft had fitted a 9.75 x 12.75 m rectangle inside 84% of the trace and stood its corner 6.3 m
-north of where the building's middle is. Inferred for 1904 as every reading of these sheets is.
+rows 745.4-761.5). The draft had fitted a 9.75 x 12.75 m rectangle inside 84% of the trace and stood its rear corner
+6.22 m north and 0.83 m west of the alley wall's middle. Inferred for 1904 as every reading of these sheets is.
 **The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's
 carry-back (s35-2027-rear, present_as_mapped), which the district draft already made.
 **What is invented.** The use: BARN is the 1911 sheet's word, not carried to 1904 as a reading (the kit's

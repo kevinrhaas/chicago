@@ -20,6 +20,7 @@
 //   QA_TARGET=1824 node tools/qa_k12_t1932.mjs       T-1935: 1824's stable, the next one south on that alley, party walls both ends
 //   QA_TARGET=1834 node tools/qa_k12_t1932.mjs       T-1935: 1834's barn, south of 1828's, its one-storey piece on the yard side at the north end
 //   QA_TARGET=1900 node tools/qa_k12_t1932.mjs       T-1935: 1900's stable (GARAGE in 1911), between the 1834/1900 shed and 1906's building, party walls both ends
+//   QA_TARGET=2027 node tools/qa_k12_t1932.mjs       T-1938: 2027's barn on the 20th-22nd alley (sheet 35), the first K12 whose alley lies east of it, party wall north
 //   QA_TARGET=1906 node tools/qa_k12_t1932.mjs       T-1935: 1906's barn (BARN in 1911) and its one-storey range south on the kit's range fitting, party wall north against 1900's
 //   QA_TARGET=1912 node tools/qa_k12_t1932.mjs       T-1935: 1912's barn (BARN in 1911) under the kit's hip and deck, no party wall, between 1906's range and the one-storey building south
 //   QA_TARGET=shed node tools/qa_k12_t1932.mjs       T-1935: the open frame shed on the strip between 1834 and 1900 (K16, open on its dashed north and east sides)
@@ -124,6 +125,11 @@ const TARGETS={
   ['yard-face',[1362,-3339,1.7],[1345,-3339,2]],
   ['inside',[1346.5,-3337.6,1.6],[1339.6,-3339.6,2.2]],
   ['air',[1372,-3362,40],[1344,-3339,0]]]},
+ '2027':{dir:'k12-2027-barn-1938',ids:['house_2027_prairie_coach_house','house_2027_prairie','high_house_2021_prairie_coach_house','tolman_house_2031_prairie_coach_house'],glb:'house_2027_prairie_coach',stands:[
+  ['alley-from-south',[1473.2,-3592,1.7],[1470.2,-3565.4,4]],
+  ['alley-from-north',[1473.2,-3539,1.7],[1470.2,-3565.4,4]],
+  ['yard-face',[1450.5,-3560,1.7],[1459.4,-3566,3]],
+  ['air',[1494,-3590,44],[1462,-3565,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
