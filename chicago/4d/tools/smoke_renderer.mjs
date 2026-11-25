@@ -15135,6 +15135,7 @@ for (const [label, viewport, touch] of [
         ? d.jaunts >= 1 && d.jaunts <= 3 && d.empty === null : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
+      // As many printed steps as js/tour.js STEPS holds: eleven since Report a bug (T-3743).
       && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 11
         && s.jaunts === 9 + (handoutRead.dests.find((d) => d.name.startsWith('1871'))?.jaunts ?? 0))
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
