@@ -15057,7 +15057,7 @@ for (const [label, viewport, touch] of [
       && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's ten steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's eleven steps (T-3743 added Report a bug), read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -15135,7 +15135,7 @@ for (const [label, viewport, touch] of [
         ? d.jaunts >= 1 && d.jaunts <= 3 && d.empty === null : d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 10
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 11
         && s.jaunts === 9 + (handoutRead.dests.find((d) => d.name.startsWith('1871'))?.jaunts ?? 0))
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
