@@ -1,0 +1,24 @@
+{
+  "structure_id": "murdoch_house_2130_prairie",
+  "source_id": "chicagology_2140_photo_a",
+  "library_image": "a20-chicagology-2140-photo-a",
+  "photo": "../../sources/assets/murdoch_2130_photos_t3730/chicagology_2140_photo_a.jpg",
+  "image_px": [
+    2000,
+    1467
+  ],
+  "principal_px": [
+    1000,
+    1238
+  ],
+  "focal_px": 2232,
+  "eye": [
+    64.6,
+    -22.6,
+    1.6
+  ],
+  "yaw_deg": -73.4,
+  "sky": "overcast",
+  "scene": "1904",
+  "solve": "trial"
+}

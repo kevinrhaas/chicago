@@ -1,0 +1,12 @@
+{
+  "structure_id": "murdoch_house_2130_prairie",
+  "view": "chicagology_2140_photo_a",
+  "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
+  "glb_sha256": "a71496c13fab75e20c350208695c180041b5d37dc44ed8d25d08bcf6c424f5d7",
+  "camera_sha256": "089f8ee1685649b42e1318a5aec02425a75765d03189f6db670cb1e40fc8903b",
+  "photo_sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27",
+  "side_by_side": "../../../../../../../../tmp/ph/out/chicagology_2140_photo_a-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

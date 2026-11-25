@@ -1,0 +1,13 @@
+{
+  "structure_id": "murdoch_house_2130_prairie",
+  "source_id": "glessner_blog_2015_08_2140_photo",
+  "library_image": "a20-glessner-vanosdel-2140-photo",
+  "photo": "../../sources/assets/murdoch_2130_photos_t3730/glessner_vanosdel_2140_photo.jpg",
+  "image_px": [675, 526],
+  "principal_px": [337.5, 450.3],
+  "focal_px": 664.5,
+  "eye": [57.94, -12.0, 1.6],
+  "yaw_deg": -83.64,
+  "scene": "1904",
+  "solve": "trial"
+}

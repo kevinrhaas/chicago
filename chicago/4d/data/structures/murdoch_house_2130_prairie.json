@@ -360,8 +360,8 @@
               "s_m": 6.6,
               "fabric": "front_stone",
               "plan": {
-                "radius_m": 2.4,
-                "centre_proud_m": 0.1
+                "radius_m": 2.6,
+                "centre_proud_m": 0.0
               },
               "storeys": [
                 {
@@ -418,7 +418,7 @@
               ],
               "roof": {
                 "kind": "cone",
-                "pitch": 2.0,
+                "pitch": 1.55,
                 "covering": "slate_pennsylvania",
                 "finial": true
               },
@@ -426,7 +426,7 @@
                 "cornice": "k10.cornice.moulded_stone"
               },
               "finial": {
-                "height_m": 1.2,
+                "height_m": 0.9,
                 "radius_m": 0.1,
                 "form": "turned",
                 "segments": 6
@@ -435,11 +435,11 @@
           ],
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2140_photo_a",
-            "glessner_blog_2015_08_2140_photo"
+            "glessner_blog_2015_08_2140_photo",
+            "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The round tower the sheet draws at the front's north corner ('3B' in a circle, its stone bowed out over the front from row 1500.5 to the north wall, about 2.2 m proud at column 750) and both photographs show: a drum of rough ashlar in three stages, two storeys of tall lights and a short top stage of smaller ones over the main eave, under a slated cone on a moulded course with a finial. The sheet's dashed circle (columns 720-749.5) reads a drum about 2.8 m in radius on a centre about 0.6 m inside the front's face; K01 stands a single-capped front tower's centre on the face or before it, so it is built 2.4 m in radius on a centre 0.1 m before the face, 6.6 m along it: it bows 2.5 m proud (the sheet's 2.2 m) on a 4.8 m chord (the sheet's about 6.3 m), narrower along the front (L-k01-2130-murdoch-3729); its cone at 2.0 rise to 1 run, the print's steep cone (its height about its base's width). Three lights a stage, evenly round the drum's face: the pictures see two or three of each, and T-3730's cameras place them."
+          "note": "The round tower the sheet draws at the front's north corner ('3B' in a circle, its stone bowed out over the front from row 1500.5 to the north wall, about 2.2 m proud at column 750) and both photographs show: a drum of rough ashlar in three stages, two storeys of tall lights and a short top stage of smaller ones over the main eave, under a slated cone on a moulded course with a finial. The sheet's dashed circle (columns 720-749.5) reads a drum about 2.8 m in radius on a centre about 0.6 m inside the front's face; K01 stands a single-capped front tower's centre on the face or before it, so it is built on a centre on the face, 6.6 m along it. T-3730's cameras read the drum 5.2-5.5 m across in both photographs (the Chicagology print's x 1605-1853 px, the Glessner/Van Osdel print's x 546-639 px, at the scales the tower's own stage lines give), against T-3729's 4.8 m: so 2.6 m in radius, where T-3729 had 2.4 m on a centre 0.1 m before the face; it bows 2.6 m proud (the sheet's 2.2 m) on a 5.2 m chord (the sheet's about 6.3 m), still narrower along the front than the sheet (L-k01-2130-murdoch-3729). Its cone: T-3729 set it at 2.0 rise to 1 run (4.8 m), but the Glessner/Van Osdel print, the only one that sees the apex (the lamp hides it in the other), draws it 74 px from its moulded course to its apex, about 4.0 m at the drum's 17.9 px a metre, and the finial over it about 0.9 m (16 px): so 1.55 rise to 1 run (4.03 m) and a 0.9 m finial (T-3730). Three lights a stage, evenly round the drum's face: the pictures see two or three of each, and T-3730's cameras place them."
         },
         "chimneys": {
           "value": {

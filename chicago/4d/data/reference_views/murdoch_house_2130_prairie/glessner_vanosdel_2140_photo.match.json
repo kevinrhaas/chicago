@@ -1,0 +1,12 @@
+{
+  "structure_id": "murdoch_house_2130_prairie",
+  "view": "glessner_vanosdel_2140_photo",
+  "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
+  "glb_sha256": "a71496c13fab75e20c350208695c180041b5d37dc44ed8d25d08bcf6c424f5d7",
+  "camera_sha256": "15f4b2e9d0481aaa73bbfd5271f7c1a6fbc5229b5d2427ae9c3ded181bdd4053",
+  "photo_sha256": "51d5e6b7c5501d56698d35581dab5edebebf4890f5fa75abb3d7b1989fd91e22",
+  "side_by_side": "../../../../../../../../tmp/ph/out/glessner_vanosdel_2140_photo-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
