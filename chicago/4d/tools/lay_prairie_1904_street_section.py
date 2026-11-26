@@ -67,6 +67,20 @@ lot line across the margin, the walk and the parkway, over the curb at the doorw
 down a stone slab onto the roadway, exactly as a corner crossing runs (same slab, run and lip).
 Where it stands is the doorway's own (the structure record); the paving and slab are
 reconstructed by that rule (docs/LIBERTIES.md L-glessner-coach-drive-3564).
+
+THE ALLEY RETURNS (T-3759). The owner, 2026-11-26: "Correct alleyway grading and remove
+inappropriate curbs at alley entrances" -- the cross street's parkway turf and its curb ran
+straight across every alley's mouth, and the alley stopped at the lot line on the lawn's level.
+The 1905 code leaves "a space of one and one-half inches ... between all walks and the curb at
+street and alley intersections" (sec. 2062): at an alley the walk stops at a curb, so the curb
+is turned into the alley as at a street corner (inferred, a city-wide rule carried to 1904).
+So at each alley end on a street line the alley's own surface runs on across the sidewalk
+space at the alley's width, falling evenly from the alley's grade at the lot line to the
+gutter at the curb line, and a return curb of the street curb's width stands either side of
+it from the curb line back to the lot line, its top on the walk's level; the walk, the
+parkway and the street curb give way over the whole mouth. The even fall and the square
+returns are reconstructed (docs/LIBERTIES.md L-prairie-alley-returns-3759); no picture of
+one of these mouths has been read.
 """
 from __future__ import annotations
 
@@ -93,6 +107,10 @@ POST_ROW_STEP_M = 2.6          # the east curb's row in the 2100-block photograp
 RAMP_RUN_M = 1.5               # a corner slab's run, from the curb's face out into the roadway
 RAMP_SLAB_M = 0.15             # the slab's thickness (its edges show it in the Detroit view)
 RAMP_LIP_M = 0.05              # its top's height over the paving at its foot
+ALLEY_END_M = 0.2              # an alley vertex this near a face's street line is on its mouth
+ALLEY_RETURN_INSET_M = 0.003   # the return's surface stands in this far from each return curb
+ALLEY_RETURN_TUCK_M = 0.05     # the return starts this far under the alley's own drawn end
+ALLEY_RETURN_PAST_M = 0.05     # the bands are cut this far past the curb line, so no sliver of curb is left
 CORNER_MIN_SIN = math.sin(math.radians(45))   # two faces meeting at less than this are a bend
 # T-3200: the corners a picture shows, by the two faces meeting there.
 PICTURED_CORNERS = {
@@ -240,6 +258,95 @@ def lay_drives(grid, xs):
     out.sort(key=lambda x: x["id"])
     return out
 
+def _to_line(p, line):
+    """How far a point stands from a polyline."""
+    best = math.inf
+    for a, b in zip(line, line[1:]):
+        dx, dy = b[0] - a[0], b[1] - a[1]
+        L = dx * dx + dy * dy
+        f = max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L)) if L else 0.0
+        best = min(best, math.hypot(p[0] - a[0] - f * dx, p[1] - a[1] - f * dy))
+    return best
+
+
+def _curb_line(face, c, t, n, k0, k1):
+    """The face's drawn curb line (its curb band's outer edge) as s out from c at each k."""
+    mid = (k0 + k1) / 2
+    for q in face["bands"]["curb"]:
+        ks = [((p[0] - c[0]) * t[0] + (p[1] - c[1]) * t[1], (p[0] - c[0]) * n[0] + (p[1] - c[1]) * n[1]) for p in q]
+        outer = sorted(ks, key=lambda x: -x[1])[:2]
+        (ka, sa), (kb, sb) = sorted(outer)
+        if ka <= mid <= kb and kb - ka > 1e-6:
+            return lambda k: sa + (sb - sa) * (k - ka) / (kb - ka)
+    raise SystemExit(f"street section: no curb quad of {face['id']} reaches the alley mouth at k {mid:.2f}")
+
+
+def lay_alley_returns(grid, xs):
+    """T-3759: at each alley end on a street line, the alley carried across the sidewalk space
+    down to the gutter, with a return curb either side of it."""
+    out = []
+    for al in grid.get("alleys", []):
+        poly = al["polygon_local_m"]
+        for face in grid["faces"]:
+            near = [p for p in poly if _to_line(p, face["street_line_local_m"]) < ALLEY_END_M]
+            if len(near) < 2:
+                continue
+            mid = ((near[0][0] + near[-1][0]) / 2, (near[0][1] + near[-1][1]) / 2)
+            c, t, n = local_side(face, mid)
+            ks = [(p[0] - c[0]) * t[0] + (p[1] - c[1]) * t[1] for p in near]
+            k0, k1 = min(ks), max(ks)
+            # From where the alley's drawn end stands (a hair inside the lot line), under it a little.
+            s0 = min(0.0, min((p[0] - c[0]) * n[0] + (p[1] - c[1]) * n[1] for p in near)) - ALLEY_RETURN_TUCK_M
+            bands = {b["band"]: b for b in xs[face["cross_section"]]["bands"]}
+            cw = (bands["curb"]["to_ft"] - bands["curb"]["from_ft"]) * FT
+            e = ALLEY_RETURN_INSET_M
+            # The curb line as the face's own curb band draws it (it can stand a centimetre off
+            # the cross-section's 14 ft), as a function of k across the mouth.
+            curb_at = _curb_line(face, c, t, n, k0, k1)
+            curb_line = (curb_at(k0) + curb_at(k1)) / 2
+
+            def at(off, along):
+                if off == "curb":
+                    off = curb_at(along)
+                elif off == "past":
+                    off = curb_at(along) + ALLEY_RETURN_PAST_M
+                return [round(c[0] + n[0] * off + t[0] * along, 3), round(c[1] + n[1] * off + t[1] * along, 3)]
+            out.append({
+                "id": f"{al['id']}.return.{face['street']}", "alley": al["id"], "face": face["id"],
+                "origin": [round(c[0], 3), round(c[1], 3)],
+                "along": [round(t[0], 5), round(t[1], 5)], "out": [round(n[0], 5), round(n[1], 5)],
+                "k0_m": round(k0, 3), "k1_m": round(k1, 3), "curb_line_m": round(curb_line, 3),
+                "curb_w_m": round(cw, 3), "inset_m": e,
+                "width_m": round(k1 - k0, 3),
+                "from_m": round(s0, 3),
+                "surface": [at(s0, k0 + e), at(s0, k1 - e), at("curb", k1 - e), at("curb", k0 + e)],
+                "whole": [at(s0, k0 - cw), at(s0, k1 + cw), at("past", k1 + cw), at("past", k0 - cw)],
+                "curbs": [[at(0.0, k0 - cw), at(0.0, k0), at("curb", k0), at("curb", k0 - cw)],
+                          [at(0.0, k1), at(0.0, k1 + cw), at("curb", k1 + cw), at("curb", k1)]],
+                "tier": "reconstructed",
+            })
+    out.sort(key=lambda x: x["id"])
+    return out
+
+
+def check_alley_returns(returns, doc):
+    """No carriage walk, post, crossing or drive, and no parkway elm, stands in an alley's mouth."""
+    def inside(p, r):
+        dx, dy = p[0] - r["origin"][0], p[1] - r["origin"][1]
+        k = dx * r["along"][0] + dy * r["along"][1]
+        s = dx * r["out"][0] + dy * r["out"][1]
+        return r["k0_m"] - r["curb_w_m"] - 0.3 < k < r["k1_m"] + r["curb_w_m"] + 0.3 and -0.1 < s < r["curb_line_m"] + 0.1
+    things = [(w["id"], w["at"]) for w in doc["carriage_walks"]["walks"]]
+    things += [(x["id"], x["at"]) for x in doc["carriage_posts"]["posts"]]
+    for key, sub in (("corner_crossings", "crossings"), ("carriage_drives", "drives")):
+        things += [(x["id"], p) for x in doc[key][sub] for p in x["flat"] + x["ramp"]]
+    if TREES.exists():
+        things += [(t.get("id", "tree"), (t["e"], t["n"])) for t in json.loads(TREES.read_text()).get("trees", [])]
+    bad = sorted({f"{i} in {r['id']}" for i, p in things for r in returns if inside(p, r)})
+    if bad:
+        raise SystemExit("street section: an alley's mouth is not clear -- " + "; ".join(bad[:10]))
+
+
 def lay_crossings(grid, xs):
     """Two crossings at every corner: each face's walk carried on across the other's parkway."""
     byblock = {}
@@ -378,7 +485,7 @@ def build():
         })
     walks.sort(key=lambda w: w["id"])
     posts = lay_posts(grid, faces, xs, {w["parcel"]: w for w in walks})
-    return {
+    doc = {
         "_doc": ("The 1904 district's street section and carriage walks (T-2474). GENERATED by "
                  "tools/lay_prairie_1904_street_section.py from data/street_grid/1904.json -- do not "
                  "hand-edit; re-run the tool. Local ENU metres of data/datum.json. Read by "
@@ -451,7 +558,24 @@ def build():
                      "house as well that should exist'."),
             "drives": lay_drives(grid, xs),
         },
+        "alley_returns": {
+            "ticket": "T-3759",
+            "liberty": "L-prairie-alley-returns-3759",
+            "sources": ["chicago_revised_municipal_code_1905"],
+            "arrangement_tier": "inferred",
+            "note": ("At each alley's mouth the alley's own surface runs on across the sidewalk space at the "
+                     "alley's width, falling evenly from the alley's grade at the lot line to the gutter at the "
+                     "curb line, and the street curb is turned into the alley on both sides, its top on the "
+                     "walk's level; the walk, the parkway and the street curb give way over the mouth. The "
+                     "arrangement is the 1905 code's (sec. 2062: 'a space of one and one-half inches must be "
+                     "left between all walks and the curb at street and alley intersections'), the even fall "
+                     "and the square returns are reconstructed. The owner, 2026-11-26: 'Correct alleyway "
+                     "grading and remove inappropriate curbs at alley entrances'."),
+            "returns": lay_alley_returns(grid, xs),
+        },
     }
+    check_alley_returns(doc["alley_returns"]["returns"], doc)
+    return doc
 
 
 def lay_posts(grid, faces, xs, walk_of):
@@ -503,7 +627,7 @@ def lay_posts(grid, faces, xs, walk_of):
 def dump(doc):
     """indent=1, with each list of placed things one record per line."""
     lists = (("carriage_walks", "walks"), ("carriage_posts", "posts"), ("corner_crossings", "crossings"),
-             ("carriage_drives", "drives"))
+             ("carriage_drives", "drives"), ("alley_returns", "returns"))
     held = {}
     for key, sub in lists:
         held[key] = doc[key][sub]
@@ -527,6 +651,7 @@ def main():
     m = len(doc["carriage_posts"]["posts"])
     x = len(doc["corner_crossings"]["crossings"])
     dr = len(doc["carriage_drives"]["drives"])
+    ar = len(doc["alley_returns"]["returns"])
     if a.check:
         have = OUT.read_text() if OUT.exists() else ""
         if have != text:
@@ -534,12 +659,12 @@ def main():
                   "python3 tools/lay_prairie_1904_street_section.py")
             return 1
         print(f"street section: {n} carriage walks, {m} carriage posts, {x} corner crossings, "
-              f"{dr} carriage drives, as written")
+              f"{dr} carriage drives, {ar} alley returns, as written")
         return 0
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(text)
     print(f"wrote {OUT.relative_to(ROOT)}: {n} carriage walks, {m} carriage posts, {x} corner crossings, "
-          f"{dr} carriage drives")
+          f"{dr} carriage drives, {ar} alley returns")
     return 0
 
 

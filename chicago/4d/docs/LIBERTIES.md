@@ -46391,3 +46391,25 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+### L-prairie-alley-returns-3759 — Each 1904 alley carried across the sidewalk space to the gutter, the curb turned into it
+
+**Decision:** the owner, 2026-11-26: "Correct alleyway grading and remove inappropriate curbs at
+alley entrances." At each of the district's 13 alley mouths the cross street's parkway turf and
+curb no longer run across the alley: the alley's own surface runs on across the sidewalk space at
+the alley's drawn width, falling from its grade at the lot line to the gutter at the curb line,
+and a return curb of the street curb's width stands either side of it from the curb line back to
+the lot line, its top on the walk's level; the walk stops at it (data/street_section/1904.json,
+alley_returns, laid by tools/lay_prairie_1904_street_section.py).
+**What is read (inferred).** The arrangement: the 1905 code leaves "a space of one and one-half
+inches ... between all walks and the curb at street and alley intersections" (sec. 2062), so at
+an alley the walk meets a curb, as at a street corner. A city-wide rule of March 1905 carried to
+1 July 1904.
+**What is invented (reconstructed).** The even fall across the 14-ft (16th Street: 10-ft) space,
+about 7 per cent; the square returns with no rounded corner; the alley's earth-and-cinder surface
+carried out to the gutter. No picture or grade record of one of these mouths has been read.
+**How to resolve:** a photograph of an alley mouth on 18th, 20th or 21st Street before 1907 (the
+Glessner stable's 18th Street front reaches the west alley's mouth), or the city's alley grade
+ordinances for these blocks.
+**Ticket:** T-3759.
+**Recorded:** 2026-11-26.
