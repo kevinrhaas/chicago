@@ -383,13 +383,16 @@
       "value": {
         "sill_m": 0.55,
         "width_m": 0.9,
-        "height_m": 1.45
+        "height_m": 1.45,
+        "at_m": [
+          5.32
+        ]
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2115_armour_photo"
       ],
-      "note": "The photograph's square-headed basement openings between stone piers (y 1060-1150 px): read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade), 0.57 to 2.11 m over grade, so a 1.45 m light on a 0.55 m sill (T-3724's 0.9 m light was read at an assumed scale)."
+      "note": "The photograph's square-headed basement openings between stone piers (y 1060-1150 px): read through the T-3725 camera on the Armour photograph (data/reference_views/house_2123_prairie/chicagology_armour_photo.json, about 58.5 px a metre at this front, the eye 1.6 m over grade), 0.57 to 2.11 m over grade, so a 1.45 m light on a 0.55 m sill (T-3724's 0.9 m light was read at an assumed scale). T-3725: the light beside the bow does not stand under its bay's principal light (5.75 m) in the print: its dark opening runs from the bow's shadowed south flank to x 1925 px, its pale south jamb at x 1928-1943 (where the render's light stood, x 1907-1943), so through the same camera (about 41 px a metre at grade here) a 0.9 m light centred about 5.25 m along the front, its jambs at x about 1890 and 1928; built at 5.32 m (basement_lights.at_m, its jambs at x 1895 and 1932), where its lintel's horns just clear the bow's junction at 4.74 m, 7 cm (3 px here) off the reading. Why it stands off its bay is not read; the print shows only where."
     },
     "window_kit": {
       "value": {
