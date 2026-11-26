@@ -163,6 +163,18 @@ reset(); inspectButton.focus(); assert.equal(down('KeyE', inspectButton).default
 // Arrival/XR/window mode can disable desktop activation without disturbing UI keys.
 reset(); enabled = false; capture(event('ArrowUp', body)); assert.equal(activates, 0); assert.equal(lockRequests, 0);
 assert.equal(worldKeyAllowed(event('KeyE', popupInput), { holding: true }), false);
+// T-3753 (the owner, 2026-11-26: "could not look up during a jaunt"): mouse look answers in
+// full after the view was turned for the visitor. Before the fix the rig kept the 60° look
+// below while the jaunt levelled the walker, so the next 30° up came back as 19.2°.
+reset(); enabled = true; backend.controls.isLocked = true;
+const look = (deg) => { doc.fire('mousemove', { movementX: 0, movementY: -deg * Math.PI / 180 / 0.002 }); backend.update(); const p = intent.pitchDelta; intent.clearLook(); return p * 180 / Math.PI; };
+assert.ok(Math.abs(look(60) - 60) < 1e-6, 'a 60° look up is reported whole');
+// …the jaunt levels the view (travel / glide / arrival write the walker, never the rig)…
+assert.ok(Math.abs(look(30) - 30) < 1e-6, 'the next 30° up still answers in full after the view was levelled');
+for (let i = 0; i < 6; i++) look(40);   // far past any ceiling, one frame at a time
+assert.ok(Math.abs(look(-20) + 20) < 1e-6, 'looking down at once answers too, without first unwinding a stuck rig');
+assert.ok(Math.abs(look(200) - (90 - 0.06 * 180)) < 1e-6, 'one frame\'s turn is still bounded by the polar clamp');
+backend.controls.isLocked = false;
 backend.disable(); assert.equal((win.listeners.get('focusin') ?? []).length, 0, 'no focus listener leaked');
 backend.enable(); assert.equal((win.listeners.get('focusin') ?? []).length, 1);
 backend.dispose(); win.removeEventListener('keydown', capture);

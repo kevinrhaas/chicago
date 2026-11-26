@@ -29,7 +29,7 @@ import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const { pickTale, noteTold, readTeller, createTales, personaOf, mannerOf, leaning } = await import('../renderers/web/js/tales.js');
+const { pickTale, noteTold, readTeller, suits, createTales, personaOf, mannerOf, leaning } = await import('../renderers/web/js/tales.js');
 const { withStory, storyAction, askAction, createTaleTeller } = await import('../renderers/web/js/tale-teller.js');
 const { pickAsks, noteAsked } = await import('../renderers/web/js/asks.js');
 const { createInteractions, actionStyle } = await import('../renderers/web/js/interact.js');
@@ -63,7 +63,7 @@ for (const scene of SCENES) {
   const told = new Set();
   for (const [pid, row] of Object.entries(lib.tellers)) {
     const who = readTeller(row);
-    const pool = lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && (!t.sex || t.sex === who.sex));
+    const pool = lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && suits(t, who));
     pool.forEach((t) => told.add(t.id));
     const need = who.roles.includes('toddler') ? 4 : 5;
     ok(pool.length >= need, `${scene}: ${pid} (${row}) has ${pool.length} stories, wants ${need}`);
@@ -82,7 +82,7 @@ const seq = (seed = 1) => () => { seed = (seed * 16807) % 2147483647; return (se
   const soldiers = Object.entries(lib.tellers).filter(([, r]) => readTeller(r).roles.includes('soldier') && !lib.personal[r]).map(([p]) => p)
     .filter((p) => !lib.personal[p]);
   ok(soldiers.length >= 40, `1812 has forty soldiers or more (${soldiers.length})`);
-  const pool = lib.tales.filter((t) => t.roles.some((r) => readTeller(lib.tellers[soldiers[0]]).roles.includes(r)));
+  const pool = lib.tales.filter((t) => t.roles.some((r) => readTeller(lib.tellers[soldiers[0]]).roles.includes(r)) && suits(t, readTeller(lib.tellers[soldiers[0]])));
   const heard = {};
   const first = soldiers.slice(0, Math.min(soldiers.length, pool.length)).map((p) => {
     const got = pickTale(lib, p, heard, { random: seq(7) });
@@ -266,7 +266,7 @@ for (const scene of SCENES) {
 {
   // The five stay until answered, then five more never answered before.
   const lib = libs['1835'];
-  const pid = Object.keys(lib.tellers).find((p) => lib.tellers[p].startsWith('townsman,labourer/m'));
+  const pid = Object.keys(lib.tellers).find((p) => readTeller(lib.tellers[p]).roles.join() === 'townsman,labourer');
   const state = {};
   const first = pickAsks(lib, pid, state, { random: seq(3) }).asks.map((a) => a.id);
   ok(pickAsks(lib, pid, state, { random: seq(9) }).asks.map((a) => a.id).join() === first.join(), 'the same five while any is unanswered');
@@ -276,7 +276,7 @@ for (const scene of SCENES) {
   const next = pickAsks(lib, pid, state, { random: seq(7) }).asks.map((a) => a.id);
   ok(next.length === 5 && next.every((id) => !first.includes(id)), 'then five never answered before');
   // A second labourer is offered ones nobody has answered for you first.
-  const other = Object.keys(lib.tellers).filter((p) => lib.tellers[p].startsWith('townsman,labourer/m'))[7];
+  const other = Object.keys(lib.tellers).filter((p) => readTeller(lib.tellers[p]).roles.join() === 'townsman,labourer')[7];
   const theirs = pickAsks(lib, other, state, { random: seq(11) }).asks.map((a) => a.id);
   ok(theirs.filter((id) => first.includes(id)).length === 0, 'a second labourer is not offered what you already had answered');
   // The persona leans: over many people, what they are offered matches their topics more than chance.
@@ -286,20 +286,70 @@ for (const scene of SCENES) {
     const got = pickAsks(lib, p, {}, { random: seq(p.length + 1) }).asks;
     lean += got.reduce((s, a) => s + leaning(a, persona), 0) / Math.max(1, got.length);
     const who = readTeller(lib.tellers[p]);
-    const pool = lib.asks.filter((a) => a.roles.some((r) => who.roles.includes(r)));
+    const pool = lib.asks.filter((a) => a.roles.some((r) => who.roles.includes(r)) && suits(a, who));
     base += pool.reduce((s, a) => s + leaning(a, persona), 0) / Math.max(1, pool.length);
   }
   ok(lean > base * 1.1, `a person's temper and history lean what they are asked (${(lean / 400).toFixed(2)} vs ${(base / 400).toFixed(2)})`);
   // And what they tell.
-  const soldiers = Object.keys(libs['1812'].tellers).filter((p) => libs['1812'].tellers[p] === 'soldier/m');
+  const soldiers = Object.keys(libs['1812'].tellers).filter((p) => readTeller(libs['1812'].tellers[p]).roles.join() === 'soldier');
   let tl = 0, tb = 0;
   for (const p of soldiers) {
     const persona = personaOf(libs['1812'], p);
     for (let i = 0; i < 6; i++) tl += leaning(pickTale(libs['1812'], p, { n: 0, told: {}, by: {} }, { random: seq(i * 31 + p.length) }).tale, persona);
-    const pool = libs['1812'].tales.filter((t) => t.roles.includes('soldier'));
+    const pool = libs['1812'].tales.filter((t) => t.roles.includes('soldier') && suits(t, readTeller(libs['1812'].tellers[p])));
     tb += 6 * pool.reduce((s, t) => s + leaning(t, persona), 0) / pool.length;
   }
   ok(tl > tb * 1.1, `and which stories they tell (${tl} vs ${tb.toFixed(0)})`);
+}
+
+// ── Who may tell it (the owner, 2026-11-26) ──────────────────────────────────────────────
+// "Louis Ream ... sounds like a young girl and recounts his World's Fair experience from a female
+// perspective ... grade each story to age and gender and situation"; and an 1871 woman who shoved
+// lumber. A story or question reaches only a teller of its sex, age and origin.
+{
+  const t = readTeller('maid,cook/f/c/a9/oirish');
+  ok(t.roles.join() === 'maid,cook' && t.sex === 'f' && t.child && t.age === 9 && t.origin === 'irish', 'a teller row carries age and origin');
+  const plain = readTeller('soldier/m');
+  ok(plain.age === null && plain.origin === null && !plain.child, 'and a row without them reads as before');
+  ok(!suits({ sex: 'f' }, plain) && suits({ sex: 'm' }, plain) && suits({}, plain), 'a story for one sex is told by that sex only');
+  ok(!suits({ age: [40, null] }, readTeller('x/m/a17')) && suits({ age: [40, null] }, readTeller('x/m/a41')) && suits({ age: [40, null] }, plain),
+    'a story for an age is told only at that age, and by a teller of no known age');
+  ok(!suits({ origin: ['swedish'] }, readTeller('maid/f/oirish')) && suits({ origin: ['swedish'] }, readTeller('maid/f/oswedish')),
+    'a story from somewhere is told by people from there');
+  const SAYS_F = /\b(my husband|I was (a |only a )?(little |young )?girl|as a girl|I am (a |an )?(widow|old woman))\b/i;
+  const SAYS_M = /\b(my wife|I was (a |only a )?(little |young )?(boy|lad)|as a boy|I was a young man)\b/i;
+  const words = (x) => [x.title ?? x.q ?? '', ...(x.text ?? x.a ?? []), ...(x.more ?? []).flatMap((m) => [m.q, ...m.a])].join(' ');
+  for (const scene of ['1812', '1835', '1871', '1904']) {
+    const lib = scene in libs ? libs[scene] : JSON.parse(fs.readFileSync(`${ROOT}data/tales/${scene}.json`, 'utf8'));
+    let wrong = [];
+    for (const [pid, row] of Object.entries(lib.tellers)) {
+      const who = readTeller(row);
+      for (const x of [...lib.tales, ...lib.asks]) {
+        if (!x.roles.some((r) => who.roles.includes(r)) || !suits(x, who)) continue;
+        const w = words(x);
+        if ((who.sex === 'm' && SAYS_F.test(w)) || (who.sex === 'f' && SAYS_M.test(w))) wrong.push(`${pid}:${x.id}`);
+        if (who.child && /\bmy (husband|wife)\b/i.test(w)) wrong.push(`${pid}:${x.id} (a child)`);
+      }
+    }
+    ok(!wrong.length, `${scene}: nobody tells a story as the other sex, nor a child as a wife (${wrong.slice(0, 6)})`);
+  }
+  const l04 = libs['1904'];
+  const louis = 'pa1904_ream_norman_b_c1900_louis_m_ream';
+  ok(louis in l04.tellers && readTeller(l04.tellers[louis]).sex === 'm', 'Louis Ream tells as a young man');
+  const his = pickAsks(l04, louis, {}, { random: seq(4) }).asks;
+  ok(his.length >= 5 && his.every((a) => !SAYS_F.test(words(a))), 'Louis Ream is never asked to remember the Fair as a girl');
+  const fair = l04.asks.find((a) => a.id === 'a04-md-fair');
+  ok(fair && suits(fair, readTeller(l04.tellers[louis])) && !SAYS_F.test(words(fair)), 'and the Fair question is his to answer, told plain');
+  const l71 = JSON.parse(fs.readFileSync(`${ROOT}data/tales/1871.json`, 'utf8'));
+  const lumber = l71.tales.find((x) => x.id === 's71-wm-lumber');
+  const women = Object.values(l71.tellers).map(readTeller).filter((w) => w.sex === 'f');
+  ok(lumber && women.length > 100 && women.every((w) => !suits(lumber, w)), '1871: no woman shoves lumber on the South Branch');
+  const kil = l71.tales.find((x) => x.id === 's71-ir-kilgubbin');
+  const notIrish = Object.values(l71.tellers).map(readTeller).filter((w) => !w.roles.includes('irish'));
+  ok(kil && notIrish.every((w) => !kil.roles.some((r) => w.roles.includes(r))), '1871: only the Irish tell of Kilgubbin');
+  const mourning = l04.tales.find((x) => x.id === 's04-ld-mourning');
+  const wives = Object.values(l04.tellers).map(readTeller).filter((w) => w.roles.includes('wife'));
+  ok(mourning && wives.length && wives.every((w) => !mourning.roles.some((r) => w.roles.includes(r))), '1904: a wife never tells of her husband dying');
 }
 
 console.log(`test_tales: ${checks} checks passed`);

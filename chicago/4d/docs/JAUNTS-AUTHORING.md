@@ -68,6 +68,10 @@ story."*); never more than about five bare facts in a row; end on the hand-on to
 Its performance copy marks a pause at each change of subject, keeps laughter to one at most, and
 does not whisper (`"style": "smooth"`, checked by `tools/test_narration.mjs`).
 
+After the hand-on, the narrator closes every stop with one shared line (T-3755, `narration.js`
+§ `ONWARD_LINES`: go on, look round first, choose, or a last look), so a stop's own words never
+need a generic "when you are ready" of their own. Add to that set rather than writing one in.
+
 ## Branches and state
 
 `next` names a stop, an ending, or `$end`. At `$end`, select the **first** matching

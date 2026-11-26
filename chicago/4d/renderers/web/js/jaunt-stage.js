@@ -634,6 +634,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     },
     get ids() { return stageIds(stop); },
     get playing() { return playing; },
+    /** T-3753: how many of the cast are still being drawn (asked for, no figure yet): the stop's
+     *  scene is loading while any are, and the key that brought the visitor spins. */
+    get loading() { let n = 0; for (const m of cast) if (!m.actor.disposed && !m.actor.body && (m.actor.pending || m.actor.inRange)) n++; return n; },
     get clock() { return clock; },
     /** The owner, 2026-11-16: how long the stage plays, to its last beat (the stop's meter). */
     get length() { let end = 0; for (const m of cast) for (const b of m.beats ?? []) if (Number.isFinite(b.t) && b.t > end) end = b.t; return end; },

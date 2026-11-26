@@ -842,7 +842,7 @@ for (const phone of [true, false]) {
   const [list, cardHost] = screen.children;
   assert(list?.classList.contains('ppl-dir') && cardHost?.classList.contains('ppl-card') && cardHost.hidden, '1904: the list, and a card host shut');
   assert(list.querySelector('.ppl-search'), 'a search box');
-  assert.equal(list.querySelector('.ppl-status').textContent, '71 households \u00b7 445 people', 'the counts, read off the directory');
+  assert.equal(list.querySelector('.ppl-status').textContent, '71 households \u00b7 442 people', 'the counts, read off the directory'); // T-3553: group cards folded into their named people
   // T-3253: every Blue Book household is a row of its own; the Glessners' is one of them.
   const rows = list.querySelectorAll('.ppl-results .ppl-row');
   assert(rows.length >= 60, `1904: ${rows.length} household rows`);
@@ -893,10 +893,10 @@ for (const phone of [true, false]) {
 
   // T-3673: Met N of M, the Met filter and the badge, from the browser's own list (never a card).
   const metToggle = list5.querySelector('.ppl-met-toggle');
-  assert.equal(metToggle.textContent, 'Met 0 of 445', 'nobody met before any talk');
+  assert.equal(metToggle.textContent, 'Met 0 of 442', 'nobody met before any talk');
   assert.equal(list5.querySelectorAll('.ppl-met-badge').length, 0);
   metFound.record('1904', 'met', 'pa1904_shortall_john_g');
-  assert.equal(metToggle.textContent, 'Met 1 of 445', 'a talk in town counts, and the screen repaints');
+  assert.equal(metToggle.textContent, 'Met 1 of 442', 'a talk in town counts, and the screen repaints');
   assert.equal(pin.querySelectorAll('.ppl-met-badge').length, 1, 'the Met badge on their row');
   metToggle.dispatch('click', { target: metToggle });
   assert.equal(metToggle.getAttribute('aria-pressed'), 'true');
@@ -904,7 +904,7 @@ for (const phone of [true, false]) {
   assert(pin.hidden, 'and drops the pin');
   metToggle.dispatch('click', { target: metToggle });
   assert.equal(metFound.clearYear('1904').ok, true);
-  assert.equal(metToggle.textContent, 'Met 0 of 445', 'Clear 1904 forgets them');
+  assert.equal(metToggle.textContent, 'Met 0 of 442', 'Clear 1904 forgets them');
 }
 
 // ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
