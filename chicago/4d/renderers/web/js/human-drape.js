@@ -506,7 +506,7 @@ export function* drapeGarmentsSteps(root) {
     const rank = layerRank(grp.meshes[0]);
     const below = fixedCasts.filter((c, k) => c && k + 1 < rank), above = fixedCasts.filter((c, k) => c && k + 1 > rank);
     const underCast = outermost([...doneCasts, ...below]);
-    const laterCasts = list.slice(i + 1).filter((o) => !o.meshes.some((m) => HIDEABLE.test(m.name))).map((o) => ({ rank: layerRank(o.meshes[0]), cast: triangleGrid(o.W.P, o.W.tris, 0.03) }));
+    const laterCasts = list.slice(i + 1).filter((o) => !o.meshes.some((m) => HIDEABLE.test(m.name))).map((o) => ({ layer: layerRank(o.meshes[0]), cast: triangleGrid(o.W.P, o.W.tris, 0.03) }));
     const overCast = nearest([...laterCasts.map((o) => o.cast), ...above]);
     // A shirt's skirt or tail hangs over the leggings or trousers (rank 2): for its points they
     // are under, and only what is worn over both (a waistcoat, a coat) bounds it.
@@ -516,8 +516,8 @@ export function* drapeGarmentsSteps(root) {
       for (const part of grp.W.parts) if (OUTSIDE.test(part.mesh.name)) for (const g of part.group) mask[g] = 1;
       outside = {
         mask,
-        under: outermost([...doneCasts, ...laterCasts.filter((o) => o.rank === 2).map((o) => o.cast), ...fixedCasts.filter((c, k) => c && k + 1 <= 2)]),
-        over: nearest([...laterCasts.filter((o) => o.rank > 2).map((o) => o.cast), ...fixedCasts.filter((c, k) => c && k + 1 > 2)]),
+        under: outermost([...doneCasts, ...laterCasts.filter((o) => o.layer === 2).map((o) => o.cast), ...fixedCasts.filter((c, k) => c && k + 1 <= 2)]),
+        over: nearest([...laterCasts.filter((o) => o.layer > 2).map((o) => o.cast), ...fixedCasts.filter((c, k) => c && k + 1 > 2)]),
       };
     }
     yield* drapeOne(grp.W, grp.kind, B, underCast, overCast, outside);

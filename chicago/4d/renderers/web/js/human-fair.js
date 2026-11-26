@@ -120,11 +120,11 @@ export function* fairOuterSteps(root) {
     const meshes = worn.filter((o) => o.material === m.material && !TRIM.test(o.name.replace(/_lod\d+$/, '')) && !kindOf(o));
     if (!meshes.includes(m)) meshes.push(m);
     if (groups.some((gr) => gr.meshes.some((o) => meshes.includes(o)))) continue;
-    groups.push({ f, meshes, rank: Math.max(...meshes.map(layerRank)) });
+    groups.push({ f, meshes, layer: Math.max(...meshes.map(layerRank)) });
   }
   if (!groups.length) return report;
   const B = yield* bodyFieldSteps(body);
-  groups.sort((a, b) => a.rank - b.rank);
+  groups.sort((a, b) => a.layer - b.layer);
   const done = new Set();
   for (const grp of groups) {
     yield;
@@ -146,8 +146,8 @@ export function* fairOuterSteps(root) {
       }
       if (on >= RIDE_SHARE * Wm.G && !done.has(m)) riders.push({ m, W: Wm, hit, share: on / Wm.G });
       // An apron or pinafore is worn over whatever is at the waist, never under it.
-      else if (layerRank(m) <= grp.rank && layerRank(m) > 0 && !OVER_ALL.test(m.name)) floors.push(m);
-      else if (layerRank(m) > grp.rank && !LEFT_OFF.test(m.name) && !/(headwear|plumes|basket)/.test(m.name)) ceilings.push(m);
+      else if (layerRank(m) <= grp.layer && layerRank(m) > 0 && !OVER_ALL.test(m.name)) floors.push(m);
+      else if (layerRank(m) > grp.layer && !LEFT_OFF.test(m.name) && !/(headwear|plumes|basket)/.test(m.name)) ceilings.push(m);
       yield;
     }
     const floorCasts = floors.map((m) => { const Wf = weldMeshes([m]); return triangleGrid(Wf.P, Wf.tris, 0.03); });
