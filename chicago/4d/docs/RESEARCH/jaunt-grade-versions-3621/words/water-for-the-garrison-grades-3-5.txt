@@ -1,0 +1,85 @@
+== premise
+Be a young water carrier at Fort Dearborn on 14 August 1812, the last full day before everyone marches away. Pick the way to the river, and whose door gets the last bucket.
+
+== opening
+JAUNT: WATER FOR THE GARRISON. It is 14 August 1812, and the sun is just coming up over the first Fort Dearborn. You are twelve. Your family lives outside the fort's wooden walls. Your job is water. Every morning you carry buckets up from the river for the soldiers. Tomorrow everyone in the fort will march away, so today there is extra work.
+
+You pick the way to the river. You pick whose door gets the last bucket. The fort and its people are real. The water carrier is you.
+
+== stop the-fort
+The sun is coming up, and you have two empty buckets. Look at the fort. A visitor in 1809 said it was the neatest and best wooden fort in the whole country. Long buildings stand around a square. Two small towers called blockhouses guard two corners. Two rows of tall, pointed posts go all the way around. An order has come to leave the fort, and tomorrow everyone inside will go. Now, the water. There are two ways down to the river.
+
+== narrative the-fort
+Which way to the water?
+
+== label the-fort covered
+Take the covered way
+
+== consequence the-fort covered
+It is the safe path to the water.
+
+== label the-fort wharf
+Go out to the wharf
+
+== consequence the-fort wharf
+It is longer, down where the boats tie up.
+
+== stop covered-way
+This is the fort's north-east corner. From here a covered path runs down to the river. Soldiers can get water this way even if the fort is attacked. Inside, there is a well. But something happened here last night. The soldiers threw the fort's gunpowder and its liquor down into this well. Captain Heald did not want anyone to use them. The rest of the liquor was poured into the river. This morning, one man says, the water tastes like 'strong grog'! Nobody will drink from that well today. Fill your buckets at the river, and carry them up to the main gate.
+
+== narrative covered-way
+The safe path to the water.
+
+== stop wharf
+This is the wharf, down by the river. Boats tie up here to bring the fort its food and supplies. Captain Whistler drew it on his map of the fort in 1808. He said the fort was safe from a surprise attack. Only the houses across the river were a little in the way. The biggest one belongs to John Kinzie. He is a trader, and his store sells things to the soldiers. Fill your buckets here, and climb back up to the main gate.
+
+== narrative wharf
+Down where the boats tie up.
+
+== stop soldiers
+You are inside the main gate now. The soldiers' long houses stand on both sides. They are two floors high, with porches facing the open square. In the middle of the square stands a very tall flagpole. There are fifty-four soldiers and twelve men from the town here. This morning they are all packing for the long march. Packing is thirsty work! A soldier takes one of your buckets. Then he points across the square. You have one bucket left.
+
+== narrative soldiers
+Whose door gets the last bucket?
+
+== label soldiers commandant
+The captain's house
+
+== consequence soldiers commandant
+It is on the east side of the square.
+
+== label soldiers officers
+The officers' house
+
+== consequence soldiers officers
+It is on the west side of the square.
+
+== stop commandant
+This is the captain's house, on the east side of the square. Captain Nathan Heald took charge of the fort in 1810. In June 1811 he brought his new wife here. Her name is Rebekah, and her uncle is Captain William Wells. The captain is very busy this morning. Set your bucket down by the door, quietly, and do not stay. Your water job is done.
+
+== narrative commandant
+The captain's door.
+
+== stop officers
+This is the officers' house, across the square from the captain's. Lieutenant Linai Helm lives here. He came from Detroit because it costs less to live here. His wife, Margaret, is John Kinzie's stepdaughter. Ensign George Ronan is here too. He came straight from the army school at West Point. So is Dr. Isaac Van Voorhis. He once wrote that this place would one day be home to millions of people. Set your bucket down by their door. Your water job is done.
+
+== narrative officers
+The officers' door.
+
+== leg 0
+The safe path down to the water.
+
+== leg 1
+Down to where the boats tie up.
+
+== ending covered-and-captain
+You took the covered path, and you carried the last bucket to the captain's door. Your buckets are empty, and your arms are sore. Tomorrow the gate will open, and nobody will need water carried here again.
+
+== ending covered-and-officers
+You took the covered path, and you stayed away from the well. You filled your buckets at the river and carried the last one to the officers. Your work is done early. All around you, the fort is packing. Tomorrow the gate will open.
+
+== ending wharf-and-captain
+You went out to the wharf, the long way, past the trader's house across the water. Then you carried the last bucket to the captain's door. Your work is done, and the fort is packing all around you. Tomorrow the gate will open.
+
+== ending wharf-and-officers
+You went out to the wharf and back up to the officers' door, the long way around. While you filled your buckets, you looked across the river at the Kinzie house. Your work is done. Tomorrow the gate will open.
