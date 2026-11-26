@@ -1,0 +1,9 @@
+{
+  "title": "Truer download sizes and times while a year loads",
+  "kind": "fix",
+  "items": [
+    "The loading screen now knows each year's own download size, so the total no longer climbs as it loads.",
+    "The time left counts down steadily instead of jumping.",
+    "The offline copy's bar moves within large files and shows the time left."
+  ]
+}

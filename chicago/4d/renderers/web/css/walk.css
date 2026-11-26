@@ -2917,3 +2917,8 @@ html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-mo
   animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
 }
+/* T-3757: Settings › Display › Language warns, in both languages, that a change restarts the app. */
+.language-note { margin: 2px 0 8px; }
+.language-ask { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 2px 0 8px; }
+.language-ask[hidden] { display: none; }
+.language-ask .language-ask-text { margin: 0; flex: 1 1 100%; color: var(--ink); }

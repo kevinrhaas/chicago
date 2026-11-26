@@ -22,7 +22,9 @@
  */
 import { BOOT_BYTES } from './boot-bytes.js';
 
-const BYTES_KEY = 'c4d.boot.bytes.v1';
+// v2 (T-3758): keyed by year as well. v1 keyed device/detail only, so whichever year was
+// visited last stood for all four (1835's 17 MB forecast for 1904's 86 MB).
+const BYTES_KEY = 'c4d.boot.bytes.v2';
 const PACE_KEY = 'c4d.boot.pace.v1';
 // An unmeasured machine is assumed slower than the M5 the CPU weights were read on:
 // a forecast that runs long ends in a quick spin, one that runs short in a crawl.
@@ -34,16 +36,26 @@ const DEFAULT_RATE = 2.5e6;
 const PRIOR_BYTES = 2e5;
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 
-/** First-visit bytes per phase: the learned figure for this build, else the committed one. */
-export function expectedBytes({ device = 'desktop', detail = 'full', build = '', storage } = {}) {
-  const defaults = BOOT_BYTES[device]?.[detail] ?? BOOT_BYTES.desktop?.full ?? {};
-  const result = { ...defaults };
+/** The committed first-visit figures for one year's cell (boot-bytes.js is keyed year › device
+ *  › detail, T-3758); the nearest cell the table has where it lacks this one. */
+export function committedBytes({ year = '', device = 'desktop', detail = 'full' } = {}) {
+  const years = Object.keys(BOOT_BYTES);
+  const y = BOOT_BYTES[String(year)] ?? BOOT_BYTES[years.includes('1835') ? '1835' : years[0]] ?? {};
+  return { ...(y[device]?.[detail] ?? y.desktop?.full ?? {}) };
+}
+
+/** First-visit bytes per phase for this year: what this device last downloaded for it, else the
+ *  committed figure. A reading of an earlier build still counts (T-3758): a release moves a
+ *  year's bytes by a few per cent, the committed table can be weeks old, and every deploy used to
+ *  throw the reading away, so most visits forecast from the stale table and the total climbed. */
+export function expectedBytes({ year = '', device = 'desktop', detail = 'full', build = '', storage } = {}) {
+  const result = committedBytes({ year, device, detail });
   try {
     const history = JSON.parse(storage?.getItem(BYTES_KEY) || 'null');
-    const sample = history?.build === build && history?.cells?.[`${device}/${detail}`];
+    const sample = history?.cells?.[`${year}/${device}/${detail}`]?.bytes;
     for (const [id, value] of Object.entries(sample || {})) {
-      // Bytes do not depend on the machine, so a same-build reading is trusted
-      // outright — only bounded against corruption, never against the default.
+      // Bytes do not depend on the machine, so a reading is trusted outright: only bounded
+      // against corruption, never against the default.
       if (Number.isFinite(value) && value >= 0 && value < 5e8) result[id] = value;
     }
   } catch { /* Storage denial/corruption must never prevent entering town. */ }
@@ -107,7 +119,7 @@ export function createNetMeter({ Observer = globalThis.PerformanceObserver,
  * what bootProgress weighs the finished work by.
  */
 export function createForecast({ boot, meter, bytes = {}, now = () => performance.now(),
-  device = 'desktop', detail = 'full', build = '', storage } = {}) {
+  year = '', device = 'desktop', detail = 'full', build = '', storage } = {}) {
   const cpu = boot.expected || {};
   const phaseBytes = Object.fromEntries(boot.phases.map(p => [p.id, 0]));
   const expected = { ...bytes };
@@ -133,6 +145,25 @@ export function createForecast({ boot, meter, bytes = {}, now = () => performanc
   };
   if (meter) meter.onEntry = take;
   const link = () => meter?.rate() ?? Infinity;
+  let shownTotal = null;
+  // T-3758: the ETA shown is the forecast finish TIME, eased (about a 3 s time constant), so it
+  // counts down in real seconds and a re-forecast moves it over a few seconds rather than in one
+  // jump (it read 16 s, then 251 s two seconds later, then 83 s). Moving later is eased harder
+  // than moving sooner: a clock that runs up and down reads as broken, one that runs a little
+  // long ends in a quick finish.
+  let shownEnd = null, easedAt = null;
+  function eta(at) {
+    const raw = api.remaining(at);
+    const target = at + raw * 1000;
+    if (shownEnd == null || easedAt == null) shownEnd = target;
+    else {
+      const dt = Math.max(0, at - easedAt) / 1000;
+      const tau = target > shownEnd ? 6 : 2;
+      shownEnd += (target - shownEnd) * (1 - Math.exp(-dt / tau));
+    }
+    easedAt = at;
+    return Math.max(0, (shownEnd - at) / 1000);
+  }
 
   function forecastFor(p, rate = link()) {
     const expectedBytes = Math.max(expected[p.id] || 0, phaseBytes[p.id] || 0);
@@ -203,22 +234,31 @@ export function createForecast({ boot, meter, bytes = {}, now = () => performanc
       // After the last phase the first frame still has to be drawn.
       return left + 0.15 * pace;
     },
-    /** What the readout shows: bytes in hand, bytes expected, the link and the ETA. */
+    /** What the readout shows: bytes in hand, bytes expected, the link and the ETA.
+     *  T-3758: the total is held, not re-added each time: it moves only when the bytes in hand
+     *  pass it (then by the overrun, plus a margin, so it does not creep up a step per request),
+     *  and the ETA is eased toward the forecast (eta()). */
     readout(at = now()) {
       const inPhases = Object.values(phaseBytes).reduce((s, n) => s + n, 0);
       const toCome = essential().reduce((s, p) => s + Math.max(expected[p.id] || 0, phaseBytes[p.id]), 0);
-      return { bytes: preBytes + inPhases, total: preBytes + Math.max(toCome, inPhases),
-        rate: meter ? meter.rate() : null, eta: api.remaining(at), pace };
+      const bytesNow = preBytes + inPhases;
+      const forecastTotal = preBytes + Math.max(toCome, inPhases);
+      if (shownTotal == null) shownTotal = forecastTotal;
+      else if (bytesNow > shownTotal) shownTotal = Math.max(forecastTotal, bytesNow * 1.05);
+      if (essential().every(p => p.endedAt != null || p.error)) shownTotal = bytesNow;
+      return { bytes: bytesNow, total: Math.max(bytesNow, shownTotal),
+        rate: meter ? meter.rate() : null, eta: eta(at), pace };
     },
     /** On ready: remember this build's bytes per phase for the next visit. */
     record() {
       try {
         let history = JSON.parse(storage?.getItem(BYTES_KEY) || 'null');
-        if (history?.build !== build) history = { build, cells: {} };
-        history.cells ??= {};
-        history.cells[`${device}/${detail}`] = Object.fromEntries(essential()
-          .filter(p => !p.error && p.endedAt != null).map(p => [p.id, Math.round(phaseBytes[p.id])]));
-        history.cells = Object.fromEntries(Object.entries(history.cells).slice(-6));
+        if (!history || typeof history.cells !== 'object' || !history.cells) history = { cells: {} };
+        const key = `${year}/${device}/${detail}`;
+        delete history.cells[key];   // re-added last: the newest readings are the ones kept
+        history.cells[key] = { build, bytes: Object.fromEntries(essential()
+          .filter(p => !p.error && p.endedAt != null).map(p => [p.id, Math.round(phaseBytes[p.id])])) };
+        history.cells = Object.fromEntries(Object.entries(history.cells).slice(-12));
         storage?.setItem(BYTES_KEY, JSON.stringify(history));
         // Pace belongs to the machine, not the build: keep it across releases.
         const paces = JSON.parse(storage?.getItem(PACE_KEY) || 'null') || {};
