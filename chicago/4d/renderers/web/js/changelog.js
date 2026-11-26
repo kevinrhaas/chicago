@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3265, ts: '2026-11-26T17:32:58.065Z', date: 'Nov 26, 2026, 11:32 AM CT', title: 'Photo faces for adults and children in every year', kind: 'improvement',
+    items: [
+      'Dev now gives generic adults photographic faces by default in 1812, 1835, 1871 and 1904, drawn from 256 fictional faces with varied ages, skin tones and features.',
+      'Sixteen matching child faces cover toddlers through teenagers while preserving their existing head and body proportions. Softer source-based eyes retain iris detail.',
+      'Adult and child crowd sheets share one nearby detail page, keeping added face textures around 12 MiB. Historical likenesses and visitor choices keep priority; the gallery and single-photo importer remain available.',
+    ] },
   { v: 3264, ts: '2026-11-26T17:26:42.132Z', date: 'Nov 26, 2026, 11:26 AM CT', title: 'Clothes swept on everyone: cleaner edges, armpits fold, nothing pokes through', kind: 'fix',
     items: [
       'Every person\'s clothing was checked from five sides, standing and walking, at every distance, for ragged edges, torn collars, cloth poking through and holes.',
