@@ -63,7 +63,7 @@ for (const [field, reason, value] of [['claim', 'claim', ' '], ['uncertainty', '
   ['selected', 'evidence', ['gossip']], ['claim', 'long', 'x'.repeat(CASE_LIMITS.claim + 1)]])
   assert.equal(investigationNote(model, { ...draft, [field]: value }).reason, reason);
 assert.equal(investigationNote(null, draft).reason, 'unavailable');
-const oversized = clone(model); oversized.claims[0].sources[0].title = 'x'.repeat(501);
+const oversized = clone(model); oversized.claims[0].sources[0].title = 'x'.repeat(LIMITS.sourceTitle + 1);
 assert.equal(investigationNote(oversized, draft).reason, 'unavailable', 'never silently truncate provenance');
 const storage = () => { const data = new Map(); return { getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value), data }; };
 const store = storage(); let id = 0;
@@ -109,7 +109,7 @@ assert.equal(new Set(CASES.map(c => c.id)).size, CASES.length, 'case ids are uni
 assert.equal(new Set(CASES.map(c => c.jaunt)).size, CASES.length, 'one case per jaunt');
 assert(CASES.length >= 4 && new Set(CASES.filter(c => c.id !== 'gossip').map(c => c.year)).size >= 3,
   'at least three later cases, spread over the years');
-const unrelated = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars/1812/jaunts/first-fort-dearborn-tour.json')));
+const unrelated = JSON.parse(fs.readFileSync(path.join(root, 'data/sidecars/1812/jaunts/errands-before-the-march.json')));
 assert.equal(jauntInvestigation(session(unrelated)), null, 'a jaunt with no case offers none');
 const caseSummary = [];
 for (const spec of CASES.filter(c => c.id !== 'gossip')) {
