@@ -67,6 +67,8 @@ const P = {
   stop: '<rect x="7" y="7" width="10" height="10" rx="1.5"/>',
   // T-3711: a jaunt with music of its own (two beamed notes)
   music: '<path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/><path d="M9 9.5l10-2"/>',
+  // T-3753: a jaunt's Stops key: its stops down a route line, the one you are at filled in
+  stops: '<path d="M6 7v10"/><circle cx="6" cy="4.5" r="2"/><circle cx="6" cy="12" r="2" fill="currentColor"/><circle cx="6" cy="19.5" r="2"/><path d="M11 4.5h9.5M11 12h9.5M11 19.5h9.5"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

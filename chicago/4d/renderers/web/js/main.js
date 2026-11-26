@@ -6627,12 +6627,12 @@ async function boot() {
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
         estimate: menuEstimate });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'jump', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part. So are
         // Skip to the Start and Finish Jaunt (2026-11-16), over the opening and the ending.
-        if (['next', 'prev', 'end', 'skip', 'finish'].includes(name)) narration.stop();
-        if (['next', 'prev', 'straight'].includes(name)) narration.prime();
+        if (['next', 'prev', 'jump', 'end', 'skip', 'finish'].includes(name)) narration.stop();
+        if (['next', 'prev', 'jump', 'straight'].includes(name)) narration.prime();
         return jauntRuntime[name](...args); }]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
@@ -6651,7 +6651,7 @@ async function boot() {
       let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
       const meterNow = () => {
         const outing = jauntRuntime?.state;
-        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); return false; }
+        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); jauntPanel.loading(null); return false; }
         const leg = `${outing.session}:${outing.leg}:${outing.phase === 'atStop'}`, ride = travel.state;
         if (leg !== meterLeg) { meterLeg = leg; meterWay = ride.dist_m ?? 0; meterSince = performance.now() / 1000; }
         const here = outing.jaunt.stops[outing.stopIndex], heard = here && narration.position(outing.jaunt, 'stop', here.id);
@@ -6661,6 +6661,8 @@ async function boot() {
           voice: heard ? (heard.done ? { t: 1, d: 1 } : heard) : null,
           read: here ? { t: performance.now() / 1000 - meterSince, d: here.read_s || pace.readingSeconds(here.text) } : null,
           stage: staged ? { t: stage.clock, d: stage.length } : null }));
+        // T-3753: the stop's scene is still coming (its cast's figures, its guide on the way), and its voice.
+        jauntPanel.loading({ scene: outing.phase === 'atStop' && (!!outing.hostWaiting || (stage?.loading ?? 0) > 0), voice: !!narration.buffering });
         return true;
       };
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
@@ -6858,7 +6860,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'jump', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.

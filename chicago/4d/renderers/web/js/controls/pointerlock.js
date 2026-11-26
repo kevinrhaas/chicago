@@ -172,8 +172,16 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       euler.setFromQuaternion(rig.quaternion, 'YXZ');
       intent.yawDelta += euler.y - prevYaw;
       intent.pitchDelta += euler.x - prevPitch;
-      prevYaw = euler.y;
-      prevPitch = euler.x;
+      // T-3753 (the owner, 2026-11-26: "users could not look up during a jaunt, sometimes it
+      // freezes and you can't look up"): the rig is levelled again every frame, so its polar
+      // clamp only ever bounds one frame's turn. Kept, it held the visitor's own look while
+      // the view was turned for them (a jaunt's arrivals, flights and glides set the walker's
+      // pitch, never the rig's): look up 60° at a house, be levelled on the way to the next
+      // stop, and the rig was still at 60°, 19° short of its ceiling, so the mouse stopped
+      // answering upward 19° above level. The walker's own ±85° is the one limit.
+      rig.quaternion.identity();
+      prevYaw = 0;
+      prevPitch = 0;
     },
 
     dispose() {
