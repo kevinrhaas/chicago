@@ -2507,6 +2507,12 @@
       "measured": "2026-11-23",
       "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1904.json byte for byte and changed no other byte; with the output emptied, --check failed and a bare run restored it to the same bytes; --check writes nothing (T-3737).",
       "placed": "Reads data/street_grid/1904.json (tools/trace_prairie_1904_grid.py's lots and their 1911 numbers), the committed 1904 sidecars and their baked models' door leaves and glass, as tools/plant_prairie_1904_front_yards.py reads them. Its slot is after the grid tracer and every 1904 bake; nothing reads its output but the renderer."
+    },
+    "architecture_site.py": {
+      "placement": "not_a_writer",
+      "write_mode": "OUT_DIR",
+      "measured": "2026-11-26",
+      "finding": "Writes nothing in the tree. Its write mode is called only by tools/publish.sh with the untracked published mirror's walk/architecture/ (data.json derived from data/components/prairie_1904/k*.json, data/structures/ and data/sidecars/; the kits' specimen GLBs copied byte for byte; their study pictures at 1600 px), which tools/check_published.mjs then holds. --check builds the same into a temporary folder it removes, in about 1.4 s; run bare it prints its usage, exits 2 and writes nothing. git status --porcelain was identical before and after --check and the bare run (T-3750)."
     }
   }
 }
