@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3267, ts: '2026-11-26T19:46:48.547Z', date: 'Nov 26, 2026, 1:46 PM CT', title: 'Smoother foreheads on photographic faces', kind: 'fix',
+    items: [
+      'Generic adult and child faces blend smoothly into the skin above the forehead. Facial detail and the existing texture memory budget are preserved.',
+    ] },
   { v: 3266, ts: '2026-11-26T18:19:10.072Z', date: 'Nov 26, 2026, 12:19 PM CT', title: 'Make your case: a new case in every year', kind: 'feature',
     items: [
       '1812: where did Fort Dearborn\'s blockhouses stand? Weigh the 1808 drawing against a memory written forty years later.',
