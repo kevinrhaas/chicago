@@ -1,4 +1,4 @@
-/** Make your case: the case table (T-3663, T-3678, T-3693). One row per jaunt whose own cited
+/** Make your case: the case table (T-3663, T-3678, T-3693, T-3765). One row per jaunt whose own cited
  * evidence argues a question both ways. A row names the jaunt (its tellings match by
  * `version_of`), the scene year, and the readings to compare; each reading is a set of
  * the jaunt's compiled evidence ids, with the stop that cites it, the grade it must still
@@ -49,5 +49,28 @@ export const CASES = Object.freeze([
     reading('sullivan', [claim('sullivan-affidavit', 'the-barn', 'attested', 'andreas_1885_v2')]),
     reading('board', [claim('board-finding', 'the-inquiry', 'attested', 'greatchicagofire_oleary_legend_2011')]),
     reading('bales', [claim('peg-leg', 'other-suspects', 'attested', 'chicago_tribune_1998_03_03_odds_improve')]),
+  ]) }),
+  // T-3765: one more case in each year. 1812, Fort Dearborn, Building by Building: where the
+  // blockhouses stood, the 1808 drawing against a memory written down forty years later.
+  Object.freeze({ id: 'blockhouses', jaunt: 'first-fort-dearborn-tour', year: '1812', readings: Object.freeze([
+    reading('draught', [claim('plan', 'the-fort', 'attested', 'quaife_1913', 'whistler_1808_fort_dearborn_draught')]),
+    reading('memory', [claim('blockhouses', 'merchants', 'attested', 'whistler_1808_fort_dearborn_draught', 'quaife_1913', 'kinzie_waubun_1856'),
+      claim('covered-way', 'covered-way', 'attested', 'quaife_1913', 'whistler_1808_fort_dearborn_draught', 'kinzie_waubun_1856')]),
+  ]) }),
+  // 1835, Across Wolf Point: a fixed bridge on bents, or floating logs tied together?
+  Object.freeze({ id: 'raft-bridge', jaunt: 'across-wolf-point', year: '1835', readings: Object.freeze([
+    reading('settlers', [claim('bridge-build', 'the-crossing', 'attested', 'old_settlers_bridges_1883')]),
+    reading('floating', [claim('mk-sb-bridge', 'the-crossing', 'attested', 'moses_kirkland_history_of_chicago_v1')]),
+    reading('record', [claim('bridge-raft', 'the-crossing', 'inferred', 'old_settlers_bridges_1883')]),
+  ]) }),
+  // 1871, The Great Chicago Fire: which South Side building burned first?
+  Object.freeze({ id: 'south-side', jaunt: 'the-great-fire', year: '1871', readings: Object.freeze([
+    reading('andreas', [claim('parmelee', 'parmelee', 'attested', 'andreas_1885_v2')]),
+    reading('colbert', [claim('gasworks', 'parmelee', 'attested', 'andreas_1885_v2')]),
+  ]) }),
+  // 1904, Ghosts of Prairie Avenue: a ghost tour's architect on the stairs, beside the records.
+  Object.freeze({ id: 'architect-ghost', jaunt: 'prairie-ghosts-at-night', year: '1904', readings: Object.freeze([
+    reading('tour', [claim('richardson-legend', 'glessner', 'attested', 'ghost_city_tours_prairie_avenue', 'horror_obsessive_2023_glessner_ghosts')]),
+    reading('records', [claim('richardson-dates', 'glessner', 'attested', 'habs_glessner_house_il_1015_data_pages', 'glessner_house_richardson_page')]),
   ]) }),
 ]);

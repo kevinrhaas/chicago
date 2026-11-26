@@ -86,6 +86,82 @@ shore, and writes that the sculptor's figures "may have owed more to Buffalo Bil
 Wild West Show than to actual research". It is a monument's telling beside a historian's
 reading of it; neither is an eyewitness.
 
+## T-3765 — one more case in each year (26 November 2026)
+
+Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles."
+Four more rows, one per year, under the same rules: only claims the jaunt already compiles
+and cites, every student telling, the 18+ tellings left out. The notebook now keeps a source's
+full citation up to 1,500 characters (it kept 500). Two of these cases cite sources whose
+citations run to 586 and 959 characters (the Whistler draught, Moses and Kirkland), and a case
+refuses to save a trimmed citation rather than trim it.
+
+### 1812 — Fort Dearborn, Building by Building: where did the blockhouses stand?
+
+Case `blockhouses`, jaunt `first-fort-dearborn-tour`.
+
+| Reading | Evidence id | Stop | Grade | Source ids |
+|---|---|---|---|---|
+| The builders' drawing | `plan` | `the-fort` | Attested | `quaife_1913`, `whistler_1808_fort_dearborn_draught` |
+| Remembered later | `blockhouses` | `merchants` | Attested | `whistler_1808_fort_dearborn_draught`, `quaife_1913`, `kinzie_waubun_1856` |
+| | `covered-way` | `covered-way` | Attested | `quaife_1913`, `whistler_1808_fort_dearborn_draught`, `kinzie_waubun_1856` |
+
+Why they conflict: Whistler's 1808 draught, as Quaife reads it, puts the two blockhouses at
+the north-west and south-east corners. Wau-Bun (1856) says "two block-houses on the southern
+side, and on the northern a sally-port". The draught's index has a "Covered Way to procure
+Water"; Wau-Bun remembers "a sally-port, or subterranean passage from the parade-ground to the
+river". Juliette Kinzie was not at Chicago in 1812 and wrote down family memory more than forty
+years on. The town builds the blockhouses where the draught puts them. Nothing in the case
+speaks of the fighting.
+
+### 1835 — Across Wolf Point: floating logs, or a bridge on bents?
+
+Case `raft-bridge`, jaunt `across-wolf-point`.
+
+| Reading | Evidence id | Stop | Grade | Source ids |
+|---|---|---|---|---|
+| Four old settlers | `bridge-build` | `the-crossing` | Attested | `old_settlers_bridges_1883` |
+| A later history | `mk-sb-bridge` | `the-crossing` | Attested | `moses_kirkland_history_of_chicago_v1` |
+| How this town builds it | `bridge-raft` | `the-crossing` | Inferred | `old_settlers_bridges_1883` |
+
+Why they conflict: Caton, Bates, Cleaver and Noble (printed by Andreas) describe both first
+branch bridges on log abutments and two bents, about six feet above the water, so teams passed
+under on the ice. Moses and Kirkland (1895) say the South Branch bridge near Randolph Street "at
+first consisted of floating logs tied together". The structure record keeps the conflict open
+and builds the fixed bridge, keeping the "raft" name; its reasoning is the case's inferred
+reading. The review note says the later history may describe an earlier crossing; that is a
+possibility the question asks the visitor to weigh, not a finding.
+
+### 1871 — The Great Chicago Fire: which South Side building burned first?
+
+Case `south-side`, jaunt `the-great-fire`.
+
+| Reading | Evidence id | Stop | Grade | Source ids |
+|---|---|---|---|---|
+| Andreas, 1885 | `parmelee` | `parmelee` | Attested | `andreas_1885_v2` |
+| Colbert, as Andreas quotes him | `gasworks` | `parmelee` | Attested | `andreas_1885_v2` |
+
+Why they conflict: Andreas names the Parmelee Omnibus and Stage Company's new stable at Jackson
+and Franklin as "The first building to ignite on the South Side", and the two men there give
+half past eleven. Colbert, writing in 1871 and quoted on the same pages, puts the first South
+Side fire "in a building of the South Division gas works on Adams Street"; Holden's timetable
+has the gas works afire "At about twelve o'clock". Both readings come through Andreas's one
+volume, so the case says so in the reading titles. Nobody is shown hurt.
+
+### 1904 — Ghosts of Prairie Avenue: what can a ghost story show?
+
+Case `architect-ghost`, jaunt `prairie-ghosts-at-night`.
+
+| Reading | Evidence id | Stop | Grade | Source ids |
+|---|---|---|---|---|
+| A ghost story | `richardson-legend` | `glessner` | Attested | `ghost_city_tours_prairie_avenue`, `horror_obsessive_2023_glessner_ghosts` |
+| The records | `richardson-dates` | `glessner` | Attested | `habs_glessner_house_il_1015_data_pages`, `glessner_house_richardson_page` |
+
+Why they conflict: the ghost tours say Richardson, "who died before the house was finished", is
+felt in the house and seen on its staircase. HABS dates the building from 1 June 1886, and the
+house museum gives his death as 26 April 1886: he died before any of it was built, not before it
+was finished. The case asks which parts of a modern legend a record can check. The "Attested"
+grade on the legend means the tour says it, not that anything was seen.
+
 ## Checks
 
 `node tools/test_jaunt_investigation.mjs` drives every case in every telling against the
