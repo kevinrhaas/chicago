@@ -26,6 +26,8 @@ values, preserves their recorded complexion, and applies the softer source-based
 Personal portrait fits and visitor-chosen faces take priority; children retain the ordinary
 library until their bodies are calibrated. Assignment is seeded by the person's id, sex,
 age and recorded complexion, and remains the same across their body LODs.
+Carriage drivers retain the existing face-only morph scope; body-wide head-outline
+targets stay with their engineered body.
 
 The town preview shares one 512-square face atlas (1.33 MiB including mipmaps), keeps the
 existing hair layer, and adds no render pass. The separate review page compares the new
