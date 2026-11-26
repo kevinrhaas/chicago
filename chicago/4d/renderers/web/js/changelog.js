@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3255, ts: '2026-11-26T08:14:08.319Z', date: 'Nov 26, 2026, 2:14 AM CT', title: 'Clothes hang and lie like cloth, close up and walking', kind: 'improvement',
+    items: [
+      'Coats, jackets and bodices lie smooth over the body instead of hugging every rib, and nothing underneath shows through as people walk.',
+      'John Glessner\'s frock coat has new silk-faced lapels, a collar round the back of the neck, covered buttons down the front and pressed seams; the lump at his shoulder is gone.',
+      'Frances Glessner\'s lace collar sits under her chin; the maid\'s collar is a clean band round her neckline.',
+      'The coachman\'s coat no longer clings, and its skirt closes in front.',
+      'Waistcoat necklines, collars and straps are smoothed everywhere.',
+    ] },
   { v: 3254, ts: '2026-11-26T07:55:30.110Z', date: 'Nov 26, 2026, 1:55 AM CT', title: '1812: nobody walks through the covered way\'s gates', kind: 'fix',
     items: [
       'The covered way down to the river stands open at both ends, so the men carrying the powder no longer pass through shut gates.',
