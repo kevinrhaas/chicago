@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3249, ts: '2026-11-26T06:29:44.283Z', date: 'Nov 26, 2026, 12:29 AM CT', title: '1904 alleys run out to the street', kind: 'fix',
+    items: [
+      'The grass strip and curb no longer run across the mouths of Prairie Avenue\'s alleys.',
+      'Each alley now slopes down across the sidewalk to the gutter, so a wagon can drive straight in.',
+      'The curb turns into the alley on both sides, and the sidewalk stops at it, as the city\'s 1905 rules lay it out.',
+    ] },
   { v: 3248, ts: '2026-11-26T06:13:27.342Z', date: 'Nov 26, 2026, 12:13 AM CT', title: 'Jump to any jaunt stop; spinners while a scene loads', kind: 'feature',
     items: [
       'A new Stops key on the jaunt panel lists the route\'s stops, numbered, with the one you are at marked. Tap any stop to go straight there, back or ahead.',
