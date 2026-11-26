@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3258, ts: '2026-11-26T08:58:16.996Z', date: 'Nov 26, 2026, 2:58 AM CT', title: 'Great Fire stops show their story; 1871 bridges meet their streets', kind: 'fix',
+    items: [
+      'Stop 3 stands at Jackson and Franklin, and the landmarks catch at the hour their stop names: the O\'Leary barn is alight, and Field, Leiter & Co. burns at eight in the morning.',
+      'Washington Square holds the furniture the families carried there: it burns in the night, and by noon it lies charred on blackened grass. Trees the fire has passed through stand bare. Goods among the old cemetery\'s graves catch at nightfall.',
+      'Each river bridge carries its own street across, level with the road at both banks, as a centre-pivot swing bridge with a tower over its round pier. The white square on the State Street bridge at night is gone.',
+      'Corner stores on Washington and Clark streets no longer stand out over the sidewalk.',
+      'The lakefront east of Michigan Avenue, from Randolph to Twelfth Street, is open Lake Park again, and buildings far off keep their brick and paint instead of turning bright blue.',
+      'The empty button under the stop card is gone.',
+    ] },
   { v: 3257, ts: '2026-11-26T08:53:20.029Z', date: 'Nov 26, 2026, 2:53 AM CT', title: '1812 runner runs, riders stay in their boats, Follow keeps jaunts', kind: 'fix',
     items: [
       'Errands Before the March: the fastest runner on the post now runs between errands, and takes a boat across the river, instead of flying.',
