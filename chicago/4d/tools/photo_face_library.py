@@ -20,7 +20,7 @@ from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 from PIL import Image, ImageOps, ImageDraw
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
-from scipy.ndimage import distance_transform_edt
+from scipy.ndimage import distance_transform_edt, gaussian_filter
 
 import face_library as L
 import fit_portrait_face as F
@@ -106,11 +106,32 @@ def portrait(entry, points, size):
             'not_modelled': ['profile depth from a single front photograph', 'ears and hair outside the face patch']}
 
 
+def blend_face_photo(photo, fallback, covered):
+    """Join a measured photo to the existing skin without a lighting band.
+
+    The calibrated landmark hull stops below the hairline. A narrow alpha fade
+    put the photograph's lighting change into six texels across the forehead.
+    Keep fine photo detail at that boundary, but blend progressively broader
+    colour/lighting over broader distances. This is baked into the same RGB
+    tile; it adds no texture, geometry or work to the renderer.
+    """
+    alpha = np.minimum(1, distance_transform_edt(covered) / 6)[..., None]
+    front, back = L.linear(photo), L.linear(fallback)
+    joined = np.zeros_like(front)
+    for sigma in (2, 8, 24):
+        low_front = gaussian_filter(front, (sigma, sigma, 0), mode='nearest')
+        low_back = gaussian_filter(back, (sigma, sigma, 0), mode='nearest')
+        weight = gaussian_filter(alpha, (sigma, sigma, 0), mode='nearest')
+        joined += (front - low_front) * weight + (back - low_back) * (1 - weight)
+        front, back = low_front, low_back
+    return L.srgb8(joined + front * weight + back * (1 - weight))
+
+
 def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
     """Landmark correspondence warps a front photo onto the existing hm08 UV island.
 
-    The photo supplies colour inside its measured convex hull. Elsewhere the existing
-    skin supplies continuity; it is never an invented photographic view of the person.
+    The measured hull supplies the facial detail. Its broad lighting joins the
+    existing skin outside that hull; no additional photographic view is invented.
     """
     header, _, _ = F.load_kit()
     blob = (F.KIT_JSON.parent / header['bin']).read_bytes()
@@ -168,8 +189,7 @@ def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
     original = L.linear(fallback)
     base_tone = original[ring].mean(axis=0)
     fallback = L.srgb8(original * (tone / np.maximum(base_tone, .001)))
-    alpha = np.minimum(1, distance_transform_edt(covered) / 6)[..., None]
-    tile = np.uint8(np.clip(warped * alpha + fallback * (1-alpha), 0,255))
+    tile = blend_face_photo(warped, fallback, covered)
     return np.pad(tile, ((PAD,PAD),(PAD,PAD),(0,0)), mode='edge'), tone.tolist(), base_tone.tolist()
 
 

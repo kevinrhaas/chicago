@@ -7,6 +7,10 @@ export default register('research', {
   // T-3022: the owner's words for it, "expert research".
   switch: 'Expert research',
   'switch.note': 'Adds a Research tab to every building.',
+  // T-3750: the Architecture site's link, beside the switch.
+  'architecture.line': 'Building kits',
+  architecture: 'Architecture site',
+  'architecture.note': 'The building kits, their parts and every building built on them, in 3D.',
   badge: 'RESEARCHER',
   // A link to the record of how something was worked out, as an external source would be
   // linked (owner, 2026-10-18): plain words, never a number.

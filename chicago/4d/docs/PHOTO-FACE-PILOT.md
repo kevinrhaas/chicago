@@ -142,6 +142,15 @@ executable regression checks. The owner explicitly authorized this dev rollout. 
 timing on a real low-power GPU remains unmeasured; software browser checks certify rendering
 and cache behavior, not hardware frame rate.
 
+## Forehead continuity
+
+The photographic landmark hull ends below the hairline. The importer blends fine
+facial detail near that measured boundary and spreads broad colour/lighting changes
+across a wider area of the existing skin (T-3769). This removes the narrow forehead
+band without blurring the face's detail. The blend is baked into the same RGB atlases;
+head fits, child proportions, eye records, texture dimensions and the runtime page
+budget are unchanged.
+
 ## What still needs review
 
 Single-photo fits cannot establish nose projection, cheek depth, the jaw from the side, hidden

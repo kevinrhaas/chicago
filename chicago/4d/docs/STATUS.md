@@ -25,6 +25,10 @@ a keepsake, and every telling (grades 3-5, 6-8, 9-10, 11-12 and 18+) built by
 The runners, their errands, routes and endings are reconstructed under `L-play-a-part-3766`;
 no named person is met or speaks, no child of a named family is played.
 
+## 2026-11-26 — Photographic forehead transition (T-3769)
+
+The photo landmark hull ended partway up the forehead; a six-texel colour fade made its lighting difference a visible band. The importer now blends broad lighting over a wider region while preserving fine facial detail in the same RGB atlases. Head fits, eye records, child proportions and runtime texture dimensions are unchanged. Baseline and corrected adult/child renders are retained with the validation evidence. The release receipt on T-3769 records the rebuild, published checks and verified dev build. Real low-power GPU timing remains unmeasured.
+
 Owner-approved photo faces are enabled by default on dev in all four years (T-3767/T-3768): 256 adults plus sixteen toddler/child/teenager sources, preserving existing child head and body proportions. Adult and child crowd atlases share one nearby detail page, about 12 MiB of added face textures. Personal likenesses retain priority; real low-power GPU timing remains unmeasured.
 
 ## T-3761 — 256 fictional photo faces for the generic-adult preview
