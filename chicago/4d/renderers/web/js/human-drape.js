@@ -547,7 +547,7 @@ export const LEFT_OFF = new RegExp(`(^|_)(${HIDDEN_PIECES.join('|')})(_lod\\d+)?
  * an uncovered one, are covered. The cone keeps openings (a waistcoat's front, an armhole, a
  * sleeve's end) whole however close the cloth lies across them; the margin keeps a band under
  * every edge for the cloth to lift off as the figure moves. */
-export const COVERED_M = 0.08, LIFT_M = 0.0006, CONE_DEG = 50, CONE_N = 6, MARGIN_M = 0.02;
+export const COVERED_M = 0.08, LIFT_M = 0.0006, CONE_DEG = 50, CONE_N = 6, MARGIN_M = 0.02, FAR_WAISTCOAT_LOD = 2;
 /** Which pieces may cover which: a mesh is covered only by a piece of a higher rank (skin under
  * shirts, shirts under trousers and braces, those under waistcoats, waistcoats under coats,
  * aprons, belts and wraps). Read from the piece's own name first (an 1812 coat is cut from a
@@ -614,7 +614,10 @@ export function* cullHiddenSteps(root) {
     const seeds = []; for (let g = 0; g < W.G; g++) if (!covered[g]) seeds.push(g);
     const D = distanceFrom(W, seeds);
     const part = W.parts[0], idx = mesh.geometry.index.array, out = [];
-    const gone = (g) => covered[g] && D[g] > MARGIN_M;
+    // a waistcoat under a coat at the far levels keeps no margin: its coarse faces, kept in a
+    // band under the coat's edge, came through the coat as patches (T-3553 round 7)
+    const margin = rank === 3 && +(/_lod(\d+)$/.exec(mesh.name ?? '')?.[1] ?? 0) >= FAR_WAISTCOAT_LOD ? 0 : MARGIN_M;
+    const gone = (g) => covered[g] && D[g] > margin;
     for (let t = 0; t < idx.length; t += 3) {
       if (gone(part.group[idx[t]]) && gone(part.group[idx[t + 1]]) && gone(part.group[idx[t + 2]])) continue;
       out.push(idx[t], idx[t + 1], idx[t + 2]);
@@ -662,12 +665,25 @@ export function* settleOnBodySteps(root) {
  * it blends back to its own over BAND_M along the inner cloth (skin: under the cloth only). */
 export const BAND_M = 0.06, BIND_REACH_M = 0.03;
 
+/** Which pieces take the weights of the cloth over them: the draped kinds, and at the farthest level
+ * (BIND_ALL_LOD on) every other garment under a coat's rank too (T-3553 round 7: a frock coat's
+ * own waistcoat, a linen shirt, a tie, left on their own weights, came out through the coat in
+ * patches as the figure walked; bound at the near levels, the waistcoat's and shirt collar's
+ * bands came through the coat's collar and the back of its shoulders instead). */
+export const BIND_ALL_LOD = 3;
+const bindsUnder = (m) => {
+  const r = layerRank(m);
+  if (!(r >= 1 && r < 4)) return false;
+  if (kindOf(m)) return true;
+  if (!/^(garment_(upper|lower|outer)|accessory)__/.test(m.material?.name ?? '')) return false;
+  return +(/_lod(\d+)$/.exec(m.name ?? '')?.[1] ?? 0) >= BIND_ALL_LOD;
+};
 /**
  * Layers that move together. Each piece is skinned on its own, so a shirt under a waistcoat,
  * or trousers under its hem, bend with other bones in a stride and come out through it
  * however well they sit at bind. What layered clothing does in games: the cloth under a
- * piece follows that piece. Each point of every draped garment (shirts, trousers, breeches,
- * waistcoats; other pieces keep the weights their own passes gave them, and the skin is
+ * piece follows that piece. Each point of every piece bindsUnder names (draped shirts,
+ * trousers, breeches, waistcoats, and the undraped waistcoats and neckwear; the skin is
  * hidden by cullHidden instead) that lies under opaque cloth of a higher rank (a ray out along
  * its normal meets it within BIND_REACH_M)
  * takes the skin weights of the nearest point of that cloth; past the cloth's edge a band
@@ -682,7 +698,7 @@ export function* bindLayersSteps(root) {
   const skinned = []; root.updateMatrixWorld(true);
   root.traverse((o) => { if (o.isSkinnedMesh && o.geometry?.attributes?.skinIndex && o.geometry?.attributes?.skinWeight && layerRank(o) >= 0) skinned.push(o); });
   const report = { bound: [] };
-  if (!skinned.some((m) => kindOf(m))) { root.userData.chicagoBind = report; return report; }
+  if (!skinned.some((m) => bindsUnder(m))) { root.userData.chicagoBind = report; return report; }
   const opaque = (m) => !m.material?.transparent && !(m.material?.alphaTest > 0) && m.material?.opacity !== 0;
   const canCover = (m) => layerRank(m) > 0 && !HIDEABLE.test(m.name) && opaque(m);
   // One bone table by name: every piece's skeleton is the body's, but index by name to be sure.
@@ -694,7 +710,7 @@ export function* bindLayersSteps(root) {
     return { I, Wt };
   };
   const info = new Map(skinned.map((m) => [m, { P: bindPositions(m), ...weightsOf(m) }]));
-  const order = skinned.filter((m) => kindOf(m) && layerRank(m) < 4).sort((p, q) => layerRank(q) - layerRank(p));
+  const order = skinned.filter((m) => bindsUnder(m)).sort((p, q) => layerRank(q) - layerRank(p));
   for (const mesh of order) {
     yield;
     const rank = layerRank(mesh), skin = mesh.material?.name === 'skin';
