@@ -211,6 +211,6 @@ for (const lod of [0, 1, 2, 3]) {
 {
   const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ fitWaist \} from '\.\/human-waist\.js';/.test(humans) && /import \{ engraveSilver \} from '\.\/human-silver\.js';/.test(humans));
-  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}fitWaist\(gltf\.scene\);\s*engraveSilver\(gltf\.scene\);\s*return gltf;/.test(humans), 'parse() fits and engraves the shared source');
+  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}fitWaist\(gltf\.scene\);\s*engraveSilver\(gltf\.scene\);\s*(?:if \(!globalThis\.CHICAGO_NO_DRAPE\) \{[^}]*\}\s*)?return gltf;/.test(humans), 'parse() fits and engraves the shared source');
 }
 console.log('human-waist: belts on the body at every level, standing and walking; silver engraved by shader, no texture: PASS');
