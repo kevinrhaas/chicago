@@ -314,6 +314,43 @@ def leafless_plan(parts, u: float, v: float, width: float, free=lambda u, v: Tru
     }, ''
 
 
+FRAME_LEAF_MAT = 'k16_stained'   # a frame house's door leaf: k16_timber.py ROLE_MATERIAL door, door_panel
+FRAME_LEAF_DEPTH_M = 0.2         # the leaf stands within this of the wall's face (its casing's reveal, 0.075 m)
+
+
+def frame_house_leaf(parts, u: float, v: float, width: float):
+    """T-3773: a frame house's door leaf, the triangles of its stained wood wholly within the
+    door's opening (between its jambs, behind the wall's face and no deeper than the reveal and
+    the panels' sink), from a hair over the threshold to the leaf's head. The porch's floor,
+    ceiling and stair share the material and stand outside that box; a transom's light over the
+    leaves stands in it only from the transom bar up, so the leaf's head is the lowest gap in
+    height. None when nothing is there."""
+    tris = [t for name, t in parts if name.lower() == FRAME_LEAF_MAT]
+    if not tris:
+        return None
+    T = np.concatenate(tris)
+    U, V, Y = T[:, :, 0], -T[:, :, 2], T[:, :, 1]
+    half = width / 2 + 0.005
+    box = ((U.max(1) <= u + 0.005) & (U.min(1) >= u - FRAME_LEAF_DEPTH_M)
+           & (V.min(1) >= v - half) & (V.max(1) <= v + half))
+    if not box.any():
+        return None
+    T, Y = T[box], Y[box]
+    # The leaf runs up from its threshold without a gap; a transom's painted fill starts higher.
+    order = np.argsort(Y.min(1), kind='stable')
+    top = float(Y[order[0]].max())
+    keep = []
+    for k in order:
+        if float(Y[k].min()) > top + 0.02:
+            break
+        keep.append(k)
+        top = max(top, float(Y[k].max()))
+    leaf = T[np.array(keep, dtype=int)]
+    if np.ptp(-leaf[:, :, 2]) < 0.5 or np.ptp(leaf[:, :, 1]) < 1.5:
+        return None
+    return leaf
+
+
 def frame_house_front_door(sc: dict):
     """A frame house record's own front door (k16_timber.py `frame_house` blocks): the first door
     hung on a block's east wall, the street side of a Prairie plan, as (u, v, clear width) in the
@@ -386,6 +423,24 @@ def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict]
         basis = 'Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed.'
     elif (hung := frame_house_front_door(sc)) is not None:
         u, v, width = hung
+        # T-3773 (owner, 2026-11-26: "any door that a person can come in and out of should swing
+        # like a real door on hinges"): the frame house's leaf is lifted out of its model and hung
+        # to swing as a built K01 leaf is; only where none can be read does the way stop at it.
+        leaf = frame_house_leaf(parts, u, v, width)
+        if leaf is not None:
+            plan, why = passage_plan(sc['id'], leaf, parts, {FRAME_LEAF_MAT}, free)
+            if plan is not None:
+                foot = plan['way'][0]
+                door.update({'leaf': world(u, v), 'step': world(foot[0], foot[1]), 'outward_deg': round(angle, 1),
+                             'width_m': round(float(width), 2), 'passage': True,
+                             'plan': {'name': 'Front door', **plan},
+                             'reconstructed': 'The front door the frame house record hangs on its street wall (frame_house '
+                                              "blocks): its panelled leaf is read off the model's stained wood inside the "
+                                              "door's casing, and the way up to it off the model's porch steps "
+                                              '(derive_doors_scene.py stoop_way); one answering stands at its foot. The leaf '
+                                              'opens and shuts as they pass (house-doors.js passages, T-3773); its hinge side '
+                                              'and swing are reconstructed.'})
+                return [door], problems
         plan, why = leafless_plan(parts, u, v, width, free)
         if plan is not None:
             foot = plan['way'][0]

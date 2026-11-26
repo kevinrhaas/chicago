@@ -25433,7 +25433,10 @@ repeated); the slate's colour (the sheet's roof mark is read as slate or tin, an
 **What is not built.** The porches' returns along each front block's south side (the kit's porch runs
 one wall); 2000's narrow brick range on the rear wall, 0.75 m deep, whose height the sheet does not
 print; 2010's 0.65 m step in the rear range's south wall. The fronts are left open to the street
-with a flagged walk from each porch stair (no picture of either front is held).
+with a flagged walk from each porch stair (no picture of either front is held). T-3773 (owner, 2026-11-26)
+lays that walk on the stair's own line, under the door: it had been laid on the stair's `centre_m` read from s 0,
+not from the front block's corner the porch is built along, and so ran 0.43 m (2000) and 1.14 m (2010) north of
+the stair and the door.
 **Simplified.** The storeys stand as wall heights and rows of sash, with no floors modelled inside, and the
 frame as K16 clapboard at a frame wall's 0.15 m, with no studs or sheathing behind it.
 **How to resolve:** a photograph, plate or description of either house, ingested as a source,
@@ -43594,7 +43597,13 @@ how fast; a pair for a wide opening; the vestibule behind a front door and the d
 the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease
 (0.12 m each side of a riser); where one answering stands.
 **How to resolve:** a photograph of any of these doors open, or a plan of its entrance hall.
-**Ticket:** T-3554.
+**Amended 2026-11-26 (T-3773):** the owner, at 2010 Prairie: *"any door that a person can come in and out of should
+swing like a real door on hinges"*. The three frame houses' front doors (2000 and 2010 Prairie and Walker's 1720,
+L-k16-2000-2010-frame-1909's and 1720's K16 fronts), which their model builds into the wall with no leaf of its own and
+which had only a way up to them (`leafless`), are hung the same way: their panelled leaf is the model's stained wood
+inside the door's casing (`tools/derive_doors_scene.py` `frame_house_leaf`), lifted out and swung inward on its
+right-hand jamb into a dark vestibule. That leaf is its face alone, so it is drawn from both sides. Invented as above.
+**Ticket:** T-3554, T-3773.
 **Recorded:** 2026-11-12 (T-3554).
 
 ### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
