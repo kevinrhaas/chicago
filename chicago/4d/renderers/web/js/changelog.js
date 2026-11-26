@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3261, ts: '2026-11-26T15:41:26.160Z', date: 'Nov 26, 2026, 9:41 AM CT', title: '2123 Prairie\'s basement light beside its bow, where its photograph puts it', kind: 'fix',
+    items: [
+      'The basement light beside 2123 Prairie\'s bow now stands half a metre north, off the window over it, where the Armour photograph shows its opening.',
+      'The photograph\'s roof over the bow was re-read: the mansard bows out round the bay rather than stepping down beside it, which is the next thing to build.',
+    ] },
   { v: 3260, ts: '2026-11-26T15:37:41.114Z', date: 'Nov 26, 2026, 9:37 AM CT', title: '2027 Prairie\'s brick barn on the alley', kind: 'feature',
     items: [
       'The barn behind 2027 Prairie now stands as a two-storey brick coach house on the outline the 1911 fire-insurance map draws, 10.7 m deep by 14.5 m along the alley, its north wall on the lot line and one window on the alley where the map marks it.',
