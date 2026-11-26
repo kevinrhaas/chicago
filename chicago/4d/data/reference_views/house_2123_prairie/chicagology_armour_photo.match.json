@@ -1,77 +1,81 @@
 {
- "structure_id": "house_2123_prairie",
- "view": "chicagology_armour_photo",
- "glb": "assets/gltf/house_2123_prairie__as_mapped_1904.glb",
- "glb_sha256": "57ae5d8329176fb22dbd1ab7b62d8ecf148615bb7c75423da6538d13cf998cd1",
- "camera_sha256": "da009b44edbd83f615c48d100fbeb0d30076f4c8662a42233c001feabb971fbf",
- "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
- "side_by_side": "docs/RESEARCH/photo-match/house_2123_prairie/chicagology_armour_photo-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "the storeys (T-3725): T-3724 read the front at an assumed 65 px a metre and stood the principal floor at 1.8 m and the storeys at 4.0 and 3.8 m, so through this camera every level of the front stood low: the principal sills about 40 px, the chamber sills about 75 px and the cornice about 95-140 px under the print's. Now the principal floor at 2.55 m and the storeys 4.5 and 4.6 m (11.65 m to the wall head): the principal lights at y 860-1015, the chamber lights at y 610-752 and the cornice's corona at about y 506, as the print's",
-   "status": "fixed"
-  },
-  {
-   "what": "the chamber lights (T-3725): 2.2 m tall in T-3724, the print's are 2.43 m (y 610-752 px); now 2.4 m, on the front and in the bow",
-   "status": "fixed"
-  },
-  {
-   "what": "the basement (T-3725): the print's square-headed basement lights stand 0.57-2.11 m over grade (y 1060-1150 px) between stone piers; T-3724 drew one 0.9 m light beside the bow. Now 1.45 m lights on a 0.55 m sill in a four-course rusticated base (K02's brown sandstone widened to four courses for it)",
-   "status": "fixed"
-  },
-  {
-   "what": "the mansard (T-3725): 3.0 m over a wall head 2 m too low, its curb and cresting stood about 140 px under the print's (y 290-325 px at the north corner); now 3.5 m over the 11.65 m wall head, the cresting within about 20 px of the print's",
-   "status": "fixed"
-  },
-  {
-   "what": "the street dormers (T-3725): T-3724 laid them at 2.8 and 5.75 m along the front, over the bow's middle and the light beside it; through this camera the print's stand at x 1840-1870 and 1920-1950 px, and the slate over the bow's middle is plain. Now at 3.6 and 5.55 m (the second read at 5.5, set 5 cm on, under 3 px here, so the roof kit leaves no doubled sliver between the cheeks): x about 1830-1885 and 1910-1965 in the render",
-   "status": "fixed"
-  },
-  {
-   "what": "the north flank's dormer (T-3725): T-3724 laid it 11.0 m from the rear, where this camera hides it far left of the print's (x 1580-1615 px); now 18.9 m from the rear, 2.6 m behind the front",
-   "status": "fixed"
-  },
-  {
-   "what": "the stack (T-3725): the print's one tall stack rises on the north side 4.7 m behind the front (x 1545-1610 px, top y 252); T-3724's stood 7.5 m from the rear, about 280 px left of it. Now 16.75 m from the rear, on the deck just inside the north curb, about 2.1 m over the deck: x 1540-1615, top about y 245",
-   "status": "fixed"
-  },
-  {
-   "what": "the bow's own basement light (T-3725): the print shows one square-headed opening between piers under the bow's north principal light (x 1763-1833, y 1057-1150 px) and a pale pier under its south light (x 1850-1877); the render's bow basement was plain stone. Now one 1.15 m light on a 0.72 m sill at the principal pair's -22 degrees: x 1762-1823, y 1062-1140 in the render. The dark opening south of the pier (x 1877-1940) is the front's basement light beside the bow (next entry), not a second light in the bow, as earlier reads had it",
-   "status": "fixed"
-  },
-  {
-   "what": "the front's basement light beside the bow: the print's dark opening reads x 1877-1940 px, the render's light x 1907-1943 (its south jamb within a few px, its north jamb about 30 px, about 0.5 m, short of the print's). The print's is not under its own principal light (x 1933-1987), so it is not the bay's place that is off; a deeper reveal or the bow's junction in shadow may widen it at this print's grain, and no second picture settles which",
-   "status": "open"
-  },
-  {
-   "what": "the skyline south of the bow: the print's crested deck line stops over the bow's south edge (x about 1855 px, y 290-320) and the outline south of it stands about 25 px (about 0.45 m) lower, with a corniced, crested head over the second street dormer (cornice y 390-410, cresting y 345-375, x 1910-1985 px) — either a taller crown over the bow's stretch or the dormers' own hooded heads. The render's deck is one level and its dormers round-headed under no hood. K01's front crown (T-3283) refuses the print's north-flank dormer inside its depth and K01's hooded dormer takes only a flat-headed sash, where the print's light is round-headed",
-   "status": "open"
-  },
-  {
-   "what": "the front's south end at the print's right edge (x 1960-2000 px, y 410-530): the mansard's face turns down there, about where the 1911 sheet cuts the front's south-west corner back 1.9 m round the entrance (v 7.2 m); the render carries the full-width mansard and front past the frame (liberty L-k01-2123-prairie-3724, the cut corner not built)",
-   "status": "open"
-  },
-  {
-   "what": "the camera's own residuals: the north corner at x 1680 against the print's 1700, the bow's principal lights 7 and 13 px south of the print's (under 0.35 m); the light beside the bow at x 1932 reads 5.79 m against the record's 5.75 m",
-   "status": "within tolerance"
-  },
-  {
-   "what": "the flank dormer about 20 px left of the print's and its head about 0.3 m lower; the street dormers within about 15 px; the stack's top about 0.2 m over the print's",
-   "status": "within tolerance"
-  },
-  {
-   "what": "carving: the print's front is richly worked — incised pilaster panels between the lights, moulded architraves with carved heads, the belt course's projecting cornice between the storeys and the cornice's deep consoles; the render's are K01's plain dressed stone (each under about 0.3 m of relief)",
-   "status": "within tolerance"
-  },
-  {
-   "what": "colour: the print is monochrome. The front reads far darker than 2115's limestone beside it, as the render's brown sandstone does; the north flank's common brick reads lighter in the render than the print's (in shade)",
-   "status": "not shown"
-  },
-  {
-   "what": "the north flank below the cornice from x 1555 px leftward, the rear range and the rear: 2115's south end stands in front of them in the print (not drawn in this render: see the camera's solve); the door's end of the front and the south flank are out of frame",
-   "status": "not shown"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "house_2123_prairie",
+  "view": "chicagology_armour_photo",
+  "glb": "assets/gltf/house_2123_prairie__as_mapped_1904.glb",
+  "glb_sha256": "d3dc638c2a01126bb1bab86087414644e22ffaf3d350360c5c4ce12a44000871",
+  "camera_sha256": "da009b44edbd83f615c48d100fbeb0d30076f4c8662a42233c001feabb971fbf",
+  "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
+  "side_by_side": "docs/RESEARCH/photo-match/house_2123_prairie/chicagology_armour_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the storeys (T-3725): T-3724 read the front at an assumed 65 px a metre and stood the principal floor at 1.8 m and the storeys at 4.0 and 3.8 m, so through this camera every level of the front stood low: the principal sills about 40 px, the chamber sills about 75 px and the cornice about 95-140 px under the print's. Now the principal floor at 2.55 m and the storeys 4.5 and 4.6 m (11.65 m to the wall head): the principal lights at y 860-1015, the chamber lights at y 610-752 and the cornice's corona at about y 506, as the print's",
+      "status": "fixed"
+    },
+    {
+      "what": "the chamber lights (T-3725): 2.2 m tall in T-3724, the print's are 2.43 m (y 610-752 px); now 2.4 m, on the front and in the bow",
+      "status": "fixed"
+    },
+    {
+      "what": "the basement (T-3725): the print's square-headed basement lights stand 0.57-2.11 m over grade (y 1060-1150 px) between stone piers; T-3724 drew one 0.9 m light beside the bow. Now 1.45 m lights on a 0.55 m sill in a four-course rusticated base (K02's brown sandstone widened to four courses for it)",
+      "status": "fixed"
+    },
+    {
+      "what": "the mansard (T-3725): 3.0 m over a wall head 2 m too low, its curb and cresting stood about 140 px under the print's (y 290-325 px at the north corner); now 3.5 m over the 11.65 m wall head, the cresting within about 20 px of the print's",
+      "status": "fixed"
+    },
+    {
+      "what": "the street dormers (T-3725): T-3724 laid them at 2.8 and 5.75 m along the front, over the bow's middle and the light beside it; through this camera the print's stand at x 1840-1870 and 1920-1950 px, and the slate over the bow's middle is plain. Now at 3.6 and 5.55 m (the second read at 5.5, set 5 cm on, under 3 px here, so the roof kit leaves no doubled sliver between the cheeks): x about 1830-1885 and 1910-1965 in the render",
+      "status": "fixed"
+    },
+    {
+      "what": "the north flank's dormer (T-3725): T-3724 laid it 11.0 m from the rear, where this camera hides it far left of the print's (x 1580-1615 px); now 18.9 m from the rear, 2.6 m behind the front",
+      "status": "fixed"
+    },
+    {
+      "what": "the stack (T-3725): the print's one tall stack rises on the north side 4.7 m behind the front (x 1545-1610 px, top y 252); T-3724's stood 7.5 m from the rear, about 280 px left of it. Now 16.75 m from the rear, on the deck just inside the north curb, about 2.1 m over the deck: x 1540-1615, top about y 245",
+      "status": "fixed"
+    },
+    {
+      "what": "the bow's own basement light (T-3725): the print shows one square-headed opening between piers under the bow's north principal light (x 1763-1833, y 1057-1150 px) and a pale pier under its south light (x 1850-1877); the render's bow basement was plain stone. Now one 1.15 m light on a 0.72 m sill at the principal pair's -22 degrees: x 1762-1823, y 1062-1140 in the render. The dark opening south of the pier (x 1877-1940) is the front's basement light beside the bow (next entry), not a second light in the bow, as earlier reads had it",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's basement light beside the bow (T-3725): the print's dark opening runs to x 1925 px with its pale south jamb at x 1928-1943, north of the principal light over it, where the render's light stood under that light's bay (x 1907-1943, 5.75 m). Now 0.9 m wide at 5.32 m (basement_lights.at_m, the light's own centre off its bay's): x 1892-1927 in the render, its south jamb within 3 px of the print's",
+      "status": "fixed"
+    },
+    {
+      "what": "the print's dark north of that light, x 1875-1892 px (about 0.4 m): inside the bow's junction as the 1911 sheet ends the bow (4.74 m), where the print cannot part the bow's shadowed south flank from the opening; the sheet and the print disagree by under 0.4 m, and K01 keeps an opening's lintel clear of a bay's junction",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the mansard over the bow (re-read for T-3725 by silhouette, column by column, print against render): there is no step in the deck. The print's roof top (its dark mass, cresting aside) stands level at y 313-322 px from x 1700 to 1850 and drops to y 340 at x 1860, where the render's flat-faced curb runs down from y 311 to 339 over the same columns; the two agree from x 1860 to 1910 (y 340-348 against 341-351). That level line is what a curb carried out round the bow draws: through this camera a curb at the main curb's height (15.15 m) following the bow's arc (chord 3.9 m, rise 0.93 m, set in from the fascia as the main face's is) projects at y 307-316 from x 1703 to 1849 and drops to y 344 at x 1872, within about 8 px of the print's everywhere. So the mansard's street face bows out over the bow, its curb on the bow's line, and the print's taller cresting (posts at about y 287-300) stands on that bowed curb and stops on a post at about x 1857, the bow's south end; south of it the curb runs bare to the second street dormer. Building it needs K01 to carry the mansard's street face round a K08 bow (its rings following the arc, the street dormer at 3.6 m set on the bowed face and turned with it, the cresting along the arc), which K01 cannot do yet. The earlier reading (a deck stepping 0.45 m down south of the bow, or a front crown over the bow's stretch) is withdrawn: a front crown raises the curb, and the print's curb does not rise",
+      "status": "open"
+    },
+    {
+      "what": "the front's south end at the print's right edge (x 1960-2000 px, y 410-530): the mansard's face turns down there, about where the 1911 sheet cuts the front's south-west corner back 1.9 m round the entrance (v 7.2 m); the render carries the full-width mansard and front past the frame (liberty L-k01-2123-prairie-3724, the cut corner not built). By silhouette the print's roof is gone from x 1960 px: sky down to y 393-399 at x 1960-1980, where the render's curb stands at y 351-364, so the mansard stops at about 6.9 m along the front, about where the sheet's cut begins (7.2 m); the corniced, crested head the earlier reading gave the second street dormer (x 1910-1990, cornice y 390-410) is likely that cut corner's own cornice and cresting turning back",
+      "status": "open"
+    },
+    {
+      "what": "the camera's own residuals: the north corner at x 1680 against the print's 1700, the bow's principal lights 7 and 13 px south of the print's (under 0.35 m); the light beside the bow at x 1932 reads 5.79 m against the record's 5.75 m",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flank dormer about 20 px left of the print's and its head about 0.3 m lower; the street dormers within about 15 px; the stack's top about 0.2 m over the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "carving: the print's front is richly worked — incised pilaster panels between the lights, moulded architraves with carved heads, the belt course's projecting cornice between the storeys and the cornice's deep consoles; the render's are K01's plain dressed stone (each under about 0.3 m of relief)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "colour: the print is monochrome. The front reads far darker than 2115's limestone beside it, as the render's brown sandstone does; the north flank's common brick reads lighter in the render than the print's (in shade)",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank below the cornice from x 1555 px leftward, the rear range and the rear: 2115's south end stands in front of them in the print (not drawn in this render: see the camera's solve); the door's end of the front and the south flank are out of frame",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
