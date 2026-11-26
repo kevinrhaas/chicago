@@ -508931,5 +508931,17 @@
    "fit_signature": "7b0b6db42c8bbd647a8f0a15c13aa8330862ca607f81a888fc072af027a10606"
   }
  ],
- "frontal": true
+ "frontal": true,
+ "activation": {
+  "tier": "dev",
+  "requested_by": "owner",
+  "date": "2026-11-26",
+  "years": [
+   "1812",
+   "1835",
+   "1871",
+   "1904"
+  ],
+  "request": "Ok yes let\u2019s roll the faces out so I can see them on dev; children faces of the same type so people look consistent."
+ }
 }
