@@ -1859,6 +1859,8 @@ document.addEventListener('visibilitychange', () => blackbox.log(document.hidden
 window.addEventListener('error', (e) => blackbox.log('error', { msg: String(e.message ?? e).slice(0, 120) }));
 window.addEventListener('unhandledrejection', (e) => blackbox.log('error', { msg: String(e.reason?.message ?? e.reason).slice(0, 120) }));
 const bootCell = {
+  // T-3758: each year downloads a different town, so the forecast's bytes are the year's own.
+  year: String(YEAR),
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: crashBoot.detail,
   build: document.getElementById('gate-build')?.textContent || VERSION,
