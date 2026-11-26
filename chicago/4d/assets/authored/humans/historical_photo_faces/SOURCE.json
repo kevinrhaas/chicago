@@ -1,0 +1,168 @@
+{
+ "not_a_reading": "Texture processing of six previously identified portraits; no new person identification or roster reading.",
+ "ticket": "T-3762",
+ "processed": [
+  {
+   "person_id": "glessner_john_j",
+   "input_file": "work/historical-photos/glessner_john_j_scan.jpg",
+   "input_url": "https://archive.org/download/commercialclubof00gles/page/leaf95_w3000.jpg",
+   "input_sha256": "8134ad3fa0998814e54a4fcc4a04a9bd1e1aabe1e2ee03d6ce5998537499a962",
+   "input_portrait_crop": [
+    202,
+    2337,
+    966,
+    3480
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0.85,
+   "head_crop_after_1024": [
+    91,
+    118,
+    621,
+    648
+   ],
+   "size_px": [
+    512,
+    512
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/glessner_john_j.png",
+   "processed_sha256": "136dd8088141b70f18d989662a7f3d03889e75a0952d024a13ec91d05f675f77",
+   "note": "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail."
+  },
+  {
+   "person_id": "glessner_frances_m",
+   "input_file": "assets/humans/web/portraits/glessner_frances_m_portrait.jpg",
+   "input_url": "https://raw.githubusercontent.com/kevinrhaas/chicago/839e28cfa58769d5d5cc512ac5719f2f2a3c9108/chicago/4d/assets/humans/web/portraits/glessner_frances_m_portrait.jpg",
+   "input_sha256": "1f2a67c95734d9bd7cad610cd2cafd015e71fe4402259876ddeeb05e385fc5d7",
+   "input_portrait_crop": [
+    630,
+    500,
+    880,
+    700
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0,
+   "head_crop_after_1024": [
+    11,
+    9,
+    355,
+    353
+   ],
+   "size_px": [
+    344,
+    344
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/glessner_frances_m.png",
+   "processed_sha256": "e0290fafaa41360573b42f6ef38a42b461ce11070b83a5a96ae7824de0cdd4c1",
+   "note": "The retained catalogue-cited portrait crop is used. Its source face was approximately 90 pixels across; no detail is invented. The full owner-supplied original is not present at the archive path named in the earlier record."
+  },
+  {
+   "person_id": "pa1904_field_marshall",
+   "input_file": "work/historical-photos/pa1904_field_marshall_scan.jpg",
+   "input_url": "https://archive.org/download/menofillinois01with/page/leaf407_w3000.jpg",
+   "input_sha256": "643188f58be0d35a1894eb3d7e6b96e27dd7426b84e8003d8c31bfd6f0323d4c",
+   "input_portrait_crop": [
+    335,
+    526,
+    963,
+    1363
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0.85,
+   "head_crop_after_1024": [
+    35,
+    85,
+    628,
+    727
+   ],
+   "size_px": [
+    473,
+    512
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/pa1904_field_marshall.png",
+   "processed_sha256": "217f3c67a1ed8726a766edc0a741999903dfcafde52182c85988fa62e665933c",
+   "note": "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail."
+  },
+  {
+   "person_id": "pa1904_field_mrs_marshall_jr",
+   "input_file": "work/historical-photos/pa1904_field_mrs_marshall_jr_scan.jpg",
+   "input_url": "https://archive.lib.msu.edu/DMC/tribune/trib00000000/trib00000000823.jpg",
+   "input_sha256": "9b9546b27b10ab5ef031a2cabd150841ed8dba52e6b7f7ed320ad13ecbb19522",
+   "input_portrait_crop": [
+    468,
+    2961,
+    2806,
+    6079
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0.85,
+   "head_crop_after_1024": [
+    192,
+    195,
+    679,
+    682
+   ],
+   "size_px": [
+    487,
+    487
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/pa1904_field_mrs_marshall_jr.png",
+   "processed_sha256": "0eba2ba3ac3dcf0b30dfd7330501084e1ae01a76290dec19d239ddc9d22cfc6c",
+   "note": "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail."
+  },
+  {
+   "person_id": "pa1904_pullman_mrs_george_m",
+   "input_file": "work/historical-photos/pa1904_pullman_mrs_george_m_scan.jpg",
+   "input_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Mrs._George_M._Pullman,_half-length_portrait,_seated,_facing_front_LCCN90710921.jpg",
+   "input_sha256": "7f6a2856d8e3b2c18afdba98a6be8f1b4d1538774d9c9a4a8d11374222c97765",
+   "input_portrait_crop": [
+    1188,
+    778,
+    2150,
+    2060
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0,
+   "head_crop_after_1024": [
+    71,
+    34,
+    749,
+    713
+   ],
+   "size_px": [
+    511,
+    512
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/pa1904_pullman_mrs_george_m.png",
+   "processed_sha256": "1606fa6112d891ca3987d4d907eaf9e853b4780a728ac0b28da7d0471477a8c2",
+   "note": "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail."
+  },
+  {
+   "person_id": "pa1904_lowden_frank_orren",
+   "input_file": "work/historical-photos/pa1904_lowden_frank_orren_scan.jpg",
+   "input_url": "https://archive.org/download/menofillinois01with/page/leaf227_w3000.jpg",
+   "input_sha256": "88635845051a76c13a23f700600eb4bbde3ad50ce0bbbaf9c0b5fec6f9851dee",
+   "input_portrait_crop": [
+    390,
+    566,
+    975,
+    1348
+   ],
+   "grayscale": true,
+   "descreen_sigma_at_1024": 0.85,
+   "head_crop_after_1024": [
+    0,
+    74,
+    585,
+    679
+   ],
+   "size_px": [
+    495,
+    512
+   ],
+   "processed_file": "assets/authored/humans/historical_photo_faces/pa1904_lowden_frank_orren.png",
+   "processed_sha256": "95e75722d369a3b43f8070d9bc62cb6ab7b30128924ef2bb3d92fe10deeccaeb",
+   "note": "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail."
+  }
+ ]
+}

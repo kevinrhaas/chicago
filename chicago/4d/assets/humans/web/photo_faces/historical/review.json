@@ -1,0 +1,1660 @@
+{
+ "format": "chicago4d_photo_face_review_v2",
+ "review_only": true,
+ "rollout": "No population assignments; review the renders first.",
+ "tile_px": 256,
+ "padding_px": 8,
+ "cols": 3,
+ "size_px": [
+  768,
+  512
+ ],
+ "textures": {
+  "light": {
+   "file": "faces_light.jpg",
+   "size_px": [
+    384,
+    256
+   ],
+   "bytes": 23637,
+   "sha256": "e0095090a72d8d7f863abe061e01a017074827b9f17788f10904db90ee4d945b",
+   "gpu_bytes_rgba8_mipmaps": 524288
+  }
+ },
+ "pages": [
+  {
+   "first": 0,
+   "count": 6,
+   "cols": 3,
+   "size_px": [
+    768,
+    512
+   ],
+   "textures": {
+    "full": {
+     "file": "page_00_face_full.jpg",
+     "size_px": [
+      768,
+      512
+     ],
+     "bytes": 80339,
+     "sha256": "9f8604b600ac49c6676ffeb5a59f34f714f663ade18e8f8ba21313bd1ad9e752",
+     "gpu_bytes_rgba8_mipmaps": 2097152
+    },
+    "light": {
+     "file": "page_00_face_light.jpg",
+     "size_px": [
+      384,
+      256
+     ],
+     "bytes": 23637,
+     "sha256": "e0095090a72d8d7f863abe061e01a017074827b9f17788f10904db90ee4d945b",
+     "gpu_bytes_rgba8_mipmaps": 524288
+    }
+   },
+   "hair_textures": {
+    "full": {
+     "file": "page_00_hair_full.png",
+     "size_px": [
+      768,
+      512
+     ],
+     "bytes": 491880,
+     "sha256": "607cb8662d0e60f79a836c303d3ad75cc1455f83accde0820a227687c1694ed2",
+     "gpu_bytes_rgba8_mipmaps": 2097152
+    },
+    "light": {
+     "file": "page_00_hair_light.png",
+     "size_px": [
+      384,
+      256
+     ],
+     "bytes": 162679,
+     "sha256": "131bc4c2f519ce68f42a948db05c696c9a7bba86438bf78759eef25fb21c888e",
+     "gpu_bytes_rgba8_mipmaps": 524288
+    }
+   }
+  }
+ ],
+ "hair_shells": {
+  "light": {
+   "file": "hair_shell_light.glb",
+   "sha256": "91121563e101385fe269b634db5e4b3b75cc1ec9dfdf228f7b1b1fb0e3583b16",
+   "bytes": 12200,
+   "triangles": 440,
+   "vertices": 273
+  },
+  "full": {
+   "file": "hair_shell_full.glb",
+   "sha256": "c666033bd2507d59d917b6434afafa871ea523f2b042d3b24cfbb1dd0dca0086",
+   "bytes": 30296,
+   "triangles": 1216,
+   "vertices": 693
+  }
+ },
+ "faces": [
+  {
+   "id": "glessner_john_j",
+   "sex": "male",
+   "age": 61,
+   "label": "John J. Glessner",
+   "source": "historical_photo_texture_glessner_john_j_3762",
+   "source_url": "https://archive.org/details/commercialclubof00gles/page/n94/mode/1up",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_john_j_1904",
+   "index": 0,
+   "page": 0,
+   "page_index": 0,
+   "photo": "glessner_john_j_source.jpg",
+   "values": {
+    "nose_length": 0.0,
+    "nose_width": 0.0,
+    "nose_depth": -0.485,
+    "nose_hump": 0.072,
+    "nose_curve": -0.097,
+    "nose_tip": -0.2,
+    "nose_tip_width": 0.0,
+    "nostrils": 0.0,
+    "nose_height": -0.036,
+    "mouth_width": 0.0,
+    "lip_upper": -0.011,
+    "lip_lower": -0.054,
+    "mouth_height": -0.397,
+    "chin_prominence": 0.381,
+    "chin_width": 0.0,
+    "chin_height": 0.017,
+    "jaw": 0.067,
+    "prognathism": -0.079,
+    "cheekbones": 0.0,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.0,
+    "brow_height": 0.003,
+    "brow_angle": -0.218,
+    "mouth_corners": 0.0,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": 0.014,
+    "forehead_slope": 0.02,
+    "temples": 0.0,
+    "ear_size": 0.029,
+    "ear_flap": 0.054,
+    "ear_lobe": 0.128,
+    "jowls": 0.0,
+    "head_shape": 0.342,
+    "forehead_height": -0.094,
+    "head_shape.option": 1
+   },
+   "fit_rms_px": 6.78,
+   "camera": {
+    "yaw_deg": 23.683,
+    "pitch_deg": 0.262,
+    "roll_deg": 3.757,
+    "px_per_m": 2034.693,
+    "shift_px": [
+     302.627,
+     302.953
+    ]
+   },
+   "tone_rgb": [
+    0.30276555424283136,
+    0.30276555424283136,
+    0.30276555424283136
+   ],
+   "body_gain": [
+    0.3849669680220009,
+    0.6956815043775763,
+    1.210671068632848
+   ],
+   "hair_rgb": [
+    0.2195261997292692,
+    0.2195261997292692,
+    0.2195261997292692
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08948363729214066,
+     0.11111483693122864,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.6310263983723434,
+     -0.2603944272095048,
+     1.5939246073400923,
+     0.8019025907933711
+    ],
+    "v": [
+     -0.2457506010673376,
+     -3.9654278625246517,
+     -0.08798935430540067,
+     6.890120875888939
+    ],
+    "toward": [
+     -0.40167187685894845,
+     0.004572746704043463,
+     0.915772238784399
+    ],
+    "fallback_gain": [
+     13.723566748444366,
+     13.061301357028102,
+     13.061301357028102
+    ],
+    "hairline_v": 0.234161328125
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.21784193583574846,
+     0.20946339984206583,
+     0.2010848638483832
+    ],
+    "iris_linear": [
+     0.03814887257153153,
+     0.03814887257153153,
+     0.03814887257153153
+    ],
+    "iris_gain": [
+     0.8722727118205544,
+     2.3848570228016777,
+     3.0
+    ],
+    "lid_rest": -0.21,
+    "centres_uv": [
+     [
+      0.4633001953125,
+      0.4485888671875
+     ],
+     [
+      0.69220859375,
+      0.4252341796875
+     ]
+    ],
+    "iris_radius_m": [
+     0.005709131090221745,
+     0.005222747970068804
+    ],
+    "aperture_ratio": 0.38616931877995936,
+    "opening_fit": {
+     "rest": -0.21,
+     "picture_open_mm": [
+      9.9,
+      9.0
+     ],
+     "fitted_open_mm": [
+      7.7,
+      7.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "glessner_john_j",
+    "scene": "1904",
+    "scene_age": 61,
+    "photo_age_basis": "The photograph is undated and was printed in 1910, when he was 67. It is fitted as his face at the scene date (61, from born 1843): between 61 and 67 the renderer's ageing pair moves these landmarks by under a millimetre, far inside the marks' uncertainty.",
+    "photo_date": "1910",
+    "original_source": "glessner_commercial_club_1910_presidents_plate",
+    "before_values": {
+     "nose_length": 0.0,
+     "nose_width": 0.0,
+     "nose_depth": -0.485,
+     "nose_hump": 0.072,
+     "nose_curve": -0.097,
+     "nose_tip": -0.2,
+     "nose_tip_width": 0.0,
+     "nostrils": 0.0,
+     "nose_height": -0.036,
+     "mouth_width": 0.0,
+     "lip_upper": -0.011,
+     "lip_lower": -0.054,
+     "mouth_height": -0.397,
+     "chin_prominence": 0.381,
+     "chin_width": 0.0,
+     "chin_height": 0.017,
+     "jaw": 0.067,
+     "prognathism": -0.079,
+     "cheekbones": 0.0,
+     "cheek_volume": 0.0,
+     "cheek_inner": 0.0,
+     "brow_height": 0.003,
+     "brow_angle": -0.218,
+     "brow_ridge": 0.014,
+     "forehead_slope": 0.02,
+     "temples": 0.0,
+     "ear_size": 0.029,
+     "ear_flap": 0.054,
+     "ear_lobe": 0.128,
+     "jowls": 0.0,
+     "head_shape": 0.342,
+     "forehead_height": -0.094,
+     "head_shape.option": 1
+    },
+    "limits": [
+     "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": null
+   },
+   "shape_from": "data/humans/variation/fits/glessner_john_j.json",
+   "reference_source": "glessner_commercial_club_1910_presidents_plate"
+  },
+  {
+   "id": "glessner_frances_m",
+   "sex": "female",
+   "age": 44,
+   "label": "Frances Macbeth Glessner",
+   "source": "historical_photo_texture_glessner_frances_m_3762",
+   "source_url": "https://images.chicagohistory.org/asset/25064",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_frances_m_1904",
+   "index": 1,
+   "page": 0,
+   "page_index": 1,
+   "photo": "glessner_frances_m_source.jpg",
+   "values": {
+    "nose_length": -0.172,
+    "nose_width": 0.2,
+    "nose_depth": 0.153,
+    "nose_hump": -0.2,
+    "nose_curve": -0.012,
+    "nose_tip": 0.159,
+    "nose_tip_width": 0.0,
+    "nostrils": -0.2,
+    "nose_height": 0.175,
+    "mouth_width": -0.12,
+    "lip_upper": 0.12,
+    "lip_lower": 0.128,
+    "mouth_height": 0.218,
+    "chin_prominence": 0.403,
+    "chin_width": 0.15,
+    "chin_height": -0.263,
+    "jaw": 0.067,
+    "prognathism": 0.02,
+    "cheekbones": -0.1,
+    "cheek_volume": 0.3,
+    "cheek_inner": 0.2,
+    "brow_height": -0.041,
+    "brow_angle": 0.37,
+    "mouth_corners": -0.1,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": 0.098,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": -0.206,
+    "ear_flap": 0.0,
+    "ear_lobe": -0.314,
+    "jowls": 0.2,
+    "head_shape": 0.253,
+    "forehead_height": 0.0,
+    "head_shape.option": 0
+   },
+   "fit_rms_px": 4.13,
+   "camera": {
+    "yaw_deg": 24.57,
+    "pitch_deg": -1.375,
+    "roll_deg": -0.202,
+    "px_per_m": 1560.587,
+    "shift_px": [
+     216.127,
+     196.464
+    ]
+   },
+   "tone_rgb": [
+    0.2831487404299921,
+    0.2831487404299921,
+    0.2831487404299921
+   ],
+   "body_gain": [
+    0.3691878929518971,
+    0.8425721197977678,
+    1.742371368166784
+   ],
+   "hair_rgb": [
+    0.3467040563550296,
+    0.3467040563550296,
+    0.3467040563550296
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.09549995296979266,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.125634570459299,
+     0.015989405211178153,
+     1.886672630074716,
+     0.3906285427153408
+    ],
+    "v": [
+     0.05980998747488186,
+     -4.535255642713538,
+     -0.09235206415782961,
+     7.419676611857329
+    ],
+    "toward": [
+     -0.41568493150160485,
+     -0.023995973777378995,
+     0.9091920759470913
+    ],
+    "fallback_gain": [
+     5.203739915901865,
+     12.19670634388271,
+     24.00358699874198
+    ],
+    "hairline_v": 0.23519331395348836
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1942161691189438,
+     0.18674631646052287,
+     0.17927646380210194
+    ],
+    "iris_linear": [
+     0.14038468412918212,
+     0.14038468412918212,
+     0.14038468412918212
+    ],
+    "iris_gain": [
+     3.0,
+     3.0,
+     3.0
+    ],
+    "lid_rest": 0.039,
+    "centres_uv": [
+     [
+      0.47282877906976745,
+      0.43383197674418605
+     ],
+     [
+      0.7287898255813954,
+      0.4341866279069767
+     ]
+    ],
+    "iris_radius_m": [
+     0.005670051282608563,
+     0.005288978237444957
+    ],
+    "aperture_ratio": 0.32762691550790046,
+    "opening_fit": {
+     "rest": 0.039,
+     "picture_open_mm": [
+      8.6,
+      7.7
+     ],
+     "fitted_open_mm": [
+      8.5,
+      8.5
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "glessner_frances_m",
+    "scene": "1904",
+    "scene_age": 56,
+    "photo_age_basis": "The photograph is dated 4 March 1892 by the museum's record; born in 1848, she was 44. It is fitted as her face's shape: the renderer's ageing pair takes her to 56 at the scene date, as it does for every face.",
+    "photo_date": "1892-03-04",
+    "original_source": "chm_ichi_061818_frances_glessner_conservatory_1892",
+    "before_values": {
+     "nose_length": -0.172,
+     "nose_width": 0.2,
+     "nose_depth": 0.153,
+     "nose_hump": -0.2,
+     "nose_curve": -0.012,
+     "nose_tip": 0.159,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": 0.175,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.128,
+     "mouth_height": 0.218,
+     "chin_prominence": 0.403,
+     "chin_width": 0.15,
+     "chin_height": -0.263,
+     "jaw": 0.067,
+     "prognathism": 0.02,
+     "cheekbones": -0.1,
+     "cheek_volume": 0.3,
+     "cheek_inner": 0.2,
+     "brow_height": -0.041,
+     "brow_angle": 0.37,
+     "mouth_corners": -0.1,
+     "brow_ridge": 0.098,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": -0.206,
+     "ear_flap": 0.0,
+     "ear_lobe": -0.314,
+     "jowls": 0.2,
+     "head_shape": 0.253,
+     "forehead_height": 0.0,
+     "head_shape.option": 0
+    },
+    "limits": [
+     "The retained catalogue-cited portrait crop is used. Its source face was approximately 90 pixels across; no detail is invented. The full owner-supplied original is not present at the archive path named in the earlier record.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": null
+   },
+   "shape_from": "data/humans/variation/fits/glessner_frances_m.json",
+   "reference_source": "chm_ichi_061818_frances_glessner_conservatory_1892"
+  },
+  {
+   "id": "pa1904_field_marshall",
+   "sex": "male",
+   "age": 67,
+   "label": "Marshall Field",
+   "source": "historical_photo_texture_pa1904_field_marshall_3762",
+   "source_url": "https://archive.org/details/menofillinois01with",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_john_j_1904",
+   "index": 2,
+   "page": 0,
+   "page_index": 2,
+   "photo": "pa1904_field_marshall_source.jpg",
+   "values": {
+    "nose_length": 0.081,
+    "nose_width": 0.0,
+    "nose_depth": -0.036,
+    "nose_hump": 0.031,
+    "nose_curve": 0.002,
+    "nose_tip": -0.121,
+    "nose_tip_width": 0.0,
+    "nostrils": 0.0,
+    "nose_height": -0.013,
+    "mouth_width": 0.0,
+    "lip_upper": 0.0,
+    "lip_lower": -0.004,
+    "mouth_height": -0.126,
+    "chin_prominence": 0.008,
+    "chin_width": 0.0,
+    "chin_height": 0.024,
+    "jaw": -0.002,
+    "prognathism": -0.011,
+    "cheekbones": 0.0,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.0,
+    "brow_height": 0.002,
+    "brow_angle": 0.0,
+    "mouth_corners": 0.0,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": 0.001,
+    "forehead_slope": -0.298,
+    "temples": 0.0,
+    "ear_size": -0.026,
+    "ear_flap": -0.003,
+    "ear_lobe": -0.038,
+    "jowls": 0.0,
+    "head_shape": 0.278,
+    "forehead_height": -0.349,
+    "head_shape.option": 2
+   },
+   "fit_rms_px": 5.58,
+   "camera": {
+    "yaw_deg": 15.204,
+    "pitch_deg": -14.036,
+    "roll_deg": 2.539,
+    "px_per_m": 2065.766,
+    "shift_px": [
+     298.52,
+     294.758
+    ]
+   },
+   "tone_rgb": [
+    0.47353149614800955,
+    0.47353149614800955,
+    0.47353149614800955
+   ],
+   "body_gain": [
+    0.602096182278428,
+    1.0880600484234633,
+    1.8935142206204123
+   ],
+   "hair_rgb": [
+    0.38132601143253014,
+    0.38132601143253014,
+    0.38132601143253014
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.11140313010290266,
+     0.11111483693122864,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.222672606267943,
+     -0.18769551559802558,
+     1.09896632611372,
+     0.7904236676816744
+    ],
+    "v": [
+     0.08389828242684133,
+     -3.910394736305362,
+     -0.9902382896368971,
+     6.89003305998887
+    ],
+    "toward": [
+     -0.2544264942750994,
+     -0.24253150259118314,
+     0.9361867491380904
+    ],
+    "fallback_gain": [
+     23.83839822885002,
+     22.68801608526073,
+     22.68801608526073
+    ],
+    "hairline_v": 0.2332251953125
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2633772751714812,
+     0.25324737997257807,
+     0.24311748477367492
+    ],
+    "iris_linear": [
+     0.056643118309213765,
+     0.056643118309213765,
+     0.056643118309213765
+    ],
+    "iris_gain": [
+     1.2951430300045388,
+     3.0,
+     3.0
+    ],
+    "lid_rest": -0.001,
+    "centres_uv": [
+     [
+      0.4778063424947146,
+      0.4304490234375
+     ],
+     [
+      0.747731712473573,
+      0.436295703125
+     ]
+    ],
+    "iris_radius_m": [
+     0.006018592714343827,
+     0.005875884405585127
+    ],
+    "aperture_ratio": 0.2967581728905605,
+    "opening_fit": {
+     "rest": -0.001,
+     "picture_open_mm": [
+      8.0,
+      7.7
+     ],
+     "fitted_open_mm": [
+      7.8,
+      7.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "pa1904_field_marshall",
+    "scene": "1904",
+    "scene_age": 68,
+    "photo_age_basis": "Undated photograph published 1902. Fit uses estimated age at publication; scene age is driven separately by the person record. For an undated or uncertain birth this is a modelling estimate, not an archival photographic date.",
+    "photo_date": "1902",
+    "original_source": "witherspoon_men_of_illinois_1902",
+    "before_values": {
+     "nose_length": 0.081,
+     "nose_width": 0.0,
+     "nose_depth": -0.036,
+     "nose_hump": 0.031,
+     "nose_curve": 0.002,
+     "nose_tip": -0.121,
+     "nose_tip_width": 0.0,
+     "nostrils": 0.0,
+     "nose_height": -0.013,
+     "mouth_width": 0.0,
+     "lip_upper": 0.0,
+     "lip_lower": -0.004,
+     "mouth_height": -0.126,
+     "chin_prominence": 0.008,
+     "chin_width": 0.0,
+     "chin_height": 0.024,
+     "jaw": -0.002,
+     "prognathism": -0.011,
+     "cheekbones": 0.0,
+     "cheek_volume": 0.0,
+     "cheek_inner": 0.0,
+     "brow_height": 0.002,
+     "brow_angle": 0.0,
+     "brow_ridge": 0.001,
+     "forehead_slope": -0.298,
+     "temples": 0.0,
+     "ear_size": -0.026,
+     "ear_flap": -0.003,
+     "ear_lobe": -0.038,
+     "jowls": 0.0,
+     "head_shape": 0.278,
+     "forehead_height": -0.349,
+     "head_shape.option": 2
+    },
+    "limits": [
+     "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": {
+     "complexion": {
+      "value": "olive",
+      "drawn": "olive",
+      "grade": "reconstructed"
+     },
+     "hair": {
+      "value": "white grey",
+      "drawn": "white_grey",
+      "cut": "short_side_part_1904",
+      "facial": [
+       "moustache_full",
+       "brows_full"
+      ],
+      "grade": "inferred",
+      "basis": "Light grey/white rendering follows the light hair and moustache in the halftone and the recorded age; exact colour is reconstructed."
+     },
+     "eyes": {
+      "value": "grey",
+      "drawn": "grey",
+      "grade": "reconstructed"
+     },
+     "stature": {
+      "inches": 70.5,
+      "grade": "reconstructed",
+      "basis": "Artistic body variation; no personal measurement located."
+     },
+     "height_scale": 1.0233,
+     "heritage": {
+      "origin": "not found"
+     },
+     "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+     "grade": "reconstructed",
+     "liberty": "L-prairie-likenesses-3547",
+     "file": "data/humans/variation/looks/pa1904_field_marshall.json"
+    }
+   },
+   "shape_from": "data/humans/variation/fits/pa1904_field_marshall.json",
+   "reference_source": "witherspoon_men_of_illinois_1902"
+  },
+  {
+   "id": "pa1904_field_mrs_marshall_jr",
+   "sex": "female",
+   "age": 35,
+   "label": "Albertine Huck Field",
+   "source": "historical_photo_texture_pa1904_field_mrs_marshall_jr_3762",
+   "source_url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_frances_m_1904",
+   "index": 3,
+   "page": 0,
+   "page_index": 3,
+   "photo": "pa1904_field_mrs_marshall_jr_source.jpg",
+   "values": {
+    "nose_length": 0.0,
+    "nose_width": -0.25,
+    "nose_depth": -0.027,
+    "nose_hump": -0.2,
+    "nose_curve": 0.001,
+    "nose_tip": 0.029,
+    "nose_tip_width": 0.0,
+    "nostrils": -0.2,
+    "nose_height": -0.03,
+    "mouth_width": -0.12,
+    "lip_upper": 0.12,
+    "lip_lower": 0.0,
+    "mouth_height": -0.261,
+    "chin_prominence": -0.009,
+    "chin_width": -0.151,
+    "chin_height": -0.042,
+    "jaw": -0.486,
+    "prognathism": -0.139,
+    "cheekbones": 0.2,
+    "cheek_volume": 0.15,
+    "cheek_inner": 0.0,
+    "brow_height": 0.002,
+    "brow_angle": 0.175,
+    "mouth_corners": 0.35,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": -0.25,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": -0.155,
+    "ear_flap": 0.054,
+    "ear_lobe": -0.047,
+    "jowls": -0.25,
+    "head_shape": 0.091,
+    "forehead_height": 0.0,
+    "head_shape.option": 5
+   },
+   "fit_rms_px": 5.84,
+   "camera": {
+    "yaw_deg": 5.415,
+    "pitch_deg": 1.96,
+    "roll_deg": -34.377,
+    "px_per_m": 2632.442,
+    "shift_px": [
+     218.529,
+     288.637
+    ]
+   },
+   "tone_rgb": [
+    0.29177064981753587,
+    0.29177064981753587,
+    0.29177064981753587
+   ],
+   "body_gain": [
+    0.38042970372306834,
+    0.868228530835779,
+    1.7954267624198939
+   ],
+   "hair_rgb": [
+    0.1559264637078274,
+    0.1559264637078274,
+    0.1559264637078274
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08981237633114754,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.451256085923979,
+     3.05031051772683,
+     0.3170882977446333,
+     -4.188517287391661
+    ],
+    "v": [
+     3.024076264387027,
+     -4.458704621655629,
+     0.43992707304110734,
+     7.273352676421109
+    ],
+    "toward": [
+     -0.09431373685394463,
+     0.034201781836552723,
+     0.994954851819845
+    ],
+    "fallback_gain": [
+     2.340326708814043,
+     5.48533902106123,
+     10.795358082526578
+    ],
+    "hairline_v": 0.24575605749486654
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.16378802141424129,
+     0.16378802141424129,
+     0.16378802141424129
+    ],
+    "iris_gain": [
+     3.0,
+     3.0,
+     3.0
+    ],
+    "lid_rest": -0.225,
+    "centres_uv": [
+     [
+      0.40941991786447635,
+      0.3586585215605749
+     ],
+     [
+      0.6807731006160164,
+      0.5401383983572895
+     ]
+    ],
+    "iris_radius_m": [
+     0.00617493135009343,
+     0.006078027947764595
+    ],
+    "aperture_ratio": 0.3903669808184524,
+    "opening_fit": {
+     "rest": -0.225,
+     "picture_open_mm": [
+      10.8,
+      10.3
+     ],
+     "fitted_open_mm": [
+      8.6,
+      8.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "pa1904_field_mrs_marshall_jr",
+    "scene": "1904",
+    "scene_age": 32,
+    "photo_age_basis": "Approximate age at 1907 publication, from an inferred birth date; the undated exposure may be earlier. The scene figure uses the 1904 age.",
+    "photo_date": "1907-03-03",
+    "original_source": "chicago_tribune_society_women_1907",
+    "before_values": {
+     "nose_length": 0.0,
+     "nose_width": -0.25,
+     "nose_depth": -0.027,
+     "nose_hump": -0.2,
+     "nose_curve": 0.001,
+     "nose_tip": 0.029,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": -0.03,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.0,
+     "mouth_height": -0.261,
+     "chin_prominence": -0.009,
+     "chin_width": -0.151,
+     "chin_height": -0.042,
+     "jaw": -0.486,
+     "prognathism": -0.139,
+     "cheekbones": 0.2,
+     "cheek_volume": 0.15,
+     "cheek_inner": 0.0,
+     "brow_height": 0.002,
+     "brow_angle": 0.175,
+     "mouth_corners": 0.35,
+     "brow_ridge": -0.25,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": -0.155,
+     "ear_flap": 0.054,
+     "ear_lobe": -0.047,
+     "jowls": -0.25,
+     "head_shape": 0.091,
+     "forehead_height": 0.0,
+     "head_shape.option": 5
+    },
+    "limits": [
+     "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": {
+     "complexion": {
+      "value": "ruddy",
+      "drawn": "ruddy",
+      "grade": "reconstructed"
+     },
+     "hair": {
+      "value": "mid brown",
+      "drawn": "mid_brown",
+      "cut": "swept_up_knot_1904",
+      "facial": [
+       "brows_fine",
+       "lashes_upper"
+      ],
+      "grade": "inferred",
+      "basis": "A dark gathered coiffure is visible; brown is a reconstructed colour and the exact waves are not reproduced."
+     },
+     "eyes": {
+      "value": "hazel",
+      "drawn": "hazel",
+      "grade": "reconstructed"
+     },
+     "stature": {
+      "inches": 63.0,
+      "grade": "reconstructed",
+      "basis": "Artistic body variation; no personal measurement located."
+     },
+     "height_scale": 0.9698,
+     "heritage": {
+      "origin": "not found"
+     },
+     "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+     "grade": "reconstructed",
+     "liberty": "L-prairie-likenesses-3547",
+     "file": "data/humans/variation/looks/pa1904_field_mrs_marshall_jr.json"
+    }
+   },
+   "shape_from": "data/humans/variation/fits/pa1904_field_mrs_marshall_jr.json",
+   "reference_source": "chicago_tribune_society_women_1907"
+  },
+  {
+   "id": "pa1904_pullman_mrs_george_m",
+   "sex": "female",
+   "age": 66,
+   "label": "Harriet Sanger Pullman",
+   "source": "historical_photo_texture_pa1904_pullman_mrs_george_m_3762",
+   "source_url": "https://www.loc.gov/pictures/item/90710921/",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_frances_m_1904",
+   "index": 4,
+   "page": 0,
+   "page_index": 4,
+   "photo": "pa1904_pullman_mrs_george_m_source.jpg",
+   "values": {
+    "nose_length": -0.028,
+    "nose_width": -0.25,
+    "nose_depth": -0.037,
+    "nose_hump": -0.2,
+    "nose_curve": -0.063,
+    "nose_tip": 0.101,
+    "nose_tip_width": 0.0,
+    "nostrils": -0.2,
+    "nose_height": -0.064,
+    "mouth_width": -0.12,
+    "lip_upper": 0.12,
+    "lip_lower": 0.041,
+    "mouth_height": 0.016,
+    "chin_prominence": -0.025,
+    "chin_width": -0.151,
+    "chin_height": 0.085,
+    "jaw": 0.05,
+    "prognathism": -0.126,
+    "cheekbones": 0.2,
+    "cheek_volume": 0.4,
+    "cheek_inner": 0.0,
+    "brow_height": -0.014,
+    "brow_angle": 0.255,
+    "mouth_corners": 0.35,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": -0.25,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.013,
+    "ear_flap": -0.007,
+    "ear_lobe": 0.004,
+    "jowls": 0.15,
+    "head_shape": 0.009,
+    "forehead_height": 0.0,
+    "double_chin": 0.2,
+    "head_shape.option": 5
+   },
+   "fit_rms_px": 6.33,
+   "camera": {
+    "yaw_deg": -1.793,
+    "pitch_deg": -6.6,
+    "roll_deg": 6.603,
+    "px_per_m": 2273.282,
+    "shift_px": [
+     257.422,
+     293.752
+    ]
+   },
+   "tone_rgb": [
+    0.604873013527046,
+    0.604873013527046,
+    0.604873013527046
+   ],
+   "body_gain": [
+    0.7886730946724018,
+    1.7999343258316796,
+    3.722119401081576
+   ],
+   "hair_rgb": [
+    0.024157632448504756,
+    0.024157632448504756,
+    0.024157632448504756
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.1119105722308159,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.415180120907196,
+     -0.5081612863590456,
+     -0.19703774663764284,
+     1.2909550489364037
+    ],
+    "v": [
+     -0.5261637131976126,
+     -4.381322469735121,
+     -0.49071361365210203,
+     7.213402719183293
+    ],
+    "toward": [
+     0.031081288889766308,
+     -0.1149371504928666,
+     0.9928864008120623
+    ],
+    "fallback_gain": [
+     0.3625859978899167,
+     0.8498416546824182,
+     1.6725210493860552
+    ],
+    "hairline_v": 0.23345078125
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.19611803760581212,
+     0.18857503615943472,
+     0.18103203471305732
+    ],
+    "iris_linear": [
+     0.02901354632379549,
+     0.02901354632379549,
+     0.02901354632379549
+    ],
+    "iris_gain": [
+     0.6633937787790398,
+     1.8137668309055257,
+     3.0
+    ],
+    "lid_rest": -0.063,
+    "centres_uv": [
+     [
+      0.3694187866927593,
+      0.4539927734375
+     ],
+     [
+      0.6197123287671233,
+      0.4261703125
+     ]
+    ],
+    "iris_radius_m": [
+     0.00561371039439136,
+     0.0055429735888281075
+    ],
+    "aperture_ratio": 0.3548537133862265,
+    "opening_fit": {
+     "rest": -0.063,
+     "picture_open_mm": [
+      9.0,
+      8.6
+     ],
+     "fitted_open_mm": [
+      8.3,
+      8.3
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "pa1904_pullman_mrs_george_m",
+    "scene": "1904",
+    "scene_age": 62,
+    "photo_age_basis": "1908 photograph; born April 1842. Exact day of exposure is unknown. The figure uses age 62 in July 1904.",
+    "photo_date": "1908",
+    "original_source": "harris_ewing_pullman_1908",
+    "before_values": {
+     "nose_length": -0.028,
+     "nose_width": -0.25,
+     "nose_depth": -0.037,
+     "nose_hump": -0.2,
+     "nose_curve": -0.063,
+     "nose_tip": 0.101,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": -0.064,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.041,
+     "mouth_height": 0.016,
+     "chin_prominence": -0.025,
+     "chin_width": -0.151,
+     "chin_height": 0.085,
+     "jaw": 0.05,
+     "prognathism": -0.126,
+     "cheekbones": 0.2,
+     "cheek_volume": 0.4,
+     "cheek_inner": 0.0,
+     "brow_height": -0.014,
+     "brow_angle": 0.255,
+     "mouth_corners": 0.35,
+     "brow_ridge": -0.25,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": 0.013,
+     "ear_flap": -0.007,
+     "ear_lobe": 0.004,
+     "jowls": 0.15,
+     "head_shape": 0.009,
+     "forehead_height": 0.0,
+     "double_chin": 0.2,
+     "head_shape.option": 5
+    },
+    "limits": [
+     "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": {
+     "complexion": {
+      "value": "fair",
+      "drawn": "fair",
+      "grade": "reconstructed"
+     },
+     "hair": {
+      "value": "white grey",
+      "drawn": "white_grey",
+      "cut": "swept_up_knot_1904",
+      "facial": [
+       "brows_fine",
+       "lashes_upper"
+      ],
+      "grade": "inferred",
+      "basis": "Light hair tone is visible; exact colour is reconstructed."
+     },
+     "eyes": {
+      "value": "brown",
+      "drawn": "brown",
+      "grade": "reconstructed"
+     },
+     "stature": {
+      "inches": 61.8,
+      "grade": "reconstructed",
+      "basis": "Artistic body variation; no personal measurement located."
+     },
+     "height_scale": 0.9513,
+     "heritage": {
+      "origin": "not found"
+     },
+     "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+     "grade": "reconstructed",
+     "liberty": "L-prairie-likenesses-3547",
+     "file": "data/humans/variation/looks/pa1904_pullman_mrs_george_m.json"
+    }
+   },
+   "shape_from": "data/humans/variation/fits/pa1904_pullman_mrs_george_m.json",
+   "reference_source": "harris_ewing_pullman_1908"
+  },
+  {
+   "id": "pa1904_lowden_frank_orren",
+   "sex": "male",
+   "age": 41,
+   "label": "Frank Orren Lowden",
+   "source": "historical_photo_texture_pa1904_lowden_frank_orren_3762",
+   "source_url": "https://archive.org/details/menofillinois01with",
+   "synthetic": false,
+   "grade": "inferred",
+   "base_body": "glessner_john_j_1904",
+   "index": 5,
+   "page": 0,
+   "page_index": 5,
+   "photo": "pa1904_lowden_frank_orren_source.jpg",
+   "values": {
+    "nose_length": 0.011,
+    "nose_width": 0.0,
+    "nose_depth": -0.014,
+    "nose_hump": 0.0,
+    "nose_curve": 0.001,
+    "nose_tip": -0.02,
+    "nose_tip_width": 0.0,
+    "nostrils": 0.0,
+    "nose_height": 0.018,
+    "mouth_width": 0.0,
+    "lip_upper": 0.0,
+    "lip_lower": -0.001,
+    "mouth_height": -0.045,
+    "chin_prominence": -0.02,
+    "chin_width": 0.0,
+    "chin_height": 0.026,
+    "jaw": 0.0,
+    "prognathism": -0.005,
+    "cheekbones": 0.0,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.0,
+    "brow_height": 0.0,
+    "brow_angle": 0.0,
+    "mouth_corners": 0.0,
+    "nose_septum": 0.0,
+    "nose_volume": 0.0,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.0,
+    "lip_lower_height": 0.0,
+    "brow_ridge": 0.0,
+    "forehead_slope": -0.165,
+    "temples": 0.0,
+    "ear_size": -0.147,
+    "ear_flap": -0.028,
+    "ear_lobe": -0.075,
+    "jowls": 0.0,
+    "head_shape": 0.16,
+    "forehead_height": -0.196,
+    "head_shape.option": 2
+   },
+   "fit_rms_px": 4.29,
+   "camera": {
+    "yaw_deg": -16.777,
+    "pitch_deg": -7.483,
+    "roll_deg": -6.534,
+    "px_per_m": 2119.194,
+    "shift_px": [
+     195.057,
+     297.599
+    ]
+   },
+   "tone_rgb": [
+    0.39004086774543123,
+    0.39004086774543123,
+    0.39004086774543123
+   ],
+   "body_gain": [
+    0.49593769223892525,
+    0.8962189186959056,
+    1.5596595700748384
+   ],
+   "hair_rgb": [
+    0.14995978981060856,
+    0.14995978981060856,
+    0.14995978981060856
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6492156506480056,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.09701777356040193,
+     0.11133383474303818,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.090661036492529,
+     0.4830207392278895,
+     -1.1669861567292106,
+     -0.22245347819416536
+    ],
+    "v": [
+     0.2963654755633647,
+     -4.077144525311395,
+     -0.6486920643754278,
+     7.185651350591209
+    ],
+    "toward": [
+     0.2861892278910561,
+     -0.13023201886685784,
+     0.949281489918024
+    ],
+    "fallback_gain": [
+     9.374658640228741,
+     8.92226079879523,
+     8.92226079879523
+    ],
+    "hairline_v": 0.2333630859375
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.079905709080913,
+     0.079905709080913,
+     0.079905709080913
+    ],
+    "iris_gain": [
+     1.8270413999591002,
+     3.0,
+     3.0
+    ],
+    "lid_rest": -0.063,
+    "centres_uv": [
+     [
+      0.2820428282828283,
+      0.4235681640625
+     ],
+     [
+      0.5383428282828282,
+      0.4424810546875
+     ]
+    ],
+    "iris_radius_m": [
+     0.005061780569015052,
+     0.005449609959990843
+    ],
+    "aperture_ratio": 0.3602537332907053,
+    "opening_fit": {
+     "rest": -0.063,
+     "picture_open_mm": [
+      9.1,
+      9.1
+     ],
+     "fitted_open_mm": [
+      8.5,
+      8.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ],
+   "historical": {
+    "person_id": "pa1904_lowden_frank_orren",
+    "scene": "1904",
+    "scene_age": 43,
+    "photo_age_basis": "Undated photograph published 1902. Fit uses estimated age at publication; scene age is driven separately by the person record. For an undated or uncertain birth this is a modelling estimate, not an archival photographic date.",
+    "photo_date": "1902",
+    "original_source": "witherspoon_men_of_illinois_1902",
+    "before_values": {
+     "nose_length": 0.011,
+     "nose_width": 0.0,
+     "nose_depth": -0.014,
+     "nose_hump": 0.0,
+     "nose_curve": 0.001,
+     "nose_tip": -0.02,
+     "nose_tip_width": 0.0,
+     "nostrils": 0.0,
+     "nose_height": 0.018,
+     "mouth_width": 0.0,
+     "lip_upper": 0.0,
+     "lip_lower": -0.001,
+     "mouth_height": -0.045,
+     "chin_prominence": -0.02,
+     "chin_width": 0.0,
+     "chin_height": 0.026,
+     "jaw": 0.0,
+     "prognathism": -0.005,
+     "cheekbones": 0.0,
+     "cheek_volume": 0.0,
+     "cheek_inner": 0.0,
+     "brow_height": 0.0,
+     "brow_angle": 0.0,
+     "brow_ridge": 0.0,
+     "forehead_slope": -0.165,
+     "temples": 0.0,
+     "ear_size": -0.147,
+     "ear_flap": -0.028,
+     "ear_lobe": -0.075,
+     "jowls": 0.0,
+     "head_shape": 0.16,
+     "forehead_height": -0.196,
+     "head_shape.option": 2
+    },
+    "limits": [
+     "Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail.",
+     "Monochrome pixels do not attest skin, iris or hair colour.",
+     "Photo dates and scene ages differ; the published date is not silently backdated.",
+     "Profile depth and unseen ears remain reconstructed."
+    ],
+    "looks": {
+     "complexion": {
+      "value": "ruddy",
+      "drawn": "ruddy",
+      "grade": "reconstructed"
+     },
+     "hair": {
+      "value": "mid brown",
+      "drawn": "mid_brown",
+      "cut": "short_side_part_1904",
+      "facial": [
+       "brows_full"
+      ],
+      "grade": "inferred"
+     },
+     "eyes": {
+      "value": "grey",
+      "drawn": "grey",
+      "grade": "reconstructed"
+     },
+     "stature": {
+      "inches": 68.8,
+      "grade": "reconstructed",
+      "basis": "Artistic body variation; no personal measurement located."
+     },
+     "height_scale": 0.9986,
+     "heritage": {
+      "origin": "not found"
+     },
+     "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+     "grade": "reconstructed",
+     "liberty": "L-prairie-likenesses-3547",
+     "file": "data/humans/variation/looks/pa1904_lowden_frank_orren.json"
+    }
+   },
+   "shape_from": "data/humans/variation/fits/pa1904_lowden_frank_orren.json",
+   "reference_source": "witherspoon_men_of_illinois_1902"
+  }
+ ],
+ "capacity": 256,
+ "inputs_sha256": {
+  "tools/photo_face_library.py": "4f168abc3606b99270d68df526f1e9ce376a0d967e3215f1c7d9bc455de5bb7b",
+  "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
+  "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
+  "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
+  "renderers/web/js/human-skin.js": "839736d7c44655d9ec10239568f2f594edb8553eb2f9a80f49a65143c5f1a023",
+  "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
+  "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
+  "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
+  "data/humans/variation/mediapipe_hm08_landmarks.json": "5c2cf92436c5e66b6187e2f869ac54a9520d639b18dadf14f369a5e49513ee3a",
+  "data/humans/variation/face_library.json": "798e86beeb2bab628d61b80a6416a2eaa7f63e89780876b6d46c7127cc7736f2",
+  "assets/humans/glessner_john_j_1904.lod0.glb": "62b8372c00af4e4772185d47e8cdae04f1f0b718a772feb8e282010386747b14",
+  "assets/humans/glessner_frances_m_1904.lod0.glb": "42dd44b5bf45660bf3e81f7bf2b3e4baa31b4b25670e00c22da7244b708cca56",
+  "assets/humans/web/glessner_john_j_1904.lod0.glb": "53abddd2f2958fe26f14beb5b2782d7a9bbb84c962ae6372dcc0d10895be945a",
+  "assets/humans/web/glessner_frances_m_1904.lod0.glb": "e35c7a75680fb1ac18a51ddc69a0e57378bf3b632f039af4303d5e1802a90970",
+  "data/humans/variation/portraits/pa1904_grey_w_l.json": "63ec5309d7a9ae88ba8d2a4ecfa9c309f18f48b04cd2d4f2f8cd87e5c870d33e",
+  "data/humans/variation/portraits/pa1904_grey_mrs_w_l.json": "43a97407f69abe1d3b58977e8c897489c355f135bc1d99c2f0d2c3c22127fb73",
+  "assets/authored/humans/makehuman_hm08/makehuman/data/3dobjs/base.obj": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+  "assets/authored/humans/makehuman_hm08/prepared.json": "afe49bc1396a537dd376bc7e4f3ec7cad32cca2fe45f67450e4d9501d1d33920",
+  "tools/historical_photo_shape.py": "c0a380d3a9efa7d6f29182ef8d55438a42f108e63d6da7b7c49e4df31f58025b",
+  "data/humans/variation/fits/glessner_john_j.json": "fe467d7b57439631829291c336ef5b94ff50692844e37f9a791471573ad211cf",
+  "data/humans/variation/fits/glessner_frances_m.json": "9c1cd3245a1d4485619cf1a144313f3df2d5c0a05a291e08873bf93071adc83b",
+  "data/humans/variation/fits/pa1904_field_marshall.json": "862f48a8710c14786792cc516822e40a3fdcc5cd7e34108a9e5f8a05eb3c7e1f",
+  "data/humans/variation/fits/pa1904_field_mrs_marshall_jr.json": "f11f08223d97745308332b5804b42e05d8023b9e2783cec7e6b2a048ddd198cd",
+  "data/humans/variation/fits/pa1904_pullman_mrs_george_m.json": "7fad3f87a770a61395a824299eab03201be2b5953328fa116c978fe995412cf3",
+  "data/humans/variation/fits/pa1904_lowden_frank_orren.json": "417b6cf3d88685b34ecc58868b989a999ecee206b46a4ece03a92363c89e5b83"
+ },
+ "budget": {
+  "crowd_edge_px": 1024,
+  "resident_detail_pages": 1,
+  "detail_page_faces": 16,
+  "town_face_gpu_bytes": 2621440
+ },
+ "limits": [
+  "Front photo fits do not establish profile depth.",
+  "Hair, ears, bodies and dress are reconstructed.",
+  "Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass."
+ ],
+ "recipe_sha256": "096ceea42abce418541f5604c9332133ae4658721551e85a7b6b1339beb2c2e6"
+}

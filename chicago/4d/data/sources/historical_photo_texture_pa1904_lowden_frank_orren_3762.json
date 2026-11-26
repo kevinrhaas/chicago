@@ -1,0 +1,22 @@
+{
+ "id": "historical_photo_texture_pa1904_lowden_frank_orren_3762",
+ "type": "book",
+ "citation": "Halliday Witherspoon, Men of Illinois (Chicago, 1902), captioned photographic portraits and biographical notices; individual page locators recorded with each portrait.",
+ "author": "Halliday Witherspoon",
+ "date": "1902",
+ "describes_date": "1902",
+ "repository": "Source input work/historical-photos/pa1904_lowden_frank_orren_scan.jpg (SHA-256 88635845051a76c13a23f700600eb4bbde3ad50ce0bbbaf9c0b5fec6f9851dee); locator https://archive.org/download/menofillinois01with/page/leaf227_w3000.jpg. Preserved source crop: assets/authored/humans/historical_photo_faces/pa1904_lowden_frank_orren.png (SHA-256 95e75722d369a3b43f8070d9bc62cb6ab7b30128924ef2bb3d92fe10deeccaeb).",
+ "url": "https://archive.org/details/menofillinois01with",
+ "tier": 1,
+ "rights_status": "cleared",
+ "asset_use": "texture",
+ "verified": true,
+ "rights_note": "Published in the United States in 1902; publication predates 1931 and is in the US public domain. The title/copyright leaf states Chicago, 1902. Texture derivation reviewed for this personal-photo preview; the public-domain original is the basis, not an unrelated face dataset.",
+ "access_notes": "Captioned page images visually read 2026-11-11. Original images are retrieved through the Internet Archive leaf image endpoint.",
+ "note": "The portraits are undated photographs printed in 1902. They attest the pictured appearance, not complexion, exact photographic date, full-body stature, or continued residence in 1904. Crop of the preserved original scan; original crop coordinates remain in the existing portrait record. Ink dots are softened before downsampling, without generating facial detail. Monochrome intensity supplies detail; skin, iris, hair and clothing colours are reconstructed. The photograph does not attest hidden profile depth or exact appearance in another year.",
+ "rights_checked": {
+  "date": "2026-11-26",
+  "method": "Read the existing verified public-domain source, identified portrait/caption and source pixels; preserved source SHA-256 and processing lineage.",
+  "outcome": "cleared for facial texture derivation"
+ }
+}
