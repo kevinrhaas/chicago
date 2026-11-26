@@ -1,0 +1,88 @@
+== premise
+Play a florist's delivery runner on a spring morning in 1904, carrying the morning's orders to four mansions on Prairie Avenue and deciding the sequence of your route.
+
+== opening
+JAUNT: FLOWERS FOR PRAIRIE AVENUE. A spring morning in 1904; you are thirteen, employed to deliver flowers for a florist. This morning's basket contains orders for four households on Prairie Avenue, the city's most celebrated residential street, and every bouquet carries a house number on its tag.
+
+The sequence of deliveries is your decision. The houses and the people living in them are historical; the delivery runner is invented.
+
+== stop glessner
+1800 Prairie Avenue, the Glessner house, at the corner of Eighteenth Street, receives the first bouquet. Now, consider the woman who lives here. Frances Macbeth Glessner has kept a journal since 1879, maintains beehives, and this year established a silversmith's workbench in the basement so that she could craft silver with her own hands. She and her husband John have occupied the house since 1 December 1887. Three bouquets remain, so you must decide: north first, or south?
+
+== narrative glessner
+Begin northward, or southward?
+
+== label glessner north
+North to 1700
+
+== consequence glessner north
+Begin with the house one block north.
+
+== label glessner south
+South to 1834
+
+== consequence glessner south
+Begin with the house a few doors south.
+
+== stop lee
+1700 Prairie, one block north. John and Frances Glessner built this house and its twin at 1706 for their two married children, and their daughter Frances, who married Blewett Lee in 1898, now lives here; the 1904 Blue Book lists the Lee household at this address. Now, a future nobody on this street could predict. Decades from now she will create the Nutshell Studies of Unexplained Death, miniature crime scenes for training in legal medicine that are still in use. Deliver the bouquet, then continue south past Twentieth Street.
+
+== narrative lee
+The Glessners' daughter's house.
+
+== stop jones
+1834 Prairie, the Fernando Jones house, a few doors south. Jane Grahame Jones is a longtime and outspoken activist for woman suffrage; the Fernando Jones scrapbook preserves clippings on the Illinois Woman Suffrage Association from 1875. Despite decades of effort, she still cannot vote. In 1913 Illinois will become the first state east of the Mississippi River to give women the right to vote for president. The house will be torn down in 1942. Deliver the bouquet and continue south past Twentieth Street.
+
+== narrative jones
+A household campaigning for the vote.
+
+== stop buckingham
+2036 Prairie, the Buckingham house, where the 1904 Blue Book lists Clarence Buckingham. His sister, Kate Sturges Buckingham, is a philanthropist and art patron. In 1927, after his death, she will fund a fountain dedicated to his memory: twice the size of the Latona Basin at Versailles that inspired it, with a major display that sprays water 150 feet into the air. One bouquet remains in the basket.
+
+== narrative buckingham
+South to 2115, or back north to 1608?
+
+== label buckingham armour
+South to 2115
+
+== consequence buckingham armour
+A short walk, one block farther.
+
+== label buckingham frank
+Back north to 1608
+
+== consequence buckingham frank
+A long walk with the final bouquet.
+
+== stop armour
+2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here, and the 1900 census names her Belle O. Armour, born in Ohio. In the coming decades many of the leading Prairie Avenue families will die or relocate to suburbs such as Lake Forest, but she will remain. The district marker records that she was among the street's last residents, dying here in 1927, and her house will be torn down in 1937. The basket is empty, so return to the shop for the afternoon's orders.
+
+== narrative armour
+The final house on your route.
+
+== stop frank
+1608 Prairie, the Frank household, at the northern end of your route. Henrietta Greenebaum Frank has worked steadily for quality nursing education at the Illinois Training School for Nurses. In 1876 she and her sister Hannah Greenebaum Solomon became the first Jewish members of the prestigious Chicago Woman's Club, and Hannah went on to found the National Council of Jewish Women. The basket is empty, so return to the shop for the afternoon's orders.
+
+== narrative frank
+The northern end of your route.
+
+== leg 0
+Northward first, across Eighteenth Street.
+
+== leg 1
+Southward first, along the avenue's western side.
+
+== leg 5
+The considerable walk back northward.
+
+== ending north-then-south
+North first, then all the way south: four houses, four doors, and not a single bouquet dropped. The florist says you mastered the avenue in a single morning, and next week the route will be yours to plan.
+
+== ending north-and-back
+North, then south, then all the way north again: the longest possible route, with the final bouquet wilting in the sun. Every order arrived, but next time you will plan the route before setting out.
+
+== ending south-and-on
+South and then farther south, in a straight line down the avenue: the most efficient route available. Every order arrived, and you are back at the shop before the florist expects you.
+
+== ending south-and-back
+South first, then the long walk back north to 1608. Every order arrived, but your arms ache, and tomorrow you will sort the basket by house number before you leave.

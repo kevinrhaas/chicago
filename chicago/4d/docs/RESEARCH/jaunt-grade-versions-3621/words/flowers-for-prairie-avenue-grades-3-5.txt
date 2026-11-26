@@ -1,0 +1,88 @@
+== premise
+Be a flower shop's young delivery runner on a spring morning in 1904. Carry flowers to four houses on Prairie Avenue, and pick the order of your trip.
+
+== opening
+JAUNT: FLOWERS FOR PRAIRIE AVENUE. It is a spring morning in 1904, and you are thirteen. You carry flowers for a flower shop. This morning your basket has flowers for four houses on Prairie Avenue, a street of very big, fancy houses. Every bunch has a house number on its tag.
+
+You pick the order. The houses and the people in them are real. The flower runner is you.
+
+== stop glessner
+This is 1800 Prairie Avenue, the Glessner house, on the corner of Eighteenth Street. The first bunch is for this house. Now, about the lady who lives here. Frances Glessner has written in her journal since 1879. She keeps bees! And this year she set up a workbench in the basement, so she can make silver things with her own hands. She and her husband moved in on 1 December 1887. You have three bunches left. Go north first, or south?
+
+== narrative glessner
+North first, or south?
+
+== label glessner north
+Go north to 1700
+
+== consequence glessner north
+Start with the house one block north.
+
+== label glessner south
+Go south to 1834
+
+== consequence glessner south
+Start with the house a few doors south.
+
+== stop lee
+This is 1700 Prairie, one block north. John and Frances Glessner built this house for one of their grown children. Their daughter, also named Frances, lives here now with her husband, Blewett Lee. Here is something no one on this street could guess. One day she will build tiny model rooms called the Nutshell Studies. They are tiny crime scenes, and they are still used for training today! Hand in the flowers. Then walk south past Twentieth Street.
+
+== narrative lee
+The Glessners' daughter's house.
+
+== stop jones
+This is 1834 Prairie, the Fernando Jones house, a few doors south. Jane Grahame Jones has worked for many years so that women can vote. A scrapbook from her family keeps newspaper stories about it from 1875. But she still cannot vote! In 1913, Illinois will be the first state east of the Mississippi River to let women vote for president. This house will be torn down in 1942. Hand in the flowers, and keep going south past Twentieth Street.
+
+== narrative jones
+A house where women work for the vote.
+
+== stop buckingham
+This is 2036 Prairie, the Buckingham house. Clarence Buckingham lives here. His sister, Kate Sturges Buckingham, gives money to help the city and its art. In 1927 she will give Chicago a giant fountain to remember him. It will be twice as big as the fountain in France that gave her the idea. Its water will shoot 150 feet into the air! You have one bunch left in the basket.
+
+== narrative buckingham
+South to 2115, or back north to 1608?
+
+== label buckingham armour
+Go south to 2115
+
+== consequence buckingham armour
+It is a short walk, one block on.
+
+== label buckingham frank
+Go back north to 1608
+
+== consequence buckingham frank
+It is a long walk with the last bunch.
+
+== stop armour
+This is 2115 Prairie, the Kelley-Armour house. Mrs. Philip D. Armour lives here. Her first name is Belle, and she was born in Ohio. In the years to come, many of the big families will die or move away to towns outside the city. But she will stay. She will be one of the last people living on the street, until 1927. Her house will be torn down in 1937. Your basket is empty! Back to the shop for the afternoon's orders.
+
+== narrative armour
+The last house on your trip.
+
+== stop frank
+This is 1608 Prairie, the Frank house, at the north end of your trip. Henrietta Greenebaum Frank works hard to help train nurses better, at a school for nurses in Illinois. In 1876 she and her sister Hannah were the first Jewish women to join the Chicago Woman's Club. Later, Hannah started the National Council of Jewish Women. Your basket is empty! Back to the shop for the afternoon's orders.
+
+== narrative frank
+The north end of your trip.
+
+== leg 0
+North first.
+
+== leg 1
+South first.
+
+== leg 5
+The long walk back north.
+
+== ending north-then-south
+You went north first, then all the way south. That is four houses and four doors, and you did not drop a single bunch! The shop owner says you learned the street in one morning. Next week you can plan the trip yourself.
+
+== ending north-and-back
+You went north, then south, then all the way back north again. That was the long way around, and the last bunch got droopy in the sun. But every bunch got there! Next time you will plan your trip before you start.
+
+== ending south-and-on
+You went south and kept going south, in a straight line down the street. That is the fastest way! Every bunch got there, and you are back at the shop before anyone expects you.
+
+== ending south-and-back
+You went south first, then took the long walk back north to 1608. Every bunch got there, but your arms are tired. Tomorrow you will sort the basket by house number before you go.
