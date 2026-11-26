@@ -30,6 +30,12 @@
 //    levels (the skin showed through it under the lapels cut again).
 // and an 1812 working woman's short gown's skirt left under her apron by the fairing (APRON_KEEP
 // of the points under it before).
+// T-3553 round 7 (the owner 2026-11-26: "sweep all of the people and clothing and remove these
+// ragged collars and edges and holes in clothing", "Armpit is bad"; human-layover.js,
+// human-pits.js): every body level's garment outlines evened; the coachman's armpits tucked in,
+// the skin with them, and no more sharp folds there in his walk; John Glessner's waistcoat,
+// shirt and tie bound to his coat at the farthest level, and his waistcoat's band under the
+// coat left out at the far levels; braces under a waistcoat, belts over a coat.
 // Wired into humans.js's parse, after the fittings.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -55,7 +61,7 @@ async function modURL(file) {
   const u = data(src); modCache.set(String(file), u); return u;
 }
 const js = async (name) => import(await modURL(new URL(`renderers/web/js/${name}`, here)));
-const D = await js('human-drape.js'), F = await js('human-fair.js'), T = await js('human-trim.js');
+const D = await js('human-drape.js'), F = await js('human-fair.js'), T = await js('human-trim.js'), L = await js('human-layover.js'), PT = await js('human-pits.js');
 const FITS = [];
 for (const [file, fn] of [['human-collar.js', 'dressCollars'], ['human-seat.js', 'easeSeats'], ['human-coat.js', 'fitCoats'], ['human-sleeve.js', 'fitSleeves'], ['human-tailor-1835.js', 'tailor1835'], ['human-regulars.js', 'fitRegulars'], ['human-frockcoat.js', 'fitFrockCoat'], ['human-gown.js', 'fitGown'], ['human-waist.js', 'fitWaist'], ['human-silver.js', 'engraveSilver']]) FITS.push((await js(file))[fn]);
 
@@ -72,10 +78,12 @@ function geometryOnly(bytes) {
   out.writeUInt32LE(bin.length, 20 + json.length); out.writeUInt32LE(0x004e4942, 24 + json.length); bin.copy(out, 28 + json.length);
   return out.buffer.slice(out.byteOffset, out.byteOffset + out.byteLength);
 }
+const clipsOf = new WeakMap();
 async function load(asset, lod) {
   const bytes = geometryOnly(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here)));
   const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bytes, '');
   gltf.scene.updateMatrixWorld(true);
+  clipsOf.set(gltf.scene, gltf.animations ?? []);
   return gltf.scene;
 }
 const sceneOf = (asset) => (/_1812/.test(asset) ? '1812' : /_1835/.test(asset) ? '1835' : '1904');
@@ -88,7 +96,8 @@ function dress(scene, asset, round5) {
   if (round5) {
     run(F.fairOuterSteps(scene));
     run(T.refineTrimsSteps(scene));
-    run(D.settleOnBodySteps(scene)); run(D.bindLayersSteps(scene)); run(D.cullHiddenSteps(scene));
+    run(D.settleOnBodySteps(scene)); run(L.layOverSteps(scene)); run(PT.tuckPitsSteps(scene, clipsOf.get(scene), THREE));
+    run(D.bindLayersSteps(scene)); run(D.cullHiddenSteps(scene));
   }
   return longest;
 }
@@ -191,6 +200,36 @@ function pokes(scene) {
   return total;
 }
 
+/** Sharp folds in the pit of each arm in the body's own walk: edges of the outer coat within
+ * PIT_FOLD.reach of a shoulder joint whose two triangles close past PIT_FOLD.cos, over
+ * PIT_FOLD.times points of the clip (T-3553 round 7: the coachman's torn notch). */
+export const PIT_FOLD = { reach: 0.13, cos: -0.5, times: [0.1, 0.35, 0.6, 0.85] };
+function pitFolds(scene, coatName) {
+  const coat = meshesOf(scene).find((m) => coatName.test(m.name)), clip = (clipsOf.get(scene) ?? []).find((c) => /walk/i.test(c.name));
+  if (!coat || !clip) return null;
+  const mixer = new THREE.AnimationMixer(scene), idx = coat.geometry.index.array, W = D.kit.weldMeshes([coat]), gid = W.parts[0].group;
+  const edges = new Map();
+  for (let t = 0; t < idx.length; t += 3) for (let k = 0; k < 3; k++) { const a = gid[idx[t + k]], b = gid[idx[t + (k + 1) % 3]]; if (a === b) continue; const e = a < b ? a * W.G + b : b * W.G + a; (edges.get(e) ?? edges.set(e, []).get(e)).push(t); }
+  const pairs = [...edges.values()].filter((l) => l.length === 2);
+  mixer.clipAction(clip).play();
+  let folds = 0;
+  for (const f of PIT_FOLD.times) {
+    mixer.setTime(f * clip.duration); scene.updateMatrixWorld(true); coat.skeleton.update();
+    const P = posed(coat), J = ['upperarm_l', 'upperarm_r'].map((n) => new THREE.Vector3().setFromMatrixPosition(coat.skeleton.bones.find((b) => b.name === n).matrixWorld));
+    const nrm = (t) => { const a = idx[t] * 3, b = idx[t + 1] * 3, c = idx[t + 2] * 3, u = [P[b] - P[a], P[b + 1] - P[a + 1], P[b + 2] - P[a + 2]], v = [P[c] - P[a], P[c + 1] - P[a + 1], P[c + 2] - P[a + 2]], n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]], l = Math.hypot(...n) || 1; return n.map((x) => x / l); };
+    for (const [t0, t1] of pairs) {
+      const i = idx[t0], x = P[i * 3], y = P[i * 3 + 1], z = P[i * 3 + 2];
+      if (!J.some((j) => Math.hypot(j.x - x, j.y - y, j.z - z) < PIT_FOLD.reach)) continue;
+      const a = nrm(t0), b = nrm(t1);
+      if (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] < PIT_FOLD.cos) folds++;
+    }
+  }
+  mixer.stopAllAction(); mixer.uncacheRoot(scene);
+  for (const m of meshesOf(scene)) m.skeleton.pose();
+  scene.updateMatrixWorld(true);
+  return folds;
+}
+
 const lines = [];
 let measured = 0;
 for (const [asset, lods] of BODIES) for (const lod of lods) {
@@ -208,6 +247,7 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
     }
   }
   assert(longest <= STEP_MS, `${tag}: longest step ${longest.toFixed(0)} ms (at most ${STEP_MS})`);
+  assert((after.userData.chicagoLayover?.evened ?? []).length > 0, `${tag}: garment outlines evened`);
   const p0 = pokes(before), p1 = pokes(after);
   assert(p1 <= p0 * POKE_KEEP + POKE_SLACK, `${tag}: shows through at ${p1} points in three poses (before: ${p0})`);
   let note = '';
@@ -234,6 +274,15 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
     if (lod <= 1) assert((trim.buttoned ?? []).some((r) => r.buttons === 3) && (trim.collared ?? []).length === 1, `${tag}: buttons and collar`);
     if (lod === 0) assert((trim.seamed ?? []).some((r) => r.seams >= 7), `${tag}: seams (five, and both armholes)`);
     if (lod >= T.FAR_WAISTCOAT.from) assert((trim.waistcoatClosed ?? []).length === 1, `${tag}: waistcoat closed under the lapels`);
+    // T-3553 round 7: at the farthest level his waistcoat, shirt and tie move with the coat over
+    // them; at the far levels the waistcoat under the coat keeps no band; nearer, as before.
+    const bound = (after.userData.chicagoBind?.bound ?? []).map((r) => short({ name: r.mesh }, asset));
+    const all3 = ['waistcoat_high_cut', 'four_in_hand_tie', 'shirt_standing_collar'].every((n) => bound.includes(n));
+    assert(all3 === lod >= D.BIND_ALL_LOD, `${tag}: waistcoat, tie and shirt bound to the coat at the farthest level only (${bound})`);
+    if (lod >= D.FAR_WAISTCOAT_LOD) {
+      const cut = (after.userData.chicagoCull?.culled ?? []).find((r) => /waistcoat_high_cut/.test(r.mesh));
+      assert(cut && cut.after < cut.before * 0.8, `${tag}: the waistcoat under the coat left out (${JSON.stringify(cut)})`);
+    }
     note = `lapels ${cut.points} points, ${buttons ? 'buttons, ' : ''}${(trim.collared ?? []).length ? 'collar' : ''}${lod === 0 ? ', seams and armholes' : ''}${lod >= T.FAR_WAISTCOAT.from ? ', waistcoat closed' : ''}`;
   }
   if (/glessner_frances_m_1904/.test(asset)) {
@@ -264,7 +313,13 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
     const fz = top.filter((g) => Math.abs(W.P[g * 3]) < 0.07 && W.P[g * 3 + 2] > 0.04).map((g) => W.P[g * 3 + 2]).sort((a, b) => a - b);
     const stand = fz.at(-1) - fz[Math.floor(fz.length / 3)];
     assert(stand <= T.LIVERY.burr + 0.003, `${tag}: collar front stands ${(stand * 1000).toFixed(1)} mm forward`);
-    note = `shirt front, collar front within ${(stand * 1000).toFixed(1)} mm of its line`;
+    const f0 = pitFolds(before, /livery_coat_body_lod\d+$/), f1 = pitFolds(after, /livery_coat_body_lod\d+$/);
+    // T-3553 round 7: the cloth in the pit of each arm folded in under the arm, the skin with it.
+    const pits = after.userData.chicagoPits?.tucked ?? [], coatPit = pits.find((r) => T.LIVERY.coat.test(r.mesh));
+    assert(coatPit && coatPit.points >= (lod ? 30 : 100) && coatPit.max <= PT.PIT.tuck * 1.5, `${tag}: the coat's armpits tucked in (${JSON.stringify(coatPit)})`);
+    assert(pits.some((r) => /body/.test(r.mesh)), `${tag}: the skin under the sleeves tucked in with the coat`);
+    assert(f1 <= f0, `${tag}: ${f1} sharp folds at the armpits in the walk (before ${f0})`);
+    note = `shirt front, collar front within ${(stand * 1000).toFixed(1)} mm of its line, pit folds ${f1} (before ${f0})`;
   }
   measured++;
   lines.push(`  ${tag.padEnd(40)} shows through ${String(p1).padStart(5)} (before ${String(p0).padStart(5)}), longest step ${longest.toFixed(0)} ms${note ? `, ${note}` : ''}`);
@@ -296,11 +351,21 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
   assert(c0 > 50 && c1 >= APRON_KEEP * c0, `short gown's skirt under the apron: ${c1} of ${c0} points still under it after the fairing`);
   lines.push(`  short gown's skirt under the apron: ${c1} of ${c0} points still under it after the fairing`);
 }
+// The order pieces lie in (T-3553 round 7): braces over the shirt, under the waistcoat (lifted
+// over it once, they came out through an 1835 waistcoat at the shoulder); belts over the coat.
+{
+  const piece = (name, cloth) => ({ name: `x_${name}_lod0`, material: { name: cloth } });
+  const shirt = L.overRank(piece('shirt_full_sleeves', 'garment_upper__linen')), braces = L.overRank(piece('braces', 'garment_lower__leather'));
+  const waistcoat = L.overRank(piece('waistcoat_open', 'garment_upper__wool')), coat = L.overRank(piece('frock_coat_body', 'garment_outer__wool'));
+  const belt = L.overRank(piece('cross_belts', 'accessory__buff'));
+  assert(shirt < braces && braces < waistcoat && waistcoat < coat && coat < belt, `ranks: shirt ${shirt} < braces ${braces} < waistcoat ${waistcoat} < coat ${coat} < crossbelts ${belt}`);
+  lines.push(`  laid in order: shirt ${shirt} < braces ${braces} < waistcoat ${waistcoat} < coat ${coat} < crossbelts ${belt}`);
+}
 // Wired into humans.js's parse, after the fittings.
 {
   const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ fairOuterSteps \} from '\.\/human-fair\.js';/.test(humans) && /import \{ refineTrimsSteps \} from '\.\/human-trim\.js';/.test(humans), 'humans.js imports the passes');
-  assert(/engraveSilver\(gltf\.scene\);\s*if \(!globalThis\.CHICAGO_NO_DRAPE\) \{\s*await sliced\(fairOuterSteps\(gltf\.scene\)\);\s*await sliced\(refineTrimsSteps\(gltf\.scene\)\);\s*await sliced\(settleOnBodySteps\(gltf\.scene\)\);\s*await sliced\(bindLayersSteps\(gltf\.scene\)\);\s*await sliced\(cullHiddenSteps\(gltf\.scene\)\);\s*\}\s*return gltf;/.test(humans), 'parse() dresses the shared source after the fittings, a slice at a time');
+  assert(/engraveSilver\(gltf\.scene\);\s*if \(!globalThis\.CHICAGO_NO_DRAPE\) \{\s*await sliced\(fairOuterSteps\(gltf\.scene\)\);\s*await sliced\(refineTrimsSteps\(gltf\.scene\)\);\s*await sliced\(settleOnBodySteps\(gltf\.scene\)\);\s*await sliced\(layOverSteps\(gltf\.scene\)\);\s*await sliced\(tuckPitsSteps\(gltf\.scene, gltf\.animations, THREE\)\);\s*await sliced\(bindLayersSteps\(gltf\.scene\)\);\s*await sliced\(cullHiddenSteps\(gltf\.scene\)\);\s*\}\s*return gltf;/.test(humans), 'parse() dresses the shared source after the fittings, a slice at a time');
 }
 for (const l of lines) console.log(l);
 console.log(`human-drape: ${measured} body levels hung, faired and trimmed; nothing shows through more, rows whole, steps short; lapels, buttons, collar and seams on John Glessner's coat; Frances Glessner's collar under her chin: PASS`);

@@ -574,7 +574,7 @@ for (const asset of ['bardwell_otis_1835', 'flynn_mary_1835_dress_study', 'settl
 {
   const humans = await fs.readFile(process.env.HUMANS_JS ?? new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ tailor1835 \} from '\.\/human-tailor-1835\.js';/.test(humans), 'humans.js imports tailor1835');
-  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1400}fitSleeves\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}tailor1835\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}fitWaist\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}return gltf;/.test(humans), 'parse() tailors the shared source after fitSleeves, before fitWaist (another pass may stand between)');
+  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1400}fitSleeves\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}tailor1835\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,200}fitWaist\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,800}return gltf;/.test(humans), 'parse() tailors the shared source after fitSleeves, before fitWaist (another pass may stand between)');
 }
 console.log(lines.join('\n'));
 if (faults.length) { for (const f of faults) console.log(`FAIL ${f}`); assert.fail(`${faults.length} faults${process.env.TAILOR_JS ? ` (TAILOR_JS=${process.env.TAILOR_JS})` : ''}`); }

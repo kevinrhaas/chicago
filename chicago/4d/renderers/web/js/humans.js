@@ -57,6 +57,8 @@ import { easeSeats } from './human-seat.js';
 import { drapeGarmentsSteps, settleOnBodySteps, bindLayersSteps, cullHiddenSteps } from './human-drape.js';
 import { fairOuterSteps } from './human-fair.js';
 import { refineTrimsSteps } from './human-trim.js';
+import { layOverSteps } from './human-layover.js';
+import { tuckPitsSteps } from './human-pits.js';
 import { createCheckpoint } from './boot-phases.js';
 import { dressCollars } from './human-collar.js';
 import { fitCoats } from './human-coat.js';
@@ -244,6 +246,8 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       await sliced(fairOuterSteps(gltf.scene));
       await sliced(refineTrimsSteps(gltf.scene));
       await sliced(settleOnBodySteps(gltf.scene));
+      await sliced(layOverSteps(gltf.scene));
+      await sliced(tuckPitsSteps(gltf.scene, gltf.animations, THREE));
       await sliced(bindLayersSteps(gltf.scene));
       await sliced(cullHiddenSteps(gltf.scene));
     }
