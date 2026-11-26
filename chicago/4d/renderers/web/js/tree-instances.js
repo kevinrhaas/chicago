@@ -249,16 +249,19 @@ export class TreeInstances {
     };
     // A stem's instance pair (wood and leaves) in one set: shown, given a level,
     // given a fade (1 whole; 0..1 coming in; -1..0 going out, see patchFade).
+    // T-3751: a bare stem (`setBare`, a tree the 1871 fire has been through) keeps its wood and
+    // never shows its leaves.
     const show = (p, set, on) => {
       batches[set].wood.setVisibleAt(p.wood, on);
-      batches[set].leaves.setVisibleAt(p.leaves, on);
+      batches[set].leaves.setVisibleAt(p.leaves, on && !p.s?.bare);
     };
     const shape = (p, set, v, l) => {
       batches[set].wood.setGeometryIdAt(p.wood, v.ids[set][l].wood);
       batches[set].leaves.setGeometryIdAt(p.leaves, v.ids[set][l].leaves);
     };
+    let bareTint = BARE_TINT;
     const fadeTo = (p, set, a) => {
-      _fade.set(1, 1, 1, a);
+      if (p.s?.bare) _fade.set(bareTint[0], bareTint[1], bareTint[2], a); else _fade.set(1, 1, 1, a);
       batches[set].wood.setColorAt(p.wood, _fade);
       batches[set].leaves.setColorAt(p.leaves, _fade);
     };
@@ -316,6 +319,7 @@ export class TreeInstances {
           const p = {
             wood: batches[set].wood.addInstance(v.ids[set][l].wood),
             leaves: batches[set].leaves.addInstance(v.ids[set][l].leaves),
+            s,
           };
           batches[set].wood.setMatrixAt(p.wood, m);
           batches[set].leaves.setMatrixAt(p.leaves, m);
@@ -460,16 +464,41 @@ export class TreeInstances {
       stats.near = nn; stats.mid = nm; stats.far = nf; stats.shade = ns; stats.culled = nc; stats.distant = nd;
       stats.fading = live.size;
     };
+    /**
+     * T-3751 — the stems `test(e, n)` names (local east/north metres; null: none) stand bare:
+     * their leaves hidden and, in a fading wood (one whose batches already carry a colour), their
+     * wood darkened by `tint`. A tree the 1871 fire has been through. Returns how many changed.
+     */
+    const setBare = (test, tint = BARE_TINT) => {
+      bareTint = tint;
+      let changed = 0, bare = 0;
+      for (const s of this.stems) {
+        const b = !!(test && test(s.x, -s.z));
+        if (b) bare++;
+        if (b === !!s.bare) continue;
+        if (s.fade) settle(s);
+        s.bare = b; changed++;
+        for (const set of ['shade', 'far']) {
+          const p = s.inst[set];
+          batches[set].leaves.setVisibleAt(p.leaves, !b && batches[set].wood.getVisibleAt(p.wood));
+          if (fading) fadeTo(p, set, 1);
+        }
+      }
+      stats.bare = bare;
+      return changed;
+    };
     const dispose = () => {
       live.clear();
       for (const set of Object.values(batches)) for (const b of Object.values(set)) { group.remove(b); b.dispose(); }
     };
-    return { group, stats, update, settle: settleAll, dispose, batches };
+    return { group, stats, update, settle: settleAll, dispose, batches, setBare };
   }
 }
 
 const ORDER = { near: 0, mid: 1, far: 2, distant: 3 };
 const WHOLE = new THREE.Vector4(1, 1, 1, 1);
+// T-3751: burnt bark, as a multiplier of the bark's own colour (city-fire.js's scorched tree).
+const BARE_TINT = [0.16, 0.13, 0.1];
 const _fade = new THREE.Vector4();
 function nearestLevel(held, level) {
   let best = held[0];

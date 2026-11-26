@@ -126,6 +126,7 @@
     "default_mode": {
       "enum": [
         "walk",
+        "run",
         "wagon",
         "horse",
         "fly",
@@ -137,6 +138,7 @@
       "items": {
         "enum": [
           "walk",
+          "run",
           "wagon",
           "horse",
           "fly",
@@ -306,6 +308,7 @@
           "mode": {
             "enum": [
               "walk",
+              "run",
               "wagon",
               "horse",
               "fly",

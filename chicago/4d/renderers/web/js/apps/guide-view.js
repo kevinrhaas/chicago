@@ -187,8 +187,8 @@ function render(el) {
     const dt = node('dt');
     keys.forEach((key, i) => {
       if (i) dt.append(' ');
-      // Keyboard keys are keys; a touch gesture is words.
-      dt.append(state.scheme === 'keyboard' ? node('kbd', null, key) : node('span', null, key));
+      // Keyboard keys and controller buttons are keys; a touch gesture is words.
+      dt.append(state.scheme !== 'touch' ? node('kbd', null, key) : node('span', null, key));
     });
     list.append(dt, ' ', node('dd', null, does), ' ');
   }

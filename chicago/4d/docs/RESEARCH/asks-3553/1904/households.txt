@@ -38,6 +38,8 @@ When somebody is ill, or wants a hot drink, or has heard a noise. The master's b
 
 ## a04-md-irish
 roles: maid
+age: -40
+origin: irish
 q: Where are you from?
 
 County Mayo, by way of Queenstown and New York, six years ago. My aunt was in service on the North Side and she found me my first place. Now there are four of us from the same parish on Prairie Avenue, and the cook in the house across the street is my second cousin.
@@ -49,8 +51,9 @@ Every month, to my mother, by the money order at the post office. Three dollars 
 Every Sunday morning, the early Mass, before the family wakes. Then I come back and serve the family breakfast before they go to their own church. God gets me first.
 
 ## a04-md-swedish
-roles: maid, laundress, cook
+roles: maid, laundress
 sex: f
+origin: swedish
 q: Is it hard to learn English?
 
 Very hard, at first. I came from Småland four years ago and I knew only yes and thank you. The mistress spoke to me slowly, as if I were deaf, and pointed at things. Now I can read the newspaper. The cook is Irish and laughs at my words, and I laugh at hers.
@@ -84,12 +87,13 @@ q: Where do the servants sleep?
 At the top of the house, in the little rooms under the roof, two to a room, hot in summer and cold in winter. We go up and down by the back stairs, never the front, and we are never to be seen on the front stairs except to clean them, before the family wakes.
 
 ?? What's in your room?
-A bed, a washstand, a chair, a chest of drawers, a picture of the Sacred Heart and a photograph of my mother. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains on the lakefront, and nothing else.
+A bed, a washstand, a chair, a chest of drawers, a picture of home and a photograph of my mother. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains on the lakefront, and nothing else.
 
 ## a04-md-fair
 roles: maid, manservant, young_lady, young_man, lady, gentleman
-q: Are you going to the World's Fair at St. Louis?
+age: 15-
 meet: pa1904_kimball_william_w
+q: Are you going to the World's Fair at St. Louis?
 
 Everybody wants to go. It opened in April for the Louisiana Purchase, a hundred years of it, and they say it is bigger than our own Fair of ninety-three. A palace of electricity, a giant bird cage, and Mr. Ferris's own wheel from our Fair, carried down and set up again, and people from the whole world in villages you can walk through.
 
@@ -97,7 +101,7 @@ Everybody wants to go. It opened in April for the Louisiana Purchase, a hundred 
 Some of the families on the Avenue went down in May in their private cars. The servants who went came back with picture postcards and stories about ice cream served in a rolled waffle, which you eat cone and all. Mr. Kimball took prizes for his pianos at our own Fair in ninety-three. Ask him if he has sent any to St. Louis.
 
 ?? Do you remember the Fair of ninety-three?
-The White City! I was a girl and I went three times. The lights at night on the lagoon were like nothing in the world. Everybody in Chicago says St. Louis will never match it. People from St. Louis say otherwise. They would.
+The White City! I went three times. The lights at night on the lagoon were like nothing in the world. Everybody in Chicago says St. Louis will never match it. People from St. Louis say otherwise. They would.
 
 ## a04-md-silver
 roles: maid, manservant
@@ -109,7 +113,7 @@ A whole morning every week, two of us, with whiting and ammonia and soft cloths,
 Not in this house. In a house two doors down, last year, a spoon was missed, and a girl was turned off without a character. The spoon was found in the soup tureen a month later. Nobody went to tell the girl. I think about her.
 
 ## a04-md-phone
-roles: maid, manservant, young_lady
+roles: maid, manservant
 q: Does the house have a telephone?
 
 In the back hall, on the wall, with a crank and a little earpiece on a cord. The master uses it to call his office and the mistress to call the grocer. I answer it. You say the number of the house and then wait while somebody shouts at you from the other end. I was frightened of it for a month.
@@ -148,7 +152,7 @@ The grocer and the butcher come to the back door every morning for the order, an
 Of course. The market men know me and I know them. A cook who pays the first price is a cook who does not care for her master's money, and he hears of it. A cook who drives a hard bargain is a cook the market respects.
 
 ## a04-ck-dinner-party
-roles: cook, maid
+roles: cook
 q: What's the biggest dinner you've ever cooked?
 
 Twenty-four, for a dinner after the opera, with nine courses, oysters to ices. I had three girls extra for the day and a man from the caterer's for the ices. We started at six in the morning. The last plates came down at one. I sat on the back stairs and could not lift my arms.
@@ -198,6 +202,8 @@ Driving a pair of good horses fast on the lake shore on a crisp morning, with th
 
 ## a04-cm-groom
 roles: coachman
+age: 30-
+origin: irish
 q: How did you learn about horses?
 
 On my father's farm in Kerry, and then as a stable boy for an English family in Dublin, and then in the livery stables of New York, and then here. Twenty years of horses. I can tell a horse's age by its teeth and its temper by its ears, and a bad groom by the horse's coat.
@@ -224,7 +230,7 @@ With six flat irons heating on the stove at once, using one while the others war
 In the shop window at Field's. They plug into the wall where the light goes. The mistress says perhaps next year. I say I will believe it when it does not set the house on fire.
 
 ## a04-nu-children
-roles: nurse
+roles: nursemaid
 q: Whose children do you look after?
 
 Two little ones, a boy of four and a girl of two, in the nursery on the third floor. I wake them, wash them, dress them, give them their breakfast, walk them in the park, give them their dinner, put them down for their sleep, and bring them down to the drawing room at five to see their mother for half an hour in their best clothes.
@@ -236,7 +242,7 @@ They love her the way you love a beautiful lady who comes to see you. They love 
 To the lake shore, or down the Avenue to the statue at Eighteenth Street, the bronze of the Indian chief saving the lady. The boy asks about it every time and I tell him what the policeman on the corner told me: that it was a battle long ago, when Chicago was a fort, and the chief was a good man.
 
 ## a04-nu-governess
-roles: nurse
+roles: nursemaid
 q: Do you teach the children too?
 
 Their letters, their prayers, their manners, a little French. When they are six they will have a governess for lessons, and then school. My job is to make them good children; the governess's will be to make them clever. I think mine is the harder.
@@ -246,6 +252,7 @@ They are children. The boy bit his sister on Tuesday and she pulled his hair on 
 
 ## a04-hk-keys
 roles: housekeeper
+age: 35-
 q: What does a housekeeper do?
 
 Everything that keeps the house running, and nothing that anyone sees. I keep the keys to the linen, the china, the stores and the wine. I hire and train the maids, order the coal and the soap and the candles, keep the accounts, and see that every room is ready before anyone wants it.
@@ -254,7 +261,7 @@ Everything that keeps the house running, and nothing that anyone sees. I keep th
 The maids. A good girl is hard to find and harder to keep. She marries, or goes to a better place, or goes back to Ireland to bury her mother. In fifteen years I have trained thirty girls. Some of them are cooks now in houses grander than this one. I count that as my wages.
 
 ## a04-ms-butler
-roles: manservant
+roles: butler
 q: What does a butler do all day?
 
 Answer the door, receive the cards, announce the guests, serve the wine, carve at the sideboard, keep the silver, wind the clocks, hire the footmen, see that every man in the house does his work. A good butler is like a good clock: nobody notices him until he stops.
@@ -263,7 +270,7 @@ Answer the door, receive the cards, announce the guests, serve the wine, carve a
 I have announced a Vice-President, three senators, two English lords and the President of the University. And Mr. Pullman, before he died, who walked in as if he owned the house as well. The great ones are easier than the rich ones. The great ones say thank you.
 
 ## a04-ms-furnace
-roles: manservant
+roles: houseman
 q: What do you do in this house?
 
 I am the house man. I shovel coal into the furnace in winter, carry the ashes out, wash the windows, beat the carpets, carry the trunks, mend what breaks, and do whatever heavy work the maids cannot. In summer I wash the house down and paint the iron fence.
@@ -312,17 +319,19 @@ That depends on which club you ask. I will tell you this: Mr. Pullman thought he
 
 ## a04-gt-fire
 roles: gentleman, lady
+age: 48-60
 q: Do you remember the great fire?
 
-I was a young man of twenty in seventy-one. I stood on the lake shore with my mother and my sisters and our silver in a pillowcase, and watched the city burn behind us for two days. The heat was so great that the people waded into the lake. In the morning there was nothing between the river and Fullerton but chimneys.
+I was twenty years old in seventy-one. I stood on the lake shore with my mother and my sisters and our silver in a pillowcase, and watched the city burn behind us for two days. The heat was so great that the people waded into the lake. In the morning there was nothing between the river and Fullerton but chimneys.
 
 ?? How did the city come back so fast?
 Because everyone who had lost everything had nothing to do but build. The money came from the East and from Europe, the bricks came by the trainload, and in two years you could hardly tell. That is Chicago. It does not mourn. It borrows.
 
 ## a04-gt-auto
 roles: gentleman, young_man
-q: Will you buy an automobile?
+age: 18-
 meet: pa1904_glessner_george_m
+q: Will you buy an automobile?
 
 I have been offered one. They say a motor car will go twenty miles an hour on a good road, of which there are about three in Illinois. It needs a mechanic, it frightens the horses, and it smells. I suspect in ten years everyone will have one, and I shall have to give up my coachman.
 
@@ -331,8 +340,9 @@ A few of the young men have, and they race them on the boulevards at dawn and th
 
 ## a04-gt-university
 roles: gentleman
-q: What's become of the old Fair grounds?
+age: 42-
 meet: pa1904_field_marshall
+q: What's become of the old Fair grounds?
 
 The University of Chicago stands beside them, on the Midway, grey stone in the English style, a dozen years old and growing every year. Mr. Rockefeller gave the money and Mr. Field gave the land. The Field Museum is in the old Fine Arts building in Jackson Park, full of everything the Fair left behind.
 
@@ -398,6 +408,7 @@ I hope so. I pay fair wages and I give them their afternoons and I do not count 
 
 ## a04-ym-college
 roles: young_man
+age: 18-22
 q: Where do you go to college?
 
 Yale, class of nought-six. I am home for the summer. In the autumn it is football, which my mother thinks will kill me, and Greek, which my father thinks will not do me any good. Both may be right. The man I room with is from New York and has never seen a stockyard. I am taking him to see one this week.
@@ -417,6 +428,7 @@ Whenever I can get away. You take the elevated to the West Side and sit in the s
 
 ## a04-ym-cycling
 roles: young_man, young_lady
+age: 16-
 q: Do you cycle?
 
 Everyone did ten years ago, when the safety bicycle came in: Michigan Avenue on a Sunday morning was a river of wheels. Now it is golf and tennis and motor cars. But I still ride to the lake in the mornings before it is hot. On a bicycle nobody can tell whether you are rich or poor.
@@ -426,6 +438,7 @@ The bicycle craze is over. The girls who fought to ride in bloomers are married 
 
 ## a04-yl-debut
 roles: young_lady
+age: 17-23
 q: Have you come out in society yet?
 
 Last winter, at a dance my mother gave at the house, with the ballroom on the third floor opened up and the orchestra in the hall. I wore white, of course, with my grandmother's pearls. I danced every dance and broke the heel off my slipper and had to finish in my stockings. Nobody noticed. Everybody noticed.
@@ -444,6 +457,7 @@ I beat my brother last Saturday by four strokes and he has not spoken to me sinc
 
 ## a04-yl-vote
 roles: young_lady
+age: -30
 q: Do you think women should have the vote?
 
 I do. My mother does not, and my grandmother is furious about it. In Illinois we can vote for the school trustees and nothing else. In Wyoming and Colorado and Utah women vote for everything, and the sky has not fallen. My father says politics would make women coarse. I have heard my father talk politics. I think it would make women bored.
@@ -481,6 +495,7 @@ The bear. He sits up and begs for peanuts, and when he gets one he looks at you 
 
 ## a04-ch-school
 roles: child
+sex: m
 q: Do you go to school?
 
 To a school for boys on Michigan Avenue, with a master who has a moustache and a ruler. Latin, arithmetic, geography, penmanship. I am bad at penmanship. My letters lean over as if they were tired. In the autumn my sister goes to a school for girls where they learn French and the piano.

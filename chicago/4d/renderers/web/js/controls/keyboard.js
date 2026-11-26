@@ -3,6 +3,9 @@
  * The capture handler and the movement backend must make the same decision. */
 const READERS = '#navigator, #popup, #panel, #gate, #jaunt-panel, .pic-viewer, dialog, [role="dialog"]';
 const CONTROLS = 'button, a[href], summary, input, textarea, select, audio[controls], video[controls], [role="button"], [role="tab"], [role="slider"], [role="spinbutton"], [role="listbox"], [role="menuitem"]';
+/** T-3749: key events the game controller pressed (controls/gamepad.js). They reach every key's
+ * own listener as the keyboard's would, but they are not the visitor taking up the keyboard. */
+export const padEvents = new WeakSet();
 const element = target => target?.nodeType === 3 ? target.parentElement : target;
 
 /** Kept separate from UI ownership: E may close a card, but never a text field. */
@@ -35,6 +38,7 @@ export function worldKeyAllowed(event, { holding = false, inspecting = false } =
 /** Runs in capture, before a rail can preventDefault in its own bubbling handler. */
 export function createDesktopKeyCapture({ enabled = () => true, holding = () => false, inspecting = () => false, activate, lock }) {
   return event => {
+    if (padEvents.has(event)) return;
     if (!enabled() || !worldKeyAllowed(event, { holding: holding(), inspecting: inspecting() })) return;
     activate();
     if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(event.code)) lock();

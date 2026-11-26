@@ -40,7 +40,9 @@ assert.equal(jauntModeFor(on('instantly'), all), 'instantly', 'Teleport: stop to
 assert.equal(jauntModeFor(on('fly'), all), 'fly', 'Fly over: over the town');
 assert.equal(jauntModeFor(on('horse', 'horse'), all), 'horse', 'Ride there: at your mode');
 assert.equal(jauntModeFor(on('wagon', 'wagon'), all), 'wagon');
-assert.equal(jauntModeFor(on('run', 'run'), all), 'walk', 'running counts as on foot: no Jaunt lists running');
+assert.equal(jauntModeFor(on('run', 'run'), all), 'walk', 'running counts as on foot: this Jaunt does not list running');
+// T-3754: a Jaunt that lists running (the 1812 runner's errands) takes it.
+assert.equal(jauntModeFor(on('run', 'run'), { allowed_modes: ['run', 'walk', 'fly', 'instantly'], default_mode: 'run' }), 'run', 'a Jaunt that lists running runs');
 assert.equal(jauntModeFor(on('instantly'), footOnly), 'instantly');
 // On, but not a way this Jaunt can be travelled: it keeps its own, and says which choice it could not take.
 assert.deepEqual(jauntChoice(on('horse', 'horse'), footOnly), { mode: null, kept: true, want: 'horse' }, 'a horse on a foot-only outing: kept');

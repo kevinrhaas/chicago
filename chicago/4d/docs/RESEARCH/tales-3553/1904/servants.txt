@@ -3,6 +3,7 @@
 
 ## s04-md-thursday
 roles: maid
+origin: swedish
 title: Thursday afternoon
 
 Every maid on Prairie Avenue lives for Thursday afternoon. That is our afternoon off, from two o'clock until ten, and every Sunday after the breakfast dishes, every second week. On Thursday the streetcars going north are full of girls in their best hats, going to see their sisters and their sweethearts and the shops on State Street.
@@ -10,15 +11,17 @@ Every maid on Prairie Avenue lives for Thursday afternoon. That is our afternoon
 I go to my cousin's in the Swedish quarter on the North Side, and we drink coffee and eat cardamom bread and speak our own language for six hours, and nobody rings a bell for me. At half past nine I am on the car again, and at ten I am in my attic room with my uniform laid out for six o'clock. Six hours of being myself. It is enough to last the week. Nearly.
 
 ## s04-md-bells
-roles: maid, manservant
+roles: maid
 title: The bells
 
-In the back hall of this house there is a board with forty little bells on springs, one for every room, each with a name painted underneath: Library, Parlour, Mrs. G's Room, Front Door, Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings.
+In the back hall of this house there is a board with forty little bells on springs, one for every room, each with a name painted underneath: Library, Parlour, Mistress's Room, Front Door, Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings.
 
-You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery. But I hear Mrs. G's room bell in my sleep, even on my afternoon off, even when I am miles away. When I am an old woman and have a house of my own, I am going to have no bells in it at all.
+You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery. But I hear the mistress's bell in my sleep, even on my afternoon off, even when I am miles away. When I am an old woman and have a house of my own, I am going to have no bells in it at all.
 
 ## s04-md-irish
 roles: maid
+age: -40
+origin: irish
 title: From County Mayo
 meet: pa1904_field_marshall_c1900_maggie_fitzsimmons
 
@@ -28,6 +31,7 @@ Now I am a house maid in a great house, and I send four dollars home every month
 
 ## s04-md-swedish
 roles: maid, cook
+origin: swedish
 title: Swedish girls
 
 The ladies of Prairie Avenue all want a Swedish girl. They say we are clean and honest and do not drink and do not argue. I do not drink. I am honest. I am clean. I argue a great deal, but only in Swedish, so the ladies do not know.
@@ -52,6 +56,7 @@ I go up and down those stairs forty times a day with coal, hot water, trays, lin
 
 ## s04-md-wages
 roles: maid
+age: -40
 title: Four dollars a week
 
 I am paid four dollars a week and my keep, and that is a good wage for a house maid. In a factory I would get more, maybe six, but I would have to pay for my room and my food, and work in the noise and the dirt, and walk home through the streets at night.
@@ -67,7 +72,7 @@ Every Monday the silver is polished, every piece, whether it was used or not. Fo
 The butler counts every piece before and after. He has a book with every item listed and its weight. Once a fish fork went missing for three days and the whole household was in an uproar. It turned up in the garbage, where a kitchen girl had thrown it out with the bones. She nearly lost her place. The fork was worth less than a day of her wages.
 
 ## s04-md-ladies-maid
-roles: maid
+roles: ladies_maid
 title: A ladies' maid
 meet: pa1904_armour_mrs_philip_d_c1900_frances_jordan
 
@@ -77,6 +82,7 @@ It is a lonely job. The other servants think I am too grand for them, and the fa
 
 ## s04-md-telephone
 roles: maid, manservant, housekeeper
+origin: norwegian
 title: The telephone
 
 There is a telephone in this house, on the wall in the back hall, and I am the one who answers it. You lift the ear piece and turn the crank and say: Residence of so-and-so, and then a voice comes out of the wall from somewhere miles away.
@@ -84,7 +90,7 @@ There is a telephone in this house, on the wall in the back hall, and I am the o
 The first time it rang I nearly dropped the tray I was carrying. Now I am used to it. I take the messages and write them down and bring them to the mistress on a little silver plate. My mother in Norway has never seen a telephone. When I wrote and told her about it she wrote back that I should go to church more.
 
 ## s04-md-ice
-roles: maid, cook
+roles: maid
 title: The ice man
 
 The ice man comes three times a week in summer with his wagon full of great blocks cut from the lakes up north in the winter and stored in sawdust. He carries them in on his back with tongs, a hundred pounds at a time, and puts them in the ice box in the pantry.
@@ -101,6 +107,7 @@ The maids from every house watch from the back windows. We see the bride come ou
 
 ## s04-md-sweetheart
 roles: maid
+age: -40
 title: My sweetheart drives a wagon
 
 My sweetheart drives a delivery wagon for a grocer on Cottage Grove, and he comes to the back door of this house three times a week with the order. We have exactly as long as it takes him to carry in the boxes to talk. Two minutes. Sometimes three, if Cook is in a good mood.
@@ -125,6 +132,7 @@ From the window I can see the lake. In the morning, before the bell, I watch the
 
 ## s04-ck-kitchen
 roles: cook
+age: 36-
 title: The kitchen at five in the morning
 
 I am in the kitchen at five, before anybody. I shake down the range and get the fire roaring, and set the kettle on, and start the bread. By six the kitchen maid comes down and starts on the vegetables. By seven the servants' breakfast is on the table and the family's is on the dumbwaiter.
@@ -132,7 +140,7 @@ I am in the kitchen at five, before anybody. I shake down the range and get the 
 Then it is lunch, and then tea, and then dinner, seven courses if there are guests, and the dishes, and the next day's bread set to rise. I go to bed at ten. I have been a cook for twenty-two years. My feet hurt every minute of every day. But I make the best clear soup in Chicago, and every lady on this street knows it.
 
 ## s04-ck-dinner-party
-roles: cook, maid, manservant
+roles: maid, manservant
 title: A dinner for twenty-four
 
 Last month we gave a dinner for twenty-four. Oysters, clear turtle soup, a whole salmon on ice, saddle of mutton, roast duck, an ice in the middle to clear the mouth, a salad, a cold bombe, cheese, fruit, coffee. Nine wines. Every plate changed at every course. Forty-eight hands to serve and clear.
@@ -149,6 +157,8 @@ South Water Street is the busiest place in Chicago at six in the morning: wagons
 
 ## s04-ck-german
 roles: cook
+age: 34-
+origin: german
 title: A German cook
 
 I learned to cook in Bavaria, in a hotel kitchen, when I was fourteen. I came to Chicago twenty years ago and I have cooked for three families on this street. They want French food for their dinners and German food for their own lunches, though they would never say so.
@@ -172,7 +182,7 @@ Every piece of meat in this house comes from the stockyards, four miles south an
 The men who own those yards live on this street: Armour, and the others. They made their fortunes from that smell. I have a cousin who works on the killing floor at Armour's. He works ten hours a day standing in blood, for a dollar seventy-five. Then he comes to visit me, and I give him a piece of the roast that his own hands killed. He says it tastes better here.
 
 ## s04-ck-typhoid
-roles: cook, laundress, nurse
+roles: cook, nurse
 title: Boiling the water
 
 Two summers ago the typhoid came through the city and many people died, mostly in the poor wards on the West Side, but some here too. The doctors said it was in the water. Ever since, I boil every drop that is drunk in this house, and I make the maids boil the water for the babies' bottles too.
@@ -237,7 +247,7 @@ The coachman and the groom live over the stable, in rooms above the carriage hou
 Out here nobody rings a bell for me. I can smoke my pipe, and play my concertina, and have a glass of beer with the coachman from next door. We sit on the bench by the stable door in the evening and talk about horses and the families and the price of oats. It is a whole other street, the alley. The rich live on the front, and we live on the back.
 
 ## s04-cm-groom
-roles: coachman
+roles: groom
 title: The stable boy
 meet: pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr
 
@@ -254,7 +264,9 @@ On fine afternoons I drive the mistress out to Washington Park or down the boule
 We coachmen have our own races. Not real races, of course, the ladies would faint. But if you can pass another carriage on the boulevard without seeming to try, with your horses stepping high and not breaking stride, that is a victory, and every coachman on the boulevard knows it. I passed the Kimball carriage last Tuesday. I have not stopped smiling since.
 
 ## s04-cm-fire-1871
-roles: coachman, gentleman, lady, manservant
+roles: coachman, gentleman, manservant
+sex: m
+age: 42-56
 title: The night of the Great Fire
 
 I was a boy of fourteen in October of 1871, working in a livery stable on the West Side, when the fire started in a barn not far from us. By midnight the whole sky was red. The wind carried the fire across the river and through the business district and up into the North Side, and it burned for two days.
@@ -270,7 +282,7 @@ Last summer four young men robbed the streetcar company's barn on the South Side
 They hanged three of them this April, at the jail on the North Side. I went to see the crowd outside, though I did not go in. Thousands of people, all quiet, all waiting. A woman next to me said they were only boys. A man said they were murderers. They were both right. I came home and fed the horses and could not eat my own supper.
 
 ## s04-ms-butler
-roles: manservant
+roles: butler
 title: The butler's pantry
 meet: pa1904_field_marshall_c1900_thomas_benson
 
@@ -279,7 +291,7 @@ The butler is the head of the household below stairs, and I rule it from the but
 A good butler is invisible and indispensable. The family should never have to ask for anything, because it should be there before they think of it. Go and see Thomas Benson at Mr. Field's. He is the finest butler on Prairie Avenue. He will be very polite to you and tell you absolutely nothing.
 
 ## s04-ms-valet
-roles: manservant
+roles: valet
 title: A gentleman's valet
 meet: pa1904_armour_mrs_philip_d_c1900_henry_deneke
 
@@ -288,7 +300,7 @@ A valet dresses his gentleman, shaves him, lays out his clothes, packs for his j
 Henry Deneke was valet in Mr. Armour's own house, before the old gentleman died three years ago. Go and find him at Mrs. Armour's. He will tell you about Mr. Armour, who was one of the richest men in America, and was up before five and at his desk at the yards by seven, every day of his life.
 
 ## s04-ms-footman
-roles: manservant
+roles: footman
 title: The footman
 
 A footman's job is to be tall, to stand still, to open doors, to carry trays, and to ride on the back of the carriage looking as if he were made of wood. I am six feet two inches, which is why I was hired. Height in a footman is worth two dollars a week.
@@ -296,7 +308,7 @@ A footman's job is to be tall, to stand still, to open doors, to carry trays, an
 When there is a dinner, I stand behind a chair for three hours without moving, without smiling, without hearing a word anybody says. Afterwards in the servants' hall we tell each other everything we heard. The family thinks we are furniture. Furniture has ears.
 
 ## s04-ms-steward
-roles: manservant
+roles: steward
 title: The steward's books
 meet: pa1904_kimball_william_w_c1900_ernest_sibbald
 
@@ -314,6 +326,8 @@ The heat goes up through pipes to every room in the house, and the family is war
 
 ## s04-hk-keys
 roles: housekeeper
+age: 40-
+origin: irish
 title: The housekeeper's keys
 meet: pa1904_pullman_mrs_george_m_c1900_emma_scott
 
@@ -323,6 +337,8 @@ I have been in service for thirty years, starting as a scullery girl in Ireland.
 
 ## s04-hk-new-girl
 roles: housekeeper, maid
+age: 44-
+origin: irish
 title: The new girl
 
 A new girl came to us last month, from Galway, sixteen years old, straight off the train. She had never seen an electric light, or a flush toilet, or a gas range, or a staircase with a carpet. She stood in the front hall with her mouth open, and then she burst into tears.
@@ -330,7 +346,7 @@ A new girl came to us last month, from Galway, sixteen years old, straight off t
 I took her down to the kitchen and gave her tea and told her I was just the same, thirty years ago, in a big house in Dublin. Now she is the quickest girl I have. She laughs all day and sings in the scullery and the cook adores her. In ten years she will be a housekeeper herself. Or married. They always get married.
 
 ## s04-nu-nursery
-roles: nurse
+roles: nursemaid
 title: The nursery floor
 
 The children of this house live on the nursery floor, with me. They sleep there, they eat there, they have their lessons there, and they see their mother for an hour in the afternoon, washed and brushed and dressed in their best, in the drawing room.
@@ -338,7 +354,7 @@ The children of this house live on the nursery floor, with me. They sleep there,
 So I am the one who knows them. I know which one is afraid of the dark and which one bites his nails and which one is going to be a great lady one day. I taught them to walk and to say their prayers. When they are grown, I suppose, they will forget me. Children always do. But I will not forget them.
 
 ## s04-nu-park
-roles: nurse
+roles: nursemaid
 title: Walking out with the children
 
 Every fine morning I take the children out, the baby in the perambulator and the older ones walking beside, down the Avenue to the lake front or over to the park. All the nurses on the Avenue do the same, so it is like a parade: six nursemaids, twelve children, three dogs.
@@ -346,7 +362,7 @@ Every fine morning I take the children out, the baby in the perambulator and the
 We nurses sit on the benches and talk while the children play. We know everything about every family on the street. Who is quarrelling, who is ill, who is going abroad, who has lost money. The ladies would be horrified to know how much we know. Children talk, you see. Children tell their nurses everything.
 
 ## s04-nu-governess
-roles: nurse
+roles: governess
 title: The governess
 
 I am a governess. I teach the girls of this house French, music, drawing, deportment, and a little arithmetic, though not too much, because their mother thinks too much arithmetic is unladylike. I was educated at a school in Boston. My father was a minister. We had no money.
@@ -354,7 +370,7 @@ I am a governess. I teach the girls of this house French, music, drawing, deport
 So I am neither a lady nor a servant. I eat with the family when there are no guests, and on a tray in the schoolroom when there are. The servants think I am grand. The family think I am useful. I think I am lonely. But the youngest girl drew me a picture last week of the two of us, holding hands, under a tree. I have it in my drawer.
 
 ## s04-nu-illness
-roles: nurse, lady
+roles: nursemaid
 title: The scarlet fever
 
 When the little boy had scarlet fever last winter, the nursery was shut off from the rest of the house with a sheet soaked in carbolic hung over the door, and I was shut in with him for six weeks. Nobody else could come in. His mother stood outside the sheet every evening and talked to him through it.

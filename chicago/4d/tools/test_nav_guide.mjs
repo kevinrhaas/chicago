@@ -57,7 +57,10 @@ assert.equal(controlScheme('pointerlock', true), 'keyboard', 'a phone with a key
 assert.equal(controlScheme('none', true), 'touch', 'before either is live, the device guesses: a phone');
 assert.equal(controlScheme('none', false), 'keyboard', '…and a laptop');
 assert.equal(controlScheme(undefined), 'keyboard');
-assert.deepEqual(SCHEMES, ['touch', 'keyboard']);
+assert.deepEqual(SCHEMES, ['touch', 'keyboard', 'controller']);
+// T-3749: a game controller in use shows its own sheet.
+assert.equal(controlScheme('gamepad', true), 'controller', 'a phone with a controller shows the controller');
+assert.equal(controlScheme('gamepad', false), 'controller');
 
 // ---- a phone shows touch, a laptop the keyboard ------------------------------------------
 const doc = fakeDoc();
@@ -73,7 +76,7 @@ assert.equal(find(dl, (e) => e.tagName === 'KBD').length, 0, 'gestures are words
 assert.match(phone.textContent, /left thumb/i, 'the left thumb walks');
 assert.match(phone.textContent, /right side/i, 'the right side looks');
 assert.equal(find(dl, (e) => e.tagName === 'DT').length, CONTROL_SHEETS.touch.rows.length);
-assert.deepEqual(segButtons(phone).map((b) => [b.textContent, b.getAttribute('aria-checked')]), [['Touch', 'true'], ['Keyboard', 'false']]);
+assert.deepEqual(segButtons(phone).map((b) => [b.textContent, b.getAttribute('aria-checked')]), [['Touch', 'true'], ['Keyboard', 'false'], ['Controller', 'false']]);
 assert.match(phone.textContent, /On this device/);
 unmount(phone);
 assert.equal(listener, null, 'unmount lets go of the controls switch');

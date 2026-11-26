@@ -307,6 +307,7 @@ export async function createStreetTrees({
   });
 
   let forest = null;
+  let burnt = null;
   let current = { mode: null, detail: null };
   const build = async (wantMode, wantDetail) => {
     if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
@@ -336,6 +337,7 @@ export async function createStreetTrees({
     stats.context = background.length;
     const pause = checkpoint(); if (pause) await pause;
     forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+    if (burnt) forest.setBare?.(burnt);
     group.add(forest.group);
     stats.drawCalls = forest.stats.drawCalls;
     stats.crowns = forest.stats.variants;
@@ -350,6 +352,16 @@ export async function createStreetTrees({
       forest.update(camera.position, dt || 0);
       stats.triangles = forest.stats.triangles;
     }
+  };
+  /**
+   * T-3751 — the trees the 1871 fire has been through stand bare and charred: `test(e, n)`
+   * (local metres) names them, null none. Kept over a Season or detail re-build.
+   */
+  out.setBurnt = (test) => {
+    burnt = typeof test === 'function' ? test : null;
+    const changed = forest?.setBare?.(burnt) ?? 0;
+    stats.burnt = forest?.stats?.bare ?? 0;
+    return changed;
   };
   /** Finish every dissolve at once (a still frame for a reading or a shot). */
   out.settle = () => { forest?.settle(); };

@@ -41,6 +41,45 @@ export function planUpdate(old, next, have = null) {
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 const mb = (n) => (n >= 1e9 ? `${(n / 1e9).toFixed(1)} GB` : `${Math.max(0.1, n / 1e6).toFixed(n >= 1e8 ? 0 : 1)} MB`);
 
+/** T-3758: time left, as a person says it: "about 4 min", "under a minute". Null when unknown. */
+export function timeLeft(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return null;
+  if (seconds < 50) return 'under a minute';
+  if (seconds < 90) return 'about a minute';
+  if (seconds < 3600) return `about ${Math.round(seconds / 60)} min`;
+  const h = Math.floor(seconds / 3600), m = Math.round((seconds % 3600) / 600) * 10;
+  return m >= 60 ? `about ${h + 1} h` : `about ${h} h${m ? ` ${m} min` : ''}`;
+}
+
+/**
+ * T-3758: the download's ETA from its own pace. The rate is the bytes saved over the time since
+ * the first file began, eased (a 10 s time constant) so one slow file does not swing it, and no
+ * ETA is given until 3 s and 2 MB are in hand: a guess from the first file is wrong both ways.
+ */
+export function createPace({ now = () => performance.now() } = {}) {
+  let t0 = null, lastAt = null, rate = null, lastBytes = 0;
+  return {
+    reset() { t0 = null; lastAt = null; rate = null; lastBytes = 0; },
+    /** Seconds left for `bytes` of `total`, or null while there is too little to tell. */
+    eta(bytes, total) {
+      const at = now();
+      if (t0 == null) { t0 = at; lastAt = at; lastBytes = bytes; return null; }
+      const elapsed = (at - t0) / 1000;
+      const sinceLast = (at - lastAt) / 1000;
+      if (sinceLast > 0.25) {
+        const whole = (bytes - 0) / Math.max(1e-3, elapsed);
+        const recent = (bytes - lastBytes) / sinceLast;
+        const live = 0.5 * whole + 0.5 * recent;
+        const k = rate == null ? 1 : 1 - Math.exp(-sinceLast / 10);
+        rate = rate == null ? live : rate + (live - rate) * k;
+        lastAt = at; lastBytes = bytes;
+      }
+      if (elapsed < 3 || bytes < 2e6 || !(rate > 0) || !(total > bytes)) return total > 0 && bytes >= total ? 0 : null;
+      return (total - bytes) / rate;
+    },
+  };
+}
+
 /**
  * T-3675: what the control says, in each state. Pure: tools/check_chromebook.mjs reads it.
  * `classroom` (a Chromebook) names the welcome line for the teacher readying a class set;
@@ -52,12 +91,15 @@ export function packWords({ year, status = 'idle', size = '', progress = null, e
   if (status === 'downloading') {
     const p = progress || {};
     const fraction = p.total ? Math.min(1, p.bytes / p.total) : 0;
-    const pct = `${Math.round(fraction * 100)} %`;
+    // Floor, not round: a download never reads 100 % before its last byte is saved.
+    const pct = `${Math.floor(fraction * 100)} %`;
+    const left = timeLeft(p.eta);
     return {
       line: classroom ? `Preparing for class · ${pct}` : `Offline copy · ${pct}`,
-      tip: `Saving ${year} on this device`,
-      note: p.total ? `Saving ${year}: ${mb(p.bytes)} of ${mb(p.total)}. Keep this page open.` : `Saving ${year}…`,
-      setting: `Saving ${year} · ${pct}`, keep: 'Download', fraction,
+      tip: `Saving ${year} on this device${left ? `, ${left} left` : ''}`,
+      note: p.total ? `Saving ${year}: ${mb(p.bytes)} of ${mb(p.total)}${left ? `, ${left} left` : ''}. Keep this page open.`
+        : `Saving ${year}: checking what this device already holds…`,
+      setting: `Saving ${year} · ${pct}${left ? ` · ${left} left` : ''}`, keep: 'Download', fraction,
     };
   }
   if (status === 'kept') {
@@ -118,19 +160,24 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
 
   /** Fetch what `next` adds over the installed pack and over `put`, the files this download
    *  already stored (rel -> hash), so a retry picks up where the last attempt stopped. */
-  async function fetchFiles(next, old, put, cache, onProgress) {
+  async function fetchFiles(next, old, put, cache, onProgress, carried = 0) {
     const aliases = await verifiedPackAliases(next, root);
     const base = new Map((old?.files || []).map(([rel, hash]) => [rel, hash]));
     for (const [rel, hash] of put) base.set(rel, hash);
     const have = new Set((await cache.keys()).map((r) => decodeURIComponent(new URL(r.url).pathname.slice(root.pathname.length))));
     const plan = planUpdate({ files: [...base] }, next, have);
     const total = plan.fetch.reduce((s, f) => s + f[2], 0);
-    let done = 0, bytes = 0, failed = null;
+    // T-3758: the bar counts bytes as they arrive (a 20 MB file used to hold it still, then jump),
+    // and a retry after a mid-deploy carries what earlier tries saved (`carried`), so the size
+    // shown neither grows nor resets while the download runs.
+    let done = 0, bytes = 0, failed = null, inFlight = 0;
     const queue = plan.fetch.slice();
-    onProgress({ done, count: plan.fetch.length, bytes, total });
+    const report = () => onProgress({ done, count: plan.fetch.length, bytes: carried + bytes + inFlight, total: carried + total });
+    report();
     async function worker() {
       while (queue.length && !failed) {
         const [rel, hash, size] = queue.shift();
+        let counted = 0;   // this file's bytes on the bar so far
         try {
           // Marked, so the worker never answers it from the pack being replaced
           // (sw.js passes `c4d-pack` requests straight to the network).
@@ -140,7 +187,24 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
           if (!got.ok) throw new Error(`${rel}: ${got.status}`);
           if (alias && (got.status !== 200 || got.headers.has('content-range')))
             throw new Error(`${rel}: publication source is not a complete response`);
-          const body = await got.arrayBuffer();
+          let body;
+          const reader = got.body?.getReader?.();
+          if (reader) {
+            const parts = [];
+            let n = 0;
+            for (;;) {
+              const { done: end, value } = await reader.read();
+              if (end) break;
+              parts.push(value); n += value.byteLength;
+              const now = Math.min(n, size);
+              inFlight += now - counted; counted = now;
+              report();
+            }
+            const all = new Uint8Array(n);
+            let at = 0;
+            for (const part of parts) { all.set(part, at); at += part.byteLength; }
+            body = all.buffer;
+          } else body = await got.arrayBuffer();
           // A file that does not match its entry is a site mid-deploy: stop, and let
           // download() read the list again.
           const fullHash = hex(await crypto.subtle.digest('SHA-256', body));
@@ -148,13 +212,14 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
           await cache.put(url(rel), new Response(body, { headers: {
             'content-type': got.headers.get('content-type') || 'application/octet-stream' } }));
           put.set(rel, hash);
+          inFlight -= counted; counted = 0;
           done += 1; bytes += size;
-          onProgress({ done, count: plan.fetch.length, bytes, total });
-        } catch (e) { failed = e; }
+          report();
+        } catch (e) { inFlight -= counted; failed = e; }
       }
     }
     await Promise.all(Array.from({ length: PARALLEL }, worker));
-    if (failed) throw failed;
+    if (failed) throw Object.assign(failed, { saved: bytes });
     return { plan, total };
   }
 
@@ -167,11 +232,12 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     const old = await installedPack();
     const put = new Map();
     let next = await publishedPack();
-    let got = null;
+    let got = null, carried = 0;
     for (let attempt = 1; !got; attempt += 1) {
       try {
-        got = await fetchFiles(next, old, put, cache, onProgress);
+        got = await fetchFiles(next, old, put, cache, onProgress, carried);
       } catch (e) {
+        carried += e.saved || 0;
         if (!e.stale) throw e;
         if (attempt >= 3) throw new Error('the site is mid-update; try again in a few minutes');
         const again = await publishedPack();
@@ -215,7 +281,8 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
   async function install() {
     if (!supported || busy) return busy;
     if (state.status === 'kept') return state.last;
-    state.status = 'downloading'; state.error = null; render({ done: 0, bytes: 0, total: state.published?.bytes || 0 });
+    // No size until the plan is read: the published size counts files this device may already hold.
+    state.status = 'downloading'; state.error = null; pace.reset(); render({ done: 0, bytes: 0, total: 0 });
     busy = (async () => {
       try {
         await register();
@@ -239,6 +306,8 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
   // download (attachSettings), so a teacher readying a class set finds it either way.
   const views = [];
   let lastProgress = null;
+  const pace = createPace();
+  let paintedAt = -Infinity;
   function build() {
     mount.replaceChildren();
     const toggle = document.createElement('button');
@@ -289,10 +358,14 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     views.push({ ...v, kind: 'settings', root: group, label });
   }
   function render(progress) {
-    if (progress) lastProgress = progress;
+    if (progress) lastProgress = { ...progress, eta: pace.eta(progress.bytes, progress.total) };
     if (!views.length) return;
     const s = state.status;
-    const p = s === 'downloading' ? (progress || lastProgress || {}) : null;
+    // Bytes now arrive many times a second: paint at most four times a second while downloading.
+    const at = performance.now();
+    if (progress && s === 'downloading' && at - paintedAt < 250 && progress.bytes < progress.total) return;
+    paintedAt = at;
+    const p = s === 'downloading' ? (lastProgress || {}) : null;
     const words = packWords({ year, status: s, size: state.published ? mb(state.published.bytes) : '',
       progress: p, error: state.error, classroom });
     for (const v of views) {
@@ -332,7 +405,7 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
       render();
       // Updates by hash: a kept pack behind the published one fetches the difference.
       if (kept && state.published && state.published.id !== kept.id && !navigator.connection?.saveData) {
-        state.status = 'downloading'; render();
+        state.status = 'downloading'; pace.reset(); render();
         busy = download({ onProgress: render })
           .then(() => { state.status = 'kept'; }, (e) => { state.status = 'error'; state.error = String(e?.message || e); })
           .finally(() => { busy = null; render(); });

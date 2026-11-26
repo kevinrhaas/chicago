@@ -79,6 +79,7 @@ export function directionProblems(scripts, directions) {
     const k = `${s.part}:${s.id}`, d = directions[s.jaunt]?.[k];
     seen.add(`${s.jaunt}/${k}`);
     if (d != null && !sameWords(d, s.text)) problems.push(`${s.jaunt}/${k}: the direction's words differ from the script's`);
+    if (d != null && s.part === 'onward') problems.push(`${s.jaunt}/${k}: a closing line is shared by every jaunt and has no direction of its own (T-3755)`);
   }
   for (const [jaunt, map] of Object.entries(directions))
     for (const k of Object.keys(map)) if (!seen.has(`${jaunt}/${k}`)) problems.push(`${jaunt}/${k}: direction for a part the jaunt does not have`);
@@ -129,7 +130,9 @@ export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
     const direction = loadDirection(id, root);
     for (const script of narrationScripts(jaunt)) {
       const text_sha256 = await textKey(script.text);
-      const directed = direction[`${script.part}:${script.id}`];
+      // T-3755: a stop's closing line is one clip shared by every jaunt that says it, so it is
+      // always read from its plain words: a jaunt's own performance of it would re-voice it per jaunt.
+      const directed = script.part === 'onward' ? null : direction[`${script.part}:${script.id}`];
       const spoken = directed != null && sameWords(directed, script.text) ? directed : script.text;
       const spoken_sha256 = sha(spoken);
       for (const narrator of script.speaker === NARRATOR ? narrators : [null]) {
@@ -163,8 +166,12 @@ export function voiceFor(config, speaker, names = null, narrator = DEFAULT_NARRA
 /** What to voice: scripts whose words have no clip, or a clip made with other settings or another
  *  performance of them (a clip from before direction was performed from the plain words). */
 export function plan(scripts, config, index, names = null) {
-  const todo = [], current = [], skipped = [];
+  const todo = [], current = [], skipped = [], seen = new Set();
   for (const s of scripts) {
+    // T-3755: one clip for one set of words (a stop's closing line is shared by many jaunts):
+    // voiced once in a run, not once per jaunt that says it.
+    if (seen.has(s.key)) continue;
+    seen.add(s.key);
     const v = voiceFor(config, s.speaker, names, s.narrator ?? DEFAULT_NARRATOR);
     if (v.missing) { skipped.push({ ...s, reason: v.missing }); continue; }
     const have = index?.clips?.[s.key];

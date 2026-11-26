@@ -167,7 +167,7 @@ console.log('transport interactions: keyboard/touch stop-resume, moving reach, c
   assert.equal(makeTown('full', [invalid]).driverAnchorForPerson(row.person_id), null);
 
   const source = await readFile(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
-  const begin = source.indexOf('  function goToTarget(target) {');
+  const begin = source.indexOf('  function goToTarget(target'); // T-3754: it takes { keepJaunt } too
   const end = source.indexOf('  /** The future welcome picker', begin);
   assert(begin >= 0 && end > begin);
   const actualBody = source.slice(begin, end);

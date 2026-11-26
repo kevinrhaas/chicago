@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 // T-2164 — the arrival clock's download forecast. Runs in check.sh, no browser.
 import assert from 'node:assert/strict';
-import { createNetMeter, createForecast, expectedBytes } from '../renderers/web/js/boot-forecast.js';
+import { createNetMeter, createForecast, expectedBytes, committedBytes } from '../renderers/web/js/boot-forecast.js';
 import { BOOT_BYTES } from '../renderers/web/js/boot-bytes.js';
 import { createBoot } from '../renderers/web/js/boot-phases.js';
 import { createArrival, formatReadout } from '../renderers/web/js/arrival.js';
 
 const ESSENTIAL = ['scene', 'terrain', 'buildings', 'ground', 'flora', 'interaction'];
-for (const device of ['desktop', 'mobile']) for (const detail of ['light', 'balanced', 'full']) {
-  const cell = BOOT_BYTES[device]?.[detail];
-  assert.ok(cell, `committed first-visit bytes for ${device}/${detail}`);
-  for (const id of ESSENTIAL) assert.ok(Number.isFinite(cell[id]) && cell[id] >= 0, `${device}/${detail}/${id}`);
-  assert.ok(cell.scene > 1e6, 'the scene phase is where the town downloads');
+// T-3758: the table is the year's own (one table for all four had 1904 forecast at 15 MB of 86).
+const YEARS = ['1812', '1835', '1871', '1904'];
+for (const year of YEARS) for (const device of ['desktop', 'mobile']) for (const detail of ['light', 'balanced', 'full']) {
+  const cell = BOOT_BYTES[year]?.[device]?.[detail];
+  assert.ok(cell, `committed first-visit bytes for ${year} ${device}/${detail}`);
+  for (const id of ESSENTIAL) assert.ok(Number.isFinite(cell[id]) && cell[id] >= 0, `${year} ${device}/${detail}/${id}`);
+  const total = ESSENTIAL.reduce((s, id) => s + cell[id], 0);
+  assert.ok(total > 5e6, `${year} ${device}/${detail}: a town downloads more than 5 MB`);
 }
+assert.deepEqual(committedBytes({ year: '1904', device: 'mobile', detail: 'light' }), BOOT_BYTES['1904'].mobile.light);
+assert.deepEqual(committedBytes({ year: '2099', device: 'desktop', detail: 'full' }), BOOT_BYTES['1835'].desktop.full, 'a year the table lacks reads 1835');
 
 // The meter: wire bytes over the time anything was on the wire, overlaps merged.
 const meter = createNetMeter({ Observer: null, connection: { downlink: 8 } });
@@ -30,11 +35,15 @@ assert.ok(Math.abs(meter.busySeconds - (2 + 500 * 0.005)) < 1e-9, 'folding old i
 const store = (value = null) => ({ value, getItem() { return this.value; }, setItem(k, v) { this.value = v; } });
 const bytesKeyed = new Map();
 const multi = { getItem: k => bytesKeyed.get(k) ?? null, setItem: (k, v) => bytesKeyed.set(k, v) };
-const base = { device: 'desktop', detail: 'full', build: 'b1' };
-assert.deepEqual(expectedBytes({ ...base, storage: store('{bad') }), BOOT_BYTES.desktop.full);
-assert.deepEqual(expectedBytes({ ...base, storage: { getItem() { throw Error('denied'); } } }), BOOT_BYTES.desktop.full);
-assert.deepEqual(expectedBytes({ ...base, storage: store(JSON.stringify({ build: 'old', cells: { 'desktop/full': { scene: 1 } } })) }), BOOT_BYTES.desktop.full);
-assert.equal(expectedBytes({ ...base, storage: store(JSON.stringify({ build: 'b1', cells: { 'desktop/full': { scene: 42 } } })) }).scene, 42);
+const base = { year: '1904', device: 'desktop', detail: 'full', build: 'b1' };
+const table = BOOT_BYTES['1904'].desktop.full;
+assert.deepEqual(expectedBytes({ ...base, storage: store('{bad') }), table);
+assert.deepEqual(expectedBytes({ ...base, storage: { getItem() { throw Error('denied'); } } }), table);
+assert.equal(expectedBytes({ ...base, storage: store(JSON.stringify({ cells: { '1904/desktop/full': { build: 'b1', bytes: { scene: 42 } } } })) }).scene, 42);
+assert.equal(expectedBytes({ ...base, storage: store(JSON.stringify({ cells: { '1904/desktop/full': { build: 'old', bytes: { scene: 43 } } } })) }).scene, 43,
+  'an earlier build\'s reading of this year still beats the committed table');
+assert.deepEqual(expectedBytes({ ...base, storage: store(JSON.stringify({ cells: { '1835/desktop/full': { build: 'b1', bytes: { scene: 44 } } } })) }), table,
+  'another year\'s reading never stands for this one');
 
 // A simulated slow boot: 10 MB in the scene phase over a 0.5 MB/s link, CPU at 2x the
 // reference. The forecast has to see that before the scene finishes, and the year has
@@ -110,14 +119,45 @@ assert.ok(crawl.readings.every(r => r.eta >= 0.25 || r.year === 1835));
   let clock = 0;
   const boot = createBoot({ now: () => clock });
   const m = createNetMeter({ Observer: null });
-  const f = createForecast({ boot, meter: m, now: () => clock, storage: multi, build: 'b2', device: 'mobile', detail: 'light' });
+  const f = createForecast({ boot, meter: m, now: () => clock, storage: multi, build: 'b2', year: '1812', device: 'mobile', detail: 'light' });
   for (const id of ESSENTIAL) { boot.start(id); clock += 500; m.add({ encodedBodySize: 1000, startTime: clock - 400, responseEnd: clock - 1 }); boot.end(id); }
   boot.start('people'); boot.end('people'); boot.start('census'); boot.end('census');
   boot.frameRendered(); assert.ok(boot.finish());
-  const learned = expectedBytes({ device: 'mobile', detail: 'light', build: 'b2', storage: multi });
-  for (const id of ESSENTIAL) assert.equal(learned[id], 1000, `learned ${id}`);
+  const learned = expectedBytes({ year: '1812', device: 'mobile', detail: 'light', build: 'b3', storage: multi });
+  for (const id of ESSENTIAL) assert.equal(learned[id], 1000, `learned ${id}, kept into the next build`);
+  assert.deepEqual(expectedBytes({ year: '1904', device: 'mobile', detail: 'light', build: 'b2', storage: multi }), BOOT_BYTES['1904'].mobile.light, '1812\'s bytes are not 1904\'s');
   assert.ok(JSON.parse(bytesKeyed.get('c4d.boot.pace.v1'))['mobile/light'] > 0, 'pace kept across builds');
   assert.equal(f.phaseBytes.scene, 1000);
+}
+
+// T-3758: the readout's total holds still while the bytes come in, and the ETA counts down in
+// real time: a re-forecast eases it over seconds, it never leaps.
+{
+  let clock = 0;
+  const boot = createBoot({ now: () => clock });
+  for (const p of boot.phases) boot.expected[p.id] = 0.2;
+  const m = createNetMeter({ Observer: null, connection: null });
+  m.add({ encodedBodySize: 1e6, startTime: -500, responseEnd: 0 });
+  const bytes = { scene: 6e7, terrain: 2e6, buildings: 2e6, ground: 1e7, flora: 1e5, interaction: 4e6 };
+  const f = createForecast({ boot, meter: m, bytes, now: () => clock });
+  const totals = [], etas = [];
+  for (const id of ESSENTIAL) {
+    boot.start(id);
+    for (let i = 0; i < 10; i++) {
+      const t0 = clock; clock += 50 + (bytes[id] / 10) / 4e6 * 1000;
+      // The scene downloads 8 % more than forecast, as a fresh deploy does.
+      m.add({ encodedBodySize: bytes[id] * (id === 'scene' ? 1.08 : 1) / 10, startTime: t0, responseEnd: clock });
+      const r = f.readout(clock); totals.push(r.total); etas.push([clock, r.eta]);
+    }
+    boot.end(id);
+  }
+  const steps = totals.slice(1).filter((t, i) => t !== totals[i]).length;
+  assert.ok(steps <= 3, `the total changed ${steps} times while downloading (${totals.map(t => (t / 1e6).toFixed(1)).join(' ')})`);
+  assert.ok(totals.every((t, i) => !i || t >= totals[i - 1]), 'and never shrank');
+  for (let i = 1; i < etas.length; i++) {
+    const [t0, e0] = etas[i - 1], [t1, e1] = etas[i];
+    assert.ok(e1 - e0 <= (t1 - t0) / 1000 * 2 + 0.5, `the ETA leapt ${e0.toFixed(1)} → ${e1.toFixed(1)} s`);
+  }
 }
 
 // The readout's strings: fixed shapes, so the strip never reflows.

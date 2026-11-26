@@ -124,7 +124,7 @@ export function likenessSkin(kit, variation) {
  * `lines` is what the face keeps of the drawn age lines, by the face's own age.
  */
 const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
-export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null }) {
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null, faceOf = null }) {
   const F = kit?.header?.faces, body = F?.bodies?.[assetId];
   if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
   // T-3644: a face the visitor chose for their own person (visitor-person.js): `body` is the
@@ -134,7 +134,8 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   if (chosen >= 0) return libraryEntry(kit, F, chosen, assetId, skinOf, body);
   const child = Number.isFinite(age) && age < F.ages.child_under;
   const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
-  const wears = child || sex !== 'male' ? 'female' : 'male';
+  // T-3756: the visitor's Style 3 draws its Auto face from the other body's faces (`face_of`).
+  const wears = !child && (faceOf === 'male' || faceOf === 'female') ? faceOf : child || sex !== 'male' ? 'female' : 'male';
   const tint = F.complexions?.[complexion] ?? [1, 1, 1];
   // A kit made before `person_tone_rgb` falls back on the body's skin, as it then read.
   const given = F.person_tone_rgb?.[sex === 'male' ? 'male' : 'female'];
@@ -143,7 +144,9 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   const bell = (d) => Math.exp(-d * d / (2 * F.nearer_tone_likelier * F.nearer_tone_likelier));
   const freckles = Array.isArray(F.light_only_for) ? F.light_only_for : [];
   // The body's own skin first, then each face that may be worn, each with its likelihood.
-  const draw = [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * skin[k], 0) / tone))]];
+  // (Not for a face drawn from the other body's faces: the body's own skin would be the very
+  // face Style 1 wears, T-3756.)
+  const draw = wears === faceOf ? [] : [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * skin[k], 0) / tone))]];
   F.faces.forEach((f, i) => {
     const younger = third - THIRDS.indexOf(f.age);
     if (f.sex !== wears || younger < 0 || younger > third) return;
@@ -296,7 +299,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null }),
+    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null, faceOf: record?.looks?.face_of ?? null }),
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
     even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };

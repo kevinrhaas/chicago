@@ -89,6 +89,9 @@ function inside(e, n, poly) {
  * The map and clock of one fire document. `catchAt(e, n, key)` is the minute the fire
  * reaches a place (null where it never burned); `key` seeds that building's own jitter.
  */
+/** How far from a timed place (m) a building's own few minutes either way take full effect. */
+export const JITTER_FREE_M = 60;
+
 export function createFireMap(doc) {
   if (!doc || !Array.isArray(doc.zones) || !Array.isArray(doc.controls)) throw Error('fire map: not a fire document');
   const zones = doc.zones.filter((z) => Array.isArray(z.local) && z.local.length >= 3).map((z) => {
@@ -107,6 +110,16 @@ export function createFireMap(doc) {
   const survivors = new Set(doc.survivors ?? []);
   const fates = Object.fromEntries(Object.entries(doc.structures ?? {}).map(([id, r]) => [id, r.fate]));
   for (const id of survivors) fates[id] = 'survives';
+  // T-3751: a landmark an account has alight at an hour (`burning_by`) burns at that hour, no
+  // jitter: its rise (frame or masonry, by its fate) is begun so that it is ablaze then, as the
+  // jaunt's stop at that hour tells it.
+  const pins = new Map();
+  for (const [id, r] of Object.entries(doc.structures ?? {})) {
+    const t = minutesOf(r.burning_by?.t);
+    if (!Number.isFinite(t) || fates[id] === 'survives') continue;
+    const rise = r.fate === 'collapses' ? (model.frame?.rise_min ?? 5) : (model.masonry?.rise_min ?? 9);
+    pins.set(id, t - rise);
+  }
   const zoneAt0 = (z, e, n) => e >= z.e0 && e <= z.e1 && n >= z.n0 && n <= z.n1 && inside(e, n, z.poly);
   const zoneAt = (e, n) => zones.find((z) => zoneAt0(z, e, n)) ?? null;
   const isSpared = (e, n) => spared.some((s) => (e - s.e) ** 2 + (n - s.n) ** 2 <= s.r * s.r);
@@ -151,20 +164,26 @@ export function createFireMap(doc) {
     return bw[0] * best.a + bw[1] * best.b + bw[2] * best.c;
   }
   function catchAt(e, n, key = null) {
+    if (key !== null && pins.has(key)) return pins.get(key);
     const z = zoneAt(e, n);
     if (!z || isSpared(e, n)) return null;
     if (z.burntAt !== null) return z.burntAt;
     const h = hourAt(e, n, z);
     if (h === null) return null;
-    // Blocks catch in clumps and each building a few minutes from its neighbours.
+    // Blocks catch in clumps and each building a few minutes from its neighbours; a timed
+    // place keeps its own hour (T-3751: the jitter fades in over JITTER_FREE_M from the
+    // nearest timed place, so the building an account names catches when it says).
     const cell = hash01(`${Math.floor(e / 45)},${Math.floor(n / 45)}`) - 0.5;
     const own = key === null ? 0 : hash01(key) - 0.5;
-    return h + jitter * (1.2 * cell + 0.8 * own);
+    const net = networks.get(z.id) || everywhere;
+    let near = Infinity;
+    for (const c of net.list) { const d = (c.e - e) ** 2 + (c.n - n) ** 2; if (d < near) near = d; }
+    return h + jitter * Math.min(1, Math.sqrt(near) / JITTER_FREE_M) * (1.2 * cell + 0.8 * own);
   }
   return {
     doc, zones, controls, spared, wind, model, survivors, fates,
     start: minutesOf(doc.start), end: minutesOf(doc.end), rain: minutesOf(doc.rain?.t),
-    zoneAt, isSpared, hourAt, catchAt,
+    zoneAt, isSpared, hourAt, catchAt, pins,
     /** A named structure's fate: 'survives', 'walls_stand', 'roof_burns' or 'collapses' (null: by its build). */
     fateOf: (id) => fates[id] ?? null,
   };
