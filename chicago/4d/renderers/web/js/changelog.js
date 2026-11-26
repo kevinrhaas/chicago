@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3256, ts: '2026-11-26T08:34:33.490Z', date: 'Nov 26, 2026, 2:34 AM CT', title: 'Play with a Bluetooth game controller, in every year', kind: 'feature',
+    items: [
+      'Pair an Xbox, PlayStation or Switch Pro controller with your computer, phone or tablet and press any button: no setting to turn on.',
+      'The left stick walks, the right stick looks, the right trigger runs, and while flying the triggers climb and descend.',
+      'A inspects what you are looking at, B goes back, X opens a gate in reach, Y flies, View opens the map and Menu the Navigator.',
+      'On a jaunt, the bumpers take you to the stop before or the next stop.',
+      'Menus, cards, Settings and the welcome screen work from the controller too: the D-pad moves between keys, A presses, B goes back, the right stick scrolls.',
+      'The Guide has a Controller page listing every button.',
+    ] },
   { v: 3255, ts: '2026-11-26T08:14:08.319Z', date: 'Nov 26, 2026, 2:14 AM CT', title: 'Clothes hang and lie like cloth, close up and walking', kind: 'improvement',
     items: [
       'Coats, jackets and bodices lie smooth over the body instead of hugging every rib, and nothing underneath shows through as people walk.',
