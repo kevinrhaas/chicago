@@ -59,6 +59,7 @@ try {
   const pages=library.pages??[{first:0,count:library.faces.length,cols:library.cols,size_px:library.size_px,textures:library.textures,hair_textures:library.hair_textures}];
   const pageIndex=Math.min(pages.length-1,Math.max(0,Math.floor(Number(q.get('page')??Number(q.get('face')??0)/16))||0));
   const page=pages[pageIndex],pageFaces=library.faces.slice(page.first,page.first+page.count);
+  selected=Math.min(page.first+page.count-1,Math.max(page.first,Number(q.get('face')??page.first)||page.first));
   document.title=`Photo faces · ${library.faces.length}-face library · page ${pageIndex+1}`;
   function navigatePage(i){q.set('page',i);q.set('face',pages[i].first);q.set('gallery',gallery?'1':'0');location.search=q.toString();}
   pages.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${p.first+1}–${p.first+p.count}`;$('page').append(o);});
@@ -253,7 +254,7 @@ try {
   $('export').onclick=()=>{const blob=new Blob([JSON.stringify(measurement,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='photo-face-measurement.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
   new ResizeObserver(resize).observe($('render'));
   window.__pilotSelect=select;window.__pilotGallery=setGallery;window.__pilotYaw=angle=>{yaw=angle*Math.PI/180;draw();};window.__pilotDraw=()=>draw();
-  setGallery(gallery);await select(Math.min(page.first+page.count-1,Math.max(page.first,Number(q.get('face')??page.first)||page.first)));
+  setGallery(gallery);await select(selected);
   await likenessSheetsReady();draw();ready.resolve(window.__pilotStats);
   let lastDraw=0;function animate(t){if(moving&&t-lastDraw>1000/(quality==='light'?20:30)){yaw+=.018;draw();lastDraw=t;}requestAnimationFrame(animate);}requestAnimationFrame(animate);
 }catch(error){$('error').textContent=`The face preview could not open: ${error.message}`;$('status').textContent='Preview unavailable';ready.reject(error);}
