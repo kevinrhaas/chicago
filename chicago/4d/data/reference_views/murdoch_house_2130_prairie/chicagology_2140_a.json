@@ -1,0 +1,24 @@
+{
+ "structure_id": "murdoch_house_2130_prairie",
+ "source_id": "chicagology_2140_photo_a",
+ "library_image": "a20-chicagology-2140-photo-a",
+ "photo": "../../sources/assets/murdoch_2130_photos_t3730/chicagology_2140_photo_a.jpg",
+ "image_px": [
+  2000,
+  1467
+ ],
+ "principal_px": [
+  1000.0,
+  1351.3
+ ],
+ "focal_px": 3106.6,
+ "eye": [
+  51.2,
+  -57.6,
+  -0.92
+ ],
+ "yaw_deg": -37.6,
+ "sky": "overcast",
+ "scene": "1904",
+ "solve": "Fitted for T-3730 to the chicagology print of 2140 Prairie (the 2000 x 1467 px copy), in which 2130 stands at the right, past 2140's north side, from x 1455 px (where 2140's mansard hides it) to the tower's right edge at x 1857. A level camera: the lamp post, the fence piers and the tower's drum stand upright. The principal column is taken as the print's middle (x 1000); a horizontal shift of the plate cannot be told from the yaw on one picture. FITTED TO, all in this house's frame (u east from the main rear wall, v north from its south wall): the tower's cone eave, a ring of 2.72 m about (22.03, 6.6) at 11.25 m, whose silhouette runs x 1594-1856 at y 796-808; the drum's right edge (2.4 m) at x 1850; the three storeys of the tower's south-east (-40 degree) lights, centres at x 1767 and y 1147, 985 and 845 (3.4, 7.05 and 9.8 m), and of its east (0 degree) lights at x 1838; 2140's corner pier at Prairie and 22nd Street, the lot's south-east street corner (27.7, -33.15) on the 1904 street grid, its foot at (660, 1270); and the foot of the iron front along Prairie (u 27.6) at (1227, 1283) and (1496, 1287). Least squares on all of them: 7.4 px RMS, worst 13 px (the cone eave's two ends, which disagree with the lights by about 0.25 m in height). THE EYE stands at (51.2, -57.6): 3.5 m east of Prairie's east street line and 4.3 m south of 22nd Street's south line, the south-east corner of the crossing the source record names. WHAT IS SOFT: along the line of sight the distance trades against the focal length — eyes from (50, -55) to (60, -66) fit within 1 px RMS of this one, and this one is kept because it is the corner the print was taken from; places on 2130's front and tower are good to about 0.2 m across the line of sight. The eye's height fits 0.92 m UNDER the house's grade: the print's walk and roadway lie below the lots behind their stone curbs by a step no source measures, and the review renders everything on one grade plane, so read heights against the tower's courses, not against the ground. LIGHT: an overcast day; the lamp post, the piers and the cyclist throw no shadow: overcast. DATE: the print also shows 2126 at the far right as finished (its May 1905 plate's front), so it is no earlier than 1905; it is evidence of the house as it stood then, which the 1904 record carries."
+}

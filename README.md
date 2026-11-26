@@ -13,6 +13,7 @@ a research dataset with renderers attached. Live at
 | [`dev.chicago.polecat.live/4d/dev/`](https://dev.chicago.polecat.live/4d/dev/), `/4d/dev/1835/` | the `dev` branch's preview on its own site (kevinrhaas/chicago-dev) — not production, not indexed |
 | `/4d/?year=1835&debug=1` | query parameters sit on top of any door; further state (a structure to open, a camera) goes in more parameters, never more path |
 | `/4d/dev/1835/?structure=<id>&version=<label>` | one structure swapped for a committed alternate build of it, to compare builds side by side (`version=default` is the canonical record; an unknown label shows the default and says so) — see [`chicago/4d/docs/STRUCTURE-VERSIONS.md`](chicago/4d/docs/STRUCTURE-VERSIONS.md) |
+| [`/architecture/`](https://chicago.polecat.live/architecture/) → `/4d/architecture/` | the Architecture site, for expert readers: the sixteen building kits (parts, measures, specimens in 3D) and every building built on them. Data derived at publish by `chicago/4d/tools/architecture_site.py`; linked from Technicians and Settings › Research, not the main menu (T-3750) |
 | [`/pre-fire/viewer/`](https://chicago.polecat.live/pre-fire/viewer/), [`/rebuilding-1870s/viewer/`](https://chicago.polecat.live/rebuilding-1870s/viewer/) | the Atlas's two map viewers |
 
 The Prairie Avenue 1904 research package is in [`chicago/prairie_1904_v1/`](chicago/prairie_1904_v1/README.md); its dev browser is `dev.chicago.polecat.live/4d/dev/prairie-1904/viewer/`.
