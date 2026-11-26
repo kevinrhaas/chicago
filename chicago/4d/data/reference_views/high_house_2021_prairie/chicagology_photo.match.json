@@ -2,7 +2,7 @@
   "structure_id": "high_house_2021_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/high_house_2021_prairie__as_mapped_1904.glb",
-  "glb_sha256": "172c31eba7d3b3fe137208ac4a724f9eff69909d337cee934cdb12f03438835a",
+  "glb_sha256": "1fe5945b1cda2aff7290c8edc7a622943e0f31dbafb919dadc9d8da84b89f380",
   "camera_sha256": "31f4e79f431095049899c7efa1abef58e63bd0f4ac99681ff2e6cb782fb05aa1",
   "photo_sha256": "0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be",
   "rendered_flora": {
@@ -42,11 +42,11 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "073a45f12f88f9099b245d0608c91c3deeb6e09ee440390c1f4f6ac424333e3c"
+      "sha256": "e7f6102e3c649b32a68e1d1be744fc17b608a0c544dfb98fafce6402ebc82b27"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+      "sha256": "d76a3e255869efe6c8d818f486a16d0433ed6a4a3cb23ffe010fa9981261660f"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+      "sha256": "a04b5afd8b04f1d4c448f1c2f1ac5912d766a190a5d0a2d3c0ac1b208fd2faa2"
     }
   ],
-  "flora_sha256": "26920f033dd6b071b4ac3b787d759d3fd72f56aa97380450525e21f851b549d1",
+  "flora_sha256": "fe0ff6bc75d1d3d7aa5d64181a7702ba79f46b7d35c9e177b6018b4573081ec3",
   "side_by_side": "docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -82,8 +82,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the turret's finial over its cone (about 0.5 m) is not built: K08 sets no finial on a half cone closed against the roof",
-      "status": "open"
+      "what": "the turret's finial: the cone's top sheathed in a pale metal cap flaring to a lip about 0.5 m across under a short dark knob (y 242-330 px) is built as K08's turned finial on a plain zinc collar 0.2 m out, now that a half round's cone carries a finial on its apex (T-3634), and the cone is set at pitch 2.8 so its slate stops under the cap: the render's lip prints at y 330 against the photograph's 325 and its tip at y 235 against 247 (about 0.13 m high); the kit's collar runs a little past the apex where the photograph's cap closes on the knob",
+      "status": "fixed"
     },
     {
       "what": "the arched porch: the render's round-headed doorway x 258-414 px under the turret matches the photograph's arch x 235-420 in place and height, but K01 cuts it as a door in a 0.45 m reveal; the photograph's arch opens on a porch with a small light in its north wall and the door at its south end (K01 builds an open porch behind an arch only behind a stone front's voussoirs)",
@@ -118,11 +118,15 @@
       "status": "open"
     },
     {
-      "what": "the stacks: the tall stack on the south flank and the stack behind the turret print in place; the third, on the ridge about 11 m back (x 1010-1080 px), stands over a rear wing, where K01 lays no stack, and is not built",
-      "status": "open"
+      "what": "the stacks: the tall stack on the south flank and the stack behind the turret print in place; the third, on the ridge about 10.4 m back (x 1010-1090 px), is now built on the south wing's ridge (rear_wings stacks, T-3634), its north edge at x 1010 px as the photograph's and its cap at y 305 against about 310; from this camera its south half stands behind the tall stack, where the photograph's meets that stack's edge (about 0.3 m in plan, under the bar)",
+      "status": "fixed"
     },
     {
       "what": "the gable's rakes: the render carries K01's coped wall gable with a pale coping; the photograph's slate runs a little past brick rakes. A trim difference under the bar",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the gable's finial: the photograph's knob on a slender neck over the front gable's apex (y 30-75 px, about 0.45 m) is built as K01's shaped-gable finial, a turned spike 0.45 m tall and 0.16 m across (T-3634); its top prints at y 33 against y 30, and a spike's outline against a knob's is under the bar",
       "status": "within tolerance"
     },
     {

@@ -26,7 +26,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   roof         the plan's own lines offset to the eaves and lifted at one pitch: a
                hipped roof over a polygon (trimmed at its hips), a cone over a curve;
                a tower's cap is the whole ring's, closed at the back where the wall
-               plane cuts it, with a finial at the apex; a bay's hip may FLARE (T-2408):
+               plane cuts it, with a finial at the apex (T-3634: or a half round's cone,
+               whose apex stands on its wall plane); a bay's hip may FLARE (T-2408):
                flat at the eaves and steepening inward, cut into bands at one
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
@@ -4095,6 +4096,12 @@ class Bay:
                            (0.0, 0.0, -1.0))
         self.meta["roof"] = {"kind": "cone", "pitch": pitch, "eave_radius_m": round(Re, 4), "segments": len(phis) - 1,
                              "apex": [round(c[0], 4), round(apex_y, 4), round(cz, 4)] if tower else None}
+        if not tower and cz == 0.0 and not whole:
+            # T-3634: a half round's cone closes against its wall in one point, its apex on the
+            # wall plane over the round's centre, so it can carry a finial there as a tower's
+            # cap does (2021 Prairie's turret, the spike over its cone in the photograph). Kept
+            # off the roof's meta, which a segmental bow (no apex) shares
+            self._half_apex = [round(c[0], 4), round(y_e + pitch * Re, 4), 0.0]
         yb = self.v.get("cone_back_from_m")
         if yb is not None:
             # T-3294: a half round's cone carried past its house's eave (1912's corner turret) has
@@ -4232,6 +4239,16 @@ class Bay:
         self.meta["roof"]["cresting"] = {"height_m": h, "thickness_m": t}
         self._finial_at = [(p[0], y_d + h, p[1]) for p in top]
 
+    def _finial_apex(self):
+        """The point a cap's finial stands on: its roof's apex, or (T-3634) a half round's,
+        on the wall plane. A segmental bow's cone meets its wall along a line, not a point,
+        and a hip has no single apex, so neither carries one."""
+        ap = self.meta["roof"].get("apex") or getattr(self, "_half_apex", None)
+        if ap is None:
+            raise ValueError(f"{self.v['id']}: a finial stands on a cap's apex: a tower's, a spire's, "
+                             f"or a half round's cone against its wall")
+        return ap
+
     def _finial(self, world):
         f = part(self.v, self.data, "finial")
         if getattr(self, "_finial_at", None):
@@ -4243,7 +4260,7 @@ class Bay:
             return
         if f.get("form") == "turned":
             return self._turned_finial(world, f)
-        ax, ay, az = self.meta["roof"]["apex"]
+        ax, ay, az = self._finial_apex()
         r0, H = f["radius_m"], f["height_m"]
         k = 8
         ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y, az + r * math.sin(2 * math.pi * j / k))
@@ -4287,7 +4304,7 @@ class Bay:
         — the pale crocketed collar and knobbed pinnacle of 1801's tower. A whole cap
         (`cap_whole`: a corner turret's, its axis maybe behind its wall's face) stands into no
         wall, so nothing of it is held in front of the wall's plane (1801's east turret)."""
-        ax, ay, az = self.meta["roof"]["apex"]
+        ax, ay, az = self._finial_apex()
         # T-3293: a turning may be lathed in fewer `segments` (1912's tower: 6, inside its budget)
         r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
         # T-3616: and so does a two-stage cap whose axis stands behind its wall's face (2011's)
