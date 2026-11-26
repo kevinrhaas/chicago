@@ -243,9 +243,17 @@ def dress(house, form: dict) -> dict | None:
         return {"built": out, "components": comps}
     F = y["front_walk"]
     w = float(F["width_m"])
-    st = fh.get("porch", {}).get("steps") or {}
-    axis = float(st.get("centre_m", 0.0))
-    near = [q for q in steps if abs(-q[2] - axis) < float(st.get("width_m", 2.0)) / 2 + 0.05]
+    po = fh.get("porch") or {}
+    st = po.get("steps") or {}
+    # T-3773: the stair's `centre_m` runs along the porch's own block side, as the porch and its
+    # steps are built (k16_timber.host_block, side_frame). 2000 and 2010 Prairie stand their porch
+    # on a front block that starts 0.43 and 1.14 m south of s 0, so the walk, laid at the bare
+    # `centre_m`, ran that far north of the stair and the door above it (owner, 2026-11-26: "the
+    # walkway ... it's not straight").
+    from .k16_timber import host_block, side_frame
+    O, U, _ = side_frame(host_block(fh, po)["rect_uv"], po.get("side", "east")) if po else ((0.0, 0.0, 0.0), (0.0, 0.0, -1.0), 0.0)
+    axis = -(O[2] + U[2] * float(st.get("centre_m", 0.0)))
+    near =[q for q in steps if abs(-q[2] - axis) < float(st.get("width_m", 2.0)) / 2 + 0.05]
     if not near:
         raise ValueError("yard.front_walk: no built steps to start the walk at")
     foot = max(q[0] for q in near)

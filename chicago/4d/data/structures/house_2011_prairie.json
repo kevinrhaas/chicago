@@ -521,7 +521,7 @@
             "chamfer_m": 0.08,
             "runs": [
               {
-                "to_s_m": 2.2,
+                "to_s_m": 2.3,
                 "opening": true
               },
               {
@@ -531,7 +531,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "A low coped wall on the street line, as Meyer's next door; the photograph's yard is strewn with building stone and the Reid plate's fence line is hidden by the tree."
+          "note": "A low coped wall on the street line, as Meyer's next door; the photograph's yard is strewn with building stone and the Reid plate's fence line is hidden by the tree. T-3773 (owner, 2026-11-26: the walk runs straight to the door): the opening is carried 0.1 m further north, to s 2.3, so the 1.6 m walk passes straight out from the stoop's foot with K14's 0.05 m to spare, where it had jogged 0.3 m south through the narrower opening."
         },
         "yard": {
           "value": {
