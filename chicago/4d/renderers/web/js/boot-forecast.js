@@ -211,7 +211,11 @@ export function createForecast({ boot, meter, bytes = {}, now = () => performanc
       const cpuSoFar = Math.max(0, (at - q.startedAt) / 1000
         - Math.max(expected[q.id] || 0, phaseBytes[q.id]) / rate);
       const planned = cpu[q.id] || 0.05;
-      if (cpuSoFar > planned * p) p = clamp(cpuSoFar / planned, p, 40);
+      // T-3758: one phase far over its weight is weak evidence about the others (in a 1904 boot
+      // the buildings ran 100x theirs while the rest ran about 6x), so it pulls the pace to the
+      // geometric mean of the settled pace and its own ratio, not all the way: the forecast read
+      // four minutes for what took forty seconds.
+      if (cpuSoFar > planned * p) p = clamp(Math.sqrt(settledPace * cpuSoFar / planned), p, 40);
     }
     return p;
   }
