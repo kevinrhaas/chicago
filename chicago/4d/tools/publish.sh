@@ -114,6 +114,20 @@ for name in policy['files']:
         raise SystemExit('Transport authoring source must remain present: ' + name)
     (Path(sys.argv[1]) / 'walk' / relative).unlink(missing_ok=True)
 TRANSPORT_SOURCE_ONLY
+  # T-3750: the Architecture site, for expert users (the owner, 2026-11-26: "expose the
+  # architecture site and building kit … separate link/site"; open to anyone with the link).
+  # Its page came over with the renderer; its data is derived here from the kit, structure
+  # and sidecar records, and its specimens and studies copied beside it. Houses' models are
+  # read from data/gltf/, so no building ships twice. /4d/architecture/ is its short address.
+  python3 tools/architecture_site.py "$SITE/walk/architecture"
+  mkdir -p "$SITE/architecture"
+  cat > "$SITE/architecture/index.html" <<'ARCHITECTURE_DOOR'
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Architecture · 4D Chicago</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>location.replace('../walk/architecture/' + location.hash);</script>
+<meta http-equiv="refresh" content="0; url=../walk/architecture/"></head>
+<body><p><a href="../walk/architecture/">Open the Architecture site</a></p></body></html>
+ARCHITECTURE_DOOR
 fi
 
 # The changelog is authored inside the app (the What's-new tab imports it, and
