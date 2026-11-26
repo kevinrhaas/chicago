@@ -39,7 +39,7 @@
   "persons": [
     {
       "id": "pa1904_einstein_m",
-      "name": "M. Einstein",
+      "name": "Morris Einstein",
       "relationship": "head",
       "grade": "attested",
       "sources": [
@@ -75,7 +75,7 @@
     },
     {
       "id": "pa1904_einstein_mrs_m",
-      "name": "Mrs. M. Einstein",
+      "name": "Julia Einstein",
       "relationship": "wife",
       "grade": "attested",
       "sources": [
@@ -111,7 +111,7 @@
     },
     {
       "id": "pa1904_einstein_daughter",
-      "name": "Miss Einstein",
+      "name": "Anna B. Einstein",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
@@ -121,7 +121,7 @@
         "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say. The 1894 Blue Book lists a Miss Anna B. Einstein at 1628, and the 1910 census lists Anna B. Einstein there as the unmarried daughter at home (ED 166, sheet 8B, line 92), so she is very likely the one the book means.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say. The 1894 Blue Book lists a Miss Anna B. Einstein at 1628, and the 1910 census lists Anna B. Einstein there as the unmarried daughter at home (ED 166, sheet 8B, line 92), so she is very likely the one the book means. The card goes by Anna B. Einstein, the name the 1900 census gives the unmarried daughter at home; that she is the 1904 '& dr.' is read from that, and the book does not print her name.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -129,6 +129,14 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
+      },
+      "born": {
+        "value": "1868",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The 1900 census line read on this card gives 1868."
       }
     },
     {

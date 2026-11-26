@@ -3,6 +3,7 @@
 
 ## a71-gm-business
 roles: gentleman, tradesman
+age: 30-
 q: How is business?
 
 Never better, if you believe the Board of Trade, and they believe it themselves, which is what matters. The grain comes in on the railroads from the whole West and goes out by the lake, and every bushel of it pays somebody in this city a cent.
@@ -66,6 +67,7 @@ Over the bridges, unless one of them is swung for a boat, in which case you wait
 
 ## a71-ts-where
 roles: tradesman, workman, woman
+origin: foreign
 q: Where are you from?
 
 From the old country, like everybody. You will not meet many in this city who were born in it, except the children. Half of us came from across the water and the other half from New York and New England.
@@ -98,7 +100,7 @@ Not that I heard. Some firemen were burnt about the face, and they lost hose. Fo
 It happens every week. The trick is it happening where the engines can get at it.
 
 ## a71-ir-church
-roles: irish, woman, servant
+roles: irish
 q: Which church do you go to?
 
 Holy Family, on Twelfth Street, the Jesuits' church. It is the biggest church in the city. There is a Mass every hour on a Sunday morning, and still they stand at the back.
@@ -107,7 +109,7 @@ Holy Family, on Twelfth Street, the Jesuits' church. It is the biggest church in
 For the West Side Irish it is round the corner. For my cousin on the North Side it is a long walk, but she goes to St. Patrick's when her feet hurt.
 
 ## a71-ge-garden
-roles: german, tradesman, woman
+roles: german
 q: Is there music somewhere this afternoon?
 
 In every beer garden on the North Side. A band plays, the families sit at the long tables under the trees, the children run about. You drink a glass of lager, you eat a sausage, you sing if you know the words.
@@ -126,6 +128,7 @@ Walk with the other girls, and look in the windows on State Street, and buy a pa
 
 ## a71-yo-plans
 roles: youth, child
+sex: m
 q: What do you want to be?
 
 A fireman. Or a driver on the horse cars. Or a clerk in a big store on State Street with a black coat and a gold watch chain. My father says a clerk, my mother says a priest, and my sister says a fool.
@@ -153,6 +156,7 @@ He minds the dust. Look at his eyes. This summer has been hard on everything tha
 
 ## a71-bl-work
 roles: black_resident
+age: 25-
 q: How long have you been in Chicago?
 
 Since before the war. I came up the river from Missouri and stayed, because there was work in the hotels and there were people here who would not send me back. Some of them hid people in their cellars when it was a crime to.
@@ -161,7 +165,9 @@ Since before the war. I came up the river from Missouri and stayed, because ther
 We vote now. Last year was the first time. I walked to the polls with my hat in my hand like I was going to church. Nobody stopped me. That is a different country from the one I was born in.
 
 ## a71-sc-ships
-roles: scandinavian, workman
+roles: scandinavian
+sex: m
+age: 20-
 q: What brought you here?
 
 Ships. I was a sailor out of Bergen, and the lake schooners want men who know the work. In summer I sail lumber down from Michigan, in winter, when the lake freezes, I work in a planing mill on the North Branch.
@@ -170,7 +176,8 @@ Ships. I was a sailor out of Bergen, and the lake schooners want men who know th
 In the winter, never. It is colder here than Bergen. In the summer, when it is like this, hot and dry and the dust in everything, yes.
 
 ## a71-bk-pilsen
-roles: bohemian, workman, woman
+roles: bohemian
+age: 20-
 q: Who are your neighbours?
 
 Bohemians, mostly, on our street, and Irish round the corner, and Germans on the next street over, and every one of us thinks the others are a little strange. The children do not care. They play together and fight together and speak English to each other.

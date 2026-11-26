@@ -11,7 +11,7 @@
  *
  * The questions live beside the stories in data/tales/<scene>.json (tools/build_tales.py, from
  * docs/RESEARCH/asks-3553; a reconstruction, liberty L-tales-3553):
- *   asks           [{ id, roles[], q, a[], more: [{ q, a[] }], k[], sex?, meet? }]
+ *   asks           [{ id, roles[], q, a[], more: [{ q, a[] }], k[], sex?, age?, origin?, meet? }]
  *   personal_asks  { personId: [ask] }   what only that person is asked, offered first
  *   persona        { personId: 'temper+temper|topic.topic|who' }  (tales.js personaOf)
  *
@@ -25,7 +25,7 @@
  * until P has answered them all. Kept per scene in localStorage (`chicago4d.asks.<scene>`).
  */
 
-import { readTeller, personaOf, leaning } from './tales.js';
+import { readTeller, suits, personaOf, leaning } from './tales.js';
 
 export const ASKED_KEY = 'chicago4d.asks';
 export const ASK_COUNT = 5;
@@ -40,7 +40,7 @@ export function whoAsked(lib, personId, sex = null) {
     return t;
   }
   const s = sex === 'f' ? 'f' : 'm';
-  return { roles: [lib?.fallback?.[s]].filter(Boolean), sex: s, child: false };
+  return { ...readTeller(''), roles: [lib?.fallback?.[s]].filter(Boolean), sex: s };
 }
 
 /**
@@ -60,7 +60,8 @@ export function pickAsks(lib, personId, state, { sex = null, random = Math.rando
   const who = whoAsked(lib, personId, sex);
   const persona = personaOf(lib, personId, sex);
   const asked = state.asked ?? {};
-  const sexOk = (a) => !a.sex || a.sex === who.sex;
+  // A question is answered only by someone it fits: their sex, their age, where they are from.
+  const sexOk = (a) => suits(a, who);
   const notMe = (a) => a.meet?.person !== personId;
   const choose = (list, n, fresh) => {
     const scored = list.filter((a) => fresh(a)).map((a) => ({ a,
