@@ -25208,7 +25208,7 @@ attribute.
 draft. It stands, under the draft's own id (`tucker_smith_house_2140_prairie`), as a `k01_frontage` record built by
 `generators/k01_emit.py`: two storeys of K03 pressed red brick on a pale Lemont-limestone basement, banded in stone
 at the second floor and the chamber lights' springing, under a deep stone cornice on blocks and a K05 slated mansard
-with three gabled dormers and iron cresting round its deck; a round tower across the Prairie/22nd Street corner, a
+with three gabled dormers and iron cresting round its deck; a round tower at the Prairie/22nd Street corner, a
 polygonal tower on the 22nd Street flank near the rear and a square tower on the Prairie front's north part, each
 under a slated cap stopped at a crested deck; K06 two-over-two sash under K09 corniced hoods; a K07 door and stoop
 in the Prairie front's second bay; the sheet's '3SB' brick range behind, on K01's rear wing under a flat deck.
@@ -25232,10 +25232,7 @@ this refine keeps it: a view dated by July 1904 showing the spires replaces it (
 beyond the photographs' proportion; the walls' thickness; the stone's quarry; the roof's deck pitch; the north
 flank's, the rear's and the rear range's windows, the range's three storeys and flat deck; the second stack; the
 gutters and downpipes; the kits' sash, hoods and door; the stoop; the yard's flagged walk.
-**What is built otherwise than the evidence, and why.** The round tower's centre stands on the Prairie front's plane,
-1.3 m out of the 22nd Street wall, where the sheet puts it about 0.65 m behind that plane: K01 sets a tower across its
-corner with its centre on the end wall's plane, so its ring stands about 0.6 m further east than the sheet's. Its
-ring is a 24-sided polygon (K08's across-corner ring), faces about 0.6 m wide. The square tower is a K08 projection
+**What is built otherwise than the evidence, and why.** The round tower stands on the 22nd Street wall, its centre 1.3 m out and 10.78 m from the rear, its ring stopping 0.3 m short of the Prairie front's plane, where the sheet's circle stands across the corner about 1.95 m further east and 1.7 m past the front: K08 builds a round tower on one wall, clear of its end, and a many-sided ring across the corner fails the K08 kit's gate (its lights are wider than a face). Its cap is K08's two-stage cone, a steep slate stage to a ledge and a low top, where the second photograph draws a crested deck. The square tower is a K08 projection
 under a K01 mansard crown, its walls stopped 0.15 m under the main eave on the crown's soffit. The stack beside the
 round tower stands on the deck just inside the curb (K01 refuses a stack astride the curb), where the photographs'
 rises from the wall. The rear wall's south half (about 0.7 m further in on the sheet) and the cut south-west corner

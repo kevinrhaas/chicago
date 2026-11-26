@@ -68,20 +68,20 @@ stacks on the deck; the '3SB' rear range on K01's rear wing.
 
 The towers, on K08:
 
-- **round tower** — across the Prairie/22nd Street corner (`across_corner`), a 24-sided ring 2.3 m in radius,
-  its drum's cornice the main cornice (`cap_at_eave`), its slated cap 4.2 m to a crested deck;
+- **round tower** — K08's round tower on the 22nd Street wall, 2.3 m in radius, 1.3 m out, its centre 10.78 m from
+  the rear (its ring 0.3 m short of the front's plane, about 1.95 m west of the sheet's corner circle), its drum's
+  cornice the main cornice (`cap_at_eave`), its slated two-stage cone a steep stage to a ledge and a low top;
 - **polygonal tower** — K08's octagon on the 22nd Street wall, 2.1 m in radius, 1.26 m out (its face about 3.2 m
   out, as the sheet), three stages, the third over the cornice, under a short slated cap and a crested deck;
 - **square tower** — a K08 projection 4.65 m wide and 1.2 m proud with paired lights in both storeys, under a K01
   mansard crown 0.4 m over the main curb with its own cresting.
 
-### The kit change
+### No kit change
 
-K01 set a tower across its wall's corner only as a square turned 45 degrees (T-3176, 1827's). `_bays` now also takes
-a ROUND tower across a corner, drawn as K08's polygon of 16 or 24 sides turned half a side (`ACROSS_ROUND_SIDES`),
-its centre up to its radius less 0.3 m out of the face; and such a tower may carry its cap at the eave
-(`cap_at_eave`) under its many-sided hip, the drum then closing nothing on the corner's planes. The square case and
-every other record build the same bytes (`python3 generators/k01_emit.py --check`).
+K08 has no round tower across a corner. A many-sided ring set across the corner (K01's T-3176 square, widened to
+16 or 24 sides) was built and refused by the K08 kit gate (`tools/check_bay_kit.py`: lights wider than a face, the
+light tier over budget), so it was dropped and the tower stands on the 22nd Street wall instead; a true round tower
+across a corner is K08 work for T-1929.
 
 ## Not built, and whose it is
 
