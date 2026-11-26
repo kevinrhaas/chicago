@@ -173,6 +173,31 @@ export function isFinalStop(s) {
   if (choices.length && choices.some(c => c.next)) return choices.every(c => ends(c.next ?? stop.next));
   return stop.next != null ? ends(stop.next) : s.stopIndex === s.jaunt.stops.length - 1;
 }
+/**
+ * T-3753 (the owner, 2026-11-26: "Allow users to jump directly to a specific stop within a
+ * jaunt rather than only progressing sequentially"): the stops of the route the visitor is on,
+ * in order, each { id, index, state }: the stops already on it ('seen', or 'here' where they
+ * stand or are going), then the ones it goes on to ('ahead'): from its last stop, by each
+ * stop's own way on (and the choice picked at the stop they stand at). A stop that asks for a
+ * choice before it goes on ends what is known: `open` says a choice there decides the rest, so
+ * a stop on another branch is never offered. Every stop of a jaunt without choices is listed.
+ */
+const wayOn = (stop, choiceId) => { const c = stop?.choices?.find(x => x.id === choiceId); return c ? (c.next ?? stop.next) : stop?.next; };
+export function routeStops(s) {
+  if (!s?.jaunt || !s.visited?.length) return { stops: [], open: false };
+  const byId = new Map(s.jaunt.stops.map(x => [x.id, x]));
+  const stops = s.visited.map((v, i) => ({ id: v.id, index: i, state: i === s.stopIndex ? 'here' : 'seen' }));
+  const lastIndex = s.visited.length - 1, last = s.visited[lastIndex];
+  if (last.committed) return { stops, open: false };
+  const on = new Set(stops.map(x => x.id));
+  let stop = byId.get(last.id), next = wayOn(stop, lastIndex === s.stopIndex ? s.choice : null);
+  while (typeof next === 'string' && byId.has(next) && !on.has(next)) {
+    on.add(next); stops.push({ id: next, index: stops.length, state: 'ahead' });
+    stop = byId.get(next); next = wayOn(stop, null);
+  }
+  const open = next == null && !!stop?.choices?.some(c => byId.has(c.next ?? stop.next));
+  return { stops, open };
+}
 export const canNext = s => (s.phase === 'atStop' || (s.phase === 'detail' && s.detailPhase === 'atStop'))
   && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
 const append = (s, type, data = {}, eventId = null) => {
@@ -269,6 +294,24 @@ export function reduce(s, e) {
     return s.detailPhase === 'travelling' ? move(s, s.stopIndex) : { ...s, phase: s.detailPhase || 'atStop', detailPhase: null };
   if (e.type === 'RETRY' && s.phase === 'travelling' && s.error) return move(s, s.stopIndex);
   if (e.type === 'PREV' && ['travelling', 'paused', 'atStop', 'detail'].includes(s.phase)) return s.stopIndex ? move(s, s.stopIndex - 1) : s;
+  // T-3753: straight to a stop of the route (routeStops), back or ahead, as Skip the ride goes.
+  // Ahead, each stop between is passed as Next stop passes it (its choice, where one is picked
+  // at the stop the visitor stands at, else none), so a saved outing replays to the same place.
+  if (e.type === 'JUMP' && ['opening', 'atStop', 'travelling', 'paused', 'detail'].includes(s.phase)) {
+    const to = routeStops(s).stops.find(x => x.id === e.stop);
+    if (!to) return s;
+    if (to.index === s.stopIndex) return s.phase === 'opening' ? reduce(s, { type: 'SKIP' }) : s;
+    if (to.state !== 'ahead') return { ...move(s, to.index), instant: true };
+    const from = currentStop(s)?.id, lastIndex = s.visited.length - 1;
+    let t = { ...s, phase: 'atStop', detailPhase: null, stopIndex: lastIndex, choice: s.stopIndex === lastIndex ? s.choice : null };
+    while (t.visited.length - 1 < to.index) {
+      const before = t;
+      t = reduce(t, { type: 'NEXT' });
+      if (t === before || t.phase !== 'travelling') return s;
+      if (t.visited.length - 1 < to.index) t = { ...t, phase: 'atStop' };
+    }
+    return { ...t, fromStopId: from, instant: true };
+  }
   if (e.type === 'REVISE' && ['atStop', 'detail'].includes(s.phase) && s.visited[s.stopIndex]?.committed) return revise(s);
   if (!['atStop', 'detail'].includes(s.phase)) return s;
   if (e.type === 'CHOOSE' && !s.visited[s.stopIndex].committed && choicesFor(s).some(c => c.id === e.id)) return { ...s, choice: e.id };
@@ -580,6 +623,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,
     setMode: mode => dispatch({ type: 'MODE', mode }), straight: () => dispatch({ type: 'INSTANT' }),
+    jump: id => dispatch({ type: 'JUMP', stop: id }), // T-3753: straight to a stop of the route
     resumeRide: () => dispatch({ type: 'RIDE' }),
     // T-3553: Watch again: the stop's stage from the beginning.
     replay() { if (!stage || state.phase !== 'atStop' || !currentStop(state)?.stage?.cast?.length) return false;

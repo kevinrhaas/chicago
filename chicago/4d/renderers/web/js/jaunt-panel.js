@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop, openingLight } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop, openingLight, routeStops } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
@@ -80,9 +80,12 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   // T-3629 (the owner's interface sweep): one big Next stop, and small keys with an icon and a
   // short word for the rest, in a game's order: Back · Jaunts · End · Next stop. Each keeps
   // its full name for a screen reader.
-  for (const [id, label, name, glyph] of [['prev', 'Back', 'Previous stop', 'back'], ['menu', 'Jaunts', 'Jaunts menu', 'jaunts'],
-    ['end', 'End', 'End jaunt', 'close'], ['next', 'Next stop', null, null]]) {
-    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id;
+  // T-3753: and Stops, the jaunt's stops in a list, any one of them a tap away.
+  for (const [id, label, name, glyph] of [['prev', 'Back', 'Previous stop', 'back'], ['stops', 'Stops', 'All stops', 'stops'],
+    ['menu', 'Jaunts', 'Jaunts menu', 'jaunts'], ['end', 'End', 'End jaunt', 'close'], ['next', 'Next stop', null, null]]) {
+    buttons[id] = button(label, () => { if (['prev', 'next', 'stops'].includes(id)) pressed = id;
+      return id === 'next' ? goNext() : id === 'stops' ? toggleStops() : actions[id](); });
+    buttons[id].dataset.action = id;
     if (glyph) { buttons[id].prepend(icon(glyph, 16)); buttons[id].classList.add('jaunt-key'); }
     if (name) { buttons[id].setAttribute('aria-label', name); buttons[id].title = name; }
     controls.append(buttons[id]);
@@ -123,7 +126,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   collapse.setAttribute('aria-label', 'Collapse the outing panel'); collapse.setAttribute('aria-expanded', 'true');
   const bar = node('div', '', 'jaunt-bar'), barLabel = button('', () => setCollapsed(false));
   barLabel.className = 'jaunt-bar-label'; barLabel.setAttribute('aria-expanded', 'false');
-  const barNext = button('Next stop', () => goNext()); barNext.dataset.action = 'bar-next'; barNext.classList.add('jaunt-primary');
+  const barNext = button('Next stop', () => { pressed = 'next'; goNext(); }); barNext.dataset.action = 'bar-next'; barNext.classList.add('jaunt-primary');
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
   bar.append(barLabel, voiceKeys[1], barNext, barReturn, barEnd);
@@ -209,11 +212,95 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   let syncing = false;
   const swaps = new MutationObserver(() => { if (syncing) return; syncing = true; queueMicrotask(() => { syncing = false; syncTranscripts(); }); });
   swaps.observe(body, { characterData: true, subtree: true });
+  /**
+   * T-3753 (the owner, 2026-11-26: "Allow users to jump directly to a specific stop within a
+   * jaunt rather than only progressing sequentially"): Stops opens the route's stops in place of
+   * the story, numbered, the one you are at marked; a tap goes straight there (jaunts.js JUMP),
+   * back or ahead. Where a choice decides the way on, the list ends at it and says so.
+   */
+  const stopsSheet = node('section', '', 'jaunt-stop-sheet'); stopsSheet.id = 'jaunt-stops'; stopsSheet.hidden = true;
+  stopsSheet.setAttribute('aria-label', 'Stops on this jaunt');
+  buttons.stops.setAttribute('aria-controls', stopsSheet.id); buttons.stops.setAttribute('aria-expanded', 'false');
+  let stopsOpen = false;
+  function setStops(value, { focus = true } = {}) {
+    value = !!value && !!state?.jaunt && state.phase !== 'closing';
+    if (stopsOpen === value) return;
+    stopsOpen = value; stopsSheet.hidden = !value; root.classList.toggle('jaunt-stops-open', value);
+    buttons.stops.setAttribute('aria-expanded', String(value));
+    if (value) { paintStops(); if (focus) stopsSheet.querySelector('[aria-current]')?.focus({ preventScroll: false }); }
+    else if (focus) buttons.stops.focus({ preventScroll: true });
+  }
+  function toggleStops() { setCollapsed(false, { focus: false }); setStops(!stopsOpen); }
+  function paintStops() {
+    if (!stopsOpen || !state?.jaunt) return;
+    const { stops, open } = routeStops(state), count = state.jaunt.stops.length;
+    const had = stopsSheet.contains(document.activeElement) ? document.activeElement : null;
+    const keep = had?.dataset.stop ?? (had?.classList.contains('jaunt-stops-close') ? 'close' : null);
+    const head = node('div', '', 'jaunt-stops-head');
+    const title = node('h3', 'Stops'); title.append(node('small', ` · ${state.jaunt.title}`));
+    const shut = button('', () => setStops(false)); shut.className = 'jaunt-stops-close';
+    shut.setAttribute('aria-label', 'Close the stops list'); shut.title = 'Close the stops list'; shut.append(icon('close', 16));
+    head.append(title, shut);
+    const list = node('ol', '', 'jaunt-stops-list');
+    for (const row of stops) {
+      const stop = state.jaunt.stops.find(x => x.id === row.id); if (!stop) continue;
+      const item = node('li', ''), b = button('', () => {
+        setStops(false, { focus: false }); pressed = 'stops';
+        if (row.state === 'here') return buttons.stops.focus({ preventScroll: true });
+        actions.jump?.(row.id);
+        buttons.stops.focus({ preventScroll: true });
+      });
+      b.className = `jaunt-stop-row jaunt-stop-${row.state}`; b.dataset.stop = row.id;
+      const name = stopName(state, stop), said = row.state === 'here' ? 'You are here' : row.state === 'seen' ? 'Visited' : '';
+      b.append(node('span', String(row.index + 1), 'jaunt-stop-n'), node('span', name, 'jaunt-stop-name'));
+      if (said) b.append(node('small', row.state === 'here' ? 'Here' : 'Seen', 'jaunt-stop-said'));
+      b.setAttribute('aria-label', `Stop ${row.index + 1}: ${name}${said ? `, ${said.toLowerCase()}` : ''}`);
+      if (row.state === 'here') b.setAttribute('aria-current', 'step');
+      item.append(b); list.append(item);
+    }
+    stopsSheet.replaceChildren(head, list);
+    if (open) stopsSheet.append(node('p', 'Your choice at this stop decides the way on.', 'jaunt-stops-note'));
+    else if (stops.length < count) stopsSheet.append(node('p', `${stops.length} of the jaunt's ${count} stops are on your way.`, 'jaunt-stops-note'));
+    // A repaint (the visitor arriving, a voice starting) keeps focus where it was in the list.
+    if (keep) (keep === 'close' ? shut : [...list.querySelectorAll('[data-stop]')].find(el => el.dataset.stop === keep) ?? shut).focus({ preventScroll: true });
+  }
+  stopsSheet.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); setStops(false); return; }
+    if (!['ArrowDown', 'ArrowUp'].includes(e.key)) return;
+    const rows = [...stopsSheet.querySelectorAll('.jaunt-stop-row')], at = rows.indexOf(document.activeElement);
+    if (at < 0) return;
+    e.preventDefault(); rows[Math.max(0, Math.min(rows.length - 1, at + (e.key === 'ArrowDown' ? 1 : -1)))].focus();
+  });
+  /**
+   * T-3753 (the owner, 2026-11-26: "Display a spinner or loading indicator on the play and
+   * navigation buttons while a jaunt or scene is loading"): while the scene at the stop is still
+   * coming (its people's figures loading, the guide on the way), the key that moved the visitor
+   * there (Next stop, Back or Stops; Next stop when they walked in) spins a small ring, and the
+   * Listen key does while its voice is still arriving. Never for longer than LOADING_CAP_MS a
+   * stop, so a figure that never comes does not leave a key spinning for ever.
+   */
+  const LOADING_CAP_MS = 20000;
+  let pressed = null, loadKey = null, loadSince = 0, loadingOn = false;
+  function loading(m) {
+    const now = performance.now(), k = state?.jaunt ? `${state.session}:${state.stopIndex}:${state.phase}` : null;
+    if (k !== loadKey) { loadKey = k; loadSince = now; }
+    const busy = !!m?.scene && now - loadSince < LOADING_CAP_MS;
+    const on = busy ? (pressed === 'prev' ? [buttons.prev] : pressed === 'stops' ? [buttons.stops] : [buttons.next, barNext]) : [];
+    for (const b of [buttons.prev, buttons.stops, buttons.next, barNext]) {
+      const spin = on.includes(b);
+      if (b.classList.contains('jaunt-loading') !== spin) { b.classList.toggle('jaunt-loading', spin); b.toggleAttribute('aria-busy', spin); }
+    }
+    if (busy !== loadingOn) { loadingOn = busy; root.toggleAttribute('aria-busy', busy); if (!busy && state?.phase === 'atStop') pressed = null; }
+    for (const b of body.querySelectorAll('[data-action="listen"]')) {
+      const spin = !!m?.voice && b.getAttribute('aria-pressed') === 'true';
+      if (b.classList.contains('jaunt-loading') !== spin) { b.classList.toggle('jaunt-loading', spin); b.toggleAttribute('aria-busy', spin); }
+    }
+  }
   // T-3671 (WCAG 2.2.1): the closing scene goes on to Outing complete by itself; a visitor who
   // touches, scrolls or keys in the panel while it is up holds it there until Finish jaunt.
   let engaged = false;
   for (const type of ['pointerdown', 'keydown', 'wheel', 'touchstart']) root.addEventListener(type, () => { if (root.classList.contains('jaunt-closing')) engaged = true; }, { passive: true });
-  root.append(collapse, body, controls, bar, voiceNote, voiceNoteOther); document.body.append(root, status);
+  root.append(collapse, body, stopsSheet, controls, bar, voiceNote, voiceNoteOther); document.body.append(root, status);
   // Native controls and translated/wrapped labels can make this row taller.
   // Reserve its measured height for cards and drawers instead of guessing it —
   // the controls' when the panel is open, the bar's when it is collapsed.
@@ -226,6 +313,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   function setCollapsed(value, { focus = true } = {}) {
     if (collapsed === value) return;
     collapsed = value; root.classList.toggle('jaunt-collapsed', value);
+    if (value) setStops(false, { focus: false });
     document.documentElement.toggleAttribute('data-jaunt-collapsed', value);
     measureNav();
     if (focus) (value ? barLabel : collapse).focus({ preventScroll: true });
@@ -297,7 +385,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   const syncOverlay = () => {
     const open = overlayOpen(), was = document.activeElement;
     const lost = open && (!was || was === document.body || body.contains(was));
-    if (open && state?.jaunt) { saveView(); setCollapsed(true, { focus: false }); }
+    if (open && state?.jaunt) { saveView(); setCollapsed(true, { focus: false }); setStops(false, { focus: false }); }
     root.classList.toggle('jaunt-detail', open); body.hidden = open; barNext.hidden = open; barReturn.hidden = !open;
     // T-2046: the link that opened a card or source is now hidden with the story (and a
     // tap never focused it): keep focus on the outing — Return, which undoes the detour —
@@ -419,6 +507,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     body.append(...ending);
     transcript('ending', state.outcome.id, ending, hear);
     buttons.prev.disabled = true; buttons.next.disabled = barNext.disabled = false;
+    setStops(false, { focus: false }); buttons.stops.disabled = true;   // T-3753: nothing is left to go to
     for (const b of [buttons.next, barNext]) {
       b.textContent = 'Finish jaunt'; b.classList.remove('jaunt-needs-choice'); b.classList.add('jaunt-finish', 'jaunt-closing-finish');
     }
@@ -443,6 +532,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // T-3578: the voice follows the outing — its ending when it finishes, nothing once it is left.
     if (state.jaunt) void narration?.prepare(state.jaunt);
     if (!active) {
+      setStops(false, { focus: false });
       if (state.phase === 'outcome' && state.outcome?.id) narration?.at(state.jaunt, 'ending', state.outcome.id);
       else narration?.end();
       tell(outingNews(state));
@@ -452,6 +542,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     voiced = []; shownParts = [];
     const stop = currentStop(state), nextKey = `${state.session}:${stop.id}`, same = key === nextKey;
     if (old?.session !== state.session) {
+      pressed = null; setStops(false, { focus: false });
       mode.replaceChildren(...state.jaunt.allowed_modes.map(id => {
         const option = node('option', PACES[id].label); option.value = id; return option;
       }));
@@ -579,6 +670,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     const here = state.visited[state.stopIndex];
     needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
     buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice && !opening;
+    buttons.stops.disabled = false;
     // T-3432: at the last stop the one way on is to finish.
     const finish = final && canNext(state) && !needsChoice;
     for (const b of [buttons.next, barNext]) {
@@ -604,6 +696,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     retellShown();   // T-3735: before arriving, so a part shown at another age speaks in its telling's voice
     narration?.at(state.jaunt, ...(opening ? ['opening', 'opening'] : state.phase === 'atStop' && !state.hostWaiting && !withheld ? ['stop', stop.id] : [null]));
     syncTranscripts(); paintVoice(); tell(outingNews(state, place, where));
+    if (stopsOpen) { paintStops(); return; }   // T-3753: the list stays up, and keeps the focus
     if (listening) body.querySelector('[data-action="listen"]')?.focus({ preventScroll: true });
     else if (focused && same) [...body.querySelectorAll('[data-choice]')].find(el => el.dataset.choice === focused)?.focus();
     else if (onHeading || (state.phase === 'atStop' && (!same || old?.phase === 'travelling'))) heading.focus({ preventScroll: true });
@@ -613,5 +706,9 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     get holding() { return engaged && root.classList.contains('jaunt-closing'); },
     /** The owner, 2026-11-16: the meter, from jaunt-pace.js meterReading (null hides it). */
     meter(m) { for (const x of meters) x.set(m); },
+    /** T-3753: whether the stop's scene ({ scene }) or its voice ({ voice }) is still loading (null: nothing is). */
+    loading,
+    /** T-3753: the Stops list (open: true / false). */
+    stops: value => setStops(value, { focus: false }),
     destroy() { offNarration?.(); narration?.end(); observer.disconnect(); swaps.disconnect(); controlSize.disconnect(); root.remove(); status.remove(); sheet.remove(); document.documentElement.removeAttribute('data-jaunt-active'); document.documentElement.removeAttribute('data-jaunt-collapsed'); document.documentElement.style.removeProperty('--jaunt-nav'); } };
 }
