@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Great Fire 1871",
+  "menu_group": "Errands",
+  "grade_band": "3-5",
+  "review_required": false,
+  "long_form": true,
+  "id": "a-message-for-the-opera-house-grades-3-5",
+  "scene": "1871",
+  "title": "A Message for the Opera House",
+  "premise": "Be a hotel's young messenger on a Sunday in October 1871. Carry a note to the Opera House, then choose where to go before dark.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: A MESSAGE FOR THE OPERA HOUSE. It is Sunday, 8 October 1871. You are thirteen, and you carry messages for the Sherman House, a big hotel on Clark Street. A hotel is open every day, even on Sunday. Today the clerk gives you a folded note. It must get to Crosby's Opera House before dark.\n\nYou pick the way. The streets and the buildings are real. The messenger is you.",
+    "read_s": 25
+  },
+  "variables": {
+    "route": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "after": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "sherman-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_sherman_house"
+      },
+      "hour": "14:20",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "It is twenty past two at the Sherman House. You tuck the note inside your coat. First, look at this hotel. It opened in July 1861. It is six floors high, and it is made of marble from Lemont. One side looks out on the big square. Now, about a famous guest. Theodore Thomas leads an orchestra. He and his players are staying here. Tomorrow night they will start ten concerts at the Opera House. Your note is going there too.",
+      "narrative": "Through the square, or the long way?",
+      "read_s": 25,
+      "action_s": 10,
+      "evidence": [
+        "sherman",
+        "thomas",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "square",
+          "label": "Cut through the square",
+          "consequence": "It is the short way, right past the bell.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "route",
+              "value": 1
+            }
+          ],
+          "next": "court-house"
+        },
+        {
+          "id": "lasalle",
+          "label": "Go around by LaSalle Street",
+          "consequence": "It is longer, past the big stone offices.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "route",
+              "value": 2
+            }
+          ],
+          "next": "chamber"
+        }
+      ]
+    },
+    {
+      "id": "court-house",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_court_house"
+      },
+      "hour": "14:40",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "This is Court House Square. It fills a whole block. It has grass and trees, so it looks like a park. The building in the middle holds the city's offices. Even the jail is here, down in the basement! Now look up at the top. A twisting stair goes up to a little porch, 120 feet high. A fire watchman stands up there and looks out over the city. Tonight the watchman will be Mathias Schaffer, with his spy-glass. Now east to Washington Street.",
+      "narrative": "The tower where the fire watchman stands.",
+      "read_s": 27,
+      "action_s": 5,
+      "evidence": [
+        "court-house",
+        "watchman",
+        "role"
+      ],
+      "next": "crosbys"
+    },
+    {
+      "id": "chamber",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_chamber"
+      },
+      "hour": "15:00",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "This is the Chamber of Commerce, at Washington and LaSalle. It opened in 1865. Inside is a great hall with paintings on the walls. On weekdays the Board of Trade does its buying and selling in there. Today is Sunday, so it is quiet. Now, about this street. LaSalle Street is where the insurance companies have their offices, and the banks are close by. Your note is still safe in your coat. Two blocks east to the Opera House.",
+      "narrative": "A quiet hall on a Sunday.",
+      "read_s": 24,
+      "action_s": 5,
+      "evidence": [
+        "chamber",
+        "lasalle",
+        "role"
+      ],
+      "next": "crosbys"
+    },
+    {
+      "id": "crosbys",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_crosbys"
+      },
+      "hour": "15:20",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "This is Crosby's Opera House, on Washington Street. It is five floors high. Stone statues stand over the door. Shops fill the first floor, and the big theatre in back has seats for three thousand people. All summer, workers have been making it new again. The newspaper says almost every seat is sold for tomorrow night. You hand your note in at the door. Your job is done! There is still some daylight left.",
+      "narrative": "North to the Water Tower, or west to the smoke?",
+      "read_s": 24,
+      "action_s": 10,
+      "evidence": [
+        "crosbys",
+        "crosby-tribune",
+        "crosby-gaslight",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "tower",
+          "label": "Go north to the Water Tower",
+          "consequence": "You have never seen it up close.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "after",
+              "value": 1
+            }
+          ],
+          "next": "water-tower"
+        },
+        {
+          "id": "ruins",
+          "label": "Go west to see last night's fire",
+          "consequence": "Lots of people have gone to look today.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "after",
+              "value": 2
+            }
+          ],
+          "next": "saturday-ruins"
+        }
+      ]
+    },
+    {
+      "id": "water-tower",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_water_tower"
+      },
+      "hour": "16:30",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "This is the Water Tower, on the North Side. Across the street is the Pumping Station. Its pumps pull in clean water through a tunnel two miles out under the lake. The river is too dirty to drink. Now, about a worry. For years the fire leaders have said the city does not have enough water. All of Chicago needs these pumps, and the roof over them is made of wood. Time to go home before dark.",
+      "narrative": "The stone tower and its pumps.",
+      "read_s": 25,
+      "action_s": 5,
+      "evidence": [
+        "water-works",
+        "one-pump",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "saturday-ruins",
+      "destination": {
+        "kind": "anchor",
+        "id": "sunday_van_buren_bridge"
+      },
+      "hour": "17:10",
+      "hour_evidence": [
+        "role"
+      ],
+      "date": "1871-10-08",
+      "text": "This is the Van Buren Street bridge. Look across the river. Last night a fire started in a mill on Canal Street. By this afternoon, four blocks had burned. Piles of coal and wood are still burning! Thousands of people have come to look. Now, about the firemen. Many of them worked for eighteen hours without stopping, and they are very tired. It has not rained for more than a week, and the wind is strong. Time to go home before dark.",
+      "narrative": "The smoke from last night's fire.",
+      "read_s": 26,
+      "action_s": 5,
+      "evidence": [
+        "saturday-fire",
+        "saturday-sunday",
+        "firemen-tired",
+        "weather",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "sherman-house",
+      "to": "court-house",
+      "note": "Across Randolph Street into the square.",
+      "evidence": [
+        "court-house"
+      ],
+      "story": "Right through the middle, then.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "sherman-house",
+      "to": "chamber",
+      "note": "West along Randolph Street to LaSalle, then south to Washington.",
+      "evidence": [
+        "chamber"
+      ],
+      "story": "The long way, past the stone offices.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "court-house",
+      "to": "crosbys",
+      "note": "Out of the square at Washington Street and east two blocks.",
+      "evidence": [
+        "crosbys"
+      ]
+    },
+    {
+      "from": "chamber",
+      "to": "crosbys",
+      "note": "East along Washington Street, two blocks.",
+      "evidence": [
+        "crosbys"
+      ]
+    },
+    {
+      "from": "crosbys",
+      "to": "water-tower",
+      "note": "North over the river to Chicago Avenue: a long walk, so it passes quickly here.",
+      "evidence": [
+        "water-works"
+      ],
+      "story": "Up to the North Side before the sun goes down.",
+      "story_evidence": [
+        "role"
+      ],
+      "mode": "instantly"
+    },
+    {
+      "from": "crosbys",
+      "to": "saturday-ruins",
+      "note": "South and west to the river at Van Buren Street.",
+      "evidence": [
+        "saturday-fire"
+      ],
+      "story": "Toward the smoke.",
+      "story_evidence": [
+        "role"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "square-and-tower",
+      "text": "You went through the square and up to the Water Tower. You saw the city's big bell and its pumps in one afternoon. The note got there. Tomorrow night the Opera House opens. You walk home as the lamps come on, with the wind at your back.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "route",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "after",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "square-and-bridge",
+      "text": "You went through the square and down to the river. You saw the bell tower, and then the black ruins of last night's fire. The note got there. The tired firemen are going home to sleep, and so are you. The wind is still blowing hard.",
+      "read_s": 14,
+      "completion_eligible": true,
+      "when": {
+        "var": "route",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "lasalle-and-tower",
+      "text": "You went the long way by LaSalle Street, and then up to the Water Tower. The note got there, and almost every seat for tomorrow night is sold. You get home just as the sun goes down.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "when": {
+        "var": "after",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "lasalle-and-bridge",
+      "text": "You went the long way by LaSalle Street, and then down to the river, where people are still looking at the ruins. The note got there. Tomorrow the Opera House opens at last. You go home as the sun sets.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "a-sunday-errand-grades-3-5",
+    "title": "A Sunday Errand",
+    "text": "A made-up messenger's slip for one Sunday afternoon in October 1871: which way you went to the Opera House, and where you watched the sun go down. No real messenger or note is written on it."
+  },
+  "evidence": [
+    {
+      "id": "sherman",
+      "text": "Andreas (1885): 'The Sherman House was built in 1836-37, by Hon. F. C. Sherman, who was subsequently Mayor of Chicago', first called the City Hotel; in 1844 Sherman added two stories and renamed it. In May 1861 it was torn down for a new hotel, opened on 8 July 1861: 'The new Sherman House was six stories high, and had a frontage of one hundred and eighty feet on Clark, and one hundred and fifty feet on Randolph Street, the latter overlooking the public square. The material of the structure was the finest Athens marble, from the quarries at Lemont'. The museum: Francis C. Sherman 'served two terms as Chicago's mayor in the early 1860s'; 'The hotel's main entrance was on Clark Street, through a two-story portico.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'Hotel History', pp. 502-503, the paragraph beginning 'The Sherman House was built in 1836-37'; museum, landmark 'Sherman House', captions 'View from Court House Cupola, North' and 'Sherman House before the Fire'."
+    },
+    {
+      "id": "thomas",
+      "text": "The Opera House's announcement, printed by Andreas: 'The season at the Opera House will be inaugurated on Monday, October 9 [1871], by Theodore Thomas, with his concert organization of sixty performers, who will give a series of ten grand symphony and popular concerts.' After the fire William Gallagher wrote to his sister: 'Theodore Thomas was at the Sherman House with his orchestra,' and 'was to have commenced his concerts on the Monday night after the fire. He was compelled to run for his life'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'Music and Drama', p. 607, the announcement beginning 'The season at the Opera House'; museum, landmark 'Sherman House', the caption quoting William Gallagher's letter."
+    },
+    {
+      "id": "court-house",
+      "text": "The museum: the 1853 Court House and City Hall 'occupied ... the entire downtown block formed by Randolph, Clark, Washington, and LaSalle streets', its footprint small enough 'to allow the block to include a good deal of landscaping, which gave what was called Court House Square the appearance of a park.' It was 'originally two stories and an above-ground basement'; the city 'soon added a third floor and the cupola, with a spiral staircase leading to an observatory balcony 120 feet high, which served as a fire watchman's walk.' 'By the time of the fire the Court House had also added east and west wings, a brand-new clock, and a 10,849-pound bronze bell'. It 'housed virtually all city and country offices, from the jail in its basement to the mayor's quarters, the debtors' prison, the city council, the board of public works, and the courtrooms on the upper floors.' 'The designer of the 1853 structure was John M. Van Osdel, who also built the previous court house.' A fence 'enclosed Court House Square'.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Court House', captions 'Courthouse Square' (ichi-62080) and 'The Court House Shortly Before the Fire' (ichi-64281); landmark 'Sherman House', caption 'Sherman House before the Fire' (the fence)."
+    },
+    {
+      "id": "watchman",
+      "text": "The Board of Police and Fire Commissioners' report, printed by Andreas: the first alarm 'was given by Mathias Schaffer, from the Court-house cupola, he being the night watchman on duty at the time, and having sighted the fire.' Schaffer's own statement, as Andreas condenses it: 'Observing it through his spy-glass, he located the scene near the corner of Canalport Avenue and Halsted Street, and rang up the night operator, signaling him to give Box 342. Brown struck the alarm. A short time after that, Schaefer called to Brown, and told him the fire was not so far off; but as the engines would have to pass the spot, it was decided not to send a different alarm'. Andreas: 'The error made by Mr. Schaffer consisted in not sounding a correct alarm, when his mistake was discovered by himself. Had he done so, several engines not in service under the call of 342 would have been brought out.' William J. Brown was the night operator. The fire-alarm telegraph office was 'in the Court-house tower'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 709-711: the report's paragraph beginning 'The first information received by the Fire Department', and the statements of William J. Brown and Mathias Schaffer."
+    },
+    {
+      "id": "chamber",
+      "text": "The museum: 'The Chamber of Commerce dedicated its new building on August 30, 1865. The building was designed by Edward Burling. Charles Randolph, President of the Board of Trade, delivered the main address of the day. By far the most important business conducted in this building, whose grand hall was decorated with frescoes and paintings, was the commodities exchange overseen by the Board.' It stood on the southeast corner of LaSalle and Washington streets, just south of Court House Square.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Chamber of Commerce', caption 'Chamber of Commerce' (ichi-63073); landmark 'Court House', second caption."
+    },
+    {
+      "id": "lasalle",
+      "text": "Colbert and Chamberlin (1871): after 1868 'Lasalle Street was improved, and became popular as the home of Insurance Companies and commission merchants, while the banks moved toward that and Washington Street, as the newspapers were gathering on and near Dearborn.'",
+      "confidence": "attested",
+      "sources": [
+        "colbert_chamberlin_1871_great_conflagration"
+      ],
+      "locator": "p. 138, the paragraph continuing from 'Up to about 1868'."
+    },
+    {
+      "id": "crosbys",
+      "text": "The museum: Crosby's Opera House 'stood for less than six-and-a-half years on the north side of Washington Street between State and Dearborn.' Its builder Uranus Crosby and the architect W. W. Boyington 'erected this five-story Italianate palace, topped with a mansard roof. Allegorical statues of Painting, Sculpture, Music, and Commerce (after all, this was Chicago)' stood over its entry arch. The first floor held shops, 'including music publishers Root & Cady ..., the piano store of W. W. Kimball, and the confectioner and restauranteur H. M. Kinsley'; in the rear was the opera house itself, 'with seats for three thousand patrons.' It opened in April 1865. 'By early 1871 he made plans for a major renovation of the theater, which took place that summer. The much anticipated re-opening was scheduled for October 9, with a concert led by maestro Theodore Thomas.' Andreas names him Uranus H. Crosby, and says the proprietary interest had since passed to Albert Crosby.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011",
+        "andreas_1885_v2"
+      ],
+      "locator": "Museum, landmark 'Crosby's Opera House', the captions 'Crosby's Opera House' (ichi-62079); Andreas vol. II, 'Music and Drama', pp. 603-607."
+    },
+    {
+      "id": "crosby-tribune",
+      "text": "Andreas (1885): 'During the summer of 1871, Crosby's Opera House underwent material alterations', 'the cost of the improvements being stated at about $80,000.' 'The Tribune of October 8, 1871, remarked: \"The decorators and upholsterers are still busy putting the finishing touches on the Opera House. * * * The house is virtually ready, with the exception of the locating of the large bronzes and a few other ornaments and the laying down of the carpets.\" ... \"The box-office sheets are crossed to an extent which indicates that the whole house, gallery and all, is nearly sold for the first night.\"'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'Music and Drama', p. 607, the paragraphs beginning 'During the summer of 1871' and 'The Tribune of October 8, 1871, remarked'."
+    },
+    {
+      "id": "crosby-gaslight",
+      "text": "Sheahan and Upton (1871): 'The Crosby Opera House, had been closed during the summer and fall for renovation. Its proprietor had expended $80,000 upon it in ornamentation, upholstery and frescoing. It was to have been re-opened to the public on Monday evening, the night after the fire, by the Theodore Thomas orchestral troupe, and on Sunday evening, only an hour or two before the fire, it was lit up for the first time, that its effects might be seen by gaslight.'",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 94-95, the paragraph beginning 'The Crosby Opera House, had been closed'."
+    },
+    {
+      "id": "water-works",
+      "text": "The museum: 'Designed by W. W. Boyington and dedicated at a great celebration in March of 1867', the waterworks had 'the limestone Water Tower and Pumping Station on either side of Pine Street (now Michigan Avenue) at Chicago Avenue, and a two-mile tunnel beneath the lake, at the end of which was an intake known as the \"crib.\"' The Board of Public Works called the style 'castellated Gothic'. City Engineer Ellis S. Chesbrough proposed the works 'to draw water from far enough out in the lake so that it would not be contaminated by the unspeakably polluted Chicago River'. The cornerstone of the Water Tower was laid on 25 March 1867.",
+      "confidence": "attested",
+      "sources": [
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Landmark 'Water Tower', captions 'Laying of the cornerstone for the Water Tower, March 25, 1867' (ichi-64424) and 'Chicago Water Works' (ichi-06859)."
+    },
+    {
+      "id": "one-pump",
+      "text": "The Board of Police and Fire Commissioners' report (printed by Andreas): 'The single set of pumping works, upon which the salvation of the city depended, were roofed with wood, had no appliance by which water could be raised to the roof in case of fire, and was one of the earliest buildings to burn in the North Division.' The Board had warned 'year by year' that 'the water supply was insufficient', that 'our fire hydrants were twice too far apart', that 'wooden cornices were an abomination', and that the city should not be left 'to the mercy of chance, or accident, with a single set.' 'None of these things was noticed by the mayor, the Common Council, or the newspapers.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', p. 710, the report's paragraphs beginning 'The single set of pumping works' and 'The Board of Police have, year by year'."
+    },
+    {
+      "id": "saturday-fire",
+      "text": "Andreas (1885): 'Some time between ten and eleven o'clock, on Saturday night', an alarm from Box 248 called the Fire Department to No. 209 South Canal Street, where 'a fire was raging in the boiler-room of Lull & Holmes's planing mill'. 'The greater portion of the block was filled with lumber, sheds, outbuildings, and dwelling houses'. The museum: it burned 'well into Sunday afternoon', by which time 'four square blocks and close to a million dollars in property had gone up in smoke'; the neighbourhood 'was popularly known to insurance brokers as the \"Red Flash\" because of the combustibility of the local buildings and their contents', and the fire 'left Chicago's already undermanned and underequipped firefighters critically shorthanded and overtired, and some of their equipment badly damaged.' The Great Fire would erupt 'about twenty-four hours later and ten blocks to the south.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2",
+        "greatchicagofire_touring_the_fire_2011"
+      ],
+      "locator": "Andreas vol. II, 'The Burning of Chicago', pp. 705-706, the paragraphs beginning 'Some time between ten and eleven' and 'In the rear of the planing mill'; museum, landmark 'Saturday Night Fire' and timeline entry 'A Fiery Prelude' (1871-10-07)."
+    },
+    {
+      "id": "saturday-sunday",
+      "text": "Sheahan and Upton (1871): 'Between Canal street and the river were a number of coal yards, and the extensive lumber yard of Chapin & Foss. The piles of coal and lumber burned all day on Sunday, and when night set in the sky reflected the brilliant light of the blazing mass below.' 'The neighborhood was visited during the day by thousands of persons. About one hundred families were turned out of their homes by the fire.'",
+      "confidence": "attested",
+      "sources": [
+        "sheahan_upton_1871_great_conflagration"
+      ],
+      "locator": "pp. 63-64, the paragraphs ending the account of the Saturday fire."
+    },
+    {
+      "id": "firemen-tired",
+      "text": "The Board's report (printed by Andreas): 'A large part of the Department had worked on Saturday night, and Sunday until 3 p.m. — eighteen hours' steady work, — and they were nearly exhausted when this fire commenced'.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1885_v2"
+      ],
+      "locator": "Andreas vol. II, p. 710, the report's paragraph beginning 'The firemen and their officers were sober'."
+    },
+    {
+      "id": "weather",
+      "text": "The National Weather Service's reconstruction: from 7 July to 8 October 1871 'only 3.55 inches of precipitation were recorded'; 'From September 29th through October 8th, Chicago saw no precipitation at all.' On 8 October highs were 'in the low to mid 80s across most of northern Illinois', and 'southwest winds peaked at around 35 to 45 mph, including within the city of Chicago.' Chicago's own weather records were lost in the fire.",
+      "confidence": "attested",
+      "sources": [
+        "nws_chicago_2021_great_fire_weather"
+      ],
+      "locator": "'Weather Prior to the Fire' (The Months Leading Up to the Fire; The Week Leading Up to the Fire) and 'Weather During the Fire: October 8th'; the Overview's paragraph on the lost station records."
+    },
+    {
+      "id": "role",
+      "text": "The messenger the visitor plays, their age and work for the hotel, the note for the Opera House and its delivery, the route, the two choices, the four endings, the hour at each stop, the timing inputs and the A Sunday Errand keepsake are invented connective narrative. No such messenger or note is recorded; no named person is met or speaks, and the walk ends at dusk, before the fire of that night.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3766"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3766"
+  ],
+  "version_of": "a-message-for-the-opera-house"
+}

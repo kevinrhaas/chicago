@@ -1,0 +1,91 @@
+== premise
+Play a hotel messenger on the afternoon of Sunday 8 October 1871, carrying a note across downtown Chicago to Crosby's Opera House, then decide where to spend the last of the daylight.
+
+== opening
+JAUNT: A MESSAGE FOR THE OPERA HOUSE. Sunday 8 October 1871, early afternoon. You are thirteen, employed to run messages for the Sherman House, the marble hotel at Clark and Randolph. A hotel never closes, not even on the Sabbath, and this afternoon the desk clerk has a folded note that must reach Crosby's Opera House before dark.
+
+The route is your decision, and so is what you do with the daylight that remains afterward. Every street and building here is historical; only the messenger is invented.
+
+== stop sherman-house
+Twenty past two, beneath the Sherman House. The clerk hands over the note and you button it inside your coat. First, the hotel itself. Andreas records that the new Sherman House opened on 8 July 1861, six stories of 'the finest Athens marble, from the quarries at Lemont', its Randolph Street frontage 'overlooking the public square'. Next, this week's celebrated guests. The conductor Theodore Thomas and his orchestra of sixty performers are lodging here, and tomorrow evening they inaugurate a series of ten concerts at the Opera House. Your note is bound for the same address.
+
+== narrative sherman-house
+Cut through the square, or detour by LaSalle?
+
+== label sherman-house square
+Cut through Court House Square
+
+== consequence sherman-house square
+The direct route, beneath the watchman's cupola.
+
+== label sherman-house lasalle
+Detour by LaSalle Street
+
+== consequence sherman-house lasalle
+A longer route past the commercial offices.
+
+== stop court-house
+Court House Square occupies the entire block bounded by Randolph, Clark, Washington and LaSalle, landscaped so generously that it has 'the appearance of a park'. The building at its center houses nearly every municipal and county office, from the jail in its basement to the mayor's quarters. Now, consider the cupola. A spiral staircase climbs to an observatory balcony 120 feet high, the fire watchman's walk. Tonight the watchman on duty will be Mathias Schaffer, scanning the city through his spy-glass, with the fire-alarm telegraph office below him. Exit at Washington Street and continue east.
+
+== narrative court-house
+The city's offices, and the watchman's balcony.
+
+== stop chamber
+The Chamber of Commerce stands at the southeast corner of Washington and LaSalle. Designed by Edward Burling and dedicated on 30 August 1865, it contains a grand hall 'decorated with frescoes and paintings', where the Board of Trade oversees the commodities exchange, the most important business conducted in the building. On a Sunday the trading floor is silent. Next, the street outside. Colbert and Chamberlin describe LaSalle becoming 'the home of Insurance Companies and commission merchants', with the banks migrating toward it and Washington Street. Your note is still secure. Two blocks east to the Opera House.
+
+== narrative chamber
+The silent hall of the Board of Trade.
+
+== stop crosbys
+Crosby's Opera House stands on the north side of Washington between State and Dearborn: a five-story Italianate building with a mansard roof, allegorical statues of Painting, Sculpture, Music and Commerce above its entrance, shops along the ground floor, and a theater behind with seats for three thousand. This summer's renovation reportedly cost about $80,000, and this morning's Tribune observed that 'the whole house, gallery and all, is nearly sold for the first night.' You deliver the note at the door. Later this evening the interior will be illuminated by gaslight for the first time. With the errand complete, some daylight remains.
+
+== narrative crosbys
+North to the Water Tower, or west toward Saturday's fire?
+
+== label crosbys tower
+Head north to the Water Tower
+
+== consequence crosbys tower
+You have never examined it up close.
+
+== label crosbys ruins
+Head west to Saturday's fire
+
+== consequence crosbys ruins
+Thousands of spectators have gone to look today.
+
+== stop water-tower
+The Water Tower stands on Pine Street at Chicago Avenue, dedicated with great celebration in 1867. Opposite it, the Pumping Station draws water through a two-mile tunnel beneath the lake, far from what the city engineer's plan called the 'unspeakably polluted Chicago River'. W. W. Boyington, the architect of Crosby's, designed both in a 'castellated Gothic' style. Now, a warning the city has ignored. Year after year the Board of Police and Fire Commissioners has reported that 'the water supply was insufficient'. Chicago depends upon this single set of pumping works, and its roof is wooden. Head home before nightfall.
+
+== narrative water-tower
+The castellated tower and its pumps.
+
+== stop saturday-ruins
+From the east end of the Van Buren Street bridge you look across to the West Side. Between ten and eleven last night, fire broke out in the boiler room of a planing mill on Canal Street, and by this afternoon four blocks and nearly a million dollars in property had been destroyed. 'The piles of coal and lumber burned all day on Sunday', and thousands came to stare. Next, the firemen. Many worked eighteen consecutive hours, until three this afternoon, and are 'nearly exhausted'. No rain has fallen since 29 September, and the southwest wind is still strong. Head home before nightfall.
+
+== narrative saturday-ruins
+The smoldering ruins of Saturday's fire.
+
+== leg 0
+The direct route, then.
+
+== leg 1
+The long way, past the stone offices.
+
+== leg 4
+North across the river before the light fails.
+
+== leg 5
+Toward the smoke on the West Side.
+
+== ending square-and-tower
+Through the square and north to the Water Tower: in a single afternoon you have seen both the city's alarm bell and the one set of pumps it depends upon. The note is delivered, and the Opera House opens tomorrow evening. You walk home as the lamps are lit, the wind at your back.
+
+== ending square-and-bridge
+Through the square and down to the river: the watchman's cupola, then the blackened ruins of Saturday's fire. The note is delivered. The exhausted firemen are finally going home to sleep, and so are you, while the wind blows hard from the southwest.
+
+== ending lasalle-and-tower
+By LaSalle Street and north to the Water Tower: the long way there, and the long way back. The note is delivered, and tomorrow's opening is nearly sold out. You reach home just as the sun sets.
+
+== ending lasalle-and-bridge
+By LaSalle Street and down to the river, where a crowd still lingers over Saturday's ruins. The note is delivered. Tomorrow the hotel will have more errands, and the Opera House will finally reopen. You walk home as the sun sets over the West Side.
