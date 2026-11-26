@@ -111,7 +111,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     return rows[key];
   };
 
-  choiceRow('sex', C.body_label ?? 'Body type');
+  choiceRow('sex', C.body_label ?? 'Body style');
   selectRow('age', 'Age');
   choiceRow('complexion', 'Complexion', { swatch: true });
   choiceRow('face', 'Face');

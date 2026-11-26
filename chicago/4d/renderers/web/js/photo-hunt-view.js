@@ -16,7 +16,10 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
   // drawing is ever called a photograph, and every count comes from the set itself.
   let year = '', set = null;
   const pick = () => { year = String(context().scene?.id ?? ''); set = huntSet(year); return set; };
-  const key = k => (set?.noun === 'picture' && t(`hunt.pictures.${k}`) ? `hunt.pictures.${k}` : `hunt.${k}`);
+  // A set's own noun picks its wording where it has one ('pictures' for prints and drawings,
+  // 'photos' for a set of photographs of any size, T-3764); 1904 keeps the first wording.
+  const nouns = { picture: 'pictures', photos: 'photos' };
+  const key = k => (nouns[set?.noun] && t(`hunt.${nouns[set.noun]}.${k}`) ? `hunt.${nouns[set.noun]}.${k}` : `hunt.${k}`);
   const say = (k, vars) => t(key(k), { count: huntCount(year), scene: year, max: (huntCount(year) * 1000).toLocaleString('en-US'), ...vars });
   const make = (tag, k, vars) => { const el = doc.createElement(tag); if (k) el.textContent = say(k, vars); return el; };
   const root = make('section'); root.className = 'photo-hunt'; root.setAttribute('aria-label', t('hunt.title'));
@@ -112,7 +115,9 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
     const actions = make('div'); actions.className = 'photo-hunt-actions';
     retryImage = button(actions, 'retryImage', loadImage); retryImage.hidden = true;
     if (!answer) {
-      content.append(make('p', 'instructions'), make('p', 'rules'), make('p', 'distanceNote'));
+      content.append(make('p', 'instructions'));
+      if (round.afloat) content.append(make('p', 'afloat'));
+      content.append(make('p', 'rules'), make('p', 'distanceNote'));
       button(actions, 'move', () => context().actions?.freeRoam?.());
       guessButton = button(actions, 'guess', () => {
         if (!imageReady) return;
@@ -132,6 +137,7 @@ export function mountPhotoHunt(host, { context = () => ({}), win = host?.ownerDo
       const sources = make('div'); sources.className = 'photo-hunt-actions';
       link(sources, 'source', round.source); link(sources, 'full', round.full); content.append(sources);
       button(actions, 'visit', () => {
+        if (round.afloat) { status.textContent = say('noVisitAfloat'); return; }
         const ok = context().actions?.photoHunt?.visit?.(round.id);
         status.textContent = say(ok ? 'visiting' : 'noVisit');
       });

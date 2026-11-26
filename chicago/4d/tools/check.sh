@@ -261,6 +261,9 @@ step "A classroom Chromebook boots as a computer on the memory diet, people and 
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
+step "A Bluetooth game controller walks, looks, flies and drives the menus, and its keys are the keyboard's own (T-3749)" \
+  node tools/check_gamepad.mjs
+
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
 
@@ -857,6 +860,8 @@ step "John J. Glessner's frock coat stops at the knee, is taken in at the waist,
   node tools/test_human_frockcoat.mjs
 step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
   node tools/test_human_gown.mjs
+step "Clothes hang, lie and are trimmed as cloth at load: nothing under shows through more than drawn, standing or striding; John J. Glessner's coat has its lapels, collar, front buttons and seams, the lapels off his shoulders; a lady's collar under her chin; skin rows whole, every step short (T-3553)" \
+  node tools/test_human_drape.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
@@ -897,6 +902,16 @@ step "The face library's cuts are the bytes its source record pins, each under C
   python3 tools/face_library.py --check
 selftest "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)" \
   python3 tools/face_library.py --self-test
+step "The 256-face photographic library keeps pinned sources, portable scalps and bounded atlas pages (T-3746, T-3761)" \
+  python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/pilot/review.json
+step "Photo imports reject uncleared sources, changed photos, invalid crops and unsupported faces (T-3746)" \
+  python3 tools/test_photo_face_library.py
+step "Photo rollout preserves personal portraits, children and eye detail; nearby pages obey a fixed residency budget (T-3746, T-3761)" \
+  node tools/test_photo_face_rollout.mjs
+step "Default photo faces cover every year and child proportions survive the shared photographic style (T-3767, T-3768)" \
+  node tools/test_photo_face_deployment.mjs
+step "Child photo sources, untouched child shapes and bounded atlas pages reproduce (T-3768)" \
+  python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/children/review.json
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
@@ -1710,6 +1725,11 @@ step "a K01 mansard deck's cresting may be crenellated, square merlons on a band
 # photograph, and K01 dressed the main deck only.
 step "a K01 mansard crown over a pavilion may carry iron cresting round its own deck (T-3713)" \
   python3 tools/test_k01_crown_cresting.py
+
+# T-3725. 2123 Prairie's basement light beside its bow stands north of the principal light over it
+# in the Armour photograph, and K01 laid a front_bays front's basement lights under its bays only.
+step "a K01 front laid by front_bays may name its basement lights' own centres (T-3725)" \
+  python3 tools/test_k01_basement_lights_off_bay.py
 
 # T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
 # and the K08 bay kit cut no light in a gable's face.
@@ -4886,6 +4906,16 @@ selftest "…and its own checks fire when broken" \
 
 selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
   node tools/qa_city_fire_1871.mjs --self-test
+
+# T-3751 (the owner, 2026-11-26: "Ensure the visual state of the environment corresponds to the
+# chronology and events described in the narration"): each Great Fire stop's landmark is burning,
+# burnt or standing at the stop's hour as its words say, its goods are on the ground, and its stand
+# is on the corner it names, read through the renderer's own fire map, in every telling.
+step "Great Fire jaunt stops show what their words say, at their hours (T-3751)" \
+  node tools/check_fire_jaunt.mjs
+
+selftest "…and a stand off its corner or a landmark burnt before its stop is refused" \
+  node tools/check_fire_jaunt.mjs --self-test
 
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.

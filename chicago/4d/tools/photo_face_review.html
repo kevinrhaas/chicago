@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photo faces · library review</title><link rel="icon" href="data:,">
+<style>.captions span{background:#f3f2eccc;padding:4px 7px;border-radius:4px}</style>
+<style>
+:root{font-family:system-ui,sans-serif;color:#242a2c;background:#f2f0eb;color-scheme:light}*{box-sizing:border-box}body{margin:0}header,main,footer{max-width:1180px;margin:auto;padding:16px 24px}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d3d0c8}h1{font-size:24px;margin:0 0 4px}p{margin:5px 0;line-height:1.45}.tag{font-size:12px;padding:6px 10px;border:1px solid #b2b9b0;border-radius:20px;background:#e5eadd;color:#344a37}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0 14px}button,select{font:inherit;font-size:13px;border:1px solid #b5bab7;border-radius:5px;padding:8px 12px;background:#fff;color:inherit;cursor:pointer}button:hover,button[aria-pressed=true]{background:#d9e5dd;border-color:#5f806b}label{font-size:13px}.stage{display:grid;grid-template-columns:1fr 2fr;background:#d9d8d3;border-radius:8px;overflow:hidden;position:relative}.source{display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #c7c7c1;padding:24px 12px;background:#e3e0d9}.source img{width:100%;max-width:325px;aspect-ratio:1;object-fit:contain}.source b{font-size:13px;margin-top:12px}.render{min-width:0;position:relative;height:430px}.render canvas{display:block;width:100%;height:100%}.captions{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:space-around;font-size:12px;pointer-events:none}.notes{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin:14px 0}.notes p{font-size:13px;color:#505b57}.choices{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.choice{padding:0 0 7px;overflow:hidden;font-size:11px}.choice img{display:block;width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:5px}.metrics{font-size:12px;background:#e4e9e1;border-radius:6px;padding:12px;line-height:1.6}#status{font-size:12px;color:#5c6460}footer{font-size:12px;color:#59625d;border-top:1px solid #d3d0c8}a{color:#245941}#galleryLabels{display:none;position:absolute;inset:0;pointer-events:none;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr)}#galleryLabels span{align-self:end;text-align:center;font-size:11px;padding:5px;background:#e7e7dfaa}.gallery .source{display:none}.gallery .stage{grid-template-columns:1fr}.gallery .render{height:1000px}.gallery .captions{display:none}.gallery #galleryLabels{display:grid}.gallery .choices{display:none}#error{color:#8a302c;font-size:14px}@media(max-width:650px){header,main,footer{padding:12px}header{align-items:flex-start}h1{font-size:21px}.stage{grid-template-columns:1fr}.source{padding:8px;border:0}.source img{max-width:130px}.source b{margin-top:3px}.render{height:330px}.choices{grid-template-columns:repeat(4,1fr)}.notes{grid-template-columns:1fr}.gallery .render{height:800px}.toolbar{gap:5px}button,select{padding:7px}.tag{max-width:110px;text-align:center}}
+</style>
+<script type="importmap">{"imports":{"three":"../renderers/web/vendor/three-0.185.1/three.module.js","three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head>
+<body>
+<header><div><h1>Photo faces</h1><p>Source image → fitted face → review</p></div><span class="tag">Pilot · no population rollout</span></header>
+<main>
+<div class="toolbar">
+<label>Detail <select id="quality"><option value="light">Light · smaller textures</option><option value="full">Full · close inspection</option></select></label>
+<label>Hair <select id="hair"><option value="native">Existing style · source colour</option><option value="photo">Photographed scalp · trial</option></select></label>
+<button id="front">Front</button><button id="oblique">Three-quarter</button><button id="profile">Profile</button>
+<button id="move" aria-pressed="false">Turn slowly</button><button id="gallery" aria-pressed="false">Page gallery</button>
+<button id="measure">Measure on this PC</button><button id="export" disabled>Save measurement</button>
+</div>
+<div class="toolbar" aria-label="Face library pages"><button id="previous">← Previous</button><label>Faces <select id="page"></select></label><button id="next">Next →</button><span id="pageCount"></span></div>
+<p id="error" role="alert"></p><p id="status" role="status">Loading the portable-human assets…</p>
+<div class="stage"><div class="source"><img id="source" alt="Selected face source"><b id="sourceLabel">Source</b></div>
+<div class="render" id="render"><div class="captions"><span>Before · existing generic skin</span><span>After · photo and fitted shape</span></div><div id="galleryLabels"></div></div></div>
+<div class="notes"><div><b id="faceTitle">Preparing faces</b><p id="faceNote"></p><p>Check the nose, lips, cheeks and jaw from every angle. A front photo supplies visible proportions and colour; profile depth, hair, ears, body and dress remain reconstructed.</p></div><div class="metrics" id="metrics">Texture budget loading…</div></div>
+<div class="choices" id="choices" aria-label="Choose a pilot face"></div>
+</main>
+<footer><p>Fictional samples are labelled synthetic. Historical imports retain their source credit. This page changes no resident assignments.</p><p>Import another photo with the <a href="../docs/PHOTO-FACE-PILOT.md">single-photo command</a>. Up to 256 faces; each review page loads at most sixteen. Changing pages releases the previous renderer and textures.</p></footer>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
+import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
+import { dressSkin, likenessSheetsReady, chainPatch, restMatrix, restingLid, headFrame } from '../renderers/web/js/human-skin.js';
+import { dressHair } from '../renderers/web/js/human-hair.js';
+import { HAIR_COLOURS } from '../renderers/web/js/human-hair-styles.js';
+import { clothHuman } from '../renderers/web/js/fabric.js';
+import { fitWaist } from '../renderers/web/js/human-waist.js';
+
+const $ = id => document.getElementById(id), q = new URLSearchParams(location.search);
+const quality = q.get('quality') === 'full' ? 'full' : 'light';
+const photoHairMode=q.get('hair')==='photo';$('hair').value=photoHairMode?'photo':'native';
+$('quality').value = quality;
+const lod = quality === 'light' ? 2 : 0;
+let renderer, library, selected = 0, yaw = 0, moving = false, gallery = q.get('gallery') === '1', measurement = null;
+let resize, draw, ready;
+window.__pilotReady = new Promise((resolve,reject)=>{ready={resolve,reject};});
+// The UI reports loading failures as well as the automation promise; no rejected
+// promise is left unobserved when a reviewer opens the page by hand.
+window.__pilotReady.catch(()=>{});
+const manifestURL = new URL('../' + (q.get('library') ?? 'assets/humans/web/photo_faces/pilot/review.json'), location.href);
+const checkedJSON = async url => {const r=await fetch(url);if(!r.ok)throw Error(`${r.status}: ${url.pathname}`);return r.json();};
+const percent = (values,p) => [...values].sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*p))];
+try {
+  library = await checkedJSON(manifestURL);
+  if(!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library.format)
+    ||!(library.review_only===true||library.review_only===false&&library.activation?.tier==='dev')||!library.faces?.length||library.faces.length>256)throw Error('Unsupported review library');
+  if(library.activation)document.querySelector('.tag').textContent='Dev population · photo faces';
+  if(library.faces.every(f=>f.texture_only))document.querySelector('.captions span:last-child').textContent='After · photo on existing child head';
+  const pages=library.pages??[{first:0,count:library.faces.length,cols:library.cols,size_px:library.size_px,textures:library.textures,hair_textures:library.hair_textures}];
+  const pageIndex=Math.min(pages.length-1,Math.max(0,Math.floor(Number(q.get('page')??Number(q.get('face')??0)/16))||0));
+  const page=pages[pageIndex],pageFaces=library.faces.slice(page.first,page.first+page.count);
+  selected=Math.min(page.first+page.count-1,Math.max(page.first,Number(q.get('face')??page.first)||page.first));
+  document.title=`Photo faces · ${library.faces.length}-face library · page ${pageIndex+1}`;
+  function navigatePage(i){q.set('page',i);q.set('face',pages[i].first);q.set('gallery',gallery?'1':'0');location.search=q.toString();}
+  pages.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${p.first+1}–${p.first+p.count}`;$('page').append(o);});
+  $('page').value=pageIndex;$('page').onchange=()=>navigatePage(Number($('page').value));
+  $('previous').disabled=pageIndex===0;$('previous').onclick=()=>navigatePage(pageIndex-1);
+  $('next').disabled=pageIndex===pages.length-1;$('next').onclick=()=>navigatePage(pageIndex+1);
+  $('pageCount').textContent=`of ${library.faces.length} · page ${pageIndex+1}/${pages.length}`;
+  const kit = await loadVariationKit(new URL('../assets/humans/web/',location.href));
+  if(!kit)throw Error('The portable-human variation kit could not be read');
+  // The comparison controls both sides explicitly, independent of the town's default.
+  delete kit.photoFaces;delete kit.photoChildren;
+  const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
+  const assets = new Map();
+  for(const name of new Set(library.faces.map(f=>f.base_body))) {
+    const g = await loader.loadAsync(new URL(`../assets/humans/web/${name}.lod${lod}.glb`,location.href).href);
+    fitWaist(g.scene); assets.set(name,g);
+  }
+  renderer = new THREE.WebGLRenderer({antialias:quality==='full',preserveDrawingBuffer:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,quality==='full'?1.5:1));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
+  renderer.info.autoReset=false;renderer.autoClear=false;
+  $('render').prepend(renderer.domElement);
+  const scene = new THREE.Scene();scene.background=new THREE.Color('#d9d8d3');
+  window.__pilotScene=scene;
+  scene.add(new THREE.HemisphereLight(0xf2f2ed,0x797166,2));
+  const sun=new THREE.DirectionalLight(0xfff5e6,2.1);sun.position.set(-.6,2.4,4);scene.add(sun);
+  const camera=new THREE.PerspectiveCamera(24,1,.02,50);
+  const figures=new Map();
+  const texture=page.textures[quality];
+  const textureURL=new URL(texture.file,manifestURL).href;
+  const hairInfo=photoHairMode?page.hair_textures?.[quality]:null;
+  const hairTexture=hairInfo?await new THREE.TextureLoader().loadAsync(new URL(hairInfo.file,manifestURL).href):null;
+  if(hairTexture){hairTexture.flipY=false;hairTexture.colorSpace=THREE.SRGBColorSpace;hairTexture.anisotropy=quality==='full'?4:1;}
+  const scalpGLTF=await loader.loadAsync(new URL(library.hair_shells[quality].file,manifestURL).href);
+  let scalpGeometry;scalpGLTF.scene.traverse(o=>{if(o.isMesh)scalpGeometry=o.geometry;});
+  function photoHair(fig,face){
+    if(!hairTexture)return;
+    let cranium=null;
+    // A bun's bounding box reaches behind the head; using it as a scalp left the
+    // photographed hair behind women's foreheads. Fit the shell around the actual
+    // varied skull instead. Source measurements still supply extra width/height.
+    fig.traverse(o=>{
+      if(!o.isSkinnedMesh||!/^skin($|__)/.test(o.material?.name??''))return;
+      const frame=headFrame(o,fig);if(!frame)return;
+      const R=restMatrix(o,fig),bounds=new THREE.Box3(),v=new THREE.Vector3(),positions=o.geometry.attributes.position;
+      for(let i=0;i<positions.count;i++){
+        v.fromBufferAttribute(positions,i).applyMatrix4(R);
+        if(v.y>frame.o.y+.015&&Math.abs(v.x-frame.o.x)<.16)bounds.expandByPoint(v);
+      }
+      if(!bounds.isEmpty()&&(!cranium||positions.count>cranium.count))cranium={bounds,eyeY:frame.o.y,count:positions.count};
+    });
+    const t=library.tile_px,p=library.padding_px,[w,h]=page.size_px,index=face.page_index??face.index;
+    const tile=new THREE.Vector4((index%page.cols*t+p)/w,(Math.floor(index/page.cols)*t+p)/h,(t-2*p)/w,(t-2*p)/h);
+    fig.traverse(o=>{
+      if(!o.isMesh||!/^hair($|__)/.test(o.material?.name??''))return;
+      if(face.hair_shell){
+        const s=face.hair_shell,R=restMatrix(o,fig),bounds=new THREE.Box3(),v=new THREE.Vector3(),old=o.geometry.attributes.position;
+        for(let i=0;i<old.count;i++)bounds.expandByPoint(v.fromBufferAttribute(old,i).applyMatrix4(R));
+        const centre=bounds.getCenter(new THREE.Vector3()),radius=bounds.getSize(new THREE.Vector3()).multiplyScalar(.5);
+        if(s.base_centre_m)for(let i=0;i<3;i++){centre.setComponent(i,centre.getComponent(i)+s.centre_m[i]-s.base_centre_m[i]);radius.setComponent(i,radius.getComponent(i)*s.radius_m[i]/s.base_radius_m[i]);}
+        else{centre.fromArray(s.centre_m);radius.fromArray(s.radius_m);}
+        if(cranium&&s.base_radius_m){
+          const b=cranium.bounds,up=Math.max(0,s.centre_m[1]-s.base_centre_m[1]);
+          centre.set((b.min.x+b.max.x)/2,cranium.eyeY+.02+up,(b.min.z+b.max.z)/2);
+          radius.set((b.max.x-b.min.x)*.5*s.radius_m[0]/s.base_radius_m[0],
+            (b.max.y-cranium.eyeY-.02)*1.06+up,(b.max.z-b.min.z)*.55);
+        }
+        const matrix=new THREE.Matrix4().makeScale(...radius.toArray());
+        matrix.setPosition(centre);matrix.premultiply(R.clone().invert());
+        o.geometry=scalpGeometry.clone().applyMatrix4(matrix);
+        const count=o.geometry.attributes.position.count,indices=new Uint16Array(count*4),weights=new Float32Array(count*4);
+        const head=o.skeleton.bones.findIndex(b=>b.name===s.bone);
+        if(head<0)throw Error('The portable body has no head bone');
+        for(let i=0;i<count;i++){indices[i*4]=head;weights[i*4]=1;}
+        o.geometry.setAttribute('skinIndex',new THREE.Uint16BufferAttribute(indices,4));
+        o.geometry.setAttribute('skinWeight',new THREE.Float32BufferAttribute(weights,4));
+      }
+      const was=o.material,m=was.clone(),p=face.hair_projection,R=restMatrix(o,fig);
+      m.map=hairTexture;m.color.setRGB(1,1,1);m.alphaTest=.35;
+      chainPatch(m,'photo-review-hair-shell-v2',{
+        chiPhotoHairTile:{value:tile},chiPhotoHair:{value:hairTexture},chiPhotoHairRest:{value:R},
+        chiPhotoHairU:{value:new THREE.Vector4(...p.u)},chiPhotoHairV:{value:new THREE.Vector4(...p.v)},
+        chiPhotoHairToward:{value:new THREE.Vector3(...p.toward)},chiPhotoHairBase:{value:new THREE.Vector3(...face.hair_rgb)},chiPhotoHairLine:{value:p.hairline_v}
+      },shader=>{
+        shader.vertexShader='uniform mat4 chiPhotoHairRest;\nuniform vec4 chiPhotoHairU,chiPhotoHairV;\nuniform vec3 chiPhotoHairToward;\nvarying vec2 vChiPhotoHairUV,vChiPhotoHairStrand;\nvarying float vChiPhotoHairFacing;\n'+shader.vertexShader;
+        shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
+          vec4 chiPhotoP=chiPhotoHairRest*vec4(position,1.0);
+          vChiPhotoHairUV=vec2(dot(chiPhotoHairU,chiPhotoP),dot(chiPhotoHairV,chiPhotoP));vChiPhotoHairStrand=uv;
+          vChiPhotoHairFacing=smoothstep(-0.2,0.0,dot(normalize(mat3(chiPhotoHairRest)*normal),chiPhotoHairToward));`);
+        shader.fragmentShader='uniform sampler2D chiPhotoHair;\nuniform vec4 chiPhotoHairTile;\nuniform vec3 chiPhotoHairBase;\nuniform float chiPhotoHairLine;\nvarying vec2 vChiPhotoHairUV,vChiPhotoHairStrand;\nvarying float vChiPhotoHairFacing;\n'+shader.fragmentShader;
+        shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`
+          vec2 chiPhotoAt=chiPhotoHairTile.xy+clamp(vChiPhotoHairUV,0.0,1.0)*chiPhotoHairTile.zw;
+          vec4 chiHairPhoto=texture2D(chiPhotoHair,chiPhotoAt);
+          float chiPhotoOn=vChiPhotoHairFacing;
+          float chiFibre=0.86+0.1*sin(vChiPhotoHairStrand.x*1400.0+sin(vChiPhotoHairStrand.y*40.0)*4.0)+0.04*sin(vChiPhotoHairStrand.x*710.0);
+          diffuseColor.rgb=diffuse*mix(chiPhotoHairBase*chiFibre,chiHairPhoto.rgb,chiPhotoOn*chiHairPhoto.a);
+          float chiCrown=1.0-smoothstep(chiPhotoHairLine-0.025,chiPhotoHairLine,vChiPhotoHairUV.y);
+          diffuseColor.a*=mix(1.0,max(chiHairPhoto.a,chiCrown),chiPhotoOn);`);
+      });
+      o.material=m;
+    });
+  }
+  function figure(index,after) {
+    const key=`${index}:${after}`;
+    if(figures.has(key))return figures.get(key);
+    const face=library.faces[index],own=assets.get(face.base_body),fig=cloneSkinned(own.scene);
+    const rec={sex:face.sex,age:{years:face.age},scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
+    const v=personVariation({kit,key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
+    v.height=1;
+    // Preserve the same body/build in the before/after pair; the photo changes
+    // the face only. No resident or ordinary library selection is changed.
+    for(const axis of kit.axes)if(axis.scope!=='face'&&!['head_shape','forehead_height'].includes(axis.id)&&!axis.drive)v.values[axis.id]=0;
+    // The runtime caches deformed geometry by person key. Seed the pair together,
+    // then keep their different face geometries in separate cache entries.
+    v.key+=after?':after':':before';
+    v.lib=after?{url:textureURL,index:face.page_index??face.index,id:face.id,cols:page.cols,size_px:page.size_px,
+      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0}:null;
+    v.even=after?face.body_gain:null;
+    applyVariation(fig,kit,v,{scope:'full'});
+    if(after&&!photoHairMode)fig.traverse(o=>{
+      if(!o.isMesh||!/^hair($|__)/.test(o.material?.name??''))return;
+      o.material=o.material.clone();o.material.color.setRGB(...face.hair_projection.fallback_gain);
+    });
+    if(after&&photoHairMode)photoHair(fig,face);
+    if(after)fig.userData.chiPhotoFace=face;
+    dressSkin(fig,{age:face.age,person:null,year:1904});
+    const colour=face.hair_rgb?Object.entries(HAIR_COLOURS).sort((a,b)=>a[1].reduce((s,v,i)=>s+(Math.log(v+.005)-Math.log(face.hair_rgb[i]+.005))**2,0)-b[1].reduce((s,v,i)=>s+(Math.log(v+.005)-Math.log(face.hair_rgb[i]+.005))**2,0))[0][0]:'dark_brown';
+    dressHair(fig,{lod,year:1904,person:`photo-review-${face.id}`,style:{cut:face.sex==='male'?'short_side_part_1904':'drawn_back_bun_1904',colour:after?colour:'dark_brown',no_scalp:after&&photoHairMode,facial:[]}});
+    clothHuman(fig);
+    fig.traverse(o=>{if(o.isMesh&&/^(headwear|accessory__lady_hat_plumes)/.test(o.material?.name??''))o.visible=false;});
+    if(own.animations.length){const mix=new THREE.AnimationMixer(fig);const clip=own.animations.find(c=>/idle/.test(c.name))??own.animations[0];mix.clipAction(clip).play();mix.setTime(1);}
+    const lid=after?(face.eyes?.lid_rest??restingLid(face.age)):restingLid(face.age);
+    fig.traverse(o=>{for(const name of ['eyeBlinkLeft','eyeBlinkRight'])if(o.morphTargetDictionary?.[name]!==undefined)o.morphTargetInfluences[o.morphTargetDictionary[name]]=lid;});
+    scene.add(fig);scene.updateMatrixWorld(true);fig.visible=false;
+    const head=fig.getObjectByName('head');
+    const aim=head?head.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.045,0)):new THREE.Vector3(0,1.65,0);
+    const entry={fig,aim};figures.set(key,entry);return entry;
+  }
+  let width=1,height=1;
+  resize=()=>{const bounds=$('render').getBoundingClientRect();width=Math.floor(bounds.width);height=Math.floor(bounds.height);renderer.setSize(width,height,false);draw?.();};
+  function viewport(entry,x,y,w,h){
+    entry.fig.visible=true;entry.fig.rotation.y=yaw;
+    camera.aspect=w/h;camera.updateProjectionMatrix();
+    const distance=.85;camera.position.copy(entry.aim).add(new THREE.Vector3(0,.005,distance));camera.lookAt(entry.aim);
+    renderer.setViewport(x,y,w,h);renderer.setScissor(x,y,w,h);renderer.clear();renderer.render(scene,camera);entry.fig.visible=false;
+  }
+  draw=()=>{
+    renderer.info.reset();renderer.setScissorTest(true);
+    if(gallery){
+      const cols=4,rows=Math.ceil(pageFaces.length/cols);
+      pageFaces.forEach((_,i)=>{const x0=Math.round(i%cols*width/cols),x1=Math.round((i%cols+1)*width/cols),y0=Math.round((rows-1-Math.floor(i/cols))*height/rows),y1=Math.round((rows-Math.floor(i/cols))*height/rows);viewport(figure(page.first+i,true),x0,y0,x1-x0,y1-y0);});
+    }else{const half=Math.floor(width/2);viewport(figure(selected,false),0,0,half,height);viewport(figure(selected,true),half,0,width-half,height);}
+    renderer.setScissorTest(false);
+    window.__pilotStats={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,textures:renderer.info.memory.textures,geometries:renderer.info.memory.geometries,retainedFigures:figures.size,catalogFaces:library.faces.length,page:pageIndex,pageFaces:pageFaces.length,hair:photoHairMode?'photo trial':'existing style',atlasBytes:texture.gpu_bytes_rgba8_mipmaps+(hairInfo?.gpu_bytes_rgba8_mipmaps??0),lod,quality};
+  };
+  async function select(index){
+    if(!Number.isInteger(index)||index<page.first||index>=page.first+page.count)throw Error('Select a face from this page');
+    selected=index;const f=library.faces[index];
+    $('source').src=new URL(f.photo,manifestURL).href;
+    $('sourceLabel').textContent=f.synthetic?'Synthetic source · fictional person':'Original source image';
+    $('faceTitle').textContent=`${String(index+1).padStart(2,'0')} · ${f.label}`;
+    $('faceNote').replaceChildren(document.createTextNode(`${f.synthetic?'Fictional face':'Source-based face'} · apparent age ${f.age} · ${f.texture_only?'existing child head retained; photo texture and eye tone':'front landmark fit '+f.fit_rms_px+' px'}. `));
+    const a=document.createElement('a');a.href=f.source_url;a.textContent='Source credit';a.target='_blank';a.rel='noopener';$('faceNote').append(a);
+    [...$('choices').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i+page.first===index)));
+    figure(index,false);figure(index,true);await likenessSheetsReady();draw();
+    $('status').textContent=`Faces ${page.first+1}–${page.first+page.count} of ${library.faces.length} ready · ${quality} detail · ${library.activation?'default generic faces on dev':'no resident assignments'}`;
+  }
+  pageFaces.forEach((f,local)=>{const i=page.first+local;
+    const b=document.createElement('button');b.className='choice';b.setAttribute('aria-label',`Face ${i+1}, ${f.label}`);
+    const image=document.createElement('img');image.src=new URL(f.photo,manifestURL).href;image.alt='';b.append(image,document.createTextNode(`${String(i+1).padStart(2,'0')} · ${f.age}`));b.onclick=()=>select(i);$('choices').append(b);
+    const label=document.createElement('span');label.textContent=`${String(i+1).padStart(2,'0')} · ${f.age} years`;$('galleryLabels').append(label);
+  });
+  $('metrics').textContent=`Shared ${photoHairMode?'face + hair atlases':'face atlas'} · ${texture.size_px.join(' × ')} · ${((texture.bytes+(hairInfo?.bytes??0))/1024).toFixed(0)} KB download · ${((texture.gpu_bytes_rgba8_mipmaps+(hairInfo?.gpu_bytes_rgba8_mipmaps??0))/1048576).toFixed(2)} MiB RGBA8 + mipmaps. ${photoHairMode?'Scalp trial: hairline and coverage still need review.':'Existing hair style in source colour.'} LOD ${lod}; shadows off. Whole-scene performance still requires a hardware run.`;
+  function setGallery(value){gallery=value;document.body.classList.toggle('gallery',gallery);$('gallery').setAttribute('aria-pressed',String(gallery));if(gallery)pageFaces.forEach((_,i)=>figure(page.first+i,true));const rows=Math.ceil(pageFaces.length/4);$('galleryLabels').style.gridTemplateRows=`repeat(${rows},1fr)`;$('render').style.height=gallery?`${rows*Math.min(250,$('render').clientWidth/4*1.1)}px`:'';resize();}
+  $('quality').onchange=()=>{q.set('quality',$('quality').value);location.search=q.toString();};
+  $('hair').onchange=()=>{q.set('hair',$('hair').value);location.search=q.toString();};
+  for(const [id,angle] of [['front',0],['oblique',35],['profile',85]])$(id).onclick=()=>{moving=false;$('move').setAttribute('aria-pressed','false');yaw=angle*Math.PI/180;draw();};
+  $('move').onclick=()=>{moving=!moving;$('move').setAttribute('aria-pressed',String(moving));};
+  $('gallery').onclick=()=>setGallery(!gallery);
+  $('measure').onclick=async()=>{
+    $('measure').disabled=true;moving=false;const old=gallery;setGallery(true);await likenessSheetsReady();
+    const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
+    const hardware=debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER);
+    const frame=[],submission=[];let last=performance.now();
+    for(let i=0;i<65;i++){
+      const now=await new Promise(requestAnimationFrame);const start=performance.now();draw();submission.push(performance.now()-start);
+      if(i>=5)frame.push(now-last);last=now;$('status').textContent=`Measuring ${i+1}/65 frames…`;
+    }
+    measurement={timestamp:new Date().toISOString(),hardware,softwareRenderer:/swiftshader|llvmpipe|software/i.test(hardware),viewport:[width,height],devicePixelRatio:renderer.getPixelRatio(),faces:pageFaces.length,...window.__pilotStats,frameMedianMs:percent(frame,.5),frameP95Ms:percent(frame,.95),submissionMedianMs:percent(submission.slice(5),.5),scope:'isolated sixteen-face review page; not the full Chicago scene or 256 simultaneous people',acceptance:'measurement only; no automatic performance or rollout approval'};
+    window.__pilotMeasurement=measurement;$('metrics').textContent=`${hardware}. ${measurement.frameMedianMs.toFixed(1)} ms median / ${measurement.frameP95Ms.toFixed(1)} ms p95 for ${pageFaces.length} faces from ${library.faces.length}. ${measurement.softwareRenderer?'Software rendering; hardware performance remains unverified.':'Isolated pilot; measure the complete scene before rollout.'}`;
+    $('export').disabled=false;$('measure').disabled=false;$('status').textContent='Measurement ready';setGallery(old);
+  };
+  $('export').onclick=()=>{const blob=new Blob([JSON.stringify(measurement,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='photo-face-measurement.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+  new ResizeObserver(resize).observe($('render'));
+  window.__pilotSelect=select;window.__pilotGallery=setGallery;window.__pilotYaw=angle=>{yaw=angle*Math.PI/180;draw();};window.__pilotDraw=()=>draw();
+  setGallery(gallery);await select(selected);
+  await likenessSheetsReady();draw();ready.resolve(window.__pilotStats);
+  let lastDraw=0;function animate(t){if(moving&&t-lastDraw>1000/(quality==='light'?20:30)){yaw+=.018;draw();lastDraw=t;}requestAnimationFrame(animate);}requestAnimationFrame(animate);
+}catch(error){$('error').textContent=`The face preview could not open: ${error.message}`;$('status').textContent='Preview unavailable';ready.reject(error);}
+</script>
+</body></html>

@@ -237,9 +237,10 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       if (keeps) { const p = node('p', keeps, 'jaunt-meta jaunt-keeps'); p.dataset.jauntKeeps = row.id; details.append(p); }
       if (onStart) {
         const start = button('', async () => {
-          remember(row.id, 'start', section); start.disabled = true;
+          // T-3753: the key spins while the jaunt loads (its stops, its voice, the way to the start).
+          remember(row.id, 'start', section); start.disabled = true; start.classList.add('jaunt-loading'); start.setAttribute('aria-busy', 'true');
           try { await onStart(row.id, { mode: current }); }
-          finally { if (start.isConnected) start.disabled = false; }
+          finally { start.classList.remove('jaunt-loading'); start.removeAttribute('aria-busy'); if (start.isConnected) start.disabled = false; }
         }, 'jaunt-start');
         start.append(icon('play', 16)); start.setAttribute('aria-label', 'Start Jaunt');
         start.title = `Start ${row.title}`; start.dataset.action = 'start'; actions.append(start);

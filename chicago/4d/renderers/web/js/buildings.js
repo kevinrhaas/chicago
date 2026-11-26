@@ -63,7 +63,7 @@ import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildUnderpinnings, groundInFrame, underpinnedHeight } from './underpinning.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
-import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
+import { drawsLeaves as leavesHungElsewhere, standsOpen, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
 import { takeDoorLeaf, doorLeafMaterial } from './house-doors.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
@@ -755,8 +755,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       const bodyRole = originalRole(sourceMaterial); // before batching whitens/names it
       // T-3319: a fort gate's leaves are hung by fort-gates.js so they can swing; the
       // shut pair the palisade baked (its `dark` primitive, the leaves and nothing else)
-      // is left out for those stockades only.
-      if (bodyRole === 'dark' && leavesHungElsewhere(record)) continue;
+      // is left out for those stockades only. T-3553: the covered way's passages stand open,
+      // so their baked leaves are left out with nothing hung in their place.
+      if (bodyRole === 'dark' && (leavesHungElsewhere(record) || standsOpen(record))) continue;
       // T-3320: a parade's ground is laid by the yards layer as trodden earth that
       // feathers into the grass; the archetype's flat slab under it is left out.
       if (bodyRole === 'earth' && paradeLaidAsGround(record)) continue;

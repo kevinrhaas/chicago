@@ -23,6 +23,8 @@
  *                              every window and over the roof, farther ones as one flame each,
  *                              the far city in whole-block flames; a plume of big lit smoke
  *                              puffs leaning down the gale, the ground glowing under the fires.
+ *   the families' goods        T-3751: the furniture heaped on the open grounds the accounts fill
+ *                              (fire-goods.js), each heap a small frame fire of its own.
  *   the light                  two orange point lights on the strongest fires near the eye (the
  *                              walls, the street and faces), and a glow in the sky over the
  *                              burning district, red at night and faint by day (onDaylight).
@@ -36,6 +38,7 @@ import * as THREE from 'three';
 import { createFireFx } from './fort-fire.js';
 import { onDaylight } from './time-of-day.js';
 import { createFireMap, burnState, minutesOf, isoOf, hash01 } from './fire-map.js';
+import { createFireGoods } from './fire-goods.js';
 
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
@@ -44,6 +47,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
 const CHAR = [0.075, 0.064, 0.058];   // burnt timber, as a multiplier of the paint
 const SOOT = [0.2, 0.17, 0.155];      // stone and brick walls, smoked black but still brick
 const TREE = [0.16, 0.13, 0.1];       // a scorched tree
+const TREE_BARE_MIN = 12;             // T-3751: minutes after the front before a tree's leaves are gone
 const FIRE_UNIFORMS = { uFireTime: { value: 0 }, uFireGain: { value: 1 } };
 
 /** How much each detail tier draws. A phone keeps the whole fire, in fewer, larger pieces. */
@@ -135,8 +139,9 @@ function makeSkyGlow() {
 export function createCityFire({ doc, parent, context = () => null, buildings = () => null, tier = () => 'full', groundAt = () => 3.2 } = {}) {
   const map = createFireMap(doc);
   const group = new THREE.Group(); group.name = 'city-fire'; parent?.add?.(group);
+  const treeCatch = new Map();
   let minute = null, rate = 0, budget = cityFireBudget(tier()), budgetTier = tier();
-  let fx = null, plume = null, sky = null, lights = [], chimneys = null;
+  let fx = null, plume = null, sky = null, lights = [], chimneys = null, goods = null;
   let city = null, recs = [], nearEntries = [], farEntries = [], named = [], namedLayer = null;
   let active = [], stateClock = Infinity, lastMinute = null, visual = 0;
   let night = 0, adapt = 1;
@@ -172,6 +177,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
     chimneys.name = 'city-fire:chimneys'; chimneys.count = 0; chimneys.castShadow = false; chimneys.receiveShadow = true;
     chimneys.frustumCulled = false;
     group.add(chimneys);
+    try { goods = createFireGoods({ doc, map, parent: group, groundAt }); } catch (error) { goods = null; console.warn('[fire] goods', error); }
   }
 
   // ── the city's buildings ───────────────────────────────────────────────────────────────────
@@ -321,6 +327,13 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       rec.code = codeOf(rec.st);
       if (rec.kind !== 'tree' && (rec.st.heat > 0.02 || rec.st.embers > 0.04 || (rec.m >= 0 && rec.st.smoke > 0.05))) active.push(rec);
     }
+    // T-3751: the families' goods, each heap its own small fire once it is on the ground.
+    for (const rec of goods?.heaps ?? []) {
+      rec.m = minute - rec.tc;
+      rec.st = minute < rec.appear ? burnState('frame', -1, map.model) : burnState('frame', rec.m, map.model, { rainAfter });
+      if (minute >= rec.appear && (rec.st.heat > 0.02 || rec.st.embers > 0.04 || (rec.m >= 0 && rec.st.smoke > 0.05))) active.push(rec);
+    }
+    goods?.pose(minute);
     const dirty = new Set();
     for (const en of nearEntries) {
       if (en.code === en.rec.code) continue;
@@ -389,6 +402,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
   }
   /** A near building's flames: at its windows storey by storey, and over its roof. */
   function emittersOf(rec) {
+    if (rec.goodsEmit) return rec.goodsEmit;
     if (rec.emit && rec.emit.cap === budget.perBuilding) return rec.emit;
     const r = stream(`emit:${rec.key}`), pts = cornersOf(rec), wins = [], roof = [];
     const S = rec.storeys, sh = rec.h / S;
@@ -611,6 +625,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
           for (const l of lights) { l.visible = false; l.intensity = 0; }
           if (sky) sky.visible = false;
           if (chimneys) chimneys.count = 0;
+          goods?.pose(null);
           group.visible = false;
           for (const fn of listeners) { try { fn(null); } catch { /* the listener's own */ } }
         }
@@ -631,6 +646,18 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
     onFire(fn) { listeners.add(fn); try { fn(api.iso); } catch { /* its own */ } return () => listeners.delete(fn); },
     /** The minute (from 1871-10-08T00:00) the fire reaches a place, or null where it never burned. */
     catchAt: (e, n, key = null) => map.catchAt(e, n, key),
+    /**
+     * T-3751: has the fire been through a tree here (local metres)? Its leaves are gone some
+     * minutes after the front reaches it (street-trees.js setBurnt draws it bare and charred);
+     * a spared ground (the Ogden house's elms) keeps them. Catch minutes are cached by place.
+     */
+    treeBurnt(e, n) {
+      if (minute === null) return false;
+      const k = `${Math.round(e * 10)},${Math.round(n * 10)}`;
+      let tc = treeCatch.get(k);
+      if (tc === undefined) { tc = map.catchAt(e, n, null); treeCatch.set(k, tc); }
+      return tc !== null && minute - tc >= TREE_BARE_MIN;
+    },
     /** The same, as 'YYYY-MM-DDTHH:MM'. */
     catchTime(e, n) { const m = map.catchAt(e, n); return m === null ? null : isoOf(m); },
     /** What the fire is doing at a place now: { phase, heat, ... } ('none' outside the district). */
@@ -649,6 +676,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       lights = [];
       sky?.removeFromParent(); sky?.geometry.dispose(); sky?.material.dispose(); sky = null;
       chimneys?.removeFromParent(); chimneys?.geometry.dispose(); chimneys?.material.dispose(); chimneys = null;
+      goods?.dispose(); goods = null;
       for (const rec of recs) rec.emit = null;
       build();
     },
@@ -681,6 +709,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       }
       return { iso: api.iso, minute, rate, buildings: recs.filter((r) => r.kind !== 'tree').length, named: named.map((nb) => ({ id: nb.id, tc: isoOf(nb.rec.tc), fate: nb.rec.fate, heat: +(nb.rec.st?.heat ?? 0).toFixed(2) })),
         ...counts, active: active.length, ...(fx ? { fx: fx.counts, plume: plume.counts.smoke } : {}),
+        goods: goods?.counts() ?? null,
         lights: lights.filter((l) => l.visible && l.intensity > 0).length, chimneys: chimneys?.count ?? 0, sky: sky?.visible ? +sky.material.uniforms.uK.value.toFixed(3) : 0 };
     },
     dispose() {
@@ -688,6 +717,7 @@ export function createCityFire({ doc, parent, context = () => null, buildings = 
       fx?.dispose(); plume?.dispose();
       sky?.geometry.dispose(); sky?.material.dispose();
       chimneys?.geometry.dispose(); chimneys?.material.dispose();
+      goods?.dispose();
       group.removeFromParent();
     },
   };

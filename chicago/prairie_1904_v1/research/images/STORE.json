@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 168377988,
+ "bytes": 169907748,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -4957,6 +4957,38 @@
    "bytes": 573274,
    "sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225"
   },
+  "early-kinzie-chicago-magazine-1857-thumb.jpg": {
+   "bytes": 27789,
+   "sha256": "9f47fd17972068fac1b61258eb442a86b6ca79d00fc7c665b1ce6e329aa196fa"
+  },
+  "early-kinzie-chicago-magazine-1857.jpg": {
+   "bytes": 92422,
+   "sha256": "1989c5545b9a0c5516633f694d9a1e3a7e42b1ba7d98a082841d0d4c91e809eb"
+  },
+  "early-kinzie-eastman-1854-thumb.jpg": {
+   "bytes": 12432,
+   "sha256": "7114848ddfcbb874b3cf059a20b93e197993fd8b78c607ca23d86f43c091c500"
+  },
+  "early-kinzie-eastman-1854.jpg": {
+   "bytes": 161486,
+   "sha256": "eeddd89b466410a6698aa5232fcebfdd66e1c1afb74259c3d5310303d708c661"
+  },
+  "early-kinzie-lossing-1869-thumb.jpg": {
+   "bytes": 20052,
+   "sha256": "c52c80c9c6a9809869b49954bfa953fb94df68fcd08e9d46d3baeac15302c28b"
+  },
+  "early-kinzie-lossing-1869.jpg": {
+   "bytes": 89821,
+   "sha256": "716ee08a32e19332c8eb774af5104a4048359034ee8e038c1fc35db0a3a002a4"
+  },
+  "early-kinzie-sarony-currey-1912-thumb.jpg": {
+   "bytes": 24592,
+   "sha256": "8dbbf00b866a2ab6a06b42aca72911617d467d397547686db78f404b2ec711d6"
+  },
+  "early-kinzie-sarony-currey-1912.jpg": {
+   "bytes": 63479,
+   "sha256": "98ae9b17283115af9271179716572940bc6a84b18b2654198d76115011c4da3a"
+  },
   "early-moss-1884-st-marys-thumb.jpg": {
    "bytes": 22068,
    "sha256": "87c44065a3250f88008a4621e2cda22d896d2e6a81672b4242895cfeba539b67"
@@ -5060,6 +5092,54 @@
   "nps-2ndpres-tribune-1901-11-10-open-today-cut.jpg": {
    "bytes": 320416,
    "sha256": "d96293cdee07974f48384221988cc0f24d2075ee84a6c8ad154fe16bb02972bc"
+  },
+  "prefire-chamber-carbutt-140-thumb.jpg": {
+   "bytes": 26547,
+   "sha256": "c9d0d3d959e0cb8815ab14f4f3a9160a8d1437a7e3ac50be26b8e8c98a630b24"
+  },
+  "prefire-chamber-carbutt-140.jpg": {
+   "bytes": 217711,
+   "sha256": "5f34acbe313d13714c3058b96a9103ed4db2a08a8fd49883c8332bff7ff5358f"
+  },
+  "prefire-court-house-1871-thumb.jpg": {
+   "bytes": 20728,
+   "sha256": "61b9611e8b871c7365fcfa0d3c46b449d9df002cb94b354b1dc5803410231b1b"
+  },
+  "prefire-court-house-1871.jpg": {
+   "bytes": 198777,
+   "sha256": "0ea21a3442d4b209bb7688e32add81f7cbe1a5396e82e9b6f1ce61dc3c8cb96a"
+  },
+  "prefire-ogden-house-1871-thumb.jpg": {
+   "bytes": 26720,
+   "sha256": "11891b31f62355637629fa0958dffbe4b37d3674f3a5665bc3fc2124115ac2da"
+  },
+  "prefire-ogden-house-1871.jpg": {
+   "bytes": 55250,
+   "sha256": "df6f3df078b75deb48f0837e7892f6e5829f790a77ca72dca376aaf4f2ab11ba"
+  },
+  "prefire-oleary-cottage-1871-thumb.jpg": {
+   "bytes": 21604,
+   "sha256": "f7f8cc915266f57ee49ac694187aec9296ab9b1fe63f90e957acdd5bb58709f4"
+  },
+  "prefire-oleary-cottage-1871.jpg": {
+   "bytes": 44327,
+   "sha256": "3f1f8de9226f5bf38febed64698d53038c4c2169a9157fcc6230a282c18655e0"
+  },
+  "prefire-tremont-house-carbutt-55-thumb.jpg": {
+   "bytes": 26351,
+   "sha256": "eecdbcddb72026df1b4b7e2e2fd54d3fc5d2828b4189db353d3bfc1523548f4b"
+  },
+  "prefire-tremont-house-carbutt-55.jpg": {
+   "bytes": 203404,
+   "sha256": "85c14120904eec49125a03c2c75d254f19b84878298413e9c39576f12b6359ab"
+  },
+  "prefire-water-tower-greene-1871-thumb.jpg": {
+   "bytes": 16560,
+   "sha256": "619c06acc32c8ae9be341cd114c69982ce976ffffcb8460188f01c483166655e"
+  },
+  "prefire-water-tower-greene-1871.jpg": {
+   "bytes": 179708,
+   "sha256": "ac00bacbae4771c746fdcf09da75c353a0aab3ab9520a33865d503a745ae1b31"
   },
   "st-champion-1908-elevated-boulevards-south-detail-thumb.jpg": {
    "bytes": 29313,

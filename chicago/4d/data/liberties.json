@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1230,
+  "count": 1239,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1131,7 +1131,7 @@
     },
     {
       "id": "house_2027_prairie_coach_house",
-      "name": "2027 S. Prairie Avenue — the alley building of the house at 2027"
+      "name": "2027 Prairie Avenue: the brick barn on the alley"
     },
     {
       "id": "house_2032_calumet",
@@ -37368,18 +37368,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2027_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2027_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2101_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -37492,7 +37480,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2027_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2027_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2001_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2001_prairie_coach_house.draft_1904.form.draft`, `house_2011_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2011_prairie_coach_house.draft_1904.form.draft`, `house_2017_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2017_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft_elevation`, `mayer_house_2009_prairie_coach_house.draft_1904.form.draft`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft_elevation`, `otis_house_2033_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft_elevation`, `tolman_house_2031_prairie_coach_house.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -37536,7 +37524,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2027, the Cobb-associated villa, by later work (the S08 package), which refined it in place on the K01 frontage kit under `“2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'”`, under the same id; its draft attributes are gone (its alley barn is still the draft's, 's)."
+          "text": "2027, the Cobb-associated villa, by later work (the S08 package), which refined it in place on the K01 frontage kit under `“2027 Prairie, the Cobb-associated villa, refined from the district draft onto K01 as a bounded design off the 1911 sheet: a brick body of two and a half storeys with a full-height front bay, a canted north bay and a two-storey rear range, everything but the plan the kits'”`, under the same id; its draft attributes are gone; its alley barn by earlier work, on the K12 coach-house kit under `“The brick barn on the alley behind 2027 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`."
         },
         {
           "label": "Retired in part",
@@ -37568,7 +37556,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2127-2129, the double building of flats, by earlier work (the S19 package), which refined it in place on the K01 frontage kit under `“2127-2129 Prairie, the double building of flats, refined from the district draft onto K01: its plan, party wall, two stoops and three-storey rear porch off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone, its closed two-storey frame range at the rear rebuilt as the sheet's open three-storey porch (2141 stays open ground, as this draft left it)."
+          "text": "2127-2129, the double building of flats, by earlier work (the S19 package), which refined it in place on the K01 frontage kit under `“2127-2129 Prairie, the double building of flats, refined from the district draft onto K01: its plan, party wall, two stoops and three-storey rear porch off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone, its closed two-storey frame range at the rear rebuilt as the sheet's open three-storey porch (2141 stays open ground, as this draft left it). **2027's alley barn retired from this liberty by earlier work (2026-11-25):** 2027 Prairie Avenue: the brick barn on the alley now stands as the K12 coach house under `“The brick barn on the alley behind 2027 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`, under the same id, on the outline, storeys, brick and window mark the sheet draws; its draft attributes are gone."
         },
         {
           "label": "Recorded",
@@ -37830,7 +37818,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "Later work finishes the photo-match (the skyline step and the cut entrance corner, open in its match record); any picture of the door's end of the front, or of the south flank, would read first."
+          "text": "Later work finishes the photo-match (the mansard carried out round the bow, which re-read by silhouette in place of the earlier skyline step, and the cut entrance corner, both open in its match record); any picture of the door's end of the front, or of the south flank, would read first."
         },
         {
           "label": "Covers",
@@ -69227,6 +69215,64 @@
       ]
     },
     {
+      "id": "L-k12-2027-barn-1938",
+      "title": "The brick barn on the alley behind 2027 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark",
+      "section": "per_subject",
+      "subjects": [
+        "house_2027_prairie",
+        "house_2027_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie_coach_house",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 2027 Prairie Avenue is refined in place, under its own id 2027 Prairie Avenue: the brick barn on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”): the first of this work's alley buildings on the east side of Prairie Avenue, 20th to 22nd, and the first K12 building whose alley lies EAST of it (the kit's alley side: east). **What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline, 10.73 m deep from the alley line by 14.53 m along it, measured between line centres by median darkness profiles (the alley line at column 1170.89, the west wall at 1113.16, the north and south walls at rows 681.91 and 760.08) and carried by the sheet's fitted similarity; '2' storeys; the brick; the label BARN; its north wall on the 2021/2027 lot line (which reads row 681.87 west of the building), where 2021's one-storey brick building stands against it; its south wall 0.49 m inside the 2027/2031 lot line (row 762.70), clear of 2031's garage; one of the key's window marks on the alley wall, the sign 1816's, 1824's and 1900's walls carry, 7.54 m from the north wall (row 722.5, read to about a pixel); and the east face of the house's one-storey frame back porch 6.92 m west of the yard wall (column 1075.93, rows 745.4-761.5). The draft had fitted a 9.75 x 12.75 m rectangle inside 84% of the trace and stood its corner 6.3 m north of where the building's middle is. Inferred for 1904 as every reading of these sheets is. **The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back (s35-2027-rear, present as mapped), which the district draft already made. **What is invented.** The use: BARN is the 1911 sheet's word, not carried to 1904 as a reading (the kit's no 1911 use labels), though it agrees with the stable and coach house built here. The north end is the kit's party wall, rising 0.45 m over the roof and returning 0.5 m past the eaves, on the line it shares with 2021's building, where the sheet draws no fire-wall sign that this copy can resolve (as 1834's north wall stands on the line it shares with 1828's); the kit is built in mirror image to put it there. The south end is the kit's open gable, with no opening, since it faces a half-metre gap to 2031's garage. Every opening but the mark is the kit's laid out for a building this long: on the alley, a carriage bay 3.0 m clear with the loft hatch and hoist over it, a man door, the mark as a stable sash with a loft sash over it, and a second carriage bay with a loft sash over it; on the yard side three stable sash with loft sash over them and a door where the walk from the house meets it. The roof is the kit's gable at its own 40 degrees with the ridge along the alley, 4.50 m from eave to ridge over the 10.73 m span, with no dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. The workyard is paved from the yard door to the porch's east face. Flat colours. **Left out.** The small figures inside the north and south wall lines (wall thicknesses on the finer sheets) and the dot in the south-east corner: too coarse on this copy to read, and they build nothing. **What is not.** The outline, its place on the lot, the storeys, the brick and the mark's place are the map's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the alley behind the 2000 block of Prairie, a finer copy of sheet 35, or a building permit for the barn, entered as a source, gives its openings, roof, ends, use and date their true form. This work's image gate names pictures for 2013 Reid's coach house only; none for this one."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2027_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2027_prairie_coach_house.as_standing_1904.form.stories`, `house_2027_prairie_coach_house.as_standing_1904.form.construction`, `house_2027_prairie_coach_house.function`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-25 (T-1938)."
+        }
+      ],
+      "work_refs": [
+        "T-1938"
+      ]
+    },
+    {
       "id": "L-t3316-hibbard-1701-stable",
       "title": "1701 Hibbard's stable by the tracks on the sheet's parallelogram, its yard front read off the Chicagology photograph",
       "section": "per_subject",
@@ -75889,7 +75935,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the owner, 2026-11-14: *\"place all the right people at the right scenes from history so we can witness the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch the event unfold, like the argument between la lime and kiznie, you should see the column coming down the shore and they can come from the distance and pass you, for the natives they can be in groups collected, laying down or kneeling in preparation for the attack\"*; and, for students, his pick the same day of *\"Build-up and aftermath\"*: the lead-up is watched, the fallen are shown lying still afterwards, and no blow, shot or blood is staged. Twenty-one stops of the two 1812 story jaunts (*The Battle of Fort Dearborn*, *The Killing of Jean Lalime*) carry a `stage`: a cast and the beats they play, run by the walkthrough's jaunt stage code and written by the research notes on jaunt stage 1812 and the scenes tool. **What is read.** Who is present at each event, and what they do, from the stop's own text and its sources: the eleven men at Lee's place, White and Cardin going in, Kelso and the Lee boy crossing and making for the haystacks (Heald's and Kinzie's letters); Ronan's party bringing Mrs. Burns off by water; Heald reading Hull's order and his officers' objections; the council on the esplanade; the goods given out at the factory; the powder and liquor carried down the covered way; Wells and his Miamis coming in on the 14th and Black Partridge's medal; the column's order of march (Heald's report, Wau-Bun); the halt at the bank and Wells riding back; Black Bird's handshake on the elevation; the guard on the Kinzie green; the searchers at the Ouilmette house; Helm's and Irwin's accounts of the quarrel, the meeting at the gate, Kinzie's flight across the river and Lalime's burial by soldiers headed by Helm. Who died in the battle and who lived is each soldier's card (Quaife's count). **What is invented.** Every mark: where each person stands, the ways they walk, when each beat falls, their speeds; the size of every crowd and which carded people of the gathering fill it (men already graded *likely among the warriors*, “Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”); the eleven men's and the Wabash searchers' dress (a carded man's, as dress of) and their being drawn at all as men with no recorded names; poses (lying, kneeling, crouched, sitting) for waiting, wounded and dead; which of the women and children ride in the column's wagons and where each sits (the town's own two wagons, the fort wagon and the shore-road haul, driven by Privates Mills and Moffett as every day: the accounts (Helm's narrative, Wau-Bun) put the children, and some of the women, in the baggage wagons, and say nothing of who sat where), and that the rest walk beside them (Wells, Mrs. Heald and Mrs. Helm rode; no saddle horse is drawn, so they walk); the column halting where it does; who carries Mrs. Burns. **What is left out on purpose.** The fighting itself, the killings at Lee's place, the blow and the shots at the gate, the attack on the wagons, and any dead child."
+          "text": "the owner, 2026-11-14: *\"place all the right people at the right scenes from history so we can witness the events, the attack on lees, them fleeing, the people at the murder site, etc. you should be able to watch the event unfold, like the argument between la lime and kiznie, you should see the column coming down the shore and they can come from the distance and pass you, for the natives they can be in groups collected, laying down or kneeling in preparation for the attack\"*; and, for students, his pick the same day of *\"Build-up and aftermath\"*: the lead-up is watched, the fallen are shown lying still afterwards, and no blow, shot or blood is staged. Twenty-one stops of the two 1812 story jaunts (*The Battle of Fort Dearborn*, *The Killing of Jean Lalime*) carry a `stage`: a cast and the beats they play, run by the walkthrough's jaunt stage code and written by the research notes on jaunt stage 1812 and the scenes tool. **What is read.** Who is present at each event, and what they do, from the stop's own text and its sources: the eleven men at Lee's place, White and Cardin going in, Kelso and the Lee boy crossing and making for the haystacks (Heald's and Kinzie's letters); Ronan's party bringing Mrs. Burns off by water; Heald reading Hull's order and his officers' objections; the council on the esplanade; the goods given out at the factory; the powder and liquor carried down the covered way; Wells and his Miamis coming in on the 14th and Black Partridge's medal; the column's order of march (Heald's report, Wau-Bun); the halt at the bank and Wells riding back; Black Bird's handshake on the elevation; the guard on the Kinzie green; the searchers at the Ouilmette house; Helm's and Irwin's accounts of the quarrel, the meeting at the gate, Kinzie's flight across the river and Lalime's burial by soldiers headed by Helm. Who died in the battle and who lived is each soldier's card (Quaife's count). **What is invented.** Every mark: where each person stands, the ways they walk, when each beat falls, their speeds; the size of every crowd and which carded people of the gathering fill it (men already graded *likely among the warriors*, “Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”); the eleven men's and the Wabash searchers' dress (a carded man's, as dress of) and their being drawn at all as men with no recorded names; poses (lying, kneeling, crouched, sitting) for waiting, wounded and dead; which of the women and children ride in the column's wagons and where each sits (the town's own two wagons, the fort wagon and the shore-road haul, driven by Privates Mills and Moffett as every day: the accounts (Helm's narrative, Wau-Bun) put the children, and some of the women, in the baggage wagons, and say nothing of who sat where), and that the rest walk beside them (Wells, Mrs. Heald and Mrs. Helm rode; no saddle horse is drawn, so they walk); the column halting where it does; who carries Mrs. Burns. At the river's mouth (the owner, 2026-11-26: the warriors about to attack *\"would either be at camp preparing, or taking up positions to attack the column\"*, not seen walking along with it), a party of eight of the gathering is seen out on the prairie side going off south ahead of the column at a jog and dropping down into the grass: Wau-Bun has the escort take to the prairie rather than keep the beach; that they hurry ahead, and who and how many, is invented. **What is left out on purpose.** The fighting itself, the killings at Lee's place, the blow and the shots at the gate, the attack on the wagons, and any dead child."
         },
         {
           "label": "How to resolve",
@@ -76534,6 +76580,18 @@
         {
           "label": "Re-opens on",
           "text": "a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories or questions (the tales test names it); the camp children of 1835 being drawn, whose three stories wait for them; a person's character attested in a record, which then replaces the assigned temperament."
+        },
+        {
+          "label": "Who may tell what (2026-11-26)",
+          "text": "the owner: *\"Louis Ream: Correct the character's voice and script. He sounds like a young girl and recounts his World's Fair experience from a female perspective. Check all jaunts and/or grade each story to age and gender and situation. I also read one of a woman in 1871 who was a laborer with lumber, which seemed off also.\"* A story or question now goes only to a teller it fits: one who speaks as a woman or a man (\"my husband\", \"I was a girl\", \"we boys\") goes only to that sex; one tied to an age (a coming-out, a Civil War memory, a schoolboy's errand) carries the ages it fits; one told from a country or a people (the Irish parish, the German brewery, the Swedish maid) goes only to tellers whose own record gives that birthplace or community; a servant's story of a particular post (butler, nursemaid, groom) goes to that post. the tales generator refuses a story that speaks as one sex but is open to the other, or a child who speaks of a husband."
+        },
+        {
+          "label": "Not invented, there",
+          "text": "each teller's sex, age, birthplace or community and work (their own records)."
+        },
+        {
+          "label": "Liberties, there",
+          "text": "fourteen new 1871 stories, for the women at home and at work, the little ones and a lady of the relief, so they have their own once the men's work stories went back to the men; one new 1812 question for the Potawatomi children; composite lives like the rest."
         },
         {
           "label": "Recorded",
@@ -78910,7 +78968,7 @@
         },
         {
           "label": "Liberties within it",
-          "text": "the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in 1812, right for a frontier woman, and aside in 1835 and 1904 (“A woman of 1835 or 1904 rides aside, her skirt over her legs”). The owner, 2026-11-19: *\"for the people instead of labeling it gender can you add a third body type also and make the name of that category not say gender but be a more neutral person style category\"*. The choice is a **body type** (Masculine, Feminine, Androgynous); the third wears either body and any dress, cut and face the year offers, and is drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own weight, muscle and neck axes, `sexes[].build`); it rides as its clothes do, aside in a skirt in 1835 and 1904. The build is a choice of the visitor's, not a reading of anyone. The tab also shows the chosen face up close beside the whole figure."
+          "text": "the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in 1812, right for a frontier woman, and aside in 1835 and 1904 (“A woman of 1835 or 1904 rides aside, her skirt over her legs”). The owner, 2026-11-19: *\"for the people instead of labeling it gender can you add a third body type also and make the name of that category not say gender but be a more neutral person style category\"*. The choice is a **body style** (Style 1, Style 2, Style 3: the owner, 2026-11-26, *\"Replace masculine, feminine, and androgynous labels with gender-neutral terms such as Style 1, Style 2, and Style 3. Style 3 currently appears identical to Style 1.\"*); the third wears either body and any dress, cut and face the year offers, and is drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own weight, muscle and neck axes, `sexes[].build`); it starts each year in a look of its own (a dress Style 1 does not start in, the other body's hair, and while the face is Auto a face from the other body's faces, `sexes[].start` and face of); it rides as its clothes do, aside in a skirt in 1835 and 1904. The build is a choice of the visitor's, not a reading of anyone. The tab also shows the chosen face up close beside the whole figure."
         },
         {
           "label": "Re-opens on",
@@ -79185,6 +79243,36 @@
         {
           "label": "Recorded",
           "text": "2026-11-17 (T-3553)."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-drape-3553",
+      "title": "Clothes hung, faired and trimmed as cloth at load: John Glessner's lapels, collar, buttons and seams cut again, a lady's collar kept under the chin, the maid's frills gathered, the coachman's V filled",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-26: *\"you need to keep working on clothing... the men are very bad, the women are getting better but the mens are ragged at points and peek through when they move and hugs their bodies unnaturally like the linen outfits in 1812, you should do a rethink on how clothing is applied so that this will render neatly as AAA gaming but you can downscale it well\"*, then on four close-ups: *\"1) his collar does not look natural and the clothing is so form fitting 2) her collar is all jagged, and the way that apron lays is messy and does not look like fabric 3) his suit lapels are awful and there are no seams or buttons and his shoulder has a lump 4) she is not bad but the clothing covers her chin, the lace is pretty nice\"* (the coachman Charles Nelson, the maid Mary Reynolds, John J. and Frances M. Glessner, 1904). **What is reconstructed.** Every body is dressed again at load, at every level, before any figure is cloned, the exported pieces kept and reshaped, no texture, material or draw call added (the walkthrough's human drape code, the walkthrough's human fair code, the walkthrough's human trim code). Shirts, waistcoats and skirts hang off the body as cloth by a rule of ours (eased off the skin's hollows, falling from the chest and shoulder blades, a shirt's tails worn over leggings kept over them). Coats, jackets and bodices are faired: their offset from the body smoothed, so a coat no longer follows every rib and hollow, never pressed in more than 2 mm from where it was cut nor out through anything worn over it, a coat's skirts left as cut; what lies on them (collars, straps, buttons, a lapel and its facing) carried with them. Inner layers take the skin weights of what covers them, and cloth hidden under another layer is left out, so nothing under shows through as the figure walks. Trims (collars, straps, frills, waistcoats, ties) are smoothed and subdivided at the near level; standing collars and the maid's collar are cut again as clean bands round the neckline. A collar or stock is kept 1.2 cm under the head's lowest skin all round (Frances's lace collar had stood level at the height of her chin's underside). John J. Glessner's frock coat: its drawn lapels (some 120 points each, creased, their silk copy shining on every crease) are replaced by lapels cut along the coat's own front edge from the break to the gorge, 6.2 cm across the chest, squared at the point, rolled at the edge and faced in silk all over; a coat collar (stand and fall) goes round the back of the neck to meet them; three silk-covered buttons (1.5 cm) run down the closing below the break; seams are pressed into the coat (centre back, side backs, shoulders) as shallow grooves; the coat's weights are evened round each shoulder so its shoulder point rounds over instead of folding when the arm hangs (the shoulder \"lump\" was the lapel peaks, half bound to the upper arm, swinging out over the shoulder). The pictures behind the frock coat are “John J. Glessner's 1904 frock coat recut to the knee, open at the front, with a white standing collar”'s: they show the lapels' silk and the buttoned front, not their shape, size or number, nor any seam; the shapes, sizes, counts and every distance here are ours (reconstructed), built to read at a metre and a half, not measured from any garment. The maid's bib keeps its drawn shape (a smoothed or refilled bib read as a pillow); her straps are smoothed. Round 6 (the owner, 2026-11-26: *\"Yes keep going on the rest\"*): the maid's shoulder frills (drawn as flat sheets standing off the straps like wings) are cut again as gathered ruffles 4 cm wide along each strap's outer edge, lying over the shoulder, folds 3 cm long; Charles Nelson's livery coat has the two small hooks at its collar's front corners pressed back, and the V under his stock filled with a shirt front in the stock's linen (the drawn V showed bare skin; that a shirt front was worn there is ours); John J. Glessner's waistcoat is closed in its own cloth at the two far levels (drawn there, it was left open under the wide drawn lapels); armhole seams are pressed into coats at the near level, found where the coat's cloth turns from the body's skin to the arm's. Widths, fold lengths and the seams' line are ours (reconstructed). Round 7 (the owner, 2026-11-26: *\"sweep all of the people and clothing and remove these ragged collars and edges and holes in clothing\"*, *\"The colors are not ragged, the clothing and collars are ragged\"*, and on a close-up of the coachman's side: *\"Armpit is bad\"*): every garment's open edges (hems, collar edges, a belt's sides) are evened along their line at every level, points sewn to another piece kept where they are; belts, crossbelts, straps, slings and sashes lie over the cloth under them and take its weights, braces lie over the shirt and under a waistcoat; at the farthest level waistcoats, shirts and neckwear under a coat move with the coat, and at the two far levels a waistcoat's band hidden under a coat is left out; in the pit of each arm every layer (skin included) is tucked in towards the chest, up to 5 cm where its weights are shared evenly between arm and chest, so the sleeve and the side of the coat meet in a fold under the arm (the coat's sleeve and side had crossed in front of the arm as a torn notch). That a sleeve folds in under the arm is what cloth does; the depths, distances and which pieces lie over which are ours (reconstructed)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of John J. Glessner's frock coat close enough to count its buttons and read its lapels' shape; the bodies re-exported with the garments simulated as cloth (the pass would then be left out for those bodies)."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human drape code, the walkthrough's human fair code, the walkthrough's human trim code, the human drape test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3553)."
         }
       ],
       "work_refs": [
@@ -80610,6 +80698,82 @@
       ]
     },
     {
+      "id": "L-1871-swing-bridges-3751",
+      "title": "The 1871 river bridges carry their streets: centre-pivot swing spans, their towers, rods, piers and approaches",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-26, walking the Great Fire jaunt: \"The bridges don't connect to roads and don't look like the bridges as they existing\", \"Another messed up bridge\", and \"A funny white square as you cross the bridge\". Each of the 22 bridges was a flat plank ribbon on the map reading's axis, run to the first dry ground and six metres on, so it crossed the river streets into building faces at an angle to its street, with low trusses its whole length; the white square was the stone pier's top, drawn at the deck's own height and fighting it."
+        },
+        {
+          "label": "Not invented",
+          "text": "that the city's river bridges were \"all truss bridges, revolving upon a centre pier, and giving a passage-way for vessels upon either side, when open\" (Chicago Board of Public Works. Tenth Annual Report to the Common Council, for…, p. 48); each bridge's construction year, timber-and-iron or iron build, and length (p. 49); where each crosses (S. Augustus Mitchell, Jr. Chicago. 1870, the plan data `bridges`); the streets' lines and widths (`“The 1871 streets: today's platted lines, the 1871 names, splined arterials and a lattice in whole blocks”`)."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "where each deck lands: the drawn street's own end on each bank (or, where one bank has no run of the street, along its line to the far bank; Rush and Polk streets have none and keep the map's axis, trimmed to dry ground, with a plain dirt approach road from each deck end to the nearest end of their street: Rush Street and Michigan Avenue, and Polk Street across the gap the platted core leaves to the river; alignment bridge approach), so the pivot can stand up to 45 m from the map's reading of the crossing (bridge reading allowance m; the 1870 sheet's fit checks to 25.65 m at worst). The deck's width is the street's carriageway with its walks as footways (to 2.6 m), at road level. The swing span is the reported length centred on the pivot; the fixed timber approach spans on pile bents that carry the deck from the span's ends to the banks, the stone abutments, the round stone pivot pier (5 m radius, its top under the deck), the pointed timber protection pier along the river, the two low timber Howe trusses, the central tower over the pivot with iron tie rods to the panel points and ends, the overhead bracing, the floor beams and the railed footways are the general form of the period's centre-pivot swing bridge, not a drawing of any one: no picture of an 1871 Chicago river bridge is in the sources data. Quay bays no longer run under a deck, and a generic building may not stand on one."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph or engraving of a pre-fire Chicago river bridge (the Carbutt and Lovejoy & Foster stereograph series; the Board's own reports of other years, which sometimes print plans), solved into a reference view, would replace the tower, truss and pier forms; the Board's reports of the bridges' widths would replace the street-width deck."
+        },
+        {
+          "label": "Review",
+          "text": "the city 1871 emit generator (bridge ends, bridge pivot, draw bridge), the city 1871 check."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3751)."
+        }
+      ],
+      "work_refs": [
+        "T-3751"
+      ]
+    },
+    {
+      "id": "L-1871-lake-park-3751",
+      "title": "Lake Park left open: no generic building east of Michigan Avenue from Randolph to Twelfth Street",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-26: \"you show buildings east of Michigan ave all along the lakefront, check that, there were a few perhaps, but I am not sure about all of that\". The context city had stood about 150 generic buildings on the strip east of Michigan Avenue."
+        },
+        {
+          "label": "Not invented",
+          "text": "Mitchell's 1870 map (S. Augustus Mitchell, Jr. Chicago. 1870) prints LAKE PARK on the strip between Michigan Avenue and the water from Randolph Street to Park Place by Twelfth Street, with the Illinois Central and Michigan Central track and the \"Illinois Central R.R. Breakwater\" beyond the lagoon; north of Randolph it prints the Illinois Central and Michigan Central depot and grain houses."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the zone's edges (Michigan Avenue's drawn centreline, the centrelines of Randolph and Twelfth streets, the lake; unbuilt ground in the generator). What was kept, and why: the generic buildings north of Randolph east of Michigan stand in for the railways' depot ground the map prints there (they are generic forms, not the depot); south of Twelfth the avenues east of Michigan (Indiana, Prairie, Calumet) were built up and keep theirs; the North Side shore east of Pine Street is platted on the same map, its cross streets running to the lake, and keeps its buildings. The park itself stays the context city's open ground: its planting, paths and fences are not drawn."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the 1871 Lake Park front, or the Board's park report, to plant and fence it; the depot's own form, to replace the generic buildings north of Randolph."
+        },
+        {
+          "label": "Review",
+          "text": "the city 1871 emit generator (unbuilt ground, lot clear), the city 1871 check."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3751)."
+        }
+      ],
+      "work_refs": [
+        "T-3751"
+      ]
+    },
+    {
       "id": "L-k01-1936-allerton-tribune-2026-11-22",
       "title": "1936 Prairie's materials laid as its 1869 Tribune describes them: pressed red brick all round, brownstone dressings, carving, steps and bay, a rusticated basement and a slate-dark roof",
       "section": "per_subject",
@@ -80984,6 +81148,190 @@
         "T-3200",
         "T-3161",
         "T-3739"
+      ]
+    },
+    {
+      "id": "L-photo-face-pilot-3746",
+      "title": "Sixteen fictional photographic faces for review",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner's request of 25 November 2026: start with sixteen photographic faces, see them rendered before replacing generic faces throughout the population, preserve lower-power PCs and allow later historical-photo imports. Sixteen generated fictional adults supply measured front landmarks, face colour, front hair, sclera/iris tones and lid openings. An existing hm08 morph kit bounds the fitted face. A small portable scalp mesh carries the photographed hair and a source-bounded crown height/width; back depth and unseen strands remain reconstructed. The review changes no historical identity or resident assignment."
+        },
+        {
+          "label": "Not invented",
+          "text": "the preserved source pixels (Sixteen fictional adult head portraits generated for the project owner's… states explicitly that they are generated fictional portraits), their measured landmarks and image colours, the shared rig and the existing body meshes."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "population rollout, historical likeness approval and any claim of weak-PC whole-scene performance from an isolated software-rendered preview. Body, clothing, ears, unseen hair, profile depth and separate eyeball geometry remain reconstructed."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "owner review of the pilot; actual front/side photographs of a named person; target-hardware crowd measurements."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-25."
+        }
+      ],
+      "work_refs": [
+        "T-3746"
+      ]
+    },
+    {
+      "id": "L-1871-great-fire-goods-3751",
+      "title": "The families' furniture in Washington Square and the old cemetery, and the Great Fire stops kept to their hours",
+      "section": "per_subject",
+      "subjects": [
+        "washington_square_1871"
+      ],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-26, on the Great Fire jaunt: \"The narration describes a burned park, but the park appears undamaged and the referenced furniture is missing. Add the furniture and depict it burning or show the appropriate aftermath\", \"The jaunt stops at the Field Building, but the building does not burn\", and \"Ensure the visual state of the environment corresponds to the chronology and events described in the narration\". So the goods the accounts heap on Washington Square and in the old City Cemetery are drawn and burn, each landmark a stop names burns at the hour its stop tells, and the Parmelee stop stands at Jackson and Franklin."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "that Washington Square \"early in the night was filled with fugitives and their furniture\" and that the fire made \"the grand blaze from the accumulated furniture of fifty families\" (Sheahan and Upton pp. 209-211; Andreas vol. 2 p. 759, the square's fence and goods burned); that the refugees in the cemetery saw \"the household gods and valuables which they had moved into the cemetery... burn up before their eyes\" (Colbert and Chamberlin pp. 265-268). The hours the landmarks are alight are the jaunt's own claims, each with its page in the 1871 fire data (burning by): the barn at nine, the Court House at half past one, the Sherman House at five past two, Crosby's at twenty past two, the Water Works roof at twenty past three, the Tribune at half past seven, and Field, Leiter & Co. at about eight, after its own pumps had kept it wet past daylight (Horace White in Andreas pp. 734-735). The Parmelee stable stood on the south-east corner of Jackson and Franklin (Andreas p. 719)."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "how many heaps of goods (34 in the square, 22 in the cemetery), where each lies, and what each holds (bedsteads, mattresses, bureaus, tables, chairs, trunks, bundles, quilts, of no particular family's) are reconstructed; so are the hour the goods are first on the ground (the square from half past two, the cemetery from six on Monday morning), which of the cemetery's heaps burn (two in five) and when (between ten past five and twenty to seven that evening), and the scorch on the square's grass. The square's heaps burn at the square's own hour on the fire's map. A landmark held to its hour is drawn rising to full flame by that hour, the rise being the drawn fire's (five minutes for frame, nine for masonry), not a record of when it first caught. The Parmelee stable is the generic corner building there; no picture or plan of the stable was found. St. Michael's is told as the fire nears it at noon, because the fire's map has its steeple burning in the afternoon (Conzen's noon-6 p.m. band)."
+        },
+        {
+          "label": "Evidence and limits",
+          "text": "Sheahan, James W., and George P. Upton, Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time, Colbert, Elias, and Everett Chamberlin. No account counts the heaps or names what was in them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture or a fuller account of Washington Square or the cemetery on 9 October 1871; a picture or plan of the Parmelee stable, to build it as a structure of its own."
+        },
+        {
+          "label": "Review",
+          "text": "the 1871 fire data (`goods`, burning by), the fire 1871 tool, the walkthrough's fire goods code, the walkthrough's fire map code, the fire jaunt check, the 1871 scenes data (fire parmelee stables)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3751)."
+        }
+      ],
+      "work_refs": [
+        "T-3751"
+      ]
+    },
+    {
+      "id": "L-prairie-alley-returns-3759",
+      "title": "Each 1904 alley carried across the sidewalk space to the gutter, the curb turned into it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-26: \"Correct alleyway grading and remove inappropriate curbs at alley entrances.\" At each of the district's 13 alley mouths the cross street's parkway turf and curb no longer run across the alley: the alley's own surface runs on across the sidewalk space at the alley's drawn width, falling from its grade at the lot line to the gutter at the curb line, and a return curb of the street curb's width stands either side of it from the curb line back to the lot line, its top on the walk's level; the walk stops at it (the 1904 street section data, alley returns, laid by the lay prairie 1904 street section tool). **What is read (inferred).** The arrangement: the 1905 code leaves \"a space of one and one-half inches... between all walks and the curb at street and alley intersections\" (sec. 2062), so at an alley the walk meets a curb, as at a street corner. A city-wide rule of March 1905 carried to 1 July 1904. **What is invented (reconstructed).** The even fall across the 14-ft (16th Street: 10-ft) space, about 7 per cent; the square returns with no rounded corner; the alley's earth-and-cinder surface carried out to the gutter. No picture or grade record of one of these mouths has been read."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of an alley mouth on 18th, 20th or 21st Street before 1907 (the Glessner stable's 18th Street front reaches the west alley's mouth), or the city's alley grade ordinances for these blocks."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26."
+        }
+      ],
+      "work_refs": [
+        "T-3759"
+      ]
+    },
+    {
+      "id": "L-photo-face-library-3761",
+      "title": "256 fictional adults with one nearby detail page",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner: “Add more people faces for more diversity let’s have at least 64”, then “Then do 256 faces if feasible.” Preserve the original sixteen and add 240 generated fictional photographic-style adult portraits, 128 men and 128 women in total, with varied apparent ages, skin tones, head outlines, features and hair. Fit and bake offline into the shared hm08 geometry. One compact crowd atlas retains every face; only the nearest visible page within six metres can hold sharper detail, with a one-page resident-or-loading ceiling and hysteresis. Other faces remain their own smaller version. Review navigation reloads sixteen heads per page to release prior textures and geometry."
+        },
+        {
+          "label": "Not invented",
+          "text": "original generated bytes and hashes, measured landmarks and colour, actual fitted morph values and eye measurements. Original sixteen retain their source; additions use 240 additional fictional adult photographic-style portraits generated for the…."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "fictional identities, requested apparent ages (not biographies), unseen depth, hair volume, ears, body and clothing; generated source variation is not historical evidence. One nearby page and a six-metre threshold are chosen memory/quality tradeoffs, not measured human vision limits."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "assigning a fictional face over a specific historical photo, adult faces on children, default population rollout, and certification of weak-PC performance from a software renderer."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "source review; actual historical photographs and profile references; whole-town timing on a real low-power GPU. Specific people are the next owner priority."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26."
+        }
+      ],
+      "work_refs": [
+        "T-3761",
+        "T-3746"
+      ]
+    },
+    {
+      "id": "L-photo-faces-dev-3767",
+      "title": "Default generic adults and matching children in all years",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner: “Ok yes let’s roll the faces out so I can see them on dev”, then “You should have some children faces of the same type so they do not look different, people should look consistent.” Enable stable photographic generic faces by default in 1812, 1835, 1871 and 1904. Add sixteen fictional child portraits, apparent ages two through seventeen, to the 256 adults. Preserve child/toddler head morphs, body proportions, age and height; transfer only face texture, eye tone and resting lids. Keep personal likenesses and visitor choices. Adults and children share one resident-or-loading nearby page; two crowd sheets and this page use about 12 MiB of added face textures. An explicit photoFaces=off comparison remains available."
+        },
+        {
+          "label": "Not invented",
+          "text": "the owner's rollout request; retained generated source bytes, crops, 478 landmark measurements per face and camera fits; native child head/body values are unchanged."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "all generic identities, apparent source ages, unseen features, photographic colour and hair. Child camera registration uses shared hm08 UV/source-vertex correspondence; it does not claim independent child photogrammetry or import adult head shapes. Existing child skin geometry and iris placement stay in use."
+        },
+        {
+          "label": "Left out on purpose",
+          "text": "replacing personal historical likenesses, rolling to production, treating generated portraits as historical evidence, or certifying weak-PC frame rate without a real GPU. The owner-authorized dev preview permits visual review while that timing remains outstanding."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "visual review of the dev population; actual historical photographs; a complete crowd timing on a real low-power GPU."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26."
+        }
+      ],
+      "work_refs": [
+        "T-3767",
+        "T-3768",
+        "T-3746",
+        "T-3761"
       ]
     },
     {

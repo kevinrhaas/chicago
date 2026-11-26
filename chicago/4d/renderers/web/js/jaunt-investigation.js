@@ -5,6 +5,7 @@ import { checkBand } from './jaunt-understanding.js';
 import { t } from './strings/index.js';
 import './strings/investigation.js';
 import { CASES } from './jaunt-investigation-cases.js';
+import { LIMITS } from './field-notebook.js';
 
 export { CASES };
 export const CASE_LIMITS = Object.freeze({ claim: 2400, uncertainty: 1200 });
@@ -77,7 +78,7 @@ export function investigationNote(model, draft) {
       ...reading.claims.flatMap(c => [`${c.label} · ${c.grade}`, c.locator !== reading.locator && c.locator,
         c.text, c.reasoning])].filter(Boolean)), model.closing].join('\n\n'), sources };
   if (entry.title.length > 200 || entry.text.length > 6000 || entry.excerpt.length > 12000
-    || sources.length > 40 || sources.some(s => s.title.length > 500 || s.id.length > 200)) return { ok: false, reason: 'unavailable' };
+    || sources.length > 40 || sources.some(s => s.title.length > LIMITS.sourceTitle || s.id.length > 200)) return { ok: false, reason: 'unavailable' };
   return { ok: true, entry, signature: JSON.stringify(entry) };
 }
 

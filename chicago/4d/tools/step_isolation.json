@@ -2836,11 +2836,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_fire_jaunt.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_flora_gpu_lattice.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/check_frontage_notes.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_gamepad.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4934,6 +4942,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/photo_face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/pinned_sources.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6214,6 +6226,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_drape.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_dress_components.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6499,6 +6515,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_architrave.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_basement_lights_off_bay.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6947,6 +6967,18 @@
       "wrote_ignored": []
     },
     "tools/test_person_stories.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_deployment.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_rollout.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

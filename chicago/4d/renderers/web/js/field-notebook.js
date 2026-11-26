@@ -2,14 +2,16 @@
  * Writes either persist completely or return a visible error; existing work is never evicted.
  */
 export const NOTEBOOK_KEY = 'chicago4d.notebook.v1';
-export const LIMITS = Object.freeze({ entries: 100, photos: 12, chars: 1500000, photoChars: 160000, noteChars: 6000 });
+// A source's title is its full citation: the longest a case cites (Moses and Kirkland, the
+// Whistler draught) run to about a thousand characters, so it is kept whole (T-3765).
+export const LIMITS = Object.freeze({ entries: 100, photos: 12, chars: 1500000, photoChars: 160000, noteChars: 6000, sourceTitle: 1500 });
 const text = (value, max = 2000) => typeof value === 'string' ? value.slice(0, max) : '';
 export function safeNotebookURL(value) {
   try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; }
 }
 function sourceRows(value) {
   return (Array.isArray(value) ? value : []).slice(0, 40).filter(s => s && typeof s.id === 'string')
-    .map(s => ({ id: text(s.id, 200), title: text(s.title || s.id, 500), url: safeNotebookURL(s.url) }));
+    .map(s => ({ id: text(s.id, 200), title: text(s.title || s.id, LIMITS.sourceTitle), url: safeNotebookURL(s.url) }));
 }
 function entryOf(value, { id, now } = {}) {
   if (!value || !['note', 'person', 'photo'].includes(value.kind)) return null;

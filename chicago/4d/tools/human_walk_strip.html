@@ -176,6 +176,9 @@ try {
     placeCamera(); renderer.render(scene, camera);
   };
   strip.render = render;
+  // T-3553: for scripts that draw the figure their own way (tools/qa_cloth_sweep.mjs reads a
+  // flat id per mesh to find torn edges, patches and holes).
+  strip.renderer = renderer; strip.scene = scene; strip.camera = camera; strip.THREE = THREE;
 
   // ---- the walk, looped by restarting --------------------------------------------------------
   let clock = 0, laps = 0;

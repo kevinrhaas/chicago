@@ -75,8 +75,60 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
     if (!bres.ok) return null;
     const kit = parseVariationKit(header, await bres.arrayBuffer());
     kit.base = jsonURL.href;   // T-3553: what a person's row names beside the kit (a skin sheet) is fetched from here
+    // Owner-approved dev rollout (T-3767, T-3768). Each age group shares its crowd
+    // atlas; nearby detail shares one bounded cache. Explicit off supports comparison.
+    const photoMode=typeof location!=='undefined'?new URLSearchParams(location.search).get('photoFaces'):null;
+    if(photoMode!=='off') {
+      try {
+        const url = new URL('photo_faces/pilot/review.json', jsonURL), r = await fetchImpl(url);
+        if (r.ok) attachPhotoLibrary(kit, await r.json(), url);
+      } catch { /* the ordinary library remains available if the review assets cannot load */ }
+      try{
+        const url=new URL('photo_faces/children/review.json',jsonURL),r=await fetchImpl(url);
+        if(r.ok)attachChildPhotoLibrary(kit,await r.json(),url);
+      }catch{/* Keep the child's existing appearance if its own source library fails. */}
+    }
     return kit;
   } catch { return null; }
+}
+
+/** Attach a reviewed library without rewriting residents or the generated variation kit. */
+export function attachPhotoLibrary(kit, library, manifestURL) {
+  if (!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library?.format)
+      || !(library.review_only===true||library.review_only===false&&library.activation?.requested_by==='owner'&&library.activation?.tier==='dev')
+      || !Array.isArray(library.faces) || !library.faces.length || library.faces.length > 256 || !library.textures?.light
+      || !(library.textures.light.gpu_bytes_rgba8_mipmaps > 0)
+      || library.textures.light.gpu_bytes_rgba8_mipmaps > 5_600_000
+      || library.pages?.some(p => !p.textures?.full || p.textures.full.gpu_bytes_rgba8_mipmaps > 5_600_000)) return false;
+  kit.photoFaces = { ...library, url: new URL(library.textures.light.file, manifestURL).href };
+  return true;
+}
+
+export function attachChildPhotoLibrary(kit,library,manifestURL){
+  const checked={};
+  if(!attachPhotoLibrary(checked,library,manifestURL)||!library.faces.every(f=>f.population==='child'
+    &&f.texture_only===true&&f.age>=2&&f.age<18&&Object.keys(f.values??{}).length===0
+    &&f.base_body?.startsWith('child_')&&f.eyes?.centres_uv===null))return false;
+  kit.photoChildren=checked.photoFaces;return true;
+}
+
+/** Stable age-compatible assignment. Personal portraits and visitor-selected faces win. */
+export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null }) {
+  const child=Number.isFinite(age)&&age<18,P=child?kit?.photoChildren:kit?.photoFaces;
+  if (!P || own || pick || !Number.isFinite(age)) return null;
+  const candidates = P.faces.filter(f => (f.sex===sex||child&&sex==='either')
+    &&(child?f.population==='child'&&f.age>=2&&f.age<18&&f.age>=age-4&&f.age<=age+3:f.age>=18));
+  if (!candidates.length) return null;
+  const tint = kit.header.faces?.complexions?.[complexion] ?? [1, 1, 1];
+  const body = kit.header.faces?.person_tone_rgb?.[sex] ?? [.6, .3, .15];
+  const target = body.reduce((sum, v, i) => sum + v * tint[i] * [0.2126, 0.7152, 0.0722][i], 0);
+  const weighted = candidates.map(f => {
+    const tone = f.tone_rgb.reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+    return [f, Math.exp(-.5*((f.age-age)/(child?3:12))**2) * Math.exp(-.5*(Math.log2(tone/target)/.8)**2)];
+  });
+  let at = seededRandom(`photo-face-pilot:${key}`)() * weighted.reduce((sum,[,w])=>sum+w,0);
+  for (const [f,w] of weighted) if ((at -= w) <= 0) return f;
+  return weighted.at(-1)[0];
 }
 
 /**
@@ -124,7 +176,7 @@ export function likenessSkin(kit, variation) {
  * `lines` is what the face keeps of the drawn age lines, by the face's own age.
  */
 const LUMA = [0.2126, 0.7152, 0.0722], THIRDS = ['young', 'middle', 'old'];
-export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null }) {
+export function libraryFace(kit, { key, assetId, sex, age, complexion = null, own = false, skinOf = null, pick = null, faceOf = null }) {
   const F = kit?.header?.faces, body = F?.bodies?.[assetId];
   if (!F || !body || !kit.base || own || !Array.isArray(F.faces)) return null;
   // T-3644: a face the visitor chose for their own person (visitor-person.js): `body` is the
@@ -134,7 +186,8 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   if (chosen >= 0) return libraryEntry(kit, F, chosen, assetId, skinOf, body);
   const child = Number.isFinite(age) && age < F.ages.child_under;
   const third = !Number.isFinite(age) || age < F.ages.middle_from ? 0 : age < F.ages.old_from ? 1 : 2;
-  const wears = child || sex !== 'male' ? 'female' : 'male';
+  // T-3756: the visitor's Style 3 draws its Auto face from the other body's faces (`face_of`).
+  const wears = !child && (faceOf === 'male' || faceOf === 'female') ? faceOf : child || sex !== 'male' ? 'female' : 'male';
   const tint = F.complexions?.[complexion] ?? [1, 1, 1];
   // A kit made before `person_tone_rgb` falls back on the body's skin, as it then read.
   const given = F.person_tone_rgb?.[sex === 'male' ? 'male' : 'female'];
@@ -143,7 +196,9 @@ export function libraryFace(kit, { key, assetId, sex, age, complexion = null, ow
   const bell = (d) => Math.exp(-d * d / (2 * F.nearer_tone_likelier * F.nearer_tone_likelier));
   const freckles = Array.isArray(F.light_only_for) ? F.light_only_for : [];
   // The body's own skin first, then each face that may be worn, each with its likelihood.
-  const draw = [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * skin[k], 0) / tone))]];
+  // (Not for a face drawn from the other body's faces: the body's own skin would be the very
+  // face Style 1 wears, T-3756.)
+  const draw = wears === faceOf ? [] : [[-1, bell(Math.log2(LUMA.reduce((a, w, k) => a + w * skin[k], 0) / tone))]];
   F.faces.forEach((f, i) => {
     const younger = third - THIRDS.indexOf(f.age);
     if (f.sex !== wears || younger < 0 || younger > third) return;
@@ -288,7 +343,25 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
       else values[k] = v;
     }
   }
+  const photo = photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
+    own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn });
+  if (photo&&!photo.texture_only) for (const [k,v] of Object.entries(photo.values)) {
+    if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
+    else values[k] = v;
+  }
+  const photoBody = kit.header.faces?.bodies?.[record?.skin_of ?? assetId] ?? kit.header.faces?.bodies?.[assetId];
+  const photoRegistry=photo?.population==='child'?kit.photoChildren:kit?.photoFaces;
+  const page = photo && photoRegistry.pages?.[photo.page];
+  const photoLib = photo && photoBody ? {
+    url: photoRegistry.url, index: photo.index, id: photo.id, cols: photoRegistry.cols,
+    size_px: photoRegistry.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px,
+    gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])), lines: 0,
+    ...(page ? { detail: { url: new URL(page.textures.full.file, photoRegistry.url).href,
+      bytes: page.textures.full.gpu_bytes_rgba8_mipmaps, index: photo.page_index,
+      cols: page.cols, size_px: page.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px } } : {}),
+  } : null;
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
+    photoFace: photoLib ? photo : null,
     trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear,
     // T-3553: a standing collar worn lower on the neck than the body's own (`dress.collar`).
     collar: record?.dress?.collar ?? null,
@@ -296,7 +369,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     skin: face?.values && record?.skin ? record.skin : null,
     // ...or, with no fitted face, a face from the library (libraryFace): by the record's sex
     // and age, and the body's where the record has none; nothing of the body's skin.
-    lib: libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null }),
+    lib: photoLib ?? libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null, faceOf: record?.looks?.face_of ?? null }),
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
     even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
@@ -806,6 +879,7 @@ export function* applyVariationSteps(scene, kit, variation, { scope = 'full' } =
   if (like) scene.userData.chiLikenessSkin = like;
   // ...and a face from the library for a person with none of their own (libraryFace).
   else if (variation.lib) scene.userData.chiFaceSkin = variation.lib;
+  if (variation.photoFace) scene.userData.chiPhotoFace = variation.photoFace;
   // ...and the skin of the body they wear on every body they are drawn on (skinEven).
   if (!like && variation.even) scene.userData.chiSkinEven = variation.even.slice();
   // ...and who this is (a person's id, or an unnamed figure's own): human-skin.js draws an

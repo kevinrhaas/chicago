@@ -150,6 +150,7 @@ for (const scene of existsSync(path.join(REPO, 'data/sidecars')) ? readdirSync(p
   }
 }
 
+let photoFaceSheetProof;
 const TRANSFORMED = [
   { re: /^data\/liberties\.json$/,
     what: 'publish.sh removes JSON indentation from the liberty index; every parsed field and entry is retained',
@@ -301,6 +302,15 @@ const TRANSFORMED = [
         + 'tools/share_glb_sheets.mjs (T-3453); a PNG re-deflated losslessly when that is smaller (T-3463)',
     gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs, '
         + 'and a re-deflated PNG draws its source\'s pixels with its source\'s other chunks (samePngPixels).' },
+  { re: /^data\/humans\/web\/photo_faces\/[^/]+\/hair_shell_(?:full|light)\.glb$/,
+    what: 'portable photo-face scalp geometry shares identical streams across libraries through '
+        + 'tools/share_glb_sheets.mjs --dir data/humans/web --streams; source geometry remains embedded for portable review',
+    gate: 'checkSheets here reads every published human and nested scalp back through its shared buffers, '
+        + 'asserting source JSON and every bufferView byte, sheet hashes and reuse counts',
+    verify: () => {
+      photoFaceSheetProof ??= checkSheets(SITE, path.join(REPO, 'assets/humans/web'), 'data/humans/web');
+      return photoFaceSheetProof.problems.length ? photoFaceSheetProof.problems.join('; ') : null;
+    } },
   // T-3463: the browser fixture's readings and the dress recipes are not shipped (publish.sh).
   { re: /^data\/humans\/.+\.json$/,
     what: 'T-3548: human runtime JSON ships without indentation; authoring-only variation inputs remain outside the mirror',

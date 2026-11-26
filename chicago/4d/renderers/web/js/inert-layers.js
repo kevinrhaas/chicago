@@ -42,7 +42,7 @@ export const inertStreetTrees = ({ mode = 'summer', detail = 'full' } = {}) => (
   group: named('street-trees'),
   stats: { trees: 0, young: 0, triangles: 0, drawCalls: 0, mode, detail, crowns: 0, context: 0 },
   records: [],
-  pickAt: () => null, update() {}, setMode: async () => {}, setDetail: async () => {}, dispose() {},
+  pickAt: () => null, update() {}, setMode: async () => {}, setDetail: async () => {}, setBurnt: () => 0, dispose() {},
 });
 
 /** street-furniture.js createStreetFurniture: the gas lamps and hydrants. */

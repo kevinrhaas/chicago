@@ -351,4 +351,30 @@ async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, fra
   // The owner, 2026-11-16: the lying figures were stiff, arms at the sides and legs straight.
   for (const k of ['prone', 'lie', 'fallen']) assert(POSTURES[k].limbs && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('upperarm')) && Object.keys(POSTURES[k].limbs).some((n) => n.startsWith('thigh')), `${k}: the arms and legs are laid, not left straight`);
 }
+// T-3754 (owner, 2026-11-26: "people appear to be missing from boats"): a castmate walks down
+// to a boat and sits in it. The gait layer writes the pelvis too; humans.js takes back life's
+// last frame first (`unwind`), or the gait took the seated pelvis for the clip's and the seat's
+// drop was laid on again each frame once the walk ended (the pelvis 2.5 m under the root).
+{
+  const gaitSrc = await js('human-gait.js');
+  const { createHumanGait } = await import(data(gaitSrc));
+  const sit = { kind: 'sit', w: 1 };
+  for (const [first, clip] of [['standing', 'idle'], ['walking', 'walk']]) {
+    const r = await rig('c4d_fixture', 1, clip);
+    const life = createHumanLife({ id: 't3754', scene: r.scene }), gait = createHumanGait({ id: 't3754', scene: r.scene });
+    const pelvis = r.bone('pelvis'), seated = [];
+    for (let i = 0; i < 240; i++) {
+      const state = i < 60 ? first : 'standing';
+      life.unwind();
+      r.mixer.update(1 / 30);
+      gait.apply(1 / 30, { state, root: r.root, moved: state === 'walking' ? 0.04 : 0 });
+      life.apply(1 / 30, { state, root: r.root, gait, posture: i >= 30 ? sit : null });
+      r.root.updateMatrixWorld(true);
+      if (i >= 100) seated.push(world(pelvis).y - r.root.position.y);
+    }
+    const lo = Math.min(...seated), hi = Math.max(...seated);
+    assert(lo > 0.05 && hi < 0.2, `T-3754 ${first}: seated after the walk, the pelvis stays on the seat (${lo.toFixed(3)}..${hi.toFixed(3)} m)`);
+    console.log(`T-3754 ${first} then seated: pelvis ${lo.toFixed(3)}..${hi.toFixed(3)} m over the root: PASS`);
+  }
+}
 console.log('human life: PASS');

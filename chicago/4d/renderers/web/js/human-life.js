@@ -364,6 +364,14 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     get bound() { return bound; },
     /** T-3553: the pelvis's drop under a held posture this frame (0 standing). */
     get sink() { return sunk; },
+    /**
+     * T-3754: take back what this layer wrote last frame, before the clip and the gait layer
+     * (humans.js calls it ahead of the mixer). The gait layer, which also writes the pelvis and
+     * the legs, then finds its own output and goes back to the clip's; otherwise it took this
+     * layer's seated pelvis for the clip's and the seat's drop was laid on again each frame,
+     * once the walk that brought a castmate to a boat ended (Kinzie sank out of his pirogue).
+     */
+    unwind() { if (bound) rebase(); },
     get bones() { return Object.keys(bones); },
     bind,
     /** A small nod, as with a greeting (human-actions.js asks for it). */

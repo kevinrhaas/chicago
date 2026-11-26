@@ -1,3 +1,21 @@
+Owner-approved photo faces are enabled by default on dev in all four years (T-3767/T-3768): 256 adults plus sixteen toddler/child/teenager sources, preserving existing child head and body proportions. Adult and child crowd atlases share one nearby detail page, about 12 MiB of added face textures. Personal likenesses retain priority; real low-power GPU timing remains unmeasured.
+
+## T-3761 — 256 generic photo faces with bounded nearby detail
+
+The owner expanded the sixteen-face pilot to 256. The library, paged review and generic-adult
+preview share a compact crowd atlas and at most one nearby detail page. Specific historical
+photo imports are next; inspect these generic faces and measure the complete town on target
+hardware before a default rollout. See [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md).
+
+## T-3746 — Review sixteen photo faces before wider use
+
+The review-only sixteen-face pilot and single-photo importer are implemented; see
+[PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md). Review visible likenesses, including hair,
+and record a crowd run on target hardware before assigning faces throughout the town.
+Sixty-four entries fit the same recipe format; a broad rollout needs bounded nearby
+atlas pages so memory does not grow with the whole population. Historical portraits
+take precedence over fictional samples.
+
 ## T-3678 — More Make your case mysteries (19 November 2026)
 
 A case table now drives Make your case; four more completed jaunts offer a case from their
@@ -12,6 +30,12 @@ ground you stand on where the far year has it, on the existing moment link and t
 page's own bounds and obstruction checks; no extra world is loaded. The guide's three
 questions (T-3670): one settled answer each, every option drawn from the jaunt itself,
 unlimited retry, no score. [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) has the detail.
+
+## T-3753 — Jaunt stops, loading rings, the look up (26 November 2026)
+
+Stops lists a jaunt's route and jumps to any stop; keys spin while a jaunt or a stop's scene
+loads; desktop mouse look no longer sticks after a jaunt turns the view. Next, only if asked:
+a ring for the restored-outing Continue (needs its work split across a frame).
 
 ## T-3679 — Play a part (19 November 2026)
 

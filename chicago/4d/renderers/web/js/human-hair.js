@@ -919,6 +919,9 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
   if (!root) return null;
   let style = given ?? hairFor(person, year);
   if (!style) return null;
+  // The photograph already contains brows and lid margins. Growing a second
+  // dark set over them makes the eyes look outlined; keep other facial hair.
+  if (root.userData?.chiPhotoFace) style = { ...style, facial: (style.facial ?? []).filter(name => !/^(brow|lash)/.test(name)) };
   // T-3553: a figure that wears its own skin sheet (human-skin.js) has its brows, lashes,
   // moustache and beard in the pictures on it; cards grown over them would be a second set. Where the sheet
   // also says how far the hair stands out from the skin (`grow`), the skin itself is the hair,

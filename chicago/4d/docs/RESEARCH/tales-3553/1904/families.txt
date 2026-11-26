@@ -19,6 +19,7 @@ The Illinois Central runs along the lake behind us, and the trains go by day and
 
 ## s04-gm-fair
 roles: gentleman, lady, young_man, young_lady
+age: 18-
 title: The White City
 
 Eleven years ago, in the summer of 1893, Chicago held the World's Columbian Exposition in Jackson Park, and the whole world came to see it. Great white palaces around a lagoon, lit at night by electricity, more light than anybody had ever seen in one place. And Mr. Ferris's wheel, taller than any building in the city, turning slowly with a whole street car full of people in every car.
@@ -27,6 +28,7 @@ I went forty times. Everybody did. People came from every country in the world a
 
 ## s04-gm-mayor
 roles: gentleman
+age: 28-
 title: The last night of the fair
 
 On the last week of the fair, Mayor Carter Harrison gave a speech to the visiting mayors of America, and said Chicago had shown the world what it could do. That evening a young man came to his front door on Ashland Avenue, asked to see him, and shot him three times.
@@ -35,6 +37,7 @@ The fair's closing ceremonies were cancelled. Instead of fireworks, there was a 
 
 ## s04-gm-haymarket
 roles: gentleman
+age: 34-
 title: The bomb in the Haymarket
 
 In May of 1886 the workingmen of Chicago struck for an eight hour day. There was a meeting in the Haymarket on Randolph Street, anarchists speaking from a wagon. When the police marched in to break it up, someone threw a bomb into their ranks. Seven policemen died of it, and more people in the shooting afterwards.
@@ -51,6 +54,7 @@ President Cleveland sent the army. There were soldiers camped on the lake front 
 
 ## s04-gm-board-of-trade
 roles: gentleman, young_man
+age: 22-
 title: The wheat corner
 
 Seven years ago a young man named Joe Leiter, son of old Levi Leiter, tried to corner the wheat market at the Board of Trade. He bought every bushel of wheat he could find, and for months he drove the price up and up, and everybody said he was a genius.
@@ -58,7 +62,8 @@ Seven years ago a young man named Joe Leiter, son of old Levi Leiter, tried to c
 But old Phil Armour was selling against him, and Armour sent ships into the ice of Lake Superior with tugs to break a channel and bring down the wheat from the Northwest in the dead of winter. When spring came there was wheat everywhere, and the price collapsed, and young Leiter lost millions. His father paid. I watched it all from the gallery. That is the Board of Trade. Fortunes in an afternoon, and gone by the next.
 
 ## s04-gm-skyscraper
-roles: gentleman, young_man
+roles: gentleman
+age: 40-
 title: Buildings that touch the sky
 
 When I was a young man, a building of five storeys was tall. Now there are buildings downtown of sixteen, twenty, twenty-two storeys, built on frames of steel, with the walls hung on them like curtains, and elevators to carry you to the top in a minute.
@@ -67,6 +72,7 @@ The Masonic Temple has a roof garden twenty storeys up, where you can look out o
 
 ## s04-gm-commute
 roles: gentleman
+age: 25-
 title: Going downtown
 
 Every morning at half past eight my carriage takes me downtown to my office on LaSalle Street, a mile and a half, and every evening at half past five it brings me home. Some of my neighbours take the cable car, which runs up State Street, or the elevated railway, which runs down the alley west of State Street.
@@ -75,6 +81,7 @@ My father walked to work, along the lake shore, with his dinner in a pail. I cou
 
 ## s04-gm-civil-war
 roles: gentleman
+age: 58-72
 title: When I was a soldier
 
 I was nineteen when the war began, and I went with an Illinois regiment, and I was at Shiloh and at Vicksburg. I have not talked about it much since. Most of the men on this street my age did not go. They hired substitutes, or they were too busy making money. That was allowed.
@@ -82,7 +89,8 @@ I was nineteen when the war began, and I went with an Illinois regiment, and I w
 On Decoration Day I go out to the cemetery with the old soldiers of my post and we lay flowers on the graves. There are fewer of us every year. Last month there were eleven. When the young men talk about war, about Cuba and the Philippines, I listen and say nothing. They had a short war. Ours was four years.
 
 ## s04-gm-spanish-war
-roles: gentleman, young_man
+roles: gentleman
+age: 42-
 title: The war with Spain
 
 Six years ago, when the Maine was blown up in Havana harbour, every young man in Chicago wanted to go and fight Spain. The First Illinois went to Cuba and were at the siege of Santiago, and more of them died of the fever than of the Spanish bullets.
@@ -99,6 +107,7 @@ So they dug a great canal from the South Branch to the Des Plaines River, twenty
 
 ## s04-gm-convention
 roles: gentleman, young_man
+age: 16-
 title: The convention last week
 
 Last week the Republican party held its national convention at the Coliseum on Wabash Avenue and nominated President Roosevelt for another term. The city was full of delegates and bands and banners. Every hotel was booked, every saloon was full, and you could not get a cab for love or money.
@@ -138,7 +147,7 @@ Every lady on this street has an at home day, when she receives callers in the a
 It sounds very silly, and it is. But it is also how everything on this street is done. A marriage, a charity, a quarrel, a reconciliation: all begin with a card on a tray. If a lady leaves a card with the corner turned down, she came herself. If she does not come back, something is wrong. You can read the whole history of Prairie Avenue in the cards on my hall table.
 
 ## s04-ld-dress
-roles: lady, young_lady
+roles: wife
 title: Dressing for the day
 
 A lady on this street changes her clothes four or five times a day. A morning dress for breakfast and the household. A walking dress to go out. A visiting dress for calls. A tea gown for the afternoon at home. A dinner dress at night, cut low, with jewels. Each with its own hat and gloves and shoes.
@@ -146,7 +155,7 @@ A lady on this street changes her clothes four or five times a day. A morning dr
 My maid spends half her day dressing me and undressing me and putting my things away. I spend a great deal of money at Field's and at the dressmaker's. My husband says I could clothe an army on what I spend in a year. I tell him an army does not dine with the Fields.
 
 ## s04-ld-hull-house
-roles: lady, young_lady
+roles: wife
 title: Miss Addams on Halsted Street
 
 Fifteen years ago Miss Jane Addams took an old house on Halsted Street, in the middle of the poorest ward on the West Side, and went to live there among the immigrants: Italians, Greeks, Russian Jews, Bohemians. She calls it Hull House. She runs a kindergarten, a night school, a bath house, a theatre, a public kitchen, and a club for working girls.
@@ -170,7 +179,7 @@ Every lady on this street complains about servants. A good cook is impossible to
 I have had the same cook for eleven years. I pay her more than any cook on the Avenue, and I give her two afternoons a week instead of one, and I have never once gone into her kitchen without knocking. The other ladies think I spoil her. My dinners are the best on the street. I have no servant problem at all.
 
 ## s04-ld-women-vote
-roles: lady, young_lady
+roles: wife
 title: The vote
 
 There are women in Chicago now who want the vote. They hold meetings, they march, they write to the newspapers. My husband says it is ridiculous. A woman's place is in the home, he says, and her influence is through her husband and her sons.
@@ -187,7 +196,8 @@ Thirteen years ago some of the men of Chicago persuaded Mr. Theodore Thomas to c
 The orchestra has always played in the Auditorium, which is too big for it. So this year the city raised the money to build him a hall of his own, on Michigan Avenue, and they are building it now. Mrs. Glessner has been one of his truest friends. Go and see her. She will tell you about the evenings Mr. Thomas spent at her table, talking music until midnight.
 
 ## s04-ld-bicycle
-roles: lady, young_lady
+roles: lady
+age: 50-
 title: The bicycle
 
 Ten years ago, every lady in Chicago learned to ride a bicycle. It was a madness. We wore divided skirts and shirtwaists and straw hats, and rode out along the boulevards in parties, twenty or thirty of us, ringing our bells. Some of the gentlemen were scandalised. Some of the clergy preached against it.
@@ -195,7 +205,7 @@ Ten years ago, every lady in Chicago learned to ride a bicycle. It was a madness
 I learned at forty-two, on the gravel paths in Washington Park, with my coachman running alongside to catch me. I fell off eleven times. The twelfth time I did not fall, and I rode all the way to the lake and back. I had never been anywhere by myself before, without a carriage or a maid or a husband. It was the most free I have ever felt.
 
 ## s04-ld-mourning
-roles: lady
+roles: widow
 title: In mourning
 
 When my husband died, I wore black crêpe for a year, and black silk for a year after that, and grey and lavender for six months more. For the first year I did not go out in society at all, and I received only family. My writing paper had a black border an inch wide.
@@ -219,7 +229,7 @@ I have a little garden behind this house, between the back porch and the stable,
 The soot is terrible for roses, and the lake wind is worse. I wash the leaves by hand. My friends think I am eccentric. In the evenings, when the trains have gone by and the dust settles, I sit out there with a book and the smell of the roses, and for a quarter of an hour I could be anywhere. That is enough. That is what a garden is for.
 
 ## s04-ld-telephone
-roles: lady
+roles: wife
 title: Talking to my sister in New York
 
 Last month, for the first time, I talked to my sister in New York by long distance telephone. The operator called me back at three o'clock, and there was her voice, very small and crackling, from a thousand miles away. We had not heard each other's voice in four years.
@@ -228,6 +238,7 @@ We talked for three minutes, which cost my husband a fortune. Neither of us coul
 
 ## s04-ym-yale
 roles: young_man
+age: 19-23
 title: Home from college
 
 I have just come home from my third year at Yale, and I am bored to death. In New Haven there was football and rowing and the clubs and the night before the game against Harvard when the whole town went mad. Here there is my mother's at home day and dinners with old men who talk about wheat.
@@ -236,6 +247,7 @@ My father wants me to come into the firm when I graduate. He started as a clerk 
 
 ## s04-ym-automobile
 roles: young_man
+age: 18-
 title: My automobile
 
 I bought an automobile in the spring, a little Winton with a two cylinder engine and a brass horn. It goes twenty miles an hour on a good road. The roads around Chicago are mostly not good. I have been stuck in the mud on the way to Lake Forest four times and been pulled out by a farmer's horse each time. The farmers laugh at me.
@@ -244,6 +256,7 @@ My father refuses to ride in it. My mother rode once, in a veil and goggles, and
 
 ## s04-ym-football
 roles: young_man, child
+sex: m
 title: The big game
 
 Last Thanksgiving I went to see the University of Chicago play Michigan at Marshall Field. Not the man, the field, named for him because he gave the land. Thousands of people in the stands, with flags and horns, in the cold. Michigan had not lost a game in three years.
@@ -252,6 +265,7 @@ Mr. Stagg's boys fought them for every yard. It was the hardest football I have 
 
 ## s04-ym-settlement
 roles: young_man, young_lady
+age: 18-
 title: A summer at the settlement
 
 This summer I am living at the university's settlement near the stockyards, back of the yards, as they call it. Miss McDowell runs it. I teach English to Polish and Lithuanian boys in the evening, and I see how the people live who work in the packing houses.
@@ -260,6 +274,7 @@ Six families in a frame house built for one. No water but a pump in the yard. Th
 
 ## s04-ym-clerk
 roles: young_man
+age: 18-30
 title: My first job
 
 I started work in my father's bank on the first of June, as a junior clerk, at twelve dollars a week. My father said I must learn the business from the bottom, as he did. So I sit at a high desk in a back room on LaSalle Street and copy figures into ledgers for nine hours a day.
@@ -268,14 +283,16 @@ The other clerks know who my father is. They are very polite to me and they do n
 
 ## s04-ym-st-louis
 roles: young_man, young_lady
+age: 14-26
 title: Going to the fair at St. Louis
 
 Next week my brother and I are going down to St. Louis on the train to see the World's Fair, the Louisiana Purchase Exposition. They say it is bigger than our fair in 1893. They say there are palaces of electricity and machinery and agriculture, and a great wheel, and villages of people from all over the world, the Philippines and Africa and Japan, and Mr. Ferris's own wheel, carried down from Chicago and set up again.
 
-My father says nothing will ever be as fine as the White City. He says St. Louis is only copying Chicago. Maybe. But I was only a boy in 1893, and I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long.
+My father says nothing will ever be as fine as the White City. He says St. Louis is only copying Chicago. Maybe. But I was only small in 1893, and I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long.
 
 ## s04-ym-car-barn
 roles: young_man, gentleman
+age: 17-28
 title: The boys who robbed the car barn
 
 Last August four young men robbed the car barn of the Chicago City Railway, out at Sixty-first Street, and shot two clerks dead for two thousand dollars of the payroll. They called them the car barn bandits. They were about my age. They had been to school, some of them. One of them had a mother who took in sewing.
@@ -284,6 +301,7 @@ The police chased them all over the country until the winter, and at last they f
 
 ## s04-yl-coming-out
 roles: young_lady
+age: 17-23
 title: My coming out
 
 Last winter I came out, which means I was presented to society at a ball my mother gave for me at the Auditorium, with four hundred guests and an orchestra and banks of white roses. I wore white satin from Paris, and I danced every dance, and I did not sleep for two days.
@@ -292,6 +310,7 @@ Since then I have been to forty dances, and twenty dinners, and a hundred teas. 
 
 ## s04-yl-college
 roles: young_lady
+age: 15-25
 title: I want to go to college
 
 My brother is at Harvard. My cousin is at Yale. I wanted to go to Vassar, or Smith, or to the new university here, where women study alongside the men. My father said no. A girl does not need college, he said. A girl needs a husband and a household.
@@ -300,6 +319,7 @@ So I am taking lessons at home. French, music, drawing, a little history from a 
 
 ## s04-yl-art-institute
 roles: young_lady
+age: 16-
 title: Lessons at the Art Institute
 
 I take classes at the Art Institute three mornings a week, in the school behind the galleries. We draw from plaster casts, and from life. Not from the nude, of course, not the ladies' class. From a man in a suit, or a woman in a dress, sitting very still.
@@ -316,6 +336,7 @@ I wore it to church this morning and three ladies behind me could not see the mi
 
 ## s04-yl-tennis
 roles: young_lady, young_man
+age: 14-35
 title: Tennis on the lawn
 
 On summer afternoons we play lawn tennis on the court behind the Keiths' house, or at the club. The girls play in long white skirts and shirtwaists with sleeves to the wrist, and straw hats tied on with veils. It is very hot. We play anyway.
@@ -324,6 +345,7 @@ I am the best player on the Avenue, man or woman. The young men do not like it. 
 
 ## s04-yl-engagement
 roles: young_lady
+age: 18-35
 title: My engagement
 
 I am engaged. He is a lawyer, twenty-eight years old, from Boston, with a moustache and a good income and very kind eyes. We met at a dinner last autumn and he wrote to me every week all winter. In May he asked my father, and my father said yes, and then he asked me, and I said yes.
@@ -332,6 +354,7 @@ We are to be married in October, at Second Presbyterian, and we will live on the
 
 ## s04-yl-diary
 roles: young_lady
+age: 17-25
 title: My diary
 
 I have kept a diary since I was ten years old. Every night before bed I write in it: what I did, who I saw, what they said, what I thought about it. I have nine volumes now, bound in red leather, in a locked drawer in my desk.
@@ -364,6 +387,7 @@ I learn reading and writing and sums and geography and French and the piano. I a
 
 ## s04-ch-dancing-school
 roles: child
+sex: f
 title: Dancing school
 
 On Saturday mornings I go to dancing school with all the other children of the street, in a hall downtown, with a master in a tail coat who plays the violin and counts out loud. One, two, three. One, two, three. Point your toe.

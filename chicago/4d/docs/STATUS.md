@@ -1,3 +1,81 @@
+Owner-approved photo faces are enabled by default on dev in all four years (T-3767/T-3768): 256 adults plus sixteen toddler/child/teenager sources, preserving existing child head and body proportions. Adult and child crowd atlases share one nearby detail page, about 12 MiB of added face textures. Personal likenesses retain priority; real low-power GPU timing remains unmeasured.
+
+## T-3761 — 256 fictional photo faces for the generic-adult preview
+
+The catalog preserves the original sixteen and adds 240 fictional adults, 128 men and 128
+women in all. A sixteen-page gallery shows source/before/fitted heads, with softer measured
+eyes and photographed front hair. Town face textures are capped at 10.67 MiB including
+mipmaps: one compact crowd sheet plus one resident-or-loading nearby detail page. Late or
+failed detail loads keep the same crowd face. The gallery loads sixteen heads at a time.
+Body LOD and visible-person limits remain the existing renderer’s. These are added texture
+bounds, not proof of whole-town performance. Real low-power GPU timing and default rollout
+remain outstanding; historical portraits, visitor choices and children retain priority.
+
+## T-3746 — Sixteen photo-face samples for review (25 November 2026)
+
+A separate review page (`tools/photo_face_review.html`) compares sixteen fictional source
+portraits with the existing skin and fitted result on the existing portable bodies.
+`tools/photo_face_library.py --photo` accepts a registered historical photograph and
+prepares the same review format; existing residents and likeness records are untouched.
+Photographed front hair is projected onto the scalp. Unseen strands take a measured
+source colour; detached hat plumes are hidden with the hats. Profile depth, unseen hair
+volume, bodies, clothing and ears remain reconstructed. Photo eye openings are filled
+with adjacent lid skin so the separate eyeballs do not acquire painted pupils.
+Iris detail is retained; source pupil positions, iris radii and measured lid openings
+guide bounded eye corrections. Sclera tone and corneal glare are softened. Attested
+historical eye colours keep priority. All sixteen render together in the Light review.
+
+All sixteen share two 512-square atlases on Light (2.67 MiB RGBA8 including mipmaps) or
+two 1024-square atlases on Full (10.67 MiB). These are added face/hair texture bounds,
+not whole-scene memory. The review exports hardware-labelled crowd measurements.
+Low-power-PC whole-scene performance and historical likeness sign-off remain unverified.
+The opt-in `photoFaces=pilot` walk preview now applies source-shaped heads and softer eyes
+to existing generic adults through one 512-square atlas (1.33 MiB), while preserving personal
+portrait fits, visitor choices, recorded complexions and the existing hair layer. Children
+keep the ordinary library until calibrated. The scene-assignment test covers all 1,234 drawn
+people: 1,048 generic adults get photos on 1,076 bodies; 160 child and 27 personal-face
+assignments are protected. No default assignments change. See PHOTO-FACE-PILOT.md.
+
+
+## T-3764 — Where and when? in 1812 and 1871 (26 November 2026)
+
+Owner request, 26 November 2026: "Photo hunt: more picture sets. 1812 and 1871 have none yet."
+Both years now have a set, held to T-3677's rule (every camera solved, on safe ground in that
+year's world, eye at most 10 m up, public domain or no known restrictions).
+
+- **1812: four prints of the Kinzie house.** Eastman's 1854 steel engraving after Schoolcraft's
+  1820 sketch and the Chicago Magazine's 1857 wood engraving stand on dry ground. Lossing's 1869
+  "Kinzie Mansion and Fort Dearborn" and the Sarony plate in Currey (1912) were drawn from the
+  river: their solved spots are on the water (4.3 m and 1.6 m deep), so those rounds are
+  `afloat`. The round says so before the guess ("Take a boat out, and make your guess from the
+  water"); at a helm the walker stands where the boat is, so the guess is read from the boat, and
+  the reveal's Visit says to take a boat instead of walking into the river. A bark canoe and the
+  Kinzie Mackinaw boat both float at either spot without touching the fort's wharf
+  (`boat-pilot.js blockedAt`). Cram 1893, the Teich postcard and Gemmell (eyes 18-66 m up) and
+  Currey's Hardscrabble (off the modelled ground) stay out.
+- **1871: three photographs**, each one half of a stereograph card: Carbutt's Chamber of
+  Commerce (1866-71), Greene's Water Works and Melander & Henderson's Ogden house (both just after
+  the fire). Every one is checked in the published 1871 town with the hunt's own Visit checks
+  (bounds, water, route planner, house barriers): all three stand on open ground. The Court
+  House, the Tremont House and Mountford's O'Leary cottage are also solved at street level, but
+  each stands 5.5-6 m inside a footprint the pre-fire town builds (the O'Leary view was made from
+  lots the fire had cleared), so the planner blocks the spot: left out rather than offered as a
+  place no one can stand.
+- The 1871 set reads its own words ("photos", "Photograph 2 of 3"); a stereograph half is "a
+  photograph, one half of a stereograph card". Each year keeps its own `year=` link, seed, daily
+  order and saved record; 1904's and 1835's are unchanged. A session now refuses rounds that are
+  not its own year's pictures, since two years can hold sets of the same size.
+
+The copies the cameras were solved on were not held. Ten are now held in kevinrhaas/chicago-images
+(display and thumbnail, 20 files), each with a library record
+(`prairie_1904_v1/research/images/stream-photo-hunt-1812-1871-references.json`) whose
+`reference_views` and `original_sha256` tie it to its camera, as T-3677's Green Tree copies are;
+the three 1871 pictures left out of the hunt keep their held copies on their cards. No camera,
+match record or source record changed. Checked: `test_photo_hunt.mjs` (every set; afloat spots
+on water, walked spots dry, on the year's own heightfield), `test_photo_hunt_view.mjs` (each year
+at 390x780 and 1280x800, the afloat hint and Visit) and a probe of every spot in the published
+1812 and 1871 towns, zero pageerrors.
+
 ## T-3709 — the 1835 phone's js heap back to 100 MB (20 November 2026)
 
 T-3708 found the phone's js heap at 130 MB against 100 on main's 2026-11-17 run, and nobody
@@ -23,6 +101,42 @@ the file's rule the 1835 lines come down: phone 600 -> 575 MiB, desktop 1500 -> 
 (`docs/measurements/T-3709-memory-1835.json`). The kept-geometry self-test reads 667.7 MB, still over
 575. What is left in the snapshot's duplicates is small and spread out (the registry's
 remaining 2.7 MB of strings fewer than three records share, enclosures 0.9, population 0.7).
+
+## T-3753 — jump to any jaunt stop, loading rings, the stuck look up (26 November 2026)
+
+The owner, 2026-11-26, three items of his jaunt list: jump straight to a stop, a spinner on
+the play and navigation keys while a jaunt or scene loads, and why you sometimes cannot look
+up during a jaunt.
+
+- **The look up.** The desktop backend (`controls/pointerlock.js`) points three's
+  `PointerLockControls` at a throwaway rig and reports the rig's turn each frame. The rig kept
+  its own pitch, clamped at ±79.2°, while the jaunt turned the walker's view for the visitor
+  (arrival framing, glides, a flight's pitch to level), which never touched the rig. Look up
+  60° at a house, be levelled on the way to the next stop, and the rig still read 60°: the
+  mouse stopped answering upward 19° above level, until the visitor looked down far enough to
+  unwind it. The rig is now levelled every frame, so its clamp bounds only one frame's turn and
+  the walker's ±85° is the one limit. `test_keyboard_ownership.mjs` drives the real backend:
+  60° up, then 30° more answers 30° (19.2° before). Touch look was never affected (pure deltas).
+- **Stops.** `jaunts.js` `routeStops(state)` is the route the visitor is on: the stops already
+  on it, then the ones it goes on to by each stop's own way on (and the choice picked at the
+  stop they stand at); a stop that needs a choice ends what is known (`open`). `JUMP` goes there
+  as Skip the ride goes (instant); ahead, each stop between is passed as Next stop passes it, so
+  its decision events replay to the same place. The panel's new Stops key (Back · Stops ·
+  Jaunts · End · Next stop) opens the list in place of the story; Esc, × and a pick close it.
+  Of 276 jaunt files, 15 (three jaunts, every telling) branch; theirs list up to the choice.
+- **Loading rings.** The jaunt menu's Start, and Replay / Restart, spin while `start()` is
+  pending. At a stop, while the stage's cast still has figures loading (`jaunt-stage.js`
+  `loading`) or the guide is on the way (`hostWaiting`), the key that brought the visitor
+  (Next stop, Back or Stops; Next stop after a walk in) spins, capped at 20 s a stop; Listen
+  spins while its voice is still arriving (`narration.buffering`). CSS transform rings, so they
+  keep turning while the main thread builds; reduced motion breathes instead.
+- **An empty box.** `.jaunt-panel .jaunt-key` (display: flex) outranked `.jaunt-controls
+  [hidden]`, so the hidden Pause narration key drew an empty bordered box under the pace
+  whenever nothing was read aloud. Hidden keys are hidden again.
+
+Not done: a Continue of a restored outing is synchronous (it stands the visitor at the stop in
+one call), so its ring cannot paint before the work; the Errands "4 of 6" count is another
+thread's.
 
 ## T-3708 — five memory ceilings re-argued after the 2026-11-20 promotion (20 November 2026)
 

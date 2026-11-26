@@ -2720,14 +2720,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2027_prairie"
     },
-    "house_2027_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2027_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 101024,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "0581c152e3570e92613e7c0071edc793a25100361a7e509b9dfe2fd904b3f926",
+      "bytes": 126328,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "564add1631947745a91ce8b8f8349f78c729abb29b00929e24109cd2bc364f22",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "house_2027_prairie_coach_house"
     },
     "house_2032_calumet__draft_1904.glb": {
@@ -2933,9 +2933,9 @@
     "house_2123_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8747524,
+      "bytes": 8741524,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "07d1b5411fb4419fbb720b67aa970464decc578dd9dc41ce37bc0bfd5ffa0e90",
+      "inputs_sha256": "dfcce3f0fad6bd8d94f2f9bc410ad78fb44dabcb20dee5f188330e3640d05325",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2123_prairie"
@@ -10394,7 +10394,7 @@
       "baked_ao": false,
       "bytes": 20666808,
       "generator": "generators/city_1871_emit.py",
-      "inputs_sha256": "38c581421e09aab569d6225010e8be2ccd1cbd6da263402713f9f96c1019966f",
+      "inputs_sha256": "0cc516fb1703e63bf6096fc78dff5d6fa72e9c574a9f12fc46eec57a2223824f",
       "kind": "generated",
       "terrain_epoch": "e1871_prefire"
     },
@@ -10586,7 +10586,7 @@
       "baked_ao": false,
       "bytes": 1784,
       "generator": "generators/city_1871_emit.py",
-      "inputs_sha256": "38c581421e09aab569d6225010e8be2ccd1cbd6da263402713f9f96c1019966f",
+      "inputs_sha256": "0cc516fb1703e63bf6096fc78dff5d6fa72e9c574a9f12fc46eec57a2223824f",
       "kind": "generated",
       "terrain_epoch": "e1871_prefire"
     },
