@@ -321,10 +321,10 @@ function buildBackCollar(lapels, body, shirt, lod, tops = null) {
  * groove (two narrow faces turned toward each other) laid just over the cloth in the coat's
  * own mesh and colour, so the light breaks along it as along a real seam. Found by rays from
  * the bind skeleton (shoulder joints, neck) onto the coat; a seam stops where the coat ends.
- * Near level only. (Armholes were tried and left out: the sleeve head is too uneven drawn for a
- * ray from the arm to find one clean line round it.) */
+ * Near level only. Armholes are found from the coat's own skin, not by rays (the sleeve head is
+ * too uneven drawn for a ray from the arm to find one clean line round it). */
 export const SEAMED = /(frock_coat_body|coat_body|tailcoat_body)_lod0$/;
-export const SEAM = Object.freeze({ half: 0.0016, lift: 0.0009, sink: 0.0004, tilt: 0.75, step: 0.008, gap: 0.03 });
+export const SEAM = Object.freeze({ half: 0.0016, lift: 0.0013, sink: 0.0004, tilt: 0.75, step: 0.008, gap: 0.03 });
 /** Front buttons of a frock coat, silk-covered like its facings: down the closing from the
  * lapels' break to the waist seam. */
 export const FRONT_BUTTONS = Object.freeze({ coat: /frock_coat_body(_lod\d+)?$/, lapels: /frock_coat_lapels(_lod\d+)?$/, silk: /four_in_hand_tie(_lod\d+)?$/,
@@ -343,11 +343,33 @@ function surfaceOf(mesh) {
   for (let i = 0; i < part.group.length; i++) memberOf[part.group[i]] = i;
   const geo = mesh.geometry, si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight, uv = geo.attributes.uv;
   const toByte = sw.normalized && sw.array.constructor === Uint8Array;
+  let tri = null;
   return {
     W,
     hit(o, d, far = 0.5) { const h = cast(o[0], o[1], o[2], d[0], d[1], d[2], far); return Number.isFinite(h) ? [o[0] + d[0] * h, o[1] + d[1] * h, o[2] + d[2] * h] : null; },
     at(p) { const g = near(p[0], p[1], p[2]); return g < 0 ? null : { g, n: [N[g * 3], N[g * 3 + 1], N[g * 3 + 2]], v: memberOf[g] }; },
     skin(v, SI, SW) { for (let k = 0; k < 4; k++) { SI.push(si.getComponent(v, k)); SW.push(toByte ? Math.round(sw.getComponent(v, k) * 255) : sw.getComponent(v, k)); } },
+    /** The skin under a point on the surface, blended over the triangle it lies on (a coarse
+     * level's nearest point can be a hand's breadth off and bend another way). */
+    skinAt(p, SI, SW) {
+      const g = near(p[0], p[1], p[2]); if (g < 0) { SI.push(0, 0, 0, 0); SW.push(toByte ? 255 : 1, 0, 0, 0); return; }
+      if (!tri) { tri = Array.from({ length: W.G }, () => []); for (let t = 0; t < W.tris.length; t += 3) for (let k = 0; k < 3; k++) tri[W.tris[t + k]].push(t); }
+      let best = null, bestOut = Infinity;
+      for (const t of tri[g]) {
+        const [a, b, c] = [W.tris[t], W.tris[t + 1], W.tris[t + 2]].map((q) => [W.P[q * 3], W.P[q * 3 + 1], W.P[q * 3 + 2]]);
+        const v0 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], v1 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]], v2 = [p[0] - a[0], p[1] - a[1], p[2] - a[2]];
+        const d00 = v0[0] * v0[0] + v0[1] * v0[1] + v0[2] * v0[2], d01 = v0[0] * v1[0] + v0[1] * v1[1] + v0[2] * v1[2], d11 = v1[0] * v1[0] + v1[1] * v1[1] + v1[2] * v1[2];
+        const d20 = v2[0] * v0[0] + v2[1] * v0[1] + v2[2] * v0[2], d21 = v2[0] * v1[0] + v2[1] * v1[1] + v2[2] * v1[2], den = d00 * d11 - d01 * d01 || 1e-12;
+        const y = (d11 * d20 - d01 * d21) / den, z = (d00 * d21 - d01 * d20) / den, x = 1 - y - z, out = -Math.min(0, x, y, z);
+        if (out < bestOut) { bestOut = out; best = [[W.tris[t], x], [W.tris[t + 1], y], [W.tris[t + 2], z]]; }
+      }
+      if (!best) { this.skin(memberOf[g], SI, SW); return; }
+      const acc = new Map();
+      for (const [q, w0] of best) { const w = Math.min(1, Math.max(0, w0)), v = memberOf[q]; for (let k = 0; k < 4; k++) { const b = si.getComponent(v, k), x = sw.getComponent(v, k); if (x > 0) acc.set(b, (acc.get(b) ?? 0) + w * x); } }
+      const top = [...acc.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4), sum = top.reduce((s2, e) => s2 + e[1], 0) || 1;
+      if (toByte) { const q = top.map((e) => Math.round(e[1] / sum * 255)); q[0] += 255 - q.reduce((s2, v) => s2 + v, 0); for (let k = 0; k < 4; k++) { SI.push(top[k]?.[0] ?? 0); SW.push(top[k] ? q[k] : 0); } }
+      else for (let k = 0; k < 4; k++) { SI.push(top[k]?.[0] ?? 0); SW.push(top[k] ? top[k][1] / sum : 0); }
+    },
     uv(v, UV) { UV.push(uv ? uv.getX(v) : 0, uv ? uv.getY(v) : 0); },
   };
 }
@@ -374,9 +396,75 @@ function seamRays(J, S) {
   return paths;
 }
 
+/** One seam's groove along `pts` (points on the coat), appended to the arrays; `closed` joins
+ * its ends. Skin rows are blended over the coat's triangle under each point, so the groove
+ * bends with the cloth (a nearest point's row let it dip in and out as a dashed line walking). */
+function groove(S, pts, A, closed = false) {
+  const C = SEAM, { P, N, UV, SI, SW, index } = A, base = P.length / 3, m = pts.length; let rows = 0;
+  for (let i = 0; i < m; i++) {
+    const p = pts[i], a = pts[closed ? (i - 1 + m) % m : Math.max(0, i - 1)], b = pts[closed ? (i + 1) % m : Math.min(m - 1, i + 1)], here = S.at(p);
+    const n = here ? here.n : [0, 0, 1], t = unit([b[0] - a[0], b[1] - a[1], b[2] - a[2]]), sv = unit(cross(n, t));
+    const nl = unit([n[0] - C.tilt * sv[0], n[1] - C.tilt * sv[1], n[2] - C.tilt * sv[2]]), nr = unit([n[0] + C.tilt * sv[0], n[1] + C.tilt * sv[1], n[2] + C.tilt * sv[2]]);
+    // Four points a row: outer left, inner left, inner right, outer right (inner pair shares a place).
+    const lift = (k) => [p[0] + n[0] * k, p[1] + n[1] * k, p[2] + n[2] * k];
+    const ol = lift(C.lift), mid = lift(C.lift - C.sink), or = lift(C.lift);
+    const sk = [], sw = []; S.skinAt(p, sk, sw);
+    for (const [q, nn, off] of [[ol, nl, C.half], [mid, nl, 0], [mid, nr, 0], [or, nr, -C.half]]) {
+      P.push(q[0] + sv[0] * off, q[1] + sv[1] * off, q[2] + sv[2] * off); N.push(...nn);
+      SI.push(...sk); SW.push(...sw); if (here) S.uv(here.v, UV); else UV.push(0, 0);
+    }
+    rows++;
+  }
+  const segs = closed ? rows : rows - 1;
+  for (let i = 0; i < segs; i++) { const a = base + i * 4, b = base + ((i + 1) % rows) * 4; index.push(a, a + 1, b, a + 1, b + 1, b, a + 2, a + 3, b + 2, a + 3, b + 3, b + 2); }
+  return rows;
+}
+
+/** Points along a run of cloth at an even step. */
+function evenStep(r, step) {
+  const pts = [r[0]]; let acc = 0;
+  for (let i = 1; i < r.length; i++) { acc += Math.hypot(r[i][0] - r[i - 1][0], r[i][1] - r[i - 1][1], r[i][2] - r[i - 1][2]); if (acc >= step) { pts.push(r[i]); acc = 0; } }
+  return pts;
+}
+
+/** Armholes: where the coat's cloth turns from the body's to the arm's (its skin half the arm's),
+ * a closed line round each shoulder, evened along itself and laid back on the cloth. */
+export const ARMHOLE = Object.freeze({ arm: /^(upperarm|lowerarm|hand)/, level: 0.5, even: 24, min: 0.25 });
+function armholes(S, coat) {
+  const W = S.W, part = W.parts[0], geo = coat.geometry, si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight, bones = coat.skeleton?.bones ?? [];
+  const memberOf = new Int32Array(W.G).fill(-1); for (let i = 0; i < part.group.length; i++) if (memberOf[part.group[i]] < 0) memberOf[part.group[i]] = i;
+  const armOf = (side) => { const a = new Float64Array(W.G), sfx = side > 0 ? '_l' : '_r'; for (let g = 0; g < W.G; g++) { const v = memberOf[g]; if (v < 0) continue; for (let k = 0; k < 4; k++) { const b = bones[si.getComponent(v, k)]; if (b && ARMHOLE.arm.test(b.name) && b.name.endsWith(sfx)) a[g] += sw.getComponent(v, k); } } return a; };
+  const out = [];
+  for (const side of [1, -1]) {
+    const a = armOf(side), L = ARMHOLE.level, seg = new Map(), pt = new Map();
+    const cut = (i, j) => { const k = i < j ? `${i}_${j}` : `${j}_${i}`; if (!pt.has(k)) { const f = (L - a[i]) / (a[j] - a[i]); pt.set(k, [0, 1, 2].map((d) => W.P[i * 3 + d] + (W.P[j * 3 + d] - W.P[i * 3 + d]) * f)); } return k; };
+    for (let t = 0; t < W.tris.length; t += 3) {
+      const v = [W.tris[t], W.tris[t + 1], W.tris[t + 2]], ks = [];
+      for (let e = 0; e < 3; e++) { const i = v[e], j = v[(e + 1) % 3]; if ((a[i] < L) !== (a[j] < L)) ks.push(cut(i, j)); }
+      if (ks.length === 2) { (seg.get(ks[0]) ?? seg.set(ks[0], []).get(ks[0])).push(ks[1]); (seg.get(ks[1]) ?? seg.set(ks[1], []).get(ks[1])).push(ks[0]); }
+    }
+    // The longest chain is the armhole.
+    const seen = new Set(); let best = [];
+    for (const k0 of seg.keys()) {
+      if (seen.has(k0)) continue;
+      const chain = [k0]; seen.add(k0); let cur = k0;
+      for (;;) { const nx = (seg.get(cur) ?? []).find((k) => !seen.has(k)); if (!nx) break; chain.push(nx); seen.add(nx); cur = nx; }
+      if (chain.length > best.length) best = chain;
+    }
+    if (best.length < 12) continue;
+    const loop = best.map((k) => pt.get(k).slice()), m = loop.length;
+    const closed = Math.hypot(...[0, 1, 2].map((d) => loop[0][d] - loop[m - 1][d])) < 0.02;
+    for (let it = 0; it < ARMHOLE.even; it++) { const T = loop.map((p) => p.slice()); for (let i = 0; i < m; i++) { if (!closed && (i === 0 || i === m - 1)) continue; const p0 = loop[(i - 1 + m) % m], p1 = loop[(i + 1) % m]; for (let d = 0; d < 3; d++) T[i][d] = 0.5 * loop[i][d] + 0.25 * (p0[d] + p1[d]); } loop.splice(0, m, ...T); }
+    // Back on the cloth: each point to the coat's surface under it, along the normal there.
+    const on = loop.map((p) => { const at = S.at(p); if (!at) return p; const n = at.n, h = S.hit([p[0] + n[0] * 0.02, p[1] + n[1] * 0.02, p[2] + n[2] * 0.02], [-n[0], -n[1], -n[2]], 0.04); return h ?? p; });
+    out.push({ pts: evenStep(on, SEAM.step), closed });
+  }
+  return out;
+}
+
 function buildSeams(coat, body) {
   const S = surfaceOf(coat), J = bindJoints(body), C = SEAM;
-  const P = [], N = [], UV = [], SI = [], SW = [], index = [];
+  const A = { P: [], N: [], UV: [], SI: [], SW: [], index: [] };
   let seams = 0;
   for (const path of seamRays(J, S)) {
     // Hits, then a resample at an even step along the cloth.
@@ -385,29 +473,10 @@ function buildSeams(coat, body) {
     const runs = []; let run = [];
     for (const h of hits) { if (h && (!run.length || Math.hypot(h[0] - run.at(-1)[0], h[1] - run.at(-1)[1], h[2] - run.at(-1)[2]) < C.gap)) run.push(h); else { if (run.length > 3) runs.push(run); run = h ? [h] : []; } }
     if (run.length > 3) runs.push(run);
-    for (const r of runs) {
-      const pts = [r[0]]; let acc = 0;
-      for (let i = 1; i < r.length; i++) { acc += Math.hypot(r[i][0] - r[i - 1][0], r[i][1] - r[i - 1][1], r[i][2] - r[i - 1][2]); if (acc >= C.step) { pts.push(r[i]); acc = 0; } }
-      if (pts.length < 3) continue;
-      const base = P.length / 3; let rows = 0;
-      for (let i = 0; i < pts.length; i++) {
-        const p = pts[i], a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)], here = S.at(p);
-        if (!here) continue;
-        const n = here.n, t = unit([b[0] - a[0], b[1] - a[1], b[2] - a[2]]), s = unit(cross(n, t));
-        const nl = unit([n[0] - C.tilt * s[0], n[1] - C.tilt * s[1], n[2] - C.tilt * s[2]]), nr = unit([n[0] + C.tilt * s[0], n[1] + C.tilt * s[1], n[2] + C.tilt * s[2]]);
-        // Four points a row: outer left, inner left, inner right, outer right (inner pair shares a place).
-        const lift = (k) => [p[0] + n[0] * k, p[1] + n[1] * k, p[2] + n[2] * k];
-        const ol = lift(C.lift), mid = lift(C.lift - C.sink), or = lift(C.lift);
-        for (const [q, nn, off] of [[ol, nl, C.half], [mid, nl, 0], [mid, nr, 0], [or, nr, -C.half]]) {
-          P.push(q[0] + s[0] * off, q[1] + s[1] * off, q[2] + s[2] * off); N.push(...nn);
-          S.skin(here.v, SI, SW); S.uv(here.v, UV);
-        }
-        rows++;
-      }
-      for (let i = 0; i + 1 < rows; i++) { const a = base + i * 4, b = a + 4; index.push(a, a + 1, b, a + 1, b + 1, b, a + 2, a + 3, b + 2, a + 3, b + 3, b + 2); }
-      seams++;
-    }
+    for (const r of runs) { const pts = evenStep(r, C.step); if (pts.length < 3) continue; groove(S, pts, A); seams++; }
   }
+  for (const { pts, closed } of armholes(S, coat)) if (pts.length >= 8) { groove(S, pts, A, closed); seams++; }
+  const { P, N, UV, SI, SW, index } = A;
   if (!index.length) return null;
   // Face outward: the triangles' winding toward their normals.
   const Pa = Float64Array.from(P);
@@ -638,6 +707,171 @@ function cutLapels(coat, silk, brk, lod) {
   return { rows, points: n, tops };
 }
 
+/** An apron's shoulder frills gathered as cloth: drawn, each was one flat sheet standing off the
+ * strap like a wing ("the way that apron lays is messy and does not look like fabric"). Cut again
+ * along the strap's outer edge, from where the drawn frill began in front to where it ended
+ * behind (at least `span`, degrees round the shoulder, as drawn at the near level; the far
+ * levels' drawn frills stop at the shoulder): a strip `width` wide laid out over the shoulder on the bodice under it, its outer edge
+ * standing a little off (`stand`), gathered in folds `fold` long and `depth` deep (by level: none at the
+ * farthest) that deepen toward the hem, and narrowing at its two ends. Weights are the bodice's under each point. */
+export const RUFFLE = Object.freeze({ piece: /apron_strap_frills(_lod\d+)?$/, strap: /apron_straps(_lod\d+)?$/, on: /bodice(_lod\d+)?$/,
+  width: 0.04, stand: 0.012, gap: [0.0025, 0.003, 0.006, 0.008], fold: 0.03, depth: [0.0045, 0.0035, 0.0015, 0], tuck: 0.12, ends: 0.12, K: [200, 120, 40, 20], rows: [6, 4, 3, 2],
+  span: [-135, 90] });
+
+const angleOf = (p, yc) => Math.atan2(p[2], p[1] - yc);
+
+/** Before refining: the drawn frills left out. Returns, per side, their angular extent round the shoulder. */
+function clearRuffles(frills, yc) {
+  const P = bindPositions(frills), idx = frills.geometry.index.array, used = new Set(idx), ext = {};
+  for (const i of used) { const side = Math.sign(P[i * 3]) || 1, a = angleOf([P[i * 3], P[i * 3 + 1], P[i * 3 + 2]], yc); const e = (ext[side] ??= [RUFFLE.span[0] * Math.PI / 180, RUFFLE.span[1] * Math.PI / 180]); e[0] = Math.min(e[0], a); e[1] = Math.max(e[1], a); }
+  const uv = frills.geometry.attributes.uv; let u0 = Infinity, u1 = -Infinity, v0 = Infinity, v1 = -Infinity;
+  if (uv) for (const i of used) { u0 = Math.min(u0, uv.getX(i)); u1 = Math.max(u1, uv.getX(i)); v0 = Math.min(v0, uv.getY(i)); v1 = Math.max(v1, uv.getY(i)); }
+  frills.geometry.setIndex(new THREE.BufferAttribute(new (idx.constructor)(0), 1));
+  frills.geometry.userData = { ...frills.geometry.userData, chicagoRebuilt: { frills: 'gathered again' } };
+  return { ext, uvBox: Number.isFinite(u0) ? [u0, u1, v0, v1] : [0, 1, 0, 1] };
+}
+
+function buildRuffles(frills, strap, under, lod, yc, cleared) {
+  const C = RUFFLE, K = C.K[Math.min(lod, 3)], rows = C.rows[Math.min(lod, 3)], S = surfaceOf(under);
+  const Ws = weldMeshes([strap]), loops = loopsOf(Ws), [u0, u1, v0, v1] = cleared.uvBox;
+  const P = [], UV = [], SI = [], SW = [], index = [];
+  const smooth = (A, it) => { for (let k = 0; k < it; k++) { const B = A.map((p) => p.slice()); for (let i = 1; i + 1 < A.length; i++) for (let d = 0; d < 3; d++) B[i][d] = 0.25 * A[i - 1][d] + 0.5 * A[i][d] + 0.25 * A[i + 1][d]; A.splice(0, A.length, ...B); } };
+  for (const side of [1, -1]) {
+    const ext = cleared.ext[side]; if (!ext) continue;
+    // The strap's outer edge on this side: its outline's points farthest out, angle by angle.
+    const bins = new Map();
+    for (const l of loops) for (const g of l) {
+      const p = [Ws.P[g * 3], Ws.P[g * 3 + 1], Ws.P[g * 3 + 2]]; if (side * p[0] <= 0) continue;
+      const a = angleOf(p, yc); if (a < ext[0] - 0.05 || a > ext[1] + 0.05) continue;
+      const k = Math.round(a / 0.05), b = bins.get(k); if (!b || side * p[0] > side * b[0]) bins.set(k, p);
+    }
+    const edge = [...bins.entries()].sort((a, b) => a[0] - b[0]).map((e) => e[1]);
+    if (edge.length < 6) continue;
+    smooth(edge, 2);
+    const len = [0]; for (let i = 1; i < edge.length; i++) len.push(len[i - 1] + Math.hypot(edge[i][0] - edge[i - 1][0], edge[i][1] - edge[i - 1][1], edge[i][2] - edge[i - 1][2]));
+    const total = len.at(-1), R = [];
+    for (let c = 0; c <= K; c++) { const want = total * c / K; let i = 1; while (i < len.length - 1 && len[i] < want) i++; const f = Math.min(1, Math.max(0, (want - len[i - 1]) / Math.max(1e-9, len[i] - len[i - 1]))); R.push([0, 1, 2].map((d) => edge[i - 1][d] + (edge[i][d] - edge[i - 1][d]) * f)); }
+    smooth(R, 6);
+    const base = P.length / 3, cols = rows + 1, F = [];
+    for (let c = 0; c <= K; c++) {
+      const u = c / K, p = R[c], a = R[Math.max(0, c - 1)], b = R[Math.min(K, c + 1)];
+      const t = unit([b[0] - a[0], b[1] - a[1], b[2] - a[2]]), at0 = S.at(p), n = at0 ? at0.n : [side, 0, 0];
+      // Out from the strap, square to it, along the cloth.
+      let d = [side, 0, 0]; const dn = d[0] * n[0] + d[1] * n[1] + d[2] * n[2]; d = [d[0] - dn * n[0], d[1] - dn * n[1], d[2] - dn * n[2]];
+      const dt = d[0] * t[0] + d[1] * t[1] + d[2] * t[2]; d = unit([d[0] - dt * t[0], d[1] - dt * t[1], d[2] - dt * t[2]]);
+      const endK = Math.min(1, Math.min(u, 1 - u) / C.ends), w = C.width * (0.25 + 0.75 * Math.sin(endK * Math.PI / 2));
+      const s = total * u, wave = Math.sin(2 * Math.PI * s / C.fold);
+      for (let r = 0; r <= rows; r++) {
+        const v = -C.tuck + (1 + C.tuck) * r / rows, vv = Math.max(0, v);
+        const q = [p[0] + d[0] * v * w, p[1] + d[1] * v * w, p[2] + d[2] * v * w];
+        const hit = S.hit([q[0] + n[0] * 0.06, q[1] + n[1] * 0.06, q[2] + n[2] * 0.06], [-n[0], -n[1], -n[2]], 0.12);
+        const at = hit ? S.at(hit) : null, nn = at ? at.n : n, foot = hit ?? q;
+        const h = C.gap[Math.min(lod, 3)] + C.stand * vv ** 1.5 + C.depth[Math.min(lod, 3)] * wave * (0.2 + 0.8 * vv);
+        F.push({ foot, nn, h });
+        S.skinAt(foot, SI, SW);
+        UV.push(u0 + (u1 - u0) * u, v0 + (v1 - v0) * vv);
+      }
+    }
+    // The cloth under it evened along the strip (a drawn bodice is bumpy), then the folds laid on.
+    for (let it = 0; it < 6; it++) { const T = F.map((f) => ({ ...f, foot: f.foot.slice(), nn: f.nn.slice() })); for (let c = 1; c < K; c++) for (let r = 0; r <= rows; r++) { const a = F[(c - 1) * cols + r], b = F[c * cols + r], e = F[(c + 1) * cols + r], t2 = T[c * cols + r]; for (let d = 0; d < 3; d++) { t2.foot[d] = 0.25 * a.foot[d] + 0.5 * b.foot[d] + 0.25 * e.foot[d]; t2.nn[d] = 0.25 * a.nn[d] + 0.5 * b.nn[d] + 0.25 * e.nn[d]; } } F.splice(0, F.length, ...T); }
+    for (const { foot, nn, h } of F) { const m = unit(nn); P.push(foot[0] + m[0] * h, foot[1] + m[1] * h, foot[2] + m[2] * h); }
+    for (let c = 0; c < K; c++) for (let r = 0; r < rows; r++) { const i0 = base + c * cols + r, i1 = i0 + 1, i2 = i0 + cols, i3 = i2 + 1; index.push(i0, i1, i2, i1, i3, i2); }
+  }
+  if (!index.length) return null;
+  const Pa = Float64Array.from(P), n = Pa.length / 3, Nn = graphNormals(Pa, index, n);
+  let agree = 0; for (let i = 0; i < n; i++) { const at = S.at([Pa[i * 3], Pa[i * 3 + 1], Pa[i * 3 + 2]]); if (at) agree += Nn[i * 3] * at.n[0] + Nn[i * 3 + 1] * at.n[1] + Nn[i * 3 + 2] * at.n[2]; }
+  if (agree < 0) { for (let t = 0; t < index.length; t += 3) { const q = index[t + 1]; index[t + 1] = index[t + 2]; index[t + 2] = q; } for (let i = 0; i < Nn.length; i++) Nn[i] = -Nn[i]; }
+  appendGeometry(frills, { P: Pa, N: Nn, UV, SI, SW, index });
+  return { points: n, triangles: index.length / 3 };
+}
+
+/** A livery coat's neck: drawn, its standing collar ended in front in two small hooks, and the
+ * coat's V under the stock showed bare skin to the top button ("his collar does not look
+ * natural"). The hooks are faired out (points of the collar's top edge standing more than `burr`
+ * off the edge's own smoothed line or forward of the collar's front, and the cloth within
+ * `reach` of them, pressed back and evened in place), and
+ * the V is filled with a shirt front in the stock's linen, laid on the chest `lift` off the skin
+ * from under the coat's edges (`under` past them each side) up under the stock. */
+export const LIVERY = Object.freeze({ coat: /livery_coat_body(_lod\d+)?$/, stock: /white_stock(_lod\d+)?$/,
+  burr: 0.004, reach: 0.015, iters: 12, lift: 0.0022, under: 0.014, below: 0.012, above: 0.008, rows: [14, 10, 6, 4], cols: [12, 8, 6, 4] });
+
+function deburrNeck(coat) {
+  const C = LIVERY, W = weldMeshes([coat]), loops = loopsOf(W);
+  if (!loops.length) return 0;
+  const mean = (l) => l.reduce((a, g) => a + W.P[g * 3 + 1], 0) / l.length, top = loops.reduce((a, l) => (mean(l) > mean(a) ? l : a));
+  // The edge's own line, smoothed along it.
+  const Q = Float64Array.from(W.P);
+  for (let it = 0; it < 8; it++) { const T = Float64Array.from(Q); for (const g of top) { const l = W.edgeNb[g]; if (l.length !== 2) continue; for (let d = 0; d < 3; d++) T[g * 3 + d] = 0.5 * Q[g * 3 + d] + 0.25 * (Q[l[0] * 3 + d] + Q[l[1] * 3 + d]); } Q.set(T); }
+  // And the front of the collar standing forward of the collar's own front line (its usual
+  // depth there, by the lower third of the front edge's points).
+  const fz = top.filter((g) => Math.abs(W.P[g * 3]) < 0.07 && W.P[g * 3 + 2] > 0.04).map((g) => W.P[g * 3 + 2]).sort((a, b) => a - b);
+  const line = fz.length ? fz[Math.floor(fz.length / 3)] : Infinity;
+  const seeds = top.filter((g) => Math.hypot(W.P[g * 3] - Q[g * 3], W.P[g * 3 + 1] - Q[g * 3 + 1], W.P[g * 3 + 2] - Q[g * 3 + 2]) > C.burr || (Math.abs(W.P[g * 3]) < 0.07 && W.P[g * 3 + 2] > line + C.burr));
+  if (!seeds.length) return 0;
+  const dist = distanceFrom(W, seeds), wgt = new Float64Array(W.G);
+  let n = 0; for (let g = 0; g < W.G; g++) if (dist[g] < C.reach) { wgt[g] = 1 - dist[g] / C.reach; n++; }
+  // Pressed back to the line first (front points only), then evened.
+  for (let g = 0; g < W.G; g++) if (wgt[g] && Math.abs(W.P[g * 3]) < 0.07 && W.P[g * 3 + 2] > line + 0.002) W.P[g * 3 + 2] -= wgt[g] * (W.P[g * 3 + 2] - line - 0.002);
+  for (let it = 0; it < C.iters; it++) {
+    const T = Float64Array.from(W.P);
+    for (let g = 0; g < W.G; g++) { if (!wgt[g]) continue; const l = W.edgeNb[g].length === 2 ? W.edgeNb[g] : W.nb[g]; if (!l.length) continue; for (let d = 0; d < 3; d++) { let a = 0; for (const h of l) a += W.P[h * 3 + d]; T[g * 3 + d] += 0.5 * wgt[g] * (a / l.length - W.P[g * 3 + d]); } }
+    W.P.set(T);
+  }
+  writeBack(W, null);
+  return n;
+}
+
+/** The cloth inside a coat's front V, between `y0` and `y1`: a patch laid on the chest `lift`
+ * off the skin from under the coat's edges (`under` past them each side), in `into`'s mesh. */
+function fillFront(coat, into, body, lod, y0, y1, reach = 0.06, under = LIVERY.under) {
+  const C = LIVERY, W = weldMeshes([coat]), loops = loopsOf(W), S = surfaceOf(body);
+  const mean = (l) => l.reduce((a, g) => a + W.P[g * 3 + 1], 0) / l.length, top = loops.reduce((a, l) => (mean(l) > mean(a) ? l : a));
+  const front = top.filter((g) => W.P[g * 3 + 2] > 0.04 && Math.abs(W.P[g * 3]) < reach).map((g) => [W.P[g * 3], W.P[g * 3 + 1], W.P[g * 3 + 2]]);
+  if (front.length < 6 || !(y1 > y0)) return null;
+  const apex = Math.min(...front.map((p) => p[1]));
+  // Each side's edge of the V as x by height.
+  const edgeX = (side, y) => { let best = null; for (const p of front) { if (side * p[0] < -0.002) continue; const d = Math.abs(p[1] - y); if (!best || d < best[0]) best = [d, p[0]]; } return best ? best[1] : 0; };
+  const rows = C.rows[Math.min(lod, 3)], cols = C.cols[Math.min(lod, 3)];
+  const P = [], UV = [], SI = [], SW = [], index = [];
+  for (let r = 0; r <= rows; r++) {
+    const y = y0 + (y1 - y0) * r / rows, yy = Math.min(Math.max(y, apex), y1 + 0.02);
+    const xl = Math.min(edgeX(-1, yy), -0.004) - under, xr = Math.max(edgeX(1, yy), 0.004) + under;
+    for (let c = 0; c <= cols; c++) {
+      const x = xl + (xr - xl) * c / cols, hit = S.hit([x, y, 0.4], [0, 0, -1], 0.6) ?? [x, y, 0.09], at = S.at(hit), n = at ? at.n : [0, 0, 1];
+      P.push(hit[0] + n[0] * C.lift, hit[1] + n[1] * C.lift, hit[2] + n[2] * C.lift);
+      S.skinAt(hit, SI, SW); UV.push(0.02 + 0.1 * c / cols, 0.02 + 0.1 * r / rows);
+    }
+  }
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) { const i0 = r * (cols + 1) + c, i1 = i0 + 1, i2 = i0 + cols + 1, i3 = i2 + 1; index.push(i0, i1, i2, i1, i3, i2); }
+  const Pa = Float64Array.from(P), n = Pa.length / 3, Nn = graphNormals(Pa, index, n);
+  let agree = 0; for (let i = 0; i < n; i++) agree += Nn[i * 3 + 2];
+  if (agree < 0) { for (let t = 0; t < index.length; t += 3) { const q = index[t + 1]; index[t + 1] = index[t + 2]; index[t + 2] = q; } for (let i = 0; i < Nn.length; i++) Nn[i] = -Nn[i]; }
+  appendGeometry(into, { P: Pa, N: Nn, UV, SI, SW, index });
+  return { points: n, triangles: index.length / 3 };
+}
+
+/** The lowest point, in front, of a piece (a stock's or a collar's bottom edge under the chin). */
+function frontBottom(mesh) {
+  const P = bindPositions(mesh); let y = Infinity;
+  for (const i of new Set(mesh.geometry.index.array)) if (P[i * 3 + 2] > 0.03 && Math.abs(P[i * 3]) < 0.03) y = Math.min(y, P[i * 3 + 1]);
+  return y;
+}
+
+function fillShirtFront(coat, stock, body, lod) {
+  const C = LIVERY, W = weldMeshes([coat]), loops = loopsOf(W);
+  const mean = (l) => l.reduce((a, g) => a + W.P[g * 3 + 1], 0) / l.length, top = loops.reduce((a, l) => (mean(l) > mean(a) ? l : a));
+  const ys = top.filter((g) => W.P[g * 3 + 2] > 0.04 && Math.abs(W.P[g * 3]) < 0.06).map((g) => W.P[g * 3 + 1]);
+  if (!ys.length) return null;
+  const sb = frontBottom(stock), apex = Math.min(...ys);
+  if (!Number.isFinite(sb) || sb <= apex) return null;
+  return fillFront(coat, stock, body, lod, apex - C.below, sb + C.above);
+}
+
+/** A frock coat's waistcoat at the far levels: drawn there, its front was left open where the
+ * drawn lapels lay over it; cut again, the lapels are narrower and the skin showed through. The
+ * waistcoat is closed in its own cloth from under the coat's break up under the shirt collar. */
+export const FAR_WAISTCOAT = Object.freeze({ coat: /frock_coat_body(_lod\d+)?$/, waistcoat: /waistcoat[a-z_0-9]*?(_lod\d+)?$/, collar: /shirt_standing_collar(_lod\d+)?$/, from: 2, below: 0.06, reach: 0.16, under: 0.025 });
+
 /** A collar never comes up over the chin: drawn, a lady's high collar stood level all round at
  * the height of the underside of her chin and so covered it from in front. Round the neck, its
  * top is kept `clear` under the head's lowest skin there (the jaw and chin), the band between
@@ -727,6 +961,16 @@ export function* refineTrimsSteps(root) {
     yield;
     tailor.push({ lapels, coat, silk, lod: +lod, brk: clearLapels(lapels, silk) });
   }
+  // An apron's drawn shoulder frills left out before refining (gathered again after).
+  const ruffles = [];
+  if (body) { const yc = bindJoints(body).clavicle_l?.[1] - 0.23 || 1.2;
+    for (const frills of skinned.filter((m) => RUFFLE.piece.test(m.name))) {
+      const lod = (/_lod(\d+)$/.exec(frills.name) ?? [0, 0])[1], sfx = (m) => (/_lod(\d+)$/.exec(m.name) ?? [0, 0])[1] == lod;
+      const strap = skinned.find((m) => RUFFLE.strap.test(m.name) && sfx(m)), under = skinned.find((m) => RUFFLE.on.test(m.name) && sfx(m));
+      if (!strap || !under) continue;
+      yield;
+      ruffles.push({ frills, strap, under, lod: +lod, yc, cleared: clearRuffles(frills, yc) });
+    } }
   // Lapels kept off the top of the shoulders before they are refined, so the cut's line is faired.
   if (body) {
     const J0 = bindJoints(body);
@@ -753,6 +997,25 @@ export function* refineTrimsSteps(root) {
     const r = buildBackCollar(lapels, coat, shirt, lod, tops.get(lapels)); if (r) (report.collared ??= []).push({ mesh: lapels.name, ...r });
   }
   for (const coat of skinned.filter((m) => SHOULDERED.test(m.name))) { yield; const k = fairNeck(coat); if (k) (report.necklines ??= []).push({ mesh: coat.name, points: k }); }
+  // A livery coat's collar hooks faired out and its V filled with a shirt front, every level.
+  if (body) for (const coat of skinned.filter((m) => LIVERY.coat.test(m.name))) {
+    const lod = +((/_lod(\d+)$/.exec(coat.name) ?? [0, 0])[1]), stock = skinned.find((m) => LIVERY.stock.test(m.name) && (/_lod(\d+)$/.exec(m.name) ?? [0, 0])[1] == lod);
+    yield;
+    const k = deburrNeck(coat); if (k) (report.deburred ??= []).push({ mesh: coat.name, points: k });
+    if (!stock) continue;
+    yield;
+    const r = fillShirtFront(coat, stock, body, lod); if (r) (report.shirtFront ??= []).push({ mesh: stock.name, ...r });
+  }
+  // A frock coat's waistcoat closed at the far levels.
+  if (body) for (const coat of skinned.filter((m) => FAR_WAISTCOAT.coat.test(m.name))) {
+    const lod = +((/_lod(\d+)$/.exec(coat.name) ?? [0, 0])[1]); if (lod < FAR_WAISTCOAT.from) continue;
+    const sfx = (m) => (/_lod(\d+)$/.exec(m.name) ?? [0, 0])[1] == lod;
+    const wc = skinned.find((m) => FAR_WAISTCOAT.waistcoat.test(m.name) && sfx(m)), collar = skinned.find((m) => FAR_WAISTCOAT.collar.test(m.name) && sfx(m));
+    const brk = tailor.find((t) => t.coat === coat)?.brk;
+    if (!wc || !collar || !Number.isFinite(brk)) continue;
+    yield;
+    const r = fillFront(coat, wc, body, lod, brk - FAR_WAISTCOAT.below, frontBottom(collar) + LIVERY.above, FAR_WAISTCOAT.reach, FAR_WAISTCOAT.under); if (r) (report.waistcoatClosed ??= []).push({ mesh: wc.name, ...r });
+  }
   // A frock coat's front buttons, and seams in every coat at the near level.
   for (const coat of skinned.filter((m) => FRONT_BUTTONS.coat.test(m.name))) {
     const lod = +((/_lod(\d+)$/.exec(coat.name) ?? [0, 0])[1]); if (lod > 1) continue;
@@ -766,6 +1029,7 @@ export function* refineTrimsSteps(root) {
     yield;
     const r = buildSeams(coat, body); if (r) (report.seamed ??= []).push({ mesh: coat.name, ...r });
   }
+  for (const r of ruffles) { yield; const k = buildRuffles(r.frills, r.strap, r.under, r.lod, r.yc, r.cleared); if (k) (report.ruffled ??= []).push({ mesh: r.frills.name, ...k }); }
   // Pressed pieces bound to the coat under them, every level.
   for (const pr of PRESSED) for (const piece of skinned.filter((m) => pr.piece.test(m.name) && !tailor.some((t) => t.lapels === m))) {
     const lod = (/_lod(\d+)$/.exec(piece.name) ?? [0, 0])[1], sfx = (m) => (/_lod(\d+)$/.exec(m.name) ?? [0, 0])[1] == lod;
