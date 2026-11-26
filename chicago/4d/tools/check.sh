@@ -1569,6 +1569,14 @@ step "the K06 window kit builds every window as a closed recess over an enclosed
 selftest "…and a blind before the glass, a missing jamb, a holed backing, a doubled pane or a leaded street sash still fails it" \
   python3 tools/check_window_kit.py --self-test
 
+# T-3750. ...and the Architecture site that shows the kits to expert readers. Its data is
+# derived at publish (tools/publish.sh) from the kit, structure and sidecar records; this
+# builds it into a temporary folder and holds it whole: sixteen kits in order, every named
+# specimen written with nodes to pick, every kit read for parts, every kit-built building
+# in the list with its model in assets/web. Nothing in the tree is written.
+step "the Architecture site builds from the kit records: sixteen kits, their specimens, and every kit-built building with its model (T-3750)" \
+  python3 tools/architecture_site.py --check
+
 # T-2301. ...and how the 1904 roofs are built. The K05 kit's parts are sized in
 # data/components/prairie_1904/k05_roofs.json and built by generators/archetypes/k05_roofs.py
 # as closed solids joined by a boolean union. This rebuilds every variant and measures the

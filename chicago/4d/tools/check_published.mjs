@@ -333,6 +333,43 @@ const TRANSFORMED = [
         JSON.parse(readFileSync(path.join(SITE, rel), 'utf8')));
       return same ? null : `${rel} does not parse to its source's value; publish.sh only minifies it`;
     } },
+  // T-3750: the Architecture site. Its page is copied with the renderer (walk/); these are
+  // what tools/architecture_site.py writes beside it, and the short door publish.sh writes.
+  { re: /^walk\/architecture\/(?:data\.json|studies\/k\d\d\.jpg)$/,
+    what: 'tools/architecture_site.py derives the Architecture site\'s data from the kit, structure and sidecar '
+        + 'records, and writes each kit\'s study picture at 1600 px',
+    gate: 'checked here: every kit is K01..K16, every specimen and study it names ships beside it, and every '
+        + 'building model it names ships in data/gltf/; tools/architecture_site.py --check builds it afresh',
+    verify: (rel) => {
+      if (!rel.endsWith('data.json')) return null;
+      const d = JSON.parse(readFileSync(path.join(SITE, rel), 'utf8'));
+      const codes = (d.kits ?? []).map((k) => k.code).join(' ');
+      if (codes !== Array.from({ length: 16 }, (_, i) => `K${String(i + 1).padStart(2, '0')}`).join(' '))
+        return `${rel} does not hold the sixteen kits in order (${codes})`;
+      for (const k of d.kits) for (const f of [k.specimen, k.study].filter(Boolean))
+        if (!existsSync(path.join(SITE, 'walk/architecture', f))) return `${rel} names ${f}, which does not ship`;
+      for (const h of d.houses ?? [])
+        if (!existsSync(path.join(SITE, 'data', h.asset))) return `${rel} names ${h.asset} for ${h.id}, which does not ship`;
+      return null;
+    } },
+  { re: /^walk\/architecture\/specimens\/[a-z0-9_]+\.glb$/,
+    what: 'tools/architecture_site.py copies each kit\'s specimen GLB from its study folder under docs/RESEARCH/',
+    gate: 'checked here: byte-identical to the specimen its kit record names',
+    verify: (rel) => {
+      const name = path.basename(rel);
+      const dir = path.join(REPO, 'data/components/prairie_1904');
+      for (const f of readdirSync(dir).filter((x) => /^k\d\d_.*\.json$/.test(x))) {
+        const spec = JSON.parse(readFileSync(path.join(dir, f), 'utf8')).specimen;
+        if (typeof spec === 'string' && path.basename(spec) === name)
+          return sha(path.join(REPO, spec)) === sha(path.join(SITE, rel)) ? null : `${rel} differs from ${spec}`;
+      }
+      return `${rel} is no kit record's specimen`;
+    } },
+  { re: /^architecture\/index\.html$/,
+    what: 'publish.sh writes /4d/architecture/, the Architecture site\'s short address, as a redirect to walk/architecture/',
+    gate: 'checked here: it sends the visitor to walk/architecture/',
+    verify: (rel) => (readFileSync(path.join(SITE, rel), 'utf8').includes("'../walk/architecture/'")
+      ? null : `${rel} no longer points at walk/architecture/`) },
 ];
 
 const walk = (dir, base = '') => {
