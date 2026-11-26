@@ -7686,22 +7686,6 @@
       }
      },
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
-    },
-    {
-     "id": "house_2011_prairie:back",
-     "leaf": {
-      "local_e": 1448.92,
-      "local_n": -3517.76
-     },
-     "step": {
-      "local_e": 1452.68,
-      "local_n": -3517.73
-     },
-     "outward_deg": 89.5,
-     "width_m": 0.95,
-     "passage": true,
-     "back": true,
-     "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2011:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
    "model_inputs_sha256": "a0cb97f0cf7c317735714fc087f11fa59fd8ff862510657d114a36a148328740",
@@ -18154,22 +18138,6 @@
     "v0": -0.55,
     "count": 1,
     "rects": "0 6 0 12"
-   },
-   "what": "back stoop"
-  },
-  {
-   "structure": "prairie_2011:back_door:stoop",
-   "placement": {
-    "local_e": 1448.92,
-    "local_n": -3517.76,
-    "rotation_deg": 359.54
-   },
-   "barrier": {
-    "cell": 0.1,
-    "u0": 0.05,
-    "v0": -0.75,
-    "count": 1,
-    "rects": "0 34 0 16"
    },
    "what": "back stoop"
   },
