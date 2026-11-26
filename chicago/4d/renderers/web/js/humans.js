@@ -44,10 +44,10 @@ import { shareSkeletons } from './human-skeletons.js';
 import { loadVariationKit, personVariation, applyVariationSteps, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
-import { dressSkin, restingLid } from './human-skin.js';
+import { dressSkin, dressPhotoLooks, restingLid } from './human-skin.js';
 import { dressHairSteps, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
+import { dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
 import { dressFinery } from './human-finery.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
@@ -641,7 +641,7 @@ export class HumanActor {
     // T-3491: his own complexion and eye colour (human-looks.js), on clones of the shared
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
-    const looked = looks ? dressLooks(scene, looks) : [];
+    const looked = looks ? dressPhotoLooks(scene, looks) : [];
     // T-3506: their own cloth colours and pieces worn (human-looks.js); T-3553: for the
     // season, with its pattern and trimming (human-finery.js) on their own clones. A jaunt's
     // unnamed staged figure may wear a carded person's dress (`dress_of`).
@@ -652,10 +652,12 @@ export class HumanActor {
     // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
-    // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
-    // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
+    // T-3400: pores, skin glow, strands and wet eyes, bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
     dressSkin(scene, { age: this.variation?.age ?? null, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    if (this.variation?.photoFace) scene.traverse(o => {
+      if (o.isMesh && o.material?.userData?.chiPhotoOwned && !looked.includes(o.material)) looked.push(o.material);
+    });
     yield;
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
@@ -710,6 +712,7 @@ export class HumanActor {
     for (const s of skeletons) s.dispose();
     // T-3491: his own skin and iris clones (human-looks.js) go with the level.
     for (const m of body.looked ?? []) m.dispose();
+    for (const g of new Set(body.meshes.map(m => m.geometry).filter(g => g?.userData?.chiPhotoEyeOwned))) g.dispose();
     this.assets.release(body.assetId, body.lod);
   }
 
@@ -824,7 +827,7 @@ export class HumanActor {
     this.costs = key;
     for (const m of [...b.meshes, ...(b.extras ?? [])]) { m.castShadow = shadow; m.receiveShadow = this.distance < SHADOW_M; }
     // A face out of reach holds still: the blink is let go, the set expression kept.
-    if (!face) this.applyFace({ ...this.expression, ...Object.fromEntries(BLINK.map((k) => [k, this.expression[k] ?? restingLid(this.variation?.age)])) });
+    if (!face) this.applyFace({ ...this.expression, ...Object.fromEntries(BLINK.map((k) => [k, this.expression[k] ?? this.variation?.photoFace?.eyes?.lid_rest ?? restingLid(this.variation?.age)])) });
   }
 
   /** What a far figure is spared, now: for the harness and T-1792's budgets. */
@@ -1058,9 +1061,10 @@ export class HumanActor {
       this.blinkClock += dt;
       const t = this.blinkClock % 4;
       // T-3493: an older face's upper lids rest a little lower (restingLid), and blink from there.
-      const rest = restingLid(this.variation?.age);
+      const rest = this.variation?.photoFace?.eyes?.lid_rest ?? restingLid(this.variation?.age);
       const still = this.posture && POSTURES[this.posture.kind]?.still ? this.posture.w : 0;
-      const w = Math.max(still, rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0));
+      const blink = rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0);
+      const w = still > 0 ? Math.max(still, blink) : blink;
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }

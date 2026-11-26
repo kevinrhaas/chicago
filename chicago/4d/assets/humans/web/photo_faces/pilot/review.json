@@ -1,0 +1,2885 @@
+{
+ "format": "chicago4d_photo_face_review_v1",
+ "review_only": true,
+ "rollout": "No population assignments; review the renders first.",
+ "tile_px": 256,
+ "padding_px": 8,
+ "cols": 4,
+ "size_px": [
+  1024,
+  1024
+ ],
+ "textures": {
+  "full": {
+   "file": "faces_full.jpg",
+   "size_px": [
+    1024,
+    1024
+   ],
+   "bytes": 234400,
+   "sha256": "e75cfce513367268fceb767fe98531d2b076eb31eb44e7d150b6857f2dcd4a1b",
+   "gpu_bytes_rgba8_mipmaps": 5592406
+  },
+  "light": {
+   "file": "faces_light.jpg",
+   "size_px": [
+    512,
+    512
+   ],
+   "bytes": 72592,
+   "sha256": "38f3e702ea3626e2f2e857678e71423aa52a01963954a90738f038c49e26aea2",
+   "gpu_bytes_rgba8_mipmaps": 1398102
+  }
+ },
+ "hair_textures": {
+  "full": {
+   "file": "hair_full.png",
+   "size_px": [
+    1024,
+    1024
+   ],
+   "bytes": 737509,
+   "sha256": "78ebd8dcabdfb735c24fa9be4ce2146b7f2e5409d4e8ec126d26b004318bfb3a",
+   "gpu_bytes_rgba8_mipmaps": 5592406
+  },
+  "light": {
+   "file": "hair_light.png",
+   "size_px": [
+    512,
+    512
+   ],
+   "bytes": 241025,
+   "sha256": "b75ecff7c7f494bb850586858e611f72580387d7aa93ceb3ff96c8ac2ff982d3",
+   "gpu_bytes_rgba8_mipmaps": 1398102
+  }
+ },
+ "hair_shells": {
+  "light": {
+   "file": "hair_shell_light.glb",
+   "sha256": "91121563e101385fe269b634db5e4b3b75cc1ec9dfdf228f7b1b1fb0e3583b16",
+   "bytes": 12200,
+   "triangles": 440,
+   "vertices": 273
+  },
+  "full": {
+   "file": "hair_shell_full.glb",
+   "sha256": "c666033bd2507d59d917b6434afafa871ea523f2b042d3b24cfbb1dd0dca0086",
+   "bytes": 30296,
+   "triangles": 1216,
+   "vertices": 693
+  }
+ },
+ "faces": [
+  {
+   "id": "pilot_01",
+   "sex": "male",
+   "age": 24,
+   "label": "Long face, 24",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 0,
+   "photo": "pilot_01_source.jpg",
+   "values": {
+    "nose_length": 0.27,
+    "nose_width": -0.007,
+    "nose_depth": 0.098,
+    "nose_hump": -0.016,
+    "nose_curve": 0.312,
+    "nose_tip": -0.169,
+    "nose_tip_width": -0.082,
+    "nostrils": -0.048,
+    "nose_height": 0.245,
+    "mouth_width": -0.1,
+    "lip_upper": -0.012,
+    "lip_lower": -0.003,
+    "mouth_height": -0.215,
+    "chin_prominence": -0.091,
+    "chin_width": -0.225,
+    "chin_height": 0.299,
+    "jaw": 0.409,
+    "prognathism": -0.017,
+    "cheekbones": -0.283,
+    "cheek_volume": -0.165,
+    "cheek_inner": 0.049,
+    "brow_height": 0.454,
+    "brow_angle": 0.0,
+    "nose_septum": -0.103,
+    "nose_volume": 0.012,
+    "nostril_angle": -0.03,
+    "lid_fold": 0.02,
+    "brow_ridge": 0.318,
+    "forehead_slope": 0.0,
+    "temples": -0.009,
+    "ear_size": 0.19,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.191,
+    "head_shape": 0.318,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.22,
+   "camera": {
+    "yaw_deg": 1.1,
+    "pitch_deg": -4.1,
+    "roll_deg": 0.0,
+    "px_per_m": 1156.9,
+    "shift_px": [
+     157.6,
+     183.5
+    ]
+   },
+   "tone_rgb": [
+    0.5271151257058131,
+    0.27467731206038465,
+    0.2195261997292692
+   ],
+   "body_gain": [
+    0.6702278673971954,
+    0.6311415648006523,
+    0.877821189018021
+   ],
+   "hair_rgb": [
+    0.06301001765316767,
+    0.04091519690685319,
+    0.028426039504420793
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.65979977116779,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08475791529414892,
+     0.12255300249400983,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.6837159151386314,
+     0.0,
+     0.07073095895605407,
+     0.4940754020408798
+    ],
+    "v": [
+     0.005057082800557969,
+     -3.674965738129965,
+     -0.26337627358005344,
+     6.536205361034849
+    ],
+    "toward": [
+     -0.01914831197741816,
+     -0.07149744433268591,
+     0.9972569666852721
+    ],
+    "fallback_gain": [
+     3.9390386393529497,
+     2.434359623323365,
+     1.6912836318029845
+    ],
+    "hairline_v": 0.263075796178344
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.22319078351237867,
+     0.2146065226080564,
+     0.20602226170373414
+    ],
+    "iris_linear": [
+     0.06796791968605764,
+     0.03196987102428559,
+     0.014769816351220318
+    ],
+    "iris_gain": [
+     1.5540842395851442,
+     1.9985799393512844,
+     2.8504812779151703
+    ],
+    "lid_rest": -0.227,
+    "centres_uv": [
+     [
+      0.38506624203821654,
+      0.44917929936305734
+     ],
+     [
+      0.6207098726114649,
+      0.44967770700636944
+     ]
+    ],
+    "iris_radius_m": [
+     0.006427643418312516,
+     0.006466310512513368
+    ],
+    "aperture_ratio": 0.38592313516272564,
+    "opening_fit": {
+     "rest": -0.227,
+     "picture_open_mm": [
+      10.9,
+      10.9
+     ],
+     "fitted_open_mm": [
+      9.2,
+      9.2
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_02",
+   "sex": "male",
+   "age": 42,
+   "label": "Square jaw, 42",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 1,
+   "photo": "pilot_02_source.jpg",
+   "values": {
+    "nose_length": -0.088,
+    "nose_width": 0.0,
+    "nose_depth": 0.145,
+    "nose_hump": -0.015,
+    "nose_curve": 0.273,
+    "nose_tip": 0.04,
+    "nose_tip_width": -0.109,
+    "nostrils": 0.12,
+    "nose_height": 0.342,
+    "mouth_width": 0.365,
+    "lip_upper": -0.05,
+    "lip_lower": 0.0,
+    "mouth_height": 0.052,
+    "chin_prominence": -0.245,
+    "chin_width": 0.051,
+    "chin_height": 0.22,
+    "jaw": 0.055,
+    "prognathism": 0.246,
+    "cheekbones": 0.1,
+    "cheek_volume": 0.234,
+    "cheek_inner": -0.038,
+    "brow_height": -0.42,
+    "brow_angle": 0.24,
+    "nose_septum": -0.036,
+    "nose_volume": 0.022,
+    "nostril_angle": 0.001,
+    "lid_fold": 0.053,
+    "brow_ridge": -0.011,
+    "forehead_slope": 0.0,
+    "temples": 0.049,
+    "ear_size": 0.047,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": 0.365,
+    "head_shape": 0.417,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.22,
+   "camera": {
+    "yaw_deg": -0.1,
+    "pitch_deg": -12.2,
+    "roll_deg": 1.3,
+    "px_per_m": 1172.8,
+    "shift_px": [
+     157.0,
+     179.0
+    ]
+   },
+   "tone_rgb": [
+    0.5457244613701866,
+    0.24228112246555486,
+    0.18782077230067787
+   ],
+   "body_gain": [
+    0.6938896724712024,
+    0.5567030112809334,
+    0.7510404401232919
+   ],
+   "hair_rgb": [
+    0.11953842798834562,
+    0.07618538148130784,
+    0.05448027644244237
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6557227520430708,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08587847599832339,
+     0.11823136222180737,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.7459633630883675,
+     -0.08308879743076893,
+     -0.024502407313089614,
+     0.6393582047272035
+    ],
+    "v": [
+     -0.08611502591235062,
+     -3.6497398421859626,
+     -0.7889525877870704,
+     6.507566705179546
+    ],
+    "toward": [
+     0.001705911685577386,
+     -0.21132479645538865,
+     0.9774144055969349
+    ],
+    "fallback_gain": [
+     7.472882952127404,
+     4.532854063682116,
+     3.241450494321403
+    ],
+    "hairline_v": 0.26449203821656053
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.04405290098818523,
+     0.026916240097370443,
+     0.01392641361113454
+    ],
+    "iris_gain": [
+     1.0072681266392678,
+     1.6826548177345777,
+     2.687709875536952
+    ],
+    "lid_rest": 0.027,
+    "centres_uv": [
+     [
+      0.3789830670926518,
+      0.43915573248407647
+     ],
+     [
+      0.6252450479233227,
+      0.43442101910828024
+     ]
+    ],
+    "iris_radius_m": [
+     0.005893105668664919,
+     0.005864366952204124
+    ],
+    "aperture_ratio": 0.29091106694804136,
+    "opening_fit": {
+     "rest": 0.027,
+     "picture_open_mm": [
+      7.8,
+      7.6
+     ],
+     "fitted_open_mm": [
+      7.9,
+      7.9
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_03",
+   "sex": "male",
+   "age": 33,
+   "label": "Broad nose, 33",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 2,
+   "photo": "pilot_03_source.jpg",
+   "values": {
+    "nose_length": 0.108,
+    "nose_width": 0.104,
+    "nose_depth": 0.379,
+    "nose_hump": -0.008,
+    "nose_curve": 0.439,
+    "nose_tip": 0.019,
+    "nose_tip_width": -0.12,
+    "nostrils": 0.121,
+    "nose_height": 0.623,
+    "mouth_width": 0.258,
+    "lip_upper": 0.0,
+    "lip_lower": 0.059,
+    "mouth_height": 0.025,
+    "chin_prominence": -0.376,
+    "chin_width": -0.113,
+    "chin_height": 0.205,
+    "jaw": 0.183,
+    "prognathism": -0.344,
+    "cheekbones": 0.159,
+    "cheek_volume": 0.042,
+    "cheek_inner": -0.005,
+    "brow_height": 0.044,
+    "brow_angle": 0.001,
+    "nose_septum": -0.067,
+    "nose_volume": 0.04,
+    "nostril_angle": 0.0,
+    "lid_fold": 0.066,
+    "brow_ridge": 0.226,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.075,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": 0.22,
+    "head_shape": 0.307,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.25,
+   "camera": {
+    "yaw_deg": 0.1,
+    "pitch_deg": -11.0,
+    "roll_deg": 0.7,
+    "px_per_m": 1220.4,
+    "shift_px": [
+     156.5,
+     182.7
+    ]
+   },
+   "tone_rgb": [
+    0.4910208498478356,
+    0.23074004852434915,
+    0.14995978981060856
+   ],
+   "body_gain": [
+    0.6243339281915128,
+    0.530184434220112,
+    0.5996454234564411
+   ],
+   "hair_rgb": [
+    0.0295568344378088,
+    0.024157632448504756,
+    0.021219010376003555
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6584044385680121,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08425169125483954,
+     0.12107394993824522,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.898760472097309,
+     -0.04675941202091817,
+     -0.00228449519941379,
+     0.5771151358371931
+    ],
+    "v": [
+     -0.046188574913561084,
+     -3.8149312394536588,
+     -0.7416292574597861,
+     6.800180947303646
+    ],
+    "toward": [
+     -0.0017132617680080708,
+     -0.1908089953765448,
+     0.9816256883443444
+    ],
+    "fallback_gain": [
+     1.8477302061449872,
+     1.4373232801887381,
+     1.2624820607320737
+    ],
+    "hairline_v": 0.2557627388535032
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.22032869378738545,
+     0.2118545132571014,
+     0.20338033272681733
+    ],
+    "iris_linear": [
+     0.03585432782927131,
+     0.023180944601889613,
+     0.011103230861348151
+    ],
+    "iris_gain": [
+     0.8198080220457246,
+     1.449144753238344,
+     2.1428534344658843
+    ],
+    "lid_rest": -0.028,
+    "centres_uv": [
+     [
+      0.3773715654952077,
+      0.4425226114649682
+     ],
+     [
+      0.6242376996805112,
+      0.440296178343949
+     ]
+    ],
+    "iris_radius_m": [
+     0.006035018368137507,
+     0.005989062479411604
+    ],
+    "aperture_ratio": 0.3272186387673141,
+    "opening_fit": {
+     "rest": -0.028,
+     "picture_open_mm": [
+      9.2,
+      8.8
+     ],
+     "fitted_open_mm": [
+      8.8,
+      8.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_04",
+   "sex": "male",
+   "age": 58,
+   "label": "Long oval, 58",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 3,
+   "photo": "pilot_04_source.jpg",
+   "values": {
+    "nose_length": -0.175,
+    "nose_width": -0.003,
+    "nose_depth": -0.064,
+    "nose_hump": -0.086,
+    "nose_curve": -0.129,
+    "nose_tip": 0.02,
+    "nose_tip_width": -0.116,
+    "nostrils": 0.309,
+    "nose_height": 0.01,
+    "mouth_width": 0.431,
+    "lip_upper": -0.009,
+    "lip_lower": 0.04,
+    "mouth_height": -0.344,
+    "chin_prominence": -0.232,
+    "chin_width": -0.054,
+    "chin_height": 0.279,
+    "jaw": 0.161,
+    "prognathism": -0.319,
+    "cheekbones": -0.4,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.0,
+    "brow_height": 0.359,
+    "brow_angle": 0.0,
+    "nose_septum": -0.109,
+    "nose_volume": 0.0,
+    "nostril_angle": -0.053,
+    "lid_fold": -0.03,
+    "brow_ridge": 0.494,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.223,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.066,
+    "head_shape": 0.1,
+    "forehead_height": 0.0,
+    "head_shape.option": 5
+   },
+   "fit_rms_px": 2.32,
+   "camera": {
+    "yaw_deg": 1.8,
+    "pitch_deg": -8.3,
+    "roll_deg": 1.1,
+    "px_per_m": 1234.6,
+    "shift_px": [
+     159.5,
+     182.2
+    ]
+   },
+   "tone_rgb": [
+    0.20863687014525575,
+    0.09530746663096469,
+    0.06124605423161761
+   ],
+   "body_gain": [
+    0.26528217028612244,
+    0.21899334595727069,
+    0.24490509203258706
+   ],
+   "hair_rgb": [
+    0.17788841598362912,
+    0.09989872824711389,
+    0.06847816984440017
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.07300139695739277,
+     0.11111483693122864,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9295250285315904,
+     -0.07469080067677838,
+     0.11258871026334276,
+     0.6139121029166974
+    ],
+    "v": [
+     -0.05761912561654553,
+     -3.8899471352911124,
+     -0.5695728261112444,
+     6.833018682182194
+    ],
+    "toward": [
+     -0.031081756162040196,
+     -0.1443562010009732,
+     0.9890375178255122
+    ],
+    "fallback_gain": [
+     11.120602249467542,
+     5.9437433729029365,
+     4.0742927897376315
+    ],
+    "hairline_v": 0.25285254777070065
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.028844151467808197,
+     0.015741170434452754,
+     0.009631967808028594
+    ],
+    "iris_gain": [
+     0.6595205709896502,
+     0.9840511220176194,
+     1.8589089568468917
+    ],
+    "lid_rest": -0.185,
+    "centres_uv": [
+     [
+      0.38151019108280254,
+      0.43345477707006375
+     ],
+     [
+      0.6306261146496815,
+      0.4330226114649681
+     ]
+    ],
+    "iris_radius_m": [
+     0.005900049059854587,
+     0.005925803486521566
+    ],
+    "aperture_ratio": 0.3575540955341589,
+    "opening_fit": {
+     "rest": -0.185,
+     "picture_open_mm": [
+      9.4,
+      9.4
+     ],
+     "fitted_open_mm": [
+      7.9,
+      7.9
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_05",
+   "sex": "male",
+   "age": 65,
+   "label": "Fine lines, 65",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 4,
+   "photo": "pilot_05_source.jpg",
+   "values": {
+    "nose_length": 0.206,
+    "nose_width": -0.048,
+    "nose_depth": 0.038,
+    "nose_hump": 0.09,
+    "nose_curve": 0.046,
+    "nose_tip": -0.083,
+    "nose_tip_width": -0.164,
+    "nostrils": 0.081,
+    "nose_height": -0.1,
+    "mouth_width": 0.179,
+    "lip_upper": 0.289,
+    "lip_lower": -0.1,
+    "mouth_height": -0.187,
+    "chin_prominence": -0.174,
+    "chin_width": -0.107,
+    "chin_height": 0.379,
+    "jaw": 0.167,
+    "prognathism": -0.138,
+    "cheekbones": -0.278,
+    "cheek_volume": 0.132,
+    "cheek_inner": 0.01,
+    "brow_height": 0.494,
+    "brow_angle": 0.0,
+    "nose_septum": -0.1,
+    "nose_volume": -0.008,
+    "nostril_angle": -0.048,
+    "lid_fold": -0.039,
+    "brow_ridge": 0.233,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.241,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.059,
+    "head_shape": 0.324,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.34,
+   "camera": {
+    "yaw_deg": 2.3,
+    "pitch_deg": -5.3,
+    "roll_deg": 1.2,
+    "px_per_m": 1175.7,
+    "shift_px": [
+     163.3,
+     178.2
+    ]
+   },
+   "tone_rgb": [
+    0.4286904966139066,
+    0.21223075741405523,
+    0.13563332965520566
+   ],
+   "body_gain": [
+    0.5450807675728487,
+    0.4876545912306278,
+    0.5423580914498537
+   ],
+   "hair_rgb": [
+    0.3277780980565422,
+    0.23455058216100522,
+    0.1714411007328226
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08065898260206296,
+     0.11111483693122864,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.7407212780912786,
+     -0.0780787788614476,
+     0.14299389751695585,
+     0.6272366155146788
+    ],
+    "v": [
+     -0.06467989339670246,
+     -3.7393507335636977,
+     -0.3497665731620517,
+     6.538067084518635
+    ],
+    "toward": [
+     -0.03996021700708931,
+     -0.09237058744656158,
+     0.9949225375030578
+    ],
+    "fallback_gain": [
+     20.49087814076229,
+     13.95521737655631,
+     10.200349135609125
+    ],
+    "hairline_v": 0.23968051118210862
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.05266183026419676,
+     0.02579531738037323,
+     0.015110632926186982
+    ],
+    "iris_gain": [
+     1.2041110103018837,
+     1.6125809142755372,
+     2.916256724477536
+    ],
+    "lid_rest": -0.245,
+    "centres_uv": [
+     [
+      0.3978799363057325,
+      0.4293469648562301
+     ],
+     [
+      0.6372910828025478,
+      0.4249166134185303
+     ]
+    ],
+    "iris_radius_m": [
+     0.006065351601877808,
+     0.0061266991965821735
+    ],
+    "aperture_ratio": 0.37758489750863455,
+    "opening_fit": {
+     "rest": -0.245,
+     "picture_open_mm": [
+      9.7,
+      9.9
+     ],
+     "fitted_open_mm": [
+      7.8,
+      7.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_06",
+   "sex": "male",
+   "age": 31,
+   "label": "Freckles, 31",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 5,
+   "photo": "pilot_06_source.jpg",
+   "values": {
+    "nose_length": 0.11,
+    "nose_width": 0.0,
+    "nose_depth": 0.281,
+    "nose_hump": -0.147,
+    "nose_curve": 0.372,
+    "nose_tip": -0.1,
+    "nose_tip_width": -0.111,
+    "nostrils": 0.027,
+    "nose_height": 0.405,
+    "mouth_width": 0.168,
+    "lip_upper": -0.042,
+    "lip_lower": 0.0,
+    "mouth_height": -0.18,
+    "chin_prominence": -0.266,
+    "chin_width": -0.166,
+    "chin_height": 0.305,
+    "jaw": 0.399,
+    "prognathism": -0.191,
+    "cheekbones": 0.033,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.0,
+    "brow_height": 0.228,
+    "brow_angle": 0.0,
+    "nose_septum": -0.104,
+    "nose_volume": 0.024,
+    "nostril_angle": -0.03,
+    "lid_fold": 0.04,
+    "brow_ridge": 0.124,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.139,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": 0.066,
+    "head_shape": 0.42,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.19,
+   "camera": {
+    "yaw_deg": 1.8,
+    "pitch_deg": -7.2,
+    "roll_deg": 0.8,
+    "px_per_m": 1157.0,
+    "shift_px": [
+     159.4,
+     180.6
+    ]
+   },
+   "tone_rgb": [
+    0.5520114015120001,
+    0.2767857877685975,
+    0.1946178304415758
+   ],
+   "body_gain": [
+    0.7018835286104269,
+    0.6359863284538407,
+    0.7782198914435714
+   ],
+   "hair_rgb": [
+    0.19806931955994886,
+    0.09530746663096469,
+    0.04518620438567554
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6584969381701902,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.0902483800899025,
+     0.12117199951655402,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.6945046724865493,
+     -0.05120403074772707,
+     0.10963271993142527,
+     0.5785267680376188
+    ],
+    "v": [
+     -0.03703458151044905,
+     -3.6669802524006503,
+     -0.4646398921157432,
+     6.526462525067071
+    ],
+    "toward": [
+     -0.031163075860858275,
+     -0.12533323356430426,
+     0.991625152599109
+    ],
+    "fallback_gain": [
+     12.382200990825508,
+     5.670573921368514,
+     2.688474694088569
+    ],
+    "hairline_v": 0.25306549520766775
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.09376153627840923,
+     0.05619862353801827,
+     0.029524483734494605
+    ],
+    "iris_gain": [
+     2.1438544313642853,
+     3.0,
+     3.0
+    ],
+    "lid_rest": -0.079,
+    "centres_uv": [
+     [
+      0.38774568690095845,
+      0.44303897763578276
+     ],
+     [
+      0.6279092651757188,
+      0.4404763578274761
+     ]
+    ],
+    "iris_radius_m": [
+     0.006240997985408473,
+     0.006248342341308384
+    ],
+    "aperture_ratio": 0.3480886931141247,
+    "opening_fit": {
+     "rest": -0.079,
+     "picture_open_mm": [
+      9.7,
+      9.5
+     ],
+     "fitted_open_mm": [
+      9.0,
+      9.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_07",
+   "sex": "male",
+   "age": 48,
+   "label": "Round cheeks, 48",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 6,
+   "photo": "pilot_07_source.jpg",
+   "values": {
+    "nose_length": 0.19,
+    "nose_width": -0.009,
+    "nose_depth": 0.211,
+    "nose_hump": -0.027,
+    "nose_curve": 0.367,
+    "nose_tip": 0.053,
+    "nose_tip_width": -0.177,
+    "nostrils": -0.044,
+    "nose_height": 0.491,
+    "mouth_width": 0.095,
+    "lip_upper": -0.012,
+    "lip_lower": 0.0,
+    "mouth_height": 0.124,
+    "chin_prominence": 0.059,
+    "chin_width": -0.168,
+    "chin_height": 0.158,
+    "jaw": 0.204,
+    "prognathism": 0.223,
+    "cheekbones": 0.126,
+    "cheek_volume": 0.169,
+    "cheek_inner": -0.06,
+    "brow_height": 0.16,
+    "brow_angle": 0.061,
+    "nose_septum": -0.066,
+    "nose_volume": 0.019,
+    "nostril_angle": -0.002,
+    "lid_fold": 0.065,
+    "brow_ridge": 0.178,
+    "forehead_slope": 0.0,
+    "temples": 0.04,
+    "ear_size": 0.129,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": 0.339,
+    "head_shape": 0.238,
+    "forehead_height": 0.0,
+    "head_shape.option": 1
+   },
+   "fit_rms_px": 2.2,
+   "camera": {
+    "yaw_deg": -0.3,
+    "pitch_deg": -13.3,
+    "roll_deg": 1.0,
+    "px_per_m": 1214.9,
+    "shift_px": [
+     158.0,
+     177.5
+    ]
+   },
+   "tone_rgb": [
+    0.5271151257058131,
+    0.238397573812271,
+    0.1651321945016676
+   ],
+   "body_gain": [
+    0.6702278673971954,
+    0.547779562323219,
+    0.6603154407144873
+   ],
+   "hair_rgb": [
+    0.05126945837404324,
+    0.03954623527673283,
+    0.03433980680868217
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6534286416687045,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.08071813897900215,
+     0.11579960522497908,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.8807436876203014,
+     -0.06592409628017783,
+     -0.03590372174543954,
+     0.6163940770307288
+    ],
+    "v": [
+     -0.07241470002468471,
+     -3.7767889464338786,
+     -0.8924281472620419,
+     6.706437684480512
+    ],
+    "toward": [
+     0.005095529379362511,
+     -0.23004973718810443,
+     0.9731655326818907
+    ],
+    "fallback_gain": [
+     3.2050836529784927,
+     2.3529095712600507,
+     2.0431391142536244
+    ],
+    "hairline_v": 0.2359408945686901
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.03136231625663275,
+     0.020391672143389068,
+     0.01336669113428181
+    ],
+    "iris_gain": [
+     0.7170983257461087,
+     1.27477482923366,
+     2.5796869723973885
+    ],
+    "lid_rest": 0.088,
+    "centres_uv": [
+     [
+      0.3826872204472843,
+      0.42949201277955273
+     ],
+     [
+      0.6302476038338658,
+      0.4255884984025559
+     ]
+    ],
+    "iris_radius_m": [
+     0.00582103809553678,
+     0.005779152041116525
+    ],
+    "aperture_ratio": 0.2975944787717587,
+    "opening_fit": {
+     "rest": 0.088,
+     "picture_open_mm": [
+      8.1,
+      7.7
+     ],
+     "fitted_open_mm": [
+      8.5,
+      8.5
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_08",
+   "sex": "male",
+   "age": 25,
+   "label": "Narrow jaw, 25",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_john_j_1904",
+   "index": 7,
+   "photo": "pilot_08_source.jpg",
+   "values": {
+    "nose_length": -0.054,
+    "nose_width": 0.236,
+    "nose_depth": 0.357,
+    "nose_hump": -0.011,
+    "nose_curve": 0.405,
+    "nose_tip": 0.028,
+    "nose_tip_width": -0.121,
+    "nostrils": 0.157,
+    "nose_height": 0.621,
+    "mouth_width": 0.813,
+    "lip_upper": 0.0,
+    "lip_lower": 0.329,
+    "mouth_height": -0.099,
+    "chin_prominence": -0.522,
+    "chin_width": -0.22,
+    "chin_height": 0.271,
+    "jaw": 0.241,
+    "prognathism": -0.766,
+    "cheekbones": -0.088,
+    "cheek_volume": -0.002,
+    "cheek_inner": -0.046,
+    "brow_height": 0.253,
+    "brow_angle": -0.005,
+    "nose_septum": -0.073,
+    "nose_volume": 0.052,
+    "nostril_angle": -0.001,
+    "lid_fold": 0.072,
+    "brow_ridge": 0.5,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": 0.233,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.05,
+    "head_shape": 0.245,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.53,
+   "camera": {
+    "yaw_deg": 0.6,
+    "pitch_deg": -10.6,
+    "roll_deg": 0.6,
+    "px_per_m": 1208.6,
+    "shift_px": [
+     159.4,
+     178.5
+    ]
+   },
+   "tone_rgb": [
+    0.26430313116627935,
+    0.11443537382697373,
+    0.06390664217303672
+   ],
+   "body_gain": [
+    0.33606192520235445,
+    0.2629446180463059,
+    0.25554400653620357
+   ],
+   "hair_rgb": [
+    0.03688945040110004,
+    0.03189603307301153,
+    0.027320891639074894
+   ],
+   "hair_shell": {
+    "centre_m": [
+     0.0006241388618946075,
+     1.6597009155412457,
+     0.027102921158075333
+    ],
+    "radius_m": [
+     0.07498594333291869,
+     0.1224482155298728,
+     0.10344934314489365
+    ],
+    "base_centre_m": [
+     0.0006241388618946075,
+     1.6490090489387512,
+     0.027102921158075333
+    ],
+    "base_radius_m": [
+     0.0778498463332653,
+     0.10482531785964966,
+     0.09947052225470543
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.8487001485471746,
+     -0.03961854993026451,
+     0.032890150383152635,
+     0.5687541675768079
+    ],
+    "v": [
+     -0.032995230735814465,
+     -3.79524129559998,
+     -0.7106445869224306,
+     6.7736328899221965
+    ],
+    "toward": [
+     -0.010293086776520815,
+     -0.18395135061272017,
+     0.9828814541806998
+    ],
+    "fallback_gain": [
+     2.306124897699059,
+     1.8977402267889458,
+     1.6255298888276097
+    ],
+    "hairline_v": 0.24325974440894568
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.27682699480343725,
+     0.26617980269561275,
+     0.25553261058778826
+    ],
+    "iris_linear": [
+     0.017273607242374485,
+     0.011797593126284912,
+     0.008280168859308717
+    ],
+    "iris_gain": [
+     0.4,
+     0.7375204278087487,
+     1.5980202969474036
+    ],
+    "lid_rest": -0.16,
+    "centres_uv": [
+     [
+      0.3850245222929936,
+      0.4360974440894569
+     ],
+     [
+      0.6303875796178344,
+      0.43454664536741217
+     ]
+    ],
+    "iris_radius_m": [
+     0.006134513427042982,
+     0.006170329058449928
+    ],
+    "aperture_ratio": 0.35498450301139384,
+    "opening_fit": {
+     "rest": -0.16,
+     "picture_open_mm": [
+      10.1,
+      10.3
+     ],
+     "fitted_open_mm": [
+      9.0,
+      9.0
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_09",
+   "sex": "female",
+   "age": 23,
+   "label": "Fine features, 23",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 8,
+   "photo": "pilot_09_source.jpg",
+   "values": {
+    "nose_length": 0.16,
+    "nose_width": -0.088,
+    "nose_depth": 0.012,
+    "nose_hump": -0.254,
+    "nose_curve": -0.069,
+    "nose_tip": -0.096,
+    "nose_tip_width": 0.024,
+    "nostrils": -0.254,
+    "nose_height": -0.22,
+    "mouth_width": -0.353,
+    "lip_upper": 0.418,
+    "lip_lower": 0.0,
+    "mouth_height": -0.394,
+    "chin_prominence": 0.025,
+    "chin_width": -0.303,
+    "chin_height": 0.196,
+    "jaw": -0.45,
+    "prognathism": -0.135,
+    "cheekbones": -0.483,
+    "cheek_volume": -0.141,
+    "cheek_inner": 0.271,
+    "brow_height": 0.823,
+    "brow_angle": -0.059,
+    "nose_septum": -0.051,
+    "nose_volume": 0.017,
+    "nostril_angle": -0.008,
+    "lip_lower_height": -0.194,
+    "brow_ridge": -0.236,
+    "forehead_slope": 0.0,
+    "temples": -0.372,
+    "ear_size": 0.284,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.42,
+    "head_shape": 0.645,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.51,
+   "camera": {
+    "yaw_deg": 1.3,
+    "pitch_deg": -0.3,
+    "roll_deg": 0.1,
+    "px_per_m": 1187.4,
+    "shift_px": [
+     163.2,
+     186.9
+    ]
+   },
+   "tone_rgb": [
+    0.6038273388553378,
+    0.3277780980565422,
+    0.2704977910130658
+   ],
+   "body_gain": [
+    0.7873096754738036,
+    0.9753767100760437,
+    1.6645230542004057
+   ],
+   "hair_rgb": [
+    0.06124605423161761,
+    0.043735029256973465,
+    0.03433980680868217
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5643979179353678,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08486873422987588,
+     0.11268682753450007,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.780550358098615,
+     -0.006599918769686126,
+     0.0857581229945702,
+     0.5208035874380486
+    ],
+    "v": [
+     -0.006168748832023784,
+     -3.793552443853748,
+     -0.02000827807483311,
+     6.337954542474802
+    ],
+    "toward": [
+     -0.022687022580426194,
+     -0.00523596383141958,
+     0.9997289050983728
+    ],
+    "fallback_gain": [
+     0.9192524034682683,
+     1.5385551423782349,
+     2.3774701366866107
+    ],
+    "hairline_v": 0.2856830670926518
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.23650757335522649,
+     0.22741112822617932,
+     0.21831468309713215
+    ],
+    "iris_linear": [
+     0.07262504407502493,
+     0.03425652792597699,
+     0.016821938892180463
+    ],
+    "iris_gain": [
+     1.6605692349787329,
+     2.1415291119778486,
+     3.0
+    ],
+    "lid_rest": -0.068,
+    "centres_uv": [
+     [
+      0.40433121019108276,
+      0.47293706070287544
+     ],
+     [
+      0.6341,
+      0.47172843450479235
+     ]
+    ],
+    "iris_radius_m": [
+     0.005942263907940358,
+     0.005956074457058516
+    ],
+    "aperture_ratio": 0.3887417392197412,
+    "opening_fit": {
+     "rest": -0.068,
+     "picture_open_mm": [
+      10.5,
+      10.2
+     ],
+     "fitted_open_mm": [
+      9.8,
+      9.8
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_10",
+   "sex": "female",
+   "age": 44,
+   "label": "Cheek contours, 44",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 9,
+   "photo": "pilot_10_source.jpg",
+   "values": {
+    "nose_length": 0.23,
+    "nose_width": 0.0,
+    "nose_depth": -0.099,
+    "nose_hump": -0.241,
+    "nose_curve": 0.036,
+    "nose_tip": 0.064,
+    "nose_tip_width": 0.024,
+    "nostrils": -0.155,
+    "nose_height": -0.097,
+    "mouth_width": -0.021,
+    "lip_upper": 0.415,
+    "lip_lower": 0.003,
+    "mouth_height": -0.274,
+    "chin_prominence": 0.044,
+    "chin_width": -0.173,
+    "chin_height": 0.216,
+    "jaw": -0.451,
+    "prognathism": -0.016,
+    "cheekbones": -0.321,
+    "cheek_volume": 0.076,
+    "cheek_inner": 0.092,
+    "brow_height": 0.699,
+    "brow_angle": -0.05,
+    "nose_septum": -0.032,
+    "nose_volume": 0.033,
+    "nostril_angle": -0.001,
+    "lip_lower_height": -0.229,
+    "brow_ridge": -0.224,
+    "forehead_slope": 0.0,
+    "temples": -0.331,
+    "ear_size": 0.187,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.287,
+    "head_shape": 0.548,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.45,
+   "camera": {
+    "yaw_deg": 0.7,
+    "pitch_deg": -3.4,
+    "roll_deg": 1.1,
+    "px_per_m": 1238.0,
+    "shift_px": [
+     160.3,
+     183.3
+    ]
+   },
+   "tone_rgb": [
+    0.5679181675849012,
+    0.3005437944157765,
+    0.203317495092357
+   ],
+   "body_gain": [
+    0.7404889435191118,
+    0.8943349759155148,
+    1.2511254034128474
+   ],
+   "hair_rgb": [
+    0.06301001765316767,
+    0.04518620438567554,
+    0.03688945040110004
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08267362478268925,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9543025436033887,
+     -0.07579744625521263,
+     0.043809788950240326,
+     0.6212468551095027
+    ],
+    "v": [
+     -0.07306018316486872,
+     -3.947581981331145,
+     -0.23543973139744478,
+     6.562762263950111
+    ],
+    "toward": [
+     -0.012195496811521631,
+     -0.05930637357596162,
+     0.998165328946457
+    ],
+    "fallback_gain": [
+     0.9457280292899382,
+     1.5896060504189555,
+     2.5539912666376177
+    ],
+    "hairline_v": 0.26176613418530353
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.18852861792336187,
+     0.1812775172340018,
+     0.1740264165446417
+    ],
+    "iris_linear": [
+     0.06594796118856835,
+     0.03170692074574011,
+     0.013564396724590186
+    ],
+    "iris_gain": [
+     1.507897955231231,
+     1.9821417387921196,
+     2.6178429027293615
+    ],
+    "lid_rest": -0.042,
+    "centres_uv": [
+     [
+      0.39020798722044725,
+      0.457314696485623
+     ],
+     [
+      0.6279821086261981,
+      0.4579099041533546
+     ]
+    ],
+    "iris_radius_m": [
+     0.005786004035091771,
+     0.005803903070856852
+    ],
+    "aperture_ratio": 0.34927634752440445,
+    "opening_fit": {
+     "rest": -0.042,
+     "picture_open_mm": [
+      8.9,
+      8.9
+     ],
+     "fitted_open_mm": [
+      8.5,
+      8.5
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_11",
+   "sex": "female",
+   "age": 35,
+   "label": "Round face, 35",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 10,
+   "photo": "pilot_11_source.jpg",
+   "values": {
+    "nose_length": 0.0,
+    "nose_width": 0.0,
+    "nose_depth": 0.033,
+    "nose_hump": -0.194,
+    "nose_curve": 0.115,
+    "nose_tip": 0.117,
+    "nose_tip_width": 0.038,
+    "nostrils": -0.208,
+    "nose_height": 0.173,
+    "mouth_width": 0.076,
+    "lip_upper": 0.165,
+    "lip_lower": 0.152,
+    "mouth_height": -0.345,
+    "chin_prominence": 0.018,
+    "chin_width": -0.014,
+    "chin_height": 0.293,
+    "jaw": -0.451,
+    "prognathism": -0.081,
+    "cheekbones": -0.154,
+    "cheek_volume": 0.096,
+    "cheek_inner": 0.016,
+    "brow_height": 0.326,
+    "brow_angle": -0.069,
+    "nose_septum": -0.043,
+    "nose_volume": 0.034,
+    "nostril_angle": -0.026,
+    "lip_lower_height": -0.184,
+    "brow_ridge": -0.234,
+    "forehead_slope": 0.0,
+    "temples": -0.271,
+    "ear_size": 0.05,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.045,
+    "head_shape": 0.633,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.46,
+   "camera": {
+    "yaw_deg": 2.1,
+    "pitch_deg": -8.2,
+    "roll_deg": 1.0,
+    "px_per_m": 1265.8,
+    "shift_px": [
+     158.5,
+     180.4
+    ]
+   },
+   "tone_rgb": [
+    0.5457244613701866,
+    0.2788942634768104,
+    0.19806931955994886
+   ],
+   "body_gain": [
+    0.7115513341843114,
+    0.8299119763705737,
+    1.2188304662399154
+   ],
+   "hair_rgb": [
+    0.042311410620809675,
+    0.03433980680868217,
+    0.030713443732993635
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5622148683808632,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.07672705813268814,
+     0.11037279500672516,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     4.041126778801934,
+     -0.06985750852177038,
+     0.13810800596675485,
+     0.5967437607225866
+    ],
+    "v": [
+     -0.049398666786612165,
+     -4.0021339828326745,
+     -0.5789152704279452,
+     6.680794971459313
+    ],
+    "toward": [
+     -0.0362690718900582,
+     -0.14262893370551163,
+     0.9891114910333731
+    ],
+    "fallback_gain": [
+     0.6350591298538389,
+     1.208040494116026,
+     2.1264037877911157
+    ],
+    "hairline_v": 0.26037667731629394
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2302550153789495,
+     0.2213990532489899,
+     0.2125430911190303
+    ],
+    "iris_linear": [
+     0.041847012972772345,
+     0.021671641910466676,
+     0.011341702969511468
+    ],
+    "iris_gain": [
+     0.9568305699967017,
+     1.354791476705093,
+     2.1888770452854143
+    ],
+    "lid_rest": 0.062,
+    "centres_uv": [
+     [
+      0.38422939297124603,
+      0.44736773162939303
+     ],
+     [
+      0.6203156549520767,
+      0.44692332268370605
+     ]
+    ],
+    "iris_radius_m": [
+     0.0056651354268602095,
+     0.005652015674499946
+    ],
+    "aperture_ratio": 0.3500836855101752,
+    "opening_fit": {
+     "rest": 0.062,
+     "picture_open_mm": [
+      9.0,
+      8.8
+     ],
+     "fitted_open_mm": [
+      9.4,
+      9.4
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_12",
+   "sex": "female",
+   "age": 63,
+   "label": "Fine lines, 63",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 11,
+   "photo": "pilot_12_source.jpg",
+   "values": {
+    "nose_length": -0.201,
+    "nose_width": 0.213,
+    "nose_depth": 0.047,
+    "nose_hump": -0.267,
+    "nose_curve": -0.103,
+    "nose_tip": 0.222,
+    "nose_tip_width": 0.054,
+    "nostrils": -0.051,
+    "nose_height": 0.106,
+    "mouth_width": 0.363,
+    "lip_upper": 0.324,
+    "lip_lower": 0.129,
+    "mouth_height": -0.398,
+    "chin_prominence": -0.255,
+    "chin_width": -0.063,
+    "chin_height": 0.236,
+    "jaw": -0.451,
+    "prognathism": -0.19,
+    "cheekbones": -0.379,
+    "cheek_volume": 0.138,
+    "cheek_inner": 0.019,
+    "brow_height": 0.422,
+    "brow_angle": -0.089,
+    "nose_septum": -0.058,
+    "nose_volume": 0.03,
+    "nostril_angle": -0.032,
+    "lip_lower_height": -0.093,
+    "brow_ridge": -0.223,
+    "forehead_slope": 0.0,
+    "temples": -0.375,
+    "ear_size": 0.184,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.39,
+    "head_shape": 0.269,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.29,
+   "camera": {
+    "yaw_deg": 1.3,
+    "pitch_deg": -8.0,
+    "roll_deg": 1.3,
+    "px_per_m": 1240.9,
+    "shift_px": [
+     161.1,
+     182.7
+    ]
+   },
+   "tone_rgb": [
+    0.2788942634768104,
+    0.12477181756095049,
+    0.07421356838014963
+   ],
+   "body_gain": [
+    0.3636406269475621,
+    0.3712863234132711,
+    0.45667728021213466
+   ],
+   "hair_rgb": [
+    0.1022417330881013,
+    0.0822827071298148,
+    0.06662593864377289
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.561885480518757,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08140140915642481,
+     0.11002364387289258,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.950159812975333,
+     -0.08878577060604827,
+     0.07716042740676904,
+     0.6368070346385772
+    ],
+    "v": [
+     -0.07740694634417086,
+     -3.924943638181334,
+     -0.5535134814923033,
+     6.548954530982576
+    ],
+    "toward": [
+     -0.022466542002013985,
+     -0.13917310096006544,
+     0.9900131829726467
+    ],
+    "fallback_gain": [
+     1.534563492377262,
+     2.8946243853991076,
+     4.612756860770566
+    ],
+    "hairline_v": 0.27546453674121407
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1872,
+     0.18,
+     0.17279999999999998
+    ],
+    "iris_linear": [
+     0.027424793156117882,
+     0.017158122932133837,
+     0.011940137931281562
+    ],
+    "iris_gain": [
+     0.6270669900545466,
+     1.0726311739899246,
+     2.3043712135277024
+    ],
+    "lid_rest": 0.035,
+    "centres_uv": [
+     [
+      0.3868617834394904,
+      0.46119041533546323
+     ],
+     [
+      0.6290035031847134,
+      0.45818178913738017
+     ]
+    ],
+    "iris_radius_m": [
+     0.005618356528369341,
+     0.005647442592099817
+    ],
+    "aperture_ratio": 0.31421014521585333,
+    "opening_fit": {
+     "rest": 0.035,
+     "picture_open_mm": [
+      8.1,
+      7.9
+     ],
+     "fitted_open_mm": [
+      8.3,
+      8.3
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_13",
+   "sex": "female",
+   "age": 68,
+   "label": "Small chin, 68",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 12,
+   "photo": "pilot_13_source.jpg",
+   "values": {
+    "nose_length": -0.059,
+    "nose_width": -0.002,
+    "nose_depth": -0.035,
+    "nose_hump": -0.414,
+    "nose_curve": -0.621,
+    "nose_tip": 0.013,
+    "nose_tip_width": 0.043,
+    "nostrils": 0.075,
+    "nose_height": -0.712,
+    "mouth_width": -0.139,
+    "lip_upper": 0.411,
+    "lip_lower": 0.0,
+    "mouth_height": -0.519,
+    "chin_prominence": 0.02,
+    "chin_width": -0.121,
+    "chin_height": 0.291,
+    "jaw": -0.45,
+    "prognathism": -0.116,
+    "cheekbones": -0.733,
+    "cheek_volume": -0.038,
+    "cheek_inner": 0.207,
+    "brow_height": 0.538,
+    "brow_angle": -0.07,
+    "nose_septum": -0.022,
+    "nose_volume": 0.008,
+    "nostril_angle": -0.001,
+    "lip_lower_height": -0.211,
+    "brow_ridge": -0.277,
+    "forehead_slope": 0.0,
+    "temples": -0.484,
+    "ear_size": 0.331,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.429,
+    "head_shape": 0.572,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.88,
+   "camera": {
+    "yaw_deg": 0.1,
+    "pitch_deg": -1.5,
+    "roll_deg": 1.3,
+    "px_per_m": 1186.2,
+    "shift_px": [
+     162.1,
+     184.3
+    ]
+   },
+   "tone_rgb": [
+    0.6038273388553378,
+    0.33716361504833037,
+    0.26635560480286247
+   ],
+   "body_gain": [
+    0.7873096754738036,
+    1.003305405556588,
+    1.6390338832321243
+   ],
+   "hair_rgb": [
+    0.32314320911295075,
+    0.25818285292159576,
+    0.21586050011389926
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08909677272596331,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.7767328231963258,
+     -0.08567672965416888,
+     0.004348121426281219,
+     0.6441193430988567
+    ],
+    "v": [
+     -0.0855334193805566,
+     -3.775440467162548,
+     -0.09901282267044466,
+     6.267393835598571
+    ],
+    "toward": [
+     -0.001744730285457864,
+     -0.026176948307873153,
+     0.9996558024107687
+    ],
+    "fallback_gain": [
+     4.8501111682747435,
+     9.082617818829224,
+     14.94481013158405
+    ],
+    "hairline_v": 0.289825796178344
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2532544624156375,
+     0.2435139061688822,
+     0.2337733499221269
+    ],
+    "iris_linear": [
+     0.11315252626286966,
+     0.0679317115315484,
+     0.041654622502788174
+    ],
+    "iris_gain": [
+     2.587228777143843,
+     3.0,
+     3.0
+    ],
+    "lid_rest": -0.128,
+    "centres_uv": [
+     [
+      0.3973764331210191,
+      0.4600261146496816
+     ],
+     [
+      0.6290085987261147,
+      0.4591410828025478
+     ]
+    ],
+    "iris_radius_m": [
+     0.0056933290896555595,
+     0.005700153109349284
+    ],
+    "aperture_ratio": 0.386146483861415,
+    "opening_fit": {
+     "rest": -0.128,
+     "picture_open_mm": [
+      9.3,
+      9.3
+     ],
+     "fitted_open_mm": [
+      8.2,
+      8.2
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_14",
+   "sex": "female",
+   "age": 29,
+   "label": "Freckles, 29",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 13,
+   "photo": "pilot_14_source.jpg",
+   "values": {
+    "nose_length": 0.0,
+    "nose_width": -0.036,
+    "nose_depth": -0.044,
+    "nose_hump": -0.305,
+    "nose_curve": -0.271,
+    "nose_tip": -0.083,
+    "nose_tip_width": 0.034,
+    "nostrils": -0.188,
+    "nose_height": -0.38,
+    "mouth_width": -0.285,
+    "lip_upper": 0.429,
+    "lip_lower": 0.0,
+    "mouth_height": -0.458,
+    "chin_prominence": 0.052,
+    "chin_width": -0.137,
+    "chin_height": 0.29,
+    "jaw": -0.45,
+    "prognathism": -0.099,
+    "cheekbones": -0.457,
+    "cheek_volume": -0.031,
+    "cheek_inner": 0.218,
+    "brow_height": 0.508,
+    "brow_angle": -0.065,
+    "nose_septum": -0.012,
+    "nose_volume": 0.013,
+    "nostril_angle": 0.0,
+    "lip_lower_height": -0.209,
+    "brow_ridge": -0.249,
+    "forehead_slope": 0.0,
+    "temples": -0.362,
+    "ear_size": 0.249,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.318,
+    "head_shape": 0.764,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.69,
+   "camera": {
+    "yaw_deg": 1.5,
+    "pitch_deg": -1.1,
+    "roll_deg": 0.9,
+    "px_per_m": 1239.9,
+    "shift_px": [
+     159.8,
+     186.6
+    ]
+   },
+   "tone_rgb": [
+    0.5711248294648731,
+    0.2961382707983211,
+    0.21223075741405523
+   ],
+   "body_gain": [
+    0.7446699995290313,
+    0.8812253595084579,
+    1.3059736539920392
+   ],
+   "hair_rgb": [
+    0.19806931955994886,
+    0.08865558628577294,
+    0.043735029256973465
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.09010444522665463,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.9595271351477095,
+     -0.06221058669599848,
+     0.10248895325753715,
+     0.5936067859182369
+    ],
+    "v": [
+     -0.06001852968552586,
+     -3.9475113575252725,
+     -0.07739371305046829,
+     6.568028638222073
+    ],
+    "toward": [
+     -0.026172124213607664,
+     -0.01919744239968967,
+     0.9994731002480547
+    ],
+    "fallback_gain": [
+     2.9728559715902954,
+     3.1188159811001914,
+     3.027935671416782
+    ],
+    "hairline_v": 0.27659044585987264
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2056006926729614,
+     0.19769297372400135,
+     0.1897852547750413
+    ],
+    "iris_linear": [
+     0.09295829955660972,
+     0.055784111790220484,
+     0.029803020722760754
+    ],
+    "iris_gain": [
+     2.1254884502400944,
+     3.0,
+     3.0
+    ],
+    "lid_rest": 0.084,
+    "centres_uv": [
+     [
+      0.3887610223642172,
+      0.46245923566878977
+     ],
+     [
+      0.627108945686901,
+      0.4615761146496815
+     ]
+    ],
+    "iris_radius_m": [
+     0.0058167678342557,
+     0.00579601948683697
+    ],
+    "aperture_ratio": 0.35601127903782837,
+    "opening_fit": {
+     "rest": 0.084,
+     "picture_open_mm": [
+      9.1,
+      8.8
+     ],
+     "fitted_open_mm": [
+      9.6,
+      9.6
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_15",
+   "sex": "female",
+   "age": 52,
+   "label": "Long face, 52",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 14,
+   "photo": "pilot_15_source.jpg",
+   "values": {
+    "nose_length": -0.018,
+    "nose_width": -0.001,
+    "nose_depth": -0.054,
+    "nose_hump": -0.322,
+    "nose_curve": -0.307,
+    "nose_tip": 0.049,
+    "nose_tip_width": 0.045,
+    "nostrils": 0.003,
+    "nose_height": -0.319,
+    "mouth_width": -0.092,
+    "lip_upper": 0.462,
+    "lip_lower": 0.0,
+    "mouth_height": -0.586,
+    "chin_prominence": -0.198,
+    "chin_width": -0.058,
+    "chin_height": 0.35,
+    "jaw": -0.451,
+    "prognathism": -0.076,
+    "cheekbones": -0.567,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.126,
+    "brow_height": 0.426,
+    "brow_angle": -0.081,
+    "nose_septum": -0.038,
+    "nose_volume": 0.024,
+    "nostril_angle": -0.02,
+    "lip_lower_height": -0.242,
+    "brow_ridge": -0.264,
+    "forehead_slope": 0.0,
+    "temples": -0.544,
+    "ear_size": 0.312,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.308,
+    "head_shape": 0.781,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.84,
+   "camera": {
+    "yaw_deg": 0.5,
+    "pitch_deg": -4.1,
+    "roll_deg": 1.2,
+    "px_per_m": 1234.6,
+    "shift_px": [
+     158.3,
+     181.7
+    ]
+   },
+   "tone_rgb": [
+    0.5271151257058131,
+    0.26225065752969623,
+    0.1714411007328226
+   ],
+   "body_gain": [
+    0.6872872621890368,
+    0.7803852212006845,
+    1.054972255183752
+   ],
+   "hair_rgb": [
+    0.08865558628577294,
+    0.07227185068231748,
+    0.06301001765316767
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.08135909996477668,
+     0.10927772521972656,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.943445253171881,
+     -0.08239406300769116,
+     0.028507620596878606,
+     0.6262383324706373
+    ],
+    "v": [
+     -0.07988661860076568,
+     -3.9209245712711485,
+     -0.28176323005565224,
+     6.51400456295271
+    ],
+    "toward": [
+     -0.008704202399772773,
+     -0.07149744433268591,
+     0.9974028034422594
+    ],
+    "fallback_gain": [
+     1.3306467134337179,
+     2.542452340962863,
+     4.36241345553019
+    ],
+    "hairline_v": 0.26716878980891723
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.1989672928832872,
+     0.19131470469546846,
+     0.18366211650764971
+    ],
+    "iris_linear": [
+     0.051698208706911164,
+     0.028051953219263563,
+     0.014309919780564066
+    ],
+    "iris_gain": [
+     1.1820778352095873,
+     1.7536533357001136,
+     2.7617241442271316
+    ],
+    "lid_rest": -0.031,
+    "centres_uv": [
+     [
+      0.3830597444089457,
+      0.4475920382165605
+     ],
+     [
+      0.6226044728434506,
+      0.4444933121019108
+     ]
+    ],
+    "iris_radius_m": [
+     0.005749996780814043,
+     0.005784696280938102
+    ],
+    "aperture_ratio": 0.34943357059373714,
+    "opening_fit": {
+     "rest": -0.031,
+     "picture_open_mm": [
+      8.7,
+      8.7
+     ],
+     "fitted_open_mm": [
+      8.4,
+      8.4
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  },
+  {
+   "id": "pilot_16",
+   "sex": "female",
+   "age": 26,
+   "label": "Oval face, 26",
+   "source": "synthetic_photo_face_pilot_2026",
+   "source_url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+   "synthetic": true,
+   "grade": "reconstructed",
+   "base_body": "glessner_frances_m_1904",
+   "index": 15,
+   "photo": "pilot_16_source.jpg",
+   "values": {
+    "nose_length": -0.059,
+    "nose_width": 0.114,
+    "nose_depth": 0.0,
+    "nose_hump": -0.236,
+    "nose_curve": 0.034,
+    "nose_tip": 0.098,
+    "nose_tip_width": 0.04,
+    "nostrils": -0.164,
+    "nose_height": 0.186,
+    "mouth_width": 0.087,
+    "lip_upper": 0.15,
+    "lip_lower": 0.268,
+    "mouth_height": -0.405,
+    "chin_prominence": -0.232,
+    "chin_width": -0.183,
+    "chin_height": 0.208,
+    "jaw": -0.451,
+    "prognathism": -0.239,
+    "cheekbones": -0.461,
+    "cheek_volume": 0.0,
+    "cheek_inner": 0.067,
+    "brow_height": 0.798,
+    "brow_angle": -0.016,
+    "nose_septum": -0.05,
+    "nose_volume": 0.028,
+    "nostril_angle": -0.022,
+    "lip_lower_height": -0.04,
+    "brow_ridge": -0.218,
+    "forehead_slope": 0.0,
+    "temples": -0.436,
+    "ear_size": 0.244,
+    "ear_flap": 0.0,
+    "ear_lobe": 0.0,
+    "jowls": -0.43,
+    "head_shape": 0.453,
+    "forehead_height": 0.0,
+    "head_shape.option": 3
+   },
+   "fit_rms_px": 2.5,
+   "camera": {
+    "yaw_deg": 1.4,
+    "pitch_deg": -5.5,
+    "roll_deg": 0.4,
+    "px_per_m": 1255.7,
+    "shift_px": [
+     162.0,
+     184.9
+    ]
+   },
+   "tone_rgb": [
+    0.3467040563550296,
+    0.1559264637078274,
+    0.09305896284668745
+   ],
+   "body_gain": [
+    0.45205548097868586,
+    0.46399390955919534,
+    0.5726434529397255
+   ],
+   "hair_rgb": [
+    0.05126945837404324,
+    0.04091519690685319,
+    0.03688945040110004
+   ],
+   "hair_shell": {
+    "centre_m": [
+     -0.0006559863686561584,
+     1.563028214867459,
+     -0.028900589793920517
+    ],
+    "radius_m": [
+     0.0814654227077207,
+     0.11123494228251672,
+     0.12135043889284135
+    ],
+    "base_centre_m": [
+     -0.0006559863686561584,
+     1.5611817836761475,
+     -0.028900589793920517
+    ],
+    "base_radius_m": [
+     0.0782044529914856,
+     0.10309219360351562,
+     0.11668311432003975
+    ],
+    "bone": "head"
+   },
+   "hair_projection": {
+    "u": [
+     3.99781878253035,
+     -0.027789840555024217,
+     0.095027930228446,
+     0.547915537064432
+    ],
+    "v": [
+     -0.018545620798204453,
+     -3.980536772755317,
+     -0.3838497901600582,
+     6.647005306924772
+    ],
+    "toward": [
+     -0.02431969725098059,
+     -0.09584575252022398,
+     0.9950990624301947
+    ],
+    "fallback_gain": [
+     0.7695119861374752,
+     1.4393562247913605,
+     2.5539912666376177
+    ],
+    "hairline_v": 0.2716678343949045
+   },
+   "eyes": {
+    "sclera_linear": [
+     0.2201318449109614,
+     0.21166523549130903,
+     0.20319862607165665
+    ],
+    "iris_linear": [
+     0.02941335077215471,
+     0.018717206833320617,
+     0.01387968405123583
+    ],
+    "iris_gain": [
+     0.6725352942907843,
+     1.1700964970846106,
+     2.6786913655941738
+    ],
+    "lid_rest": 0.072,
+    "centres_uv": [
+     [
+      0.3936171974522293,
+      0.4611012738853503
+     ],
+     [
+      0.6335799363057325,
+      0.4615235668789809
+     ]
+    ],
+    "iris_radius_m": [
+     0.005718580472710163,
+     0.0057354788829699025
+    ],
+    "aperture_ratio": 0.35454703014350764,
+    "opening_fit": {
+     "rest": 0.072,
+     "picture_open_mm": [
+      9.2,
+      9.1
+     ],
+     "fitted_open_mm": [
+      9.7,
+      9.7
+     ]
+    }
+   },
+   "limits": [
+    "profile depth from a single front photograph",
+    "ears and hair outside the face patch"
+   ]
+  }
+ ],
+ "capacity": 64,
+ "inputs_sha256": {
+  "tools/photo_face_library.py": "ce95f8282605227989be67357545f2a03fc13c07024f6a8f18a0269ae4cf72cb",
+  "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
+  "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
+  "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
+  "renderers/web/js/human-skin.js": "6536c8942ec30c64ee993e50c27a2c1e262b52c23e44d91d6aa1240675cf9296",
+  "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
+  "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
+  "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
+  "data/humans/variation/mediapipe_hm08_landmarks.json": "5c2cf92436c5e66b6187e2f869ac54a9520d639b18dadf14f369a5e49513ee3a",
+  "data/humans/variation/face_library.json": "798e86beeb2bab628d61b80a6416a2eaa7f63e89780876b6d46c7127cc7736f2",
+  "assets/humans/glessner_john_j_1904.lod0.glb": "62b8372c00af4e4772185d47e8cdae04f1f0b718a772feb8e282010386747b14",
+  "assets/humans/glessner_frances_m_1904.lod0.glb": "42dd44b5bf45660bf3e81f7bf2b3e4baa31b4b25670e00c22da7244b708cca56",
+  "assets/humans/web/glessner_john_j_1904.lod0.glb": "53abddd2f2958fe26f14beb5b2782d7a9bbb84c962ae6372dcc0d10895be945a",
+  "assets/humans/web/glessner_frances_m_1904.lod0.glb": "e35c7a75680fb1ac18a51ddc69a0e57378bf3b632f039af4303d5e1802a90970",
+  "data/humans/variation/portraits/pa1904_grey_w_l.json": "63ec5309d7a9ae88ba8d2a4ecfa9c309f18f48b04cd2d4f2f8cd87e5c870d33e",
+  "data/humans/variation/portraits/pa1904_grey_mrs_w_l.json": "43a97407f69abe1d3b58977e8c897489c355f135bc1d99c2f0d2c3c22127fb73",
+  "assets/authored/humans/makehuman_hm08/makehuman/data/3dobjs/base.obj": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+  "assets/authored/humans/makehuman_hm08/prepared.json": "afe49bc1396a537dd376bc7e4f3ec7cad32cca2fe45f67450e4d9501d1d33920"
+ },
+ "limits": [
+  "Front photo fits do not establish profile depth.",
+  "Hair, ears, bodies and dress are reconstructed.",
+  "Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass."
+ ],
+ "recipe_sha256": "e4a89010748924cc7fb566d77f110f2e72b0890e67df600450d5c71b7a2297b0"
+}

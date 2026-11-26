@@ -46391,3 +46391,13 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+
+### L-photo-face-pilot-3746 — Sixteen fictional photographic faces for review
+
+**Decision:** the owner's request of 25 November 2026: start with sixteen photographic faces, see them rendered before replacing generic faces throughout the population, preserve lower-power PCs and allow later historical-photo imports. Sixteen generated fictional adults supply measured front landmarks, face colour, front hair, sclera/iris tones and lid openings. An existing hm08 morph kit bounds the fitted face. A small portable scalp mesh carries the photographed hair and a source-bounded crown height/width; back depth and unseen strands remain reconstructed. The review changes no historical identity or resident assignment.
+**Not invented:** the preserved source pixels (`synthetic_photo_face_pilot_2026` states explicitly that they are generated fictional portraits), their measured landmarks and image colours, the shared rig and the existing body meshes.
+**Left out on purpose:** population rollout, historical likeness approval and any claim of weak-PC whole-scene performance from an isolated software-rendered preview. Body, clothing, ears, unseen hair, profile depth and separate eyeball geometry remain reconstructed.
+**Re-opens on:** owner review of the pilot; actual front/side photographs of a named person; target-hardware crowd measurements.
+**Ticket:** T-3746.
+**Recorded:** 2026-11-25.

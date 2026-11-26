@@ -1,0 +1,22 @@
+{
+ "id": "synthetic_photo_face_pilot_2026",
+ "type": "illustration",
+ "citation": "Sixteen fictional adult head portraits generated for the project owner's photo-face pilot on 25 November 2026. These are synthetic images, not photographs of historical people.",
+ "author": "Project-generated imagery",
+ "date": "2026-11-25",
+ "describes_date": "not applicable: fictional faces for review",
+ "repository": "This repository, assets/authored/humans/photo_face_pilot/sources.png (SHA-256 b1f61b625b440d1df7d5035b72a8d0b01b6ae3cb5926d089ad3ab7bb3f39db5c)",
+ "url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot/sources.png",
+ "locator": "4 by 4 source sheet; row-major crops in data/humans/variation/photo_face_pilot.json",
+ "tier": 5,
+ "rights_status": "cleared",
+ "rights_note": "Created for this project at the owner's express request to generate sixteen sample faces. Use of the generated output and derived textures is authorized for the project; no third-party face dataset or scraped portrait is used. Original generated output remains preserved.",
+ "rights_checked": {
+  "date": "2026-11-25",
+  "method": "Generated in this task, with fictional subjects, for the owner's requested face library.",
+  "outcome": "cleared for project use and texture derivation"
+ },
+ "asset_use": "texture",
+ "verified": true,
+ "note": "All sixteen faces are fictional. None supplies evidence for a historical person's appearance. Source pixels supply face colour and landmark proportions; profile depth, bodies, hair, ears and clothing remain reconstructed. Review only; no population assignment."
+}

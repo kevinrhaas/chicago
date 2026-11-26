@@ -1,3 +1,28 @@
+## T-3746 — Sixteen photo-face samples for review (25 November 2026)
+
+A separate review page (`tools/photo_face_review.html`) compares sixteen fictional source
+portraits with the existing skin and fitted result on the existing portable bodies.
+`tools/photo_face_library.py --photo` accepts a registered historical photograph and
+prepares the same review format; existing residents and likeness records are untouched.
+Photographed front hair is projected onto the scalp. Unseen strands take a measured
+source colour; detached hat plumes are hidden with the hats. Profile depth, unseen hair
+volume, bodies, clothing and ears remain reconstructed. Photo eye openings are filled
+with adjacent lid skin so the separate eyeballs do not acquire painted pupils.
+Iris detail is retained; source pupil positions, iris radii and measured lid openings
+guide bounded eye corrections. Sclera tone and corneal glare are softened. Attested
+historical eye colours keep priority. All sixteen render together in the Light review.
+
+All sixteen share two 512-square atlases on Light (2.67 MiB RGBA8 including mipmaps) or
+two 1024-square atlases on Full (10.67 MiB). These are added face/hair texture bounds,
+not whole-scene memory. The review exports hardware-labelled crowd measurements.
+Low-power-PC whole-scene performance and historical likeness sign-off remain unverified.
+The opt-in `photoFaces=pilot` walk preview now applies source-shaped heads and softer eyes
+to existing generic adults through one 512-square atlas (1.33 MiB), while preserving personal
+portrait fits, visitor choices, recorded complexions and the existing hair layer. Children
+keep the ordinary library until calibrated. The scene-assignment test covers all 1,234 drawn
+people: 1,048 generic adults get photos on 1,076 bodies; 160 child and 27 personal-face
+assignments are protected. No default assignments change. See PHOTO-FACE-PILOT.md.
+
 ## T-3709 — the 1835 phone's js heap back to 100 MB (20 November 2026)
 
 T-3708 found the phone's js heap at 130 MB against 100 on main's 2026-11-17 run, and nobody

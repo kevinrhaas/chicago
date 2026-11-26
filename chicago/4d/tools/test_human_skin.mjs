@@ -181,6 +181,11 @@ const faceMask = (u, v) => {
   assert.notEqual(libraryFaceLayout({ ...face, url: `${face.url}?2` }).key, lay.key, 'and so is the same place on another sheet');
   assert.notEqual(libraryFaceLayout({ ...face, gain: [1.25, 1.3, 1.5] }).key, lay.key, 'and so is another body\'s gain');
   assert.notEqual(libraryFaceLayout({ ...face, lines: 0.3 }).key, lay.key);
+  const padded = libraryFaceLayout({ ...face, padding_px: 8 });
+  assert.equal(padded.at[0], (2 * 256 + 8) / 1280, 'a padded face starts after its duplicated edge');
+  assert.equal(padded.at[2] * (u1 - u0), 240 / 1280, 'the face maps to the content, leaving its gutters out');
+  assert.notEqual(padded.key, lay.key, 'padding participates in the cached material identity');
+  for (const padding_px of [-1, NaN, 128]) assert.equal(libraryFaceLayout({ ...face, padding_px }), null);
   assert.equal(libraryFaceLayout({ ...face, lines: undefined }).lines, 1, 'a face that says nothing of its lines keeps the drawn ones');
   assert.equal(libraryFaceLayout({ ...face, lines: 7 }).lines, 1);
   for (const [why, bad] of [['none', null], ['none', undefined], ['no sheet', { ...face, url: '' }], ['the body\'s own (-1)', { ...face, index: -1 }], ['a face past the sheet', { ...face, index: 25 }],
@@ -863,7 +868,7 @@ const faceMask = (u, v) => {
 }
 // Every person, not only drivers: humans.js dresses each body it builds.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
-assert(/import \{ dressSkin(, restingLid)? \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');
+assert(/import \{ dressSkin(, dressPhotoLooks)?(, restingLid)? \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');
 // T-3412 put per-person variation between the clone and the dressing, so the window
 // allows build()'s whole preamble, not just the lines that were there first.
 assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,1700}dressSkin\(scene[,)]/.test(humans), 'build() dresses the clone');

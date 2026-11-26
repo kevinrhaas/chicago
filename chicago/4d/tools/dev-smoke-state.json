@@ -2,6 +2,101 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 96,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 696,
+      "takenAt": "2026-11-26T05:18:08.132Z",
+      "ref": "steward/t3746-photo-face-pilot-16",
+      "commit": "9ce06bacd5a9",
+      "devCommit": "9ce06bacd5a9",
+      "treeHash": "sha256:c92f1e6c7c8fa1ec",
+      "treeDirty": true,
+      "changelogHash": "sha256:9f84d93ac519330a",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          3.6,
+          4.7,
+          5.4
+        ]
+      },
+      "source": "work/photo-smoke-desktop-1-alone.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 32,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Error: capture scene did not settle within 60s: {\"camera\":{\"position\":[-127.7,2.7890800151824946,292],\"quaternion\":[0,0,0,1],\"projection\":[1.2006138293569788,0,0,0,0,1.9209821269711662,0,0,0,0,-1.000066668888963,-1,0,0,-0.2000066668888963,0]},\"geometry\":{\"meshes\":878,\"visible\":861,\"layers\":{\"1\":878},\"fingerprint\":\"c6a873ae\"},\"flora\":{\"inFlight\":false,\"landings\":0,\"drained\":0,\"abandoned\":0,\"passes\":{\"near\":1,\"far\":1}},\"textureResidency\":{\"pending\":0,\"resident\":0,\"residentBytes\":0,\"uploads\":0,\"evictions\":2,\"redecodes\":0},\"parkedTransport\":0,\"humans\":0,\"riding\":0}"
+      ],
+      "wallSeconds": 568,
+      "takenAt": "2026-11-26T05:05:20.594Z",
+      "ref": "steward/t3746-photo-face-pilot-16",
+      "commit": "9ce06bacd5a9",
+      "devCommit": "9ce06bacd5a9",
+      "treeHash": "sha256:fe63a5cec501254f",
+      "treeDirty": true,
+      "changelogHash": "sha256:9f84d93ac519330a",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          7,
+          8,
+          6.6
+        ]
+      },
+      "source": "work/photo-smoke-desktop-1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 96,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 371,
+      "takenAt": "2026-11-26T04:56:13.968Z",
+      "ref": "steward/t3746-photo-face-pilot-16",
+      "commit": "9ce06bacd5a9",
+      "devCommit": "9ce06bacd5a9",
+      "treeHash": "sha256:81e45b9a8e15de51",
+      "treeDirty": true,
+      "changelogHash": "sha256:9f84d93ac519330a",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          7.9,
+          6.5,
+          5.2
+        ]
+      },
+      "source": "work/photo-smoke-mobile-1.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "3",
       "parts": [
@@ -1736,91 +1831,6 @@
         "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944675858/job/130274501718"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 156,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: zero page errors — request failed (net::ERR_BLOCKED_BY_ORB) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833-thumb.jpg"
-      ],
-      "wallSeconds": 3092,
-      "takenAt": "2026-11-11T02:14:45Z",
-      "ref": "steward/t3540-t3541-t3543-resident-interactions",
-      "commit": "147a770384a1",
-      "devCommit": "5f04b69d8428",
-      "treeHash": "sha256:27b7282625ca4d07",
-      "treeDirty": false,
-      "changelogHash": "sha256:99bb3008ddfe5010",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944661493/job/130274455091"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "9-10",
-      "parts": [
-        9,
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 45,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 256,
-      "takenAt": "2026-11-11T01:53:54Z",
-      "ref": "steward/t3540-t3541-t3543-resident-interactions",
-      "commit": "ca4c4b2957d9",
-      "devCommit": "5f04b69d8428",
-      "treeHash": "sha256:1b08d33d30cae2af",
-      "treeDirty": false,
-      "changelogHash": "sha256:a973b3eb54d57f2c",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42942205250/job/130266442189"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 139,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 255,
-      "takenAt": "2026-11-11T01:53:24Z",
-      "ref": "steward/t3540-t3541-t3543-resident-interactions",
-      "commit": "ca4c4b2957d9",
-      "devCommit": "5f04b69d8428",
-      "treeHash": "sha256:1b08d33d30cae2af",
-      "treeDirty": false,
-      "changelogHash": "sha256:a973b3eb54d57f2c",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42942149693/job/130266259803"
     }
   ]
 }

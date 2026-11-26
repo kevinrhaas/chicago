@@ -44,6 +44,7 @@
  * confidence.js requires of a hook it chains beneath (and as fabric.js does).
  */
 import * as THREE from 'three';
+import { dressLooks, EYE_COLOUR } from './human-looks.js';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
 import { setLidRest } from './human-variation.js';
 import { fineCells, fineOf } from './human-fine.js';
@@ -711,7 +712,8 @@ function patchEyes(material, mesh, root) {
   const cornea = /__(iris|pupil)$/.test(material.name);
   material.roughness = Math.min(material.roughness, cornea ? EYES.cornea_roughness : EYES.roughness);
   // A wet cornea mirrors the bright sky over the dark iris: the catchlight of every portrait.
-  if (cornea) material.envMapIntensity = EYES.cornea_sky;
+  if (cornea) material.envMapIntensity = material.userData?.chiPhotoOwned ? EYES.like_sky : EYES.cornea_sky;
+  if (material.userData?.chiPhotoOwned) material.roughness = cornea ? .18 : .3;
   if (!/sclera/.test(material.name)) return null;
   material.color.multiplyScalar(EYES.sclera_value);
   const uniforms = {
@@ -1027,7 +1029,7 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const lib = like ? null : libraryFaceLayout(root.userData?.chiFaceSkin);
   const a = (Number.isFinite(age) ? Math.min(1, Math.max(0, (age - AGE.from) / (AGE.full - AGE.from))) : 0) * (lib?.lines ?? 1);
   const style = person || year ? hairFor(person, year) : null;
-  const fine = style?.facial?.some(k => BROW.pieces.includes(k));
+  const fine = !root.userData?.chiPhotoFace && style?.facial?.some(k => BROW.pieces.includes(k));
   const hc = fine ? HAIR_COLOURS[style.brow_colour ?? style.colour] : null;
   // The shade takes the skin toward the brow's colour: a ratio, never darker than half.
   const tint = hc ? [0, 1, 2].map(k => Math.max(.5, Math.min(1, Math.sqrt(hc[k] / .25)))) : [1, 1, 1];
@@ -1236,14 +1238,16 @@ function likenessEyes(m, mesh, root, like) {
  */
 export function libraryFaceLayout(face) {
   const [W, H] = face?.size_px ?? [], t = face?.tile_px, n = face?.index, cols = face?.cols, g = face?.gain;
+  const pad = face?.padding_px ?? 0;
   if (!face?.url || !(W > 0) || !(H > 0) || !(t > 0) || !Number.isInteger(n) || n < 0 || !Number.isInteger(cols) || cols < 1
     || !(Array.isArray(g) && g.length === 3 && g.every(x => Number.isFinite(x) && x > 0))) return null;
+  if (!Number.isFinite(pad) || pad < 0 || pad * 2 >= t) return null;
   const x = (n % cols) * t, y = Math.floor(n / cols) * t;
   if (x + t > W || y + t > H) return null;
   const [u0, v0, u1, v1] = FACE_LIBRARY.box;
   const lines = Number.isFinite(face.lines) ? Math.min(1, Math.max(0, face.lines)) : 1;
-  return { url: face.url, at: [x / W, y / H, t / W / (u1 - u0), t / H / (v1 - v0)], gain: g.slice(), lines,
-    key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}` };   // the sheet too: the same place on another sheet is another face
+  return { url: face.url, at: [(x + pad) / W, (y + pad) / H, (t - 2 * pad) / W / (u1 - u0), (t - 2 * pad) / H / (v1 - v0)], gain: g.slice(), lines,
+    key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}${pad ? `:pad${pad}` : ''}` };   // the sheet too: the same place on another sheet is another face
 }
 
 function setLibraryFace(uniforms, lib) {
@@ -1407,14 +1411,77 @@ function watchHat(mesh, root, look) {
 
 const pristine = new WeakMap(), looks = new WeakMap(), variants = new WeakMap();
 
-/**
- * Patch one human's skin, hair and eyes in place. Materials are shared by every
- * clone of one export, so each is patched once, by the first body that wears it.
- * Returns { material name: surface } for what this call or an earlier one dressed.
+/** Keep photo iris detail while applying a person's recorded complexion and eyes. */
+export function dressPhotoLooks(root, recorded) {
+  if (!root?.userData?.chiPhotoFace) return dressLooks(root, recorded);
+  const irises = new Map();
+  root.traverse(o => {
+    if (o.isMesh && o.material?.name === 'eyes__iris') irises.set(o, o.material.map);
+  });
+  const owned = dressLooks(root, recorded);
+  for (const [mesh, map] of irises) {
+    if (recorded?.eyes?.grade === 'attested' && EYE_COLOUR[recorded.eyes.drawn]) mesh.material.userData.chiPhotoRecordedIris = true;
+    else if (mesh.material.map !== map) { mesh.material.map = map; mesh.material.needsUpdate = true; }
+    delete mesh.userData.chiPhotoEyes;
+  }
+  return owned;
+}
+
+/** Source-matched eyes for the opt-in photographic pilot; no extra texture. */
+export function dressPhotoEyes(root, face) {
+  if (!face?.eyes) return;
+  fitPhotoEyes(root, face);
+  const key = `${face.id}:${face.eyes.sclera_linear}:${face.eyes.iris_gain}`;
+  root.traverse(o => {
+    if (!o.isMesh || !/^eyes__(sclera|iris|pupil)$/.test(o.material?.name ?? '') || o.userData.chiPhotoEyes === key) return;
+    const name = o.material.name;
+    o.material = o.material.clone();
+    o.material.userData.chiPhotoOwned = true;
+    if (!name.endsWith('pupil') && !o.material.userData.chiPhotoRecordedIris) o.material.color.setRGB(...(name.endsWith('sclera') ? face.eyes.sclera_linear : o.material.map ? face.eyes.iris_gain : face.eyes.iris_linear), THREE.LinearSRGBColorSpace);
+    o.userData.chiPhotoEyes = key;
+  });
+}
+
+/** Keep each iris on the photographed pupil and at its measured size, within 3 mm.
+ * Eyeball depth remains the body's; iris and pupil move together inside the lids.
  */
+function fitPhotoEyes(root, face) {
+  if (!face.eyes.centres_uv || !face.hair_projection || root.userData.chiPhotoEyeFit === face.id) return;
+  let iris=null;const meshes=[];
+  root.traverse(o=>{if(o.isSkinnedMesh&&/^eyes__(iris|pupil)$/.test(o.material?.name??'')){meshes.push(o);if(o.material.name==='eyes__iris')iris=o;}});
+  if(!iris)return;
+  const R=restMatrix(iris,root),p=iris.geometry.attributes.position,v=new THREE.Vector3();
+  const groups=[[],[]];
+  for(let i=0;i<p.count;i++){v.fromBufferAttribute(p,i).applyMatrix4(R);groups[v.x<0?0:1].push(v.clone());}
+  if(groups.some(points=>!points.length))return;
+  const u=new THREE.Vector3(...face.hair_projection.u.slice(0,3)),w=new THREE.Vector3(...face.hair_projection.v.slice(0,3));
+  const transforms=groups.map((points,k)=>{
+    const centre=points.reduce((s,p)=>s.add(p),new THREE.Vector3()).multiplyScalar(1/Math.max(1,points.length));
+    const radius=Math.max(...points.map(p=>Math.hypot(p.x-centre.x,p.y-centre.y)),.001);
+    const wanted=face.eyes.centres_uv[k],du=wanted[0]-u.dot(centre)-face.hair_projection.u[3],dv=wanted[1]-w.dot(centre)-face.hair_projection.v[3];
+    const delta=u.clone().multiplyScalar(du/u.lengthSq()).add(w.clone().multiplyScalar(dv/w.lengthSq()));
+    if(delta.length()>.003)delta.setLength(.003);
+    return {centre,delta,scale:Math.max(.8,Math.min(1.25,face.eyes.iris_radius_m[k]/radius))};
+  });
+  for(const mesh of meshes){
+    const M=restMatrix(mesh,root),inverse=M.clone().invert(),g=mesh.geometry.clone(),at=g.attributes.position;
+    const moved=new Float32Array(at.count*3);
+    for(let i=0;i<at.count;i++){
+      v.fromBufferAttribute(at,i).applyMatrix4(M);const t=transforms[v.x<0?0:1];
+      // Scale only across the iris, leaving the dome's depth and the corneal gap intact.
+      v.x=t.centre.x+(v.x-t.centre.x)*t.scale;v.y=t.centre.y+(v.y-t.centre.y)*t.scale;
+      v.add(t.delta).applyMatrix4(inverse);v.toArray(moved,i*3);
+    }
+    g.setAttribute('position',new THREE.Float32BufferAttribute(moved,3));g.userData.chiPhotoEyeOwned=true;mesh.geometry=g;
+  }
+  root.userData.chiPhotoEyeFit=face.id;
+}
+
+/** Patch skin, hair and eyes once per material; return each dressed surface. */
 export function dressSkin(root, person = {}) {
   const dressed = {};
   if (!root) return dressed;
+  dressPhotoEyes(root, root.userData?.chiPhotoFace);
   const meshes = [];
   root.traverse(node => { if (node.isMesh) meshes.push(node); });
   // T-3553: a figure with its own skin sheet may have its own eyes on it.

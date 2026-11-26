@@ -1,3 +1,12 @@
+## T-3746 — Review sixteen photo faces before wider use
+
+The review-only sixteen-face pilot and single-photo importer are implemented; see
+[PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md). Review visible likenesses, including hair,
+and record a crowd run on target hardware before assigning faces throughout the town.
+Sixty-four entries fit the same recipe format; a broad rollout needs bounded nearby
+atlas pages so memory does not grow with the whole population. Historical portraits
+take precedence over fictional samples.
+
 ## T-3678 — More Make your case mysteries (19 November 2026)
 
 A case table now drives Make your case; four more completed jaunts offer a case from their
