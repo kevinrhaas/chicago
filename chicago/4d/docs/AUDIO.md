@@ -92,6 +92,17 @@ stop's first host, else the narrator) and each ending (the narrator). The app an
 both use that one function on the compiled jaunt the app loads, so what is voiced is exactly
 what the panel shows. Each script is keyed by the SHA-256 of its words.
 
+**Closing lines (T-3755).** The owner, 2026-11-26: "End each scene's narration with an invitation
+to proceed to the next stop or explore the current location. Vary the language ... do what you can
+to minimize [re-recording] so we save eleven labs tokens". Every stop also has an `onward` script:
+one short line of the narrator's from the shared set in `narration.js` § `ONWARD_LINES` (look
+around, then go on; look round first, after a stop that already sends you on; choose, at a choice;
+a last look, at the last stop; simpler words for grades 3-5; Spanish for a jaunt read in Spanish),
+picked by `onwardLines` so no line comes twice in a jaunt until its list runs out. It is shown
+under the stop's words and played straight after the stop's own voice (not after a voice heard
+away from its stop). No stop's words changed, so nothing already voiced was voiced again; a line
+is one clip shared by every jaunt that says it, and the voicer plans each clip once per run.
+
 **Voices.** `data/narration/voices.json` lists the voiced jaunts and a voice per speaker: an
 ElevenLabs voice id, or the exact name of one of the owner's voices; `null` is not yet chosen
 and that speaker is skipped. The owner chose his voices on 2026-11-13 by name ("Character -

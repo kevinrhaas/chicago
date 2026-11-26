@@ -40,6 +40,12 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     const el = node('button', text, 'welcome-link'); el.type = 'button';
     el.addEventListener('click', action); return el;
   };
+  // T-3753: Continue, Replay and Restart spin while the jaunt loads, and take no second tap.
+  const loadingWhile = (el, work) => {
+    if (!(work && typeof work.then === 'function')) return;
+    el.classList.add('jaunt-loading'); el.setAttribute('aria-busy', 'true'); el.disabled = true;
+    work.finally(() => { el.classList.remove('jaunt-loading'); el.removeAttribute('aria-busy'); el.disabled = false; }).catch(() => {});
+  };
   // T-2120: every sub-view of Jaunts leads with the same way back.
   const backButton = action => {
     const el = button('Back to Jaunts', action); el.classList.add('jaunt-back'); el.prepend(icon('back', 16)); return el;
@@ -209,7 +215,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
           const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
           book.setAttribute('aria-label', 'Open your daybook'); row.append(book);
         }
-        const again = button('Replay', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); });
+        const again = button('Replay', () => { menu.capture(); loadingWhile(again, onStart(session.jaunt.id, { mode: session.mode })); });
         again.prepend(icon('play', 14)); again.setAttribute('aria-label', 'Restart Jaunt'); again.dataset.action = 'restart';
         row.append(again); note.append(row);
       } else {
@@ -217,11 +223,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         const stops = session.jaunt.stops ?? [], at = session.stopIndex, next = stops[at + 1];
         const label = stop => session.jaunt.places?.[stop.destination.id] || destinations.byId(stop.destination.kind, stop.destination.id)?.label || 'the next stop';
         note.classList.add('jaunt-continue'); note.dataset.continue = session.jaunt.id;
-        const go = button('Continue', () => { menu.capture(); onResume(); }); go.dataset.action = 'continue';
+        const go = button('Continue', () => { menu.capture(); loadingWhile(go, onResume()); }); go.dataset.action = 'continue';
         note.append(node('p', `Continue · Stop ${at + 1} of ${stops.length || at + 1}`, 'jaunt-continue-k'), node('h3', session.jaunt.title),
           node('p', next ? `Next: ${label(next)}` : 'Next: the end of the outing', 'jaunt-continue-next'), go);
       }
-      if (session.phase === 'menu') note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); }));
+      if (session.phase === 'menu') { const restart = button('Restart Jaunt', () => { menu.capture(); loadingWhile(restart, onStart(session.jaunt.id, { mode: session.mode })); }); note.append(restart); }
       // In progress, it leads the list; an outcome follows the daybook chip as before.
       if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
