@@ -1,0 +1,85 @@
+== premise
+Assume the role of a young water carrier at Fort Dearborn on 14 August 1812, the final full day before the garrison's evacuation, determining the route to the river and which officers' quarters receive the concluding delivery.
+
+== opening
+JAUNT: WATER FOR THE GARRISON. 14 August 1812, first light, at the first Fort Dearborn. You are twelve, from a family residing outside the stockade, and your occupation is water: every morning you transport buckets from the river to supply the soldiers. Tomorrow the entire garrison is scheduled to evacuate the post, so today's labor is considerably more demanding than usual.
+
+You will determine the route to the river and decide which quarters receive the final bucket. The fortification and its inhabitants are historical, documented in contemporary accounts; the water carrier alone is invented.
+
+== stop the-fort
+Daybreak outside the stockade, with two empty buckets. Consider, first, the fortification. William Johnston, visiting from Fort Wayne in 1809, pronounced it 'the neatest and best wooden garrison in the United States', a distinction honoring Captain John Whistler, who designed and constructed it. Quaife describes barracks arranged around the four sides of a quadrangle, two blockhouses commanding opposite corners, and the entire complex enclosed within a double row of palisades. Consider, next, the circumstances. On 9 August Captain Heald received General Hull's order to evacuate the post and proceed to Detroit. Two separate routes descend to the river.
+
+== narrative the-fort
+The protected covered way, or the exposed riverside wharf?
+
+== label the-fort covered
+Take the protected covered way
+
+== consequence the-fort covered
+The fortified passage, constructed for emergencies.
+
+== label the-fort wharf
+Descend to the riverside wharf
+
+== consequence the-fort wharf
+The longer approach, where provisioning boats are unloaded.
+
+== stop covered-way
+The fort's northeastern corner, from which a covered way descends to the river, 'securing thus to the garrison access in safety to the water in time of attack.' Whistler's index lists a 'Covered Way to procure Water', and Wau-Bun recalls a sally-port containing a well excavated for emergencies. Consider what occurred here yesterday evening. According to Wau-Bun, 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well'; Heald explained that he feared the recipients 'would make bad use of it'. The remaining barrels were emptied into the river, and this morning, as one witness expressed it, the water's taste is 'strong grog'. Nobody will draw from that contaminated well today. Fill your buckets at the river and return to the main gate.
+
+== narrative covered-way
+The fortified passage to the water.
+
+== stop wharf
+The wharf, beneath the riverbank, where arriving vessels discharge the garrison's provisions. Captain Whistler identified it on his 1808 draught, judging the garrison 'perfectly secure from any ambuscade' with one qualification: the houses on the opposite bank were 'somewhat in the way'. The most substantial of them, directly across the water, belongs to John Kinzie, whose partnership, Kinzie & Forsyth, Captain Heald appointed the fort's exclusive sutlers in January. Fill your buckets here and ascend the embankment to the main gate.
+
+== narrative wharf
+Where the provisioning vessels are unloaded.
+
+== stop soldiers
+Inside the main gateway, positioned at the middle of the southern side and flanked by the soldiers' principal barracks: two stories with 'shingled Roofs and Galliaries fronting the parade', surrounding a parade ground dominated by a 'lofty flagstaff'. Heald's report records the garrison's strength as 'fifty-four regulars and twelve militia', and this morning every one of them is occupied with preparations for the extended march to Detroit. Such preparation is exhausting, thirsty work. A soldier accepts one bucket and indicates the far side of the parade. One delivery remains.
+
+== narrative soldiers
+The commanding officer's quarters, or the subordinate officers'?
+
+== label soldiers commandant
+The commanding officer's quarters
+
+== consequence soldiers commandant
+Captain Heald's residence, on the eastern side.
+
+== label soldiers officers
+The subordinate officers' quarters
+
+== consequence soldiers officers
+The junior officers' residence, on the western side.
+
+== stop commandant
+The commanding officer's quarters, occupying the eastern side of the parade. Captain Nathan Heald succeeded Whistler in 1810; in May 1811 he married Rebekah Wells, 'the daughter of Colonel Samuel Wells and the niece of Captain William Wells', and in June he arrived at Chicago with his bride. The captain has extraordinary responsibilities to discharge before the evacuation. Deposit the bucket beside the door discreetly and withdraw without interruption. Your water round is complete.
+
+== narrative commandant
+The commanding officer's threshold.
+
+== stop officers
+The subordinate officers' quarters, directly opposite the commandant's. Lieutenant Linai Helm requested this assignment because of 'his straitened financial circumstances and the cheaper cost of living at Fort Dearborn as compared with Detroit'; his wife Margaret is the 'step-daughter of old John Kinzie'. Ensign George Ronan is 'a young cadet direct from West Point'. The surgeon's mate, Isaac Van Voorhis, contemplating the republic's future last October, predicted that this location would become 'the seat of millions yet unborn'. Deposit the bucket beside their door. Your water round is complete.
+
+== narrative officers
+The subordinate officers' threshold.
+
+== leg 0
+The fortified passage, constructed for emergencies, down to the water.
+
+== leg 1
+Down to the wharf, where provisioning vessels are unloaded.
+
+== ending covered-and-captain
+Down the covered way and up to the commanding officer's door, precisely as the fortification's designers intended. Your buckets are empty and your arms ache considerably. Tomorrow the gate opens, and afterward nobody will require water carried to this garrison.
+
+== ending covered-and-officers
+Down the covered way and across to the subordinate officers' quarters, deliberately avoiding the contaminated well and filling your buckets at the river instead. Your round concludes early, while the entire garrison continues its preparations, and tomorrow the gate opens.
+
+== ending wharf-and-captain
+Out to the wharf and back to the commanding officer's door: the longer approach, past the trader's residence across the water. Your round is concluded, the garrison is packing all around you, and tomorrow the gate opens.
+
+== ending wharf-and-officers
+Out to the wharf and up to the subordinate officers' quarters, the circuitous route. While filling your buckets, you contemplated the Kinzie residence across the river; your round is now concluded, and tomorrow the gate opens.

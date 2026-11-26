@@ -1,0 +1,91 @@
+== premise
+Be a hotel's young messenger on a Sunday in October 1871. Carry a note to the Opera House, then choose where to go before dark.
+
+== opening
+JAUNT: A MESSAGE FOR THE OPERA HOUSE. It is Sunday, 8 October 1871. You are thirteen, and you carry messages for the Sherman House, a big hotel on Clark Street. A hotel is open every day, even on Sunday. Today the clerk gives you a folded note. It must get to Crosby's Opera House before dark.
+
+You pick the way. The streets and the buildings are real. The messenger is you.
+
+== stop sherman-house
+It is twenty past two at the Sherman House. You tuck the note inside your coat. First, look at this hotel. It opened in July 1861. It is six floors high, and it is made of marble from Lemont. One side looks out on the big square. Now, about a famous guest. Theodore Thomas leads an orchestra. He and his players are staying here. Tomorrow night they will start ten concerts at the Opera House. Your note is going there too.
+
+== narrative sherman-house
+Through the square, or the long way?
+
+== label sherman-house square
+Cut through the square
+
+== consequence sherman-house square
+It is the short way, right past the bell.
+
+== label sherman-house lasalle
+Go around by LaSalle Street
+
+== consequence sherman-house lasalle
+It is longer, past the big stone offices.
+
+== stop court-house
+This is Court House Square. It fills a whole block. It has grass and trees, so it looks like a park. The building in the middle holds the city's offices. Even the jail is here, down in the basement! Now look up at the top. A twisting stair goes up to a little porch, 120 feet high. A fire watchman stands up there and looks out over the city. Tonight the watchman will be Mathias Schaffer, with his spy-glass. Now east to Washington Street.
+
+== narrative court-house
+The tower where the fire watchman stands.
+
+== stop chamber
+This is the Chamber of Commerce, at Washington and LaSalle. It opened in 1865. Inside is a great hall with paintings on the walls. On weekdays the Board of Trade does its buying and selling in there. Today is Sunday, so it is quiet. Now, about this street. LaSalle Street is where the insurance companies have their offices, and the banks are close by. Your note is still safe in your coat. Two blocks east to the Opera House.
+
+== narrative chamber
+A quiet hall on a Sunday.
+
+== stop crosbys
+This is Crosby's Opera House, on Washington Street. It is five floors high. Stone statues stand over the door. Shops fill the first floor, and the big theatre in back has seats for three thousand people. All summer, workers have been making it new again. The newspaper says almost every seat is sold for tomorrow night. You hand your note in at the door. Your job is done! There is still some daylight left.
+
+== narrative crosbys
+North to the Water Tower, or west to the smoke?
+
+== label crosbys tower
+Go north to the Water Tower
+
+== consequence crosbys tower
+You have never seen it up close.
+
+== label crosbys ruins
+Go west to see last night's fire
+
+== consequence crosbys ruins
+Lots of people have gone to look today.
+
+== stop water-tower
+This is the Water Tower, on the North Side. Across the street is the Pumping Station. Its pumps pull in clean water through a tunnel two miles out under the lake. The river is too dirty to drink. Now, about a worry. For years the fire leaders have said the city does not have enough water. All of Chicago needs these pumps, and the roof over them is made of wood. Time to go home before dark.
+
+== narrative water-tower
+The stone tower and its pumps.
+
+== stop saturday-ruins
+This is the Van Buren Street bridge. Look across the river. Last night a fire started in a mill on Canal Street. By this afternoon, four blocks had burned. Piles of coal and wood are still burning! Thousands of people have come to look. Now, about the firemen. Many of them worked for eighteen hours without stopping, and they are very tired. It has not rained for more than a week, and the wind is strong. Time to go home before dark.
+
+== narrative saturday-ruins
+The smoke from last night's fire.
+
+== leg 0
+Right through the middle, then.
+
+== leg 1
+The long way, past the stone offices.
+
+== leg 4
+Up to the North Side before the sun goes down.
+
+== leg 5
+Toward the smoke.
+
+== ending square-and-tower
+You went through the square and up to the Water Tower. You saw the city's big bell and its pumps in one afternoon. The note got there. Tomorrow night the Opera House opens. You walk home as the lamps come on, with the wind at your back.
+
+== ending square-and-bridge
+You went through the square and down to the river. You saw the bell tower, and then the black ruins of last night's fire. The note got there. The tired firemen are going home to sleep, and so are you. The wind is still blowing hard.
+
+== ending lasalle-and-tower
+You went the long way by LaSalle Street, and then up to the Water Tower. The note got there, and almost every seat for tomorrow night is sold. You get home just as the sun goes down.
+
+== ending lasalle-and-bridge
+You went the long way by LaSalle Street, and then down to the river, where people are still looking at the ruins. The note got there. Tomorrow the Opera House opens at last. You go home as the sun sets.

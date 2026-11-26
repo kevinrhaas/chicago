@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1243,
+  "count": 1244,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -37242,7 +37242,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the two frame dwellings at 2000 and 2010 Prairie Avenue are no longer district drafts. Each stands, under the draft's own id (2000 Prairie Avenue — Frame dwelling, 2010 Prairie Avenue — Frame dwelling), as a k16 timber whole frame house built by the k16 emit generator: clapboard walls board by board with corner boards and returns, cased two-over-two sash, a panelled door, a boxed and bracketed eave, low hips over the three-storey parts and flat decks over the lower ranges, canted bays, the kit porch with its steps across the front, and one brick stack. The kit gained one thing for them: a porch or a bay may name the block it stands on (host block), because the sheet draws the porch across a front block and the bays on the flanks of rooms standing out from the main body. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster (0.186 m a pixel) through the fit the committed trace stands on: frame (yellow) throughout; '3BB' over each front block, read as three storeys over a raised basement; the north range of each front marked '2', 2000's canted rear room on the south flank '2BB' and 2010's rear range on the south flank '1', each built at that count; and every block's outline — the main body, the front block, the north range, the north flank's canted bay, the south flank's room ending in a canted bay, the rear south room or range (with 2010's own canted end), and the one-storey porch across the front, 1.76 m (2000) and 2.04 m (2010) deep. The draft's fit (5.5 m along the front) had stopped on the dashed lines and roof marks printed inside the houses; the sheet draws them 7.3 and 6.8 m wide at the rear and 5.5 and 5.4 m at the front block. **What is invented.** Every height (a 1.0 m raised basement; storeys of 3.3, 3.1 and 2.9 m); every opening's kind, size and place; the door on each front under the porch; the eave, its brackets and the 25-degree hips; the flat decks; the canted bays carried the full height of the part they stand on, on a panelled base; the porch's posts, balustrade and steps (the kit's); the one stack's place; the body paints (a warm stone drab for 2000, a grey-green for 2010, so the two are not one facade repeated); the slate's colour (the sheet's roof mark is read as slate or tin, and slate chosen). **What is not built.** The porches' returns along each front block's south side (the kit's porch runs one wall); 2000's narrow brick range on the rear wall, 0.75 m deep, whose height the sheet does not print; 2010's 0.65 m step in the rear range's south wall. The fronts are left open to the street with a flagged walk from each porch stair (no picture of either front is held). **Simplified.** The storeys stand as wall heights and rows of sash, with no floors modelled inside, and the frame as K16 clapboard at a frame wall's 0.15 m, with no studs or sheathing behind it."
+          "text": "the two frame dwellings at 2000 and 2010 Prairie Avenue are no longer district drafts. Each stands, under the draft's own id (2000 Prairie Avenue — Frame dwelling, 2010 Prairie Avenue — Frame dwelling), as a k16 timber whole frame house built by the k16 emit generator: clapboard walls board by board with corner boards and returns, cased two-over-two sash, a panelled door, a boxed and bracketed eave, low hips over the three-storey parts and flat decks over the lower ranges, canted bays, the kit porch with its steps across the front, and one brick stack. The kit gained one thing for them: a porch or a bay may name the block it stands on (host block), because the sheet draws the porch across a front block and the bays on the flanks of rooms standing out from the main body. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster (0.186 m a pixel) through the fit the committed trace stands on: frame (yellow) throughout; '3BB' over each front block, read as three storeys over a raised basement; the north range of each front marked '2', 2000's canted rear room on the south flank '2BB' and 2010's rear range on the south flank '1', each built at that count; and every block's outline — the main body, the front block, the north range, the north flank's canted bay, the south flank's room ending in a canted bay, the rear south room or range (with 2010's own canted end), and the one-storey porch across the front, 1.76 m (2000) and 2.04 m (2010) deep. The draft's fit (5.5 m along the front) had stopped on the dashed lines and roof marks printed inside the houses; the sheet draws them 7.3 and 6.8 m wide at the rear and 5.5 and 5.4 m at the front block. **What is invented.** Every height (a 1.0 m raised basement; storeys of 3.3, 3.1 and 2.9 m); every opening's kind, size and place; the door on each front under the porch; the eave, its brackets and the 25-degree hips; the flat decks; the canted bays carried the full height of the part they stand on, on a panelled base; the porch's posts, balustrade and steps (the kit's); the one stack's place; the body paints (a warm stone drab for 2000, a grey-green for 2010, so the two are not one facade repeated); the slate's colour (the sheet's roof mark is read as slate or tin, and slate chosen). **What is not built.** The porches' returns along each front block's south side (the kit's porch runs one wall); 2000's narrow brick range on the rear wall, 0.75 m deep, whose height the sheet does not print; 2010's 0.65 m step in the rear range's south wall. The fronts are left open to the street with a flagged walk from each porch stair (no picture of either front is held). Later work (owner, 2026-11-26) lays that walk on the stair's own line, under the door: it had been laid on the stair's centre (m) read from s 0, not from the front block's corner the porch is built along, and so ran 0.43 m (2000) and 1.14 m (2010) north of the stair and the door. **Simplified.** The storeys stand as wall heights and rows of sash, with no floors modelled inside, and the frame as K16 clapboard at a frame wall's 0.15 m, with no studs or sheathing behind it."
         },
         {
           "label": "How to resolve",
@@ -37263,7 +37263,8 @@
       ],
       "work_refs": [
         "T-1909",
-        "T-1250"
+        "T-1250",
+        "T-3773"
       ]
     },
     {
@@ -73306,11 +73307,16 @@
           "text": "a photograph of any of these doors open, or a plan of its entrance hall."
         },
         {
+          "label": "Amended 2026-11-26",
+          "text": "the owner, at 2010 Prairie: *\"any door that a person can come in and out of should swing like a real door on hinges\"*. The three frame houses' front doors (2000 and 2010 Prairie and Walker's 1720, “2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”'s and 1720's K16 fronts), which their model builds into the wall with no leaf of its own and which had only a way up to them (`leafless`), are hung the same way: their panelled leaf is the model's stained wood inside the door's casing (the derive doors scene tool frame house leaf), lifted out and swung inward on its right-hand jamb into a dark vestibule. That leaf is its face alone, so it is drawn from both sides. Invented as above."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-12 (T-3554)."
         }
       ],
       "work_refs": [
+        "T-3773",
         "T-3554"
       ]
     },
@@ -80477,6 +80483,46 @@
       ],
       "work_refs": [
         "T-3679"
+      ]
+    },
+    {
+      "id": "L-play-a-part-3766",
+      "title": "Play a part: four more young people the visitor plays, one in each year",
+      "section": "per_subject",
+      "subjects": [
+        "court_house_square_1871"
+      ],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "four more jaunts in which the visitor plays a young person of the town, each with two decision points that change the route and four endings, so that every year (1812, 1835, 1871, 1904) has at least one more part to play. In `a-message-for-the-opera-house` (1871, Errands) the visitor is the Sherman House's messenger, aged thirteen, on the afternoon of Sunday 8 October 1871: from the hotel either through Court House Square or round by the Chamber of Commerce on LaSalle Street to Crosby's Opera House with a note, then either north to the Water Tower or west to the ruins of the Saturday fire, ending at dusk. In `water-for-the-garrison` (1812, Errands) the visitor is a water carrier, aged twelve, of a family living outside the pickets of Fort Dearborn, on the morning of 14 August 1812: from outside the fort either down the covered way or out to the wharf, then in at the main gate to the soldiers' barracks, then either to the commanding officer's quarters or to the officers' quarters with the last bucket. In `a-parcel-across-the-river` (1835, Errands) the visitor is the Sauganash's errand runner, aged thirteen, on a summer morning in 1835, carrying a traveller's forgotten parcel: from the Sauganash over the South Branch bridge either to the Green Tree or to Wolf Point, back to the bridge, then either home to the Sauganash or on to the Dearborn Street drawbridge. In `flowers-for-prairie-avenue` (1904, Work) the visitor is a florist's delivery runner, aged thirteen, on a spring morning in 1904: from 1800 Prairie either north to 1700 or south to 1834, then to 2036, then either on to 2115 or back to 1608. The same walks retold for grades 3-5, 9-10 and 11-12 and for adults (`<id>-grades-<band>`, `<id>-adults`, the research notes on jaunt grade versions) carry the same stops, choices, endings, facts and this liberty in other words."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-26, on the classroom list's \"Mysteries and play-a-part: more cases and more roles\": *\"Finish these for all years\"*. 1871 had no part to play; 1812, 1835 and 1904 had one each (“Play a part: the young people the visitor plays in three choice-driven jaunts, and what they choose”). **What is read, not invented.** Every fact a stop tells is a claim already cited by a published jaunt and copied into these four word for word: for 1871, from The Last Sunday (Andreas vol. II with the Board of Police and Fire Commissioners' report and the Tribune of 8 October on Crosby's, Sheahan and Upton, Colbert and Chamberlin, the Web of Memory's landmark pages, the National Weather Service's reconstruction); for 1812, from Fort Dearborn, Building by Building (Whistler's draught of 1808, Quaife, Wau-Bun, Johnston's letter of 1809, Heald's report); for 1835, from Across Wolf Point and Over the Draw (Wau-Bun, the Democrat, Andreas, Moses and Kirkland, the old settlers' account of the bridges of 1883); for 1904, from Women of Prairie Avenue (the 1904 Blue Book, the census of 1900, the house museum, the district marker and the sources on Frances Glessner Lee, Jane Grahame Jones, Kate Buckingham, Belle Armour and Henrietta Frank). One claim is new: the 1812 walk's day, the morning of 14 August, inferred from Quaife's Heald (the march at nine on the 15th) and Wau-Bun (the ammunition and liquor destroyed on the evening of the 13th). **What is invented.** The young person: their age, home, work, round and every word put to them; the note for the Opera House, the traveller and his parcel and penny, the soldier who takes a bucket, the florist and the four orders; the order of each route and the two choices at each fork; the four endings of each walk, which are what the young person brings back, not a historical outcome; the keepsakes (A Sunday Errand, A Water Round, A Parcel Delivered, A Flower Round); the hour at each stop and the reading and action seconds. No such messenger, water carrier, errand runner or flower runner is recorded. No child of a named family is played or met; no named person is met, speaks or is quoted except in their own printed words; no interior is entered, and no choice puts anyone in danger. The 1871 walk ends at dusk on 8 October, before the fire of that night. The 1812 walk ends on the morning of 14 August, the day before the march: the fighting of 15 August is not told or staged. The 1835 walk stays on one summer morning; the 1904 walk on one spring morning, on the avenue's sidewalks."
+        },
+        {
+          "label": "Bounds",
+          "text": "the approved 14 August 1812, 1835, 8 October 1871 and 1904 scenes and their structure and anchor records; the claims listed above as published in The Last Sunday, Fort Dearborn, Building by Building, Across Wolf Point, Over the Draw and Women of Prairie Avenue. No blow, shot or blood; nothing staged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "these are interpretive choices and cannot be upgraded into historical claims; revise them openly. A hotel's register of its messengers, a muster or memoir naming a child who carried the post's water in 1812, a tavern's account book, or a florist's reconstruction plan for Prairie Avenue would let a stop name what is now invented."
+        },
+        {
+          "label": "Applies to",
+          "text": "the a message for the opera house data, the water for the garrison data, the a parcel across the river data, the flowers for prairie avenue data and their grade-band and adults versions."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3766)."
+        }
+      ],
+      "work_refs": [
+        "T-3766"
       ]
     },
     {

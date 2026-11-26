@@ -648,6 +648,12 @@ export function doorLeafMaterial(source, albedo = null) {
   }
   const m = source.clone();
   if (albedo) m.color.setRGB(albedo[0], albedo[1], albedo[2]);
+  // T-3773: a frame house's leaf is its face alone (k16_timber.py builds no back to it), so swung
+  // open into its vestibule it is drawn from either side rather than vanishing from one.
+  m.side = THREE.DoubleSide;
+  // A lifted piece carries no vertex colour (subGeometry copies position, normal and uv): a K16
+  // model's COLOR_0 tone, which the batch drops too, would otherwise draw the leaf black.
+  m.vertexColors = false;
   m.userData = { doorLeaf: true };
   return m;
 }
