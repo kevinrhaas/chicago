@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3270, ts: '2026-11-26T21:57:40.585Z', date: 'Nov 26, 2026, 3:57 PM CT', title: 'Brick stables behind 2001 and 2009 Prairie', kind: 'feature',
+    items: [
+      'The building behind 2001 Prairie, on the corner of 20th Street and the alley, now stands as a two-storey brick stable 16 m long on the outline the 1911 fire-insurance map draws, set back from both the street and the alley as the map shows, with windows onto 20th Street.',
+      'The stable behind the Meyer house at 2009 Prairie now stands on the alley line, 13.9 m deep by 8.5 m along the alley, with the one window the map marks on its alley wall and the house\'s one-storey back range against its yard side.',
+    ] },
   { v: 3269, ts: '2026-11-26T21:14:18.548Z', date: 'Nov 26, 2026, 3:14 PM CT', title: '2130 Prairie checked against its two photographs', kind: 'improvement',
     items: [
       'The Murdoch house at 2130 Prairie is now compared with the two old photographs of 2140 next door that show it, from the spots those pictures were taken.',
