@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import numpy as np
 from PIL import Image
 import photo_face_library as P
 
@@ -79,6 +80,37 @@ class ImportBoundaries(unittest.TestCase):
         distinct=P.save_texture(Image.new('RGB',(128,128),(30,40,90)),self.root,'different.jpg',shared)
         self.assertNotEqual(distinct['file'],crowd['file'])
         self.assertTrue((self.root/distinct['file']).exists())
+
+    def test_forehead_lighting_joins_without_losing_photo_detail(self):
+        # A photograph lit differently from the surrounding skin: the old narrow
+        # fade made its upper hull edge a visible horizontal forehead band.
+        size = 240
+        covered = np.zeros((size, size), dtype=bool)
+        covered[48:224, 24:216] = True
+        skin = np.broadcast_to(np.array([110, 76, 53], dtype=np.uint8), (size, size, 3)).copy()
+        photo = np.broadcast_to(np.array([175, 130, 95], dtype=np.uint8), skin.shape).copy()
+        y, x = np.indices((size, size))
+        detail = np.where(((x + y) % 2)[100:164, 84:156, None], 20, -20)
+        photo[100:164, 84:156] = photo[100:164, 84:156] + detail
+        alpha = np.minimum(1, P.distance_transform_edt(covered) / 6)[..., None]
+        former = np.uint8(photo * alpha + skin * (1 - alpha))
+        joined = P.blend_face_photo(photo, skin, covered)
+        old_edge = P.L.linear(former)[35:75, 120, 0]
+        new_edge = P.L.linear(joined)[35:75, 120, 0]
+        self.assertLess(np.abs(np.diff(new_edge)).max(), np.abs(np.diff(old_edge)).max() * .25)
+        self.assertLess(np.abs(np.diff(new_edge, n=2)).max(), np.abs(np.diff(old_edge, n=2)).max() * .25)
+        core = (slice(112, 152), slice(96, 144), 0)
+        self.assertGreater(P.L.linear(joined)[core].std(), P.L.linear(photo)[core].std() * .95,
+                           'smoothing the whole face would erase its photographic detail')
+
+    def test_photo_blending_preserves_identical_skin_and_uncovered_skin(self):
+        rng = np.random.default_rng(3769)
+        skin = rng.integers(0, 256, (96, 96, 3), dtype=np.uint8)
+        photo = np.full_like(skin, 180)
+        empty = np.zeros(skin.shape[:2], dtype=bool)
+        self.assertTrue(np.array_equal(P.blend_face_photo(photo, skin, empty), skin))
+        covered = empty.copy(); covered[15:82, 15:82] = True
+        self.assertTrue(np.array_equal(P.blend_face_photo(skin, skin, covered), skin))
 
 
 if __name__=='__main__':

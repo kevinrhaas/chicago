@@ -16,8 +16,8 @@
     512,
     512
    ],
-   "bytes": 74162,
-   "sha256": "9866965a65073e92076e32bda4c6ecc5495e330cae516ddfb653bd4971cfcd17",
+   "bytes": 66590,
+   "sha256": "872f0261523709658ae9e54c7cb2fcf3f90a142a988f5f0fc002b4150efde124",
    "gpu_bytes_rgba8_mipmaps": 1398102
   }
  },
@@ -37,8 +37,8 @@
       1024,
       1024
      ],
-     "bytes": 223282,
-     "sha256": "a5d6d7526dfdfa4c04ef89432ead00e4217772674a8544104169d72fc4b498dc",
+     "bytes": 207425,
+     "sha256": "60e8e1a958e8801db1db9bb0becc2e79da1b1e01557db9092bb8aa09d586d7f7",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -47,8 +47,8 @@
       512,
       512
      ],
-     "bytes": 74162,
-     "sha256": "9866965a65073e92076e32bda4c6ecc5495e330cae516ddfb653bd4971cfcd17",
+     "bytes": 66590,
+     "sha256": "872f0261523709658ae9e54c7cb2fcf3f90a142a988f5f0fc002b4150efde124",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -2208,7 +2208,7 @@
  ],
  "capacity": 256,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "e1f550d1327306e5ce5aad7aa7f05dca5de2ea7624ef5cd60f047799a9420120",
+  "tools/photo_face_library.py": "0ad1c661a1348638b583e656310ef870358c086c6b683d3b573cb34b7be1c4d0",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
