@@ -473,13 +473,18 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
     let vertex=0,index=0;
     for (const part of farParts) {
       place(part.row,part.form);
+      // The owner, 2026-11-26 ("distance ones should not look so bad"): a tint over 1 (the
+      // pale stone and painted fronts run to 1.08) wrapped round in this byte buffer, so a
+      // cream front far off drew cyan or blue. Clamp to the byte, as the near tier's float
+      // colour saturates to white.
+      const cr=Math.min(255,Math.round(color.r*255)), cg=Math.min(255,Math.round(color.g*255)), cb=Math.min(255,Math.round(color.b*255));
       const g=part.geometry, a=g.attributes;
       ranges.push({first:index/3,count:g.index.count/3,row:part.row});
       for (let i=0;i<a.position.count;i++) {
         transformed.fromBufferAttribute(a.position,i).applyMatrix4(matrix).toArray(pbuf,(vertex+i)*3);
         transformed.fromBufferAttribute(a.normal,i).applyMatrix3(normalMatrix).normalize().toArray(nbuf,(vertex+i)*3);
         uvbuf[(vertex+i)*2]=a.uv.getX(i); uvbuf[(vertex+i)*2+1]=a.uv.getY(i);
-        cbuf.set([Math.round(color.r*255),Math.round(color.g*255),Math.round(color.b*255)],(vertex+i)*3);
+        cbuf[(vertex+i)*3]=cr; cbuf[(vertex+i)*3+1]=cg; cbuf[(vertex+i)*3+2]=cb;
         conf[vertex+i]=a._confidence.getX(i);
       }
       for (let i=0;i<g.index.count;i++) indices[index+i]=g.index.getX(i)+vertex;

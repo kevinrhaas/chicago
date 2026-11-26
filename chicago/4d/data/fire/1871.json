@@ -928,7 +928,7 @@
   },
   {
    "id": "field_leiter",
-   "label": "Field, Leiter & Co., State and Washington",
+   "label": "State Street at Washington, round Field, Leiter & Co.",
    "lat": 41.8834,
    "lon": -87.6277,
    "t": "1871-10-09T03:45",
@@ -937,7 +937,7 @@
     "andreas_1885_v2"
    ],
    "locator": "pp. 733-734 (Horace White): the store's own pumps kept it wet until the water stopped after the Water Works fell at 3:20.",
-   "note": "After the water stopped, before daylight.",
+   "note": "The blocks round the corner, after the city's water stopped at 3:20. The marble store itself held under its own pumps until about eight in the morning (structures.field_leiter_1871.burning_by, T-3751).",
    "local": [
     848.3,
     -375.2
@@ -1367,11 +1367,28 @@
   },
   "chicago_pumping_station_1871": {
    "fate": "roof_burns",
-   "note": "Andreas p. 742: the roof caught at 3:20 and fell on the engines; the stone walls stood."
+   "note": "Andreas p. 742: the roof caught at 3:20 and fell on the engines; the stone walls stood.",
+   "burning_by": {
+    "t": "1871-10-09T03:20",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 742, D. W. Fuller: the brand struck the engine house and 'In an instant, the roof was aflame'; 'exactly twenty minutes past three'."
+   }
   },
   "oleary_barn_1871": {
    "fate": "collapses",
-   "note": "A frame barn: burned to the ground."
+   "note": "A frame barn: burned to the ground.",
+   "burning_by": {
+    "t": "1871-10-08T21:00",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2",
+     "chicago_board_police_fire_1871_report"
+    ],
+    "note": "Burning at nine, when the jaunt's first stop stands before it: Andreas p. 719, 'At 8:45 the incipient blaze began'; the Board's witnesses saw the flames by twenty past nine. The fire's own clock starts at nine, so the barn is drawn alight when it starts."
+   }
   },
   "parmelee_stables_1871": {
    "fate": "walls_stand"
@@ -1381,10 +1398,27 @@
   },
   "cook_county_court_house_1871": {
    "fate": "walls_stand",
-   "note": "Andreas p. 719: the bell fell at 2:05; the stone walls stood as a shell."
+   "note": "Andreas p. 719: the bell fell at 2:05; the stone walls stood as a shell.",
+   "burning_by": {
+    "t": "1871-10-09T01:30",
+    "grade": "attested",
+    "sources": [
+     "andreas_1885_v2"
+    ],
+    "note": "Andreas p. 719: 'At 1:30, the men in the tower barely escaped with their lives'; pp. 724-725, Schaffer left the building at half-past one, the tower alight."
+   }
   },
   "sherman_house_1871": {
-   "fate": "walls_stand"
+   "fate": "walls_stand",
+   "burning_by": {
+    "t": "1871-10-09T02:05",
+    "grade": "inferred",
+    "sources": [
+     "sheahan_upton_1871_great_conflagration",
+     "andreas_1885_v2"
+    ],
+    "note": "Sheahan and Upton pp. 76-77: after the Court House dome fell, 'The Sherman House was the next to go'; Andreas p. 725 puts the bell's fall at five past two (the jaunt's sherman-hour claim)."
+   }
   },
   "tremont_house_1871": {
    "fate": "walls_stand"
@@ -1393,16 +1427,44 @@
    "fate": "walls_stand"
   },
   "crosbys_opera_house_1871": {
-   "fate": "walls_stand"
+   "fate": "walls_stand",
+   "burning_by": {
+    "t": "1871-10-09T02:20",
+    "grade": "inferred",
+    "sources": [
+     "colbert_chamberlin_1871_chicago_great_conflagration",
+     "andreas_1885_v2"
+    ],
+    "note": "Colbert and Chamberlin p. 207: the column turned east from the Court House and Crosby's fell 'rapidly before it', some minutes after the bell's fall at five past two (Andreas p. 725; the jaunt's crosbys-hour claim)."
+   }
   },
   "field_leiter_1871": {
-   "fate": "walls_stand"
+   "fate": "walls_stand",
+   "burning_by": {
+    "t": "1871-10-09T08:00",
+    "grade": "inferred",
+    "sources": [
+     "andreas_1885_v2",
+     "sheahan_upton_1871_great_conflagration",
+     "colbert_chamberlin_1871_chicago_great_conflagration"
+    ],
+    "note": "Horace White (Andreas pp. 734-735) saw the store's own pumps 'showering that massive pile of pure marble and iron' after daylight, and the streams stopped when he came back from breakfast; Sheahan and Upton p. 79: it 'soon yielded'; Colbert and Chamberlin pp. 209-210 take the fire from the Tribune to Potter Palmer's store. About eight (the jaunt's field-hour claim). The blocks round it burned in the night (the field_leiter control); the store held under its own water until morning."
+   }
   },
   "palmer_house_1871": {
    "fate": "walls_stand"
   },
   "tribune_building_1871": {
-   "fate": "walls_stand"
+   "fate": "walls_stand",
+   "burning_by": {
+    "t": "1871-10-09T07:30",
+    "grade": "inferred",
+    "sources": [
+     "colbert_chamberlin_1871_chicago_great_conflagration",
+     "andreas_1885_v2"
+    ],
+    "note": "The jaunt's tribune-hour claim: Bross found it safe at daybreak and the fire back upon it that morning (Andreas pp. 731-732); Colbert and Chamberlin p. 209 give half-past seven."
+   }
   },
   "st_pauls_church_1871": {
    "fate": "collapses",
@@ -1452,5 +1514,504 @@
    "walls_fall_share": 0.3
   },
   "note": "How long a building burned and when it fell is reconstructed: frame houses burned through in about half an hour, the 'fire-proof' business blocks of stone and brick held their walls while their floors and roofs burned out over about an hour (Andreas p. 720, 'Stone, brick and wooden structures fell alike'). About a third of the masonry walls are brought down."
- }
+ },
+ "goods": [
+  {
+   "id": "washington_square_goods",
+   "label": "The furniture of the families who fled into Washington Square",
+   "within": "washington_square_1871",
+   "heaps": 50,
+   "seed": 3751,
+   "clear_of": [
+    "fire_ogden_house"
+   ],
+   "catch": "place",
+   "grade": "attested",
+   "sources": [
+    "sheahan_upton_1871_great_conflagration",
+    "andreas_1885_v2"
+   ],
+   "locator": "Sheahan and Upton pp. 209-211: 'this park early in the night was filled with fugitives and their furniture'; 'In front was the grand blaze from the accumulated furniture of fifty families.' Andreas vol. 2, p. 759: the square's fence and the goods on its grass burned.",
+   "note": "That the square was filled with furniture and that it burned is the accounts'; how many heaps, where each lies and what is in it (chairs, tables, bedsteads, bureaus, trunks, mattresses, bundles) is reconstructed (L-1871-great-fire-goods-3751). The heaps burn at the square's own hour, read from the fire's map, and by midday lie charred and smoking. They are drawn on the square from half past two, when the fire crossed the main river (the jaunt's north-side stop), the hour the families began to come in being reconstructed.",
+   "local_heaps": [
+    [
+     654.61,
+     1420.93,
+     298.9,
+     970258
+    ],
+    [
+     665.21,
+     1397.53,
+     195.4,
+     829785
+    ],
+    [
+     649.58,
+     1408.08,
+     311.9,
+     4110
+    ],
+    [
+     587.39,
+     1402.94,
+     205.3,
+     234710
+    ],
+    [
+     624.64,
+     1399.26,
+     342.8,
+     219307
+    ],
+    [
+     591.4,
+     1428.87,
+     52.9,
+     820050
+    ],
+    [
+     616.65,
+     1416.01,
+     314.3,
+     96739
+    ],
+    [
+     631.59,
+     1421.23,
+     168.9,
+     316842
+    ],
+    [
+     639.21,
+     1396.62,
+     301.6,
+     454886
+    ],
+    [
+     607.83,
+     1433.82,
+     24.1,
+     275553
+    ],
+    [
+     627.7,
+     1405.6,
+     44.6,
+     413919
+    ],
+    [
+     573.63,
+     1396.42,
+     192.0,
+     343930
+    ],
+    [
+     651.8,
+     1424.33,
+     64.8,
+     707542
+    ],
+    [
+     638.74,
+     1433.42,
+     205.6,
+     935593
+    ],
+    [
+     596.43,
+     1424.31,
+     290.9,
+     213427
+    ],
+    [
+     662.33,
+     1403.35,
+     213.0,
+     79813
+    ],
+    [
+     610.51,
+     1417.88,
+     121.8,
+     74205
+    ],
+    [
+     576.89,
+     1430.21,
+     112.5,
+     847030
+    ],
+    [
+     615.26,
+     1423.64,
+     258.4,
+     343590
+    ],
+    [
+     577.88,
+     1400.88,
+     290.7,
+     558116
+    ],
+    [
+     653.85,
+     1432.26,
+     327.1,
+     442186
+    ],
+    [
+     605.98,
+     1402.46,
+     114.9,
+     896261
+    ],
+    [
+     658.84,
+     1420.13,
+     273.3,
+     737793
+    ],
+    [
+     644.17,
+     1426.16,
+     325.8,
+     318433
+    ],
+    [
+     662.18,
+     1410.88,
+     47.8,
+     858908
+    ],
+    [
+     667.98,
+     1415.7,
+     331.5,
+     633074
+    ],
+    [
+     621.42,
+     1420.12,
+     252.1,
+     399659
+    ],
+    [
+     600.75,
+     1431.91,
+     72.5,
+     23913
+    ],
+    [
+     644.36,
+     1431.97,
+     35.3,
+     256040
+    ],
+    [
+     573.96,
+     1422.51,
+     344.5,
+     568959
+    ],
+    [
+     652.08,
+     1403.08,
+     305.0,
+     590521
+    ],
+    [
+     665.81,
+     1422.54,
+     290.9,
+     936503
+    ],
+    [
+     660.6,
+     1425.49,
+     199.3,
+     524238
+    ],
+    [
+     613.81,
+     1427.67,
+     302.7,
+     789632
+    ],
+    [
+     594.46,
+     1400.52,
+     151.3,
+     971487
+    ],
+    [
+     638.34,
+     1403.24,
+     154.0,
+     992916
+    ],
+    [
+     636.26,
+     1424.89,
+     297.3,
+     323987
+    ],
+    [
+     630.98,
+     1403.11,
+     276.7,
+     461575
+    ],
+    [
+     657.62,
+     1413.6,
+     276.2,
+     84764
+    ],
+    [
+     588.05,
+     1409.67,
+     34.5,
+     86450
+    ],
+    [
+     623.08,
+     1406.44,
+     102.1,
+     42478
+    ],
+    [
+     644.13,
+     1404.7,
+     272.2,
+     808442
+    ],
+    [
+     584.32,
+     1413.86,
+     207.2,
+     154424
+    ],
+    [
+     647.86,
+     1429.98,
+     248.3,
+     953696
+    ],
+    [
+     585.36,
+     1424.65,
+     1.8,
+     428869
+    ],
+    [
+     601.52,
+     1415.18,
+     193.4,
+     135239
+    ],
+    [
+     646.4,
+     1415.52,
+     234.4,
+     698584
+    ],
+    [
+     624.39,
+     1433.77,
+     121.7,
+     174813
+    ],
+    [
+     616.38,
+     1394.77,
+     334.4,
+     919284
+    ],
+    [
+     599.58,
+     1411.61,
+     218.2,
+     796495
+    ]
+   ],
+   "appear": "1871-10-09T02:30",
+   "scorch": true,
+   "local_ground": [
+    [
+     571.0,
+     1391.0
+    ],
+    [
+     670.99,
+     1392.22
+    ],
+    [
+     670.44,
+     1437.22
+    ],
+    [
+     570.45,
+     1436.0
+    ]
+   ]
+  },
+  {
+   "id": "old_cemetery_goods",
+   "label": "Beds, chairs and bundles carried into the old City Cemetery",
+   "within": "old_city_cemetery_1871",
+   "heaps": 22,
+   "seed": 3752,
+   "clear_of": [
+    "fire_old_cemetery"
+   ],
+   "apart_m": 3.2,
+   "window": {
+    "from": "1871-10-09T17:10",
+    "to": "1871-10-09T18:40",
+    "share": 0.4
+   },
+   "grade": "attested",
+   "sources": [
+    "colbert_chamberlin_1871_chicago_great_conflagration"
+   ],
+   "locator": "Colbert and Chamberlin pp. 265-268: the refugees in Lincoln Park and the old cemetery were 'compelled to see the household gods and valuables which they had moved into the cemetery or the park burn up before their eyes.'",
+   "note": "That goods were carried in and some burned is the account's; the number of heaps, where they lie, what is in them, which of them burn (two in five) and when, between ten past five and twenty to seven on Monday evening, are reconstructed (L-1871-great-fire-goods-3751). The cemetery itself is a survivor; only these goods burn. They are drawn in the cemetery from six on Monday morning, a reconstructed hour inside the day the North Side fled north.",
+   "local_heaps": [
+    [
+     464.32,
+     2821.99,
+     204.8,
+     843754
+    ],
+    [
+     464.32,
+     2803.1,
+     52.7,
+     867261
+    ],
+    [
+     493.09,
+     2820.11,
+     327.8,
+     627472
+    ],
+    [
+     468.29,
+     2820.53,
+     89.7,
+     249101
+    ],
+    [
+     463.17,
+     2808.45,
+     190.9,
+     497925
+    ],
+    [
+     449.69,
+     2862.19,
+     249.1,
+     469574
+    ],
+    [
+     451.14,
+     2808.1,
+     159.2,
+     355015
+    ],
+    [
+     466.66,
+     2792.78,
+     239.6,
+     796036
+    ],
+    [
+     497.57,
+     2804.75,
+     354.1,
+     162227
+    ],
+    [
+     493.23,
+     2804.11,
+     349.5,
+     856352
+    ],
+    [
+     472.29,
+     2850.23,
+     55.5,
+     269149
+    ],
+    [
+     460.45,
+     2825.85,
+     64.7,
+     48476
+    ],
+    [
+     453.91,
+     2854.46,
+     339.2,
+     163216
+    ],
+    [
+     504.16,
+     2826.16,
+     323.0,
+     706201
+    ],
+    [
+     468.55,
+     2802.86,
+     206.2,
+     230202
+    ],
+    [
+     457.21,
+     2836.38,
+     56.7,
+     11370
+    ],
+    [
+     464.3,
+     2856.8,
+     144.6,
+     897920
+    ],
+    [
+     497.33,
+     2836.11,
+     230.9,
+     217424
+    ],
+    [
+     465.59,
+     2816.44,
+     266.8,
+     909534
+    ],
+    [
+     469.02,
+     2859.97,
+     352.9,
+     705873
+    ],
+    [
+     480.39,
+     2860.26,
+     316.5,
+     723540
+    ],
+    [
+     493.23,
+     2856.11,
+     80.7,
+     86634
+    ]
+   ],
+   "appear": "1871-10-09T06:00"
+  }
+ ]
 }

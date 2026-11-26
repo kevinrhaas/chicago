@@ -229,6 +229,9 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-controls .jaunt-voice.jaunt-voice-wide { grid-column: 1 / -1; }
 .jaunt-panel .jaunt-voice .menu-icon { flex: none; }
 .jaunt-bar .jaunt-voice { display: grid; place-items: center; padding: 0; color: var(--accent, #ead09e); }
+/* The owner, 2026-11-26 ("Blank button"): .jaunt-key's display: flex outranked the hidden
+   attribute, so the Pause key with no voice speaking stood empty under the pace. */
+.jaunt-panel .jaunt-key[hidden], .jaunt-bar .jaunt-voice[hidden] { display: none; }
 .jaunt-voicing { border-radius: 6px; background: color-mix(in srgb, var(--accent, #ead09e) 9%, transparent);
   box-shadow: -6px 0 0 color-mix(in srgb, var(--accent, #ead09e) 9%, transparent), 6px 0 0 color-mix(in srgb, var(--accent, #ead09e) 9%, transparent); }
 .jaunt-transcript { margin: 0 0 10px; padding: 0 10px; border: 1px solid var(--edge, #64716e); border-radius: 10px; }

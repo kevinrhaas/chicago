@@ -46190,6 +46190,26 @@ the side settles its depth; T-3716 solves the pictures' cameras and records what
 **Review:** `generators/city_1871_emit.py` (`core_row`), `tools/lay_1871_street_furniture.py`, `renderers/web/js/street-furniture.js`, `renderers/web/js/street-trees.js`, `data/transport/parked/placements.json`.
 **Recorded:** 2026-11-21 (T-3686).
 
+### L-1871-swing-bridges-3751 — The 1871 river bridges carry their streets: centre-pivot swing spans, their towers, rods, piers and approaches
+
+**Decision:** the owner, 2026-11-26, walking the Great Fire jaunt: "The bridges don't connect to roads and don't look like the bridges as they existing", "Another messed up bridge", and "A funny white square as you cross the bridge". Each of the 22 bridges was a flat plank ribbon on the map reading's axis, run to the first dry ground and six metres on, so it crossed the river streets into building faces at an angle to its street, with low trusses its whole length; the white square was the stone pier's top, drawn at the deck's own height and fighting it.
+**Not invented:** that the city's river bridges were "all truss bridges, revolving upon a centre pier, and giving a passage-way for vessels upon either side, when open" (`chicago_public_works_1871`, p. 48); each bridge's construction year, timber-and-iron or iron build, and length (p. 49); where each crosses (`mitchell_1870_chicago_map`, plan.json `bridges`); the streets' lines and widths (`L-1871-street-network`).
+**What is reconstructed:** where each deck lands: the drawn street's own end on each bank (or, where one bank has no run of the street, along its line to the far bank; Rush and Polk streets have none and keep the map's axis, trimmed to dry ground, with a plain dirt approach road from each deck end to the nearest end of their street: Rush Street and Michigan Avenue, and Polk Street across the gap the platted core leaves to the river; alignment `bridge_approach`), so the pivot can stand up to 45 m from the map's reading of the crossing (`BRIDGE_READING_ALLOWANCE_M`; the 1870 sheet's fit checks to 25.65 m at worst). The deck's width is the street's carriageway with its walks as footways (to 2.6 m), at road level. The swing span is the reported length centred on the pivot; the fixed timber approach spans on pile bents that carry the deck from the span's ends to the banks, the stone abutments, the round stone pivot pier (5 m radius, its top under the deck), the pointed timber protection pier along the river, the two low timber Howe trusses, the central tower over the pivot with iron tie rods to the panel points and ends, the overhead bracing, the floor beams and the railed footways are the general form of the period's centre-pivot swing bridge, not a drawing of any one: no picture of an 1871 Chicago river bridge is in `data/sources/`. Quay bays no longer run under a deck, and a generic building may not stand on one.
+**How to resolve:** a photograph or engraving of a pre-fire Chicago river bridge (the Carbutt and Lovejoy & Foster stereograph series; the Board's own reports of other years, which sometimes print plans), solved into a reference view, would replace the tower, truss and pier forms; the Board's reports of the bridges' widths would replace the street-width deck.
+**Ticket:** T-3751.
+**Review:** `generators/city_1871_emit.py` (`bridge_ends`, `bridge_pivot`, `draw_bridge`), `tools/check_city_1871.py`.
+**Recorded:** 2026-11-26 (T-3751).
+
+### L-1871-lake-park-3751 — Lake Park left open: no generic building east of Michigan Avenue from Randolph to Twelfth Street
+
+**Decision:** the owner, 2026-11-26: "you show buildings east of Michigan ave all along the lakefront, check that, there were a few perhaps, but I am not sure about all of that". The context city had stood about 150 generic buildings on the strip east of Michigan Avenue.
+**Not invented:** Mitchell's 1870 map (`mitchell_1870_chicago_map`) prints LAKE PARK on the strip between Michigan Avenue and the water from Randolph Street to Park Place by Twelfth Street, with the Illinois Central and Michigan Central track and the "Illinois Central R.R. Breakwater" beyond the lagoon; north of Randolph it prints the Illinois Central and Michigan Central depot and grain houses.
+**What is reconstructed:** the zone's edges (Michigan Avenue's drawn centreline, the centrelines of Randolph and Twelfth streets, the lake; `UNBUILT_GROUND` in the generator). What was kept, and why: the generic buildings north of Randolph east of Michigan stand in for the railways' depot ground the map prints there (they are generic forms, not the depot); south of Twelfth the avenues east of Michigan (Indiana, Prairie, Calumet) were built up and keep theirs; the North Side shore east of Pine Street is platted on the same map, its cross streets running to the lake, and keeps its buildings. The park itself stays the context city's open ground: its planting, paths and fences are not drawn.
+**How to resolve:** a picture of the 1871 Lake Park front, or the Board's park report, to plant and fence it; the depot's own form, to replace the generic buildings north of Randolph.
+**Ticket:** T-3751.
+**Review:** `generators/city_1871_emit.py` (`UNBUILT_GROUND`, `lot_clear`), `tools/check_city_1871.py`.
+**Recorded:** 2026-11-26 (T-3751).
+
 ### L-k01-1936-allerton-tribune-2026-11-22 — 1936 Prairie's materials laid as its 1869 Tribune describes them: pressed red brick all round, brownstone dressings, carving, steps and bay, a rusticated basement and a slate-dark roof
 
 **Decision:** the owner, 2026-11-22, reading the 1869 Tribune's description of the Thompson house on Chicagology, found
@@ -46400,6 +46420,41 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+### L-1871-great-fire-goods-3751 — The families' furniture in Washington Square and the old cemetery, and the Great Fire stops kept to their hours
+
+**Decision:** the owner, 2026-11-26, on the Great Fire jaunt: "The narration describes a burned park, but the park
+appears undamaged and the referenced furniture is missing. Add the furniture and depict it burning or show the
+appropriate aftermath", "The jaunt stops at the Field Building, but the building does not burn", and "Ensure the
+visual state of the environment corresponds to the chronology and events described in the narration". So the goods
+the accounts heap on Washington Square and in the old City Cemetery are drawn and burn, each landmark a stop names
+burns at the hour its stop tells, and the Parmelee stop stands at Jackson and Franklin.
+**What is read, not invented:** that Washington Square "early in the night was filled with fugitives and their
+furniture" and that the fire made "the grand blaze from the accumulated furniture of fifty families" (Sheahan and
+Upton pp. 209-211; Andreas vol. 2 p. 759, the square's fence and goods burned); that the refugees in the cemetery saw
+"the household gods and valuables which they had moved into the cemetery ... burn up before their eyes" (Colbert and
+Chamberlin pp. 265-268). The hours the landmarks are alight are the jaunt's own claims, each with its page in
+`data/fire/1871.json` (`burning_by`): the barn at nine, the Court House at half past one, the Sherman House at five
+past two, Crosby's at twenty past two, the Water Works roof at twenty past three, the Tribune at half past seven, and
+Field, Leiter & Co. at about eight, after its own pumps had kept it wet past daylight (Horace White in Andreas
+pp. 734-735). The Parmelee stable stood on the south-east corner of Jackson and Franklin (Andreas p. 719).
+**What is reconstructed:** how many heaps of goods (34 in the square, 22 in the cemetery), where each lies, and what
+each holds (bedsteads, mattresses, bureaus, tables, chairs, trunks, bundles, quilts, of no particular family's) are
+reconstructed; so are the hour the goods are first on the ground (the square from half past two, the cemetery from
+six on Monday morning), which of the cemetery's heaps burn (two in five) and when (between ten past five and twenty
+to seven that evening), and the scorch on the square's grass. The square's heaps burn at the square's own hour on the
+fire's map. A landmark held to its hour is drawn rising to full flame by that hour, the rise being the drawn fire's
+(five minutes for frame, nine for masonry), not a record of when it first caught. The Parmelee stable is the
+generic corner building there; no picture or plan of the stable was found. St. Michael's is told as the fire nears
+it at noon, because the fire's map has its steeple burning in the afternoon (Conzen's noon-6 p.m. band).
+**Evidence and limits:** `sheahan_upton_1871_great_conflagration`, `andreas_1885_v2`,
+`colbert_chamberlin_1871_chicago_great_conflagration`. No account counts the heaps or names what was in them.
+**How to resolve:** a picture or a fuller account of Washington Square or the cemetery on 9 October 1871; a picture
+or plan of the Parmelee stable, to build it as a structure of its own.
+**Ticket:** T-3751.
+**Review:** `data/fire/1871.json` (`goods`, `burning_by`), `tools/fire_1871.py`, `renderers/web/js/fire-goods.js`,
+`renderers/web/js/fire-map.js`, `tools/check_fire_jaunt.mjs`, `data/scenes/1871.json` (`fire_parmelee_stables`).
+**Recorded:** 2026-11-26 (T-3751).
 
 ### L-prairie-alley-returns-3759 — Each 1904 alley carried across the sidewalk space to the gutter, the curb turned into it
 

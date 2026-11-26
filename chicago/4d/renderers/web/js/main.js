@@ -3004,6 +3004,9 @@ async function boot() {
     fireState.engine = createCityFire({ doc, parent: scene3d, context: () => contextCity, buildings: () => buildings,
       tier: () => api.humans?.tier ?? 'full', groundAt: (e, n) => terrain.surfaceHeight(e, n) });
     fireState.engine.onFire((iso) => { for (const fn of fireState.listeners) { try { fn(iso); } catch { /* its own */ } } });
+    // T-3751: a tree the fire has been through stands bare and charred; the city before it, none.
+    const engine = fireState.engine, burntTree = (e, n) => engine.treeBurnt(e, n);
+    engine.onFire((iso) => { try { streetTrees.setBurnt?.(iso ? burntTree : null); } catch (err) { console.warn('[fire] trees', err); } });
     return fireState.engine;
   }).catch((err) => { fireState.loading = null; console.warn('[fire] not drawn:', err?.message ?? err); return null; });
   api.fire = {
