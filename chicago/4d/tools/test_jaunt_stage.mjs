@@ -402,7 +402,7 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   const fig = (instance) => {
     const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: {}, path: null, standY: null,
       root: { visible: true, position: { clone() { return { x: a.e, z: -a.n }; } } }, heightAt: () => 2,
-      setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture(k) { a.posture = { kind: k }; }, update() {}, dispose() {},
+      state: 'standing', setState(v) { a.state = v; }, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture(k) { a.posture = { kind: k }; }, update() {}, dispose() {},
       walkPath(pts) { a.path = pts; return true; } };
     made.push(a); return a;
   };
@@ -422,8 +422,10 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   st.sync(stopBoat, { arrived: true });
   const [k, dead, f1, f2, r1, r2] = made;
   [[f1, -0.45, 1.15], [f2, 0.45, 1.15], [r1, -0.45, -1.15], [r2, 0.45, -1.15]].forEach(([x, e, n]) => { x.e = e; x.n = n; });
+  k.state = 'walking';   // T-3754: still on the walk down to the boat when it sets out
   st.update(0.2);
   assert.ok(k.posture?.kind === 'sit' && !k.indoors && k.e === 10 && k.n === 20, 'in the boat, sitting on its seat, in sight');
+  assert.equal(k.state, 'standing', 'T-3754: the walk ends as they sit (no walk clip under the seat)');
   assert.deepEqual(asked?.near, [10, 18], 'the boat sets out from the bank they stand on');
   assert.equal(k.standY, 3 - 0.92, 'feet below the seat\'s eye');
   t = 1.5; st.update(0.1);

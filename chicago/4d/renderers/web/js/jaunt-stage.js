@@ -546,7 +546,9 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       // Into a drawn boat and across in it (crossings.js), sitting; with no boat drawn, gone
       // from sight as before. The beat after it places them on the far bank.
       const h = boats?.carry?.(b.cross, { near: [a.e, a.n] }) ?? null;
-      if (h) { crossed.push(h); m.boat = h; a.path = null; a.setIndoors?.(false); a.setPosture?.('sit', { seconds: 0.8 }); }
+      // T-3754: the walk down to it ends here: still 'walking', the walk clip and the gait layer
+      // stayed on under the seated legs and took the body down through the hull.
+      if (h) { crossed.push(h); m.boat = h; a.path = null; if (a.state === 'walking') a.setState?.('standing'); a.setIndoors?.(false); a.setPosture?.('sit', { seconds: 0.8 }); }
       else a.setIndoors?.(true);
     }
     if (Array.isArray(b.borne) || b.borne === false) bear(m, b.borne);
