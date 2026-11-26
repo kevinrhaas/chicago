@@ -39,7 +39,7 @@
   "persons": [
     {
       "id": "pa1904_bellas_t_h",
-      "name": "T. H. Bellas",
+      "name": "Thomas H. Bellas",
       "relationship": "head",
       "grade": "attested",
       "sources": [
@@ -74,7 +74,7 @@
     },
     {
       "id": "pa1904_bellas_mrs_t_h",
-      "name": "Mrs. T. H. Bellas",
+      "name": "Emma L. Bellas",
       "relationship": "wife",
       "grade": "attested",
       "sources": [
@@ -107,34 +107,6 @@
           "leonard_book_of_chicagoans_1905"
         ]
       }
-    },
-    {
-      "id": "pa1904_bellas_daughters",
-      "name": "The Misses Bellas",
-      "relationship": "daughter",
-      "grade": "attested",
-      "sources": [
-        "chicago_blue_book_1904",
-        "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245",
-        "census_1910_chicago_t624_roll241"
-      ],
-      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
-      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say. The 1910 census lists the household under Erastus Foote, with Emma L. Bellas, widow, as his sister and Helena M. Bellas, 23, and Edith Bellas, 20, as his nieces (ED 166, sheet 9A, lines 1-4): very likely the daughters the book means.",
-      "portrait_research": {
-        "status": "not_identified",
-        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
-        "sources": [
-          "witherspoon_men_of_illinois_1902",
-          "leonard_book_of_chicagoans_1905"
-        ]
-      },
-      "collective": true,
-      "individual_cards": [
-        "pa1904_bellas_emeline_c",
-        "pa1904_bellas_helen_m",
-        "pa1904_bellas_edith"
-      ]
     },
     {
       "id": "pa1904_foote_erastus",
@@ -303,7 +275,8 @@
       "sources": [
         "census_1900_chicago_t623_roll245",
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1881",
@@ -311,9 +284,9 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ],
-        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+        "note": "Year from the 1900 census transcription; later census ages may disagree."
       },
-      "note": "Emeline C. Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 38). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "note": "Emeline C. Bellas is individually named in the 1900 census transcription (line 38). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
       "lived_here": {
         "years": "1900; inferred 1904",
         "on_scene_date": "unknown"
@@ -324,7 +297,8 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ]
-      }
+      },
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs."
     },
     {
       "id": "pa1904_bellas_helen_m",
@@ -334,7 +308,8 @@
       "sources": [
         "census_1900_chicago_t623_roll245",
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1884",
@@ -342,12 +317,12 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ],
-        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+        "note": "Year from the 1900 census transcription; later census ages may disagree."
       },
-      "note": "Helen M. Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 39). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "note": "Helen M. Bellas is individually named in the 1900 census transcription (line 39). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. She is at home again in the 1910 census, so she is read as one of the daughters the 1904 '& drs.' stands for.",
       "lived_here": {
-        "years": "1900; inferred 1904",
-        "on_scene_date": "unknown"
+        "years": "1900-1910",
+        "on_scene_date": "yes"
       },
       "portrait_research": {
         "status": "not_identified",
@@ -355,7 +330,8 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ]
-      }
+      },
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs."
     },
     {
       "id": "pa1904_bellas_edith",
@@ -365,7 +341,8 @@
       "sources": [
         "census_1900_chicago_t623_roll245",
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1887",
@@ -373,12 +350,12 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ],
-        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+        "note": "Year from the 1900 census transcription; later census ages may disagree."
       },
-      "note": "Edith Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 40). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "note": "Edith Bellas is individually named in the 1900 census transcription (line 40). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. She is at home again in the 1910 census, so she is read as one of the daughters the 1904 '& drs.' stands for.",
       "lived_here": {
-        "years": "1900; inferred 1904",
-        "on_scene_date": "unknown"
+        "years": "1900-1910",
+        "on_scene_date": "yes"
       },
       "portrait_research": {
         "status": "not_identified",
@@ -386,7 +363,8 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ]
-      }
+      },
+      "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs."
     }
   ]
 }

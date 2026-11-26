@@ -31,7 +31,9 @@
  * code's one inch in three feet; the roadway lies a curb's reveal (7 in,
  * reconstructed) below the curb's top, with a dressed stone face down to it. The
  * field's own ground is cut out under everything that sits lower than it
- * (`terrain.setGroundCut`), and the walker is told how far down it is. A district
+ * (`terrain.setGroundCut`), and the walker is told how far down it is. (T-3759) At an
+ * alley's mouth the alley runs on across the sidewalk space, falling to the gutter, between
+ * two return curbs, and the walk, parkway and curb give way over it. A district
  * edge with no sidewalk drawn beyond it gets a stone edge up to the field, so the
  * lowered roadway never shows a gap. The same file lays a paved carriage walk across
  * the parkway before every lot 40 ft wide or more, and (T-3198) a stone carriage post
@@ -95,6 +97,9 @@ const PRIORITY_LIFT_M = 0.003;
 const BAND_EDGE_M = 0.005;
 /** How near a ramp's edge a point still takes the ramp's level (T-3231). */
 const RAMP_EDGE_M = 0.005;
+/** T-3759: how far past an alley return's curb line a point still takes its level: the face's
+ *  drawn curb line stands up to a few millimetres either side of the return's mean. */
+const RETURN_PAST_M = 0.02;
 /** T-2692: how far a roadway runs on under one ranked above it, which stands a few
  *  millimetres higher. Cut off flush, the step between them showed what lies under
  *  the higher one's edge, a dark hairline seen from low down along every such cut. */
@@ -797,6 +802,39 @@ function carriageDriveCard(x, face, grid, section) {
   };
 }
 
+function alleyReturnCard(r, face, grid, section, curb) {
+  const ar = section?.alley_returns ?? {};
+  const street = grid.streets?.[face.street] ?? {};
+  const alley = (grid.alleys ?? []).find((a) => a.id === r.alley);
+  return {
+    id: r.id,
+    sidecar: {
+      name: curb ? `${street.name_1904 ?? face.street} — the curb turned into an alley`
+        : `${street.name_1904 ?? face.street} — an alley's mouth`,
+      phase: null,
+      change_note: curb
+        ? `The street curb turned into the alley on both sides of its mouth, from the curb line back to the lot line, its top on the walk's level.`
+        : `The alley carried ${r.width_m} m wide across the sidewalk space, falling from its grade at the lot line to the gutter.`,
+      placement: {
+        symbolic_location: alley?.where ?? face.where ?? face.street,
+        position_confidence: alley?.geometry_tier ?? 'inferred',
+        position_sources: alley?.sources ?? [],
+        position_note: `Where the alley ${alley?.where ?? r.alley} meets ${street.name_1904 ?? face.street}, at its drawn width.`,
+      },
+      attributes: {
+        kind: { value: curb ? 'return curb' : 'alley return', confidence: ar.arrangement_tier ?? 'inferred', sources: ar.sources ?? [], note: ar.note ?? '' },
+        grade: {
+          value: `even fall over ${r.curb_line_m} m to the gutter`, confidence: 'reconstructed', sources: [],
+          note: `No grade for these mouths has been read. ${ar.liberty ?? ''}`.trim(),
+        },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Alley return ${r.id} of data/street_section/1904.json (T-3759).`,
+    },
+  };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -896,6 +934,27 @@ export async function createStreetGrid({
       rampBox: [b[0] - RAMP_EDGE_M, b[1] - RAMP_EDGE_M, b[2] + RAMP_EDGE_M, b[3] + RAMP_EDGE_M],
     };
   });
+  /** T-3759: the alley returns, each alley carried across the sidewalk space at its mouth. */
+  const alleyReturns = (section?.alley_returns?.returns ?? []).map((r) => ({
+    r, box: grownBox(bboxOf(r.whole), RAMP_EDGE_M),
+  }));
+  /** An alley return's level at its curb line, as an offset the alley's own lift is then
+   *  added to: flush with the roadway's top, so the gutter meets it without a step. */
+  const returnFoot = () => ROAD + CLASSES.carriageway.lift + 0.002 - CLASSES.alley.lift;
+  /** The return (and its local k across the mouth, s out from the street line) a point
+   *  stands on, or null. Only its surface: a return curb stands within `inset_m` of the
+   *  surface's sides, on the same plan line, and takes the sidewalk's level. */
+  const returnAt = (e, n) => {
+    for (const { r, box } of alleyReturns) {
+      if (!inBox(box, e, n)) continue;
+      const de = e - r.origin[0]; const dn = n - r.origin[1];
+      const k = de * r.along[0] + dn * r.along[1];
+      const s = de * r.out[0] + dn * r.out[1];
+      const half = (r.inset_m ?? 0.003) / 2;
+      if (k > r.k0_m + half && k < r.k1_m - half && s > -RAMP_EDGE_M && s < r.curb_line_m + RETURN_PAST_M) return { r, k, s };
+    }
+    return null;
+  };
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
   const rampFoot = () => ROAD + CLASSES.carriageway.lift + 0.002 - CLASSES.walk.lift;
@@ -919,6 +978,8 @@ export async function createStreetGrid({
    *  roadway's level in a carriageway, nothing elsewhere. */
   const offsetAt = (e, n) => {
     if (!section) return 0;
+    const ar = alleyReturns.length ? returnAt(e, n) : null;
+    if (ar) return Math.max(0, Math.min(1, ar.s / ar.r.curb_line_m)) * returnFoot();
     for (const { x, rampBox } of crossings) {
       if (!inBox(rampBox, e, n) || !nearPolygon(e, n, x.ramp, RAMP_EDGE_M)) continue;
       const f = Math.max(0, Math.min(1, (acrossIn(x, e, n) - x.ramp_from_m) / (x.ramp_to_m - x.ramp_from_m)));
@@ -1270,12 +1331,26 @@ export async function createStreetGrid({
   // outside-road fallback is permitted for parked/moving vehicle support.
   let carriagewaySurface = null;
   out.carriagewayHeight = (e, n) => carriagewaySurface?.heightAt(e, n) ?? null;
+  const faceById0 = new Map((grid.faces ?? []).map((f) => [f.id, f]));
   for (const a of grid.alleys ?? []) {
     const s = surfaceOf(surfaces, 'alley', a.id);
     push('alley', a.id, a.quads_local_m ?? [], a.geometry_tier, s);
     if (s) out.census.surfaced += 1;
     out.census.alleys += 1;
   }
+  // T-3759 — each alley's return across the sidewalk space, in the alley's own surface, and
+  // the two return curbs either side of it in the street curb's.
+  const returnById = new Map();
+  for (const { r } of alleyReturns) {
+    const face = faceById0.get(r.face);
+    if (!face) continue;
+    push('alley', `ar:${r.id}`, [r.surface], 'reconstructed', surfaceOf(surfaces, 'alley', r.alley));
+    const curbS = surfaceOf(surfaces, 'band', null, 'curb', face.id);
+    const curbLib = curbS ? library.get(curbS.material) : null;
+    push('curb', `arc:${r.id}`, r.curbs, 'reconstructed', curbS, { tileAcross: curbLib?.across === 'band' ? r.curb_w_m : null });
+    returnById.set(r.id, { r, face });
+  }
+  out.census.alleyReturns = returnById.size;
   for (const f of grid.faces ?? []) {
     const xs = grid.cross_sections?.[f.cross_section] ?? {};
     for (const [band, quads] of Object.entries(f.bands ?? {})) {
@@ -1298,8 +1373,12 @@ export async function createStreetGrid({
       // across a 6-ft walk and along a 5-ft one; the tile holds two blocks along.
       const blocks = s?.blocks?.[f.cross_section];
       if (blocks) tileAlong = 2 * blocks.along_ft * FT;
-      // T-3200: the parkway and the curb give way where a corner crossing runs over them.
-      const holes = band === 'parkway' || band === 'curb' ? crossings.filter((c) => c.x.face === f.id) : [];
+      // T-3200: the parkway and the curb give way where a corner crossing runs over them;
+      // T-3759: the walk, the parkway and the curb where an alley's return crosses them.
+      const holes = [
+        ...(band === 'parkway' || band === 'curb' ? crossings.filter((c) => c.x.face === f.id) : []),
+        ...(['walk', 'parkway', 'curb'].includes(band) ? alleyReturns.filter((a) => a.r.face === f.id).map((a) => ({ whole: ccwOf(a.r.whole) })) : []),
+      ];
       let whole = quads; const polys = [];
       if (holes.length) {
         whole = [];
@@ -1495,10 +1574,38 @@ export async function createStreetGrid({
     const curbTop = (W) => -FALL * W + CLASSES.curb.lift;
     const roadTop = ROAD + CLASSES.carriageway.lift - 0.02;
     for (const sf of sideFaces) {
+      // T-3759: the curb's face stops at each alley's mouth.
+      const mouths = alleyReturns.filter((a) => a.r.face === sf.f.id).map((a) => a.r);
       for (const [a, b, c, d] of sf.f.bands?.curb ?? []) {
         const toward = sub(lerp(d, c, 0.5), lerp(a, b, 0.5));
         const L = len(toward) || 1;
-        wall(`${sf.f.id}|curb`, d, c, curbTop(sf.W), roadTop, [toward[0] / L, toward[1] / L]);
+        const facing = [toward[0] / L, toward[1] / L];
+        let runs = [[0, 1]];
+        for (const r of mouths) {
+          const kOf = (p) => (p[0] - r.origin[0]) * r.along[0] + (p[1] - r.origin[1]) * r.along[1];
+          const kd = kOf(d); const kc = kOf(c);
+          if (Math.abs(kc - kd) < 1e-6) continue;
+          const f0 = (r.k0_m - kd) / (kc - kd); const f1 = (r.k1_m - kd) / (kc - kd);
+          const lo = Math.min(f0, f1); const hi = Math.max(f0, f1);
+          runs = runs.flatMap(([u, v]) => (hi <= u || lo >= v ? [[u, v]]
+            : [[u, Math.max(u, lo)], [Math.min(v, hi), v]].filter(([x, y]) => y - x > 1e-6)));
+        }
+        for (const [u, v] of runs) wall(`${sf.f.id}|curb`, lerp(d, c, u), lerp(d, c, v), curbTop(sf.W), roadTop, facing);
+      }
+    }
+    // T-3759: each return curb's face, from its top on the walk's level down to the return's
+    // surface, along the return's side, dying out toward the lot line.
+    for (const { r } of alleyReturns) {
+      const W = r.curb_line_m;
+      const at = (s, k) => [r.origin[0] + r.out[0] * s + r.along[0] * k, r.origin[1] + r.out[1] * s + r.along[1] * k];
+      for (const [k, sign] of [[r.k0_m, 1], [r.k1_m, -1]]) {
+        const steps = Math.max(1, Math.ceil(W / MAX_EDGE_M));
+        for (let i = 0; i < steps; i += 1) {
+          const s0 = (W * i) / steps; const s1 = (W * (i + 1)) / steps;
+          const top = (s) => -FALL * s + CLASSES.curb.lift;
+          const foot = (s) => Math.max(0, Math.min(1, s / W)) * returnFoot() + CLASSES.alley.lift - 0.01;
+          wall(`arc:${r.id}`, at(s0, k), at(s1, k), [top(s0), top(s1)], [foot(s0), foot(s1)], [r.along[0] * sign, r.along[1] * sign]);
+        }
       }
     }
     // T-3200: each corner slab's two sides and its foot, its thickness standing over the
@@ -1642,6 +1749,8 @@ export async function createStreetGrid({
     // the sidewalk space from the walk outward (the margin keeps the field's ground).
     const polys = [...roadQuads.map((r) => r.q)];
     for (const sf of sideFaces) for (const band of ['walk', 'parkway', 'curb']) polys.push(...(sf.f.bands?.[band] ?? []));
+    // T-3759: and under each alley return and its curbs, which start at the lot line.
+    for (const { r } of alleyReturns) polys.push(r.whole);
     const all = bboxOf(polys.flat());
     const x0 = all[0] - 2; const x1 = all[2] + 2;            // e
     const z0 = -all[3] - 2; const z1 = -all[1] + 2;          // z = -n
@@ -1726,6 +1835,10 @@ export async function createStreetGrid({
       const hit = crossingById.get(spanId.slice(3));
       if (hit?.x.kind === 'carriage_drive') return carriageDriveCard(hit.x, hit.face, grid, section);
       return hit ? cornerCrossingCard(hit.x, hit.face, grid, section) : null;
+    }
+    if (spanId.startsWith('ar:') || spanId.startsWith('arc:')) {
+      const hit = returnById.get(spanId.slice(spanId.indexOf(':') + 1));
+      return hit ? alleyReturnCard(hit.r, hit.face, grid, section, spanId.startsWith('arc:')) : null;
     }
     if (spanId.startsWith('cp:')) {
       const hit = out.postById?.get(spanId.slice(3));

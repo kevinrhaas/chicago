@@ -31,7 +31,7 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 const THREE = await import('three');
 const { createWalker, footprintsFrom, WALK, segmentsCross } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
-const { createFortGates, stockadePlan, drawsLeaves, leafDirections, wicketGeometry, FORT_GATES, SWING_S, gatesOnRoute } = await import('../renderers/web/js/fort-gates.js');
+const { createFortGates, stockadePlan, drawsLeaves, standsOpen, OPEN_PASSAGES, leafDirections, wicketGeometry, FORT_GATES, SWING_S, gatesOnRoute } = await import('../renderers/web/js/fort-gates.js');
 const { createRouter } = await import('../renderers/web/js/route.js');
 const { createTravel } = await import('../renderers/web/js/travel.js');
 const { createInteractions, createInteractKey, INTERACT_KEY } = await import('../renderers/web/js/interact.js');
@@ -482,6 +482,16 @@ try {
     ok(said.at(-1) === 'South gate open', `and the status line says so (${said.at(-1)})`);
   }
   ok(Object.keys(FORT_GATES).length === 5, 'three stockades, the officers\' garden and the Kinzies\' green carry gates a visitor works');
+  // T-3553 (the owner, 2026-11-26: "They can walk through doors"): the covered way's runs say
+  // their passages are open at both ends, so their baked shut leaves are not drawn; no hinged
+  // leaf is hung there, and no stockade a visitor works is among them.
+  for (const id of OPEN_PASSAGES) {
+    const rec = JSON.parse(fs.readFileSync(new URL(`data/structures/${id}.json`, ROOT)));
+    const sides = rec.phases[0].form.gate_sides;
+    ok(/passage is open at both ends/i.test(sides.note) && sides.value.length === 2, `${id} says its passage is open at both ends`);
+    ok(standsOpen({ id }) && !drawsLeaves({ id }) && !(id in FORT_GATES), `${id}: its baked leaves are left out, and nothing is hung there`);
+  }
+  ok(OPEN_PASSAGES.size === 4 && !standsOpen({ id: 'first_fort_dearborn_pickets_outer' }), 'the four runs of the covered way stand open, and only they');
 } finally {
   WALK.speed = speedWas;
 }

@@ -450,7 +450,11 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
 // pickets of the house in front of the house"): every staged walk crosses the fort's two rows and
 // the Kinzies' green only at a gate, and only one its stop opens (or the burning's, which opens all).
 {
-  const fences = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'kinzie_house_1812_green'].map((id) => {
+  // T-3553 (the owner, 2026-11-26: "They can walk through doors"): the covered way's four runs too,
+  // whose passages stand open at both ends (fort-gates.js OPEN_PASSAGES), so a walk down it goes
+  // through each run's gateway, never through its returns.
+  const passages = ['first_fort_covered_way_terrace', 'first_fort_covered_way_bank_upper', 'first_fort_covered_way_bank_middle', 'first_fort_covered_way_bank_lower'];
+  const fences = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'kinzie_house_1812_green', ...passages].map((id) => {
     const sc = read(`data/sidecars/1812/${id}.json`), a = sc.attributes, pl = sc.placement;
     assert.equal(pl.rotation_deg ?? 0, 0, `${id} is square to the grid`);
     const xs = sc.footprint.polygon.map((p) => p[0]), ys = sc.footprint.polygon.map((p) => p[1]);
@@ -462,7 +466,7 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
       const off = o ? o.offset_m : (a.gate_offset_m?.value ?? 0);
       gates[side] = { at: mid + off, half: (o ? o.width_m : a.gate_width_m.value) / 2 };
     }
-    return { id, r, gates };
+    return { id, r, gates, open: passages.includes(id) };
   });
   const crossings = (p, q, { r }) => {
     const out = [];
@@ -488,7 +492,7 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
             for (const f of fences) for (const [side, x] of crossings(p, q, f)) {
               const gate = f.gates[side];
               assert.ok(gate && Math.abs(x - gate.at) <= gate.half - 0.05, `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s walks through ${f.id}'s ${side} pickets at ${x.toFixed(2)}, not its gate`);
-              assert.ok(all || open.has(`${f.id}:${side}`), `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s goes through ${f.id}'s ${side} gate, which the stop leaves shut`);
+              assert.ok(f.open || all || open.has(`${f.id}:${side}`), `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s goes through ${f.id}'s ${side} gate, which the stop leaves shut`);
             }
             p = q;
           }

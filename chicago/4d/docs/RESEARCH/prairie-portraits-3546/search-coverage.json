@@ -277,27 +277,6 @@
    }
   },
   {
-   "person_id": "pa1904_bellas_daughters",
-   "household_id": "hh_bellas_t_h",
-   "names_searched": [
-    "The Misses Bellas"
-   ],
-   "existing_sources": [
-    "chicago_blue_book_1904",
-    "chicago_blue_book_1905",
-    "census_1900_chicago_t623_roll245",
-    "census_1910_chicago_t624_roll241"
-   ],
-   "not_a_reading": "Search inventory and re-reading of existing identities, not a new roster reading.",
-   "book_hits": [],
-   "museum_hits": [],
-   "commons": {
-    "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22The+Misses+Bellas%22",
-    "status": "failed",
-    "error": "HTTP Error 429: Too Many Requests"
-   }
-  },
-  {
    "person_id": "pa1904_foote_erastus",
    "household_id": "hh_bellas_t_h",
    "names_searched": [
@@ -513,27 +492,6 @@
    ],
    "commons": {
     "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22E.+Buckingham%22+OR+%22Ebenezer+Buckingham%22",
-    "status": "failed",
-    "error": "HTTP Error 429: Too Many Requests"
-   }
-  },
-  {
-   "person_id": "pa1904_buckingham_daughters",
-   "household_id": "hh_buckingham_e",
-   "names_searched": [
-    "The Misses Buckingham"
-   ],
-   "existing_sources": [
-    "chicago_blue_book_1904",
-    "chicago_blue_book_1905",
-    "census_1900_chicago_t623_roll245",
-    "census_1910_chicago_t624_roll241"
-   ],
-   "not_a_reading": "Search inventory and re-reading of existing identities, not a new roster reading.",
-   "book_hits": [],
-   "museum_hits": [],
-   "commons": {
-    "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22The+Misses+Buckingham%22",
     "status": "failed",
     "error": "HTTP Error 429: Too Many Requests"
    }
@@ -3325,25 +3283,6 @@
    "museum_hits": [],
    "commons": {
     "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22Elizabeth+W.+Grey%22",
-    "status": "failed",
-    "error": "HTTP Error 429: Too Many Requests"
-   }
-  },
-  {
-   "person_id": "pa1904_grey_florence",
-   "household_id": "hh_grey_w_l",
-   "names_searched": [
-    "Florence Grey"
-   ],
-   "existing_sources": [
-    "chicago_blue_book_1907",
-    "chicago_blue_book_1908"
-   ],
-   "not_a_reading": "Search inventory and re-reading of existing identities, not a new roster reading.",
-   "book_hits": [],
-   "museum_hits": [],
-   "commons": {
-    "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22Florence+Grey%22",
     "status": "failed",
     "error": "HTTP Error 429: Too Many Requests"
    }

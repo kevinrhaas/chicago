@@ -110,3 +110,28 @@ end square across to 4 cm into the public walk: 51 joins in `data/street_section
 which `street-grid.js` draws as pieces of the face's walk band, in its paving and at its level. The
 houses' GLBs are untouched, so no house lane's work is restaled; a lane that moves a walk or a
 placement fails `--check` in the gate and reruns the tool. Liberty: L-prairie-walk-joins-3274.
+
+## The alley returns (T-3759)
+
+The owner, 2026-11-26: "Correct alleyway grading and remove inappropriate curbs at alley entrances."
+Until then every block face's bands ran unbroken past its alley: at all 13 mouths the cross street's
+walk, parkway turf and 7-in curb crossed the alley, which stopped at the lot line on the lawn's level,
+0.30 m above the roadway.
+
+The 1905 code's concrete-walk specification (sec. 2062, printed p. 549) says: "A space of one and
+one-half inches must be left between all walks and the curb at street and alley intersections to
+provide for expansion." At an alley, then, the walk ends against a curb, as it does at a street
+corner: the curb is turned into the alley. Nothing read gives an alley mouth's grade or shape.
+
+`tools/lay_prairie_1904_street_section.py` finds each alley end lying on a face's street line (its
+vertices within 0.2 m) and writes an `alley_returns` record: the alley's own surface carried from its
+drawn end across the sidewalk space to the curb line, at the alley's width, and a return curb of the
+street curb's width (6 in) either side of it from the curb line back to the lot line. `street-grid.js`
+cuts the walk, parkway and curb out over the mouth (with the two return curbs), stops the curb's face
+at the opening, draws the return in the alley's surface falling evenly from 0 at the lot line to the
+gutter's level at the curb line (about 7 per cent over 14 ft; 10 ft on 16th Street), and draws each
+return curb's face from its top on the walk's level down to the return, dying out toward the lot line.
+`offsetAt` answers with the return's level, so every layer standing on the street section stands on
+it, and the field's ground is cut out under it. The tool refuses a carriage walk, post, corner
+crossing, drive or parkway elm inside a mouth (there are none). Liberty: L-prairie-alley-returns-3759.
+QA renders: `tools/qa_alley_mouths_1904.mjs`.
