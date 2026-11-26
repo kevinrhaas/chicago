@@ -52,7 +52,7 @@ add about 12 MiB of face textures in total. Adults and children
 compete for the same single detail-page slot; they do not each retain one.
 The existing hair layer, body LODs and visible-person limits stay in use, and face patches
 add no render pass. The separate review compares the photographed-hair proposal.
-Historical likeness textures use their existing separate cache. `&photoFaces=off` shows
+The Grey full skin sheets retain their existing separate cache. The new named frontal-photo catalog shares the same single nearby page as generic adults and children. `&photoFaces=off` shows
 the former generic appearance for comparison. Older `photoFaces=pilot` links still work.
 
 For actual resident models, `tools/human_variation_lineup.html?asset=auto&keys=` followed
@@ -164,3 +164,52 @@ glare is reduced. Recorded historical eye colours retain priority. These correct
 need visual review and do not establish exact eye or hair correspondence. Use real side photographs and the existing
 profile-trace tools to resolve a historical likeness. No invented side picture is treated as
 historical evidence. Review likeness and a hardware crowd measurement before wider assignment.
+
+## Named people and existing portraits
+
+`python3 tools/historical_photo_faces.py --all --jobs 4` registers and rebuilds all usable
+retained portrait references. Open `tools/historical_photo_review.html` for the source,
+previous appearance and applied face, with front/three-quarter/profile and Light/Full
+controls. The page uses each actual person's assigned body, recorded age, hair and dress.
+It waits for the shared nearby detail page before taking a still. Changing people unloads
+both comparison frames.
+
+The current inventory is 20 own-person archive portraits, five explicitly labelled staff
+stand-ins, two existing Grey full skin sheets, and two new owner-chosen Stirling reference
+models. `assets/humans/web/photo_faces/historical/coverage.json` lists all 29. The new atlas
+contains 27, including the retained Kate Ryan reference which has no active cast; 26 bind to existing actors; William and Sarah retain their full skins. The archive portraits retain all 25
+existing head fits. Each texture binds to its exact person, sex and scene; a photo never
+creates a person or changes scene presence. These named records currently belong to 1904.
+Generic adults and matching children continue in all four years.
+
+Dorothy and Alice have distinct fitted heads. The owner's modern uploads are not published.
+Stored references are edited 1904 studio portraits, with neutral companions for resting face
+textures; source records retain the original SHA-256 and disclose the edits. Their cards use
+the period portraits and an explicit stand-in label. Period hair and Alice's wire spectacles
+remain reconstructed. A single view cannot attest hidden profile depth or a perfect match.
+
+To add another owner-chosen adult reference, first register its source/texture reuse basis,
+prepare the approved period reference, and run one command:
+
+```sh
+python3 tools/historical_photo_faces.py --person EXISTING_PERSON_ID \
+  --photo /path/to/period-reference.png --source REGISTERED_SOURCE_ID --age 25 \
+  --stand-in 'STAND-IN · owner-chosen reference model' --model work/face_landmarker.task --jobs 4
+```
+
+The command validates the existing person, preserves their age/body/dress, fits the head,
+pins landmarks and hashes, and rebuilds the bounded named library. It refuses to silently
+replace an existing curated portrait/reference. New authentic historical portraits should be
+registered as identified portrait records with their source identity and fit first, then
+included by `--all`. Children use the separate texture-only path. Future photos do not imply
+permission to change an unrelated identity or present a chosen model as a historical photo.
+
+All three catalogs share **one** nearby detail cache. The historical crowd sheet has a
+maximum edge of 256 pixels; its close detail is restored from the same 1024-pixel page limit
+used by the generic library. Total added face textures stay under 13 MiB including mipmaps
+(about 12.28 MiB for this 27-entry named atlas). This includes all three crowd sheets and the
+largest single detail page, rather than one detail page per catalog. No extra face render
+pass or per-person atlas is introduced. Weak-PC GPU timing remains outstanding.
+
+Check with `python3 tools/historical_photo_faces.py --check`,
+`node tools/test_historical_photo_faces.mjs` and `node tools/test_photo_face_deployment.mjs`.

@@ -1151,7 +1151,12 @@ const photoPages = new PhotoFacePages({
 });
 /** Photo detail is separate from permanent historical likenesses and their existing cache. */
 export const photoFaceTextureStats = () => photoPages.stats();
-export const photoFacePagesReady = () => photoPages.ready();
+export const photoFacePagesReady = async () => {
+  // onBeforeRender batches visible heads on a timer; a still must let that
+  // request become pending before it waits for the sharp page.
+  await new Promise(resolve=>setTimeout(resolve,0));
+  await photoPages.ready();
+};
 function likenessSheet(url) {
   if (typeof document === 'undefined') return null;   // no page (a unit test): the uniforms alone
   let t = sheets.get(url);
@@ -1461,9 +1466,11 @@ export function dressPhotoLooks(root, recorded) {
   root.traverse(o => {
     if (o.isMesh && o.material?.name === 'eyes__iris') irises.set(o, o.material.map);
   });
-  const owned = dressLooks(root, recorded);
+  const photo=root.userData.chiPhotoFace;
+  const owned = dressLooks(root, photo.historical&&!photo.historical.monochrome?{...recorded,complexion:null,eyes:null}:recorded);
   for (const [mesh, map] of irises) {
-    if (recorded?.eyes?.grade === 'attested' && EYE_COLOUR[recorded.eyes.drawn]) mesh.material.userData.chiPhotoRecordedIris = true;
+    if ((recorded?.eyes?.grade === 'attested' || root.userData.chiPhotoFace.historical?.monochrome)
+      && EYE_COLOUR[recorded?.eyes?.drawn]) mesh.material.userData.chiPhotoRecordedIris = true;
     else if (mesh.material.map !== map) { mesh.material.map = map; mesh.material.needsUpdate = true; }
     delete mesh.userData.chiPhotoEyes;
   }

@@ -87,6 +87,11 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
         const url=new URL('photo_faces/children/review.json',jsonURL),r=await fetchImpl(url);
         if(r.ok)attachChildPhotoLibrary(kit,await r.json(),url);
       }catch{/* Keep the child's existing appearance if its own source library fails. */}
+      const portraitsOff=typeof location!=='undefined'&&new URLSearchParams(location.search).get('personPhotos')==='off';
+      if(!portraitsOff)try{
+        const url=new URL('photo_faces/historical/review.json',jsonURL),r=await fetchImpl(url);
+        if(r.ok)attachPhotoPortraits(kit,await r.json(),url);
+      }catch{/* A missing personal photograph never substitutes another person's face. */}
     }
     return kit;
   } catch { return null; }
@@ -110,6 +115,19 @@ export function attachChildPhotoLibrary(kit,library,manifestURL){
     &&f.texture_only===true&&f.age>=2&&f.age<18&&Object.keys(f.values??{}).length===0
     &&f.base_body?.startsWith('child_')&&f.eyes?.centres_uv===null))return false;
   kit.photoChildren=checked.photoFaces;return true;
+}
+
+/** Exact person and scene bindings; a labelled stand-in remains a stand-in. */
+export function attachPhotoPortraits(kit,library,manifestURL){
+  const checked={};
+  if(!attachPhotoLibrary(checked,library,manifestURL)
+    ||library.textures.light.gpu_bytes_rgba8_mipmaps>350_000
+    ||!library.faces.every(f=>f.synthetic===false&&(f.texture_only===true||f.historical?.shape_mode==='new_photo_fit')&&f.population==='person'
+      &&f.historical?.person_id===f.id&&/^\d{4}$/.test(f.historical.scene)
+      &&['own_portrait','labelled_stand_in'].includes(f.historical.identity_basis)
+      &&(f.historical.identity_basis!=='labelled_stand_in'||f.historical.stand_in?.label?.startsWith('STAND-IN')))
+    ||new Set(library.faces.map(f=>f.id)).size!==library.faces.length)return false;
+  kit.photoPortraits=checked.photoFaces;return true;
 }
 
 /** Stable age-compatible assignment. Personal portraits and visitor-selected faces win. */
@@ -343,19 +361,22 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
       else values[k] = v;
     }
   }
-  const photo = photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
+  const portrait=!childBody&&age>=18&&!record?.skin&&!record?.looks?.face_pick?kit.photoPortraits?.faces.find(f=>
+    f.id===key&&f.historical.scene===String(sceneYear??record?.scene)&&f.sex===(record?.sex??asset.sex??'male')):null;
+  const photo = portrait??photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
     own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn });
   if (photo&&!photo.texture_only) for (const [k,v] of Object.entries(photo.values)) {
     if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
     else values[k] = v;
   }
   const photoBody = kit.header.faces?.bodies?.[record?.skin_of ?? assetId] ?? kit.header.faces?.bodies?.[assetId];
-  const photoRegistry=photo?.population==='child'?kit.photoChildren:kit?.photoFaces;
+  const photoRegistry=portrait?kit.photoPortraits:photo?.population==='child'?kit.photoChildren:kit?.photoFaces;
   const page = photo && photoRegistry.pages?.[photo.page];
   const photoLib = photo && photoBody ? {
     url: photoRegistry.url, index: photo.index, id: photo.id, cols: photoRegistry.cols,
     size_px: photoRegistry.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px,
-    gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])), lines: 0,
+    gain: portrait&&!portrait.historical.monochrome?[1,1,1]:photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])),
+    lines: portrait?Math.min(1,Math.max(0,age-photo.age)/Math.max(1,age-28)):0,
     ...(page ? { detail: { url: new URL(page.textures.full.file, photoRegistry.url).href,
       bytes: page.textures.full.gpu_bytes_rgba8_mipmaps, index: photo.page_index,
       cols: page.cols, size_px: page.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px } } : {}),
@@ -372,7 +393,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     lib: photoLib ?? libraryFace(kit, { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, complexion: record?.looks?.complexion?.drawn ?? null, own: !!face?.values, skinOf: record?.skin_of ?? null, pick: record?.looks?.face_pick ?? null, faceOf: record?.looks?.face_of ?? null }),
     // ...and, for a person drawn on bodies of more than one skin, this body's skin brought to
     // the one they wear on all of them (skinEven).
-    even: face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
+    even: portrait&&!portrait.historical.monochrome?portrait.body_gain:face?.values && record?.skin ? null : skinEven(kit, assetId, record?.skin_of ?? null) };
 }
 
 /** The axes a scope may use. */

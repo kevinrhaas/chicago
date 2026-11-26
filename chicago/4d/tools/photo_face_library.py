@@ -86,6 +86,9 @@ def detect(im, model):
 
 
 def portrait(entry, points, size):
+    if entry.get('shape_from'):
+        import historical_photo_shape as H
+        return H.portrait(entry, points, size)
     base = BASE[entry['sex']]
     table = json.loads(F.MP_TABLE.read_text())['bodies'][base]
     axes = json.loads((F.PORTRAITS / ('pa1904_grey_w_l.json' if entry['sex'] == 'male' else 'pa1904_grey_mrs_w_l.json')).read_text())['axes']
@@ -93,6 +96,11 @@ def portrait(entry, points, size):
              for k, i in [('pupil_r', 468), ('pupil_l', 473)]]
     marks += [{'landmark': k, 'x': points[int(k[3:])][0], 'y': points[int(k[3:])][1], 'sigma_px': 3.5}
               for k in table['points']]
+    outline_fields={}
+    if entry.get('historical',{}).get('shape_mode')=='new_photo_fit':
+        outline=min(table['outline'],key=lambda o:abs(o['solved_yaw_deg']))
+        marks += [{'landmark':k,'x':points[int(k[4:])][0],'y':points[int(k[4:])][1],'sigma_px':5.0} for k in outline['points']]
+        outline_fields={'outline_yaw_deg':outline['solved_yaw_deg']}
     child=entry.get('population')=='child'
     if child:
         import photo_face_child as C
@@ -101,7 +109,8 @@ def portrait(entry, points, size):
     else:actual,reference_age=base,entry['age']
     return {'base_body': actual, **({'calibration_body':base} if child else {}),
             'sex': entry['sex'], 'age_at_picture_years': reference_age,
-            'axes': axes, 'marks': marks, 'scan_size_px': list(size),
+            'axes': axes, 'marks': marks, 'scan_size_px': list(size), **outline_fields,
+            **({'read_by_eye':entry['historical']['fit_controls']} if entry.get('historical',{}).get('fit_controls') else {}),
             'grade': 'reconstructed', 'source': entry['source'],
             'not_modelled': ['profile depth from a single front photograph', 'ears and hair outside the face patch']}
 
@@ -204,6 +213,9 @@ def validate_entry(entry):
     if child and entry.get('fitted',{}).get('values'):
         raise ValueError('a cached child photo cannot transfer head morphs')
     source_record(entry['source'])
+    if entry.get('shape_from'):
+        import historical_photo_shape as H
+        H.record(entry)
 
 
 @lru_cache(maxsize=2)
@@ -394,11 +406,18 @@ def prepare_face(task):
     fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
     signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
     fit = e.get('fitted') if e.get('fit_signature') == signature else None
+    if fit is None and e.get('shape_from'):
+        import historical_photo_shape as H
+        fit = H.fit(e, p)
     if fit is None and e.get('population')=='child':
         import photo_face_child as C
         fit=C.pose(e,p)
     fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
-    tile, tone, base_tone = bake_face(im, points, e['sex'],body=p['base_body'])
+    skin_photo=im
+    if e.get('historical'):
+        import historical_photo_shape as H
+        skin_photo=H.texture_photo(im,e,points)
+    tile, tone, base_tone = bake_face(skin_photo, points, e['sex'],body=p['base_body'])
     hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit,body=p['base_body'])
     face = {'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
             'source': e['source'], 'source_url': source_record(e['source'])['url'],
@@ -412,6 +431,9 @@ def prepare_face(task):
         face.update(population='child',texture_only=True)
         face['eyes']['centres_uv']=None
         face['limits'].append('Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs.')
+    if e.get('historical'):
+        import historical_photo_shape as H
+        H.appearance(face, e, p)
     e.update(landmarks=points, fitted={k:fit[k] for k in ('values','rms_px','camera','projection_centre_m')},
              fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
     return face, tile, hair_tile, e, round(time.monotonic()-began,1)
@@ -464,6 +486,16 @@ def build(recipe, output, model=None, fast=False, jobs=1):
         dependencies.append(pathlib.Path(C.__file__))
         for asset in sorted({C.body(e) for e in entries}):
             dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
+    if any(e.get('historical') for e in entries):
+        dependencies += [ROOT/'tools/historical_photo_shape.py',ROOT/'tools/historical_photo_faces.py',ROOT/'data/humans/variation/person_photo_references.json']
+    for e in entries:
+        if e.get('shape_from'):
+            import historical_photo_shape as H
+            dependencies.extend([pathlib.Path(H.__file__), H.record(e)[0], F.PORTRAITS/f"{e['id']}.json",
+                                 ROOT/'tools/historical_photo_state.mjs', ROOT/'renderers/web/js/human-variation.js',
+                                 ROOT/'assets/humans/web/hm08_variation_persons.json'])
+            asset=e['historical']['reference_asset']
+            dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
     inputs = {relative(p):digest(p) for p in dependencies}
     output.mkdir(parents=True, exist_ok=True)
     faces = []
@@ -488,7 +520,8 @@ def build(recipe, output, model=None, fast=False, jobs=1):
             print(f"{i+1}/{len(entries)} {face['id']}: fitted {face['fit_rms_px']} px, {elapsed}s",flush=True)
     finally:
         if pool:pool.shutdown(cancel_futures=True)
-    scale=min(.5,CROWD_EDGE/max(atlas.size))
+    crowd_edge = 256 if all(e.get('historical') for e in entries) else CROWD_EDGE
+    scale=min(.5,crowd_edge/max(atlas.size))
     crowd=atlas.resize((round(atlas.width*scale),round(atlas.height*scale)),Image.Resampling.LANCZOS)
     shared={}
     textures={'light':save_texture(crowd,output,'faces_light.jpg',shared)}
@@ -501,10 +534,11 @@ def build(recipe, output, model=None, fast=False, jobs=1):
                 page[kind][tier]=save_texture(image,output,name,shared)
     shells={tier:write_hair_shell(output/f'hair_shell_{tier}.glb',*segments) for tier,segments in [('light',(20,12)),('full',(32,20))]}
     result = {'format':FORMAT, 'review_only':not bool(activation),
-              'rollout':'Default generic faces on dev in all four years.' if activation else 'No population assignments; review the renders first.',
+              'rollout':('Registered person photographs on dev.' if all(e.get('historical') for e in entries)
+                         else 'Default generic faces on dev in all four years.') if activation else 'No population assignments; review the renders first.',
               'tile_px':TILE, 'padding_px':PAD, 'cols':cols, 'size_px':list(atlas.size),
               'textures':textures, 'pages':pages, 'hair_shells':shells, 'faces':faces, 'capacity':LIMIT, 'inputs_sha256':inputs,
-              'budget':{'crowd_edge_px':CROWD_EDGE,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
+              'budget':{'crowd_edge_px':crowd_edge,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
                         'town_face_gpu_bytes':textures['light']['gpu_bytes_rgba8_mipmaps']+max(p['textures']['full']['gpu_bytes_rgba8_mipmaps'] for p in pages)},
               'limits':['Front photo fits do not establish profile depth.', 'Hair, ears, bodies and dress are reconstructed.',
                         'Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass.']}

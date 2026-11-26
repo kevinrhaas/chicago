@@ -919,6 +919,7 @@ export function* dressHairSteps(root, { lod = 0, person = null, year = null, sty
   if (!root) return null;
   let style = given ?? hairFor(person, year);
   if (!style) return null;
+  if(root.userData?.chiPhotoFace?.historical?.hair_style)style={...style,...root.userData.chiPhotoFace.historical.hair_style};
   // The photograph already contains brows and lid margins. Growing a second
   // dark set over them makes the eyes look outlined; keep other facial hair.
   if (root.userData?.chiPhotoFace) style = { ...style, facial: (style.facial ?? []).filter(name => !/^(brow|lash)/.test(name)) };

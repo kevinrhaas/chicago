@@ -1,0 +1,120 @@
+{
+ "ticket": "T-3762",
+ "not_a_reading": "Explicit owner-selected stand-in models. No historical identity identification is inferred.",
+ "people": [
+  {
+   "person_id": "pa1904_stirling_william_r_c1900_dorothy_sterling",
+   "source": "owner_stirling_dorothy_reference_2026",
+   "photo": "assets/authored/humans/historical_photo_faces/stirling_period_neutral.png",
+   "crop_px": [
+    0,
+    0,
+    768,
+    1024
+   ],
+   "age": 19,
+   "reference": "assets/authored/humans/historical_photo_faces/stirling_period_reference.png",
+   "reference_crop_px": [
+    0,
+    0,
+    768,
+    1024
+   ],
+   "label": "Dorothy Sterling",
+   "stand_in": {
+    "label": "STAND-IN · owner-chosen reference model",
+    "card_note": "The owner chose this reference model for Dorothy Sterling. It is a reconstructed likeness, not a photograph of the historical person. Period styling and neutral expression are edited."
+   },
+   "monochrome": false,
+   "hair_style": {
+    "cut": "drawn_back_bun_1904",
+    "colour": "light_brown"
+   },
+   "iris_rgb_linear": [
+    0.1,
+    0.17,
+    0.3
+   ],
+   "fit_controls": {
+    "values": {
+     "lip_upper": 0.08,
+     "lip_lower": 0.08,
+     "nose_depth": 0.05,
+     "chin_prominence": 0.1,
+     "prognathism": -0.1
+    },
+    "hold": [
+     "lip_upper",
+     "lip_lower",
+     "nose_depth",
+     "chin_prominence",
+     "prognathism"
+    ],
+    "basis": "Read by eye from the chosen reference: relatively fine lip volume. Single near-frontal source does not constrain depth, so nose/chin depth stay at a conservative young-female prior rather than extreme frontal-fit solutions."
+   }
+  },
+  {
+   "person_id": "pa1904_stirling_william_r_c1900_alice_m_sterling",
+   "source": "owner_stirling_alice_may_reference_2026",
+   "photo": "assets/authored/humans/historical_photo_faces/stirling_period_neutral.png",
+   "crop_px": [
+    768,
+    0,
+    1536,
+    1024
+   ],
+   "age": 20,
+   "reference": "assets/authored/humans/historical_photo_faces/stirling_period_reference.png",
+   "reference_crop_px": [
+    768,
+    0,
+    1536,
+    1024
+   ],
+   "label": "Alice May Stirling",
+   "stand_in": {
+    "label": "STAND-IN · owner-chosen reference model",
+    "card_note": "The owner chose this reference model for Alice M. Stirling. It is a reconstructed likeness, not a photograph of the historical person. Period styling and neutral expression are edited."
+   },
+   "monochrome": false,
+   "hair_style": {
+    "cut": "drawn_back_bun_1904",
+    "colour": "light_brown"
+   },
+   "spectacles": {
+    "shape": "round",
+    "lens_mm": 40,
+    "wire_mm": 0.9,
+    "metal": "gold",
+    "grade": "reconstructed",
+    "dimensions_grade": "reconstructed",
+    "sources": [
+     "owner_stirling_alice_may_reference_2026"
+    ],
+    "basis": "Period wire spectacles reconstructed from the owner-chosen reference model; modern plastic frames are not copied."
+   },
+   "iris_rgb_linear": [
+    0.16,
+    0.11,
+    0.045
+   ],
+   "fit_controls": {
+    "values": {
+     "lip_upper": 0.08,
+     "lip_lower": 0.08,
+     "nose_depth": 0.05,
+     "chin_prominence": 0.1,
+     "prognathism": -0.1
+    },
+    "hold": [
+     "lip_upper",
+     "lip_lower",
+     "nose_depth",
+     "chin_prominence",
+     "prognathism"
+    ],
+    "basis": "Read by eye from the chosen reference: relatively fine lip volume. Single near-frontal source does not constrain depth, so nose/chin depth stay at a conservative young-female prior rather than extreme frontal-fit solutions."
+   }
+  }
+ ]
+}
