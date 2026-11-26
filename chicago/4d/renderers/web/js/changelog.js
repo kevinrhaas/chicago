@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3272, ts: '2026-11-26T22:44:53.711Z', date: 'Nov 26, 2026, 4:44 PM CT', title: '1904 front walks run straight to the door, and frame-house doors swing', kind: 'fix',
+    items: [
+      'At 2010 Prairie, the Greys\' house, the front walk now runs straight up to the porch steps and the door above them. It used to come in more than a metre to one side.',
+      '2000 Prairie\'s walk had the same fault and is fixed too, and 2011 Prairie\'s walk no longer jogs sideways through its garden wall.',
+      'The front doors of the three frame houses (2000, 2010 and 1720 Prairie) now swing open on their hinges when someone goes in or out, as Glessner\'s do.',
+      'Where an old photograph puts the steps to one side of the door, as at the Keith and Wheeler houses, the walk still follows the photograph.',
+    ] },
+  { v: 3271, ts: '2026-11-26T22:44:53.711Z', date: 'Nov 26, 2026, 4:44 PM CT', title: 'Play a part: a new role in every year', kind: 'feature',
+    items: [
+      '1871: carry a hotel\'s note to Crosby\'s Opera House on the last Sunday afternoon before the fire.',
+      '1812: carry water for the Fort Dearborn garrison on the morning before the march.',
+      '1835: take a traveller\'s forgotten parcel over the river and guess which tavern he went to.',
+      '1904: deliver a florist\'s orders to four Prairie Avenue houses, in the order you choose.',
+      'Each one is told for every reading age, with two choices and four endings.',
+    ] },
   { v: 3270, ts: '2026-11-26T21:57:40.585Z', date: 'Nov 26, 2026, 3:57 PM CT', title: 'Brick stables behind 2001 and 2009 Prairie', kind: 'feature',
     items: [
       'The building behind 2001 Prairie, on the corner of 20th Street and the alley, now stands as a two-storey brick stable 16 m long on the outline the 1911 fire-insurance map draws, set back from both the street and the alley as the map shows, with windows onto 20th Street.',
