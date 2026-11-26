@@ -171,6 +171,7 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.deepEqual(directionProblems(scripts, { j: { 'stop:a': '[sighs] One... two.' } }), []);
   assert.match(directionProblems(scripts, { j: { 'stop:a': 'One two three.' } })[0], /words differ/);
   assert.match(directionProblems(scripts, { j: { 'stop:z': 'Four.' } })[0], /does not have/);
+  assert.match(directionProblems([{ jaunt: 'j', part: 'onward', id: 'a', text: 'Go on.' }], { j: { 'onward:a': '[warmly] Go on.' } })[0], /no direction of its own/, 'T-3755: a shared closing line is never directed per jaunt');
   // Every voiced jaunt's direction still matches the words its panel shows. A script edited
   // without its direction fails here: bring the direction along (same words, tags kept).
   const config = loadConfig(), all = await scriptsFor(config);

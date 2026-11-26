@@ -35,7 +35,11 @@
     { "id": "first-fort-dearborn-tour", "narrators": ["essayist"] },
     { "id": "killing-of-jean-lalime", "narrators": ["essayist"] },
     { "id": "battle-of-fort-dearborn-grades-3-5", "narrators": ["essayist"] },
-    { "id": "battle-of-fort-dearborn-grades-9-10", "narrators": ["essayist"] }
+    { "id": "battle-of-fort-dearborn-grades-9-10", "narrators": ["essayist"] },
+    { "id": "battle-of-fort-dearborn-grades-11-12", "narrators": ["essayist"] },
+    { "id": "killing-of-jean-lalime-grades-3-5", "narrators": ["essayist"] },
+    { "id": "killing-of-jean-lalime-grades-9-10", "narrators": ["essayist"] },
+    { "id": "killing-of-jean-lalime-grades-11-12", "narrators": ["essayist"] }
   ],
   "narrators": {
     "essayist": {
