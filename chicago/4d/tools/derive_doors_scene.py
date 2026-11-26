@@ -429,6 +429,10 @@ def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict]
         leaf = frame_house_leaf(parts, u, v, width)
         if leaf is not None:
             plan, why = passage_plan(sc['id'], leaf, parts, {FRAME_LEAF_MAT}, free)
+            if plan is not None and plan['way'][-1][2] is not None:
+                # The leaf stands on its threshold over the drip cap, a few cm over the porch floor;
+                # one comes to the door, and goes in, on the floor (the landing the way ends on).
+                plan['sill'] = min(plan['sill'], plan['way'][-1][2])
             if plan is not None:
                 foot = plan['way'][0]
                 door.update({'leaf': world(u, v), 'step': world(foot[0], foot[1]), 'outward_deg': round(angle, 1),
