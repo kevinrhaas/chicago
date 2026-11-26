@@ -161,6 +161,35 @@ ok(V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30
   ok(them.asset('1904') === 'anonymous_working_driver_1904', 'and back: the third type\'s own dress again');
 }
 
+// --- T-3756 (Kevin, 2026-11-26): Style 1/2/3, and Style 3 not the same as Style 1
+{
+  ok(catalog.sexes.map((x) => x.label).join() === 'Style 1,Style 2,Style 3' && catalog.body_label === 'Body style',
+    'the body types read Style 1, Style 2 and Style 3, under "Body style"');
+  ok(!/masculine|feminine|androgynous|gender/i.test(JSON.stringify(catalog.sexes.map((x) => x.label)) + catalog.body_label), 'no gendered word on the control');
+  const fresh = (sex) => {
+    const box = new Map();
+    const p = P.createVisitorPerson({ catalog, storage: { getItem: (k) => box.get(k) ?? null, setItem: (k, v) => box.set(k, v) } });
+    p.set({ sex });
+    return p;
+  };
+  const one = fresh('male'), three = fresh('neutral');
+  for (const y of catalog.years) {
+    const a = P.yearChoice(one.choice, y, catalog), b = P.yearChoice(three.choice, y, catalog);
+    const start = catalog.sexes.find((x) => x.id === 'neutral').start?.[y];
+    ok(start && b.outfit?.id === start.outfit && b.cut?.id === start.cut, `${y}: Style 3 opens in its own start look`);
+    ok(a.outfit?.id !== b.outfit?.id && a.cut?.id !== b.cut?.id, `${y}: Style 3's first dress and hair are not Style 1's`);
+  }
+  const r3 = three.record('1835'), r1 = one.record('1835');
+  ok(r3.looks.face_of === 'female' && !r1.looks.face_of, 'an Auto face for Style 3 on a man\'s frame is drawn from the other faces; Style 1 has no such field');
+  const auto3 = V.personVariation({ kit: based, key: P.VISITOR_PERSON_ID, record: r3, assetId: three.asset('1835'), sceneYear: 1835 });
+  const auto1 = V.personVariation({ kit: based, key: P.VISITOR_PERSON_ID, record: r1, assetId: one.asset('1835'), sceneYear: 1835 });
+  const sexOf = (id) => based.header.faces.faces.find((f) => f.id === id)?.sex;
+  ok(auto3.lib && sexOf(auto3.lib.id) === 'female', 'Style 3\'s Auto face is one of the other body\'s faces, never the body\'s own (Style 1\'s)');
+  ok(!auto1.lib || sexOf(auto1.lib.id) === 'male', 'Style 1\'s Auto face is drawn as before');
+  three.set({ face: facesFor(catalog, 'neutral', 'light').find((f) => f.sex === 'male').id });
+  ok(!three.record('1835').looks.face_of, 'a face chosen by hand is worn as chosen');
+}
+
 // --- keeping it with the account
 const w = P.personWrite({ projectId: 'p', uid: 'u1', choice: person.choice })[0];
 const fields = [...Object.keys(w.update.fields), ...w.updateTransforms.map((x) => x.fieldPath)];

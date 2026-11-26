@@ -49,17 +49,6 @@
    "role": "maid"
   },
   {
-   "person": "pa1904_armour_john_o",
-   "home": "armour_house_2115_prairie",
-   "status": "absent",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_armour_mrs_philip_d",
    "home": "armour_house_2115_prairie",
    "status": "ready",
@@ -69,6 +58,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_armour_john_o",
+   "home": "armour_house_2115_prairie",
+   "status": "absent",
+   "age_1904": null,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_armour_philip_d_jr",
@@ -159,10 +159,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_bellas_helen_m",
+   "person": "pa1904_bellas_mrs_t_h",
    "home": "house_1634_prairie",
    "status": "ready",
-   "age_1904": 20,
+   "age_1904": 53,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -170,10 +170,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_bellas_mrs_t_h",
+   "person": "pa1904_bellas_helen_m",
    "home": "house_1634_prairie",
    "status": "ready",
-   "age_1904": 53,
+   "age_1904": 20,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -190,13 +190,6 @@
    "body_presentation": "male",
    "casting_grade": "reconstructed",
    "role": "gentleman"
-  },
-  {
-   "person": "pa1904_bellas_daughters",
-   "home": "house_1634_prairie",
-   "status": "collective",
-   "age_1904": null,
-   "portrait": "not_identified"
   },
   {
    "person": "pa1904_keith_elbridge_g_c1900_peter_benson",
@@ -402,13 +395,6 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
-  },
-  {
-   "person": "pa1904_buckingham_daughters",
-   "home": "buckingham_house_2036_prairie",
-   "status": "collective",
-   "age_1904": null,
-   "portrait": "not_identified"
   },
   {
    "person": "pa1904_roloson_robert_w_c1900_mary_burns",
@@ -620,6 +606,17 @@
    "role": "maid"
   },
   {
+   "person": "pa1904_corwith_mrs_henry",
+   "home": "armour_corwith_house_1945_prairie",
+   "status": "ready",
+   "age_1904": 70,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_corwith_charles_r",
    "home": "armour_corwith_house_1945_prairie",
    "status": "ready",
@@ -651,17 +648,6 @@
    "body_presentation": "male",
    "casting_grade": "reconstructed",
    "role": "gentleman"
-  },
-  {
-   "person": "pa1904_corwith_mrs_henry",
-   "home": "armour_corwith_house_1945_prairie",
-   "status": "ready",
-   "age_1904": 70,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
   },
   {
    "person": "pa1904_cunningham_elizabeth_s",
@@ -862,6 +848,17 @@
    "role": "maid"
   },
   {
+   "person": "pa1904_einstein_daughter",
+   "home": "house_1628_prairie",
+   "status": "ready",
+   "age_1904": 36,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_einstein_arthur",
    "home": "house_1628_prairie",
    "status": "absent",
@@ -884,28 +881,6 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_einstein_m",
-   "home": "house_1628_prairie",
-   "status": "ready",
-   "age_1904": 77,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
-   "person": "pa1904_einstein_daughter",
-   "home": "house_1628_prairie",
-   "status": "ready",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
    "person": "pa1904_einstein_mrs_m",
    "home": "house_1628_prairie",
    "status": "ready",
@@ -915,6 +890,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_einstein_m",
+   "home": "house_1628_prairie",
+   "status": "ready",
+   "age_1904": 77,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_johnston_mrs_h_morris_c1900_kate_ennis",
@@ -1134,17 +1120,6 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_frank_henry_l",
-   "home": "house_1608_prairie",
-   "status": "ready",
-   "age_1904": 65,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_frank_mrs_henry_l",
    "home": "house_1608_prairie",
    "status": "ready",
@@ -1154,6 +1129,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_frank_henry_l",
+   "home": "house_1608_prairie",
+   "status": "ready",
+   "age_1904": 65,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_free_mrs_w_c",
@@ -1369,10 +1355,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_gregory_robert_b_c1900_grace_e_gregory",
+   "person": "pa1904_gregory_mrs_elizabeth",
    "home": "shortall_gregory_house_1638_prairie_front",
    "status": "ready",
-   "age_1904": 21,
+   "age_1904": 84,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -1380,10 +1366,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_gregory_mrs_elizabeth",
+   "person": "pa1904_gregory_robert_b_c1900_grace_e_gregory",
    "home": "shortall_gregory_house_1638_prairie_front",
    "status": "ready",
-   "age_1904": 84,
+   "age_1904": 21,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -1446,21 +1432,10 @@
    "role": "child_girl_1904"
   },
   {
-   "person": "pa1904_grey_florence",
-   "home": "house_2010_prairie",
-   "status": "ready",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
    "person": "pa1904_grey_daughter",
    "home": "house_2010_prairie",
    "status": "ready",
-   "age_1904": null,
+   "age_1904": 24,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -1479,22 +1454,22 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_grey_w_l",
+   "person": "pa1904_grey_walter_c",
    "home": "house_2010_prairie",
    "status": "ready",
-   "age_1904": 64,
-   "portrait": "stand_in",
+   "age_1904": 28,
+   "portrait": "not_identified",
    "asset_id": "glessner_john_j_1904",
    "body_presentation": "male",
    "casting_grade": "reconstructed",
    "role": "gentleman"
   },
   {
-   "person": "pa1904_grey_walter_c",
+   "person": "pa1904_grey_w_l",
    "home": "house_2010_prairie",
    "status": "ready",
-   "age_1904": 28,
-   "portrait": "not_identified",
+   "age_1904": 64,
+   "portrait": "stand_in",
    "asset_id": "glessner_john_j_1904",
    "body_presentation": "male",
    "casting_grade": "reconstructed",
@@ -2034,17 +2009,6 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_johnston_morris_l",
-   "home": "house_1636_prairie",
-   "status": "ready",
-   "age_1904": 33,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_johnston_mrs_h_morris",
    "home": "house_1636_prairie",
    "status": "ready",
@@ -2054,6 +2018,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_johnston_morris_l",
+   "home": "house_1636_prairie",
+   "status": "ready",
+   "age_1904": 33,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_jones_fernando",
@@ -2120,6 +2095,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "maid"
+  },
+  {
+   "person": "pa1904_keith_daughter",
+   "home": "elbridge_keith_house_1900_prairie",
+   "status": "ready",
+   "age_1904": 26,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
   },
   {
    "person": "pa1904_keith_carl",
@@ -2196,6 +2182,17 @@
    "role": "gentleman"
   },
   {
+   "person": "pa1904_keith_mrs_elbridge_g",
+   "home": "elbridge_keith_house_1900_prairie",
+   "status": "ready",
+   "age_1904": 61,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_keith_edson_jr_c1900_katharine_keith",
    "home": "rees_house_2110_prairie",
    "status": "ready",
@@ -2205,17 +2202,6 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "teen_girl_1904"
-  },
-  {
-   "person": "pa1904_keith_daughter",
-   "home": "elbridge_keith_house_1900_prairie",
-   "status": "ready",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
   },
   {
    "person": "pa1904_keith_mrs_edson",
@@ -2233,17 +2219,6 @@
    "home": "rees_house_2110_prairie",
    "status": "ready",
    "age_1904": 34,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
-   "person": "pa1904_keith_mrs_elbridge_g",
-   "home": "elbridge_keith_house_1900_prairie",
-   "status": "ready",
-   "age_1904": 61,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -2273,10 +2248,10 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_kellogg_mrs_c_p",
+   "person": "pa1904_kellogg_mrs_lois",
    "home": "kellogg_house_1923_prairie",
    "status": "ready",
-   "age_1904": null,
+   "age_1904": 37,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -2284,10 +2259,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_kellogg_mrs_lois",
+   "person": "pa1904_kellogg_mrs_c_p",
    "home": "kellogg_house_1923_prairie",
    "status": "ready",
-   "age_1904": 37,
+   "age_1904": null,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -2540,6 +2515,17 @@
    "role": "gentleman"
   },
   {
+   "person": "pa1904_longini_daughter",
+   "home": "house_1626_prairie",
+   "status": "ready",
+   "age_1904": 24,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_longini_a_c1900_jerome_b_longini",
    "home": "house_1626_prairie",
    "status": "ready",
@@ -2560,17 +2546,6 @@
    "body_presentation": "male",
    "casting_grade": "reconstructed",
    "role": "teen_boy_1904"
-  },
-  {
-   "person": "pa1904_longini_daughter",
-   "home": "house_1626_prairie",
-   "status": "ready",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
   },
   {
    "person": "pa1904_longini_mrs_a",
@@ -2705,17 +2680,6 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_mcbean_george_b",
-   "home": "house_2017_prairie",
-   "status": "ready",
-   "age_1904": 28,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_mcbean_mrs_a_j_f",
    "home": "house_2017_prairie",
    "status": "ready",
@@ -2725,6 +2689,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_mcbean_george_b",
+   "home": "house_2017_prairie",
+   "status": "ready",
+   "age_1904": 28,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_mcbean_mrs_a_j",
@@ -2793,6 +2768,17 @@
    "role": "gentleman"
   },
   {
+   "person": "pa1904_mcbirney_mrs_hugh",
+   "home": "house_1736_prairie",
+   "status": "ready",
+   "age_1904": 74,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney",
    "home": "house_1625_prairie",
    "status": "ready",
@@ -2808,17 +2794,6 @@
    "home": "house_1625_prairie",
    "status": "ready",
    "age_1904": 46,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
-   "person": "pa1904_mcbirney_mrs_hugh",
-   "home": "house_1736_prairie",
-   "status": "ready",
-   "age_1904": 74,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -3272,6 +3247,17 @@
    "role": "gentleman"
   },
   {
+   "person": "pa1904_otis_mrs_f_r",
+   "home": "otis_house_2033_prairie",
+   "status": "ready",
+   "age_1904": 74,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_otis_f_r",
    "home": "otis_house_2033_prairie",
    "status": "ready",
@@ -3309,17 +3295,6 @@
    "home": "otis_house_2033_prairie",
    "status": "ready",
    "age_1904": 40,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
-   "person": "pa1904_otis_mrs_f_r",
-   "home": "otis_house_2033_prairie",
-   "status": "ready",
-   "age_1904": 74,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -3382,17 +3357,6 @@
    "role": "cook"
   },
   {
-   "person": "pa1904_perry_howard_e",
-   "home": "house_1619_prairie",
-   "status": "ready",
-   "age_1904": 44,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_perry_mrs_howard_e",
    "home": "house_1619_prairie",
    "status": "ready",
@@ -3402,6 +3366,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_perry_howard_e",
+   "home": "house_1619_prairie",
+   "status": "ready",
+   "age_1904": 44,
+   "portrait": "not_identified",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "gentleman"
   },
   {
    "person": "pa1904_lowden_frank_orren_c1900_anna_peterson",
@@ -3481,10 +3456,10 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_pike_mrs_eugene_r",
+   "person": "pa1904_pike_mrs_eugene_s",
    "home": "house_2101_prairie",
    "status": "ready",
-   "age_1904": null,
+   "age_1904": 66,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -3492,10 +3467,10 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_pike_mrs_eugene_s",
+   "person": "pa1904_pike_mrs_eugene_r",
    "home": "house_2101_prairie",
    "status": "ready",
-   "age_1904": 66,
+   "age_1904": null,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",
@@ -3687,6 +3662,17 @@
    "role": "gentleman"
   },
   {
+   "person": "pa1904_ream_daughters",
+   "home": "ream_house_1901_prairie",
+   "status": "ready",
+   "age_1904": 26,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_ream_norman_b_c1900_louis_m_ream",
    "home": "ream_house_1901_prairie",
    "status": "ready",
@@ -3707,13 +3693,6 @@
    "body_presentation": "male",
    "casting_grade": "reconstructed",
    "role": "gentleman"
-  },
-  {
-   "person": "pa1904_ream_daughters",
-   "home": "ream_house_1901_prairie",
-   "status": "collective",
-   "age_1904": null,
-   "portrait": "not_identified"
   },
   {
    "person": "pa1904_reid_mrs_william_h",
@@ -3888,6 +3867,17 @@
    "role": "lady"
   },
   {
+   "person": "pa1904_rothschild_daughter",
+   "home": "rothschild_house_2112_prairie",
+   "status": "ready",
+   "age_1904": 26,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_rothschild_jesse",
    "home": "rothschild_house_2112_prairie",
    "status": "ready",
@@ -3900,17 +3890,6 @@
   },
   {
    "person": "pa1904_rothschild_mamie_f",
-   "home": "rothschild_house_2112_prairie",
-   "status": "ready",
-   "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
-   "person": "pa1904_rothschild_daughter",
    "home": "rothschild_house_2112_prairie",
    "status": "ready",
    "age_1904": null,
@@ -4226,17 +4205,6 @@
    "role": "gentleman"
   },
   {
-   "person": "pa1904_spalding_jesse",
-   "home": "kellogg_house_1709_prairie",
-   "status": "ready",
-   "age_1904": 74,
-   "portrait": "not_identified",
-   "asset_id": "glessner_john_j_1904",
-   "body_presentation": "male",
-   "casting_grade": "reconstructed",
-   "role": "gentleman"
-  },
-  {
    "person": "pa1904_spalding_mrs_jesse",
    "home": "kellogg_house_1709_prairie",
    "status": "ready",
@@ -4248,15 +4216,15 @@
    "role": "lady"
   },
   {
-   "person": "pa1904_stirling_william_r_c1900_alice_m_sterling",
-   "home": "house_1616_prairie",
+   "person": "pa1904_spalding_jesse",
+   "home": "kellogg_house_1709_prairie",
    "status": "ready",
-   "age_1904": 20,
+   "age_1904": 74,
    "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
+   "asset_id": "glessner_john_j_1904",
+   "body_presentation": "male",
    "casting_grade": "reconstructed",
-   "role": "lady"
+   "role": "gentleman"
   },
   {
    "person": "pa1904_stirling_william_r_c1900_dorothy_sterling",
@@ -4268,17 +4236,6 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
-  },
-  {
-   "person": "pa1904_stirling_william_r_c1900_jean_w_sterling",
-   "home": "house_1616_prairie",
-   "status": "ready",
-   "age_1904": 14,
-   "portrait": "not_identified",
-   "asset_id": "teen_girl_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_stettauer_charles_s",
@@ -4325,6 +4282,17 @@
    "role": "lady"
   },
   {
+   "person": "pa1904_stirling_william_r_c1900_alice_m_sterling",
+   "home": "house_1616_prairie",
+   "status": "ready",
+   "age_1904": 20,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_stirling_mrs_william_r",
    "home": "house_1616_prairie",
    "status": "ready",
@@ -4334,6 +4302,17 @@
    "body_presentation": "female",
    "casting_grade": "reconstructed",
    "role": "lady"
+  },
+  {
+   "person": "pa1904_stirling_william_r_c1900_jean_w_sterling",
+   "home": "house_1616_prairie",
+   "status": "ready",
+   "age_1904": 14,
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_stirling_william_r",
@@ -4575,6 +4554,17 @@
    "role": "maid"
   },
   {
+   "person": "pa1904_walker_mrs_james_r",
+   "home": "house_1726_prairie",
+   "status": "ready",
+   "age_1904": 40,
+   "portrait": "not_identified",
+   "asset_id": "glessner_frances_m_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "lady"
+  },
+  {
    "person": "pa1904_walker_mrs_henry_h",
    "home": "dexter_house_1721_prairie",
    "status": "ready",
@@ -4590,17 +4580,6 @@
    "home": "walker_house_1720_prairie",
    "status": "ready",
    "age_1904": null,
-   "portrait": "not_identified",
-   "asset_id": "glessner_frances_m_1904",
-   "body_presentation": "female",
-   "casting_grade": "reconstructed",
-   "role": "lady"
-  },
-  {
-   "person": "pa1904_walker_mrs_james_r",
-   "home": "house_1726_prairie",
-   "status": "ready",
-   "age_1904": 40,
    "portrait": "not_identified",
    "asset_id": "glessner_frances_m_1904",
    "body_presentation": "female",

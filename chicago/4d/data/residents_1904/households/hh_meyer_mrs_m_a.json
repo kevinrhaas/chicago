@@ -38,7 +38,7 @@
   "persons": [
     {
       "id": "pa1904_meyer_mrs_m_a",
-      "name": "Mrs. M. A. Meyer",
+      "name": "Sarah Meyer",
       "relationship": "head",
       "grade": "attested",
       "sources": [
@@ -74,7 +74,7 @@
     },
     {
       "id": "pa1904_meyer_daughter",
-      "name": "Miss Meyer",
+      "name": "Louise Meyer",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
@@ -82,7 +82,7 @@
         "census_1900_chicago_t623_roll245"
       ],
       "printed_as": "2009 Mrs. M. A. Meyer & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Meyer' is the book's own form of address, not a recorded name. The 1905 edition prints Mrs. M. A. Meyer without '& dr.'. The 1900 census lists Louise Meyer here as daughter, born December 1880 (the figures are hard to read), in Illinois, single, at school (ED 40, sheet 12A, line 29, leaf n816).",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Meyer' is the book's own form of address, not a recorded name. The 1905 edition prints Mrs. M. A. Meyer without '& dr.'. The 1900 census lists Louise Meyer here as daughter, born December 1880 (the figures are hard to read), in Illinois, single, at school (ED 40, sheet 12A, line 29, leaf n816). The card goes by Louise Meyer, the name the 1900 census gives the unmarried daughter at home; that she is the 1904 '& dr.' is read from that, and the book does not print her name.",
       "census_1900": {
         "date": "1900-06-01",
         "source": "census_1900_chicago_t623_roll245",
@@ -109,7 +109,7 @@
     },
     {
       "id": "pa1904_meyer_e_f",
-      "name": "E. F. Meyer",
+      "name": "Edwin F. Meyer",
       "relationship": "son",
       "grade": "attested",
       "sources": [

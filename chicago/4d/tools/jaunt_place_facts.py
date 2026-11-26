@@ -85,7 +85,15 @@ def composed(scene, structure, homes, former):
     if sid in homes:
         doc, head = homes[sid]
         job = occupation(head.get('note'))
-        bits.append(f"In 1904 the Blue Book lists {head['name']} here" + (f", {article(job)} by the 1900 census." if job else '.'))
+        # A card named from the census (T-3553, 'Sarah Grey') says the Blue Book's own form beside it.
+        printed = head.get('printed_as') or ''
+        for pat in (r'^\d+\s+', r'^Mr\. & Mrs\. ', r'^Mr\. ', r'\s*&\s*(drs?|sons?)\.?$'):
+            printed = re.sub(pat, '', printed).strip()
+        renamed = printed and printed != head['name'] and (
+            printed.startswith('Mrs.') != head['name'].startswith('Mrs.') or re.match(r'[A-Z]\. ', printed))
+        said = (f"In 1904 {head['name']} lives here, in the Blue Book as {printed}" if renamed
+                else f"In 1904 the Blue Book lists {head['name']} here")
+        bits.append(said + (f", {article(job)} by the 1900 census." if job else '.'))
         sources += ['chicago_blue_book_1904'] + (['census_1900_chicago_t623_roll245'] if job else [])
     earlier = [f for f in (former.get(sid) or {}).get('former', [])
                if f.get('grade') == 'attested' and f.get('years') and sid in homes and f.get('role') == 'lived here'

@@ -44980,6 +44980,7 @@ A face made this way rests on one front picture's points: its profile is the fit
 **Not invented, there:** the who-line (each part is a field of the person's record); the events the answers speak of (the same as the stories', and in 1904 also the St. Louis fair, the war in Manchuria, the Glessner house and its household, the bronze at Eighteenth Street and its subject).
 **Liberties, there:** every answer is reconstructed like the stories; a temperament is assigned, not known, for anyone without a hand-written persona: it is believable for their life, not a claim about their character.
 **Re-opens on:** a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories or questions (`tools/test_tales.mjs` names it); the camp children of 1835 being drawn, whose three stories wait for them; a person's character attested in a record, which then replaces the assigned temperament.
+**Who may tell what (2026-11-26):** the owner: *"Louis Ream: Correct the character's voice and script. He sounds like a young girl and recounts his World's Fair experience from a female perspective. Check all jaunts and/or grade each story to age and gender and situation. I also read one of a woman in 1871 who was a laborer with lumber, which seemed off also."* A story or question now goes only to a teller it fits: one who speaks as a woman or a man ("my husband", "I was a girl", "we boys") goes only to that sex; one tied to an age (a coming-out, a Civil War memory, a schoolboy's errand) carries the ages it fits; one told from a country or a people (the Irish parish, the German brewery, the Swedish maid) goes only to tellers whose own record gives that birthplace or community; a servant's story of a particular post (butler, nursemaid, groom) goes to that post. `tools/build_tales.py` refuses a story that speaks as one sex but is open to the other, or a child who speaks of a husband. **Not invented, there:** each teller's sex, age, birthplace or community and work (their own records). **Liberties, there:** fourteen new 1871 stories, for the women at home and at work, the little ones and a lady of the relief, so they have their own once the men's work stories went back to the men; one new 1812 question for the Potawatomi children; composite lives like the rest.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-16.
 
@@ -45611,7 +45612,7 @@ The farm-box master's `photographic_acceptance` is set true on its record of mat
 
 **Decision:** the owner, 2026-11-17: *"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person"*. The Settings card's You tab lets a visitor choose who they are: a man or a woman, young, middle-aged or older, one of nine complexions, a face from the library or Auto, eyes, hair colour and cut, whiskers, and the dress of the year they are in. That person is the figure in the saddle. And, for a woman on a horse (his pick on a card the same day): *"Astride in 1812, sidesaddle later"*.
 **Not invented:** nothing about anybody. Every body, dress, face, complexion, cut and colour on offer is one the town's own people are already drawn with, each carrying its own liberty (L-face-library-3553, L-finery-3553, L-town-people-1835, the recipes' own); a year offers only the dress its townspeople wear.
-**Liberties within it:** the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in 1812, right for a frontier woman, and aside in 1835 and 1904 (L-sidesaddle-3644). The owner, 2026-11-19: *"for the people instead of labeling it gender can you add a third body type also and make the name of that category not say gender but be a more neutral person style category"*. The choice is a **body type** (Masculine, Feminine, Androgynous); the third wears either body and any dress, cut and face the year offers, and is drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own weight, muscle and neck axes, `sexes[].build`); it rides as its clothes do, aside in a skirt in 1835 and 1904. The build is a choice of the visitor's, not a reading of anyone. The tab also shows the chosen face up close beside the whole figure.
+**Liberties within it:** the visitor is a person of no record: their looks, age and dress are the visitor's own choice, graded reconstructed. The lists are a selection (the bodies that sit a saddle without going into the horse). The default person (a man in a settler's dress in 1812 and 1835, a working man's in 1904, a light complexion and a face drawn as everyone's is) is the figure that rode before the choice existed. A woman rides astride in 1812, right for a frontier woman, and aside in 1835 and 1904 (L-sidesaddle-3644). The owner, 2026-11-19: *"for the people instead of labeling it gender can you add a third body type also and make the name of that category not say gender but be a more neutral person style category"*. The choice is a **body style** (Style 1, Style 2, Style 3: the owner, 2026-11-26, *"Replace masculine, feminine, and androgynous labels with gender-neutral terms such as Style 1, Style 2, and Style 3. Style 3 currently appears identical to Style 1."*); the third wears either body and any dress, cut and face the year offers, and is drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own weight, muscle and neck axes, `sexes[].build`); it starts each year in a look of its own (a dress Style 1 does not start in, the other body's hair, and while the face is Auto a face from the other body's faces, `sexes[].start` and `face_of`); it rides as its clothes do, aside in a skirt in 1835 and 1904. The build is a choice of the visitor's, not a reading of anyone. The tab also shows the chosen face up close beside the whole figure.
 **Re-opens on:** colours of dress and more bodies (the person builder); the owner wanting other choices on offer.
 **Ticket:** T-3644.
 **Review:** `data/humans/visitor_person.json`, `renderers/web/js/visitor-person.js`, `renderers/web/js/person-settings.js`, `renderers/web/js/person-portrait.js`, `tools/test_visitor_person.mjs`.
@@ -46391,3 +46392,25 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+### L-prairie-alley-returns-3759 — Each 1904 alley carried across the sidewalk space to the gutter, the curb turned into it
+
+**Decision:** the owner, 2026-11-26: "Correct alleyway grading and remove inappropriate curbs at
+alley entrances." At each of the district's 13 alley mouths the cross street's parkway turf and
+curb no longer run across the alley: the alley's own surface runs on across the sidewalk space at
+the alley's drawn width, falling from its grade at the lot line to the gutter at the curb line,
+and a return curb of the street curb's width stands either side of it from the curb line back to
+the lot line, its top on the walk's level; the walk stops at it (data/street_section/1904.json,
+alley_returns, laid by tools/lay_prairie_1904_street_section.py).
+**What is read (inferred).** The arrangement: the 1905 code leaves "a space of one and one-half
+inches ... between all walks and the curb at street and alley intersections" (sec. 2062), so at
+an alley the walk meets a curb, as at a street corner. A city-wide rule of March 1905 carried to
+1 July 1904.
+**What is invented (reconstructed).** The even fall across the 14-ft (16th Street: 10-ft) space,
+about 7 per cent; the square returns with no rounded corner; the alley's earth-and-cinder surface
+carried out to the gutter. No picture or grade record of one of these mouths has been read.
+**How to resolve:** a photograph of an alley mouth on 18th, 20th or 21st Street before 1907 (the
+Glessner stable's 18th Street front reaches the west alley's mouth), or the city's alley grade
+ordinances for these blocks.
+**Ticket:** T-3759.
+**Recorded:** 2026-11-26.

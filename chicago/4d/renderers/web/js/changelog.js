@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 3250, ts: '2026-11-26T06:38:51.941Z', date: 'Nov 26, 2026, 12:38 AM CT', title: 'Stories fit their tellers, and household cards use real names', kind: 'fix',
+    items: [
+      'Louis Ream no longer tells the World\'s Fair as a girl: every story and question now goes only to someone of the right sex, age and background.',
+      'In 1871 the lumber yard and other men\'s work stories go back to the men; fourteen new stories give the women and little ones their own.',
+      'Servants tell the stories of their own post: the butler his, the nursemaid hers, the groom his.',
+      'Miss Grey and Florence Grey were one woman, and now share one card.',
+      'The Misses Ream is now Frances Ream, the daughter still at home in 1904; the Bellas and Buckingham daughters stand on their own cards.',
+      'About fifty Prairie Avenue cards carry the person\'s own first name from the census, such as Sarah Grey or Rose Longini; the society register\'s form stays on the card.',
+    ] },
+  { v: 3249, ts: '2026-11-26T06:29:44.283Z', date: 'Nov 26, 2026, 12:29 AM CT', title: '1904 alleys run out to the street', kind: 'fix',
+    items: [
+      'The grass strip and curb no longer run across the mouths of Prairie Avenue\'s alleys.',
+      'Each alley now slopes down across the sidewalk to the gutter, so a wagon can drive straight in.',
+      'The curb turns into the alley on both sides, and the sidewalk stops at it, as the city\'s 1905 rules lay it out.',
+    ] },
+  { v: 3248, ts: '2026-11-26T06:13:27.342Z', date: 'Nov 26, 2026, 12:13 AM CT', title: 'Jump to any jaunt stop; spinners while a scene loads', kind: 'feature',
+    items: [
+      'A new Stops key on the jaunt panel lists the route\'s stops, numbered, with the one you are at marked. Tap any stop to go straight there, back or ahead.',
+      'Where a choice decides the way on, the list stops at that choice and says so.',
+      'Start, Replay and Restart, and the key that took you to a stop, show a small spinning ring while the jaunt or the stop\'s scene is still loading. So does Listen while its voice is still arriving.',
+      'With a mouse, looking up no longer gets stuck partway after a jaunt has turned your view for you.',
+      'An empty box no longer shows under the travel choice when nothing is being read aloud.',
+    ] },
   { v: 3247, ts: '2026-11-26T06:02:02.011Z', date: 'Nov 26, 2026, 12:02 AM CT', title: 'Every jaunt stop ends by inviting you on, or to look around', kind: 'improvement',
     items: [
       'Each stop in every jaunt now closes with a short line from the narrator: look around as long as you like, then go on; at a choice, choose; at the last stop, a last look.',

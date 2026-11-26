@@ -2,6 +2,7 @@
 
 ## s35-ch-schooner
 roles: child, youth
+sex: m
 title: I saw the schooner come in
 
 When a schooner comes in, all the boys in town run down to the river mouth to watch. You can see her from far out, her sails like a white bird on the lake, and then she comes in between the piers, and the sailors throw ropes, and the men on the wharf pull her in.
@@ -34,6 +35,7 @@ I got into my sister's bed and we pulled the quilt over our heads. In the mornin
 
 ## s35-ch-school
 roles: child
+sex: m
 title: School in a church
 
 I go to school in the back of the Baptist church, with thirty other children on long benches. We have slates and one book for every three children. The teacher has a long stick and she can reach anybody on any bench without getting up.
@@ -51,6 +53,7 @@ He saw me on the stairs once and winked and played a tune just for me, a fast on
 
 ## s35-ch-fort-drum
 roles: child
+sex: m
 title: The fort's drum
 
 Every morning the drum at the fort wakes up the soldiers, and it wakes me up too, because our house is near the fort. Rat-a-tat-tat. Then the fife. Then the soldiers shout.
@@ -83,6 +86,7 @@ It took my father and two carpenters six days to build it. They nailed it togeth
 
 ## s35-ch-steamboat
 roles: child, youth
+sex: m
 title: The steamboat's whistle
 
 The first time I heard a steamboat whistle, I thought it was a monster. It came from out on the lake, a long scream, and then black smoke, and then the boat came in, bigger than the fort, with wheels on its sides going round and round, splashing.
@@ -115,6 +119,8 @@ I used to be scared of them. Then a girl from the camp showed me how to make a d
 
 ## s35-yo-apprentice
 roles: youth, mechanic
+sex: m
+age: -19
 title: The printer's devil
 
 I am the printer's devil at the newspaper, which means I do every dirty job there is. I sweep the floor and ink the type and fetch the water and run the papers round town. My hands are black from Monday to Sunday.
@@ -123,6 +129,7 @@ But I can read faster than anybody in Chicago, because I read every word of the 
 
 ## s35-yo-courting
 roles: youth
+sex: f
 title: Walking out on Sunday
 
 There are four young men in Chicago for every young lady, so the young ladies can be very particular. I have been walking out on Sunday afternoons with a carpenter's apprentice, and also with a clerk from Lake Street, and also, once, with a lieutenant from the fort.
@@ -131,6 +138,8 @@ My mother says I must choose. My father says I must not choose a lieutenant, bec
 
 ## s35-yo-land
 roles: youth, clerk
+sex: m
+age: -19
 title: I bought a lot
 
 I am sixteen and I own a lot on the North Side. I saved my wages from the store for a year, forty dollars, and a land agent sold it to me on credit for two hundred, forty down and the rest when I sell. He says it will be worth five hundred by Christmas.
@@ -139,6 +148,8 @@ I have walked out to see it twice. It is a swamp with a dead tree in the middle.
 
 ## s35-yo-runaway
 roles: youth, labourer
+sex: m
+age: -19
 title: I ran away to Chicago
 
 I ran away from my uncle's farm in New York state when I was fifteen. He beat me and worked me like a horse. I walked to Buffalo and worked my passage on a schooner, scrubbing decks and hauling ropes, and the captain put me ashore at Chicago with a dollar in my pocket.
@@ -156,6 +167,8 @@ My mother wants me to marry. My father wants me to help in the store. I want to 
 
 ## s35-yo-irish-lad
 roles: youth, irish
+sex: m
+age: -17
 title: Carrying water
 
 I carry water for my mother's laundry, two buckets on a yoke from the lake, fifteen trips a day. I am fourteen. My father died on the boat coming over, in the fever, and they put him over the side in a sheet. My mother and me and my sisters came on alone.
