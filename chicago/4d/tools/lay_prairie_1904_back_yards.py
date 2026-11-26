@@ -359,9 +359,14 @@ class Lot:
             np.zeros(self.S.shape, bool)
         # The main house's plan: the district's filled house raster (a model's walls closed and filled,
         # and the traced footprint where no model stands), the parts of it that hold the main model's
-        # walls, less the coach house's.
+        # walls, less the coach house's — and less every cell another lot's structure owns (T-1938: a
+        # neighbour's stable or rear range built on the shared parcel line leaves a sliver of its own
+        # cells inside this lot's polygon, and that sliver must not bridge this house's plan to the
+        # alley; it did for 2011 once 2009's K12 stable stood 0.06 m over the line).
         own = self.owner == self.kidx[self.main]
-        comp, _n = ndimage.label(self.house & self.inlot & ~ndimage.binary_dilation(self.C, iterations=1))
+        foreign = (self.owner >= 0) & ~np.isin(self.owner, list(self.kidx.values()))
+        comp, _n = ndimage.label(self.house & self.inlot & ~foreign
+                                 & ~ndimage.binary_dilation(self.C, iterations=1))
         keep = np.unique(comp[own & (comp > 0)])
         self.H = np.isin(comp, keep[keep > 0]) | (own & self.inlot)
         if self.H.sum() < 20:

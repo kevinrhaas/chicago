@@ -916,6 +916,11 @@
         <label class="field row check-field"><span data-str="research.switch">Expert research</span>
           <input type="checkbox" id="s-researcher"></label>
         <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
+        <!-- T-3750 (the owner, 2026-11-26: "expose the architecture site and building kit to expert
+             users, separate link/site"): the Architecture site's link sits with Expert research. -->
+        <div class="field row"><span data-str="research.architecture.line">Building kits</span>
+          <a class="setting-button" id="s-open-architecture" href="architecture/" target="_blank" rel="noopener" data-str="research.architecture">Architecture site</a></div>
+        <p class="legend-note" data-str="research.architecture.note">The building kits, their parts and every building built on them, in 3D.</p>
         <!-- T-3629: the field log moved here from About; its counters are for whoever studies
              how the app is used, not every visitor. T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
              device only, never sent anywhere, with Clear. The rows are painted from the table. -->

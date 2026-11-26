@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 3269, ts: '2026-11-26T21:14:18.548Z', date: 'Nov 26, 2026, 3:14 PM CT', title: '2130 Prairie checked against its two photographs', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie is now compared with the two old photographs of 2140 next door that show it, from the spots those pictures were taken.',
+      'Its round tower\'s cone is about a metre lower, as both photographs show it.',
+      'Its south side wall is now the same rough-faced stone as its front, not brick.',
+      'Still different from the photographs: the steep gable on the street front, which neither picture shows, and the columned porch, which is not built yet.',
+    ] },
+  { v: 3268, ts: '2026-11-26T20:15:01.352Z', date: 'Nov 26, 2026, 2:15 PM CT', title: 'An Architecture site for expert readers: the building kits in 3D', kind: 'feature',
+    items: [
+      'A separate Architecture site shows the sixteen kits the Prairie Avenue houses are built from: stone, brick, roofs, windows, entrances, bays, trim, cornices, ironwork and more.',
+      'Each kit has its rule, every part with its measured sizes and how sure each one is, and its sample model to turn in 3D.',
+      'Every building built from the kits is listed, with its own model to turn and the kits and parts it uses.',
+      'Open it from Settings, under Research, or from the Technicians page. Anyone with the link can visit; it stays out of the main menu.',
+    ] },
+  { v: 3267, ts: '2026-11-26T19:46:48.547Z', date: 'Nov 26, 2026, 1:46 PM CT', title: 'Smoother foreheads on photographic faces', kind: 'fix',
+    items: [
+      'Generic adult and child faces blend smoothly into the skin above the forehead. Facial detail and the existing texture memory budget are preserved.',
+    ] },
   { v: 3266, ts: '2026-11-26T18:19:10.072Z', date: 'Nov 26, 2026, 12:19 PM CT', title: 'Make your case: a new case in every year', kind: 'feature',
     items: [
       '1812: where did Fort Dearborn\'s blockhouses stand? Weigh the 1808 drawing against a memory written forty years later.',

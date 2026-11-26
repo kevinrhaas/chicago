@@ -22,6 +22,7 @@
 //   QA_TARGET=1900 node tools/qa_k12_t1932.mjs       T-1935: 1900's stable (GARAGE in 1911), between the 1834/1900 shed and 1906's building, party walls both ends
 //   QA_TARGET=1906 node tools/qa_k12_t1932.mjs       T-1935: 1906's barn (BARN in 1911) and its one-storey range south on the kit's range fitting, party wall north against 1900's
 //   QA_TARGET=1912 node tools/qa_k12_t1932.mjs       T-1935: 1912's barn (BARN in 1911) under the kit's hip and deck, no party wall, between 1906's range and the one-storey building south
+//   QA_TARGET=2001 node tools/qa_k12_t1932.mjs       T-1938: 2001's stable on 20th Street and 2009's (Meyer) on the east alley, 20th-21st (sheet 35)
 //   QA_TARGET=shed node tools/qa_k12_t1932.mjs       T-1935: the open frame shed on the strip between 1834 and 1900 (K16, open on its dashed north and east sides)
 import fs from 'node:fs';
 import http from 'node:http';
@@ -124,6 +125,12 @@ const TARGETS={
   ['yard-face',[1362,-3339,1.7],[1345,-3339,2]],
   ['inside',[1346.5,-3337.6,1.6],[1339.6,-3339.6,2.2]],
   ['air',[1372,-3362,40],[1344,-3339,0]]]},
+ '2001':{dir:'k12-2001-2009-stables-1938',ids:['house_2001_prairie_coach_house','mayer_house_2009_prairie_coach_house','house_2001_prairie','mayer_house_2009_prairie'],glb:'house_2001_prairie_coach',stands:[
+  ['alley-from-north',[1473,-3474,1.7],[1469,-3497,4]],
+  ['alley-from-south',[1473,-3528,1.7],[1469,-3500,4]],
+  ['street-face',[1458,-3472,1.7],[1462,-3486,4]],
+  ['yard-face',[1446,-3497,1.7],[1458,-3500,4]],
+  ['air',[1486,-3519,36],[1464,-3497,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';

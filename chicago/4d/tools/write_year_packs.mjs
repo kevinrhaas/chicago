@@ -99,6 +99,9 @@ export function yearFiles(files, year, owners) {
   return files.filter((rel) => {
     // T-2685: the home page's destination clips are the Observatory's, not a year's app.
     if (rel.startsWith('walk/portal/clips/')) return false;
+    // T-3750: the Architecture site (its specimens, studies and data) is a site of its own
+    // for expert readers, not part of any year's town; a kept year does not carry it.
+    if (rel.startsWith('walk/architecture/')) return false;
     // T-3532: audio is opt-in and streamed. A town download must not silently
     // fetch every era and both music codecs. Explicit offline audio packs are
     // a separate future choice; keep the catalogue/UI available offline.
