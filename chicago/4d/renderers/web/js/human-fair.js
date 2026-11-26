@@ -34,9 +34,10 @@ const { weldMeshes, pointGrid, triangleGrid, graphNormals, bodyFieldSteps, write
  * they may come in going down (`hang`, metres per metre; none: they follow the figure). */
 export const FAIRED = Object.freeze([
   { kind: 'coat', piece: /(coat_body|tailcoat_body)(_lod\d+)?$/, ease: 0.008, hang: 0.3 },
-  { kind: 'jacket', piece: /(jacket_body|skeleton_jacket|child_jacket)(_lod\d+)?$/, ease: 0.006, hang: 0.4 },
-  // A woman's bodice is cut to her figure and kept as cut; what lies on it is still laid on it.
-  { kind: 'bodice', piece: /(bodice|short_gown_body|errand_shirtwaist|calico_blouse|calico_shirt_body)(_lod\d+)?$/, ease: 0, hang: 0, still: true },
+  { kind: 'jacket', piece: /((?<!lady_)jacket_body|skeleton_jacket|child_jacket)(_lod\d+)?$/, ease: 0.006, hang: 0.4 },
+  // A woman's bodice (and a lady's jacket, cut to her as closely: faired, it crumpled at the
+  // bust) is cut to her figure and kept as cut; what lies on it is still laid on it.
+  { kind: 'bodice', piece: /(bodice|lady_jacket_body|short_gown_body|errand_shirtwaist|calico_blouse|calico_shirt_body)(_lod\d+)?$/, ease: 0, hang: 0, still: true },
 ]);
 /** Pieces of a faired garment's cloth that are trims lying on it, not the garment itself. */
 /** Riders pressed flat on the cloth under them (and what is faced on them). */
