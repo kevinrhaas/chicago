@@ -1058,6 +1058,8 @@ export class HumanActor {
       const clipDt = (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt) + (this.animDt || 0);
       const stepped = moved + (this.animMoved || 0);
       this.animDt = 0; this.animMoved = 0;
+      // T-3754: life's last frame taken back first, so the gait finds its own (a seated pelvis).
+      if (this.life?.bound && !b.oneShot) this.life.unwind?.();
       b.mixer.update(clipDt);
       // The walk first (pelvis and legs), then life and the arms over it, reading its phase.
       const gait = this.gait?.bound && !b.oneShot ? this.gait : null;

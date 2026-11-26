@@ -902,7 +902,7 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   const { createTravel } = await import('../renderers/web/js/travel.js');
   const config = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
   const main = readFileSync(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
-  const start = main.indexOf('  function goToTarget(target) {');
+  const start = main.indexOf('  function goToTarget(target'); // T-3754: it takes { keepJaunt } too
   const end = main.indexOf('  /** The future welcome picker', start);
   assert(start >= 0 && end > start);
   const actualGo = main.slice(start, end);
