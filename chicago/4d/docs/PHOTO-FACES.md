@@ -1,6 +1,6 @@
 # Photo faces: a person's own pictures as their face
 
-**Single-photo import and sixteen-face pilot:** [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md)
+**Single-photo import and 256-face library:** [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md)
 adds a review-only front-photo path, shared full/light atlases and before/after renders. The
 four-view likeness workflow below remains available for heads with photographs from several sides.
 

@@ -1,8 +1,8 @@
 {
- "title": "Sixteen photo faces to review",
+ "title": "256 photo faces for generic people",
  "kind": "improvement",
  "items": [
-  "A separate review page shows sixteen fictional faces and their photographed front hair on the existing figures, beside their source images and the old appearance, with front and profile controls.",
-  "Photo faces retain iris detail and use source-guided eye tone, pupil size and eyelid opening. A single-photo command fits future historical photos for review; the opt-in generic-adult preview shares one small face atlas. Default assignments stay unchanged."
+  "The generic-adult photo preview now has 256 fictional faces with varied ages, skin tones and features. A paged source/before/after gallery shows sixteen fitted heads at a time.",
+  "A small crowd sheet and one nearby detail page keep added face textures within a fixed budget as the library grows. Source-guided eyes retain iris detail; historical likenesses and visitor choices keep priority. Single-photo imports use the same review."
  ]
 }

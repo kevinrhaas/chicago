@@ -1,3 +1,14 @@
+## T-3761 — 256 fictional photo faces for the generic-adult preview
+
+The catalog preserves the original sixteen and adds 240 fictional adults, 128 men and 128
+women in all. A sixteen-page gallery shows source/before/fitted heads, with softer measured
+eyes and photographed front hair. Town face textures are capped at 10.67 MiB including
+mipmaps: one compact crowd sheet plus one resident-or-loading nearby detail page. Late or
+failed detail loads keep the same crowd face. The gallery loads sixteen heads at a time.
+Body LOD and visible-person limits remain the existing renderer’s. These are added texture
+bounds, not proof of whole-town performance. Real low-power GPU timing and default rollout
+remain outstanding; historical portraits, visitor choices and children retain priority.
+
 ## T-3746 — Sixteen photo-face samples for review (25 November 2026)
 
 A separate review page (`tools/photo_face_review.html`) compares sixteen fictional source

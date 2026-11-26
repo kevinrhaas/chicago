@@ -15,6 +15,7 @@ import sys
 import time
 import struct
 from functools import lru_cache
+from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
 from PIL import Image, ImageOps, ImageDraw
@@ -27,11 +28,13 @@ import bake_likeness_skin as B
 
 ROOT = F.ROOT
 PILOT = ROOT / 'data/humans/variation/photo_face_pilot.json'
-FORMAT = 'chicago4d_photo_face_review_v1'
+FORMAT = 'chicago4d_photo_face_review_v2'
 BASE = {'male': 'glessner_john_j_1904', 'female': 'glessner_frances_m_1904'}
 TILE = 256
 PAD = 8  # duplicated texels: bilinear filtering and the near mip levels stay inside a face
-LIMIT = 64
+LIMIT = 256
+PAGE_FACES = 16
+CROWD_EDGE = 1024
 
 
 def digest(path):
@@ -347,10 +350,47 @@ def write_hair_shell(path, longitude, latitude):
     return {'file':path.name,'sha256':digest(path),'bytes':len(data),'triangles':len(tri)//3,'vertices':len(positions)}
 
 
-def build(recipe, output, model=None, fast=False):
+def prepare_face(task):
+    i, e, im, inputs, frontal, model = task
+    began = time.monotonic()
+    if e.get('landmarks') is None and model is None:
+        raise ValueError('first import needs --model face_landmarker.task; rebuilds use pinned landmarks')
+    points = e.get('landmarks') or detect(im, model)
+    if len(points) != 478 or not np.isfinite(points).all():
+        raise ValueError(f"{e['id']}: expected 478 finite detected landmarks")
+    p = portrait(e, points, im.size)
+    fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
+    signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
+    fit = e.get('fitted') if e.get('fit_signature') == signature else None
+    fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
+    tile, tone, base_tone = bake_face(im, points, e['sex'])
+    hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit)
+    face = {'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
+            'source': e['source'], 'source_url': source_record(e['source'])['url'],
+            'synthetic': bool(e.get('synthetic') or source_record(e['source']).get('synthetic')), 'grade': 'reconstructed',
+            'base_body': BASE[e['sex']], 'index': i, 'page':i//PAGE_FACES, 'page_index':i%PAGE_FACES,
+            'photo':f"{e['id']}_source.jpg", 'values':fit['values'], 'fit_rms_px':fit['rms_px'], 'camera':fit['camera'],
+            'tone_rgb':tone, 'body_gain':(np.array(tone)/np.maximum(base_tone,.001)).tolist(),
+            'hair_rgb':hair_rgb, 'hair_shell':hair_shell, 'hair_projection':hair_projection,
+            'eyes':eye_appearance(im,points,e['sex'],fit,p), 'limits':p['not_modelled']}
+    e.update(landmarks=points, fitted={k:fit[k] for k in ('values','rms_px','camera','projection_centre_m')},
+             fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
+    return face, tile, hair_tile, e, round(time.monotonic()-began,1)
+
+
+def save_texture(image, output, name):
+    if name.endswith('.png'): image.save(output/name,optimize=True)
+    else: image.save(output/name,quality=92,subsampling=0,optimize=True)
+    return {'file':name,'size_px':list(image.size),'bytes':(output/name).stat().st_size,
+            'sha256':digest(output/name),'gpu_bytes_rgba8_mipmaps':math.ceil(image.width*image.height*4*4/3)}
+
+
+def build(recipe, output, model=None, fast=False, jobs=1):
     entries = recipe['faces']
     if not 1 <= len(entries) <= LIMIT or len({e['id'] for e in entries}) != len(entries):
         raise ValueError(f'use 1 to {LIMIT} unique face ids')
+    if not isinstance(jobs,int) or not 1 <= jobs <= 8:
+        raise ValueError('offline jobs must be between 1 and 8')
     # Validate the entire batch before writing any result.
     for e in entries:
         validate_entry(e)
@@ -373,51 +413,40 @@ def build(recipe, output, model=None, fast=False):
     cols = math.ceil(math.sqrt(len(entries)))
     rows = math.ceil(len(entries) / cols)
     atlas = Image.new('RGB', (cols*TILE, rows*TILE))
-    hair_atlas = Image.new('RGBA', atlas.size)
-    for i, (e, im) in enumerate(zip(entries, photos)):
-        began = time.monotonic()
-        if e.get('landmarks') is None and model is None:
-            raise ValueError('first import needs --model face_landmarker.task; rebuilds use pinned landmarks')
-        points = e.get('landmarks') or detect(im, model)
-        if len(points) != 478 or not np.isfinite(points).all():
-            raise ValueError(f"{e['id']}: expected 478 finite detected landmarks")
-        p = portrait(e, points, im.size)
-        # The synthetic pilot is frontal; historical photos keep the existing fitter's
-        # full camera search. Already fitted recipes rebuild without repeating detection.
-        fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
-        signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':recipe['frontal']},sort_keys=True).encode()).hexdigest()
-        fit = e.get('fitted') if e.get('fit_signature') == signature else None
-        fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if recipe['frontal'] else {}))
-        tile, tone, base_tone = bake_face(im, points, e['sex'])
-        atlas.paste(Image.fromarray(tile), ((i % cols)*TILE, (i//cols)*TILE))
-        hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit)
-        hair_atlas.paste(Image.fromarray(hair_tile),((i%cols)*TILE,(i//cols)*TILE))
-        photo_name = f"{e['id']}_source.jpg"
-        im.save(output / photo_name, quality=94, subsampling=0)
-        faces.append({'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
-                      'source': e['source'], 'source_url': source_record(e['source'])['url'],
-                      'synthetic': bool(e.get('synthetic') or source_record(e['source']).get('synthetic')), 'grade': 'reconstructed',
-                      'base_body': BASE[e['sex']], 'index': i, 'photo': photo_name,
-                      'values': fit['values'], 'fit_rms_px': fit['rms_px'], 'camera': fit['camera'],
-                      'tone_rgb': tone, 'body_gain': (np.array(tone)/np.maximum(base_tone,.001)).tolist(),
-                      'hair_rgb':hair_rgb,'hair_shell':hair_shell,'hair_projection':hair_projection,
-                      'eyes':eye_appearance(im,points,e['sex'],fit,p),
-                      'limits': p['not_modelled']})
-        e.update(landmarks=points, fitted={k: fit[k] for k in ('values','rms_px','camera','projection_centre_m')}, fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
-        print(f"{i+1}/{len(entries)} {e['id']}: fitted {fit['rms_px']} px, {time.monotonic()-began:.1f}s", flush=True)
-    textures, hair_textures = {}, {}
-    for sheet,dest,prefix in [(atlas,textures,'faces'),(hair_atlas,hair_textures,'hair')]:
-        for tier, scale in [('full',1), ('light',.5)]:
-            name = f'{prefix}_{tier}.png' if prefix=='hair' else f'{prefix}_{tier}.jpg'
-            image = sheet if scale == 1 else sheet.resize((sheet.width//2, sheet.height//2), Image.Resampling.LANCZOS)
-            if prefix=='hair':image.save(output/name,optimize=True)
-            else:image.save(output/name, quality=92, subsampling=0, optimize=True)
-            dest[tier] = {'file':name, 'size_px':list(image.size), 'bytes':(output/name).stat().st_size,
-                         'sha256':digest(output/name), 'gpu_bytes_rgba8_mipmaps':math.ceil(image.width*image.height*4*4/3)}
+    pages = []
+    for first in range(0,len(entries),PAGE_FACES):
+        n=min(PAGE_FACES,len(entries)-first);pc=math.ceil(math.sqrt(n));pr=math.ceil(n/pc)
+        pages.append({'first':first,'count':n,'cols':pc,'size_px':[pc*TILE,pr*TILE],
+                      'face_image':Image.new('RGB',(pc*TILE,pr*TILE)), 'hair_image':Image.new('RGBA',(pc*TILE,pr*TILE))})
+    tasks=((i,e,im,inputs,recipe['frontal'],model) for i,(e,im) in enumerate(zip(entries,photos)))
+    pool=ProcessPoolExecutor(max_workers=jobs) if jobs>1 else None
+    try:
+        results=pool.map(prepare_face,tasks,chunksize=1) if pool else map(prepare_face,tasks)
+        for i,(face,tile,hair_tile,pinned,elapsed) in enumerate(results):
+            entries[i].update(pinned);faces.append(face)
+            atlas.paste(Image.fromarray(tile),((i%cols)*TILE,(i//cols)*TILE))
+            page=pages[face['page']];at=face['page_index'];xy=((at%page['cols'])*TILE,(at//page['cols'])*TILE)
+            page['face_image'].paste(Image.fromarray(tile),xy);page['hair_image'].paste(Image.fromarray(hair_tile),xy)
+            photos[i].save(output/face['photo'],quality=94,subsampling=0)
+            print(f"{i+1}/{len(entries)} {face['id']}: fitted {face['fit_rms_px']} px, {elapsed}s",flush=True)
+    finally:
+        if pool:pool.shutdown(cancel_futures=True)
+    scale=min(.5,CROWD_EDGE/max(atlas.size))
+    crowd=atlas.resize((round(atlas.width*scale),round(atlas.height*scale)),Image.Resampling.LANCZOS)
+    textures={'light':save_texture(crowd,output,'faces_light.jpg')}
+    for index,page in enumerate(pages):
+        for kind,prefix in [('textures','face'),('hair_textures','hair')]:
+            sheet=page.pop('face_image' if kind=='textures' else 'hair_image');page[kind]={}
+            for tier,scale in [('full',1),('light',.5)]:
+                image=sheet if scale==1 else sheet.resize((sheet.width//2,sheet.height//2),Image.Resampling.LANCZOS)
+                name=f'page_{index:02d}_{prefix}_{tier}'+('.png' if prefix=='hair' else '.jpg')
+                page[kind][tier]=save_texture(image,output,name)
     shells={tier:write_hair_shell(output/f'hair_shell_{tier}.glb',*segments) for tier,segments in [('light',(20,12)),('full',(32,20))]}
     result = {'format':FORMAT, 'review_only':True, 'rollout':'No population assignments; review the renders first.',
               'tile_px':TILE, 'padding_px':PAD, 'cols':cols, 'size_px':list(atlas.size),
-              'textures':textures, 'hair_textures':hair_textures, 'hair_shells':shells, 'faces':faces, 'capacity':LIMIT, 'inputs_sha256':inputs,
+              'textures':textures, 'pages':pages, 'hair_shells':shells, 'faces':faces, 'capacity':LIMIT, 'inputs_sha256':inputs,
+              'budget':{'crowd_edge_px':CROWD_EDGE,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
+                        'town_face_gpu_bytes':textures['light']['gpu_bytes_rgba8_mipmaps']+max(p['textures']['full']['gpu_bytes_rgba8_mipmaps'] for p in pages)},
               'limits':['Front photo fits do not establish profile depth.', 'Hair, ears, bodies and dress are reconstructed.',
                         'Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass.']}
     (output/'recipe.json').write_text(json.dumps(recipe,indent=1)+'\n')
@@ -441,20 +470,28 @@ def check(manifest):
         assert digest(ROOT/e['photo']) == e['photo_sha256'], f"{e['id']}: source photo changed"
     for name, sha in result['inputs_sha256'].items():
         assert digest(ROOT/name) == sha, f'stale generator input: {name}; rebuild the review library'
-    for t in list(result['textures'].values())+list(result['hair_textures'].values()):
+    texture_records=list(result['textures'].values())
+    assert len(result['pages'])==math.ceil(len(result['faces'])/PAGE_FACES)
+    for i,page in enumerate(result['pages']):
+        assert page['first']==i*PAGE_FACES and 1<=page['count']<=PAGE_FACES
+        assert page['textures']['full']['gpu_bytes_rgba8_mipmaps']<=5_600_000
+        assert sum(page[k]['light']['gpu_bytes_rgba8_mipmaps'] for k in ('textures','hair_textures'))<=2_800_000
+        texture_records.extend(page['textures'].values());texture_records.extend(page['hair_textures'].values())
+    for t in texture_records:
         file = manifest.parent/t['file']
         assert digest(file)==t['sha256'] and file.stat().st_size==t['bytes'], f'stale atlas: {file}'
         with Image.open(file) as image:
             assert list(image.size)==t['size_px']
         assert t['gpu_bytes_rgba8_mipmaps']==math.ceil(math.prod(t['size_px'])*4*4/3)
-    for f in result['faces']:
+    for i,f in enumerate(result['faces']):
         source_record(f['source'])
         assert np.isfinite(list(f['values'].values())).all()
         assert (manifest.parent/f['photo']).exists()
-    if len(result['faces']) == 16:
-        assert result['textures']['light']['gpu_bytes_rgba8_mipmaps'] <= 1_400_000
-        assert result['textures']['full']['gpu_bytes_rgba8_mipmaps'] <= 5_600_000
-        assert sum(result[k]['light']['gpu_bytes_rgba8_mipmaps'] for k in ('textures','hair_textures')) <= 2_800_000
+        assert f['index']==i and f['page']==i//PAGE_FACES and f['page_index']==i%PAGE_FACES
+    assert max(result['textures']['light']['size_px'])<=CROWD_EDGE
+    assert result['textures']['light']['gpu_bytes_rgba8_mipmaps']<=5_600_000
+    assert result['budget']['resident_detail_pages']==1
+    assert result['budget']['town_face_gpu_bytes']<=11_200_000
     print(f"PASS: {len(result['faces'])} review faces; source rights, atlas hashes, dimensions and texture budgets")
 
 
@@ -471,6 +508,7 @@ def main():
     ap.add_argument('--check', type=pathlib.Path, metavar='REVIEW_JSON')
     ap.add_argument('--frontal', action='store_true', help='one camera start for a known frontal source batch')
     ap.add_argument('--synthetic', action='store_true', help='label a generated source as fictional, never archival')
+    ap.add_argument('--jobs',type=int,default=1,help='offline workers, 1–8; never used by the app')
     args = ap.parse_args()
     try:
         if args.check:
@@ -490,7 +528,7 @@ def main():
         protected = [ROOT/'data', ROOT/'assets/humans/web/likeness', ROOT/'assets/authored']
         if any(out.is_relative_to(p) for p in protected):
             raise ValueError('output must be a review directory, not source records or existing likenesses')
-        build(recipe,out,args.model,args.frontal)
+        build(recipe,out,args.model,args.frontal,args.jobs)
         check(out/'review.json')
     except (ValueError, AssertionError, FileNotFoundError, KeyError) as error:
         sys.exit(f'photo face: {error}')

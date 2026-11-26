@@ -90,9 +90,11 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
 
 /** Attach a reviewed library without rewriting residents or the generated variation kit. */
 export function attachPhotoLibrary(kit, library, manifestURL) {
-  if (library?.format !== 'chicago4d_photo_face_review_v1' || library.review_only !== true
-      || !Array.isArray(library.faces) || !library.faces.length || library.faces.length > 64 || !library.textures?.light
-      || library.textures.light.gpu_bytes_rgba8_mipmaps > 1_400_000) return false;
+  if (!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library?.format) || library.review_only !== true
+      || !Array.isArray(library.faces) || !library.faces.length || library.faces.length > 256 || !library.textures?.light
+      || !(library.textures.light.gpu_bytes_rgba8_mipmaps > 0)
+      || library.textures.light.gpu_bytes_rgba8_mipmaps > 5_600_000
+      || library.pages?.some(p => !p.textures?.full || p.textures.full.gpu_bytes_rgba8_mipmaps > 5_600_000)) return false;
   kit.photoFaces = { ...library, url: new URL(library.textures.light.file, manifestURL).href };
   return true;
 }
@@ -334,10 +336,14 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     else values[k] = v;
   }
   const photoBody = kit.header.faces?.bodies?.[record?.skin_of ?? assetId] ?? kit.header.faces?.bodies?.[assetId];
+  const page = photo && kit.photoFaces.pages?.[photo.page];
   const photoLib = photo && age >= 18 && photoBody ? {
     url: kit.photoFaces.url, index: photo.index, id: photo.id, cols: kit.photoFaces.cols,
     size_px: kit.photoFaces.size_px, tile_px: kit.photoFaces.tile_px, padding_px: kit.photoFaces.padding_px,
     gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])), lines: 0,
+    ...(page ? { detail: { url: new URL(page.textures.full.file, kit.photoFaces.url).href,
+      bytes: page.textures.full.gpu_bytes_rgba8_mipmaps, index: photo.page_index,
+      cols: page.cols, size_px: page.size_px, tile_px: kit.photoFaces.tile_px, padding_px: kit.photoFaces.padding_px } } : {}),
   } : null;
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
     photoFace: photoLib ? photo : null,

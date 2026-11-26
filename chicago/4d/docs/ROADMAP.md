@@ -1,3 +1,10 @@
+## T-3761 — 256 generic photo faces with bounded nearby detail
+
+The owner expanded the sixteen-face pilot to 256. The library, paged review and generic-adult
+preview share a compact crowd atlas and at most one nearby detail page. Specific historical
+photo imports are next; inspect these generic faces and measure the complete town on target
+hardware before a default rollout. See [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md).
+
 ## T-3746 — Review sixteen photo faces before wider use
 
 The review-only sixteen-face pilot and single-photo importer are implemented; see

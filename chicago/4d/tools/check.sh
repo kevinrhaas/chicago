@@ -902,11 +902,11 @@ step "The face library's cuts are the bytes its source record pins, each under C
   python3 tools/face_library.py --check
 selftest "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)" \
   python3 tools/face_library.py --self-test
-step "The photographic face pilot keeps pinned sources, portable scalps and bounded shared atlases (T-3746)" \
+step "The 256-face photographic library keeps pinned sources, portable scalps and bounded atlas pages (T-3746, T-3761)" \
   python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/pilot/review.json
 step "Photo imports reject uncleared sources, changed photos, invalid crops and unsupported faces (T-3746)" \
   python3 tools/test_photo_face_library.py
-step "Photo rollout preserves personal portraits, children, visitor choices and eye texture detail (T-3746)" \
+step "Photo rollout preserves personal portraits, children and eye detail; nearby pages obey a fixed residency budget (T-3746, T-3761)" \
   node tools/test_photo_face_rollout.mjs
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs

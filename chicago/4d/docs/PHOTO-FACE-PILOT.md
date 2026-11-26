@@ -1,11 +1,14 @@
-# Photo-face pilot: sixteen faces to review
+# Photo-face library: 256 fictional adults to review
 
-The review library is separate from resident assignments. Its sixteen fictional adult sources
+The review library is separate from resident assignments. Its 256 fictional adult sources
 are generated images, not archival photographs or a dataset of living people. Each is fitted
 with the existing portable-human morph kit, then its visible facial colour is mapped through
 the calibrated landmarks to the hm08 face island. A small portable scalp surface carries the photographed front hair, with source-matched colour
 for unseen strands and source-bounded crown height/width. It shares the existing head joint;
-Light uses 440 scalp triangles and Full uses 1,216.
+Light uses 440 scalp triangles and Full uses 1,216. The gallery defaults to the existing
+reconstructed hair style in a source-measured colour. The Hair selector exposes the
+photographed-scalp trial separately: skull placement is improved, but hairline/coverage
+artifacts still need work and are not a finished replacement.
 
 Serve `chicago/4d` with `python3 -m http.server 3000` and open:
 
@@ -14,7 +17,11 @@ http://localhost:3000/tools/photo_face_review.html
 ```
 
 Choose a face, compare the source with the existing skin and the fitted result, and inspect
-front, three-quarter and profile views. **All faces** shows the sixteen actual rendered heads.
+front, three-quarter and profile views. **Page gallery** shows sixteen actual rendered heads.
+Previous/Next and the page selector cover all sixteen pages. Navigation reloads the viewer,
+releasing the preceding page’s renderer, fitted bodies and textures. Only sixteen thumbnails
+are requested per page. The catalog preserves the original sixteen and adds 240 new sources;
+128 men and 128 women have apparent ages 18–87. These are appearance targets, not biographies.
 The source, before and after are deliberately separate: a plausible result is not evidence of
 an exact historical likeness. No resident has been assigned one of these samples.
 
@@ -29,10 +36,16 @@ age and recorded complexion, and remains the same across their body LODs.
 Carriage drivers retain the existing face-only morph scope; body-wide head-outline
 targets stay with their engineered body.
 
-The town preview shares one 512-square face atlas (1.33 MiB including mipmaps), keeps the
-existing hair layer, and adds no render pass. The separate review page compares the new
-photographed-hair proposal. Libraries above the town preview's 1.4 MB texture ceiling
-are refused; expansion requires bounded nearby pages. No default assignment changes.
+The town preview shares one 1024-square crowd face atlas (5.33 MiB including mipmaps).
+Visible heads within six metres request sharper detail; the nearest page wins, with
+hysteresis. One 1024-square page can be resident **or loading**, adding at most 5.33 MiB.
+An evicted or failed page falls back to the same person’s crowd face. New requests wait
+for an in-flight decode; late images are discarded, failed requests back off, and disposed
+pages cannot be re-uploaded through old material bindings. The 256-face catalog therefore
+adds at most 10.67 MiB of face textures, rather than keeping sixteen detail pages alive.
+The existing hair layer, body LODs and visible-person limits stay in use, and face patches
+add no render pass. The separate review compares the photographed-hair proposal.
+Historical likeness textures use their existing separate cache. No default assignment changes.
 
 For actual resident models, `tools/human_variation_lineup.html?asset=auto&keys=` followed
 by their ids and `&view=faces&dress=1&photoFaces=pilot` uses the same population path.
@@ -64,7 +77,7 @@ A source with several people needs a crop containing one face. The batch recipe'
 is an integer rectangle on the EXIF-oriented image. A four-view head sheet and the older
 `photo_face.py` path remain useful where real side views are available.
 
-## Rebuild the sixteen-face library
+## Rebuild the 256-face library
 
 ```
 python3 tools/photo_face_library.py --batch data/humans/variation/photo_face_pilot.json \
@@ -76,30 +89,42 @@ The recipe pins the original sheet, crops, 478 detected landmarks per face and f
 Rebuilds need no landmark model or network. Changed fit inputs refit from the pinned landmarks;
 changed source bytes are refused until explicitly registered again. Initial import needs
 `--model`; the synthetic source batch also uses `--frontal`. Source and generated files carry
-provenance in `assets/LICENSES.md` and `synthetic_photo_face_pilot_2026`.
+provenance in `assets/LICENSES.md`, `synthetic_photo_face_pilot_2026` (the original sixteen)
+and `synthetic_photo_faces_256_2026` (240 additions). `--jobs 4` optionally parallelizes
+offline fitting/baking; the app performs neither operation at runtime.
 
 ## Budget and hardware measurement
 
-| Review detail | Shared face and hair atlases | Added RGBA8 texture memory, including mipmaps | Body LOD |
-|---|---|---|---|
-| Light | two at 512 × 512 | 2.67 MiB total | 2 |
-| Full | two at 1024 × 1024 | 10.67 MiB total | 0 |
+| Use | Shared face/hair textures loaded | Added RGBA8 memory, including mipmaps |
+|---|---|---|
+| Town crowd | one face sheet at 1024 × 1024 | 5.33 MiB |
+| Town nearby detail | at most one additional face page at 1024 × 1024 | 5.33 MiB; 10.67 MiB town total |
+| Review Light | one face page at 512 × 512; optional hair trial page | 1.33 MiB; 2.67 MiB with trial |
+| Review Full | one face page at 1024 × 1024; optional hair trial page | 5.33 MiB; 10.67 MiB with trial |
 
-Those are bounds for **all sixteen faces together**, excluding the existing body textures,
-geometry, driver overhead and page images. There are no added render passes for a face patch;
-the shared skin shader samples the face atlas and the review hair pass samples the source hair atlas with its photographed hairline mask. Eight pixels of duplicated border surround each
-full-size tile. The shader excludes the border from its UV transform. Light caps pixel ratio
-at 1 and leaves shadows off. Phones can additionally downsample via the existing skin loader.
+The town limits apply to the whole 256-entry catalog. Other pages remain on disk until
+needed. The review limits apply to its current sixteen-face page; navigation releases the
+previous page. Light uses body LOD2, pixel ratio 1 and no shadows. Full uses LOD0 for close
+inspection. Existing body/clothing textures, geometry, image decoding and driver overhead
+are outside these **added face-texture** bounds. The town keeps its existing crowd limits.
 
-**Measure on this PC** warms up, draws all faces for sixty measured frames and exports a JSON
-record with viewport, LOD, renderer name, draw calls, triangles, median and p95 frame intervals,
-submission time and atlas bytes. It explicitly flags software renderers. This isolates the
-pilot; it does not certify the complete town or substitute for a weak-PC hardware test.
+Each full tile is 256 square with eight pixels of duplicated border. The compact crowd
+sheet gives 64 pixels per face at 256 entries; the nearby page restores 256 pixels. If
+several different pages are visible nearby, only the nearest page is sharp and the others
+keep their smaller version. This is the deliberate low-memory compromise, not a change
+of face identity. The shader uses the same face sampler when switching detail.
 
-One pair of atlases supports up to 64 entries without code changes (full two at 2048²,
-42.67 MiB total; light two at 1024², 10.67 MiB total). Expansion should use bounded,
-nearby pages before population rollout. Unlimited
-photo textures retained for the whole page's lifetime are not a solution to the memory budget.
+**Measure on this PC** warms up, draws the current sixteen heads for sixty measured
+frames, and exports renderer, viewport, LOD, calls, triangles, median/p95 intervals,
+submission time, catalog/page counts and atlas bytes. A 256-entry catalog does not mean
+256 people are drawn in that measurement. Software renderers are labelled explicitly.
+The measurement does not certify the complete town or replace a real weak-PC GPU test.
+
+The importer refuses a 257th entry and checks actual image dimensions and hashes. The
+runtime refuses oversized crowd/detail metadata; decoded detail dimensions are checked
+before upload. One resident-or-loading slot and page-failure/late-delivery behavior have
+executable regression checks. Whole-town GPU timing and visual acceptance remain required
+before making the opt-in population preview the default.
 
 ## What still needs review
 

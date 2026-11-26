@@ -51,7 +51,7 @@ class ImportBoundaries(unittest.TestCase):
             with self.assertRaises(ValueError):P.read_photo(path,crop)
 
     def test_duplicate_ids_and_capacity_fail_before_output(self):
-        for faces in ([self.entry()]*2,[{**self.entry(),'id':f'face_{i}'} for i in range(65)]):
+        for faces in ([self.entry()]*2,[{**self.entry(),'id':f'face_{i}'} for i in range(257)]):
             with self.assertRaises(ValueError):P.build({'faces':faces},self.root/'review')
         self.assertFalse((self.root/'review').exists())
 

@@ -44,6 +44,7 @@
  * confidence.js requires of a hook it chains beneath (and as fabric.js does).
  */
 import * as THREE from 'three';
+import { PhotoFacePages, PHOTO_FACE_BUDGET } from './photo-face-pages.js';
 import { dressLooks, EYE_COLOUR } from './human-looks.js';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
 import { setLidRest } from './human-variation.js';
@@ -1132,6 +1133,25 @@ export const SHEET_FETCH = Object.freeze({
 const sheets = new Map(), arriving = new Set(), fetching = new Set(), waiting = new Map();
 /** Resolves once every skin sheet asked for so far has arrived, or failed its first tries: a still waits on it. */
 export function likenessSheetsReady() { return Promise.all([...arriving]).then(() => undefined); }
+const photoPages = new PhotoFacePages({
+  async load(page) {
+    const response = await fetch(page.url);
+    if (!response.ok) throw Error('Photo detail page unavailable');
+    const bitmap = await createImageBitmap(await response.blob(), { imageOrientation: 'none' });
+    if (bitmap.width > PHOTO_FACE_BUDGET.pageEdge || bitmap.height > PHOTO_FACE_BUDGET.pageEdge
+        || Math.ceil(bitmap.width * bitmap.height * 4 * 4 / 3) !== page.bytes) {
+      bitmap.close(); throw Error('Photo detail page exceeds its declared budget');
+    }
+    const texture = new THREE.Texture(bitmap);
+    texture.flipY = false; texture.colorSpace = THREE.SRGBColorSpace;
+    texture.anisotropy = 2; texture.needsUpdate = true;
+    return texture;
+  },
+  dispose(texture) { texture.dispose(); texture.image?.close?.(); texture.image = null; },
+});
+/** Photo detail is separate from permanent historical likenesses and their existing cache. */
+export const photoFaceTextureStats = () => photoPages.stats();
+export const photoFacePagesReady = () => photoPages.ready();
 function likenessSheet(url) {
   if (typeof document === 'undefined') return null;   // no page (a unit test): the uniforms alone
   let t = sheets.get(url);
@@ -1246,7 +1266,9 @@ export function libraryFaceLayout(face) {
   if (x + t > W || y + t > H) return null;
   const [u0, v0, u1, v1] = FACE_LIBRARY.box;
   const lines = Number.isFinite(face.lines) ? Math.min(1, Math.max(0, face.lines)) : 1;
+  const detail = face.detail ? libraryFaceLayout({ ...face.detail, gain: g, lines }) : null;
   return { url: face.url, at: [(x + pad) / W, (y + pad) / H, (t - 2 * pad) / W / (u1 - u0), (t - 2 * pad) / H / (v1 - v0)], gain: g.slice(), lines,
+    ...(detail ? { detail: { ...detail, bytes: face.detail.bytes } } : {}),
     key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}${pad ? `:pad${pad}` : ''}` };   // the sheet too: the same place on another sheet is another face
 }
 
@@ -1267,6 +1289,27 @@ function setLibraryFace(uniforms, lib) {
   if (!who) waiting.set(lib.url, who = new Set());
   if (who.size >= 256) for (const ref of who) if (!ref.deref()) who.delete(ref);   // materials since let go
   who.add(new WeakRef(uniforms));
+}
+
+function watchPhotoPage(mesh, root, lib) {
+  if (!lib?.detail || mesh.userData.chiPhotoPageWatch) return;
+  mesh.userData.chiPhotoPageWatch = true;
+  const previous = mesh.onBeforeRender, head = root.getObjectByName('head') ?? root;
+  const at = new THREE.Vector3(), eye = new THREE.Vector3();
+  // The ordinary crowd sheet is permanent and small; only one sharper page can be
+  // resident or loading. Rebind before every draw so evicted maps cannot be re-uploaded.
+  const crowd = typeof document === 'undefined' ? null : likenessSheet(lib.url);
+  mesh.onBeforeRender = function (renderer, scene, camera, ...args) {
+    previous?.call(this, renderer, scene, camera, ...args);
+    const uniforms = patched.get(this.material);
+    if (!uniforms?.chiFaceLib) return;
+    const distance = head.getWorldPosition(at).distanceTo(camera.getWorldPosition(eye));
+    photoPages.demand(lib.detail, distance);
+    const sharp = distance <= PHOTO_FACE_BUDGET.nearM ? photoPages.get(lib.detail.url) : null;
+    uniforms.chiFaceLib.value = sharp ?? crowd;
+    uniforms.chiFaceLibAt.value.set(...(sharp ? lib.detail.at : lib.at));
+    uniforms.chiFaceLibGain.value.w = (sharp ?? crowd)?.image ? 1 : 0;
+  };
 }
 
 function setLikeness(uniforms, like) {
@@ -1515,6 +1558,7 @@ export function dressSkin(root, person = {}) {
         fineSkin(mesh, root, look.like);
         teethSkin(mesh, root, look.like, person);
         watchHat(mesh, root, look);
+        watchPhotoPage(mesh, root, look.lib);
         dressed[m.name] = surface;
         continue;
       }
