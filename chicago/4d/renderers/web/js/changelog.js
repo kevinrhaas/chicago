@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3248, ts: '2026-11-26T06:13:27.342Z', date: 'Nov 26, 2026, 12:13 AM CT', title: 'Jump to any jaunt stop; spinners while a scene loads', kind: 'feature',
+    items: [
+      'A new Stops key on the jaunt panel lists the route\'s stops, numbered, with the one you are at marked. Tap any stop to go straight there, back or ahead.',
+      'Where a choice decides the way on, the list stops at that choice and says so.',
+      'Start, Replay and Restart, and the key that took you to a stop, show a small spinning ring while the jaunt or the stop\'s scene is still loading. So does Listen while its voice is still arriving.',
+      'With a mouse, looking up no longer gets stuck partway after a jaunt has turned your view for you.',
+      'An empty box no longer shows under the travel choice when nothing is being read aloud.',
+    ] },
   { v: 3247, ts: '2026-11-26T06:02:02.011Z', date: 'Nov 26, 2026, 12:02 AM CT', title: 'Every jaunt stop ends by inviting you on, or to look around', kind: 'improvement',
     items: [
       'Each stop in every jaunt now closes with a short line from the narrator: look around as long as you like, then go on; at a choice, choose; at the last stop, a last look.',
