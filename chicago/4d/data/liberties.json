@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1239,
+  "count": 1240,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -81338,6 +81338,41 @@
         "T-3768",
         "T-3746",
         "T-3761"
+      ]
+    },
+    {
+      "id": "L-k01-2130-murdoch-3730",
+      "title": "2130 Prairie through the two 2140 photographs' cameras: its cone lowered, its south flank laid in the front's stone, its street gable and missing porch written into both match records",
+      "section": "per_subject",
+      "subjects": [
+        "murdoch_house_2130_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-26",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "This work (the S16 package) solves the cameras of the two pictures that show the Murdoch house past 2140's north side — the Chicagology photograph from the south-east corner of Prairie and 22nd Street and the Glessner House blog's Van Osdel print (the murdoch house 2130 prairie data) — renders the house through each with the photo match tool, and changes what both pictures read differently from the record and K01 can already build. The tower's cone falls from 2.0 rise to 1 run to 1.6, about 1.1 m lower, which both pictures' cones agree on. The south flank is laid in the front's rock-faced stone its whole length (stone front flanks), where earlier work had laid K03 brick: the Chicagology photograph shows the stone round the corner and along the flank as far as 2140 lets it be seen, and sheet 35 of the 1911 Sanborn colours the main body's whole south edge blue. **What is read, not invented.** Through the Chicagology camera (7.4 px RMS on a 2000 px print): the cone's apex where its edges converge behind the lamp head, the stone on the flank, its second-storey light in place. Through the Van Osdel camera (3.4 px RMS on a 675 px copy): the cone's apex and finial. From sheet 35 at full size: the diagonal between the blue and the pink runs from the south wall's rear corner (column 622, row 1518) to the north wall at about column 684, so the south flank is stone to the rear and the north flank's front 10.1 m is stone. **What is invented.** The cone's 1.6 is fitted to two apexes, one of them hidden behind a lamp head and the other about thirteen pixels a metre; it is good to about 0.2 m. Both cameras' distances along their lines of sight are soft (they trade against focal length; the Chicagology eye is held at the corner its record names, the Van Osdel eye on Prairie's east street line); places across the line of sight are good to 0.2 to 0.3 m. **What is still not as the photographs show** (written in both match records, `open`): neither picture shows a gable on the street front, which the build carries up to 15.4 m beside the tower's cone; both show the south flank rising into a stone gable over the front part (apex about 13.5 m, about 2.3 m behind the front, one attic light) under a roof whose ridge runs along the avenue to the cone — a side-gabled front block that K01's shaped gable and hip do not stand. The columned porch across the front's south end is still not built (`“2130 Prairie, the Murdoch house, refined from the district draft onto K01: its plan off the 1911 sheet, its stone front, street gable and round tower off the two photographs of 2140 next door, the rest the kits'”`). The Chicagology photograph's one visible stack stands on that ridge beside the cone, where none is built. The north flank's stone (the sheet's front 10.1 m) is not laid: K01's stone front flanks takes one stopping length for both walls, and neither picture sees the north flank."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a K01 roof that stands a side-gabled front block (a ridge along the street from a gable on the flank to the tower) behind a front with no street gable, and a recessed porch under a front; then both cameras re-run; a to (m) per wall would lay the north flank's stone."
+        },
+        {
+          "label": "Review",
+          "text": "the murdoch house 2130 prairie data (both match records, verdict `differs`); the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-26 (T-3730)."
+        }
+      ],
+      "work_refs": [
+        "T-1927",
+        "T-1837",
+        "T-3730",
+        "T-3729"
       ]
     },
     {

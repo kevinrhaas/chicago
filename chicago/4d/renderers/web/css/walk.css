@@ -1990,6 +1990,7 @@ ol.cites ul.cite-lim-not li { opacity: .95; }
   padding: 5px 9px;
 }
 .setting-button:hover { background: rgb(255 255 255 / 14%); }
+a.setting-button { text-decoration: none; display: inline-block; } /* T-3750: a link styled as the row's button */
 
 .keys { display: grid; grid-template-columns: auto 1fr; gap: 7px 13px; margin: 0; }
 /* [hidden] is display:none at UA-stylesheet strength; any display rule on the

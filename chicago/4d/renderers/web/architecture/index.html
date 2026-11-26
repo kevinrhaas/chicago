@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Architecture · 4D Chicago</title>
+<meta name="description" content="The building kits behind 4D Chicago and the houses built from them: each kit's measured parts and specimen in 3D, and every house that uses it. For architects, historians and modellers.">
+<meta name="theme-color" content="#0A1426">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='17' fill='%230A1426' stroke='%238CF5A8'/%3E%3Cpath d='M11 28V17l9-6 9 6v11M16 28v-7h8v7' fill='none' stroke='%238CF5A8' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="architecture.css">
+<!-- T-3750: the Architecture site, for expert users, at its own link (/4d/architecture/).
+     Its data is DERIVED at publish by tools/architecture_site.py into data.json, specimens/
+     and studies/ beside this page; the houses' models are the town's own, read from
+     ../../data/gltf/. Open to anyone with the link (the owner, 2026-11-26). -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "../vendor/three-0.185.1/three.module.js",
+    "three/addons/": "../vendor/three-0.185.1/addons/"
+  }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="field" aria-hidden="true"></div>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#kits" data-route="kits">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor"/><path d="M11 28V17l9-6 9 6v11M16 28v-7h8v7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <span>CHICAGO 4D <b>ARCHITECTURE</b></span>
+    </a>
+    <nav class="menu" aria-label="Sections">
+      <a href="#kits" data-route="kits">Kits</a>
+      <a href="#houses" data-route="houses">Buildings</a>
+      <a href="#about" data-route="about">About</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+  <p id="status" class="status" role="status">Loading the kits…</p>
+  <div id="view"></div>
+</main>
+<footer class="foot wrap">
+  <p>4D Chicago · <a href="../../../technicians/">For technicians</a> · <a href="../../1904/">Walk 1904</a> · <a href="https://github.com/kevinrhaas/chicago">The repository</a></p>
+  <p class="mono dim" id="built"></p>
+</footer>
+<script type="module" src="architecture.js"></script>
+</body>
+</html>

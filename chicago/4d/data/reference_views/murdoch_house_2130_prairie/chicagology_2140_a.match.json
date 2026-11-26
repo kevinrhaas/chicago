@@ -1,0 +1,54 @@
+{
+  "structure_id": "murdoch_house_2130_prairie",
+  "view": "chicagology_2140_a",
+  "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
+  "glb_sha256": "571a269aa70b7121f46b168d805c10b28d6a721cc6356fc356977d6255d4150d",
+  "camera_sha256": "4591f702d0147a2cb2300a4bbcab57eacde7a11268a7db9172fdb2effa80e6c6",
+  "photo_sha256": "acefafb387ad9aab41983d131a1e9aa598082c73b86ba154bd4462bccb365c27",
+  "side_by_side": "docs/RESEARCH/photo-match/murdoch_house_2130_prairie/chicagology_2140_a-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the tower's lights, courses and drum (T-3729's build, on this camera): the south-east lights of all three stages at x 1745-1790 px, the east lights at the drum's right edge (x 1830-1845), the cone's eave course at y 796-808 and the drum's edge at x 1850 stand where the print draws them, within about 10 px (0.2 m)",
+      "status": "fixed"
+    },
+    {
+      "what": "the tower's cone: built at 2.0 rise to 1 run its apex stood about 60 px (1.2 m) over the point the print's cone edges converge on behind the lamp head (about y 615); now 1.6 to 1, its apex within about 0.2 m of it",
+      "status": "fixed"
+    },
+    {
+      "what": "the south flank's front part: laid in K03 buff brick where the print shows the front's rock-faced coursed ashlar carried round onto it (x 1460-1585 px, its second-storey light at x 1490-1530, which the build's south light matches in place); now laid in the same rock-faced stone its whole length (stone_front.flanks south), as sheet 35's blue along the whole south edge reads",
+      "status": "fixed"
+    },
+    {
+      "what": "the second-storey light on the front's south bay (x 1600-1620 px, y 930-1010) and the south flank's second-storey light (x 1490-1530): in place within about 15 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the stack: the print's one visible stack stands on the ridge just left of the tower's cone (x 1598-1645 px, top about y 675), short and broad; the build's stacks stand at u 13.0 and u 3.0, far behind it, and none stands there (with the roof over the front, above, it moves with that roof)",
+      "status": "open"
+    },
+    {
+      "what": "the tone of the stone: the tower and front print mid-grey, as dark as 2140's brick, where the render's Lemont is pale; the print is monochrome under an overcast sky and the Van Osdel print shows the same stone near white in sun, so its colour is not shown",
+      "status": "not shown"
+    },
+    {
+      "what": "the iron railing on its curb along the street and the pier at the lot line (x about 1770 px, behind the lamp post): in place; the railing's pattern and the pier's cap are the kits', at the print's resolution behind the lamp",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flanks behind the front, the rear and the rear range: hidden by 2140",
+      "status": "not shown"
+    },
+    {
+      "what": "the roof over the front: the build carries the front up as a steep street gable to 15.4 m (shaped_gable), its apex standing in the sky beside the tower's cone; neither picture shows any gable on the street front. Both show instead the south flank rising into a gable of rock-faced stone over its front part (the Chicagology print: its apex at about (1487, 662) px, on this camera about 13.5 m over grade and 2.3 m behind the front, with one attic light in it at x 1460-1490, y 790-860) and a slated roof whose ridge runs along the avenue from that apex to the tower's cone (near level at y 690-700 across x 1490-1690), its east slope falling to the front's eave. A side-gabled front block behind the tower, which K01's shaped_gable and hip do not stand; one difference, both pictures",
+      "status": "open"
+    },
+    {
+      "what": "the columned porch across the front's south end (posts and an entablature at about the principal floor's head, the Chicagology print's x 1460-1680 px, y 1030-1200, the Van Osdel print's x 546-575, y 399-440): not built, the door stands bare at the top of the stoop (L-k01-2130-murdoch-3729: no K01 part stands a recessed porch under a front)",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-3730, 2026-11-26: the side-by-side read element by element against the picture on its solved camera after the cone and the south flank were rebuilt; two differences a street visitor would notice stay open (the front's roof and the porch), both needing K01 parts this run could not add"
+}
