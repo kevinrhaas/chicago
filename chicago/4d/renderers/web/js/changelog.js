@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3262, ts: '2026-11-26T15:46:35.656Z', date: 'Nov 26, 2026, 9:46 AM CT', title: 'First Fort Dearborn tour read aloud at every age', kind: 'improvement',
+    items: [
+      'Fort Dearborn, Building by Building is now read aloud by the narrator in its tellings for ages 8-10, 14-15 and 16-17, as the main telling already was.',
+    ] },
   { v: 3261, ts: '2026-11-26T15:41:26.160Z', date: 'Nov 26, 2026, 9:41 AM CT', title: '2123 Prairie\'s basement light beside its bow, where its photograph puts it', kind: 'fix',
     items: [
       'The basement light beside 2123 Prairie\'s bow now stands half a metre north, off the window over it, where the Armour photograph shows its opening.',
