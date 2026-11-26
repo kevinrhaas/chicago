@@ -14,12 +14,13 @@ Reads the hand-written tales in docs/RESEARCH/tales-3553/<scene>/*.txt and write
 data/tales/<scene>.json, which renderers/web/js/tales.js fetches the first time a visitor
 asks someone for a story:
 
-  tales     the library: [{id, roles, sex?, age?, from?, to?, title, text[], meet?}]
+  tales     the library: [{id, roles, sex?, age?, origin?, from?, to?, title, text[], meet?}]
   personal  {person id: [tale]}: a named person's own tales, told first
-  tellers   {person id: "role,role/sex[/c]"}: every figure the town can draw (the scene's
-            instances and the residents its days call out of their doors), with the roles
-            whose tales suit them, their sex (from the figure they are drawn as, else their
-            record) and /c for a child
+  tellers   {person id: "role,role/sex[/c][/a<age>][/o<origin>]"}: every figure the town can
+            draw (the scene's instances and the residents its days call out of their doors),
+            with the roles whose tales suit them, their sex (from the figure they are drawn as,
+            else their record), /c for a child, their age and where they come from, where the
+            record says
   roles     {role: count of tales}, for the gate
   asks      "Ask a question" (the owner, 2026-11-16: "add ask a question to everyone and give 5
             different options for everyone ... allow one or two follow on questions"):
@@ -41,6 +42,20 @@ asks someone for a story:
 A tale is a reconstruction told in the teller's voice, not a source; the liberty is
 L-tales-3553 in docs/LIBERTIES.md. Nothing in a tale may postdate its scene's date.
 
+Who may tell what (the owner, 2026-11-26: Louis Ream, a boy of sixteen, "recounts his World's
+Fair experience from a female perspective ... Check all ... and grade each story to age and
+gender and situation"; and an 1871 woman who shoved lumber). A tale or question is told by a
+teller one of whose roles it names, AND who fits all of:
+  sex:     m or f. Given, or read from how the teller speaks of themselves ("my husband", "when
+           I was a girl": SELF_F / SELF_M), or else from its roles when every role that only one
+           sex holds in the town is the same sex (an "irish" lumber shover is a workman).
+           `sex: any` keeps a tale whose roles lean one way open to both.
+  age:     low-high in years at the scene date, either end open ("40-", "-19").
+  origin:  where the teller comes from, as ORIGIN codes (or a group: scandinavian, british,
+           american, foreign): a Swedish maid's Thursday is a Swedish maid's.
+The build refuses a tale that speaks as one sex and is open to the other, and one that speaks of
+a husband or wife while a child may tell it.
+
   python3 tools/build_tales.py            write data/tales/*.json
   python3 tools/build_tales.py --check    exit 1 if a written file differs from a rebuild
 """
@@ -57,7 +72,7 @@ SRC = ROOT / 'docs/RESEARCH/tales-3553'
 ASKS = ROOT / 'docs/RESEARCH/asks-3553'
 OUT = ROOT / 'data/tales'
 SCENES = ('1812', '1835', '1871', '1904')
-FIELDS = {'roles', 'for', 'sex', 'age', 'title', 'meet', 'from', 'to'}
+FIELDS = {'roles', 'for', 'sex', 'age', 'origin', 'title', 'meet', 'from', 'to'}
 
 # The figure a person is drawn as says what the visitor sees: a woman's figure tells a
 # woman's tale. Asset ids from data/humans/inside_<scene>.json.
@@ -97,7 +112,7 @@ def parse(path: Path) -> list[dict]:
     return out
 
 
-ASK_FIELDS = {'roles', 'for', 'sex', 'meet', 'q'}
+ASK_FIELDS = {'roles', 'for', 'sex', 'age', 'origin', 'meet', 'q'}
 
 # What a tale or a question is about, read from its words: (code, pattern). An item carries the
 # (at most three) codes its text matches most.
@@ -418,6 +433,139 @@ def drawable(scene: str) -> dict:
     return out, {x['person']: x for x in inside.get('people', [])}
 
 
+# ---- who may tell it ------------------------------------------------------------------ #
+
+# How a teller speaks of themselves as one sex. Read across a whole tale or question (with its
+# follow-ups), so "my husband says" in any paragraph makes it a woman's.
+SELF_F = re.compile(r"\bI was (?:a |only a )?(?:little |young |small )?girl\b|\bas a (?:little )?girl\b|\bwhen I was a girl\b"
+                    r"|\bmy (?:late )?husband\b|\bI am (?:a |an )?(?:widow|woman|girl|wife|old woman)\b|\bwhen I am (?:a |an )?(?:old )?woman\b"
+                    r"|\b(?:we|us) (?:women|girls)\b|\bmy young man\b|\bmy beau\b|\bI came out\b|\bmy coming out\b"
+                    r"|\bmy (?:corset|stays|petticoats?|bonnet)\b|\ba (?:girl|woman) like me\b|\bI married him\b|\bI was a bride\b", re.I)
+SELF_M = re.compile(r"\bI was (?:a |only a )?(?:little |young |small )?(?:boy|lad)\b|\bas a (?:little )?(?:boy|lad)\b|\bwhen I was a (?:boy|lad)\b"
+                    r"|\bmy (?:late )?wife\b|\bthe wife\b|\bI am (?:a |an )?(?:man|widower|bachelor|husband|old man)\b|\bwhen I am (?:a )?man\b"
+                    r"|\b(?:we|us) men\b|\ba (?:man|fellow|boy) like me\b|\bI married her\b|\bmy (?:beard|whiskers|razor|moustache)\b"
+                    r"|\bI was a young man\b|\bI enlisted\b", re.I)
+# A grown person's life: never told by a child.
+WED = re.compile(r"\bmy (?:late )?(?:husband|wife)\b|\bthe wife\b|\bmy youngest\b|\bmy (?:eldest|own) (?:boy|girl|son|daughter)\b", re.I)
+KID_ROLES = {'child', 'toddler', 'potawatomi_child'}
+
+# Where a teller comes from, as a code: 1835 by community, 1871 by community and birthplace,
+# 1904 by birthplace.
+ORIGIN_GROUPS = {
+    'scandinavian': ['swedish', 'norwegian', 'danish'],
+    'british': ['english', 'scottish', 'welsh', 'canadian', 'british'],
+    'american': ['american', 'yankee', 'new_york', 'southern'],
+}
+ORIGINS = {'irish', 'german', 'swedish', 'norwegian', 'danish', 'bohemian', 'english', 'scottish', 'welsh', 'canadian',
+           'british', 'french', 'austrian', 'american', 'yankee', 'new_york', 'southern', 'french_canadian', 'metis',
+           'native', 'black'}
+ORIGIN_GROUPS['foreign'] = sorted(ORIGINS - set(ORIGIN_GROUPS['american']) - {'black', 'native'})
+US_STATES = {'Illinois', 'Ohio', 'New York', 'Iowa', 'Massachusetts', 'Pennsylvania', 'Wisconsin', 'Indiana', 'Maine',
+             'Michigan', 'Maryland', 'Connecticut', 'United States', 'Vermont', 'Louisiana', 'South Dakota',
+             'New Hampshire', 'Kentucky', 'Missouri', 'Minnesota', 'New Jersey', 'Virginia', 'Rhode Island',
+             'Tennessee', 'California', 'Kansas', 'Nebraska', 'Georgia', 'Delaware', 'Alabama', 'Mississippi'}
+BORN_ORIGIN = {'Ireland': 'irish', 'Sweden': 'swedish', 'Norway': 'norwegian', 'Denmark': 'danish', 'Germany': 'german',
+               'England': 'english', 'Scotland': 'scottish', 'Wales': 'welsh', 'Canada': 'canadian', 'France': 'french',
+               'Austria': 'austrian', 'Bohemia': 'bohemian', 'Prussia': 'german', 'Bavaria': 'german', 'Saxony': 'german'}
+COMMUNITY_ORIGIN_1871 = {'American-born': 'american', 'German': 'german', 'Irish': 'irish', 'Bohemian': 'bohemian',
+                         'Black Chicagoan': 'black'}
+ORIGIN_1835_CODES = {'yankee', 'new_york', 'irish', 'british', 'french_canadian', 'native', 'southern', 'metis'}
+
+
+def origin_of(scene: str, row: dict, person: dict) -> str | None:
+    if scene == '1835':
+        com = row.get('community') or ''
+        return 'black' if com == 'free_black' else (com if com in ORIGIN_1835_CODES else None)
+    if scene == '1871':
+        facts = {f.get('label'): f.get('value') for f in person.get('card_facts') or [] if isinstance(f, dict)}
+        com, born = facts.get('Community') or '', facts.get('Born') or ''
+        place = born.split(',')[-1].strip()
+        if com == 'Scandinavian':
+            return BORN_ORIGIN.get(place, 'swedish' if 'Swed' in born else 'norwegian' if 'Norw' in born else 'danish' if 'Den' in born else None)
+        if com == 'British and Canadian':
+            return {'Scotland': 'scottish', 'England': 'english', 'Wales': 'welsh', 'Canada': 'canadian'}.get(place, 'british')
+        return COMMUNITY_ORIGIN_1871.get(com)
+    if scene == '1904':
+        m = re.search(r'born [A-Z][a-z]+ \d{4}[^,.;]*, in ([^,(.;]+?)\s*[,(.;]', person.get('note') or '')
+        place = m.group(1).strip() if m else ''
+        return 'american' if place in US_STATES else BORN_ORIGIN.get(place)
+    return None
+
+
+def parse_age(text: str, at: str, problems: list) -> list | None:
+    m = re.fullmatch(r'\s*(\d+)?\s*-\s*(\d+)?\s*', text or '')
+    if not m or not (m.group(1) or m.group(2)):
+        problems.append(f'{at}: age {text!r} is not low-high, low- or -high')
+        return None
+    return [int(m.group(1)) if m.group(1) else None, int(m.group(2)) if m.group(2) else None]
+
+
+def parse_origin(text: str, at: str, problems: list) -> list:
+    out = []
+    for code in (x.strip() for x in (text or '').split(',') if x.strip()):
+        if code in ORIGIN_GROUPS:
+            out += ORIGIN_GROUPS[code]
+        elif code in ORIGINS:
+            out.append(code)
+        else:
+            problems.append(f'{at}: origin {code!r} is not one of {sorted(ORIGINS | set(ORIGIN_GROUPS))}')
+    return sorted(set(out))
+
+
+def read_key(key: str) -> dict:
+    roles, sex, *rest = key.split('/')
+    who = {'roles': roles.split(','), 'sex': sex, 'child': False, 'age': None, 'origin': None}
+    for r in rest:
+        if r == 'c':
+            who['child'] = True
+        elif re.fullmatch(r'a\d+', r):
+            who['age'] = int(r[1:])
+        elif r.startswith('o'):
+            who['origin'] = r[1:]
+    return who
+
+
+def suits(item: dict, who: dict) -> bool:
+    """renderers/web/js/tales.js `suits`, the same rule: sex, age and origin beyond the roles."""
+    if item.get('sex') and item['sex'] != who['sex']:
+        return False
+    low, high = item.get('age') or [None, None]
+    if who['age'] is not None and ((low is not None and who['age'] < low) or (high is not None and who['age'] > high)):
+        return False
+    if item.get('origin') and who['origin'] and who['origin'] not in item['origin']:
+        return False
+    return True
+
+
+def fit(item: dict, body: str, at: str, role_sex: dict, problems: list) -> None:
+    """Settle who may tell `item` (a parsed tale or question, its words in `body`): its sex,
+    age and origin, as the module's head says; and refuse what can reach the wrong teller."""
+    roles = set(item.get('roles') or [])
+    f, m = SELF_F.search(body), SELF_M.search(body)
+    sex = item.get('sex')
+    if sex == 'any':
+        sex = None
+    elif not sex:
+        if f and not m:
+            sex = 'f'
+        elif m and not f:
+            sex = 'm'
+        elif roles:
+            lean = {next(iter(role_sex[r])) for r in roles if len(role_sex.get(r, ())) == 1}
+            if len(lean) == 1:
+                sex = lean.pop()
+    if sex in ('m', 'f'):
+        item['sex'] = sex
+    else:
+        item.pop('sex', None)
+    if f and sex != 'f' and not item.get('for'):
+        problems.append(f'{at}: {item["id"]} speaks as a woman ({f.group(0)!r}) but a man may tell it; give it sex: f or reword it')
+    if m and sex != 'm' and not item.get('for'):
+        problems.append(f'{at}: {item["id"]} speaks as a man ({m.group(0)!r}) but a woman may tell it; give it sex: m or reword it')
+    if roles & KID_ROLES and (w := WED.search(body)) and not (item.get('age') and (item['age'][0] or 0) >= 16):
+        problems.append(f'{at}: {item["id"]} speaks of {w.group(0)!r} but a child may tell it')
+
+
 # ---- who tells which tales ----------------------------------------------------------- #
 
 def roles_1812(row, person, sex, age, child):
@@ -544,30 +692,46 @@ def roles_1871(person, sex, child, routine):
     return list(dict.fromkeys(out))
 
 
+# A servant's own place in the house (2026-11-26): a butler does not say "I am a footman", nor a
+# coachman "one day I will be a coachman". The job role comes first, the house's wider one after.
+JOBS_1904 = [(r'governess', 'governess'), (r'companion', 'companion'), (r'nurse', 'nursemaid'),
+             (r'ladies maid|lady.s maid', 'ladies_maid'), (r'groom|stable|horseman', 'groom'), (r'butler', 'butler'),
+             (r'footman', 'footman'), (r'valet', 'valet'), (r'steward', 'steward'), (r'helper', 'houseman')]
+
+
 def roles_1904(row, person, sex, age, child):
     occ = (row.get('occupation') or '').lower()
     rel = row.get('relationship') or ''
     if child:
         return ['child']
+    job = [r for pat, r in JOBS_1904 if re.search(pat, occ)][:1]
     if re.search(r'nurse|governess|companion', occ):
-        return ['nurse']
+        return job + ['nurse']
     if re.search(r'cook', occ):
         return ['cook', 'maid'] if 'waitress' in occ else ['cook']
     if re.search(r'coachman|groom|horse|stable', occ):
-        return ['coachman']
+        return job + ['coachman']
     if 'laundress' in occ:
         return ['laundress', 'maid']
     if 'housekeeper' in occ:
         return ['housekeeper', 'maid']
     if re.search(r'maid|waitress', occ):
-        return ['maid']
+        return job + ['maid']
     if re.search(r'butler|footman|valet|steward|helper', occ):
-        return ['manservant']
+        return job + ['manservant']
     if rel == 'servant':
         return ['maid'] if sex == 'f' else ['manservant']
     if rel in ('son', 'daughter'):
-        return ['young_lady'] if sex == 'f' else ['young_man']
-    return ['lady'] if sex == 'f' else ['gentleman']
+        # A son or daughter of the house speaks as their age: a boy of thirteen still half a child,
+        # a daughter of forty a lady (2026-11-26).
+        young = ['young_lady'] if sex == 'f' else ['young_man']
+        if age is not None and age >= 30:
+            return ['lady'] if sex == 'f' else ['gentleman']
+        return young + ['child'] if age is not None and age < 16 else young
+    if sex == 'f':
+        # A wife speaks of her husband now; a lady at the head of her own house, of him gone.
+        return {'wife': ['wife', 'lady'], 'head': ['widow', 'lady']}.get(rel, ['lady'])
+    return ['gentleman']
 
 
 def tellers(scene: str) -> dict:
@@ -596,7 +760,9 @@ def tellers(scene: str) -> dict:
             roles = roles_1904(row, person, sex, age, child)
         if age is not None and age < 4:
             roles, child = ['toddler'], True  # a little one tells a little story
-        out[pid] = f"{','.join(roles)}/{sex}{'/c' if child else ''}"
+        origin = origin_of(scene, row, person)
+        out[pid] = (f"{','.join(roles)}/{sex}{'/c' if child else ''}"
+                    f"{f'/a{int(round(age))}' if age is not None else ''}{f'/o{origin}' if origin else ''}")
         facts[pid] = (roles, sex, child, age, row, person)
     return out, rows, facts
 
@@ -614,10 +780,12 @@ WIDER = {
     'laundress': ('labourer', 'townswoman'), 'officer': ('gentleman', 'lady'),
     'nurse': ('manservant', 'maid'), 'cook': ('manservant', 'maid'), 'coachman': ('manservant', 'maid'),
     'housekeeper': ('manservant', 'maid'), 'professional': ('townsman', 'townswoman'),
-    'clerk': ('townsman', 'townswoman'),
+    'clerk': ('townsman', 'townswoman'), 'merchant': ('townsman', 'townswoman'),
     # T-3690: 1871's (roles no other scene has).
     'german': ('tradesman', 'woman'), 'scandinavian': ('workman', 'woman'), 'bohemian': ('workman', 'woman'),
     'driver': ('workman', None), 'servant': (None, 'woman'),
+    # 1904's own places in the house (2026-11-26).
+    'nursemaid': (None, 'maid'), 'governess': (None, 'maid'), 'companion': (None, 'lady'),
 }
 
 
@@ -652,13 +820,13 @@ ASK_WIDER_1871 = {
 
 
 def widen(tell: dict, tales: list) -> dict:
-    def pool(roles, sex):
-        return sum(1 for t in tales if set(t['roles']) & roles and t.get('sex', sex) == sex)
+    def pool(roles, who):
+        return sum(1 for t in tales if set(t['roles']) & roles and suits(t, who))
     out = {}
     for pid, key in tell.items():
         roles, sex, *rest = key.split('/')
         have = roles.split(',')
-        if pool(set(have), sex) < POOL_MIN:
+        if pool(set(have), read_key(key)) < POOL_MIN:
             for r in list(have):
                 extra = WIDER.get(r, (None, None))[0 if sex == 'm' else 1]
                 if extra and extra not in have and any(extra in t['roles'] for t in tales):
@@ -667,23 +835,34 @@ def widen(tell: dict, tales: list) -> dict:
     return out
 
 
+def prepare(t: dict, body: str, at: str, role_sex: dict, problems: list) -> None:
+    """A parsed tale's or question's roles, age and origin read, then who may tell it settled."""
+    if not t.get('for'):
+        t['roles'] = [r.strip() for r in t.get('roles', '').split(',') if r.strip()]
+    if t.get('age'):
+        t['age'] = parse_age(t['age'], at, problems)
+    if t.get('origin'):
+        t['origin'] = parse_origin(t['origin'], at, problems)
+    fit(t, body, at, role_sex, problems)
+
+
 def build(scene: str) -> dict:
     src = SRC / scene
     tales, personal, problems = [], {}, []
+    tell, rows, facts = tellers(scene)
+    role_sex = {}
+    for key in tell.values():
+        roles, sex, *_ = key.split('/')
+        for r in roles.split(','):
+            role_sex.setdefault(r, set()).add(sex)
     for f in sorted(src.glob('*.txt')):
         for t in parse(f):
             at = t.pop('_at')
             if not t.get('title') or not t.get('text'):
                 problems.append(f'{at}: {t["id"]} needs a title and a story')
-            # A teller who speaks of "my wife" is a man, of "my husband" a woman, unless the tale says.
-            if not t.get('sex'):
-                body = ' '.join(t['text'])
-                if re.search(r'\bmy (late )?wife\b', body, re.I) and not re.search(r'\bmy (late )?husband\b', body, re.I):
-                    t['sex'] = 'm'
-                elif re.search(r'\bmy (late )?husband\b', body, re.I) and not re.search(r'\bmy (late )?wife\b', body, re.I):
-                    t['sex'] = 'f'
+            prepare(t, ' '.join([t.get('title', ''), *t.get('text', [])]), at, role_sex, problems)
             tale = {'id': t['id'], 'title': t['title'], 'text': t['text']}
-            for k in ('sex', 'age', 'from', 'to'):
+            for k in ('sex', 'age', 'origin', 'from', 'to'):
                 if t.get(k):
                     tale[k] = t[k]
             if t.get('meet'):
@@ -691,7 +870,7 @@ def build(scene: str) -> dict:
             if t.get('for'):
                 personal.setdefault(t['for'], []).append(tale)
             else:
-                tale['roles'] = [r.strip() for r in t.get('roles', '').split(',') if r.strip()]
+                tale['roles'] = t['roles']
                 if not tale['roles']:
                     problems.append(f'{at}: {t["id"]} names no roles')
                 tales.append({'id': tale['id'], 'roles': tale.pop('roles'), **tale})
@@ -706,26 +885,25 @@ def build(scene: str) -> dict:
                 problems.append(f'{at}: {t["id"]} needs a question (q:) and an answer')
             if not 1 <= len(t['more']) <= 2 or any(not m['q'] or not m['a'] for m in t['more']):
                 problems.append(f'{at}: {t["id"]} needs one or two follow-ups, each a ?? question and its answer')
-            if not t.get('sex'):
-                body = ' '.join([*t['a'], *(' '.join(m['a']) for m in t['more'])])
-                wife = re.search(r'\bmy (late )?wife\b', body, re.I)
-                husband = re.search(r'\bmy (late )?husband\b', body, re.I)
-                if wife and not husband:
-                    t['sex'] = 'm'
-                elif husband and not wife:
-                    t['sex'] = 'f'
+            prepare(t, ' '.join([*t['a'], *(' '.join(m['a']) for m in t['more'])]), at, role_sex, problems)
             ask = {'id': t['id'], 'q': t.get('q', ''), 'a': t['a'], 'more': t['more']}
-            for k in ('sex', 'meet'):
+            for k in ('sex', 'age', 'origin', 'meet'):
                 if t.get(k):
                     ask[k] = t[k]
             if t.get('for'):
                 personal_asks.setdefault(t['for'], []).append(ask)
             else:
-                roles = [r.strip() for r in t.get('roles', '').split(',') if r.strip()]
+                roles = t['roles']
                 if not roles:
                     problems.append(f'{at}: {t["id"]} names no roles')
                 asks.append({'id': ask['id'], 'roles': roles, **ask})
-    tell, rows, facts = tellers(scene)
+    # A teller's age and origin ride on their row only where some tale or question asks for them.
+    items = [*tales, *asks]
+    use_age, use_origin = any(t.get('age') for t in items), any(t.get('origin') for t in items)
+    def trim(key):
+        head, rest = key.split('/')[:2], key.split('/')[2:]
+        return '/'.join(head + [x for x in rest if not ((x[:1] == 'a' and not use_age) or (x[:1] == 'o' and not use_origin))])
+    tell = {pid: trim(key) for pid, key in tell.items()}
     tell = widen(tell, tales)
     tempers = parse_tempers(ASKS / 'tempers.txt')
     hand = parse_personas(ASKS / scene / 'personas.txt')

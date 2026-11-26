@@ -30,6 +30,7 @@ The Washington Street one has been open two years on the West Side. It leaked, a
 
 ## s71-gm-grade
 roles: gentleman, tradesman, workman
+age: 30-
 title: The year they lifted the city
 
 When I came here the streets were at the lake's level and every spring they were a swamp. So the council raised the grade, four feet, eight feet, ten in places, and every man had to raise his house to meet it or live in a pit.
@@ -38,6 +39,7 @@ They jacked up the Tremont House, brick and all, with the guests still in it, an
 
 ## s71-gm-waterworks
 roles: gentleman, tradesman, lady
+age: 22-
 title: Clean water from two miles out
 
 You remember the water? We used to get fish in it. Little ones, out of the tap. The intake was at the shore where the river came out into the lake, and you can guess what the river carries.
@@ -94,6 +96,8 @@ Every engine in the city was there, and they fought it all night with the wind p
 
 ## s71-ts-clerk
 roles: tradesman, youth
+sex: m
+age: -35
 title: A clerk's wages
 
 I am a clerk in a commission house on South Water Street: grain, flour, pork. Twelve dollars a week, which is good, and I sleep in a boarding house on Wabash with four other clerks in two rooms.
@@ -102,6 +106,7 @@ On Sunday we walk. You go out on the lake shore by the Water Works, or up to Lin
 
 ## s71-wm-lumber
 roles: workman, irish, german, scandinavian
+sex: m
 title: Shoving lumber
 
 I shove lumber on the South Branch. The schooners come in from Michigan and Wisconsin loaded to the gunwales with pine boards, and we carry it off on our shoulders and pile it in the yards, a board at a time, from six in the morning till dark.
@@ -125,7 +130,8 @@ Six days I work, and on the seventh I sit on my own step with my pipe and nobody
 The children go off down to the river to see the boats, or out to the prairie at the end of the street to fly their kites. There is a wind today for kites. There has been a wind for a week.
 
 ## s71-ir-kilgubbin
-roles: irish, workman, woman
+roles: irish
+age: 25-
 title: Kilgubbin
 
 The respectable people call our part of the North Side by the river Kilgubbin, after a place in Cork, and they do not mean it kindly. Shanties and pigs and geese, they say. Well, the geese are good eating and the shanties were built by men who also built their houses.
@@ -133,7 +139,9 @@ The respectable people call our part of the North Side by the river Kilgubbin, a
 My father came over in forty-nine with nothing but the clothes on him. Now I have a house of my own on a lot I pay for by the month. It is a small house. But it is mine and it is in America.
 
 ## s71-ir-hollyfamily
-roles: irish, woman, servant
+roles: irish
+sex: f
+age: 25-
 title: Holy Family
 
 The church of the Holy Family on Twelfth Street is the biggest church in the city, they say, built by the Jesuits for the Irish of the West Side out of our pennies. The priest says it holds four thousand and on a Sunday morning it is full twice over.
@@ -141,7 +149,8 @@ The church of the Holy Family on Twelfth Street is the biggest church in the cit
 There is a school beside it now. My children go. They learn to read in English and to say their prayers in Latin, and they come home and tell me what everything means, as if I did not know.
 
 ## s71-de-oleary
-roles: irish, woman, child, workman
+roles: irish
+age: 20-
 title: The cows on DeKoven Street
 
 Down our street there are houses with a barn behind and a cow in it, and the women sell the milk to the neighbours. You pay a few cents and take your own can. It is cheaper than the milk wagon and you can see the cow you are getting it from.
@@ -149,7 +158,9 @@ Down our street there are houses with a barn behind and a cow in it, and the wom
 The barns are full of hay for the winter now, and the sheds of wood and coal, everything bone dry. My husband says a match in one of those alleys and the whole street would go. He says it every Sunday. Then he lights his pipe.
 
 ## s71-ge-northside
-roles: german, tradesman, workman, woman
+roles: german
+sex: m
+age: 22-
 title: The North Side
 
 On the North Side you can live your whole life in German: the church, the bakery, the newspaper, the Turnverein, the beer garden on a Sunday with the band playing and the children running about under the trees. The Yankees think a Sunday afternoon with music and a glass of lager is the road to ruin.
@@ -157,7 +168,8 @@ On the North Side you can live your whole life in German: the church, the bakery
 My father was a cabinet maker in Baden and I am a cabinet maker on Clark Street, and I make more in a week here than he made in a month. I have a vote and a lot of my own. On Sunday I sit in the garden with my family and nobody tells me I am going to hell for it except the people across the river.
 
 ## s71-ge-brewery
-roles: german, driver, workman
+roles: driver
+origin: german
 title: The brewery wagon
 
 I drive for a brewery on the North Side, and Sunday is our busy day, which some people find scandalous. The beer gardens want their kegs before three, when the band starts. The horses know the way better than I do.
@@ -165,7 +177,8 @@ I drive for a brewery on the North Side, and Sunday is our busy day, which some 
 More breweries in this city than I can count on two hands. Lager is a German drink and twenty years ago you could not buy it here. Now the Irish drink it, the Yankees drink it behind the curtains, and the temperance ladies stand on the corner and pray for me as I go by. I always tip my hat.
 
 ## s71-sc-milwaukee
-roles: scandinavian, workman, woman
+roles: scandinavian
+age: 22-
 title: On Milwaukee Avenue
 
 We came from Norway in sixty-six, on a sailing ship to Quebec and then by the lakes. My husband had a cousin on Milwaukee Avenue and that was all we knew of America: one cousin and the name of a street.
@@ -173,7 +186,8 @@ We came from Norway in sixty-six, on a sailing ship to Quebec and then by the la
 Now there are thousands of us out there, Norwegians and Swedes and Danes, with our own churches and our own newspaper. The men work in the planing mills and on the ships. I keep house and take in two boarders, which pays the rent. In winter it is like home. In summer it is hotter than any place God meant people to live.
 
 ## s71-bk-bohemia
-roles: bohemian, workman, woman
+roles: bohemian
+age: 20-
 title: Pilsen on the West Side
 
 The Bohemians live south of the Irish on the West Side, by the lumber yards where the men work. We have our own church, St. Wenceslaus, and a hall for the singing society, and the old women still wear their headscarves to market.
@@ -181,7 +195,8 @@ The Bohemians live south of the Irish on the West Side, by the lumber yards wher
 My husband shoves lumber like the Irish and gets paid the same, which is not much. But in Bohemia we would never have owned a house. Here we have two rooms, a cellar and a garden with cabbages in it, and the cabbages are doing well in all this sun, if nothing else is.
 
 ## s71-bl-quinn
-roles: black_resident, workman, woman
+roles: black_resident
+age: 16-
 title: Quinn Chapel
 
 Our church is Quinn Chapel, the African Methodist church. Before the war it was a station on the underground road: people hid in the basement on the way to Canada, and the congregation fed them and sent them on. Some of those people stayed and they are in the pews today.
@@ -190,6 +205,7 @@ There are not many of us in the city, a few thousand, most on the South Side by 
 
 ## s71-sv-dayout
 roles: servant
+origin: irish
 title: My afternoon out
 
 Every second Sunday I have from three o'clock until supper, and I walk. I go to see my sister, who is in service on Michigan Avenue, and we walk on the lake front and look at the ladies' bonnets and decide which ones we would buy.
@@ -243,3 +259,134 @@ title: The milk round
 I am up at three. Down to the dairy, load the cans, and out by five, every day God sends, Sundays included, because a baby does not know what day it is.
 
 The horse knows every stop. He stops at the door before I tell him and waits while I fill the jug and goes on again by himself. I could sleep on the seat and he would bring me home. Some mornings I think I have.
+
+# 2026-11-26: the women's tales of the city, told by any woman of it, wherever she came from
+# (the owner: an 1871 woman telling of shoving lumber "seemed off"; the men's work went back to
+# the men, and these were written so the women have stories of their own).
+
+## s71-wo-washday
+roles: woman, needlewoman
+age: 16-
+title: Washday tomorrow
+
+Tomorrow is Monday, and Monday is the wash. I will be up at four to fill the boiler, and with the cistern near dry the water comes from the hydrant at the corner, two buckets at a time, a dozen times over. The wash water does the floors after, and the floor water goes on the garden, what is left of it.
+
+By eight o'clock the whole street will have its sheets out. In a summer like this one they are dry in an hour and grey again in two, from the dust off the road. I do not know why I trouble. Yes, I do. My mother would turn in her grave at a grey sheet.
+
+## s71-wo-boarders
+roles: woman
+age: 25-
+title: Four boarders
+
+I keep four boarders, young men from the stores and the railroad offices, and I give them breakfast and supper and a clean bed, and they give me their board on Saturday, most weeks. They come in at all hours. One of them plays the flute. Sunday dinner is the only meal they all sit down to, and they eat as if they had been lost in the woods for a month.
+
+One asked me last week if I would lower his board, since he is out so much. I said I would lower it when the price of flour came down. The summer has seen to it that it will not. He is still here. They always stay.
+
+## s71-wo-lamps
+roles: woman, needlewoman, lady
+age: 16-
+title: Filling the lamps
+
+I fill the lamps in the morning, in daylight, on the back step, and I trim the wicks and wipe the chimneys, and I never carry a lit lamp near a curtain. The papers are full of lamps. A girl on the next street knocked one over in August and her whole kitchen went up before her father could get the pail.
+
+In a summer this dry you think about fire the way you think about the weather. You smell smoke and you go to the window. Last night half the street was out in the road in their nightclothes, watching the glow over the West Side. I did not sleep until it was out.
+
+## s71-wo-market
+roles: woman, lady
+age: 16-
+title: The Saturday market
+
+Yesterday I took my basket down to the market, where the farmers bring their wagons in from the country before light. Everything is dear this year. The potatoes are the size of walnuts and the farmers say the corn is half what it ought to be. Not a drop of rain since July. You can see it in their faces.
+
+I bought what I could and carried it home on the horse car. A woman beside me had a live goose under her arm, and it bit the conductor. Nobody else was sorry. You have to laugh, in a summer like this one, or you would sit down in the road and cry.
+
+## s71-wo-machine
+roles: woman, needlewoman
+age: 25-
+title: The sewing machine
+
+In the spring I bought a sewing machine, a dollar down and a dollar a week, from the agent who came round with his catalogue. It sits in the front room by the window like a piece of the parlour. My husband says it is the best thing we own, which is a fine thing for him to say, since he cannot thread it.
+
+I make the children's clothes on it now, and my own, and I take in plain sewing from the ladies on the next street: hems and sheets and pillow slips, at so much the piece. What took me a week by hand takes me an afternoon. With what it brings in I will have it paid for by Christmas.
+
+## s71-wo-letter
+roles: woman
+age: 16-
+title: A letter home
+
+My sister writes every month from the old place and asks when I am coming home. I write back and tell her about the Water Tower, and the horse cars, and the marble store on State Street with the plate glass windows. I do not tell her about the mud in the spring or the smoke in the summer or the smell of the river.
+
+She thinks Chicago is a city of palaces. Let her. In a way she is right. When I came here there was nothing on our street but two houses and a cow. Now there are thirty houses and the cow has gone, and I have a front step of my own to sit on of a Sunday.
+
+## s71-lady-parlour
+roles: lady
+title: The new parlour
+
+We moved into the new house on the Avenue in May, three storeys of brick with a stone front and a bay window, and I have done nothing since but furnish it. The parlour carpet came from New York. The piano came from Boston. The pier glass came from a shop on Lake Street and took four men to carry in.
+
+My husband says a house is a machine for spending money in. He is not wrong. But when the gas is lit in the evening and the curtains are drawn, and my daughter is at the piano, I think it is the prettiest room in the city. I have asked the girl to keep the windows shut. The dust this summer gets into everything.
+
+## s71-lady-relief
+roles: lady
+age: 30-
+title: The relief committee
+
+On Thursdays I sit with the ladies of the church sewing committee, and we make up bundles for the poor: flannel petticoats, children's shirts, stockings, blankets for the winter. The Relief and Aid people give them out in the wards where the families are worst off.
+
+There are women in this city, not a mile from my door, who have six children in one room and no coal laid by for the winter, and husbands who drink their wages on Saturday night. I did not know that when I came here as a bride. I know it now. I cannot do much. I can sew.
+
+## s71-yo-errand
+roles: youth
+title: Sunday errands
+
+On Sunday I am sent on all the errands, because my brothers are at the river and my sister is too little. This morning it was to the druggist for my mother's headache powders, and then to my aunt's on Clark Street with a pie, and then back for the dish.
+
+The whole city smells of smoke today from last night's fire. My aunt says it is a judgement. My mother says it is the dry weather. The druggist says it is bad for trade, because nobody comes out when the wind is like this. I think it is all three.
+
+## s71-yo-school
+roles: youth, child
+title: The high school
+
+I go to the public school, and next year, if I pass the examination, to the high school on the West Side, where they teach Latin and algebra and the natural sciences. My father did not go to school after he was ten. He wants us to go as long as we can.
+
+The examination is in the spring. I study at the kitchen table after supper with the lamp turned up, and my mother sits across from me with her mending and asks me questions out of the book. She does not know the answers. She pretends she does, so that I will not stop.
+
+## s71-ch-tap
+roles: child
+title: The water in the tap
+
+We have a tap in the yard now, and the water comes out of it clear, and Papa says it comes all the way from out under the lake, two miles, through a tunnel, and up the tall tower on the North Side. I asked how the water knows to come here. He said the engines push it.
+
+I went with my brother to see the tower. It is like a castle in a story, all white stone and little windows, and there is a pipe up the middle of it as tall as a church. I put my ear on the wall to hear the water. My brother said I was silly. Then he did it too.
+
+## s71-ch-toddler-bell
+roles: toddler
+title: The bell
+
+The bell goes dong, dong. Big bell. Up high.
+
+Then the horses go fast. Clatter clatter. I wave at the horses. Mama holds my hand very tight.
+
+## s71-ch-toddler-kitty
+roles: toddler
+title: The kitty
+
+We have a kitty. She is grey. She sleeps on the step in the sun.
+
+I pat her soft. She goes purr. Then she goes away. She always goes away.
+
+## s71-ch-toddler-cart
+roles: toddler
+title: The cart
+
+The man has a cart. The horse is brown. It says neigh.
+
+The man gave me an apple. A red one. I ate it all up. Not the middle.
+
+## s71-ch-toddler-bread
+roles: toddler
+title: Bread
+
+Mama makes bread. It goes in the oven. It smells good.
+
+I had the end. It was hot. I blew on it. Then I ate it.

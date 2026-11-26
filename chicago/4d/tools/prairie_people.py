@@ -56,7 +56,10 @@ def age_of(p):
 
 def casting(p):
     """Presentation of the reusable body, not an attested sex field."""
-    if p.get('relationship') in ('wife', 'daughter') or p['name'].startswith(('Mrs.', 'Miss ')) or p['id'] in FEMALE_MEMBERS:
+    # A card named by its census first name (T-3553) keeps the Blue Book's 'Mrs.' in its id.
+    if (p.get('relationship') in ('wife', 'daughter') or p['name'].startswith(('Mrs.', 'Miss ')) or p['id'] in FEMALE_MEMBERS
+            or (p.get('relationship') != 'servant' and '_c1900_' not in p['id'] and '_mrs_' in p['id'])
+            or p['id'].endswith('_daughter')):
         return 'female'
     if p.get('relationship') == 'servant':
         return 'male' if p['id'].split('_c1900_')[-1] in MALE_STAFF else 'female'

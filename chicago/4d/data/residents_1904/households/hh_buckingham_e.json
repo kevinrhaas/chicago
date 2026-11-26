@@ -39,7 +39,7 @@
   "persons": [
     {
       "id": "pa1904_buckingham_e",
-      "name": "E. Buckingham",
+      "name": "Ebenezer Buckingham",
       "relationship": "head",
       "grade": "attested",
       "sources": [
@@ -80,33 +80,6 @@
         "grade": "attested",
         "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
       }
-    },
-    {
-      "id": "pa1904_buckingham_daughters",
-      "name": "The Misses Buckingham",
-      "relationship": "daughter",
-      "grade": "attested",
-      "sources": [
-        "chicago_blue_book_1904",
-        "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245",
-        "census_1910_chicago_t624_roll241"
-      ],
-      "printed_as": "2036 E. Buckingham & drs.",
-      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Buckingham' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Kate S. Buckingham (born August 1859, in Ohio, single; ED 40, sheet 9A, line 3, leaf n810); Lucy M. Buckingham (born September 1862, in Illinois, single; ED 40, sheet 9A, line 4, leaf n810). Which of them the 1904 line stands for, the book does not say. The 1910 census names the daughters at home as Kate S. Buckingham, 51, and Lucy U. Buckingham, 40, with their brother Clarence (ED 167, sheet 5B, lines 81-84).",
-      "portrait_research": {
-        "status": "not_identified",
-        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
-        "sources": [
-          "witherspoon_men_of_illinois_1902",
-          "leonard_book_of_chicagoans_1905"
-        ]
-      },
-      "collective": true,
-      "individual_cards": [
-        "pa1904_buckingham_kate_s",
-        "pa1904_buckingham_lucy_m"
-      ]
     },
     {
       "id": "pa1904_buckingham_clarence",
@@ -358,7 +331,8 @@
         "census_1900_chicago_t623_roll245",
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "buckingham_sturges_genealogy_1907"
+        "buckingham_sturges_genealogy_1907",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1858-08-03",
@@ -368,10 +342,10 @@
         ],
         "note": "The family genealogy, p. 61, gives this exact birth date. The inherited 1900 census transcription gives 1859; that disagreement is retained rather than silently harmonized."
       },
-      "note": "Kate S. Buckingham is individually named in the 1900 census transcription on the household\u2019s collective daughters card (line 3). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. The inherited census transcriptions disagree on age. The family genealogy gives her birth as 1858-08-03; this is the date used for the figure.",
+      "note": "Kate S. Buckingham is individually named in the 1900 census transcription (line 3). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. The inherited census transcriptions disagree on age. The family genealogy gives her birth as 1858-08-03; this is the date used for the figure. She is at home again in the 1910 census, so she is read as one of the daughters the 1904 '& drs.' stands for.",
       "lived_here": {
-        "years": "1900; inferred 1904",
-        "on_scene_date": "unknown"
+        "years": "1900-1910",
+        "on_scene_date": "yes"
       },
       "portrait_research": {
         "status": "not_identified",
@@ -379,7 +353,8 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ]
-      }
+      },
+      "printed_as": "2036 E. Buckingham & drs."
     },
     {
       "id": "pa1904_buckingham_lucy_m",
@@ -390,7 +365,8 @@
         "census_1900_chicago_t623_roll245",
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "buckingham_sturges_genealogy_1907"
+        "buckingham_sturges_genealogy_1907",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1870-09-09",
@@ -400,10 +376,10 @@
         ],
         "note": "The family genealogy, p. 61, gives this exact birth date. The inherited 1900 census transcription gives 1862; that disagreement is retained rather than silently harmonized."
       },
-      "note": "Lucy M. Buckingham is individually named in the 1900 census transcription on the household\u2019s collective daughters card (line 4). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. The inherited census transcriptions disagree on age. The family genealogy gives her birth as 1870-09-09; this is the date used for the figure.",
+      "note": "Lucy M. Buckingham is individually named in the 1900 census transcription (line 4). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. The inherited census transcriptions disagree on age. The family genealogy gives her birth as 1870-09-09; this is the date used for the figure. She is at home again in the 1910 census, so she is read as one of the daughters the 1904 '& drs.' stands for.",
       "lived_here": {
-        "years": "1900; inferred 1904",
-        "on_scene_date": "unknown"
+        "years": "1900-1910",
+        "on_scene_date": "yes"
       },
       "portrait_research": {
         "status": "not_identified",
@@ -411,7 +387,8 @@
         "sources": [
           "census_1900_chicago_t623_roll245"
         ]
-      }
+      },
+      "printed_as": "2036 E. Buckingham & drs."
     }
   ]
 }

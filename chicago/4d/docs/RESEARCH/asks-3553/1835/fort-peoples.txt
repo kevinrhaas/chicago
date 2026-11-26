@@ -195,8 +195,10 @@ Stay. I have a house and a reservation and a trade. Alexander Robinson is stayin
 
 ## a35-cd-voyageur
 roles: canadien
-q: Were you a voyageur?
+sex: m
+age: 35-
 meet: beaubien_jean_baptiste
+q: Were you a voyageur?
 
 Twenty years with the brigades, from Mackinac to the Illinois, paddling and carrying and singing. A voyageur's back is gone at forty, but his voice is the last thing to go. Now I work for Colonel Beaubien and sing in the evenings outside his door.
 
@@ -214,6 +216,7 @@ I mind that they think nothing was here before them. My grandfather had a cabin 
 
 ## a35-cd-songs
 roles: canadien
+sex: m
 q: What are you singing?
 
 À la claire fontaine, the song every Frenchman on these rivers knows. My father sang it paddling. His father sang it paddling. I sing it now with a hammer. It is about a man who has lost his love for a rose he did not give her. All our songs are about love, even the ones about work.
