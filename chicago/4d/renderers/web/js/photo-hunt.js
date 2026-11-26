@@ -7,10 +7,16 @@ import { creditOf, yearLabel } from './photos-tab.js';
  * it), its own daily order and its own saved record. Identity only: dates, credit, kind, images
  * and solved positions always come from the catalogue. 1904 keeps its first key, seed and
  * record format, so earlier links and progress still open.
- * No set, and why (docs/STATUS.md, T-3677): 1812 has two such pictures (Eastman 1854, the
- * Chicago Magazine 1857); Lossing's and Sarony's views stand in the river, Currey's Hardscrabble
- * view across the South Branch outside the modelled ground, and Cram's, the Teich postcard's and
- * Gemmell's eyes are 18 to 66 m up. 1871 has no catalogued picture of its scene at all.
+ * T-3764 gives 1812 and 1871 their sets. 1871: three photographs, halves of stereograph cards,
+ * whose cameras were solved at street level on its named buildings and stand on open ground in
+ * the published town. The Court House, Tremont House and O'Leary cameras are also solved at
+ * street level, but each stands 5.5 to 6 m inside a footprint the pre-fire town builds (the
+ * O'Leary view was made from lots the fire had cleared), so the planner blocks them: out. 1812: four prints of the
+ * Kinzie house. Eastman's and the Chicago Magazine's views stand on the ground; Lossing's and
+ * Sarony's were drawn from the river, and their solved spots are on the water, so those two
+ * rounds are `afloat`: found from a boat (a visitor at a helm stands where the boat is), never
+ * walked to. Cram's, the Teich postcard's and Gemmell's eyes are 18 to 66 m up and Currey's
+ * Hardscrabble view stands off the modelled ground: still out.
  */
 const PRINTS = Object.freeze(['ENGRAVING', 'LITHO', 'PLATE', 'ILLUSTRATION', 'PHOTO']);
 export const HUNT_SETS = Object.freeze({
@@ -31,6 +37,24 @@ export const HUNT_SETS = Object.freeze({
       'early-green-tree-andreas-1884': 'green_tree_tavern',
       'early-green-tree-kurz-allison-1893': 'green_tree_tavern',
       'early-green-tree-trowbridge-1902': 'green_tree_tavern',
+    }) }),
+  // T-3764: prints of the Kinzie house, all made after 1812; two were drawn from the river.
+  1812: Object.freeze({ year: '1812', version: 1, storageKey: 'chicago4d.photoHunt.1812.v1', seed: 'photo-hunt:1812',
+    noun: 'picture', kinds: PRINTS, latest: 1930,
+    pictures: Object.freeze({
+      'early-kinzie-eastman-1854': 'kinzie_house_1812',
+      'early-kinzie-chicago-magazine-1857': 'kinzie_house_1812',
+      'early-kinzie-lossing-1869': 'kinzie_house_1812',
+      'early-kinzie-sarony-currey-1912': 'kinzie_house_1812',
+    }),
+    afloat: Object.freeze(['early-kinzie-lossing-1869', 'early-kinzie-sarony-currey-1912']) }),
+  // T-3764: photographs, each one half of a stereograph card; some were taken just after the fire.
+  1871: Object.freeze({ year: '1871', version: 1, storageKey: 'chicago4d.photoHunt.1871.v1', seed: 'photo-hunt:1871',
+    noun: 'photos', kinds: Object.freeze(['PHOTO', 'STEREO']), latest: 1871,
+    pictures: Object.freeze({
+      'prefire-chamber-carbutt-140': 'chamber_of_commerce_1871',
+      'prefire-water-tower-greene-1871': 'chicago_pumping_station_1871',
+      'prefire-ogden-house-1871': 'ogden_house_1871',
     }) }),
 });
 export const huntSet = (year) => (Object.hasOwn(HUNT_SETS, String(year)) ? HUNT_SETS[String(year)] : null);
@@ -98,6 +122,9 @@ export function huntSpotSafe(row, { inBounds, isWater, blockedAt, barrierAt } = 
     && !blockedAt?.(row.e, row.n) && !barrierAt?.(row.e, row.n));
 }
 
+/** An afloat round (T-3764) was drawn from the river: found from a boat, never walked to. */
+export const huntAfloat = (id, year = HUNT_YEAR) => !!huntSet(year)?.afloat?.includes(id);
+
 /** `destinations` has already applied the catalogue's ownership rule to shared pictures. */
 export function huntRounds(doc, destinations, day, year = HUNT_YEAR) {
   const set = huntSet(year);
@@ -117,7 +144,7 @@ export function huntRounds(doc, destinations, day, year = HUNT_YEAR) {
       || !years.every(y => Number.isInteger(y) && y >= 1800 && y <= set.latest) || years[0] > years[1]
       || !Number.isFinite(eye) || eye < 0 || eye > HUNT_MAX_EYE_M
       || !position(row) || ![row.yaw_deg, row.pitch_deg].every(Number.isFinite)) return [];
-    rounds.push({ id, structure: row.of, title: p.title || row.label, kind: p.kind,
+    rounds.push({ id, structure: row.of, title: p.title || row.label, kind: p.kind, afloat: huntAfloat(id, set.year),
       name: doc.names?.[row.of] || row.label, credit: creditOf(p), holder: p.holder || '',
       rights: p.rights, date: p.date || '', years: yearLabel(p), made: years[0],
       later: years[0] > Number(set.year), image: thumbnail,
@@ -136,7 +163,9 @@ export function huntResult(round, guess) {
 /** One challenge of a year's set, under 4 KiB. Answers remain usable in memory if storage refuses. */
 export function createHuntSession({ day, rounds, storage = () => globalThis.localStorage, year = HUNT_YEAR } = {}) {
   const set = huntSet(year), total = huntCount(year);
-  if (!set || !validHuntDay(day) || !total || rounds?.length !== total) throw new Error('Invalid photo hunt');
+  // Every round must be one of this year's pictures: two years may hold sets of the same size.
+  if (!set || !validHuntDay(day) || !total || rounds?.length !== total
+    || !rounds.every(r => Object.hasOwn(set.pictures, r?.id))) throw new Error('Invalid photo hunt');
   // 1904's record keeps T-3657's shape; every later set names its year inside its own key.
   const own = set.year !== HUNT_YEAR;
   let cursor = 0, answers = [], issue = null, persisted = false;

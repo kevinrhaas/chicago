@@ -562,7 +562,7 @@ export default {
   "local": "El progreso se queda en este navegador. Al compartir se envía el desafío, no tus respuestas.",
   "open": "Abrir la búsqueda de cinco fotos",
   "date": "Fecha del desafío: {day} (UTC)",
-  "unavailableYear": "Esta búsqueda de fotos es en 1904. Elige 1904 en Otros años para jugar.",
+  "unavailableYear": "Este año aún no tiene búsqueda de imágenes: ninguna de sus imágenes tiene un punto de cámara registrado. Elige otro año en Otros años para jugar.",
   "invalidLink": "Este enlace de desafío no es válido. Puedes abrir la búsqueda de hoy.",
   "unavailable": "No se pudo cargar la búsqueda de fotos. Inténtalo más tarde.",
   "loading": "Abriendo las fotografías…",
@@ -601,7 +601,16 @@ export default {
   "today": "Abrir la búsqueda de hoy",
   "saved": "Progreso guardado en este navegador.",
   "storage.unreadable": "No se pudo leer el progreso guardado. Juega aquí o empieza de nuevo para reemplazar el registro guardado.",
-  "storage.unsaved": "No se pudo guardar el progreso. Puedes seguir jugando en esta pestaña."
+  "storage.unsaved": "No se pudo guardar el progreso. Puedes seguir jugando en esta pestaña.",
+  "kind.STEREO": "una fotografía, una mitad de una tarjeta estereoscópica",
+  "afloat": "Esta vista se dibujó desde el río. Sal en un bote y adivina desde el agua.",
+  "noVisitAfloat": "Este lugar está en el río: ve allí en un bote.",
+  "photos.intro": "Encuentra los puntos de cámara de {count} fotografías de Chicago en {scene}.",
+  "photos.daily": "Las mismas {count} fotografías tienen un orden diario, según la hora UTC. Algunas se tomaron justo después del incendio, así que cada revelación da su propia fecha.",
+  "photos.open": "Abrir la búsqueda de {count} fotos",
+  "photos.round": "Fotografía {n} de {count}",
+  "photos.complete": "Búsqueda de {count} fotos completa",
+  "photos.total": "{score} de {max} puntos"
  },
  "photos": {
   "title": "Fotos",

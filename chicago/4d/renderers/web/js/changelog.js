@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3263, ts: '2026-11-26T16:56:13.174Z', date: 'Nov 26, 2026, 10:56 AM CT', title: 'Where and when? opens in 1812 and 1871', kind: 'feature',
+    items: [
+      '1871 has a three-photo hunt: the Chamber of Commerce, the Water Works and the Ogden house, each one half of a stereograph card.',
+      '1812 has a four-picture hunt of the Kinzie house, from Eastman\'s 1820 view to the 1912 Sarony plate.',
+      'Two of the 1812 views were drawn from the river: the hunt says so, and you make that guess from a boat.',
+      'Each reveal says what the picture is and when it was made; every year keeps its own link, daily order and saved record.',
+    ] },
   { v: 3262, ts: '2026-11-26T15:46:35.656Z', date: 'Nov 26, 2026, 9:46 AM CT', title: 'First Fort Dearborn tour read aloud at every age', kind: 'improvement',
     items: [
       'Fort Dearborn, Building by Building is now read aloud by the narrator in its tellings for ages 8-10, 14-15 and 16-17, as the main telling already was.',

@@ -36,6 +36,46 @@ keep the ordinary library until calibrated. The scene-assignment test covers all
 people: 1,048 generic adults get photos on 1,076 bodies; 160 child and 27 personal-face
 assignments are protected. No default assignments change. See PHOTO-FACE-PILOT.md.
 
+
+## T-3764 — Where and when? in 1812 and 1871 (26 November 2026)
+
+Owner request, 26 November 2026: "Photo hunt: more picture sets. 1812 and 1871 have none yet."
+Both years now have a set, held to T-3677's rule (every camera solved, on safe ground in that
+year's world, eye at most 10 m up, public domain or no known restrictions).
+
+- **1812: four prints of the Kinzie house.** Eastman's 1854 steel engraving after Schoolcraft's
+  1820 sketch and the Chicago Magazine's 1857 wood engraving stand on dry ground. Lossing's 1869
+  "Kinzie Mansion and Fort Dearborn" and the Sarony plate in Currey (1912) were drawn from the
+  river: their solved spots are on the water (4.3 m and 1.6 m deep), so those rounds are
+  `afloat`. The round says so before the guess ("Take a boat out, and make your guess from the
+  water"); at a helm the walker stands where the boat is, so the guess is read from the boat, and
+  the reveal's Visit says to take a boat instead of walking into the river. A bark canoe and the
+  Kinzie Mackinaw boat both float at either spot without touching the fort's wharf
+  (`boat-pilot.js blockedAt`). Cram 1893, the Teich postcard and Gemmell (eyes 18-66 m up) and
+  Currey's Hardscrabble (off the modelled ground) stay out.
+- **1871: three photographs**, each one half of a stereograph card: Carbutt's Chamber of
+  Commerce (1866-71), Greene's Water Works and Melander & Henderson's Ogden house (both just after
+  the fire). Every one is checked in the published 1871 town with the hunt's own Visit checks
+  (bounds, water, route planner, house barriers): all three stand on open ground. The Court
+  House, the Tremont House and Mountford's O'Leary cottage are also solved at street level, but
+  each stands 5.5-6 m inside a footprint the pre-fire town builds (the O'Leary view was made from
+  lots the fire had cleared), so the planner blocks the spot: left out rather than offered as a
+  place no one can stand.
+- The 1871 set reads its own words ("photos", "Photograph 2 of 3"); a stereograph half is "a
+  photograph, one half of a stereograph card". Each year keeps its own `year=` link, seed, daily
+  order and saved record; 1904's and 1835's are unchanged. A session now refuses rounds that are
+  not its own year's pictures, since two years can hold sets of the same size.
+
+The copies the cameras were solved on were not held. Ten are now held in kevinrhaas/chicago-images
+(display and thumbnail, 20 files), each with a library record
+(`prairie_1904_v1/research/images/stream-photo-hunt-1812-1871-references.json`) whose
+`reference_views` and `original_sha256` tie it to its camera, as T-3677's Green Tree copies are;
+the three 1871 pictures left out of the hunt keep their held copies on their cards. No camera,
+match record or source record changed. Checked: `test_photo_hunt.mjs` (every set; afloat spots
+on water, walked spots dry, on the year's own heightfield), `test_photo_hunt_view.mjs` (each year
+at 390x780 and 1280x800, the afloat hint and Visit) and a probe of every spot in the published
+1812 and 1871 towns, zero pageerrors.
+
 ## T-3709 — the 1835 phone's js heap back to 100 MB (20 November 2026)
 
 T-3708 found the phone's js heap at 130 MB against 100 on main's 2026-11-17 run, and nobody
