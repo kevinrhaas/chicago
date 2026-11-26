@@ -3386,3 +3386,36 @@ authored/humans/photo_face_pilot/sources_m.png
 authored/humans/photo_face_pilot/sources_n.png
 authored/humans/photo_face_pilot/sources_o.png
 ```
+
+## Photographic child face library — T-3768
+
+Sixteen fictional generated child/teenager portraits, apparent ages 2–17, were created at the owner's request for the same photographic style across the population. Source: `synthetic_photo_face_children_2026`. These are not photographs of identified real children. Source output is authorized project-generated imagery; the mapped face uses the existing CC0 MakeHuman/Toigo material and shared hm08 UV correspondence. Native child heads, bodies and eye geometry are preserved; no adult head morph is transferred. Portable scalp meshes are project procedural geometry under the repository licence. Skin/hair colour and unseen shape remain reconstructed. Literal asset inventory:
+
+```text
+authored/humans/photo_face_children/sources.png
+humans/web/photo_faces/children/child_photo_01_source.jpg
+humans/web/photo_faces/children/child_photo_02_source.jpg
+humans/web/photo_faces/children/child_photo_03_source.jpg
+humans/web/photo_faces/children/child_photo_04_source.jpg
+humans/web/photo_faces/children/child_photo_05_source.jpg
+humans/web/photo_faces/children/child_photo_06_source.jpg
+humans/web/photo_faces/children/child_photo_07_source.jpg
+humans/web/photo_faces/children/child_photo_08_source.jpg
+humans/web/photo_faces/children/child_photo_09_source.jpg
+humans/web/photo_faces/children/child_photo_10_source.jpg
+humans/web/photo_faces/children/child_photo_11_source.jpg
+humans/web/photo_faces/children/child_photo_12_source.jpg
+humans/web/photo_faces/children/child_photo_13_source.jpg
+humans/web/photo_faces/children/child_photo_14_source.jpg
+humans/web/photo_faces/children/child_photo_15_source.jpg
+humans/web/photo_faces/children/child_photo_16_source.jpg
+humans/web/photo_faces/children/faces_light.jpg
+humans/web/photo_faces/children/hair_shell_full.glb
+humans/web/photo_faces/children/hair_shell_light.glb
+humans/web/photo_faces/children/page_00_face_full.jpg
+humans/web/photo_faces/children/page_00_face_light.jpg
+humans/web/photo_faces/children/page_00_hair_full.png
+humans/web/photo_faces/children/page_00_hair_light.png
+humans/web/photo_faces/children/recipe.json
+humans/web/photo_faces/children/review.json
+```

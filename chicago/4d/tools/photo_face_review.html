@@ -55,7 +55,10 @@ const checkedJSON = async url => {const r=await fetch(url);if(!r.ok)throw Error(
 const percent = (values,p) => [...values].sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*p))];
 try {
   library = await checkedJSON(manifestURL);
-  if(!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library.format) || library.review_only !== true || !library.faces?.length || library.faces.length>256) throw Error('Unsupported review library');
+  if(!['chicago4d_photo_face_review_v1','chicago4d_photo_face_review_v2'].includes(library.format)
+    ||!(library.review_only===true||library.review_only===false&&library.activation?.tier==='dev')||!library.faces?.length||library.faces.length>256)throw Error('Unsupported review library');
+  if(library.activation)document.querySelector('.tag').textContent='Dev population · photo faces';
+  if(library.faces.every(f=>f.texture_only))document.querySelector('.captions span:last-child').textContent='After · photo on existing child head';
   const pages=library.pages??[{first:0,count:library.faces.length,cols:library.cols,size_px:library.size_px,textures:library.textures,hair_textures:library.hair_textures}];
   const pageIndex=Math.min(pages.length-1,Math.max(0,Math.floor(Number(q.get('page')??Number(q.get('face')??0)/16))||0));
   const page=pages[pageIndex],pageFaces=library.faces.slice(page.first,page.first+page.count);
@@ -69,6 +72,8 @@ try {
   $('pageCount').textContent=`of ${library.faces.length} · page ${pageIndex+1}/${pages.length}`;
   const kit = await loadVariationKit(new URL('../assets/humans/web/',location.href));
   if(!kit)throw Error('The portable-human variation kit could not be read');
+  // The comparison controls both sides explicitly, independent of the town's default.
+  delete kit.photoFaces;delete kit.photoChildren;
   const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
   const assets = new Map();
   for(const name of new Set(library.faces.map(f=>f.base_body))) {
@@ -165,7 +170,7 @@ try {
     const key=`${index}:${after}`;
     if(figures.has(key))return figures.get(key);
     const face=library.faces[index],own=assets.get(face.base_body),fig=cloneSkinned(own.scene);
-    const rec={sex:face.sex,age:face.age,scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
+    const rec={sex:face.sex,age:{years:face.age},scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
     const v=personVariation({kit,key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
     v.height=1;
     // Preserve the same body/build in the before/after pair; the photo changes
@@ -220,11 +225,11 @@ try {
     $('source').src=new URL(f.photo,manifestURL).href;
     $('sourceLabel').textContent=f.synthetic?'Synthetic source · fictional person':'Original source image';
     $('faceTitle').textContent=`${String(index+1).padStart(2,'0')} · ${f.label}`;
-    $('faceNote').replaceChildren(document.createTextNode(`${f.synthetic?'Fictional face':'Source-based face'} · apparent age ${f.age} · front landmark fit ${f.fit_rms_px} px. `));
+    $('faceNote').replaceChildren(document.createTextNode(`${f.synthetic?'Fictional face':'Source-based face'} · apparent age ${f.age} · ${f.texture_only?'existing child head retained; photo texture and eye tone':'front landmark fit '+f.fit_rms_px+' px'}. `));
     const a=document.createElement('a');a.href=f.source_url;a.textContent='Source credit';a.target='_blank';a.rel='noopener';$('faceNote').append(a);
     [...$('choices').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i+page.first===index)));
     figure(index,false);figure(index,true);await likenessSheetsReady();draw();
-    $('status').textContent=`Faces ${page.first+1}–${page.first+page.count} of ${library.faces.length} ready · ${quality} detail · no resident assignments`;
+    $('status').textContent=`Faces ${page.first+1}–${page.first+page.count} of ${library.faces.length} ready · ${quality} detail · ${library.activation?'default generic faces on dev':'no resident assignments'}`;
   }
   pageFaces.forEach((f,local)=>{const i=page.first+local;
     const b=document.createElement('button');b.className='choice';b.setAttribute('aria-label',`Face ${i+1}, ${f.label}`);

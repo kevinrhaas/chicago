@@ -93,13 +93,20 @@ def portrait(entry, points, size):
              for k, i in [('pupil_r', 468), ('pupil_l', 473)]]
     marks += [{'landmark': k, 'x': points[int(k[3:])][0], 'y': points[int(k[3:])][1], 'sigma_px': 3.5}
               for k in table['points']]
-    return {'base_body': base, 'sex': entry['sex'], 'age_at_picture_years': entry['age'],
+    child=entry.get('population')=='child'
+    if child:
+        import photo_face_child as C
+        actual=C.body(entry)
+        reference_age=json.loads(F.KIT_JSON.read_text())['assets'][actual]['base_age_years']
+    else:actual,reference_age=base,entry['age']
+    return {'base_body': actual, **({'calibration_body':base} if child else {}),
+            'sex': entry['sex'], 'age_at_picture_years': reference_age,
             'axes': axes, 'marks': marks, 'scan_size_px': list(size),
             'grade': 'reconstructed', 'source': entry['source'],
             'not_modelled': ['profile depth from a single front photograph', 'ears and hair outside the face patch']}
 
 
-def bake_face(im, points, sex, size=TILE - PAD * 2):
+def bake_face(im, points, sex, size=TILE - PAD * 2, body=None):
     """Landmark correspondence warps a front photo onto the existing hm08 UV island.
 
     The photo supplies colour inside its measured convex hull. Elsewhere the existing
@@ -154,7 +161,7 @@ def bake_face(im, points, sex, size=TILE - PAD * 2):
     tone = np.median(L.linear(np.array(samples)), axis=0)
     record = json.loads(L.RECORD.read_text())
     from io import BytesIO
-    fallback = Image.open(BytesIO(L.glb_skin(ROOT / 'assets/humans/web' / f'{BASE[sex]}.lod0.glb')))
+    fallback = Image.open(BytesIO(L.glb_skin(ROOT / 'assets/humans/web' / f'{body or BASE[sex]}.lod0.glb')))
     fallback = np.asarray(L.cut_of(Image, fallback, record).resize((size,size)), dtype=float)
     mask = L.mask_over(record, size)
     ring = (mask > .05) & (mask < .95)
@@ -169,15 +176,20 @@ def bake_face(im, points, sex, size=TILE - PAD * 2):
 def validate_entry(entry):
     if not re.fullmatch(r'[a-zA-Z0-9_-]{1,96}', entry['id']):
         raise ValueError('face id must contain only letters, digits, underscores and hyphens')
-    if entry['sex'] not in BASE or not 18 <= entry['age'] <= 100:
+    child=entry.get('population')=='child'
+    if entry['sex'] not in BASE or not (2 <= entry['age'] < 18 if child else 18 <= entry['age'] <= 100):
         raise ValueError('the pilot supports adult male/female calibrated bodies, age 18 to 100')
+    if child and entry.get('texture_only') is not True:
+        raise ValueError('child photos transfer texture only; preserve the child head geometry')
+    if child and entry.get('fitted',{}).get('values'):
+        raise ValueError('a cached child photo cannot transfer head morphs')
     source_record(entry['source'])
 
 
 @lru_cache(maxsize=2)
-def native_iris_tone(sex):
+def native_iris_tone(sex,body=None):
     from io import BytesIO
-    blob=(ROOT/'assets/humans'/f'{BASE[sex]}.lod0.glb').read_bytes()
+    blob=(ROOT/'assets/humans'/f'{body or BASE[sex]}.lod0.glb').read_bytes()
     n=struct.unpack('<I',blob[12:16])[0];doc=json.loads(blob[20:20+n]);binary=blob[28+n:]
     primitive=next(p for m in doc['meshes'] for p in m['primitives'] if doc['materials'][p['material']]['name']=='eyes__iris')
     mat=doc['materials'][primitive['material']]
@@ -197,7 +209,7 @@ def measured_lid_rest(portrait_record, fit, points):
     option=int(fit['values'].get('head_shape.option',0))
     for aid,value in fit['values'].items():
         if aid in axes and aid not in held:X+=F.delta_at(axes[aid],value,option,rows)
-    index=F.kit_index();table=json.loads(F.MP_TABLE.read_text())['bodies'][asset]
+    index=F.kit_index();table=json.loads(F.MP_TABLE.read_text())['bodies'][portrait_record.get('calibration_body',asset)]
     mp={int(k[3:]):index[v['vertex']] for k,v in table['points'].items()}
     head={'X':X,'rest':rest,'tri':F.body_triangles(asset),'mp':mp,'asset':asset}
     camera=fit['camera'];cam=np.r_[np.radians([camera['yaw_deg'],camera['pitch_deg'],camera['roll_deg']]),camera['px_per_m'],camera['shift_px']]
@@ -250,7 +262,7 @@ def eye_appearance(im, points, sex, fit, portrait_record):
     # Use a conservative closure when no fitted aperture can be measured.
     # A measured aperture can also open lids that start narrower than the source.
     rest=float(np.clip((.36-float(np.mean(apertures)))/.36,0,.42))
-    gain=np.clip(iris/np.maximum(native_iris_tone(sex),.002),.4,3)
+    gain=np.clip(iris/np.maximum(native_iris_tone(sex,portrait_record['base_body']),.002),.4,3)
     measured=measured_lid_rest(portrait_record,fit,points)
     if measured is not None:rest=measured['rest']
     centres=[np.array(points[mid]) for mid in (468,473)]
@@ -261,7 +273,7 @@ def eye_appearance(im, points, sex, fit, portrait_record):
             'aperture_ratio':float(np.mean(apertures)), 'opening_fit':measured}
 
 
-def bake_hair(im, points, sex, fit, size=TILE-PAD*2):
+def bake_hair(im, points, sex, fit, size=TILE-PAD*2, body=None):
     """Keep the source hair in a shared photo atlas, projected in bind space.
 
     The stock cap repeats UVs between strand cards, so baking a different photo
@@ -269,7 +281,7 @@ def bake_hair(im, points, sex, fit, size=TILE-PAD*2):
     point on every card at its actual place in the same source photograph.
     """
     from io import BytesIO
-    blob=(ROOT/'assets/humans'/f'{BASE[sex]}.lod0.glb').read_bytes()
+    blob=(ROOT/'assets/humans'/f'{body or BASE[sex]}.lod0.glb').read_bytes()
     n=struct.unpack('<I',blob[12:16])[0];doc=json.loads(blob[20:20+n]);binary=blob[28+n:]
     primitive=next(m['primitives'][0] for m in doc['meshes'] if 'hair' in m['name'])
     a=doc['accessors'][primitive['attributes']['POSITION']];v=doc['bufferViews'][a['bufferView']]
@@ -362,17 +374,24 @@ def prepare_face(task):
     fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
     signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
     fit = e.get('fitted') if e.get('fit_signature') == signature else None
+    if fit is None and e.get('population')=='child':
+        import photo_face_child as C
+        fit=C.pose(e,p)
     fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
-    tile, tone, base_tone = bake_face(im, points, e['sex'])
-    hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit)
+    tile, tone, base_tone = bake_face(im, points, e['sex'],body=p['base_body'])
+    hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit,body=p['base_body'])
     face = {'id': e['id'], 'sex': e['sex'], 'age': e['age'], 'label': e.get('label', e['id']),
             'source': e['source'], 'source_url': source_record(e['source'])['url'],
             'synthetic': bool(e.get('synthetic') or source_record(e['source']).get('synthetic')), 'grade': 'reconstructed',
-            'base_body': BASE[e['sex']], 'index': i, 'page':i//PAGE_FACES, 'page_index':i%PAGE_FACES,
+            'base_body': p['base_body'], 'index': i, 'page':i//PAGE_FACES, 'page_index':i%PAGE_FACES,
             'photo':f"{e['id']}_source.jpg", 'values':fit['values'], 'fit_rms_px':fit['rms_px'], 'camera':fit['camera'],
             'tone_rgb':tone, 'body_gain':(np.array(tone)/np.maximum(base_tone,.001)).tolist(),
             'hair_rgb':hair_rgb, 'hair_shell':hair_shell, 'hair_projection':hair_projection,
             'eyes':eye_appearance(im,points,e['sex'],fit,p), 'limits':p['not_modelled']}
+    if e.get('population')=='child':
+        face.update(population='child',texture_only=True)
+        face['eyes']['centres_uv']=None
+        face['limits'].append('Shared hm08 UV correspondence; the child head shape and eye geometry are preserved, not fitted from adult morphs.')
     e.update(landmarks=points, fitted={k:fit[k] for k in ('values','rms_px','camera','projection_centre_m')},
              fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
     return face, tile, hair_tile, e, round(time.monotonic()-began,1)
@@ -394,6 +413,10 @@ def build(recipe, output, model=None, fast=False, jobs=1):
     # Validate the entire batch before writing any result.
     for e in entries:
         validate_entry(e)
+    activation=recipe.get('activation')
+    if activation and (activation.get('requested_by')!='owner' or activation.get('tier')!='dev'
+            or activation.get('years')!=['1812','1835','1871','1904']):
+        raise ValueError('activation must record the owner’s dev rollout across the four supported years')
     photos = []
     for e in entries:
         p = ROOT / e['photo']
@@ -407,6 +430,11 @@ def build(recipe, output, model=None, fast=False, jobs=1):
     dependencies += [ROOT/'assets/humans/web'/f'{b}.lod0.glb' for b in BASE.values()]
     dependencies += [F.PORTRAITS/f'{p}.json' for p in ('pa1904_grey_w_l','pa1904_grey_mrs_w_l')]
     dependencies += [F.MH/'makehuman/data/3dobjs/base.obj', F.MH/'prepared.json']
+    if any(e.get('population')=='child' for e in entries):
+        import photo_face_child as C
+        dependencies.append(pathlib.Path(C.__file__))
+        for asset in sorted({C.body(e) for e in entries}):
+            dependencies.extend([ROOT/'assets/humans'/f'{asset}.lod0.glb',ROOT/'assets/humans/web'/f'{asset}.lod0.glb'])
     inputs = {relative(p):digest(p) for p in dependencies}
     output.mkdir(parents=True, exist_ok=True)
     faces = []
@@ -442,13 +470,15 @@ def build(recipe, output, model=None, fast=False, jobs=1):
                 name=f'page_{index:02d}_{prefix}_{tier}'+('.png' if prefix=='hair' else '.jpg')
                 page[kind][tier]=save_texture(image,output,name)
     shells={tier:write_hair_shell(output/f'hair_shell_{tier}.glb',*segments) for tier,segments in [('light',(20,12)),('full',(32,20))]}
-    result = {'format':FORMAT, 'review_only':True, 'rollout':'No population assignments; review the renders first.',
+    result = {'format':FORMAT, 'review_only':not bool(activation),
+              'rollout':'Default generic faces on dev in all four years.' if activation else 'No population assignments; review the renders first.',
               'tile_px':TILE, 'padding_px':PAD, 'cols':cols, 'size_px':list(atlas.size),
               'textures':textures, 'pages':pages, 'hair_shells':shells, 'faces':faces, 'capacity':LIMIT, 'inputs_sha256':inputs,
               'budget':{'crowd_edge_px':CROWD_EDGE,'resident_detail_pages':1,'detail_page_faces':PAGE_FACES,
                         'town_face_gpu_bytes':textures['light']['gpu_bytes_rgba8_mipmaps']+max(p['textures']['full']['gpu_bytes_rgba8_mipmaps'] for p in pages)},
               'limits':['Front photo fits do not establish profile depth.', 'Hair, ears, bodies and dress are reconstructed.',
                         'Texture budget is additional atlas memory, not whole-scene memory or a hardware performance pass.']}
+    if activation:result['activation']=activation
     (output/'recipe.json').write_text(json.dumps(recipe,indent=1)+'\n')
     result['recipe_sha256'] = digest(output/'recipe.json')
     (output/'review.json').write_text(json.dumps(result,indent=1)+'\n')
@@ -458,7 +488,7 @@ def build(recipe, output, model=None, fast=False, jobs=1):
 
 def check(manifest):
     result = json.loads(manifest.read_text())
-    assert result['format'] == FORMAT and result['review_only'] is True
+    assert result['format'] == FORMAT and isinstance(result['review_only'],bool)
     assert 1 <= len(result['faces']) <= LIMIT
     assert len({f['id'] for f in result['faces']}) == len(result['faces'])
     for shell in result['hair_shells'].values():
@@ -466,6 +496,10 @@ def check(manifest):
     assert result['hair_shells']['light']['triangles']<=450
     assert digest(manifest.parent/'recipe.json') == result['recipe_sha256'], 'review recipe changed'
     recipe = json.loads((manifest.parent/'recipe.json').read_text())
+    assert result['review_only'] is (not bool(recipe.get('activation')))
+    if not result['review_only']:
+        assert result['activation']==recipe['activation'] and result['activation']['requested_by']=='owner'
+        assert result['activation']['tier']=='dev' and result['activation']['years']==['1812','1835','1871','1904']
     for e in recipe['faces']:
         assert digest(ROOT/e['photo']) == e['photo_sha256'], f"{e['id']}: source photo changed"
     for name, sha in result['inputs_sha256'].items():
@@ -488,6 +522,9 @@ def check(manifest):
         assert np.isfinite(list(f['values'].values())).all()
         assert (manifest.parent/f['photo']).exists()
         assert f['index']==i and f['page']==i//PAGE_FACES and f['page_index']==i%PAGE_FACES
+        if f.get('population')=='child':
+            assert 2<=f['age']<18 and f['texture_only'] is True and f['values']=={}
+            assert f['base_body'].startswith('child_') and f['eyes']['centres_uv'] is None
     assert max(result['textures']['light']['size_px'])<=CROWD_EDGE
     assert result['textures']['light']['gpu_bytes_rgba8_mipmaps']<=5_600_000
     assert result['budget']['resident_detail_pages']==1
@@ -503,6 +540,7 @@ def main():
     ap.add_argument('--source', help='cleared data/sources id; never invented by the importer')
     ap.add_argument('--sex', choices=BASE)
     ap.add_argument('--age', type=int, help='apparent age in the photograph')
+    ap.add_argument('--population',choices=['adult','child'],default='adult',help='child keeps its existing head and transfers photographic texture only')
     ap.add_argument('--model', type=pathlib.Path, help='MediaPipe face_landmarker.task, needed only on first import')
     ap.add_argument('--output', type=pathlib.Path, help='review directory, default work/photo-faces/<id>')
     ap.add_argument('--check', type=pathlib.Path, metavar='REVIEW_JSON')
@@ -523,6 +561,7 @@ def main():
                 ap.error('--photo requires --id, --source, --sex and --age')
             recipe = {'faces':[{'id':args.id, 'photo':str(args.photo.resolve()), 'source':args.source,
                                 'sex':args.sex, 'age':args.age, 'synthetic':args.synthetic}]}
+            if args.population=='child':recipe['faces'][0].update(population='child',texture_only=True)
         out = (args.output or ROOT/'work/photo-faces'/recipe['faces'][0]['id']).resolve()
         # Review work cannot overwrite the existing production library or resident records.
         protected = [ROOT/'data', ROOT/'assets/humans/web/likeness', ROOT/'assets/authored']

@@ -46497,3 +46497,14 @@ ordinances for these blocks.
 **Re-opens on:** source review; actual historical photographs and profile references; whole-town timing on a real low-power GPU. Specific people are the next owner priority.
 **Ticket:** T-3761; extends T-3746.
 **Recorded:** 2026-11-26.
+
+
+### L-photo-faces-dev-3767 — Default generic adults and matching children in all years
+
+**Decision:** the owner: “Ok yes let’s roll the faces out so I can see them on dev”, then “You should have some children faces of the same type so they do not look different, people should look consistent.” Enable stable photographic generic faces by default in 1812, 1835, 1871 and 1904. Add sixteen fictional child portraits, apparent ages two through seventeen, to the 256 adults. Preserve child/toddler head morphs, body proportions, age and height; transfer only face texture, eye tone and resting lids. Keep personal likenesses and visitor choices. Adults and children share one resident-or-loading nearby page; two crowd sheets and this page use about 12 MiB of added face textures. An explicit photoFaces=off comparison remains available.
+**Not invented:** the owner's rollout request; retained generated source bytes, crops, 478 landmark measurements per face and camera fits; native child head/body values are unchanged.
+**Reconstructed:** all generic identities, apparent source ages, unseen features, photographic colour and hair. Child camera registration uses shared hm08 UV/source-vertex correspondence; it does not claim independent child photogrammetry or import adult head shapes. Existing child skin geometry and iris placement stay in use.
+**Left out on purpose:** replacing personal historical likenesses, rolling to production, treating generated portraits as historical evidence, or certifying weak-PC frame rate without a real GPU. The owner-authorized dev preview permits visual review while that timing remains outstanding.
+**Re-opens on:** visual review of the dev population; actual historical photographs; a complete crowd timing on a real low-power GPU.
+**Ticket:** T-3767 and T-3768; extends T-3746 and T-3761.
+**Recorded:** 2026-11-26.

@@ -1,6 +1,6 @@
-# Photo-face library: 256 fictional adults to review
+# Photo-face library: 256 adults and 16 children on dev
 
-The review library is separate from resident assignments. Its 256 fictional adult sources
+The library is enabled by default on dev in 1812, 1835, 1871 and 1904. Its 256 fictional adult sources
 are generated images, not archival photographs or a dataset of living people. Each is fitted
 with the existing portable-human morph kit, then its visible facial colour is mapped through
 the calibrated landmarks to the hm08 face island. A small portable scalp surface carries the photographed front hair, with source-matched colour
@@ -23,36 +23,48 @@ releasing the preceding page’s renderer, fitted bodies and textures. Only sixt
 are requested per page. The catalog preserves the original sixteen and adds 240 new sources;
 128 men and 128 women have apparent ages 18–87. These are appearance targets, not biographies.
 The source, before and after are deliberately separate: a plausible result is not evidence of
-an exact historical likeness. No resident has been assigned one of these samples.
+an exact historical likeness. Generic residents receive stable, age-compatible assignments;
+personal likenesses and visitor choices retain priority.
 
-## Inspect the generic population before rollout
+## Inspect the generic population on dev
 
-Append `&photoFaces=pilot` to a walk URL (for example, `walk/?year=1904&photoFaces=pilot`).
-This opt-in preview assigns the photo library to existing generic adults, fits their face
+Open a walk URL (for example, `walk/?year=1904`). No preview flag is needed.
+The library supplies existing generic adults, fits their face
 values, preserves their recorded complexion, and applies the softer source-based eyes.
-Personal portrait fits and visitor-chosen faces take priority; children retain the ordinary
-library until their bodies are calibrated. Assignment is seeded by the person's id, sex,
+Personal portrait fits and visitor-chosen faces take priority. Sixteen fictional child sources
+cover apparent ages two through seventeen, using the same photographic style and eye treatment.
+Children retain their existing head morphs, body proportions and native eye placement: only
+texture, eye tone and resting lids are transferred. Their shared hm08 UV topology supplies
+camera registration; this is not an independent child photogrammetry calibration.
+Assignment is seeded by the person's id, sex,
 age and recorded complexion, and remains the same across their body LODs.
 Carriage drivers retain the existing face-only morph scope; body-wide head-outline
 targets stay with their engineered body.
 
-The town preview shares one 1024-square crowd face atlas (5.33 MiB including mipmaps).
+The town shares one 1024-square adult crowd atlas (5.33 MiB including mipmaps)
+and one 512-square child crowd atlas (1.33 MiB).
 Visible heads within six metres request sharper detail; the nearest page wins, with
 hysteresis. One 1024-square page can be resident **or loading**, adding at most 5.33 MiB.
 An evicted or failed page falls back to the same person’s crowd face. New requests wait
 for an in-flight decode; late images are discarded, failed requests back off, and disposed
-pages cannot be re-uploaded through old material bindings. The 256-face catalog therefore
-adds at most 10.67 MiB of face textures, rather than keeping sixteen detail pages alive.
+pages cannot be re-uploaded through old material bindings. The adult and child catalogs
+add about 12 MiB of face textures in total. Adults and children
+compete for the same single detail-page slot; they do not each retain one.
 The existing hair layer, body LODs and visible-person limits stay in use, and face patches
 add no render pass. The separate review compares the photographed-hair proposal.
-Historical likeness textures use their existing separate cache. No default assignment changes.
+Historical likeness textures use their existing separate cache. `&photoFaces=off` shows
+the former generic appearance for comparison. Older `photoFaces=pilot` links still work.
 
 For actual resident models, `tools/human_variation_lineup.html?asset=auto&keys=` followed
-by their ids and `&view=faces&dress=1&photoFaces=pilot` uses the same population path.
+by their ids and `&view=faces&dress=1` uses the same population path.
 
-The scene-assignment check covers all 1,234 currently drawn people: 1,048 generic adults
-receive a photo on 1,076 body assignments; 160 child and 27 personal-face assignments
-remain protected. A person drawn on several bodies keeps the same face on each.
+The scene-assignment check reads both the shared population and the separate 1835 and 1871
+tables, along with every inside-scene body assignment. It checks all four years, protects
+personal likenesses, and compares every child's morph values, options, age and height with
+the former appearance. A person drawn on several bodies keeps the same face on each.
+
+To review the children's sixteen rendered heads, open
+`tools/photo_face_review.html?library=assets/humans/web/photo_faces/children/review.json&gallery=1&quality=light`.
 
 ## Import one historical photograph
 
@@ -83,6 +95,9 @@ is an integer rectangle on the EXIF-oriented image. A four-view head sheet and t
 python3 tools/photo_face_library.py --batch data/humans/variation/photo_face_pilot.json \
   --output assets/humans/web/photo_faces/pilot
 python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/pilot/review.json
+python3 tools/photo_face_library.py --batch data/humans/variation/photo_face_children.json \
+  --output assets/humans/web/photo_faces/children
+python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/children/review.json
 ```
 
 The recipe pins the original sheet, crops, 478 detected landmarks per face and fit inputs.
@@ -97,12 +112,12 @@ offline fitting/baking; the app performs neither operation at runtime.
 
 | Use | Shared face/hair textures loaded | Added RGBA8 memory, including mipmaps |
 |---|---|---|
-| Town crowd | one face sheet at 1024 × 1024 | 5.33 MiB |
-| Town nearby detail | at most one additional face page at 1024 × 1024 | 5.33 MiB; 10.67 MiB town total |
+| Town crowd | adult 1024 × 1024 and child 512 × 512 sheets | 6.67 MiB |
+| Town nearby detail | at most one additional face page at 1024 × 1024, shared across ages | 5.33 MiB; about 12 MiB town total |
 | Review Light | one face page at 512 × 512; optional hair trial page | 1.33 MiB; 2.67 MiB with trial |
 | Review Full | one face page at 1024 × 1024; optional hair trial page | 5.33 MiB; 10.67 MiB with trial |
 
-The town limits apply to the whole 256-entry catalog. Other pages remain on disk until
+The town limits apply to the whole 272-entry adult-and-child catalog. Other pages remain on disk until
 needed. The review limits apply to its current sixteen-face page; navigation releases the
 previous page. Light uses body LOD2, pixel ratio 1 and no shadows. Full uses LOD0 for close
 inspection. Existing body/clothing textures, geometry, image decoding and driver overhead
@@ -120,11 +135,12 @@ submission time, catalog/page counts and atlas bytes. A 256-entry catalog does n
 256 people are drawn in that measurement. Software renderers are labelled explicitly.
 The measurement does not certify the complete town or replace a real weak-PC GPU test.
 
-The importer refuses a 257th entry and checks actual image dimensions and hashes. The
+The importer refuses a 257th entry within one library and checks actual image dimensions and hashes. The
 runtime refuses oversized crowd/detail metadata; decoded detail dimensions are checked
 before upload. One resident-or-loading slot and page-failure/late-delivery behavior have
-executable regression checks. Whole-town GPU timing and visual acceptance remain required
-before making the opt-in population preview the default.
+executable regression checks. The owner explicitly authorized this dev rollout. Whole-town
+timing on a real low-power GPU remains unmeasured; software browser checks certify rendering
+and cache behavior, not hardware frame rate.
 
 ## What still needs review
 

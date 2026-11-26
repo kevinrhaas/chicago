@@ -1,3 +1,5 @@
+Owner-approved photo faces are enabled by default on dev in all four years (T-3767/T-3768): 256 adults plus sixteen toddler/child/teenager sources, preserving existing child head and body proportions. Adult and child crowd atlases share one nearby detail page, about 12 MiB of added face textures. Personal likenesses retain priority; real low-power GPU timing remains unmeasured.
+
 ## T-3761 — 256 fictional photo faces for the generic-adult preview
 
 The catalog preserves the original sixteen and adds 240 fictional adults, 128 men and 128

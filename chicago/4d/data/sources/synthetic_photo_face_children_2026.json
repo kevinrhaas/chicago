@@ -1,0 +1,22 @@
+{
+ "id": "synthetic_photo_face_children_2026",
+ "type": "illustration",
+ "citation": "Sixteen fictional child and teenager head portraits generated for the project owner\u2019s request that children share the photographic style of the adult population. These are generated fictional portraits, not images of identified real children.",
+ "author": "Project-generated imagery",
+ "date": "2026-11-26",
+ "describes_date": "not applicable: fictional child faces",
+ "repository": "assets/authored/humans/photo_face_children/sources.png (SHA-256 7cae396671fecf7bfeba1b135d818e1ad19540989d2c4779fa27955ba1e7cd29); original generated output preserved unchanged.",
+ "url": "https://github.com/kevinrhaas/chicago/blob/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_children/sources.png",
+ "locator": "4 by 4 source sheet; row-major crops and prompt-target apparent ages 2\u201317 in data/humans/variation/photo_face_children.json.",
+ "tier": 5,
+ "rights_status": "cleared",
+ "asset_use": "texture",
+ "verified": true,
+ "rights_note": "Generated in this task at the owner\u2019s explicit request for age-appropriate child faces. Project use and texture derivation authorized; no scraped images or photographs of actual children used.",
+ "rights_checked": {
+  "date": "2026-11-26",
+  "method": "Created as fictional imagery for the requested library; original bytes preserved and hashed.",
+  "outcome": "cleared for project use and texture derivation"
+ },
+ "note": "Apparent ages are prompt targets, not historical biographies. Only facial texture and eye tone are transferred. Existing child/toddler heads, body proportions and animation remain unchanged. Shared hm08 UV topology is used; no adult face morphs are fitted onto children. Colour and unseen features remain illustrative."
+}

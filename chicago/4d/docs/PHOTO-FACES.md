@@ -1,7 +1,8 @@
 # Photo faces: a person's own pictures as their face
 
-**Single-photo import and 256-face library:** [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md)
-adds a review-only front-photo path, shared full/light atlases and before/after renders. The
+**Single-photo import and shared adult/child library:** [PHOTO-FACE-PILOT.md](PHOTO-FACE-PILOT.md)
+adds a front-photo review path, bounded shared atlases, before/after renders and the
+owner-approved default dev population rollout. The
 four-view likeness workflow below remains available for heads with photographs from several sides.
 
 The owner, 2026-11-14, after the Greys: he will want it easy "to add or generate a bunch of people
@@ -111,7 +112,9 @@ right: on Sarah Grey, whose picture's eyes are what make her eyes hers, it drew 
   another body is `tools/face_landmark_correspondence.py` on five renders of it.
 - **One front picture.** The face's depth (its profile) comes from the fit's prior and the body,
   not from the side pictures, which only colour it.
-- **Children.** No child's body is calibrated and no child has been tried.
+- **Children.** The separate shared library now registers fictional child photographs against
+  the existing child/toddler heads through shared UV topology, preserving their head morphs
+  and body proportions. Independently calibrated child head fitting remains future work.
 - **Memory.** Each photo person costs about 225 KB to download, and about 5.7 MiB of texture memory
   on a computer (1.4 MiB on a phone, which halves the sheets). 1904 stood at 1,292 of 1,425 MiB on a
   computer and 426 of 450 MiB on a phone on 2026-11-14: room for a handful, not hundreds. Before a

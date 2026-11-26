@@ -60,6 +60,13 @@ class ImportBoundaries(unittest.TestCase):
             for change in ({'age':12},{'age':101},{'sex':'unknown'},{'id':'../../resident'}):
                 with self.assertRaises(ValueError):P.validate_entry({**self.entry(),**change})
 
+    def test_child_requires_its_own_texture_only_path(self):
+        with patch.object(P,'ROOT',self.root):
+            child={**self.entry(),'age':7,'population':'child','texture_only':True}
+            P.validate_entry(child)
+            for change in ({'texture_only':False},{'age':1},{'age':18},{'fitted':{'values':{'head_shape':.8}}}):
+                with self.assertRaises(ValueError):P.validate_entry({**child,**change})
+
 
 if __name__=='__main__':
     unittest.main()
