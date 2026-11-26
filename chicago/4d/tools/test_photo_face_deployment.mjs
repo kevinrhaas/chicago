@@ -57,8 +57,14 @@ for(const year of ['1812','1835','1871','1904']){
 }
 const bad=structuredClone(kit.photoChildren);bad.faces[0].values={head_shape:.8};
 assert.equal(V.attachChildPhotoLibrary({},bad,new URL('photo_faces/children/review.json',kit.base)),false,'adult shape transfer cannot enter the child library');
+const movedEyes=structuredClone(kit.photoChildren);movedEyes.faces[0].eyes.centres_uv=[[.4,.4],[.6,.4]];
+assert.equal(V.attachChildPhotoLibrary({},movedEyes,new URL('photo_faces/children/review.json',kit.base)),false,'a child library cannot reshape the native eyes');
 const crowd=kit.photoFaces.textures.light.gpu_bytes_rgba8_mipmaps+kit.photoChildren.textures.light.gpu_bytes_rgba8_mipmaps;
 const detail=Math.max(...[kit.photoFaces,kit.photoChildren].flatMap(l=>l.pages.map(p=>p.textures.full.gpu_bytes_rgba8_mipmaps)));
-assert(crowd+detail<=12*1024*1024+16,'two crowd sheets share ONE nearby page, 12 MiB including conservative mip rounding');
-console.log(JSON.stringify({allYearCoverage:summary,crowdBytes:crowd,sharedDetailMaxBytes:detail,totalFaceTextureMaxBytes:crowd+detail}));
+const rgbaMips=([width,height])=>{let bytes=0;for(;;){bytes+=width*height*4;if(width===1&&height===1)return bytes;width=Math.max(1,Math.floor(width/2));height=Math.max(1,Math.floor(height/2));}};
+const actualCrowd=[kit.photoFaces,kit.photoChildren].reduce((sum,l)=>sum+rgbaMips(l.textures.light.size_px),0);
+const actualDetail=Math.max(...[kit.photoFaces,kit.photoChildren].flatMap(l=>l.pages.map(p=>rgbaMips(p.textures.full.size_px))));
+assert(actualCrowd+actualDetail<=12*1024*1024,'actual RGBA8 mip chains for both crowd sheets and ONE nearby page stay within 12 MiB');
+assert(crowd+detail>=actualCrowd+actualDetail&&crowd+detail-actualCrowd-actualDetail<=6,'the metadata conservatively rounds each of three mip pyramids by at most two bytes');
+console.log(JSON.stringify({allYearCoverage:summary,crowdBytes:crowd,sharedDetailMaxBytes:detail,totalFaceTextureMaxBytes:actualCrowd+actualDetail,conservativeMetadataBytes:crowd+detail}));
 console.log('PASS: default photographic adults and children in all four years, complete scene tables, stable identities, preserved child proportions, protected personal likenesses and bounded shared textures');

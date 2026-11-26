@@ -107,7 +107,8 @@ export function attachPhotoLibrary(kit, library, manifestURL) {
 export function attachChildPhotoLibrary(kit,library,manifestURL){
   const checked={};
   if(!attachPhotoLibrary(checked,library,manifestURL)||!library.faces.every(f=>f.population==='child'
-    &&f.texture_only===true&&f.age>=2&&f.age<18&&Object.keys(f.values??{}).length===0))return false;
+    &&f.texture_only===true&&f.age>=2&&f.age<18&&Object.keys(f.values??{}).length===0
+    &&f.base_body?.startsWith('child_')&&f.eyes?.centres_uv===null))return false;
   kit.photoChildren=checked.photoFaces;return true;
 }
 
