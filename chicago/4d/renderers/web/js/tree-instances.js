@@ -40,10 +40,11 @@
  */
 
 import * as THREE from 'three';
-import { LEAF_SKY } from './time-of-day.js';
+import { patchLeafLight } from './leaf-light.js';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
 import { loadCompressed, countSheet } from './ktx2.js';
 import { instanceDraws, patchInstancedDraws, extraSlots } from './batch-instance.js';
+import { releaseAfterUpload } from './upload-release.js';
 
 /** Level distances by Scene detail, metres from the eye. A near tree is a few
  *  thousand triangles, so the near ring is kept to the trees a visitor walks
@@ -57,6 +58,9 @@ const LEVELS = {
  *  (world.js), and a far tree's shadow is a few pixels of dapple. */
 const SHADOW_M = { full: 150, balanced: 120, light: 80 };
 const STEP_M = 4;
+// Full resolves individual sprays within a short walk. Keep the original near
+// mesh beyond this ring, so a dense wood does not pay for fine twigs at 42 m.
+const CLOSE_M = 14;
 /** T-2948: how far past a ring's edge a stem keeps its finer level and set, and
  *  how far the eye must move between two updates for it to be a jump (no fade). */
 const HYSTERESIS_M = 3;
@@ -111,11 +115,11 @@ function archetypeKey(spec) {
  */
 export class TreeInstances {
   constructor({ level = 'full', shadowM = null, variants = null, name = 'timber', levels = null, cull = false,
-    fadeS = 0, castFar = false } = {}) {
+    fadeS = null, castFar = false } = {}) {
     this.name = name;
-    this.fadeS = fadeS;
     this.castFar = castFar;
     this.level = LEVELS[level] ? level : 'full';
+    this.fadeS = fadeS ?? (this.level === 'full' ? 0.22 : 0);
     this.cullPerM = cull ? CULL_PER_M[this.level] : Infinity;
     this.dist = levels?.[this.level] ?? LEVELS[this.level];
     // T-2833: a caller's own rings may name a `distant` reach without culling.
@@ -156,13 +160,29 @@ export class TreeInstances {
    * Grow the variants and build the four batches.
    * @returns {{ group: THREE.Group, update(eye: THREE.Vector3): void, stats: object, dispose(): void }}
    */
-  async build({ woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, checkpoint = () => null,
+  async build(options) {
+    // The planner is reused by season changes, and a detail preparation may
+    // still be reading it. Templates and live instance slots belong to one
+    // forest: retiring one build must never clear another build's data.
+    const snapshot = Object.assign(Object.create(TreeInstances.prototype), this);
+    snapshot.dist = { ...this.dist };
+    snapshot.kinds = new Map([...this.kinds].map(([key, kind]) => [key, { ...kind }]));
+    snapshot.stems = this.stems.map(stem => ({ ...stem, kind: snapshot.kinds.get(stem.kind.key) }));
+    return snapshot._build(options);
+  }
+
+  async _build({ woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, checkpoint = () => null,
     season = {} }) {
     const group = new THREE.Group();
     group.name = grownGroupName(this.name);
     const stats = { stems: this.stems.length, archetypes: this.kinds.size, variants: 0,
       triangles: 0, templateTriangles: 0, near: 0, mid: 0, far: 0, shade: 0, drawCalls: 0 };
     if (!this.stems.length) return { group, stats, update() {}, settle() {}, dispose() {} };
+    // Full's extra close level uses the same dissolve as the street trees.
+    // Install it here too for a wood whose materials did not request it up front.
+    if (this.fadeS > 0) {
+      for (const m of [woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance]) if (m) patchFade(m);
+    }
     const t0 = performance.now();
     let paused = 0;
 
@@ -185,14 +205,18 @@ export class TreeInstances {
         // holds its leaf into late October, a hydrangea is cut back to stubs in April) has it.
         const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : (spec.seasonCrown ?? season)), coarse: light };
         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
+        const close = this.level === 'full'
+          ? buildTreeTemplate(spec, seed, 'near', { ...o, skeleton: first.skeleton, fullSprays: true }) : null;
         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });
         const distant = Number.isFinite(this.distantM)
           ? buildTreeTemplate(spec, seed, 'distant', { ...o, skeleton: first.skeleton }) : null;
         first.skeleton = null;
+        if (close) close.skeleton = null;
         far.skeleton = null;
         if (distant) distant.skeleton = null;
         const levels = light ? { mid, far } : { near: first, mid, far };
+        if (close) levels.close = close;
         if (distant) levels.distant = distant;
         kind.variants.push({ H: first.height, R: first.crownR, levels });
         stats.variants++;
@@ -203,6 +227,7 @@ export class TreeInstances {
     // 2. The geometry each set holds: the shade set near and mid, the far set mid
     //    and far; on the phone's tier the shade set mid and the far set far.
     const sets = this.level === 'light' ? { shade: ['mid'], far: ['far'] } : { shade: ['near', 'mid'], far: ['mid', 'far'] };
+    if (this.level === 'full') sets.shade.unshift('close');
     if (Number.isFinite(this.distantM)) sets.far.push('distant');
     const sizes = {};
     for (const [set, lv] of Object.entries(sets)) {
@@ -358,6 +383,13 @@ export class TreeInstances {
         v.levels = null;
       }
     }
+    // Full's woodland templates need no CPU triangle copy after upload: picks
+    // and collisions use the kept stems, and every LOD bound is cached first.
+    // Use the existing release/context-recovery path, including its diagnostic
+    // keep-geometry opt-out. Other layers retain their own picking contracts.
+    if (this.level === 'full' && this.name === 'timber') {
+      releaseAfterUpload(group, { [group.name]: [] });
+    }
 
     // 4. Level and set by distance, re-chosen when the eye has moved STEP_M.
     const dist = this.dist;
@@ -366,7 +398,8 @@ export class TreeInstances {
     const distantM = this.distantM;
     const fadeS = this.fadeS;
     const hyst = fading ? HYSTERESIS_M : 0;
-    const levelAt = (d) => (d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant');
+    const closeM = this.level === 'full' ? Math.min(CLOSE_M, dist.near) : -1;
+    const levelAt = (d) => (d <= closeM ? 'close' : d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant');
     // T-2948: the stems dissolving from one level (or set) to another.
     const live = new Set();
     const settle = (s) => {
@@ -457,7 +490,7 @@ export class TreeInstances {
         const want = nearestLevel(sets[shade ? 'shade' : 'far'], level);
         if (shade !== s.shade || want !== s.level) move(s, shade, want, smooth);
         t += s.v.tris[want] * 1;
-        if (want === 'near') nn++; else if (want === 'mid') nm++; else if (want === 'far') nf++; else nd++;
+        if (want === 'near' || want === 'close') nn++; else if (want === 'mid') nm++; else if (want === 'far') nf++; else nd++;
         if (shade) ns++;
       }
       stats.triangles = Math.round(t);
@@ -495,7 +528,8 @@ export class TreeInstances {
   }
 }
 
-const ORDER = { near: 0, mid: 1, far: 2, distant: 3 };
+const ORDER = { close: 0, near: 1, mid: 2, far: 3, distant: 4 };
+const fadedMaterials = new WeakSet();
 const WHOLE = new THREE.Vector4(1, 1, 1, 1);
 // T-3751: burnt bark, as a multiplier of the bark's own colour (city-fire.js's scorched tree).
 const BARE_TINT = [0.16, 0.13, 0.1];
@@ -570,12 +604,16 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
   });
   woodMat.name = 'timber-wood';
   const leafMat = new THREE.MeshStandardMaterial({
-    vertexColors: true, map: leafA, roughness: 0.78, metalness: 0,
+    // The existing leaf photograph/paint carries vein relief as well as colour.
+    // Reuse that sheet on capable devices; Light adds no bump samples or texture.
+    vertexColors: true, map: leafA, bumpMap: lowSpec ? null : leafA, bumpScale: 0.008,
+    roughness: lowSpec ? 0.78 : 0.74, metalness: 0,
     side: THREE.DoubleSide, alphaTest: alphaCutoff,
   });
   leafMat.name = 'timber-leaves';
   patchWind(woodMat, uWind);
-  patchLeaves(leafMat, uWind, patchWind);
+  patchWind(leafMat, uWind);
+  patchLeafLight(leafMat, { lowSpec });
   if (fade) { patchFade(woodMat); patchFade(leafMat); }
   confidence?.patch(woodMat);
   confidence?.patch(leafMat);
@@ -600,24 +638,6 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
   };
 }
 
-/** The wind, then a little skylight through the blade: a thin leaf transmits,
- *  so a crown's shaded side is green, not black. */
-function patchLeaves(material, uWind, patchWind) {
-  patchWind(material, uWind);
-  const wind = material.onBeforeCompile;
-  material.onBeforeCompile = (shader, r) => {
-    wind(shader, r);
-    // T-3331: the transmitted skylight falls with the hour (time-of-day.js LEAF_SKY);
-    // 0.22 by day, exactly as before.
-    shader.uniforms.uLeafSky = LEAF_SKY;
-    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader.replace('#include <lights_fragment_end>', `
-#include <lights_fragment_end>
-reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
-`);
-  };
-  material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';
-}
-
 /**
  * T-2948 — THE DISSOLVE. A fading wood (`TreeInstances` with `fadeS`) writes each
  * instance's fade into the alpha of its batch colour: 1 whole, 0..1 the share of a
@@ -630,6 +650,8 @@ reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
  * shadow dissolves with the crown.
  */
 function patchFade(material) {
+  if (fadedMaterials.has(material)) return;
+  fadedMaterials.add(material);
   const prior = material.onBeforeCompile;
   const isDefaultKey = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey;
   const priorKey = isDefaultKey ? String(prior) : material.customProgramCacheKey();
@@ -655,6 +677,7 @@ if (vTreeFade < 1.0) {
 }`);
   };
   material.customProgramCacheKey = () => `${priorKey}|tree-fade-t2948`;
+  material.needsUpdate = true;
 }
 
 export { archFor };

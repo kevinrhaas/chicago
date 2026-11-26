@@ -1,3 +1,75 @@
+## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
+
+The 1904 seasonal capture audit caught a seated-driver metadata read through the released
+human parser. Transport now reads the same source scene extras retained by GLTFLoader on
+the first scene's userData, preserving its identity/date/vehicle checks. The regression
+parses the real 1904 driver's scene extras with the actual loader, then exercises the real
+assembly factory with parser-free human leases, including rejection and disposal for a
+wrong identity or vehicle binding. The former parser read fails that regression.
+
+The UI allocation fixture holds actor updates and finishes pending source/LOD work before
+its strict GPU-resource readings. The grade-row check keeps people visible; the DOM-overlay
+check retains its existing hidden-people isolation. Rendering resumes before counters are
+read, and the original exact program/geometry equalities and performance limits remain.
+
+The shared grown-tree path now has a Full close level within 14 m. Its large sprays become
+three smaller sprays at different depths and angles, sharing a fine round shoot that tapers
+from the existing attachment to one tip. The original near mesh remains beyond that short ring. The
+existing instancing, culling, hysteresis, dissolve, shadows and species skeletons still apply.
+Balanced and Light retain their geometry counts. Woodland at Balanced uses the existing
+half-size atlases and omits additional leaf-relief sampling, as Light already does. Full
+retains the larger sheets and relief. Bare winter templates remain unchanged.
+
+Rounded spray normals and a common thin-leaf light patch cover woodland and street trees,
+yard shrubs, vines and bank thickets. Direct transmission uses the renderer's already
+shadowed incident light, while the existing small sky term follows time of day. Capable
+devices reuse the leaf sheet for subtle relief. Bark, fruit and solid flowers retain their
+materials. These are declared artistic render approximations (L-leaf-light-3747), preserving
+the records' species, planting, historical grades and asset provenance. Herbaceous flora and
+garden crops are T-3748's scope.
+
+The published season/detail sweep exposed overlapping rebuilds sharing scratch templates
+and live instance slots. Each forest now owns a snapshot of the placement plan; a seasonal
+commit discards superseded or late results and retains the prior forest until its replacement
+is ready. Rapid choices grow one candidate at a time and skip obsolete queued choices.
+The regression first reproduced the exact null-template crash, then checks
+overlapping summer/winter growth and a live forest after another rebuild and disposal.
+
+Full woodland and its static thicket batch let go of unused CPU triangle copies after upload using the existing
+upload-release and context-recovery path. All LOD bounds and confidence ranges are cached
+before release; picks and collisions retain their placement records. The native regression
+also changes LOD after discarding the arrays. The published desktop check requires exactly
+the four grown batches and the static thicket batch to release while its building and furniture pick oracles remain.
+The distant horizon keeps its dynamic arrays for its moving-eye solve. Resident-memory
+checks found the initial separate twig per spray too costly; the shared shoot reduces that
+geometry while retaining the three sprays, the existing limits and every planting record.
+The diagnostic `keep-geometry` option retains arrays for geometry-reading smoke tests.
+
+The focused browser test checks shadowed backlight, a wood mask, night, sky and shader-hook
+composition on both shader variants. Seven species/habits also retain their tree dimensions,
+coarse templates and bare templates while adding Full close detail. The tree-gallery
+diagnostic and fixed-camera published-scene captures retain their source versions and costs;
+final local gate, mapped smoke and CI receipts belong to the merging PR. Scripted moving-frame
+readings also suppress unmeasured raster drawing during tier preparation; their measured
+loops, limits, verification, live mode and explicit rendering stay unchanged. Cloud software
+rendering is not evidence of an integrated GPU's or a high-end GPU's FPS.
+
+Integration with the newer clothing passes exposed dense nearest-point work grids retaining
+empty volume. Point grids now use compact typed offsets for sparse shells and retain the
+dense representation when it is smaller. Search order, cell size, reach and garment output
+stay identical; an independent full-scan regression covers both representations, bounds and
+ties. Outline-only samplers are released before the rider passes. The shared human asset cache
+also releases its finished GLTF parser, as the building loader already does; fetched byte
+preparation ends before the sliced clothing work, releasing the raw file and header.
+Decoded geometry, materials, animations and metadata retain their identities and refcounts.
+Source clothing preparation now runs one body at a time per asset store, so several
+long-lived welded work graphs cannot accumulate while their generators yield. Fetching and
+GLTF decoding stay parallel; the separate queue that builds individual actors stays as it
+was. Failed preparation releases the queue for the next source. All clothing passes and
+outputs stay the same; the controlled regression first observes two simultaneous source
+work graphs, then verifies one, parallel decoding and recovery after a rejected pass.
+The unchanged memory and frame-time gates remain required; all people, faces and clothing stay enabled.
+
 ## T-3766 — Play a part: a new role in every year (26 November 2026)
 
 Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish

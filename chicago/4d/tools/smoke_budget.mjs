@@ -533,8 +533,13 @@ const COVERAGE = [
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
   ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
   // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
-  ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
-  ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['renderers/web/js/tree-model.js', [5, 10, 11, 14], 'the grown species trees, their detail ceilings, the timber parts and the 1904 parkway elms'],
+  ['renderers/web/js/tree-instances.js', [5, 10, 11, 14], 'the grown trees\' instancing, detail ceilings, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['renderers/web/js/leaf-light.js', [10, 11, 14], 'the shared thin-leaf lighting of grown trees, vines and woody shrubs (T-3747)'],
+  ['tools/test_tree_rebuilds.mjs', NONE, 'a native regression for overlapping seasonal tree builds'],
+  ['tools/test_leaf_lighting_browser.mjs', NONE, 'a rendering test of shadowed leaf light, not a shipped renderer'],
+  ['tools/qa_vegetation_t3747.mjs', NONE, 'captures fixed-camera vegetation evidence; no runtime consumer'],
+  ['tools/qa_tree_gallery_t3747.mjs', NONE, 'isolated tree geometry/material diagnostic; no runtime consumer'],
   // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
   ['renderers/web/js/batch-instance.js', [10, 11, 14], 'the grown trees\' copies of one template drawn as one instanced draw'],
   ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
