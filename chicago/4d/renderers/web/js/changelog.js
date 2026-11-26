@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 3253, ts: '2026-11-26T07:15:34.545Z', date: 'Nov 26, 2026, 1:15 AM CT', title: 'Truer download sizes and times while a year loads', kind: 'fix',
+    items: [
+      'The loading screen now knows each year\'s own download size, so the total no longer climbs as it loads.',
+      'The time left counts down steadily instead of jumping.',
+      'The offline copy\'s bar moves within large files and shows the time left.',
+    ] },
+  { v: 3252, ts: '2026-11-26T07:15:34.545Z', date: 'Nov 26, 2026, 1:15 AM CT', title: 'Changing the language warns that the app restarts', kind: 'change',
+    items: [
+      'Settings, Display says in English and Spanish that changing the language restarts the app, and asks before it does.',
+    ] },
+  { v: 3251, ts: '2026-11-26T07:15:34.545Z', date: 'Nov 26, 2026, 1:15 AM CT', title: 'Body styles are Style 1, 2 and 3, each its own look', kind: 'change',
+    items: [
+      'Settings, You names the three body styles Style 1, Style 2 and Style 3.',
+      'Style 3 no longer opens looking like Style 1: it starts in different clothes and hair, with a softer face and a leaner build.',
+    ] },
   { v: 3250, ts: '2026-11-26T06:38:51.941Z', date: 'Nov 26, 2026, 12:38 AM CT', title: 'Stories fit their tellers, and household cards use real names', kind: 'fix',
     items: [
       'Louis Ream no longer tells the World\'s Fair as a girl: every story and question now goes only to someone of the right sex, age and background.',
