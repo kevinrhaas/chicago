@@ -525,6 +525,14 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       if (told.dataset.withheld !== undefined) { withheld = true; hear?.remove(); hear = null; }
       transcript('stop', stop.id, [told], hear);
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
+      // T-3755: the stop closes with the narrator's line sending you on, or round this place
+      // first (narration.js onwardLines); in a voiced telling it is read after the stop's voice.
+      const onward = withheld ? '' : scriptFor(state.jaunt, 'onward', stop.id);
+      if (onward) {
+        const line = node('p', onward, 'jaunt-onward'); line.dataset.readingSkip = ''; line.dataset.voiced = 'onward';
+        line.classList.toggle('jaunt-voicing', !!narration?.isPlaying(state.jaunt, 'onward', stop.id));
+        body.append(line);
+      }
       // T-3553: a stop played by its people (jaunt-stage.js) can be watched again from the start.
       if (stop.stage?.cast?.length && actions.replay) {
         const again = button('Watch again', () => actions.replay()); again.dataset.action = 'replay'; again.className = 'jaunt-replay';
