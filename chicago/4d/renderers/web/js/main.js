@@ -58,6 +58,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { createGamepadBackend } from './controls/gamepad.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
@@ -5498,7 +5499,8 @@ async function boot() {
       hud.setLocked(locked);
       gesture.setLook({ locked });
       // A card opening lets the pointer go on purpose (T-2954): the card is the message.
-      if (!locked && !cardTookPointer) hud.say('Pointer released — click the view to look around again');
+      // T-3749: a controller taking over lets the pointer go too; it has its own look.
+      if (!locked && !cardTookPointer && backends.active !== gamepad) hud.say('Pointer released — click the view to look around again');
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
@@ -5527,6 +5529,27 @@ async function boot() {
 
   let gateOpen = true;
   let enteredWorld = false;
+
+  /**
+   * T-3749: a game controller (js/controls/gamepad.js). It is polled each frame before the live
+   * backend's turn: in the town it takes over as the backend the way a touch or a key does; on
+   * the arrival screen, a card, Settings or a key it put focus on, it drives the page instead.
+   */
+  const gamepad = createGamepadBackend({
+    intent, backends,
+    lookSpeed: () => hud.settings.lookSpeed,
+    gateOpen: () => gateOpen,
+    menuOpen: () => !!popup.openId || hud.panelOpen(),
+    paused: () => !!(xrMode?.presenting || windowMode?.on),
+    signature: () => {
+      try {
+        return `${popup.openId ?? ''}|${hud.panelOpen()}|${navigatorUi?.level ?? ''}|${inspectingByHand()}|`
+          + `${document.getElementById('gate')?.dataset.region ?? ''}|${gateOpen}`;
+      } catch { return ''; }
+    },
+    say: (line) => hud.say(line),
+  });
+  api.gamepad = gamepad;
 
   // Exactly one backend is live. Whichever device the visitor actually uses
   // wins, switched by the first real event of that kind — a laptop with a
@@ -8086,8 +8109,10 @@ async function boot() {
       ? 0 : rawElapsed;
     visualClockReset = visualHeld;
 
-    if (!gateOpen) backends.active?.update?.(dt);
-    else intent.clear();
+    // T-3749: the controller is read first, in the town and on the arrival screen alike (there it
+    // drives the menu), so the live backend's turn sees what it wrote.
+    if (!gateOpen) { gamepad.poll(Math.min(elapsed, 0.1)); backends.active?.update?.(dt); }
+    else { gamepad.poll(elapsed); intent.clear(); }
     terrain.update(dt);
     nightLights.update(dt);
     // T-3586: one gust clock for every swaying plant and the wind you hear.

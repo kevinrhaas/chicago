@@ -261,6 +261,9 @@ step "A classroom Chromebook boots as a computer on the memory diet, people and 
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
+step "A Bluetooth game controller walks, looks, flies and drives the menus, and its keys are the keyboard's own (T-3749)" \
+  node tools/check_gamepad.mjs
+
 step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
   node tools/check_window_mode.mjs
 

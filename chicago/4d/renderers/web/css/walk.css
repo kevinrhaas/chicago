@@ -2917,6 +2917,11 @@ html[data-motion="reduce"] *, html[data-motion="reduce"] *::before, html[data-mo
   animation-duration: 0.01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important;
 }
+
+/* T-3749: a game controller moves focus from key to key (js/controls/gamepad.js), so the key it
+   is on always shows, whatever a key's own focus style is. Cleared by the next click, touch or key. */
+html[data-input="gamepad"] body :focus { outline: 3px solid var(--accent); outline-offset: 2px; }
+
 /* T-3757: Settings › Display › Language warns, in both languages, that a change restarts the app. */
 .language-note { margin: 2px 0 8px; }
 .language-ask { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 2px 0 8px; }
