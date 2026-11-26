@@ -2430,7 +2430,7 @@
       "placement": "pending",
       "write_mode": "--batch data/humans/variation/photo_face_pilot.json --output assets/humans/web/photo_faces/pilot --jobs 4; --batch data/humans/variation/photo_face_children.json --output assets/humans/web/photo_faces/children --jobs 4",
       "measured": "2026-11-26",
-      "finding": "Reproduces: two actual offline writes of both pinned recipes reproduce all 349 outputs byte for byte and advance every output mtime (146.81 s and 136.63 s): 325 adult outputs and 24 child outputs. Neither write needs a landmark model or network. A one-byte change in children/page_00_face_full.jpg is refused by --check and restored byte-exact by the second write. Read-only fitted-head parents, native child masters, landmark correspondences and both authored recipes retain their SHA-256 values. Identical crowd and Light review textures share one canonical file; a stale duplicate is removed. Child dependency enumeration is sorted so metadata is repeatable across Python processes. This measures the active feature working tree, not a claim that its uncommitted feature files were Git-clean. Proof: chicago-evidence, evidence/photo-faces-dev-T-3767/dev-photo-writer-reproduction.json (T-3767/T-3768).",
+      "finding": "Reproduces after T-3769's forehead lighting blend: two actual offline writes of both pinned recipes reproduce all 349 outputs byte for byte and advance every output mtime (125.27 s and 122.73 s): 325 adult outputs and 24 child outputs. All 272 face, eye, hair and fitted-head records, texture dimensions and GPU budgets are identical to the deployed library; only 37 atlas/catalog outputs change. Neither write needs a landmark model or network. A one-byte change in children/page_00_face_full.jpg is refused by --check and restored byte-exact by the second write. Read-only parents and both authored recipes retain their SHA-256 values. Identical crowd and Light review textures share one canonical file. This measures the feature working tree, not a Git-clean source claim. Proof: chicago-evidence, evidence/photo-forehead-T-3769/forehead-writer-reproduction.json.",
       "placed": "Follows calibrated canonical/web bodies, hm08_variation_kit, the source face-library record, portrait-axis records and pinned landmark correspondences. Body/variation/face-library writers are themselves pending, so this consumer is not appended blindly to the full manifest. It writes only the adult pilot and child library directories consumed by the owner-approved default dev renderer and publish; the one-photo path remains explicit review output. Full-manifest ordering is unmeasured."
     },
     "town_people_1835.py": {
@@ -2507,6 +2507,12 @@
       "measured": "2026-11-23",
       "finding": "Reproduces: two bare runs on the working tree rewrote data/house_numbers/1904.json byte for byte and changed no other byte; with the output emptied, --check failed and a bare run restored it to the same bytes; --check writes nothing (T-3737).",
       "placed": "Reads data/street_grid/1904.json (tools/trace_prairie_1904_grid.py's lots and their 1911 numbers), the committed 1904 sidecars and their baked models' door leaves and glass, as tools/plant_prairie_1904_front_yards.py reads them. Its slot is after the grid tracer and every 1904 bake; nothing reads its output but the renderer."
+    },
+    "architecture_site.py": {
+      "placement": "not_a_writer",
+      "write_mode": "OUT_DIR",
+      "measured": "2026-11-26",
+      "finding": "Writes nothing in the tree. Its write mode is called only by tools/publish.sh with the untracked published mirror's walk/architecture/ (data.json derived from data/components/prairie_1904/k*.json, data/structures/ and data/sidecars/; the kits' specimen GLBs copied byte for byte; their study pictures at 1600 px), which tools/check_published.mjs then holds. --check builds the same into a temporary folder it removes, in about 1.4 s; run bare it prints its usage, exits 2 and writes nothing. git status --porcelain was identical before and after --check and the bare run (T-3750)."
     }
   }
 }
