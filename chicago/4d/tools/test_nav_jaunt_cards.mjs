@@ -184,7 +184,8 @@ assert(/Prairie Walk/.test(text) && /Walk the avenue\./.test(text) && /3 stops/.
 
 // ---- the Continue card in jaunt-preview.js ------------------------------------------------
 const preview = read('renderers/web/js/jaunt-preview.js');
-assert(/`Continue · Stop \$\{at \+ 1\} of \$\{stops\.length \|\| at \+ 1\}`/.test(preview), 'CONTINUE · STOP n OF m');
+// T-3754: m is this route's own count of stops (routeCount), not the file's.
+assert(/`Continue · Stop \$\{at \+ 1\} of \$\{routeCount\(session\) \|\| at \+ 1\}`/.test(preview), 'CONTINUE · STOP n OF m');
 assert(/next \? `Next: \$\{label\(next\)\}`/.test(preview), 'Next: the next stop by name');
 assert(/if \(session\.phase === 'menu'\) prefix\.unshift\(note\)/.test(preview), 'an outing in progress is pinned on top');
 assert(/button\('Continue'/.test(preview), 'its key is Continue');

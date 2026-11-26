@@ -191,12 +191,12 @@
     },
     {
       "id": "fire_parmelee_stables",
-      "label": "Franklin Street at Jackson, looking at the new Parmelee stable",
+      "label": "Jackson and Franklin, looking across the corner at the new Parmelee stable",
       "short": "Parmelee stable",
       "glyph": "street",
-      "local_e": 192.0,
-      "local_n": -902.0,
-      "yaw_deg": 149.3
+      "local_e": 212.8,
+      "local_n": -950.4,
+      "yaw_deg": 141.8
     },
     {
       "id": "fire_court_house",
@@ -266,9 +266,9 @@
       "label": "Washington Square, looking at the house of Mahlon D. Ogden",
       "short": "Ogden house",
       "glyph": "street",
-      "local_e": 612.0,
-      "local_n": 1418.0,
-      "yaw_deg": 6.0
+      "local_e": 616.0,
+      "local_n": 1400.0,
+      "yaw_deg": 3.0
     },
     {
       "id": "fire_old_cemetery",

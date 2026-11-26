@@ -727,16 +727,25 @@ def column(b):
         if horse and who != 'wells_william': slot += 2
         cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier=tier, beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}],
                            **({'mount': dict(horse)} if horse else {})))
-    # The Potawatomi escort walks with them out on the prairie, at a distance.
-    for i, who in enumerate(b.take(b.MEN, 24, stride=17, offset=11)):
+    # The warriors who will attack are not seen walking along with the column (the owner,
+    # 2026-11-26: "they would either be at camp preparing, or taking up positions to attack the
+    # column"). The camps are beyond this stop's reach (the nearest is ~470 m west), so a small
+    # party is seen out on the prairie side going off ahead of the column at a jog, and dropping
+    # down into the grass far to the south, on their way to the sand bank. Wau-Bun has the
+    # escort 'take to the prairie' rather than keep the beach; that they hurry ahead is ours
+    # (L-1812-staged-jaunts-3553). Twenty-four are still taken from the pool, so every later
+    # scene keeps the same people; only the first eight are cast.
+    party = b.take(b.MEN, 24, stride=17, offset=11)[:8]
+    downs = ['kneel', 'prone', 'crouch', 'kneel2']
+    for i, who in enumerate(party):
         rank, k = divmod(i, 4)
-        s0 = head0 - 10.0 - 6.0 * rank - 1.5 * k
-        s1 = s0 + 150.0
-        side = 42.0 + 3.0 * k + (i % 3)
-        start = along(line, s0, side)
-        way = sub(line, s0, min(s1, line[-1][0]), side)[1:]
-        cast.append(member(who, P(*start), heading=b.bearing(start, way[0]), tier='desktop' if i % 6 else None,
-                           beats=[{'t': 0.0, 'walk': [P(*p) for p in way], 'pace': MARCH}]))
+        start = along(line, s_vis - 22.0 - 4.0 * rank - 1.2 * k, 66.0 + 3.5 * k + 2.0 * rank)
+        end = along(line, line[-1][0] - 6.0 * rank - 2.0 * k, 104.0 + 4.0 * k + 3.0 * rank)
+        t0 = 2.0 + 0.7 * i
+        arrive = t0 + math.hypot(end[0] - start[0], end[1] - start[1]) / 2.6 + 1.5
+        cast.append(member(who, P(*start), heading=b.bearing(start, end), tier='desktop' if i % 2 else None,
+                           beats=[{'t': round(t0, 1), 'walk': [P(*end)], 'pace': 'jog'},
+                                  {'t': round(arrive, 1), 'pose': downs[i % len(downs)], 'ease': 1.0}]))
     return {'caption': "Watch the column come down from the fort and pass you: Wells and the Miamis, the band, the regulars, the wagons with the children, the families, the militia.", 'cast': cast, 'teams': teams}
 
 

@@ -28,13 +28,13 @@ export function styleWords({ travelMode, pace } = {}, labels = {}) {
 }
 
 /** The mode the visitor's choice asks a Jaunt for: Teleport and Fly over are the Jaunt's
- * 'instantly' and 'fly', and Ride there is the pace (running counts as on foot, since no
- * Jaunt lists running). */
-function wantedMode({ travelMode, pace } = {}) {
+ * 'instantly' and 'fly', and Ride there is the pace (running counts as on foot where a Jaunt
+ * does not list running; T-3754: the 1812 runner's errands do). */
+function wantedMode({ travelMode, pace } = {}, allowed = []) {
   const style = styleOf(travelMode);
   let want = style;
   if (style === 'ride') want = travelMode && travelMode !== 'instantly' && travelMode !== 'fly' ? travelMode : groundPace(pace);
-  return want === 'run' ? 'walk' : want;
+  return want === 'run' && !allowed.includes('run') ? 'walk' : want;
 }
 
 /**
@@ -48,7 +48,7 @@ function wantedMode({ travelMode, pace } = {}) {
 export function jauntChoice({ travelMode, pace, follow = false } = {}, jaunt = {}) {
   if (follow !== true || !jaunt) return { mode: null, kept: false, want: null };
   const allowed = Array.isArray(jaunt.allowed_modes) ? jaunt.allowed_modes : [];
-  const want = wantedMode({ travelMode, pace });
+  const want = wantedMode({ travelMode, pace }, allowed);
   return allowed.includes(want) ? { mode: want, kept: false, want } : { mode: null, kept: true, want };
 }
 

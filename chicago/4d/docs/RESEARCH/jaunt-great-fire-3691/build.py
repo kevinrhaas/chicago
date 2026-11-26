@@ -44,7 +44,10 @@ SCENE_PATH = ROOT / 'data/scenes/1871.json'
 ANCHORS = [
     ('fire_oleary_barn', "DeKoven Street, before the O'Leary cottage, looking at the barn behind it", "O'Leary barn", (-300.0, -2004.0), (-300.0, -1958.0)),
     ('fire_st_pauls', "Clinton Street south of Mather, looking at St. Paul's church and Bateham's mills", "St. Paul's church", (-266.0, -1560.0), (-245.0, -1490.0)),
-    ('fire_parmelee_stables', 'Franklin Street at Jackson, looking at the new Parmelee stable', 'Parmelee stable', (192.0, -902.0), (224.0, -956.0)),
+    # T-3751 (the owner, 2026-11-26: "The narration says the user is on Jackson Street, but the scene appears to be
+    # elsewhere"): the stand was 60 m up Franklin, on Quincy; now the north-west corner of Jackson and Franklin
+    # (the plan's corner at 220.8, -958.4), looking across at the stable on the south-east corner.
+    ('fire_parmelee_stables', 'Jackson and Franklin, looking across the corner at the new Parmelee stable', 'Parmelee stable', (212.8, -950.4), (240.0, -985.0)),
     ('fire_court_house', 'Clark Street at Washington, looking at the Court House in its square', 'Court House', (580.0, -408.0), (507.0, -330.0)),
     ('fire_sherman_house', 'The Court House square at Clark and Randolph, looking at the Sherman House', 'Sherman House', (560.0, -284.0), (596.0, -240.0)),
     ('fire_crosbys', "Washington Street between Dearborn and State, looking at Crosby's Opera House", "Crosby's Opera House", (770.0, -400.0), (770.0, -366.0)),
@@ -52,7 +55,10 @@ ANCHORS = [
     ('fire_water_works', 'Chicago Avenue at the lake shore, looking at the Water Tower and the pumping works', 'Water Works', (1090.0, 1100.0), (1165.0, 1156.0)),
     ('fire_tribune', 'Dearborn and Madison, looking at the Tribune building on its corner', 'Tribune building', (683.0, -497.0), (718.0, -540.0)),
     ('fire_field_leiter', "State and Washington, looking at Field, Leiter and Co.'s marble store", 'Field, Leiter & Co.', (832.0, -402.0), (856.0, -372.0)),
-    ('fire_ogden_house', 'Washington Park, looking at the house of Mahlon D. Ogden', 'Ogden house', (575.0, 1416.0), (572.0, 1457.0)),
+    # T-3751 (the owner, 2026-11-26: "The narration describes a burned park, but the park appears undamaged"): the
+    # stand is at the south side of Washington Square (the square is 570-671 E, 1391-1437 N), so the whole burnt
+    # park, its families' goods and the house beyond (T-3689 builds it at 612-628 E, 1475-1487 N) are in the view.
+    ('fire_ogden_house', 'Washington Square, looking at the house of Mahlon D. Ogden', 'Ogden house', (616.0, 1400.0), (620.0, 1481.0)),
     ('fire_old_cemetery', 'The old City Cemetery in Lincoln Park, looking south over the burning North Side', 'Old cemetery', (470.0, 2870.0), (420.0, 2420.0)),
 ]
 ANCHOR = {a[0]: a for a in ANCHORS}
@@ -287,8 +293,8 @@ STOPS = [
               "filled in the night with fugitives and their furniture, until the fire came through and burned \"the accumulated "
               "furniture of fifty families.\" Men inside tore up the carpets, spread them over the walls "
               "and kept them wet, and when the hydrant failed, \"Several barrels of cider were used to saturate the carpets\". "
-              "Around it now is \"nothing but this solitary building in an area of 2,600 acres.\" A mile north the fire has reached "
-              "St. Michael's, the great brick German church, and its steeple is burning. "
+              "Around it now is \"nothing but this solitary building in an area of 2,600 acres.\" A mile north the fire is nearing "
+              "St. Michael's, the great brick German church, whose steeple it will burn. "
               "Ahead of the fire, the people of the North Side are running for the lake and the old cemetery.",
          caption="The men who saved the house stand in the burnt park looking at it; a family picks through what is left of their furniture.",
          cast=lambda: crowd('fire_ogden_house', [(10, -6, 'm'), (12, 0, 'm'), (9, 6, 'm'), (6, -10, 'w'), (5, -12, 'c')], [], 10)),

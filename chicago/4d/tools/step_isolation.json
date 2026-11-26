@@ -2832,11 +2832,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_fire_jaunt.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_flora_gpu_lattice.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/check_frontage_notes.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_gamepad.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6211,6 +6219,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_days.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_drape.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

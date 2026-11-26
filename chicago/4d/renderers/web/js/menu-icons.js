@@ -20,6 +20,8 @@ const P = {
   'Build log': '<path d="M3.5 3.5h11v17h-11z"/><path d="M3.5 9h11M3.5 14.5h11M9 3.5v17"/><path d="M17.5 4.5h3v12.5l-1.5 3-1.5-3z"/>',
   // travel modes (travel-settings PACES)
   walk: '<path d="M8.5 3.5h4v9l4.6 2.3c1.6.8 2.4 1.9 2.4 3.2v1.5h-14V16l3-3z"/><path d="M5.5 17.5h14"/>',
+  // T-3754: running, the walk's boot with the way it is going behind it.
+  run: '<path d="M10.5 3.5h4v9l4.1 2.1c1.5.8 2.4 1.9 2.4 3.2v1.7H8.5V16l2-3z"/><path d="M2.5 8.5h5M1.5 12.5h5M2.5 16.5h3.5"/>',
   wagon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.6"/><path d="M12 4v6.4M12 13.6V20M4 12h6.4M13.6 12H20M6.3 6.3l4.6 4.6M13.1 13.1l4.6 4.6M17.7 6.3l-4.6 4.6M10.9 13.1l-4.6 4.6"/>',
   horse: '<path d="M7 20.5V11a5 5 0 0 1 10 0v9.5" stroke-width="2.6"/><path d="M5.5 20.5h3M15.5 20.5h3"/>',
   fly: '<path d="M2.5 12.5c3-3.2 6.3-3.2 9.5 0 3.2-3.2 6.5-3.2 9.5 0"/><path d="M7 17.5c1.6-1.5 3.4-1.5 5 0"/>',
@@ -67,6 +69,8 @@ const P = {
   stop: '<rect x="7" y="7" width="10" height="10" rx="1.5"/>',
   // T-3711: a jaunt with music of its own (two beamed notes)
   music: '<path d="M9 17.5V5.5l10-2v12"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="15.5" r="2.5"/><path d="M9 9.5l10-2"/>',
+  // T-3753: a jaunt's Stops key: its stops down a route line, the one you are at filled in
+  stops: '<path d="M6 7v10"/><circle cx="6" cy="4.5" r="2"/><circle cx="6" cy="12" r="2" fill="currentColor"/><circle cx="6" cy="19.5" r="2"/><path d="M11 4.5h9.5M11 12h9.5M11 19.5h9.5"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

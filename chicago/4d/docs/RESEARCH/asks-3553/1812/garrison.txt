@@ -526,6 +526,7 @@ The spotted sickness the traders bring, smallpox. My mother lost three sisters t
 
 ## a12-pe-greenville
 roles: potawatomi_elder
+sex: m
 q: Do you remember when the Americans came?
 
 I remember the treaty at Greenville, seventeen summers ago. All the nations of the Northwest went to General Wayne's camp in Ohio, after his soldiers beat us at the Fallen Timbers. We sat for weeks. In the end we gave up most of Ohio and a few small pieces here and there, including six miles square at the mouth of this river.
@@ -562,7 +563,7 @@ A little. All the grown-ups are whispering. When I came in the room my mother st
 My wooden horse. My father carved it. It has a real leather saddle the size of my finger. I will hold it the whole way. If the horse comes, I come too.
 
 ## a12-ch-dog
-roles: child, potawatomi_child
+roles: child
 q: Is that your dog?
 
 He is everybody's dog, but he likes me best. His name is Captain because he barks at everybody, like the captain. My mother says not to say that where the captain can hear.
@@ -586,7 +587,7 @@ O, because it is round like the moon and you can draw a face in it. My sister sa
 Mr. Kinzie's clerk, Chandonnai, taught me to count to ten in Potawatomi. I can do it fast. Listen. Go and ask him to teach you too. He is very patient. He has to be, he says, with Mr. Kinzie.
 
 ## a12-ch-river
-roles: child, potawatomi_child
+roles: child
 q: What do you do for fun?
 
 Swim in the river where it is shallow by the sand bar. Skip stones on the lake. Catch frogs in the marsh. Watch the soldiers drill and copy them with sticks. Run races on the beach with the Potawatomi boys, who always win. Climb the old cottonwood by the Kinzies' house.
@@ -622,6 +623,15 @@ Only soldiers can go up, but I went once when the sergeant was not looking. You 
 ?? Where do you sleep?
 In the barracks, with my mother, on a straw mattress on the floor. It is crowded and someone always snores. My father says it is like living in a beehive. I like it. You are never alone.
 
+## a12-pc-corn
+roles: potawatomi_child
+q: Do you have work to do?
+
+In the cornfields by the river, all summer. My mother and my aunts plant the corn and the beans and the squash together, and we children sit on a little platform at the edge of the field and shout at the crows and the blackbirds. If a crow gets the corn, my mother wants to know why I was not shouting.
+
+?? Is that all?
+I carry water from the river in a bark bucket, and I mind my little brother, and I gather wood for the fire. In the fall, when the corn is dry, everybody braids the ears together by their husks and hangs them up in the lodge. My braids are the neatest. My grandmother says so.
+
 ## a12-pc-games
 roles: potawatomi_child
 q: What games do you play?
@@ -632,10 +642,11 @@ The hoop game: you roll a hoop of willow and throw a stick through it while it r
 My cousin. He can throw a stick through a rolling hoop from twenty steps. He says when he is a man he will throw a spear through a deer's heart from fifty. My aunt says he talks too much.
 
 ?? Do girls play?
-Girls play a ball game with a double ball tied together, and they throw it with sticks. It is faster than the boys' game and they hit harder. I know. I tried to play once and my sister hit my ankle on purpose.
+Girls play a ball game with a double ball tied together, and they throw it with sticks. It is faster than the boys' game and they hit harder. My sister hit my ankle with her stick once, on purpose. She says it was the ball.
 
 ## a12-pc-soldiers
 roles: potawatomi_child
+sex: m
 q: What do you think of the soldiers?
 
 They smell like wool and tobacco, and they stand in rows and shout all at the same time. One of them gave me a brass button once. I have it on a string. He said it was from his coat, and the sergeant would be angry, and then he laughed.

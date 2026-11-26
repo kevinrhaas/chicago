@@ -10,8 +10,10 @@
   "scene": "1812",
   "title": "Errands Before the March",
   "premise": "Play a young runner of the settlement at Fort Dearborn during the week the evacuation order arrives, August 1812: determine who receives the intelligence from you first, and where you spend the final nights before the garrison's departure.",
-  "default_mode": "fly",
+  "default_mode": "run",
   "allowed_modes": [
+    "run",
+    "walk",
     "fly",
     "instantly"
   ],

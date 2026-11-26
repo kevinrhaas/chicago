@@ -4,16 +4,18 @@
   "liberty": "L-visitor-person-3644",
   "grade": "reconstructed",
   "basis": "The visitor's own person (Kevin, 2026-11-17: \"the body you have riding the horse is a white man you will need to provide options for users in settings to change the gender appearance dress, etc. this becomes a person builder eventually but the foundation starts with customizing the default person\"). It is nobody of the town: an anonymous figure the visitor makes, from the bodies, dress, faces, complexions and hair the town's own people are drawn with. Each year offers only that year's dress (the bodies its townspeople already wear), so the choice can never put a visitor in clothes of another time. renderers/web/js/visitor-person.js reads this file; the Settings card's You tab writes the choice.",
-  "_doc": "Edit the lists to offer more; `sexes` are the body types (the stored field keeps its name): one with `of` wears the outfits and cuts of those it names, any library face, and its `build` (human-variation.js looks.build) on each body; every id must be one the renderer already draws: `outfits[].asset` a body in assets/humans/web (and one test_riding seats), `cuts` a key of human-hair-styles.js HAIR_CUTS, `facial` keys of FACIAL_HAIR, `hair_colours` keys of HAIR_COLOURS, `complexions` keys of human-looks.js COMPLEXION_TINT, `eyes` keys of EYE_COLOUR. tools/test_visitor_person.mjs holds every id to its table. `defaults` is the person every visitor starts as: the figure that rode before this choice existed.",
+  "_doc": "Edit the lists to offer more; `sexes` are the body types (the stored field keeps its name): one with `of` wears the outfits and cuts of those it names, any library face, its `build` (human-variation.js looks.build) on each body, an Auto face drawn from the faces of the body `face_of` names, and starts each year in its `start` outfit and cut; every id must be one the renderer already draws: `outfits[].asset` a body in assets/humans/web (and one test_riding seats), `cuts` a key of human-hair-styles.js HAIR_CUTS, `facial` keys of FACIAL_HAIR, `hair_colours` keys of HAIR_COLOURS, `complexions` keys of human-looks.js COMPLEXION_TINT, `eyes` keys of EYE_COLOUR. tools/test_visitor_person.mjs holds every id to its table. `defaults` is the person every visitor starts as: the figure that rode before this choice existed.",
   "storage_key": "chicago4d.person",
   "years": ["1812", "1835", "1904"],
-  "body_label": "Body type",
+  "body_label": "Body style",
   "sexes": [
-    { "id": "male", "label": "Masculine" },
-    { "id": "female", "label": "Feminine" },
-    { "id": "neutral", "label": "Androgynous", "of": ["male", "female"],
-      "build": { "male": { "muscle": -0.4, "weight": -0.2, "neck_width": -0.35 }, "female": { "muscle": 0.25, "weight": -0.15 } },
-      "basis": "Kevin, 2026-11-19: a third body type, and the control named for the person's style rather than their gender. It wears either body (the dress of the year is any the town's men or women wear, and the hair of either), drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own build axes), with any of the library's faces. Riding follows the clothes: a skirt rides aside in 1835 and 1904." }
+    { "id": "male", "label": "Style 1" },
+    { "id": "female", "label": "Style 2" },
+    { "id": "neutral", "label": "Style 3", "of": ["male", "female"],
+      "build": { "male": { "muscle": -0.6, "weight": -0.3, "neck_width": -0.55 }, "female": { "muscle": 0.35, "weight": -0.25, "neck_width": 0.2 } },
+      "face_of": { "male": "female", "female": "male" },
+      "start": { "1812": { "outfit": "engage", "cut": "centre_part_clubbed_1812" }, "1835": { "outfit": "teamster", "cut": "centre_part_clubbed_1812" }, "1904": { "outfit": "shirtsleeves", "cut": "drawn_back_bun_1904" } },
+      "basis": "Kevin, 2026-11-19: a third body type, and the control named for the person's style rather than their gender. It wears either body (the dress of the year is any the town's men or women wear, and the hair of either), drawn leaner on a man's frame and less rounded on a woman's (the variation kit's own build axes), with any of the library's faces. Riding follows the clothes: a skirt rides aside in 1835 and 1904. Kevin, 2026-11-26: the three are named Style 1, Style 2 and Style 3, and Style 3 looked the same as Style 1, so it starts in its own look: dress of the first body's that Style 1 does not start in, hair of the other body's, a face drawn from the other body's faces (`face_of`, while the face is Auto) and a plainer build." }
   ],
   "ages": [
     { "id": "young", "label": "Young", "years": 25 },

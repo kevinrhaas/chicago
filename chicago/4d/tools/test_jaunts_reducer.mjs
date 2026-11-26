@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { emptyState, reduce, createJaunts, canNext, legMode, shownMode, seasonOfDate, stopSeason, openingLight } from '../renderers/web/js/jaunts.js';
+import { emptyState, reduce, createJaunts, canNext, legMode, shownMode, seasonOfDate, stopSeason, openingLight, routeCount, isFinalStop, currentStop } from '../renderers/web/js/jaunts.js';
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const branch = fixture('branch'), walk = fixture('walk');
 const arrive = s => reduce(s, { type: 'ARRIVE', session: s.session, leg: s.leg });
@@ -252,5 +252,29 @@ await test('T-3405: picking the jaunt\'s own mode on a leg that goes its own way
   const plain = reduce(emptyState(), { type: 'START', jaunt: doc, session: 1, mode: 'walk' });
   assert.equal(plain.modeChosen, false, 'a start on the default is not a pick');
   assert.equal(reduce(plain, { type: 'MODE', mode: 'walk' }).modeChosen, true, 'nor is it ignored when picked at the stop');
+});
+await test('T-3754: a branching jaunt counts the stops of its own route, so its last stop is "4 of 4"', () => {
+  // Errands Before the March: six places, four on every route (the owner read "Final stop · 4
+  // of 6" as the jaunt stopping short of its last stop).
+  const doc = JSON.parse(fs.readFileSync(new URL('../data/jaunts/errands-before-the-march.json', import.meta.url)));
+  assert.equal(doc.stops.length, 6);
+  for (const picks of [['kinzies', 'night-work'], ['agency', 'watch-road'], ['kinzies', 'watch-road']]) {
+    let s = start(doc), seen = [];
+    assert.equal(routeCount(s), 4, 'counted at the start: the longest route');
+    for (let guard = 0; guard < 8 && !isFinalStop(s); guard++) {
+      seen.push(routeCount(s));
+      const choice = currentStop(s).choices?.find(c => picks.includes(c.id));
+      if (choice) { s = reduce(s, { type: 'CHOOSE', id: choice.id }); assert.equal(routeCount(s), 4, 'a choice picked counts its way'); }
+      s = arrive(reduce(s, { type: 'NEXT' }));
+    }
+    assert.ok(isFinalStop(s), `${picks}: reached a final stop`);
+    assert.equal(s.stopIndex + 1, 4, `${picks}: the final stop is the fourth`);
+    assert.equal(routeCount(s), 4, `${picks}: "Final stop · 4 of 4"`);
+    assert.deepEqual(seen, [4, 4, 4]);
+    s = arrive(reduce(s, { type: 'PREV' }));
+    assert.equal(routeCount(s), 4, 'going back keeps the route walked');
+  }
+  // A straight jaunt is counted as before: every stop.
+  assert.equal(routeCount(start(walk)), walk.stops.length);
 });
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);

@@ -54,6 +54,10 @@ import { dressSpectacles } from './human-spectacles.js';
 import { fitWaist } from './human-waist.js';
 import { engraveSilver } from './human-silver.js';
 import { easeSeats } from './human-seat.js';
+import { drapeGarmentsSteps, settleOnBodySteps, bindLayersSteps, cullHiddenSteps } from './human-drape.js';
+import { fairOuterSteps } from './human-fair.js';
+import { refineTrimsSteps } from './human-trim.js';
+import { createCheckpoint } from './boot-phases.js';
 import { dressCollars } from './human-collar.js';
 import { fitCoats } from './human-coat.js';
 import { fitSleeves } from './human-sleeve.js';
@@ -195,6 +199,17 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
   let variation = null;
   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);
 
+  // T-3553 round 5, in parse below: first shirts, waistcoats and skirts hang as cloth over the
+  // body (human-drape.js); after the fittings, coats, jackets and bodices are faired smooth over
+  // it, what lies on them carried along (human-fair.js); trims refined, collars cut again, a
+  // frock coat given its lapels, collar, buttons and seams (human-trim.js); then every piece is
+  // settled off the body, bound to what covers it, and hidden cloth culled (human-drape.js).
+  // Each runs a slice at a time (a few milliseconds), so a body arriving mid-walk never holds a
+  // frame. globalThis.CHICAGO_NO_DRAPE = true skips all of it, to compare.
+  async function sliced(steps) {
+    const due = createCheckpoint({ budgetMs: 6 });
+    for (;;) { const n = steps.next(); if (n.done) return n.value; const wait = due(); if (wait) await wait; }
+  }
   async function parse(href) {
     const res = await fetchImpl(href);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${href}`);
@@ -214,6 +229,7 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
     // trade silver is engraved, once per parse, before any figure is cloned (human-collar.js,
     // human-seat.js, human-coat.js, human-sleeve.js, human-tailor-1835.js, human-regulars.js,
     // human-frockcoat.js, human-gown.js, human-waist.js, human-silver.js).
+    if (!globalThis.CHICAGO_NO_DRAPE) await sliced(drapeGarmentsSteps(gltf.scene));
     dressCollars(gltf.scene);
     easeSeats(gltf.scene);
     fitCoats(gltf.scene);
@@ -224,6 +240,13 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
     fitGown(gltf.scene);
     fitWaist(gltf.scene);
     engraveSilver(gltf.scene);
+    if (!globalThis.CHICAGO_NO_DRAPE) {
+      await sliced(fairOuterSteps(gltf.scene));
+      await sliced(refineTrimsSteps(gltf.scene));
+      await sliced(settleOnBodySteps(gltf.scene));
+      await sliced(bindLayersSteps(gltf.scene));
+      await sliced(cullHiddenSteps(gltf.scene));
+    }
     return gltf;
   }
 
@@ -1038,6 +1061,8 @@ export class HumanActor {
       const clipDt = (naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt) + (this.animDt || 0);
       const stepped = moved + (this.animMoved || 0);
       this.animDt = 0; this.animMoved = 0;
+      // T-3754: life's last frame taken back first, so the gait finds its own (a seated pelvis).
+      if (this.life?.bound && !b.oneShot) this.life.unwind?.();
       b.mixer.update(clipDt);
       // The walk first (pelvis and legs), then life and the arms over it, reading its phase.
       const gait = this.gait?.bound && !b.oneShot ? this.gait : null;

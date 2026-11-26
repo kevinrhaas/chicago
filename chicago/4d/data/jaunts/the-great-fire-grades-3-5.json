@@ -391,51 +391,51 @@
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              202.09,
-              -914.62
+              224.46,
+              -961.59
             ],
-            "heading": 152.1
+            "heading": 146.4
           },
           {
             "extra": "fire_parmelee_stables_watch_1",
             "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
-              199.63,
-              -918.4
+              222.51,
+              -965.66
             ],
-            "heading": 147.1
+            "heading": 137.9
           },
           {
             "extra": "fire_parmelee_stables_watch_2",
             "dress": "anonymous_working_driver_1904",
             "name": "A man watching (unnamed)",
             "at": [
-              196.55,
-              -916.74
+              219.24,
+              -964.42
             ],
-            "heading": 145.0
+            "heading": 134.8
           },
           {
             "extra": "fire_parmelee_stables_flee_0",
             "dress": "glessner_john_j_1904",
             "name": "A man getting away (unnamed)",
             "at": [
-              220.92,
-              -945.31
+              229.84,
+              -967.55
             ],
-            "heading": 332.0,
+            "heading": 327.1,
             "beats": [
               {
                 "t": 1,
                 "walk": [
                   [
-                    209.05,
-                    -919.79
+                    223.39,
+                    -954.81
                   ],
                   [
-                    194.61,
-                    -895.81
+                    214.57,
+                    -943.92
                   ]
                 ],
                 "pace": "run"
@@ -447,21 +447,21 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man getting away (unnamed)",
             "at": [
-              215.68,
-              -946.09
+              229.7,
+              -975.29
             ],
-            "heading": 327.1,
+            "heading": 318.3,
             "beats": [
               {
                 "t": 2,
                 "walk": [
                   [
-                    199.73,
-                    -924.16
+                    217.18,
+                    -963.5
                   ],
                   [
-                    186.35,
-                    -900.7
+                    207.03,
+                    -949.85
                   ]
                 ],
                 "pace": "run"
@@ -473,21 +473,21 @@
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman getting away (unnamed)",
             "at": [
-              216.47,
-              -943.29
+              229.49,
+              -971.64
             ],
-            "heading": 330.0,
+            "heading": 321.8,
             "beats": [
               {
                 "t": 5,
                 "walk": [
                   [
-                    204.76,
-                    -920.01
+                    221.09,
+                    -958.52
                   ],
                   [
-                    190.48,
-                    -898.25
+                    210.33,
+                    -947.26
                   ]
                 ],
                 "pace": "hurry"
@@ -1577,8 +1577,8 @@
         "kind": "anchor",
         "id": "fire_ogden_house"
       },
-      "text": "It is noon on Monday, on the North Side. This is the house of Mahlon Ogden. His brother, William Ogden, was the first mayor of Chicago. The house is made of wood, and it is still standing! In front of it is a small park. In the night, families brought their furniture here to keep it safe. Then the fire came through the park and burned it all. A few men stayed inside the house. They pulled up the carpets and hung them over the walls. They kept the carpets wet. When the water ran out, they used barrels of cider! Now this house is the only building left for a long way around. A mile north, the steeple of St. Michael's church is burning. People are running for the lake and the old cemetery.",
-      "read_s": 36,
+      "text": "It is noon on Monday, on the North Side. This is the house of Mahlon Ogden. His brother, William Ogden, was the first mayor of Chicago. The house is made of wood, and it is still standing! In front of it is a small park. In the night, families brought their furniture here to keep it safe. Then the fire came through the park and burned it all. A few men stayed inside the house. They pulled up the carpets and hung them over the walls. They kept the carpets wet. When the water ran out, they used barrels of cider! Now this house is the only building left for a long way around. A mile north, the fire is heading for St. Michael's church. Its steeple will burn. People are running for the lake and the old cemetery.",
+      "read_s": 37,
       "evidence": [
         "ogden",
         "first-mayor",
@@ -1604,48 +1604,48 @@
             "dress": "mahoney_patrick_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              612.85,
-              1430.75
+              613.65,
+              1407.12
             ],
-            "heading": 3.1
+            "heading": 4.9
           },
           {
             "extra": "fire_ogden_house_watch_1",
             "dress": "bardwell_otis_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              615.39,
-              1432.94
+              616.35,
+              1406.99
             ],
-            "heading": 355.8
+            "heading": 2.8
           },
           {
             "extra": "fire_ogden_house_watch_2",
             "dress": "peck_philip_1835",
             "name": "A man watching (unnamed)",
             "at": [
-              618.31,
-              1430.15
+              619.04,
+              1406.86
             ],
-            "heading": 348.8
+            "heading": 0.7
           },
           {
             "extra": "fire_ogden_house_watch_3",
             "dress": "reynolds_mary_1904_maid",
             "name": "A woman watching (unnamed)",
             "at": [
-              611.34,
-              1426.63
+              611.85,
+              1407.21
             ],
-            "heading": 6.0
+            "heading": 6.3
           },
           {
             "extra": "fire_ogden_house_watch_4",
             "dress": "child_boy_1904",
             "name": "A child watching (unnamed)",
             "at": [
-              610.52,
-              1425.57
+              611.35,
+              1415.25
             ],
             "heading": 7.5
           }

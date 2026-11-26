@@ -58,6 +58,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createDesktopKeyCapture } from './controls/keyboard.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { createGamepadBackend } from './controls/gamepad.js';
 import { viewportSize } from './viewport.js';
 import { isStandaloneHeadset, vrScale } from './controls/xr-detect.js'; // T-3627: the session half loads where a headset is offered
 import { createWindowMode, windowAt, toLocal as toLocalLL } from './controls/window.js';
@@ -1859,6 +1860,8 @@ document.addEventListener('visibilitychange', () => blackbox.log(document.hidden
 window.addEventListener('error', (e) => blackbox.log('error', { msg: String(e.message ?? e).slice(0, 120) }));
 window.addEventListener('unhandledrejection', (e) => blackbox.log('error', { msg: String(e.reason?.message ?? e.reason).slice(0, 120) }));
 const bootCell = {
+  // T-3758: each year downloads a different town, so the forecast's bytes are the year's own.
+  year: String(YEAR),
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: crashBoot.detail,
   build: document.getElementById('gate-build')?.textContent || VERSION,
@@ -3001,6 +3004,9 @@ async function boot() {
     fireState.engine = createCityFire({ doc, parent: scene3d, context: () => contextCity, buildings: () => buildings,
       tier: () => api.humans?.tier ?? 'full', groundAt: (e, n) => terrain.surfaceHeight(e, n) });
     fireState.engine.onFire((iso) => { for (const fn of fireState.listeners) { try { fn(iso); } catch { /* its own */ } } });
+    // T-3751: a tree the fire has been through stands bare and charred; the city before it, none.
+    const engine = fireState.engine, burntTree = (e, n) => engine.treeBurnt(e, n);
+    engine.onFire((iso) => { try { streetTrees.setBurnt?.(iso ? burntTree : null); } catch (err) { console.warn('[fire] trees', err); } });
     return fireState.engine;
   }).catch((err) => { fireState.loading = null; console.warn('[fire] not drawn:', err?.message ?? err); return null; });
   api.fire = {
@@ -5496,7 +5502,8 @@ async function boot() {
       hud.setLocked(locked);
       gesture.setLook({ locked });
       // A card opening lets the pointer go on purpose (T-2954): the card is the message.
-      if (!locked && !cardTookPointer) hud.say('Pointer released — click the view to look around again');
+      // T-3749: a controller taking over lets the pointer go too; it has its own look.
+      if (!locked && !cardTookPointer && backends.active !== gamepad) hud.say('Pointer released — click the view to look around again');
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
@@ -5525,6 +5532,27 @@ async function boot() {
 
   let gateOpen = true;
   let enteredWorld = false;
+
+  /**
+   * T-3749: a game controller (js/controls/gamepad.js). It is polled each frame before the live
+   * backend's turn: in the town it takes over as the backend the way a touch or a key does; on
+   * the arrival screen, a card, Settings or a key it put focus on, it drives the page instead.
+   */
+  const gamepad = createGamepadBackend({
+    intent, backends,
+    lookSpeed: () => hud.settings.lookSpeed,
+    gateOpen: () => gateOpen,
+    menuOpen: () => !!popup.openId || hud.panelOpen(),
+    paused: () => !!(xrMode?.presenting || windowMode?.on),
+    signature: () => {
+      try {
+        return `${popup.openId ?? ''}|${hud.panelOpen()}|${navigatorUi?.level ?? ''}|${inspectingByHand()}|`
+          + `${document.getElementById('gate')?.dataset.region ?? ''}|${gateOpen}`;
+      } catch { return ''; }
+    },
+    say: (line) => hud.say(line),
+  });
+  api.gamepad = gamepad;
 
   // Exactly one backend is live. Whichever device the visitor actually uses
   // wins, switched by the first real event of that kind — a laptop with a
@@ -6229,8 +6257,13 @@ async function boot() {
     const q = new THREE.Vector3(e, 0, -n).applyMatrix4(matrix.clone().invert());
     return q.x > box.min[0] + margin && q.x < box.max[0] - margin && q.z > box.min[2] + margin && q.z < box.max[2] - margin;
   }
-  function goToTarget(target) {
-    if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
+  // T-3754 (the owner, 2026-11-26: "attempting to follow someone during the jaunt causes the
+  // user to exit the experience"): Find and Follow on a person keep the jaunt (`keepJaunt`). A
+  // ride under way is stopped as any other ride stops it, so the jaunt waits paused, and Next
+  // stop takes the visitor on from wherever they followed them to. Every other Go to is the
+  // visitor leaving the jaunt to explore, as before.
+  function goToTarget(target, { keepJaunt = false } = {}) {
+    if (jauntRuntime?.state.jaunt && !keepJaunt) jauntRuntime.explore();
     // Explicit coordinate viewpoints predate the shared picker and are used by
     // the scene measurement harness. Named picker rows still resolve strictly.
     if (!target?.id && target?.kind === 'intersection'
@@ -6307,7 +6340,7 @@ async function boot() {
     // their door: the card's Find goes to the house they are in, and says so.
     if (findInTown && target.home && loaded.registry.has(target.home)) {
       hud.say(`${target.label ?? 'They'}: at home now`);
-      return goToTarget({ kind: 'structure', id: target.home });
+      return goToTarget({ kind: 'structure', id: target.home }, { keepJaunt });
     }
     const resolved = destinations.resolve(target);
     if (!resolved) {
@@ -6625,12 +6658,12 @@ async function boot() {
         // The owner, 2026-11-15: the adults-only jaunts, listed only once Move › Adults-only jaunts is on.
         allowAdults: () => hud.adultJaunts === true,
         estimate: menuEstimate });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
+      const actions = Object.fromEntries(['next', 'prev', 'jump', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part. So are
         // Skip to the Start and Finish Jaunt (2026-11-16), over the opening and the ending.
-        if (['next', 'prev', 'end', 'skip', 'finish'].includes(name)) narration.stop();
-        if (['next', 'prev', 'straight'].includes(name)) narration.prime();
+        if (['next', 'prev', 'jump', 'end', 'skip', 'finish'].includes(name)) narration.stop();
+        if (['next', 'prev', 'jump', 'straight'].includes(name)) narration.prime();
         return jauntRuntime[name](...args); }]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
@@ -6649,16 +6682,20 @@ async function boot() {
       let meterTimer = null, meterLeg = null, meterWay = 0, meterSince = 0;
       const meterNow = () => {
         const outing = jauntRuntime?.state;
-        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); return false; }
+        if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); jauntPanel.loading(null); return false; }
         const leg = `${outing.session}:${outing.leg}:${outing.phase === 'atStop'}`, ride = travel.state;
         if (leg !== meterLeg) { meterLeg = leg; meterWay = ride.dist_m ?? 0; meterSince = performance.now() / 1000; }
-        const here = outing.jaunt.stops[outing.stopIndex], heard = here && narration.position(outing.jaunt, 'stop', here.id);
+        // T-3754: the stop on this route (a branching jaunt's stopIndex counts the route, not
+        // the file), and the route's own count of stops.
+        const here = runtime.currentStop(outing), heard = here && narration.position(outing.jaunt, 'stop', here.id);
         const stage = api.jauntStage, staged = outing.phase === 'atStop' && stage?.playing && stage.length > 0;
-        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: outing.jaunt.stops.length,
+        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: runtime.routeCount(outing),
           glide: ride.glide, way: ride.dist_m != null && meterWay > 0 ? { t: meterWay - ride.dist_m, d: meterWay } : null,
           voice: heard ? (heard.done ? { t: 1, d: 1 } : heard) : null,
           read: here ? { t: performance.now() / 1000 - meterSince, d: here.read_s || pace.readingSeconds(here.text) } : null,
           stage: staged ? { t: stage.clock, d: stage.length } : null }));
+        // T-3753: the stop's scene is still coming (its cast's figures, its guide on the way), and its voice.
+        jauntPanel.loading({ scene: outing.phase === 'atStop' && (!!outing.hostWaiting || (stage?.loading ?? 0) > 0), voice: !!narration.buffering });
         return true;
       };
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
@@ -6856,7 +6893,7 @@ async function boot() {
     modeFor: (jaunt) => jauntWay(jaunt),
     async daybook() { await ensureJaunts(); return jauntPreview.daybook(); },
     async start(id, options) { try { return (await ensureJaunts()).start(id, options); } catch (error) { jauntError(error); return false; } },
-    ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
+    ...Object.fromEntries(['next', 'prev', 'jump', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext', 'replay', 'kindle', 'skip', 'finish'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   // T-2561: "Keep <year> on this device" on the welcome — the year's pack in Cache
   // Storage behind a service worker, so a kept year boots from disk, offline too.
@@ -7011,7 +7048,7 @@ async function boot() {
     // (and wherever no clear stand beside them is found) at the house they live or work in.
     // T-3573: or at home: Find goes to their door, and they come out of it on a walk.
     if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id) || atHome(id)) {
-      return goToTarget({ kind: 'person', id, label: row.name, home: at });
+      return goToTarget({ kind: 'person', id, label: row.name, home: at }, { keepJaunt: true });
     }
     // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
     // way to where they live, not Find (the owner: Find "landed me at his house and i never
@@ -7096,7 +7133,7 @@ async function boot() {
     hud.setPanel(false);
     const there = personInTown(id), eye = walker.state;
     if (there && Math.hypot(there.e - eye.e, there.n - eye.n) <= 30) return begin();
-    return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin });
+    return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin }, { keepJaunt: true });
   }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {
@@ -8082,8 +8119,10 @@ async function boot() {
       ? 0 : rawElapsed;
     visualClockReset = visualHeld;
 
-    if (!gateOpen) backends.active?.update?.(dt);
-    else intent.clear();
+    // T-3749: the controller is read first, in the town and on the arrival screen alike (there it
+    // drives the menu), so the live backend's turn sees what it wrote.
+    if (!gateOpen) { gamepad.poll(Math.min(elapsed, 0.1)); backends.active?.update?.(dt); }
+    else { gamepad.poll(elapsed); intent.clear(); }
     terrain.update(dt);
     nightLights.update(dt);
     // T-3586: one gust clock for every swaying plant and the wind you hear.

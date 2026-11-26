@@ -10,8 +10,10 @@
   "scene": "1812",
   "title": "Errands Before the March",
   "premise": "Be a young runner at Fort Dearborn in the week the soldiers are told to leave, August 1812. Pick who hears the news from you first, and where you are on the last nights before the gate opens.",
-  "default_mode": "fly",
+  "default_mode": "run",
   "allowed_modes": [
+    "run",
+    "walk",
     "fly",
     "instantly"
   ],

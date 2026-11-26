@@ -49,6 +49,42 @@ the file's rule the 1835 lines come down: phone 600 -> 575 MiB, desktop 1500 -> 
 575. What is left in the snapshot's duplicates is small and spread out (the registry's
 remaining 2.7 MB of strings fewer than three records share, enclosures 0.9, population 0.7).
 
+## T-3753 — jump to any jaunt stop, loading rings, the stuck look up (26 November 2026)
+
+The owner, 2026-11-26, three items of his jaunt list: jump straight to a stop, a spinner on
+the play and navigation keys while a jaunt or scene loads, and why you sometimes cannot look
+up during a jaunt.
+
+- **The look up.** The desktop backend (`controls/pointerlock.js`) points three's
+  `PointerLockControls` at a throwaway rig and reports the rig's turn each frame. The rig kept
+  its own pitch, clamped at ±79.2°, while the jaunt turned the walker's view for the visitor
+  (arrival framing, glides, a flight's pitch to level), which never touched the rig. Look up
+  60° at a house, be levelled on the way to the next stop, and the rig still read 60°: the
+  mouse stopped answering upward 19° above level, until the visitor looked down far enough to
+  unwind it. The rig is now levelled every frame, so its clamp bounds only one frame's turn and
+  the walker's ±85° is the one limit. `test_keyboard_ownership.mjs` drives the real backend:
+  60° up, then 30° more answers 30° (19.2° before). Touch look was never affected (pure deltas).
+- **Stops.** `jaunts.js` `routeStops(state)` is the route the visitor is on: the stops already
+  on it, then the ones it goes on to by each stop's own way on (and the choice picked at the
+  stop they stand at); a stop that needs a choice ends what is known (`open`). `JUMP` goes there
+  as Skip the ride goes (instant); ahead, each stop between is passed as Next stop passes it, so
+  its decision events replay to the same place. The panel's new Stops key (Back · Stops ·
+  Jaunts · End · Next stop) opens the list in place of the story; Esc, × and a pick close it.
+  Of 276 jaunt files, 15 (three jaunts, every telling) branch; theirs list up to the choice.
+- **Loading rings.** The jaunt menu's Start, and Replay / Restart, spin while `start()` is
+  pending. At a stop, while the stage's cast still has figures loading (`jaunt-stage.js`
+  `loading`) or the guide is on the way (`hostWaiting`), the key that brought the visitor
+  (Next stop, Back or Stops; Next stop after a walk in) spins, capped at 20 s a stop; Listen
+  spins while its voice is still arriving (`narration.buffering`). CSS transform rings, so they
+  keep turning while the main thread builds; reduced motion breathes instead.
+- **An empty box.** `.jaunt-panel .jaunt-key` (display: flex) outranked `.jaunt-controls
+  [hidden]`, so the hidden Pause narration key drew an empty bordered box under the pace
+  whenever nothing was read aloud. Hidden keys are hidden again.
+
+Not done: a Continue of a restored outing is synchronous (it stands the visitor at the stop in
+one call), so its ring cannot paint before the work; the Errands "4 of 6" count is another
+thread's.
+
 ## T-3708 — five memory ceilings re-argued after the 2026-11-20 promotion (20 November 2026)
 
 The frame-time workflow's memory job runs nightly on main and on pushes that touch its
