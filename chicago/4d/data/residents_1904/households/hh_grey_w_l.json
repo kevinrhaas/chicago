@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Grey (one of two unmarried daughters in 1900; which one is the 1904 \"Miss Grey\" is not known, so both are named in that line's note); Walter Grey (a grown son the 1904 Blue Book does not list at the house); Florence Grey (one of two unmarried daughters in 1900; named in the note on \"Miss Grey\"). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Grey (one of two unmarried daughters in 1900; by 1903 the book prints one daughter at home, read as Florence, who is on the card). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245",
@@ -39,7 +39,7 @@
   "persons": [
     {
       "id": "pa1904_grey_w_l",
-      "name": "W. L. Grey",
+      "name": "William L. Grey",
       "relationship": "head",
       "grade": "attested",
       "sources": [
@@ -113,7 +113,7 @@
     },
     {
       "id": "pa1904_grey_mrs_w_l",
-      "name": "Mrs. W. L. Grey",
+      "name": "Sarah Grey",
       "relationship": "wife",
       "grade": "attested",
       "sources": [
@@ -168,16 +168,18 @@
     },
     {
       "id": "pa1904_grey_daughter",
-      "name": "Miss Grey",
+      "name": "Florence Grey",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1907",
+        "chicago_blue_book_1908"
       ],
       "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Grey' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Jessie Grey (born May 1875, in Illinois, single; ED 40, sheet 9A, line 34, leaf n810); Florence Grey (born December 1880, in Illinois, single; ED 40, sheet 9A, line 36, leaf n810). Which of them the 1904 line stands for, the book does not say.",
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Grey' is the book's own form of address, not a recorded name. The 1900 census lists two unmarried daughters at home, Jessie Grey (born May 1875, in Illinois, single; ED 40, sheet 9A, line 34, leaf n810) and Florence Grey (born December 1880, in Illinois, single; ED 40, sheet 9A, line 36, leaf n810). The household printed '& drs.' from 1895 to 1902 and '& dr.' from 1903 to 1906, and the 1907 and 1908 editions list Miss Florence Grey at 2010 by name, so the one daughter still at home in 1904 is read as Florence. That reading is an inference; the book does not name the 1904 daughter. This card was once two, 'Miss Grey' and 'Florence Grey'; they are one woman.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -185,6 +187,25 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
+      },
+      "born": {
+        "value": "1880",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The 1900 census gives December 1880 (ED 40, sheet 9A, line 36, leaf n810)."
+      },
+      "census_1900": {
+        "date": "1900-06-01",
+        "source": "census_1900_chicago_t623_roll245",
+        "locator": "ED 40, sheet 9A, line 36, leaf n810",
+        "as_enumerated": "Grey, Florence",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1900-1908",
+        "on_scene_date": "yes"
       }
     },
     {
@@ -274,7 +295,7 @@
         "years": "here in 1910-1911",
         "on_scene_date": "unknown"
       },
-      "note": "The 1910 census lists her at 2010 as William L. Grey's daughter; her age reads 14, but the figures on that line are hard to read and the Blue Book prints her as 'Miss' from 1910, so she may be older. She may be the unnamed '& dr.' of the 1904 listing, or her sister Florence may; the book does not say. Sarah Grey told the 1900 census she had borne three children, Jessie, Walter and Florence, so a child born before 1900 who is not one of them cannot be hers; the 1910 line that calls this one William's child also gives the parents' birthplaces as New York, unlike the 1900 lines, so how they were related to William is not settled.",
+      "note": "The 1910 census lists her at 2010 as William L. Grey's daughter; her age reads 14, but the figures on that line are hard to read and the Blue Book prints her as 'Miss' from 1910, so she may be older. The unnamed '& dr.' of the 1904 listing is read as her sister Florence (see Florence's card). Sarah Grey told the 1900 census she had borne three children, Jessie, Walter and Florence, so a child born before 1900 who is not one of them cannot be hers; the 1910 line that calls this one William's child also gives the parents' birthplaces as New York, unlike the 1900 lines, so how they were related to William is not settled.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -290,30 +311,6 @@
           "census_1910_chicago_t624_roll241"
         ],
         "note": "Re-reading the existing household note: the difficult 1910 age appears to be 14, implying about 1895-96. The reading may be wrong and is retained as uncertain; the Miss title is not enough to assume an adult in 1904."
-      }
-    },
-    {
-      "id": "pa1904_grey_florence",
-      "name": "Florence Grey",
-      "relationship": "daughter",
-      "grade": "inferred",
-      "sources": [
-        "chicago_blue_book_1907",
-        "chicago_blue_book_1908"
-      ],
-      "printed_as": "2010 Miss Florence Grey",
-      "lived_here": {
-        "years": "1907-1908",
-        "on_scene_date": "unknown"
-      },
-      "note": "Listed at 2010 with William L. Grey in the 1907 and 1908 editions. That she was a daughter of the house is read from the shared surname and 'Miss' at the number; the Blue Book does not print the relationship. The household printed '& drs.' from 1895 to 1902 and '& dr.' from 1903 to 1906, so she may be the daughter at home in 1904.",
-      "portrait_research": {
-        "status": "not_identified",
-        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
-        "sources": [
-          "witherspoon_men_of_illinois_1902",
-          "leonard_book_of_chicagoans_1905"
-        ]
       }
     },
     {
