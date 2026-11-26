@@ -49,7 +49,7 @@ assert.deepEqual([...url.searchParams.keys()], ['year', 'nav', 'hunt', 'huntDay'
 assert.deepEqual(parseHuntLink(url.search), { day, version: 1, year: '1904' });
 // T-3677: the link's year names its set; a year with no set, or two years, is refused.
 for (const q of ['?hunt=2&huntDay=2026-11-18&year=1904', '?hunt=1&huntDay=2026-02-29&year=1904',
-  '?hunt=1&huntDay=2026-11-18&year=1871', '?hunt=1&huntDay=2026-11-18', '?hunt=1&huntDay=2026-11-18&year=1904&year=1835',
+  '?hunt=1&huntDay=2026-11-18&year=1600', '?hunt=1&huntDay=2026-11-18', '?hunt=1&huntDay=2026-11-18&year=1904&year=1835',
   '?hunt=1&huntDay=2026-11-18&year=constructor', '?hunt=1&hunt=1&huntDay=2026-11-18&year=1904']) assert.equal(parseHuntLink(q), null);
 assert.equal(huntLink(day, 'javascript:alert(1)'), null);
 assert.equal(huntLink('bad', url.href), null);
@@ -108,30 +108,56 @@ raw = before; session = createHuntSession({ day, rounds, storage });
 assert.equal(session.state.cursor, 1, 'progress saved before T-3677 still opens');
 assert(session.skip()); assert.equal(JSON.parse(raw).year, undefined, '1904 keeps its record format');
 
-// T-3677: the earlier years' sets of prints and drawings, each from its own catalogue.
-assert.deepEqual(Object.keys(HUNT_SETS).sort(), ['1835', '1904']);
-assert.equal(huntSet('1812'), null, '1812 has two pictures with a spot on safe ground, fewer than a set needs');
-assert.equal(huntSet('1871'), null, '1871 has no picture with a camera spot, so no set');
+// T-3677 / T-3764: every other year's set, each from its own catalogue. 1835 and 1812 are prints
+// and drawings (two of 1812's drawn from the river, found from a boat); 1871 is photographs.
+assert.deepEqual(Object.keys(HUNT_SETS).sort(), ['1812', '1835', '1871', '1904']);
+assert.equal(huntSet('1600'), null, 'a year with no set');
 assert.equal(huntSet('__proto__'), null);
 const keys = new Set(Object.values(HUNT_SETS).map(s => s.storageKey));
-assert.equal(keys.size, 2, 'each year keeps its own saved record');
-for (const [year, count, places] of [['1835', 3, 1]]) {
-  const cat = catalogue(year), set = huntSet(year);
+assert.equal(keys.size, 4, 'each year keeps its own saved record');
+// The ground the world stands on (the terrain's own heightfield; terrain.js isWater is below
+// SHORE_Y): a walked spot is dry, an afloat spot is water, both inside the modelled ground.
+function ground(epoch) {
+  const dir = path.join(root, 'data/terrain/epochs', epoch), m = JSON.parse(fs.readFileSync(path.join(dir, 'heightfield.json')));
+  const buf = fs.readFileSync(path.join(dir, m.bin)), raw = new Int16Array(buf.buffer, buf.byteOffset, m.cols * m.rows);
+  const at = (c, r) => raw[r * m.cols + c] * m.scale + m.offset;
+  return (e, n) => {
+    const c = (e - m.origin_e) / m.cell_m, r = (n - m.origin_n) / m.cell_m;
+    if (!(c >= 0 && r >= 0 && c <= m.cols - 1 && r <= m.rows - 1)) return null;
+    const c0 = Math.floor(c), r0 = Math.floor(r), c1 = Math.min(c0 + 1, m.cols - 1), r1 = Math.min(r0 + 1, m.rows - 1), fx = c - c0, fy = r - r0;
+    return (at(c0, r0) * (1 - fx) + at(c1, r0) * fx) * (1 - fy) + (at(c0, r1) * (1 - fx) + at(c1, r1) * fx) * fy;
+  };
+}
+const SHORE_Y = -0.10;
+const EPOCH = { 1835: 'e1834_harbor_cut', 1812: 'e1830_natural', 1871: 'e1871_prefire' };
+for (const [year, count, places, kind] of [['1835', 3, 1, 'prints'], ['1812', 4, 1, 'prints'], ['1871', 3, 3, 'photos']]) {
+  const cat = catalogue(year), set = huntSet(year), height = ground(EPOCH[year]);
   assert.equal(huntCount(year), count);
   const yr = huntRounds(cat.doc, cat.destinations, day, year);
   assert.equal(yr.length, count, `${year}: every picture meets the evidence requirements`);
   assert.deepEqual(yr.map(r => r.id), huntOrder(day, year));
   assert.equal(new Set(yr.map(r => r.structure)).size, places);
   assert.deepEqual(huntRounds(cat.doc, cat.destinations, day, '1904'), [], 'a set never reads another year’s catalogue');
+  assert.deepEqual(yr.filter(r => r.afloat).map(r => r.id).sort(), [...(set.afloat ?? [])].sort(), `${year}: the river rounds are the set's own`);
   for (const round of yr) {
     const p = cat.doc.by_structure[round.structure].find(p => p.id === round.id);
     assert.equal(round.structure, set.pictures[round.id]);
     assert.deepEqual(round.target, spotTarget(p, cat.registry.get(round.structure).sidecar.placement));
-    assert.notEqual(round.kind, 'PHOTO', `${round.id}: a print or drawing, never called a photograph`);
-    assert.match(round.kind, /^(ENGRAVING|LITHO|ILLUSTRATION)$/);
-    assert(round.later && round.made > Number(year), `${round.id}: made after ${year}, and the reveal says so`);
-    assert(p.spot.h <= HUNT_MAX_EYE_M, `${round.id}: a spot on the ground`);
-    assert.match(p.rights, /^public domain/);
+    if (kind === 'prints') {
+      assert.notEqual(round.kind, 'PHOTO', `${round.id}: a print or drawing, never called a photograph`);
+      assert.match(round.kind, /^(ENGRAVING|LITHO|PLATE|ILLUSTRATION)$/);
+      assert(round.later && round.made > Number(year), `${round.id}: made after ${year}, and the reveal says so`);
+      assert.match(p.rights, /^public domain/);
+    } else {
+      assert.match(round.kind, /^(PHOTO|STEREO)$/, `${round.id}: a photograph`);
+      assert(!round.later && p.years[1] <= Number(year), `${round.id}: taken by ${year}`);
+      assert.match(p.rights, /^(public domain|no known restrictions)/);
+    }
+    assert(p.spot.h <= HUNT_MAX_EYE_M, `${round.id}: a spot on the ground or the water, not a bird's-eye`);
+    const z = height(round.target.e, round.target.n);
+    assert(z !== null, `${round.id}: inside the modelled ground`);
+    if (round.afloat) assert(z < SHORE_Y - 0.3, `${round.id}: drawn from the river, its spot is water a boat floats on (${z})`);
+    else assert(z >= SHORE_Y, `${round.id}: a walked spot is dry ground (${z})`);
     assert.equal(new URL(round.image).origin, new URL(cat.doc.image_store.base_url).origin);
     assert.match(round.image, new RegExp(`/${round.id}-thumb\\.jpg$`));
   }
@@ -142,7 +168,7 @@ for (const [year, count, places] of [['1835', 3, 1]]) {
   const link = new URL(huntLink(day, 'https://example.test/4d/1904/?year=1904&token=x', year));
   assert.equal(link.searchParams.get('year'), year);
   assert.deepEqual(parseHuntLink(link.search), { day, version: 1, year });
-  link.searchParams.set('year', '1812');
+  link.searchParams.set('year', '1600');
   assert.equal(parseHuntLink(link.search), null, 'a link names one year’s set only');
   const bad = { ...cat.destinations.byId('photo', yr[0].id) };
   const swap = (picture) => ({ byId: (_, id) => id === yr[0].id ? { ...bad, picture } : cat.destinations.byId('photo', id) });
@@ -154,7 +180,7 @@ for (const [year, count, places] of [['1835', 3, 1]]) {
   const s = createHuntSession({ day, rounds: yr, storage: box, year });
   assert.equal(s.state.total, count);
   assert.throws(() => createHuntSession({ day, rounds: yr.slice(1), storage: box, year }));
-  assert.throws(() => createHuntSession({ day, rounds: yr, storage: box, year: '1871' }));
+  assert.throws(() => createHuntSession({ day, rounds: yr, storage: box, year: year === '1871' ? '1835' : '1871' }));
   for (let i = 0; i < count; i++) { assert(s.guess(yr[i].target)); assert(s.next()); }
   assert(s.state.complete); assert.equal(s.state.score, count * 1000); assert.equal(s.guess(yr[0].target), false);
   assert.equal(JSON.parse(saved).year, year);
@@ -163,4 +189,4 @@ for (const [year, count, places] of [['1835', 3, 1]]) {
   saved = JSON.stringify({ ...JSON.parse(saved), year: '1904' });
   assert.equal(createHuntSession({ day, rounds: yr, storage: box, year }).state.issue, 'unreadable');
 }
-console.log('PHOTO HUNT PASS — 1904 and 1835 sets: canonical licensed pictures and camera positions, dates, daily links, visit guards, distance scores, bounded progress and storage failures');
+console.log('PHOTO HUNT PASS — 1904, 1835, 1812 and 1871 sets (1812 river rounds by boat): canonical licensed pictures and camera positions, dates, daily links, visit guards, distance scores, bounded progress and storage failures');
