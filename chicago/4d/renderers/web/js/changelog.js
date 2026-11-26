@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3257, ts: '2026-11-26T08:53:20.029Z', date: 'Nov 26, 2026, 2:53 AM CT', title: '1812 runner runs, riders stay in their boats, Follow keeps jaunts', kind: 'fix',
+    items: [
+      'Errands Before the March: the fastest runner on the post now runs between errands, and takes a boat across the river, instead of flying.',
+      'A jaunt whose choices branch counts the stops on your own route: the last errand reads "Final stop · 4 of 4", not "4 of 6".',
+      'Following or finding someone during a jaunt no longer ends it: Next stop takes you on from wherever they led you.',
+      'Boats crossing the river in a jaunt carry their riders in sight: John Kinzie in his pirogue on the night he flees, and John Kelso at Lee\'s Place, no longer sink out of the boat once they sit.',
+      'Jaunts can now offer Run as a way to travel.',
+    ] },
   { v: 3256, ts: '2026-11-26T08:34:33.490Z', date: 'Nov 26, 2026, 2:34 AM CT', title: 'Play with a Bluetooth game controller, in every year', kind: 'feature',
     items: [
       'Pair an Xbox, PlayStation or Switch Pro controller with your computer, phone or tablet and press any button: no setting to turn on.',
