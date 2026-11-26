@@ -30,10 +30,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before. Marion Ream, the eldest daughter, married Redmond D. Stephens in February 1903 and had her own household by 1904, so she is not on this card.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "minerd_ream_norman_bruce"
     ]
   },
   "persons": [
@@ -113,15 +114,16 @@
     },
     {
       "id": "pa1904_ream_daughters",
-      "name": "The Misses Ream",
+      "name": "Frances M. Ream",
       "relationship": "daughter",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "minerd_ream_norman_bruce"
       ],
       "printed_as": "1901 Mr. & Mrs. Norman B. Ream & drs.",
-      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Ream' is the book's own form of address, not a recorded name. Wikipedia gives the Reams three daughters and names two, Frances and Marion Buckingham Ream, without dates; which of them were the unmarried daughters at home in 1904 is not stated, so no name is put here. The 1905 edition prints '& dr.', one daughter.",
+      "note": "The Blue Book for 1904 prints '& drs.' after the household's name and the 1905 edition '& dr.': unmarried daughters at home, not named. 'Miss Ream' is the book's own form of address. Of the Reams' daughters, the family biography gives Marion Buckingham Ream (born 1877) married to Redmond Davis Stephens on 18 February 1903, and Frances Mott Ream (born 1878) married to John Leisenring Kemmerer on 9 June 1906; a third, Katherine, died a baby in 1886. So in the summer of 1904 Frances was the one daughter still unmarried, and she is read as the daughter the book means; the 1904 '& drs.' was very likely set before Marion's marriage was taken into the list. The 1900 census did not find either daughter at the house (Marion had finished at Bryn Mawr in 1899). That Frances was at home on 1 July 1904 is an inference from the book and her marriage date. This card was once 'The Misses Ream', one card for an uncounted group; it is now hers.",
       "portrait_research": {
         "status": "not_identified",
         "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
@@ -130,8 +132,14 @@
           "leonard_book_of_chicagoans_1905"
         ]
       },
-      "collective": true,
-      "individual_cards": []
+      "born": {
+        "value": "1878-01-15",
+        "confidence": "inferred",
+        "sources": [
+          "minerd_ream_norman_bruce"
+        ],
+        "note": "The family biography gives 15 January 1878, in Connecticut; its own heading gives 1877. A compiled family history, not a vital record."
+      }
     },
     {
       "id": "pa1904_ream_norman_b_c1900_edward_k_ream",

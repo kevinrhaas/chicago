@@ -31,7 +31,7 @@
  *
  * Body types (Kevin, 2026-11-19: a third one, and the control named for the person's style, not
  * their gender). The choice's `sex` field keeps its name (stored choices, the account's copy) but
- * holds a body type: the catalog's `sexes`, shown as "Body type". One with `of` (Androgynous)
+ * holds a body type: the catalog's `sexes`, shown as "Body style" (Style 1, 2, 3). One with `of` (Style 3)
  * wears any outfit and cut of the types it names, any library face, and its own `build` on each
  * body; its record's `sex` is the body's (the outfit's), so the people layer, the face library
  * and the side saddle read it as they read anyone's.
@@ -91,10 +91,12 @@ export function normalChoice(raw, catalog) {
     out.years[y] = {};
     for (const s of (catalog.sexes ?? []).map((x) => x.id)) {
       const h = had[s] && typeof had[s] === 'object' ? had[s] : {};
+      // A type's own first look in this year (`start`), so Style 3 does not open as Style 1 (T-3756).
+      const start = bodyType(catalog, s)?.start?.[y] ?? {};
       out.years[y][s] = {
         ...h,
-        outfit: pickId(wardrobe(catalog, 'outfits', y, s), h.outfit, null),
-        cut: pickId(wardrobe(catalog, 'cuts', y, s), h.cut, null),
+        outfit: pickId(wardrobe(catalog, 'outfits', y, s), h.outfit, start.outfit ?? null),
+        cut: pickId(wardrobe(catalog, 'cuts', y, s), h.cut, start.cut ?? null),
       };
     }
   }
@@ -127,8 +129,9 @@ export function yearChoice(choice, year, catalog) {
   const mine = choice.years?.[y]?.[sex] ?? {};
   const outfits = wardrobe(catalog, 'outfits', y, sex);
   const cuts = wardrobe(catalog, 'cuts', y, sex);
-  const outfit = byId(outfits, mine.outfit) ?? first(outfits);
-  return { year: y, sex, body: outfit?.body ?? sex, outfit, cut: byId(cuts, mine.cut) ?? first(cuts) };
+  const start = bodyType(catalog, sex)?.start?.[y] ?? {};
+  const outfit = byId(outfits, mine.outfit) ?? byId(outfits, start.outfit) ?? first(outfits);
+  return { year: y, sex, body: outfit?.body ?? sex, outfit, cut: byId(cuts, mine.cut) ?? byId(cuts, start.cut) ?? first(cuts) };
 }
 
 /** The body the visitor wears in `year`. */
@@ -147,6 +150,8 @@ export function personRecord(choice, year, catalog) {
   const graded = (value) => ({ value, drawn: value, grade: 'reconstructed' });
   // A body type's own build on this body (human-variation.js looks.build), when it has one.
   const build = bodyType(catalog, type)?.build?.[sex] ?? null;
+  // ...and the faces an Auto face is drawn from on it (`face_of`, T-3756): the other body's.
+  const faceOf = choice.face === 'auto' ? bodyType(catalog, type)?.face_of?.[sex] ?? null : null;
   return {
     sex, visitor: true, scene: y, ...(type !== sex ? { body_type: type } : {}),
     age: { years: age, grade: 'reconstructed' },
@@ -155,6 +160,7 @@ export function personRecord(choice, year, catalog) {
       eyes: graded(choice.eyes),
       hair: { value: choice.hair_colour, drawn: choice.hair_colour, cut: cut?.id ?? null, facial, grade: 'reconstructed' },
       face_pick: choice.face === 'auto' ? null : choice.face,
+      ...(faceOf ? { face_of: faceOf } : {}),
       ...(build ? { build: { ...build } } : {}),
       grade: 'reconstructed', basis: PERSON_BASIS, liberty: catalog.liberty,
     },

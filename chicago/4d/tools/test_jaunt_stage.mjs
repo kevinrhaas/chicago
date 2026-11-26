@@ -402,7 +402,7 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   const fig = (instance) => {
     const a = { instance, e: 0, n: 0, heading: 0, posture: null, indoors: false, disposed: false, body: {}, path: null, standY: null,
       root: { visible: true, position: { clone() { return { x: a.e, z: -a.n }; } } }, heightAt: () => 2,
-      setState() {}, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture(k) { a.posture = { kind: k }; }, update() {}, dispose() {},
+      state: 'standing', setState(v) { a.state = v; }, place() {}, setIndoors(v) { a.indoors = v; }, turnTo() {}, setPosture(k) { a.posture = { kind: k }; }, update() {}, dispose() {},
       walkPath(pts) { a.path = pts; return true; } };
     made.push(a); return a;
   };
@@ -422,8 +422,10 @@ console.log('PASS a staged figure goes in and out by a swinging door, and a stop
   st.sync(stopBoat, { arrived: true });
   const [k, dead, f1, f2, r1, r2] = made;
   [[f1, -0.45, 1.15], [f2, 0.45, 1.15], [r1, -0.45, -1.15], [r2, 0.45, -1.15]].forEach(([x, e, n]) => { x.e = e; x.n = n; });
+  k.state = 'walking';   // T-3754: still on the walk down to the boat when it sets out
   st.update(0.2);
   assert.ok(k.posture?.kind === 'sit' && !k.indoors && k.e === 10 && k.n === 20, 'in the boat, sitting on its seat, in sight');
+  assert.equal(k.state, 'standing', 'T-3754: the walk ends as they sit (no walk clip under the seat)');
   assert.deepEqual(asked?.near, [10, 18], 'the boat sets out from the bank they stand on');
   assert.equal(k.standY, 3 - 0.92, 'feet below the seat\'s eye');
   t = 1.5; st.update(0.1);
@@ -450,7 +452,11 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
 // pickets of the house in front of the house"): every staged walk crosses the fort's two rows and
 // the Kinzies' green only at a gate, and only one its stop opens (or the burning's, which opens all).
 {
-  const fences = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'kinzie_house_1812_green'].map((id) => {
+  // T-3553 (the owner, 2026-11-26: "They can walk through doors"): the covered way's four runs too,
+  // whose passages stand open at both ends (fort-gates.js OPEN_PASSAGES), so a walk down it goes
+  // through each run's gateway, never through its returns.
+  const passages = ['first_fort_covered_way_terrace', 'first_fort_covered_way_bank_upper', 'first_fort_covered_way_bank_middle', 'first_fort_covered_way_bank_lower'];
+  const fences = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'kinzie_house_1812_green', ...passages].map((id) => {
     const sc = read(`data/sidecars/1812/${id}.json`), a = sc.attributes, pl = sc.placement;
     assert.equal(pl.rotation_deg ?? 0, 0, `${id} is square to the grid`);
     const xs = sc.footprint.polygon.map((p) => p[0]), ys = sc.footprint.polygon.map((p) => p[1]);
@@ -462,7 +468,7 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
       const off = o ? o.offset_m : (a.gate_offset_m?.value ?? 0);
       gates[side] = { at: mid + off, half: (o ? o.width_m : a.gate_width_m.value) / 2 };
     }
-    return { id, r, gates };
+    return { id, r, gates, open: passages.includes(id) };
   });
   const crossings = (p, q, { r }) => {
     const out = [];
@@ -488,7 +494,7 @@ console.log('PASS a castmate crosses the river in a drawn boat, and the dead are
             for (const f of fences) for (const [side, x] of crossings(p, q, f)) {
               const gate = f.gates[side];
               assert.ok(gate && Math.abs(x - gate.at) <= gate.half - 0.05, `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s walks through ${f.id}'s ${side} pickets at ${x.toFixed(2)}, not its gate`);
-              assert.ok(all || open.has(`${f.id}:${side}`), `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s goes through ${f.id}'s ${side} gate, which the stop leaves shut`);
+              assert.ok(f.open || all || open.has(`${f.id}:${side}`), `${name}/${st.id}: ${c.person ?? c.extra} at ${b.t} s goes through ${f.id}'s ${side} gate, which the stop leaves shut`);
             }
             p = q;
           }

@@ -53,7 +53,15 @@ def main():
         source=bridge_sources[bridge["id"]]
         check(bridge.get("reported_historical_length_m")==source.get("reported_length_m"),f"bridge reported length was invented or altered: {bridge['id']}")
         check(bridge.get("sources")==source.get("sources",["mitchell_1870_chicago_map"]),f"bridge source list differs from its evidence: {bridge['id']}")
-        if source.get("axis_points"):
+        # T-3751: a bridge carries its drawn street over the river (alignment
+        # street_ends, or street_end_and_line where one bank has no run of it), so its
+        # pivot is where that street's line crosses the river, within the distance the
+        # map reading and the street lines can disagree by: the 1870 map's affine fit
+        # checks to 25.65 m at worst (plan map_control), and the river is traced on the
+        # same sheet. A bridge no drawn street reaches keeps its reading as before.
+        if bridge.get("alignment") in ("street_ends","street_end_and_line"):
+            check(bridge["context_offset_m"]<=recipe.BRIDGE_READING_ALLOWANCE_M,f"bridge pivot is further from its map reading than the registration allows: {bridge['id']} {bridge['context_offset_m']} m")
+        elif source.get("axis_points"):
             check(math.dist(bridge["center"],source["point"])<=.008,f"confirmed bridge point was moved: {bridge['id']}")
             check(bridge.get("alignment")=="source_point_and_axis",f"confirmed bridge axis was ignored: {bridge['id']}")
         else:
@@ -73,15 +81,38 @@ def main():
         # walk + 3); every free-standing lot keeps the 5 m margin.
         margin=-3+recipe.ROW_FRONT_GAP_M*.25 if b.get("row")=="attached" and "_core_" in b["id"] else 1.98
         if any(not named_index.clear(p,margin) for p in corners):mapped_intrusions.append(b["id"])
-        if any(not recipe.inside(p,city.boundary) or city.park(p) or any(recipe.inside(p,x["polygon"]) for x in city.exclusions) for p in corners):forbidden.append(b["id"])
+        if any(not recipe.inside(p,city.boundary) or city.park(p) or any(recipe.inside(p,x["polygon"]) for x in city.exclusions+recipe.UNBUILT_GROUND) for p in corners):forbidden.append(b["id"])
         ix,iy=math.floor(u/100),math.floor(v/100)
         for x in range(ix-1,ix+2):
             for y in range(iy-1,iy+2):
                 for old,ou,ov,ow,od in collision[x,y]:
                     if abs(u-ou)<(w+ow)/2-.025 and abs(v-ov)<(d+od)/2-.025:overlaps.append((b["id"],old))
         collision[ix,iy].append((b["id"],u,v,w,d))
+    # T-3751 (the owner, 2026-11-26: "Building blocks the sidewalk"): no building
+    # stands on any drawn roadway or walk, named street or lattice, along its edges.
+    floor_bins=collections.defaultdict(list)
+    for x in doc.get("walk_surfaces",[]):
+        if x["kind"] not in ("road","walk"):continue
+        h=x["width_m"]/2
+        for i in range(math.floor((min(x["a"][0],x["b"][0])-h)/50),math.floor((max(x["a"][0],x["b"][0])+h)/50)+1):
+            for j in range(math.floor((min(x["a"][1],x["b"][1])-h)/50),math.floor((max(x["a"][1],x["b"][1])+h)/50)+1):floor_bins[i,j].append(x)
+    def on_floor(p):
+        for x in floor_bins[math.floor(p[0]/50),math.floor(p[1]/50)]:
+            a,b=x["a"],x["b"];L=math.dist(a,b);ux,un=(b[0]-a[0])/L,(b[1]-a[1])/L
+            along=(p[0]-a[0])*ux+(p[1]-a[1])*un;across=-(p[0]-a[0])*un+(p[1]-a[1])*ux
+            if 0<=along<=L and abs(across)<x["width_m"]/2-.3:return x["id"]
+        return None
+    in_street=[]
+    for b in doc["buildings"]:
+        c=recipe.corners(b["e"],b["n"],b["width_m"],b["depth_m"],b["bearing_deg"])
+        edge=[(p[0]+(q[0]-p[0])*k/6,p[1]+(q[1]-p[1])*k/6) for p,q in zip(c[:4],c[1:4]+c[:1]) for k in range(6)]+[c[4]]
+        hit=next((h for h in map(on_floor,edge) if h),None)
+        if hit:in_street.append((b["id"],hit))
+    check(not in_street,f"{len(in_street)} buildings stand on a drawn roadway or walk: {in_street[:5]}")
     check(not unsupported,f"{len(unsupported)} building footprints lack field support: {unsupported[:5]}")
-    check(not forbidden,f"{len(forbidden)} buildings cross water/park/burn/city exclusion: {forbidden[:5]}")
+    check(not forbidden,f"{len(forbidden)} buildings cross water/park/burn/unbuilt/city exclusion: {forbidden[:5]}")
+    check(doc.get("unbuilt_ground")==recipe.UNBUILT_GROUND and all((ROOT/"data/sources"/f"{x}.json").exists() for z in recipe.UNBUILT_GROUND for x in z["sources"]),"unbuilt ground is not the generator's, or cites a missing source")
+    check(all(z["liberty"] in (ROOT/"docs/LIBERTIES.md").read_text() for z in recipe.UNBUILT_GROUND),"unbuilt ground carries no recorded liberty")
     check(not overlaps,f"{len(overlaps)} generic buildings overlap: {overlaps[:5]}")
     check(not mapped_intrusions,f"{len(mapped_intrusions)} buildings intrude into mapped arterial corridors: {mapped_intrusions[:5]}")
     mapped={r["id"]:r for r in plan["streets"]}
@@ -213,12 +244,30 @@ def main():
     quays=[d for d in doc["walk_decks"] if d.get("kind")=="quay"]
     check(len(bridges)==len(doc["bridges"]) and len(bridges)+len(quays)==len(doc["walk_decks"]),"walk decks have missing or unknown kinds")
     check(bool(quays),"no quays have declared walk surfaces")
+    road_ends=[]
+    for x in surfaces:
+        if x["kind"]=="road":road_ends+= [x["a"],x["b"]]
+    by_id={b["id"]:b for b in doc["bridges"]}
+    check(recipe.BRIDGE_LIBERTY in (ROOT/"docs/LIBERTIES.md").read_text(),"bridge forms carry no recorded liberty")
     for d in bridges:
         check(len(d["pts"])==4 and d["y"]==recipe.DECK_Y,f"invalid bridge deck: {d['id']}")
-        gaps=[d["y"]-height(*p) for p in d["pts"]+d["axis_endpoints"]]
+        gaps=[abs(d["y"]-height(*p)) for p in d["pts"]+d["axis_endpoints"]]
         check(max(gaps)<=.35,f"unwalkable bridge approach {d['id']}: {max(gaps):.3f}m step")
-        midpoint=[sum(p[k] for p in d["axis_endpoints"])/2 for k in (0,1)]
-        check(height(*midpoint)<0,f"bridge has no water below center: {d['id']}")
+        check(height(*by_id[d["id"]]["center"])<0,f"bridge has no water below its pivot: {d['id']}")
+        # T-3751 (the owner, 2026-11-26: "The bridges don't connect to roads"): a deck
+        # carrying its street lands on that street's drawn end, flush with the roadway.
+        met=sum(any(math.dist(p,q)<=.05 for q in road_ends) for p in d["axis_endpoints"])
+        need=2
+        check(met>=need,f"bridge deck does not land on its street's end: {d['id']} ({met} of {need})")
+        check(0<=d["y"]-doc["surface_heights_m"]["road"]<=.06,f"bridge deck is not at road level: {d['id']}")
+        (a,b)=d["axis_endpoints"];L=math.dist(a,b);ux,un=(b[0]-a[0])/L,(b[1]-a[1])/L;half=math.dist(d["pts"][0],d["pts"][1])/2
+        def on_deck(p,pad=.25):
+            along=(p[0]-a[0])*ux+(p[1]-a[1])*un;across=-(p[0]-a[0])*un+(p[1]-a[1])*ux
+            return -pad<=along<=L+pad and abs(across)<=half+pad
+        blocking=[x["id"] for x in doc["buildings"] if math.dist((x["e"],x["n"]),a)<L+60 and any(on_deck(p) for p in recipe.corners(x["e"],x["n"],x["width_m"],x["depth_m"],x["bearing_deg"]))]
+        check(not blocking,f"buildings stand on bridge deck {d['id']}: {blocking[:3]}")
+        under=[q["id"] for q in doc["walk_decks"] if q["kind"]=="quay" and any(on_deck(p,0) for p in q["pts"])]
+        check(not under,f"quay floors show through bridge deck {d['id']}: {under[:3]}")
     for d in quays:
         check(len(d["pts"])==4 and d["y"]==recipe.WALK_Y,f"invalid quay deck: {d['id']}")
         a,b=d["land_edge"]

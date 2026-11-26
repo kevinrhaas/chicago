@@ -254,15 +254,15 @@
     },
     {
       "id": "fire_parmelee_stables",
-      "local_e": 192,
-      "local_n": -902,
+      "local_e": 212.8,
+      "local_n": -950.4,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 150,
+      "margin_m": 160,
       "inside_a_roof": null
     },
     {
@@ -358,8 +358,8 @@
     },
     {
       "id": "fire_ogden_house",
-      "local_e": 612,
-      "local_n": 1418,
+      "local_e": 616,
+      "local_n": 1400,
       "aerial": false,
       "inside": true,
       "ground_m": 3.2,

@@ -228,7 +228,10 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   const touch = fs.readFileSync(path.join(WEB, 'js/controls/touch.js'), 'utf8');
   assert.match(touch, /const k = LOOK_SENSITIVITY \* lookScale\(lookSpeed\);/, 'the drag-to-look reads it on each move');
   const main = fs.readFileSync(path.join(WEB, 'js/main.js'), 'utf8');
-  assert.equal((main.match(/lookSpeed: \(\) => hud\.settings\.lookSpeed,/g) ?? []).length, 2, 'main.js hands it to both backends');
+  // T-3749: and to the game controller's right stick.
+  assert.equal((main.match(/lookSpeed: \(\) => hud\.settings\.lookSpeed,/g) ?? []).length, 3, 'main.js hands it to all three backends');
+  const pad = fs.readFileSync(path.join(WEB, 'js/controls/gamepad.js'), 'utf8');
+  assert.match(pad, /const k = lookScale\(lookSpeed\);/, 'the right stick reads it every frame');
   const hud = fs.readFileSync(path.join(WEB, 'js/hud.js'), 'utf8');
   assert.match(hud, /lookSpeed: 1,/, 'Standard is the default');
 }

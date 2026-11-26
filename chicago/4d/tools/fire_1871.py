@@ -17,12 +17,23 @@ modern OpenStreetMap controls the 1871 city's own map alignment rests on
 (data/context/1871/plan.json); over the burnt district its residual is a few metres,
 far inside the accounts' own precision ("about twelve o'clock", "the line of
 Congress Street").
+
+T-3751 (the owner, 2026-11-26: "The jaunt stops at the Field Building, but the building does
+not burn"; "Ensure the visual state of the environment corresponds to the chronology and events
+described in the narration"): a named structure may carry `burning_by`, the hour an account
+or the jaunt's own evidence has it alight, which the renderer keeps to exactly (no jitter, its
+rise begun so that it is burning at that hour). And `goods` are the household goods the
+fleeing families heaped on open ground (Washington Square, the old cemetery): this tool lays
+each heap on its open ground (`local_heaps`, clear of the ground's own graves and fences, the
+jaunt's stand and its people), and the renderer burns them by their place's hour or by the
+goods' own window.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import math
+import random
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -33,6 +44,9 @@ PLAN = ROOT / "data/context/1871/plan.json"
 RIVERS = ROOT / "data/terrain/epochs/e1871_prefire/river.geojson"
 SOURCES = ROOT / "data/sources"
 CONTEXT = ROOT / "data/context/1871.json"
+SIDECARS = ROOT / "data/sidecars/1871"
+JAUNTS = ROOT / "data/jaunts"
+SCENE = ROOT / "data/scenes/1871.json"
 FATES = {"walls_stand", "roof_burns", "collapses", "survives"}
 GRADES = {"attested", "inferred", "reconstructed"}
 ACRE_M2 = 4046.8564224
@@ -122,6 +136,76 @@ def inside(e: float, n: float, poly) -> bool:
     return res
 
 
+def footprint_world(side: dict):
+    """A sidecar's footprint polygon and composition boxes in scene metres (walker.js footprintToWorld)."""
+    pl = side["placement"]
+    th = math.radians(pl.get("rotation_deg") or 0)
+    c, s_ = math.cos(th), math.sin(th)
+    e0, n0 = pl.get("local_e") or 0, pl.get("local_n") or 0
+
+    def to_world(u, v):
+        return [e0 + u * c + v * s_, n0 - u * s_ + v * c]
+    return to_world, side["footprint"]["polygon"]
+
+
+def lay_heaps(goods: dict) -> list:
+    """Heaps of goods on a structure's open ground, deterministic from the goods' seed: inside the
+    footprint less `margin_m`, clear of its own blocks (graves, fence, gateways) by `clear_m`, of
+    each other by `apart_m`, of the jaunt stands named in `clear_of` and of the stop's people by
+    `stand_r_m`. Each heap is [e, n, bearing_deg, seed]."""
+    side = json.loads((SIDECARS / f"{goods['within']}.json").read_text())
+    to_world, poly = footprint_world(side)
+    us, vs = [p[0] for p in poly], [p[1] for p in poly]
+    margin, clear, apart = goods.get("margin_m", 2.5), goods.get("clear_m", 1.2), goods.get("apart_m", 4.0)
+    blocks = []
+    form = json.loads((ROOT / f"data/structures/{goods['within']}.json").read_text())["phases"][-1].get("form", {})
+    for b in ((form.get("composition") or {}).get("value") or {}).get("blocks", []):
+        u0, v0, u1, v1 = b["box"]
+        blocks.append((min(u0, u1) - clear, min(v0, v1) - clear, max(u0, u1) + clear, max(v0, v1) + clear))
+    keep_out = []
+    scene = json.loads(SCENE.read_text())
+    anchors = {a["id"]: a for a in scene["anchors"]}
+    r_stand = goods.get("stand_r_m", 4.5)
+    for aid in goods.get("clear_of", []):
+        a = anchors[aid]
+        keep_out.append((a["local_e"], a["local_n"], r_stand))
+        for path in sorted(JAUNTS.glob("the-great-fire*.json")):
+            for stop in json.loads(path.read_text())["stops"]:
+                if stop["destination"].get("id") != aid:
+                    continue
+                for c in (stop.get("stage") or {}).get("cast", []):
+                    keep_out.append((c["at"][0], c["at"][1], 1.6))
+                    for beat in c.get("beats", []):
+                        for q in beat.get("walk", []):
+                            keep_out.append((q[0], q[1], 1.4))
+    rng = random.Random(goods["seed"])
+    heaps, tries = [], 0
+    while len(heaps) < goods["heaps"] and tries < 20000:
+        tries += 1
+        u = rng.uniform(min(us) + margin, max(us) - margin)
+        v = rng.uniform(min(vs) + margin, max(vs) - margin)
+        if any(b[0] <= u <= b[2] and b[1] <= v <= b[3] for b in blocks):
+            continue
+        e, n = to_world(u, v)
+        if any(math.hypot(e - k[0], n - k[1]) < k[2] for k in keep_out):
+            continue
+        if any(math.hypot(e - h[0], n - h[1]) < apart for h in heaps):
+            continue
+        heaps.append([round(e, 2), round(n, 2), round(rng.uniform(0, 360), 1), rng.randrange(1, 10 ** 6)])
+    if len(heaps) < goods["heaps"]:
+        raise SystemExit(f"fire_1871: goods {goods['id']}: only {len(heaps)} of {goods['heaps']} heaps fit on {goods['within']}")
+    return heaps
+
+
+def ground_of(goods: dict) -> list:
+    """T-3751: the open ground a `scorch` goods entry burns over (the fire ran through the square's
+    grass between the heaps): its footprint's corners in local metres, which the renderer covers with
+    ragged scorch from the place's own hour."""
+    side = json.loads((SIDECARS / f"{goods['within']}.json").read_text())
+    to_world, poly = footprint_world(side)
+    return [[round(c, 2) for c in to_world(u, v)] for u, v in poly]
+
+
 def derive(doc: dict) -> dict:
     """The derived fields, from the authored ones; never reads a derived field."""
     to_local, rms = fit_affine(json.loads(PLAN.read_text()))
@@ -154,6 +238,8 @@ def derive(doc: dict) -> dict:
     for s in doc.get("spared", []):
         e, n = s["plan_local"] if "plan_local" in s else to_local(s["lat"], s["lon"])
         out["spared"][s["id"]] = [round(e, 1), round(n, 1)]
+    out["goods"] = {g["id"]: lay_heaps(g) for g in doc.get("goods", [])}
+    out["ground"] = {g["id"]: ground_of(g) for g in doc.get("goods", []) if g.get("scorch")}
     return out
 
 
@@ -166,6 +252,12 @@ def apply(doc: dict, d: dict) -> dict:
         c["local"] = d["controls"][c["id"]]
     for s in doc.get("spared", []):
         s["local"] = d["spared"][s["id"]]
+    for g in doc.get("goods", []):
+        g["local_heaps"] = d["goods"][g["id"]]
+        if g["id"] in d["ground"]:
+            g["local_ground"] = d["ground"][g["id"]]
+        else:
+            g.pop("local_ground", None)
     return doc
 
 
@@ -230,6 +322,51 @@ def problems(doc: dict) -> list[str]:
     for sid, rec in doc.get("structures", {}).items():
         if rec.get("fate") not in FATES:
             bad.append(f"structure {sid}: fate {rec.get('fate')}")
+        pin = rec.get("burning_by")
+        if pin is not None:
+            cite(f"structure {sid} burning_by", pin.get("sources"))
+            if pin.get("grade") not in GRADES:
+                bad.append(f"structure {sid}: burning_by grade {pin.get('grade')}")
+            if not (pin.get("locator") or pin.get("note")):
+                bad.append(f"structure {sid}: burning_by without a locator or reasoning")
+            if rec.get("fate") == "survives" or sid in doc.get("survivors", []):
+                bad.append(f"structure {sid}: a survivor cannot be burning by an hour")
+            try:
+                if not (start <= stamp(pin["t"]) <= end):
+                    bad.append(f"structure {sid}: burning_by {pin['t']} outside the fire's {doc['start']}..{doc['end']}")
+            except (KeyError, ValueError):
+                bad.append(f"structure {sid}: burning_by hour is not YYYY-MM-DDTHH:MM")
+    gids = set()
+    for g in doc.get("goods", []):
+        if g["id"] in gids:
+            bad.append(f"goods {g['id']}: duplicate id")
+        gids.add(g["id"])
+        cite(f"goods {g['id']}", g.get("sources"))
+        if g.get("grade") not in GRADES:
+            bad.append(f"goods {g['id']}: grade {g.get('grade')}")
+        if not g.get("locator") or not g.get("note"):
+            bad.append(f"goods {g['id']}: needs a locator for what is attested and a note for what is reconstructed")
+        if not (SIDECARS / f"{g.get('within')}.json").exists():
+            bad.append(f"goods {g['id']}: no 1871 sidecar for {g.get('within')}")
+            continue
+        if g.get("local_heaps") != d["goods"].get(g["id"]):
+            bad.append(f"goods {g['id']}: local heaps are stale: run tools/fire_1871.py --write")
+        if g.get("local_ground") != d["ground"].get(g["id"]):
+            bad.append(f"goods {g['id']}: local ground is stale: run tools/fire_1871.py --write")
+        try:
+            if "appear" in g and not (start <= stamp(g["appear"]) <= end):
+                bad.append(f"goods {g['id']}: appear {g['appear']} outside the fire")
+        except ValueError:
+            bad.append(f"goods {g['id']}: appear is not YYYY-MM-DDTHH:MM")
+        if g.get("catch") not in (None, "place") or (g.get("catch") is None and g.get("window") is None):
+            bad.append(f"goods {g['id']}: burns by catch 'place' or by its own window")
+        w = g.get("window")
+        if w is not None:
+            try:
+                if not (start <= stamp(w["from"]) <= stamp(w["to"]) <= end) or not (0 < w.get("share", 0) <= 1):
+                    bad.append(f"goods {g['id']}: window {w} is not inside the fire with a share in (0, 1]")
+            except (KeyError, ValueError):
+                bad.append(f"goods {g['id']}: window hours are not YYYY-MM-DDTHH:MM")
     for z in doc["zones"]:
         if z.get("burnt_at"):
             try:
@@ -278,12 +415,21 @@ def self_test() -> int:
     broken["controls"][0]["sources"] = ["no_such_source_3687"]
     broken["controls"][1]["t"] = "1871-10-12T09:00"
     broken["zones"][0]["local"] = [[0, 0], [1, 0], [0, 1]]
+    broken["structures"]["field_leiter_1871"]["burning_by"]["t"] = "1871-10-11T08:00"
+    broken["structures"]["chicago_water_tower_1871"] = {"fate": "survives", "burning_by": {"t": "1871-10-09T03:00", "grade": "inferred", "sources": ["andreas_1885_v2"], "note": "x"}}
+    broken["goods"][0]["local_heaps"] = broken["goods"][0]["local_heaps"][1:]
+    broken["goods"][0]["local_ground"] = broken["goods"][0]["local_ground"][1:]
     found = problems(broken)
+    assert any("field_leiter_1871: burning_by 1871-10-11T08:00 outside" in p for p in found), found
+    assert any("chicago_water_tower_1871: a survivor" in p for p in found), found
+    assert any("heaps are stale" in p for p in found), found
+    assert any("ground is stale" in p for p in found), found
     assert any("no_such_source_3687" in p for p in found), found
     assert any("outside the fire" in p for p in found), found
     assert any("stale" in p for p in found), found
     print("FIRE 1871 SELF-TEST PASS — corners carried by the controls' fit, river reaches sliced both ways, "
-          "unresolved sources, hours outside the fire and stale outlines refused")
+          "unresolved sources, hours outside the fire and stale outlines refused; a landmark's burning_by "
+          "outside the fire or on a survivor, and stale heaps of goods, refused")
     return 0
 
 

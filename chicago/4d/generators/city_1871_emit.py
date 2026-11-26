@@ -73,7 +73,38 @@ ROW_KITS = {"central_business": (("commercial_3", .30), ("commercial_4", .38), (
 ROW_FACADES = {"central_business": (("brick", .42), ("stone", .36), ("painted", .22)),
                "strip": (("brick", .55), ("painted", .30), ("stone", .15))}
 BOUNDS = (-7300., 3500., -7100., 4350.)
-GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.34
+GRADE, ROAD_Y, WALK_Y, DECK_Y = 3.2, 3.23, 3.32, 3.27
+# T-3751: a bridge deck lies a few centimetres above the street it carries
+# (ROAD_Y), so the carriageway runs onto it without a step and nothing on the
+# bank (a quay at WALK_Y, a pier top) shows through its planks.
+BRIDGE_LIBERTY = "L-1871-swing-bridges-3751"
+# The reported length of a swing span is the Board's (1871 report, p. 49); this
+# is the reconstructed span of a crossing it gives none for.
+SWING_SPAN_DEFAULT_M = 50.
+# How far a street-carried bridge's pivot may stand from the map's reading of the
+# crossing: the 1870 map's affine fit checks to 25.65 m at worst (plan map_control,
+# eight reserved checks), the river is traced on the same sheet, and the street
+# lines are the City's platted centrelines; 45 m bounds both errors together.
+BRIDGE_READING_ALLOWANCE_M = 45.
+BRIDGE_APPROACH_ROAD_NOTE = "Where the platted core draws no run of the street to the bank, a plain dirt approach road (reconstructed, alignment bridge_approach) joins the deck to the nearest end of its street."
+# A bridge footway is the street's own walk, to this width at most.
+BRIDGE_FOOTWAY_M = 2.6
+# The streets a bridge carries where its record's name is not the street's.
+BRIDGE_STREETS = {"rush_street_bridge": ("michigan avenue", "rush street"),
+                  # Wells Street south of the river is Fifth Avenue in the 1871 directory.
+                  "wells_street_bridge": ("wells", "fifth avenue"),
+                  "eighteenth_street_bridge": ("eighteenth street",),
+                  "clybourn_avenue_bridge": ("clybourn",),
+                  "north_halsted_street_bridge": ("halsted",), "south_halsted_street_bridge": ("halsted",),
+                  "division_street_north_branch_canal_crossing": ("division street",)}
+BRIDGE_APPROACH_NOTE = {
+    "street_ends": "The deck runs from the drawn street's end on one bank to its end on the other (T-3751), so the street is carried over the river in its own line and width; the swing span is the reported length, centred on its pivot where the deck crosses the river line.",
+    "street_end_and_line": "One bank has a drawn run of the street; the deck carries it on along its own line to the first dry ground of the other bank (T-3751).",
+    "source_point_and_axis": "No drawn run of the street meets the river here; the deck keeps the map reading's axis, trimmed to the first dry ground on each bank (T-3751).",
+    "mapped_road_river_intersection": "No drawn run of the street meets the river here; the deck keeps the mapped road's crossing, trimmed to the first dry ground on each bank (T-3751)."}
+BRIDGE_FORM = ("centre-pivot swing span on a round stone pivot pier inside a timber protection pier: a timber deck with railed footways, "
+               "two timber trusses deepest over the pivot with a central tower and iron tie rods to the ends; fixed timber approach "
+               "spans on pile bents carry the deck to the street on both banks")
 # T-3685: the street walks are raised plank walks, a step above the roadway
 # (the renderer draws their kerb boards and end risers from walk_surfaces); a
 # plank crossing lies on a dirt carriageway where a walk is cut at a corner.
@@ -342,6 +373,26 @@ def corners(e,n,width,depth,bearing):
 # T-3686, owner 2026-11-21: an attached business row stands on the walk's outer
 # edge (a hand's breadth clear of the planks, so the front never z-fights them).
 ROW_FRONT_GAP_M=0.06
+# T-3751: a lattice street's corridor in the index is half + walk + 3; this extra
+# keeps a lot's corners 0.25 m clear of its walk.
+LATTICE_WALK_EXTRA=-2.75
+
+# T-3751 (the owner, 2026-11-26: "you show buildings east of Michigan ave all along
+# the lakefront, check that"). Mitchell's 1870 map prints the strip between
+# Michigan Avenue and the Illinois Central breakwater, from Randolph Street south
+# to Park Place by Twelfth Street, as LAKE PARK, with the lagoon and the railway's
+# trestle and breakwater east of it: open ground, not lots. No generic building
+# stands there. North of Randolph the same map prints the Illinois Central and
+# Michigan Central depot and grain houses, and south of Twelfth the avenues east
+# of Michigan are built up; both keep their generic buildings. The North Side
+# shore east of Pine Street is platted on the same map (St. Clair Street and the
+# cross streets run to the lake) and keeps its buildings too. The west edge is
+# Michigan Avenue's drawn centreline (no lot on its west side reaches it); the
+# north and south edges are the centrelines of Randolph and Twelfth streets.
+UNBUILT_GROUND = [{"id": "lake_park_1871", "name": "Lake Park, Michigan Avenue to the breakwater",
+    "polygon": [[1118.8, -258.0], [1700.0, -258.0], [1700.0, -2150.0], [1151.4, -2150.0]],
+    "sources": ["mitchell_1870_chicago_map"], "grade": "attested", "liberty": "L-1871-lake-park-3751",
+    "note": "Mitchell's 1870 map prints LAKE PARK on the strip east of Michigan Avenue from Randolph Street to Park Place (by Twelfth Street), with the Illinois Central breakwater and trestle beyond it. No generic building is placed there; the depot ground north of Randolph and the built avenues south of Twelfth keep theirs."}]
 
 class SpatialLines:
     """Small uniform index: per-lot exclusions never scan the whole city's roads."""
@@ -358,9 +409,17 @@ class SpatialLines:
     def clear(self, p, extra=0):
         # Insertion covers the base width. An added clearance can reach a
         # neighboring bin even when the point itself lies outside that width.
+        # T-3751: a NEGATIVE extra (the attached rows' walk-edge probe, -3 + gap)
+        # needs only the point's own bin, whose list holds every line within the
+        # base width. Spreading by a negative extra turned the range inside out
+        # within 3 m of a bin edge, so no line was tested and the point read clear:
+        # the rows on Washington Street (n -395, by the -400 edge) and Clark Street
+        # (e 600) stood out over their cross street's walk and roadway (the owner,
+        # 2026-11-26: "Building blocks the sidewalk", "Sidewalk ends awkwardly").
+        reach=max(extra,0)
         return all(segdist(p,a,b)>w+extra
-                   for i in range(math.floor((p[0]-extra)/self.cell),math.floor((p[0]+extra)/self.cell)+1)
-                   for j in range(math.floor((p[1]-extra)/self.cell),math.floor((p[1]+extra)/self.cell)+1)
+                   for i in range(math.floor((p[0]-reach)/self.cell),math.floor((p[0]+reach)/self.cell)+1)
+                   for j in range(math.floor((p[1]-reach)/self.cell),math.floor((p[1]+reach)/self.cell)+1)
                    for a,b,w in self.bins[i,j])
 
 
@@ -448,6 +507,29 @@ class Mesh:
         x,y=ring(a),ring(b)
         for i in range(4):self.face(mat,[x[i],x[(i+1)%4],y[(i+1)%4],y[i]],layer)
 
+    def oface(self, mat, pts, outward, layer=None):
+        """A face wound to face `outward` (glTF axes), whatever order its points came in."""
+        a,b,c=pts[:3]
+        u,v=[b[k]-a[k] for k in range(3)],[c[k]-a[k] for k in range(3)]
+        normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+        if sum(normal[k]*outward[k] for k in range(3))<0:pts=pts[::-1]
+        self.face(mat,pts,layer)
+
+    def prism(self, mat, outline, y0, y1, layer=None):
+        """An upright prism on an (e, n) outline: its sides and its top."""
+        ce=sum(p[0] for p in outline)/len(outline);cn=sum(p[1] for p in outline)/len(outline)
+        for p,q in zip(outline,outline[1:]+outline[:1]):
+            me,mn=(p[0]+q[0])/2-ce,(p[1]+q[1])/2-cn
+            self.oface(mat,[(p[0],y0,-p[1]),(q[0],y0,-q[1]),(q[0],y1,-q[1]),(p[0],y1,-p[1])],(me,0,-mn),layer)
+        self.oface(mat,[(p[0],y1,-p[1]) for p in outline],(0,1,0),layer)
+
+    def cylinder(self, mat, c, r, y0, y1, sides, layer=None):
+        self.prism(mat,[(c[0]+r*math.cos(2*math.pi*k/sides),c[1]+r*math.sin(2*math.pi*k/sides)) for k in range(sides)],y0,y1,layer)
+
+    def oriented_box(self, mat, c, axis, length, width, y0, y1, layer=None):
+        ux,un=axis;nx,nn=-un,ux
+        self.prism(mat,[(c[0]+ux*a*length/2+nx*b*width/2,c[1]+un*a*length/2+nn*b*width/2) for a,b in ((-1,-1),(1,-1),(1,1),(-1,1))],y0,y1,layer)
+
     def glb(self, digest):
         binary=bytearray();views=[];accessors=[];meshes=[];nodes=[];materials=[]
         images=[];textures=[]
@@ -532,6 +614,8 @@ class City:
         self.arterials=plan.get("streets",[])
         self.diagonals=[r for r in self.arterials if r.get("diagonal") or self.is_diagonal(r)]
         self.mapped_index=SpatialLines(self.arterials)
+        self.lattice_index=SpatialLines([])
+        self.approaches=[]
         self.parallel={"ns":[],"ew":[]}
         self.streets=[];self.bridges=[];self.walk_decks=[];self.walk_surfaces=[]
         self._field_cache={}
@@ -586,7 +670,7 @@ class City:
         return any(inside(p,k["polygon"]) for k in self.parks)
 
     def lot_clear(self,points,street_extra=2):
-        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,street_extra) for p in points)
+        return all(self.town(p,8) and self.river_distance(p)>38 and self.shore_e(p[1])-p[0]>38 and self.field_height(*p)>=GRADE-.01 and not self.park(p) and not any(inside(p,x["polygon"]) for x in self.exclusions if x.get("exclude_intact_buildings")) and not any(inside(p,x["polygon"]) for x in UNBUILT_GROUND) and self.rail_index.clear(p,6) and self.mapped_index.clear(p,street_extra) and self.lattice_index.clear(p,LATTICE_WALK_EXTRA) for p in points)
 
     def district(self,e,n):
         zone=next((z for z in self.zones if inside((e,n),z["polygon"])),None)
@@ -638,6 +722,10 @@ class City:
         self.core,self.arterial_runs=core,arterials
         self.streets=lattice+arterials+core
         self.mapped_index=SpatialLines(arterials+core)
+        # T-3751: the lattice's own streets, so no lot (a curve lot along an
+        # arterial, a core lot at the core's edge) stands across one's walk or
+        # roadway where it runs up to a mapped street.
+        self.lattice_index=SpatialLines(lattice)
         return us,vs
 
     # ---- T-3684: names -------------------------------------------------
@@ -1758,6 +1846,13 @@ class City:
                 total+=L;along+=L
                 segments.append({"street_id":r["id"],"name":r.get("name"),"alignment":r.get("alignment","reconstructed_grid"),"name_basis":r.get("name_basis","reconstructed"),"run":ri,"a":[round(t,2) for t in a],"b":[round(t,2) for t in b],"width_m":width,"walk_m":walk,"surface":mat,"surface_basis":basis,**({"source_name":r["source_name"],"trace_id":r["source_id"]} if r.get("source_name") else {})})
         bridge_records=self.plan.get("bridges",[])
+        # T-3751: the named street runs' ends, each with its outward direction.
+        self.bridge_run_ends=[]
+        for r,run in runs:
+            if not r.get("name") or len(run)<2:continue
+            for q0,q1 in ((run[0],run[1]),(run[-1],run[-2])):
+                ll=math.dist(q0,q1)
+                if ll>1e-6:self.bridge_run_ends.append((tuple(q0),((q0[0]-q1[0])/ll,(q0[1]-q1[1])/ll),r))
         for i,rec in enumerate(bridge_records):
             p=rec["point"]
             name=rec.get("name",rec.get("id",f"crossing_{i}"))
@@ -1797,35 +1892,17 @@ class City:
                 if math.dist(cross,p)>rec.get("max_alignment_offset_m",35):
                     raise ValueError(f"{name}: mapped-road crossing differs from bridge reading by {math.dist(cross,p):.2f}m; explicit source reconciliation required")
                 alignment="mapped_road_river_intersection"
-            if any(math.dist(cross,x["center"])<30 for x in self.bridges):raise ValueError(f"Duplicate bridge crossing: {name}")
-            dx,dn=b[0]-a[0],b[1]-a[1];ll=math.hypot(dx,dn);dx/=ll;dn/=ll
-            half=river.get("width_m",65)/2+28
-            width=rec.get("width_m",min(18.,street.get("width_m",14)+3.) if street else 13.)
-            approach_half_width=max(width/2,street.get("width_m",width)/2+street.get("walk_m",0) if street else width/2)
-            def approach_height():
-                return min(self.field_height(cross[0]+side*dx*half-off*dn,cross[1]+side*dn*half+off*dx) for side in (-1,1) for off in (-approach_half_width,0,approach_half_width))
-            while half<220 and approach_height()<GRADE-.01:half+=5
-            if approach_height()<GRADE-.01:raise ValueError(f"{name}: confirmed crossing axis has no supported bank within 220 m; source/bank reconciliation required")
-            half+=6
-            if approach_height()<GRADE-.01:half-=6
-            aa=(cross[0]-dx*half,cross[1]-dn*half);bb=(cross[0]+dx*half,cross[1]+dn*half)
-            bridges.ribbon("plank",aa,bb,width,DECK_Y,"bridges")
-            bridges.box("stone",*cross,-2.8,7,7,DECK_Y+2.8,"bridge_piers")
-            nx,nn=-dn,dx
-            for side in (-1,1):
-                edge=lambda t,y:(aa[0]+dx*t+side*nx*(width/2-.2),y,-aa[1]-dn*t-side*nn*(width/2-.2))
-                length=half*2
-                bridges.beam("iron",edge(0,DECK_Y+.2),edge(length,DECK_Y+.2),.1,"bridge_trusses")
-                bridges.beam("iron",edge(0,DECK_Y+2.5),edge(length,DECK_Y+2.5),.11,"bridge_trusses")
-                steps=max(4,round(length/7))
-                for j in range(steps):
-                    t0,t1=length*j/steps,length*(j+1)/steps
-                    bridges.beam("iron",edge(t0,DECK_Y),edge(t0,DECK_Y+2.5),.085,"bridge_trusses")
-                    bridges.beam("iron",edge(t0,DECK_Y+.2),edge(t1,DECK_Y+2.5),.075,"bridge_trusses")
-            pts=[[aa[0]+nx*width/2,aa[1]+nn*width/2],[aa[0]-nx*width/2,aa[1]-nn*width/2],[bb[0]-nx*width/2,bb[1]-nn*width/2],[bb[0]+nx*width/2,bb[1]+nn*width/2]]
             bid=rec.get("id",f"bridge_{i:02}")
-            self.walk_decks.append({"id":bid,"kind":"bridge","y":DECK_Y,"pts":[[round(v,3) for v in q] for q in pts],"axis_endpoints":[[round(v,3) for v in q] for q in (aa,bb)]})
-            self.bridges.append({"id":bid,"name":name,"center":[round(v,2) for v in cross],"mapped_point":p,"context_offset_m":round(math.dist(cross,p),2),"alignment":alignment,"use":"railway" if rec.get("railway_id") else "street","length_m":round(half*2,2),"reported_historical_length_m":rec.get("reported_length_m"),"width_m":width,"approach":"Mapped approach/explicit source axis retained; reconstructed deck length extends to supported land and is not only the reported historical span.","form":"generic center-pivot iron swing truss with timber deck","confidence":"reconstructed","inventory_basis":rec.get("inventory_basis","municipal_report" if "chicago_public_works_1871" in rec.get("sources",[]) else "mapped_crossing"),"sources":list(rec.get("sources",["mitchell_1870_chicago_map"]))})
+            if any(math.dist(cross,x["mapped_crossing"])<30 for x in self.bridges):raise ValueError(f"Duplicate bridge crossing: {name}")
+            A,B,carriage,walk,alignment=self.bridge_ends(bid,name,stem,rec,cross,a,b,street,alignment)
+            width=round(carriage+2*walk,2)
+            pivot=self.bridge_pivot(A,B,river,cross)
+            span=self.draw_bridge(bridges,A,B,pivot,carriage,walk,rec,river)
+            dx,dn=B[0]-A[0],B[1]-A[1];ll=math.hypot(dx,dn);dx/=ll;dn/=ll;nx,nn=-dn,dx
+            pts=[[A[0]+nx*width/2,A[1]+nn*width/2],[A[0]-nx*width/2,A[1]-nn*width/2],[B[0]-nx*width/2,B[1]-nn*width/2],[B[0]+nx*width/2,B[1]+nn*width/2]]
+            self.walk_decks.append({"id":bid,"kind":"bridge","y":DECK_Y,"pts":[[round(v,3) for v in q] for q in pts],"axis_endpoints":[[round(v,3) for v in q] for q in (A,B)]})
+            approaches=self.bridge_approaches(roads,segments,bid,BRIDGE_STREETS.get(bid,(stem,)),(A,B),carriage,len(runs))
+            self.bridges.append({"id":bid,"name":name,"center":[round(v,2) for v in pivot],"mapped_point":p,"mapped_crossing":[round(v,2) for v in cross],"context_offset_m":round(math.dist(pivot,p),2),"alignment":alignment,"use":"railway" if rec.get("railway_id") else "street","length_m":round(ll,2),"swing_span_m":round(span,2),"reported_historical_length_m":rec.get("reported_length_m"),"width_m":width,"roadway_m":carriage,"approach":BRIDGE_APPROACH_NOTE[alignment]+(" "+BRIDGE_APPROACH_ROAD_NOTE if approaches else ""),"form":BRIDGE_FORM,"confidence":"reconstructed","liberty":BRIDGE_LIBERTY,"inventory_basis":rec.get("inventory_basis","municipal_report" if "chicago_public_works_1871" in rec.get("sources",[]) else "mapped_crossing"),"sources":list(rec.get("sources",["mitchell_1870_chicago_map"]))})
         for r in self.rails:
             for a,b in zip(r["points"],r["points"][1:]):
                 dx,dn=b[0]-a[0],b[1]-a[1];ll=math.hypot(dx,dn)
@@ -1877,6 +1954,9 @@ class City:
                         while outer<bank+35 and not land_edge_ready():outer+=1
                         if not land_edge_ready():continue
                         raw=[point(t0,inner),point(t1,inner),point(t1,outer),point(t0,outer)]
+                        # T-3751: a bridge's deck now lies under quay height; no quay
+                        # bay is laid through a bridge or its approach.
+                        if self.under_bridge(raw):continue
                         pts=[[round(v,3) for v in p] for p in raw]
                         if side<0:pts.reverse()
                         # Mesh vertices use the exact rounded coordinates the
@@ -1903,6 +1983,219 @@ class City:
                             far=point(t,outer-.4)
                             bridges.beam("timber",(e,WALK_Y-.18,-n),(far[0],WALK_Y-.18,-far[1]),.12,"quay_framing")
         return roads,bridges,rail,segments,total
+
+
+    # ---- T-3751: the river bridges meet their streets ---------------------
+    def bridge_ends(self,bid,name,stem,rec,cross,a,b,street,alignment):
+        """Where a bridge's deck lands: the ends of its own street on the two banks.
+
+        The owner, 2026-11-26: "The bridges don't connect to roads". The deck used to
+        run along the map reading's axis to the first dry ground and six metres on, so
+        it crossed the river streets into building faces, at an angle to its street.
+        Now each end is the drawn street's own run end at the bank (the run stops
+        where its corridor leaves dry ground), so the deck is the street carried over
+        the river: in its line, at its carriageway and walk width. A bank with no run
+        of the street is reached along the street's direction from the other bank; a
+        bridge with neither keeps the map reading's axis, trimmed to the first dry
+        ground on each side."""
+        names=BRIDGE_STREETS.get(bid,(stem,))
+        found={}
+        for p,(ox,on),r in self.bridge_run_ends:
+            nm=r["name"].lower()
+            if not any(x in nm for x in names):continue
+            vx,vn=cross[0]-p[0],cross[1]-p[1];dist=math.hypot(vx,vn)
+            if not 5<dist<175 or (vx*ox+vn*on)/dist<.8:continue
+            half=r.get("width_m",14)/2+r.get("walk_m",2.3)
+            # A run that stops at the bank: the ground under its corridor falls away
+            # within 20 m beyond its end.
+            if min(self.field_height(p[0]+ox*t+on*off,p[1]+on*t-ox*off) for t in (6,12,20) for off in (-half,0,half))>=GRADE-.01:continue
+            # Which bank: the side of the river line through the crossing.
+            side=1 if self.bank_side(cross,p)>0 else -1
+            if side not in found or dist<found[side][0]:found[side]=(dist,p,(ox,on),r)
+        def dry(q,o,half):
+            return all(self.field_height(q[0]-o[1]*off,q[1]+o[0]*off)>=GRADE-.01 for off in (-half,0,half))
+        if len(found)==2:
+            (_,A,_,ra),(_,B,_,rb)=found[-1],found[1]
+            carriage=max(ra.get("width_m",14),rb.get("width_m",14));walk=min(BRIDGE_FOOTWAY_M,max(ra.get("walk_m",2.3),rb.get("walk_m",2.3)))
+            return tuple(A),tuple(B),carriage,walk,"street_ends"
+        if len(found)==1:
+            _,A,o,r=next(iter(found.values()))
+            carriage=r.get("width_m",14);walk=min(BRIDGE_FOOTWAY_M,r.get("walk_m",2.3));half=carriage/2+walk
+            past=(cross[0]-A[0])*o[0]+(cross[1]-A[1])*o[1]
+            t=past+20
+            while t<past+220 and not dry((A[0]+o[0]*t,A[1]+o[1]*t),o,half):t+=1
+            if t>=past+220:raise ValueError(f"{name}: no supported far bank along the street's line")
+            B=(A[0]+o[0]*t,A[1]+o[1]*t)
+            return tuple(A),B,carriage,walk,"street_end_and_line"
+        dx,dn=b[0]-a[0],b[1]-a[1];ll=math.hypot(dx,dn);dx/=ll;dn/=ll
+        carriage=float(rec.get("width_m",13)) if not street else street.get("width_m",13);walk=min(BRIDGE_FOOTWAY_M,street.get("walk_m",2.3) if street else 2.3)
+        ends=[]
+        for sgn in (-1,1):
+            o=(dx*sgn,dn*sgn);t=20
+            while t<220 and not dry((cross[0]+o[0]*t,cross[1]+o[1]*t),o,carriage/2+walk):t+=1
+            if t>=220:raise ValueError(f"{name}: confirmed crossing axis has no supported bank within 220 m; source/bank reconciliation required")
+            ends.append((cross[0]+o[0]*t,cross[1]+o[1]*t))
+        return ends[0],ends[1],carriage,walk,alignment
+
+    def bank_side(self,cross,p):
+        """Which side of the nearest river line point p lies on (sign of the cross product)."""
+        best=None
+        for r in self.rivers:
+            for c,d in zip(r["points"],r["points"][1:]):
+                dd=segdist(cross,c,d)
+                if best is None or dd<best[0]:best=(dd,c,d)
+        _,c,d=best
+        return (d[0]-c[0])*(p[1]-c[1])-(d[1]-c[1])*(p[0]-c[0])
+
+    def bridge_pivot(self,A,B,river,cross):
+        """The pivot pier stands where the deck's line crosses the river's line."""
+        hits=[]
+        for r in self.rivers:
+            for c,d in zip(r["points"],r["points"][1:]):
+                q=intersection(A,B,c,d)
+                if q:hits.append(q)
+        mid=((A[0]+B[0])/2,(A[1]+B[1])/2)
+        if hits:return min(hits,key=lambda q:math.dist(q,mid))
+        dx,dn=B[0]-A[0],B[1]-A[1];L2=dx*dx+dn*dn
+        t=max(0.,min(1.,((cross[0]-A[0])*dx+(cross[1]-A[1])*dn)/L2))
+        return (A[0]+dx*t,A[1]+dn*t)
+
+    def draw_bridge(self,mesh,A,B,pivot,carriage,walk,rec,river):
+        """A centre-pivot swing span and its fixed approaches, in the shared bridge
+        materials (plank, timber, iron, stone), so the 22 bridges stay a handful of
+        draws. Returns the swing span's length.
+
+        The Board's 1871 report (p. 48): the city bridges are "all truss bridges,
+        revolving upon a centre pier, and giving a passage-way for vessels upon either
+        side, when open"; p. 49 gives each one's length and timber-and-iron build. The
+        swing span here is that reported length, centred on the pivot; what the
+        report does not give (truss members, tower, tie rods, pier and fender forms,
+        railings, approach spans) is reconstructed (L-1871-swing-bridges-3751)."""
+        dx,dn=B[0]-A[0],B[1]-A[1];L=math.hypot(dx,dn);ux,un=dx/L,dn/L;nx,nn=-un,ux
+        W=carriage+2*walk
+        tp=(pivot[0]-A[0])*ux+(pivot[1]-A[1])*un
+        span=float(rec.get("reported_length_m") or SWING_SPAN_DEFAULT_M)
+        span=min(span,2*min(tp,L-tp)-4)
+        def at(t,off):return (A[0]+ux*t+nx*off,A[1]+un*t+nn*off)
+        def P(t,off,y):e,n=at(t,off);return (e,y,-n)
+        Y=DECK_Y
+        # The deck: one plank floor from street to street, its boards across the run.
+        mesh.strip("plank",A,B,W,Y,"bridges")
+        # Deck edge stringers, so the floor reads as a structure from the bank.
+        for side in (-1,1):mesh.beam("timber",P(0,side*(W/2-.15),Y-.3),P(L,side*(W/2-.15),Y-.3),.3,"bridges")
+        # Footway railings, end to end: posts and two rails.
+        for side in (-1,1):
+            off=side*(W/2-.1)
+            mesh.beam("timber",P(0,off,Y+1.1),P(L,off,Y+1.1),.06,"bridge_rails")
+            mesh.beam("timber",P(0,off,Y+.55),P(L,off,Y+.55),.04,"bridge_rails")
+            steps=max(2,round(L/2.5))
+            for k in range(steps+1):mesh.beam("timber",P(L*k/steps,off,Y),P(L*k/steps,off,Y+1.15),.06,"bridge_rails")
+            # The kerb timber between roadway and footway on the fixed approaches.
+            for t0,t1 in ((0,tp-span/2),(tp+span/2,L)):
+                if t1-t0>.5:mesh.beam("timber",P(t0,side*carriage/2,Y+.12),P(t1,side*carriage/2,Y+.12),.12,"bridge_rails")
+        # The swing span's two trusses, between roadway and footways: a timber Howe
+        # truss of low depth, with a central tower over the pivot and iron tie rods
+        # from its head to the panel points, deepest at the pivot.
+        s0,s1=tp-span/2,tp+span/2;depth=2.1;tower=8.6;panels=max(6,2*round(span/9))
+        for side in (-1,1):
+            off=side*carriage/2
+            mesh.beam("timber",P(s0,off,Y+.2),P(s1,off,Y+.2),.2,"bridge_trusses")
+            mesh.beam("timber",P(s0,off,Y+depth),P(s1,off,Y+depth),.16,"bridge_trusses")
+            for k in range(panels+1):
+                t=s0+span*k/panels
+                mesh.beam("iron",P(t,off,Y+.2),P(t,off,Y+depth),.045,"bridge_trusses")
+                if k<panels:
+                    t1=s0+span*(k+1)/panels
+                    # Howe diagonals lean toward the pivot.
+                    lo,hi=(t,t1) if t1<=tp+.01 else (t1,t)
+                    mesh.beam("timber",P(lo,off,Y+.2),P(hi,off,Y+depth),.1,"bridge_trusses")
+            # The tower: two posts leaning in to a head over the pivot.
+            for sgn in (-1,1):mesh.beam("timber",P(tp+sgn*2.4,off,Y+.2),P(tp+sgn*.45,off,Y+tower),.2,"bridge_trusses")
+            mesh.beam("timber",P(tp-.7,off,Y+tower),P(tp+.7,off,Y+tower),.18,"bridge_trusses")
+            head=P(tp,off,Y+tower-.15)
+            for f in (1/6,2/6,3/6,4/6,5/6,1.):
+                for sgn in (-1,1):mesh.beam("iron",head,P(tp+sgn*span/2*f,off,Y+depth if f<1 else Y+.25),.04,"bridge_trusses")
+        # Overhead bracing between the two towers, clear of a loaded wagon.
+        for y in (Y+6.2,Y+tower-.2):mesh.beam("timber",P(tp,-carriage/2,y),P(tp,carriage/2,y),.14,"bridge_trusses")
+        mesh.beam("iron",P(tp,-carriage/2,Y+6.2),P(tp,carriage/2,Y+tower-.2),.035,"bridge_trusses")
+        mesh.beam("iron",P(tp,-carriage/2,Y+tower-.2),P(tp,carriage/2,Y+6.2),.035,"bridge_trusses")
+        # Floor beams under the swing span, seen from the river.
+        for k in range(panels+1):
+            t=s0+span*k/panels;mesh.beam("timber",P(t,-W/2,Y-.35),P(t,W/2,Y-.35),.16,"bridges")
+        # The round pivot pier, its top well under the deck, and the long timber
+        # protection pier along the river that the open span swings over.
+        mesh.cylinder("stone",pivot,5.,-3.,Y-.75,16,"bridge_piers")
+        rx,rn=self.river_tangent(river,pivot)
+        fl,fw=span*.5,max(6.,W*.42)
+        outline=[(fl,0),(fl-fw,fw),(-fl+fw,fw),(-fl,0),(-fl+fw,-fw),(fl-fw,-fw)]
+        mesh.prism("timber",[(pivot[0]+rx*u-rn*v,pivot[1]+rn*u+rx*v) for u,v in outline],-3.,1.1,"bridge_piers")
+        # Rest piers under the span's ends and pile bents under the fixed approaches.
+        bents=[s0,s1]
+        for t0,t1 in ((0,s0),(s1,L)):
+            count=math.floor((t1-t0)/7)
+            bents+=[t0+(t1-t0)*k/(count+1) for k in range(1,count+1)]
+        for t in bents:
+            ground=min(self.field_height(*at(t,off)) for off in (-W/2,0,W/2))
+            if ground>GRADE-.6:continue
+            bottom=min(-.5,ground-.5)
+            for k in range(5):
+                e,n=at(t,-W/2+.4+(W-.8)*k/4)
+                mesh.box("timber",e,n,bottom,.34,.34,Y-.45-bottom,"bridge_piers")
+            mesh.beam("timber",P(t,-W/2,Y-.5),P(t,W/2,Y-.5),.2,"bridge_piers")
+        # Stone abutments where each bank drops away under the deck.
+        for t0,step in ((0.,1.),(L,-1.)):
+            t=t0
+            while abs(t-t0)<60 and min(self.field_height(*at(t,off)) for off in (-W/2,0,W/2))>=GRADE-.3:t+=step
+            if abs(t-t0)>=60:continue
+            e,n=at(t-step*.6,0)
+            mesh.oriented_box("stone",(e,n),(ux,un),1.2,W+.6,-3.,Y-.06,"bridge_piers")
+        return span
+
+    def bridge_approaches(self,roads,segments,bid,names,ends,carriage,run_base):
+        """A deck end no drawn street reaches gets a plain dirt approach road to the
+        nearest end of its own street (Rush Street's bridge to Michigan Avenue and
+        Rush Street, Polk Street's across the gap the platted core leaves to the
+        river). Returns how many it drew."""
+        drawn=0
+        for k,E in enumerate(ends):
+            if any(math.dist(E,p)<.05 for p,_,_ in self.bridge_run_ends):continue
+            best=None;O=ends[1-k]
+            for p,_,r in self.bridge_run_ends:
+                if not any(x in r["name"].lower() for x in names):continue
+                # Onward from the deck's end, never back along the deck.
+                if (p[0]-E[0])*(E[0]-O[0])+(p[1]-E[1])*(E[1]-O[1])<=0:continue
+                dd=math.dist(E,p)
+                if dd<140 and (best is None or dd<best[0]):best=(dd,p)
+            if not best:continue
+            T=best[1];sid=f"{bid}_approach_{k}"
+            a,b=(tuple(T),tuple(E)) if k==0 else (tuple(E),tuple(T))
+            a=tuple(round(v,3) for v in a);b=tuple(round(v,3) for v in b)
+            roads.strip("dirt",a,b,carriage,ROAD_Y,"streets",0.)
+            self.walk_surfaces.append({"id":f"{sid}__{len(segments)}_road","kind":"road","a":a,"b":b,"width_m":carriage,"y":ROAD_Y})
+            segments.append({"street_id":sid,"name":None,"alignment":"bridge_approach","name_basis":"reconstructed","run":run_base+len(self.approaches),"a":[round(t,2) for t in a],"b":[round(t,2) for t in b],"width_m":carriage,"walk_m":0,"surface":"dirt","surface_basis":"unpaved"})
+            self.approaches.append((a,b,carriage));drawn+=1
+        return drawn
+
+    def under_bridge(self,quad,pad=1.5):
+        """Does this (e, n) quadrilateral meet any bridge deck (grown by pad)?"""
+        decks=[d for d in self.walk_decks if d["kind"]=="bridge"]
+        ce=sum(p[0] for p in quad)/4;cn=sum(p[1] for p in quad)/4
+        for d in decks:
+            if math.dist((ce,cn),d["pts"][0])>260:continue
+            (a,b)=d["axis_endpoints"];L=math.dist(a,b);ux,un=(b[0]-a[0])/L,(b[1]-a[1])/L
+            half=math.dist(d["pts"][0],d["pts"][1])/2+pad
+            for i in range(13):
+                for j in range(5):
+                    s,t=i/12,j/4
+                    e=(quad[0][0]*(1-s)+quad[1][0]*s)*(1-t)+(quad[3][0]*(1-s)+quad[2][0]*s)*t
+                    n=(quad[0][1]*(1-s)+quad[1][1]*s)*(1-t)+(quad[3][1]*(1-s)+quad[2][1]*s)*t
+                    along=(e-a[0])*ux+(n-a[1])*un;across=-(e-a[0])*un+(n-a[1])*ux
+                    if -pad<=along<=L+pad and abs(across)<=half:return True
+        return False
+
+    def river_tangent(self,river,p):
+        c,d=min(zip(river["points"],river["points"][1:]),key=lambda s:segdist(p,*s))
+        L=math.dist(c,d);return ((d[0]-c[0])/L,(d[1]-c[1])/L)
 
     def trees(self):
         rng=random.Random(18711009);out=[]
@@ -2010,6 +2303,15 @@ def generate():
     plan=json.loads(PLAN.read_text());digest=inputs_sha();city=City(plan)
     us,vs=city.grid();buildings=city.buildings(us,vs)
     roads,bridges,rail,segments,length=city.infrastructure()
+    # T-3751: a generic building never stands on a bridge's deck or its landing.
+    def in_approach(b):
+        c=corners(b["e"],b["n"],b["width_m"],b["depth_m"],b["bearing_deg"])
+        pts=[(p[0]+(q[0]-p[0])*k/6,p[1]+(q[1]-p[1])*k/6) for p,q in zip(c[:4],c[1:4]+c[:1]) for k in range(6)]+[c[4]]
+        # The check holds a free lot half + 3 + 1.98 m off a drawn street's line.
+        return any(segdist(p,a,bb)<=w/2+5.2 for a,bb,w in city.approaches for p in pts)
+    on_deck=[b for b in buildings if city.under_bridge(corners(b["e"],b["n"],b["width_m"],b["depth_m"],b["bearing_deg"])[:4],.5) or in_approach(b)]
+    city.bridge_clearance_omissions=len(on_deck)
+    buildings=[b for b in buildings if b not in on_deck]
     trees=city.trees()
     # Reject trees whose trunk is in a building. Spatially indexed once, not an
     # all-pairs search across tens of thousands of parcels and plants.
@@ -2026,8 +2328,8 @@ def generate():
         return True
     trees=[t for t in trees if unoccupied(t)]
     names={"central_business":"Central business district","river_industry":"River warehouses and industrial yards","south_residential":"South Side residential streets","north_residential":"North Division mixed residential streets","west_residential":"West Division working neighborhoods","mixed_neighborhood":"Mixed shops and dwellings","outer_settlement":"Sparse outer settlement and platted streets"}
-    stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"trees":len(trees),"street_segments":len(segments),"named_street_segments":sum(1 for x in segments if x.get("name")),"junctions":len(city.junctions),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
-    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":PLANK_Y,"crossing":CROSSING_Y,"bridge":DECK_Y,"quay":WALK_Y},"paving":{"rules":"data/context/1871/paving_1871.json","liberty":SURFACE_LIBERTY,"lengths_m":city.paving_lengths,"unlocated":city.paving_unlocated,"note":"T-3685. surface_basis on each segment: report_1871 = a stretch the Board of Public Works' 1871 report names as wooden-block paved; principal_thoroughfare = wood block drawn to make up the report's per-division wooden-block mileage, which it does not list by street; river_street = boulder pavement on the river streets, bounded by the report's lineal feet of boulders; unpaved = dirt. Walks are raised plank walks with a kerb board; crossings are planks laid across dirt streets."}}
+    stats={"buildings":len(buildings),"overlapping_generic_lots_omitted":city.placement_overlap_omissions,"bridge_clearance_omissions":city.bridge_clearance_omissions,"trees":len(trees),"street_segments":len(segments),"named_street_segments":sum(1 for x in segments if x.get("name")),"junctions":len(city.junctions),"street_km":round(length/1000,2),"sidewalk_km":round(length*2/1000,2),"bridges":len(city.bridges),"quay_bays":sum(d.get("kind")=="quay" for d in city.walk_decks),"railways":len(city.rails),"by_kit":dict(sorted(collections.Counter(b["kit"] for b in buildings).items())),"by_district":dict(sorted(collections.Counter(b["district"] for b in buildings).items()))}
+    doc={"kind":"city_context_1871","ticket":"T-3654","scene":"1871","target_date":"1871-10-08","target_time":"16:00 local mean solar","generated_by":GENERATOR,"inputs_sha256":digest,"liberty":LIBERTY,"confidence":"reconstructed","sources":SOURCES,"kit_glb":"context/1871/kit.glb","kit_definition":"context/1871/kit.json","infrastructure_glbs":["context/1871/streets.glb","context/1871/bridges.glb","context/1871/rail.glb"],"tile_m":500,"extent":{"e":list(BOUNDS[:2]),"n":list(BOUNDS[2:])},"boundary":city.boundary,"districts":{k:{"name":v,"confidence":"reconstructed","sources":SOURCES[:3],"note":"Generic district context; each building's exact parcel, use, proprietor and appearance remain unestablished."} for k,v in names.items()},"limits":["The map fixes city geography; generated lots do not identify individual 1871 buildings or addresses.","The 1869 municipal outline bounds context; Mitchell's 1870 sheet does not cover every western and southern annexation, so peripheral street and settlement patterns are reconstructed.","Generic period building forms, textures, vegetation and center-pivot bridge details are bounded reconstructions, not photographic matches.","City population, households and building totals are separate historical quantities; the contextual instance count is not a census count."],"statistics":stats,"buildings":buildings,"trees":trees,"streets":segments,"unbuilt_ground":UNBUILT_GROUND,"bridges":city.bridges,"bridge_omissions":plan.get("bridge_omissions",[]),"walk_decks":city.walk_decks,"walk_surfaces":city.walk_surfaces,"junctions":city.junctions,"arterial_easing":{r["id"]:r["eased"] for r in city.arterial_runs if r.get("eased")},"street_names":{"rules":"data/context/1871/street_names_1871.json","clip":"data/context/1871/modern_clip.json","liberty":NETWORK_LIBERTY,"bases":city.name_bases,"core_polygon":[[round(v,2) for v in q] for q in city.core_polygon],"note":"T-3684. Inside the core polygon every street is a platted line named from 1870-71 sources (name_basis on each segment: edwards_1871, mitchell_1870, plat; unread = drawn on the 1870 map, name not legible, name null). Outside it the mapped arterials run on splines through their traced points; the lattice (name null, name_basis reconstructed) fills whole blocks between them."},"surface_heights_m":{"ground":GRADE,"road":ROAD_Y,"walk":PLANK_Y,"crossing":CROSSING_Y,"bridge":DECK_Y,"quay":WALK_Y},"paving":{"rules":"data/context/1871/paving_1871.json","liberty":SURFACE_LIBERTY,"lengths_m":city.paving_lengths,"unlocated":city.paving_unlocated,"note":"T-3685. surface_basis on each segment: report_1871 = a stretch the Board of Public Works' 1871 report names as wooden-block paved; principal_thoroughfare = wood block drawn to make up the report's per-division wooden-block mileage, which it does not list by street; river_street = boulder pavement on the river streets, bounded by the report's lineal feet of boulders; unpaved = dirt. Walks are raised plank walks with a kerb board; crossings are planks laid across dirt streets."}}
     # T-3686: where the fronts are built at full detail (a list the jaunt stops extend).
     doc["detail_rings"]="context/1871/detail-rings.json"
     outputs={ROOT/"data/context/1871.json":encoded(doc),OUT/"streets.glb":roads.glb(digest),OUT/"bridges.glb":bridges.glb(digest),OUT/"rail.glb":rail.glb(digest)}

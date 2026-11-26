@@ -8,9 +8,9 @@
  *
  * The library for a scene is data/tales/<scene>.json, written by tools/build_tales.py from
  * docs/RESEARCH/tales-3553 (a reconstruction, liberty L-tales-3553):
- *   tales     [{ id, roles[], title, text[], sex?, from?, to?, meet?: { person, name } }]
+ *   tales     [{ id, roles[], title, text[], sex?, age?: [low, high], origin?: [code], from?, to?, meet?: { person, name } }]
  *   personal  { personId: [tale] }   a named person's own stories, told before any other
- *   tellers   { personId: 'role,role/sex[/c]' }   precomputed, so the 4 MB 1835 directory
+ *   tellers   { personId: 'role,role/sex[/c][/a<age>][/o<origin>]' }   precomputed, so the 4 MB 1835 directory
  *             is never read at run time
  *   fallback  { m: role, f: role }   for a figure the builder did not know
  *
@@ -33,10 +33,34 @@ const HEARD_MAX = 4000;               // remembered tellings per scene; the olde
 
 const local = () => { try { return globalThis.localStorage ?? null; } catch { return null; } };
 
-/** A teller row ('soldier,militia/m/c') as { roles, sex, child }. */
+/** A teller row ('soldier,militia/m/c/a9/oirish') as { roles, sex, child, age, origin }: after
+ *  the roles and sex, `c` marks a child, `a<n>` their age where the record gives one, and
+ *  `o<code>` where they come from (the owner, 2026-11-26: every story fits its teller's age,
+ *  sex and situation). */
 export function readTeller(key) {
-  const [roles = '', sex = 'm', c = ''] = String(key ?? '').split('/');
-  return { roles: roles.split(',').filter(Boolean), sex: sex === 'f' ? 'f' : 'm', child: c === 'c' };
+  const [roles = '', sex = 'm', ...rest] = String(key ?? '').split('/');
+  const who = { roles: roles.split(',').filter(Boolean), sex: sex === 'f' ? 'f' : 'm', child: false, age: null, origin: null };
+  for (const r of rest) {
+    if (r === 'c') who.child = true;
+    else if (/^a\d+$/.test(r)) who.age = Number(r.slice(1));
+    else if (/^o[a-z_]+$/.test(r)) who.origin = r.slice(1);
+  }
+  return who;
+}
+
+/**
+ * Whether a tale or question can be told by this teller, beyond their roles: a story written for
+ * one sex (`sex`), for an age (`age: [low, high]`, either end open) or for people from somewhere
+ * (`origin: [code]`) is never told by anyone else. A teller whose record gives no age or origin
+ * is not refused for it. Louis Ream, sixteen, is never again the girl who saw the Fair of 1893.
+ */
+export function suits(item, who) {
+  if (!item || !who) return false;
+  if (item.sex && item.sex !== who.sex) return false;
+  const [low = null, high = null] = item.age ?? [];
+  if (who.age != null && ((low != null && who.age < low) || (high != null && who.age > high))) return false;
+  if (item.origin?.length && who.origin && !item.origin.includes(who.origin)) return false;
+  return true;
 }
 
 const inWindow = (t, date) => !date || ((!t.from || date >= t.from) && (!t.to || date <= t.to));
@@ -126,11 +150,12 @@ export function pickTale(lib, personId, heard, { sex = null, date = null, random
   if (fresh.length) return { tale: any(fresh), own: true };
 
   const row = lib.tellers?.[personId];
-  const who = row ? readTeller(row) : { roles: [lib.fallback?.[sex === 'f' ? 'f' : 'm']].filter(Boolean), sex: sex === 'f' ? 'f' : 'm' };
-  // Nobody sends you to find themselves.
-  const fits = (t) => t.roles.some((r) => who.roles.includes(r)) && (!t.sex || t.sex === who.sex) && t.meet?.person !== personId;
-  let pool = dated(lib.tales.filter(fits));
-  if (!pool.length) pool = dated(lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && t.meet?.person !== personId));
+  const who = row ? readTeller(row) : { ...readTeller(''), roles: [lib.fallback?.[sex === 'f' ? 'f' : 'm']].filter(Boolean), sex: sex === 'f' ? 'f' : 'm' };
+  // Nobody sends you to find themselves; and nobody tells a story that is not theirs to tell.
+  const mayTell = (t) => suits(t, who) && t.meet?.person !== personId;
+  let pool = dated(lib.tales.filter((t) => t.roles.some((r) => who.roles.includes(r)) && mayTell(t)));
+  // Short of their own roles' stories, the town's common ones for their sex, never a wrong one.
+  if (!pool.length) pool = dated(lib.tales.filter((t) => t.roles.includes(lib.fallback?.[who.sex]) && mayTell(t)));
   const untold = pool.filter((t) => !(t.id in mine));
   const unheard = untold.filter((t) => !(t.id in told));
   if (unheard.length) return { tale: likely(unheard), own: false };

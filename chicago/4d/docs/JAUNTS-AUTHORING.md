@@ -36,7 +36,7 @@ hyphens or underscores, beginning with a letter or digit.
 | `id`, `title`, `premise`, `category`, `scene` | Stable identity; title ≤100 characters, premise ≤260, category ≤60; scene is `"1835"`. |
 | `featured` | Optional editorial flag; not an unlock gate. |
 | `opening` | `{text, read_s}`; primary reading estimate, excluding optional cards. |
-| `default_mode`, `allowed_modes` | `walk`, `wagon`, `horse`, `fly`, `instantly`; default must be allowed. Flight is a viewing convenience. |
+| `default_mode`, `allowed_modes` | `walk`, `run`, `wagon`, `horse`, `fly`, `instantly`; default must be allowed. Flight is a viewing convenience; a jaunt whose story has the visitor running (T-3754, the 1812 runner) lists and defaults to `run`. |
 | `variables` | Optional map: each `{min,max,initial,unit}` is a bounded integer; units `count`, `cents`, `preference`, `minutes`. Money is integer cents. |
 | `inventory` | Optional `{items:[declared IDs],initial:[IDs],capacity}`. Items form a set, not stackable quantities; use a bounded variable for counts. |
 | `stops` | Ordered array; first is entry. Normally 4–8 stops; fixtures/legitimate short outings may use fewer. Maximum 50. |
@@ -67,6 +67,10 @@ them with a short line that carries no fact (*"Now, about this house."*, *"Here 
 story."*); never more than about five bare facts in a row; end on the hand-on to the next stop.
 Its performance copy marks a pause at each change of subject, keeps laughter to one at most, and
 does not whisper (`"style": "smooth"`, checked by `tools/test_narration.mjs`).
+
+After the hand-on, the narrator closes every stop with one shared line (T-3755, `narration.js`
+§ `ONWARD_LINES`: go on, look round first, choose, or a last look), so a stop's own words never
+need a generic "when you are ready" of their own. Add to that set rather than writing one in.
 
 ## Branches and state
 
