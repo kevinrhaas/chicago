@@ -355,6 +355,14 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
     const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
     for (let i = 0; i < si.count; i++) assert(si.getX(i) === head && sw.getX(i) === 1, 'wholly on the head bone');
   }
+  const reference=(JSON.parse(await fs.readFile(new URL('data/humans/variation/person_photo_references.json',here)))).people.find(p=>p.person_id.endsWith('alice_m_sterling'));
+  const light=figure().root;light.userData.chiPhotoFace={historical:{spectacles:reference.spectacles}};
+  const lightSpecs=dressSpectacles(light,{lod:2,person:reference.person_id});
+  assert.equal(lightSpecs?.meshes.length,2,'Alice’s explicit photographic wire spectacles remain in the close Light model');
+  const triangles=lightSpecs.meshes.reduce((n,m)=>n+m.geometry.index.count/3,0);
+  assert(triangles<=1600,'the existing small spectacle geometry budget also bounds Light');
+  assert(lightSpecs.meshes.every(m=>!m.material.map),'spectacles add no texture');
+  assert.equal(dressSpectacles(light,{lod:3,person:reference.person_id}),null,'the far silhouette still has no spectacle geometry');
   assert.equal(dressSpectacles(figure().root, { lod: 2, person: 'glessner_john_j' }), null, 'none far off');
   assert.equal(dressSpectacles(figure().root, { lod: 0, person: 'rc_flynn_mary' }), null, 'none for someone without');
 }
