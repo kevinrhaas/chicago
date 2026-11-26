@@ -6,7 +6,7 @@ export default register('hunt', {
   local: 'Progress stays in this browser. Sharing sends the challenge, not your answers.',
   open: 'Open five-photo hunt',
   date: 'Challenge date: {day} (UTC)',
-  unavailableYear: 'This year has no picture hunt yet: none of its pictures has a recorded camera spot. Choose 1835 or 1904 in Other years to play.',
+  unavailableYear: 'This year has no picture hunt yet: none of its pictures has a recorded camera spot. Choose another year in Other years to play.',
   invalidLink: 'This challenge link is not valid. You can open today’s hunt instead.',
   unavailable: 'The photo hunt could not be loaded. Try again later.',
   loading: 'Opening the photographs…',
@@ -52,6 +52,10 @@ export default register('hunt', {
   'kind.LITHO': 'a print, a lithograph',
   'kind.PLATE': 'a printed plate',
   'kind.ILLUSTRATION': 'a drawing, printed in a book',
+  'kind.STEREO': 'a photograph, one half of a stereograph card',
+  // T-3764: a view drawn from the river is found from a boat; its spot cannot be walked to.
+  afloat: 'This view was drawn from the river. Take a boat out, and make your guess from the water.',
+  noVisitAfloat: 'This spot is on the river: take a boat there.',
   'kind.other': 'a picture',
   // Sets of prints and drawings (T-3677): never called photographs.
   'pictures.intro': 'Find the spots that {count} old prints and drawings of {scene} were drawn from.',
@@ -76,5 +80,12 @@ export default register('hunt', {
   'pictures.noVisit': 'The spot this picture was drawn from cannot be safely visited right now.',
   'pictures.visiting': 'Travelling to the spot this picture was drawn from.',
   'pictures.total': '{score} of {max} points',
+  // T-3764: a set of photographs of any size and year (1871), taken before and just after the fire.
+  'photos.intro': 'Find the camera spots of {count} photographs of {scene} Chicago.',
+  'photos.daily': 'The same {count} photographs have a daily order, using UTC. Some were taken just after the fire, so each reveal gives its own date.',
+  'photos.open': 'Open the {count}-photo hunt',
+  'photos.round': 'Photograph {n} of {count}',
+  'photos.complete': '{count}-photo hunt complete',
+  'photos.total': '{score} of {max} points',
   'storage.unsaved': 'Progress could not be saved. You can keep playing in this tab.',
 });

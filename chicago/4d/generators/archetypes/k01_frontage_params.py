@@ -7835,9 +7835,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if sfw and bl and "at_m" not in bl:
         raise ParamError("street_front_windows names every street window; its basement_lights name "
                          "their centres (at_m)")
-    if "at_m" in bl and not sfw:
-        raise ParamError("basement_lights.at_m names the lights of a front laid by street_front_windows")
-    bl_at = tuple(float(x) for x in bl.get("at_m", ()))
+    # T-3725: or of a front laid by front_bays whose picture sets a light off its bay's column
+    # (2123's beside its bow, the Armour photograph: about 0.5 m north of the principal light over
+    # it): the lights stand at those centres and not under the bays, sized as the bays' would be
+    if "at_m" in bl and sfo:
+        raise ParamError("basement_lights.at_m names the lights of a front laid by street_front_windows "
+                         "or by front_bays, not by street_front_openings")
+    bays_at = () if sfw else tuple(float(x) for x in bl.get("at_m", ()))
+    bl_at = tuple(float(x) for x in bl.get("at_m", ())) if sfw else ()
     bl = {k_: v_ for k_, v_ in bl.items() if k_ != "at_m"}
     if not sfw and bool(bl) == bool(sfo):
         raise ParamError("basement_lights names the area lights of a front without street_front_openings, "
@@ -7856,8 +7861,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                               or float(bl["height_m"]) < float(bl["width_m"]) / 2 + 0.2):
         raise ParamError("basement_lights.head is 'round', its spring at least 0.2 m over the sill "
                          "(base_top_m only in a K02 stone front)")
-    for s in (() if sfo or sfw else front_bays):
-        if s != door_bay:
+    if bays_at:
+        bw = float(bl["width_m"])
+        if bhead or list(bays_at) != sorted(bays_at) or bays_at[0] - bw / 2 < 0.3 \
+                or bays_at[-1] + bw / 2 > width - 0.3 or any(b - a < bw + 0.2 for a, b in zip(bays_at, bays_at[1:])):
+            raise ParamError(f"basement_lights.at_m {list(bays_at)}: square lights, centres north to south, inside "
+                             f"the front by 0.3 m, a pier of at least 0.2 m between lights")
+        if any(abs(s - door_s) < bw / 2 + float(val("stoop_width_m")) / 2 + 0.3 for s in bays_at):
+            raise ParamError("basement_lights.at_m: a light stands under the stoop")
+    for s in (() if sfo or sfw else bays_at or front_bays):
+        if bays_at or s != door_bay:
             openings.append(Opening(ROUND_PLAIN if bhead else "k01.opening.area_light", "k01.wall.street_front",
                                     s, bsill, float(bl["width_m"]), float(bl["height_m"]), False, plain=bool(bhead)))
     if bl_at:

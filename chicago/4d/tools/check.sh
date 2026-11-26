@@ -1708,6 +1708,11 @@ step "a K01 mansard deck's cresting may be crenellated, square merlons on a band
 step "a K01 mansard crown over a pavilion may carry iron cresting round its own deck (T-3713)" \
   python3 tools/test_k01_crown_cresting.py
 
+# T-3725. 2123 Prairie's basement light beside its bow stands north of the principal light over it
+# in the Armour photograph, and K01 laid a front_bays front's basement lights under its bays only.
+step "a K01 front laid by front_bays may name its basement lights' own centres (T-3725)" \
+  python3 tools/test_k01_basement_lights_off_bay.py
+
 # T-3634. 2017 Prairie's south gable carries two attic lights in Chicagology's photograph,
 # and the K08 bay kit cut no light in a gable's face.
 step "a K08 projection's coped gable may carry square-headed lights cut in its face (T-3634)" \
