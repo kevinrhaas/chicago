@@ -1,0 +1,88 @@
+== premise
+Assume the role of the Sauganash's errand runner on a summer morning in 1835, conveying a traveller's forgotten parcel across the South Branch, deducing which competing tavern he patronized, and determining the route of your return.
+
+== opening
+JAUNT: A PARCEL ACROSS THE RIVER. A summer morning in 1835; you are thirteen, employed to run errands for the Sauganash, the tavern on the east bank of the South Branch. A traveller who lodged here overnight has already crossed the river, inadvertently leaving his parcel behind. He informed the kitchen which establishment he intended to visit, and the kitchen has unfortunately forgotten.
+
+Convey the parcel across the bridge and locate its owner. The town, its taverns and its bridges are historical, documented by memoirs, newspapers and early histories; the errand runner alone is invented.
+
+== stop sauganash
+The Sauganash occupies the southeast corner of Lake and Market Streets, on the east bank of the South Branch. Wau-Bun remembers it as 'a pretentious white two-story building, with bright-blue wooden shutters', and in June the Chicago Democrat reported that it had been repaired, refitted and furnished with neatness and taste. The parcel, secured with string, is considerably heavier than it appears, and across the river stand two competing taverns, and since the traveller is presumably at one of them, you must deduce which.
+
+== narrative sauganash
+Which establishment: the Green Tree, or Wolf Point?
+
+== label sauganash green-tree
+Investigate the Green Tree
+
+== consequence sauganash green-tree
+The substantial hotel immediately across the bridge.
+
+== label sauganash wolf-point
+Investigate Wolf Point
+
+== consequence sauganash wolf-point
+The older establishment, northward at the confluence.
+
+== stop green-tree
+Across the bridge to the Green Tree, at Lake and West Water, which James Kinzie constructed in 1833 as the first building in the settlement erected specifically for hotel purposes, and whose current landlord is Chester Ingersoll. Moses and Kirkland explain that it was 'so called from an oak tree standing close by', 'one of the most noted in those early days'. Consider its remarkable longevity: in 1880 it will be relocated to Milwaukee Avenue, surviving as 'the oldest memento of early taverns'. Inquire at the door for the traveller, then return to the bridge.
+
+== narrative green-tree
+The hotel named after a neighboring oak.
+
+== stop wolf-point
+Northward to Wolf Point, on the west bank where the North and South Branches converge and flow eastward to the lake as a single river. The tavern here is constructed partly of logs and partly of frame, and Lieutenant Allen fashioned its sign from a fragment of a box, painting a wolf upon it. Consider, too, a historical disagreement regarding its proprietor: one account has William Walters keeping the tavern from 1833 to 1836, whereas a chronology of the hotels states that it ceased operating as a public house in 1834. Inquire at the door, then return to the bridge.
+
+== narrative wolf-point
+The tavern identified by its painted wolf.
+
+== stop the-crossing
+Back on the South Branch bridge, between Lake and Randolph Streets, where the old settlers who used it described log abutments and two bents, approximately six feet above the water, sufficiently elevated that teams passed beneath it on the ice. A subsequent history, however, maintains that it 'at first consisted of floating logs tied together', financed by subscription, $486.20, 'of which the Indians of the vicinity contributed $200'. Whether it was fixed or floating, the accounts are irreconcilable, and the record adopts the fixed interpretation; meanwhile, the parcel has reached its owner. Return directly, or detour to the drawbridge?
+
+== narrative the-crossing
+Return immediately, or an unauthorized detour to the drawbridge?
+
+== label the-crossing home
+Return to the Sauganash
+
+== consequence the-crossing home
+Additional errands are undoubtedly accumulating.
+
+== label the-crossing draw
+Detour to the drawbridge
+
+== consequence the-crossing draw
+A brief inspection of the town's newest crossing.
+
+== stop back-at-the-sauganash
+Back at the Sauganash, which Moses and Kirkland describe as 'the most attractive hostlery the city possessed', its genial landlord, 'with his merry fiddle, the most popular of hosts'. The parcel has been restored to its owner, your hands are empty, and although the morning is not yet half over, someone in the kitchen is already summoning you.
+
+== narrative back-at-the-sauganash
+Back at the tavern where the errand originated.
+
+== stop the-draw
+Eastward along the river to the foot of Dearborn Street, where the town's first drawbridge spans the main stem. Nelson Norton, a ship-carpenter, cut its lumber during the winter of 1833-34 and commenced construction in March 1834. Andreas reports that 'it was about three hundred feet long, and the opening for the passage of craft about sixty feet', constructed on the 'gallows pattern', with a frame at either end of the draw. Observe its operation momentarily, then hurry back to the Sauganash before your absence is discovered.
+
+== narrative the-draw
+The town's original movable bridge.
+
+== leg 0
+Across the bridge and directly westward to the corner of Lake and West Water.
+
+== leg 1
+Across the bridge and northward along the riverbank to the confluence.
+
+== leg 5
+Only a brief, entirely unauthorized detour.
+
+== ending green-tree-and-home
+The traveller was at the Green Tree, precisely as you deduced, and he rewarded you with a penny for returning his parcel. You hurried directly back across the bridge, where the Sauganash kitchen had three additional errands awaiting you.
+
+== ending green-tree-and-draw
+The traveller was at the Green Tree, and his parcel is restored to him. Afterward you appropriated a few minutes to watch the drawbridge, and the Sauganash kitchen immediately noticed your absence. Next time, return without delay.
+
+== ending wolf-point-and-home
+Wolf Point was the correct deduction: the traveller was there and grateful for his parcel. You hurried back across the bridge and completed the morning's remaining errands before noon.
+
+== ending wolf-point-and-draw
+The traveller was at Wolf Point, and his parcel is restored to him. Returning, you lingered to observe the drawbridge considerably longer than you intended, and the Sauganash kitchen has been summoning you for an hour.

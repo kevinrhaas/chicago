@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Fort Dearborn",
+  "menu_group": "Errands",
+  "grade_band": "11-12",
+  "review_required": false,
+  "long_form": true,
+  "id": "water-for-the-garrison-grades-11-12",
+  "scene": "1812",
+  "title": "Water for the Garrison",
+  "premise": "Assume the role of a young water carrier at Fort Dearborn on 14 August 1812, the final full day before the garrison's evacuation, determining the route to the river and which officers' quarters receive the concluding delivery.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "JAUNT: WATER FOR THE GARRISON. 14 August 1812, first light, at the first Fort Dearborn. You are twelve, from a family residing outside the stockade, and your occupation is water: every morning you transport buckets from the river to supply the soldiers. Tomorrow the entire garrison is scheduled to evacuate the post, so today's labor is considerably more demanding than usual.\n\nYou will determine the route to the river and decide which quarters receive the final bucket. The fortification and its inhabitants are historical, documented in contemporary accounts; the water carrier alone is invented.",
+    "read_s": 32
+  },
+  "variables": {
+    "way": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "last": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-fort",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_dearborn"
+      },
+      "hour": "daybreak",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "Daybreak outside the stockade, with two empty buckets. Consider, first, the fortification. William Johnston, visiting from Fort Wayne in 1809, pronounced it 'the neatest and best wooden garrison in the United States', a distinction honoring Captain John Whistler, who designed and constructed it. Quaife describes barracks arranged around the four sides of a quadrangle, two blockhouses commanding opposite corners, and the entire complex enclosed within a double row of palisades. Consider, next, the circumstances. On 9 August Captain Heald received General Hull's order to evacuate the post and proceed to Detroit. Two separate routes descend to the river.",
+      "narrative": "The protected covered way, or the exposed riverside wharf?",
+      "read_s": 31,
+      "action_s": 10,
+      "evidence": [
+        "johnston",
+        "plan",
+        "order-arrives",
+        "water-day",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "covered",
+          "label": "Take the protected covered way",
+          "consequence": "The fortified passage, constructed for emergencies.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "way",
+              "value": 1
+            }
+          ],
+          "next": "covered-way"
+        },
+        {
+          "id": "wharf",
+          "label": "Descend to the riverside wharf",
+          "consequence": "The longer approach, where provisioning boats are unloaded.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "way",
+              "value": 2
+            }
+          ],
+          "next": "wharf"
+        }
+      ]
+    },
+    {
+      "id": "covered-way",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_covered_way"
+      },
+      "hour": "06:30",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "The fort's northeastern corner, from which a covered way descends to the river, 'securing thus to the garrison access in safety to the water in time of attack.' Whistler's index lists a 'Covered Way to procure Water', and Wau-Bun recalls a sally-port containing a well excavated for emergencies. Consider what occurred here yesterday evening. According to Wau-Bun, 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well'; Heald explained that he feared the recipients 'would make bad use of it'. The remaining barrels were emptied into the river, and this morning, as one witness expressed it, the water's taste is 'strong grog'. Nobody will draw from that contaminated well today. Fill your buckets at the river and return to the main gate.",
+      "narrative": "The fortified passage to the water.",
+      "read_s": 39,
+      "action_s": 5,
+      "evidence": [
+        "covered-way",
+        "destroyed",
+        "water-day",
+        "role"
+      ],
+      "next": "soldiers"
+    },
+    {
+      "id": "wharf",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_wharf"
+      },
+      "hour": "06:30",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "The wharf, beneath the riverbank, where arriving vessels discharge the garrison's provisions. Captain Whistler identified it on his 1808 draught, judging the garrison 'perfectly secure from any ambuscade' with one qualification: the houses on the opposite bank were 'somewhat in the way'. The most substantial of them, directly across the water, belongs to John Kinzie, whose partnership, Kinzie & Forsyth, Captain Heald appointed the fort's exclusive sutlers in January. Fill your buckets here and ascend the embankment to the main gate.",
+      "narrative": "Where the provisioning vessels are unloaded.",
+      "read_s": 25,
+      "action_s": 5,
+      "evidence": [
+        "secure",
+        "kinzie",
+        "water-day",
+        "role"
+      ],
+      "next": "soldiers"
+    },
+    {
+      "id": "soldiers",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_inside_gate"
+      },
+      "hour": "07:30",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "Inside the main gateway, positioned at the middle of the southern side and flanked by the soldiers' principal barracks: two stories with 'shingled Roofs and Galliaries fronting the parade', surrounding a parade ground dominated by a 'lofty flagstaff'. Heald's report records the garrison's strength as 'fifty-four regulars and twelve militia', and this morning every one of them is occupied with preparations for the extended march to Detroit. Such preparation is exhausting, thirsty work. A soldier accepts one bucket and indicates the far side of the parade. One delivery remains.",
+      "narrative": "The commanding officer's quarters, or the subordinate officers'?",
+      "read_s": 28,
+      "action_s": 10,
+      "evidence": [
+        "inside",
+        "fort",
+        "water-day",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "commandant",
+          "label": "The commanding officer's quarters",
+          "consequence": "Captain Heald's residence, on the eastern side.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 1
+            }
+          ],
+          "next": "commandant"
+        },
+        {
+          "id": "officers",
+          "label": "The subordinate officers' quarters",
+          "consequence": "The junior officers' residence, on the western side.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 2
+            }
+          ],
+          "next": "officers"
+        }
+      ]
+    },
+    {
+      "id": "commandant",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_parade"
+      },
+      "hour": "08:00",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "The commanding officer's quarters, occupying the eastern side of the parade. Captain Nathan Heald succeeded Whistler in 1810; in May 1811 he married Rebekah Wells, 'the daughter of Colonel Samuel Wells and the niece of Captain William Wells', and in June he arrived at Chicago with his bride. The captain has extraordinary responsibilities to discharge before the evacuation. Deposit the bucket beside the door discreetly and withdraw without interruption. Your water round is complete.",
+      "narrative": "The commanding officer's threshold.",
+      "read_s": 24,
+      "action_s": 5,
+      "evidence": [
+        "inside",
+        "fort",
+        "heald",
+        "water-day",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "officers",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_officers_quarters"
+      },
+      "hour": "08:00",
+      "hour_evidence": [
+        "water-day"
+      ],
+      "date": "1812-08-14",
+      "text": "The subordinate officers' quarters, directly opposite the commandant's. Lieutenant Linai Helm requested this assignment because of 'his straitened financial circumstances and the cheaper cost of living at Fort Dearborn as compared with Detroit'; his wife Margaret is the 'step-daughter of old John Kinzie'. Ensign George Ronan is 'a young cadet direct from West Point'. The surgeon's mate, Isaac Van Voorhis, contemplating the republic's future last October, predicted that this location would become 'the seat of millions yet unborn'. Deposit the bucket beside their door. Your water round is complete.",
+      "narrative": "The subordinate officers' threshold.",
+      "read_s": 29,
+      "action_s": 5,
+      "evidence": [
+        "officers",
+        "kinzie",
+        "water-day",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-fort",
+      "to": "covered-way",
+      "note": "Round the outside of the pickets to the north-east corner.",
+      "evidence": [
+        "covered-way"
+      ],
+      "story": "The fortified passage, constructed for emergencies, down to the water.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "the-fort",
+      "to": "wharf",
+      "note": "Down the bank on the river side to the wharf.",
+      "evidence": [
+        "secure"
+      ],
+      "story": "Down to the wharf, where provisioning vessels are unloaded.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "covered-way",
+      "to": "soldiers",
+      "note": "Back round the pickets and in at the main gate on the south side.",
+      "evidence": [
+        "inside"
+      ]
+    },
+    {
+      "from": "wharf",
+      "to": "soldiers",
+      "note": "Up the bank and in at the main gate on the south side.",
+      "evidence": [
+        "inside"
+      ]
+    },
+    {
+      "from": "soldiers",
+      "to": "commandant",
+      "note": "Across the parade to the east side.",
+      "evidence": [
+        "inside"
+      ]
+    },
+    {
+      "from": "soldiers",
+      "to": "officers",
+      "note": "Across the parade to the west side.",
+      "evidence": [
+        "inside"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "covered-and-captain",
+      "text": "Down the covered way and up to the commanding officer's door, precisely as the fortification's designers intended. Your buckets are empty and your arms ache considerably. Tomorrow the gate opens, and afterward nobody will require water carried to this garrison.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "way",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "last",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "covered-and-officers",
+      "text": "Down the covered way and across to the subordinate officers' quarters, deliberately avoiding the contaminated well and filling your buckets at the river instead. Your round concludes early, while the entire garrison continues its preparations, and tomorrow the gate opens.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "var": "way",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "wharf-and-captain",
+      "text": "Out to the wharf and back to the commanding officer's door: the longer approach, past the trader's residence across the water. Your round is concluded, the garrison is packing all around you, and tomorrow the gate opens.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "default": true
+    },
+    {
+      "id": "wharf-and-officers",
+      "text": "Out to the wharf and up to the subordinate officers' quarters, the circuitous route. While filling your buckets, you contemplated the Kinzie residence across the river; your round is now concluded, and tomorrow the gate opens.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "when": {
+        "var": "last",
+        "op": "==",
+        "value": 2
+      }
+    }
+  ],
+  "keepsake": {
+    "family": "Provisions",
+    "id": "a-water-round-grades-11-12",
+    "title": "A Water Round",
+    "text": "A made-up tally of one young water carrier's round at Fort Dearborn on 14 August 1812: which way to the river, and whose door got the last bucket. No real water carrier or round is written on it."
+  },
+  "evidence": [
+    {
+      "id": "johnston",
+      "text": "William Johnston, who came from Fort Wayne in the spring of 1809, as Quaife (1913) quotes him: Fort Dearborn was 'the neatest and best wooden garrison in the United States,' a fact which did 'great honor to Capt. John Whistler who planned and built it.' Whistler still had the men he built it with: 'Although their term of enlistment had expired they had all re-enlisted'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, the paragraph on Whistler's removal and Johnston's visit (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "plan",
+      "text": "Quaife (1913), from Cooper and Whistler's draught: 'The barracks and other structures for the accommodation of the garrison were built around the four sides of a quadrangle, facing inward toward the center. Two blockhouses, one containing two small cannon, the other containing one, stood at the northwestern and southeastern corners of the quadrangle, and the whole was inclosed within a double row of palisades'. 'Thus if an enemy should scale the first row he would only find himself within a narrow inclosure between that and the second which was swept at every point by the fire from the blockhouses.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure')"
+    },
+    {
+      "id": "order-arrives",
+      "text": "Heald's journal: 'On the 9th of Augt, 1812, rec'd orders from Genl Wm. Hull to evacuate the Post of Chicago and proceed with my Command to Detroit.' Quaife: 'The next day the Indian runner. Winnemac, delivered to Captain Heald at Fort Dearborn his order for the evacuation.' Wau-Bun puts the runner, Winnemeg or Catfish, a Potawatomi, at the post on the 7th, bringing despatches that 'announced the declaration of war between the United States and Great Britain'. Wau-Bun: 'The order for evacuating the post was read next morning upon parade', and the officers' 'unanimous advice was, to remain where they were, and fortify themselves as strongly as possible.' Quaife defends Heald: 'Obedience to orders is the primary duty of a soldier.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife Appendix III (Heald's journal) and the evacuation chapter; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "covered-way",
+      "text": "Quaife (1913): 'From the northeast corner of the stockade a covered way led to the river, securing thus to the garrison access in safety to the water in time of attack.' Whistler's index lists 'Covered Way to procure Water' and 'Gutters to carry off the Water' as 'Omited in their places'. Wau-Bun remembers 'a sally-port, or subterranean passage from the parade-ground to the river', and on 13 August 1812 'the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text); Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "destroyed",
+      "text": "Heald's report: 'The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession. I also destroyed all the liquor on hand after they began to collect.' Wau-Bun: 'The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well which had been dug there to supply the garrison with water in case of emergency; the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in, and the contents poured into the river.' The muskets 'were broken up and thrown into the well'. The noise betrayed it, and 'the taste of the water the next morning was, as one expressed it, \"strong grog.\"'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Wau-Bun ch. XVIII, Massacre at Chicago, Project Gutenberg eBook #12183 plain text"
+    },
+    {
+      "id": "secure",
+      "text": "Whistler, 20 February 1808, closing his note to the draught: 'At this time the Garrison (except the Houses on the Opisite side of the river being somewhat in the way) is perfectly secure from any ambuscade or Barrier.' His index numbers the 'Wharf of said River' and 'John Kinzie Esq. House on the opisite side River'. He had already had a picket fence across the river taken up, since it 'might serve as a Barrier against the Garrison', and 'replaced with a common rail fence.'",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text), Whistler's note"
+    },
+    {
+      "id": "kinzie",
+      "text": "Wau-Bun (1856): 'On the north side of the main stream, but quite near its junction with Lake Michigan, stood (as has already been described) the dwelling-house and trading-establishment of Mr. Kinzie.' 'The fort was situated on the southern bank, directly opposite this mansion'. The Chicago Reader (2018): in January 1812 Heald made 'Messrs. Kinzie & Forsyth' the exclusive fort sutlers. Kirkland (1893): Margaret Helm was the 'step-daughter of old John Kinzie'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Wau-Bun, the April section; the Reader, the sutler paragraph; Kirkland, the Helm narrative"
+    },
+    {
+      "id": "inside",
+      "text": "Quaife (1913): the barracks 'were two stories in height, with shingled roofs and covered galleries, and occupied the middle of each side of the inclosure facing toward the parade ground, in the center of which stood a lofty flagstaff. The commanding officer's quarters stood on the east side, and directly opposite were those for the subordinate officers. The main gateway of the stockade was at the middle of the south side and was flanked on either side by the main barracks for the common soldiers.' Whistler's own note: 'the Barracks are two storeys high with shingled Roofs and Galliaries fronting the parade.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913",
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "locator": "Quaife, ch. VI, the description of the fort (Project Gutenberg eBook #69274 plain text, the paragraphs beginning 'There exist two contemporary pictures' and 'Within the stockaded inclosure'); Quaife, ch. VI, footnote 413, 'Index annexed to the draught of Fort Dearborn &c.', Whistler, 20 February 1808 (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "fort",
+      "text": "Quaife (1913): 'At half-past five o'clock on the morning of July 14, 1803, the troops set out from Detroit'; they 'reached the Chicago River at two o'clock on the afternoon of August 17'. The fort: 'The barracks and other structures for the accommodation of the garrison were built around the four sides of a quadrangle', with 'Two blockhouses' and 'a double row of palisades'. In April 1810 Captain John Whistler was moved to Detroit, and 'Captain Nathan Heald, who, in turn, succeeded Whistler at Fort Dearborn'. Heald's report: 'Our strength was fifty-four regulars and twelve militia'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife 1913, the chapters on the building of the fort, the garrison of 1810 and the evacuation, Project Gutenberg eBook #69274 plain text"
+    },
+    {
+      "id": "heald",
+      "text": "Quaife (1913): Heald married 'Rebekah Wells, the daughter of Colonel Samuel Wells and the niece of Captain William Wells' on 23 May 1811, and 'in June the commander reached Chicago with his bride'. Heald's journal: 'On the 4th of May, 1812, we had a son born dead for the want of a skilful Midwife.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VII, the paragraphs on Heald's marriage and his journal (Gutenberg #69274 plain text); Appendix III, Heald's journal"
+    },
+    {
+      "id": "officers",
+      "text": "Quaife (1913): Ensign George Ronan was 'a young cadet direct from West Point', ordered to Fort Dearborn in March 1811; Lieutenant Linai T. Helm came from Detroit at his own request, for 'his straitened financial circumstances and the cheaper cost of living at Fort Dearborn as compared with Detroit.' Surgeon's mate Isaac Van Voorhis, writing in October 1811: 'In my solitary walks I contemplate what a great and powerful republic will yet arise in this new world. Here, I say, will be the seat of millions yet unborn'. Quaife: 'The man who at the age of twenty-two could pen these lines'. Heald's report: 'Ensign George Ronan and Doctor Isaac V. Van Voorhis of my company, with Captain Wells of Fort Wayne' were killed; Helm was taken prisoner.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, ch. VII, the paragraph beginning 'In March, 1811'; ch. X, the paragraph on Van Voorhis; Appendix IV, Heald's report"
+    },
+    {
+      "id": "water-day",
+      "text": "This walk is set on the morning of 14 August 1812, the last full day before the march of the 15th; Wau-Bun puts the destruction of the ammunition and liquor on the evening before. The hours of the stops are the walk's pacing; no source gives them.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856"
+      ],
+      "reasoning": "Heald's report, as Quaife prints it, has the march begin at nine in the morning of the 15th, and Wau-Bun has the ammunition and liquor destroyed on the evening of the 13th; a morning on the 14th falls between them. No water carrier's round or hour is recorded."
+    },
+    {
+      "id": "role",
+      "text": "The water carrier the visitor plays, their age, their home outside the pickets and their work, the soldier who takes a bucket, the route, the two choices, the four endings, the hour at each stop, the timing inputs and the A Water Round keepsake are invented connective narrative. No such water carrier is recorded. No child of a named family is played or met, no named person speaks, nobody is put in danger by a choice, and the walk ends on the morning of 14 August 1812, the day before the march.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3766"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3766"
+  ],
+  "version_of": "water-for-the-garrison"
+}

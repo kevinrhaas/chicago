@@ -698,6 +698,27 @@ precise storefront. Supported street/anchor substitutes are allowed with a note.
 
 **Evidence and route cautions:** Every fact is a claim already published by another jaunt and copied word for word; the only vacancy named is the Democrat's own notice of 20 May 1835. The office over Jones & King's is not placed in the town, so the walk starts at the corner the paper left. The apprentice, the round and the endings are reconstructed (L-play-a-part-3679); no named person is met.
 
+## 29. A Parcel Across the River — play a part, the owner's ask of 2026-11-26
+
+**ID:** `a-parcel-across-the-river` · **Owner ticket:** T-3766 (in kevinrhaas/chicago-tickets)
+
+**Setup/goal:** The visitor plays the Sauganash's errand runner, aged thirteen, on a summer morning in 1835, carrying a traveller's forgotten parcel over the South Branch, guessing which tavern he went to and choosing the way home. "More roles" for every year (the owner, 2026-11-26); added as one JSON file in `data/jaunts/`, compiled by `tools/compile_jaunts.py`, with no renderer change.
+
+**Stops, in story order (two forks):**
+
+- [`sauganash_hotel`](../data/structures/sauganash_hotel.json) — the Sauganash, where the parcel was left; then either
+- [`green_tree_tavern`](../data/structures/green_tree_tavern.json) — the Green Tree, or
+- [`wolf_point_tavern`](../data/structures/wolf_point_tavern.json) — Wolf Point; then
+- [`south_branch_raft_bridge`](../data/structures/south_branch_raft_bridge.json) — back on the South Branch bridge; then either
+- [`sauganash_hotel`](../data/structures/sauganash_hotel.json) — straight back to the Sauganash, or
+- [`dearborn_street_drawbridge`](../data/structures/dearborn_street_drawbridge.json) — a quick look at the drawbridge.
+
+**Primary interactions:** two choices, each changing the next stop; four endings from the two together.
+
+**Keepsake/outcome:** A Parcel Delivered (Wayfinding); fictional narrative memento.
+
+**Evidence and route cautions:** Every fact is a claim already published by Across Wolf Point or Over the Draw and copied word for word. The runner, the traveller, the parcel and the endings are reconstructed (L-play-a-part-3766); no named person is met.
+
 ## Initial research anchors
 
 Use the source records already attached to the chosen claims, rather than treating

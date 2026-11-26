@@ -1,3 +1,30 @@
+## T-3766 — Play a part: a new role in every year (26 November 2026)
+
+Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish
+these for all years". 1871 had no part to play; it now has one, and 1812, 1835 and 1904 have a
+second each. Same engine and shape as T-3679: two choices that change the route, four endings,
+a keepsake, and every telling (grades 3-5, 6-8, 9-10, 11-12 and 18+) built by
+`docs/RESEARCH/jaunt-grade-versions-3621/versions.py`, each measuring inside its band.
+
+- **A Message for the Opera House** (1871, Errands): the Sherman House's messenger, Sunday
+  8 October 1871, 14:20 to 17:10. Through Court House Square or by the Chamber of Commerce to
+  Crosby's, then north to the Water Tower or west to the Saturday fire's ruins. Every fact is a
+  claim of The Last Sunday; the walk ends at dusk, before the fire.
+- **Water for the Garrison** (1812, Errands): a water carrier, the morning of 14 August 1812.
+  Covered way or wharf, then the barracks, then the commandant's or the officers' door. Claims
+  from Fort Dearborn, Building by Building, plus one inferred claim for the day. The student
+  tellings stay on the build-up; the 18+ telling names who died in Heald's report, and stages
+  nothing.
+- **A Parcel Across the River** (1835, Errands): the Sauganash's errand runner. Green Tree or
+  Wolf Point, back over the South Branch bridge, then home or to the Dearborn Street draw. Claims
+  from Across Wolf Point and Over the Draw; brief § 29.
+- **Flowers for Prairie Avenue** (1904, Work): a florist's runner. 1800, then 1700 or 1834, then
+  2036, then 2115 or 1608. Claims from Women of Prairie Avenue; the 1834 and 2115 stops give the
+  years those houses were torn down.
+
+The runners, their errands, routes and endings are reconstructed under `L-play-a-part-3766`;
+no named person is met or speaks, no child of a named family is played.
+
 Owner-approved photo faces are enabled by default on dev in all four years (T-3767/T-3768): 256 adults plus sixteen toddler/child/teenager sources, preserving existing child head and body proportions. Adult and child crowd atlases share one nearby detail page, about 12 MiB of added face textures. Personal likenesses retain priority; real low-power GPU timing remains unmeasured.
 
 ## T-3761 — 256 fictional photo faces for the generic-adult preview
