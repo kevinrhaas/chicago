@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3254, ts: '2026-11-26T07:55:30.110Z', date: 'Nov 26, 2026, 1:55 AM CT', title: '1812: nobody walks through the covered way\'s gates', kind: 'fix',
+    items: [
+      'The covered way down to the river stands open at both ends, so the men carrying the powder no longer pass through shut gates.',
+      'At the river\'s mouth the warriors no longer walk along beside the column; a few are seen hurrying off ahead to take up their places.',
+    ] },
   { v: 3253, ts: '2026-11-26T07:15:34.545Z', date: 'Nov 26, 2026, 1:15 AM CT', title: 'Truer download sizes and times while a year loads', kind: 'fix',
     items: [
       'The loading screen now knows each year\'s own download size, so the total no longer climbs as it loads.',
