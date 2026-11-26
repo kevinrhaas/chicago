@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3259, ts: '2026-11-26T13:25:59.946Z', date: 'Nov 26, 2026, 7:25 AM CT', title: 'Ruffles, shirt fronts and armhole seams', kind: 'improvement',
+    items: [
+      'The maid\'s apron frills are gathered ruffles that lie over her shoulders instead of flat sheets standing off like wings.',
+      'The coachman\'s collar no longer hooks forward at its corners, and the V of his coat shows a white shirt front instead of bare skin.',
+      'John Glessner\'s waistcoat stays closed when he is seen from farther off.',
+      'Coats show their armhole seams, and every seam now bends with the cloth as people walk.',
+    ] },
   { v: 3258, ts: '2026-11-26T08:58:16.996Z', date: 'Nov 26, 2026, 2:58 AM CT', title: 'Great Fire stops show their story; 1871 bridges meet their streets', kind: 'fix',
     items: [
       'Stop 3 stands at Jackson and Franklin, and the landmarks catch at the hour their stop names: the O\'Leary barn is alight, and Field, Leiter & Co. burns at eight in the morning.',
