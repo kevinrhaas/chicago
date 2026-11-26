@@ -871,9 +871,9 @@
     },
     {
       "id": "house_2001_prairie_coach_house",
-      "name": "2001 S. Prairie Avenue — the alley building of the house at 2001 (district draft; refined by T-1938)",
+      "name": "2001 Prairie Avenue: the brick stable on the alley at 20th Street, K12",
       "sidecar": "sidecars/1904/house_2001_prairie_coach_house.json",
-      "asset": "gltf/house_2001_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_2001_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_2003_prairie",
@@ -1429,9 +1429,9 @@
     },
     {
       "id": "mayer_house_2009_prairie_coach_house",
-      "name": "2009 S. Prairie Avenue — the alley building of the house at 2009 (district draft; refined by T-1938)",
+      "name": "2009 Prairie Avenue (Meyer): the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/mayer_house_2009_prairie_coach_house.json",
-      "asset": "gltf/mayer_house_2009_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/mayer_house_2009_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "moulton_lowden_house_1912_prairie",
