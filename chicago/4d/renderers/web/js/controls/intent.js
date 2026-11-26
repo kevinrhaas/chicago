@@ -141,13 +141,15 @@ export function createBackendSwitch(intent) {
 /**
  * Which controls a visitor is using, as the Guide's controls sheet shows them (T-2661):
  * 'touch' while the touch backend drives, 'keyboard' (keyboard and mouse) while pointer
- * lock does. Before either has been switched on — the arrival screen, or a page that
+ * lock does, 'controller' while a game controller does (T-3749). Before either has been switched on — the arrival screen, or a page that
  * never entered — it is the device's own guess, `coarse` being a touch-first screen.
  * One answer, from the one switch that knows, so the sheet never disagrees with the
  * controls that are actually live.
  */
 export function controlScheme(backendName, coarse = false) {
   if (backendName === 'touch') return 'touch';
+  // T-3749: a game controller in use (controls/gamepad.js).
+  if (backendName === 'gamepad') return 'controller';
   if (backendName === 'pointerlock') return 'keyboard';
   return coarse ? 'touch' : 'keyboard';
 }
