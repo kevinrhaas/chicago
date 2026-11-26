@@ -94,16 +94,23 @@ function heapPieces(seed) {
   return list;
 }
 
-/** A soft scorch: dark at the middle, ragged to nothing at its edge (a canvas, made once). */
+/** A soft scorch: black at the middle, grey ash in drifts, ragged to nothing at its edge (a canvas,
+ *  made once). The noise is smooth (value noise, three octaves), so it reads as burnt ground and
+ *  not as a grid of squares. */
 function scorchTexture() {
   const N = 128, c = document.createElement('canvas'); c.width = c.height = N;
   const g = c.getContext('2d'), img = g.createImageData(N, N);
+  const value = (x, y, cell, salt) => {
+    const gx = x / cell, gy = y / cell, x0 = Math.floor(gx), y0 = Math.floor(gy), fx = gx - x0, fy = gy - y0;
+    const h = (i, j) => hash01(`${salt}:${i},${j}`), sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+    return lerp(lerp(h(x0, y0), h(x0 + 1, y0), sx), lerp(h(x0, y0 + 1), h(x0 + 1, y0 + 1), sx), sy);
+  };
   for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
     const dx = x / N - 0.5, dy = y / N - 0.5, r = Math.hypot(dx, dy) * 2;
-    const n = hash01(`${x >> 2},${y >> 2}`) * 0.5 + hash01(`${x >> 3}:${y >> 3}`) * 0.5;
-    const a = clamp((1 - r) * 1.6 - (n - 0.5) * 0.9, 0, 1);
-    const ash = n > 0.72 ? 1 : 0, i = (y * N + x) * 4;
-    img.data[i] = 26 + ash * 60; img.data[i + 1] = 22 + ash * 56; img.data[i + 2] = 19 + ash * 52; img.data[i + 3] = Math.round(255 * a * (0.75 + 0.25 * n));
+    const n = value(x, y, 32, 'a') * 0.55 + value(x, y, 12, 'b') * 0.3 + value(x, y, 5, 'c') * 0.15;
+    const a = clamp((1 - r) * 2.4 - (n - 0.5) * 1.1, 0, 1);
+    const ash = clamp((value(x, y, 9, 'd') - 0.58) * 4, 0, 1), i = (y * N + x) * 4;
+    img.data[i] = 20 + ash * 70; img.data[i + 1] = 17 + ash * 66; img.data[i + 2] = 15 + ash * 62; img.data[i + 3] = Math.round(255 * a * 0.96);
   }
   g.putImageData(img, 0, 0);
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
@@ -146,13 +153,13 @@ export function createFireGoods({ doc, map, parent, groundAt = () => 3.2 }) {
     }
   }
   // The ground a `scorch` entry's fire ran over (`local_ground`, its footprint): ragged burnt
-  // patches about 7 m apart over all of it, each from the place's own hour, so a square the fire
+  // patches about 6 m apart over all of it, each from the place's own hour, so a square the fire
   // went through reads black and grey between the heaps and not only under them.
   const patches = [];
   for (const g of doc?.goods ?? []) {
     const poly = g.scorch && Array.isArray(g.local_ground) && g.local_ground.length >= 3 ? g.local_ground : null;
     if (!poly) continue;
-    const es = poly.map((p) => p[0]), ns = poly.map((p) => p[1]), STEP = 7;
+    const es = poly.map((p) => p[0]), ns = poly.map((p) => p[1]), STEP = 6;
     for (let e = Math.min(...es) + STEP / 2; e < Math.max(...es); e += STEP) {
       for (let n = Math.min(...ns) + STEP / 2; n < Math.max(...ns); n += STEP) {
         const key = `ground:${g.id}:${Math.round(e)},${Math.round(n)}`;
