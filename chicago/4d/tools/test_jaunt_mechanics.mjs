@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { emptyState, reduce, currentStop, choicesFor, choiceStatus, choiceConsequence, resourceSummary,
-  replaySession, createJaunts, SESSION_KEY } from '../renderers/web/js/jaunts.js';
+  replaySession, createJaunts, SESSION_KEY, routeStops, legMode } from '../renderers/web/js/jaunts.js';
 
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const shopping = fixture('shopping'), tavern = fixture('tavern'), plain = fixture('walk'), branch = fixture('branch');
@@ -98,6 +98,50 @@ await test('valid sessions replay while corrupt and version-mismatched saves are
   }
   const unavailable = { getItem() { return null; }, setItem() { throw new Error('private'); }, removeItem() { throw new Error('private'); } };
   const memoryOnly = rig(unavailable); assert.equal(await memoryOnly.start(plain.id), true);
+});
+
+await test('T-3753: a stop of the route is jumped to straight, back or ahead, and replays to the same place', () => {
+  // Five stops in a line, made from the walk fixture.
+  const line = structuredClone(plain); line.id = 'fixture-line';
+  const base = line.stops[0];
+  line.stops = ['a', 'b', 'c', 'd', 'e'].map((id, i, all) => ({ ...structuredClone(base), id, next: all[i + 1] ?? '$end' }));
+  let s = start(line);
+  assert.deepEqual(routeStops(s).stops.map(x => `${x.id}:${x.state}`), ['a:here', 'b:ahead', 'c:ahead', 'd:ahead', 'e:ahead']);
+  assert.equal(routeStops(s).open, false);
+  s = reduce(s, { type: 'JUMP', stop: 'd' });
+  assert.equal(s.phase, 'travelling'); assert.equal(s.instant, true, 'a jump goes as Skip the ride goes');
+  assert.equal(legMode(s), 'instantly'); assert.equal(s.fromStopId, 'a', 'the leg starts where the visitor stood');
+  assert.equal(currentStop(s).id, 'd'); assert.deepEqual(s.visited.map(v => v.id), ['a', 'b', 'c', 'd']);
+  assert.equal(s.events.filter(e => e.type === 'decision').length, 3, 'a, b and c passed as Next stop passes them');
+  s = arrive(s);
+  assert.deepEqual(routeStops(s).stops.map(x => x.state), ['seen', 'seen', 'seen', 'here', 'ahead']);
+  // Back to the first, then ahead to one already passed, then on to the end.
+  s = arrive(reduce(s, { type: 'JUMP', stop: 'a' })); assert.equal(s.stopIndex, 0); assert.equal(s.visited.length, 4);
+  s = arrive(reduce(s, { type: 'JUMP', stop: 'c' })); assert.equal(currentStop(s).id, 'c');
+  assert.equal(reduce(s, { type: 'JUMP', stop: 'c' }), s, 'the stop the visitor is at is no jump');
+  assert.equal(reduce(s, { type: 'JUMP', stop: 'nowhere' }), s);
+  s = arrive(reduce(s, { type: 'JUMP', stop: 'e' })); assert.equal(currentStop(s).id, 'e');
+  assert.equal(s.events.filter(e => e.type === 'decision').length, 4, 'd passed once, never twice');
+  const saved = replaySession(line, { content_version: line.content_version, jaunt: line.id, events: s.events });
+  assert.equal(saved.stopIndex, 4); assert.equal(currentStop(saved).id, 'e');
+  assert.equal(reduce(s, { type: 'NEXT', closing: false }).phase, 'outcome', 'the jumped-to last stop still finishes');
+  // From the flight to the start: stop 1 is Skip to the start; a later stop lands and goes on.
+  const flying = reduce(emptyState(), { type: 'START', jaunt: line, session: 2 });
+  assert.equal(reduce(flying, { type: 'JUMP', stop: 'a' }).phase, 'atStop');
+  assert.equal(currentStop(reduce(flying, { type: 'JUMP', stop: 'c' })).id, 'c');
+  // A choice decides the way on: its branches are not offered until it is made.
+  let b = start(branch);
+  assert.deepEqual(routeStops(b).stops.map(x => x.id), ['arrival']); assert.equal(routeStops(b).open, true);
+  assert.equal(reduce(b, { type: 'JUMP', stop: 'store' }), b, 'no jump past a choice not made');
+  b = reduce(b, { type: 'CHOOSE', id: 'buy' });
+  assert.deepEqual(routeStops(b).stops.map(x => x.id), ['arrival', 'mail-corner', 'store']);
+  b = arrive(reduce(b, { type: 'JUMP', stop: 'store' }));
+  assert.equal(b.vars.money, 75, 'the choice picked is spent on the way'); assert.deepEqual(b.inventory, ['receipt']);
+  assert.deepEqual(b.visited.map(v => v.id), ['arrival', 'mail-corner', 'store']);
+  // A jaunt that branches twice, as authored: two stops known, then the next choice.
+  const errands = JSON.parse(fs.readFileSync(new URL('../data/jaunts/errands-before-the-march.json', import.meta.url)));
+  let r = reduce(start(errands), { type: 'CHOOSE', id: 'kinzies' });
+  assert.deepEqual(routeStops(r).stops.map(x => x.id), ['the-order', 'kinzie', 'council']); assert.equal(routeStops(r).open, true);
 });
 
 await test('runtime fallback is visible when no declared ending matches', () => {

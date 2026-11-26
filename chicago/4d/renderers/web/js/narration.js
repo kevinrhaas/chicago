@@ -481,6 +481,8 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     /** T-3671: whether a voice of this jaunt is speaking (or held), and held: for the panel's Pause key. */
     speaking: jaunt => !!playing && !!jaunt?.id && playing.startsWith(`${jaunt.id}:`),
     get paused() { return !!playing && paused; },
+    /** T-3753: a voice started and not yet sounding (its file still arriving, or stalled): Listen spins. */
+    get buffering() { return !!playing && !paused && !!el && (starved || (Number.isFinite(el.readyState) && el.readyState < 3)); },
     on(fn) { listeners.add(fn); return () => listeners.delete(fn); },
     isPlaying: (jaunt, part, id) => playing === slot(jaunt, part, id),
     /** The owner, 2026-11-16: how far this part's voice has spoken, for the stop's meter:
