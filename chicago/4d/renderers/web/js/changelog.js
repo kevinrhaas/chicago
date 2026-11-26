@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3247, ts: '2026-11-26T06:02:02.011Z', date: 'Nov 26, 2026, 12:02 AM CT', title: 'Every jaunt stop ends by inviting you on, or to look around', kind: 'improvement',
+    items: [
+      'Each stop in every jaunt now closes with a short line from the narrator: look around as long as you like, then go on; at a choice, choose; at the last stop, a last look.',
+      'The lines vary, so no stop in a jaunt repeats another\'s, with simpler words for ages 8-10 and Spanish for jaunts read in Spanish.',
+      'In a narrated jaunt the narrator reads the line straight after the stop\'s own voice.',
+      'The Battle of Fort Dearborn now ends with the burning you have just watched, instead of starting again at "the next morning".',
+    ] },
   { v: 3246, ts: '2026-11-24T23:20:39.041Z', date: 'Nov 24, 2026, 5:20 PM CT', title: 'People turn instead of flipping, and a Street View film for educators', kind: 'fix',
     items: [
       'Seen from the air (Fly, or a film\'s camera), the people near you no longer jump into their next place or flip round where they stand. They walk there and turn.',
