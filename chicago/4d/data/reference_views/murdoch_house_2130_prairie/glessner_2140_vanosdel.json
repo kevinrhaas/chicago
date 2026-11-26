@@ -1,0 +1,28 @@
+{
+ "structure_id": "murdoch_house_2130_prairie",
+ "source_id": "glessner_blog_2015_08_2140_photo",
+ "library_image": "a20-glessner-vanosdel-2140-photo",
+ "photo": "../../sources/assets/murdoch_2130_photos_t3730/glessner_2140_vanosdel.jpg",
+ "image_px": [
+  675,
+  526
+ ],
+ "principal_px": [
+  337.5,
+  459.6
+ ],
+ "focal_px": 1603.0,
+ "eye": [
+  48.0,
+  -87.77,
+  0.6
+ ],
+ "yaw_deg": -24.52,
+ "sun_uvy": [
+  0.55,
+  -0.6,
+  0.58
+ ],
+ "scene": "1904",
+ "solve": "Fitted for T-3730 to the Glessner House blog's print of 2140 Prairie (the 675 x 526 px copy of the illustration in 'John M. Van Osdel, Chicago's First Architect'), in which 2130 stands at the right from x 543 px (2140's north pavilion hides the rest) to the tower's right edge at x 640. A level camera (the lamp post and the tower's drum stand upright); the principal column is the copy's middle (x 337.5). FITTED TO, in this house's frame: the three storeys of the tower's south-east (-40 degree) lights, centres at x 615 and y 419, 355 and 300 px (3.4, 7.05 and 9.8 m), and its east (0 degree) lights at x 636 (a sliver at the drum's edge); the drum's right edge (2.4 m about (22.03, 6.6)) at x 640 by the ground storey and 639 by the top stage; the cone eave's right end, 2.72 m at 11.25 m, at (640, 280); and the foot of the iron fronts of 2140 and 2130 along Prairie (u 27.6, the lots' street line) at y 480, 479, 477 and 472 px across x 60-600. Least squares: 3.4 px RMS, worst 6.9 px. WHAT IS SOFT: the copy is small and the tower is the only long object of known size in it, so distance trades against focal length along the line of sight: eyes from u 40 to u 60 east of the house fit within 1 px RMS of each other. The eye is held at u 48.0, Prairie's east street line (the print is taken from the avenue south-east of the house, as its record says), which puts it at v -87.8, about 34 m south of 22nd Street, at 0.6 m over the lots' grade: the fence foot runs almost level across the print, so the eye stands near that height. Places on 2130's front and tower are good to about 0.3 m across the line of sight. LIGHT: a bright day from the south-east: 2140's front and the tower's south-east face are lit, the porch columns and the fence throw shadows to the north-west; sun_uvy is that direction, read, not measured."
+}

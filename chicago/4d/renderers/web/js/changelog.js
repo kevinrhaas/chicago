@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3269, ts: '2026-11-26T21:14:18.548Z', date: 'Nov 26, 2026, 3:14 PM CT', title: '2130 Prairie checked against its two photographs', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie is now compared with the two old photographs of 2140 next door that show it, from the spots those pictures were taken.',
+      'Its round tower\'s cone is about a metre lower, as both photographs show it.',
+      'Its south side wall is now the same rough-faced stone as its front, not brick.',
+      'Still different from the photographs: the steep gable on the street front, which neither picture shows, and the columned porch, which is not built yet.',
+    ] },
   { v: 3268, ts: '2026-11-26T20:15:01.352Z', date: 'Nov 26, 2026, 2:15 PM CT', title: 'An Architecture site for expert readers: the building kits in 3D', kind: 'feature',
     items: [
       'A separate Architecture site shows the sixteen kits the Prairie Avenue houses are built from: stone, brick, roofs, windows, entrances, bays, trim, cornices, ironwork and more.',

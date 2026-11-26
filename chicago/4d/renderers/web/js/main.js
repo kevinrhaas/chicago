@@ -7016,7 +7016,7 @@ async function boot() {
       .then(r=>r.ok?r.json():null).catch(()=>null);
     return Promise.all([humanPersons,humanPhotoReferences]).then(([d,photos])=>{
       const r=d?.persons?.[id],photo=photos?.faces?.find(f=>f.id===id&&f.historical?.scene===String(YEAR));
-      let looks=r?.looks?{...r.looks,worn:(r.dress?.seasons?.[api.season?.current??'summer']?.worn??r.dress?.worn)??''}:null;
+      let looks = r?.looks ? { ...r.looks, worn: (r?.dress?.seasons?.[api.season?.current ?? 'summer']?.worn ?? r?.dress?.worn) ?? '' } : null;
       if(looks&&photo?.historical?.shape_mode==='new_photo_fit'){
         const h=photo.historical;
         looks={...looks,grade:'reconstructed',basis:h.limits.join(' '),
