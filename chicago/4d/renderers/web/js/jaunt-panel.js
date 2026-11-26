@@ -458,7 +458,9 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     }
     mode.hidden = false; mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
-    mode.classList.toggle('jaunt-mode-wide', straight.hidden);
+    // The owner, 2026-11-26 ("Blank button"): the pace takes the whole row only when neither
+    // Skip the ride nor Pause shares it, as paintVoice() lays it.
+    mode.classList.toggle('jaunt-mode-wide', straight.hidden && voiceKeys[0].hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
     const listening = same && document.activeElement?.dataset.action === 'listen' && body.contains(document.activeElement);
     // T-3671: a repaint keeps focus on the stop's heading where it was (a voice starting or stopping repaints).

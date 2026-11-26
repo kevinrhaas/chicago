@@ -2462,9 +2462,9 @@
     "fire_1871.py": {
       "placement": "pending",
       "write_mode": "--write",
-      "measured": "2026-11-19",
-      "finding": "Reproduces: --write on the committed tree rewrote data/fire/1871.json byte for byte. Shifting one zone's derived local vertex by 1.0 m made --check exit 1, and --write then restored the exact committed bytes. --check and --self-test write nothing. T-3687.",
-      "placed": "Only the `local` and `acres` fields of data/fire/1871.json and the `conversion` block are derived. It reads data/context/1871/plan.json's modern controls and river.geojson/shoreline.geojson, and the authored outlines, controls and model are its inputs. Before it can be placed in the manifest, its order after the 1871 plan and geography writers (fit_1871_city_map.py, city_1871_emit.py) has to be settled."
+      "measured": "2026-11-26",
+      "finding": "Reproduces: --write on the committed tree rewrote data/fire/1871.json byte for byte. Shifting one zone's derived local vertex by 1.0 m made --check exit 1, and --write then restored the exact committed bytes. --check and --self-test write nothing. T-3687. T-3751, 2026-11-26: --write again reproduced data/fire/1871.json byte for byte (twice); deleting one heap from goods[0].local_heaps made --check exit 1 ('local heaps are stale') and --write restored the committed bytes.",
+      "placed": "Only the `local` and `acres` fields of data/fire/1871.json, the `conversion` block and each goods entry's `local_heaps` (T-3751) are derived. It reads data/context/1871/plan.json's modern controls and river.geojson/shoreline.geojson, and the authored outlines, controls and model are its inputs. Before it can be placed in the manifest, its order after the 1871 plan and geography writers (fit_1871_city_map.py, city_1871_emit.py) has to be settled. T-3751: the heaps also read data/sidecars/1871/<within>.json and data/structures/<within>.json (the open ground's footprint and blocks), data/scenes/1871.json's viewpoints and the Great Fire jaunt's stage casts (data/jaunts/the-great-fire*.json), so it follows compile_scene.py and the jaunt's own build."
     },
     "audit_1871_city_map.py": {
       "placement": "pending",

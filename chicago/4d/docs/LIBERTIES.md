@@ -46391,3 +46391,38 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+### L-1871-great-fire-goods-3751 — The families' furniture in Washington Square and the old cemetery, and the Great Fire stops kept to their hours
+
+**Decision:** the owner, 2026-11-26, on the Great Fire jaunt: "The narration describes a burned park, but the park
+appears undamaged and the referenced furniture is missing. Add the furniture and depict it burning or show the
+appropriate aftermath", "The jaunt stops at the Field Building, but the building does not burn", and "Ensure the
+visual state of the environment corresponds to the chronology and events described in the narration". So the goods
+the accounts heap on Washington Square and in the old City Cemetery are drawn and burn, each landmark a stop names
+burns at the hour its stop tells, and the Parmelee stop stands at Jackson and Franklin.
+**What is read, not invented:** that Washington Square "early in the night was filled with fugitives and their
+furniture" and that the fire made "the grand blaze from the accumulated furniture of fifty families" (Sheahan and
+Upton pp. 209-211; Andreas vol. 2 p. 759, the square's fence and goods burned); that the refugees in the cemetery saw
+"the household gods and valuables which they had moved into the cemetery ... burn up before their eyes" (Colbert and
+Chamberlin pp. 265-268). The hours the landmarks are alight are the jaunt's own claims, each with its page in
+`data/fire/1871.json` (`burning_by`): the barn at nine, the Court House at half past one, the Sherman House at five
+past two, Crosby's at twenty past two, the Water Works roof at twenty past three, the Tribune at half past seven, and
+Field, Leiter & Co. at about eight, after its own pumps had kept it wet past daylight (Horace White in Andreas
+pp. 734-735). The Parmelee stable stood on the south-east corner of Jackson and Franklin (Andreas p. 719).
+**What is reconstructed:** how many heaps of goods (34 in the square, 22 in the cemetery), where each lies, and what
+each holds (bedsteads, mattresses, bureaus, tables, chairs, trunks, bundles, quilts, of no particular family's) are
+reconstructed; so are the hour the goods are first on the ground (the square from half past two, the cemetery from
+six on Monday morning), which of the cemetery's heaps burn (two in five) and when (between ten past five and twenty
+to seven that evening), and the scorch on the square's grass. The square's heaps burn at the square's own hour on the
+fire's map. A landmark held to its hour is drawn rising to full flame by that hour, the rise being the drawn fire's
+(five minutes for frame, nine for masonry), not a record of when it first caught. The Parmelee stable is the
+generic corner building there; no picture or plan of the stable was found. St. Michael's is told as the fire nears
+it at noon, because the fire's map has its steeple burning in the afternoon (Conzen's noon-6 p.m. band).
+**Evidence and limits:** `sheahan_upton_1871_great_conflagration`, `andreas_1885_v2`,
+`colbert_chamberlin_1871_chicago_great_conflagration`. No account counts the heaps or names what was in them.
+**How to resolve:** a picture or a fuller account of Washington Square or the cemetery on 9 October 1871; a picture
+or plan of the Parmelee stable, to build it as a structure of its own.
+**Ticket:** T-3751.
+**Review:** `data/fire/1871.json` (`goods`, `burning_by`), `tools/fire_1871.py`, `renderers/web/js/fire-goods.js`,
+`renderers/web/js/fire-map.js`, `tools/check_fire_jaunt.mjs`, `data/scenes/1871.json` (`fire_parmelee_stables`).
+**Recorded:** 2026-11-26 (T-3751).

@@ -4879,6 +4879,16 @@ selftest "…and its own checks fire when broken" \
 selftest "1871 Great Fire picture harness keeps its stands inside the fire" \
   node tools/qa_city_fire_1871.mjs --self-test
 
+# T-3751 (the owner, 2026-11-26: "Ensure the visual state of the environment corresponds to the
+# chronology and events described in the narration"): each Great Fire stop's landmark is burning,
+# burnt or standing at the stop's hour as its words say, its goods are on the ground, and its stand
+# is on the corner it names, read through the renderer's own fire map, in every telling.
+step "Great Fire jaunt stops show what their words say, at their hours (T-3751)" \
+  node tools/check_fire_jaunt.mjs
+
+selftest "…and a stand off its corner or a landmark burnt before its stop is refused" \
+  node tools/check_fire_jaunt.mjs --self-test
+
 # T-2747: the 1904 built-so-far walk is written from the building records, so a building
 # that gains detail without the walk being rewritten is red here, and the walk stays current.
 step "1904 built-so-far walk matches the building records (T-2747)" \
