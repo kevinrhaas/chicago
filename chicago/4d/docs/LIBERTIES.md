@@ -44980,6 +44980,7 @@ A face made this way rests on one front picture's points: its profile is the fit
 **Not invented, there:** the who-line (each part is a field of the person's record); the events the answers speak of (the same as the stories', and in 1904 also the St. Louis fair, the war in Manchuria, the Glessner house and its household, the bronze at Eighteenth Street and its subject).
 **Liberties, there:** every answer is reconstructed like the stories; a temperament is assigned, not known, for anyone without a hand-written persona: it is believable for their life, not a claim about their character.
 **Re-opens on:** a record of a person's own words or life that a story contradicts (that story is rewritten or withdrawn); a role drawn in town with too few stories or questions (`tools/test_tales.mjs` names it); the camp children of 1835 being drawn, whose three stories wait for them; a person's character attested in a record, which then replaces the assigned temperament.
+**Who may tell what (2026-11-26):** the owner: *"Louis Ream: Correct the character's voice and script. He sounds like a young girl and recounts his World's Fair experience from a female perspective. Check all jaunts and/or grade each story to age and gender and situation. I also read one of a woman in 1871 who was a laborer with lumber, which seemed off also."* A story or question now goes only to a teller it fits: one who speaks as a woman or a man ("my husband", "I was a girl", "we boys") goes only to that sex; one tied to an age (a coming-out, a Civil War memory, a schoolboy's errand) carries the ages it fits; one told from a country or a people (the Irish parish, the German brewery, the Swedish maid) goes only to tellers whose own record gives that birthplace or community; a servant's story of a particular post (butler, nursemaid, groom) goes to that post. `tools/build_tales.py` refuses a story that speaks as one sex but is open to the other, or a child who speaks of a husband. **Not invented, there:** each teller's sex, age, birthplace or community and work (their own records). **Liberties, there:** fourteen new 1871 stories, for the women at home and at work, the little ones and a lady of the relief, so they have their own once the men's work stories went back to the men; one new 1812 question for the Potawatomi children; composite lives like the rest.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-16.
 
@@ -46399,3 +46400,25 @@ and no tree is planted for the reading; the reading is kept in the file, marked 
 to place one against the other, puts the elm back on the side of the crossing it shows.
 **Ticket:** T-3739.
 **Recorded:** 2026-11-23 (T-3739).
+
+### L-prairie-alley-returns-3759 — Each 1904 alley carried across the sidewalk space to the gutter, the curb turned into it
+
+**Decision:** the owner, 2026-11-26: "Correct alleyway grading and remove inappropriate curbs at
+alley entrances." At each of the district's 13 alley mouths the cross street's parkway turf and
+curb no longer run across the alley: the alley's own surface runs on across the sidewalk space at
+the alley's drawn width, falling from its grade at the lot line to the gutter at the curb line,
+and a return curb of the street curb's width stands either side of it from the curb line back to
+the lot line, its top on the walk's level; the walk stops at it (data/street_section/1904.json,
+alley_returns, laid by tools/lay_prairie_1904_street_section.py).
+**What is read (inferred).** The arrangement: the 1905 code leaves "a space of one and one-half
+inches ... between all walks and the curb at street and alley intersections" (sec. 2062), so at
+an alley the walk meets a curb, as at a street corner. A city-wide rule of March 1905 carried to
+1 July 1904.
+**What is invented (reconstructed).** The even fall across the 14-ft (16th Street: 10-ft) space,
+about 7 per cent; the square returns with no rounded corner; the alley's earth-and-cinder surface
+carried out to the gutter. No picture or grade record of one of these mouths has been read.
+**How to resolve:** a photograph of an alley mouth on 18th, 20th or 21st Street before 1907 (the
+Glessner stable's 18th Street front reaches the west alley's mouth), or the city's alley grade
+ordinances for these blocks.
+**Ticket:** T-3759.
+**Recorded:** 2026-11-26.

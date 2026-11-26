@@ -30,6 +30,7 @@ The ladies of the reading class at the Glessners', on Mondays, all together, so 
 
 ## a04-md-sweetheart
 roles: maid
+age: -40
 q: Do you have a young man?
 
 A policeman, Irish, with a beat on Michigan Avenue, who walks past the area steps at a quarter past nine every evening and does not look up. I am at the area window at a quarter past nine every evening and do not look out. We have been courting this way since Easter.
@@ -48,8 +49,9 @@ If I had to, I would go down it like a sailor. Every girl in service on the Aven
 
 ## a04-ym-fair-work
 roles: young_man
-q: What will you do this summer?
+age: 16-22
 meet: pa1904_field_marshall
+q: What will you do this summer?
 
 My father has found me a place for the summer in the wholesale house, counting stock and learning the business from the bottom, as he says he did. Mr. Field started as a clerk sleeping under the counter, they tell me; every young man on the Avenue has heard that story a hundred times.
 
@@ -58,6 +60,7 @@ I mind the hours. I do not mind the money, which is my own, and I do not mind th
 
 ## a04-ym-motor
 roles: young_man
+age: 17-
 q: Is that your motor car?
 
 My father's, but I drive it, because he is afraid of it. It does twenty miles an hour on the boulevard if the police are not looking, and it breaks down every second time out. I carry a toolbox, a spare tyre, a can of petrol and a great deal of patience.
@@ -67,8 +70,9 @@ They hate it. The coachmen hate it more. Ours will not speak to me since I went 
 
 ## a04-yl-college
 roles: young_lady
-q: Would you go to college if you could?
+age: -25
 meet: pa1904_lee_frances_glessner
+q: Would you go to college if you could?
 
 I would go tomorrow. Vassar, or Smith, or the University here on the Midway, which takes women and lets them sit beside the men. My mother says a girl with a degree frightens off husbands. I say I should like to meet a husband who is frightened of a degree.
 
@@ -77,6 +81,7 @@ Not on the Avenue, hardly. Fanny Glessner wanted to, I have heard, and was not a
 
 ## a04-gt-children
 roles: gentleman
+age: 42-
 q: What do you want for your sons?
 
 What every man on this Avenue wants: that they should have what we had to fight for without having to fight for it, and still turn out men. It cannot be done, I suspect. A boy who never slept under a counter does not know what a dollar is. I send mine to work in the summers and they think me a tyrant.
@@ -105,6 +110,7 @@ It makes me ashamed of my own grumbling. A woman on this Avenue complains that t
 
 ## a04-ly-daughter
 roles: lady
+age: 38-55
 q: How old are your children now?
 
 My eldest girl is twenty and out in society, and wants to go abroad and study music. My boy is at school in the East and writes once a month, for money. The little one is still in the nursery, the darling of the house, ruled entirely by her nurse.
@@ -113,7 +119,7 @@ My eldest girl is twenty and out in society, and wants to go abroad and study mu
 Strict about manners, lenient about everything else. My own mother was strict about everything, and I learned to do as I liked out of her sight. My daughters do as they like in my sight, which I think is an improvement.
 
 ## a04-ms-footman
-roles: manservant
+roles: footman
 q: What do you wear on duty?
 
 Livery: a dark coat with brass buttons, striped waistcoat, black trousers, white gloves, and, for dinners, knee breeches and silk stockings, which I hate. The family's crest is on the buttons. I am a walking advertisement for the house.
@@ -132,6 +138,7 @@ I believe they do. When the old coachman two doors down died, his horses would n
 
 ## a04-ck-irish
 roles: cook
+origin: irish
 q: Where did you learn to cook?
 
 In my mother's kitchen in Limerick, on an open fire, and then in a hotel kitchen in Boston under a French chef who threw pans. He taught me sauces and how to duck. Then I came west for better wages and a quieter kitchen. I found the wages.

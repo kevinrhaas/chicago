@@ -13,6 +13,12 @@ page's own bounds and obstruction checks; no extra world is loaded. The guide's 
 questions (T-3670): one settled answer each, every option drawn from the jaunt itself,
 unlimited retry, no score. [CLASSROOM-FEATURES.md](CLASSROOM-FEATURES.md) has the detail.
 
+## T-3753 — Jaunt stops, loading rings, the look up (26 November 2026)
+
+Stops lists a jaunt's route and jumps to any stop; keys spin while a jaunt or a stop's scene
+loads; desktop mouse look no longer sticks after a jaunt turns the view. Next, only if asked:
+a ring for the restored-outing Continue (needs its work split across a frame).
+
 ## T-3679 — Play a part (19 November 2026)
 
 Item 9 of the classroom list has its first three role jaunts (1812 runner at Fort Dearborn, 1835 apprentice, 1904 iceman's helper), each with two route-changing choices and four endings, every band and 18+ telling built. Further roles (a household's youngest servant, a store clerk's helper) are content work on the same engine; each needs its own cited stops and an entry in LIBERTIES. A role with staged hosts or narration voices is a separate parcel.

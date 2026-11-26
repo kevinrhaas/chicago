@@ -95,7 +95,7 @@
   },
   {
    "card": "asks:a04-md-stairs.1",
-   "text": "A bed, a washstand, a chair, a chest of drawers, a picture of the Sacred Heart and a photograph of my mother. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains on the lakefront, and nothing else.",
+   "text": "A bed, a washstand, a chair, a chest of drawers, a picture of home and a photograph of my mother. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains on the lakefront, and nothing else.",
    "own": "11-13",
    "levels": {
     "8-10": "A bed, a stand with a wash bowl, a chair, and a chest of drawers. A holy picture and a photo of my mom. The window looks over the alley to the carriage houses. On summer nights I can hear the horses moving in their stalls, and the trains by the lake, and nothing else."
@@ -345,7 +345,7 @@
   },
   {
    "card": "asks:a04-gt-fire",
-   "text": "I was a young man of twenty in seventy-one. I stood on the lake shore with my mother and my sisters and our silver in a pillowcase, and watched the city burn behind us for two days. The heat was so great that the people waded into the lake. In the morning there was nothing between the river and Fullerton but chimneys.",
+   "text": "I was twenty years old in seventy-one. I stood on the lake shore with my mother and my sisters and our silver in a pillowcase, and watched the city burn behind us for two days. The heat was so great that the people waded into the lake. In the morning there was nothing between the river and Fullerton but chimneys.",
    "own": "11-13",
    "levels": {
     "8-10": "I was twenty in 1871. I stood on the lake shore with my mom and my sisters. We had our silver in a pillowcase. We watched the city burn behind us for two days. It was so hot that people waded into the lake. In the morning there was nothing left between the river and Fullerton but chimneys."
@@ -1453,14 +1453,6 @@
    "own": "11-13",
    "levels": {
     "8-10": "The 1911 map prints \"2BB.\" That means two full floors. The \"BB\" does not mean two basements. The house stands on a low base, over a cellar we do not know about."
-   }
-  },
-  {
-   "card": "notes:'2½ and3B; rear1B' printed on the 1911 sheet: 2 full storeys…",
-   "text": "'2½ and3B; rear1B' printed on the 1911 sheet: 2 full storeys and a half storey in the roof.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "The 1911 map prints \"2½ and 3B; rear1B.\" So it has 2 full floors and a half floor in the roof."
    }
   },
   {
@@ -5281,14 +5273,6 @@
   },
   {
    "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2123-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 92% of its fill; s35fp-2123-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35fp-2123-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
    "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2123-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 80% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
    "own": "16-17",
    "levels": {
@@ -5317,14 +5301,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
-   }
-  },
-  {
-   "card": "notes:Rectangles fitted inside the traced parts by the rules' fit…",
-   "text": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2130-b1 p2 (main, stone), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p2 (main, stone), rectangle 2 of that part; the part's rectangles cover 68% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill; s35fp-2130-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 59% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).",
-   "own": "16-17",
-   "levels": {
-    "8-10": "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
    }
   },
   {
@@ -8816,14 +8792,6 @@
    }
   },
   {
-   "card": "notes:The register reads the map's colours as 'stone with brick rear'.",
-   "text": "The register reads the map's colours as 'stone with brick rear'.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "A list of buildings reads the map's colors as stone, with brick at the back."
-   }
-  },
-  {
    "card": "notes:The register reads the map's colours as 'stone'.",
    "text": "The register reads the map's colours as 'stone'.",
    "own": "11-13",
@@ -10615,22 +10583,6 @@
    }
   },
   {
-   "card": "stories:pa1904_bellas_daughters",
-   "text": "The Misses Bellas were the daughters of the house: Emeline, Helen and Edith, born in 1881, 1884 and 1887. In the summer of 1904 they were young women of the avenue, which meant calls, dances, and the summer season out of town.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "The Misses Bellas were the three daughters of the house. Their names were Emeline, Helen and Edith. They were born in 1881, 1884 and 1887. In the summer of 1904 they were young women. That meant visits to friends, dances, and summer trips out of town."
-   }
-  },
-  {
-   "card": "stories:pa1904_bellas_daughters",
-   "text": "Helen and Edith were still at home with their widowed mother and their uncle Erastus in 1910.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "In 1910 Helen and Edith still lived at home. They lived with their mother and their uncle Erastus."
-   }
-  },
-  {
    "card": "stories:pa1904_foote_erastus",
    "text": "Erastus Foote came from Maine, born in 1850, and was president of an iron works. A bachelor, he lived with his sister Emma Bellas and her family at 1634, and in time the household was his: in 1910 the census taker wrote him down as its head.",
    "own": "14-15",
@@ -10697,22 +10649,6 @@
    "levels": {
     "8-10": "Ebenezer Buckingham was born in Ohio in 1829. He was a banker. By 1900 he ran his own bank. His family also stored grain in tall buildings by the river. His wife had died. He lived at 2036 Prairie Avenue with his son and two daughters who were not married.",
     "11-13": "Ebenezer Buckingham was born in Ohio in 1829. He was a banker, and by 1900 he was president of his own bank. The Buckinghams were a grain family too, and their grain elevators stood along the river. His wife had died. He lived at 2036 Prairie Avenue with his son and his two unmarried daughters."
-   }
-  },
-  {
-   "card": "stories:pa1904_buckingham_daughters",
-   "text": "The Misses Buckingham were Kate and Lucy, the banker's daughters, born in 1859 and 1862. Neither married; they kept house with their father and then with their brother Clarence.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "The Misses Buckingham were Kate and Lucy. They were the daughters of the banker. They were born in 1859 and 1862. Neither of them married. They kept house for their father, and later for their brother Clarence."
-   }
-  },
-  {
-   "card": "stories:pa1904_buckingham_daughters",
-   "text": "Kate became one of Chicago's great givers. In 1927 she gave the city Buckingham Fountain in Grant Park, in memory of Clarence.",
-   "own": "11-13",
-   "levels": {
-    "8-10": "Kate gave a lot of money to help Chicago. In 1927 she gave the city Buckingham Fountain, in Grant Park. She did it to remember Clarence."
    }
   },
   {
@@ -11313,16 +11249,6 @@
    "own": "14-15",
    "levels": {
     "8-10": "Elizabeth Grey was a daughter of William Grey. In 1910 she lived at home at 2010. By then the newspapers called her Miss Grey. She may have been the daughter at home in 1904 too."
-   }
-  },
-  {
-   "card": "stories:pa1904_grey_florence",
-   "text": "Florence Grey was born in December 1880 and lived at home at 2010 with her parents; she was the Miss Grey of the house in 1907 and 1908, and very possibly in 1904 as well.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Florence Grey was born in December 1880. She lived at home at 2010 with her mom and dad. In 1907 and 1908 she was the Miss Grey of the house. She may have been in 1904 too.",
-    "11-13": "Florence Grey was born in December 1880 and lived at home at 2010 with her parents. She was the Miss Grey of the house in 1907 and 1908. She very possibly was in 1904 as well.",
-    "14-15": "Florence Grey was born in December 1880 and lived at home at 2010 with her parents. She was the Miss Grey of the house in 1907 and 1908, and very possibly in 1904 as well."
    }
   },
   {
@@ -12102,10 +12028,18 @@
   },
   {
    "card": "stories:pa1904_ream_daughters",
-   "text": "The Misses Ream were the unmarried daughters at home at 1901. The Reams had three daughters, among them Frances and Marion, and by the autumn the Blue Book counted only one still at home.",
-   "own": "11-13",
+   "text": "Frances Ream was born in January 1878, the second daughter of Norman and Caroline Ream. Her elder sister Marion married Redmond Stephens in February 1903, so in the summer of 1904 Frances was the daughter still at home at 1901.",
+   "own": "14-15",
    "levels": {
-    "8-10": "The Misses Ream were the daughters at home at 1901 who were not married. The Reams had three daughters. Two of them were Frances and Marion. By the fall, a book of names listed only one still at home."
+    "8-10": "Frances Ream was born in January 1878. Her mom and dad were Norman and Caroline Ream. Her big sister Marion got married in 1903. So in the summer of 1904, Frances was the girl still at home at 1901. She was not married yet."
+   }
+  },
+  {
+   "card": "stories:pa1904_ream_daughters",
+   "text": "In June 1906 she married John Leisenring Kemmerer and went to begin married life in Scranton, Pennsylvania.",
+   "own": "14-15",
+   "levels": {
+    "8-10": "In June 1906 she got married. Her husband was John Kemmerer. They went to live in Scranton, a town in Pennsylvania."
    }
   },
   {
@@ -12444,10 +12378,18 @@
   },
   {
    "card": "stories:pa1904_grey_daughter",
-   "text": "Miss Grey was the unmarried daughter at home at 2010 in 1904: Jessie, born in 1875, or Florence, born in 1880. Both had been living with their parents in 1900, and Florence is the one named at the house a few years later, so she is the likelier.",
+   "text": "Florence Grey was born in Illinois in December 1880, the younger daughter of William and Sarah Grey, and grew up at 2010. Her elder sister Jessie was at home with her in 1900; by 1903 the society register counted only one daughter in the house, and in 1907 and 1908 it lists Florence there by name.",
    "own": "11-13",
    "levels": {
-    "8-10": "Miss Grey was the daughter at home at 2010 in 1904. She was not married. She was Jessie, born in 1875, or Florence, born in 1880. Both lived with their mom and dad in 1900. Florence is the one named at the house a few years later, so it is more likely her."
+    "8-10": "Florence Grey was born in Illinois in December 1880. She was the younger daughter of William and Sarah Grey, and she grew up at 2010. Her big sister Jessie lived at home with her in 1900. By 1903 the book of names counted just one daughter at home. In 1907 and 1908 it names Florence there."
+   }
+  },
+  {
+   "card": "stories:pa1904_grey_daughter",
+   "text": "In the summer of 1904 she was twenty-three, the daughter at home, living the season of calls and dances with her mother, who died within a couple of years.",
+   "own": "11-13",
+   "levels": {
+    "8-10": "In the summer of 1904 she was twenty-three. She was the daughter at home. She went to calls and dances with her mother, who died a year or two later."
    }
   },
   {
@@ -12740,7 +12682,7 @@
   },
   {
    "card": "tales:s04-ym-st-louis",
-   "text": "My father says nothing will ever be as fine as the White City. He says St. Louis is only copying Chicago. Maybe. But I was only a boy in 1893, and I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long.",
+   "text": "My father says nothing will ever be as fine as the White City. He says St. Louis is only copying Chicago. Maybe. But I was only small in 1893, and I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long.",
    "own": "11-13",
    "levels": {
     "8-10": "My dad says nothing will ever be as fine as the White City. He says St. Louis is just copying Chicago. Maybe. But I was only a boy in 1893. I remember the lights and the wheel and nothing else. This time I am going to see everything. I have a list. It is four pages long."
@@ -12780,7 +12722,7 @@
   },
   {
    "card": "tales:s04-md-bells",
-   "text": "In the back hall of this house there is a board with forty little bells on springs, one for every room, each with a name painted underneath: Library, Parlour, Mrs. G's Room, Front Door, Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings.",
+   "text": "In the back hall of this house there is a board with forty little bells on springs, one for every room, each with a name painted underneath: Library, Parlour, Mistress's Room, Front Door, Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings.",
    "own": "11-13",
    "levels": {
     "8-10": "In the back hall of this house there is a board with forty little bells on springs. There is one for every room. Each has a name painted under it, like Library, Parlor, Mrs. G's Room, Front Door, and Guest Room North. When someone in the family presses a button in a room, the bell for that room shakes and rings."
@@ -12788,7 +12730,7 @@
   },
   {
    "card": "tales:s04-md-bells",
-   "text": "You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery. But I hear Mrs. G's room bell in my sleep, even on my afternoon off, even when I am miles away. When I am an old woman and have a house of my own, I am going to have no bells in it at all.",
+   "text": "You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery. But I hear the mistress's bell in my sleep, even on my afternoon off, even when I am miles away. When I am an old woman and have a house of my own, I am going to have no bells in it at all.",
    "own": "11-13",
    "levels": {
     "8-10": "You learn to sleep through every bell but your own. The cook does not hear the library bell. The butler does not hear the nursery bell. But I hear Mrs. G's bell in my sleep. I hear it even on my afternoon off, even when I am miles away. When I am an old woman with a house of my own, I will have no bells in it at all."
@@ -15812,14 +15754,6 @@
   },
   {
    "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
-   "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2½ read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). Other work reads its height and cap. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 751053356 only tints the fabric inside +-6 %. Liberty “The west side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, the Robbins house rising, one coach house for 2108 and 2110, and 2140's towers in one roof state”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. The Thomas Murdoch house, by Cobb, built in 1890. Our list says it had a stone front with a brick back, and a big round bay or tower at the street with a pointed roof. So it has two and a half floors, with windows in a sloped roof. A tower with a pointed roof stands on the round bay at the north end of its front. Its height and roof top are still to be read. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row '(default)' ove…",
    "text": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The Thompson-Reid and Collins Bros. ice-cream works RISING on 1 July 1904, in the working phase the census leaves open (phase unresolved) and the draft declares, as 2126's Robbins house is declared. It stands on the 1911 sheet's outline of the finished factory, which agrees with the Tribune's 100 by 177 feet. The brick shell is three storeys up over its stone foundation, the street wall and its front returns 1.6 m into the fourth. The openings are empty, and there is no roof. A deck is laid at the first floor, with a pole scaffold along the street. The eight bays and the central opening are the draft's: no picture of the building is known. The 1886 houses are not stood, and the finished 1911 factory is not carried back. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3679707877 only tints the fabric inside +-6 %. Liberty “1605-1613 Indiana's ice-cream works standing as a brick shell three storeys up on 1 July 1904, the height between a March excavation and a September move”.",
    "own": "14-15",
    "levels": {
@@ -15880,14 +15814,6 @@
    "own": "16-17",
    "levels": {
     "8-10": "Our rules for this part of town built it. Our list gives it a steep-sided roof over a brick body, with its back part as the map draws it. The copper bay, the stone porch, the roof windows and the high stoop we will add later. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
-   }
-  },
-  {
-   "card": "why:RECONSTRUCTED by the draft rules, family row 'Stone-front' o…",
-   "text": "RECONSTRUCTED by the draft rules, family row 'Stone-front' overlaid with the frontage row: 3B brick with a stone front (Thomas H. Hubbart's in the 1904 Blue Book): the stone-front family's plain flat roof over three storeys and its rear range, the sheet's stone piece as its bay. Heights are the rules' starting values inside the project's notes on reconstruction rules's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1053726426 only tints the fabric inside +-6 %. Liberty “The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open”.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "Our rules for this part of town built it. Brick, three floors high, with a stone front. A book of 1904 lists Thomas H. Hubbart here. It has a plain flat roof over three floors and its back part, with the map's stone piece as its bay. Every height, roof, window and other part is our guess. We change its color a little so the houses do not all match."
    }
   },
   {
@@ -23468,14 +23394,6 @@
   },
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 28…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 28.000, v -4.250 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.318 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 28…",
    "text": "The rear corner of the main body's rectangle (lot frame u 28.250, v -3.000 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation 179.152 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
@@ -23701,14 +23619,6 @@
   {
    "card": "why:The rear corner of the main body's rectangle (lot frame u 35…",
    "text": "The rear corner of the main body's rectangle (lot frame u 35.500, v -5.250 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.685 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-   "own": "16-17",
-   "levels": {
-    "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
-   }
-  },
-  {
-   "card": "why:The rear corner of the main body's rectangle (lot frame u 36…",
-   "text": "The rear corner of the main body's rectangle (lot frame u 36.000, v -2.500 m from the middle of the rear lot line), through the fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.679 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
    "own": "16-17",
    "levels": {
     "8-10": "This says where the back corner of the main part of the building stands. We read it off an old fire map. That map lines up very closely with the real ground. We turned the plan to face the street."
