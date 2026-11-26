@@ -397,11 +397,20 @@ def prepare_face(task):
     return face, tile, hair_tile, e, round(time.monotonic()-began,1)
 
 
-def save_texture(image, output, name):
+def save_texture(image, output, name, shared=None):
     if name.endswith('.png'): image.save(output/name,optimize=True)
     else: image.save(output/name,quality=92,subsampling=0,optimize=True)
-    return {'file':name,'size_px':list(image.size),'bytes':(output/name).stat().st_size,
+    result={'file':name,'size_px':list(image.size),'bytes':(output/name).stat().st_size,
             'sha256':digest(output/name),'gpu_bytes_rgba8_mipmaps':math.ceil(image.width*image.height*4*4/3)}
+    if shared is not None:
+        prior=shared.get(result['sha256'])
+        if prior:
+            # A sixteen-face library's crowd and Light review sheets coincide.
+            # Keep one canonical file, including when upgrading an existing output.
+            if prior['file']!=name:(output/name).unlink()
+            return dict(prior)
+        shared[result['sha256']]=result
+    return result
 
 
 def build(recipe, output, model=None, fast=False, jobs=1):
@@ -461,14 +470,15 @@ def build(recipe, output, model=None, fast=False, jobs=1):
         if pool:pool.shutdown(cancel_futures=True)
     scale=min(.5,CROWD_EDGE/max(atlas.size))
     crowd=atlas.resize((round(atlas.width*scale),round(atlas.height*scale)),Image.Resampling.LANCZOS)
-    textures={'light':save_texture(crowd,output,'faces_light.jpg')}
+    shared={}
+    textures={'light':save_texture(crowd,output,'faces_light.jpg',shared)}
     for index,page in enumerate(pages):
         for kind,prefix in [('textures','face'),('hair_textures','hair')]:
             sheet=page.pop('face_image' if kind=='textures' else 'hair_image');page[kind]={}
             for tier,scale in [('full',1),('light',.5)]:
                 image=sheet if scale==1 else sheet.resize((sheet.width//2,sheet.height//2),Image.Resampling.LANCZOS)
                 name=f'page_{index:02d}_{prefix}_{tier}'+('.png' if prefix=='hair' else '.jpg')
-                page[kind][tier]=save_texture(image,output,name)
+                page[kind][tier]=save_texture(image,output,name,shared)
     shells={tier:write_hair_shell(output/f'hair_shell_{tier}.glb',*segments) for tier,segments in [('light',(20,12)),('full',(32,20))]}
     result = {'format':FORMAT, 'review_only':not bool(activation),
               'rollout':'Default generic faces on dev in all four years.' if activation else 'No population assignments; review the renders first.',

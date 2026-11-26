@@ -67,6 +67,19 @@ class ImportBoundaries(unittest.TestCase):
             for change in ({'texture_only':False},{'age':1},{'age':18},{'fitted':{'values':{'head_shape':.8}}}):
                 with self.assertRaises(ValueError):P.validate_entry({**child,**change})
 
+    def test_identical_atlases_share_a_file_and_remove_the_previous_copy(self):
+        image=Image.new('RGB',(128,128),(90,70,50));shared={}
+        crowd=P.save_texture(image,self.root,'faces_light.jpg',shared)
+        (self.root/'page_00_face_light.jpg').write_bytes(b'previous build copy')
+        review=P.save_texture(image,self.root,'page_00_face_light.jpg',shared)
+        self.assertEqual(crowd,review)
+        self.assertFalse((self.root/'page_00_face_light.jpg').exists())
+        self.assertTrue((self.root/crowd['file']).exists())
+        self.assertEqual(P.save_texture(image,self.root,'faces_light.jpg',shared),crowd)
+        distinct=P.save_texture(Image.new('RGB',(128,128),(30,40,90)),self.root,'different.jpg',shared)
+        self.assertNotEqual(distinct['file'],crowd['file'])
+        self.assertTrue((self.root/distinct['file']).exists())
+
 
 if __name__=='__main__':
     unittest.main()

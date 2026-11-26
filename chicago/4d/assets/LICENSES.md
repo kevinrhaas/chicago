@@ -3413,7 +3413,6 @@ humans/web/photo_faces/children/faces_light.jpg
 humans/web/photo_faces/children/hair_shell_full.glb
 humans/web/photo_faces/children/hair_shell_light.glb
 humans/web/photo_faces/children/page_00_face_full.jpg
-humans/web/photo_faces/children/page_00_face_light.jpg
 humans/web/photo_faces/children/page_00_hair_full.png
 humans/web/photo_faces/children/page_00_hair_light.png
 humans/web/photo_faces/children/recipe.json

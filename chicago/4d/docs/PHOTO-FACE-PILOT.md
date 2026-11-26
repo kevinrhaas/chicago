@@ -117,7 +117,7 @@ offline fitting/baking; the app performs neither operation at runtime.
 | Review Light | one face page at 512 × 512; optional hair trial page | 1.33 MiB; 2.67 MiB with trial |
 | Review Full | one face page at 1024 × 1024; optional hair trial page | 5.33 MiB; 10.67 MiB with trial |
 
-The town limits apply to the whole 272-entry adult-and-child catalog. Other pages remain on disk until
+The town limits apply to the whole 272-entry adult-and-child catalog. Identical crowd and Light review sheets share one file. Other pages remain on disk until
 needed. The review limits apply to its current sixteen-face page; navigation releases the
 previous page. Light uses body LOD2, pixel ratio 1 and no shadows. Full uses LOD0 for close
 inspection. Existing body/clothing textures, geometry, image decoding and driver overhead
