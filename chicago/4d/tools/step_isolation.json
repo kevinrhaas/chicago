@@ -4938,6 +4938,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/photo_face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/pinned_sources.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6510,6 +6514,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_basement_lights_off_bay.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_belt_eared_hood.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6527,10 +6535,6 @@
       "wrote_ignored": []
     },
     "tools/test_k01_cross_roof_hood.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_k01_basement_lights_off_bay.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6959,6 +6963,18 @@
       "wrote_ignored": []
     },
     "tools/test_person_stories.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_deployment.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_library.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_photo_face_rollout.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

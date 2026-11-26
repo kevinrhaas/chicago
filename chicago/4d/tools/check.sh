@@ -902,6 +902,16 @@ step "The face library's cuts are the bytes its source record pins, each under C
   python3 tools/face_library.py --check
 selftest "…and the face library's check refuses a broken copy: one painting kept twice, a face repainted in part, the sheet's colour halved, a count or a licence note with nothing behind it (T-3553)" \
   python3 tools/face_library.py --self-test
+step "The 256-face photographic library keeps pinned sources, portable scalps and bounded atlas pages (T-3746, T-3761)" \
+  python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/pilot/review.json
+step "Photo imports reject uncleared sources, changed photos, invalid crops and unsupported faces (T-3746)" \
+  python3 tools/test_photo_face_library.py
+step "Photo rollout preserves personal portraits, children and eye detail; nearby pages obey a fixed residency budget (T-3746, T-3761)" \
+  node tools/test_photo_face_rollout.mjs
+step "Default photo faces cover every year and child proportions survive the shared photographic style (T-3767, T-3768)" \
+  node tools/test_photo_face_deployment.mjs
+step "Child photo sources, untouched child shapes and bounded atlas pages reproduce (T-3768)" \
+  python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/children/review.json
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \

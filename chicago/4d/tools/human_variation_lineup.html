@@ -20,9 +20,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
-import { dressSkin, restingLid, likenessSheetsReady } from '../renderers/web/js/human-skin.js';
+import { dressSkin, dressPhotoLooks, restingLid, likenessSheetsReady } from '../renderers/web/js/human-skin.js';
 import { dressHair, dressHeadcloth } from '../renderers/web/js/human-hair.js';
-import { dressLooks, dressCloth, looksHairStyle, dressInSeason } from '../renderers/web/js/human-looks.js';
+import { dressCloth, looksHairStyle, dressInSeason } from '../renderers/web/js/human-looks.js';
 import { dressFinery } from '../renderers/web/js/human-finery.js';
 import { clothHuman } from '../renderers/web/js/fabric.js';
 import { dressHat } from '../renderers/web/js/human-hats.js';
@@ -71,7 +71,8 @@ const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
 // &asset=auto (T-3522): each key in the body its drawn instance wears.
 const assetOf = async (key) => {
   if (asset !== 'auto') return asset;
-  const inst = persons[key]?.drawn_as?.[0];
+  const drawn = persons[key]?.drawn_as ?? [];
+  const inst = drawn.find(p => p.startsWith('data/humans/')) ?? drawn[0];
   // A Prairie Avenue resident built on a door call (T-3548) names her row in inside_1904.json.
   if (inst?.includes('#')) {
     const [file, id] = inst.split('#');
@@ -114,7 +115,7 @@ keys.forEach((key, i) => {
   if (q.get('dress') === '1') {
     // T-3522: their looks, cloth, hat and headcloth, as humans.js build() puts them on.
     const rec = key === 'base' ? null : persons[key] ?? null, year = Number(q.get('year') ?? rec?.scene ?? 1904);
-    if (rec?.looks) dressLooks(fig, rec.looks);
+    if (rec?.looks) dressPhotoLooks(fig, rec.looks);
     const dress = dressInSeason(rec?.dress ?? null, season);
     const owned = dress ? dressCloth(fig, dress) : [];
     if (dress?.finery) dressFinery(fig, dress.finery, owned);
@@ -131,7 +132,8 @@ keys.forEach((key, i) => {
   // &hide=hair: leave out meshes whose material names match (a bald portrait's still).
   // &blink=0..1 (T-3493): the eyes that far shut, on every mesh that takes the face's morphs.
   // Unset, a dressed face's lids rest where humans.js rests them for the person's age.
-  const lid = q.get('blink') ? Number(q.get('blink')) : q.get('dress') === '1' ? restingLid(window.__variations?.find((x) => x.key === key)?.age) : 0;
+  const ownVariation = window.__variations?.find((x) => x.key === key);
+  const lid = q.get('blink') ? Number(q.get('blink')) : q.get('dress') === '1' ? ownVariation?.photoFace?.eyes?.lid_rest ?? restingLid(ownVariation?.age) : 0;
   if (lid) fig.traverse((o) => { for (const k of ['eyeBlinkLeft', 'eyeBlinkRight']) if (o.morphTargetDictionary?.[k] !== undefined) o.morphTargetInfluences[o.morphTargetDictionary[k]] = lid; });
   if (q.get('hide')) { const re = new RegExp(q.get('hide')); fig.traverse((o) => { if (o.isMesh && re.test(o.material?.name ?? '')) o.visible = false; }); }
   const holder = new THREE.Group(); holder.add(fig);

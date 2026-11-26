@@ -1,0 +1,22 @@
+{
+ "id": "synthetic_photo_faces_256_2026",
+ "type": "illustration",
+ "citation": "240 additional fictional adult photographic-style portraits generated for the project owner\u2019s 256-face library on 26 November 2026; 15 preserved sheets of 16. These are generated images, not archival photographs or identified living people.",
+ "author": "Project-generated imagery",
+ "date": "2026-11-26",
+ "describes_date": "not applicable: fictional adult faces",
+ "repository": "This repository: assets/authored/humans/photo_face_pilot/sources_a.png (SHA-256 e5c910c4f51da9ac0083104d06038d21f0bb76c562ee85b0e4679ad3da9a6b9d); assets/authored/humans/photo_face_pilot/sources_b.png (SHA-256 43b84fe3fff13bdb2d49cc3c8f50d305f9205fad12079282b5782d745966a1a3); assets/authored/humans/photo_face_pilot/sources_c.png (SHA-256 a4e6eafb375afde16f0efe5c8dae8e79b0205d8df01b698b34590f1413cfa48c); assets/authored/humans/photo_face_pilot/sources_d.png (SHA-256 c7b7b10d33d2785c3bd98810eab66df36e74233facc2b094ae42eb551ed828e8); assets/authored/humans/photo_face_pilot/sources_e.png (SHA-256 21bc80499aea174068d10900724ee33965745419f614cf53823f15f99000f693); assets/authored/humans/photo_face_pilot/sources_f.png (SHA-256 488b05faa8c4ea69551f26109afd2156b414cf73641a0201efec0fee9d734f12); assets/authored/humans/photo_face_pilot/sources_g.png (SHA-256 41cb6c3732600ca262106e6c5dd0077649b358d1b379acf4a066e0369a013557); assets/authored/humans/photo_face_pilot/sources_h.png (SHA-256 35096b1d86c20a7d97fa1c2e9296551b460767444cf14cd2f12c151afb308022); assets/authored/humans/photo_face_pilot/sources_i.png (SHA-256 c5fb34935bd26055a0891e95198a8b8b5b270bdbb27320ccf75bea8a84ae2c32); assets/authored/humans/photo_face_pilot/sources_j.png (SHA-256 767363c9463cf41cc7ff774e51cac0617906a978122d72e99031a46988cd6353); assets/authored/humans/photo_face_pilot/sources_k.png (SHA-256 d9016e9c576671ae1ad363b867b847b7bd5f21630feb397f2ff2e29bb521a3cb); assets/authored/humans/photo_face_pilot/sources_l.png (SHA-256 2a2dc63b43ee622889fabd85a6274ef74c30683d4fc2f1ec1e0855fc6d0374ad); assets/authored/humans/photo_face_pilot/sources_m.png (SHA-256 aafc39f00764c39b1f65a78ece4a862b857fa87d544d699a432a0049ddb6c253); assets/authored/humans/photo_face_pilot/sources_n.png (SHA-256 b7be53b8977c52be7b244a82ee4ca0d55c8ed28dcfb75eac7de631f122b79753); assets/authored/humans/photo_face_pilot/sources_o.png (SHA-256 4c7f32ac5a64c5f7142de6f89b802748b1818df2bf4ffc88b8dfcc62de83d917)",
+ "url": "https://github.com/kevinrhaas/chicago/tree/steward/t3746-photo-face-pilot-16/chicago/4d/assets/authored/humans/photo_face_pilot",
+ "locator": "Sheets sources_a.png through sources_o.png; row-major crops and apparent ages in data/humans/variation/photo_face_pilot.json. The original sixteen retain their separate source credit.",
+ "tier": 5,
+ "rights_status": "cleared",
+ "rights_note": "Generated for the owner\u2019s explicit request to expand the fictional face library to 256. Project use and texture derivation authorized; no scraped portrait collection or external face dataset. Original generated outputs preserved.",
+ "rights_checked": {
+  "date": "2026-11-26",
+  "method": "Created in this task as fictional project imagery; original bytes preserved and hashed.",
+  "outcome": "cleared for project use and texture derivation"
+ },
+ "asset_use": "texture",
+ "verified": true,
+ "note": "Apparent ages are prompt targets, not historical biographical claims. Skin pixels, landmarks and visible front hair are measured; unseen depth, body, dress, hair volume and ears remain reconstructed. Review sources do not establish any historical person\u2019s appearance."
+}

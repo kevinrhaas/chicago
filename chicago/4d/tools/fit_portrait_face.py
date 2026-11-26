@@ -272,8 +272,11 @@ def face_base(person, portrait, header, refs, axes, rows):
     return base, fitted, prior, held, body
 
 
-def fit(person):
-    portrait = json.loads((PORTRAITS / f'{person}.json').read_text())
+def fit(person, portrait=None, *, yaw_starts=(-0.6, -0.3, 0.0, 0.3, 0.6)):
+    # A review-only photo import supplies its record in memory. It must not create a
+    # resident or overwrite an existing person's carefully traced portrait to try a face.
+    if portrait is None:
+        portrait = json.loads((PORTRAITS / f'{person}.json').read_text())
     header, refs, axes = load_kit()
     spec = {a['id']: a for a in json.loads(AXES.read_text())['axes']}
     lm = landmarks()
@@ -355,7 +358,7 @@ def fit(person):
     best = None
     options = range(len(axes['head_shape']['opts_d'])) if 'head_shape' in fitted else [0]
     for option in options:
-        for yaw0 in (-0.6, -0.3, 0.0, 0.3, 0.6):
+        for yaw0 in yaw_starts:
             p0 = np.concatenate([[yaw0, 0.0, 0.0, s0, *t0], centre])
             lo = np.concatenate([[-1.4, -0.8, -0.6, s0 * 0.5, -1e5, -1e5], -limit * np.ones(len(fitted))])
             hi = np.concatenate([[1.4, 0.8, 0.6, s0 * 2, 1e5, 1e5], limit * np.ones(len(fitted))])
@@ -382,6 +385,7 @@ def fit(person):
     per_mark = {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)}
     return {
         'portrait': portrait, 'values': values, 'held': sorted(held), 'constrained': constrained, 'info_ratio': info_ratio,
+        'projection_centre_m': base.mean(0).tolist(),
         'camera': {'yaw_deg': round(float(np.degrees(cam[0])), 1), 'pitch_deg': round(float(np.degrees(cam[1])), 1),
                    'roll_deg': round(float(np.degrees(cam[2])), 1), 'px_per_m': round(float(cam[3]), 1),
                    'shift_px': [round(float(cam[4]), 1), round(float(cam[5]), 1)]},
