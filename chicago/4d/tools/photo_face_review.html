@@ -137,6 +137,9 @@ try {
     // Preserve the same body/build in the before/after pair; the photo changes
     // the face only. No resident or ordinary library selection is changed.
     for(const axis of kit.axes)if(axis.scope!=='face'&&!['head_shape','forehead_height'].includes(axis.id)&&!axis.drive)v.values[axis.id]=0;
+    // The runtime caches deformed geometry by person key. Seed the pair together,
+    // then keep their different face geometries in separate cache entries.
+    v.key+=after?':after':':before';
     v.lib=after?{url:textureURL,index:face.index,id:face.id,cols:library.cols,size_px:library.size_px,
       tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0}:null;
     v.even=after?face.body_gain:null;
