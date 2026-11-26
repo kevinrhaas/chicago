@@ -8107,9 +8107,10 @@ async function boot() {
       ? 0 : rawElapsed;
     visualClockReset = visualHeld;
 
-    gamepad.poll(gateOpen ? elapsed : Math.min(elapsed, 0.1));
-    if (!gateOpen) backends.active?.update?.(dt);
-    else intent.clear();
+    // T-3749: the controller is read first, in the town and on the arrival screen alike (there it
+    // drives the menu), so the live backend's turn sees what it wrote.
+    if (!gateOpen) { gamepad.poll(Math.min(elapsed, 0.1)); backends.active?.update?.(dt); }
+    else { gamepad.poll(elapsed); intent.clear(); }
     terrain.update(dt);
     nightLights.update(dt);
     // T-3586: one gust clock for every swaying plant and the wind you hear.
