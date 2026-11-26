@@ -18,16 +18,51 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
 {
   const scripts = narrationScripts(jaunt);
   assert.deepEqual(scripts.map(s => `${s.part}:${s.id}`),
-    ['opening:opening', ...jaunt.stops.map(s => `stop:${s.id}`), ...jaunt.endings.map(e => `ending:${e.id}`)]);
+    ['opening:opening', ...jaunt.stops.map(s => `stop:${s.id}`), ...jaunt.endings.map(e => `ending:${e.id}`), ...jaunt.stops.map(s => `onward:${s.id}`)]);
   assert.equal(scripts[1].speaker, 'glessner_john_j', 'a stop is read by its first host');
   assert.equal(scripts[0].speaker, NARRATOR); assert.equal(scripts.at(-1).speaker, NARRATOR);
   assert.equal(scripts[1].text, jaunt.stops[0].text, 'a stop is read as the panel shows it');
   assert.ok(openingScript(jaunt).startsWith('The Glessner Household.\n\nA spring morning'), 'the opening reads its title, not "JAUNT: …"');
   assert.ok(!openingScript(jaunt).includes('JAUNT:'));
   const timed = narrationScripts({ stops: [{ id: 'a', since: 'Four hours later', text: 'Noon.' }, { id: 'b', text: '  ' }] });
-  assert.deepEqual(timed, [{ part: 'stop', id: 'a', speaker: NARRATOR, text: 'Four hours later. Noon.' }], 'a since is read with its stop; an empty script is none');
+  assert.deepEqual(timed.filter(s => s.part !== 'onward'), [{ part: 'stop', id: 'a', speaker: NARRATOR, text: 'Four hours later. Noon.' }], 'a since is read with its stop; an empty script is none');
+  assert.deepEqual(timed.filter(s => s.part === 'onward').map(s => s.id), ['a'], 'T-3755: a stop with words closes with a line; an empty one has none');
   assert.equal(await textKey('abc'), sha('abc'), 'the app\'s key is SHA-256 of the words');
   assert.equal(await textKey('x', null), null, 'no Web Crypto: no key, no narration');
+}
+
+// ---- T-3755: every stop closes with a varied line sending you on -------------------------
+{
+  const { onwardLines, sendsOn, ONWARD_LINES } = await import('../renderers/web/js/narration.js');
+  const all = Object.values(ONWARD_LINES).flatMap(r => Object.values(r).flat());
+  assert.equal(new Set(all.map(l => l[0])).size, all.length, 'no line is in the set twice');
+  assert.ok(all.every(l => l.length === 2 && l.every(t => typeof t === 'string' && t.trim() === t && /[.!?]$/.test(t))), 'every line has its English and its Spanish');
+  assert.ok(all.every(([en]) => !/\b(?:tap|click|button|menu|screen)\b|\bpress\b(?! on)/i.test(en)), 'the words stay in the walk: no keys or buttons');
+  const lines = onwardLines(jaunt), scripts = narrationScripts(jaunt);
+  assert.equal(lines.size, jaunt.stops.length, 'every stop of the household tour closes with a line');
+  for (const stop of jaunt.stops) {
+    const s = scripts.find(x => x.part === 'onward' && x.id === stop.id);
+    assert.equal(s.speaker, NARRATOR, 'the narrator reads a closing line, after any host');
+    assert.equal(s.text, lines.get(stop.id));
+  }
+  assert.ok(ONWARD_LINES.general.final.some(l => l[0] === lines.get(jaunt.stops.at(-1).id)), 'the last stop takes a last-stop line');
+  // A long jaunt: no line twice until its kind's list has run out, and none twice running.
+  const stops = Array.from({ length: 12 }, (_, i) => ({ id: `s${i}`, text: 'A plain stop of facts.', next: i < 11 ? `s${i + 1}` : '$end' }));
+  const long = { id: 'long-walk', grade_band: '6-8', stops };
+  const got = [...onwardLines(long).values()];
+  assert.equal(new Set(got.slice(0, 11)).size, 11, 'eleven onward stops, eleven different lines');
+  assert.ok(ONWARD_LINES.general.final.some(l => l[0] === got[11]));
+  assert.deepEqual([...onwardLines(long).values()], got, 'the same jaunt always picks the same lines (the voicer and the app agree)');
+  const young = [...onwardLines({ ...long, grade_band: '3-5' }).values()];
+  assert.ok(young.every(t => Object.values(ONWARD_LINES.young).flat().some(l => l[0] === t)), 'ages 8-10 take the simpler lines');
+  const es = [...onwardLines({ ...long, lang: 'es' }).values()];
+  assert.ok(es.every((t, i) => all.find(l => l[1] === t)?.[0] === got[i]), 'a jaunt read in Spanish takes the same lines in Spanish');
+  assert.ok(sendsOn('The lake is grey. Walk north to the brother\'s house next door.'));
+  assert.ok(sendsOn('Mrs. Glessner is in the yard. To find her, walk through the tunnel under the house.'));
+  assert.ok(!sendsOn('Quaife doubts the romance, not the rescue.'));
+  const sent = onwardLines({ id: 'x', grade_band: '6-8', stops: [{ id: 'a', text: 'Facts. Walk north to the gate.', next: 'b' }, { id: 'b', text: 'More facts.', choices: [{ id: 'c', next: 'd' }], next: 'd' }, { id: 'd', text: 'End.', next: '$end' }] });
+  assert.ok(ONWARD_LINES.general.linger.some(l => l[0] === sent.get('a')), 'a stop that already sends you on is told to look round first');
+  assert.ok(ONWARD_LINES.general.choice.some(l => l[0] === sent.get('b')), 'a stop asking a choice is told to choose');
 }
 
 // ---- the index -------------------------------------------------------------------------
@@ -65,7 +100,16 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
 {
   const config = { ...loadConfig(), narrators: { essayist: { voice: 'AAAAAAAAAAAAAAAAAAAA', label: 'Cultivated Essayist' }, storyteller: { voice: null, label: 'Midwestern Storyteller' } },
     voices: { glessner_john_j: { voice: 'BBBBBBBBBBBBBBBBBBBB', voice_settings: { style: 0.3 } }, glessner_frances_m: 'Frances Voice' } };
-  const scripts = await scriptsFor(config, { only: 'glessner-household-tour' });
+  const every = await scriptsFor(config, { only: 'glessner-household-tour' });
+  // T-3755: and each stop's closing line, the narrator's, once for each narrator.
+  assert.equal(every.filter(s => s.part === 'onward').length, 14, 'seven closing lines, once for each narrator');
+  {
+    const twice = [...every, ...every.filter(s => s.part === 'onward').map(s => ({ ...s, jaunt: 'another-jaunt' }))];
+    const once = plan(twice, config, { version: 1, clips: {} });
+    assert.equal(once.todo.filter(s => s.part === 'onward').length, 7, 'T-3755: a line two jaunts share is voiced once in a run');
+    assert.equal(new Set(once.todo.map(s => s.key)).size, once.todo.length, 'no clip is planned twice');
+  }
+  const scripts = every.filter(s => s.part !== 'onward');
   assert.equal(scripts.length, 11, 'the opening and the ending once for each narrator, each stop once (seven stops since T-3590)');
   const first = plan(scripts, config, { version: 1, clips: {} });
   assert.deepEqual(first.todo.map(s => s.id), ['opening', 'john', 'finish'], 'every chosen voice with no clip is voiced');
@@ -447,6 +491,43 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   const none = createNarration({ fetcher: async () => new Response('', { status: 404 }), location: Promise.resolve(new URL('https://media.test/narration/index.json')) });
   await none.prepare(jaunt);
   assert.equal(none.clip(jaunt, 'stop', 'john'), null); assert.equal(none.state.index, 'unavailable', 'no index: nothing offered, nothing thrown');
+}
+
+// ---- T-3755: the player reads a stop's closing line straight after the stop -------------
+{
+  const scripts = narrationScripts(jaunt);
+  const said = (part, id) => scripts.find(s => s.part === part && s.id === id).text;
+  const clips = {};
+  for (const [part, id] of [['stop', 'john'], ['onward', 'john'], ['stop', 'frances'], ['onward', 'frances']]) {
+    const sha = await textKey(said(part, id));
+    clips[clipKey(sha, part === 'onward' ? NARRATOR : 'x')] = { text_sha256: sha, file: `narration/${part}-${id}.mp3`, bytes: 8000, output_format: 'mp3_44100_64' };
+  }
+  class FakeAudio extends EventTarget { constructor() { super(); this.src = ''; this.paused = true; } play() { this.paused = false; return Promise.resolve(); }
+    pause() { this.paused = true; } removeAttribute(n) { if (n === 'src') this.src = ''; } load() {} }
+  let el;
+  const ctx = { createMediaElementSource: () => ({ connect() {}, disconnect() {} }) };
+  const p = createNarration({ fetcher: async () => new Response(JSON.stringify({ version: 1, clips })), location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+    media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible: true }) });
+  await p.prepare(jaunt);
+  p.at(jaunt, 'stop', 'john');
+  assert.equal(el.src, 'https://media.test/narration/stop-john.mp3');
+  el.dispatchEvent(new Event('ended'));
+  assert.equal(el.src, 'https://media.test/narration/onward-john.mp3', 'the stop heard to its end goes on into its closing line');
+  assert.ok(p.isPlaying(jaunt, 'onward', 'john'));
+  assert.equal(p.voice().speaker, NARRATOR, 'read by the narrator, so the host\'s mouth stops');
+  el.dispatchEvent(new Event('ended'));
+  assert.deepEqual(p.position(jaunt, 'stop', 'john'), { done: true }, 'the stop\'s meter stays full after its closing line');
+  assert.equal(p.state.playing, null, 'and nothing after it');
+  // Moving on while the stop speaks: its closing line is not read at the next stop.
+  p.at(jaunt, 'stop', 'frances');
+  assert.equal(el.src, 'https://media.test/narration/stop-frances.mp3');
+  p.stop(); p.at(jaunt, null);
+  assert.equal(p.state.playing, null);
+  // A stop whose voice the visitor moved away from (a Listen replay elsewhere) does not trail its line.
+  await p.toggle(jaunt, 'stop', 'john');
+  assert.equal(el.src, 'https://media.test/narration/stop-john.mp3');
+  el.dispatchEvent(new Event('ended'));
+  assert.equal(p.state.playing, null, 'heard away from its stop, no closing line follows');
 }
 
 console.log('NARRATION PASS — one script for app and voicer, keyed by its words; only changed words or voices are voiced; the index only grows; the player follows, queues, ducks and stops on mute, and says who is speaking and how loud');

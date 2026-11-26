@@ -163,8 +163,12 @@ export function voiceFor(config, speaker, names = null, narrator = DEFAULT_NARRA
 /** What to voice: scripts whose words have no clip, or a clip made with other settings or another
  *  performance of them (a clip from before direction was performed from the plain words). */
 export function plan(scripts, config, index, names = null) {
-  const todo = [], current = [], skipped = [];
+  const todo = [], current = [], skipped = [], seen = new Set();
   for (const s of scripts) {
+    // T-3755: one clip for one set of words (a stop's closing line is shared by many jaunts):
+    // voiced once in a run, not once per jaunt that says it.
+    if (seen.has(s.key)) continue;
+    seen.add(s.key);
     const v = voiceFor(config, s.speaker, names, s.narrator ?? DEFAULT_NARRATOR);
     if (v.missing) { skipped.push({ ...s, reason: v.missing }); continue; }
     const have = index?.clips?.[s.key];
