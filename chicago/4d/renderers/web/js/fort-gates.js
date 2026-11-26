@@ -40,7 +40,8 @@ import * as THREE from 'three';
 import { footprintToWorld } from './walker.js';
 
 /** The stockades whose gates a visitor works, and what each gate is called. Only these:
- * every other palisade (the covered way, the gardens) keeps its baked leaves, shut. */
+ * every other palisade keeps its baked leaves, shut, but for the covered way's open passages
+ * (OPEN_PASSAGES below), whose leaves are not drawn at all. */
 export const FORT_GATES = Object.freeze({
   // 1835 — the second fort's two gates, north and south (Kinzie; Andreas).
   fort_dearborn_palisade: { n: 'North gate', s: 'South gate', e: 'East postern', w: 'West postern' },
@@ -121,6 +122,24 @@ export function paradeGroundOwner(record) {
 
 export function paradeLaidAsGround(record) {
   return paradeGroundOwner(record) !== null;
+}
+
+/** T-3553 — PASSAGES THAT STAND OPEN. The first fort's covered way is four palisade runs
+ * down the bank to the river, and each record says of its two gateways: "A passage is open at
+ * both ends" (gate_sides' note). The archetype still bakes a shut pair of `dark` leaves into
+ * every gateway, so the soldiers carrying the powder down from the sally port walked through
+ * eight shut gates (the owner, 2026-11-26: "They can walk through doors"). These records' baked
+ * leaves are left out and nothing is hung in their place: the jambs and lintel stay. */
+export const OPEN_PASSAGES = Object.freeze(new Set([
+  'first_fort_covered_way_terrace',
+  'first_fort_covered_way_bank_upper',
+  'first_fort_covered_way_bank_middle',
+  'first_fort_covered_way_bank_lower',
+]));
+
+/** Does this record's gateway stand open, so its baked shut leaves are not drawn? */
+export function standsOpen(record) {
+  return !!record && OPEN_PASSAGES.has(record.id);
 }
 
 /** Does the buildings layer leave this record's baked leaves to this layer? */
