@@ -22,7 +22,12 @@
 //  - Frances M. Glessner: her collar's top under her chin in front, by half CHIN.clear at least;
 //  - Charles Nelson, coachman: his coat's skirt as cut (the fairing opened its fronts once):
 //    at least SKIRT_KEEP of its points unmoved by the fairing;
-//  - Mary Reynolds, maid: her collar cut again as a band.
+//  - Mary Reynolds, maid: her collar cut again as a band; her apron's shoulder frills gathered
+//    again (T-3553 round 6, the owner 2026-11-26 "keep going on the rest");
+//  - Charles Nelson: a shirt front in his coat's V, his collar's front corners no farther
+//    forward than its front line (LIVERY.burr and 3 mm);
+//  - John J. Glessner: both armholes seamed at the nearest level; his waistcoat closed at the far
+//    levels (the skin showed through it under the lapels cut again).
 // and an 1812 working woman's short gown's skirt left under her apron by the fairing (APRON_KEEP
 // of the points under it before).
 // Wired into humans.js's parse, after the fittings.
@@ -227,8 +232,9 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
     assert(off <= cut.points * 0.02, `${tag}: ${off} of ${cut.points} lapel points off the coat`);
     assert(over === 0, `${tag}: ${over} lapel points over the shoulder`);
     if (lod <= 1) assert((trim.buttoned ?? []).some((r) => r.buttons === 3) && (trim.collared ?? []).length === 1, `${tag}: buttons and collar`);
-    if (lod === 0) assert((trim.seamed ?? []).some((r) => r.seams >= 5), `${tag}: seams`);
-    note = `lapels ${cut.points} points, ${buttons ? 'buttons, ' : ''}${(trim.collared ?? []).length ? 'collar' : ''}`;
+    if (lod === 0) assert((trim.seamed ?? []).some((r) => r.seams >= 7), `${tag}: seams (five, and both armholes)`);
+    if (lod >= T.FAR_WAISTCOAT.from) assert((trim.waistcoatClosed ?? []).length === 1, `${tag}: waistcoat closed under the lapels`);
+    note = `lapels ${cut.points} points, ${buttons ? 'buttons, ' : ''}${(trim.collared ?? []).length ? 'collar' : ''}${lod === 0 ? ', seams and armholes' : ''}${lod >= T.FAR_WAISTCOAT.from ? ', waistcoat closed' : ''}`;
   }
   if (/glessner_frances_m_1904/.test(asset)) {
     const body = meshesOf(after).find((m) => m.material?.name === 'skin'), J = joints(body), col = meshesOf(after).find((m) => /lady_shirtwaist_collar_lod\d+$/.test(m.name));
@@ -246,7 +252,19 @@ for (const [asset, lods] of BODIES) for (const lod of lods) {
   }
   if (/reynolds_mary_1904_maid/.test(asset)) {
     assert((trim.rebuilt ?? []).some((r) => /collar/.test(r.mesh)), `${tag}: collar cut again`);
-    note = 'collar cut again';
+    const ruff = (trim.ruffled ?? [])[0];
+    assert(ruff && ruff.points >= 2 * (T.RUFFLE.K[Math.min(lod, 3)] + 1) * (T.RUFFLE.rows[Math.min(lod, 3)] + 1), `${tag}: apron frills gathered again`);
+    note = `collar cut again, frills gathered (${ruff.points} points)`;
+  }
+  if (/nelson_charles_1904_coachman/.test(asset)) {
+    assert((trim.shirtFront ?? []).length === 1, `${tag}: shirt front in the coat's V`);
+    // The collar's front no farther forward than the line of its front edge (the hooks gone).
+    const coat = meshesOf(after).find((m) => T.LIVERY.coat.test(m.name)), W = D.kit.weldMeshes([coat]), loops = D.kit.loopsOf(W);
+    const mean = (l) => l.reduce((a, g) => a + W.P[g * 3 + 1], 0) / l.length, top = loops.reduce((a, l) => (mean(l) > mean(a) ? l : a));
+    const fz = top.filter((g) => Math.abs(W.P[g * 3]) < 0.07 && W.P[g * 3 + 2] > 0.04).map((g) => W.P[g * 3 + 2]).sort((a, b) => a - b);
+    const stand = fz.at(-1) - fz[Math.floor(fz.length / 3)];
+    assert(stand <= T.LIVERY.burr + 0.003, `${tag}: collar front stands ${(stand * 1000).toFixed(1)} mm forward`);
+    note = `shirt front, collar front within ${(stand * 1000).toFixed(1)} mm of its line`;
   }
   measured++;
   lines.push(`  ${tag.padEnd(40)} shows through ${String(p1).padStart(5)} (before ${String(p0).padStart(5)}), longest step ${longest.toFixed(0)} ms${note ? `, ${note}` : ''}`);
