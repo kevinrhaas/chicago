@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 3250, ts: '2026-11-26T06:38:51.941Z', date: 'Nov 26, 2026, 12:38 AM CT', title: 'Stories fit their tellers, and household cards use real names', kind: 'fix',
+    items: [
+      'Louis Ream no longer tells the World\'s Fair as a girl: every story and question now goes only to someone of the right sex, age and background.',
+      'In 1871 the lumber yard and other men\'s work stories go back to the men; fourteen new stories give the women and little ones their own.',
+      'Servants tell the stories of their own post: the butler his, the nursemaid hers, the groom his.',
+      'Miss Grey and Florence Grey were one woman, and now share one card.',
+      'The Misses Ream is now Frances Ream, the daughter still at home in 1904; the Bellas and Buckingham daughters stand on their own cards.',
+      'About fifty Prairie Avenue cards carry the person\'s own first name from the census, such as Sarah Grey or Rose Longini; the society register\'s form stays on the card.',
+    ] },
   { v: 3249, ts: '2026-11-26T06:29:44.283Z', date: 'Nov 26, 2026, 12:29 AM CT', title: '1904 alleys run out to the street', kind: 'fix',
     items: [
       'The grass strip and curb no longer run across the mouths of Prairie Avenue\'s alleys.',
