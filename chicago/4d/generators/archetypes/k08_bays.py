@@ -4309,7 +4309,11 @@ class Bay:
         r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
         # T-3616: and so does a two-stage cap whose axis stands behind its wall's face (2011's)
         clip = not (self.v.get("cap_whole") or self.meta["roof"].get("upper", {}).get("whole"))
-        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
+        # T-3634: a half round's turnings stand ON the wall plane (their axis is on it), so a
+        # flattened back would be half of every ring laid on one plane, the collar's and the
+        # finial's over each other; there the back halves are left out, as the cone's is
+        drop = self.meta["roof"].get("apex") is None
+        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip, drop=drop)
         top = {"top_m": round(ay + H, 4), "form": "turned"}
         c = f.get("collar_m")
         if c:
@@ -4317,7 +4321,7 @@ class Bay:
             # its back, where the tower stands into its wall, is closed CLIP_M in front of the
             # wall's plane (z 0), as the cone's is on it, and a crocket that would stand behind
             # that is not laid
-            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=clip)
+            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=clip, drop=drop)
             flare = self.COLLAR[3:-1]   # the sweep, rim to neck, y rising
 
             def on(y):   # the flare's r (as a fraction of c) at y, a hair inside it
@@ -4338,11 +4342,12 @@ class Bay:
         self.meta["finial"] = top
 
     @staticmethod
-    def _lathe(world, ax, az, prof, k, clip=False):
+    def _lathe(world, ax, az, prof, k, clip=False, drop=False):
         """A turned solid on the axis (ax, az): `prof` (r, y) from its foot up, each band of
         quads shaded square to its own slope; a ring at r 0 closes it. `clip` holds it in front
         of the wall's plane (z 0), flattening what would stand behind onto CLIP_M in front of it,
-        clear of the cone's back face on the plane itself."""
+        clear of the cone's back face on the plane itself; `drop` (T-3634) leaves out the
+        faces that clip would flatten wholly onto that plane."""
         ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y,
                               max(az + r * math.sin(2 * math.pi * j / k), Bay.CLIP_M) if clip
                               else az + r * math.sin(2 * math.pi * j / k)) for j in range(k)]
@@ -4356,6 +4361,8 @@ class Bay:
                 n = (math.cos(t) * dy / ln, -dr / ln, math.sin(t) * dy / ln)
                 q = [a[j], a[jj], b[jj], b[j]]
                 q = [p for i, p in enumerate(q) if p != q[i - 1]]
+                if drop and all(p[2] <= Bay.CLIP_M for p in q):
+                    continue
                 if len(q) >= 3:
                     world.face("finial", q, n)
 
