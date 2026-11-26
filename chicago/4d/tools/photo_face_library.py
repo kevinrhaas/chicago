@@ -172,6 +172,9 @@ def validate_entry(entry):
     if entry['sex'] not in BASE or not 18 <= entry['age'] <= 100:
         raise ValueError('the pilot supports adult male/female calibrated bodies, age 18 to 100')
     source_record(entry['source'])
+    if entry.get('shape_from'):
+        import historical_photo_shape as H
+        H.record(entry)
 
 
 @lru_cache(maxsize=2)
@@ -362,6 +365,9 @@ def prepare_face(task):
     fit_inputs = {k:v for k,v in inputs.items() if k not in (relative(pathlib.Path(__file__)),relative(pathlib.Path(L.__file__)),relative(pathlib.Path(B.__file__)),relative(L.SKIN_JS),relative(L.RECORD))}
     signature = hashlib.sha256(json.dumps({'portrait':p,'inputs':fit_inputs,'frontal':frontal},sort_keys=True).encode()).hexdigest()
     fit = e.get('fitted') if e.get('fit_signature') == signature else None
+    if fit is None and e.get('shape_from'):
+        import historical_photo_shape as H
+        fit=H.fit(e,p)
     fit = fit or F.fit(e['id'], p, **({'yaw_starts': (0.0,)} if frontal else {}))
     tile, tone, base_tone = bake_face(im, points, e['sex'])
     hair_tile, hair_rgb, hair_shell, hair_projection = bake_hair(im,points,e['sex'],fit)
@@ -373,6 +379,8 @@ def prepare_face(task):
             'tone_rgb':tone, 'body_gain':(np.array(tone)/np.maximum(base_tone,.001)).tolist(),
             'hair_rgb':hair_rgb, 'hair_shell':hair_shell, 'hair_projection':hair_projection,
             'eyes':eye_appearance(im,points,e['sex'],fit,p), 'limits':p['not_modelled']}
+    if e.get('historical'):
+        face.update(historical=e['historical'],shape_from=e.get('shape_from'),reference_source=e.get('reference_source'),grade='inferred')
     e.update(landmarks=points, fitted={k:fit[k] for k in ('values','rms_px','camera','projection_centre_m')},
              fit_signature=signature, photo_sha256=digest(ROOT/e['photo']))
     return face, tile, hair_tile, e, round(time.monotonic()-began,1)
@@ -407,6 +415,10 @@ def build(recipe, output, model=None, fast=False, jobs=1):
     dependencies += [ROOT/'assets/humans/web'/f'{b}.lod0.glb' for b in BASE.values()]
     dependencies += [F.PORTRAITS/f'{p}.json' for p in ('pa1904_grey_w_l','pa1904_grey_mrs_w_l')]
     dependencies += [F.MH/'makehuman/data/3dobjs/base.obj', F.MH/'prepared.json']
+    for e in entries:
+        if e.get('shape_from'):
+            import historical_photo_shape as H
+            dependencies.extend([pathlib.Path(H.__file__),H.record(e)[0]])
     inputs = {relative(p):digest(p) for p in dependencies}
     output.mkdir(parents=True, exist_ok=True)
     faces = []
@@ -500,6 +512,8 @@ def main():
     ap.add_argument('--batch', type=pathlib.Path, help='recipe JSON (paths relative to chicago/4d)')
     ap.add_argument('--photo', type=pathlib.Path, help='one front or three-quarter historical photograph')
     ap.add_argument('--id', help='stable face id; may be the intended historical person id')
+    ap.add_argument('--person',help='bind a photo review to an existing person; preserve their curated head fit')
+    ap.add_argument('--label',help='display name for this photo review')
     ap.add_argument('--source', help='cleared data/sources id; never invented by the importer')
     ap.add_argument('--sex', choices=BASE)
     ap.add_argument('--age', type=int, help='apparent age in the photograph')
@@ -519,10 +533,29 @@ def main():
         if args.batch:
             recipe = json.loads(args.batch.read_text())
         else:
+            if args.person:
+                if args.id and args.id != args.person:
+                    ap.error('--person and --id must agree')
+                args.id=args.person
             if not all([args.id,args.source,args.sex,args.age]):
                 ap.error('--photo requires --id, --source, --sex and --age')
             recipe = {'faces':[{'id':args.id, 'photo':str(args.photo.resolve()), 'source':args.source,
                                 'sex':args.sex, 'age':args.age, 'synthetic':args.synthetic}]}
+            if args.label:recipe['faces'][0]['label']=args.label
+            if args.person:
+                if args.synthetic:raise ValueError('a historical person binding requires their actual photograph')
+                people={}
+                for path in sorted((ROOT/'assets/humans/web').glob('hm08_variation_persons*.json')):
+                    people.update(json.loads(path.read_text())['persons'])
+                if args.person not in people:raise ValueError('person is not in the portable-human population')
+                person=people[args.person];entry=recipe['faces'][0]
+                entry['historical']={'person_id':args.person,'scene':str(person['scene']),
+                    'scene_age':person.get('age'),'before_values':person.get('face',{}).get('values',{}),
+                    'limits':['A monochrome photograph does not attest colouring.','Profile depth and unseen features remain reconstructed.']}
+                old=F.FITS/f'{args.person}.json'
+                if old.exists():
+                    fitted=json.loads(old.read_text())
+                    entry.update(shape_from=relative(old),reference_source=fitted['sources'][0])
         out = (args.output or ROOT/'work/photo-faces'/recipe['faces'][0]['id']).resolve()
         # Review work cannot overwrite the existing production library or resident records.
         protected = [ROOT/'data', ROOT/'assets/humans/web/likeness', ROOT/'assets/authored']

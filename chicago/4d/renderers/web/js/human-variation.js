@@ -78,12 +78,17 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
     // Owner review only (T-3746): the ordinary population can be inspected with the
     // photographic library before it becomes the default. One low-resolution atlas
     // is shared across every generic adult; existing personal likenesses take priority.
-    if (typeof location !== 'undefined' && new URLSearchParams(location.search).get('photoFaces') === 'pilot') {
+    const photoMode=typeof location!=='undefined'?new URLSearchParams(location.search).get('photoFaces'):null;
+    if (photoMode==='pilot'||photoMode==='historical') {
       try {
         const url = new URL('photo_faces/pilot/review.json', jsonURL), r = await fetchImpl(url);
         if (r.ok) attachPhotoLibrary(kit, await r.json(), url);
       } catch { /* the ordinary library remains available if the review assets cannot load */ }
     }
+    if(photoMode==='historical')try{
+      const url=new URL('photo_faces/historical/review.json',jsonURL),r=await fetchImpl(url);
+      if(r.ok)attachPhotoPortraits(kit,await r.json(),url);
+    }catch{/* A missing personal photo never substitutes another person's face. */}
     return kit;
   } catch { return null; }
 }
@@ -97,6 +102,15 @@ export function attachPhotoLibrary(kit, library, manifestURL) {
       || library.pages?.some(p => !p.textures?.full || p.textures.full.gpu_bytes_rgba8_mipmaps > 5_600_000)) return false;
   kit.photoFaces = { ...library, url: new URL(library.textures.light.file, manifestURL).href };
   return true;
+}
+
+/** Personal previews bind exact person ids and a scene; fictional library draws cannot win. */
+export function attachPhotoPortraits(kit,library,manifestURL){
+  const checked={};
+  if(!attachPhotoLibrary(checked,library,manifestURL)
+    ||!library.faces.every(f=>f.synthetic===false&&f.historical?.person_id===f.id&&/^\d{4}$/.test(f.historical.scene))
+    ||new Set(library.faces.map(f=>f.id)).size!==library.faces.length)return false;
+  kit.photoPortraits=checked.photoFaces;return true;
 }
 
 /** Stable generic-adult assignment. Personal portraits and visitor-selected faces win. */
@@ -329,21 +343,25 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
       else values[k] = v;
     }
   }
-  const photo = photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: record?.age ? age : 35,
+  const portrait=age>=18&&!record?.skin&&!record?.looks?.face_pick?kit?.photoPortraits?.faces.find(f=>f.id===key
+    &&f.historical.scene===String(sceneYear??record?.scene)&&f.sex===(record?.sex??asset.sex??'male')):null;
+  const photo = portrait??photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: record?.age ? age : 35,
     own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn });
   if (photo && age >= 18) for (const [k,v] of Object.entries(photo.values)) {
     if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
     else values[k] = v;
   }
   const photoBody = kit.header.faces?.bodies?.[record?.skin_of ?? assetId] ?? kit.header.faces?.bodies?.[assetId];
-  const page = photo && kit.photoFaces.pages?.[photo.page];
+  const photoRegistry=portrait?kit.photoPortraits:kit?.photoFaces;
+  const page = photo && photoRegistry.pages?.[photo.page];
   const photoLib = photo && age >= 18 && photoBody ? {
-    url: kit.photoFaces.url, index: photo.index, id: photo.id, cols: kit.photoFaces.cols,
-    size_px: kit.photoFaces.size_px, tile_px: kit.photoFaces.tile_px, padding_px: kit.photoFaces.padding_px,
-    gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])), lines: 0,
-    ...(page ? { detail: { url: new URL(page.textures.full.file, kit.photoFaces.url).href,
+    url: photoRegistry.url, index: photo.index, id: photo.id, cols: photoRegistry.cols,
+    size_px: photoRegistry.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px,
+    gain: photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])),
+    lines:portrait?Math.max(0,age-photo.age)/Math.max(1,age-28):0,
+    ...(page ? { detail: { url: new URL(page.textures.full.file, photoRegistry.url).href,
       bytes: page.textures.full.gpu_bytes_rgba8_mipmaps, index: photo.page_index,
-      cols: page.cols, size_px: page.size_px, tile_px: kit.photoFaces.tile_px, padding_px: kit.photoFaces.padding_px } } : {}),
+      cols: page.cols, size_px: page.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px } } : {}),
   } : null;
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
     photoFace: photoLib ? photo : null,

@@ -15,7 +15,7 @@
 <div class="toolbar">
 <label>Detail <select id="quality"><option value="light">Light · smaller textures</option><option value="full">Full · close inspection</option></select></label>
 <label>Hair <select id="hair"><option value="native">Existing style · source colour</option><option value="photo">Photographed scalp · trial</option></select></label>
-<button id="front">Front</button><button id="oblique">Three-quarter</button><button id="profile">Profile</button>
+<button id="front">Front</button><button id="sourceAngle">Photo angle</button><button id="oblique">Three-quarter</button><button id="profile">Profile</button>
 <button id="move" aria-pressed="false">Turn slowly</button><button id="gallery" aria-pressed="false">Page gallery</button>
 <button id="measure">Measure on this PC</button><button id="export" disabled>Save measurement</button>
 </div>
@@ -33,9 +33,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
-import { dressSkin, likenessSheetsReady, chainPatch, restMatrix, restingLid, headFrame } from '../renderers/web/js/human-skin.js';
+import { dressSkin, dressPhotoLooks, likenessSheetsReady, chainPatch, restMatrix, restingLid, headFrame } from '../renderers/web/js/human-skin.js';
 import { dressHair } from '../renderers/web/js/human-hair.js';
-import { HAIR_COLOURS } from '../renderers/web/js/human-hair-styles.js';
+import { HAIR_COLOURS, hairFor } from '../renderers/web/js/human-hair-styles.js';
+import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
 import { clothHuman } from '../renderers/web/js/fabric.js';
 import { fitWaist } from '../renderers/web/js/human-waist.js';
 
@@ -44,7 +45,7 @@ const quality = q.get('quality') === 'full' ? 'full' : 'light';
 const photoHairMode=q.get('hair')==='photo';$('hair').value=photoHairMode?'photo':'native';
 $('quality').value = quality;
 const lod = quality === 'light' ? 2 : 0;
-let renderer, library, selected = 0, yaw = 0, moving = false, gallery = q.get('gallery') === '1', measurement = null;
+let renderer, library, selected = 0, yaw = 0, pitch=0,roll=0, moving = false, gallery = q.get('gallery') === '1', measurement = null;
 let resize, draw, ready;
 window.__pilotReady = new Promise((resolve,reject)=>{ready={resolve,reject};});
 // The UI reports loading failures as well as the automation promise; no rejected
@@ -165,7 +166,8 @@ try {
     const key=`${index}:${after}`;
     if(figures.has(key))return figures.get(key);
     const face=library.faces[index],own=assets.get(face.base_body),fig=cloneSkinned(own.scene);
-    const rec={sex:face.sex,age:face.age,scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:{})};
+    const before=face.historical?.before_values;
+    const rec={sex:face.sex,age:{years:face.age},scene:'1904',...(after?{face:{values:face.values,grade:face.grade}}:before?{face:{values:before}}:{})};
     const v=personVariation({kit,key:`photo-review-${face.id}`,record:rec,assetId:face.base_body,sceneYear:1904});
     v.height=1;
     // Preserve the same body/build in the before/after pair; the photo changes
@@ -175,18 +177,22 @@ try {
     // then keep their different face geometries in separate cache entries.
     v.key+=after?':after':':before';
     v.lib=after?{url:textureURL,index:face.page_index??face.index,id:face.id,cols:page.cols,size_px:page.size_px,
-      tile_px:library.tile_px,padding_px:library.padding_px,gain:[1,1,1],lines:0}:null;
-    v.even=after?face.body_gain:null;
+      tile_px:library.tile_px,padding_px:library.padding_px,
+      gain:face.historical?kit.header.faces.bodies[face.base_body].tone_rgb.map((v,i)=>v/Math.max(.001,face.tone_rgb[i])):[1,1,1],lines:0}:null;
+    v.even=after&&!face.historical?face.body_gain:null;
     applyVariation(fig,kit,v,{scope:'full'});
-    if(after&&!photoHairMode)fig.traverse(o=>{
+    if(after&&!photoHairMode&&!face.historical)fig.traverse(o=>{
       if(!o.isMesh||!/^hair($|__)/.test(o.material?.name??''))return;
       o.material=o.material.clone();o.material.color.setRGB(...face.hair_projection.fallback_gain);
     });
     if(after&&photoHairMode)photoHair(fig,face);
     if(after)fig.userData.chiPhotoFace=face;
+    if(face.historical?.looks)dressPhotoLooks(fig,face.historical.looks);
     dressSkin(fig,{age:face.age,person:null,year:1904});
     const colour=face.hair_rgb?Object.entries(HAIR_COLOURS).sort((a,b)=>a[1].reduce((s,v,i)=>s+(Math.log(v+.005)-Math.log(face.hair_rgb[i]+.005))**2,0)-b[1].reduce((s,v,i)=>s+(Math.log(v+.005)-Math.log(face.hair_rgb[i]+.005))**2,0))[0][0]:'dark_brown';
-    dressHair(fig,{lod,year:1904,person:`photo-review-${face.id}`,style:{cut:face.sex==='male'?'short_side_part_1904':'drawn_back_bun_1904',colour:after?colour:'dark_brown',no_scalp:after&&photoHairMode,facial:[]}});
+    const known=face.historical?hairFor(face.id,1904):null;
+    dressHair(fig,{lod,year:1904,person:face.historical?face.id:`photo-review-${face.id}`,style:{...(known??{cut:face.sex==='male'?'short_side_part_1904':'drawn_back_bun_1904',colour:after?colour:'dark_brown',facial:[]}),no_scalp:after&&photoHairMode}});
+    if(face.historical)dressSpectacles(fig,{lod,person:face.id});
     clothHuman(fig);
     fig.traverse(o=>{if(o.isMesh&&/^(headwear|accessory__lady_hat_plumes)/.test(o.material?.name??''))o.visible=false;});
     if(own.animations.length){const mix=new THREE.AnimationMixer(fig);const clip=own.animations.find(c=>/idle/.test(c.name))??own.animations[0];mix.clipAction(clip).play();mix.setTime(1);}
@@ -200,7 +206,8 @@ try {
   let width=1,height=1;
   resize=()=>{const bounds=$('render').getBoundingClientRect();width=Math.floor(bounds.width);height=Math.floor(bounds.height);renderer.setSize(width,height,false);draw?.();};
   function viewport(entry,x,y,w,h){
-    entry.fig.visible=true;entry.fig.rotation.y=yaw;
+    entry.fig.visible=true;entry.fig.rotation.set(pitch,yaw,roll,'ZXY');
+    entry.fig.position.copy(entry.aim).sub(entry.aim.clone().applyQuaternion(entry.fig.quaternion));
     camera.aspect=w/h;camera.updateProjectionMatrix();
     const distance=.85;camera.position.copy(entry.aim).add(new THREE.Vector3(0,.005,distance));camera.lookAt(entry.aim);
     renderer.setViewport(x,y,w,h);renderer.setScissor(x,y,w,h);renderer.clear();renderer.render(scene,camera);entry.fig.visible=false;
@@ -218,10 +225,16 @@ try {
     if(!Number.isInteger(index)||index<page.first||index>=page.first+page.count)throw Error('Select a face from this page');
     selected=index;const f=library.faces[index];
     $('source').src=new URL(f.photo,manifestURL).href;
-    $('sourceLabel').textContent=f.synthetic?'Synthetic source · fictional person':'Original source image';
+    $('sourceLabel').textContent=f.synthetic?'Synthetic source · fictional person':f.historical?'Historical photograph · processed crop':'Original source image';
     $('faceTitle').textContent=`${String(index+1).padStart(2,'0')} · ${f.label}`;
     $('faceNote').replaceChildren(document.createTextNode(`${f.synthetic?'Fictional face':'Source-based face'} · apparent age ${f.age} · front landmark fit ${f.fit_rms_px} px. `));
     const a=document.createElement('a');a.href=f.source_url;a.textContent='Source credit';a.target='_blank';a.rel='noopener';$('faceNote').append(a);
+    if(f.historical){
+      $('faceNote').append(document.createTextNode(` Existing cited head fit retained. Photo: ${f.historical.photo_date??'undated'}; scene age ${f.historical.scene_age??'not recorded'}. Colour, hidden depth and changes between dates remain reconstructed. ${f.historical.limits?.[0]??''}`));
+      $('hair').options[0].textContent='Existing style · reconstructed colour';
+      document.querySelector('.captions span').textContent='Before · existing portrait fit';
+      document.querySelector('.captions span:last-child').textContent='After · retained fit + photograph';
+    }
     [...$('choices').children].forEach((b,i)=>b.setAttribute('aria-pressed',String(i+page.first===index)));
     figure(index,false);figure(index,true);await likenessSheetsReady();draw();
     $('status').textContent=`Faces ${page.first+1}–${page.first+page.count} of ${library.faces.length} ready · ${quality} detail · no resident assignments`;
@@ -235,7 +248,8 @@ try {
   function setGallery(value){gallery=value;document.body.classList.toggle('gallery',gallery);$('gallery').setAttribute('aria-pressed',String(gallery));if(gallery)pageFaces.forEach((_,i)=>figure(page.first+i,true));const rows=Math.ceil(pageFaces.length/4);$('galleryLabels').style.gridTemplateRows=`repeat(${rows},1fr)`;$('render').style.height=gallery?`${rows*Math.min(250,$('render').clientWidth/4*1.1)}px`:'';resize();}
   $('quality').onchange=()=>{q.set('quality',$('quality').value);location.search=q.toString();};
   $('hair').onchange=()=>{q.set('hair',$('hair').value);location.search=q.toString();};
-  for(const [id,angle] of [['front',0],['oblique',35],['profile',85]])$(id).onclick=()=>{moving=false;$('move').setAttribute('aria-pressed','false');yaw=angle*Math.PI/180;draw();};
+  for(const [id,angle] of [['front',0],['oblique',35],['profile',85]])$(id).onclick=()=>{moving=false;$('move').setAttribute('aria-pressed','false');yaw=angle*Math.PI/180;pitch=roll=0;draw();};
+  $('sourceAngle').onclick=()=>{moving=false;$('move').setAttribute('aria-pressed','false');const c=library.faces[selected].camera;yaw=c.yaw_deg*Math.PI/180;pitch=c.pitch_deg*Math.PI/180;roll=c.roll_deg*Math.PI/180;draw();};
   $('move').onclick=()=>{moving=!moving;$('move').setAttribute('aria-pressed',String(moving));};
   $('gallery').onclick=()=>setGallery(!gallery);
   $('measure').onclick=async()=>{
