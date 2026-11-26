@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3266, ts: '2026-11-26T18:19:10.072Z', date: 'Nov 26, 2026, 12:19 PM CT', title: 'Make your case: a new case in every year', kind: 'feature',
+    items: [
+      '1812: where did Fort Dearborn\'s blockhouses stand? Weigh the 1808 drawing against a memory written forty years later.',
+      '1835: was the South Branch bridge floating logs, or a bridge on posts? Four men who used it against a later history.',
+      '1871: which South Side building caught fire first, the Parmelee stable or the gas works?',
+      '1904: what can a ghost story about the Glessner house\'s architect show, and what can the records check?',
+      'Your notebook now keeps every source\'s full citation, however long.',
+    ] },
   { v: 3265, ts: '2026-11-26T17:32:58.065Z', date: 'Nov 26, 2026, 11:32 AM CT', title: 'Photo faces for adults and children in every year', kind: 'improvement',
     items: [
       'Dev now gives generic adults photographic faces by default in 1812, 1835, 1871 and 1904, drawn from 256 fictional faces with varied ages, skin tones and features.',
