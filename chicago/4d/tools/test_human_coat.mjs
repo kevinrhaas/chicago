@@ -458,6 +458,6 @@ assert(folds >= 4, `eased coats measured at every level: ${folds}`);
 {
   const humans = await fs.readFile(process.env.HUMANS_JS ?? new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ fitCoats \} from '\.\/human-coat\.js';/.test(humans), 'humans.js imports fitCoats');
-  assert(/const gltf = await loader\.parseAsync\(.*\);(?:(?!return gltf)[\s\S]){0,1200}fitCoats\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}fitWaist\(gltf\.scene\);\s*engraveSilver\(gltf\.scene\);\s*return gltf;/.test(humans), 'parse() fits the coats of the shared source, before the waist');
+  assert(/const gltf = await loader\.parseAsync\(.*\);(?:(?!return gltf)[\s\S]){0,1200}fitCoats\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}fitWaist\(gltf\.scene\);\s*engraveSilver\(gltf\.scene\);\s*(?:if \(!globalThis\.CHICAGO_NO_DRAPE\) \{[^}]*\}\s*)?return gltf;/.test(humans), 'parse() fits the coats of the shared source, before the waist');
 }
 console.log(`human-coat: ${pits} sleeved body levels closed at the armpit, ${vents} vents lapped, ${folds} coat levels measured at the fold (eased at the two near levels), standing and walking: PASS`);

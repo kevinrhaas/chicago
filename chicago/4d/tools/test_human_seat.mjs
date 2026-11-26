@@ -239,7 +239,7 @@ assert(seats >= 40, `seat garments found: ${seats}`);
 {
   const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
   assert(/import \{ easeSeats \} from '\.\/human-seat\.js';/.test(humans), 'humans.js imports easeSeats');
-  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}easeSeats\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,400}return gltf;/.test(humans), 'parse() bridges the seats of the shared source');
+  assert(/const gltf = await loader\.parseAsync\(.*\);[\s\S]{0,1200}easeSeats\(gltf\.scene\);(?:(?!return gltf)[\s\S]){0,900}return gltf;/.test(humans), 'parse() bridges the seats of the shared source');
 }
 for (const l of lines) console.log(l);
 console.log(`${seats} seat garments over every body and level: bridged, nothing else moved: PASS`);

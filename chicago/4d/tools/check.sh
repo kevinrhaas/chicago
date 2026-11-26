@@ -857,6 +857,8 @@ step "John J. Glessner's frock coat stops at the knee, is taken in at the waist,
   node tools/test_human_frockcoat.mjs
 step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
   node tools/test_human_gown.mjs
+step "Clothes hang, lie and are trimmed as cloth at load: nothing under shows through more than drawn, standing or striding; John J. Glessner's coat has its lapels, collar, front buttons and seams, the lapels off his shoulders; a lady's collar under her chin; skin rows whole, every step short (T-3553)" \
+  node tools/test_human_drape.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
