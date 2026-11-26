@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3264, ts: '2026-11-26T17:26:42.132Z', date: 'Nov 26, 2026, 11:26 AM CT', title: 'Clothes swept on everyone: cleaner edges, armpits fold, nothing pokes through', kind: 'fix',
+    items: [
+      'Every person\'s clothing was checked from five sides, standing and walking, at every distance, for ragged edges, torn collars, cloth poking through and holes.',
+      'Hems, collar edges and straps run clean instead of sawing from point to point.',
+      'Under each arm the sleeve and the coat now fold in together; the torn notch at the front of the armpit is gone.',
+      'Belts and crossbelts lie over the coat, and braces lie over the shirt under the waistcoat.',
+      'Far-off people no longer show waistcoat patches through their coats: what is worn under a coat now moves with it.',
+    ] },
   { v: 3263, ts: '2026-11-26T16:56:13.174Z', date: 'Nov 26, 2026, 10:56 AM CT', title: 'Where and when? opens in 1812 and 1871', kind: 'feature',
     items: [
       '1871 has a three-photo hunt: the Chamber of Commerce, the Water Works and the Ogden house, each one half of a stereograph card.',
