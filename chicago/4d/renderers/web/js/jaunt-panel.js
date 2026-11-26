@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop, openingLight } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop, openingLight, routeCount } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
@@ -370,7 +370,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // aloud) and heads the opening with the jaunt's name, as the narrator says it.
     const facts = node('ul', '', 'jaunt-welcome-facts'); facts.setAttribute('aria-label', 'This jaunt');
     const fact = (name, text) => { if (!text) return null; const li = node('li', ''); li.append(icon(name, 16), node('span', text)); facts.append(li); return li; };
-    fact('start', `${state.jaunt.stops.length} stops`);
+    fact('start', `${routeCount(state)} stops`);
     // The time it takes, as the remaining-time line gives it at every later stop.
     const time = state.estimate && fact('clock', formatEstimate(state.estimate).replace(/^about /, '~'));
     if (time) { time.dataset.jauntRemaining = ''; time.title = `${formatEstimate(state.estimate)} remaining`; }
@@ -464,7 +464,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // T-3671: a repaint keeps focus on the stop's heading where it was (a voice starting or stopping repaints).
     const onHeading = same && document.activeElement?.tagName === 'H2' && body.contains(document.activeElement);
     const opening = state.phase === 'opening' || (state.phase === 'detail' && state.detailPhase === 'opening');
-    const final = !opening && isFinalStop(state), count = state.jaunt.stops.length;
+    const final = !opening && isFinalStop(state), count = routeCount(state);   // T-3754: this route's stops
     root.classList.toggle('jaunt-final', final); root.classList.remove('jaunt-closing');
     const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;

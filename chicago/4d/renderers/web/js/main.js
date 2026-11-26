@@ -6229,8 +6229,13 @@ async function boot() {
     const q = new THREE.Vector3(e, 0, -n).applyMatrix4(matrix.clone().invert());
     return q.x > box.min[0] + margin && q.x < box.max[0] - margin && q.z > box.min[2] + margin && q.z < box.max[2] - margin;
   }
-  function goToTarget(target) {
-    if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
+  // T-3754 (the owner, 2026-11-26: "attempting to follow someone during the jaunt causes the
+  // user to exit the experience"): Find and Follow on a person keep the jaunt (`keepJaunt`). A
+  // ride under way is stopped as any other ride stops it, so the jaunt waits paused, and Next
+  // stop takes the visitor on from wherever they followed them to. Every other Go to is the
+  // visitor leaving the jaunt to explore, as before.
+  function goToTarget(target, { keepJaunt = false } = {}) {
+    if (jauntRuntime?.state.jaunt && !keepJaunt) jauntRuntime.explore();
     // Explicit coordinate viewpoints predate the shared picker and are used by
     // the scene measurement harness. Named picker rows still resolve strictly.
     if (!target?.id && target?.kind === 'intersection'
@@ -6307,7 +6312,7 @@ async function boot() {
     // their door: the card's Find goes to the house they are in, and says so.
     if (findInTown && target.home && loaded.registry.has(target.home)) {
       hud.say(`${target.label ?? 'They'}: at home now`);
-      return goToTarget({ kind: 'structure', id: target.home });
+      return goToTarget({ kind: 'structure', id: target.home }, { keepJaunt });
     }
     const resolved = destinations.resolve(target);
     if (!resolved) {
@@ -6652,9 +6657,11 @@ async function boot() {
         if (!outing?.jaunt || !['opening', 'travelling', 'paused', 'atStop', 'closing'].includes(outing.phase)) { jauntPanel.meter(null); return false; }
         const leg = `${outing.session}:${outing.leg}:${outing.phase === 'atStop'}`, ride = travel.state;
         if (leg !== meterLeg) { meterLeg = leg; meterWay = ride.dist_m ?? 0; meterSince = performance.now() / 1000; }
-        const here = outing.jaunt.stops[outing.stopIndex], heard = here && narration.position(outing.jaunt, 'stop', here.id);
+        // T-3754: the stop on this route (a branching jaunt's stopIndex counts the route, not
+        // the file), and the route's own count of stops.
+        const here = runtime.currentStop(outing), heard = here && narration.position(outing.jaunt, 'stop', here.id);
         const stage = api.jauntStage, staged = outing.phase === 'atStop' && stage?.playing && stage.length > 0;
-        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: outing.jaunt.stops.length,
+        jauntPanel.meter(pace.meterReading({ phase: outing.phase, stopIndex: outing.stopIndex, count: runtime.routeCount(outing),
           glide: ride.glide, way: ride.dist_m != null && meterWay > 0 ? { t: meterWay - ride.dist_m, d: meterWay } : null,
           voice: heard ? (heard.done ? { t: 1, d: 1 } : heard) : null,
           read: here ? { t: performance.now() / 1000 - meterSince, d: here.read_s || pace.readingSeconds(here.text) } : null,
@@ -7011,7 +7018,7 @@ async function boot() {
     // (and wherever no clear stand beside them is found) at the house they live or work in.
     // T-3573: or at home: Find goes to their door, and they come out of it on a walk.
     if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id) || atHome(id)) {
-      return goToTarget({ kind: 'person', id, label: row.name, home: at });
+      return goToTarget({ kind: 'person', id, label: row.name, home: at }, { keepJaunt: true });
     }
     // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
     // way to where they live, not Find (the owner: Find "landed me at his house and i never
@@ -7096,7 +7103,7 @@ async function boot() {
     hud.setPanel(false);
     const there = personInTown(id), eye = walker.state;
     if (there && Math.hypot(there.e - eye.e, there.n - eye.n) <= 30) return begin();
-    return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin });
+    return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin }, { keepJaunt: true });
   }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {

@@ -1,0 +1,10 @@
+{
+  "title": "1812 runner runs, jaunt counters match your route, Follow keeps jaunts",
+  "kind": "fix",
+  "items": [
+    "Errands Before the March: the fastest runner on the post now runs between errands, and takes a boat across the river, instead of flying.",
+    "A jaunt whose choices branch counts the stops on your own route: the last errand reads \"Final stop · 4 of 4\", not \"4 of 6\".",
+    "Following or finding someone during a jaunt no longer ends it: Next stop takes you on from wherever they led you.",
+    "Jaunts can now offer Run as a way to travel."
+  ]
+}

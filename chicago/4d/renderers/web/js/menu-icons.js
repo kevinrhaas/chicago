@@ -20,6 +20,8 @@ const P = {
   'Build log': '<path d="M3.5 3.5h11v17h-11z"/><path d="M3.5 9h11M3.5 14.5h11M9 3.5v17"/><path d="M17.5 4.5h3v12.5l-1.5 3-1.5-3z"/>',
   // travel modes (travel-settings PACES)
   walk: '<path d="M8.5 3.5h4v9l4.6 2.3c1.6.8 2.4 1.9 2.4 3.2v1.5h-14V16l3-3z"/><path d="M5.5 17.5h14"/>',
+  // T-3754: running, the walk's boot with the way it is going behind it.
+  run: '<path d="M10.5 3.5h4v9l4.1 2.1c1.5.8 2.4 1.9 2.4 3.2v1.7H8.5V16l2-3z"/><path d="M2.5 8.5h5M1.5 12.5h5M2.5 16.5h3.5"/>',
   wagon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.6"/><path d="M12 4v6.4M12 13.6V20M4 12h6.4M13.6 12H20M6.3 6.3l4.6 4.6M13.1 13.1l4.6 4.6M17.7 6.3l-4.6 4.6M10.9 13.1l-4.6 4.6"/>',
   horse: '<path d="M7 20.5V11a5 5 0 0 1 10 0v9.5" stroke-width="2.6"/><path d="M5.5 20.5h3M15.5 20.5h3"/>',
   fly: '<path d="M2.5 12.5c3-3.2 6.3-3.2 9.5 0 3.2-3.2 6.5-3.2 9.5 0"/><path d="M7 17.5c1.6-1.5 3.4-1.5 5 0"/>',

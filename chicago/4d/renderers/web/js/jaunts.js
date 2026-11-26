@@ -173,6 +173,34 @@ export function isFinalStop(s) {
   if (choices.length && choices.some(c => c.next)) return choices.every(c => ends(c.next ?? stop.next));
   return stop.next != null ? ends(stop.next) : s.stopIndex === s.jaunt.stops.length - 1;
 }
+/**
+ * T-3754: how many stops this outing's route takes, the ones walked and the most still ahead.
+ * A jaunt whose choices branch holds more stops than any one route visits (Errands Before the
+ * March: six places, four on every route), so counting the file said "Final stop · 4 of 6" at
+ * its real last stop, and the owner read it as the jaunt stopping short. A choice taken (or
+ * picked and not yet taken) counts the way it goes; one not yet made counts its longest way.
+ */
+export function routeCount(s) {
+  const jaunt = s?.jaunt;
+  if (!jaunt?.stops?.length) return 0;
+  const byId = new Map(jaunt.stops.map(x => [x.id, x])), memo = new Map(), path = new Set();
+  const ahead = id => {
+    if (memo.has(id)) return memo.get(id);
+    const stop = byId.get(id);
+    if (!stop || path.has(id)) return 0;
+    path.add(id);
+    let most = 0;
+    for (const next of stop.choices?.length ? stop.choices.map(c => c.next ?? stop.next) : [stop.next])
+      if (byId.has(next)) most = Math.max(most, 1 + ahead(next));
+    path.delete(id); memo.set(id, most);
+    return most;
+  };
+  const visited = s.visited?.length ? s.visited : [{ id: jaunt.stops[0].id }], last = visited.at(-1);
+  const stop = byId.get(last.id), picked = stop?.choices?.find(c => c.id === s.choice);
+  const next = last.committed ? last.next : picked && s.stopIndex === visited.length - 1 ? picked.next ?? stop.next : undefined;
+  const more = last.committed || next !== undefined ? (byId.has(next) ? 1 + ahead(next) : 0) : ahead(last.id);
+  return visited.length + more;
+}
 export const canNext = s => (s.phase === 'atStop' || (s.phase === 'detail' && s.detailPhase === 'atStop'))
   && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
 const append = (s, type, data = {}, eventId = null) => {
