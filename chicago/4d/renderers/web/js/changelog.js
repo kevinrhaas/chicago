@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3268, ts: '2026-11-26T20:15:01.352Z', date: 'Nov 26, 2026, 2:15 PM CT', title: 'An Architecture site for expert readers: the building kits in 3D', kind: 'feature',
+    items: [
+      'A separate Architecture site shows the sixteen kits the Prairie Avenue houses are built from: stone, brick, roofs, windows, entrances, bays, trim, cornices, ironwork and more.',
+      'Each kit has its rule, every part with its measured sizes and how sure each one is, and its sample model to turn in 3D.',
+      'Every building built from the kits is listed, with its own model to turn and the kits and parts it uses.',
+      'Open it from Settings, under Research, or from the Technicians page. Anyone with the link can visit; it stays out of the main menu.',
+    ] },
   { v: 3267, ts: '2026-11-26T19:46:48.547Z', date: 'Nov 26, 2026, 1:46 PM CT', title: 'Smoother foreheads on photographic faces', kind: 'fix',
     items: [
       'Generic adult and child faces blend smoothly into the skin above the forehead. Facial detail and the existing texture memory budget are preserved.',
