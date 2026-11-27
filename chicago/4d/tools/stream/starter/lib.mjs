@@ -18,16 +18,29 @@
 import crypto from 'node:crypto';
 
 export const FIREBASE_PROJECT = 'chicago-61643';
-export const ZONES = ['us-central1-a', 'us-central1-b', 'us-central1-c'];
+/** L4 zones, nearest Chicago first. us-central1 (Iowa) had no L4 free at all on 2026-11-27, Spot
+ * or on demand, so the starter goes on to Virginia, South Carolina, Oregon and Las Vegas. */
+export const ZONES = ['us-central1-a', 'us-central1-b', 'us-central1-c', 'us-east4-a', 'us-east4-c', 'us-east1-b', 'us-east1-c', 'us-east1-d',
+  'us-west1-a', 'us-west1-b', 'us-west4-a', 'us-west4-c'];
 export const MACHINE_TYPE = 'g2-standard-4';
+/** T4 zones, nearest first. When no L4 is free anywhere (2026-11-27: none, and no T4 either, for an
+ * hour) the starter tries a T4 on an n1-standard-4: older and slower, still a real GPU, and cheaper
+ * (the ledger counts it at the L4's price, so the cap only errs on the safe side). */
+export const T4_ZONES = ['us-central1-a', 'us-central1-b', 'us-central1-c', 'us-central1-f', 'us-east4-a', 'us-east4-b', 'us-east4-c',
+  'us-east1-c', 'us-east1-d', 'us-west1-a', 'us-west1-b', 'us-west4-a', 'us-west4-b'];
+export const GPUS = Object.freeze([
+  { gpu: 'l4', machineType: MACHINE_TYPE, zones: ZONES },
+  { gpu: 't4', machineType: 'n1-standard-4', accelerator: 'nvidia-tesla-t4', zones: T4_ZONES },
+]);
 export const IMAGE_FAMILY = 'chicago-stream';
 export const MAX_RUN_SECONDS = 2 * 3600;
 export const YEARS = ['1835', '1904', '1812', '1871'];
-/** All in, a Spot L4 hour with its streamed bytes costs about $0.71 (plan, 2026-11-23); the
- * cap leaves room for the budget's own lag and an on-demand hour or two. */
-export const HOUR_COST = 0.75;
+/** All in, an L4 hour with its streamed bytes costs about $0.71 on Spot and $1.00 on demand
+ * (plan, 2026-11-23), rounded up here. The starter stops at 90 % of the $100 budget by its own
+ * count, since the budget's alerts can lag by hours. */
+export const HOUR_COST = Object.freeze({ spot: 0.75, demand: 1.05 });
 export const MONTHLY_BUDGET = 100;
-export const HOURS_CAP = Math.floor((MONTHLY_BUDGET * 0.9) / HOUR_COST);
+export const SPEND_CAP = MONTHLY_BUDGET * 0.9;
 
 const b64url = (s) => Buffer.from(s.replace(/-/g, '+').replace(/_/g, '/'), 'base64');
 export const emailId = (e) => String(e ?? '').trim().toLowerCase();
@@ -53,8 +66,8 @@ export function resetCertCache() { certCache = { at: 0, certs: null }; }
 export async function verifyIdToken(token, { projectId = FIREBASE_PROJECT, fetchFn = fetch, now = Date.now() / 1000 } = {}) {
   const parts = String(token || '').split('.');
   if (parts.length !== 3) throw new Error('not a token');
-  const head = JSON.parse(b64url(parts[0]).toString('utf8'));
-  const claims = JSON.parse(b64url(parts[1]).toString('utf8'));
+  let head, claims;
+  try { head = JSON.parse(b64url(parts[0]).toString('utf8')); claims = JSON.parse(b64url(parts[1]).toString('utf8')); } catch { throw new Error('not a token'); }
   if (head.alg !== 'RS256' || !head.kid) throw new Error('wrong algorithm');
   const cert = (await certs(fetchFn))[head.kid];
   if (!cert) throw new Error('unknown key');
@@ -129,24 +142,28 @@ export function google({ project, fetchFn = fetch, tokenFn }) {
   };
 }
 
-/** Machine-hours this month. A session whose machine is gone ends at the latest when Google's own
- * two-hour limit would have ended it, so a quiet week never runs the count up. */
-export function hoursUsed(ledger, now = Date.now()) {
-  let ms = 0;
+/** Machine-hours and dollars this month. A session whose machine is gone ends at the latest when
+ * Google's own two-hour limit would have ended it, so a quiet week never runs the count up. */
+export function usage(ledger, now = Date.now()) {
+  let hours = 0, dollars = 0;
   for (const s of Object.values(ledger?.sessions ?? {})) {
     const start = Date.parse(s.start);
     const end = s.end ? Date.parse(s.end) : Math.min(now, start + MAX_RUN_SECONDS * 1000);
-    if (Number.isFinite(start) && end > start) ms += end - start;
+    if (!Number.isFinite(start) || !(end > start)) continue;
+    const h = (end - start) / 3600e3;
+    hours += h; dollars += h * (s.spot === false ? HOUR_COST.demand : HOUR_COST.spot);
   }
-  return ms / 3600e3;
+  return { hours, dollars };
 }
+export const hoursUsed = (ledger, now) => usage(ledger, now).hours;
 
 /** The instance the starter asks for. */
-export function machineBody({ project, zone, name, year, token, player, spot = true, machineSA, site }) {
+export function machineBody({ project, zone, name, year, token, player, spot = true, machineSA, site, gpu = GPUS[0] }) {
   return {
     name,
-    machineType: `zones/${zone}/machineTypes/${MACHINE_TYPE}`,
-    labels: { app: 'chicago-stream', player, year: String(year) },
+    machineType: `zones/${zone}/machineTypes/${gpu.machineType}`,
+    ...(gpu.accelerator ? { guestAccelerators: [{ acceleratorType: `zones/${zone}/acceleratorTypes/${gpu.accelerator}`, acceleratorCount: 1 }] } : {}),
+    labels: { app: 'chicago-stream', player, year: String(year), gpu: gpu.gpu },
     scheduling: spot
       ? { provisioningModel: 'SPOT', instanceTerminationAction: 'DELETE', maxRunDuration: { seconds: String(MAX_RUN_SECONDS) }, onHostMaintenance: 'TERMINATE', automaticRestart: false }
       : { provisioningModel: 'STANDARD', instanceTerminationAction: 'DELETE', maxRunDuration: { seconds: String(MAX_RUN_SECONDS) }, onHostMaintenance: 'TERMINATE', automaticRestart: false },
@@ -163,21 +180,21 @@ export function machineBody({ project, zone, name, year, token, player, spot = t
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-/** Start a machine: Spot in each L4 zone in turn; on demand only for an admin when Spot is refused
- * everywhere. → { ok, zone, name, spot } or { ok: false, why } */
+/** Start a machine: Spot in each L4 zone in turn, then in each T4 zone; on demand (the same order)
+ * only for an admin when Spot is refused everywhere. → { ok, zone, name, spot, gpu } or { ok: false, why } */
 export async function startMachine(g, { year, player, machineSA, admin, site, wait = sleep }) {
   const token = crypto.randomBytes(24).toString('hex');
   const name = `stream-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;
   let last = 'no zone';
   for (const spot of admin ? [true, false] : [true]) {
-    for (const zone of ZONES) {
-      const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site }));
+    for (const gpu of GPUS) for (const zone of gpu.zones) {
+      const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site, gpu }));
       if (!r.ok) { last = r.body?.error?.message || `insert ${r.status}`; if (/QUOTA|quota/.test(last)) return { ok: false, why: 'quota', detail: last }; continue; }
       // The insert is accepted at once; capacity is known only when its operation ends.
       let op = r.body;
       for (let i = 0; i < 40 && op?.status !== 'DONE'; i++) { await wait(1500); op = (await g.operation(zone, op.name)).body; }
       const err = op?.error?.errors?.[0];
-      if (!err) return { ok: true, zone, name, spot, token };
+      if (!err) return { ok: true, zone, name, spot, token, gpu: gpu.gpu };
       last = `${err.code}: ${err.message}`;
       if (/QUOTA/.test(err.code)) return { ok: false, why: 'quota', detail: last };
     }

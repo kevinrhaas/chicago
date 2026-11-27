@@ -46,6 +46,7 @@ await refuses(sign({ ...good, firebase: { sign_in_provider: 'anonymous' } }), 'a
 await refuses(sign(good, { key: crypto.generateKeyPairSync('rsa', { modulusLength: 2048 }).privateKey }), 'a forged signature');
 await refuses(sign(good, { kid: 'nope' }), 'an unknown key');
 await refuses(`${b64({ alg: 'none', kid: 'k1' })}.${b64(good)}.`, 'alg none');
+await assert.rejects(lib.verifyIdToken('x.y.z', { fetchFn: certFetch }), /not a token/, 'garbage is "not a token" (a 401, not a 500)'); passed++;
 
 // ---- Rights, as the player ---------------------------------------------------------------
 const fsFake = ({ cloud = false, admin = false, open = false }) => async (url, init = {}) => {
@@ -86,12 +87,21 @@ const stockout = { code: 'ZONE_RESOURCE_POOL_EXHAUSTED', message: 'no L4' };
 let g = fakeG([stockout, stockout]);
 let r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
 ok(r.ok && r.zone === 'us-central1-c' && r.spot && /^[0-9a-f]{48}$/.test(r.token), `Spot moves on to the next zone (${g.tried})`);
-g = fakeG([stockout, stockout, stockout]);
+const SPOT_TRIES = lib.GPUS.reduce((n, x) => n + x.zones.length, 0);
+const everywhere = () => Array.from({ length: SPOT_TRIES }, () => stockout);
+ok(lib.ZONES[0].startsWith('us-central1') && lib.ZONES.every((z) => z.startsWith('us-')), 'L4 zones: Iowa first, then the rest of the US');
+g = fakeG(everywhere());
 r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
-ok(!r.ok && r.why === 'no capacity' && g.tried.every((t) => t.endsWith('SPOT')), 'a player never gets an on-demand machine');
-g = fakeG([stockout, stockout, stockout]);
+ok(!r.ok && r.why === 'no capacity' && g.tried.length === SPOT_TRIES && g.tried.every((t) => t.endsWith('SPOT')), 'a player never gets an on-demand machine');
+g = fakeG(everywhere());
 r = await lib.startMachine(g, { year: '1904', player: 'x', admin: true, wait: noWait });
-ok(r.ok && !r.spot && g.tried[3] === 'us-central1-a:STANDARD', 'an admin falls back to on demand');
+ok(r.ok && !r.spot && r.gpu === 'l4' && g.tried[SPOT_TRIES] === 'us-central1-a:STANDARD', 'an admin falls back to on demand');
+g = fakeG(lib.ZONES.map(() => stockout));
+r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
+ok(r.ok && r.spot && r.gpu === 't4' && r.zone === lib.T4_ZONES[0], `no L4 anywhere: a Spot T4 next (${r.gpu} ${r.zone})`);
+const t4 = lib.machineBody({ project: 'p', zone: 'us-east4-b', name: 'x', year: '1904', token: 'ab'.repeat(24), player: 'x', gpu: lib.GPUS[1] });
+ok(t4.machineType.endsWith('/n1-standard-4') && t4.guestAccelerators[0].acceleratorType === 'zones/us-east4-b/acceleratorTypes/nvidia-tesla-t4' && t4.scheduling.onHostMaintenance === 'TERMINATE' && t4.labels.gpu === 't4', 'a T4 machine carries its accelerator');
+ok(!body.guestAccelerators && body.labels.gpu === 'l4', 'an L4 machine has its GPU built in');
 g = fakeG([{ code: 'QUOTA_EXCEEDED', message: 'GPUS_ALL_REGIONS' }]);
 r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
 ok(!r.ok && r.why === 'quota' && g.tried.length === 1, 'a quota refusal stops at once');
@@ -104,7 +114,9 @@ const ledger = { sessions: {
   c: { start: '2026-12-10T11:00:00Z' },
 } };
 ok(Math.abs(lib.hoursUsed(ledger, t) - 3.5) < 1e-9, `hours: 0.5 closed + 2 capped + 1 running = 3.5 (${lib.hoursUsed(ledger, t)})`);
-ok(lib.HOURS_CAP === 120, `the hours cap is 90 % of $100 at $0.75 (${lib.HOURS_CAP})`);
+ledger.sessions.c.spot = false;
+ok(Math.abs(lib.usage(ledger, t).dollars - (2.5 * 0.75 + 1 * 1.05)) < 1e-9, `dollars count on-demand hours at their own price (${lib.usage(ledger, t).dollars})`);
+ok(lib.SPEND_CAP === 90, `the starter stops at 90 % of the $100 budget (${lib.SPEND_CAP})`);
 
 // ---- The scripts -------------------------------------------------------------------------
 for (const f of ['setup.sh', 'build-image.sh', 'machine/provision.sh', 'machine/session.sh']) {
@@ -121,7 +133,7 @@ ok(/\[\[ "\$TOKEN" =~ \^\[0-9a-f\]\{32,\}\$ \]\]/.test(session), 'the token is c
 ok(/"\$idle" -ge 600/.test(session), 'ten idle minutes end a session');
 const server = fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8');
 ok(/BUDGET_SECRET/.test(server) && /costAmount\) >= Number\(note\.budgetAmount\)/.test(server), 'the budget push stops machines at 100 %');
-ok(/hoursUsed\(data\)/.test(server) && /HOURS_CAP/.test(server), 'the starter checks the month\'s hours before it starts one');
+ok(/usage\(data\)/.test(server) && /SPEND_CAP/.test(server), 'the starter checks the month\'s spending before it starts one');
 ok(!/chicago-61643/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup touches nothing in the Firebase project');
 
 // ---- The launch page's cloud button ------------------------------------------------------
@@ -145,4 +157,4 @@ ok(!r.ok, 'a link that is not an sslip.io stream is never followed');
 r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app' }, fetchFn: async () => ({ status: 429, json: async () => ({ ok: false, why: 'busy', message: 'All 1 cloud machine is in use.' }) }) });
 ok(!r.ok && r.title === 'Every cloud machine is in use', 'busy is said plainly');
 
-console.log(`PASS stream starter: ${passed} checks (tokens, rights as the player, the machine, zones and on demand, hours, scripts, the cloud button)`);
+console.log(`PASS stream starter: ${passed} checks (tokens, rights as the player, the machine, zones and on demand, hours and dollars, scripts, the cloud button)`);

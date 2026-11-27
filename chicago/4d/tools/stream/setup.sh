@@ -51,12 +51,17 @@ gc compute firewall-rules describe allow-chicago-stream >/dev/null 2>&1 || gc co
   --description "Chicago 4D cloud play: the stream (443) and its certificate (80)"
 
 echo "== starter"
+# Cloud Run builds the starter from source with the project's default compute account, which
+# new projects no longer give the Cloud Build role by themselves.
+NUM=$(gcloud projects describe "$PROJECT" --format "value(projectNumber)")
+gcloud projects add-iam-policy-binding "$PROJECT" --member "serviceAccount:$NUM-compute@developer.gserviceaccount.com" \
+  --role roles/cloudbuild.builds.builder --condition None >/dev/null
 SERVICE=chicago-stream-starter
 SECRET=$(gc run services describe "$SERVICE" --region "$REGION" --format=json 2>/dev/null \
   | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next((e.get("value","") for e in d["spec"]["template"]["spec"]["containers"][0].get("env",[]) if e["name"]=="BUDGET_SECRET"),""))' 2>/dev/null || true)
 [ -n "$SECRET" ] || SECRET=$(python3 -c 'import secrets; print(secrets.token_hex(24))')
 gc run deploy "$SERVICE" --source "$HERE/starter" --region "$REGION" --service-account "$STARTER" \
-  --allow-unauthenticated --max-instances 2 --memory 256Mi --cpu 1 --timeout 120 --quiet \
+  --allow-unauthenticated --max-instances 2 --memory 256Mi --cpu 1 --timeout 600 --quiet \
   --set-env-vars "LEDGER_BUCKET=$BUCKET,MACHINE_SA=$MACHINE,MAX_MACHINES=1,BUDGET_SECRET=$SECRET"
 URL=$(gc run services describe "$SERVICE" --region "$REGION" --format "value(status.url)")
 

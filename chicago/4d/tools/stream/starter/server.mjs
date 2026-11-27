@@ -13,7 +13,7 @@
  * Every player call carries `Authorization: Bearer <Firebase ID token>`.
  */
 import http from 'node:http';
-import { verifyIdToken, rightsOf, google, hoursUsed, startMachine, playerLabel, emailId, monthKey, sslipHost, HOURS_CAP, YEARS } from './lib.mjs';
+import { verifyIdToken, rightsOf, google, usage, startMachine, playerLabel, emailId, monthKey, sslipHost, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
 
 const env = process.env;
 const PROJECT = env.GOOGLE_CLOUD_PROJECT || env.PROJECT || 'chicago-stream';
@@ -78,17 +78,18 @@ const routes = {
     const year = YEARS.includes(String(body.year)) ? String(body.year) : '1904';
     const { data } = await g.ledger(BUCKET, monthKey());
     if (data.stopped) return [503, { ok: false, why: 'budget', message: 'Cloud play has stopped for this month: the spending limit was reached.' }];
-    const used = hoursUsed(data);
-    if (used >= HOURS_CAP) return [503, { ok: false, why: 'hours', message: `This month's ${HOURS_CAP} machine-hours are used.` }];
+    const used = usage(data);
+    // A new session may run two hours: start one only if that still fits under the cap.
+    if (used.dollars + 2 * HOUR_COST.spot > SPEND_CAP) return [503, { ok: false, why: 'hours', message: `This month's cloud hours are used ($${used.dollars.toFixed(0)} of $${SPEND_CAP}).` }];
     const live = await sweep();
     const mine = live.find((m) => m.labels.player === p.label);
     if (mine) return [200, { ok: true, already: true, ...(await describe(mine)) }];
     if (live.length >= MAX_MACHINES) return [429, { ok: false, why: 'busy', message: `All ${MAX_MACHINES} cloud machine${MAX_MACHINES === 1 ? ' is' : 's are'} in use. Try again in a few minutes.` }];
     const t0 = Date.now();
     const out = await startMachine(g, { year, player: p.label, machineSA: MACHINE_SA, admin: p.admin, site: SITE });
-    if (!out.ok) return [503, { ok: false, why: out.why, message: out.why === 'quota' ? 'Google has not given this project the graphics capacity yet.' : 'Google has no free graphics machine in our region just now. Try again in a few minutes.' }];
-    await withLedger((d) => { d.sessions ??= {}; d.sessions[out.name] = { start: new Date(t0).toISOString(), year, spot: out.spot, by: p.admin ? 'admin' : 'player' }; return d; });
-    return [200, { ok: true, name: out.name, year, status: 'STARTING', ready: false, spot: out.spot, hoursLeft: Math.max(0, HOURS_CAP - used) }];
+    if (!out.ok) return [503, { ok: false, why: out.why, message: out.why === 'quota' ? 'Google has not given this project the graphics capacity yet.' : 'Google has no free graphics machine anywhere in the US just now. Try again later.' }];
+    await withLedger((d) => { d.sessions ??= {}; d.sessions[out.name] = { start: new Date(t0).toISOString(), year, spot: out.spot, gpu: out.gpu, by: p.admin ? 'admin' : 'player' }; return d; });
+    return [200, { ok: true, name: out.name, year, status: 'STARTING', ready: false, spot: out.spot, gpu: out.gpu, spentThisMonth: Number(used.dollars.toFixed(2)) }];
   },
   'GET /status': async (req, url) => {
     const p = await player(req);

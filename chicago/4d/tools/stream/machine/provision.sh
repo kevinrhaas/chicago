@@ -14,8 +14,13 @@ exec > >(tee -a /var/log/chicago-provision.log) 2>&1
 export DEBIAN_FRONTEND=noninteractive
 MD=http://metadata.google.internal/computeMetadata/v1
 
-for i in $(seq 1 30); do nvidia-smi && break; sleep 10; done
-nvidia-smi --query-gpu=name,driver_version --format=csv
+# The image needs no GPU to be built (the driver comes with the base image): when Google has none
+# free, build-image.sh builds on a plain machine and the GPU checks wait for the first session.
+GPU=0; grep -qi 0x10de /sys/bus/pci/devices/*/vendor && GPU=1
+if [ "$GPU" = 1 ]; then
+  for i in $(seq 1 30); do nvidia-smi && break; sleep 10; done
+  nvidia-smi --query-gpu=name,driver_version --format=csv
+fi
 
 apt-get update
 apt-get install -y ca-certificates curl gnupg jq
@@ -34,9 +39,11 @@ systemctl restart docker
 # Caddy starts only with a session's own Caddyfile (session.sh).
 systemctl disable --now caddy
 
-docker pull lscr.io/linuxserver/chromium:latest
+# The registry drops connections now and then (seen 2026-11-27): retry the pull.
+for _ in 1 2 3 4 5 6; do docker pull lscr.io/linuxserver/chromium:latest && break; sleep 20; done
+docker image inspect lscr.io/linuxserver/chromium:latest >/dev/null
 # The GPU reaches a container.
-docker run --rm --gpus all --runtime nvidia --entrypoint nvidia-smi lscr.io/linuxserver/chromium:latest -L
+[ "$GPU" = 0 ] || docker run --rm --gpus all --runtime nvidia --entrypoint nvidia-smi lscr.io/linuxserver/chromium:latest -L
 
 install -d /opt/chicago-stream
 curl -sf -H 'Metadata-Flavor: Google' "$MD/instance/attributes/session-script" > /opt/chicago-stream/session.sh
@@ -65,4 +72,6 @@ touch /var/lib/chicago-provisioned
 echo "CHICAGO PROVISIONED" > /dev/ttyS0 || true
 echo "CHICAGO PROVISIONED"
 sync
+# build-image.sh reads the line above from the console while the machine still runs.
+sleep 45
 poweroff

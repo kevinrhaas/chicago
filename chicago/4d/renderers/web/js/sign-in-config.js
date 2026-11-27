@@ -31,7 +31,7 @@ export const SIGN_IN = {
   cloudFeatures: true,
   // T-3794: the cloud play starter (tools/stream/setup.sh prints its address). Empty: the
   // launch page's cloud button says cloud play is opening soon and starts nothing.
-  streamStarter: '',
+  streamStarter: 'https://chicago-stream-starter-1018543092614.us-central1.run.app',
   firebase: {
     apiKey: 'AIzaSyBxCJiD-E2s72C5WV8J101WtjCqDxGztDw',
     authDomain: 'chicago-61643.firebaseapp.com',

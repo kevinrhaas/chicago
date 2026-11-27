@@ -50,8 +50,11 @@ EOF
 systemctl start caddy
 
 docker rm -f town >/dev/null 2>&1 || true
-docker run -d --name town --gpus all --runtime nvidia \
-  -e NVIDIA_DRIVER_CAPABILITIES=all -e DRINODE=/dev/dri/renderD128 \
+# The starter only asks for GPU machines; without one (an admin's plumbing test on a plain
+# machine) the town still opens, drawn by the CPU.
+GPU=()
+grep -qi 0x10de /sys/bus/pci/devices/*/vendor && GPU=(--gpus all --runtime nvidia -e NVIDIA_DRIVER_CAPABILITIES=all -e DRINODE=/dev/dri/renderD128)
+docker run -d --name town "${GPU[@]}" \
   -e PUID=1000 -e PGID=1000 -e TZ=America/Chicago -e TITLE="Chicago 4D" \
   -e CHROME_CLI="--kiosk --start-fullscreen --ignore-gpu-blocklist --enable-gpu-rasterization --autoplay-policy=no-user-gesture-required $URL" \
   -p 127.0.0.1:3000:3000 --shm-size=2g \
