@@ -1,110 +1,14 @@
-name: Better Trees seasons — reading-fix working source
+name: Better Trees seasons — actual Light fix working source
 'on':
   pull_request:
     branches:
-    - steward/t3747-vegetation-realism
+    - diagnostic/t3747-held-source-base
     paths:
     - .github/workflows/chicago-4d-t3748-working-source.yml
   workflow_dispatch: null
 permissions:
   contents: read
 jobs:
-  calibrated-desktop:
-    env:
-      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 4c0b1767749621eb8280cdc81ceea0be709be7ecf0a44863a22685bfae94e59e
-    runs-on: ubuntu-22.04
-    timeout-minutes: 25
-    strategy:
-      fail-fast: false
-      matrix:
-        viewport:
-        - desktop
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
-        filter: blob:none
-        sparse-checkout: |
-          .github
-          chicago/4d/tools
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-    - name: Require a real calibrated desktop CPU before measuring
-      env:
-        SOURCE_HEAD: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
-      run: |
-        node <<'NODE'
-        const fs = require('node:fs');
-        const os = require('node:os');
-        const { execFileSync } = require('node:child_process');
-        const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-        const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
-        const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
-        const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
-        const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
-        const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
-        const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
-        fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
-        console.log(JSON.stringify(reading));
-        if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
-        if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
-        NODE
-    - name: Materialize the complete native publication inputs
-      run: |
-        set -euo pipefail
-        python3 - <<'PYTHON'
-        import os, subprocess
-        names = subprocess.check_output([
-            'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
-        ]).split(b'\0')
-        directories = {name for name in names if name}
-        if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
-            raise SystemExit('Native publication directories cannot be established')
-        paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
-                 'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
-        paths += ['chicago/4d/' + os.fsdecode(name)
-                  for name in sorted(directories) if name != b'docs']
-        subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
-        PYTHON
-    - name: Apply and verify the frozen complete working source
-      run: |
-        python3 - <<'PYTHON'
-        import hashlib,os,re,subprocess
-        from pathlib import Path
-        head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
-        subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-        raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
-        assert hashlib.sha256(raw).hexdigest()=='4c6d441efb73b23c548b36ca36220658ee3ff4a34d3a965c04e06a32a33cea39'
-        p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
-        subprocess.run(['python3',str(p)],check=True)
-        PYTHON
-    - name: Install Playwright
-      run: |
-        set -e
-        npm install -g playwright@1.56.1
-        node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
-    - name: Install the publication schema validator
-      run: python3 -m pip install --quiet --upgrade 'jsonschema>=4,<5'
-    - name: Publish the mirror the gate serves (site/4d/ is generated)
-      working-directory: chicago/4d
-      run: bash tools/publish.sh
-    - name: Hold the still-frame ceiling
-      working-directory: chicago/4d
-      run: |
-        (cd ../.. && python3 /tmp/t3747-apply-source.py --verify)
-        node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
-    - name: Keep the reading
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: still-frame-${{ matrix.viewport }}
-        path: |
-          chicago/4d/still-frame-${{ matrix.viewport }}.json
-          chicago/4d/calibrated-host.json
-          chicago/4d/calibrated-source.json
-        if-no-files-found: ignore
   native-working-source:
     name: Native working source ${{ matrix.part }}
     runs-on: ubuntu-22.04
@@ -143,13 +47,13 @@ jobs:
           key: 8of8
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 4c0b1767749621eb8280cdc81ceea0be709be7ecf0a44863a22685bfae94e59e
+      SOURCE_MANIFEST_SHA: 1e6544c8d5f506e834787cf1dfcff2c0028c47c3e63ad74d0116d245376704f8
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
+        ref: 3bdf2349cf29f374833d015e91b84dab6611d636
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-python@v5
@@ -164,39 +68,61 @@ jobs:
       id: cores
       run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
     - name: Apply and verify the frozen complete working source
-      run: |
-        python3 - <<'PYTHON'
+      run: 'python3 - <<''PYTHON''
+
         import hashlib,os,re,subprocess
+
         from pathlib import Path
-        head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
-        subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-        raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
-        assert hashlib.sha256(raw).hexdigest()=='4c6d441efb73b23c548b36ca36220658ee3ff4a34d3a965c04e06a32a33cea39'
-        p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
-        subprocess.run(['python3',str(p)],check=True)
+
+        head=os.environ[''DIAGNOSTIC_HEAD''];assert re.fullmatch(''[0-9a-f]{40}'',head)
+
+        subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
+
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-light-fix-apply.py''])
+
+        assert hashlib.sha256(raw).hexdigest()==''90a64e6f6b45258bc30b0698b609b858854946b99a1a88cc51f6ae9fc6cd122e''
+
+        p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw)
+
+        subprocess.run([''python3'',str(p)],check=True)
+
         PYTHON
+
+        '
     - name: Run the unchanged native gate and verify source stability
       env:
         C4D_GATE_REQUIRE_READERS: '1'
         C4D_GATE_REQUIRE_BASE: '1'
         CHECK_JOBS: ${{ matrix.serial && '1' || steps.cores.outputs.n }}
-      run: |
-        set +e
-        (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}") > /tmp/native-part.log 2>&1
+      run: 'set +e
+
+        (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{
+        matrix.part }}") > /tmp/native-part.log 2>&1
+
         native_status=$?
+
         set -e
-        SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py --verify
+
+        SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py
+        --verify
+
         cat /tmp/native-part.log
+
         exit "$native_status"
+
+        '
     - name: Keep the complete native log and exact before/after source receipts
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: native-working-${{ matrix.key }}
-        path: |
-          /tmp/native-part.log
+        path: '/tmp/native-part.log
+
           /tmp/native-source-before.json
+
           /tmp/native-source-after.json
+
+          '
         if-no-files-found: error
   native-complete:
     name: Complete Native on the exact working source

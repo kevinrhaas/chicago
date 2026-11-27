@@ -1,147 +1,114 @@
-name: Better Trees seasons — calibrated allocation batch
+name: Better Trees m2 — exact-profile current source calibration
 'on':
   pull_request:
     branches:
     - diagnostic/t3747-held-source-base
     paths:
     - .github/workflows/chicago-4d-t3748-calibrated-allocation-batch.yml
+  workflow_dispatch: null
 permissions:
   contents: read
 jobs:
-  calibrated-desktop:
-    env:
-      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 4c0b1767749621eb8280cdc81ceea0be709be7ecf0a44863a22685bfae94e59e
+  calibrated:
+    name: m2 calibration allocation ${{ matrix.allocation }}
     runs-on: ubuntu-22.04
     timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
-        viewport:
-        - desktop
         allocation:
         - 1
         - 2
         - 3
+    env:
+      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      SOURCE_MANIFEST_SHA: 1e6544c8d5f506e834787cf1dfcff2c0028c47c3e63ad74d0116d245376704f8
+      REQUIRED_CPU: AMD EPYC 7763 64-Core Processor
+      SOURCE_RECEIPT_PATH: /tmp/calibrated-source-before.json
     steps:
+    - name: Require the exact established CPU before source or timing
+      run: 'python3 - <<''PYTHON''
+
+        import json,os,subprocess
+
+        from pathlib import Path
+
+        cpu=next(line.split('':'',1)[1].strip() for line in Path(''/proc/cpuinfo'').read_text().splitlines()
+        if line.startswith(''model name''))
+
+        cores=int(subprocess.check_output([''nproc''],text=True).strip())
+
+        eligible=cpu==os.environ[''REQUIRED_CPU''] and cores==4
+
+        r={''cpu'':cpu,''cores'':cores,''calibrated'':eligible,''eligibilityOnly'':True,''required_cpu'':os.environ[''REQUIRED_CPU''],''required_cores'':4,''source_and_timing_not_started'':True}
+
+        Path(''/tmp/calibrated-host.json'').write_text(json.dumps(r,indent=2)+''\n'');print(json.dumps(r))
+
+        if not eligible:raise SystemExit(''This allocation is not the required established
+        CPU profile; source/timing skipped'')
+
+        PYTHON
+
+        '
     - uses: actions/checkout@v4
       with:
-        ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
+        ref: 3bdf2349cf29f374833d015e91b84dab6611d636
+        fetch-depth: 0
         filter: blob:none
-        sparse-checkout: |
-          .github
-          chicago/4d/tools
     - uses: actions/setup-node@v4
       with:
         node-version: '22'
-    - name: Require a real calibrated desktop CPU before measuring
-      env:
-        SOURCE_HEAD: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
-      run: |
-        node <<'NODE'
-        const fs = require('node:fs');
-        const os = require('node:os');
-        const { execFileSync } = require('node:child_process');
-        const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-        const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
-        const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
-        const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
-        const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
-        const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
-        const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
-        fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
-        console.log(JSON.stringify(reading));
-        if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
-        if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
-        NODE
-    - name: Materialize the complete native publication inputs
-      run: |
-        set -euo pipefail
-        python3 - <<'PYTHON'
-        import os, subprocess
-        names = subprocess.check_output([
-            'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
-        ]).split(b'\0')
-        directories = {name for name in names if name}
-        if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
-            raise SystemExit('Native publication directories cannot be established')
-        paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
-                 'chicago/4d/docs/RESEARCH/reading-levels-3645',
-                 'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
-        paths += ['chicago/4d/' + os.fsdecode(name)
-                  for name in sorted(directories) if name != b'docs']
-        subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
-        PYTHON
-    - name: Apply and verify the frozen complete working source
-      run: |
-        python3 - <<'PYTHON'
-        import hashlib,os,re,subprocess
-        from pathlib import Path
-        head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
-        subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-        raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
-        assert hashlib.sha256(raw).hexdigest()=='4c6d441efb73b23c548b36ca36220658ee3ff4a34d3a965c04e06a32a33cea39'
-        p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
+    - name: Apply and verify the frozen complete source
+      run: 'python3 - <<''PYTHON''
 
-        """Materialize exact tracked preimages for a frozen patch in a sparse checkout."""
-        import hashlib,json,subprocess
+        import hashlib,os,subprocess
+
         from pathlib import Path
 
-        def materialize_preimages(manifest,repo,env=None):
-            def git(*args):return subprocess.check_output(['git',*args],cwd=repo,env=env)
-            base=manifest['base_dev'];assert git('rev-parse','HEAD').decode().strip()==base
-            assert git('write-tree')==git('rev-parse',base+'^{tree}')
-            tracked=[]
-            for name in manifest['source_sha256']:
-                path=Path(name);assert not path.is_absolute() and '..' not in path.parts
-                entry=git('ls-files','--stage','--',name).decode().strip()
-                if not entry:
-                    assert not (Path(repo)/name).exists(),name
-                    continue
-                header,actual=entry.split('\t');mode,blob,stage=header.split()
-                assert actual==name and stage=='0' and mode in ('100644','100755')
-                assert git('rev-parse',base+':'+name).decode().strip()==blob
-                file=Path(repo)/name
-                if file.exists():assert git('hash-object',name).decode().strip()==blob,('Unexpected modified baseline; never overwrite it',name)
-                tracked.append(name)
-            if tracked:
-                subprocess.run(['git','update-index','--no-skip-worktree','--',*tracked],cwd=repo,env=env,check=True)
-                subprocess.run(['git','checkout-index','--force','--index','--',*tracked],cwd=repo,env=env,check=True)
-            for name in tracked:
-                assert git('hash-object',name)==git('rev-parse',base+':'+name),name
-            assert git('write-tree')==git('rev-parse',base+'^{tree}')
-            return tracked
+        head=os.environ[''DIAGNOSTIC_HEAD''];subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        manifest_raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-source.json'])
-        assert hashlib.sha256(manifest_raw).hexdigest()==os.environ['SOURCE_MANIFEST_SHA']
-        manifest=json.loads(manifest_raw)
-        tracked=materialize_preimages(manifest,Path.cwd())
-        print('Exact tracked baseline preimages materialized and index stats verified:',len(tracked))
-        subprocess.run(['python3',str(p)],check=True)
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-light-fix-apply.py'']);assert
+        hashlib.sha256(raw).hexdigest()==''90a64e6f6b45258bc30b0698b609b858854946b99a1a88cc51f6ae9fc6cd122e''
+
+        p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw);subprocess.run([''python3'',str(p)],check=True)
+
         PYTHON
+
+        '
     - name: Install Playwright
-      run: |
-        set -e
+      run: 'set -e
+
         npm install -g playwright@1.56.1
+
         node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+
+        '
     - name: Install the publication schema validator
       run: python3 -m pip install --quiet --upgrade 'jsonschema>=4,<5'
     - name: Publish the mirror the gate serves (site/4d/ is generated)
       working-directory: chicago/4d
       run: bash tools/publish.sh
-    - name: Hold the still-frame ceiling
+    - name: Hold the unchanged stock still-frame ceilings
       working-directory: chicago/4d
-      run: |
-        (cd ../.. && python3 /tmp/t3747-apply-source.py --verify)
-        node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
-    - name: Keep the reading
+      run: '(cd ../.. && SOURCE_RECEIPT_PATH=/tmp/calibrated-source-after.json python3
+        /tmp/t3747-apply-source.py --verify)
+
+        node tools/measure_still_frame.mjs --gate --only desktop --json still-frame-desktop.json
+
+        (cd ../.. && SOURCE_RECEIPT_PATH=/tmp/calibrated-source-after.json python3
+        /tmp/t3747-apply-source.py --verify)
+
+        '
+    - name: Keep every allocation, including unsupported and failed ones
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: still-frame-${{ matrix.viewport }}-allocation-${{ matrix.allocation }}
-        path: |
-          chicago/4d/still-frame-${{ matrix.viewport }}.json
-          chicago/4d/calibrated-host.json
-          chicago/4d/calibrated-source.json
-        if-no-files-found: ignore
-    name: calibrated desktop allocation ${{ matrix.allocation }}
+        name: vegetation-m2-light-fix-current-calibration-${{ matrix.allocation }}
+        path: '/tmp/calibrated-host.json
+
+          /tmp/calibrated-source-before.json
+
+          /tmp/calibrated-source-after.json
+
+          chicago/4d/still-frame-desktop.json'
+        if-no-files-found: error

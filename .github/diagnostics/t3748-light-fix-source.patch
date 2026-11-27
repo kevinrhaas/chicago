@@ -1,0 +1,2291 @@
+diff --git a/chicago/4d/changelog.d/T-3748.json b/chicago/4d/changelog.d/T-3748.json
+new file mode 100644
+index 0000000000..bfa4c54481
+--- /dev/null
++++ b/chicago/4d/changelog.d/T-3748.json
+@@ -0,0 +1,8 @@
++{
++  "title": "Seasonal plants and the pre-fire city's trees",
++  "kind": "improvement",
++  "items": [
++    "Folded leaves and wind-bent grass catch the light more naturally; crop leaves and wall ivy share the trees' shadowed backlighting. All four years offer spring, summer, fall and winter. Winter removes deciduous leaf sprays and their shadows. Evergreens retain their winter colour, and April withholds July flowers. The 1871 scene starts on its October day; dated jaunts keep their own dates.",
++    "The pre-fire city's remaining rounded tree crowns become branching, seasonal trees. Their recorded places, sizes and inspection cards stay the same. Winter shows bare branches, and the Trees control hides them with the other trees. Burnt trees keep their scorched state through season and detail changes."
++  ]
++}
+diff --git a/chicago/4d/data/liberties.json b/chicago/4d/data/liberties.json
+index 51182cb78d..233d7f9272 100644
+--- a/chicago/4d/data/liberties.json
++++ b/chicago/4d/data/liberties.json
+@@ -3,7 +3,7 @@
+   "source": "docs/LIBERTIES.md",
+   "standard": "A visitor should be able to tell you which parts we made up.",
+   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
+-  "count": 1257,
++  "count": 1259,
+   "names": [
+     {
+       "id": "agency_striker_log_house",
+@@ -82341,6 +82341,66 @@
+         "T-3747"
+       ]
+     },
++    {
++      "id": "L-seasonal-flora-3748",
++      "title": "Folded plant lighting and the four seasonal viewing choices",
++      "section": "per_subject",
++      "subjects": [],
++      "covers": [],
++      "recorded": "2026-11-25",
++      "revised": null,
++      "fields": [
++        {
++          "label": "Liberty",
++          "text": "prairie leaf and grass normals follow the existing folds, species scales, arch and wind. These normals suggest fine curvature without adding geometry or altering the plant's deterministic placement, outline or wind. Crop leaves use the shared artistic thin-leaf light, shadowed with the sun, and capable devices reuse their existing colour atlas for slight relief; weak devices and Light omit that relief sampling. Native wall ivy derives a leaf mask from its original green atlas and vertex colours before seasonal or evidence recolouring, keeping brown stems out of the leaf-light term. These are render approximations, not measured species scattering. Light uses a cheaper environment response on eligible nonmetal standard materials (base roughness at least 0.65): the existing sky-and-ground diffuse convolution supplies the environment, with a fixed 0.04 dielectric share and 0.96 diffuse share; direct highlights use single-scatter GGX. Thin-leaf transmission, directional and point shadows, wind, maps, instancing and density remain. Full and Balanced compile the original physical lighting unchanged. This Light approximation does not identify historical plant optics or claim hardware FPS. Mid-April withholds the July flora's flower heads and their peduncles; it does not introduce an invented spring species roster. Existing crop phenology is retained. The legacy deciduous thicket and vine leaf cards are withheld in winter in the colour and both shadow passes, retaining their woody tubes; evergreen crowns use the separate grown path. All four scene years offer the same seasonal viewing choice. The scene's own calendar season retains its target date (1871 remains 8 October); choosing summer in an autumn-dated scene uses 15 July. Dated jaunts still take their own documented dates and restore the visitor's choice. Scale/needle leaf tiles retain their own evergreen colour through winter; no new historical evergreen planting is inferred."
++        },
++        {
++          "label": "Evidence",
++          "text": "existing species, flower and crop records remain the authority for what is planted. The other-season appearances are viewing approximations under “The 1904 Season setting: spring, fall and winter drawn on a scene dated 1 July”, not records of Chicago on those dates. No new asset, density, historical source or species occurrence is introduced."
++        },
++        {
++          "label": "How to resolve",
++          "text": "observed phenology by species and date, calibrated normals and measured leaf optics could replace these broad seasonal and shading approximations."
++        },
++        {
++          "label": "Recorded",
++          "text": "2026-11-25 (T-3748)."
++        }
++      ],
++      "work_refs": [
++        "T-3748"
++      ]
++    },
++    {
++      "id": "L-1871-grown-context-3760",
++      "title": "A generic grown deciduous proxy for the pre-fire context planting",
++      "section": "per_subject",
++      "subjects": [],
++      "covers": [],
++      "recorded": "2026-11-25",
++      "revised": null,
++      "fields": [
++        {
++          "label": "Liberty",
++          "text": "the 1871 context's existing sparse reconstructed planting now draws through the shared adaptive seasonal tree renderer instead of its portable kit's rounded solid crowns. The proxy uses the grown open deciduous habit also used by the street elms, bounded by each context record's nominal height and crown width. It does not identify any context tree as an elm. Its positions, reconstructed grades, source limits and inspection identities remain those of “A complete context city on the afternoon before the Great Fire”. Spring, summer and fall use that renderer's corresponding leaf cover, and winter uses bare wood. The shared Trees setting and confidence hide apply to the handed-off records. No context planting is moved or removed by this renderer change."
++        },
++        {
++          "label": "Evidence",
++          "text": "upstream 172bbb62b9ff07352a683a291bf34ea6d392b57d contains 3,543 context and 6,693 street trees. A refreshed audit of all 10,236 trunk centres finds none strictly more than 0.25 m inside 38,598 context building plans or 19 named solid footprint parts. No cross-set trunk centres are closer than two metres. The old pumping-works record is absent upstream. Earlier prototype placement deletions are superseded, and no current planting is withdrawn. These narrow tests do not prove crown clearance or establish that an individual historical tree occupied a reconstructed position. The upstream fire's bare/charred state is retained across seasonal and detail rebuilds."
++        },
++        {
++          "label": "How to resolve",
++          "text": "period views or parcel planting evidence can replace a generic record with a sourced location and habit. Preserve the generic reconstruction label until that evidence exists."
++        },
++        {
++          "label": "Recorded",
++          "text": "2026-11-25 (T-3760)."
++        }
++      ],
++      "work_refs": [
++        "T-3760"
++      ]
++    },
+     {
+       "id": "L-kinzie-house-1812-2497",
+       "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
+diff --git a/chicago/4d/docs/LIBERTIES.md b/chicago/4d/docs/LIBERTIES.md
+index 4d5972aa1a..8da2341cd5 100644
+--- a/chicago/4d/docs/LIBERTIES.md
++++ b/chicago/4d/docs/LIBERTIES.md
+@@ -47240,3 +47240,17 @@ lot lines; then the houses' `lot_s_m` and this cut move together.
+ **How to resolve:** measured leaf scattering and a calibrated, licensed surface-normal source could replace the artistic coefficients and albedo-derived relief. The present approximation must remain bounded by sun, shadow and time of day.
+ **Ticket:** T-3747.
+ **Recorded:** 2026-11-25 (T-3747).
++
++### L-seasonal-flora-3748 — Folded plant lighting and the four seasonal viewing choices
++**Liberty:** prairie leaf and grass normals follow the existing folds, species scales, arch and wind. These normals suggest fine curvature without adding geometry or altering the plant's deterministic placement, outline or wind. Crop leaves use the shared artistic thin-leaf light, shadowed with the sun, and capable devices reuse their existing colour atlas for slight relief; weak devices and Light omit that relief sampling. Native wall ivy derives a leaf mask from its original green atlas and vertex colours before seasonal or evidence recolouring, keeping brown stems out of the leaf-light term. These are render approximations, not measured species scattering. Light uses a cheaper environment response on eligible nonmetal standard materials (base roughness at least 0.65): the existing sky-and-ground diffuse convolution supplies the environment, with a fixed 0.04 dielectric share and 0.96 diffuse share; direct highlights use single-scatter GGX. Thin-leaf transmission, directional and point shadows, wind, maps, instancing and density remain. Full and Balanced compile the original physical lighting unchanged. This Light approximation does not identify historical plant optics or claim hardware FPS. Mid-April withholds the July flora's flower heads and their peduncles; it does not introduce an invented spring species roster. Existing crop phenology is retained. The legacy deciduous thicket and vine leaf cards are withheld in winter in the colour and both shadow passes, retaining their woody tubes; evergreen crowns use the separate grown path. All four scene years offer the same seasonal viewing choice. The scene's own calendar season retains its target date (1871 remains 8 October); choosing summer in an autumn-dated scene uses 15 July. Dated jaunts still take their own documented dates and restore the visitor's choice. Scale/needle leaf tiles retain their own evergreen colour through winter; no new historical evergreen planting is inferred.
++**Evidence:** existing species, flower and crop records remain the authority for what is planted. The other-season appearances are viewing approximations under L-season-view-2481, not records of Chicago on those dates. No new asset, density, historical source or species occurrence is introduced.
++**How to resolve:** observed phenology by species and date, calibrated normals and measured leaf optics could replace these broad seasonal and shading approximations.
++**Ticket:** T-3748.
++**Recorded:** 2026-11-25 (T-3748).
++
++### L-1871-grown-context-3760 — A generic grown deciduous proxy for the pre-fire context planting
++**Liberty:** the 1871 context's existing sparse reconstructed planting now draws through the shared adaptive seasonal tree renderer instead of its portable kit's rounded solid crowns. The proxy uses the grown open deciduous habit also used by the street elms, bounded by each context record's nominal height and crown width. It does not identify any context tree as an elm. Its positions, reconstructed grades, source limits and inspection identities remain those of L-1871-city-baseline. Spring, summer and fall use that renderer's corresponding leaf cover, and winter uses bare wood. The shared Trees setting and confidence hide apply to the handed-off records. No context planting is moved or removed by this renderer change.
++**Evidence:** upstream 172bbb62b9ff07352a683a291bf34ea6d392b57d contains 3,543 context and 6,693 street trees. A refreshed audit of all 10,236 trunk centres finds none strictly more than 0.25 m inside 38,598 context building plans or 19 named solid footprint parts. No cross-set trunk centres are closer than two metres. The old pumping-works record is absent upstream. Earlier prototype placement deletions are superseded, and no current planting is withdrawn. These narrow tests do not prove crown clearance or establish that an individual historical tree occupied a reconstructed position. The upstream fire's bare/charred state is retained across seasonal and detail rebuilds.
++**How to resolve:** period views or parcel planting evidence can replace a generic record with a sourced location and habit. Preserve the generic reconstruction label until that evidence exists.
++**Ticket:** T-3760.
++**Recorded:** 2026-11-25 (T-3760).
+diff --git a/chicago/4d/docs/ROADMAP.md b/chicago/4d/docs/ROADMAP.md
+index fe28a94486..d3f11d8f8f 100644
+--- a/chicago/4d/docs/ROADMAP.md
++++ b/chicago/4d/docs/ROADMAP.md
+@@ -6929,3 +6929,12 @@ The owner requested more realistic vegetation in every year. T-3747 adds close l
+ sprays and shadowed thin-leaf light through the existing adaptive renderer. T-3748 follows
+ with flora, crop lighting and seasonal controls; T-3760 covers the 1871 context leftovers.
+ STATUS and the PR evidence distinguish render checks from hardware FPS acceptance.
++
++### Better Trees - T-3748 and T-3760 (November 2026)
++
++Seasonal flora extends the shared leaf lighting and folded surfaces through all four years.
++The current 1871 context hands its 3,543 recorded trees to the shared grown path; its new
++planting remains intact. The refreshed footprint audit supersedes the old prototype's
++placement deletions. Fire state, cards, confidence and adaptive detail survive rebuilds.
++STATUS and versioned evidence retain the exact inputs and distinguish software checks
++from hardware FPS acceptance.
+diff --git a/chicago/4d/docs/STATUS.md b/chicago/4d/docs/STATUS.md
+index cf7d9ca5b7..2f26250186 100644
+--- a/chicago/4d/docs/STATUS.md
++++ b/chicago/4d/docs/STATUS.md
+@@ -1,3 +1,48 @@
++
++- **2026-11-27 — T-3748/T-3760, Light fix working source:** seasonal flora and the current 3,543-record 1871 grown handoff are composed on the fully gated Core3bdf source. A local software-renderer prototype kept triangles/calls unchanged and reduced Light frame time about25% against its warm controls, with a small colour change in the sampled view. This is not calibrated hardware acceptance. The earlier actual EPYC7763/4 Light miss remains held; fresh whole Native, actual failed-profile revalidation, seasonal browser evidence, committed preflight and final current-head CI remain required. Full/Balanced physical lighting and all current planting data are retained.
++## T-3748, T-3760 — Seasonal flora and the current 1871 trees (25 November 2026)
++
++All four years offer spring, summer, fall and winter. A fresh 1871 visit resolves to
++fall on 8 October, its target day; other choices use representative seasonal dates.
++Explicit visitor preferences win. Dated jaunts retain their documented dates and restore
++the visitor's choice. The evergreen exemption covers the complete scale/needle row of
++the six-row leaf atlas, rather than the obsolete five-row cutoff.
++
++Prairie leaf normals follow the existing midrib folds, plant size, arch and wind.
++Grass ribbons keep their width in physical metres, without new vertices, attributes,
++density, waves or draw passes. April withholds July flowers and their peduncles.
++Winter withholds legacy deciduous leaf sprays in colour and both shadow passes while
++retaining wood; conifers keep their separate evergreen path. Crop phenology is retained.
++Crop leaves share shadowed thin-leaf light and slight atlas relief on capable devices;
++Light and weak devices omit the extra sampling. Original green ivy masks precede seasonal
++or confidence recolouring so brown stems receive no leaf light. Reused street/front-yard
++materials drop relief on Light and restore the same atlas on Full.
++
++The current upstream 1871 city contains 3,543 context and 6,693 street trees. All current
++planting is preserved. A refreshed audit checked 10,236 trunk centres against 38,598 context
++building plans and 19 named solid footprint parts, with zero centres more than 0.25 m inside.
++No cross-set trunk centres were closer than two metres. These scans do not establish crown
++clearance. The earlier prototype's two deletion edits are superseded: those old serial IDs
++now name valid trees elsewhere, and the old coordinates no longer intrude into buildings.
++The former pumping-works context tree is absent upstream and is not reintroduced.
++
++All 3,543 current context records now use the shared grown-tree path instead of portable
++solid crowns. Their positions, nominal height/crown width, reconstructed grade and lazy
++inspection cards remain. The elm-like habit is a declared generic deciduous proxy, not an
++identified historical elm. Census and triangle accounting distinguish the handoff.
++
++Street trees and front yards keep their live forest and pick records until the latest
++replacement is ready, join duplicate requests and coalesce superseded choices. Detail
++completion waits for both. A replacement receives the latest Great Fire burnt-tree map
++before it mounts. Native regressions reproduce leaf restoration on a burnt tree, then verify
++fire changes during pending season/detail rebuilds, Hide/show, winter wood, relief toggling,
++picking, confidence, independent forests and disposal. Capture checks require actual probe
++instance slots, not just placement totals. The wider Water Tower view is checked separately.
++
++Complete integrated native/CI, published phone/desktop seasonal captures and memory/frame
++receipts belong to the merging PR. Software rendering does not establish hardware FPS.
++Liberties: L-seasonal-flora-3748 and L-1871-grown-context-3760.
++
+ ## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
+ 
+ The leaf-light implementation retains its rounded foliage and shadowed transmission.
+diff --git a/chicago/4d/docs/measurements/source_use_coverage.md b/chicago/4d/docs/measurements/source_use_coverage.md
+index 5f96b612aa..601028a853 100644
+--- a/chicago/4d/docs/measurements/source_use_coverage.md
++++ b/chicago/4d/docs/measurements/source_use_coverage.md
+@@ -12,7 +12,7 @@ Generated by `tools/compile_source_use.py`; no timestamps.
+ | flora | 11 | 11 | 0 |
+ | households | 2086 | 1457 | 0 |
+ | jaunt claims | 296 | 296 | 0 |
+-| liberties (structured citations) | 1257 | 0 | 0 |
++| liberties (structured citations) | 1259 | 0 | 0 |
+ | loading facts | 50 | 50 | 0 |
+ | people | 3891 | 1655 | 0 |
+ | railway | 1 | 1 | 0 |
+diff --git a/chicago/4d/renderers/web/js/back-yards.js b/chicago/4d/renderers/web/js/back-yards.js
+index 06377d25c4..1b9b5b8d6b 100644
+--- a/chicago/4d/renderers/web/js/back-yards.js
++++ b/chicago/4d/renderers/web/js/back-yards.js
+@@ -63,6 +63,7 @@
+ import * as THREE from 'three';
+ import { inertBackYards } from './inert-layers.js';
+ import { patchSeason } from './season.js';
++import { patchLeafLight } from './leaf-light.js';
+ import { ktx2Beside, loadSheet } from './ktx2.js';
+ import { KINDS as CROP_KINDS, growTemplate, seasonLook, cropAtlas } from './gardens.js';
+ 
+@@ -1183,8 +1184,10 @@ export async function createBackYards({
+       return;
+     }
+     const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
++      bumpMap: lowSpec || detailNow === 'light' ? null : atlas, bumpScale: 0.002,
+       side: THREE.DoubleSide, alphaTest: CROP_LEAF_CUTOFF });
+     leafMat.name = 'back-yards-crop-leaves';
++    patchLeafLight(leafMat, { lowSpec });
+     const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
+     solidMat.name = 'back-yards-crop-solid';
+     confidence?.patch(leafMat); confidence?.patch(solidMat);
+@@ -1323,6 +1326,10 @@ export async function createBackYards({
+     if (!VIEW_M[d] || d === detailNow) return;
+     const wasLight = detailNow === 'light';
+     detailNow = d; stats.detail = d;
++    if (!lowSpec && crops?.leaves.material) {
++      const m=crops.leaves.material, bump=d==='light'?null:m.map;
++      if (m.bumpMap!==bump) { m.bumpMap=bump; m.needsUpdate=true; }
++    }
+     if (wasLight !== (d === 'light') && !lowSpec) { buildFixtures(); hangLeaves(); refreshBalls(); }
+     const cast = !lowSpec && d !== 'light';
+     for (const m of fixtureMeshes) m.castShadow = cast;
+diff --git a/chicago/4d/renderers/web/js/buildings.js b/chicago/4d/renderers/web/js/buildings.js
+index 1877ed5f3d..a9cd88bef8 100644
+--- a/chicago/4d/renderers/web/js/buildings.js
++++ b/chicago/4d/renderers/web/js/buildings.js
+@@ -49,6 +49,7 @@ import { backingTriangles } from './view-occlusion.js';
+ import { planarCoverPlanes } from './planar-occluders.js';
+ import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
+ import { seasonPreservesSurface } from './season.js';
++import { isWallVineMaterial, patchVineLeafLight } from './leaf-light.js';
+ import { materialKey as inspectionMaterialKey, captureHooks } from './batch-material.js';
+ import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
+ import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
+@@ -779,7 +780,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
+       // or shader-patch those source materials: each batch owns its own copy.
+       // Keep early masonry's native role and colour immutable too: a later detail
+       // build must not inherit a whitened/renamed source or an uncloneable hook.
+-      const ownMaterial = preserveMaterials || (!masonry.off && masonrySubstrate(bodyRole,
++      const vineLeaves = isWallVineMaterial(sourceMaterial);
++      const ownMaterial = preserveMaterials || vineLeaves || (!masonry.off && masonrySubstrate(bodyRole,
+         record.sidecar, !!sourceMaterial.map, sourceMaterial.userData?.chiMasonryFabric) !== null);
+       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
+       if (ownMaterial && !preserveMaterials) material = sourceMaterial.clone();
+@@ -793,6 +795,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
+       }
+       // T-3332: a window pane glows by night (night-lights.js); 0 by day, to the bit.
+       if (bodyRole === 'glass') patchNightWindows(material);
++      if (vineLeaves) patchVineLeafLight(material, { lowSpec });
+       // Before the key is taken, and only ever by name — T-1488 and
+       // docs/GLB-CONTRACT.md § Roof coverings.
+       const reliefWarning = relief.apply(material);
+diff --git a/chicago/4d/renderers/web/js/city-context.js b/chicago/4d/renderers/web/js/city-context.js
+index 6a6e377d48..faf7d5a4ed 100644
+--- a/chicago/4d/renderers/web/js/city-context.js
++++ b/chicago/4d/renderers/web/js/city-context.js
+@@ -71,11 +71,11 @@ export function cityContextCard(r, doc, definition) {
+   const id=`context:1871:${r.id}`;
+   const libertyIds=typeof doc.liberty==='string' && doc.liberty ? [doc.liberty] : [];
+   if (r.isTree) {
+-    return {id,libertyIds,sidecar:{name:'Reconstructed deciduous tree',phase:null,
++    return {id,libertyIds:[...libertyIds,'L-1871-grown-context-3760'],sidecar:{name:'Reconstructed deciduous tree',phase:null,
+       change_note:definition.vegetation_note,
+       placement:{symbolic_location:'City context planting',position_confidence:'reconstructed',position_sources:doc.sources ?? [],position_note:'Sparse district planting chosen for the context city; no individual historical tree is identified.'},
+       attributes:{height:{value:`${r.h.toFixed(1)} m`,confidence:'reconstructed',sources:[],note:'A context dimension, not a measured historical tree.'}},
+-      citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form with early-autumn colour, recorded among the city baseline liberties.'}};
++      citations:doc.citations ?? definition.citations ?? [],research_note:'Generic deciduous form, recorded among the city baseline liberties. Its seasonal appearance is a viewing choice; no individual species is identified.'}};
+   }
+   const district=doc.districts?.[r.district] ?? {};
+   const sources=[...new Set([...(definition.sources ?? []),...(district.sources ?? [])])];
+@@ -227,7 +227,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
+   }
+   out.census.streetSurfaces=surfacing.census;
+   out.census.infrastructureMeshes=infrastructureMeshes.length;
+-  const templates = new Map([...definition.templates,...(definition.vegetation ?? [])].map(t => [t.id, t]));
++  const templates = new Map(definition.templates.map(t => [t.id, t]));
+   const columns = Object.fromEntries((doc.fields?.buildings ?? []).map((key, index) => [key, index]));
+   const value = (row, key, fallback) => Array.isArray(row) ? (columns[key] == null ? fallback : row[columns[key]]) : (row[key] ?? fallback);
+   const enumValue = (kind, v) => typeof v === 'number' ? doc.enums?.[kind]?.[v] : v;
+@@ -330,23 +330,19 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
+   // T-3684: where two named 1871 streets meet, `[e, n, name, name]`, for the
+   // where card's "State and Madison streets".
+   out.junctions = () => (doc.junctions ?? []).filter(j=>Array.isArray(j) && j.length>=4 && Number.isFinite(j[0]) && Number.isFinite(j[1]));
+-  // The city's own sparse planting positions, with generic portable deciduous
+-  // crowns. No other year's species palette or planting record is imported.
++  // T-3760: retain the city's own planting records, but hand their stems to the
++  // shared seasonal renderer. No portable blob crown is drawn over it here.
++  const treeStems=[];
+   const treeFields=Object.fromEntries((doc.fields?.trees ?? []).map((key,index)=>[key,index]));
+   for (const [index,row] of (doc.trees ?? []).entries()) {
+     const read=(key,fallback)=>Array.isArray(row)?(treeFields[key]==null?fallback:row[treeFields[key]]):(row[key] ?? fallback);
+-    const family=definition.vegetation?.[index%(definition.vegetation?.length || 1)];
+-    if (!family) continue;
+     const e=+read('e'),n=+read('n'),h=+read('height_m'),radius=+read('crown_m',h*.32);
+     if (![e,n,h,radius].every(Number.isFinite) || h<=0 || radius<=0) throw Error('1871 context: invalid tree dimensions');
+-    const t=templates.get(family.id), bearing=(index*137.507)%360;
+-    const r={row,t,e,n,w:radius*2,d:radius*2,h,base:+read('base_m',terrain.surfaceHeight(e,n)),bearing,
++    const r={row,e,n,w:radius*2,d:radius*2,h,base:+read('base_m',terrain.surfaceHeight(e,n)),
+       id:read('id',`tree_${index}`),isTree:true};
+-    const key=`${Math.floor(e/tileM)},${Math.floor(n/tileM)}`;
+-    if (!tiles.has(key)) tiles.set(key,{e:(Math.floor(e/tileM)+.5)*tileM,n:(Math.floor(n/tileM)+.5)*tileM,sets:new Map()});
+-    const tile=tiles.get(key);
+-    if (!tile.sets.has(t.id)) tile.sets.set(t.id,[]);
+-    tile.sets.get(t.id).push(r); out.census.trees++;
++    treeStems.push({id:`context:1871:${r.id}`,e,n,y:r.base,h,crownW:radius*2,
++      card:()=>cityContextCard(r,doc,definition)});
++    out.census.trees++;
+   }
+   const matrix=new THREE.Matrix4(), quaternion=new THREE.Quaternion(), up=new THREE.Vector3(0,1,0);
+   const position=new THREE.Vector3(), scale=new THREE.Vector3(), color=new THREE.Color();
+@@ -571,7 +567,9 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
+   out.census.triangles=meshes.reduce((sum,m)=>sum+m.userData.triangles,0);
+   out.census.kitBytes=definition.asset_bytes;
+   out.census.templates=definition.templates.length;
+-  out.census.treeTemplates=definition.vegetation?.length ?? 0;
++  out.census.treeTemplates=0;
++  out.census.treeRepresentation='shared-grown-seasonal';
++  out.census.handedOffTrees=treeStems.length;
+   out.census.tiles=tiles.size;
+   const frustum=new THREE.Frustum(), viewProjection=new THREE.Matrix4();
+   out.setDetail=level=>{ if (['full','balanced','light'].includes(level)) detail=level; };
+@@ -613,8 +611,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
+     out.census.visibleBuildings=activeBuildings; out.census.nearTiles=nearTiles; out.census.farTiles=farTiles;
+     out.census.visibleTrees=activeTrees;
+   };
+-  // These trees already draw here; handing stems to a second layer duplicates them.
+-  out.treeStems=()=>[];
++  out.treeStems=()=>treeStems;
+   const raycaster=new THREE.Raycaster();
+   out.pickAt=(ndc,camera)=>{
+     if (!camera || !group.visible || confidence?.hidden?.reconstructed) return null;
+@@ -635,7 +632,7 @@ export async function createCityContext({ doc, dataBase, terrain, confidence = n
+     for (const geometry of geometries) geometry.dispose();
+     for (const material of materials) material.dispose();
+     for (const texture of textures) { texture.dispose(); texture.source?.data?.close?.(); }
+-    depthMaterials.clear(); collisions.clear(); tiles.clear(); floors.clear(); group.clear();
++    depthMaterials.clear(); collisions.clear(); tiles.clear(); floors.clear(); treeStems.length=0; group.clear();
+   };
+   return out;
+ }
+diff --git a/chicago/4d/renderers/web/js/confidence.js b/chicago/4d/renderers/web/js/confidence.js
+index b4a08c0eda..5a056182d1 100644
+--- a/chicago/4d/renderers/web/js/confidence.js
++++ b/chicago/4d/renderers/web/js/confidence.js
+@@ -358,6 +358,7 @@ export function createConfidenceView({
+   colors = {},
+   looks = {},
+   patterns = true,
++  prepareMaterial = null,
+ } = {}) {
+   const sceneHex = (level) => colors[level] ?? GRADE_COLORS[level].scene;
+   const look = Object.fromEntries(GRADE_NAMES.map((level) => [level, { ...GRADE_LOOK[level], ...(looks[level] || {}) }]));
+@@ -407,6 +408,7 @@ export function createConfidenceView({
+    * compact-streams.js COLOR_LANE_CONFIDENCE).
+    */
+   function patch(material, { packed = null } = {}) {
++    if (material) prepareMaterial?.(material);
+     if (!material || patched.has(material)) return material;
+     patched.add(material);
+     patchCount += 1;
+diff --git a/chicago/4d/renderers/web/js/flora.js b/chicago/4d/renderers/web/js/flora.js
+index 0b9ceffaa7..c29adf2905 100644
+--- a/chicago/4d/renderers/web/js/flora.js
++++ b/chicago/4d/renderers/web/js/flora.js
+@@ -49,6 +49,7 @@
+ import * as THREE from 'three';
+ import { onDaylight } from './time-of-day.js';
+ import { GUST_GLSL, uGustClock } from './wind-gust.js';
++import { seasonUniforms } from './season.js';
+ // The shrub archetype's LAYOUT, in a module that imports nothing, so
+ // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
+ // without a second copy of the corner arithmetic. See K57.
+@@ -7783,6 +7784,11 @@ function emptyGeo() {
+   return { pos: [], nor: [], col: [], dir: [], side: [], botany: [], idx: [], n: 0 };
+ }
+ function finishGeo(g, name) {
++  // Heads share the leaf program. Reserve kind 8 for their untextured florets,
++  // so April can withhold July flowers without another material or draw pass.
++  if (name.startsWith('flora-head-')) for (let i=0;i<g.n;i++) {
++    if (g.side[i*4+3]===0) botany(g,i,0,0,8);
++  }
+   const geo = new THREE.BufferGeometry();
+   geo.name = name;
+   geo.setAttribute('position', new THREE.Float32BufferAttribute(g.pos, 3));
+@@ -7858,9 +7864,11 @@ function curvedLeaf(g, { base, dx, dz, len, wide, rise, curl, segments, k0, k1 }
+       const u = side / (segments > 1 ? 2 : 1);
+       const lateral = (u * 2 - 1) * wide;
+       const fold = segments > 1 && side === 1 ? wide * 0.09 * Math.sin(t * Math.PI) : 0;
+-      const slope = rise + Math.cos(t * Math.PI) * Math.PI * curl;
+-      const n = new THREE.Vector3(-dx * slope - dz * (u - 0.5) * wide * 0.2,
+-        len, -dz * slope + dx * (u - 0.5) * wide * 0.2).normalize();
++      const slope = rise + Math.cos(t * Math.PI) * Math.PI * curl
++        + (segments > 1 && side === 1 ? wide * 0.09 * Math.PI * Math.cos(t * Math.PI) : 0);
++      const foldSlope = segments > 1 ? (1 - 2 * u) * 0.09 * Math.sin(t * Math.PI) : 0;
++      const n = new THREE.Vector3(-dx * slope + dz * foldSlope * len,
++        len, -dz * slope - dx * foldSlope * len).normalize();
+       const v = vert(g, base[0] + dx * len * t - dz * lateral,
+         base[1] + rise * t + arch + fold, base[2] + dz * len * t + dx * lateral,
+         n.x, n.y, n.z, k, k, k, dx, dz);
+@@ -8638,6 +8646,7 @@ function plantMaterial({ uniforms, billboard = false, membrane = 1.0, gpuNear =
+       uChiSunCol: uniforms.uChiSunCol,
+       uChiSky: uniforms.uChiSky,
+       uChiFoliage: uniforms.uChiFoliage,
++      uChiSpring: seasonUniforms.uChiFresh,
+     });
+     if (gpuNear) Object.assign(shader.uniforms, gpuNear.uniforms);
+     shader.vertexShader = `
+@@ -8671,14 +8680,47 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
+ `)
+       .replace('#include <beginnormal_vertex>', /* glsl */`
+ #include <beginnormal_vertex>
++// The same wind coefficient drives positions and normals. Fetch-backed near
++// instances fill their transform before this chunk, just as CPU instances do.
++vec3 chiInst = vec3(instanceMatrix[3][0], instanceMatrix[3][1], instanceMatrix[3][2]);
++float chiPh = dot(chiInst.xz, uChiWind) * uChiWaveK + uChiTime;
++float chiGust = (0.62 + 0.38 * sin(chiPh * 0.31 + 1.7)) * chiTownGust(chiInst);
++float chiPlantWind = uChiSway * chiGust * sin(chiPh);
+ {
+-  // Broad-leaf normals follow the nonuniform species scale.
+-  if (aSide.w > 0.5 && aSide.w < 2.5) {
+-    objectNormal /= max(vec3(aFlora.y, aFlora.x, aFlora.y), vec3(0.001));
+-  }
+   float cy = cos(aFlora.w), sy = sin(aFlora.w);
++  ${billboard ? /* glsl */`
+   objectNormal.xz = vec2(objectNormal.x * cy + objectNormal.z * sy,
+                         -objectNormal.x * sy + objectNormal.z * cy);
++  ` : /* glsl */`
++  float t = clamp(position.y, 0.0, 1.0);
++  float dt = step(0.0,position.y)*(1.0-step(1.0,position.y));
++  vec3 speciesScale = max(vec3(aFlora.y, aFlora.x, aFlora.y), vec3(0.001));
++  if (aSide.w > 2.5 && aSide.w < 3.5) {
++    // A grass ribbon's width is in metres AFTER species scale. Transform its
++    // length tangent and keep that physical width, rather than widening it.
++    vec3 width = aSide.xyz;
++    vec3 tangent;
++    if (dot(width,width) > 1e-12) tangent = cross(width,objectNormal);
++    else {
++      tangent = vec3(aDir.x*objectNormal.y,-dot(objectNormal.xz,aDir.xy),aDir.y*objectNormal.y);
++      width = cross(objectNormal,tangent);
++    }
++    float ty = tangent.y;
++    tangent.xz += aDir.xy * (2.0*aFlora.z*t*ty*dt);
++    tangent *= speciesScale;
++    tangent.xz = vec2(tangent.x*cy+tangent.z*sy,-tangent.x*sy+tangent.z*cy);
++    width.xz = vec2(width.x*cy+width.z*sy,-width.x*sy+width.z*cy);
++    tangent.xz += uChiWind * (2.0*t*aFlora.x*ty*chiPlantWind*dt);
++    objectNormal = cross(tangent,width);
++  } else {
++    // Inverse transpose of the arch, species scale, yaw and wind shear.
++    // This changes light on the folded leaf; its outline and motion stay put.
++    objectNormal.y -= 2.0*aFlora.z*t*dt*dot(objectNormal.xz,aDir.xy);
++    objectNormal /= speciesScale;
++    objectNormal.xz = vec2(objectNormal.x*cy+objectNormal.z*sy,-objectNormal.x*sy+objectNormal.z*cy);
++    objectNormal.y -= 2.0*t*chiPlantWind*dt*dot(objectNormal.xz,uChiWind);
++  }
++  `}
+ }
+ `)
+       .replace('#include <begin_vertex>', /* glsl */`
+@@ -8754,11 +8796,8 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
+   // Wind, in world space, after the plant has been turned: a travelling wave
+   // across the field plus a slow gust, both fixed at the base and free at the
+   // tip. This is the "wind-combed" reading the sources give the wet prairie.
+-  float chiPh = dot(chiInst.xz, uChiWind) * uChiWaveK + uChiTime;
+-  // T-3586: scaled by the town's shared gust, 1 at a gust's top (the sway it had).
+-  float chiGust = (0.62 + 0.38 * sin(chiPh * 0.31 + 1.7)) * chiTownGust(chiInst);
+   transformed.xz += uChiWind
+-    * (uChiSway * chiGust * sin(chiPh) * chiT * chiT * aFlora.x);
++    * (chiPlantWind * chiT * chiT * aFlora.x);
+   `}
+   // The world-space frame the sun terms need, built HERE rather than read off
+   // three's vNormal: <defaultnormal_vertex> has already run by this point, so
+@@ -8805,6 +8844,7 @@ uniform vec3 uChiSun;
+ uniform vec3 uChiSunCol;
+ uniform vec3 uChiSky;
+ uniform sampler2D uChiFoliage;
++uniform float uChiSpring;
+ varying vec3 vChiBotany;
+ varying float vChiFamily;
+ varying vec3 vChiNW;
+@@ -8854,6 +8894,8 @@ float chiBayer4(vec2 fragXY) {
+ // wholly inside its ring reaches the shader that existed before this: the
+ // branch is what the confidence view's own comment warns about paying for.
+ if (vChiFade < 1.0 && fract(chiBayer4(gl_FragCoord.xy) + vChiDither) >= vChiFade) discard;
++// Mid-April is a seasonal viewing approximation, not a backdated July bloom.
++if (uChiSpring > 0.5 && (vChiBotany.z > 4.5 || vChiBotany.z < -1.5)) discard;
+ // A spray is a collection of leaves, never an opaque rectangular surface.
+ // Atlas tiles are padded and use ordinary mipmaps; alpha clipping keeps leaf
+ // gaps and depth ordering without sorting thousands of transparent plants.
+@@ -8895,7 +8937,7 @@ if (vChiBotany.z > 0.5 && vChiBotany.z < 2.5) {
+   }
+   if (chiBladeEdge > 0.0) discard;
+   chiLeafSurface *= 0.84 + 0.16 * smoothstep(0.0, 0.08, -chiBladeEdge);
+-} else if (vChiBotany.z > 4.5) {
++} else if (vChiBotany.z > 4.5 && vChiBotany.z < 7.5) {
+   vec2 p = vChiBotany.xy * 2.0 - 1.0;
+   if (vChiBotany.z < 5.5) {
+     // A small globe of florets, rather than three intersecting rectangles.
+@@ -9017,7 +9059,7 @@ if (vChiBotany.z > 4.5 && vChiBotany.z < 5.5) {
+       shader.vertexShader = gpuNear.glsl + v;
+     };
+   }
+-  mat.customProgramCacheKey = () => `flora-botanical-3-${billboard}-${membrane}${gpuNear ? '-gpu-near' : ''}`;
++  mat.customProgramCacheKey = () => `flora-botanical-4-${billboard}-${membrane}${gpuNear ? '-gpu-near' : ''}`;
+   mat.needsUpdate = true;
+   return mat;
+ }
+diff --git a/chicago/4d/renderers/web/js/front-yards.js b/chicago/4d/renderers/web/js/front-yards.js
+index 0fe992a96c..05a6e4bd89 100644
+--- a/chicago/4d/renderers/web/js/front-yards.js
++++ b/chicago/4d/renderers/web/js/front-yards.js
+@@ -559,42 +559,64 @@ export async function createFrontYards({
+     });
+     ownMats = true;
+   }
++  const leafRelief = mats.leafMat.bumpMap;
+   const ivySpec = (w, h, conf) => ({ speciesId: 'parthenocissus_tricuspidata', common: 'Boston ivy',
+     form: 'vine_wall', leaf: 'maple', h: [h, h], crownW: [w, w], dark: 0x29421f, light: 0x648a3a,
+     bark: 0x6b5a48, conf, sinkM: 0 });
+ 
+   let forest = null;
+-  let current = { mode: null, detail: null };
+-  const build = async (wantMode, wantDetail) => {
+-    if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
++  let current = { mode: null, detail: null }, applied = { ...current };
++  let buildRevision = 0, disposed = false;
++  let pending = Promise.resolve();
++  const build = (wantMode, wantDetail) => {
++    if (disposed) return pending;
++    const mine = ++buildRevision;
+     current = { mode: wantMode, detail: wantDetail };
+-    stats.mode = wantMode; stats.detail = wantDetail;
+-    const lvl = YARD_LEVELS[wantDetail] ? wantDetail : 'full';
+-    const grown = new TreeInstances({ level: lvl, shadowM: SHADOW_M[lvl], name: 'front-yards',
+-      levels: YARD_LEVELS, cull: true, fadeS: FADE_S });
+-    if (tubMesh) tubMesh.visible = wantMode === 'summer';
+-    for (const p of placed) {
+-      if (p.tub && wantMode !== 'summer') continue;
+-      if (p.kind === 'bedding' && !BEDDED[wantMode]) continue;
+-      if (p.kind === 'creeper') {
+-        // Its +x out of the wall: a compass bearing turned into the batches' yaw.
+-        // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
+-        // patches under its windows theirs, so neither is grown at the other's height (T-1881)
+-        const spec = { ...seasonSpec('ivy', ivySpec(p.mantle === 'mantle_ring' ? RING_W_M : 2.4, 6, p.conf), wantMode),
+-          ...(p.mantle ? { arch: p.mantle } : {}) };
+-        grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
+-          { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
+-        continue;
++    pending = pending.catch(() => {}).then(async () => {
++      if (disposed || mine !== buildRevision) return;
++      try {
++        const lvl = YARD_LEVELS[wantDetail] ? wantDetail : 'full';
++        const grown = new TreeInstances({ level: lvl, shadowM: SHADOW_M[lvl], name: 'front-yards',
++          levels: YARD_LEVELS, cull: true, fadeS: FADE_S });
++        for (const p of placed) {
++          if (p.tub && wantMode !== 'summer') continue;
++          if (p.kind === 'bedding' && !BEDDED[wantMode]) continue;
++          if (p.kind === 'creeper') {
++            // Its +x out of the wall: a compass bearing turned into the batches' yaw.
++            // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
++            // patches under its windows theirs, so neither is grown at the other's height (T-1881)
++            const spec = { ...seasonSpec('ivy', ivySpec(p.mantle === 'mantle_ring' ? RING_W_M : 2.4, 6, p.conf), wantMode),
++              ...(p.mantle ? { arch: p.mantle } : {}) };
++            grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
++              { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
++            continue;
++          }
++          const spec = seasonSpec(p.plant, specOf(p.plant, p.conf), wantMode);
++          const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
++          grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
++        }
++        const pause = checkpoint(); if (pause) await pause;
++        const candidate = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
++        if (disposed || mine !== buildRevision) { candidate.dispose(); return; }
++        const bumpMap = wantDetail === 'light' ? null : leafRelief;
++        if (mats.leafMat.bumpMap !== bumpMap) {
++          mats.leafMat.bumpMap = bumpMap;
++          mats.leafMat.needsUpdate = true;
++        }
++        if (forest) { group.remove(forest.group); forest.dispose(); }
++        forest = candidate;
++        group.add(forest.group);
++        if (tubMesh) tubMesh.visible = wantMode === 'summer';
++        stats.mode = wantMode; stats.detail = wantDetail;
++        stats.drawCalls = forest.stats.drawCalls + (beds.length ? 1 : 0);
++        stats.grown = forest.stats;
++        applied = { mode: wantMode, detail: wantDetail };
++      } catch (error) {
++        if (mine === buildRevision) current = { ...applied };
++        throw error;
+       }
+-      const spec = seasonSpec(p.plant, specOf(p.plant, p.conf), wantMode);
+-      const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
+-      grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
+-    }
+-    const pause = checkpoint(); if (pause) await pause;
+-    forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+-    group.add(forest.group);
+-    stats.drawCalls = forest.stats.drawCalls + (beds.length ? 1 : 0);
+-    stats.grown = forest.stats;
++    });
++    return pending;
+   };
+   await build(SEASON[mode] ? mode : 'summer', detail);
+ 
+@@ -607,12 +629,13 @@ export async function createFrontYards({
+     }
+   };
+   out.setDetail = async (d) => {
+-    if (!YARD_LEVELS[d] || d === current.detail) return;
++    if (!YARD_LEVELS[d]) return;
++    if (d === current.detail) return pending;
+     await build(current.mode, d);
+   };
+   out.setSeason = async (m) => {
+     const want = SEASON[m] ? m : 'summer';
+-    if (want === current.mode) return;
++    if (want === current.mode) return pending;
+     await build(want, current.detail);
+   };
+   /** Deal now, from this eye (a still frame for a reading or a shot). */
+@@ -632,7 +655,7 @@ export async function createFrontYards({
+     let best = null;
+     const sphere = new THREE.Sphere(); const hitP = new THREE.Vector3();
+     for (const p of placed) {
+-      if (p.kind === 'bedding' || (p.tub && current.mode !== 'summer') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
++      if (p.kind === 'bedding' || (p.tub && stats.mode !== 'summer') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
+       const r = p.kind === 'creeper' ? Math.min(p.w ?? 1.5, p.h) * 0.5
+         : p.kind === 'tree' ? p.h * 0.3 : Math.max(0.4, p.h * 0.5);
+       sphere.center.set(p.x, p.y + (p.kind === 'tree' ? p.h * 0.62 : p.h * 0.5), p.z);
+@@ -673,6 +696,8 @@ export async function createFrontYards({
+     return plantCard(hit, doc, back);
+   };
+   out.dispose = () => {
++    if (disposed) return;
++    disposed=true; buildRevision++;
+     if (forest) { group.remove(forest.group); forest.dispose(); }
+     if (ownMats) mats.dispose();
+     for (const f of disposers) f();
+diff --git a/chicago/4d/renderers/web/js/gardens.js b/chicago/4d/renderers/web/js/gardens.js
+index 9ff6681d8e..f5da914120 100644
+--- a/chicago/4d/renderers/web/js/gardens.js
++++ b/chicago/4d/renderers/web/js/gardens.js
+@@ -38,6 +38,7 @@
+ import * as THREE from 'three';
+ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+ import { patchSeason } from './season.js';
++import { patchLeafLight } from './leaf-light.js';
+ 
+ const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
+ 
+@@ -641,9 +642,11 @@ function leafCard(b, { base, dir, side, len, wid, tile, rise = 0.2, droop = 0.4,
+     const lift = mul(n, fold * half * 0.6);
+     const shade = 0.78 + 0.22 * t;     // a leaf's foot sits in the plant's shade
+     const c = tint(col, shade);
+-    const l = b.v(add(add(p, mul(sv, -half)), [0, 0, 0]), n, atlasUV(tile, 0, t), c);
++    const leftNormal = norm(add(n, mul(sv, fold * 0.6)));
++    const rightNormal = norm(add(n, mul(sv, -fold * 0.6)));
++    const l = b.v(add(add(p, mul(sv, -half)), [0, 0, 0]), leftNormal, atlasUV(tile, 0, t), c);
+     const m = b.v(add(p, mul(lift, -1)), n, atlasUV(tile, 0.5, t), tint(c, 0.92));
+-    const r = b.v(add(p, mul(sv, half)), n, atlasUV(tile, 1, t), c);
++    const r = b.v(add(p, mul(sv, half)), rightNormal, atlasUV(tile, 1, t), c);
+     ids.push([l, m, r]);
+   }
+   for (let i = 0; i < segs; i += 1) {
+@@ -1700,8 +1703,10 @@ export async function createGardens({
+     /* ---- the crops: every plant one instance of its kind's variant ---- */
+     const atlas = cropAtlas(lowSpec);
+     const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
++      bumpMap: lowSpec || current === 'light' ? null : atlas, bumpScale: 0.002,
+       side: THREE.DoubleSide, alphaTest: LEAF_CUTOFF });
+     leafMat.name = 'garden-leaves';
++    patchLeafLight(leafMat, { lowSpec });
+     const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
+     solidMat.name = 'garden-solid';
+     confidence?.patch?.(leafMat);
+@@ -1899,6 +1904,10 @@ export async function createGardens({
+   out.setDetail = (d) => {
+     if (!LEVELS[d] || d === current) return;
+     current = d; stats.detail = d;
++    if (!lowSpec && leaves?.material) {
++      const m=leaves.material, bump=d==='light'?null:m.map;
++      if (m.bumpMap!==bump) { m.bumpMap=bump; m.needsUpdate=true; }
++    }
+     applyCast();
+     if (lastEye) deal(lastEye);
+   };
+diff --git a/chicago/4d/renderers/web/js/hud.js b/chicago/4d/renderers/web/js/hud.js
+index b1b4e92d91..a4590d7de6 100644
+--- a/chicago/4d/renderers/web/js/hud.js
++++ b/chicago/4d/renderers/web/js/hud.js
+@@ -160,7 +160,7 @@ function store(key, value) {
+ export function createHud({
+   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
+   onConfidence, onConfidenceKey = null, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop, onShowGuide,
+-  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, lowered = null, device = null, structureVersion = null,
++  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, resolvedSeason = null, lowered = null, device = null, structureVersion = null,
+ }) {
+   // T-2620: the drawer's sections live inside the Navigator now (a sibling of #hud), so
+   // lookups by id and of the sections' own parts are made in the document, not under #hud.
+@@ -176,6 +176,7 @@ export function createHud({
+   const panel = $('panel');
+   const hint = $('hint');
+   const settings = readSettings();
++  if (resolvedSeason) settings.season = resolvedSeason;
+   settings.units = normalUnitSystem(settings.units);
+ 
+   if (badgeYear) badgeYear.textContent = scene?.id ?? '';
+diff --git a/chicago/4d/renderers/web/js/leaf-light.js b/chicago/4d/renderers/web/js/leaf-light.js
+index 552e50ba9b..a953ce2ff6 100644
+--- a/chicago/4d/renderers/web/js/leaf-light.js
++++ b/chicago/4d/renderers/web/js/leaf-light.js
+@@ -7,10 +7,15 @@
+ import * as THREE from 'three';
+ import { LEAF_SKY } from './time-of-day.js';
+ 
++const leafLit = new WeakSet();
++
+ export function patchLeafLight(material, { mask = '1.0', lowSpec = false } = {}) {
+   const prior = material.onBeforeCompile;
+   const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
+     ? String(prior) : material.customProgramCacheKey();
++  // Rekeying and owned material clones can revisit a leaf. Its light is added once.
++  if (leafLit.has(material) || key.includes('|leaf-light-3747-')) return false;
++  leafLit.add(material);
+   material.onBeforeCompile = (shader, renderer) => {
+     prior(shader, renderer);
+     const pars = '#include <lights_physical_pars_fragment>';
+@@ -47,4 +52,37 @@ reflectedLight.indirectDiffuse += diffuseColor.rgb * (uLeafSky * chiLeafFill * (
+ `);
+   };
+   material.customProgramCacheKey = () => `${key}|leaf-light-3747-${mask}-${lowSpec}`;
++  material.needsUpdate = true;
++  return true;
++}
++
++/** Native wall creepers retain their own atlas and geometry, including brown stems. */
++export function isWallVineMaterial(material) {
++  return /vines/.test(material?.userData?.texture_generator ?? '') || /vine/i.test(material?.map?.name ?? '');
++}
++
++/** Measure the atlas's leaf mask before season/confidence recolour it. This keeps
++ *  bare stems opaque to leaf light and still transmits through red autumn ivy. */
++export function patchVineLeafLight(material, { lowSpec = false } = {}) {
++  if (!material?.isMeshStandardMaterial || !isWallVineMaterial(material)) return false;
++  const prior = material.onBeforeCompile;
++  const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
++    ? String(prior) : material.customProgramCacheKey();
++  if (key.includes('|vine-leaf-mask-3748')) return false;
++  material.onBeforeCompile = (shader, renderer) => {
++    prior(shader, renderer);
++    if (!shader.fragmentShader.includes('#include <map_fragment>')) throw Error('vine light: missing atlas anchor');
++    shader.fragmentShader = 'float chiVineLeafMask = 0.0;\n' + shader.fragmentShader.replace(
++      '#include <map_fragment>', `#include <map_fragment>
++vec3 chiRawVineColour = diffuseColor.rgb;
++#if defined(USE_COLOR) || defined(USE_COLOR_ALPHA)
++chiRawVineColour *= vColor.rgb;
++#endif
++chiVineLeafMask = smoothstep(0.01, 0.08, chiRawVineColour.g - max(chiRawVineColour.r, chiRawVineColour.b));
++`);
++  };
++  material.customProgramCacheKey = () => `${key}|vine-leaf-mask-3748`;
++  patchLeafLight(material, { mask: 'chiVineLeafMask', lowSpec });
++  material.needsUpdate = true;
++  return true;
+ }
+diff --git a/chicago/4d/renderers/web/js/main.js b/chicago/4d/renderers/web/js/main.js
+index 184be0f906..56e7be0266 100644
+--- a/chicago/4d/renderers/web/js/main.js
++++ b/chicago/4d/renderers/web/js/main.js
+@@ -51,6 +51,7 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
+ import { createBuildings } from './buildings.js';
+ import { readGlassRequest, glassForDetail } from './glass.js';
+ import { createConfidenceView } from './confidence.js';
++import { createRoughSurfaceLighting } from './rough-surface-lighting.js';
+ import { renderBudget } from './render-budget.js';
+ import { toggleByGrade, restoreLooks } from './confidence-presets.js';
+ import { createConfidenceLegend } from './confidence-legend.js';
+@@ -136,7 +137,8 @@ import { initKTX2, ktx2State } from './ktx2.js';
+ import { jobsState } from './jobs/pool.js';
+ import { createGardens } from './gardens.js';
+ import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
+-import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
++import { isWallVineMaterial as isWallVine } from './leaf-light.js';
++import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonForDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
+   from './season.js';
+ import { inertStreetGrid, inertStreetTrees, inertStreetFurniture, inertBackYards, inertFrontYards, inertRailway, inertContext, inertCrossings } from './inert-layers.js';
+ import { createViewOcclusion } from './view-occlusion.js';
+@@ -1692,11 +1694,11 @@ const NEAR = { min: 0.1, max: 8, divisor: 25, step: 0.05 };
+ /** T-2481: the Season setting and whether the street trees show, from the
+  *  chicago4d.settings blob. T-2473 stored the season in `streetTrees` itself
+  *  ('summer' | 'spring' | 'winter' | 'hidden'); such a blob still reads right. */
+-function readSeasonPreference() {
++function readSeasonPreference(fallback = 'summer') {
+   let saved = {};
+   try { saved = JSON.parse(window.localStorage.getItem('chicago4d.settings') || '{}') ?? {}; } catch { /* none */ }
+   const legacy = SEASONS.includes(saved.streetTrees) ? saved.streetTrees : null;
+-  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? 'summer');
++  const season = SEASONS.includes(saved.season) ? saved.season : (legacy ?? fallback);
+   return { season, treesShown: saved.streetTrees !== 'hidden' };
+ }
+ /** T-3331: the visitor's Time of day, a name or 'HH:MM'; daytime unless chosen. */
+@@ -2459,7 +2461,8 @@ async function boot() {
+     renderer, scene: scene3d, sceneJson: loaded.scene, datum: loaded.datum, lowSpec: lowMem,
+   });
+ 
+-  const confidence = createConfidenceView();
++  const roughSurfaceLighting = createRoughSurfaceLighting();
++  const confidence = createConfidenceView({ prepareMaterial: roughSurfaceLighting.prepare });
+   // T-2981: public and frame statistics read the same current view/tier policy.
+   const currentBudget = () => renderBudget(BUDGET, detailLevel, confidence.ghosting);
+   Object.defineProperty(api, 'budget', { get: currentBudget });
+@@ -2736,7 +2739,7 @@ async function boot() {
+   // built with trees.js's own tree and drawn as one instanced batch. Only a scene
+   // listing `street_trees` is handed a data base. The Season and Street trees
+   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
+-  const seasonPref = readSeasonPreference();
++  const seasonPref = readSeasonPreference(seasonForDate(loaded.scene.target_date) ?? 'summer');
+   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
+   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
+   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
+@@ -2884,8 +2887,7 @@ async function boot() {
+   // uniforms), the elms, the context city's crowns and the sun's date. A viewing
+   // choice; the scene keeps its own date. T-2864 offers it in every year, and the
+   // woods and the prairie take it too (`seasonPlants`, set once they are planted).
+-  // The new city kit currently models only its early-autumn scene day.
+-  const seasonal = YEAR !== '1871';
++  // T-3748: 1871 shares the same four-season view; its own October day is fall.
+ 
+   // T-3331 — Time of day (Settings › Show), and the setter a jaunt stop calls. The
+   // visitor's own choice is `own` (stored); a jaunt's is `transient` (never stored)
+@@ -3069,9 +3071,8 @@ async function boot() {
+   /** T-3399: a GLB's wall creepers (Glessner's Boston ivy and Virginia creeper,
+    *  masonry_house_v4_vines.py) are batched under their own atlas; they take the
+    *  creeper's season (season.js FOLIAGE.vine), never the ground's. */
+-  const isWallVine = (m) => /vines/.test(m?.userData?.texture_generator ?? '') || /vine/i.test(m?.map?.name ?? '');
+   const applySeason = async (season) => {
+-    const s = seasonal && SEASONS.includes(season) ? season : 'summer';
++    const s = SEASONS.includes(season) ? season : 'summer';
+     // The lawns, steps and roofs inside the building GLBs take the season too.
+     // Their materials learn it the first time a season other than summer is
+     // chosen, so a summer visit compiles nothing for it.
+@@ -3135,7 +3136,9 @@ async function boot() {
+     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
+     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
+   };
+-  if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
++  if (seasonPref.season !== 'summer'
++    || seasonDate(seasonPref.season, loaded.scene.target_date) !== loaded.scene.target_date)
++    await applySeason(seasonPref.season);
+   api.season = {
+     get current() { return seasonState.season; },
+     /** The visitor's own Season, under any season a jaunt holds. */
+@@ -3152,7 +3155,7 @@ async function boot() {
+     async restore() {
+       if (!seasonState.held) return seasonState.season;
+       seasonState.held = null;
+-      if (seasonState.season !== (SEASONS.includes(seasonState.own) && seasonal ? seasonState.own : 'summer'))
++      if (seasonState.season !== (SEASONS.includes(seasonState.own) ? seasonState.own : 'summer'))
+         await applySeason(seasonState.own);
+       gateFrame.invalidate();
+       return seasonState.season;
+@@ -3793,6 +3796,7 @@ async function boot() {
+   /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
+    *  before the 15 m base carries the ground alone. Null is terrain.js's own. */
+   function applyGroundDetailReach(level) {
++    roughSurfaceLighting.set(level === 'light');
+     return terrain.setDetailReach((DETAIL[level] ?? DETAIL.full).groundDetailReachM);
+   }
+   applyGroundDetailReach(detailLevel);
+@@ -4146,7 +4150,9 @@ async function boot() {
+     if (inspectionSwitch) {
+       if (!DETAIL[level]) return false;
+       if (level !== detailLevel) hud.say(`Loading ${level} detail…`, 9000);
+-      return inspectionSwitch.set(level);
++      const changed = await inspectionSwitch.set(level);
++      await Promise.all([streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
++      return changed;
+     }
+     if (!DETAIL[level] || level === detailLevel) return;
+     detailLevel = level;
+@@ -4226,7 +4232,7 @@ async function boot() {
+       scene3d.remove(trees.group);
+       trees.dispose?.();
+       trees = nextTrees;
+-      await streetsRebuilt;
++      await Promise.all([streetsRebuilt, streetTrees.setDetail(detailLevel), frontYards.setDetail(detailLevel)]);
+       if (lowMem) releaseAfterUpload(scene3d);
+       api.flora = flora;
+       api.trees = trees;
+@@ -4910,6 +4916,7 @@ async function boot() {
+     onTravelStop: () => { if (api.getDown?.()) return; api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
+     isTouch: prefersTouch(),
+     resolvedDetail: detailLevel,
++    resolvedSeason: seasonPref.season,
+     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
+     lowered: crashBoot.lowered,
+     device,
+@@ -5075,7 +5082,7 @@ async function boot() {
+   paintChipDay(timeState.transient?.date);
+   // The Trees setting is offered only where there are parkway trees to set (T-2473).
+   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
+-  document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
++  document.getElementById('row-season')?.removeAttribute('hidden');
+   // T-2864: every year has its own day, so the choice says which one it is.
+   const seasonDay = String(loaded.scene.target_date ?? '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+   if (seasonDay) {
+@@ -5083,9 +5090,7 @@ async function boot() {
+       .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
+     const summer = document.querySelector('#s-season option[value="summer"]');
+-    if (summer) summer.textContent = YEAR === '1871'
+-      ? `Scene day — ${day.replace(/ \d{4}$/, '')}, early autumn`
+-      : `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
++    if (summer) summer.textContent = `Summer — ${spokenDay(seasonDate('summer', loaded.scene.target_date))}, full leaf`;
+     // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
+     for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
+       const opt = document.querySelector(`#s-season option[value="${season}"]`);
+@@ -8361,6 +8366,7 @@ async function boot() {
+   // T-2158: before anything is uploaded, a phone marks the layers that may let
+   // go of their page arrays once the GPU has them (upload-release.js).
+   if (lowMem) releaseAfterUpload(scene3d);
++  roughSurfaceLighting.prepareScene(scene3d);
+   // Compile programs while the gate can still repaint, before the first draw.
+   // The horizon creates its initial geometry on update, so include that too.
+   trees.update(0, camera, scene3d.fog?.color);
+@@ -8458,6 +8464,8 @@ async function boot() {
+   Object.assign(api, {
+     renderer, camera, scene3d, world, terrain, buildings, walker, intent, popup, hud,
+     confidence,
++    roughSurfaceLighting: { get light() { return roughSurfaceLighting.light; },
++      get materials() { return roughSurfaceLighting.materials; } },
+     backends, streets, flora, trees, navigation,
+     // Where the dataset was loaded from, so a gate can re-read an authored
+     // record and ask whether what it says reached the renderer — rather than
+diff --git a/chicago/4d/renderers/web/js/rough-surface-lighting.js b/chicago/4d/renderers/web/js/rough-surface-lighting.js
+new file mode 100644
+index 0000000000..c35f20d513
+--- /dev/null
++++ b/chicago/4d/renderers/web/js/rough-surface-lighting.js
+@@ -0,0 +1,91 @@
++/** Light's matte nonmetals keep shaped sky fill without a glossy environment lookup.
++ * Full and Balanced compile the original physical lighting unchanged.
++ */
++import * as THREE from 'three';
++
++const DEFINE = 'CHI_ROUGH_LIGHT_3748';
++const DIRECT = /* glsl */`
++void chiRoughDirect(const in IncidentLight light, const in vec3 position,
++ const in vec3 normal, const in vec3 viewDir, const in vec3 clearcoatNormal,
++ const in PhysicalMaterial material, inout ReflectedLight reflectedLight) {
++  vec3 irradiance = max(dot(normal, light.direction), 0.0) * light.color;
++  reflectedLight.directSpecular += irradiance * BRDF_GGX(light.direction, viewDir, normal, material);
++  reflectedLight.directDiffuse += irradiance * BRDF_Lambert(material.diffuseContribution);
++}
++#define RE_Direct_Physical chiRoughDirect
++`;
++const ENVIRONMENT = /* glsl */`
++void chiRoughEnvironment(const in vec3 radiance, const in vec3 irradiance,
++ const in vec3 clearcoatRadiance, const in vec3 position, const in vec3 normal,
++ const in vec3 viewDir, const in vec3 clearcoatNormal,
++ const in PhysicalMaterial material, inout ReflectedLight reflectedLight) {
++  // A diffuse convolution of the actual sky and ground, not a flat ambient colour.
++  // Constant dielectric reflectance is the deliberate Light approximation.
++  reflectedLight.indirectDiffuse += irradiance * RECIPROCAL_PI
++    * (material.diffuseContribution * 0.96 + vec3(0.04));
++}
++#define RE_IndirectSpecular_Physical chiRoughEnvironment
++`;
++
++function eligible(material) {
++  return material?.isMeshStandardMaterial && !material.isMeshPhysicalMaterial
++    && material.metalness === 0 && material.roughness >= 0.65;
++}
++
++export function createRoughSurfaceLighting() {
++  let light = false;
++  const records = new WeakMap();
++  const live = new Set();
++  function flags(material) {
++    const wanted = light && eligible(material);
++    if (!!material.defines?.[DEFINE] === wanted) return false;
++    material.defines = { ...material.defines };
++    if (wanted) material.defines[DEFINE] = 1;
++    else delete material.defines[DEFINE];
++    material.needsUpdate = true;
++    return true;
++  }
++  function prepare(material) {
++    if (!eligible(material) && !records.has(material)) return material;
++    let record = records.get(material);
++    if (!record) {
++      const prior = material.onBeforeCompile;
++      const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
++        ? String(prior) : material.customProgramCacheKey();
++      record = { prior, key };
++      records.set(material, record);
++      material.onBeforeCompile = function (shader, renderer) {
++        prior.call(this, shader, renderer);
++        if (!material.defines?.[DEFINE] || !eligible(material)) return;
++        const marker = '#include <lights_physical_pars_fragment>';
++        if (!shader.fragmentShader.includes(marker)) return;
++        // Keep the standard include available to a later leaf/box/grade hook.
++        // Aliasing the physical entry points also preserves a leaf's outer wrapper.
++        shader.fragmentShader = shader.fragmentShader.replace(marker,
++          marker + '\n' + DIRECT + '\n' + ENVIRONMENT);
++      };
++      material.customProgramCacheKey = () => `${key}|rough-light-3748`;
++      material.addEventListener('dispose', () => { live.delete(material); });
++    }
++    live.add(material);
++    flags(material);
++    return material;
++  }
++  return {
++    prepare,
++    set(on) {
++      const next = !!on;
++      if (next === light) return false;
++      light = next;
++      for (const material of live) flags(material);
++      return true;
++    },
++    prepareScene(root) {
++      root?.traverse((object) => {
++        for (const material of [].concat(object.material ?? [])) prepare(material);
++      });
++    },
++    get light() { return light; },
++    get materials() { return live.size; },
++  };
++}
+diff --git a/chicago/4d/renderers/web/js/season.js b/chicago/4d/renderers/web/js/season.js
+index d0f11ceecd..d69200b1ac 100644
+--- a/chicago/4d/renderers/web/js/season.js
++++ b/chicago/4d/renderers/web/js/season.js
+@@ -1,10 +1,10 @@
+ /**
+- * T-2481 — the Season setting: summer (the scene's own day), spring, fall and
++ * T-2481 — the Season setting: summer, spring, fall and
+  * winter, for the ground, the trees and the sun. 1904 first; T-2864 offers it in
+  * every year, and adds the woods and the prairie (patchFoliage below).
+  *
+- * A VIEWING CHOICE, NEVER A CLAIM. The scene is dated 1 July 1904 and that is what
+- * it reconstructs. A season other than summer moves the sun to that season's date
++ * A VIEWING CHOICE, NEVER A CLAIM. Each scene retains its own target date.
++ * Choosing another season moves the sun to that season's representative date
+  * and repaints the ground and the leaves the way such a day generally looks in
+  * Chicago; no record of the district on those days stands behind it (liberty
+  * L-season-view-2481).
+@@ -21,7 +21,7 @@ export const SEASONS = ['summer', 'spring', 'fall', 'winter'];
+ 
+ /**
+  * The day each season shows, as month-day in the scene's own year: the sun is lit for
+- * it and the year chip names it (1904 · 02.15). Summer is the scene's own date.
++ * it and the year chip names it (1904 · 02.15). The scene's own season keeps its date.
+  * T-3437 (the owner, 2026-11-07): the others are the middle of a season's month,
+  * mid-April, mid-October and mid-February (February rather than January, so a winter
+  * view is never Christmas). The leaves agree: elms breaking bud in mid-April, elms
+@@ -30,10 +30,21 @@ export const SEASONS = ['summer', 'spring', 'fall', 'winter'];
+  */
+ export const SEASON_DAY = Object.freeze({ spring: '04-15', fall: '10-15', winter: '02-15' });
+ 
++/** Calendar season of a scene or dated stop; no climate observation is implied. */
++export function seasonForDate(date) {
++  const match = /^\d{4}-(\d{2})-\d{2}/.exec(String(date ?? ''));
++  const month = match ? Number(match[1]) : 0;
++  if (month < 1 || month > 12) return null;
++  return month >= 3 && month <= 5 ? 'spring' : month >= 6 && month <= 8 ? 'summer'
++    : month >= 9 && month <= 11 ? 'fall' : 'winter';
++}
++
+ /** The date the sun is computed for, given the scene's own target date. */
+ export function seasonDate(season, targetDate) {
+-  const day = SEASON_DAY[season];
+-  if (!day || !targetDate) return targetDate;
++  // Summer already has a scene date in the earlier years. Only a scene dated
++  // in another season (1871's 8 October) needs a representative July day.
++  const day = season === 'summer' ? '07-15' : SEASON_DAY[season];
++  if (!day || !targetDate || seasonForDate(targetDate) === season) return targetDate;
+   return `${String(targetDate).slice(0, 4)}-${day}`;
+ }
+ 
+@@ -327,6 +338,31 @@ const vineApply = (xz) => `
+  * own varying is added.
+  */
+ const foliagePatched = new WeakSet();
++const deciduousPatched = new WeakSet();
++
++/** Legacy deciduous sprays share a batch with wood. Winter removes tagged
++ * leaf cards in the colour, directional-shadow and point-shadow materials;
++ * the woody tubes remain. The conifers use the separate grown-tree path. */
++export function patchDeciduousSprays(material) {
++  if (!material || deciduousPatched.has(material)) return false;
++  deciduousPatched.add(material);
++  const prior = material.onBeforeCompile;
++  const key = String(material.customProgramCacheKey());
++  material.onBeforeCompile = (shader, renderer) => {
++    prior?.call(material, shader, renderer);
++    shader.uniforms.uChiWoodyBare = seasonUniforms.uChiBare;
++    const attribute = shader.vertexShader.includes('attribute float aLeaf;') ? '' : 'attribute float aLeaf;\n';
++    shader.vertexShader = attribute + 'varying float vChiWoodyLeaf;\n' + shader.vertexShader.replace(
++      '#include <begin_vertex>', '#include <begin_vertex>\nvChiWoodyLeaf = aLeaf;');
++    shader.fragmentShader = 'varying float vChiWoodyLeaf;\nuniform float uChiWoodyBare;\n'
++      + shader.fragmentShader.replace('#include <alphatest_fragment>',
++        'if (uChiWoodyBare > 0.5 && vChiWoodyLeaf > 0.5) discard;\n#include <alphatest_fragment>');
++  };
++  material.customProgramCacheKey = () => `${key}|deciduous-sprays-1`;
++  material.needsUpdate = true;
++  return true;
++}
++
+ export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null, evergreenBelowV = null } = {}) {
+   if (!material || foliagePatched.has(material)) return false;
+   foliagePatched.add(material);
+diff --git a/chicago/4d/renderers/web/js/street-trees.js b/chicago/4d/renderers/web/js/street-trees.js
+index 4e37db8160..db4212239a 100644
+--- a/chicago/4d/renderers/web/js/street-trees.js
++++ b/chicago/4d/renderers/web/js/street-trees.js
+@@ -297,6 +297,7 @@ export async function createStreetTrees({
+   });
+   // T-3223: the front yards' shrubs and lawn trees grow on these same atlases.
+   out.materials = mats;
++  const leafRelief = mats.leafMat.bumpMap;
+ 
+   /* ---- where each tree stands ------------------------------------------- */
+   const placed = trees.map((t) => {
+@@ -308,40 +309,74 @@ export async function createStreetTrees({
+ 
+   let forest = null;
+   let burnt = null;
+-  let current = { mode: null, detail: null };
+-  const build = async (wantMode, wantDetail) => {
+-    if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+-    stats.mode = wantMode; stats.detail = wantDetail; stats.triangles = 0; stats.drawCalls = 0;
++  let buildRevision = 0, disposed = false;
++  let pending = Promise.resolve();
++  let livePlaced = [];
++  const contextPlaced = [], contextCards = new Map();
++  let current = { mode: null, detail: null }, applied = { ...current };
++  const build = (wantMode, wantDetail) => {
++    if (disposed) return pending;
++    const mine = ++buildRevision;
+     current = { mode: wantMode, detail: wantDetail };
+-    group.visible = wantMode !== 'hidden';
+-    if (wantMode === 'hidden' || !placed.length) return;
+-    // Three elms, grown once, stand for all four hundred: a young tree is one of
+-    // them at its record's smaller scale. Each variant is a megabyte and more of
+-    // geometry, and a parkway of one age is the case where siblings read true.
+-    const spec = elmSpec(wantMode);
+-    const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
+-    const rings = LV[wantDetail] ?? LV.full;
+-    // T-3164: a form only one or two pictured trees name grows as many crowns as it has trees.
+-    const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
+-      variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
+-      castFar: true });
+-    for (const p of placed) {
+-      const sc = p.t.scale ?? 1;
+-      p.h = grown.add(specFor(p.t, wantMode, spec), p.t.e, p.y, -p.t.n, sc,
+-        { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
+-    }
+-    const background = contextTrees?.(wantDetail) ?? [];
+-    for (const t of background) {
+-      grown.add(spec, t.e, t.y + (levelAt?.(t.e, t.n) ?? 0), -t.n, t.h / ELM_MID_H, { lodK: CONTEXT_LOD_K });
+-    }
+-    stats.context = background.length;
+-    const pause = checkpoint(); if (pause) await pause;
+-    forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
+-    if (burnt) forest.setBare?.(burnt);
+-    group.add(forest.group);
+-    stats.drawCalls = forest.stats.drawCalls;
+-    stats.crowns = forest.stats.variants;
+-    stats.grown = forest.stats;
++    pending = pending.catch(() => {}).then(async () => {
++      if (disposed || mine !== buildRevision) return;
++      try {
++        const background = [...(contextTrees?.(wantDetail) ?? [])];
++        const nextContext = [], nextPlaced = [];
++        let candidate = null;
++        if (wantMode !== 'hidden') {
++          const spec = elmSpec(wantMode);
++          const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
++          const rings = LV[wantDetail] ?? LV.full;
++          // A few crowns stand for the file; the context keeps its nominal dimensions.
++          const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
++            variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
++            castFar: true });
++          for (const p of placed) {
++            const h = grown.add(specFor(p.t, wantMode, spec), p.t.e, p.y, -p.t.n, p.t.scale ?? 1,
++              { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
++            nextPlaced.push({ ...p, h });
++          }
++          // T-3760: an explicitly generic proxy, with the context record's own card.
++          const contextSpec = { ...spec, speciesId: 'context_deciduous', common: 'Generic deciduous tree', h: [20, 20] };
++          for (const t of background) {
++            const y = t.y + (levelAt?.(t.e, t.n) ?? 0);
++            const h = grown.add(t.crownW ? contextSpec : spec, t.e, y, -t.n, t.h / ELM_MID_H,
++              { lodK: CONTEXT_LOD_K, crownW: t.crownW ?? null });
++            if (t.id && typeof t.card === 'function') nextContext.push({ t, y, h });
++          }
++          const pause = checkpoint(); if (pause) await pause;
++          candidate = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
++        }
++        if (disposed || mine !== buildRevision) { candidate?.dispose(); return; }
++        // Fire may change while the replacement grows. Commit the latest map
++        // on its own instance slots before it becomes the live forest.
++        candidate?.setBare?.(burnt);
++        const bumpMap = wantDetail === 'light' ? null : leafRelief;
++        if (mats.leafMat.bumpMap !== bumpMap) {
++          mats.leafMat.bumpMap = bumpMap;
++          mats.leafMat.needsUpdate = true;
++        }
++        // Keep the live forest and its pick records until the replacement is ready.
++        if (forest) { group.remove(forest.group); forest.dispose(); }
++        forest = candidate;
++        if (forest) group.add(forest.group);
++        livePlaced = nextPlaced;
++        contextPlaced.splice(0, contextPlaced.length, ...nextContext);
++        contextCards.clear();
++        for (const t of background) if (t.id && typeof t.card === 'function') contextCards.set(t.id, t.card);
++        group.visible = wantMode !== 'hidden';
++        Object.assign(stats, { mode: wantMode, detail: wantDetail, triangles: 0,
++          context: background.length, drawCalls: forest?.stats.drawCalls ?? 0,
++          crowns: forest?.stats.variants ?? 0, grown: forest?.stats ?? { stems: 0 } });
++        stats.burnt = forest?.stats?.bare ?? 0;
++        applied = { mode: wantMode, detail: wantDetail };
++      } catch (error) {
++        if (mine === buildRevision) current = { ...applied };
++        throw error;
++      }
++    });
++    return pending;
+   };
+   await build(STREET_TREE_MODES.includes(mode) ? mode : 'summer', detail);
+ 
+@@ -353,10 +388,7 @@ export async function createStreetTrees({
+       stats.triangles = forest.stats.triangles;
+     }
+   };
+-  /**
+-   * T-3751 — the trees the 1871 fire has been through stand bare and charred: `test(e, n)`
+-   * (local metres) names them, null none. Kept over a Season or detail re-build.
+-   */
++  /** T-3751: preserve the latest fire map through seasonal/detail replacements. */
+   out.setBurnt = (test) => {
+     burnt = typeof test === 'function' ? test : null;
+     const changed = forest?.setBare?.(burnt) ?? 0;
+@@ -366,11 +398,12 @@ export async function createStreetTrees({
+   /** Finish every dissolve at once (a still frame for a reading or a shot). */
+   out.settle = () => { forest?.settle(); };
+   out.setMode = async (m) => {
+-    if (!STREET_TREE_MODES.includes(m) || m === current.mode) return;
++    if (!STREET_TREE_MODES.includes(m)) return;
++    if (m === current.mode) return pending;
+     await build(m, current.detail);
+   };
+   out.setDetail = async (d) => {
+-    if (d === current.detail) return;
++    if (d === current.detail) return pending;
+     await build(current.mode, d);
+   };
+ 
+@@ -379,13 +412,13 @@ export async function createStreetTrees({
+    *  opens the house. */
+   const ray = new THREE.Raycaster();
+   out.pickAt = (ndc, camera) => {
+-    if (!camera || !forest || !group.visible) return null;
++    if (!camera || !forest || !group.visible || confidence?.hidden?.reconstructed) return null;
+     ray.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
+     const o = ray.ray.origin; const d = ray.ray.direction;
+     const a = d.x * d.x + d.z * d.z;
+     if (a < 1e-9) return null;
+     let best = null;
+-    for (const p of placed) {
++    for (const p of [...livePlaced, ...contextPlaced]) {
+       const s = p.t.scale ?? 1;
+       const h = p.h;
+       const dx = o.x - p.t.e; const dz = o.z + p.t.n;
+@@ -400,16 +433,20 @@ export async function createStreetTrees({
+       }
+     }
+     if (!best) return null;
+-    const record = treeCard(best.p.t, doc);
++    const record = contextCards.get(best.p.t.id)?.() ?? treeCard(best.p.t, doc);
+     return { id: record.id, record, point: best.point, distance: best.distance };
+   };
+   out.cardFor = (id) => {
++    if (contextCards.has(id)) return contextCards.get(id)();
+     const t = trees.find((x) => x.id === id);
+     return t ? treeCard(t, doc) : null;
+   };
+   out.dispose = () => {
++    if (disposed) return;
++    disposed=true; buildRevision++;
+     if (forest) { group.remove(forest.group); forest.dispose(); }
+     mats.dispose();
++    livePlaced = []; contextPlaced.length=0; contextCards.clear();
+   };
+   return out;
+ }
+diff --git a/chicago/4d/renderers/web/js/tree-model.js b/chicago/4d/renderers/web/js/tree-model.js
+index 8318f1aeeb..c31bee1af0 100644
+--- a/chicago/4d/renderers/web/js/tree-model.js
++++ b/chicago/4d/renderers/web/js/tree-model.js
+@@ -516,6 +516,9 @@ export const BARK_TILES = {
+   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
+ };
+ const LEAF_GRID = [4, 6];
++// Scale/needle foliage starts in row four. The sixth row holds bare twig tiles;
++// both keep their own colour rather than receiving a deciduous autumn/winter tint.
++export const EVERGREEN_BELOW_V = 1 - Math.floor(LEAF_TILES.scale[0] / LEAF_GRID[0]) / LEAF_GRID[1];
+ /**
+  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
+  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
+diff --git a/chicago/4d/renderers/web/js/trees.js b/chicago/4d/renderers/web/js/trees.js
+index d33dad3271..ed6de4f310 100644
+--- a/chicago/4d/renderers/web/js/trees.js
++++ b/chicago/4d/renderers/web/js/trees.js
+@@ -78,9 +78,11 @@ import { onDaylight } from './time-of-day.js';
+ import { floraInScene } from './flora.js';
+ import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+ import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
++import { EVERGREEN_BELOW_V } from './tree-model.js';
+ import { resolveBases } from './scene-loader.js';
+ import { RULES, compactPlan, compactGeometry } from './compact-attributes.js';
+ import { releaseAfterUpload } from './upload-release.js';
++import { patchDeciduousSprays } from './season.js';
+ 
+ /**
+  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
+@@ -4583,6 +4585,7 @@ export async function createTrees({
+   patchTreeWind(distanceMat, uWind);
+   confidence?.patch(depthMat);
+   confidence?.patch(distanceMat);
++  for (const material of [nearMat, depthMat, distanceMat]) patchDeciduousSprays(material);
+   const disposables = [nearMat, depthMat, distanceMat, surfaceAtlas];
+   /**
+    * ONE BATCH, CULLED PER CHUNK, IN BOTH PASSES — T-0223 step one.
+@@ -5324,7 +5327,7 @@ uniform float uBandUp;
+       // T-3399: the grown leaf atlas's fifth row is the conifers' scale and needle
+       // (tree-model.js LEAF_TILES), and an evergreen keeps its colour in every Season.
+       if (foliage) {
+-        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: 0.2 }], [nearMat, 0], [farMat, 2]]) {
++        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: EVERGREEN_BELOW_V }], [nearMat, 0], [farMat, 2]]) {
+           foliage(m, role, opts);
+         }
+       }
+diff --git a/chicago/4d/tools/check.sh b/chicago/4d/tools/check.sh
+index 4055be4e99..97989deaa4 100755
+--- a/chicago/4d/tools/check.sh
++++ b/chicago/4d/tools/check.sh
+@@ -520,6 +520,11 @@ step "Overlapping seasonal tree rebuilds retain independent templates and live i
+   node tools/test_tree_rebuilds.mjs
+ step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
+   node tools/test_city_context_depth.mjs
++step "Seasonal dates and evergreen atlas tiles retain the four scene years' contracts (T-3748)" \
++  node tools/test_vegetation_seasons.mjs
++
++step "1871 context trees retain dimensions, cards and the live forest through seasonal/detail rebuilds (T-3760)" \
++  node tools/test_1871_tree_handoff.mjs
+ step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
+   node tools/test_fort_gates.mjs
+ step "a goal nobody can walk to is refused at once, and only such a goal (T-3695)" \
+diff --git a/chicago/4d/tools/qa_season_date_t3437.mjs b/chicago/4d/tools/qa_season_date_t3437.mjs
+index 7145dd0b79..b4dd327b1e 100644
+--- a/chicago/4d/tools/qa_season_date_t3437.mjs
++++ b/chicago/4d/tools/qa_season_date_t3437.mjs
+@@ -17,10 +17,11 @@ const out = process.env.QA_OUT || path.join(root, 'docs/RESEARCH/season-date-343
+ fs.mkdirSync(out, { recursive: true });
+ const YEAR = process.env.QA_YEAR || '1835';
+ const BOOT_SEASON = process.env.QA_BOOT_SEASON || 'winter';
++const EXPECT_BOOT = BOOT_SEASON === 'fresh' ? (YEAR === '1871' ? 'fall' : 'summer') : BOOT_SEASON;
+ const desktop = !!process.env.QA_DESKTOP;
+ const BOOT_MS = Number(process.env.QA_BOOT_MS) || 300000;
+-const SUMMER = { 1812: '1812-08-14', 1835: '1835-07-01', 1904: '1904-07-01' }[YEAR];
+-const WANT = { summer: SUMMER, spring: `${YEAR}-04-15`, fall: `${YEAR}-10-15`, winter: `${YEAR}-02-15` };
++const SUMMER = { 1812: '1812-08-14', 1835: '1835-07-01', 1871: '1871-07-15', 1904: '1904-07-01' }[YEAR];
++const WANT = { summer: SUMMER, spring: `${YEAR}-04-15`, fall: YEAR==='1871'?'1871-10-08':`${YEAR}-10-15`, winter: `${YEAR}-02-15` };
+ const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
+   '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.ktx2': 'image/ktx2' };
+ const server = http.createServer((req, res) => {
+@@ -36,10 +37,11 @@ const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABL
+ const viewport = desktop ? { width: 1280, height: 800 } : { width: 390, height: 780 };
+ const context = await browser.newContext({ viewport, deviceScaleFactor: 1, isMobile: !desktop, hasTouch: !desktop });
+ await context.addInitScript((season) => {
+-  try { if (!sessionStorage.getItem('qa.seeded')) { localStorage.setItem('chicago4d.settings', JSON.stringify({ season })); sessionStorage.setItem('qa.seeded', '1'); } } catch { /* none */ }
++  try { if (!sessionStorage.getItem('qa.seeded')) { localStorage.setItem('chicago4d.settings', JSON.stringify(season==='fresh'?{}:{ season })); sessionStorage.setItem('qa.seeded', '1'); } } catch { /* none */ }
+ }, BOOT_SEASON);
+ const page = await context.newPage(); page.setDefaultTimeout(BOOT_MS);
+ const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
++page.on('console',m=>{if(m.type()==='error'&&/THREE.WebGLProgram|GL_INVALID|shader error/i.test(m.text()))errors.push(m.text());});
+ const tag = desktop ? 'desktop' : 'phone';
+ const rows = [], fail = [];
+ const read = () => page.evaluate(() => ({
+@@ -49,10 +51,12 @@ const read = () => page.evaluate(() => ({
+   label: document.getElementById('year-badge')?.getAttribute('aria-label'),
+   nav: document.getElementById('nav-date')?.textContent,
+   option: document.querySelector(`#s-season option[value="${window.__chicago4d.season.current}"]`)?.textContent,
++  selected: document.getElementById('s-season')?.value,
++  seasonVisible: !document.getElementById('row-season')?.hidden,
+ }));
+ const expect = (r, season, why) => {
+   const iso = WANT[season], [, mm, dd] = iso.split('-');
+-  const ok = r.season === season && r.sun === iso && r.chip === `${mm}.${dd}` && r.nav === iso.replace(/-/g, '.')
++  const ok = r.seasonVisible && r.season === season && r.sun === iso && r.chip === `${mm}.${dd}` && r.nav === iso.replace(/-/g, '.')
+     && new RegExp(`^${+dd} [A-Z][a-z]+ ${YEAR}\\b`).test(r.label ?? '') && (r.option ?? '').includes(`${+dd} `);
+   rows.push({ why, want: iso, ...r, ok });
+   console.log(ok ? 'ok  ' : 'FAIL', why, JSON.stringify(r));
+@@ -61,10 +65,17 @@ const expect = (r, season, why) => {
+ try {
+   await page.goto(`http://127.0.0.1:${server.address().port}/${YEAR}/`, { waitUntil: 'domcontentloaded' });
+   await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error, null, { timeout: BOOT_MS, polling: 500 });
++  await page.evaluate(()=>{
++    if(__chicago4d.error)throw Error(String(__chicago4d.error));
++    // Date/UI reads do not need software rasterisation on every arrival tick.
++    __chicago4d.renderer.render=(scene,camera)=>camera?.updateMatrixWorld?.();
++  });
+   await page.waitForFunction(() => window.__chicago4d?.welcome.state === 'welcome', null, { timeout: BOOT_MS, polling: 1000 });
+   await page.evaluate(async () => { const a = __chicago4d; if (!a.welcome.enter('spawn')) throw Error('welcome entry failed'); document.exitPointerLock?.(); document.getElementById('control-help-gotit')?.click(); });
+   await page.waitForFunction(() => document.getElementById('gate').hidden);
+-  expect(await read(), BOOT_SEASON, `boot with stored ${BOOT_SEASON}`);
++  const boot=await read();
++  if(boot.selected!==EXPECT_BOOT)fail.push(`boot selector: wanted ${EXPECT_BOOT}, got ${boot.selected}`);
++  expect(boot, EXPECT_BOOT, `boot with ${BOOT_SEASON==='fresh'?'no stored season':`stored ${BOOT_SEASON}`}`);
+   await page.screenshot({ path: path.join(out, `${tag}-${YEAR}-boot-${BOOT_SEASON}.jpg`), type: 'jpeg', quality: 80, timeout: 240000 });
+   for (const s of ['spring', 'fall', 'winter', 'summer']) {
+     await page.evaluate((v) => __chicago4d.season.set(v), s);
+@@ -86,6 +97,28 @@ try {
+   if (!stopOk) fail.push(`stop date: ${JSON.stringify(stop)}`);
+   await page.evaluate(() => __chicago4d.timeOfDay.restore());
+   expect(await read(), 'winter', 'stop gives the winter day back');
++  if(YEAR==='1871'&&process.env.QA_FIRE==='1') {
++    await page.evaluate(()=>__chicago4d.timeOfDay.set('14:30'));
++    const started=await page.evaluate(()=>__chicago4d.jaunts.start('the-great-fire',{mode:'instantly'}));
++    if(!started)throw Error('Great Fire jaunt did not start');
++    for(let i=0;i<4;i++) {
++      await page.waitForFunction(()=>__chicago4d.jaunts.state?.phase==='atStop',null,{polling:500});
++      await page.waitForFunction(()=>__chicago4d.season.current==='fall'&&__chicago4d.season.sunDate===
++        (__chicago4d.jaunts.state.stopIndex<3?'1871-10-08':'1871-10-09'),null,{polling:500});
++      const r=await page.evaluate(()=>{
++        const a=__chicago4d,s=a.jaunts.state,stop=s.jaunt.stops.find(x=>x.id===s.visited[s.stopIndex].id);
++        return {id:stop.id,wantDate:stop.date,wantHour:stop.hour,date:a.season.sunDate,season:a.season.current,
++          own:a.season.own,time:a.timeOfDay.current.hhmm};
++      });
++      const ok=r.date===r.wantDate&&r.season==='fall'&&r.own==='winter'&&r.time===r.wantHour;
++      rows.push({why:'actual Great Fire stop',...r,ok});console.log(ok?'ok':'FAIL','Great Fire',JSON.stringify(r));
++      if(!ok)fail.push('Great Fire stop '+r.id);
++      if(i<3)await page.evaluate(()=>__chicago4d.jaunts.next());
++    }
++    await page.evaluate(()=>__chicago4d.jaunts.end());
++    await page.waitForFunction(()=>__chicago4d.season.current==='winter'&&__chicago4d.season.sunDate==='1871-02-15',null,{polling:500});
++    expect(await read(),'winter','Great Fire restores visitor winter');
++  }
+   await page.evaluate(() => __chicago4d.season.set('summer'));
+ } finally {
+   fs.writeFileSync(path.join(out, `${tag}-${YEAR}.json`), JSON.stringify({ viewport, year: YEAR, errors, rows }, null, 1) + '\n');
+diff --git a/chicago/4d/tools/qa_tree_gallery_t3747.mjs b/chicago/4d/tools/qa_tree_gallery_t3747.mjs
+index f42b2bede9..932380f26a 100644
+--- a/chicago/4d/tools/qa_tree_gallery_t3747.mjs
++++ b/chicago/4d/tools/qa_tree_gallery_t3747.mjs
+@@ -42,6 +42,7 @@ try {
+       const THREE = await import('three');
+       const { TreeInstances, createGrownTreeMaterials } = await import('/js/tree-instances.js');
+       const { patchTreeWind } = await import('/js/tree-surface.js');
++      const { EVERGREEN_BELOW_V } = await import('/js/tree-model.js');
+       const { applySeasonLook, patchFoliage, patchSeason, SEASON_CROWN } = await import('/js/season.js');
+       applySeasonLook(season);
+       const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+@@ -62,7 +63,7 @@ try {
+       camera.position.set(7, 3, 10); camera.lookAt(0, 9, 0);
+       const mats = await createGrownTreeMaterials({ assetBase: new URL('/assets/', location.href),
+         uWind: { value: 0 }, patchWind: patchTreeWind, lowSpec: detail === 'light' });
+-      if (season !== 'summer') patchFoliage(mats.leafMat, 0, { evergreenBelowV: 0.2 });
++      if (season !== 'summer') patchFoliage(mats.leafMat, 0, { evergreenBelowV: EVERGREEN_BELOW_V ?? 0.2 });
+       const trees = new TreeInstances({ level: detail, variants: () => 1 });
+       trees.add({ speciesId, arch: speciesId, common: speciesId, form: 'open', h: [16, 16], dbh: [0.45, 0.45],
+         crownW: [11, 11], dark: 0x345028, light: 0x738c4b, bark: 0x554837,
+diff --git a/chicago/4d/tools/qa_vegetation_t3747.mjs b/chicago/4d/tools/qa_vegetation_t3747.mjs
+index f94ac41c2e..70e77dc986 100644
+--- a/chicago/4d/tools/qa_vegetation_t3747.mjs
++++ b/chicago/4d/tools/qa_vegetation_t3747.mjs
+@@ -2,8 +2,9 @@
+ // only those files are substituted, so both renders use the same assets/data.
+ // QA_YEAR=1812,1835,1871,1904 QA_VIEWPORT=desktop|mobile QA_TIERS=light,balanced,full
+ // QA_SEASONS=summer,spring,fall,winter QA_FRAMES=9 (3 for shader/image checks)
++// QA_PAIRS=light:summer,balanced:winter limits cases without rebooting the scene.
+ // QA_MODES=1 also checks night and Confidence view once per scene/viewport.
+-// QA_STAND=water_tower|pumping_tree selects a diagnostic 1871 viewpoint.
++// QA_STAND=water_tower|context_tree selects a diagnostic 1871 viewpoint.
+ // QA_TAG=before|after QA_OUT=/path QA_BEFORE=/path/to/old/js PW_EXECUTABLE=... node ...
+ import fs from 'node:fs';
+ import http from 'node:http';
+@@ -18,6 +19,7 @@ fs.mkdirSync(out, { recursive: true });
+ const tag = process.env.QA_TAG || 'after';
+ const frames = Math.max(3, Number(process.env.QA_FRAMES || 9));
+ const stand = process.env.QA_STAND || null;
++const probeId = process.env.QA_CONTEXT_TREE_ID || 'tree1871_9715';
+ const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
+   '.css': 'text/css', '.glb': 'model/gltf-binary', '.wasm': 'application/wasm',
+   '.webp': 'image/webp', '.ktx2': 'image/ktx2', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
+@@ -85,6 +87,7 @@ try {
+       });
+       const seasons = (process.env.QA_SEASONS || 'summer').split(',');
+       const tiers = (process.env.QA_TIERS || 'light,balanced,full').split(',');
++      const pairs = process.env.QA_PAIRS ? new Set(process.env.QA_PAIRS.split(',')) : null;
+       // Hold each tier while exercising every season; this avoids rebuilding
+       // the entire placement plan once per season while keeping all cases.
+       for (const detail of tiers) {
+@@ -102,6 +105,7 @@ try {
+           });
+         }, detail);
+       for (const season of seasons) {
++        if (pairs && !pairs.has(`${detail}:${season}`)) continue;
+         await page.evaluate(async season => {
+           const a = __chicago4d;
+           a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
+@@ -113,16 +117,23 @@ try {
+           !layer?.stats?.grown?.stems || layer.stats.mode === 'hidden'
+             || layer.group.children.some(o => o.name?.endsWith('s-grown'))));
+         console.log(tag, year, viewport, detail, 'built');
+-        const row = await page.evaluate(({ year, detail, season, frames, stand }) => {
++        const row = await page.evaluate(({ year, detail, season, frames, stand, probeId }) => {
+           const a = __chicago4d;
+           console.info('[vegetation] positioning');
+           const trunks = a.trees?.trunks?.() || [];
+           const spawn = a.scene.spawn;
+           let eye, target;
+-          if (year === '1904') { eye = [1401, -3240, 1.7]; target = [1403, -3300, 18]; }
++          if (year === '1904' && stand === 'back_yard') { eye = [1460, -3285, 1.7]; target = [1465, -3292, .4]; }
++          else if (year === '1904') { eye = [1401, -3240, 1.7]; target = [1403, -3300, 18]; }
++          else if (stand === 'garden' && year === '1812') { eye = [1128, 101, 1.7]; target = [1140, 122, 1]; }
+           else if (year === '1871') {
+             if (stand === 'water_tower') { eye = [1138, 1084, 1.7]; target = [1150, 1154, 10]; }
+-            else if (stand === 'pumping_tree') { eye = [1168, 1127.5, 1.7]; target = [1175.08, 1137.74, 6]; }
++            else if (stand === 'context_tree') {
++              const record = a.contextCity.doc.trees.find(t => t.id === probeId);
++              if (!record) throw Error(`context probe ${probeId} is missing from the current dataset`);
++              eye = [record.e + 3, record.n - 5, 1.7];
++              target = [record.e, record.n, Math.min(5, record.height_m * .6)];
++            }
+             else { eye = [901, -573, 1.7]; target = [900, -500, 8]; }
+           }
+           else {
+@@ -144,6 +155,7 @@ try {
+           a.trees?.update?.(0, a.camera); a.trees?.settle?.();
+           a.streetTrees?.update?.(0, a.camera); a.streetTrees?.settle?.();
+           a.frontYards?.update?.(0, a.camera); a.contextCity?.update?.(0, a.camera);
++          a.gardens?.settle?.(a.camera); a.backYards?.settle?.(a.camera);
+           document.getElementById('nav-close')?.click();
+           document.getElementById('panel-close')?.click();
+           console.info('[vegetation] reading frames');
+@@ -167,14 +179,51 @@ try {
+             }
+             for (const m of [].concat(o.material || [])) for (const v of Object.values(m)) if (v?.isTexture) textures.add(v);
+           });
+-          return { year, detail, season, stand, sunDate: a.season.sunDate, eye, target, triangles: a.renderer.info.render.triangles,
++          let portableContextMeshes=0;
++          a.contextCity?.group?.traverse(o=>{if(o.isMesh&&o.userData.treeCount>0)portableContextMeshes++;});
++          const probeStem=a.contextCity?.treeStems?.().find(t=>t.id===`context:1871:${probeId}`);
++          const probeInstances=[];
++          if(probeStem) {
++            const m=a.camera.matrixWorld.clone();
++            a.streetTrees?.group?.traverse(o=>{
++              if(!o.isBatchedMesh)return;
++              for(const [i,instance] of o._instanceInfo.entries()) {
++                if(!instance.active||!o.getVisibleAt(i))continue;
++                o.getMatrixAt(i,m);
++                if(Math.hypot(m.elements[12]-probeStem.e,m.elements[14]+probeStem.n)<.001)
++                  probeInstances.push({batch:o.name,y:m.elements[13],geometry:o.getGeometryIdAt(i)});
++              }
++            });
++          }
++          const contextAudit=year==='1871'?{
++            handedOff:a.contextCity?.census?.handedOffTrees ?? 0,
++            grownContext:a.streetTrees?.stats?.context ?? 0,
++            portableContextMeshes,
++            probeTreeName:a.streetTrees?.cardFor?.(`context:1871:${probeId}`)?.sidecar?.name ?? null,
++            probeStem:probeStem?{...probeStem,card:undefined,ground:a.terrain.surfaceHeight(probeStem.e,probeStem.n)}:null,
++            probeInstances,
++            recordedContext:a.contextCity.doc.trees.length,
++            currentStreetRecords:(a.streetTrees?.records ?? []).length,
++            oldPumpingTreeStillPresent:a.contextCity.doc.trees.some(t=>t.id==='tree1871_8387'),
++            priorCandidateContainsBuilding:[[548.89,800.34],[539.6,800.24]].map(([e,n])=>a.contextCity?.containsBuilding?.(e,n) ?? null),
++          }:null;
++          return { year, detail, season, stand, contextAudit, sunDate: a.season.sunDate, eye, target, triangles: a.renderer.info.render.triangles,
+             calls: a.renderer.info.render.calls, memory: { ...a.renderer.info.memory },
+             keptGeometryBytes: geometryBytes, materialTextures: textures.size, frameSamples: samples.length,
+             frameMs: { median: samples[Math.floor(samples.length / 2)], max: samples.at(-1) },
+             pixelRatio: a.renderer.getPixelRatio(), device: a.device, problems: a.problems,
++            gardens: { ...a.gardens?.stats }, backYards: { ...a.backYards?.stats },
+             treeCount: a.trees?.stats?.grown?.stems, streetTreeCount: a.streetTrees?.stats?.grown?.stems };
+-        }, { year, detail, season, frames, stand });
++        }, { year, detail, season, frames, stand, probeId });
+         console.log('metrics', JSON.stringify({ year, detail, triangles: row.triangles, calls: row.calls, frameMs: row.frameMs }));
++        if (year === '1871' && tag === 'after') {
++          const audit = row.contextAudit;
++          if (audit.handedOff !== audit.recordedContext || audit.grownContext !== audit.recordedContext
++            || audit.portableContextMeshes !== 0 || audit.oldPumpingTreeStillPresent)
++            throw Error(`current context planting handoff failed: ${JSON.stringify(audit)}`);
++          if (stand === 'context_tree' && audit.probeInstances.length !== 2)
++            throw Error(`the current context probe must have wood and leaf instance slots: ${JSON.stringify(audit)}`);
++        }
+         const image = `${tag}-${year}-${viewport}-${detail}-${season}${stand ? `-${stand}` : ''}.jpg`;
+         await page.screenshot({ path: path.join(out, image), type: 'jpeg', quality: 90, timeout: 400000 });
+         row.image = image; row.viewport = viewport; row.errors = [...errors];
+diff --git a/chicago/4d/tools/smoke_budget.mjs b/chicago/4d/tools/smoke_budget.mjs
+index f74cfce6c1..268ac4cd7e 100644
+--- a/chicago/4d/tools/smoke_budget.mjs
++++ b/chicago/4d/tools/smoke_budget.mjs
+@@ -538,6 +538,9 @@ const COVERAGE = [
+   ['renderers/web/js/leaf-light.js', [10, 11, 14], 'the shared thin-leaf lighting of grown trees, vines and woody shrubs (T-3747)'],
+   ['tools/test_tree_rebuilds.mjs', NONE, 'a native regression for overlapping seasonal tree builds'],
+   ['tools/test_leaf_lighting_browser.mjs', NONE, 'a rendering test of shadowed leaf light, not a shipped renderer'],
++  ['tools/test_vegetation_seasons.mjs', NONE, 'a focused contract test of seasonal dates and evergreen atlas UVs'],
++  ['tools/test_1871_tree_handoff.mjs', NONE, 'a native contract test of context tree handoff, picking and rebuild ownership'],
++  ['tools/test_flora_leaf_browser.mjs', NONE, 'a real-shader fixture for plant normals, fetched instances and seasonal flowers'],
+   ['tools/qa_vegetation_t3747.mjs', NONE, 'captures fixed-camera vegetation evidence; no runtime consumer'],
+   ['tools/qa_tree_gallery_t3747.mjs', NONE, 'isolated tree geometry/material diagnostic; no runtime consumer'],
+   // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
+diff --git a/chicago/4d/tools/step_isolation.json b/chicago/4d/tools/step_isolation.json
+index 7057bdb512..a20225ebc5 100644
+--- a/chicago/4d/tools/step_isolation.json
++++ b/chicago/4d/tools/step_isolation.json
+@@ -5750,6 +5750,10 @@
+       "wrote": [],
+       "wrote_ignored": []
+     },
++    "tools/test_1871_tree_handoff.mjs": {
++      "wrote": [],
++      "wrote_ignored": []
++    },
+     "tools/test_about.mjs": {
+       "wrote": [],
+       "wrote_ignored": []
+@@ -7414,6 +7418,10 @@
+       "wrote": [],
+       "wrote_ignored": []
+     },
++    "tools/test_vegetation_seasons.mjs": {
++      "wrote": [],
++      "wrote_ignored": []
++    },
+     "tools/test_vessels.mjs": {
+       "wrote": [],
+       "wrote_ignored": []
+diff --git a/chicago/4d/tools/test_1871_tree_handoff.mjs b/chicago/4d/tools/test_1871_tree_handoff.mjs
+new file mode 100644
+index 0000000000..ab403faca0
+--- /dev/null
++++ b/chicago/4d/tools/test_1871_tree_handoff.mjs
+@@ -0,0 +1,159 @@
++#!/usr/bin/env node
++// T-3760: current-data preservation and the context-to-grown
++// renderer contract. Only image decoding is stubbed; all tree geometry is real.
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import { register } from 'node:module';
++const vendor=new URL('../renderers/web/vendor/three-0.185.1/',import.meta.url).href;
++register(`data:text/javascript,${encodeURIComponent(`export function resolve(s,c,next) {
++  if(s==='three')return {url:'${vendor}three.module.js',shortCircuit:true};
++  if(s.startsWith('three/addons/'))return {url:'${vendor}addons/'+s.slice(13),shortCircuit:true};
++  return next(s,c);
++}`)}`,import.meta.url);
++const THREE=await import('three');
++const {TreeInstances}=await import('../renderers/web/js/tree-instances.js');
++const {createStreetTrees}=await import('../renderers/web/js/street-trees.js');
++const {createConfidenceView}=await import('../renderers/web/js/confidence.js');
++const {cityContextCard}=await import('../renderers/web/js/city-context.js');
++const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
++const doc=read('data/context/1871.json');
++const streetDoc=read('data/street_trees/1871.json');
++assert.equal(doc.trees.length,3543,'the current context planting is preserved');
++assert.equal(streetDoc.trees.length,6693,'the current street planting is preserved');
++assert.equal(streetDoc.withdrawn?.length ?? 0,0,'superseded prototype deletions are absent');
++for (const [id,e,n] of [['tree.01161',301.1,811.53],['tree.01162',292.07,811.43]])
++  assert(streetDoc.trees.some(t=>t.id===id&&t.e===e&&t.n===n),'reassigned valid tree IDs must not be withdrawn');
++assert(!doc.trees.some(t=>t.id==='tree1871_8387'),'the old pumping-works tree is not reintroduced');
++const row=doc.trees.find(r=>r.id==='tree1871_9715');assert(row,'the current generic context probe remains in data');
++const r={id:row.id,e:row.e,n:row.n,h:row.height_m,isTree:true};
++const id=`context:1871:${r.id}`;
++const card=()=>cityContextCard(r,doc,{vegetation_note:'Fixture uses the unchanged city planting record.'});
++const stem={id,e:r.e,n:r.n,y:2,h:r.h,crownW:row.crown_m*2,card};
++const originals={fetch:globalThis.fetch,window:globalThis.window,bitmap:globalThis.createImageBitmap,add:TreeInstances.prototype.add};
++const additions=[];
++let trees;
++let holdBuild=false;
++const heldBuilds=[];
++const checkpoint=()=>holdBuild?new Promise(resolve=>heldBuilds.push(resolve)):null;
++try {
++  globalThis.window={location:new URL('https://fixture.invalid/1871/')};
++  globalThis.createImageBitmap=async()=>({width:4,height:4,close(){}});
++  globalThis.fetch=async url=>String(url).endsWith('/street_trees/1871.json')
++    ? new Response(JSON.stringify({scene:'1871',trees:[],placement:{variants:1}}),{headers:{'content-type':'application/json'}})
++    : new Response(new Uint8Array([1]));
++  TreeInstances.prototype.add=function(spec,x,y,z,scale,opts) {
++    const h=originals.add.call(this,spec,x,y,z,scale,opts);
++    additions.push({spec,x,y,z,h,opts});return h;
++  };
++  const confidence=createConfidenceView(),problems=[];
++  trees=await createStreetTrees({dataBase:new URL('https://fixture.invalid/'),sceneId:'1871',
++    terrain:{surfaceHeight:()=>0},confidence,problems,detail:'full',lowSpec:false,
++    contextTrees:()=>[stem],levelAt:()=>-.1,checkpoint});
++  assert.deepEqual(problems,[]);
++  assert.equal(trees.stats.context,1);assert.equal(trees.stats.grown.stems,1,'context-only planting still draws');
++  assert.equal(additions.length,1);const grown=additions[0];
++  assert.deepEqual([grown.x,grown.y,grown.z],[r.e,1.9,-r.n]);
++  assert(Math.abs(grown.h-r.h)<1e-10,'the context keeps its nominal record height');
++  assert.equal(grown.opts.crownW,stem.crownW);assert.equal(grown.spec.speciesId,'context_deciduous');
++  assert.equal(trees.cardFor(id).sidecar.name,'Reconstructed deciduous tree');
++  assert(trees.cardFor(id).libertyIds.includes('L-1871-grown-context-3760'),'the proxy is declared on its own card');
++  const camera=new THREE.PerspectiveCamera(60,1,.1,1000);
++  camera.position.set(r.e,3,-r.n+6);camera.lookAt(r.e,3,-r.n);camera.updateMatrixWorld();
++  assert.equal(trees.pickAt(null,camera)?.id,id,'the real bole opens its own generic card');
++  confidence.setHidden('reconstructed',true);assert.equal(trees.pickAt(null,camera),null);
++  confidence.setHidden('reconstructed',false);
++  const relief = trees.materials.leafMat.bumpMap;
++  assert(relief, 'capable Full starts with the existing atlas as leaf relief');
++  await trees.setDetail('light');
++  assert.equal(trees.materials.leafMat.bumpMap, null, 'switching to Light removes the extra relief sampling');
++  await trees.setDetail('full');
++  assert.equal(trees.materials.leafMat.bumpMap, relief, 'returning to Full reuses the same atlas');
++  const visibleSlots = role => {
++    let count=0;
++    trees.group.traverse(o=>{
++      if(!o.isBatchedMesh||!o.name.endsWith('-'+role))return;
++      for(const [i,slot] of o._instanceInfo.entries())if(slot.active&&o.getVisibleAt(i))count++;
++    });
++    return count;
++  };
++  const settle=()=>{trees.update(0,camera);trees.settle();};
++  assert.equal(trees.setBurnt(()=>true),1);settle();
++  assert.equal(visibleSlots('leaves'),0);assert(visibleSlots('wood')>0);
++  await trees.setMode('spring');settle();
++  assert.equal(visibleSlots('leaves'),0,'burnt context trees stay bare through a season rebuild');
++  holdBuild=true;
++  const clearing=trees.setMode('summer');
++  await Promise.resolve();await Promise.resolve();
++  assert(heldBuilds.length>0,'the replacement is actually pending');
++  trees.setBurnt(null);settle();
++  assert(visibleSlots('leaves')>0,'clearing the fire updates the retained live forest');
++  holdBuild=false;for(const resolve of heldBuilds.splice(0))resolve();
++  await clearing;settle();
++  assert(visibleSlots('leaves')>0,'the candidate uses the latest cleared fire state');
++  assert.equal(trees.stats.burnt,0);
++  holdBuild=true;
++  const charring=trees.setDetail('light');
++  await Promise.resolve();await Promise.resolve();assert(heldBuilds.length>0);
++  trees.setBurnt(()=>true);settle();
++  assert.equal(visibleSlots('leaves'),0,'fire updates the live forest during a detail rebuild');
++  holdBuild=false;for(const resolve of heldBuilds.splice(0))resolve();
++  await charring;settle();
++  assert.equal(visibleSlots('leaves'),0,'the mounted candidate receives the latest burnt state');
++  assert.equal(trees.stats.burnt,1);assert(visibleSlots('wood')>0);
++  trees.setBurnt(null);await trees.setDetail('full');settle();
++  assert(visibleSlots('leaves')>0);
++  for (const mode of ['spring','fall','winter']) {
++    await trees.setMode(mode);trees.update(0,camera);trees.settle();
++    assert.equal(trees.stats.grown.stems,1);assert.equal(trees.stats.context,1);
++    assert.equal(trees.cardFor(id).id,id,'season rebuild retains inspection identity');
++    if (mode==='winter') {
++      let leafArea=0;
++      trees.group.traverse(o=>{
++        if(o.isBatchedMesh&&o.material.name==='timber-leaves') {
++          // A bare template carries one degenerate triangle for the batch.
++          // Measure support area, rather than mistaking that slot for a leaf.
++          const p=o.geometry.attributes.position,ix=o.geometry.index;
++          const a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
++          for (let i=0;i<ix.count;i+=3) {
++            a.fromBufferAttribute(p,ix.getX(i));b.fromBufferAttribute(p,ix.getX(i+1));c.fromBufferAttribute(p,ix.getX(i+2));
++            leafArea+=b.sub(a).cross(c.sub(a)).length()/2;
++          }
++        }
++      });
++      assert.equal(leafArea,0,'winter handoff draws wood, with no solid portable crown or leaf area');
++    }
++  }
++  const prior=trees.group.children[0];
++  holdBuild=true;
++  const rebuilding=trees.setMode('summer');
++  await Promise.resolve();
++  assert.equal(trees.group.children[0],prior,'the live forest stays mounted while its replacement grows');
++  let duplicateDone=false;
++  const duplicate=trees.setMode('summer').then(()=>{duplicateDone=true;});
++  await Promise.resolve();await Promise.resolve();
++  assert.equal(duplicateDone,false,'a repeated choice joins the pending rebuild');
++  holdBuild=false;for(const resolve of heldBuilds.splice(0))resolve();
++  await Promise.all([rebuilding,duplicate]);
++  assert.notEqual(trees.group.children[0],prior);
++  assert.equal(trees.group.children.length,1);
++  await Promise.all([trees.setMode('summer'),trees.setMode('winter')]);
++  assert.equal(trees.group.children.length,1,'only the latest concurrent seasonal forest is attached');
++  assert.equal(trees.stats.mode,'winter');
++  await trees.setMode('hidden');assert.equal(trees.group.visible,false);
++  assert.equal(trees.pickAt(null,camera),null);assert.equal(trees.cardFor(id).id,id,'Hide retains card metadata');
++  trees.setBurnt(()=>true);
++  await trees.setMode('summer');settle();
++  assert.equal(visibleSlots('leaves'),0,'a fire choice made while hidden applies on show');
++  assert(visibleSlots('wood')>0);assert.equal(trees.stats.burnt,1);
++  trees.setBurnt(null);settle();assert(visibleSlots('leaves')>0);
++  await trees.setMode('hidden');
++  let released=0;trees.materials.leafMat.addEventListener('dispose',()=>released++);
++  const late=trees.setMode('summer');trees.dispose();await late;trees.dispose();
++  assert.equal(released,1,'owned materials are released once');
++  assert.equal(trees.group.children.length,0,'a late rebuild cannot remount disposed trees');
++  trees=null;
++} finally {
++  trees?.dispose();TreeInstances.prototype.add=originals.add;
++  globalThis.fetch=originals.fetch;globalThis.window=originals.window;globalThis.createImageBitmap=originals.bitmap;
++}
++console.log('PASS 1871 current planting, real generic growth/picking/confidence, winter wood, pending/latest fire and detail state, disposal and hidden cards');
+diff --git a/chicago/4d/tools/test_city_context_depth.mjs b/chicago/4d/tools/test_city_context_depth.mjs
+index 0973966bbc..25391b8a8c 100644
+--- a/chicago/4d/tools/test_city_context_depth.mjs
++++ b/chicago/4d/tools/test_city_context_depth.mjs
+@@ -76,9 +76,14 @@ city.group.traverse(o=>{
+   else if(o.userData.layers?.includes('bridges'))bridges.push(o);
+   else streets.push(o);
+ });
+-assert.equal(near.length,5,'all building and tree instance batches are tested');
++assert.equal(near.length,4,'all building instance batches are tested');
+ assert.equal(bridges.length,1,'the two portable bridge primitives form one material batch');
+-assert(near.some(o=>o.userData.treeCount>0),'the fixture includes a near tree caster');
++assert(near.every(o=>o.userData.treeCount===0),'no portable tree crown remains');
++const [stem]=city.treeStems();
++assert.equal(city.treeStems().length,1,'the tree has exactly one renderer handoff');
++assert.deepEqual([stem.id,stem.e,stem.n,stem.y,stem.h,stem.crownW],['context:1871:tree',90,20,0,6,4]);
++assert.equal(stem.card().sidecar.name,'Reconstructed deciduous tree');
++assert.equal(city.census.handedOffTrees,1);
+ const casters=[...near,...bridges], depths=new Set(), owners=new Map();
+ const compileHook = (material,lib) => {
+   const shader={uniforms:THREE.UniformsUtils.clone(lib.uniforms),vertexShader:lib.vertexShader,fragmentShader:lib.fragmentShader};
+@@ -108,7 +113,7 @@ for(const mesh of casters) {
+   shaders.push(shadow);
+ }
+ assert.equal(depths.size,owners.size,'different colour owners never share cached depth maps');
+-assert.equal(owners.size,3);
++assert.equal(owners.size,2);
+ assert.equal(owners.get(plain).map,null,'the unmapped owner cannot inherit another caster’s atlas');
+ for(const mesh of [...far,...streets]) {
+   assert.equal(mesh.castShadow,false);assert.equal(mesh.customDepthMaterial,undefined,'noncasters need no depth owner');
+@@ -135,4 +140,5 @@ const disposed=new Map([...depths].map(d=>[d,0]));
+ for(const depth of depths)depth.addEventListener('dispose',()=>disposed.set(depth,disposed.get(depth)+1));
+ city.dispose();city.dispose();
+ assert([...disposed.values()].every(n=>n===1),'every owned depth is disposed exactly once');
+-console.log('PASS 1871 context shadows: actual near building/tree and bridge casters, per-colour depth ownership, confidence attributes/live hide-dither uniforms, map isolation, unchanged tier policy and idempotent disposal');
++assert.equal(city.treeStems().length,0,'disposed context releases handoff records');
++console.log('PASS 1871 context: building/bridge shadow ownership, confidence/depth map isolation, tier policy and disposal; tree records handed off once with their generic cards and no portable crowns');
+diff --git a/chicago/4d/tools/test_confidence_looks.mjs b/chicago/4d/tools/test_confidence_looks.mjs
+index 6f5bb87020..7e7113934a 100644
+--- a/chicago/4d/tools/test_confidence_looks.mjs
++++ b/chicago/4d/tools/test_confidence_looks.mjs
+@@ -393,5 +393,95 @@ check('disposing a material disposes its twin', () => {
+   assert.equal(twinDisposed, true);
+ });
+ 
++
++// T-3748: the runtime's optional material preparation composes with real
++// confidence/leaf hooks, restores the physical program, and owns no geometry.
++const roughSource = await readFile(path.join(web, 'js/rough-surface-lighting.js'), 'utf8');
++const R = await import(`data:text/javascript;base64,${Buffer.from(roughSource.replace("from 'three'", `from '${threeURL}'`)).toString('base64')}`);
++const leafSource = await readFile(path.join(web, 'js/leaf-light.js'), 'utf8');
++const L = await import(`data:text/javascript;base64,${Buffer.from(leafSource.replace("from 'three'", `from '${threeURL}'`).replace("from './time-of-day.js'", `from '${pathToFileURL(path.join(web, 'js/time-of-day.js')).href}'`)).toString('base64')}`);
++const shaderOf = (material) => {
++  const shader = { uniforms: {}, vertexShader: THREE.ShaderLib.standard.vertexShader,
++    fragmentShader: THREE.ShaderLib.standard.fragmentShader };
++  material.onBeforeCompile(shader, {});
++  return shader;
++};
++
++check('rough Light composes with actual leaf and confidence hooks and Full restores the identical physical shader', () => {
++  const policy = R.createRoughSurfaceLighting();
++  const baseline = new THREE.MeshStandardMaterial({ roughness: 0.9, metalness: 0 });
++  const material = baseline.clone();
++  for (const m of [baseline, material]) L.patchLeafLight(m, { mask: 'vTreeLeaf', lowSpec: true });
++  C.createConfidenceView().patch(baseline);
++  const view = C.createConfidenceView({ prepareMaterial: policy.prepare });
++  view.patch(material);
++  const original = shaderOf(baseline);
++  assert.equal(shaderOf(material).fragmentShader, original.fragmentShader);
++  assert.equal(shaderOf(material).vertexShader, original.vertexShader);
++  const version = material.version;
++  policy.set(true);
++  assert.ok(material.version > version);
++  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
++  const light = shaderOf(material);
++  assert.equal(light.vertexShader, original.vertexShader);
++  assert.ok(light.fragmentShader.includes('chiRoughEnvironment'));
++  assert.ok(light.fragmentShader.endsWith(original.fragmentShader.split('#include <lights_physical_pars_fragment>')[1]),
++    'the complete leaf wrapper, confidence and later shading stages survive');
++  policy.set(false);
++  assert.equal(shaderOf(material).fragmentShader, original.fragmentShader);
++  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, undefined);
++  policy.set(false);
++  assert.equal(policy.light, false);
++  assert.equal(policy.materials, 1);
++  material.dispose(); assert.equal(policy.materials, 0);
++  // Confidence's idempotent patch must still register a deliberately reused material.
++  policy.set(true); view.patch(material);
++  assert.equal(policy.materials, 1);
++  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
++  material.dispose(); baseline.dispose();
++});
++
++check('a leaf hook installed after the Light policy keeps its lighting anchors and transmission wrapper', () => {
++  const policy = R.createRoughSurfaceLighting(); policy.set(true);
++  const material = new THREE.MeshStandardMaterial({ roughness: 0.9 });
++  policy.prepare(material);
++  L.patchLeafLight(material, { mask: 'vTreeLeaf', lowSpec: true });
++  C.createConfidenceView({ prepareMaterial: policy.prepare }).patch(material);
++  const shader = shaderOf(material);
++  assert.ok(shader.fragmentShader.includes('chiLeafDirect'));
++  assert.ok(shader.fragmentShader.includes('#include <lights_physical_pars_fragment>'));
++  policy.set(false);
++  assert.ok(!shaderOf(material).fragmentShader.includes('chiRoughEnvironment'));
++  material.dispose();
++});
++
++check('metals, smooth surfaces, physical glass and unlit materials retain their original hooks and defines', () => {
++  const policy = R.createRoughSurfaceLighting(); policy.set(true);
++  const excluded = [new THREE.MeshStandardMaterial({ metalness: 0.4, roughness: 0.9 }),
++    new THREE.MeshStandardMaterial({ roughness: 0.1 }),
++    new THREE.MeshPhysicalMaterial({ roughness: 0.9 }), new THREE.MeshBasicMaterial()];
++  for (const material of excluded) {
++    const hook = material.onBeforeCompile; const defines = material.defines;
++    assert.equal(policy.prepare(material), material);
++    assert.equal(material.onBeforeCompile, hook);
++    assert.equal(material.defines, defines);
++    material.dispose();
++  }
++  assert.equal(policy.materials, 0);
++});
++
++check('late materials inherit Light and a scene walk registers a shared material only once', () => {
++  const policy = R.createRoughSurfaceLighting(); policy.set(true);
++  const material = new THREE.MeshStandardMaterial({ roughness: 1 });
++  const geometry = new THREE.BoxGeometry(); const scene = new THREE.Scene();
++  scene.add(new THREE.Mesh(geometry, material), new THREE.Mesh(geometry, material));
++  policy.prepareScene(scene); policy.prepareScene(scene);
++  assert.equal(policy.materials, 1);
++  assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, 1);
++  policy.set(false); assert.equal(material.defines.CHI_ROUGH_LIGHT_3748, undefined);
++  material.dispose(); geometry.dispose();
++});
++
++
+ if (failures) { console.log(`\n${failures} check(s) failed`); process.exit(1); }
+ console.log('\nall checks passed');
+diff --git a/chicago/4d/tools/test_flora_leaf_browser.mjs b/chicago/4d/tools/test_flora_leaf_browser.mjs
+new file mode 100644
+index 0000000000..dc314f6e66
+--- /dev/null
++++ b/chicago/4d/tools/test_flora_leaf_browser.mjs
+@@ -0,0 +1,103 @@
++#!/usr/bin/env node
++// T-3748: compile the real flora material and geometry. The local test server
++// exposes private factories; it changes no product exports or renderer code.
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import http from 'node:http';
++import path from 'node:path';
++import {createRequire} from 'node:module';
++const root=path.resolve(new URL('..',import.meta.url).pathname);
++const {chromium}=createRequire(import.meta.url)('playwright');
++const exports=['plantMaterial','tuftGeometry','forbGeometry','cardGeometry','spikeGeometry','spireGeometry',
++  'panicleGeometry','rayGeometry','pompomGeometry','domeGeometry','corymbGeometry','compoundGeometry'];
++const server=http.createServer((req,res)=>{
++  const pathname=req.url.split('?')[0];
++  if(pathname==='/') {
++    res.setHeader('Content-Type','text/html');
++    res.end('<link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/vendor/three-0.185.1/three.module.js","three/addons/":"/vendor/three-0.185.1/addons/"}}</script>');return;
++  }
++  const file=path.join(root,'renderers/web',pathname);
++  if(!fs.existsSync(file)){res.writeHead(404);res.end();return;}
++  res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':'application/octet-stream');
++  if(pathname==='/js/flora.js')res.end(fs.readFileSync(file,'utf8')+'\nexport { '+exports.join(',')+' };\n');
++  else fs.createReadStream(file).pipe(res);
++});
++await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
++const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE||undefined,
++  args:['--no-sandbox','--enable-unsafe-swiftshader']});
++try {
++  const page=await browser.newPage(),errors=[];
++  page.on('pageerror',e=>errors.push(String(e)));
++  page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
++  await page.goto(`http://127.0.0.1:${server.address().port}/`);
++  const result=await page.evaluate(async()=>{
++    const THREE=await import('three'),flora=await import('/js/flora.js');
++    const {NEAR_FETCH_GLSL}=await import('/js/flora-gpu-near.js');
++    const {foliageAtlas}=await import('/js/foliage-atlas.js');
++    const {applySeasonLook,patchFoliage,FOLIAGE}=await import('/js/season.js');
++    const atlas=foliageAtlas();
++    const renderer=new THREE.WebGLRenderer();renderer.setSize(96,96);
++    const target=new THREE.WebGLRenderTarget(96,96);
++    const scene=new THREE.Scene();scene.background=new THREE.Color(0);
++    const sun=new THREE.DirectionalLight(0xffffff,2);sun.position.set(4,5,3);scene.add(sun);
++    scene.add(new THREE.HemisphereLight(0xcce2ff,0x403b2c,.6));
++    const camera=new THREE.PerspectiveCamera(48,1,.1,30);camera.position.set(2,1.8,3);camera.lookAt(0,.65,0);
++    const uniforms={uChiTime:{value:0},uChiWind:{value:new THREE.Vector2(.82,.57)},uChiSway:{value:.15},
++      uChiWaveK:{value:1},uChiSun:{value:new THREE.Vector3(4,5,3).normalize()},
++      uChiSunCol:{value:new THREE.Vector3(.9,.8,.7)},uChiSky:{value:new THREE.Vector3(.025,.03,.04)},uChiFoliage:{value:atlas}};
++    const tex=values=>{
++      const t=new THREE.DataTexture(new Float32Array(values),1,1,THREE.RGBAFormat,THREE.FloatType);
++      t.needsUpdate=true;return t;
++    };
++    const transforms=[2,1.8,.35,.72],ring=[10000,1,0,0];
++    const fetchTextures=[tex([0,0,0,6]),tex(transforms),tex([1,1,1,.5]),tex(ring)];
++    const gpuNear={glsl:NEAR_FETCH_GLSL,uniforms:Object.fromEntries(fetchTextures.map((t,i)=>['uNearI'+i,{value:t}]))};
++    gpuNear.uniforms.uNearW={value:1};
++    function mesh(source,{gpu=false,billboard=false}={}) {
++      const g=new THREE.InstancedBufferGeometry().copy(source);g.instanceCount=1;
++      g.setAttribute('aFlora',new THREE.InstancedBufferAttribute(new Float32Array(transforms),4));
++      g.setAttribute('aChiRing',new THREE.InstancedBufferAttribute(new Float32Array(ring),4));
++      g.setAttribute('aChiFamily',new THREE.InstancedBufferAttribute(new Float32Array([0]),1));
++      const material=flora.plantMaterial({uniforms,billboard,gpuNear:gpu?gpuNear:null});
++      patchFoliage(material,FOLIAGE.grass);
++      const o=gpu?new THREE.Mesh(g,material):new THREE.InstancedMesh(g,material,1);
++      o.frustumCulled=false;return o;
++    }
++    function read(o) {
++      scene.add(o);renderer.setRenderTarget(target);renderer.render(scene,camera);
++      const pixels=new Uint8Array(96*96*4);renderer.readRenderTargetPixels(target,0,0,96,96,pixels);scene.remove(o);
++      let lit=0,energy=0;
++      for(let i=0;i<pixels.length;i+=4) {const v=pixels[i]+pixels[i+1]+pixels[i+2];energy+=v;if(v>3)lit++;}
++      return {pixels,lit,energy};
++    }
++    const source=flora.tuftGeometry(9,4),cpu=mesh(source),gpu=mesh(source,{gpu:true}),parity=[];
++    applySeasonLook('summer');
++    for(const time of [0,2.3,9]) {
++      uniforms.uChiTime.value=time;const a=read(cpu),b=read(gpu);
++      const delta=a.pixels.reduce((sum,v,i)=>sum+Math.abs(v-b.pixels[i]),0)/a.pixels.length;
++      parity.push({time,cpuLit:a.lit,gpuLit:b.lit,delta});
++    }
++    for(const o of [cpu,gpu]){o.geometry.dispose();o.material.dispose();}source.dispose();
++    const surfaces=[];
++    for(const [name,source,billboard] of [['forb',flora.forbGeometry(3),false],['card',flora.cardGeometry(7),true]]) {
++      const o=mesh(source,{billboard}),counts={};
++      for(const season of ['spring','summer','fall','winter']){applySeasonLook(season);const a=read(o);counts[season]=a.lit;}
++      surfaces.push({name,counts});o.geometry.dispose();o.material.dispose();source.dispose();
++    }
++    const heads=[];
++    camera.position.set(4,3,6);camera.lookAt(0,2,0);
++    for(const name of ['spike','spire','panicle','ray','pompom','dome','corymb','compound']) {
++      const source=flora[name+'Geometry'](false),o=mesh(source),counts={};
++      for(const season of ['summer','spring','winter']){applySeasonLook(season);counts[season]=read(o).lit;}
++      heads.push({name,counts});o.geometry.dispose();o.material.dispose();source.dispose();
++    }
++    const runnable=renderer.info.programs.every(p=>p.diagnostics?.runnable!==false);
++    for(const t of fetchTextures)t.dispose();atlas.dispose();target.dispose();renderer.dispose();applySeasonLook('summer');
++    return {parity,surfaces,heads,runnable};
++  });
++  assert(result.runnable&&!errors.length,errors.join('\n'));
++  for(const r of result.parity)assert(r.cpuLit>30&&r.gpuLit>30&&r.delta<.1,JSON.stringify(r));
++  for(const r of result.surfaces)assert(Object.values(r.counts).every(n=>n>0),JSON.stringify(r));
++  for(const r of result.heads)assert(r.counts.summer>0&&r.counts.spring===0&&r.counts.winter>0,JSON.stringify(r));
++  console.log('PASS real flora GLSL: CPU/fetched wind parity, folded broad leaves, camera-facing cards and seasonal flower withholding',JSON.stringify(result));
++} finally {await browser.close();server.close();}
+diff --git a/chicago/4d/tools/test_leaf_lighting_browser.mjs b/chicago/4d/tools/test_leaf_lighting_browser.mjs
+index 2d87525e43..792731b0a1 100644
+--- a/chicago/4d/tools/test_leaf_lighting_browser.mjs
++++ b/chicago/4d/tools/test_leaf_lighting_browser.mjs
+@@ -30,7 +30,9 @@ try {
+   await page.goto(`http://127.0.0.1:${server.address().port}/`);
+   const rows = await page.evaluate(async () => {
+     const THREE = await import('three');
+-    const { patchLeafLight } = await import('/js/leaf-light.js');
++    const { patchLeafLight, patchVineLeafLight } = await import('/js/leaf-light.js');
++    const { patchFoliage, patchDeciduousSprays, applySeasonLook, FOLIAGE } = await import('/js/season.js');
++    const { patchTreeWind } = await import('/js/tree-surface.js');
+     const { LEAF_SKY } = await import('/js/time-of-day.js');
+     const { buildTreeTemplate } = await import('/js/tree-model.js');
+     const { TreeInstances } = await import('/js/tree-instances.js');
+@@ -102,7 +104,7 @@ try {
+       let hooks = 0;
+       const material = new THREE.MeshStandardMaterial({ color: 0x80cc40, side: THREE.DoubleSide });
+       material.onBeforeCompile = () => { hooks++; };
+-      patchLeafLight(material, { lowSpec });
++      if(!patchLeafLight(material, { lowSpec }) || patchLeafLight(material, { lowSpec })) throw Error('leaf hook must apply exactly once');
+       plane.material = material;
+       LEAF_SKY.value = 0;
+       blocker.visible = false;
+@@ -126,10 +128,87 @@ try {
+       rows.push({ lowSpec, front, back, shadow, masked, night, sky, hooks });
+       material.dispose(); wood.dispose();
+     }
++    // Real vine atlas classification is taken before fall recolours its leaves.
++    const atlas=new THREE.DataTexture(new Uint8Array([70,155,35,255,110,65,25,255]),2,1);
++    atlas.name='fixture-vine-atlas';atlas.needsUpdate=true;atlas.magFilter=THREE.NearestFilter;
++    atlas.minFilter=THREE.NearestFilter;
++    const vine=new THREE.MeshStandardMaterial({map:atlas,side:THREE.DoubleSide});
++    if(!patchVineLeafLight(vine) || patchVineLeafLight(vine))throw Error('vine hook must apply exactly once');
++    patchFoliage(vine,FOLIAGE.vine);applySeasonLook('fall');
++    plane.material=vine;light.intensity=2;light.position.z=-4;LEAF_SKY.value=0;blocker.visible=false;
++    const vinePixels=()=>{
++      read();
++      // Average a patch: fall's existing atlas thinning may discard one pixel.
++      const sample=cx=>{
++        const rgb=[0,0,0];
++        for(let y=27;y<38;y++)for(let x=cx-3;x<=cx+3;x++)for(let c=0;c<3;c++)rgb[c]+=pixels[(y*64+x)*4+c]/77;
++        return rgb;
++      };
++      return {leaf:sample(25),stem:sample(39)};
++    };
++    const vineBack=vinePixels();blocker.visible=true;const vineShadow=vinePixels();blocker.visible=false;
++    light.intensity=0;const vineNight=vinePixels();
++    applySeasonLook('summer');vine.dispose();atlas.dispose();
++    // The legacy mixed wood/leaf batch must lose the leaf's colour AND both
++    // types of shadow in winter, without losing the woody part of the batch.
++    const woodyScene = new THREE.Scene(); woodyScene.background = new THREE.Color(0);
++    const woodyCamera = new THREE.OrthographicCamera(-2, 2, 2, -2, .1, 20);
++    woodyCamera.position.z = 5; woodyCamera.lookAt(0, 0, 0);
++    const woodySun = new THREE.DirectionalLight(0xffffff, 3);
++    woodySun.position.z = 4; woodySun.castShadow = true;
++    Object.assign(woodySun.shadow.camera, { left: -2, right: 2, top: 2, bottom: -2, near: .1, far: 10 });
++    woodySun.shadow.mapSize.set(256, 256); woodyScene.add(woodySun);
++    const woodyPoint = new THREE.PointLight(0xffffff, 70, 10);
++    woodyPoint.position.z = 4; woodyPoint.castShadow = true; woodyPoint.visible = false;
++    woodyPoint.shadow.camera.near = .1; woodyPoint.shadow.camera.far = 10;
++    woodyPoint.shadow.mapSize.set(256, 256); woodyScene.add(woodyPoint);
++    const woodyMat = new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide });
++    const woodyDepth = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking, side: THREE.DoubleSide });
++    const woodyDistance = new THREE.MeshDistanceMaterial({ side: THREE.DoubleSide });
++    const woodyWind = { value: 0 };
++    patchTreeWind(woodyMat, woodyWind, { surface: true });
++    patchTreeWind(woodyDepth, woodyWind); patchTreeWind(woodyDistance, woodyWind);
++    for (const m of [woodyMat, woodyDepth, woodyDistance]) {
++      if (!patchDeciduousSprays(m) || patchDeciduousSprays(m)) throw Error('one deciduous patch per material');
++    }
++    const woodyCards = [];
++    for (const [x, leaf] of [[-.6, 0], [.6, 1]]) {
++      const g = new THREE.PlaneGeometry(.6, .6);
++      g.setAttribute('aLeaf', new THREE.Float32BufferAttribute(new Float32Array(4).fill(leaf), 1));
++      g.setAttribute('aFlex', new THREE.Float32BufferAttribute(new Float32Array(4), 1));
++      const m = new THREE.Mesh(g, woodyMat); m.position.set(x, 0, 1); m.castShadow = true;
++      m.customDepthMaterial = woodyDepth; m.customDistanceMaterial = woodyDistance;
++      woodyCards.push(m); woodyScene.add(m);
++    }
++    const woodyFloor = new THREE.Mesh(new THREE.PlaneGeometry(4, 4),
++      new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide }));
++    woodyFloor.receiveShadow = true; woodyFloor.visible = false; woodyScene.add(woodyFloor);
++    const woodyRead = (season, x) => {
++      applySeasonLook(season);
++      renderer.setRenderTarget(target); renderer.render(woodyScene, woodyCamera);
++      renderer.readRenderTargetPixels(target, 0, 0, 64, 64, pixels);
++      const sample = at => {
++        const px = Math.round((at + 2) * 16); let sum = 0;
++        for (let y = 30; y <= 33; y++) for (let i = px - 1; i <= px + 1; i++) sum += pixels[(y * 64 + i) * 4 + 1];
++        return sum / 12;
++      };
++      return { wood: sample(-x), leaf: sample(x) };
++    };
++    const woodyColour = { summer: woodyRead('summer', .6), winter: woodyRead('winter', .6) };
++    woodyFloor.visible = true; woodyMat.colorWrite = false; woodyMat.depthWrite = false;
++    const woodyDirectional = { summer: woodyRead('summer', .6), winter: woodyRead('winter', .6) };
++    woodySun.visible = false; woodyPoint.visible = true;
++    const woodyPointShadow = { summer: woodyRead('summer', .8), winter: woodyRead('winter', .8) };
++    for (const m of woodyCards) m.geometry.dispose();
++    woodyMat.dispose(); woodyDepth.dispose(); woodyDistance.dispose();
++    woodyFloor.geometry.dispose(); woodyFloor.material.dispose();
++    woodySun.shadow.map?.dispose(); woodyPoint.shadow.map?.dispose();
++    applySeasonLook('summer');
+     LEAF_SKY.value = 0.22;
+     const runnable = renderer.info.programs.every(p => p.diagnostics?.runnable !== false);
+     renderer.dispose(); target.dispose();
+-    return { rows, runnable, geometry, ranges };
++    return { rows, runnable, geometry, ranges, vineBack, vineShadow, vineNight,
++      woodyColour, woodyDirectional, woodyPointShadow };
+   });
+   for (const row of rows.rows) {
+     assert(row.front > row.back && row.back > 2, 'front-lit and transmitted surfaces differ');
+@@ -146,9 +225,22 @@ try {
+   assert(rows.ranges.closeTriangles > rows.ranges.nearTriangles && rows.ranges.nearTriangles > rows.ranges.midTriangles);
+   assert(rows.ranges.draws === 4, 'the close level uses the existing batches');
+   assert(rows.ranges.transitioning > 0 && rows.ranges.settled === 0, 'the new close boundary dissolves and settles');
++  assert(Math.max(...rows.vineBack.leaf)>2,'fall ivy still transmits through its originally green leaves');
++  assert(Math.max(...rows.vineBack.stem)<1,'the same vine material does not transmit through brown stems');
++  assert(Math.max(...rows.vineShadow.leaf)<1&&Math.max(...rows.vineNight.leaf)<1,'vine backlight follows shadows and night');
++  assert(rows.woodyColour.summer.leaf > 2 && rows.woodyColour.winter.leaf === 0,
++    `winter clips the deciduous card's visible surface: ${JSON.stringify(rows.woodyColour)}`);
++  assert(rows.woodyColour.winter.wood > 2, 'the mixed batch retains its woody surface');
++  for (const result of [rows.woodyDirectional, rows.woodyPointShadow]) {
++    assert(result.winter.leaf > result.summer.leaf + 20, `winter removes the leaf shadow: ${JSON.stringify(result)}`);
++    assert(Math.abs(result.winter.wood - result.summer.wood) < 3, 'wood keeps its shadow');
++  }
+   console.log('LEAF LIGHT PASS — Light and detailed shaders; shadowed backlight, wood mask, night, sky, hook composition', JSON.stringify(rows.rows));
+   console.log('TREE DETAIL PASS — seven species/habits, Full close foliage, unchanged coarse and bare templates and tree dimensions', JSON.stringify(rows.geometry));
+   console.log('TREE RANGES PASS — extra detail confined to the close ring', JSON.stringify(rows.ranges));
++  console.log('VINE LIGHT PASS — one patch, pre-season leaf mask, opaque brown stems, shadow and night',JSON.stringify({back:rows.vineBack,shadow:rows.vineShadow,night:rows.vineNight}));
++  console.log('DECIDUOUS SPRAYS PASS — winter removes tagged leaf colour and directional/point shadows, preserving wood',
++    JSON.stringify({colour:rows.woodyColour,directional:rows.woodyDirectional,point:rows.woodyPointShadow}));
+ } finally {
+   await browser.close();
+   server.close();
+diff --git a/chicago/4d/tools/test_vegetation_seasons.mjs b/chicago/4d/tools/test_vegetation_seasons.mjs
+new file mode 100644
+index 0000000000..ae7fe749d3
+--- /dev/null
++++ b/chicago/4d/tools/test_vegetation_seasons.mjs
+@@ -0,0 +1,40 @@
++#!/usr/bin/env node
++// T-3748: seasonal dates and evergreen coverage from real species geometry.
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import { register } from 'node:module';
++const vendor=new URL('../renderers/web/vendor/three-0.185.1/',import.meta.url).href;
++register(`data:text/javascript,${encodeURIComponent(`export function resolve(s,c,next) {
++  if(s==='three')return {url:'${vendor}three.module.js',shortCircuit:true};
++  if(s.startsWith('three/addons/'))return {url:'${vendor}addons/'+s.slice(13),shortCircuit:true};
++  return next(s,c);
++}`)}`,import.meta.url);
++const {seasonDate,seasonForDate,applySeasonLook,seasonUniforms}=await import('../renderers/web/js/season.js');
++const {buildTreeTemplate,EVERGREEN_BELOW_V}=await import('../renderers/web/js/tree-model.js');
++const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
++for (const year of ['1812','1835','1871','1904']) {
++  const target=read(`data/scenes/${year}.json`).target_date;
++  const own=seasonForDate(target);
++  assert.equal(seasonDate(own,target),target,`${year} keeps its own dated reconstruction`);
++  for (const [s,day] of Object.entries({spring:'04-15',summer:'07-15',fall:'10-15',winter:'02-15'})) {
++    assert.equal(seasonDate(s,target),s===own?target:`${year}-${day}`);
++  }
++}
++assert.equal(seasonForDate('1871-10-08'),'fall');
++assert.equal(seasonDate('fall','1871-10-08'),'1871-10-08');
++assert.equal(seasonDate('summer','1871-10-08'),'1871-07-15');
++assert.equal(seasonForDate(null),null);assert.equal(seasonForDate('1871-13-01'),null);
++assert.equal(seasonDate('unknown','1871-10-08'),'1871-10-08');
++for (const id of ['juniperus_virginiana','pinus_banksiana']) {
++  const t=buildTreeTemplate({speciesId:id,arch:id,form:'open',h:[12,12],evergreen:true},3748,'near');
++  const uv=t.leaves.getAttribute('uv');assert(uv.count>0);
++  for (let i=0;i<uv.count;i++) assert(uv.getY(i)<EVERGREEN_BELOW_V+1e-7,
++    `${id}: its whole scale/needle tile keeps evergreen colour`);
++  t.wood.dispose();t.leaves.dispose();
++}
++for (const [s,fresh] of [['spring',1],['summer',0],['fall',0],['winter',0]]) {
++  applySeasonLook(s);assert.equal(seasonUniforms.uChiFresh.value,fresh);
++}
++applySeasonLook('summer');
++
++console.log('PASS all-year seasonal dates, representative summer for1871, complete scale/needle evergreen atlas coverage and spring uniform');
+diff --git a/chicago/4d/tools/test_walker_passage.mjs b/chicago/4d/tools/test_walker_passage.mjs
+index edd32482d7..807a040803 100644
+--- a/chicago/4d/tools/test_walker_passage.mjs
++++ b/chicago/4d/tools/test_walker_passage.mjs
+@@ -39,6 +39,8 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
+   const liberties=read('data/liberties.json').liberties;
+   const declared=liberties.find(lib=>lib.id===doc.liberty);
+   assert(declared,'the generated document declares an existing liberty');
++  const treeLiberty=liberties.find(lib=>lib.id==='L-1871-grown-context-3760');
++  assert(treeLiberty,'the grown context tree declares its additional renderer liberty');
+   const building=doc.buildings[0],tree=doc.trees[0];
+   const buildingInput={...building,w:building.width_m,d:building.depth_m,h:building.eave_m,
+     t:definition.templates.find(t=>t.id===building.kit)};
+@@ -56,13 +58,15 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
+   const popup=createPopup(mount,{});
+   try {
+     popup.setLiberties(liberties);
+-    for(const record of records) {
+-      assert.deepEqual(record.libertyIds,[doc.liberty],'the card uses the generated document’s declared liberty');
++    for(const [i,record] of records.entries()) {
++      const expected=i===0 ? [doc.liberty] : [doc.liberty,treeLiberty.id];
++      assert.deepEqual(record.libertyIds,expected,'building keeps only its scene liberty; tree also declares its grown proxy');
+       assert(!Object.hasOwn(record.sidecar,'liberty_ids'),'runtime metadata does not invent a compiled sidecar field');
+       assert.equal(popup.show(record),true,'the real popup opens the generated context card');
+-      assert.match(mount.innerHTML,/Liberties taken here <span class="pop-count">1<\/span>/,'the actual pane counts its liberty');
++      assert(mount.innerHTML.includes(`Liberties taken here <span class="pop-count">${expected.length}</span>`),'the actual pane counts every declared liberty');
+       assert(mount.innerHTML.includes(declared.title),'the actual pane renders its declared liberty');
+-      assert.deepEqual(popup.sections(record).liberties.map(lib=>lib.id),[doc.liberty],'Inspect Sources receives the same liberty');
++      if(i===1) assert(mount.innerHTML.includes(treeLiberty.title),'the tree pane renders its additional proxy liberty');
++      assert.deepEqual(popup.sections(record).liberties.map(lib=>lib.id),expected,'Inspect Sources receives the exact declared liberties');
+       assert.deepEqual(record.sidecar.citations,definition.citations,'the source citations remain intact');
+       const missing={...record,libertyIds:[]};
+       assert.deepEqual(popup.sections(missing).liberties,[],'a missing runtime binding is observable, never silently guessed');
+@@ -73,7 +77,7 @@ const { createPopup } = await import('../renderers/web/js/popup.js');
+     popup.setLiberties([{id:'L-native-fixture',subjects:[native.id]}]);
+     assert.deepEqual(popup.sections(native).liberties.map(lib=>lib.id),['L-native-fixture'],'ordinary structure subject lookup remains unchanged');
+   } finally {globalThis.document=savedDocument;}
+-  console.log('CITY CONTEXT CARDS PASS — building and tree declare the generated scene liberty in actual popup counts, panes and Sources; citations and native subject lookup preserved; missing bindings stay missing');
++  console.log('CITY CONTEXT CARDS PASS — building retains only scene liberty; tree also declares grown proxy in actual popup counts, panes and Sources; citations and native subject lookup preserved; missing bindings stay missing');
+ }
+ 
+ const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
