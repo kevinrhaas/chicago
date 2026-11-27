@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS, showAccount } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId, MESSAGE_FIELDS } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
-import { ACCOUNT_DOCS, ACCOUNT_ROWS, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
+import { ACCOUNT_DOCS, ACCOUNT_ROWS, ACCOUNT_TREES, cloudFeaturesOn, deleteMyData, rowsQuery, showSavedData } from '../renderers/web/js/student-data.js';
 import { rulesFromDoc, collectionsOf, ownerEmailOf } from './publish_firestore_rules.mjs';
 
 const FULL = { apiKey: 'k', authDomain: 'p.firebaseapp.com', projectId: 'p', appId: 'a' };
@@ -91,9 +91,11 @@ const lists = [...doc.matchAll(/hasOnly\(\[([^\]]*)\]\)/g)].map(m => m[1].match(
 // T-3644 people/<uid>'s, the visitor's own person (tools/test_visitor_person.mjs holds its write).
 // T-3741 messages/<id>, the public contact page's (site/js/contact.js), checked below.
 // T-3743 bugs/<id>, crash and bug reports (tools/test_bug_report.mjs holds its fields).
-assert.equal(lists.length, 6, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages, bugs and people hasOnly lists');
+// T-3777 users/<uid>/<part>/<id>, cloud save (tools/test_cloud_save.mjs holds its writes).
+assert.equal(lists.length, 7, 'docs/SIGN-IN.md holds the visitors, readers, visits, messages, bugs, people and users hasOnly lists');
 const visitorRule = lists.find((l) => l.includes('firstSeen'));
 const visitRule = lists.find((l) => l.includes('uid') && !l.includes('kind'));
+assert.deepEqual(lists.find((l) => l.includes('deleted')), ['at', 'deleted', 'v'], 'users/<uid>/<part>/<id> holds v, deleted and when');
 assert.deepEqual(lists.find((l) => l.includes('ages')), ['ages', 'at'], 'readers/<uid> holds its ages and when');
 const w = entryWrites({ projectId: 'p', uid: 'u1', email: 'a@b.co', name: 'A', method: 'google', year: '1835', device: 'phone', visitId: 'v1' });
 const fieldsOf = write => [...Object.keys(write.update.fields), ...(write.updateTransforms || []).map(t => t.fieldPath)];
@@ -141,15 +143,20 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
   // Every collection the rules let a visitor write is one Delete my saved data removes, and
   // the rules let the visitor read and delete each of them.
   const kept = [...ACCOUNT_DOCS, ...ACCOUNT_ROWS].sort();
+  // T-3777: the tree under users/<uid>/ is the account's alone, in exactly the parts deleted.
+  const tree = /match \/users\/\{uid\}\/\{part\}\/\{id\} \{\n\s+allow read, delete: if isSelf\(uid\) && part in \[([^\]]*)\];/.exec(doc);
+  assert.ok(tree, 'users/<uid>/<part>/<id>: the account reads and deletes its own, nobody else');
+  assert.deepEqual(tree[1].match(/'([^']+)'/g).map((x) => x.slice(1, -1)), [...ACCOUNT_TREES.users], 'in the parts Delete my saved data removes');
+  assert.deepEqual(Object.keys(ACCOUNT_TREES), ['users']);
   const written = [...doc.matchAll(/match \/([a-z]+)\/\{[a-z]+\} \{\n\s+allow read, delete: ([^;]+);/g)].map((m) => [m[1], m[2]]);
   const selfDeletes = written.filter(([, rule]) => /isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c).sort();
   assert.deepEqual(selfDeletes, kept, 'the rules let a visitor delete exactly the collections js/student-data.js deletes');
   assert.deepEqual(written.filter(([, rule]) => !/isSelf|request\.auth\.uid == uid/.test(rule)).map(([c]) => c), ['messages'],
     'only the contact page\'s messages (no uid) are the owner\'s alone');
   const policy = readFileSync(new URL('../docs/STUDENT-DATA.md', import.meta.url), 'utf8');
-  for (const c of kept) assert.ok(policy.includes(`| \`${c}/`), `docs/STUDENT-DATA.md lists ${c}`);
+  for (const c of [...kept, 'users']) assert.ok(policy.includes(`| \`${c}/`), `docs/STUDENT-DATA.md lists ${c}`);
   const privacy = readFileSync(new URL('../renderers/web/privacy.html', import.meta.url), 'utf8');
-  assert.deepEqual([...privacy.matchAll(/data-collection="([a-z]+)"/g)].map((m) => m[1]).sort(), kept, 'privacy.html names every collection kept');
+  assert.deepEqual([...privacy.matchAll(/data-collection="([a-z]+)"/g)].map((m) => m[1]).sort(), [...kept, 'users'].sort(), 'privacy.html names every collection kept');
   assert.ok(page.includes('href="./privacy.html"'), 'Settings › About links What we keep');
   assert.ok(readFileSync(new URL('../renderers/web/js/sign-in.js', import.meta.url), 'utf8').includes('href="./privacy.html"'), 'the sign-in panel links it before anything is kept');
 
@@ -160,24 +167,26 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
 
   // A fake Firestore: three documents, two visits and one bug for u1, one visit for someone else.
   const calls = [];
-  const rows = { visits: ['v1', 'v2'], bugs: ['b1'] };
+  const rows = { visits: ['v1', 'v2'], bugs: ['b1'], notebook: ['n1'], metfound: ['1835-met', '1835-found'], settings: [] };
   const fakeFetch = async (url, init = {}) => {
     calls.push([init.method ?? 'GET', url, init.body ? JSON.parse(init.body) : null]);
     const ok = (body) => ({ ok: true, status: 200, json: async () => body });
     if (url.endsWith(':runQuery')) {
       const col = JSON.parse(init.body).structuredQuery.from[0].collectionId;
       const left = rows[col].splice(0);
-      return ok(left.length ? left.map((id) => ({ document: { name: `projects/p/databases/(default)/documents/${col}/${id}` } })) : [{ readTime: 'x' }]);
+      const parent = url.includes('/users/') ? 'users/u1/' : '';
+      return ok(left.length ? left.map((id) => ({ document: { name: `projects/p/databases/(default)/documents/${parent}${col}/${id}` } })) : [{ readTime: 'x' }]);
     }
     return ok({});
   };
   const account = { uid: 'u1', idToken: async () => 'tok' };
   const r = await deleteMyData({ projectId: 'p', account, fetchFn: fakeFetch });
-  assert.deepEqual(r, { deleted: 6, failed: [] }, 'three documents and three rows');
+  assert.deepEqual(r, { deleted: 9, failed: [] }, 'three documents, three rows and three saved items');
   assert.deepEqual(calls.filter(([m]) => m === 'DELETE').map(([, u]) => u.split('/documents/')[1]), ['readers/u1', 'people/u1', 'visitors/u1']);
-  const commits = calls.filter(([, u]) => u.endsWith(':commit')).map(([, , b]) => b.writes.map((w) => w.delete.split('/').slice(-2).join('/')));
-  assert.deepEqual(commits, [['visits/v1', 'visits/v2'], ['bugs/b1']]);
-  assert.equal(calls.length, 9, 'three deletes, then each collection queried until it comes back empty');
+  const commits = calls.filter(([, u]) => u.endsWith(':commit')).map(([, , b]) => b.writes.map((w) => w.delete.split('/documents/')[1]));
+  assert.deepEqual(commits, [['visits/v1', 'visits/v2'], ['bugs/b1'], ['users/u1/notebook/n1'], ['users/u1/metfound/1835-met', 'users/u1/metfound/1835-found']]);
+  assert.ok(calls.filter(([, u]) => u.endsWith('/users/u1:runQuery')).length === 5, 'each saved part queried under the account until empty');
+  assert.equal(calls.length, 16, 'three deletes, then each collection and part queried until it comes back empty');
 
   // A refusal is reported, never thrown, and the rest still goes.
   const refuse = async (url, init = {}) => (init.method === 'DELETE' && url.includes('/people/') ? { ok: false, status: 403 } : fakeFetch(url, init));
@@ -214,7 +223,7 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
 // across rather than reading it from the repo.
 {
   const rules = rulesFromDoc(doc);
-  assert.deepEqual(collectionsOf(rules), [...ACCOUNT_DOCS, ...ACCOUNT_ROWS, 'messages'].sort(),
+  assert.deepEqual(collectionsOf(rules), [...ACCOUNT_DOCS, ...ACCOUNT_ROWS, ...Object.keys(ACCOUNT_TREES), 'messages'].sort(),
     'the published rules match every account collection and messages, and nothing else');
   assert.equal(ownerEmailOf(rules), null, 'the doc holds the placeholder, never an address');
   assert.equal(ownerEmailOf(rules.replaceAll("'OWNER_EMAIL'", "'owner@example.com'")), 'owner@example.com');

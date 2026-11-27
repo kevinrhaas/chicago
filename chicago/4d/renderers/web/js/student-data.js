@@ -6,9 +6,10 @@
  * visitor's page (privacy.html) says it in plain words, and Settings › About gains
  * **Delete my saved data**, which removes every record this account owns.
  *
- * Two shapes of record, both in Firestore's default database (nam5):
+ * Three shapes of record, all in Firestore's default database (nam5):
  *   ACCOUNT_DOCS  one document per account, keyed by its uid
  *   ACCOUNT_ROWS  many rows per account, each carrying `uid`
+ *   ACCOUNT_TREES documents under users/<uid>/<part>/ (T-3777 cloud save)
  * The rules in docs/SIGN-IN.md let the account read and delete exactly these (and the
  * owner, his visitor list). A new collection that holds a visitor's data is added HERE and
  * to the rules in the same change; tools/test_sign_in.mjs holds the two lists together.
@@ -24,6 +25,9 @@
 export const ACCOUNT_DOCS = Object.freeze(['readers', 'people', 'visitors']);
 /** Rows that carry the account's uid: visits (one per year entered), bugs (your reports). */
 export const ACCOUNT_ROWS = Object.freeze(['visits', 'bugs']);
+
+/** Trees under users/<uid>/: T-3777's cloud save (js/cloud-save.js CLOUD_PARTS). */
+export const ACCOUNT_TREES = Object.freeze({ users: Object.freeze(['notebook', 'metfound', 'settings']) });
 
 /** Is any Stage 1 cloud feature allowed to write? Off unless the config says so. */
 export function cloudFeaturesOn(config) {
@@ -87,6 +91,27 @@ export async function deleteMyData({ projectId, account, fetchFn = globalThis.fe
         deleted += names.length;
       }
     } catch { failed.push(collection); }
+  }
+  for (const [tree, parts] of Object.entries(ACCOUNT_TREES)) {
+    for (const part of parts) {
+      try {
+        for (let page = 0; page < 50; page++) {
+          const res = await fetchFn(`${base}/${tree}/${encodeURIComponent(uid)}:runQuery`, {
+            method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ structuredQuery: { from: [{ collectionId: part }], select: { fields: [{ fieldPath: '__name__' }] }, limit: 300 } }),
+          });
+          if (!res.ok) { failed.push(`${tree}/${part}`); break; }
+          const names = (await res.json()).map((row) => row.document?.name).filter(Boolean);
+          if (!names.length) break;
+          const commit = await fetchFn(`${base}:commit`, {
+            method: 'POST', headers: { ...auth, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ writes: names.map((name) => ({ delete: name })) }),
+          });
+          if (!commit.ok) { failed.push(`${tree}/${part}`); break; }
+          deleted += names.length;
+        }
+      } catch { failed.push(`${tree}/${part}`); }
+    }
   }
   return { deleted, failed };
 }

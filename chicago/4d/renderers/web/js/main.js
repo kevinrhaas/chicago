@@ -42,6 +42,8 @@ import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
 import { showSavedData } from './student-data.js';
+import { cloudSaveFor, startCloudSave, cloudSaveLine } from './cloud-save.js';
+import { fieldNotebook } from './field-notebook.js';
 import { SIGN_IN } from './sign-in-config.js';
 import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -113,7 +115,7 @@ import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
 import { createHouseBarriers, BARRIER_STAND_M } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
-import { createMetFoundWatch, placeIndex, sceneTitle } from './met-found.js';
+import { createMetFoundWatch, placeIndex, sceneTitle, metFound } from './met-found.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
 import { createNameCards, cardTheme, gradeOf, nameCardGrades } from './name-cards.js';
@@ -2040,6 +2042,9 @@ boot().catch((err) => {
   console.error('[4D Chicago] boot failed', err);
 });
 
+/** T-3777: the longest the boot waits for cloud save's first sync, in ms. */
+const CLOUD_WAIT_MS = 3000;
+
 async function boot() {
   // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
   // once, loads nothing) until js/sign-in-config.js names a Firebase project.
@@ -2054,6 +2059,15 @@ async function boot() {
   // T-3645: the reader's ages, kept on the account when someone is signed in; and the cards'
   // words at each age, fetched the first time a card opens.
   void syncReading({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId });
+  // T-3777: cloud save, behind T-3776's cloudFeatures switch. The first sync is waited for a
+  // moment (never more than CLOUD_WAIT_MS), so the Settings and notebook another device left
+  // are the ones the town reads; past that the town boots on this browser's copy.
+  if (cloudSaveFor(api.signIn.account, SIGN_IN)) {
+    const line = document.getElementById('s-cloud-save');
+    api.cloudSave = startCloudSave({ account: api.signIn.account, projectId: SIGN_IN.firebase?.projectId,
+      sources: [fieldNotebook, metFound], onStatus: (s) => { if (line) { line.hidden = false; line.textContent = cloudSaveLine(s); } } });
+    await Promise.race([api.cloudSave.ready.catch(() => {}), new Promise((r) => setTimeout(r, CLOUD_WAIT_MS))]);
+  }
   setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();

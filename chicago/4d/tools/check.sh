@@ -297,6 +297,8 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
   node tools/test_sign_in.mjs
+step "Cloud save merges two browsers without dropping an entry, stays offline-safe, writes only what its rule allows, and a lesson stays inside the free tier (T-3777)" \
+  node tools/test_cloud_save.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "Crash reports and Report a bug write only what the bugs rule allows, only from the live hosts, a crash once, and cap their emails (T-3743)" \

@@ -29,10 +29,16 @@ the rules in `docs/SIGN-IN.md` decide who reads it.
 | `readers/<uid>` | reading ages, time | The same reading level on every device | The visitor |
 | `people/<uid>` | the visitor's own person (look and dress), time | The same person on every device | The visitor |
 | `bugs/<id>` | uid, email, the report, build, device, graphics chip, place in the town, recent errors, an optional screenshot | Fixing what broke | The visitor (to delete), the owner |
+| `users/<uid>/notebook/<id>`, `users/<uid>/metfound/<year>-<kind>`, `users/<uid>/settings/prefs` | **Only while `cloudFeatures` is on (T-3777).** The field notebook (one document per entry: notes, places, people, citations, a small photo copy), people met and places found (ids and the day first recorded, per year), and the Settings that are the person's (not the device's graphics); each `{ v, deleted, at }` | The same work on every device the student signs in to | The visitor |
 
-Not kept on a server: the field notebook, people met and places found, teacher routes, settings,
-the field log. They stay in the browser until a later ticket moves them, with this page updated
-in the same change.
+Not kept on a server: teacher routes, the field log, and (while `cloudFeatures` is off) the field
+notebook, people met and places found, and Settings. They stay in the browser until a ticket
+moves them, with this page updated in the same change.
+
+Cloud save (T-3777, `js/cloud-save.js`) never runs for a sign-in with the email alone (no
+password; the rules refuse it too). A delete on one device is kept on the account as an empty
+record marked `deleted`, so the student's other devices learn of it; Delete my saved data removes
+those as well.
 
 Firebase's own sign-in service holds the account itself (email, and the Google or Microsoft
 link). Firebase Analytics counts page views and the `login` and `enter_year` events with no
@@ -60,7 +66,6 @@ code, the rules, this table and the visitor's page to the same list.
 
 Each adds its rows to the table above before it ships, and only behind the switch:
 
-- T-3777: the notebook, people met and places found and settings, under the visitor's uid.
 - T-3778: classes (teacher uid, name, join code) and membership; hand-ins the student chooses.
 - T-3779: the teacher's routes and route answers handed in to a class.
 - T-3780: the teacher's current stop; a classmate's position in the town, kept only while the

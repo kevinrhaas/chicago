@@ -1,3 +1,20 @@
+## T-3777 — Cloud save: notebook, people met, places found and Settings (27 November 2026)
+
+Stage 1's second piece, behind T-3776's `cloudFeatures` switch (still off, so nothing runs
+live). `js/cloud-save.js` keeps the browser's own copies as the working copy and reconciles
+them with Firestore `users/<uid>/{notebook,metfound,settings}/…`, one document per notebook
+entry, per year and kind of met/found, and one for the Settings that are the person's (the
+device's graphics stay put). The merge is three-way against the last agreed base (short
+hashes in `chicago4d.cloudsave.v1`): an edit beats a delete, two edits keep the newer,
+met/found joins, and a new browser takes the account's Settings. Writes are debounced (15 s,
+at most 60 s) plus a flush on hide and a two-minute look for Settings; pulls ask only for
+what changed since the last. Never for a sign-in with the email alone; the rules refuse it
+too. The boot waits up to 3 s for the first sync. Settings › About shows where the work was
+last saved. Delete my saved data removes the tree. `tools/test_cloud_save.mjs` measures a
+30-student, 45-minute lesson at about 1,800 writes and 4,200 reads (free tier: 20,000 and
+50,000 a day). Not yet run against the live project: the switch is off and the rules for
+`users` publish when this reaches dev.
+
 ## T-3776 — Student data policy and Delete my saved data (27 November 2026)
 
 Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")

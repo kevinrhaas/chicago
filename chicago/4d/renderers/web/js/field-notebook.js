@@ -28,6 +28,9 @@ function entryOf(value, { id, now } = {}) {
     createdAt: text(now || value.createdAt, 40),
   };
 }
+/** One stored entry as the notebook would keep it, or null (T-3777: cloud save checks an
+ * entry from the account with this before it goes into the browser's copy). */
+export const cleanEntry = (value) => entryOf(value);
 const local = () => { try { return globalThis.localStorage; } catch { return null; } };
 export function createFieldNotebook({ storage = local, now = () => new Date().toISOString(), id = () => globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}` } = {}) {
   const listeners = new Set();

@@ -178,6 +178,18 @@ service cloud.firestore {
         && request.resource.data.keys().hasOnly(['person', 'at'])
         && request.resource.data.person is string && request.resource.data.person.size() <= 4000;
     }
+    // T-3777: cloud save (renderers/web/js/cloud-save.js): the field notebook, people met and
+    // places found, and Settings, under the account's own uid and nobody else's, never from
+    // a sign-in with the email alone. `at` is the server's own time.
+    match /users/{uid}/{part}/{id} {
+      allow read, delete: if isSelf(uid) && part in ['notebook', 'metfound', 'settings'];
+      allow create, update: if isSelf(uid) && part in ['notebook', 'metfound', 'settings']
+        && request.auth.token.firebase.sign_in_provider != 'anonymous'
+        && request.resource.data.keys().hasOnly(['v', 'deleted', 'at'])
+        && request.resource.data.v is string && request.resource.data.v.size() <= 800000
+        && request.resource.data.deleted is bool
+        && request.resource.data.at == request.time;
+    }
   }
 }
 ```

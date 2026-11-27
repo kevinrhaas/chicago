@@ -741,7 +741,10 @@ export default {
   "look.mouse": "Sensibilidad del mouse",
   "look.touch": "Sensibilidad de la mirada",
   "look.standard": "Estándar",
-  "whatsnew.line": "Notas de la versión"
+  "whatsnew.line": "Notas de la versión",
+  "cloud.saved": "Guardado en tu cuenta a las {time}.",
+  "cloud.saving": "Guardando en tu cuenta…",
+  "cloud.device": "Guardado en este dispositivo. No se pudo llegar a tu cuenta."
  },
  "teachers": {
   "k": "Para docentes",
