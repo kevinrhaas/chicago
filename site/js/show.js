@@ -206,8 +206,7 @@
     }));
   });
 
-  // Preview (T-3796): a small marker that the site is early and still improving, with a way to
-  // send feedback. One click on × hides it for good on this browser.
+  // Preview (T-3796): a small marker that the site is early, with a way to send feedback. One click on × hides it for good on this browser.
   (() => {
     const KEY = 'chicago.site.preview';
     try { if (localStorage.getItem(KEY) === 'dismissed') return; } catch (e) { /* storage off: show it */ }
@@ -215,7 +214,7 @@
     const el = document.createElement('aside');
     el.className = 'preview';
     el.setAttribute('aria-label', 'Preview');
-    el.innerHTML = '<b>Preview</b><span>Still improving</span>'
+    el.innerHTML = '<b>Preview</b>'
       + `<a href="${contact ? contact.getAttribute('href') : '/contact/'}">Feedback</a>`
       + '<button type="button" aria-label="Dismiss"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 3l6 6M9 3l-6 6"/></svg></button>';
     $('button', el).addEventListener('click', () => {

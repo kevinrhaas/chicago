@@ -552,7 +552,7 @@ pre.code{max-width:100%;font-size:12.5px}
 .preview{position:fixed;z-index:40;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;height:36px;padding:0 4px 0 14px;border:1px solid color-mix(in srgb,var(--edge-strong) 80%,transparent);border-radius:999px;background:color-mix(in srgb,var(--page-deep) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 8px 30px rgba(0,0,0,.35);font:400 13px/1 var(--body);color:var(--ink-dim);white-space:nowrap;animation:preview-in .5s var(--ease) .8s both}
 .preview b{display:inline-flex;align-items:center;gap:8px;font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--lamp)}
 .preview b::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
-.preview span{padding-left:12px;border-left:1px solid var(--edge)}
+.preview b::after{content:'';width:1px;height:14px;margin-left:4px;background:var(--edge)}
 .preview a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent);padding-bottom:1px;transition:color .2s,border-color .2s}
 .preview a:hover{color:var(--accent);border-color:var(--accent)}
 .preview button{display:grid;place-items:center;width:28px;height:28px;margin-left:-4px;border:0;border-radius:50%;background:transparent;color:var(--ink-faint);cursor:pointer;transition:color .2s,background .2s}
