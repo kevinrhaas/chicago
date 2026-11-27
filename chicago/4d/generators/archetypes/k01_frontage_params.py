@@ -1236,8 +1236,15 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
     rise, lower = m["lower_rise_m"], m["lower_pitch_deg"]
     run, tu = rise / math.tan(math.radians(lower)), math.tan(math.radians(pitch))
     cr = m.get("crown") or {}
+    # T-3771: a mansard crown's covering is not read, so no stack may stand under its plan; a
+    # stack clear of it (2140's on the 22nd Street flank and the north side, its crown over the
+    # square tower on the Prairie front) reads the main mansard as it would without one
+    shut = None
     if cr and cr.get("form") != "hip":
-        raise ParamError("chimneys.k15 reads a mansard and a hipped crown; a mansard crown's covering is not read")
+        if not {"x0", "x1", "z0", "z1"} <= set(cr):
+            raise ParamError("chimneys.k15 reads a mansard and a hipped crown; a mansard crown's covering is not read")
+        co = float(cr.get("overhang_m", 0.0))
+        shut, cr = (cr["x0"] - co, cr["x1"] + co, cr["z0"] - co, cr["z1"] + co), {}
 
     sr = m.get("street_run_m")
 
@@ -1249,6 +1256,9 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
         return tk + (d - tk) * (run - tk) / (sr - tk) if d <= sr else d - (sr - run)
 
     def cover(u: float, v: float) -> float:
+        if shut and shut[0] <= u <= shut[1] and shut[2] <= -v <= shut[3]:
+            raise ParamError(f"chimneys.k15: a stack at ({u:.2f}, {v:.2f}) stands under the mansard crown, "
+                             f"whose covering is not read")
         s = min(u + overhang, street_s(depth + overhang - u), v + overhang, width + overhang - v)
         y = eave + (mansard_face_height(max(s, 0.0), rise, lower, m["bulge"], m["profile"]) if s <= run
                     else rise + (s - run) * tu)
