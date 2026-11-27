@@ -1,8 +1,8 @@
-name: Better Trees — exact working-source validation
+name: Better Trees core — reading-fix working source
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
 # Exact full working source before app authorship.
-# Stock calibration and the complete native partition run independently; retain failures.
+# Fresh complete Native. Prior exact calibrated1835 workload is retained; inputequivalence must be verified separately, never called a new timing.
 # Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
 on:
   pull_request:
@@ -30,10 +30,10 @@ jobs:
           python3 - <<'PYTHON'
           import hashlib,json,os
           from pathlib import Path
-          raw=Path('.github/diagnostics/t3747-original-current-source.json').read_bytes()
-          assert hashlib.sha256(raw).hexdigest()=='a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971'
+          raw=Path('.github/diagnostics/t3747-reading-fix-core-source.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='83541c77eae1d5d46793ad7060c7fd4be62501b8f35e6e2fe616ef8052fa36f8'
           m=json.loads(raw);assert m['role']=='complete-uncommitted-feature' and m['qualifies_feature_candidate']
-          assert len(m['source_sha256'])==28 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
+          assert len(m['source_sha256'])==33 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
           plan=m['native_matrix']
           for r in range(32):
             assert sum(r%int(x['part'].split('/')[1])==int(x['part'].split('/')[0])-1 for x in plan)==1
@@ -44,121 +44,6 @@ jobs:
           print(json.dumps({'sourceBase':m['base_dev'],'candidateTree':m['candidate_tree'],'sourcePaths':len(m['source_sha256']),'matrix':matrix,'coverage':'all32 exactly once','noAppCommitAuthored':True}))
           PYTHON
 
-  calibrated-desktop:
-    needs: source-plan
-    env:
-      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
-    # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
-    # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
-    runs-on: ubuntu-22.04
-    timeout-minutes: 25
-    strategy:
-      fail-fast: false
-      matrix:
-        viewport: [desktop]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: 67761214056dd916555d11cedf8c1a04c971b447
-          filter: blob:none
-          sparse-checkout: |
-            .github
-            chicago/4d/tools
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Require a real calibrated desktop CPU before measuring
-        env:
-          SOURCE_HEAD: 67761214056dd916555d11cedf8c1a04c971b447
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const os = require('node:os');
-          const { execFileSync } = require('node:child_process');
-          const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-          const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
-          const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
-          const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
-          const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
-          const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
-          const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
-          fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
-          console.log(JSON.stringify(reading));
-          if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
-          if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
-          NODE
-
-      # Publish reads the app, two sibling browsers and the production site.
-      # Keep their complete native inputs; unrelated app research archives need
-      # not consume the measurement job's existing 25-minute wall-time budget.
-      - name: Materialize the complete native publication inputs
-        run: |
-          set -euo pipefail
-          python3 - <<'PYTHON'
-          import os, subprocess
-          names = subprocess.check_output([
-              'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
-          ]).split(b'\0')
-          directories = {name for name in names if name}
-          if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
-              raise SystemExit('Native publication directories cannot be established')
-          paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
-                   'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
-          paths += ['chicago/4d/' + os.fsdecode(name)
-                    for name in sorted(directories) if name != b'docs']
-          subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
-          PYTHON
-
-
-      - name: Apply and verify the frozen complete working source
-        run: |
-          python3 - <<'PYTHON'
-          import hashlib,os,re,subprocess
-          from pathlib import Path
-          head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
-          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-apply-original-working-source.py'])
-          assert hashlib.sha256(raw).hexdigest()=='0a4800db5e5d3fa292f8ea6518d7ead8a368551fe321c8c74044cff0000cd26c'
-          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
-          subprocess.run(['python3',str(p)],check=True)
-          PYTHON
-
-      # Globally, as the smoke does: the tool falls back to `npm root -g`.
-      - name: Install Playwright
-        run: |
-          set -e
-          npm install -g playwright@1.56.1
-          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
-
-      - name: Install the publication schema validator
-        run: python3 -m pip install --quiet --upgrade 'jsonschema>=4,<5'
-
-      # The mirror is generated (T-0938); the gate reads what ships.
-      - name: Publish the mirror the gate serves (site/4d/ is generated)
-        working-directory: chicago/4d
-        run: bash tools/publish.sh
-
-      - name: Hold the still-frame ceiling
-        working-directory: chicago/4d
-        run: |
-          (cd ../.. && python3 /tmp/t3747-apply-source.py --verify)
-          node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
-
-      - name: Keep the reading
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: still-frame-${{ matrix.viewport }}
-          path: |
-            chicago/4d/still-frame-${{ matrix.viewport }}.json
-            chicago/4d/calibrated-host.json
-            chicago/4d/calibrated-source.json
-          if-no-files-found: ignore
-
-
   native-working-source:
     name: Native working source ${{ matrix.part }}
     needs: source-plan
@@ -166,17 +51,17 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 9
       matrix: ${{ fromJSON(needs.source-plan.outputs.matrix) }}
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
+      SOURCE_MANIFEST_SHA: 83541c77eae1d5d46793ad7060c7fd4be62501b8f35e6e2fe616ef8052fa36f8
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 67761214056dd916555d11cedf8c1a04c971b447
+          ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
           fetch-depth: 0
           filter: blob:none
       - uses: actions/setup-python@v5
@@ -197,8 +82,8 @@ jobs:
           from pathlib import Path
           head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
           subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-apply-original-working-source.py'])
-          assert hashlib.sha256(raw).hexdigest()=='0a4800db5e5d3fa292f8ea6518d7ead8a368551fe321c8c74044cff0000cd26c'
+          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-reading-fix-core-apply-working-source.py'])
+          assert hashlib.sha256(raw).hexdigest()=='53e324ce510087b0c5f17530c229636dc463e90aadb23da7cc3d29c9c89d52af'
           p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
           subprocess.run(['python3',str(p)],check=True)
           PYTHON

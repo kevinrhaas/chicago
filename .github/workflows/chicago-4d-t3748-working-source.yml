@@ -1,4 +1,4 @@
-name: Better Trees seasons — exact working-source validation
+name: Better Trees seasons — reading-fix working source
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
 # Exact full working source before app authorship.
@@ -30,10 +30,10 @@ jobs:
           python3 - <<'PYTHON'
           import hashlib,json,os
           from pathlib import Path
-          raw=Path('.github/diagnostics/t3748-original-current-source.json').read_bytes()
-          assert hashlib.sha256(raw).hexdigest()=='975ee0234cd51b8f09b35c47b50e7a83e86e92e6fc0144402ef913056f29b0d1'
+          raw=Path('.github/diagnostics/t3748-reading-fix-seasonal-source.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='b8e99d8e124aa6d794add6612962f3c693520f87b4b0b41c3f9357842816513e'
           m=json.loads(raw);assert m['role']=='complete-uncommitted-feature' and m['qualifies_feature_candidate']
-          assert len(m['source_sha256'])==45 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
+          assert len(m['source_sha256'])==50 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
           plan=m['native_matrix']
           for r in range(32):
             assert sum(r%int(x['part'].split('/')[1])==int(x['part'].split('/')[0])-1 for x in plan)==1
@@ -48,7 +48,7 @@ jobs:
     needs: source-plan
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 975ee0234cd51b8f09b35c47b50e7a83e86e92e6fc0144402ef913056f29b0d1
+      SOURCE_MANIFEST_SHA: b8e99d8e124aa6d794add6612962f3c693520f87b4b0b41c3f9357842816513e
     # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
     # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
     runs-on: ubuntu-22.04
@@ -60,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 67761214056dd916555d11cedf8c1a04c971b447
+          ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
           filter: blob:none
           sparse-checkout: |
             .github
@@ -72,7 +72,7 @@ jobs:
 
       - name: Require a real calibrated desktop CPU before measuring
         env:
-          SOURCE_HEAD: 67761214056dd916555d11cedf8c1a04c971b447
+          SOURCE_HEAD: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -120,9 +120,9 @@ jobs:
           from pathlib import Path
           head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
           subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-apply-original-working-source.py'])
-          assert hashlib.sha256(raw).hexdigest()=='930048b3db6410ea1b4764ebd14da915835ec770eb222a676d27bd86314fb773'
-          p=Path('/tmp/t3748-apply-source.py');p.write_bytes(raw)
+          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
+          assert hashlib.sha256(raw).hexdigest()=='841a7666a94ae32adad222e7e64e8701639b011bd0e021bd413fa06df6ca0525'
+          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
           subprocess.run(['python3',str(p)],check=True)
           PYTHON
 
@@ -144,7 +144,7 @@ jobs:
       - name: Hold the still-frame ceiling
         working-directory: chicago/4d
         run: |
-          (cd ../.. && python3 /tmp/t3748-apply-source.py --verify)
+          (cd ../.. && python3 /tmp/t3747-apply-source.py --verify)
           node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
 
       - name: Keep the reading
@@ -166,17 +166,17 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 9
       matrix: ${{ fromJSON(needs.source-plan.outputs.matrix) }}
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 975ee0234cd51b8f09b35c47b50e7a83e86e92e6fc0144402ef913056f29b0d1
+      SOURCE_MANIFEST_SHA: b8e99d8e124aa6d794add6612962f3c693520f87b4b0b41c3f9357842816513e
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 67761214056dd916555d11cedf8c1a04c971b447
+          ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
           fetch-depth: 0
           filter: blob:none
       - uses: actions/setup-python@v5
@@ -197,9 +197,9 @@ jobs:
           from pathlib import Path
           head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
           subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-apply-original-working-source.py'])
-          assert hashlib.sha256(raw).hexdigest()=='930048b3db6410ea1b4764ebd14da915835ec770eb222a676d27bd86314fb773'
-          p=Path('/tmp/t3748-apply-source.py');p.write_bytes(raw)
+          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
+          assert hashlib.sha256(raw).hexdigest()=='841a7666a94ae32adad222e7e64e8701639b011bd0e021bd413fa06df6ca0525'
+          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
           subprocess.run(['python3',str(p)],check=True)
           PYTHON
 
@@ -213,7 +213,7 @@ jobs:
           (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}") > /tmp/native-part.log 2>&1
           native_status=$?
           set -e
-          SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3748-apply-source.py --verify
+          SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py --verify
           cat /tmp/native-part.log
           exit "$native_status"
       - name: Keep the complete native log and exact before/after source receipts

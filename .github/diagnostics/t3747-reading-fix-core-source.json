@@ -1,0 +1,127 @@
+{
+  "role": "complete-uncommitted-feature",
+  "qualifies_feature_candidate": true,
+  "base_dev": "3da00efeb8400bdb0f5b0d3c42ad271b5234ea93",
+  "candidate_tree": "d1644d36234d6bbad0c8988babb4576e93c1ceb6",
+  "candidate_app_tree": "0bf29d282fda3abd80597362ef1f847f801919e0",
+  "patch_sha256": "89e1dc76a87641ede32a339f732e7c2e635a9dac0098d168ab913a0360c2dab3",
+  "source_sha256": {
+    "chicago/4d/changelog.d/T-3747.json": "bf7dce8c5a3f813d4505456af4e2f91857cbf38e2aebaec3caed9d8499d7b25a",
+    "chicago/4d/changelog.d/T-3789.json": "5bca0265bca1879c6d0aa2f64bb3a8f7d921d1d25743cd0dbe57de2038a34157",
+    "chicago/4d/data/liberties.json": "642ebc9be36887caff7aeec7cb9bf90acbd532e0efa1a44aec9a0c883c68f8f3",
+    "chicago/4d/data/reading/1904.json": "eb7c110b856f6717ef439d901449ab043432a005c7abf18d2448d8c5a8a3bf9d",
+    "chicago/4d/docs/LIBERTIES.md": "972985edba0ce5bc049e0665ab08f6bbf8e84015ad2875857b6edaa36f31cfab",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-design.json": "eeed07a6c5ddbdbf34e30580dea7024754f7c0003d9f32d3f2dc6350413af810",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-notes.json": "008d83efd2d2055639e63176e7eb68343436fa82c854397bf04133856502add1",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-why.json": "b096b6501af37eb538c5c04755945c5212336d4744b01ac7efc836e0a1440d28",
+    "chicago/4d/docs/ROADMAP.md": "bed2ef3afaf5e605c87bd9cd18aa4bd19e56d622cf07a430bf0278133b552ce2",
+    "chicago/4d/docs/STATUS.md": "69d5698be2c5234930a55d3bb79f2316bb47d389b0f826762f521687ac25766e",
+    "chicago/4d/docs/measurements/source_use_coverage.md": "7f95888dd2088f799d8bba228fdf5aec07bdd26dc1c7e28d8fdf6b057b08acce",
+    "chicago/4d/renderers/web/js/driven-assembly-loader.js": "4ffb7eed6a20f0dadd88b522631cee75a148b85b1faa4fe8b193a01d9dca0d5b",
+    "chicago/4d/renderers/web/js/human-drape.js": "9d6adac11d713608246e1f74172313f844cad21d5706ad5c51509ee26cc29ae8",
+    "chicago/4d/renderers/web/js/human-layover.js": "b427eba1a116ca6f82248ceab1de72dc435428b8fc23e2ea0b43f30db74ee805",
+    "chicago/4d/renderers/web/js/humans.js": "fa6c50fd571c179417aa21980a5174963a96b5ae3d67f9c79a7330313457a017",
+    "chicago/4d/renderers/web/js/leaf-light.js": "76152d3f9919c0195f7059971353426022582747189e32674b59665efb8cb594",
+    "chicago/4d/renderers/web/js/tree-instances.js": "b0b39325fb5ccf1e65af9388a9a7bf52df9c43876642d97767f174484f069778",
+    "chicago/4d/renderers/web/js/tree-model.js": "60d22ce6a3c1df28fd11132277263eb0a2e956fbe92108bb10fc2845f4f90a09",
+    "chicago/4d/renderers/web/js/tree-surface.js": "3d6717f3a805ac3302f550e9f4e937c9d88608fdb557249e3e195cc37f562b5a",
+    "chicago/4d/renderers/web/js/trees.js": "16758b008ac6a5bca8c244988d7ee355bd955d4a92b52e17cd7391ef09d21d65",
+    "chicago/4d/tools/check.sh": "3ce307d5d8bb194f422418d6fcb99784f47bebe33b0cb01145448c03092ca4c7",
+    "chicago/4d/tools/check_upload_release.mjs": "89c3736b11214cc091b1e787238c5a2323c87dbc34cd1a1ff6cf90a8ada7b694",
+    "chicago/4d/tools/dev-smoke-state.json": "312e533c86d7fc6bb10b762a096c7cf4dd7450590266aa8bb3e8ba7d0e150ead",
+    "chicago/4d/tools/measure_walk_frames.mjs": "640f5b512fbe9ed3b245381a6e6b9072aeae230147787e62fda8c3b140d310ab",
+    "chicago/4d/tools/qa_tree_gallery_t3747.mjs": "fb70126936fed2475e7cc85ae6cb120e299794876083d240c6429ae75a3581b8",
+    "chicago/4d/tools/qa_vegetation_t3747.mjs": "02ed849edadc563a9cf3b1776fd2e2f576ae74cc8652adec18e730809dddeda9",
+    "chicago/4d/tools/smoke_budget.mjs": "685306d37c2d748350bfa085a8ee3a72d527a76f34ab457548d0aabc5db7d98e",
+    "chicago/4d/tools/smoke_renderer.mjs": "940fdb636a889b3cb5b336c370e5ae5aa8ee9626468a1774e93e33372635ac5b",
+    "chicago/4d/tools/step_isolation.json": "3ca0850971215a44d8288ff29df3cb6aef187cc2fef1a39ecbd89a195d108b65",
+    "chicago/4d/tools/test_driven_assembly.mjs": "73669951f740ad1799a2d04001ee53d203e23b7ad25e7057c3ce3708b915dbb3",
+    "chicago/4d/tools/test_human_preparation_memory.mjs": "1681fbd4e0dbadd2d8f3a91fe612fe8245dba3f3336f0a0019fa59650c318272",
+    "chicago/4d/tools/test_leaf_lighting_browser.mjs": "0ed92169bcc84e60d593f449ca5567c65f2c4bf4208bcd705ba0e91664fe6c61",
+    "chicago/4d/tools/test_tree_rebuilds.mjs": "af1d0e5271743dd677b7b4eff2b50a5fdff8cc3c14db02d47c822bf8f45209e6"
+  },
+  "native_matrix": [
+    {
+      "part": "1/8",
+      "serial": false
+    },
+    {
+      "part": "2/8",
+      "serial": false
+    },
+    {
+      "part": "3/8",
+      "serial": false
+    },
+    {
+      "part": "4/8",
+      "serial": false
+    },
+    {
+      "part": "5/8",
+      "serial": false
+    },
+    {
+      "part": "6/8",
+      "serial": false
+    },
+    {
+      "part": "7/16",
+      "serial": true
+    },
+    {
+      "part": "15/16",
+      "serial": false
+    },
+    {
+      "part": "8/8",
+      "serial": false
+    }
+  ],
+  "drape_ordinal": 311,
+  "feature_paths": [
+    "chicago/4d/changelog.d/T-3747.json",
+    "chicago/4d/data/liberties.json",
+    "chicago/4d/docs/LIBERTIES.md",
+    "chicago/4d/docs/ROADMAP.md",
+    "chicago/4d/docs/STATUS.md",
+    "chicago/4d/docs/measurements/source_use_coverage.md",
+    "chicago/4d/renderers/web/js/driven-assembly-loader.js",
+    "chicago/4d/renderers/web/js/human-drape.js",
+    "chicago/4d/renderers/web/js/human-layover.js",
+    "chicago/4d/renderers/web/js/humans.js",
+    "chicago/4d/renderers/web/js/leaf-light.js",
+    "chicago/4d/renderers/web/js/tree-instances.js",
+    "chicago/4d/renderers/web/js/tree-model.js",
+    "chicago/4d/renderers/web/js/tree-surface.js",
+    "chicago/4d/renderers/web/js/trees.js",
+    "chicago/4d/tools/check.sh",
+    "chicago/4d/tools/check_upload_release.mjs",
+    "chicago/4d/tools/dev-smoke-state.json",
+    "chicago/4d/tools/measure_walk_frames.mjs",
+    "chicago/4d/tools/qa_tree_gallery_t3747.mjs",
+    "chicago/4d/tools/qa_vegetation_t3747.mjs",
+    "chicago/4d/tools/smoke_budget.mjs",
+    "chicago/4d/tools/smoke_renderer.mjs",
+    "chicago/4d/tools/step_isolation.json",
+    "chicago/4d/tools/test_driven_assembly.mjs",
+    "chicago/4d/tools/test_human_preparation_memory.mjs",
+    "chicago/4d/tools/test_leaf_lighting_browser.mjs",
+    "chicago/4d/tools/test_tree_rebuilds.mjs"
+  ],
+  "prerequisite_pr": 2397,
+  "prerequisite_head": "01be7fbd2f81d5ac83ff434731a1cc152451f56c",
+  "prerequisite_paths": [
+    "chicago/4d/changelog.d/T-3789.json",
+    "chicago/4d/data/reading/1904.json",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-design.json",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-notes.json",
+    "chicago/4d/docs/RESEARCH/reading-levels-3645/words/1904-why.json"
+  ],
+  "prerequisite_not_claimed_merged": true,
+  "effective_upstream_tree": "3c9eee3a79c40232ee7154471ed1150b01f45f2e",
+  "timing_helper_sha256": "539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25",
+  "ceilings_sha256": "d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e",
+  "apply_helper_sha256": "53e324ce510087b0c5f17530c229636dc463e90aadb23da7cc3d29c9c89d52af",
+  "source_note": "Complete currentDev feature plus exact pendingfivefilePR2397 reading fix. Actualreadingtest/check pass; noappfeaturecommit orprereqmergeclaim. Bothfeaturecode deltas exact; fullnewNativebeforeauthorship. OldfailedNative never reused."
+}
