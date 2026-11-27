@@ -298,6 +298,28 @@ written are history and are not retro-failed — the rule binds what is added ne
 
 **Cut the entry rather than raising the number.** If a release genuinely needs more, it is usually
 two entries or an entry plus a STATUS section, not one longer entry.
+
+**Tightened 2026-11-27 (T-3813), on the owner's "that what's new has become a bit much … keep
+the what's new items more concise".** The 450-word budget still let the feed reach 3,300
+releases and 690,000 words, a median entry of 77 words and some twenty entries a day. The tab
+now opens on the latest few release days as **one line per release** (the title), a tap away
+from its items; the whole old feed, as first written, sits behind its **Full history** button.
+So the title IS the release, and the items are a few short lines under it:
+
+| | budget (notes above) | hard ceiling (fails above) |
+|---|---|---|
+| title | **≤ 10 words** | 15 |
+| items | **≤ 3** | 5 |
+| total words | **≤ 60** | 90 |
+| longest item | **≤ 25 words** | 38 |
+
+Write the title as what a visitor would see change ("2008 Calumet rebuilt from its 1883
+drawing"), one item per thing they can go and look at, no reasons, measurements or caveats.
+`tools/changelog-entries.mjs` (`LIMITS`) holds entry files to it on the PR; the hard ceiling
+binds from **2026-12-04**, so the PRs already open on 2026-11-27 see a note, not a red gate.
+The fold on `dev` and `check-changelog.mjs` keep the old 12 / 6 / 450 ceiling (`LEGACY_LIMITS`),
+so an entry written to it never jams the fold. `changelog.js` itself is untouched: every entry,
+number and stamp stays, and Manager and the launcher read it as before.
 ## RECONSTRUCTED IS A TIER, NOT A FAILURE — build, then declare
 
 **The owner, 2026-08-15: the loop is "being hesitant and refusing to build because you are being
@@ -662,7 +684,7 @@ each and conflict with one another on its bake. So a run SHOULD look for a group
    `ticket.mjs release T-B --why "…"` gives it back (open, its queue place kept, the reason
    in the ticket), or `split` it and keep the finished piece. Then retitle the PR.
 7. **One What's-New entry per PR,** `changelog.d/<anchor>.json`, one item per ticket (the
-   budget's six items hold five). The visible-progress rule still counts RUNS: a group is
+   budget is three items and the ceiling five, so a group of five is the most one entry holds). The visible-progress rule still counts RUNS: a group is
    one run, visible only if a member changes what a visitor sees.
 
 **`docs/ROADMAP.md` is no longer the backlog.** It remains the *reasoning archive* — the

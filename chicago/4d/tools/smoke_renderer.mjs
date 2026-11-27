@@ -19047,15 +19047,20 @@ for (const [label, viewport, touch] of [
       return {
         entries: host.querySelectorAll('.wn-entry').length,
         items: host.querySelectorAll('.wn-items li').length,
+        folded: host.querySelectorAll('.wn-latest .wn-entry > details.wn-fold:not([open])').length,
+        history: !!document.getElementById('wn-history-toggle'),
+        fourth: host.querySelectorAll('.wn-entry')[3]?.dataset.v ?? '',
         newest: host.querySelector('.wn-title')?.textContent || '',
         dated: /CT$/.test(host.querySelector('.wn-meta')?.textContent || ''),
         cleared: document.getElementById('help-dot')?.hasAttribute('hidden'),
         seen: window.localStorage.getItem('chicago4d.whatsnew.seen'),
       };
     });
-    check(`${label}: the what's-new tab renders every release`,
-      wn.entries >= 5 && wn.items >= wn.entries,
-      `${wn.entries} entries, ${wn.items} items`);
+    // T-3813: the tab opens on the latest release days, one line a release (its notes a
+    // tap away), with every older release behind the Full history button.
+    check(`${label}: the what's-new tab renders the latest releases, the rest behind Full history`,
+      wn.entries >= 5 && wn.items >= wn.entries && wn.folded === wn.entries && wn.history,
+      `${wn.entries} entries, ${wn.items} items, ${wn.folded} folded, history ${wn.history}`);
     check(`${label}: entries carry a title and a stamped date`,
       wn.newest.length > 4 && wn.dated, `"${wn.newest}", dated ${wn.dated}`);
     check(`${label}: opening the tab clears the unread marker`,
@@ -19063,9 +19068,10 @@ for (const [label, viewport, touch] of [
     check(`${label}: a first visit flags nothing (no "last time" to differ from)`,
       await page.evaluate(() => document.querySelectorAll('#whatsnew .wn-entry.is-new').length) === 0);
 
-    // A RETURNING visitor is the case the marker exists for: pin `seen` one
-    // release back and exactly the newer entries should carry it.
-    await page.evaluate(() => window.localStorage.setItem('chicago4d.whatsnew.seen', '3'));
+    // A RETURNING visitor is the case the marker exists for: pin `seen` to the fourth
+    // release shown and exactly the three newer ones should carry it (T-3813: the tab
+    // shows the latest days, so a `seen` of 3 would flag history it does not paint).
+    await page.evaluate((v) => window.localStorage.setItem('chicago4d.whatsnew.seen', v), wn.fourth);
     await page.reload({ waitUntil: 'domcontentloaded' });
     // A reload is a full boot: the same measured budget as the first (T-1279, T-2899).
     await bootReady(page);
@@ -19086,7 +19092,7 @@ for (const [label, viewport, touch] of [
       total: document.querySelectorAll('#whatsnew .wn-entry').length,
     }));
     check(`${label}: a returning visitor sees only what shipped since last time`,
-      ret.flagged.length === ret.total - 3 && ret.flagged.length > 0,
+      Number(wn.fourth) > 0 && ret.flagged.length === 3,
       `${ret.flagged.length} of ${ret.total} flagged: ${ret.flagged.join(' | ')}`);
 
     inStageWork = false;
