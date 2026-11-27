@@ -19028,6 +19028,13 @@ for (const [label, viewport, touch] of [
     await page.evaluate(async () => { const n = window.__chicago4d.navigator; await n.select('home'); n.dock(); document.activeElement?.blur?.(); });
     // <<< T-2649
 
+    // T-3762: these feed checks read only DOM and storage. QA-11 reloaded the
+    // page after the earlier draw hold; software world draws can now starve the
+    // lazy changelog import past its readiness wait (desktop 13: zero entries,
+    // then the returning-visitor reload renders the same feed). Keep the tick,
+    // layout, hit tests and every feed assertion; hold only the unused draws.
+    await holdDraws(true);
+    try {
     const unread = await page.evaluate(() => ({
       chip: !document.getElementById('help-dot')?.hasAttribute('hidden'),
       tab: !document.getElementById('whatsnew-dot')?.hasAttribute('hidden'),
@@ -19069,6 +19076,8 @@ for (const [label, viewport, touch] of [
     await page.reload({ waitUntil: 'domcontentloaded' });
     // A reload is a full boot: the same measured budget as the first (T-1279, T-2899).
     await bootReady(page);
+    // A new document has a new renderer, so reacquire the DOM-only hold.
+    await holdDraws(true);
     await untilLanded();
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
@@ -19088,6 +19097,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: a returning visitor sees only what shipped since last time`,
       ret.flagged.length === ret.total - 3 && ret.flagged.length > 0,
       `${ret.flagged.length} of ${ret.total} flagged: ${ret.flagged.join(' | ')}`);
+    } finally {
+      await holdDraws(false);
+    }
 
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-i, cut by T-0121, halved by T-0167; renumbered by T-0346, T-0173, T-0170 and T-2337)
