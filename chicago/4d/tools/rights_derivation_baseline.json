@@ -4828,7 +4828,7 @@
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "murdoch_house_2130_prairie/as_mapped_1904/form.storey_heights_m": {
@@ -6658,6 +6658,15 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.entrance_kit": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "tucker_smith_house_2140_prairie/as_mapped_1904/form.face_brick": {
       "kind": "structure",
       "blocked_sources": [
@@ -6728,10 +6737,26 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stair_landing_depth_m": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "tucker_smith_house_2140_prairie/as_mapped_1904/form.stone_front": {
       "kind": "structure",
       "blocked_sources": [
         "chicagology_2140_photo_a",
+        "chicagology_2140_photo_b"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
+    "tucker_smith_house_2140_prairie/as_mapped_1904/form.stoop_width_m": {
+      "kind": "structure",
+      "blocked_sources": [
         "chicagology_2140_photo_b"
       ],
       "sole_support": true,
