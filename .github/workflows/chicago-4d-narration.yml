@@ -84,6 +84,7 @@ jobs:
             /chicago/4d/tools/narrate_jaunts.mjs
             /chicago/4d/tools/audio-hosting.json
             /chicago/4d/renderers/web/js/narration.js
+            /chicago/4d/renderers/web/js/street-talk.js
       - uses: actions/setup-node@v4
         if: steps.secrets.outputs.ok == 'true'
         with:

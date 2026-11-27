@@ -215,6 +215,23 @@ replaced by another age's voiced one.
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices
 (L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
 
+### Street talk — T-3812 (2026-11-27)
+
+The owner, 2026-11-27: *"Let's do great fire plus street talk"*. In 1904 the people about the
+visitor say short lines aloud (`renderers/web/js/street-talk.js`, wired in main.js's days setup):
+an adult out of doors within 9 m, not a jaunt's host, now and then (16-34 s between remarks,
+150 s before the same person again), and a greeting fit for the hour when the visitor greets
+them (the `greet` action) or passes within 3.5 m. Nobody speaks over a jaunt's voice or an open
+tales or ask card, with sound or Narration off, or before their clip is voiced: an unvoiced line
+is silent. The clip plays on the Narration bus (its level and mute), quieter with distance
+(full to 2.5 m, a quarter at 12 m), the speaker's jaw follows it, and a caption names who said
+what. Lines: `docs/RESEARCH/street-talk-3812/<scene>.txt` → `tools/build_street_talk.mjs` →
+`data/narration/street/<scene>.json` (published `data/street/`), which also says which of seven
+voices each person speaks in, from the tales library's tellers (children are not voiced; the
+Glessner household keeps its own voices). The voicer voices each line once, after every jaunt,
+in voices.json `street:<voice>` (stock ElevenLabs voices by id), keyed by the words and the
+voice (`streetKey`). Liberty: L-street-talk-3812.
+
 ## Generated music trials (T-3710)
 
 The owner (2026-11-20) wanted to hear what generated period music might sound like, without

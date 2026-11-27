@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1256,
+  "count": 1257,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -75712,6 +75712,36 @@
       ],
       "work_refs": [
         "T-3578"
+      ]
+    },
+    {
+      "id": "L-street-talk-3812",
+      "title": "The people of 1904 say short things aloud as you pass or greet them",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-27, after asking about *\"adding voices background dialog for the people in 1904\"*: *\"Let's do great fire plus street talk\"*. On the 1904 street, now and then someone within about 9 m of the visitor, out of doors and not a jaunt's host, says a short line aloud: a greeting fit for the hour when the visitor greets them or passes close in front, otherwise a remark to the street (the walkthrough's street talk code). The 141 lines are written in the research notes on street talk and built into the 1904 street data (the street talk generator). Each is voiced once by the narration workflow in one of seven stock synthetic voices (the voices data `street:<voice>`): gentleman, lady, young man, young lady, manservant, maid and cook. Who speaks in which voice is read off the roles, sex, age and origin the tales library already holds for each person (the 1904 tales data `tellers`); a person with a voice of their own (the Glessner household) keeps it and is left out, and children are not voiced. A caption names who said what, for anyone without sound."
+        },
+        {
+          "label": "Invented",
+          "text": "every line. They are what such a person might say on this street in 1904, kept to the town's own business (callers and calling days, carriages and the first automobiles, the Illinois Central's smoke, the stockyards on a southwest wind, the Iroquois Theater fire of December 1903, the St. Louis fair, servants' half days, the coal and ice men) and to things the tales and asks libraries already record; none is a quotation or anything a source says a person said. The voices are chosen by ear and shared by everyone of a kind: none is a recording of anyone, or claims to be how a particular person sounded. The 9 m reach, the 16-34 s between remarks and the 150 s before the same person speaks again unasked are listening choices."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a diary, letter or memoir of Prairie Avenue that records what its people talked about in the street, which replaces a line; a recording or description of how one of them sounded."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27."
+        }
+      ],
+      "work_refs": [
+        "T-3812"
       ]
     },
     {
