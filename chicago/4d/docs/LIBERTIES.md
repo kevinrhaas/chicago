@@ -33171,8 +33171,8 @@ setback or in the court before 1946, when the court was paved for parking.
 
 ### L-draft-district-edges-2982 — The district's four named context buildings stood up as drafts: the three East Twentieth Street rowhouses, the Hanford and Wheeler-Kohn houses on Calumet, and Second Presbyterian with its 1904 spire
 
-**Covers:** `house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`
-**Retired in part:** 217 East Twentieth Street, the corner rowhouse, by T-3781 (piece 1 of T-1939), which refined it in place on the K01 frontage kit under `L-k01-217-e20th-3781`, under the same id; its draft attributes are gone. 213 and 215 are still this draft's (T-3782).
+**Covers:** `house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`
+**Retired in part:** 217 East Twentieth Street, the corner rowhouse, by T-3781 (piece 1 of T-1939), which refined it in place on the K01 frontage kit under `L-k01-217-e20th-3781`, under the same id; its draft attributes are gone. 213 and 215 are still this draft's (T-3782). 2008 Calumet, the Hanford house, by T-3790 (piece 1 of T-1940, the X02 package), which refined it in place on the K01 frontage kit under `L-k01-2008-calumet-3790`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are T-3791's).
 **Decision:** the district draft's named context buildings off Prairie Avenue (T-2982, piece 1 of
 T-2162), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is
 invented" and "What is not" hold here word for word. The five houses are read off sheet 35 in a
@@ -33210,6 +33210,7 @@ image gate naming its structure ids.
 **Ticket:** T-2982 (piece 1 of T-2162, the district's edges).
 **Review:** `docs/RESEARCH/district-draft-edges-2982/README.md`.
 **Recorded:** 2026-10-22 (T-2982).
+**Retired in part:** 2008 Calumet, the Hanford house, by T-3790 (piece 1 of T-1940, the X02 package), which refined it in place on the K01 frontage kit under `L-k01-2008-calumet-3790`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are T-3791's).
 
 
 ### L-parked-vehicles-2979 — Parked farm wagons and a1904 town carriage
@@ -47100,3 +47101,49 @@ the lights and settles the escapes; a K01 parapet on a flat wing would carry the
 **Ticket:** T-3772 (piece 3 of T-1928, the S17A package of T-1837).
 **Review:** `docs/RESEARCH/k01-2140-tucker-3772/README.md`.
 **Recorded:** 2026-11-27 (T-3772).
+### L-k01-2008-calumet-3790 — 2008 Calumet, the Hanford house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, south flank and roof off the 1883 Inland Architect plate, the rest the kits'
+
+**Decision:** the district draft at `hanford_house_2008_calumet` (T-2982) is refined in place, under its own id, to a
+`k01_frontage` record built by `generators/k01_emit.py` (T-3790, piece 1 of T-1940, the X02 package of the T-1837
+programme). The house's in-period picture is Paul C. Lautrup's perspective of the design, published in The Inland
+Architect and Builder for December 1883 (`inland_architect_1883_12_hanford_plate`, public domain), drawn from the
+south-east: it shows the Calumet front and the south flank whole. The Glessner House blog's engraving of the same
+view (library image `a20-glessner-hanford-engraving`) is the same drawing and is not entered separately.
+
+**What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.1859 m a pixel, through the
+committed trace's fit): the '3B' building faced in stone on its Calumet front and its south side, its main body
+24.1 m from the rear wall to the front's stone face (the trace's 10.35 m behind the street line) and 10.4 m from the
+south wall to the north (the draft's 10.5 m kept); the stone projection on the south flank (u 7.6-11.9, about 1.2-1.7 m
+out); the one-storey brick range at the rear's south end. From the plate: two storeys over a raised, rusticated
+basement and a third storey in a steep slated roof (the building notice's 'two-st'y dwell.' and the sheet's '3B'
+agree on that reading); the front in three bays — a corner pavilion at its south end, about 4 m wide and stepped
+forward, one wide light a storey, carried up under a tall pointed hip roof to an iron finial; one window bay; and the
+entrance bay at the north end behind a porch of round stone columns carrying an entablature and a balustraded balcony
+over a stone stoop; moulded cornice hoods over the front's lights; a moulded stone cornice round the front and the
+south flank; gabled stone dormers, one on the street face over the entrance bay and two on the south face; two tall
+stone stacks on the south flank, one just behind the pavilion and one over the flank's projecting bay; the flank's
+projecting bay itself, two storeys under a gabled dormer.
+
+**What is invented.** Every dimension, read by proportion on the plate at the front's 10.5 m width and not through a
+solved camera: the 1.4 m principal floor, the 4.0 and 3.8 m storeys, the roof's 3.2 m steep faces at 72 degrees, the
+pavilion's 0.45 m projection and its pointed roof's 64-65 degree pitches and 0.9 m eave, the porch's 3.4 m width,
+2.4 m projection and 4.8 m soffit, the columns' 0.35 m shafts, the dormers' size and 50 degree gables, the stacks'
+section and height; the walls' thickness; the deck and its fall; the sash pattern (two-over-two for the plate's lights
+behind blinds); the north flank's and rear's openings, which no picture sees; the yard and its flagged walk; the
+rear range's light and deck. The colour is the register's 'brownstone' (the plate is monochrome).
+
+**What is built otherwise than the evidence, and why.** The north flank and the rear are laid in the front's stone
+(K01's all-stone house), where the sheet draws them brick. The porch's stoop runs straight out to the walk; the plate
+draws its flight running north along the front past the house's corner, which K01's side stoop refuses (its foot must
+stand inside the front's width). The south flank's projecting bay is built square and flat-topped, where the sheet
+cuts its corners. Not built: the round oriel on corbels on the south flank's chamber storey, the sheet's projection
+across the front's south-east corner (rows 447-463), the north flank's small brick projection (columns 1372-1405),
+the pavilion's own dormer and the rear gable's triple lights; the pavilion's rusticated quoins and the stacks'
+panelled shafts are K01's plain stone.
+
+**How to resolve:** T-3791 solves the plate's camera and works the photo-match down over these numbers and the
+differences named above; a picture of the north flank or the rear would read first for those faces.
+**Covers:** `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_front_m`, `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_side_m`, `hanford_house_2008_calumet.as_mapped_1904.form.service_wall_brick`, `hanford_house_2008_calumet.as_mapped_1904.form.roof_pitch_deg`, `hanford_house_2008_calumet.as_mapped_1904.form.eave_overhang_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_tread_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_landing_depth_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stoop_width_m`, `hanford_house_2008_calumet.as_mapped_1904.form.north_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rear_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rainwater`, `hanford_house_2008_calumet.as_mapped_1904.form.window_kit`, `hanford_house_2008_calumet.as_mapped_1904.form.yard`
+**Ticket:** T-3790 (piece 1 of T-1940, the X02 package of T-1837).
+**Review:** `docs/RESEARCH/k01-2008-calumet-3790/README.md`.
+**Recorded:** 2026-11-27 (T-3790).

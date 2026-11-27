@@ -1,14 +1,14 @@
 {
   "id": "hanford_house_2008_calumet",
-  "phase": "draft_1904",
-  "name": "2008 Calumet Avenue — Chateauesque brownstone (district draft; refined by T-1940)",
+  "phase": "as_mapped_1904",
+  "name": "2008 Calumet Avenue — the Philander C. Hanford house (Jaffray & Scott, 1883), K01 frontage assembly",
   "aka": [
     "2008 S. Calumet Avenue",
     "2010 S. Calumet Avenue",
     "2012 S. Calumet Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/hanford_house_2008_calumet__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/hanford_house_2008_calumet__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -39,7 +39,7 @@
     "symbolic_location": "2008 S. Calumet Avenue, parcel calumet_2008 (data/street_grid/1904.json), west side of Calumet Avenue, the district's named context buildings off Prairie Avenue: East Twentieth Street between Indiana and Prairie, and Calumet Avenue between 20th and 21st Street (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -49,11 +49,11 @@
         0.0
       ],
       [
-        21.0,
+        24.1,
         0.0
       ],
       [
-        21.0,
+        24.1,
         10.5
       ],
       [
@@ -65,142 +65,660 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The main body read off the 1911 sheet at full size (0.1859 m a pixel): the rear wall at column 1303-1305 (the draft's u 0), the Calumet front's stone face at column 1438 (24.1 m, the trace's 10.35 m behind the street line), the north wall at row 400.5 and the south wall at row 456.5 (10.4 m; the draft's 10.5 kept). The front's corner projection (rows 447-463) and the north flank's small brick projection (columns 1372-1405, rows 393-400) are not built (L-k01-2008-calumet-3790)."
   },
   "attributes": {
     "stories": {
-      "value": 3,
+      "value": 2,
       "confidence": "attested",
       "sources": [
+        "inland_architect_1883_12_hanford_plate",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two storeys over a raised basement, under a third storey in the roof: the plate draws basement lights, the principal and chamber storeys, a cornice, and the roof storey's dormers above it (the building notice's 'two-st'y dwell.'); the 1911 sheet's '3B' counts the roof storey."
     },
     "construction": {
-      "value": "brick_with_stone_front",
-      "confidence": "attested",
+      "value": "stone",
+      "confidence": "inferred",
       "sources": [
+        "inland_architect_1883_12_hanford_plate",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The register reads the map's colours as 'brick with stone front'."
+      "note": "The plate draws the Calumet front and the south flank in coursed, rock-faced stone over a rusticated base; the 1911 sheet faces both in stone (blue) over a brick body. K01's all-stone house lays the north flank and the rear in the same stone, where the sheet draws brick: a liberty (L-k01-2008-calumet-3790)."
     },
-    "draft_plan": {
+    "stone_front": {
       "value": {
-        "parts": [
+        "fabric": "sandstone_brown",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 3,
+        "coping_height_m": 0.23,
+        "corner_bond": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Brown sandstone: the register's 'brownstone' (the T-1837 row frontage-35x-2008) and the plate's coursed ashlar with dressed bands; the plate is monochrome, so the colour is the register's. Three rusticated courses under the principal floor, as the plate draws the base (rows of deep-jointed stone from grade to the water table)."
+    },
+    "principal_floor_m": {
+      "value": 1.4,
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The principal floor about 1.4 m over grade: the plate's basement lights stand in a raised base and the stoop climbs about eight risers to the porch (read through the front's 10.5 m width, about 50 px a metre on the rotated plate)."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.0,
+        3.8
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The principal and chamber storeys read about equal on the plate (the principal a little the taller), set at 4.0 and 3.8 m on the front's width as scale."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a stone front on a brick backing."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the kit's service brick, laid where an all-stone house has none showing."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.trim.lintel_cornice_hood"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The plate draws a moulded cornice hood over the principal and chamber lights of the front: K09's corniced lintel."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.moulded_stone",
+        "walls": [
+          "k01.wall.side.south",
+          "k01.wall.street_front",
+          "k01.wall.side.north",
+          "k01.wall.rear_service"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "A moulded stone cornice under the roof, carried round the front and the south flank in the plate; round the north and rear, which it does not see, by the kit's rule."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "A steep slated roof rising straight from the cornice to a low deck, its lower faces near vertical and pierced by gabled dormers (the plate); K01's mansard, lower faces at 72 degrees."
+    },
+    "roof_pitch_deg": {
+      "value": 15,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the deck over the steep faces, which the plate does not see."
+    },
+    "eave_overhang_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the cornice's projection."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 3.2,
+        "lower_pitch_deg": 72,
+        "bulge": 0.0,
+        "dormers": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "hip_steep",
-            "rect": [
-              0.0,
-              0.0,
-              21.0,
-              10.5
-            ],
-            "from": "s35xfp-calumet_2008-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill"
+            "face": "street",
+            "along_m": 8.6,
+            "head": "gable",
+            "gable_pitch_deg": 50,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.9,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05
           },
           {
-            "id": "r2",
-            "role": "bay",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              21.0,
-              0.25,
-              23.75,
-              8.75
-            ],
-            "from": "s35xfp-calumet_2008-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill"
+            "face": "south",
+            "along_m": 10.7,
+            "head": "gable",
+            "gable_pitch_deg": 50,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 1.0,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05
           },
           {
-            "id": "r3",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -2.0,
-              0.25,
-              0.0,
-              3.75
-            ],
-            "from": "s35xfp-calumet_2008-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 75% of its fill"
-          },
-          {
-            "id": "r4",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              8.0,
-              -2.25,
-              10.75,
-              0.0
-            ],
-            "from": "s35xfp-calumet_2008-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 66% of its fill"
+            "face": "south",
+            "along_m": 3.6,
+            "head": "gable",
+            "gable_pitch_deg": 50,
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 1.0,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.25,
+            "face_setback_m": 0.05
           }
         ],
-        "lot_v": [
+        "storeys": 1,
+        "crown": {
+          "form": "hip",
+          "over_bay": "pavilion",
+          "depth_m": 4.2,
+          "overhang_m": 0.9,
+          "point": true,
+          "pitch_deg": 64,
+          "end_pitch_deg": 65,
+          "finial": {
+            "height_m": 1.6,
+            "radius_m": 0.12
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Off the plate: the roof's steep faces about 3.2 m high over the cornice; a gabled dormer over the entrance bay on the street face and two on the south face (one over the flank's projecting bay, one near the rear), each a pedimented stone face with one light; and over the corner pavilion a tall pointed hip roof carried up past the deck to an iron finial. Heights, pitches and the sash are read at the front's scale; the deck and the north and rear faces, which the plate does not see, are the kit's."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Slate on the steep faces, drawn coursed on the plate; the deck's tin is reconstructed."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K07's tread."
+    },
+    "stair_landing_depth_m": {
+      "value": 2.4,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the porch's floor."
+    },
+    "stoop_width_m": {
+      "value": 1.8,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K07's flight."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The plate draws the door under a columned porch at the front's north end."
+    },
+    "front_bays": {
+      "value": [
+        5.45,
+        8.7
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate",
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "Two bays north of the corner pavilion, read off the plate at the front's 10.5 m width: a single window bay (s 4.05-6.9) and the entrance bay under its porch (s 6.9-10.5)."
+    },
+    "side_bays": {
+      "value": [
+        3.0,
+        5.4,
+        15.6,
+        17.0,
+        18.4,
+        20.6
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The south flank's windows: a pair near the rear (the plate's triple lights under the rear dormer stand for it), the three narrow lights east of the oriel, and one by the pavilion; the projecting bay between carries its own."
+    },
+    "north_bays": {
+      "value": [
+        6.0,
+        13.0,
+        19.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the plate does not see the north flank."
+    },
+    "rear_bays": {
+      "value": [
+        3.0,
+        7.5
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: no picture sees the rear."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.4,
+          "width_m": 1.1,
+          "height_m": 2.6
+        },
+        {
+          "sill_above_floor_m": 0.4,
+          "width_m": 1.0,
+          "height_m": 2.3
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Tall single lights, the principal storey's the taller, read off the plate's bay north of the pavilion."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.2,
+        "width_m": 1.0,
+        "height_m": 0.8
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Square basement lights in the rusticated base, under each window (the plate)."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          1.2,
+          0.9
+        ],
+        "top_above_ridge_m": 2.2,
+        "cap_proud_m": 0.12,
+        "cap_depth_m": 0.35,
+        "stacks": [
+          {
+            "u_m": 19.2,
+            "v_m": 1.1,
+            "fabric": "stone"
+          },
+          {
+            "u_m": 8.3,
+            "v_m": 1.1,
+            "fabric": "stone"
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "Two tall panelled stone stacks on the south flank, the plate's: one just behind the corner pavilion and one over the flank's projecting bay, each rising well over the deck to a corbelled cap."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 9.5
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the plate draws no downpipe on the faces it sees."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K06's two-over-two sash for the plate's lights behind blinds."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 10.38,
+          "hood": {
+            "soffit_m": 4.8,
+            "width_m": 3.4,
+            "out_m": 2.4,
+            "fascia_m": 0.2,
+            "cornice": {
+              "height_m": 0.12,
+              "proud_m": 0.15
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "railing": {
+              "height_m": 0.45,
+              "post_m": 0.2,
+              "baluster_m": 0.08,
+              "pitch_m": 0.2,
+              "rail_m": [
+                0.2,
+                0.12
+              ]
+            },
+            "columns": {
+              "diameter_m": 0.35,
+              "plinth_m": [
+                0.5,
+                0.45
+              ],
+              "capital_m": 0.35,
+              "respond_m": 0.15,
+              "at_v_m": [
+                7.3,
+                8.7,
+                10.1
+              ]
+            },
+            "fabric": "stone"
+          },
+          "stoop_v_m": 8.7,
+          "terrace": [
+            {
+              "side": "left",
+              "to_v_m": 7.0
+            },
+            {
+              "side": "right",
+              "to_v_m": 10.4
+            }
+          ]
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate"
+      ],
+      "note": "The plate's entrance porch at the front's north end: round stone columns carrying an entablature and a balustraded balcony before the chamber window, over a stone stoop. K07's hooded porch on columns with its rail. The plate's flight runs down northward along the front; K07's runs straight out to the walk, a liberty (L-k01-2008-calumet-3790)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "lot_s_m": [
           -11.35,
           11.85
-        ],
-        "street_u": 34.483
+        ]
       },
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate",
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The plate draws the yard open to the walk, a stone post at the stoop's foot; the lot (75 ft, the 1920 sale notice) runs v -11.35 to 11.85 on the 1904 parcel."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.6,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.6
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the kit's yard and flagged walk to the stoop."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "pavilion",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.street_front",
+          "s_m": 2.025,
+          "fabric": "front_stone",
+          "plan": {
+            "width_m": 4.05,
+            "proud_m": 0.45
+          },
+          "storeys": [
+            {
+              "height_m": 1.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.2,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.2,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the pavilion's basement light, read off the 1883 plate: one square opening under its wide principal light in the rusticated base, about as wide as the light above it is narrowed by its reveals"
+                }
+              ]
+            },
+            {
+              "height_m": 4.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.7,
+                  "clear_height_m": 2.7,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the pavilion's one wide principal light a storey, as the 1883 plate draws it: about 0.4 of the pavilion's width (about 80 of 200 px on the rotated crop) and taller than the bays' lights beside it",
+                  "surround": {
+                    "band_m": 0.12,
+                    "proud_m": 0.03,
+                    "head_m": 0.15,
+                    "head_proud_m": 0.12
+                  }
+                }
+              ]
+            },
+            {
+              "height_m": 3.6,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.5,
+                  "clear_height_m": 2.3,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the pavilion's wide chamber light, as the 1883 plate draws it over the principal one, a little narrower and shorter",
+                  "surround": {
+                    "band_m": 0.12,
+                    "proud_m": 0.03,
+                    "head_m": 0.15,
+                    "head_proud_m": 0.12
+                  }
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          },
+          "plinth_m": 0.05,
+          "flush_corner": "left"
+        },
+        {
+          "id": "south_bay",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.side.south",
+          "s_m": 9.7,
+          "fabric": "front_stone",
+          "plan": {
+            "width_m": 4.2,
+            "proud_m": 1.2
+          },
+          "storeys": [
+            {
+              "height_m": 1.4,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 0.8,
+                  "sill_m": 0.2,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the projecting bay's basement light under its principal light, as the 1883 plate draws one in every bay of the rusticated base"
+                }
+              ]
+            },
+            {
+              "height_m": 4.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.6,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the projecting bay's tall principal light, as the 1883 plate draws it (the house's principal storey's lights all run about 2.6 m)",
+                  "surround": {
+                    "band_m": 0.12,
+                    "proud_m": 0.03,
+                    "head_m": 0.15,
+                    "head_proud_m": 0.12
+                  }
+                }
+              ]
+            },
+            {
+              "height_m": 3.8,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.0,
+                  "clear_height_m": 2.3,
+                  "sill_m": 0.4,
+                  "at": [
+                    0.5
+                  ],
+                  "recess_m": 0.4,
+                  "surround": {
+                    "band_m": 0.12,
+                    "proud_m": 0.03,
+                    "head_m": 0.15,
+                    "head_proud_m": 0.12
+                  }
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          },
+          "plinth_m": 0.05
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1883_12_hanford_plate",
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The corner pavilion: the plate's south end of the front, about 4.05 m wide, stepped forward of the bays north of it and carried up as its own block under the pointed roof, one wide light a storey over a basement light; 0.45 m proud (the plate's shadowed return). The south flank's projecting bay: the 1911 sheet's stone projection (s35xfp-calumet_2008-b1 p4, u 7.6-11.9, about 1.2-1.7 m out, its corners canted), which the plate draws two storeys high under a gabled dormer and the flank's west stack; built square (the sheet's canted corners not built)."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -2.0,
+            0.0,
+            0.25,
+            3.75
+          ],
+          "floor_m": 1.4,
+          "storey_heights_m": [
+            3.4
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.8,
+              "width_m": 0.9,
+              "height_m": 2.0
+            }
+          ],
+          "windows": {
+            "rear": [
+              1.75
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35xfp-calumet_2008-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 92% of its fill; s35xfp-calumet_2008-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 92% of its fill; s35xfp-calumet_2008-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 75% of its fill; s35xfp-calumet_2008-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 66% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "house",
-        "seed": 2702544919,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 56,
-        "mansard_lower_m": 3.0,
-        "front_bays": 4,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "brownstone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2982",
-          "refined_by": [
-            "T-1940"
-          ]
-        }
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Chateauesque' overlaid with the frontage row: The register's brownstone house under a steep hipped roof with tall chimneys (the Inland Architect plate of December 1883): the steep hip in brownstone. The sheet faces its Calumet front and south side in stone over a brick body; the gabled dormers, the round-arched oriel, the corner projection's roof and the columned porch are T-1940's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2702544919 only tints the fabric inside +-6 %. Liberty L-draft-district-edges-2982."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2982",
-        "liberty": "L-draft-district-edges-2982",
-        "register_row": "frontage-35x-2008",
-        "census_ids": [
-          "s35x-2008-front"
-        ],
-        "trace_building": "s35xfp-calumet_2008-b1",
-        "seed": 2702544919,
-        "replaceable_by": [
-          "T-1940"
-        ],
-        "card": "District draft — refined by T-1940."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The sheet's one-storey brick range behind the main body at its south-west (s35xfp-calumet_2008-b1 p6, the draft's r3): u -2.0 to 0, v 0.25-3.75. Its light and tin deck are reconstructed."
     },
     "function": {
       "value": "residence",
@@ -213,6 +731,26 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "inland_architect_1883_12_hanford_plate",
+      "citation": "\"Residence of P. C. Hanford, Esq., Chicago.—Jaffrey [Jaffray] & Scott, Architects. Paul C. Lautrup, del.\" Pen perspective. The Inland Architect and Builder, vol. II, no. 5 (December 1883), p. 147.",
+      "url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/dw-inland-1883-12-hanford-plate.jpg",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the storeys, the roof's form and the dormers' places",
+        "the front's three bays: the corner pavilion, a window bay, the entrance bay and its porch",
+        "the south flank's projecting bay, oriel and stacks",
+        "the stone's coursing and the cornice"
+      ],
+      "what_it_does_not_supply": [
+        "the plan: the 1911 sheet controls it",
+        "colour: the plate is monochrome",
+        "the north flank and the rear",
+        "any change between 1883 and 1904"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
@@ -233,8 +771,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2982, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1940 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35x trace (s35xfp-calumet_2008-b1), the T-2982 census (s35x-2008-front) and the T-1837 register row frontage-35x-2008 (Chateauesque brownstone); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-edges-2982).",
+  "research_note": "Refined from the district draft (T-2982) onto the K01 frontage assembly by T-3790 (piece 1 of T-1940, the X02 package of the T-1837 programme): the plan off the 1911 Sanborn sheet 35 at full size, and the front, the south flank and the roof off Paul C. Lautrup's perspective in The Inland Architect and Builder for December 1883 (inland_architect_1883_12_hanford_plate), the house as Jaffray & Scott designed it for Philander C. Hanford. Every dimension is read by proportion on the plate at the front's width, not through a solved camera; T-3791 solves the camera and works the photo-match down. Liberty L-k01-2008-calumet-3790 says what is read, what is invented and what is built otherwise; docs/RESEARCH/k01-2008-calumet-3790/README.md is the review.",
   "research_doc": "",
   "review_required": false,
-  "called": "2008 Calumet Avenue — Chateauesque brownstone"
+  "called": "2008 Calumet Avenue — the Philander C. Hanford house (Jaffray & Scott, 1883)"
 }
