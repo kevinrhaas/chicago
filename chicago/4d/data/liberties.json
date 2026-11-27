@@ -519,7 +519,7 @@
     },
     {
       "id": "hanford_house_2008_calumet",
-      "name": "2008 Calumet Avenue — the Philander C. Hanford house (Jaffray & Scott, 1883)"
+      "name": "2008 Calumet Avenue — Chateauesque brownstone"
     },
     {
       "id": "hanford_house_2008_calumet_coach_house",
@@ -53373,6 +53373,18 @@
       "covers": [
         {
           "domain": "structure",
+          "structure": "hanford_house_2008_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "hanford_house_2008_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
           "structure": "hanford_house_2008_calumet_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -53473,7 +53485,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `house_217_e20th.draft_1904.form.draft_elevation`, `house_217_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`"
+          "text": "`house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `house_217_e20th.draft_1904.form.draft_elevation`, `house_217_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`"
         },
         {
           "label": "Decision",
@@ -53490,10 +53502,6 @@
         {
           "label": "Recorded",
           "text": "2026-10-22 (T-2982)."
-        },
-        {
-          "label": "Retired in part",
-          "text": "2008 Calumet, the Hanford house, by later work (the X02 package), which refined it in place on the K01 frontage kit under `“2008 Calumet, the Hanford house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, south flank and roof off the 1883 Inland Architect plate, the rest the kits'”`, under the same id; its draft attributes are gone (its coach house is still this draft's; its cameras and image-gate sign-off are 's)."
         }
       ],
       "work_refs": [
@@ -53505,9 +53513,7 @@
         "T-1939",
         "T-1940",
         "T-1941",
-        "T-1942",
-        "T-3791",
-        "T-3790"
+        "T-1942"
       ]
     },
     {
@@ -81927,122 +81933,39 @@
       ]
     },
     {
-      "id": "L-k01-2008-calumet-3790",
-      "title": "2008 Calumet, the Hanford house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, south flank and roof off the 1883 Inland Architect plate, the rest the kits'",
+      "id": "L-prairie-shared-lot-2000-3785",
+      "title": "2000, 2010 and 2018 Prairie's yards laid as three properties on the one lot the 1911 sheet draws for them",
       "section": "per_subject",
-      "subjects": [
-        "hanford_house_2008_calumet"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.eave_overhang_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.north_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rainwater"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.rear_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stair_landing_depth_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stair_tread_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.stoop_width_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.wall_thickness_front_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.wall_thickness_side_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.window_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "hanford_house_2008_calumet",
-          "phase": "as_mapped_1904",
-          "aspect": "form.yard"
-        }
-      ],
+      "subjects": [],
+      "covers": [],
       "recorded": "2026-11-27",
       "revised": null,
       "fields": [
         {
           "label": "Decision",
-          "text": "the district draft at 2008 Calumet Avenue — the Philander C. Hanford house (Jaffray & Scott, 1883) is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the X02 package of the programme). The house's in-period picture is Paul C. Lautrup's perspective of the design, published in The Inland Architect and Builder for December 1883 (\"Residence of P. C. Hanford, Esq., Chicago.—Jaffrey [Jaffray] & Scott…, public domain), drawn from the south-east: it shows the Calumet front and the south flank whole. The Glessner House blog's engraving of the same view (library image `a20-glessner-hanford-engraving`) is the same drawing and is not entered separately. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.1859 m a pixel, through the committed trace's fit): the '3B' building faced in stone on its Calumet front and its south side, its main body 24.1 m from the rear wall to the front's stone face (the trace's 10.35 m behind the street line) and 10.4 m from the south wall to the north (the draft's 10.5 m kept); the stone projection on the south flank (u 7.6-11.9, about 1.2-1.7 m out); the one-storey brick range at the rear's south end. From the plate: two storeys over a raised, rusticated basement and a third storey in a steep slated roof (the building notice's 'two-st'y dwell.' and the sheet's '3B' agree on that reading); the front in three bays — a corner pavilion at its south end, about 4 m wide and stepped forward, one wide light a storey, carried up under a tall pointed hip roof to an iron finial; one window bay; and the entrance bay at the north end behind a porch of round stone columns carrying an entablature and a balustraded balcony over a stone stoop; moulded cornice hoods over the front's lights; a moulded stone cornice round the front and the south flank; gabled stone dormers, one on the street face over the entrance bay and two on the south face; two tall stone stacks on the south flank, one just behind the pavilion and one over the flank's projecting bay; the flank's projecting bay itself, two storeys under a gabled dormer. **What is invented.** Every dimension, read by proportion on the plate at the front's 10.5 m width and not through a solved camera: the 1.4 m principal floor, the 4.0 and 3.8 m storeys, the roof's 3.2 m steep faces at 72 degrees, the pavilion's 0.45 m projection and its pointed roof's 64-65 degree pitches and 0.9 m eave, the porch's 3.4 m width, 2.4 m projection and 4.8 m soffit, the columns' 0.35 m shafts, the dormers' size and 50 degree gables, the stacks' section and height; the walls' thickness; the deck and its fall; the sash pattern (two-over-two for the plate's lights behind blinds); the north flank's and rear's openings, which no picture sees; the yard and its flagged walk; the rear range's light and deck. The colour is the register's 'brownstone' (the plate is monochrome). **What is built otherwise than the evidence, and why.** The north flank and the rear are laid in the front's stone (K01's all-stone house), where the sheet draws them brick. The porch's stoop runs straight out to the walk; the plate draws its flight running north along the front past the house's corner, which K01's side stoop refuses (its foot must stand inside the front's width). The south flank's projecting bay is built square and flat-topped, where the sheet cuts its corners. Not built: the round oriel on corbels on the south flank's chamber storey, the sheet's projection across the front's south-east corner (rows 447-463), the north flank's small brick projection (columns 1372-1405), the pavilion's own dormer and the rear gable's triple lights; the pavilion's rusticated quoins and the stacks' panelled shafts are K01's plain stone."
+          "text": "the front and back yard passes (the plant prairie 1904 front yards tool, whose lay district the lay prairie 1904 back yards tool reads) no longer treat parcel prairie 2000 as one yard. Sheet 35 draws one 199-ft lot for 2000, 2010 and 2018 Prairie and the street grid keeps the sheet's reading (the research notes on prairie 1904 street grid section 5, untouched), but in 1904 they were three houses, each with its own front door, back door and coach house. The passes now cut the lot into three, on the lines the houses' own records already stand their shares of it (form.boundary.lot s (m): 2000 and 2010 under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, 2018 under `“2018 Prairie refined from the district draft to a three-storey K01 brick house with a stone front, its two-storey stone bow and one-storey stone porch where the sheet draws them, everything but the plan the kits'”`): each line is the side of the first house's share that faces the next, drawn square to its street line. 2000's share and 2010's meet on the same line (18.3 m and 28.0 m of frontage); 2018's own yard edge stops 3.8 m short of 2010's, and the gap goes to 2018 (14.4 m), as a side passage. Every structure on the lot goes with the house whose id it carries. So each house gets its own front yard, planted round its own stoop and door, and its own back yard: 2000 and 2018 each gain a back door, steps and terrace and their walks (before, the three shared one drying yard and no back door), and the doors file hangs the two doors. 2010's rear wall carries glass across every stretch with room for a door in its model, so the back yard pass, which never cuts a door through a window, still lays nothing behind it."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the houses' records and their committed placements (the 1904 data), and through them sheet 35 (Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3), which prints the three numbers on the lot and draws a house and an alley building for each."
+        },
+        {
+          "label": "What is invented",
+          "text": "the two lines themselves. No plat or deed south of 18th Street is in hand (the legal-lots standard of the street grid), so where 2000's property ended and 2010's began, and 2010's and 2018's, is the midpoint rule carried into the yards, and the 3.8 m passage is assigned to 2018 by that rule, not read."
         },
         {
           "label": "How to resolve",
-          "text": "Later work solves the plate's camera and works the photo-match down over these numbers and the differences named above; a picture of the north flank or the rear would read first for those faces."
-        },
-        {
-          "label": "Covers",
-          "text": "`hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_front_m`, `hanford_house_2008_calumet.as_mapped_1904.form.wall_thickness_side_m`, `hanford_house_2008_calumet.as_mapped_1904.form.service_wall_brick`, `hanford_house_2008_calumet.as_mapped_1904.form.roof_pitch_deg`, `hanford_house_2008_calumet.as_mapped_1904.form.eave_overhang_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_tread_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stair_landing_depth_m`, `hanford_house_2008_calumet.as_mapped_1904.form.stoop_width_m`, `hanford_house_2008_calumet.as_mapped_1904.form.north_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rear_bays`, `hanford_house_2008_calumet.as_mapped_1904.form.rainwater`, `hanford_house_2008_calumet.as_mapped_1904.form.window_kit`, `hanford_house_2008_calumet.as_mapped_1904.form.yard`"
-        },
-        {
-          "label": "Review",
-          "text": "the research notes on 2008 calumet."
+          "text": "a plat or atlas plate south of 18th Street (Robinson's 1886 atlas stops at 18th), a deed, or a photograph of the 2000 block's fronts, entered as a source, gives the true lot lines; then the houses' lot s (m) and this cut move together."
         },
         {
           "label": "Recorded",
-          "text": "2026-11-27 (T-3790)."
+          "text": "2026-11-27 (T-3785)."
         }
       ],
       "work_refs": [
-        "T-2982",
-        "T-3790",
-        "T-1940",
-        "T-1837",
-        "T-3791"
+        "T-1909",
+        "T-3785",
+        "T-1945"
       ]
     },
     {
