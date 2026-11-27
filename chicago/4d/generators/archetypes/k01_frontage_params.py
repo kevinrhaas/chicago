@@ -7537,9 +7537,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     for key, xs in (val("front_bays_by_storey") or {}).items():
         k = int(key)
         read_ = [x for x in xs if isinstance(x, dict)]
-        if read_ and (k == 0 or sfo or sfw):
-            raise ParamError(f"front_bays_by_storey[{key}] reads a light off its picture on an upper storey "
+        # T-3634: the principal storey's too (2021's narrow light between the arched porch and
+        # the broad window, the Chicagology halftone), standing on its own floor or over it
+        if read_ and (sfo or sfw):
+            raise ParamError(f"front_bays_by_storey[{key}] reads a light off its picture on a storey "
                              f"of a front laid by front_bays only")
+        if k == 0 and any(float(e.get("sill_m", 0.0)) < floors[0] for e in read_):
+            raise ParamError(f"front_bays_by_storey[0] reads a principal-storey light: its sill stands on the "
+                             f"principal floor ({floors[0]} m) or over it, a basement light being basement_lights'")
         front_read += [(f"front_bays_by_storey[{key}]", "k01.wall.street_front", j, e) for j, e in enumerate(read_)]
         xs = tuple(float(x) for x in xs if not isinstance(x, dict))
         if sfo or not 0 <= k < stories:
