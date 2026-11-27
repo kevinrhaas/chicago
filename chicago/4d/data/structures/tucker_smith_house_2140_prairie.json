@@ -22,7 +22,7 @@
     "note": "The marker: 'William F. Tucker-Byron L. Smith Residence. Built 1876'."
   },
   "review_required": false,
-  "research_note": "T-3770 (piece 1 of T-1928, the S17A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 red brick body over a pale stone basement, banded in stone, under a K05 slated mansard with dormers and cresting; a round tower at the Prairie/22nd Street corner, a polygonal tower on the 22nd Street flank and a square tower on the Prairie front, each under a slated cap with a crested deck (K08; the 1904 state the district draft declared, L-k01-2140-tucker-3770); K06 sash, a K07 door and the '3SB' rear range. What is read: sheet 35 of the 1911 Sanborn at full size and the two Chicagology photographs (forms only). The 1904 roof state of the towers is the flat-topped, crested one the 1898 plate and the second photograph show, as the district draft declared: the spires of the first photograph and the 1928 Tribune are not dated before July 1904 (L-k01-2140-tucker-3770). The porch, the glass room, the gabled dormers' crockets and the stacks' pots are T-3771's; the rear range's fittings T-3772's; the cameras and the image gate T-1929's.",
+  "research_note": "T-3770 (piece 1 of T-1928, the S17A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 red brick body over a pale stone basement, banded in stone, under a K05 slated mansard with dormers and cresting; a round tower at the Prairie/22nd Street corner, a polygonal tower on the 22nd Street flank and a square tower on the Prairie front, each under a slated cap with a crested deck (K08; the 1904 state the district draft declared, L-k01-2140-tucker-3770); K06 sash, a K07 door and the '3SB' rear range. What is read: sheet 35 of the 1911 Sanborn at full size and the two Chicagology photographs (forms only). The 1904 roof state of the towers is the flat-topped, crested one the 1898 plate and the second photograph show, as the district draft declared: the spires of the first photograph and the 1928 Tribune are not dated before July 1904 (L-k01-2140-tucker-3770). The porch, the glass room, the gabled dormers' crockets and the stacks' pots are T-3771's; the rear range's lights and the before/after views and costs T-3772's (L-k01-2140-tucker-3772); the cameras and the image gate T-1929's.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -856,8 +856,30 @@
               ],
               "windows": {
                 "rear": [
-                  3.35
+                  1.6,
+                  5.1
+                ],
+                "south": [
+                  1.5,
+                  3.8
+                ],
+                "north": [
+                  2.65
                 ]
+              },
+              "basement_lights": {
+                "rear": {
+                  "sill_m": 0.3,
+                  "width_m": 0.9,
+                  "height_m": 0.9,
+                  "head": "plain"
+                },
+                "south": {
+                  "sill_m": 0.3,
+                  "width_m": 0.9,
+                  "height_m": 0.9,
+                  "head": "plain"
+                }
               },
               "roof": {
                 "kind": "flat",
@@ -871,7 +893,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The sheet's '3SB' brick range behind the main body's north half (columns 644-672.5, rows 1586-1622): 5.3 m deep and 6.7 m wide, three storeys under a flat roof as the sheet's storey count and the main body's floors give; its lights and fittings are T-3772's."
+          "note": "The sheet's '3SB' brick range behind the main body's north half (columns 644-672.5, rows 1586-1622): 5.3 m deep and 6.7 m wide, three storeys under a flat roof as the sheet's storey count and the main body's floors give. T-3772: no picture shows the rear, so its lights are reconstructed as a service range's: two a storey on its rear wall, the kitchen door between them at the yard (the back yards lay it), two on its south face toward 22nd Street, one on its north face, and square-headed basement lights in the high basement under the rear and south lights, as the main body's are. The sheet also marks a filled dot inside the range (the key's composition or gravel roof, where the main body's open circle is slate or metal), a double tick at its south-west corner (the key's fire wall a foot over the roof), and an iron fire escape ('F.E.') against its rear wall: none built — K01 decks a wing in painted tin and carries no parapet or fire escape, and nothing dates the fire escape before 1911 (L-k01-2140-tucker-3772)."
         },
         "boundary": {
           "value": {
