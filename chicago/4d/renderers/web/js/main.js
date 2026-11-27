@@ -6771,6 +6771,9 @@ async function boot() {
         },
         render: state => {
           jauntPanel.render(state);
+          // The owner, 2026-11-27: no "Click to look around" over a Jaunt, from its start to its
+          // end (a Jaunt parked at Home is not under way; the town is not showing then anyway).
+          gesture.setLook({ onJaunt: !!state?.jaunt && state.phase !== 'menu' });
           closingClock.update(state); // the owner, 2026-11-16: the closing scene ends on its own
           if (closingClock.active) closingTimer ??= setInterval(() => { if (!closingClock.tick() && closingClock.active) return; clearInterval(closingTimer); closingTimer = null; }, 400);
           if (meterNow()) meterTimer ??= setInterval(() => { if (meterNow()) return; clearInterval(meterTimer); meterTimer = null; }, 250);
