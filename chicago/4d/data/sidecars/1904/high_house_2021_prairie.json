@@ -314,6 +314,18 @@
     },
     "front_bays_by_storey": {
       "value": {
+        "0": [
+          2.35,
+          7.4,
+          {
+            "s_m": 4.86,
+            "sill_m": 2.3,
+            "width_m": 0.65,
+            "height_m": 2.65,
+            "head": "plain",
+            "why_not_ordinary": "the narrow light between the porch's arch and the broad window, x 505-560 px and y 1425-1150 px on the photograph's solved camera (v 4.53-5.18 m, 2.30-4.98 m over grade): one light 0.65 m across, its sill on the broad light's and its head level with it, no pale head over it"
+          }
+        ],
         "1": [
           3.95,
           7.4
@@ -323,7 +335,7 @@
       "sources": [
         "chicagology_2021_high_photo"
       ],
-      "note": "The second floor's lights read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the light beside the turret (x 410-505 px, v 3.4-4.5 m) and the broad light over the principal floor's (x 700-810 px); over the porch the turret takes the storey."
+      "note": "The second floor's lights read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the light beside the turret (x 410-505 px, v 3.4-4.5 m) and the broad light over the principal floor's (x 700-810 px); over the porch the turret takes the storey. T-3634: the principal storey keeps the porch's and the broad light's bays and takes one light read off the same camera between them: a dark narrow opening at x 505-560 px (v 4.53-5.18 m, so 0.65 m across, centre 4.86 m) whose foot stands on the base course's snow line at y 1425 px (2.30 m, the broad light's sill) and whose top reaches y 1150 px (4.98 m), level with the broad light's head at y 1160 px; a paler band across it at y 1230-1280 px (3.7-4.2 m) is read as its meeting rails or a blind, not as two openings, since the broad light beside it carries its transom bar at the same height. Its head is plain: the halftone shows no pale hood over it."
     },
     "basement_lights": {
       "value": {

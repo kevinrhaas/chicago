@@ -10,7 +10,7 @@
    "1871",
    "1904"
   ],
-  "request": "Ok yes let’s roll the faces out so I can see them on dev; children faces of the same type so people look consistent."
+  "request": "Ok yes let\u2019s roll the faces out so I can see them on dev; children faces of the same type so people look consistent."
  },
  "faces": [
   {
@@ -1963,7 +1963,12 @@
      0.09317561046121084
     ]
    },
-   "fit_signature": "51346de816492f6bad527f99b376b1c90c2cb86ef831a9a6da7f9658db2678e1"
+   "fit_signature": "51346de816492f6bad527f99b376b1c90c2cb86ef831a9a6da7f9658db2678e1",
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.13843161503245183,
+    0.08650046203654976
+   ]
   },
   {
    "id": "child_photo_02",
@@ -3915,7 +3920,12 @@
      0.09317561046121084
     ]
    },
-   "fit_signature": "9473da2400c4c428ff3cafaca4ffc66f65746d555edce9da5dcca9b5182213c1"
+   "fit_signature": "9473da2400c4c428ff3cafaca4ffc66f65746d555edce9da5dcca9b5182213c1",
+   "selection_tone_rgb": [
+    0.7454042095403874,
+    0.38132601143253014,
+    0.30946892281750854
+   ]
   },
   {
    "id": "child_photo_03",
@@ -5867,7 +5877,12 @@
      0.11169302732054957
     ]
    },
-   "fit_signature": "0eb35708a78d5d35c4a0b5cc1c3f9aef4b65c945a40d75c8117e74955a974175"
+   "fit_signature": "0eb35708a78d5d35c4a0b5cc1c3f9aef4b65c945a40d75c8117e74955a974175",
+   "selection_tone_rgb": [
+    0.6795424696330938,
+    0.3564001441459435,
+    0.25415209433082675
+   ]
   },
   {
    "id": "child_photo_04",
@@ -7819,7 +7834,12 @@
      0.11169302732054957
     ]
    },
-   "fit_signature": "5965163c1579311049ddd60970bfc332a9bd1bcee7fd2ebd7bfdf0c445d9fc57"
+   "fit_signature": "5965163c1579311049ddd60970bfc332a9bd1bcee7fd2ebd7bfdf0c445d9fc57",
+   "selection_tone_rgb": [
+    0.6307571363461467,
+    0.31398871337571754,
+    0.21586050011389926
+   ]
   },
   {
    "id": "child_photo_05",
@@ -9771,7 +9791,12 @@
      0.09317561046121084
     ]
    },
-   "fit_signature": "3d250edaa3cfb5c81c10d4f1038599bce20b79f5a0850495ee9c972ce9195b87"
+   "fit_signature": "3d250edaa3cfb5c81c10d4f1038599bce20b79f5a0850495ee9c972ce9195b87",
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3277780980565422,
+    0.20685780326778636
+   ]
   },
   {
    "id": "child_photo_06",
@@ -11723,7 +11748,12 @@
      0.11169302732054957
     ]
    },
-   "fit_signature": "7e74076c14ae3766fbdea5de52189d6f0db06f3322092679cd215c4d0aca7368"
+   "fit_signature": "7e74076c14ae3766fbdea5de52189d6f0db06f3322092679cd215c4d0aca7368",
+   "selection_tone_rgb": [
+    0.5520114015120001,
+    0.25015828472995344,
+    0.14702726649759498
+   ]
   },
   {
    "id": "child_photo_07",
@@ -13675,7 +13705,12 @@
      0.11169302732054957
     ]
    },
-   "fit_signature": "3e441ac626155b72bd2a629cfc63ddc9a778ae15a8bb81bdab930a9e3205e8f5"
+   "fit_signature": "3e441ac626155b72bd2a629cfc63ddc9a778ae15a8bb81bdab930a9e3205e8f5",
+   "selection_tone_rgb": [
+    0.6514056374198242,
+    0.31854677812509186,
+    0.2704977910130658
+   ]
   },
   {
    "id": "child_photo_08",
@@ -15627,7 +15662,12 @@
      0.11169302732054957
     ]
    },
-   "fit_signature": "bdbcef5bb3f4ba7fbd5c6544e38ada403a57f94b132f351cd6f1117db05fdf59"
+   "fit_signature": "bdbcef5bb3f4ba7fbd5c6544e38ada403a57f94b132f351cd6f1117db05fdf59",
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.15292615199615017,
+    0.09084171118340768
+   ]
   },
   {
    "id": "child_photo_09",
@@ -17579,7 +17619,12 @@
      0.0926537107468806
     ]
    },
-   "fit_signature": "c330391ae22b5b6a605b2c2302c490af213b30b6d1af15c084ccc44254160cf3"
+   "fit_signature": "c330391ae22b5b6a605b2c2302c490af213b30b6d1af15c084ccc44254160cf3",
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.184474994500441,
+    0.1119324278369056
+   ]
   },
   {
    "id": "child_photo_10",
@@ -19531,7 +19576,12 @@
      0.0926537107468806
     ]
    },
-   "fit_signature": "fae6b1d7e664ed8810e43ef05ff356184d588dbf1996f8f5e69ca0dd192d44d9"
+   "fit_signature": "fae6b1d7e664ed8810e43ef05ff356184d588dbf1996f8f5e69ca0dd192d44d9",
+   "selection_tone_rgb": [
+    0.7156935005064807,
+    0.386429433787049,
+    0.3162677457504047
+   ]
   },
   {
    "id": "child_photo_11",
@@ -21483,7 +21533,12 @@
      0.09540083336014725
     ]
    },
-   "fit_signature": "8db6dd9030a164a2eb2ca6d72f2b1b51c5b4c9bce51943adbff7f6614f8b6de2"
+   "fit_signature": "8db6dd9030a164a2eb2ca6d72f2b1b51c5b4c9bce51943adbff7f6614f8b6de2",
+   "selection_tone_rgb": [
+    0.5972017883637634,
+    0.26635560480286247,
+    0.1651321945016676
+   ]
   },
   {
    "id": "child_photo_12",
@@ -23435,7 +23490,12 @@
      0.09540083336014725
     ]
    },
-   "fit_signature": "b3f4644bbead3950638d3a93a829568fd78add930a8b52900fa5782f887c3099"
+   "fit_signature": "b3f4644bbead3950638d3a93a829568fd78add930a8b52900fa5782f887c3099",
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3467040563550296,
+    0.2704977910130658
+   ]
   },
   {
    "id": "child_photo_13",
@@ -25387,7 +25447,12 @@
      0.0926537107468806
     ]
    },
-   "fit_signature": "5874e06b3a83b8bd7071f6a2bb9421528783f12adf7a869315f885503ec7feca"
+   "fit_signature": "5874e06b3a83b8bd7071f6a2bb9421528783f12adf7a869315f885503ec7feca",
+   "selection_tone_rgb": [
+    0.6038273388553378,
+    0.2961382707983211,
+    0.18782077230067787
+   ]
   },
   {
    "id": "child_photo_14",
@@ -27339,7 +27404,12 @@
      0.09540083336014725
     ]
    },
-   "fit_signature": "7a0a0dc2a878ae94fc590e326127190d24504fe46a061a4ca69df7fe7477ee9b"
+   "fit_signature": "7a0a0dc2a878ae94fc590e326127190d24504fe46a061a4ca69df7fe7477ee9b",
+   "selection_tone_rgb": [
+    0.6938717612919899,
+    0.37626212299090644,
+    0.29177064981753587
+   ]
   },
   {
    "id": "child_photo_15",
@@ -29291,7 +29361,12 @@
      0.09540083336014725
     ]
    },
-   "fit_signature": "42609c576869a6dbbfd7d165b1b211fb0a06800fc102c476de390eac1f0e0dbd"
+   "fit_signature": "42609c576869a6dbbfd7d165b1b211fb0a06800fc102c476de390eac1f0e0dbd",
+   "selection_tone_rgb": [
+    0.6583748172794485,
+    0.3564001441459435,
+    0.2788942634768104
+   ]
   },
   {
    "id": "child_photo_16",
@@ -31243,7 +31318,12 @@
      0.09540083336014725
     ]
    },
-   "fit_signature": "554b46193179e5f6a5ba4b3e6681537f1aafdae438d3947402fa38a3f64cdd37"
+   "fit_signature": "554b46193179e5f6a5ba4b3e6681537f1aafdae438d3947402fa38a3f64cdd37",
+   "selection_tone_rgb": [
+    0.5906188409193369,
+    0.2874408377269175,
+    0.20863687014525575
+   ]
   },
   {
    "id": "child_ref_european_native_01",
@@ -33176,7 +33256,32 @@
      191.1438,
      163.191
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.30946892281750854,
+    0.24620132670783548
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.31,
+    "camera": {
+     "yaw_deg": 2.717,
+     "pitch_deg": -2.171,
+     "roll_deg": 0.189,
+     "px_per_m": 1242.702,
+     "shift_px": [
+      160.144,
+      186.393
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "bd44fb77b33a4f8055870d89a011732d7fc61c2c7030b7417e66f969090ddefa"
   },
   {
    "id": "child_ref_european_native_02",
@@ -35109,7 +35214,32 @@
      196.0433,
      158.3063
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 2.76,
+    "camera": {
+     "yaw_deg": 0.797,
+     "pitch_deg": -7.371,
+     "roll_deg": 1.311,
+     "px_per_m": 1269.359,
+     "shift_px": [
+      162.744,
+      186.782
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "172f829ba454c87832a5aac1e47f41c2fe5516e644bf285a9d4e7bb167a4eaf8"
   },
   {
    "id": "child_ref_european_native_03",
@@ -37042,7 +37172,32 @@
      191.0282,
      146.861
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.238397573812271,
+    0.1946178304415758
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 2.76,
+    "camera": {
+     "yaw_deg": 0.77,
+     "pitch_deg": -3.51,
+     "roll_deg": 0.693,
+     "px_per_m": 1254.833,
+     "shift_px": [
+      157.437,
+      176.841
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "01851cb908de507b00c231e31f6143324b4dac9fdaa5ef0f464379cadf7a9605"
   },
   {
    "id": "child_ref_european_native_04",
@@ -38975,7 +39130,32 @@
      199.4318,
      138.8942
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4396571738409188,
+    0.23074004852434915,
+    0.184474994500441
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.32,
+    "camera": {
+     "yaw_deg": 0.021,
+     "pitch_deg": -3.402,
+     "roll_deg": 0.264,
+     "px_per_m": 1314.801,
+     "shift_px": [
+      164.458,
+      170.761
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "866676e8f1d71457404efb636805f0fabb84b3caa470410b2a3a03e9169dd01b"
   },
   {
    "id": "child_ref_european_native_05",
@@ -40908,7 +41088,32 @@
      192.6209,
      156.8784
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.27467731206038465,
+    0.2232279573168085
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.21,
+    "camera": {
+     "yaw_deg": 0.318,
+     "pitch_deg": 0.481,
+     "roll_deg": 1.111,
+     "px_per_m": 1282.971,
+     "shift_px": [
+      161.917,
+      181.201
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "717118c1dbf2ce28176841ae51041fa9e70625b77f477436b9da0ae41b3b358a"
   },
   {
    "id": "child_ref_european_native_06",
@@ -42841,7 +43046,32 @@
      197.1096,
      140.7825
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.260216755225646,
+    0.19806931955994886
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 2.98,
+    "camera": {
+     "yaw_deg": 1.126,
+     "pitch_deg": -0.343,
+     "roll_deg": 1.974,
+     "px_per_m": 1305.287,
+     "shift_px": [
+      164.558,
+      170.351
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "cd79de7043b56816f72ff0901f4d5367f36e10160c5f4aa68d0e778b3a6acda4"
   },
   {
    "id": "child_ref_european_native_07",
@@ -44774,7 +45004,32 @@
      195.5231,
      135.1962
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.2232279573168085
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.95,
+    "camera": {
+     "yaw_deg": 1.693,
+     "pitch_deg": 2.2,
+     "roll_deg": 0.53,
+     "px_per_m": 1321.662,
+     "shift_px": [
+      162.17,
+      165.967
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "f92780540127cb92b32c603ad4c1b837dd249dce7f28f1c4b141bd4fa63a7bea"
   },
   {
    "id": "child_ref_european_native_08",
@@ -46707,7 +46962,32 @@
      198.3141,
      140.0735
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25015828472995344,
+    0.2195261997292692
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.43,
+    "camera": {
+     "yaw_deg": 0.712,
+     "pitch_deg": 2.411,
+     "roll_deg": 1.124,
+     "px_per_m": 1298.521,
+     "shift_px": [
+      165.235,
+      170.9
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "c00702abe6cd005605e058b9340044eb966f64aed57bb3aaa9876f8fa91dedc2"
   },
   {
    "id": "child_ref_european_native_09",
@@ -48640,7 +48920,32 @@
      196.0418,
      156.4699
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5271151257058131,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.96,
+    "camera": {
+     "yaw_deg": 0.237,
+     "pitch_deg": -4.476,
+     "roll_deg": 0.141,
+     "px_per_m": 1319.667,
+     "shift_px": [
+      163.288,
+      182.013
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "184a783af76f407631384d2ba635be6c51082e6a7e8deb7f12b0c4f7259c40ea"
   },
   {
    "id": "child_ref_european_native_10",
@@ -50573,7 +50878,32 @@
      195.6422,
      141.2031
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.2232279573168085,
+    0.1651321945016676
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.25,
+    "camera": {
+     "yaw_deg": 2.837,
+     "pitch_deg": -10.004,
+     "roll_deg": 1.565,
+     "px_per_m": 1322.59,
+     "shift_px": [
+      162.921,
+      171.063
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "89f07bb0dd4d363260ccd082aebef677111196223901cf9184dbc35bcf6859c1"
   },
   {
    "id": "child_ref_european_native_11",
@@ -52506,7 +52836,32 @@
      196.2644,
      135.0651
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.44520119451622786,
+    0.2232279573168085,
+    0.16826940018969075
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.97,
+    "camera": {
+     "yaw_deg": 0.977,
+     "pitch_deg": -5.647,
+     "roll_deg": 0.908,
+     "px_per_m": 1353.426,
+     "shift_px": [
+      162.358,
+      167.075
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "45e251c950137c7e4f28931f81e615aa012d858aabc9319897dbabec86e58ac0"
   },
   {
    "id": "child_ref_european_native_12",
@@ -54439,7 +54794,32 @@
      204.6958,
      130.687
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.98,
+    "camera": {
+     "yaw_deg": 0.674,
+     "pitch_deg": -4.204,
+     "roll_deg": 1.129,
+     "px_per_m": 1409.604,
+     "shift_px": [
+      169.679,
+      165.066
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "14d7111656b0b70fd85ffbc2a909fe554dcc95b4cf5a4808220d4a920ff5cf50"
   },
   {
    "id": "child_ref_european_native_13",
@@ -56372,7 +56752,32 @@
      200.587,
      147.6964
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.19120168274079138
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.74,
+    "camera": {
+     "yaw_deg": 5.317,
+     "pitch_deg": -0.602,
+     "roll_deg": 1.504,
+     "px_per_m": 1363.964,
+     "shift_px": [
+      168.771,
+      174.879
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "7927cf1e44b241c6c600bcae506723f4e5b40449e3bbbfb5ea21f8588d246364"
   },
   {
    "id": "child_ref_european_native_14",
@@ -58305,7 +58710,32 @@
      200.5924,
      139.4448
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20507873639031693,
+    0.14995978981060856
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.32,
+    "camera": {
+     "yaw_deg": 2.902,
+     "pitch_deg": -3.098,
+     "roll_deg": 1.429,
+     "px_per_m": 1328.947,
+     "shift_px": [
+      167.965,
+      169.053
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "83215676321ec7a3653b088c2e2aa56cb58387a349e5a7c2b9fec01dbf68424b"
   },
   {
    "id": "child_ref_european_native_15",
@@ -60238,7 +60668,32 @@
      203.3433,
      127.9387
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.19806931955994886,
+    0.15292615199615017
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.99,
+    "camera": {
+     "yaw_deg": 1.545,
+     "pitch_deg": -0.78,
+     "roll_deg": 1.522,
+     "px_per_m": 1370.113,
+     "shift_px": [
+      170.257,
+      159.449
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "d3d27a58a264f2ab97e6623a4e1213851af285cf914929dac6b0300e51dfec11"
   },
   {
    "id": "child_ref_european_native_16",
@@ -62171,7 +62626,32 @@
      205.2331,
      126.8201
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4286904966139066,
+    0.21223075741405523,
+    0.17464740365558504
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.58,
+    "camera": {
+     "yaw_deg": 2.488,
+     "pitch_deg": -1.967,
+     "roll_deg": 1.294,
+     "px_per_m": 1449.116,
+     "shift_px": [
+      170.33,
+      160.231
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "e7a47696524ee244c0c3659f6b9efde75e14a654e5f2e16bfbdb49a7c132e830"
   },
   {
    "id": "child_ref_black_asian_01",
@@ -64104,7 +64584,32 @@
      192.2607,
      168.5093
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.1714411007328226,
+    0.09530746663096469
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.61,
+    "camera": {
+     "yaw_deg": -0.062,
+     "pitch_deg": -4.399,
+     "roll_deg": -0.305,
+     "px_per_m": 1232.867,
+     "shift_px": [
+      161.177,
+      190.424
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "3ae9ffe09f764d4d996c031f1560a0aac661c368252bfd79e11fb5144d5f812c"
   },
   {
    "id": "child_ref_black_asian_02",
@@ -66037,7 +66542,32 @@
      193.2276,
      152.1367
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.3467040563550296,
+    0.14126329114027164,
+    0.07618538148130784
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.34,
+    "camera": {
+     "yaw_deg": 0.783,
+     "pitch_deg": -10.353,
+     "roll_deg": 0.56,
+     "px_per_m": 1314.094,
+     "shift_px": [
+      158.928,
+      179.747
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "df91b50d263f0ab3b3ceabff71cfe9d10dec33ef9ed1bd92416359baa506f24b"
   },
   {
    "id": "child_ref_black_asian_03",
@@ -67970,7 +68500,32 @@
      195.7385,
      143.5103
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.31398871337571754,
+    0.12477181756095049,
+    0.06301001765316767
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.02,
+    "camera": {
+     "yaw_deg": 1.257,
+     "pitch_deg": -10.147,
+     "roll_deg": 0.349,
+     "px_per_m": 1365.126,
+     "shift_px": [
+      159.996,
+      173.01
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "c90cc3069bad603b02ba4d3d91f65effab7241cb8543ea3f586cdd5a3de4859e"
   },
   {
    "id": "child_ref_black_asian_04",
@@ -69903,7 +70458,32 @@
      199.4379,
      131.8195
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.31854677812509186,
+    0.12743768043564743,
+    0.06480326669290577
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.13,
+    "camera": {
+     "yaw_deg": 2.692,
+     "pitch_deg": -10.709,
+     "roll_deg": 0.985,
+     "px_per_m": 1399.722,
+     "shift_px": [
+      162.899,
+      162.471
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "49cf08e2df6fda4c47dd7977c3073f821000604934b1ce9fd62739dab64f3865"
   },
   {
    "id": "child_ref_black_asian_05",
@@ -71836,7 +72416,32 @@
      193.3255,
      153.0165
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.386429433787049,
+    0.1651321945016676,
+    0.09758734714186246
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.72,
+    "camera": {
+     "yaw_deg": 0.955,
+     "pitch_deg": -3.256,
+     "roll_deg": 0.466,
+     "px_per_m": 1248.945,
+     "shift_px": [
+      163.211,
+      175.044
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "9a9ef2c5897e31011a881683b3a69d05fbdaa1d97d347e7e3e802852a7a77529"
   },
   {
    "id": "child_ref_black_asian_06",
@@ -73769,7 +74374,32 @@
      202.0528,
      128.6375
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.40197777983219574,
+    0.16826940018969075,
+    0.09084171118340768
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.73,
+    "camera": {
+     "yaw_deg": 2.785,
+     "pitch_deg": -4.165,
+     "roll_deg": 1.88,
+     "px_per_m": 1315.235,
+     "shift_px": [
+      170.376,
+      155.866
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "7d2fdf3b6077f955881d8038450ed93d2cdf00e73cc3acf04841f72a7cff2c38"
   },
   {
    "id": "child_ref_black_asian_07",
@@ -75702,7 +76332,32 @@
      200.8558,
      127.1838
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.37626212299090644,
+    0.1651321945016676,
+    0.08437621154414882
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.92,
+    "camera": {
+     "yaw_deg": 3.028,
+     "pitch_deg": -0.789,
+     "roll_deg": -0.033,
+     "px_per_m": 1320.538,
+     "shift_px": [
+      167.932,
+      154.694
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "aa9d21dbaf27aaf81937f86ab45824cc6fdce5aad18db0278a4b85fe97477ca0"
   },
   {
    "id": "child_ref_black_asian_08",
@@ -77635,7 +78290,32 @@
      206.8681,
      133.3862
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.3005437944157765,
+    0.13150239912209113,
+    0.07324270953123355
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.0,
+    "camera": {
+     "yaw_deg": 2.729,
+     "pitch_deg": -0.447,
+     "roll_deg": -0.019,
+     "px_per_m": 1392.482,
+     "shift_px": [
+      172.232,
+      162.399
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "091092b3800a970eea6090e4f484791ea633bc2fa9c7d9663398a0598111a428"
   },
   {
    "id": "child_ref_black_asian_09",
@@ -79568,7 +80248,32 @@
      201.1041,
      160.6343
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.3049873140698863,
+    0.238397573812271
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 5.44,
+    "camera": {
+     "yaw_deg": 10.706,
+     "pitch_deg": 0.138,
+     "roll_deg": 2.286,
+     "px_per_m": 1273.346,
+     "shift_px": [
+      172.295,
+      186.558
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "784799accf84730213b7e961c8313c3761a0bbdedf2d06573e37976e6b49f61d"
   },
   {
    "id": "child_ref_black_asian_10",
@@ -81501,7 +82206,32 @@
      202.169,
      144.9779
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5209955732043543,
+    0.26635560480286247,
+    0.1946178304415758
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.23,
+    "camera": {
+     "yaw_deg": 3.815,
+     "pitch_deg": -4.604,
+     "roll_deg": 1.415,
+     "px_per_m": 1299.992,
+     "shift_px": [
+      169.797,
+      174.043
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "593f1f39dce7e553b51bad1346ce909ff27e24f74120338c6060f928a94cc658"
   },
   {
    "id": "child_ref_black_asian_11",
@@ -83434,7 +84164,32 @@
      206.6268,
      134.7657
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.18782077230067787
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.85,
+    "camera": {
+     "yaw_deg": 6.982,
+     "pitch_deg": -3.998,
+     "roll_deg": 0.534,
+     "px_per_m": 1368.77,
+     "shift_px": [
+      174.064,
+      166.932
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "b11c4fa64a155e5d05c2357f040df6bb87c315ff239abee26ad8839c2fde0c7a"
   },
   {
    "id": "child_ref_black_asian_12",
@@ -85367,7 +86122,32 @@
      205.0301,
      128.4606
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.47065764613008426,
+    0.23455058216100522,
+    0.16826940018969075
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.03,
+    "camera": {
+     "yaw_deg": 5.309,
+     "pitch_deg": -1.508,
+     "roll_deg": 2.2,
+     "px_per_m": 1363.28,
+     "shift_px": [
+      173.454,
+      163.078
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "d37413235cfd9aa541b287ede21f0385d7398a9552a68e6b7f1d02d76bbd1896"
   },
   {
    "id": "child_ref_black_asian_13",
@@ -87300,7 +88080,32 @@
      198.1394,
      157.5564
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5647115057049292,
+    0.31854677812509186,
+    0.24228112246555486
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 5.02,
+    "camera": {
+     "yaw_deg": 4.272,
+     "pitch_deg": 1.358,
+     "roll_deg": 1.011,
+     "px_per_m": 1256.647,
+     "shift_px": [
+      169.703,
+      182.807
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "7a0a02860d5f0813b36935c88ef08cb5b45a4ac3a70b983dc09d548397145f41"
   },
   {
    "id": "child_ref_black_asian_14",
@@ -89233,7 +90038,32 @@
      196.9017,
      141.7421
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5394794890121071,
+    0.2831487404299921,
+    0.20155625379439707
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.63,
+    "camera": {
+     "yaw_deg": 3.891,
+     "pitch_deg": -0.01,
+     "roll_deg": 0.27,
+     "px_per_m": 1321.273,
+     "shift_px": [
+      165.595,
+      170.484
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "4cb18fa7cac4e04f885a419491e9eba926e40f86853bb75611294fab90af578f"
   },
   {
    "id": "child_ref_black_asian_15",
@@ -91166,7 +91996,32 @@
      197.6269,
      136.183
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.19806931955994886
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.69,
+    "camera": {
+     "yaw_deg": 2.469,
+     "pitch_deg": 2.506,
+     "roll_deg": 1.49,
+     "px_per_m": 1378.787,
+     "shift_px": [
+      165.643,
+      168.387
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "c38003397589f73a37104bc1b45c00a284d4f774739a0f970454ff586c44e668"
   },
   {
    "id": "child_ref_black_asian_16",
@@ -93099,7 +93954,32 @@
      204.1522,
      135.8312
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4910208498478356,
+    0.25415209433082675,
+    0.1946178304415758
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.58,
+    "camera": {
+     "yaw_deg": 1.625,
+     "pitch_deg": 2.713,
+     "roll_deg": 1.515,
+     "px_per_m": 1410.968,
+     "shift_px": [
+      171.18,
+      168.734
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "8d315a0d0a204695e11335d52579974fdee0e5618825f2e636b700d5b577cfe5"
   },
   {
    "id": "child_ref_toddler_01",
@@ -95032,7 +95912,32 @@
      190.7213,
      170.0773
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.2874408377269175,
+    0.238397573812271
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 5.0,
+    "camera": {
+     "yaw_deg": 1.435,
+     "pitch_deg": -2.052,
+     "roll_deg": 0.649,
+     "px_per_m": 1339.194,
+     "shift_px": [
+      157.727,
+      195.193
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "456a6a9c6d8820f09d8c9d43990ad143aa7bdb31eafa71ca088e2c532f61cce0"
   },
   {
    "id": "child_ref_toddler_02",
@@ -96965,7 +97870,32 @@
      192.3339,
      172.6195
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4851499400560704,
+    0.25818285292159576,
+    0.20507873639031693
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.5,
+    "camera": {
+     "yaw_deg": 1.915,
+     "pitch_deg": -0.963,
+     "roll_deg": 1.586,
+     "px_per_m": 1333.31,
+     "shift_px": [
+      158.995,
+      197.959
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "e05f4fca3c50b4c4a41a6e9cbbf82c16c72eed9d0965debcd31e812580c978d2"
   },
   {
    "id": "child_ref_toddler_03",
@@ -98898,7 +99828,32 @@
      192.5601,
      164.7608
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4620769996544071,
+    0.24620132670783548,
+    0.19120168274079138
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 2.75,
+    "camera": {
+     "yaw_deg": 3.296,
+     "pitch_deg": -5.191,
+     "roll_deg": 0.094,
+     "px_per_m": 1340.878,
+     "shift_px": [
+      157.259,
+      194.902
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "3f3ec8c6e74b7042c25877383a8e3ce08e656299af2e22049ad4ffae8e584904"
   },
   {
    "id": "child_ref_toddler_04",
@@ -100831,7 +101786,32 @@
      190.2423,
      168.8125
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.45641102318040466,
+    0.25415209433082675,
+    0.20507873639031693
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 2.76,
+    "camera": {
+     "yaw_deg": -0.833,
+     "pitch_deg": 2.081,
+     "roll_deg": 0.632,
+     "px_per_m": 1324.439,
+     "shift_px": [
+      155.63,
+      197.741
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "cc1e0004a2c9e6dfef4e487eec9d6c6cfc949f472eed107881f769ec24255e23"
   },
   {
    "id": "child_ref_toddler_05",
@@ -102764,7 +103744,32 @@
      194.203,
      161.1304
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.26225065752969623,
+    0.19806931955994886
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.79,
+    "camera": {
+     "yaw_deg": 5.669,
+     "pitch_deg": -4.262,
+     "roll_deg": -2.063,
+     "px_per_m": 1348.113,
+     "shift_px": [
+      160.692,
+      185.193
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "03a41ede9eb8bc7bf5dfebf473b45f44aa495506d99b7ccbedf82c9b74d8322e"
   },
   {
    "id": "child_ref_toddler_06",
@@ -104697,7 +105702,32 @@
      190.5139,
      162.1862
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5088813208549338,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.63,
+    "camera": {
+     "yaw_deg": 1.868,
+     "pitch_deg": -2.866,
+     "roll_deg": 0.55,
+     "px_per_m": 1382.796,
+     "shift_px": [
+      157.44,
+      188.229
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "c2719e7b4513299516b309233e523911932179d91208fb851219f4a38ca9f714"
   },
   {
    "id": "child_ref_toddler_07",
@@ -106630,7 +107660,32 @@
      194.4922,
      145.6066
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4341536361747489,
+    0.20863687014525575,
+    0.13286832155381798
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.45,
+    "camera": {
+     "yaw_deg": 4.129,
+     "pitch_deg": -8.44,
+     "roll_deg": 0.939,
+     "px_per_m": 1404.119,
+     "shift_px": [
+      160.252,
+      177.076
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "0a4058e29cfecb855b0b782612ae30335c332760790779f507efc5ba8f8940bf"
   },
   {
    "id": "child_ref_toddler_08",
@@ -108563,7 +109618,32 @@
      194.8513,
      145.2755
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4232676699860717,
+    0.20863687014525575,
+    0.14126329114027164
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.63,
+    "camera": {
+     "yaw_deg": 2.322,
+     "pitch_deg": -0.545,
+     "roll_deg": 0.431,
+     "px_per_m": 1461.065,
+     "shift_px": [
+      159.813,
+      178.147
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "ffe1aca495764e0c5c3ccb5ceedcce752b968717863cde4a1167c18783319b0d"
   },
   {
    "id": "child_ref_toddler_09",
@@ -110496,7 +111576,32 @@
      186.2895,
      152.2179
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.3662525955988395,
+    0.184474994500441,
+    0.13286832155381798
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.72,
+    "camera": {
+     "yaw_deg": 1.22,
+     "pitch_deg": -4.088,
+     "roll_deg": 1.695,
+     "px_per_m": 1268.85,
+     "shift_px": [
+      155.853,
+      175.034
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "795deaadcafef385b27ec0ea9f1a78f99acb448cddcbc0040a7777f0afd071b6"
   },
   {
    "id": "child_ref_toddler_10",
@@ -112429,7 +113534,32 @@
      191.2672,
      150.5031
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4314220663943278,
+    0.22137707852303884,
+    0.1559264637078274
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.89,
+    "camera": {
+     "yaw_deg": 4.838,
+     "pitch_deg": -4.604,
+     "roll_deg": 0.633,
+     "px_per_m": 1290.619,
+     "shift_px": [
+      161.198,
+      172.72
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "06224e856b3b0c8309ccf650bfd3a60efa57b2b1738cb2da86d140cd86b3e83e"
   },
   {
    "id": "child_ref_toddler_11",
@@ -114362,7 +115492,32 @@
      189.8373,
      146.0274
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.27467731206038465,
+    0.11443537382697373,
+    0.06662593864377289
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.69,
+    "camera": {
+     "yaw_deg": 2.761,
+     "pitch_deg": -10.045,
+     "roll_deg": -1.299,
+     "px_per_m": 1339.046,
+     "shift_px": [
+      154.475,
+      172.543
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "de2f64494f03e07d68d4a054c65e41f15864c12b16c4640c266bd7db4df7ce9c"
   },
   {
    "id": "child_ref_toddler_12",
@@ -116295,7 +117450,32 @@
      198.6587,
      148.2442
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.3419144249086609,
+    0.162029375639111,
+    0.09989872824711389
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.56,
+    "camera": {
+     "yaw_deg": 3.443,
+     "pitch_deg": -1.757,
+     "roll_deg": 0.184,
+     "px_per_m": 1347.112,
+     "shift_px": [
+      165.558,
+      176.452
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "6e4acebdf6f954d11b3beee5994b9ba4e29b747d0896b6b365419dfe7af30ec8"
   },
   {
    "id": "child_ref_toddler_13",
@@ -118228,7 +119408,32 @@
      190.707,
      156.1396
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.5028864580325687,
+    0.2831487404299921,
+    0.20863687014525575
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 5.29,
+    "camera": {
+     "yaw_deg": 4.374,
+     "pitch_deg": -0.766,
+     "roll_deg": -0.77,
+     "px_per_m": 1340.065,
+     "shift_px": [
+      158.43,
+      180.211
+     ]
+    },
+    "projection_centre_m": [
+     -0.00042378196083860196,
+     0.7870290801307271,
+     0.09317561046121084
+    ]
+   },
+   "fit_signature": "0342dba8402733cfc41c041fe3520342729a8f017d7b25ab297a00ecb21cc46e"
   },
   {
    "id": "child_ref_toddler_14",
@@ -120161,7 +121366,32 @@
      190.2131,
      156.5924
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.467783796112159,
+    0.26635560480286247,
+    0.20507873639031693
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 5.05,
+    "camera": {
+     "yaw_deg": 3.267,
+     "pitch_deg": -0.216,
+     "roll_deg": 1.152,
+     "px_per_m": 1333.714,
+     "shift_px": [
+      160.25,
+      182.871
+     ]
+    },
+    "projection_centre_m": [
+     5.879084811913476e-05,
+     0.7878547253100693,
+     0.0926537107468806
+    ]
+   },
+   "fit_signature": "26062365954b6c4c45478f44557964bb28dfd0fd54ca5e7edb67070d6fe79d5e"
   },
   {
    "id": "child_ref_toddler_15",
@@ -122094,7 +123324,32 @@
      189.3154,
      147.0867
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.45078578283822346,
+    0.24620132670783548,
+    0.18116424424986022
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 3.74,
+    "camera": {
+     "yaw_deg": 2.922,
+     "pitch_deg": -1.82,
+     "roll_deg": 0.51,
+     "px_per_m": 1362.237,
+     "shift_px": [
+      155.973,
+      177.582
+     ]
+    },
+    "projection_centre_m": [
+     -0.00040733784928842243,
+     1.083622718825558,
+     0.11169302732054957
+    ]
+   },
+   "fit_signature": "eda49e46c1b9bfbcc6e235c1792751332230be565b64dd58c85ec166ed6a813c"
   },
   {
    "id": "child_ref_toddler_16",
@@ -124027,7 +125282,32 @@
      194.4526,
      153.1626
     ]
-   ]
+   ],
+   "selection_tone_rgb": [
+    0.4178850708481375,
+    0.23074004852434915,
+    0.1714411007328226
+   ],
+   "fitted": {
+    "values": {},
+    "rms_px": 4.08,
+    "camera": {
+     "yaw_deg": 2.078,
+     "pitch_deg": 3.056,
+     "roll_deg": -0.255,
+     "px_per_m": 1382.286,
+     "shift_px": [
+      161.854,
+      183.385
+     ]
+    },
+    "projection_centre_m": [
+     7.00314910338231e-05,
+     1.0824686782412032,
+     0.09540083336014725
+    ]
+   },
+   "fit_signature": "dd3a1177d119bb4a7e213f58bfaabff8b8ce6e1ce4b4bb12efbc143a9119de18"
   }
  ]
 }

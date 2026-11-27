@@ -69,7 +69,30 @@ SIDECARS = ROOT / "data" / "sidecars" / "1904"
 ASSETS = ROOT / "assets"
 TRACES = ROOT / "data" / "traces"
 OUT = ROOT / "data" / "front_yards" / "1904.json"
+STRUCTURES = ROOT / "data" / "structures"
 LIBERTY = "L-prairie-front-yards-3203"
+
+# T-3785: the 1904 properties one 1911 lot holds. Sheet 35 draws one 199-ft lot for 2000, 2010 and
+# 2018 Prairie and the street grid follows the sheet (docs/RESEARCH/prairie_1904_street_grid.md
+# section 5), but in 1904 they were three houses, each with its own front, back door and coach
+# house, and each house's record already stands its share of the lot (its K11/K16 boundary's
+# `lot_s_m`, T-1909 and T-3607: "this house's share of the lot the sheet divides among 2000, 2010
+# and 2018 runs between the midpoints to its neighbours"). Laid as one lot, the yards had one
+# front, one front door (2018's) and one back yard with no door for the three of them. So each
+# share here is the parcel cut on the line the houses' own records stand: the side of the first
+# house's share that faces the next, drawn square to its street line (parallel to its plan's u
+# axis). The next house's share may stop short of that line (2018's yard edge stands 3.8 m south
+# of 2010's, the gap a side passage); it may not cross it, and share_lots() refuses one that does.
+# Every structure on the parcel goes with the house whose id it carries (a coach house's id is its
+# house's plus `_coach_house`). The cut is a RECONSTRUCTION, liberty L-prairie-shared-lot-2000-3785;
+# the parcel and its 1911 reading in data/street_grid/1904.json are untouched.
+SHARED_LOTS = {
+    # parcel: its houses in order along the street, each with the share's lot id and addresses
+    "prairie_2000": (("house_2000_prairie", "prairie_2000", ["2000"]),
+                     ("house_2010_prairie", "prairie_2010", ["2010"]),
+                     ("house_2018_prairie", "prairie_2018", ["2018"])),
+}
+SHARE_OVERLAP_M = 0.3       # a house's own share may cross its neighbour's line by no more than this
 
 RES = 0.25                 # the plan raster, metres a cell
 LOW_TOP_M = 1.8            # a triangle starting below this stands in the yard (a stoop, a fence, a wall)
@@ -1273,10 +1296,91 @@ def tracked_models() -> set[str]:
     return {s for s in out.stdout.decode().split("\0") if s}
 
 
+def share_edges(sid: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """A house's K11/K16 lot share in the plan: the two world points its record's `lot_s_m` stands
+    on, along its plan's s axis from its placement, and its plan's u axis (T-3785). The kits' s is
+    three.js's -z, so s runs (sin r, cos r) in (e, n) and u, the plan's x, runs (cos r, -sin r)."""
+    rec = json.loads((STRUCTURES / f"{sid}.json").read_text())
+    shares = [ph["form"]["boundary"]["value"]["lot_s_m"] for ph in rec.get("phases", [])
+              if isinstance((ph.get("form") or {}).get("boundary"), dict)
+              and "lot_s_m" in (ph["form"]["boundary"].get("value") or {})]
+    if len(shares) != 1:
+        raise SystemExit(f"plant_prairie_1904_front_yards: {sid} must stand one boundary lot_s_m "
+                         f"for its share of a shared lot (SHARED_LOTS), it stands {len(shares)}")
+    pl = json.loads((SIDECARS / f"{sid}.json").read_text())["placement"]
+    r = math.radians(pl.get("rotation_deg") or 0.0)
+    o = np.array([pl["local_e"], pl["local_n"]], float)
+    s_ax = np.array([math.sin(r), math.cos(r)])
+    u_ax = np.array([math.cos(r), -math.sin(r)])
+    return o + shares[0][0] * s_ax, o + shares[0][1] * s_ax, u_ax
+
+
+def clip_half(poly: list, at: np.ndarray, normal: np.ndarray) -> list:
+    """The part of a polygon on the side of the line through `at` that `normal` points to."""
+    out = []
+    side = lambda q: float(np.dot(np.asarray(q, float) - at, normal))
+    for i, a in enumerate(poly):
+        b = poly[(i + 1) % len(poly)]
+        sa, sb = side(a), side(b)
+        if sa >= 0:
+            out.append([float(a[0]), float(a[1])])
+        if (sa >= 0) != (sb >= 0):
+            t = sa / (sa - sb)
+            out.append([float(a[0] + t * (b[0] - a[0])), float(a[1] + t * (b[1] - a[1]))])
+    return out
+
+
+def share_lots(p: dict) -> list[dict]:
+    """A shared parcel (SHARED_LOTS) as its houses' own lots, cut on the lines their records stand."""
+    houses = SHARED_LOTS[p["id"]]
+    edges = [share_edges(sid) for sid, _, _ in houses]
+    cuts = []                     # (point, unit normal pointing to the later house)
+    for i in range(len(houses) - 1):
+        a0, a1, u_ax = edges[i]
+        nxt = json.loads((SIDECARS / f"{houses[i + 1][0]}.json").read_text())["placement"]
+        nxt_o = np.array([nxt["local_e"], nxt["local_n"]], float)
+        at = min((a0, a1), key=lambda q: float(np.linalg.norm(q - nxt_o)))   # the side facing it
+        normal = np.array([-u_ax[1], u_ax[0]])
+        if np.dot(nxt_o - at, normal) < 0:
+            normal = -normal
+        b_near = min(edges[i + 1][:2], key=lambda q: float(np.dot(q - at, normal)))
+        if float(np.dot(b_near - at, normal)) < -SHARE_OVERLAP_M:
+            raise SystemExit(f"plant_prairie_1904_front_yards: {houses[i + 1][0]}'s lot share crosses "
+                             f"{houses[i][0]}'s by {-float(np.dot(b_near - at, normal)):.2f} m (SHARED_LOTS)")
+        cuts.append((at, normal))
+    out = []
+    for i, (sid, lot_id, addresses) in enumerate(houses):
+        poly = [list(v) for v in p["polygon_local_m"]]
+        if i > 0:
+            poly = clip_half(poly, *cuts[i - 1])
+        if i < len(houses) - 1:
+            poly = clip_half(poly, cuts[i][0], -cuts[i][1])
+        corners = {}
+        for k, v in p["corners_local_m"].items():
+            v = np.asarray(v, float)
+            # a corner beyond a cut moves along its side of the lot (street or rear) onto the cut
+            for j, (at, normal) in enumerate(cuts):
+                ahead = float(np.dot(v - at, normal))
+                if (j < i and ahead < 0) or (j >= i and ahead > 0):
+                    mate = next(np.asarray(w, float) for kk, w in p["corners_local_m"].items()
+                                if kk != k and kk.split("_")[1] == k.split("_")[1])
+                    t = ahead / (ahead - float(np.dot(mate - at, normal)))
+                    v = v + t * (mate - v)
+            corners[k] = [round(float(v[0]), 3), round(float(v[1]), 3)]
+        q = dict(p, id=lot_id, addresses_1911=addresses, share_of=p["id"], house=sid,
+                 polygon_local_m=[[round(a, 3), round(b, 3)] for a, b in poly], corners_local_m=corners)
+        for k in ("frontage_ft", "area_m2", "library_frontage_ids"):
+            q.pop(k, None)
+        out.append(q)
+    return out
+
+
 def lay_district():
     """The district's plan raster, with every 1904 model and trace laid on it."""
     grid = json.loads(GRID.read_text())
-    parcels = grid["parcels"]
+    parcels = []
+    for p in grid["parcels"]:
+        parcels.extend(share_lots(p) if p["id"] in SHARED_LOTS else [p])
     allp = np.concatenate([np.asarray(p["polygon_local_m"], float) for p in parcels])
     e0, n0 = allp.min(axis=0) - 20
     e1, n1 = allp.max(axis=0) + 20
@@ -1294,7 +1398,15 @@ def lay_district():
             continue
         m = re.findall(r"parcel (\w+)", pl.get("symbolic_location") or "")
         if m:
-            by_parcel.setdefault(m[0], set()).add(sc["id"])
+            lot_id = m[0]
+            if lot_id in SHARED_LOTS:    # T-3785: a shared lot's structure goes with its house's share
+                mine = [lid for sid, lid, _ in SHARED_LOTS[lot_id]
+                        if sc["id"] == sid or sc["id"].startswith(sid + "_")]
+                if len(mine) != 1:
+                    raise SystemExit(f"plant_prairie_1904_front_yards: {sc['id']} stands on the shared lot "
+                                     f"{lot_id} and belongs to no one house of SHARED_LOTS")
+                lot_id = mine[0]
+            by_parcel.setdefault(lot_id, set()).add(sc["id"])
         glb = ASSETS / sc["asset"]
         if f"assets/{sc['asset']}" not in tracked or not glb.exists():
             continue   # traced below
@@ -1475,6 +1587,38 @@ def self_test() -> int:
         for s_ in l["shrubs"][:2]:
             s_[0] = r2(s_[0] - 2.0)
     case("a pictured tub stood on the drive", tub_on_drive, "too near a walk")
+
+    # T-3785: a shared lot's shares tile it, one per house, and a share crossing its neighbour's
+    # line is refused rather than cut through
+    grid = json.loads(GRID.read_text())
+    area = lambda poly: 0.5 * abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(poly, poly[1:] + poly[:1])))
+    for pid, houses in SHARED_LOTS.items():
+        p = next(x for x in grid["parcels"] if x["id"] == pid)
+        shares = share_lots(p)
+        tiled = abs(sum(area(q["polygon_local_m"]) for q in shares) - area(p["polygon_local_m"])) < 0.5
+        own = all(any(l["parcel"] == q["id"] for l in data["lots"]) for q in shares) \
+            and not any(l.get("parcel") == pid and l.get("addresses") == p["addresses_1911"] for l in data["lots"])
+        good = tiled and own and len(shares) == len(houses)
+        ok &= good
+        print(f"   self-test | {'ok  ' if good else 'FAIL'} the shared lot {pid} is laid as {len(shares)} "
+              f"houses' lots that tile it (tiled {tiled}, each planted as its own {own})")
+        real = share_edges
+        try:
+            def crossed(sid, _real=real, _bad=houses[1][0]):
+                lo, hi, u = _real(sid)
+                return (lo + 2.0 * (hi - lo) / np.linalg.norm(hi - lo), hi + 2.0 * (hi - lo) / np.linalg.norm(hi - lo), u) \
+                    if sid == _bad else (lo, hi, u)
+            globals()["share_edges"] = crossed
+            try:
+                share_lots(p)
+                refused = False
+            except SystemExit as e:
+                refused = "crosses" in str(e)
+        finally:
+            globals()["share_edges"] = real
+        ok &= refused
+        print(f"   self-test | {'ok  ' if refused else 'FAIL'} the split refuses a share of {pid} moved 2 m "
+              f"across its neighbour's line")
     return 0 if ok else 1
 
 

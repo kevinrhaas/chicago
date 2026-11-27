@@ -187,24 +187,25 @@ const face = (names = ['eyeBlinkLeft', 'jawOpen', SMILE], { jawBone = true } = {
     deg: () => 2 * Math.acos(Math.min(1, Math.abs(jaw.quaternion.dot(rest)))) / DEG,
     chin: () => { scene.updateMatrixWorld(true); return jaw.localToWorld(chin.clone()); } };
 };
+assert(MOUTH.attention_smile > 0 && MOUTH.attention_smile <= .22 && MOUTH.greeting_smile > MOUTH.attention_smile && MOUTH.greeting_smile <= .65, 'passive attention keeps lips near rest; a greeting remains moderate');
 const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 / 30) { m.apply(1 / 30, state); each?.(); } };
 { const f = face(), m = createMouth({ id: 'pa1904_grey_w_l', scene: f.scene });
   assert(m.bound, 'a face with the smile is played');
   run(m, 3, {});
   assert.deepEqual([f.w, f.deg()], [[0, 0, 0], 0], 'at rest nothing is moved');
-  // A visitor in front: the smile comes, never past the whole of it, and stays while they stand there.
+  // A visitor in front receives a small smile; a greeting is a separate, stronger response.
   let last = 0, rose = true;
   run(m, 2.5, { facing: true }, () => { rose &&= f.w[f.at[SMILE]] >= last - 1e-9; last = f.w[f.at[SMILE]]; });
-  assert(rose && last === 1, `the smile eases in to the whole of it (${last})`);
+  assert(rose && last === MOUTH.attention_smile, `attention eases into a gentle smile (${last})`);
   assert.equal(f.deg(), 0, 'and the jaw is still');
   m.apply(1 / 30, {});
-  assert(f.w[f.at[SMILE]] < 1 && f.w[f.at[SMILE]] > .9, 'it does not snap off');
+  assert(f.w[f.at[SMILE]] < MOUTH.attention_smile && f.w[f.at[SMILE]] > MOUTH.attention_smile * .9, 'it does not snap off');
   run(m, 6, {});
   assert.equal(f.w[f.at[SMILE]], 0, 'and goes when they have gone');
   // A greeting brings it, and it outlasts the greeting by after_s.
   run(m, 1.7, { greeting: true });
   run(m, MOUTH.after_s * .8, {});
-  assert(f.w[f.at[SMILE]] > .95, `it stays after a greeting (${f.w[f.at[SMILE]]})`);
+  assert(Math.abs(f.w[f.at[SMILE]] - MOUTH.greeting_smile) < .01, `it stays after a greeting (${f.w[f.at[SMILE]]})`);
   run(m, 6, {});
   assert.equal(f.w[f.at[SMILE]], 0);
   // Talking: part of the smile, and the jaw opens and shuts about the body's own left-to-right,
@@ -366,18 +367,18 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
 { const at = (x, z, heading = 0) => { const f = face(), m = createMouth({ id: 'x', scene: f.scene }), root = new THREE.Group();
     root.position.set(10, 0, -4); root.rotation.y = heading;
     run(m, 3, { viewer: new THREE.Vector3(10 + x, 1.6, -4 + z), root }); return f.w[f.at[SMILE]]; };
-  assert.equal(at(0, 2), 1, 'two metres in front');
-  assert.equal(at(1, 2), 1, 'a little to one side');
+  assert.equal(at(0, 2), MOUTH.attention_smile, 'two metres in front');
+  assert.equal(at(1, 2), MOUTH.attention_smile, 'a little to one side');
   assert.equal(at(0, MOUTH.within_m + .5), 0, 'too far');
   assert.equal(at(2, 0), 0, 'beside');
   assert.equal(at(0, -2), 0, 'behind');
-  assert.equal(at(2, 0, Math.PI / 2), 1, 'turned to face them');
+  assert.equal(at(2, 0, Math.PI / 2), MOUTH.attention_smile, 'turned to face them');
   assert.equal(at(0, 2, Math.PI / 2), 0, 'turned away'); }
 // The next level's mouth carries on from this one's.
 { const a = face(), m = createMouth({ id: 'x', scene: a.scene });
   run(m, 3, { facing: true });
   const b = face(), next = createMouth({ id: 'x', scene: b.scene }).follow(m);
-  assert.equal(b.w[b.at[SMILE]], 1, 'the smile is where the last level left it');
+  assert.equal(b.w[b.at[SMILE]], MOUTH.attention_smile, 'the smile is where the last level left it');
   assert.deepEqual(next.state(), m.state());
   assert.equal(createMouth({ id: 'x', scene: face().scene }).follow(null).snapshot().smile, 0, 'with no last level it starts at rest'); }
 // A level with the smile and no jaw bone smiles and talks with its lips still; nothing is thrown.
@@ -452,7 +453,7 @@ const run = (m, seconds, state, each) => { for (let t = 0; t < seconds; t += 1 /
   f.scene.add(teeth);
   const m = createMouth({ id: 'x', scene: f.scene });
   run(m, 3, { facing: true });
-  assert.deepEqual([f.w[f.at[SMILE]], teeth.morphTargetInfluences, m.snapshot().faces], [1, [0, 0, 0], 1], 'the teeth are not counted as a face'); }
+  assert.deepEqual([f.w[f.at[SMILE]], teeth.morphTargetInfluences, m.snapshot().faces], [MOUTH.attention_smile, [0, 0, 0], 1], 'the teeth are not counted as a face'); }
 
 // Everyone's drawn teeth, on the bodies themselves.
 { const fs = await import('node:fs/promises');

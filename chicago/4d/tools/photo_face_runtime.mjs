@@ -38,9 +38,9 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LIBRARIES = ['assets/humans/web/photo_faces/pilot', 'assets/humans/web/photo_faces/children'];
-const LIBRARY_KEYS = ['format', 'review_only', 'activation', 'tile_px', 'padding_px', 'cols', 'size_px'];
+const LIBRARY_KEYS = ['format', 'review_only', 'activation', 'tile_px', 'padding_px', 'cols', 'size_px', 'face_mask'];
 const FACE_KEYS = ['id', 'sex', 'age', 'population', 'texture_only', 'base_body', 'index', 'page', 'page_index',
-  'values', 'tone_rgb', 'body_gain', 'reference_pool', 'hair_rgb', 'eyes', 'hair_projection'];
+  'values', 'tone_rgb', 'selection_tone_rgb', 'body_gain', 'reference_pool', 'hair_rgb', 'eyes', 'hair_projection'];
 const EYE_KEYS = ['sclera_linear', 'iris_linear', 'iris_gain', 'lid_rest', 'centres_uv', 'iris_radius_m'];
 const sheet = (t) => ({ file: t.file, size_px: t.size_px, gpu_bytes_rgba8_mipmaps: t.gpu_bytes_rgba8_mipmaps });
 const pick = (o, keys) => Object.fromEntries(keys.filter((k) => k in o).map((k) => [k, o[k]]));
@@ -57,8 +57,9 @@ export function runtimeOf(review, reviewBytes) {
     const face = pick(f, FACE_KEYS);
     if (face.eyes) face.eyes = pick(face.eyes, EYE_KEYS);
     if (face.hair_projection) face.hair_projection = pick(face.hair_projection, ['u', 'v', 'hairline_v', 'fallback_gain']);
-    const tone = face.tone_rgb, out = round(face);
+    const tone = face.tone_rgb, selectionTone = face.selection_tone_rgb, out = round(face);
     out.tone_rgb = tone;
+    if (selectionTone) out.selection_tone_rgb = selectionTone;
     return out;
   });
   // One face to a line: small on the wire, and a rebuilt library diffs face by face.

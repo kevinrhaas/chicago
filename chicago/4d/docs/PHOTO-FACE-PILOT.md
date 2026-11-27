@@ -50,8 +50,7 @@ for an in-flight decode; late images are discarded, failed requests back off, an
 pages cannot be re-uploaded through old material bindings. The adult and child catalogs
 add about 12 MiB of face textures in total. Adults and children
 compete for the same single detail-page slot; they do not each retain one.
-The existing hair layer, body LODs and visible-person limits stay in use, and face patches
-add no render pass. The separate review compares the photographed-hair proposal.
+The hair module has its own shared detail and motion limits, while body LODs and visible-person limits stay in use; see [HAIR-QUALITY.md](HAIR-QUALITY.md). Face patches add no render pass. The separate review compares the photographed-hair proposal.
 The Grey full skin sheets retain their existing separate cache. The new named frontal-photo catalog shares the same single nearby page as generic adults and children. `&photoFaces=off` shows
 the former generic appearance for comparison. Older `photoFaces=pilot` links still work.
 
@@ -109,6 +108,24 @@ changed source bytes are refused until explicitly registered again. Initial impo
 provenance in `assets/LICENSES.md`, `synthetic_photo_face_pilot_2026` (the original sixteen)
 and `synthetic_photo_faces_256_2026` (240 additions). `--jobs 4` optionally parallelizes
 offline fitting/baking; the app performs neither operation at runtime.
+
+## Forehead and face-edge calibration
+
+The photo manifest's `face_mask` covers the upper forehead within the existing tile.
+The shader carries the same mask for crowd and nearby pages; malformed masks cannot
+sample outside a face's atlas box. The measured landmark hull still supplies facial
+features. Unpictured forehead and margins use a feature-free continuation of that reference's
+own skin. Eyes, brows, hair, background and another template face cannot be carried
+into that fill. Photographic features stay inside the measured landmark hull. The source photograph is retained unchanged.
+
+Skin-only lighting estimates exclude brows, lashes, nostrils and lips before reducing
+broad studio illumination. Photo skin keeps less added procedural relief, with young
+skin smoother than older skin. The full grain term follows that strength too. Fictional child references reduce dense skin pigment contrast at the atlas texel scale;
+measured eye/brow/lip feature boxes stay intact, and actual person photographs are exempt.
+Existing
+NPC selection tones are pinned as `selection_tone_rgb`; changing albedo preparation
+therefore preserves a person's assigned face. Source and fitted-head immutability,
+all-year assignment identity and the unchanged memory ceiling are verified separately.
 
 ## Budget and hardware measurement
 

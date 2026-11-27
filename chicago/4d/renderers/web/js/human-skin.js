@@ -54,7 +54,13 @@ import { teethStrip, teethOf, createMouth, drawnTeeth, drawnLook, TEETH_DRAWN } 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6, environment: 2.1 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
-export const EYES = Object.freeze({ roughness: .16, sclera_value: .78, cornea_roughness: .14, cornea_sky: 1.4, cornea_radius_m: .0078, corner_shade: .22, like_sky: 1.15, sclera_sky: 1.2, photo_cornea_roughness: .14, photo_sclera_roughness: .3, photo_sky: 2.1 });
+export const EYES = Object.freeze({ roughness: .16, sclera_value: .78, cornea_roughness: .14, cornea_sky: 1.4, cornea_radius_m: .0078, corner_shade: .22, like_sky: 1.8, sclera_sky: 1.2, photo_cornea_roughness: .14, photo_sclera_roughness: .3, photo_sky: 2.1, photo_corner_shade: .12, photo_white_min: .2, photo_white_max: .52 });
+
+/** A photographed white includes the lid's shade; bound its albedo before lighting it again. */
+export function photoSclera(rgb) {
+  const value = Math.max(EYES.photo_white_min, Math.min(EYES.photo_white_max, rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722));
+  return [value * 1.04, value, value * .96];
+}
 
 /** What a material of a portable human is, by the contract's slot names (HUMAN-ASSET-CONTRACT § 5). */
 export function surfaceFor(material) {
@@ -65,7 +71,7 @@ export function surfaceFor(material) {
   return null;
 }
 
-const KEY = { skin: 'chicago-skin-v1', hair: 'chicago-hair-v1', sclera: 'chicago-sclera-v1' };
+const KEY = { skin: 'chicago-skin-v2', hair: 'chicago-hair-v1', sclera: 'chicago-sclera-v1' };
 
 // Shared: the bind pose in metres, and a small value noise.
 const VERTEX_DECLARE = `
@@ -264,6 +270,8 @@ uniform vec4 chiLikeFrontTo;    // toward where the picture was taken from (bind
 uniform sampler2D chiFaceLib;   // the library's sheet of faces (FACE_LIBRARY), or nothing
 uniform vec4 chiFaceLibAt;      // this person's face on it: where its box's corner lies (xy), and the sheet's share for one unit of the body's map (zw)
 uniform vec4 chiFaceLibGain;    // RGB gain; w: 0 waiting, 1 stock face, 2 photograph
+uniform vec4 chiFaceLibMask;    // centre.xy, half extent.zw, in the body's UVs
+uniform vec2 chiFaceLibEdge;    // rounded corner radius, feather
 uniform vec3 chiSkinEven;       // what the body's skin is multiplied by to be the skin the person wears on every body (skinEven)
 varying vec2 vChiLikeFront;     // where this place lies on that picture
 varying float vChiSmile;        // how far the face has moved into its smile
@@ -325,9 +333,9 @@ const SKIN_COLOR = `
     float photoCoverage = 0.0;
     #ifdef USE_MAP
     if ( chiFaceLibGain.w > 0.5 ) {
-      vec2 fq = abs( vMapUv - vec2( ${glsl(FACE_LIBRARY.centre[0])}, ${glsl(FACE_LIBRARY.centre[1])} ) ) - vec2( ${glsl(FACE_LIBRARY.half[0] - FACE_LIBRARY.round)}, ${glsl(FACE_LIBRARY.half[1] - FACE_LIBRARY.round)} );
-      float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - ${glsl(FACE_LIBRARY.round)};
-      float fa = 1.0 - smoothstep( ${glsl(-FACE_LIBRARY.feather)}, 0.0, fd );
+      vec2 fq = abs( vMapUv - chiFaceLibMask.xy ) - ( chiFaceLibMask.zw - chiFaceLibEdge.x );
+      float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - chiFaceLibEdge.x;
+      float fa = 1.0 - smoothstep( -chiFaceLibEdge.y, 0.0, fd );
       vec3 fc = texture2D( chiFaceLib, chiFaceLibAt.xy + ( vMapUv - vec2( ${glsl(FACE_LIBRARY.box[0])}, ${glsl(FACE_LIBRARY.box[1])} ) ) * chiFaceLibAt.zw ).rgb;
       c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );
       photoCoverage = fa * step( 1.5, chiFaceLibGain.w );
@@ -382,7 +390,7 @@ const SKIN_COLOR = `
       // band about the mouth's line whose surface turns up are taken as in the crease's shade.
       vec3 fn = mat3( chiFace ) * cross( dFdx( p ), dFdy( p ) );
       float up = fn.y / max( length( fn ), 1e-12 );
-      chiSkinCrease = chiSkinLip * face * ( 1.0 - smoothstep( 0.12, 0.4, abs( y - chiFaceMarks.y ) ) ) * smoothstep( 0.3, 0.75, up );
+      chiSkinCrease = chiSkinLip * face * ( 1.0 - smoothstep( 0.12, 0.4, abs( y - chiFaceMarks.y ) ) ) * smoothstep( 0.3, 0.75, up ) * ( 1.0 - photoCoverage );
       // The brow's shade: a soft band beneath its hairs, the brow arching to its tail.
       float bt = clamp( ( ax - 1.3 ) / 3.3, 0.0, 1.0 );
       float bMid = 1.72 - 0.55 * bt * bt, bHalf = 0.24 * sqrt( 1.0 - 0.7 * bt * bt );
@@ -470,6 +478,7 @@ const SKIN_COLOR = `
       float teeth = step( chiLikeTeeth.x, vMapUv.x ) * step( vMapUv.x, chiLikeTeeth.z ) * step( chiLikeTeeth.y, vMapUv.y ) * step( vMapUv.y, chiLikeTeeth.w );
       c *= 1.0 - ${MOUTH_SHADE.dark} * teeth * ( 1.0 - smoothstep( 0.0, ${MOUTH_SHADE.lit_by}, vChiSmile ) );
       ageH *= 1.0 - a;
+      chiSkinCrease *= 1.0 - a; // the pictured lip already carries its own parting/shade
       // Hair in the pictures is hair: no pores, no oil, no light through it, and where it
       // stands out from the skin it is lit as the shape it stands in.
       chiLikeHair = a * mask.b;
@@ -496,7 +505,7 @@ const SKIN_COLOR = `
     #endif
     diffuseColor.rgb = c;
     // Height, metres.
-    chiSkinH = ( - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 ) * ( 1.0 - chiLikeHair ) + ageH;
+    chiSkinH = ( - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + chiSkin.x * grain * 0.00007 ) * ( 1.0 - chiLikeHair ) + ageH;
     chiSkinMatte = pore * ( 1.0 - chiLikeHair );
   }`;
 // Some places a little oilier (lower roughness); pores matte.
@@ -648,7 +657,7 @@ function patchSkin(material, rest, look = NO_LOOK) {
   material.envMapIntensity = SKIN.environment;
   const uniforms = {
     chiSkinRest: { value: rest.clone() },
-    chiSkin: { value: new THREE.Vector4(SKIN.pores, SKIN.lines, SKIN.mottle, SKIN.scatter) },
+    chiSkin: { value: new THREE.Vector4(SKIN.pores * (look.detail ?? 1), SKIN.lines * (look.detail ?? 1), SKIN.mottle * (look.detail ?? 1), SKIN.scatter) },
     chiSkinSheen: { value: new THREE.Vector3(SKIN.oil, SKIN.fuzz, SKIN.roughness) },
     chiSkinLipTone: { value: SKIN.lip_tone },
     chiFace: { value: look.face.clone() },
@@ -673,6 +682,8 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiFaceLib: { value: null },
     chiFaceLibAt: { value: new THREE.Vector4() },
     chiFaceLibGain: { value: new THREE.Vector4(1, 1, 1, 0) },
+    chiFaceLibMask: { value: new THREE.Vector4(...FACE_LIBRARY.centre, ...FACE_LIBRARY.half) },
+    chiFaceLibEdge: { value: new THREE.Vector2(FACE_LIBRARY.round, FACE_LIBRARY.feather) },
     chiSkinEven: { value: new THREE.Vector3(...look.even) },
   };
   setLikeness(uniforms, look.like);
@@ -730,7 +741,7 @@ function patchEyes(material, mesh, root) {
   if (!material.userData?.chiPhotoOwned) material.color.multiplyScalar(EYES.sclera_value);
   const uniforms = {
     chiSkinRest: { value: restMatrix(mesh, root) },
-    chiSclera: { value: new THREE.Vector4(...forwardOf(mesh, root).toArray(), EYES.corner_shade) },
+    chiSclera: { value: new THREE.Vector4(...forwardOf(mesh, root).toArray(), material.userData?.chiPhotoOwned ? EYES.photo_corner_shade : EYES.corner_shade) },
   };
   chain(material, KEY.sclera, uniforms, shader => {
     shader.vertexShader = VERTEX_DECLARE + shader.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>${VERTEX}`);
@@ -1051,8 +1062,12 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const marks = [mid[0], mid[1], 2.5, 1.8];
   // The pictures on a sheet carry the person's own brows: no shade is drawn under them.
   const ageStep = Math.round(a * 20) / 20, brow = hc && !like ? BROW.shade : 0;
-  return { age: ageStep, brow, face, marks, tint, like, lib, even: even ?? NO_LOOK.even,
-    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}${lib ? `|face:${lib.key}` : ''}${evenKey}` };
+  const years = Number.isFinite(age) ? Math.max(0, age) : 35;
+  // Photographs already carry pores and pigment. A child's smooth surface must
+  // not acquire the same added relief as an older adult, on the face or body.
+  const detail = like || root.userData?.chiPhotoFace ? Math.min(.5, .16 + years * .006) : Math.min(1, .22 + years * .012);
+  return { age: ageStep, brow, face, marks, tint, like, lib, detail, even: even ?? NO_LOOK.even,
+    key: `${ageStep}|${brow}|detail:${detail.toFixed(3)}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}${lib ? `|face:${lib.key}` : ''}${evenKey}` };
 }
 
 function setLook(uniforms, look) {
@@ -1061,6 +1076,7 @@ function setLook(uniforms, look) {
   uniforms.chiFaceMarks.value.set(...look.marks);
   uniforms.chiBrowTint.value.set(...look.tint);
   uniforms.chiSkinEven?.value.set(...(look.even ?? NO_LOOK.even));
+  uniforms.chiSkin.value.set(SKIN.pores * (look.detail ?? 1), SKIN.lines * (look.detail ?? 1), SKIN.mottle * (look.detail ?? 1), SKIN.scatter);
 }
 
 /**
@@ -1250,7 +1266,7 @@ function likenessEyes(m, mesh, root, like) {
   let twin = own.get(key);
   if (!twin) {
     twin = m.clone();
-    twin.userData = { ...twin.userData, chiLikeEyes: key };
+    twin.userData = { ...twin.userData, chiLikeEyes: key, chiPhotoOwned: true };
     patched.set(twin, patchEyes(twin, mesh, root));
     const gain = like.tint[3];
     if (/__(iris|pupil)$/.test(m.name)) {
@@ -1258,7 +1274,10 @@ function likenessEyes(m, mesh, root, like) {
       twin.map = likenessPart(like.url, like.eyes.rect);
       twin.color.setScalar(gain);
       twin.envMapIntensity = EYES.like_sky;
-    } else if (/__sclera$/.test(m.name)) twin.color.setRGB(...like.eyes.white, THREE.SRGBColorSpace).multiplyScalar(gain);
+    } else if (/__sclera$/.test(m.name)) {
+      const white = new THREE.Color().setRGB(...like.eyes.white, THREE.SRGBColorSpace).multiplyScalar(gain);
+      twin.color.setRGB(...photoSclera(white.toArray()), THREE.LinearSRGBColorSpace);
+    }
     twin.needsUpdate = true;
     own.set(key, twin);
   }
@@ -1281,11 +1300,17 @@ export function libraryFaceLayout(face) {
   const x = (n % cols) * t, y = Math.floor(n / cols) * t;
   if (x + t > W || y + t > H) return null;
   const [u0, v0, u1, v1] = FACE_LIBRARY.box;
+  const mask = face.mask ?? FACE_LIBRARY;
+  if (![mask.centre, mask.half].every(v => Array.isArray(v) && v.length === 2 && v.every(Number.isFinite))
+    || !(mask.round > 0 && mask.feather > 0 && mask.round < Math.min(...mask.half) && mask.feather < Math.min(...mask.half))
+    || mask.centre[0] - mask.half[0] < u0 - 1e-9 || mask.centre[0] + mask.half[0] > u1 + 1e-9
+    || mask.centre[1] - mask.half[1] < v0 - 1e-9 || mask.centre[1] + mask.half[1] > v1 + 1e-9) return null;
+  const maskKey = [...mask.centre, ...mask.half, mask.round, mask.feather].join(',');
   const lines = Number.isFinite(face.lines) ? Math.min(1, Math.max(0, face.lines)) : 1;
-  const detail = face.detail ? libraryFaceLayout({ ...face.detail, gain: g, lines }) : null;
-  return { url: face.url, at: [(x + pad) / W, (y + pad) / H, (t - 2 * pad) / W / (u1 - u0), (t - 2 * pad) / H / (v1 - v0)], gain: g.slice(), lines,
+  const detail = face.detail ? libraryFaceLayout({ ...face.detail, gain: g, lines, mask }) : null;
+  return { url: face.url, at: [(x + pad) / W, (y + pad) / H, (t - 2 * pad) / W / (u1 - u0), (t - 2 * pad) / H / (v1 - v0)], gain: g.slice(), lines, mask,
     ...(detail ? { detail: { ...detail, bytes: face.detail.bytes } } : {}),
-    key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}${pad ? `:pad${pad}` : ''}` };   // the sheet too: the same place on another sheet is another face
+    key: `${face.url}#${n}:${g.map(x => x.toFixed(3))}:${lines}:mask${maskKey}${pad ? `:pad${pad}` : ''}` };   // the sheet too: the same place on another sheet is another face
 }
 
 function setLibraryFace(uniforms, lib) {
@@ -1293,6 +1318,9 @@ function setLibraryFace(uniforms, lib) {
   gain.set(...(lib?.gain ?? [1, 1, 1]), 0);
   uniforms.chiFaceLibAt.value.set(...(lib?.at ?? [0, 0, 0, 0]));
   uniforms.chiFaceLib.value = null;
+  const mask = lib?.mask ?? FACE_LIBRARY;
+  uniforms.chiFaceLibMask.value.set(...mask.centre, ...mask.half);
+  uniforms.chiFaceLibEdge.value.set(mask.round, mask.feather);
   if (!lib) return;
   // With no page (a unit test) there is no sheet: the uniforms alone, as if it were here.
   if (typeof document === 'undefined') { gain.w = 1; return; }

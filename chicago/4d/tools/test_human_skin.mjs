@@ -17,7 +17,8 @@ const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', h
 // file with 'three' resolved to the vendored copy, not from a data: URL.
 registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, DRAWN_TEETH, FRONT_VIEW, HAIR_UNDER, frontPicture, FACE_LIBRARY, libraryFaceLayout, SHEET_FETCH } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { MOUTH } = await import(new URL('renderers/web/js/human-mouth.js', here));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, photoSclera, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, DRAWN_TEETH, FRONT_VIEW, HAIR_UNDER, frontPicture, FACE_LIBRARY, libraryFaceLayout, SHEET_FETCH } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -51,6 +52,11 @@ assert.equal(sclera.customProgramCacheKey(), '|chicago-sclera-v1', 'the white is
 assert(Math.abs(sclera.color.r - before * EYES.sclera_value) < 1e-9, 'the sclera is toned once');
 assert.equal(sclera.envMapIntensity, EYES.sclera_sky, 'off-white sclera receives the existing environment fill');
 assert(EYES.corner_shade > 0 && EYES.corner_shade < .3, 'corner occlusion remains soft rather than a dark eye rim');
+for (const source of [[.04,.025,.02], [.25,.24,.23], [.95,.95,.95]]) {
+  const albedo = photoSclera(source), brightness = albedo.reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+  assert(brightness >= .19 && brightness <= .54 && albedo[0]/albedo[2] < 1.1, 'photographed whites remain muted and neutral across source exposure');
+}
+assert(EYES.photo_corner_shade < EYES.corner_shade, 'source eye shadows do not acquire another strong corner rim');
 
 // The bind pose in metres: a quantised export folds its scale into the inverse bind matrices.
 {
@@ -102,7 +108,7 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLib', 'chiFaceLibAt', 'chiFaceLibGain', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLib', 'chiFaceLibAt', 'chiFaceLibEdge', 'chiFaceLibGain', 'chiFaceLibMask', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
   'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask', 'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinEven', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
@@ -115,13 +121,13 @@ for (const marker of ['vec3 tex = c / max( diffuse, vec3( 1e-3 ) );', 'chiSkinLi
 assert(s.fragmentShader.indexOf('chiSkinLip = smoothstep(') < s.fragmentShader.indexOf('chiSkinCrease = chiSkinLip'), 'the lip is found before its parting is shaded');
 // T-3493: a face's look is uniforms; a body with no face frame draws no age and no brow shade.
 assert.deepEqual(s.uniforms.chiFaceLook.value.toArray(), [0, 0, 0, 0]);
-for (const marker of ['float ageH = 0.0;', 'c = mix( c, c * chiBrowTint,', 'chiSkinH = ( - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 ) * ( 1.0 - chiLikeHair ) + ageH;'])
+for (const marker of ['float ageH = 0.0;', 'c = mix( c, c * chiBrowTint,', 'chiSkinH = ( - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + chiSkin.x * grain * 0.00007 ) * ( 1.0 - chiLikeHair ) + ageH;'])
   assert.equal(s.fragmentShader.split(marker).length, 2, `face look spliced once: ${marker}`);
 assert.equal(restingLid(null), 0);
 assert.equal(restingLid(AGE.lid_from), 0, 'no resting lid before its age');
 assert(Math.abs(restingLid(AGE.lid_full) - AGE.lid_most) < 1e-9 && restingLid(99) === AGE.lid_most, 'full by its age, no further');
 assert.deepEqual(s.uniforms.chiSkin.value.toArray(), [SKIN.pores, SKIN.lines, SKIN.mottle, SKIN.scatter]);
-assert.equal(skin.customProgramCacheKey(), 'chicago4d-confidence|chicago-skin-v1', 'the key names the chain');
+assert.equal(skin.customProgramCacheKey(), 'chicago4d-confidence|chicago-skin-v2', 'the key names the chain');
 assert.equal(skin.map ?? null, null, 'no texture added');
 
 const hair = dressOne('hair__makehuman_short04');
@@ -152,10 +158,12 @@ const faceMask = (u, v) => {
   assert.equal(s.uniforms.chiFaceLib.value, null, 'a plain skin reads no sheet of faces');
   assert.deepEqual(s.uniforms.chiFaceLibGain.value.toArray(), [1, 1, 1, 0], 'and wears none');
   assert.deepEqual(s.uniforms.chiFaceLibAt.value.toArray(), [0, 0, 0, 0]);
+  assert.deepEqual(s.uniforms.chiFaceLibMask.value.toArray(), [...L.centre, ...L.half]);
+  assert.deepEqual(s.uniforms.chiFaceLibEdge.value.toArray(), [L.round, L.feather]);
   for (const marker of ['if ( chiFaceLibGain.w > 0.5 ) {',
-    `vec2 fq = abs( vMapUv - vec2( ${fl(L.centre[0])}, ${fl(L.centre[1])} ) ) - vec2( ${fl(L.half[0] - L.round)}, ${fl(L.half[1] - L.round)} );`,
-    `float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - ${fl(L.round)};`,
-    `float fa = 1.0 - smoothstep( ${fl(-L.feather)}, 0.0, fd );`,
+    'vec2 fq = abs( vMapUv - chiFaceLibMask.xy ) - ( chiFaceLibMask.zw - chiFaceLibEdge.x );',
+    'float fd = length( max( fq, 0.0 ) ) + min( max( fq.x, fq.y ), 0.0 ) - chiFaceLibEdge.x;',
+    'float fa = 1.0 - smoothstep( -chiFaceLibEdge.y, 0.0, fd );',
     `vec3 fc = texture2D( chiFaceLib, chiFaceLibAt.xy + ( vMapUv - vec2( ${fl(L.box[0])}, ${fl(L.box[1])} ) ) * chiFaceLibAt.zw ).rgb;`,
     'c = mix( c, fc * chiFaceLibGain.rgb * diffuse, fa );'])
     assert.equal(s.fragmentShader.split(marker).length, 2, `the library's face, once: ${marker}`);
@@ -177,6 +185,15 @@ const faceMask = (u, v) => {
   // What human-variation.js leaves on a figure, as the shader's uniforms.
   const face = { url: 'http://example.invalid/faces.jpg', index: 7, cols: 5, size_px: [1280, 1280], tile_px: 256, gain: [1.25, 1.3, 1.4], lines: 0.6 };
   const lay = libraryFaceLayout(face);
+  const photographic = { centre: [.859375,.515625], half: [.125,.125], round: .07, feather: .035 };
+  const photoLayout = libraryFaceLayout({ ...face, mask: photographic, detail: face });
+  assert.deepEqual(photoLayout.mask, photographic);
+  assert.deepEqual(photoLayout.detail.mask, photographic, 'crowd and nearby pages cover the same forehead');
+  assert(photographic.centre[0] - photographic.half[0] + photographic.feather < .78 && L.centre[0] - L.half[0] > .78,
+    'the upper forehead wears the photo whole, beyond the former replacement boundary');
+  assert.notEqual(photoLayout.key, lay.key, 'the photo boundary is part of material identity');
+  for (const mask of [{ ...photographic, centre: [.7,.5] }, { ...photographic, half: [NaN,.1] }, { ...photographic, feather: -1 }])
+    assert.equal(libraryFaceLayout({ ...face, mask }), null, 'a malformed boundary cannot sample another atlas tile');
   assert.deepEqual(lay.at.map(x => +x.toFixed(9)), [2 * 256 / 1280, 1 * 256 / 1280, +(256 / 1280 / (u1 - u0)).toFixed(9), +(256 / 1280 / (v1 - v0)).toFixed(9)], 'the eighth face is the third of the second row');
   // The box's corner reads the tile's corner, the box's far corner the tile's far corner.
   assert(Math.abs(lay.at[0] + (u1 - u0) * lay.at[2] - 3 * 256 / 1280) < 1e-12 && Math.abs(lay.at[1] + (v1 - v0) * lay.at[3] - 2 * 256 / 1280) < 1e-12);
@@ -419,7 +436,7 @@ const faceMask = (u, v) => {
       dressSkin(root, { person: 'stand_in' });
       assert.equal(root.userData.chiMouth, first, 'the same one at every rebuild');
       for (let k = 0; k < 90; k++) mouth.apply(1 / 30, { facing: true });
-      assert.equal(mesh.morphTargetInfluences[2], 1, 'and it plays the smile');
+      assert.equal(mesh.morphTargetInfluences[2], MOUTH.attention_smile, 'attention plays the small resting smile');
     }
     assert.equal(wear(head(), 'stand_in_body_0_lod0', toothed, false).root.userData.chiMouth, undefined, 'a level with no face that moves and no jaw has no mouth to play');
     const plainHead = head(), plain = wear(plainHead, 'stand_in_body_0_lod3', sheet, false);
@@ -504,10 +521,10 @@ const faceMask = (u, v) => {
       assert.equal(own[k].name, `eyes__${k}`);
     }
     const lin = c => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
-    for (const [k, c] of [['r', 0.42], ['g', 0.36], ['b', 0.34]]) assert(Math.abs(own.sclera.color[k] - lin(c) * 1.1) < 1e-6, 'the whites are the picture\'s colour, in the sheet\'s tone');
+    assert.deepEqual(own.sclera.color.toArray(), photoSclera([.42,.36,.34].map(c => lin(c) * 1.1)), 'source-shaded whites become a bounded warm-neutral albedo before relighting');
     assert.equal(own.sclera.customProgramCacheKey(), '|chicago-sclera-v1', 'shaded toward their corners as any');
     assert.equal(own.iris.envMapIntensity, EYES.like_sky, 'the cornea mirrors less sky over a picture');
-    assert(EYES.like_sky < EYES.cornea_sky);
+    assert(EYES.like_sky > EYES.cornea_sky && EYES.like_sky <= EYES.photo_sky, 'photo irises retain a restrained sky reflection');
     assert(Math.abs(own.iris.color.r - 1.1) < 1e-9 && own.pupil.color.r === own.iris.color.r, 'the picture is the colour');
     assert.equal(own.iris.map ?? null, null, 'with no page there is no picture to read');
     assert.equal(sharedEyes.iris.envMapIntensity, EYES.cornea_sky);
@@ -636,6 +653,18 @@ const faceMask = (u, v) => {
     const all = () => { const out = []; root.traverse(o => { if (o.isMesh) out.push(o); }); return out; };
     const before = all(), skin = before.find(o => o.isSkinnedMesh && surfaceFor(o.material) === 'skin'), body = skin.geometry;
     const dressed = dressSkin(root, { age: 40, person: 'someone' });
+    root.userData.chiPhotoFace = { id: 'age-detail-regression' };
+    dressSkin(root, { age: 8, person: 'someone' });
+    const childRelief = compile(skin.material).uniforms.chiSkin.value.toArray();
+    const childProgram = skin.material.customProgramCacheKey();
+    dressSkin(root, { age: 75, person: 'someone' });
+    const olderRelief = compile(skin.material).uniforms.chiSkin.value.toArray();
+    assert(childRelief[0] < .25 && olderRelief[0] <= .5 && olderRelief[0] > childRelief[0] * 2,
+      `${what}: photographed young skin keeps substantially less added relief than an older face`);
+    assert.equal(skin.material.customProgramCacheKey(), childProgram, 'age changes uniforms, keeping one skin shader');
+    assert.equal(skin.geometry, body, 'softer skin adds no vertices or child-head deformation');
+    delete root.userData.chiPhotoFace;
+    dressSkin(root, { age: 40, person: 'someone' });
     const teeth = all().filter(o => o.userData.chiTeeth === true);
     assert.equal(teeth.length, 1, `${what}: one mesh of teeth`);
     const t = teeth[0];

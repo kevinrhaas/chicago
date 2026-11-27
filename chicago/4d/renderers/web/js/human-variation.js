@@ -153,7 +153,7 @@ export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, com
   const body = kit.header.faces?.person_tone_rgb?.[sex] ?? [.6, .3, .15];
   const target = body.reduce((sum, v, i) => sum + v * tint[i] * [0.2126, 0.7152, 0.0722][i], 0);
   const weighted = candidates.map(f => {
-    const tone = f.tone_rgb.reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
+    const tone = (f.selection_tone_rgb ?? f.tone_rgb).reduce((sum,v,i)=>sum+v*[0.2126,0.7152,0.0722][i],0);
     return [f, Math.exp(-.5*((f.age-age)/(child?3:12))**2) * Math.exp(-.5*(Math.log2(tone/target)/.8)**2)];
   });
   let at = seededRandom(`photo-face-pilot:${key}`)() * weighted.reduce((sum,[,w])=>sum+w,0);
@@ -407,6 +407,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   const photoLib = photo && photoBody ? {
     url: photoRegistry.url, index: photo.index, id: photo.id, cols: photoRegistry.cols,
     size_px: photoRegistry.size_px, tile_px: photoRegistry.tile_px, padding_px: photoRegistry.padding_px,
+    ...(photoRegistry.face_mask ? { mask: photoRegistry.face_mask } : {}),
     gain: colourPhoto?[1,1,1]:photo.body_gain&&referenceBody
       ?photo.body_gain.map((v,i)=>photoBody.gain[i]/referenceBody.gain[i]/v)
       :photoBody.tone_rgb.map((v,i)=>v / Math.max(.001,photo.tone_rgb[i])),

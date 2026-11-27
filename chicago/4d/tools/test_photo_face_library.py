@@ -14,6 +14,55 @@ import photo_reference_fit as R
 
 
 class ImportBoundaries(unittest.TestCase):
+    def test_fictional_child_pigment_softens_without_repainting_features(self):
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks'])
+        for tone in ([.5,.3,.2],[.13,.07,.04]):
+            rgb=np.broadcast_to(tone,(313,313,3)).copy()
+            x,y=np.int64(points[50]);rgb[y-1:y+2,x-1:x+2]=np.array(tone)*.3
+            features=[]
+            for i in [0,70,107,133,300,336,362]:
+                a,b=np.int64(points[i]);rgb[b-1:b+2,a-1:a+2]=np.array(tone)*.1;features.append((a,b))
+            photo=Image.fromarray(P.L.srgb8(rgb));before=np.asarray(photo).copy()
+            result,strength=P.soften_fictional_child_skin(photo,points,8);after=P.L.linear(np.asarray(result))
+            self.assertEqual(strength,.7)
+            self.assertGreater(after[y,x,0],tone[0]*.65,'dense pigment remains subtle rather than reading as dirt')
+            for a,b in features:
+                np.testing.assert_array_equal(np.asarray(result)[b-1:b+2,a-1:a+2],before[b-1:b+2,a-1:a+2])
+            np.testing.assert_array_equal(np.asarray(photo),before)
+
+    def test_unpictured_skin_cannot_carry_eyes_hair_or_background(self):
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks']);tone=np.array([.5,.3,.2])
+        rgb=np.broadcast_to(tone,(313,313,3)).copy()
+        distance,_,_,_,_,_=P.skin_support(rgb,points)
+        rgb[distance==0]=.95  # bright source background, not forehead skin
+        for i in [70,300,0]:
+            x,y=np.int64(points[i]);rgb[y-1:y+2,x-2:x+3]=.003  # brows/lips
+        before=rgb.copy();field=P.reference_skin_field(rgb,points)
+        np.testing.assert_allclose(field,np.broadcast_to(tone,field.shape),atol=1e-6)
+        np.testing.assert_array_equal(rgb,before,'continuation never edits the source')
+
+    def test_face_edge_hair_is_not_stretched_over_the_cheek(self):
+        # Use the real UV portrait's landmarks, but known flat skin and a dark
+        # edge curl. Check both relative contrasts, without choosing a skin hue.
+        entry=next(e for e in json.loads(P.PILOT.read_text())['faces'] if e['id']=='ref_european_01_10')
+        points=np.asarray(entry['landmarks']);size=(313,313)
+        for tone in ([.5,.3,.2],[.13,.07,.04]):
+            rgb=np.broadcast_to(tone,(*size,3)).copy()
+            distance,_,eye,margin,_,_=P.skin_support(rgb,points)
+            yy,xx=np.indices(size)
+            curl=(distance>0)&(distance<margin*.9)&(yy>points[33,1])&(yy<points[61,1])
+            rgb[curl]=np.array(tone)*.05
+            # Actual features safely inside the outline are retained.
+            x,y=np.int64(points[0]);rgb[y-1:y+2,x-2:x+3]=np.array(tone)*.3
+            photo=Image.fromarray(P.L.srgb8(rgb));before=np.asarray(photo).copy()
+            after=np.asarray(P.photo_skin_edges(photo,points))
+            self.assertTrue(curl.any())
+            self.assertGreater(P.L.linear(after[curl]).mean(),np.mean(tone)*.8,'edge hair becomes the same reference skin')
+            np.testing.assert_array_equal(after[y-1:y+2,x-2:x+3],before[y-1:y+2,x-2:x+3])
+            np.testing.assert_array_equal(np.asarray(photo),before,'the source photograph is immutable')
+
     def test_photo_forehead_does_not_paint_bangs_on_the_skin(self):
         # Same relative hair/skin contrast on light and dark skin. The cleanup
         # takes its replacement from the person's own skin, not a fixed colour.

@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { HairBudget } from '../renderers/web/js/human-hair-dynamics.js';
 const THREE = await import(process.env.C4D_THREE_MODULE
   ? pathToFileURL(process.env.C4D_THREE_MODULE).href
   : new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href);
@@ -12,16 +13,18 @@ const end = source.indexOf('\n/**\n * THE SCENE PATH.', start);
 assert.ok(start >= 0 && end > start);
 let updates = 0, disposals = 0;
 class Actor {
-  constructor({ instance, identity, person }) {
+  constructor({ instance, identity, person, hairBudget = null }) {
     Object.assign(this, { instance, identity, person, id: instance.id, personId: instance.person_id,
       root: new THREE.Group(), body: {}, disposed: false, tier: 'full' });
+    this.hairBudget = hairBudget;
+    hairBudget?.register(this);
   }
   update() { updates++; this.root.visible = true; }
-  dispose() { this.disposed = true; disposals++; this.root.removeFromParent(); }
+  dispose() { this.disposed = true; this.hairBudget?.unregister(this); disposals++; this.root.removeFromParent(); }
 }
-const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS',
+const createLayer = new Function('THREE', 'HumanActor', 'createHumanAssets', 'humanRoleCard', 'HUMAN_TIERS', 'HairBudget',
   source.slice(start, end).replace('export function', 'function') + '\nreturn createHumanLayer;')(
-  THREE, Actor, () => ({}), () => null, { full: [0], balanced: [1], light: [3] });
+  THREE, Actor, () => ({}), () => null, { full: [0], balanced: [1], light: [3] }, HairBudget);
 const layer = createLayer({ assets: {} });
 const instance = { id: 'hi_rc_bardwell_otis_1835', person_id: 'rc_bardwell_otis',
   interaction: { selectable: true, opens: 'resident_card' } };
