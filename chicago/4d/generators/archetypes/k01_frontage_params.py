@@ -2929,7 +2929,7 @@ def _brick_belts(front: dict) -> tuple:
     return tuple(out)
 
 
-BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
+BAY_FABRICS = ("stone", "brick", "front_stone", "frame", "copper")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay; T-3781: copper, an oriel sheathed in sheet copper (217 E. Twentieth's, its photographs)
 #: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
 PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
