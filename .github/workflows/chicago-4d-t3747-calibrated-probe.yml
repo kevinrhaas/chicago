@@ -1,8 +1,8 @@
 name: Better Trees — calibrated desktop diagnostic
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
-# The exact complete uncommitted current-Dev feature is a frozen patch/manifest.
-# All28source hashes and full candidate tree must match before stock timing.
+# Counterfactual: UNMODIFIED Dev2d7, no Better Trees patch.
+# This reading cannot qualify the feature candidate; retain previous failures.
 # Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
 on:
   pull_request:
@@ -79,38 +79,20 @@ jobs:
           PYTHON
 
 
-      - name: Apply and verify the frozen complete current-source candidate
+      - name: Verify the unmodified Dev baseline source
         env:
           DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha }}
         run: |
           python3 - <<'PYTHON'
-          import hashlib,json,os,re,subprocess
+          import hashlib,json,os,subprocess
           from pathlib import Path
-          head=os.environ['DIAGNOSTIC_HEAD']
-          assert re.fullmatch('[0-9a-f]{40}',head)
-          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          def show(p):return subprocess.check_output(['git','show',head+':'+p])
-          raw=show('.github/diagnostics/t3747-physical-source.json')
-          assert hashlib.sha256(raw).hexdigest()=='e5259693375dcbdaf8801791c5e0f889c2671baf92ccc31bfe5047b71aebdee4'
-          m=json.loads(raw);patch=show('.github/diagnostics/t3747-physical-source.patch')
-          assert hashlib.sha256(patch).hexdigest()==m['patch_sha256']
-          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['base_dev']
-          subprocess.run(['git','sparse-checkout','add','chicago/4d/docs/measurements'],check=True)
+          source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert source=='2d7eea18c028f527981fb633d1ab9dbfbb96460d'
           assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()
-          p=Path('/tmp/vegetation-physical-current.patch');p.write_bytes(patch)
-          subprocess.run(['git','apply','--index','--check',str(p)],check=True)
-          subprocess.run(['git','apply','--index',str(p)],check=True)
-          tree=subprocess.check_output(['git','write-tree'],text=True).strip()
-          assert tree==m['candidate_tree']
-          assert subprocess.check_output(['git','rev-parse',tree+':chicago/4d'],text=True).strip()==m['candidate_app_tree']
-          assert set(subprocess.check_output(['git','diff','--cached','--name-only','HEAD'],text=True).splitlines())==set(m['source_sha256'])
-          assert not subprocess.check_output(['git','diff','--name-only']).strip()
-          for name,h in m['source_sha256'].items():assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==h,name
-          for p,k in [('chicago/4d/tools/measure_still_frame.mjs','timing_helper_sha256'),('chicago/4d/tools/still_frame_ceilings.json','ceilings_sha256')]:assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==m[k]
-          Path('/tmp/vegetation-physical-current-manifest.json').write_bytes(raw)
-          reading={**m,'workflowHead':head,'candidateSourceIsWorkingTreePatch':True,'all28TrackedSourcePathsVerified':True,'noAuthoredAppCommit':True,'measurementRasterGeometryPopulationLimitsUnchanged':True}
+          for p,h in [('tools/measure_still_frame.mjs','539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25'),('tools/still_frame_ceilings.json','d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e')]:assert hashlib.sha256(Path('chicago/4d',p).read_bytes()).hexdigest()==h,p
+          reading={'sourceHead':source,'appTree':subprocess.check_output(['git','rev-parse','HEAD:chicago/4d'],text=True).strip(),'workflowHead':os.environ['DIAGNOSTIC_HEAD'],'sourceIsUnmodifiedDevBaseline':True,'candidateSourceIsWorkingTreePatch':False,'allTrackedFilesUnchanged':True,'timing_helper_sha256':'539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25','ceilings_sha256':'d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e','qualifiesFeatureCandidate':False}
           Path('chicago/4d/calibrated-source.json').write_text(json.dumps(reading,indent=2)+'\n')
-          print(json.dumps({k:v for k,v in reading.items() if k!='source_sha256'}))
+          print(json.dumps(reading))
           PYTHON
 
       # Globally, as the smoke does: the tool falls back to `npm root -g`.
@@ -132,10 +114,13 @@ jobs:
         working-directory: chicago/4d
         run: |
           python3 - <<'PYTHON'
-          import hashlib,json
+          import hashlib,json,subprocess
           from pathlib import Path
-          m=json.loads(Path('/tmp/vegetation-physical-current-manifest.json').read_text())
-          for name,h in m['source_sha256'].items():assert hashlib.sha256(Path('../..',name).read_bytes()).hexdigest()==h,name
+          m=json.loads(Path('calibrated-source.json').read_text())
+          assert m['sourceIsUnmodifiedDevBaseline'] and not m['qualifiesFeatureCandidate']
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['sourceHead']
+          assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()
+          for p,k in [('tools/measure_still_frame.mjs','timing_helper_sha256'),('tools/still_frame_ceilings.json','ceilings_sha256')]:assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==m[k],p
           PYTHON
           node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
 
