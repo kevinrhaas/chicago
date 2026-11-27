@@ -1,0 +1,84 @@
+{
+  "role": "complete-uncommitted-feature",
+  "qualifies_feature_candidate": true,
+  "base_dev": "67761214056dd916555d11cedf8c1a04c971b447",
+  "candidate_tree": "1552975ee6c9890da45bac239b9bd0133b0ad2ec",
+  "candidate_app_tree": "4647f005d2a1af139a761640dbcbf926f6e09b28",
+  "patch_sha256": "c04766ee1b21413940d0c7a74c8a4a0f8ba53452bdcbc354df627b60c3527cc1",
+  "source_sha256": {
+    "chicago/4d/changelog.d/T-3747.json": "bf7dce8c5a3f813d4505456af4e2f91857cbf38e2aebaec3caed9d8499d7b25a",
+    "chicago/4d/data/liberties.json": "3389b3aa9f6ab91c126194584e70876be801dd9e48454c4520b9ae4574e1638c",
+    "chicago/4d/docs/LIBERTIES.md": "a48c1fe3c4e9deb4db975e133504c7624e20c546bc5e538795e76e26da163792",
+    "chicago/4d/docs/ROADMAP.md": "bed2ef3afaf5e605c87bd9cd18aa4bd19e56d622cf07a430bf0278133b552ce2",
+    "chicago/4d/docs/STATUS.md": "69d5698be2c5234930a55d3bb79f2316bb47d389b0f826762f521687ac25766e",
+    "chicago/4d/docs/measurements/source_use_coverage.md": "50045ef72e838b25ed8da685c57523e502ecff022d0042fee28677f671a05c66",
+    "chicago/4d/renderers/web/js/driven-assembly-loader.js": "4ffb7eed6a20f0dadd88b522631cee75a148b85b1faa4fe8b193a01d9dca0d5b",
+    "chicago/4d/renderers/web/js/human-drape.js": "9d6adac11d713608246e1f74172313f844cad21d5706ad5c51509ee26cc29ae8",
+    "chicago/4d/renderers/web/js/human-layover.js": "b427eba1a116ca6f82248ceab1de72dc435428b8fc23e2ea0b43f30db74ee805",
+    "chicago/4d/renderers/web/js/humans.js": "fa6c50fd571c179417aa21980a5174963a96b5ae3d67f9c79a7330313457a017",
+    "chicago/4d/renderers/web/js/leaf-light.js": "76152d3f9919c0195f7059971353426022582747189e32674b59665efb8cb594",
+    "chicago/4d/renderers/web/js/tree-instances.js": "b0b39325fb5ccf1e65af9388a9a7bf52df9c43876642d97767f174484f069778",
+    "chicago/4d/renderers/web/js/tree-model.js": "60d22ce6a3c1df28fd11132277263eb0a2e956fbe92108bb10fc2845f4f90a09",
+    "chicago/4d/renderers/web/js/tree-surface.js": "3d6717f3a805ac3302f550e9f4e937c9d88608fdb557249e3e195cc37f562b5a",
+    "chicago/4d/renderers/web/js/trees.js": "16758b008ac6a5bca8c244988d7ee355bd955d4a92b52e17cd7391ef09d21d65",
+    "chicago/4d/tools/check.sh": "3ce307d5d8bb194f422418d6fcb99784f47bebe33b0cb01145448c03092ca4c7",
+    "chicago/4d/tools/check_upload_release.mjs": "89c3736b11214cc091b1e787238c5a2323c87dbc34cd1a1ff6cf90a8ada7b694",
+    "chicago/4d/tools/dev-smoke-state.json": "312e533c86d7fc6bb10b762a096c7cf4dd7450590266aa8bb3e8ba7d0e150ead",
+    "chicago/4d/tools/measure_walk_frames.mjs": "640f5b512fbe9ed3b245381a6e6b9072aeae230147787e62fda8c3b140d310ab",
+    "chicago/4d/tools/qa_tree_gallery_t3747.mjs": "fb70126936fed2475e7cc85ae6cb120e299794876083d240c6429ae75a3581b8",
+    "chicago/4d/tools/qa_vegetation_t3747.mjs": "02ed849edadc563a9cf3b1776fd2e2f576ae74cc8652adec18e730809dddeda9",
+    "chicago/4d/tools/smoke_budget.mjs": "685306d37c2d748350bfa085a8ee3a72d527a76f34ab457548d0aabc5db7d98e",
+    "chicago/4d/tools/smoke_renderer.mjs": "940fdb636a889b3cb5b336c370e5ae5aa8ee9626468a1774e93e33372635ac5b",
+    "chicago/4d/tools/step_isolation.json": "3ca0850971215a44d8288ff29df3cb6aef187cc2fef1a39ecbd89a195d108b65",
+    "chicago/4d/tools/test_driven_assembly.mjs": "73669951f740ad1799a2d04001ee53d203e23b7ad25e7057c3ce3708b915dbb3",
+    "chicago/4d/tools/test_human_preparation_memory.mjs": "1681fbd4e0dbadd2d8f3a91fe612fe8245dba3f3336f0a0019fa59650c318272",
+    "chicago/4d/tools/test_leaf_lighting_browser.mjs": "0ed92169bcc84e60d593f449ca5567c65f2c4bf4208bcd705ba0e91664fe6c61",
+    "chicago/4d/tools/test_tree_rebuilds.mjs": "af1d0e5271743dd677b7b4eff2b50a5fdff8cc3c14db02d47c822bf8f45209e6"
+  },
+  "native_matrix": [
+    {
+      "part": "1/8",
+      "serial": false
+    },
+    {
+      "part": "2/8",
+      "serial": false
+    },
+    {
+      "part": "3/8",
+      "serial": false
+    },
+    {
+      "part": "4/8",
+      "serial": false
+    },
+    {
+      "part": "5/8",
+      "serial": false
+    },
+    {
+      "part": "6/8",
+      "serial": false
+    },
+    {
+      "part": "7/16",
+      "serial": true
+    },
+    {
+      "part": "15/16",
+      "serial": false
+    },
+    {
+      "part": "8/8",
+      "serial": false
+    }
+  ],
+  "drape_ordinal": 311,
+  "ticket_ids": [
+    "T-3747"
+  ],
+  "timing_helper_sha256": "539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25",
+  "ceilings_sha256": "d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e",
+  "apply_helper_sha256": "0a4800db5e5d3fa292f8ea6518d7ead8a368551fe321c8c74044cff0000cd26c",
+  "source_note": "Original focused feature on inspected currentDev; failed shared/leaf guards removed. No experimental sort/fused/fixed-dielectric code adopted. Fresh exact-source measurement and fullNative; retained failures/partialgates never reused."
+}

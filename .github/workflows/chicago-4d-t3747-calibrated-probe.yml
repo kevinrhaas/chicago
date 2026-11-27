@@ -1,8 +1,8 @@
-name: Better Trees — calibrated desktop diagnostic
+name: Better Trees — exact working-source validation
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
-# Counterfactual: UNMODIFIED Dev2d7, no Better Trees patch.
-# This reading cannot qualify the feature candidate; retain previous failures.
+# Exact full working source before app authorship.
+# Stock calibration and the complete native partition run independently; retain failures.
 # Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
 on:
   pull_request:
@@ -14,7 +14,41 @@ permissions:
   contents: read
 
 jobs:
+  source-plan:
+    runs-on: ubuntu-22.04
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          filter: blob:none
+          sparse-checkout: .github/diagnostics
+      - name: Verify the source manifest and every native partition residue
+        id: plan
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib,json,os
+          from pathlib import Path
+          raw=Path('.github/diagnostics/t3747-original-current-source.json').read_bytes()
+          assert hashlib.sha256(raw).hexdigest()=='a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971'
+          m=json.loads(raw);assert m['role']=='complete-uncommitted-feature' and m['qualifies_feature_candidate']
+          assert len(m['source_sha256'])==28 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
+          plan=m['native_matrix']
+          for r in range(32):
+            assert sum(r%int(x['part'].split('/')[1])==int(x['part'].split('/')[0])-1 for x in plan)==1
+          serial=[x for x in plan if x['serial']];assert len(serial)==1
+          k,n=map(int,serial[0]['part'].split('/'));assert (m['drape_ordinal']-1)%n==k-1
+          matrix={'include':[{**x,'key':x['part'].replace('/','of')} for x in plan]}
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('matrix='+json.dumps(matrix)+'\n')
+          print(json.dumps({'sourceBase':m['base_dev'],'candidateTree':m['candidate_tree'],'sourcePaths':len(m['source_sha256']),'matrix':matrix,'coverage':'all32 exactly once','noAppCommitAuthored':True}))
+          PYTHON
+
   calibrated-desktop:
+    needs: source-plan
+    env:
+      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      SOURCE_a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
     # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
     # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
     runs-on: ubuntu-22.04
@@ -26,7 +60,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 2d7eea18c028f527981fb633d1ab9dbfbb96460d
+          ref: 67761214056dd916555d11cedf8c1a04c971b447
           filter: blob:none
           sparse-checkout: |
             .github
@@ -38,7 +72,7 @@ jobs:
 
       - name: Require a real calibrated desktop CPU before measuring
         env:
-          SOURCE_HEAD: 2d7eea18c028f527981fb633d1ab9dbfbb96460d
+          SOURCE_HEAD: 67761214056dd916555d11cedf8c1a04c971b447
         run: |
           node <<'NODE'
           const fs = require('node:fs');
@@ -79,20 +113,17 @@ jobs:
           PYTHON
 
 
-      - name: Verify the unmodified Dev baseline source
-        env:
-          DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha }}
+      - name: Apply and verify the frozen complete working source
         run: |
           python3 - <<'PYTHON'
-          import hashlib,json,os,subprocess
+          import hashlib,os,re,subprocess
           from pathlib import Path
-          source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
-          assert source=='2d7eea18c028f527981fb633d1ab9dbfbb96460d'
-          assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()
-          for p,h in [('tools/measure_still_frame.mjs','539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25'),('tools/still_frame_ceilings.json','d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e')]:assert hashlib.sha256(Path('chicago/4d',p).read_bytes()).hexdigest()==h,p
-          reading={'sourceHead':source,'appTree':subprocess.check_output(['git','rev-parse','HEAD:chicago/4d'],text=True).strip(),'workflowHead':os.environ['DIAGNOSTIC_HEAD'],'sourceIsUnmodifiedDevBaseline':True,'candidateSourceIsWorkingTreePatch':False,'allTrackedFilesUnchanged':True,'timing_helper_sha256':'539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25','ceilings_sha256':'d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e','qualifiesFeatureCandidate':False}
-          Path('chicago/4d/calibrated-source.json').write_text(json.dumps(reading,indent=2)+'\n')
-          print(json.dumps(reading))
+          head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
+          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
+          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-apply-original-working-source.py'])
+          assert hashlib.sha256(raw).hexdigest()=='0a4800db5e5d3fa292f8ea6518d7ead8a368551fe321c8c74044cff0000cd26c'
+          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
+          subprocess.run(['python3',str(p)],check=True)
           PYTHON
 
       # Globally, as the smoke does: the tool falls back to `npm root -g`.
@@ -113,15 +144,7 @@ jobs:
       - name: Hold the still-frame ceiling
         working-directory: chicago/4d
         run: |
-          python3 - <<'PYTHON'
-          import hashlib,json,subprocess
-          from pathlib import Path
-          m=json.loads(Path('calibrated-source.json').read_text())
-          assert m['sourceIsUnmodifiedDevBaseline'] and not m['qualifiesFeatureCandidate']
-          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['sourceHead']
-          assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()
-          for p,k in [('tools/measure_still_frame.mjs','timing_helper_sha256'),('tools/still_frame_ceilings.json','ceilings_sha256')]:assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==m[k],p
-          PYTHON
+          (cd ../.. && python3 /tmp/t3747-apply-source.py --verify)
           node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
 
       - name: Keep the reading
@@ -135,3 +158,79 @@ jobs:
             chicago/4d/calibrated-source.json
           if-no-files-found: ignore
 
+
+  native-working-source:
+    name: Native working source ${{ matrix.part }}
+    needs: source-plan
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.source-plan.outputs.matrix) }}
+    env:
+      DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      SOURCE_a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
+      NATIVE_PART: ${{ matrix.part }}
+      SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 67761214056dd916555d11cedf8c1a04c971b447
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install the full required native readers
+        run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read actual runner cores
+        id: cores
+        run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
+      - name: Apply and verify the frozen complete working source
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib,os,re,subprocess
+          from pathlib import Path
+          head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
+          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
+          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-apply-original-working-source.py'])
+          assert hashlib.sha256(raw).hexdigest()=='0a4800db5e5d3fa292f8ea6518d7ead8a368551fe321c8c74044cff0000cd26c'
+          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
+          subprocess.run(['python3',str(p)],check=True)
+          PYTHON
+
+      - name: Run the unchanged native gate and verify source stability
+        env:
+          C4D_GATE_REQUIRE_READERS: '1'
+          C4D_GATE_REQUIRE_67761214056dd916555d11cedf8c1a04c971b447: '1'
+          CHECK_JOBS: ${{ matrix.serial && '1' || steps.cores.outputs.n }}
+        run: |
+          set +e
+          (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}") > /tmp/native-part.log 2>&1
+          native_status=$?
+          set -e
+          SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py --verify
+          cat /tmp/native-part.log
+          exit "$native_status"
+      - name: Keep the complete native log and exact before/after source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-working-${{ matrix.key }}
+          path: |
+            /tmp/native-part.log
+            /tmp/native-source-before.json
+            /tmp/native-source-after.json
+          if-no-files-found: error
+
+  native-complete:
+    name: Complete Native on the exact working source
+    needs: [source-plan, native-working-source]
+    if: always()
+    runs-on: ubuntu-22.04
+    steps:
+      - run: test "${{ needs.native-working-source.result }}" = success
