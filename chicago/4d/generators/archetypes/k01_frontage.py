@@ -4985,6 +4985,10 @@ class Assembly:
             more, cut = k01_rear_section.elements(self, k5, f)
             solids += more
             recesses += cut
+        if p.gable and any(e.get("lights") for e in p.gable["ends"].values()):
+            # T-3730: a light in an end parapet (2130's south gable), cut to K06's reveal
+            from . import k01_gable_lights
+            recesses += k01_gable_lights.cutters(self, k5)
         if p.shaped_gable:   # T-2543: the front carried up as a shaped gable, joined like a stack
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.element(self, k5, ye))
@@ -5105,6 +5109,9 @@ class Assembly:
         if p.shaped_gable:
             from . import k01_shaped_gable
             k01_shaped_gable.dress(self, seed)
+        if p.gable and any(e.get("lights") for e in p.gable["ends"].values()):
+            from . import k01_gable_lights   # T-3730: the end parapet's lights, K06 in their recesses
+            k01_gable_lights.dress(self)
         for g in self.round_dormers:
             self.round_dormer_sash(g, conf)
             if g["d"].get("dress"):   # T-3307: its pediment's cornices, its pilasters
