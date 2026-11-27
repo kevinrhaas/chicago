@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3289, ts: '2026-11-27T16:52:42.108Z', date: 'Nov 27, 2026, 10:52 AM CT', title: 'Younger readers\' tellings caught up with rewritten building notes', kind: 'fix',
+    items: [
+      'Thirty-six of the house notes rewritten this week read again at the 8-10 age: the turret windows, the four chimney pots and the new finials now say what the houses show.',
+      'Tellings of notes that no longer exist are retired, so a card never offers words for a line it does not show.',
+    ] },
   { v: 3288, ts: '2026-11-27T14:41:32.154Z', date: 'Nov 27, 2026, 8:41 AM CT', title: '2140 Prairie\'s back wing gets its windows', kind: 'improvement',
     items: [
       '1904: the Tucker/Smith house\'s three-storey back wing at 2140 Prairie now has windows on all three of its yard sides, with cellar windows under them. Its kitchen door and steps moved to stand between the back windows. The 1911 fire map\'s gravel roof and two fire escapes are noted on the house\'s card but not built, because nothing shows them there by 1904.',
