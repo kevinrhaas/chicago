@@ -1,0 +1,2363 @@
+diff --git a/chicago/4d/changelog.d/T-3747.json b/chicago/4d/changelog.d/T-3747.json
+new file mode 100644
+index 0000000000..ccfb7df01f
+--- /dev/null
++++ b/chicago/4d/changelog.d/T-3747.json
+@@ -0,0 +1,7 @@
++{
++  "title": "Tree crowns catch the light",
++  "kind": "improvement",
++  "items": [
++    "Woodland and street trees, woody shrubs and vines have rounded foliage shading and warmer backlit leaves. Sunlight passing through leaves follows the shadows. Full adds smaller, layered sprays on fine twigs within 14 metres; capable devices show fine leaf relief. Balanced and Light use smaller woodland textures; their tree meshes retain their existing detail. Switching season and detail safely rebuilds the crowns."
++  ]
++}
+diff --git a/chicago/4d/data/liberties.json b/chicago/4d/data/liberties.json
+index d6f08696da..51182cb78d 100644
+--- a/chicago/4d/data/liberties.json
++++ b/chicago/4d/data/liberties.json
+@@ -3,7 +3,7 @@
+   "source": "docs/LIBERTIES.md",
+   "standard": "A visitor should be able to tell you which parts we made up.",
+   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
+-  "count": 1256,
++  "count": 1257,
+   "names": [
+     {
+       "id": "agency_striker_log_house",
+@@ -82311,6 +82311,36 @@
+         "T-1945"
+       ]
+     },
++    {
++      "id": "L-leaf-light-3747",
++      "title": "Rounded foliage and thin-leaf light in every wood",
++      "section": "per_subject",
++      "subjects": [],
++      "covers": [],
++      "recorded": "2026-11-25",
++      "revised": null,
++      "fields": [
++        {
++          "label": "Liberty",
++          "text": "for grown woodland and street trees, yard shrubs and vines, and bank thickets in 1812, 1835, 1871 and 1904, a spray's vertex normals curve across its existing cutout, suggesting a volume. Full adds a close level within 14 m: each large spray becomes three smaller sprays at different depths and turns, each joined to its existing attachment by fine round wood. This botanical detail is reconstructed within the original clump; the species, skeleton, trunk, height, crown dimensions and planting remain the records' own. The existing near mesh is retained beyond that short ring. Balanced and Light retain their geometry counts. Balanced woodland uses the existing half-size atlases and omits additional leaf-relief sampling; Full retains the larger sheets and relief. A small green-filtered backlight term uses the light already attenuated and shadowed by the renderer. The existing time-of-day skylight term is distributed toward the backlit face. These coefficients are artistic approximations of a thin leaf, not measured species transmittances or an archival lighting reconstruction. Capable devices reuse the existing leaf colour sheet for subtle bump relief; a weak device or Light omits that extra sampling. Bark, fruit, solid flowers and bare winter branches retain their existing materials and receive no leaf transmission."
++        },
++        {
++          "label": "Evidence",
++          "text": "species, crown dimensions, colour, season, placement and confidence remain the existing records' claims. No new historical assertion or external asset is introduced. The atlases retain their current photographic and procedural provenance in the licenses model."
++        },
++        {
++          "label": "How to resolve",
++          "text": "measured leaf scattering and a calibrated, licensed surface-normal source could replace the artistic coefficients and albedo-derived relief. The present approximation must remain bounded by sun, shadow and time of day."
++        },
++        {
++          "label": "Recorded",
++          "text": "2026-11-25 (T-3747)."
++        }
++      ],
++      "work_refs": [
++        "T-3747"
++      ]
++    },
+     {
+       "id": "L-kinzie-house-1812-2497",
+       "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
+diff --git a/chicago/4d/docs/LIBERTIES.md b/chicago/4d/docs/LIBERTIES.md
+index b0fbaaed4b..4d5972aa1a 100644
+--- a/chicago/4d/docs/LIBERTIES.md
++++ b/chicago/4d/docs/LIBERTIES.md
+@@ -47233,3 +47233,10 @@ is assigned to 2018 by that rule, not read.
+ lot lines; then the houses' `lot_s_m` and this cut move together.
+ **Ticket:** T-3785 (piece 1 of T-1945).
+ **Recorded:** 2026-11-27 (T-3785).
++
++### L-leaf-light-3747 — Rounded foliage and thin-leaf light in every wood
++**Liberty:** for grown woodland and street trees, yard shrubs and vines, and bank thickets in 1812, 1835, 1871 and 1904, a spray's vertex normals curve across its existing cutout, suggesting a volume. Full adds a close level within 14 m: each large spray becomes three smaller sprays at different depths and turns, each joined to its existing attachment by fine round wood. This botanical detail is reconstructed within the original clump; the species, skeleton, trunk, height, crown dimensions and planting remain the records' own. The existing near mesh is retained beyond that short ring. Balanced and Light retain their geometry counts. Balanced woodland uses the existing half-size atlases and omits additional leaf-relief sampling; Full retains the larger sheets and relief. A small green-filtered backlight term uses the light already attenuated and shadowed by the renderer. The existing time-of-day skylight term is distributed toward the backlit face. These coefficients are artistic approximations of a thin leaf, not measured species transmittances or an archival lighting reconstruction. Capable devices reuse the existing leaf colour sheet for subtle bump relief; a weak device or Light omits that extra sampling. Bark, fruit, solid flowers and bare winter branches retain their existing materials and receive no leaf transmission.
++**Evidence:** species, crown dimensions, colour, season, placement and confidence remain the existing records' claims. No new historical assertion or external asset is introduced. The atlases retain their current photographic and procedural provenance in assets/LICENSES.md.
++**How to resolve:** measured leaf scattering and a calibrated, licensed surface-normal source could replace the artistic coefficients and albedo-derived relief. The present approximation must remain bounded by sun, shadow and time of day.
++**Ticket:** T-3747.
++**Recorded:** 2026-11-25 (T-3747).
+diff --git a/chicago/4d/docs/ROADMAP.md b/chicago/4d/docs/ROADMAP.md
+index 33fe13752d..fe28a94486 100644
+--- a/chicago/4d/docs/ROADMAP.md
++++ b/chicago/4d/docs/ROADMAP.md
+@@ -6921,3 +6921,11 @@ T-3544 selected river follow-up: owner chose Light water on rocks; exact MP3 upl
+ ### T-1789 - existing Charles coat, near material terminal
+ 
+ Candidate: reproduce the four already validated Charles near MASTER/WEB children through the real canonical-export terminal, protect unknown fresh/active body changes and all four FAR bytes, register the derivation and remeasure only four native fixture rows while retaining every other SHA. Actual integrated full reproduction is PASS with all four prior output hashes unchanged. Fresh-blobless bootstrap, legitimate writer/isolation measurement and actual four-row native fixture now pass with accepted original resource limits; all 244 other fixture rows stay exact. Complete APP gate and ordinary DEV review remain pending. Selected-published research remains strict NONPASS; photographic likeness, clothing fit and phone release budgets stay open. No Joseph placement, Otis/Hans clip replacement, unrelated resident change or new ticket is part of this increment.
++
++
++### Better Trees - T-3747 (November 2026)
++
++The owner requested more realistic vegetation in every year. T-3747 adds close layered tree
++sprays and shadowed thin-leaf light through the existing adaptive renderer. T-3748 follows
++with flora, crop lighting and seasonal controls; T-3760 covers the 1871 context leftovers.
++STATUS and the PR evidence distinguish render checks from hardware FPS acceptance.
+diff --git a/chicago/4d/docs/STATUS.md b/chicago/4d/docs/STATUS.md
+index 6aa3aaf7db..cf7d9ca5b7 100644
+--- a/chicago/4d/docs/STATUS.md
++++ b/chicago/4d/docs/STATUS.md
+@@ -1,3 +1,86 @@
++## T-3747 — Layered close foliage and shadowed leaf light (25 November 2026)
++
++The leaf-light implementation retains its rounded foliage and shadowed transmission.
++Unsuccessful leaf-only and shared zero-light guards have been removed. Their actual
++calibrated Light failures (7,323/7,000 and 7,467/7,000 ms on EPYC 7763/four-core)
++remain in the evidence archive. Private draw-order, fused-light and fixed-material
++experiments preserved their sampled pixels but showed no reliable local improvement;
++they were discarded. The unmodified Dev control passed on EPYC 9V74, a different
++calibrated CPU, and does not qualify this feature or settle the earlier CPU's miss.
++The complete current-Dev source requires its own stock calibrated reading, complete
++Native gate and final exact-head CI. No old partial gate is reused. Existing raster,
++sampling, geometry, population, material quality and performance ceilings remain.
++
++The 1904 seasonal capture audit caught a seated-driver metadata read through the released
++human parser. Transport now reads the same source scene extras retained by GLTFLoader on
++the first scene's userData, preserving its identity/date/vehicle checks. The regression
++parses the real 1904 driver's scene extras with the actual loader, then exercises the real
++assembly factory with parser-free human leases, including rejection and disposal for a
++wrong identity or vehicle binding. The former parser read fails that regression.
++
++The UI allocation fixture holds actor updates and finishes pending source/LOD work before
++its strict GPU-resource readings. The grade-row check keeps people visible; the DOM-overlay
++check retains its existing hidden-people isolation. Rendering resumes before counters are
++read, and the original exact program/geometry equalities and performance limits remain.
++
++The shared grown-tree path now has a Full close level within 14 m. Its large sprays become
++three smaller sprays at different depths and angles, sharing a fine round shoot that tapers
++from the existing attachment to one tip. The original near mesh remains beyond that short ring. The
++existing instancing, culling, hysteresis, dissolve, shadows and species skeletons still apply.
++Balanced and Light retain their geometry counts. Woodland at Balanced uses the existing
++half-size atlases and omits additional leaf-relief sampling, as Light already does. Full
++retains the larger sheets and relief. Bare winter templates remain unchanged.
++
++Rounded spray normals and a common thin-leaf light patch cover woodland and street trees,
++yard shrubs, vines and bank thickets. Direct transmission uses the renderer's already
++shadowed incident light, while the existing small sky term follows time of day. Capable
++devices reuse the leaf sheet for subtle relief. Bark, fruit and solid flowers retain their
++materials. These are declared artistic render approximations (L-leaf-light-3747), preserving
++the records' species, planting, historical grades and asset provenance. Herbaceous flora and
++garden crops are T-3748's scope.
++
++The published season/detail sweep exposed overlapping rebuilds sharing scratch templates
++and live instance slots. Each forest now owns a snapshot of the placement plan; a seasonal
++commit discards superseded or late results and retains the prior forest until its replacement
++is ready. Rapid choices grow one candidate at a time and skip obsolete queued choices.
++The regression first reproduced the exact null-template crash, then checks
++overlapping summer/winter growth and a live forest after another rebuild and disposal.
++
++Full woodland and its static thicket batch let go of unused CPU triangle copies after upload using the existing
++upload-release and context-recovery path. All LOD bounds and confidence ranges are cached
++before release; picks and collisions retain their placement records. The native regression
++also changes LOD after discarding the arrays. The published desktop check requires exactly
++the four grown batches and the static thicket batch to release while its building and furniture pick oracles remain.
++The distant horizon keeps its dynamic arrays for its moving-eye solve. Resident-memory
++checks found the initial separate twig per spray too costly; the shared shoot reduces that
++geometry while retaining the three sprays, the existing limits and every planting record.
++The diagnostic `keep-geometry` option retains arrays for geometry-reading smoke tests.
++
++The focused browser test checks shadowed backlight, a wood mask, night, sky and shader-hook
++composition on both shader variants. Seven species/habits also retain their tree dimensions,
++coarse templates and bare templates while adding Full close detail. The tree-gallery
++diagnostic and fixed-camera published-scene captures retain their source versions and costs;
++final local gate, mapped smoke and CI receipts belong to the merging PR. Scripted moving-frame
++readings also suppress unmeasured raster drawing during tier preparation; their measured
++loops, limits, verification, live mode and explicit rendering stay unchanged. Cloud software
++rendering is not evidence of an integrated GPU's or a high-end GPU's FPS.
++
++Integration with the newer clothing passes exposed dense nearest-point work grids retaining
++empty volume. Point grids now use compact typed offsets for sparse shells and retain the
++dense representation when it is smaller. Search order, cell size, reach and garment output
++stay identical; an independent full-scan regression covers both representations, bounds and
++ties. Outline-only samplers are released before the rider passes. The shared human asset cache
++also releases its finished GLTF parser, as the building loader already does; fetched byte
++preparation ends before the sliced clothing work, releasing the raw file and header.
++Decoded geometry, materials, animations and metadata retain their identities and refcounts.
++Source clothing preparation now runs one body at a time per asset store, so several
++long-lived welded work graphs cannot accumulate while their generators yield. Fetching and
++GLTF decoding stay parallel; the separate queue that builds individual actors stays as it
++was. Failed preparation releases the queue for the next source. All clothing passes and
++outputs stay the same; the controlled regression first observes two simultaneous source
++work graphs, then verifies one, parallel decoding and recovery after a rejected pass.
++The unchanged memory and frame-time gates remain required; all people, faces and clothing stay enabled.
++
+ ## T-3766 — Play a part: a new role in every year (26 November 2026)
+ 
+ Owner request, 26 November 2026: "Mysteries and play-a-part: more cases and more roles", "finish
+diff --git a/chicago/4d/docs/measurements/source_use_coverage.md b/chicago/4d/docs/measurements/source_use_coverage.md
+index 5d2b24df4f..5f96b612aa 100644
+--- a/chicago/4d/docs/measurements/source_use_coverage.md
++++ b/chicago/4d/docs/measurements/source_use_coverage.md
+@@ -12,7 +12,7 @@ Generated by `tools/compile_source_use.py`; no timestamps.
+ | flora | 11 | 11 | 0 |
+ | households | 2086 | 1457 | 0 |
+ | jaunt claims | 296 | 296 | 0 |
+-| liberties (structured citations) | 1256 | 0 | 0 |
++| liberties (structured citations) | 1257 | 0 | 0 |
+ | loading facts | 50 | 50 | 0 |
+ | people | 3891 | 1655 | 0 |
+ | railway | 1 | 1 | 0 |
+diff --git a/chicago/4d/renderers/web/js/driven-assembly-loader.js b/chicago/4d/renderers/web/js/driven-assembly-loader.js
+index 9d896da714..69ec605c21 100644
+--- a/chicago/4d/renderers/web/js/driven-assembly-loader.js
++++ b/chicago/4d/renderers/web/js/driven-assembly-loader.js
+@@ -464,7 +464,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
+       const failed = acquired.find(result => result.status === 'rejected');
+       if (failed) throw failed.reason;
+       const sha256 = acquired[0].value.sha256, inspected = acquired[1].value;
+-      const extras = inspected.parser.json.scenes?.[0]?.extras;
++      // The human store releases parser scratch after decoding. GLTFLoader keeps
++      // these source scene extras on userData for the lifetime of the asset.
++      const extras = inspected.scenes?.[0]?.userData;
+       const metadata = extras?.chicago4d_human;
+       const study = JSON.parse(extras?.driver_study_json ?? 'null');
+       // Kevin, 2026-11-13: more coachmen on the same brougham. A row may name the person its
+diff --git a/chicago/4d/renderers/web/js/human-drape.js b/chicago/4d/renderers/web/js/human-drape.js
+index e343bd9cd5..b6f159647d 100644
+--- a/chicago/4d/renderers/web/js/human-drape.js
++++ b/chicago/4d/renderers/web/js/human-drape.js
+@@ -118,10 +118,37 @@ function listCells(box, count, cellsOf) {
+   void count;
+ }
+ 
++/** Point-cell offsets: sparse shells must not allocate their whole empty volume. */
++function pointCells(box, P) {
++  const n = P.length / 3, { ny, nz } = box;
++  const cellOf = (i) => (box.ix(P[i * 3]) * ny + box.iy(P[i * 3 + 1])) * nz + box.iz(P[i * 3 + 2]);
++  const counts = new Map();
++  for (let i = 0; i < n; i++) { const c = cellOf(i); counts.set(c, (counts.get(c) ?? 0) + 1); }
++  let capacity = 8, bits = 3;
++  while (capacity < counts.size * 2) { capacity *= 2; bits++; }
++  const volume = box.nx * ny * nz;
++  if (capacity * 3 >= volume + 1) return { ...listCells(box, n, (emit) => { for (let i = 0; i < n; i++) emit(cellOf(i), i); }), keys: null };
++  const shift = 32 - bits, mask = capacity - 1;
++  const keys = new Int32Array(capacity).fill(-1), start = new Int32Array(capacity), end = new Int32Array(capacity);
++  let offset = 0;
++  for (const [c, count] of counts) {
++    let slot = Math.imul(c, 0x9e3779b1) >>> shift;
++    while (keys[slot] !== -1) slot = (slot + 1) & mask;
++    keys[slot] = c; start[slot] = offset; offset += count; end[slot] = offset;
++  }
++  const fill = start.slice(), items = new Int32Array(n);
++  for (let i = 0; i < n; i++) {
++    const c = cellOf(i); let slot = Math.imul(c, 0x9e3779b1) >>> shift;
++    while (keys[slot] !== c) slot = (slot + 1) & mask;
++    items[fill[slot]++] = i;
++  }
++  return { keys, start, end, items, shift, mask };
++}
++
+ /** A uniform grid over points, for nearest-point queries. */
+ function pointGrid(P, cell) {
+   const box = cellBox(P, cell, 1), { nx, ny, nz } = box, n = P.length / 3;
+-  const { start, items } = listCells(box, n, (emit) => { for (let i = 0; i < n; i++) emit((box.ix(P[i * 3]) * ny + box.iy(P[i * 3 + 1])) * nz + box.iz(P[i * 3 + 2]), i); });
++  const { start, end, items, keys, shift, mask } = pointCells(box, P);
+   return function nearest(x, y, z, reach = 4) {
+     const cx = box.ix(x), cy = box.iy(y), cz = box.iz(z);
+     let best = Infinity, bi = -1;
+@@ -134,7 +161,9 @@ function pointGrid(P, cell) {
+           for (let c = cz - r; c <= cz + r; c += (edgeAB || r === 0) ? 1 : 2 * r) {
+             if (c < 0 || c >= nz) continue;
+             const k = (a * ny + b) * nz + c;
+-            for (let j = start[k], e = start[k + 1]; j < e; j++) { const i = items[j], dx = P[i * 3] - x, dy = P[i * 3 + 1] - y, dz = P[i * 3 + 2] - z, d = dx * dx + dy * dy + dz * dz; if (d < best) { best = d; bi = i; } }
++            let slot = k;
++            if (keys) { slot = Math.imul(k, 0x9e3779b1) >>> shift; while (keys[slot] !== k && keys[slot] !== -1) slot = (slot + 1) & mask; if (keys[slot] === -1) continue; }
++            for (let j = start[slot], e = keys ? end[slot] : start[slot + 1]; j < e; j++) { const i = items[j], dx = P[i * 3] - x, dy = P[i * 3 + 1] - y, dz = P[i * 3 + 2] - z, d = dx * dx + dy * dy + dz * dz; if (d < best) { best = d; bi = i; } }
+           }
+         }
+       }
+diff --git a/chicago/4d/renderers/web/js/human-layover.js b/chicago/4d/renderers/web/js/human-layover.js
+index 9e1ce44f75..ad701bb52d 100644
+--- a/chicago/4d/renderers/web/js/human-layover.js
++++ b/chicago/4d/renderers/web/js/human-layover.js
+@@ -128,6 +128,8 @@ export function* layOverSteps(root) {
+     writeBack(W, null);
+     report.evened.push({ mesh: mesh.name, points: moved });
+   }
++  // The outline samplers are not used by the rider passes below.
++  grids.clear();
+   // Riders and braces only: lifting a garment's own edge over the cloth under it (a waistcoat's
+   // over a shirt) saws the edge where it crosses, so garments are left to bindLayers and cullHidden.
+   const strap = (m) => overRank(m) >= 4.5 || BRACES.test(m.name ?? '');
+diff --git a/chicago/4d/renderers/web/js/humans.js b/chicago/4d/renderers/web/js/humans.js
+index f8635a5fc9..98ffa5358c 100644
+--- a/chicago/4d/renderers/web/js/humans.js
++++ b/chicago/4d/renderers/web/js/humans.js
+@@ -198,6 +198,13 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
+   // the houses do (T-2464). disposeLoadedAsset closes a bitmap only when its last user goes.
+   if (typeof loader?.register === 'function') shareImageSources(loader);
+   const entries = new Map();
++  // Loading stays parallel; only one source's clothing work grids are live at once.
++  let preparing = Promise.resolve();
++  function prepare(gltf) {
++    const work = preparing.then(() => dress(gltf));
++    preparing = work.then(() => {}, () => {});
++    return work;
++  }
+   let decoder = null;
+   let variation = null;
+   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);
+@@ -213,7 +220,7 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
+     const due = createCheckpoint({ budgetMs: 6 });
+     for (;;) { const n = steps.next(); if (n.done) return n.value; const wait = due(); if (wait) await wait; }
+   }
+-  async function parse(href) {
++  async function bodyBytes(href) {
+     const res = await fetchImpl(href);
+     if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${href}`);
+     const buf = await res.arrayBuffer();
+@@ -224,7 +231,14 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
+       decoder ??= loadMeshoptDecoder();
+       loader.setMeshoptDecoder(await decoder);
+     }
+-    const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
++    return buf;
++  }
++  async function parse(href) {
++    const gltf = await loader.parseAsync(await bodyBytes(href), String(new URL('.', href)));
++    gltf.parser = null; // Geometry, materials and clips own the decoded resources.
++    return prepare(gltf);
++  }
++  async function dress(gltf) {
+     // T-3553: collars, straps and belts sit on the cloth beneath, trousers bridge the seat, a
+     // coat closes under the arm and at the back vent, sleeve hems turn with the wrist as one
+     // edge, five bodies are tailored to their period pictures (1830s trousers and shirt, the
+diff --git a/chicago/4d/renderers/web/js/leaf-light.js b/chicago/4d/renderers/web/js/leaf-light.js
+new file mode 100644
+index 0000000000..552e50ba9b
+--- /dev/null
++++ b/chicago/4d/renderers/web/js/leaf-light.js
+@@ -0,0 +1,50 @@
++/**
++ * Thin foliage in the existing opaque, alpha-tested pass (T-3747).
++ * This is an artistic thin-sheet approximation, not a measured leaf BSDF.
++ * Direct transmission uses three's already shadowed incident light; the small
++ * sky term follows time-of-day.js. No new texture, light, render target or pass.
++ */
++import * as THREE from 'three';
++import { LEAF_SKY } from './time-of-day.js';
++
++export function patchLeafLight(material, { mask = '1.0', lowSpec = false } = {}) {
++  const prior = material.onBeforeCompile;
++  const key = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey
++    ? String(prior) : material.customProgramCacheKey();
++  material.onBeforeCompile = (shader, renderer) => {
++    prior(shader, renderer);
++    const pars = '#include <lights_physical_pars_fragment>';
++    const end = '#include <lights_fragment_end>';
++    if (!shader.fragmentShader.includes(pars) || !shader.fragmentShader.includes(end)) {
++      throw new Error('leaf lighting: missing standard lighting anchors');
++    }
++    shader.uniforms.uLeafSky = LEAF_SKY;
++    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader
++      .replace(pars, `${pars}
++void chiLeafDirect(const in IncidentLight light, const in vec3 position,
++    const in vec3 normal, const in vec3 viewDir, const in vec3 clearcoatNormal,
++    const in PhysicalMaterial material, inout ReflectedLight reflectedLight) {
++  RE_Direct_Physical(light, position, normal, viewDir, clearcoatNormal, material, reflectedLight);
++  float chiBack = max(-dot(normal, light.direction), 0.0);
++  ${lowSpec ? 'float chiTransmit = 0.16;' : `
++  float chiForward = max(dot(viewDir, -light.direction), 0.0);
++  float chiTransmit = 0.08 + 0.20 * chiForward * chiForward;`}
++  // light.color has already received the light's attenuation and shadow test.
++  // The record's leaf colour still controls the hue; wood is masked out.
++  reflectedLight.directDiffuse += material.diffuseColor * vec3(0.8, 1.0, 0.6)
++    * light.color * (RECIPROCAL_PI * chiBack * chiTransmit * (${mask}));
++}
++#undef RE_Direct
++#define RE_Direct chiLeafDirect
++`)
++      .replace(end, `${end}
++float chiLeafFill = 1.0;
++#if NUM_DIR_LIGHTS > 0
++  float chiLeafBack = max(-dot(normal, directionalLights[0].direction), 0.0);
++  chiLeafFill = 0.72 + 0.56 * chiLeafBack;
++#endif
++reflectedLight.indirectDiffuse += diffuseColor.rgb * (uLeafSky * chiLeafFill * (${mask}));
++`);
++  };
++  material.customProgramCacheKey = () => `${key}|leaf-light-3747-${mask}-${lowSpec}`;
++}
+diff --git a/chicago/4d/renderers/web/js/tree-instances.js b/chicago/4d/renderers/web/js/tree-instances.js
+index becf3f8e56..5ae0adbc27 100644
+--- a/chicago/4d/renderers/web/js/tree-instances.js
++++ b/chicago/4d/renderers/web/js/tree-instances.js
+@@ -40,10 +40,11 @@
+  */
+ 
+ import * as THREE from 'three';
+-import { LEAF_SKY } from './time-of-day.js';
++import { patchLeafLight } from './leaf-light.js';
+ import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
+ import { loadCompressed, countSheet } from './ktx2.js';
+ import { instanceDraws, patchInstancedDraws, extraSlots } from './batch-instance.js';
++import { releaseAfterUpload } from './upload-release.js';
+ 
+ /** Level distances by Scene detail, metres from the eye. A near tree is a few
+  *  thousand triangles, so the near ring is kept to the trees a visitor walks
+@@ -57,6 +58,9 @@ const LEVELS = {
+  *  (world.js), and a far tree's shadow is a few pixels of dapple. */
+ const SHADOW_M = { full: 150, balanced: 120, light: 80 };
+ const STEP_M = 4;
++// Full resolves individual sprays within a short walk. Keep the original near
++// mesh beyond this ring, so a dense wood does not pay for fine twigs at 42 m.
++const CLOSE_M = 14;
+ /** T-2948: how far past a ring's edge a stem keeps its finer level and set, and
+  *  how far the eye must move between two updates for it to be a jump (no fade). */
+ const HYSTERESIS_M = 3;
+@@ -111,11 +115,11 @@ function archetypeKey(spec) {
+  */
+ export class TreeInstances {
+   constructor({ level = 'full', shadowM = null, variants = null, name = 'timber', levels = null, cull = false,
+-    fadeS = 0, castFar = false } = {}) {
++    fadeS = null, castFar = false } = {}) {
+     this.name = name;
+-    this.fadeS = fadeS;
+     this.castFar = castFar;
+     this.level = LEVELS[level] ? level : 'full';
++    this.fadeS = fadeS ?? (this.level === 'full' ? 0.22 : 0);
+     this.cullPerM = cull ? CULL_PER_M[this.level] : Infinity;
+     this.dist = levels?.[this.level] ?? LEVELS[this.level];
+     // T-2833: a caller's own rings may name a `distant` reach without culling.
+@@ -156,13 +160,29 @@ export class TreeInstances {
+    * Grow the variants and build the four batches.
+    * @returns {{ group: THREE.Group, update(eye: THREE.Vector3): void, stats: object, dispose(): void }}
+    */
+-  async build({ woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, checkpoint = () => null,
++  async build(options) {
++    // The planner is reused by season changes, and a detail preparation may
++    // still be reading it. Templates and live instance slots belong to one
++    // forest: retiring one build must never clear another build's data.
++    const snapshot = Object.assign(Object.create(TreeInstances.prototype), this);
++    snapshot.dist = { ...this.dist };
++    snapshot.kinds = new Map([...this.kinds].map(([key, kind]) => [key, { ...kind }]));
++    snapshot.stems = this.stems.map(stem => ({ ...stem, kind: snapshot.kinds.get(stem.kind.key) }));
++    return snapshot._build(options);
++  }
++
++  async _build({ woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, checkpoint = () => null,
+     season = {} }) {
+     const group = new THREE.Group();
+     group.name = grownGroupName(this.name);
+     const stats = { stems: this.stems.length, archetypes: this.kinds.size, variants: 0,
+       triangles: 0, templateTriangles: 0, near: 0, mid: 0, far: 0, shade: 0, drawCalls: 0 };
+     if (!this.stems.length) return { group, stats, update() {}, settle() {}, dispose() {} };
++    // Full's extra close level uses the same dissolve as the street trees.
++    // Install it here too for a wood whose materials did not request it up front.
++    if (this.fadeS > 0) {
++      for (const m of [woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance]) if (m) patchFade(m);
++    }
+     const t0 = performance.now();
+     let paused = 0;
+ 
+@@ -185,14 +205,18 @@ export class TreeInstances {
+         // holds its leaf into late October, a hydrangea is cut back to stubs in April) has it.
+         const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : (spec.seasonCrown ?? season)), coarse: light };
+         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
++        const close = this.level === 'full'
++          ? buildTreeTemplate(spec, seed, 'near', { ...o, skeleton: first.skeleton, fullSprays: true }) : null;
+         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
+         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });
+         const distant = Number.isFinite(this.distantM)
+           ? buildTreeTemplate(spec, seed, 'distant', { ...o, skeleton: first.skeleton }) : null;
+         first.skeleton = null;
++        if (close) close.skeleton = null;
+         far.skeleton = null;
+         if (distant) distant.skeleton = null;
+         const levels = light ? { mid, far } : { near: first, mid, far };
++        if (close) levels.close = close;
+         if (distant) levels.distant = distant;
+         kind.variants.push({ H: first.height, R: first.crownR, levels });
+         stats.variants++;
+@@ -203,6 +227,7 @@ export class TreeInstances {
+     // 2. The geometry each set holds: the shade set near and mid, the far set mid
+     //    and far; on the phone's tier the shade set mid and the far set far.
+     const sets = this.level === 'light' ? { shade: ['mid'], far: ['far'] } : { shade: ['near', 'mid'], far: ['mid', 'far'] };
++    if (this.level === 'full') sets.shade.unshift('close');
+     if (Number.isFinite(this.distantM)) sets.far.push('distant');
+     const sizes = {};
+     for (const [set, lv] of Object.entries(sets)) {
+@@ -358,6 +383,13 @@ export class TreeInstances {
+         v.levels = null;
+       }
+     }
++    // Full's woodland templates need no CPU triangle copy after upload: picks
++    // and collisions use the kept stems, and every LOD bound is cached first.
++    // Use the existing release/context-recovery path, including its diagnostic
++    // keep-geometry opt-out. Other layers retain their own picking contracts.
++    if (this.level === 'full' && this.name === 'timber') {
++      releaseAfterUpload(group, { [group.name]: [] });
++    }
+ 
+     // 4. Level and set by distance, re-chosen when the eye has moved STEP_M.
+     const dist = this.dist;
+@@ -366,7 +398,8 @@ export class TreeInstances {
+     const distantM = this.distantM;
+     const fadeS = this.fadeS;
+     const hyst = fading ? HYSTERESIS_M : 0;
+-    const levelAt = (d) => (d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant');
++    const closeM = this.level === 'full' ? Math.min(CLOSE_M, dist.near) : -1;
++    const levelAt = (d) => (d <= closeM ? 'close' : d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant');
+     // T-2948: the stems dissolving from one level (or set) to another.
+     const live = new Set();
+     const settle = (s) => {
+@@ -457,7 +490,7 @@ export class TreeInstances {
+         const want = nearestLevel(sets[shade ? 'shade' : 'far'], level);
+         if (shade !== s.shade || want !== s.level) move(s, shade, want, smooth);
+         t += s.v.tris[want] * 1;
+-        if (want === 'near') nn++; else if (want === 'mid') nm++; else if (want === 'far') nf++; else nd++;
++        if (want === 'near' || want === 'close') nn++; else if (want === 'mid') nm++; else if (want === 'far') nf++; else nd++;
+         if (shade) ns++;
+       }
+       stats.triangles = Math.round(t);
+@@ -495,7 +528,8 @@ export class TreeInstances {
+   }
+ }
+ 
+-const ORDER = { near: 0, mid: 1, far: 2, distant: 3 };
++const ORDER = { close: 0, near: 1, mid: 2, far: 3, distant: 4 };
++const fadedMaterials = new WeakSet();
+ const WHOLE = new THREE.Vector4(1, 1, 1, 1);
+ // T-3751: burnt bark, as a multiplier of the bark's own colour (city-fire.js's scorched tree).
+ const BARE_TINT = [0.16, 0.13, 0.1];
+@@ -570,12 +604,16 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence =
+   });
+   woodMat.name = 'timber-wood';
+   const leafMat = new THREE.MeshStandardMaterial({
+-    vertexColors: true, map: leafA, roughness: 0.78, metalness: 0,
++    // The existing leaf photograph/paint carries vein relief as well as colour.
++    // Reuse that sheet on capable devices; Light adds no bump samples or texture.
++    vertexColors: true, map: leafA, bumpMap: lowSpec ? null : leafA, bumpScale: 0.008,
++    roughness: lowSpec ? 0.78 : 0.74, metalness: 0,
+     side: THREE.DoubleSide, alphaTest: alphaCutoff,
+   });
+   leafMat.name = 'timber-leaves';
+   patchWind(woodMat, uWind);
+-  patchLeaves(leafMat, uWind, patchWind);
++  patchWind(leafMat, uWind);
++  patchLeafLight(leafMat, { lowSpec });
+   if (fade) { patchFade(woodMat); patchFade(leafMat); }
+   confidence?.patch(woodMat);
+   confidence?.patch(leafMat);
+@@ -600,24 +638,6 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence =
+   };
+ }
+ 
+-/** The wind, then a little skylight through the blade: a thin leaf transmits,
+- *  so a crown's shaded side is green, not black. */
+-function patchLeaves(material, uWind, patchWind) {
+-  patchWind(material, uWind);
+-  const wind = material.onBeforeCompile;
+-  material.onBeforeCompile = (shader, r) => {
+-    wind(shader, r);
+-    // T-3331: the transmitted skylight falls with the hour (time-of-day.js LEAF_SKY);
+-    // 0.22 by day, exactly as before.
+-    shader.uniforms.uLeafSky = LEAF_SKY;
+-    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader.replace('#include <lights_fragment_end>', `
+-#include <lights_fragment_end>
+-reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
+-`);
+-  };
+-  material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';
+-}
+-
+ /**
+  * T-2948 — THE DISSOLVE. A fading wood (`TreeInstances` with `fadeS`) writes each
+  * instance's fade into the alpha of its batch colour: 1 whole, 0..1 the share of a
+@@ -630,6 +650,8 @@ reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
+  * shadow dissolves with the crown.
+  */
+ function patchFade(material) {
++  if (fadedMaterials.has(material)) return;
++  fadedMaterials.add(material);
+   const prior = material.onBeforeCompile;
+   const isDefaultKey = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey;
+   const priorKey = isDefaultKey ? String(prior) : material.customProgramCacheKey();
+@@ -655,6 +677,7 @@ if (vTreeFade < 1.0) {
+ }`);
+   };
+   material.customProgramCacheKey = () => `${priorKey}|tree-fade-t2948`;
++  material.needsUpdate = true;
+ }
+ 
+ export { archFor };
+diff --git a/chicago/4d/renderers/web/js/tree-model.js b/chicago/4d/renderers/web/js/tree-model.js
+index e5fa567eb9..8318f1aeeb 100644
+--- a/chicago/4d/renderers/web/js/tree-model.js
++++ b/chicago/4d/renderers/web/js/tree-model.js
+@@ -1558,7 +1558,9 @@ function tube(buf, b, sides, barkTile, tint, flexOf) {
+       const c = a + sides + 1;
+       const d = b2 + sides + 1;
+       buf.tri(a, b2, c);
+-      buf.tri(b2, d, c);
++      // A fine supporting shoot ends at one point: one face per side.
++      // Other branches keep both faces and their existing geometry counts.
++      if (!(b.pointTip && i === n - 2 && B.r === 0)) buf.tri(b2, d, c);
+     }
+   }
+ }
+@@ -1648,21 +1650,40 @@ function card(buf, at, dir, size, tile, colour, outward, flex, rnd, facing = nul
+   const w = size * (0.85 + rnd() * 0.3);
+   const h = size * (1.0 + rnd() * 0.35);
+   const flip = rnd() < 0.5;
+-  const base = buf.count;
+   // T-3017: the quad is cut to the tile's opaque box (LEAF_CROP), in the tile's
+   // own units, so every leaf stands exactly where the whole tile put it and the
+   // GPU no longer shades and alpha-tests the empty margin round each spray.
+   const [u0, u1, v0, v1] = LEAF_CROP[tile] ?? FULL_TILE;
+   const cardN = norm(cross(side, t));
+   const n = norm(add(mul(outward, 0.78), mul(cardN, 0.22 * (rnd() < 0.5 ? 1 : -1))));
+-  for (const [tu, tv] of [[u0, v0], [u1, v0], [u1, v1], [u0, v1]]) {
+-    const cu = flip ? 0.5 - tu : tu - 0.5;
+-    const cv = tv - 0.15;
+-    const p = add(at, add(mul(side, cu * w), mul(t, cv * h)));
+-    buf.vert(p, n, colour, atlasUV(LEAF_GRID, tile, tu, tv), flex + tv * 0.18);
++  const quad = (root, across, width, height) => {
++    const base = buf.count;
++    for (const [tu, tv] of [[u0, v0], [u1, v0], [u1, v1], [u0, v1]]) {
++      const cu = flip ? 0.5 - tu : tu - 0.5;
++      const cv = tv - 0.15;
++      const p = add(root, add(mul(across, cu * width), mul(t, cv * height)));
++      const cornerN = norm(add(n, add(mul(across, cu * 0.36), mul(t, (tv - 0.5) * 0.28))));
++      buf.vert(p, cornerN, colour, atlasUV(LEAF_GRID, tile, tu, tv), flex + tv * 0.18);
++    }
++    buf.tri(base, base + 1, base + 2);
++    buf.tri(base, base + 2, base + 3);
++  };
++  if (!buf.sprays) { quad(at, side, w, h); return; }
++  // Full's close crown carries smaller sprays at three depths and turns.
++  // One fine round shoot carries their roots along its length, rather than
++  // duplicating a separate tube for each spray. The parent RNG
++  // stream is unchanged, so this does not move any other clump or LOD.
++  const k = 0.62;
++  const shoot = add(mul(t, h * 0.48), add(mul(side, w * 0.18), mul(cardN, w * 0.14)));
++  const tip = add(at, shoot);
++  const twig = { pts: [at, tip], rad: [Math.min(0.008, size * 0.006), 0], pointTip: true };
++  tube(buf.sprays.wood, twig, 3, buf.sprays.barkTile, buf.sprays.tint,
++    (p) => p === at ? buf.sprays.flexOf(p) : flex + 0.15 * 0.18);
++  for (const [along, turn] of [[0.12, -0.38], [0.55, 0.31], [1, -0.12]]) {
++    const root = add(at, mul(shoot, along));
++    const across = norm(add(side, mul(cardN, turn)));
++    quad(root, across, w * k, h * k);
+   }
+-  buf.tri(base, base + 1, base + 2);
+-  buf.tri(base, base + 2, base + 3);
+ }
+ 
+ /**
+@@ -1725,7 +1746,7 @@ const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.02 };
+  *             crownR: number, trunkR: number }}
+  */
+ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skeleton = null, leafCover = 1, leafScale = 1,
+-  coarse = false } = {}) {
++  coarse = false, fullSprays = false } = {}) {
+   if (spec.form === 'vine_drape') return buildVineTemplate(spec, seed, lod, { conf });
+   if (spec.form === 'vine_wall') return buildWallVineTemplate(spec, seed, lod, { conf, leafCover });
+   const rnd = mulberry32(seed);
+@@ -1749,6 +1770,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
+   // ground does not move at all (T-2810).
+   const stiff = spec.dead === 'log' ? 0 : spec.dead ? 0.35 : 1;
+   const flexOf = (p) => clamp01((p[1] / Math.max(1, sk.H)) * 0.55 + Math.hypot(p[0], p[2]) / Math.max(1, sk.R) * 0.25) * 0.6 * stiff;
++  if (fullSprays && !coarse && lod === 'near') leaves.sprays = { wood, barkTile, tint: barkUpper, flexOf };
+   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
+   // the same limb, in fewer, longer segments.
+   const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : lod === 'far' ? 4 : 8;
+diff --git a/chicago/4d/renderers/web/js/tree-surface.js b/chicago/4d/renderers/web/js/tree-surface.js
+index e62ce015bf..5613e39bd0 100644
+--- a/chicago/4d/renderers/web/js/tree-surface.js
++++ b/chicago/4d/renderers/web/js/tree-surface.js
+@@ -5,7 +5,7 @@
+  * All sixteen tiles are generated here; no external image/license is needed.
+  */
+ import * as THREE from 'three';
+-import { LEAF_SKY } from './time-of-day.js';
++import { patchLeafLight } from './leaf-light.js';
+ import { GUST_GLSL, uGustClock } from './wind-gust.js';
+ 
+ export const TREE_ALPHA_CUTOFF = 0.38;
+@@ -301,17 +301,8 @@ normal = normalize(mix(chiUnrelievedNormal, normal, mix(1.0, 0.035, vTreeLeaf)))
+ #include <roughnessmap_fragment>
+ roughnessFactor *= mix(1.0, 0.82, vTreeLeaf);
+ `);
+-      // Thin leaves transmit skylight. This small diffuse term is not emissive
+-      // bloom; fog, tone mapping and confidence still act on the final surface.
+-      shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', `
+-#include <lights_fragment_end>
+-reflectedLight.indirectDiffuse += diffuseColor.rgb * (uLeafSky * vTreeLeaf);
+-`);
+-      // T-3331: the skylight a leaf transmits is the sky's, so it falls with the
+-      // hour (time-of-day.js). 0.22 by day, exactly as before.
+-      shader.uniforms.uLeafSky = LEAF_SKY;
+-      shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader;
+     }
+   };
+   material.customProgramCacheKey = () => `tree-surface-t2015-${surface ? 'lit' : 'depth'}`;
++  if (surface) patchLeafLight(material, { mask: 'vTreeLeaf', lowSpec: true });
+ }
+diff --git a/chicago/4d/renderers/web/js/trees.js b/chicago/4d/renderers/web/js/trees.js
+index 831e9de70c..d33dad3271 100644
+--- a/chicago/4d/renderers/web/js/trees.js
++++ b/chicago/4d/renderers/web/js/trees.js
+@@ -80,6 +80,7 @@ import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patc
+ import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
+ import { resolveBases } from './scene-loader.js';
+ import { RULES, compactPlan, compactGeometry } from './compact-attributes.js';
++import { releaseAfterUpload } from './upload-release.js';
+ 
+ /**
+  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
+@@ -4556,7 +4557,10 @@ export async function createTrees({
+   // the bank thickets and the dooryard shrubs, so a phone keeps it from its
+   // second level down, as the parkway elms did (T-2158, PR 773): a quarter of
+   // its memory.
+-  if ((lowSpec || level === 'light') && surfaceAtlas.mipmaps?.length > 1) {
++  // Balanced keeps the same trees and meshes, using the existing smaller
++  // atlases and inexpensive leaf shader to leave room on shared-memory GPUs.
++  const reducedTextures = lowSpec || level !== 'full';
++  if (reducedTextures && surfaceAtlas.mipmaps?.length > 1) {
+     surfaceAtlas.mipmaps = surfaceAtlas.mipmaps.slice(1);
+     surfaceAtlas.image = surfaceAtlas.mipmaps[0];
+   }
+@@ -4648,8 +4652,12 @@ export async function createTrees({
+   stats.timberChunks = chunks.length;
+   stats.foliageSprays = chunks.reduce((t, b) => t + b.sprays, 0);
+   stats.foliageRepresentation = 'species-alpha-sprays';
+-  stats.surfaceAtlasSize = 2048;
++  stats.surfaceAtlasSize = surfaceAtlas.image.width;
+   for (const b of chunks) stats.heads += b.heads;
++  // Static thicket/vine triangles are also read only by the GPU. Full keeps
++  // their recorded plants, cached bounds and shader controls, rather than a
++  // second triangle copy. The independently rebuilt horizon stays dynamic.
++  if (level === 'full') releaseAfterUpload(group, { timber: [] });
+ 
+   /* ---- 4b. the grown trees (T-2743) ------------------------------------- */
+ 
+@@ -4661,7 +4669,7 @@ export async function createTrees({
+   if (grown.count) {
+     grownMats = await createGrownTreeMaterials({
+       assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
+-      lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
++      lowSpec: reducedTextures, alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+     });
+     disposables.push(grownMats);
+     forest = await grown.build({ ...grownMats, checkpoint });
+@@ -4672,6 +4680,8 @@ export async function createTrees({
+   // T-2864: the crown the Season setting asks for (tree-model.js leafCover and
+   // leafScale), and the materials that take its colour.
+   let crownNow = '{}';
++  let crownApplied = crownNow, crownRevision = 0, treeDisposed = false;
++  let crownPending = Promise.resolve();
+ 
+   /* ---- 5. the horizon ---------------------------------------------------- */
+ 
+@@ -5319,15 +5329,32 @@ uniform float uBandUp;
+         }
+       }
+       const key = JSON.stringify(crown);
+-      if (!grownMats || key === crownNow) return;
++      if (!grownMats || treeDisposed) return;
++      if (key === crownNow) return crownPending;
+       crownNow = key;
+-      if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+-      forest = await grown.build({ ...grownMats, checkpoint, season: crown });
+-      group.add(forest.group);
+-      stats.grown = forest.stats;
++      const mine = ++crownRevision;
++      crownPending = crownPending.catch(() => {}).then(async () => {
++        // Coalesce rapid season choices before growing another whole forest.
++        if (treeDisposed || mine !== crownRevision) return;
++        try {
++          const candidate = await grown.build({ ...grownMats, checkpoint, season: { ...crown } });
++          if (treeDisposed || mine !== crownRevision) { candidate.dispose(); return; }
++          if (forest) { group.remove(forest.group); forest.dispose(); }
++          forest = candidate;
++          group.add(forest.group);
++          stats.grown = forest.stats;
++          crownApplied = key;
++        } catch (error) {
++          if (mine === crownRevision) crownNow = crownApplied;
++          throw error;
++        }
++      });
++      return crownPending;
+     },
+ 
+     dispose() {
++      if (treeDisposed) return;
++      treeDisposed = true; crownRevision++;
+       for (const d of disposables) d?.dispose?.();
+       forest?.dispose();
+     },
+diff --git a/chicago/4d/tools/check.sh b/chicago/4d/tools/check.sh
+index d84352e71d..4055be4e99 100755
+--- a/chicago/4d/tools/check.sh
++++ b/chicago/4d/tools/check.sh
+@@ -516,6 +516,8 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
+   node tools/check_jaunt_views.mjs --self-test
+ step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
+   node tools/test_walker_passage.mjs
++step "Overlapping seasonal tree rebuilds retain independent templates and live instances (T-3747)" \
++  node tools/test_tree_rebuilds.mjs
+ step "1871 context shadows use the same confidence controls as their surfaces (T-3654)" \
+   node tools/test_city_context_depth.mjs
+ step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
+@@ -860,6 +862,8 @@ step "John J. Glessner's frock coat stops at the knee, is taken in at the waist,
+   node tools/test_human_frockcoat.mjs
+ step "The 1904 lady's skirt is close at the hips and flares from the knee, with gores, folds, braid, a cream lace front and wrist frills, clear of the legs walking, at every level, no mesh added (T-3553)" \
+   node tools/test_human_gown.mjs
++step "Clothing preparation preserves nearest points and releases loader scratch while retaining live assets (T-3747 integration)" \
++  node tools/test_human_preparation_memory.mjs
+ step "Clothes hang, lie and are trimmed as cloth at load: nothing under shows through more than drawn, standing or striding; John J. Glessner's coat has its lapels, collar, front buttons and seams, the lapels off his shoulders; a lady's collar under her chin; skin rows whole, every step short (T-3553)" \
+   node tools/test_human_drape.mjs
+ step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
+diff --git a/chicago/4d/tools/check_upload_release.mjs b/chicago/4d/tools/check_upload_release.mjs
+index 6c6a3345ff..f1e3cba232 100644
+--- a/chicago/4d/tools/check_upload_release.mjs
++++ b/chicago/4d/tools/check_upload_release.mjs
+@@ -18,7 +18,8 @@
+  *     their kept bounding spheres — a building by its instance's;
+  *  3. a chunk the reach held back at boot still has its arrays, and walking up
+  *     to it uploads it and lets them go, without an error;
+- *  4. a desktop (1280x800, mouse) releases nothing, and there, where the
++ *  4. a desktop (1280x800, mouse) releases only Full's static woodland batches;
++ *     its pickable building and furniture layers keep their triangles, and there,
+  *     triangles still exist, the GPU pick answers a fixed list of taps on the
+  *     plank walks, fences, yard goods and buildings exactly as the old raycast
+  *     does (`pickAtRaycast`, the oracle): the same id, at the same distance
+@@ -423,10 +424,27 @@ if (part('1835')) {
+ /* ---- 4: the desktop ---------------------------------------------------- */
+ if (part('desktop')) {
+   const { ctx, page, errors } = await boot({ viewport: { width: 1280, height: 800 } });
+-  const census = await page.evaluate(() => window.__chicago4d.uploadRelease);
++  const released = await page.evaluate(() => {
++    const a = window.__chicago4d, woodland = [], other = [];
++    a.scene3d.traverse(o => {
++      if (!o.geometry?.userData.uploadReleased) return;
++      let p = o, timber = false;
++      while (p) { if (p.name === 'timbers-grown') timber = true; p = p.parent; }
++      if (o.name === 'timber' && o.parent?.name === 'trees') timber = true;
++      (timber ? woodland : other).push({ name: o.name,
++        released: o.geometry.attributes.position?.array === null
++          && o.geometry.index?.array?.length === 0 });
++    });
++    return { census: a.uploadRelease, woodland, other };
++  });
++  const { census } = released;
+   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
+-  check('desktop: nothing is released', census?.attributes === 0 && census.sources === 0
+-    && census.images === 0, JSON.stringify(census));
++  check('desktop: only Full woodland batches are released',
++    JSON.stringify(released.woodland.map(o => o.name).sort()) === JSON.stringify([
++      'timber', 'timber-far-leaves', 'timber-far-wood', 'timber-shade-leaves', 'timber-shade-wood',
++    ]) && released.woodland.every(o => o.released)
++      && released.other.length === 0 && census?.attributes > 0 && census.sources === 0
++      && census.images === 0, JSON.stringify(released));
+   for (const [layer, api] of [['frontage', 'frontage'], ['enclosures', 'enclosures'], ['yard', 'yard']]) {
+     const r = await page.evaluate(gpuAgainstRaycast, { layer, api });
+     check(`desktop: the GPU pick answers ${r.compared} fixed taps on ${layer} as the raycast does`,
+diff --git a/chicago/4d/tools/dev-smoke-state.json b/chicago/4d/tools/dev-smoke-state.json
+index 1b8ec626b9..58eacbd362 100644
+--- a/chicago/4d/tools/dev-smoke-state.json
++++ b/chicago/4d/tools/dev-smoke-state.json
+@@ -1817,6 +1817,500 @@
+         "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
+       },
+       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944685838/job/130274535148"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "5",
++      "parts": [
++        5
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 30,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 526,
++      "takenAt": "2026-11-26T07:05:06.238Z",
++      "ref": "steward/t3747-vegetation-realism",
++      "commit": "9ce06bacd5a9",
++      "devCommit": "8ff29d498451",
++      "treeHash": "sha256:d4f7178b9fcb9c04",
++      "treeDirty": true,
++      "changelogHash": "sha256:9f84d93ac519330a",
++      "host": {
++        "kind": "local",
++        "cpus": 5,
++        "memGB": 17.6,
++        "loadavg": [
++          3.1,
++          3.2,
++          2.9
++        ]
++      },
++      "source": "/workspace/work/vegetation-smoke-mobile-5.log"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "3-4",
++      "parts": [
++        3,
++        4
++      ],
++      "verdict": "fail",
++      "target": "published",
++      "passed": 114,
++      "failed": 2,
++      "failures": [
++        "mobile 390x780: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed",
++        "mobile 390x780: zero page errors — request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-andreas-1884-sauganash.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833-thumb.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833.jpg"
++      ],
++      "wallSeconds": null,
++      "takenAt": "2026-11-11T23:28:04.084Z",
++      "ref": "steward/t1789-pr1933-recovery-20261111",
++      "commit": "57151be9a3b1",
++      "devCommit": "8a643db9e089",
++      "treeHash": "sha256:1d20a673cec8b682",
++      "treeDirty": true,
++      "changelogHash": "sha256:201c13ccfa57d164",
++      "host": {
++        "kind": "local",
++        "cpus": 5,
++        "memGB": 17.6,
++        "loadavg": [
++          1.7,
++          3.3,
++          3.5
++        ]
++      },
++      "source": "/workspace/work/pr1933/smoke-mobile-3-4.log"
++    },
++    {
++      "viewport": "desktop",
++      "stage": "1",
++      "parts": [
++        1
++      ],
++      "verdict": "fail",
++      "target": "published",
++      "passed": 46,
++      "failed": 1,
++      "failures": [
++        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
++      ],
++      "wallSeconds": null,
++      "takenAt": "2026-11-11T23:28:03.878Z",
++      "ref": "steward/t1789-pr1933-recovery-20261111",
++      "commit": "57151be9a3b1",
++      "devCommit": "8a643db9e089",
++      "treeHash": "sha256:1d20a673cec8b682",
++      "treeDirty": true,
++      "changelogHash": "sha256:201c13ccfa57d164",
++      "host": {
++        "kind": "local",
++        "cpus": 5,
++        "memGB": 17.6,
++        "loadavg": [
++          1.7,
++          3.3,
++          3.5
++        ]
++      },
++      "source": "/workspace/work/pr1933/smoke-desktop-1.log"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "1",
++      "parts": [
++        1
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 95,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 282,
++      "takenAt": "2026-11-11T23:15:13.303Z",
++      "ref": "steward/t1789-pr1933-recovery-20261111",
++      "commit": "57151be9a3b1",
++      "devCommit": "8a643db9e089",
++      "treeHash": "sha256:1d20a673cec8b682",
++      "treeDirty": true,
++      "changelogHash": "sha256:201c13ccfa57d164",
++      "host": {
++        "kind": "local",
++        "cpus": 5,
++        "memGB": 17.6,
++        "loadavg": [
++          4.7,
++          4.1,
++          2.5
++        ]
++      },
++      "source": "/workspace/work/pr1933/smoke-mobile-1.log"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "11-12",
++      "parts": [
++        11,
++        12
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 37,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 197,
++      "takenAt": "2026-11-11T02:22:20Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944854311/job/130275080244"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "9-10",
++      "parts": [
++        9,
++        10
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 45,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 122,
++      "takenAt": "2026-11-11T02:21:50Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944819744/job/130274967644"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "7-8",
++      "parts": [
++        7,
++        8
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 48,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 276,
++      "takenAt": "2026-11-11T02:21:15Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944794555/job/130274885894"
++    },
++    {
++      "viewport": "desktop",
++      "stage": "7-8",
++      "parts": [
++        7,
++        8
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 48,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 1379,
++      "takenAt": "2026-11-11T02:20:50Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944782110/job/130274845636"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "5-6",
++      "parts": [
++        5,
++        6
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 41,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 728,
++      "takenAt": "2026-11-11T02:19:53Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944768664/job/130274800237"
++    },
++    {
++      "viewport": "desktop",
++      "stage": "5-6",
++      "parts": [
++        5,
++        6
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 37,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 1036,
++      "takenAt": "2026-11-11T02:18:53Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944754878/job/130274755728"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "3-4",
++      "parts": [
++        3,
++        4
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 139,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 424,
++      "takenAt": "2026-11-11T02:16:17Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944746422/job/130274727110"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "1-2",
++      "parts": [
++        1,
++        2
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 198,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 382,
++      "takenAt": "2026-11-11T02:15:12Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944716815/job/130274633711"
++    },
++    {
++      "viewport": "desktop",
++      "stage": "1-2",
++      "parts": [
++        1,
++        2
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 198,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 1461,
++      "takenAt": "2026-11-11T02:15:09Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944708489/job/130274606452"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "14-15",
++      "parts": [
++        14,
++        15
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 165,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 644,
++      "takenAt": "2026-11-11T02:15:03Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944696351/job/130274570078"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "13",
++      "parts": [
++        13
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 157,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 1240,
++      "takenAt": "2026-11-11T02:14:52Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944675858/job/130274501718"
++    },
++    {
++      "viewport": "desktop",
++      "stage": "13",
++      "parts": [
++        13
++      ],
++      "verdict": "fail",
++      "target": "published",
++      "passed": 156,
++      "failed": 1,
++      "failures": [
++        "desktop 1280x800: zero page errors — request failed (net::ERR_BLOCKED_BY_ORB) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833-thumb.jpg"
++      ],
++      "wallSeconds": 3092,
++      "takenAt": "2026-11-11T02:14:45Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "147a770384a1",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:27b7282625ca4d07",
++      "treeDirty": false,
++      "changelogHash": "sha256:99bb3008ddfe5010",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42944661493/job/130274455091"
++    },
++    {
++      "viewport": "mobile",
++      "stage": "9-10",
++      "parts": [
++        9,
++        10
++      ],
++      "verdict": "pass",
++      "target": "published",
++      "passed": 45,
++      "failed": 0,
++      "failures": [],
++      "wallSeconds": 256,
++      "takenAt": "2026-11-11T01:53:54Z",
++      "ref": "steward/t3540-t3541-t3543-resident-interactions",
++      "commit": "ca4c4b2957d9",
++      "devCommit": "5f04b69d8428",
++      "treeHash": "sha256:1b08d33d30cae2af",
++      "treeDirty": false,
++      "changelogHash": "sha256:a973b3eb54d57f2c",
++      "host": {
++        "kind": "ci",
++        "cpus": null,
++        "loadavg": null,
++        "note": "GitHub-hosted ubuntu-24.04; hardware/load not recovered from job log"
++      },
++      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42942205250/job/130266442189"
+     }
+   ]
+ }
+diff --git a/chicago/4d/tools/measure_walk_frames.mjs b/chicago/4d/tools/measure_walk_frames.mjs
+index a4f379e29b..cdcd9d38ef 100644
+--- a/chicago/4d/tools/measure_walk_frames.mjs
++++ b/chicago/4d/tools/measure_walk_frames.mjs
+@@ -1,7 +1,7 @@
+ /**
+  * WHAT A FRAME COSTS WHILE THE VISITOR IS MOVING — T-2096.
+  *
+- *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light]
++ *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light] [--root mirror]
+  *                                      [--moves walk,turn,flight] [--year 1835]
+  *                                      [--throttle 4] [--source] [--json f]
+  *                                      [--sync] [--verify] [--gate] [--xray]
+@@ -282,9 +282,8 @@ const TYPES = {
+   '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.md': 'text/markdown',
+   '.webp': 'image/webp', '.ktx2': 'image/ktx2',
+ };
+-const ROOT = wantSource
+-  ? path.resolve(HERE, '..')
+-  : path.resolve(HERE, '../../../site/4d');
++const ROOT = argAt('--root') ? path.resolve(argAt('--root'))
++  : wantSource ? path.resolve(HERE, '..') : path.resolve(HERE, '../../../site/4d');
+ const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
+ if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
+   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);
+@@ -332,7 +331,14 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
+   }
+   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
+   // the hooks are wrapped on the objects that exist once it has settled.
+-  await a.setDetail(tier);
++  // Scripted readings skip raster drawing, including this unmeasured setup.
++  // Otherwise each cooperative rebuild yield redraws the old Full town on
++  // SwiftShader, exhausting the job before Balanced's first measured frame.
++  // Keep camera transforms current; --render and live readings retain draws.
++  const prepareDraw = a.renderer.render;
++  if (!render) a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
++  try { await a.setDetail(tier); }
++  finally { a.renderer.render = prepareDraw; }
+   if (xray) {
+     a.setConfidenceView(true);
+     a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+diff --git a/chicago/4d/tools/qa_tree_gallery_t3747.mjs b/chicago/4d/tools/qa_tree_gallery_t3747.mjs
+new file mode 100644
+index 0000000000..f42b2bede9
+--- /dev/null
++++ b/chicago/4d/tools/qa_tree_gallery_t3747.mjs
+@@ -0,0 +1,97 @@
++// Controlled diagnostic of the real grown-tree pipeline, without town geometry.
++// QA_OUT=/path QA_TAG=before|after QA_BEFORE=/path/to/old/js QA_DETAIL=full|balanced|light
++// This fixture is not a historical scene or a hardware FPS benchmark.
++import fs from 'node:fs';
++import path from 'node:path';
++import http from 'node:http';
++import { createRequire } from 'node:module';
++const require = createRequire(import.meta.url), { chromium } = require('playwright');
++const root = path.resolve(new URL('..', import.meta.url).pathname);
++const out = process.env.QA_OUT, tag = process.env.QA_TAG || 'after', detail = process.env.QA_DETAIL || 'full';
++const season = process.env.QA_SEASON || 'summer';
++if (!out) throw Error('QA_OUT required');
++fs.mkdirSync(out, { recursive: true });
++const server = http.createServer((req, res) => {
++  if (req.url === '/') {
++    res.setHeader('Content-Type', 'text/html');
++    res.end(`<style>body{margin:0;background:#b4cadb}canvas{display:block}</style><link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/vendor/three-0.185.1/three.module.js","three/addons/":"/vendor/three-0.185.1/addons/"}}</script>`);
++    return;
++  }
++  let file = req.url.startsWith('/assets/') ? path.join(root, req.url)
++    : path.join(root, 'renderers/web', req.url);
++  if (process.env.QA_BEFORE && /\/js\/[^/]+\.js$/.test(file)) {
++    const old = path.join(process.env.QA_BEFORE, path.basename(file));
++    if (fs.existsSync(old)) file = old;
++  }
++  if (!fs.existsSync(file)) { res.writeHead(404); res.end('missing'); return; }
++  res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : 'application/octet-stream');
++  fs.createReadStream(file).pipe(res);
++});
++await new Promise(r => server.listen(0, '127.0.0.1', r));
++const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined,
++  args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
++const results = [];
++try {
++  const page = await browser.newPage({ viewport: { width: 1000, height: 800 } });
++  const errors = [];
++  page.on('pageerror', e => errors.push(String(e)));
++  page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
++  await page.goto(`http://127.0.0.1:${server.address().port}/`);
++  for (const speciesId of (process.env.QA_SPECIES || 'ulmus_americana_vase,quercus_alba,salix_nigra').split(',')) {
++    const result = await page.evaluate(async ({ speciesId, detail, season }) => {
++      const THREE = await import('three');
++      const { TreeInstances, createGrownTreeMaterials } = await import('/js/tree-instances.js');
++      const { patchTreeWind } = await import('/js/tree-surface.js');
++      const { applySeasonLook, patchFoliage, patchSeason, SEASON_CROWN } = await import('/js/season.js');
++      applySeasonLook(season);
++      const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
++      renderer.setSize(1000, 800); renderer.shadowMap.enabled = true;
++      renderer.toneMapping = THREE.ACESFilmicToneMapping;
++      document.body.replaceChildren(renderer.domElement);
++      const scene = new THREE.Scene(); scene.background = new THREE.Color(0xb4cadb);
++      scene.add(new THREE.HemisphereLight(0xdcecff, 0x5b6549, 2.2));
++      const sun = new THREE.DirectionalLight(0xfff2d6, 3.0);
++      sun.position.set(-12, 20, -8); sun.castShadow = true;
++      Object.assign(sun.shadow.camera, { left: -18, right: 18, top: 20, bottom: -20, near: 0.1, far: 80 });
++      sun.shadow.mapSize.set(1024, 1024); sun.shadow.normalBias = 0.025;
++      scene.add(sun);
++      const ground = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshStandardMaterial({ color: 0x69794f, roughness: 1 }));
++      ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
++      if (season !== 'summer') patchSeason(ground.material, 1);
++      const camera = new THREE.PerspectiveCamera(74, 1.25, 0.1, 120);
++      camera.position.set(7, 3, 10); camera.lookAt(0, 9, 0);
++      const mats = await createGrownTreeMaterials({ assetBase: new URL('/assets/', location.href),
++        uWind: { value: 0 }, patchWind: patchTreeWind, lowSpec: detail === 'light' });
++      if (season !== 'summer') patchFoliage(mats.leafMat, 0, { evergreenBelowV: 0.2 });
++      const trees = new TreeInstances({ level: detail, variants: () => 1 });
++      trees.add({ speciesId, arch: speciesId, common: speciesId, form: 'open', h: [16, 16], dbh: [0.45, 0.45],
++        crownW: [11, 11], dark: 0x345028, light: 0x738c4b, bark: 0x554837,
++        evergreen: /juniperus|thuja|pinus|picea/.test(speciesId) }, 0, 0, 0, 1, { yaw: 0, variant: 0 });
++      const rig = await trees.build({ ...mats, season: SEASON_CROWN[season] }); scene.add(rig.group); rig.update(camera.position); rig.settle();
++      const times = [], gl = renderer.getContext();
++      for (let i = 0; i < 9; i++) {
++        renderer.info.reset(); const t = performance.now(); renderer.render(scene, camera); gl.finish();
++        if (i > 1) times.push(performance.now() - t);
++      }
++      times.sort((a, b) => a - b);
++      const buffers = new Set();
++      scene.traverse(o => {
++        if (!o.geometry) return;
++        for (const a of Object.values(o.geometry.attributes)) if (a.array) buffers.add(a.array.buffer);
++        if (o.geometry.index?.array) buffers.add(o.geometry.index.array.buffer);
++      });
++      const row = { speciesId, detail, season, triangles: renderer.info.render.triangles, calls: renderer.info.render.calls,
++        memory: { ...renderer.info.memory }, frameMs: times[Math.floor(times.length / 2)], treeStats: rig.stats };
++      row.geometryBytes = [...buffers].reduce((n, b) => n + b.byteLength, 0);
++      window.galleryDispose = () => { rig.dispose(); mats.dispose(); ground.geometry.dispose(); ground.material.dispose(); renderer.dispose(); };
++      return row;
++    }, { speciesId, detail, season });
++    result.image = `${tag}-gallery-${speciesId}-${detail}-${season}.jpg`;
++    console.log('rendered', JSON.stringify(result));
++    await page.screenshot({ path: path.join(out, result.image), type: 'jpeg', quality: 92, timeout: 400000 });
++    await page.evaluate(() => window.galleryDispose());
++    results.push(result); console.log(JSON.stringify(result));
++  }
++  if (errors.length) throw Error(errors.join('\n').slice(0, 6000));
++  fs.writeFileSync(path.join(out, `${tag}-gallery-${detail}-${season}.json`), JSON.stringify(results, null, 2));
++} finally { await browser.close(); server.close(); }
+diff --git a/chicago/4d/tools/qa_vegetation_t3747.mjs b/chicago/4d/tools/qa_vegetation_t3747.mjs
+new file mode 100644
+index 0000000000..f94ac41c2e
+--- /dev/null
++++ b/chicago/4d/tools/qa_vegetation_t3747.mjs
+@@ -0,0 +1,223 @@
++// Fixed-camera published vegetation evidence. QA_BEFORE holds the old JS files;
++// only those files are substituted, so both renders use the same assets/data.
++// QA_YEAR=1812,1835,1871,1904 QA_VIEWPORT=desktop|mobile QA_TIERS=light,balanced,full
++// QA_SEASONS=summer,spring,fall,winter QA_FRAMES=9 (3 for shader/image checks)
++// QA_MODES=1 also checks night and Confidence view once per scene/viewport.
++// QA_STAND=water_tower|pumping_tree selects a diagnostic 1871 viewpoint.
++// QA_TAG=before|after QA_OUT=/path QA_BEFORE=/path/to/old/js PW_EXECUTABLE=... node ...
++import fs from 'node:fs';
++import http from 'node:http';
++import path from 'node:path';
++import { createRequire } from 'node:module';
++const require = createRequire(import.meta.url), { chromium } = require('playwright');
++const root = path.resolve(new URL('..', import.meta.url).pathname);
++const site = path.resolve(root, process.env.QA_SITE || '../../site/4d');
++const out = process.env.QA_OUT;
++if (!out) throw Error('QA_OUT must name the evidence directory');
++fs.mkdirSync(out, { recursive: true });
++const tag = process.env.QA_TAG || 'after';
++const frames = Math.max(3, Number(process.env.QA_FRAMES || 9));
++const stand = process.env.QA_STAND || null;
++const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
++  '.css': 'text/css', '.glb': 'model/gltf-binary', '.wasm': 'application/wasm',
++  '.webp': 'image/webp', '.ktx2': 'image/ktx2', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg' };
++const server = http.createServer((req, res) => {
++  let file = path.join(site, decodeURIComponent(req.url.split('?')[0]));
++  if (process.env.QA_BEFORE && /\/js\/[^/]+\.js$/.test(file)) {
++    const old = path.join(process.env.QA_BEFORE, path.basename(file));
++    if (fs.existsSync(old)) file = old;
++  }
++  try {
++    if (fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
++    res.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
++    fs.createReadStream(file).pipe(res);
++  } catch { res.writeHead(404); res.end('missing'); }
++});
++await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
++const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined,
++  args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
++const observations = [];
++try {
++  for (const year of (process.env.QA_YEAR || '1812,1835,1871,1904').split(',')) {
++    for (const viewport of ['desktop', 'mobile']) {
++      if (process.env.QA_VIEWPORT && process.env.QA_VIEWPORT !== viewport) continue;
++      const mobile = viewport === 'mobile';
++      const context = await browser.newContext({ viewport: mobile ? { width: 390, height: 780 } : { width: 1280, height: 800 },
++        isMobile: mobile, hasTouch: mobile, deviceScaleFactor: 1 });
++      const page = await context.newPage();
++      page.setDefaultTimeout(400000);
++      const errors = [];
++      page.on('pageerror', e => { errors.push(String(e)); console.log('pageerror', String(e)); });
++      page.on('console', m => {
++        if (m.text().startsWith('[vegetation]')) console.log(m.text());
++        if (m.type() === 'error' && /THREE.WebGLProgram|GL_INVALID|shader error/i.test(m.text())) {
++          errors.push(m.text()); console.log('shader error', m.text().slice(0, 2500));
++        }
++      });
++      console.log(tag, year, viewport, 'booting');
++      await page.goto(`http://127.0.0.1:${server.address().port}/${year}/?device=${process.env.QA_DEVICE || (mobile ? 'weak' : 'standard')}`, { waitUntil: 'domcontentloaded' });
++      await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error, null, { timeout: 400000, polling: 500 });
++      const boot = await page.evaluate(() => ({ ready: __chicago4d.ready, error: __chicago4d.error,
++        welcome: __chicago4d.welcome?.state, problems: __chicago4d.problems?.slice(-5) }));
++      console.log(tag, year, viewport, 'boot', JSON.stringify(boot));
++      if (boot.error) throw Error(`scene failed to boot: ${JSON.stringify(boot.error)}`);
++      // The official smoke holds draws during non-pixel reads (T-2337), keeping
++      // arrival/checkpoint ticks running without drawing the town at every tick.
++      await page.evaluate(() => {
++        const r = __chicago4d.renderer;
++        window.__vegetationDraw = r.render;
++        r.render = (scene, camera) => camera?.updateMatrixWorld?.();
++      });
++      await page.waitForFunction(() => window.__chicago4d?.welcome.state === 'welcome', null, { timeout: 400000, polling: 500 });
++      console.log(tag, year, viewport, 'welcome');
++      await page.evaluate(() => {
++        const a = window.__chicago4d;
++        if (!a.welcome.enter('spawn')) throw Error('welcome entry failed');
++        document.exitPointerLock?.(); document.getElementById('control-help-gotit')?.click();
++      });
++      await page.waitForFunction(() => document.getElementById('gate').hidden);
++      console.log(tag, year, viewport, 'entered');
++      await page.evaluate(() => {
++        const a = __chicago4d;
++        a.renderer.setAnimationLoop(null);
++        a.renderer.setPixelRatio(1); // same raster workload for the before/after timing
++        a.step();
++      });
++      const seasons = (process.env.QA_SEASONS || 'summer').split(',');
++      const tiers = (process.env.QA_TIERS || 'light,balanced,full').split(',');
++      // Hold each tier while exercising every season; this avoids rebuilding
++      // the entire placement plan once per season while keeping all cases.
++      for (const detail of tiers) {
++        await page.evaluate(async detail => {
++          const a = __chicago4d;
++          a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
++          await a.setDetail(detail); a.step();
++          a.renderer.render = window.__vegetationDraw;
++        }, detail);
++        await page.waitForFunction(detail => {
++          const a = __chicago4d;
++          return [a.streetTrees, a.frontYards].every(layer => {
++            if (!layer?.stats?.grown?.stems || layer.stats.mode === 'hidden') return true;
++            return layer.stats.detail === detail && layer.group.children.some(o => o.name?.endsWith('s-grown'));
++          });
++        }, detail);
++      for (const season of seasons) {
++        await page.evaluate(async season => {
++          const a = __chicago4d;
++          a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
++          await a.season.set(season); a.step();
++          if (a.season.current !== season) throw Error(`requested ${season}, got ${a.season.current}`);
++          a.renderer.render = window.__vegetationDraw;
++        }, season);
++        await page.waitForFunction(() => [__chicago4d.streetTrees, __chicago4d.frontYards].every(layer =>
++          !layer?.stats?.grown?.stems || layer.stats.mode === 'hidden'
++            || layer.group.children.some(o => o.name?.endsWith('s-grown'))));
++        console.log(tag, year, viewport, detail, 'built');
++        const row = await page.evaluate(({ year, detail, season, frames, stand }) => {
++          const a = __chicago4d;
++          console.info('[vegetation] positioning');
++          const trunks = a.trees?.trunks?.() || [];
++          const spawn = a.scene.spawn;
++          let eye, target;
++          if (year === '1904') { eye = [1401, -3240, 1.7]; target = [1403, -3300, 18]; }
++          else if (year === '1871') {
++            if (stand === 'water_tower') { eye = [1138, 1084, 1.7]; target = [1150, 1154, 10]; }
++            else if (stand === 'pumping_tree') { eye = [1168, 1127.5, 1.7]; target = [1175.08, 1137.74, 6]; }
++            else { eye = [901, -573, 1.7]; target = [900, -500, 8]; }
++          }
++          else {
++            const near = trunks.filter(t => t.r > 0.08).sort((p, q) =>
++              Math.hypot(p.e - spawn.local_e, p.n - spawn.local_n) - Math.hypot(q.e - spawn.local_e, q.n - spawn.local_n))[0];
++            const t = near || { e: spawn.local_e, n: spawn.local_n };
++            eye = [t.e - 13, t.n - 16, 1.7]; target = [t.e, t.n, 9];
++          }
++          const yaw = Math.atan2(target[0] - eye[0], target[1] - eye[1]) * 180 / Math.PI;
++          a.setFly(true);
++          a.walker.teleport({ local_e: eye[0], local_n: eye[1], altitude_m: eye[2], yaw_deg: yaw, pitch_deg: 10 });
++          console.info('[vegetation] stepping');
++          a.step();
++          console.info('[vegetation] stepped');
++          a.camera.position.set(eye[0], a.terrain.surfaceHeight(eye[0], eye[1]) + eye[2], -eye[1]);
++          a.camera.lookAt(target[0], a.terrain.surfaceHeight(target[0], target[1]) + target[2], -target[1]);
++          a.camera.updateMatrixWorld();
++          a.world.follow(a.camera.position); a.world.aim(a.camera);
++          a.trees?.update?.(0, a.camera); a.trees?.settle?.();
++          a.streetTrees?.update?.(0, a.camera); a.streetTrees?.settle?.();
++          a.frontYards?.update?.(0, a.camera); a.contextCity?.update?.(0, a.camera);
++          document.getElementById('nav-close')?.click();
++          document.getElementById('panel-close')?.click();
++          console.info('[vegetation] reading frames');
++          const gl = a.renderer.getContext();
++          const samples = [];
++          for (let i = 0; i < frames; i++) {
++            console.info(`[vegetation] frame ${i}`);
++            a.renderer.info.reset();
++            const t = performance.now();
++            a.renderer.render(a.scene3d, a.camera); gl.finish();
++            if (i > 1) samples.push(performance.now() - t);
++          }
++          samples.sort((p, q) => p - q);
++          const buffers = new Set(), textures = new Set();
++          let geometryBytes = 0;
++          a.scene3d.traverse(o => {
++            const g = o.geometry;
++            for (const attr of [...Object.values(g?.attributes || {}), g?.index]) {
++              const array = attr?.isInterleavedBufferAttribute ? attr.data.array : attr?.array;
++              if (array && !buffers.has(array.buffer)) { buffers.add(array.buffer); geometryBytes += array.buffer.byteLength; }
++            }
++            for (const m of [].concat(o.material || [])) for (const v of Object.values(m)) if (v?.isTexture) textures.add(v);
++          });
++          return { year, detail, season, stand, sunDate: a.season.sunDate, eye, target, triangles: a.renderer.info.render.triangles,
++            calls: a.renderer.info.render.calls, memory: { ...a.renderer.info.memory },
++            keptGeometryBytes: geometryBytes, materialTextures: textures.size, frameSamples: samples.length,
++            frameMs: { median: samples[Math.floor(samples.length / 2)], max: samples.at(-1) },
++            pixelRatio: a.renderer.getPixelRatio(), device: a.device, problems: a.problems,
++            treeCount: a.trees?.stats?.grown?.stems, streetTreeCount: a.streetTrees?.stats?.grown?.stems };
++        }, { year, detail, season, frames, stand });
++        console.log('metrics', JSON.stringify({ year, detail, triangles: row.triangles, calls: row.calls, frameMs: row.frameMs }));
++        const image = `${tag}-${year}-${viewport}-${detail}-${season}${stand ? `-${stand}` : ''}.jpg`;
++        await page.screenshot({ path: path.join(out, image), type: 'jpeg', quality: 90, timeout: 400000 });
++        row.image = image; row.viewport = viewport; row.errors = [...errors];
++        if (process.env.QA_MODES === '1' && detail === tiers.at(-1) && season === seasons[0]) {
++          row.modes = await page.evaluate(async () => {
++            const a = __chicago4d, renderer = a.renderer, draw = window.__vegetationDraw;
++            const position = a.camera.position.clone(), rotation = a.camera.quaternion.clone();
++            const ownTime = a.timeOfDay.current.own, confidence = a.confidenceView;
++            const { LEAF_SKY } = await import('/walk/js/time-of-day.js');
++            const shot = async () => {
++              renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
++              a.step(); a.camera.position.copy(position); a.camera.quaternion.copy(rotation); a.camera.updateMatrixWorld();
++              renderer.render = draw; renderer.render(a.scene3d, a.camera); renderer.getContext().finish();
++              const bytes = new TextEncoder().encode(renderer.domElement.toDataURL());
++              const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(v => v.toString(16).padStart(2, '0')).join('');
++              return { hash, leafSky: LEAF_SKY.value, clock: a.timeOfDay.current, confidence: a.confidenceView };
++            };
++            let day, night, restored, graded;
++            a.setAnimationHold(true);
++            try {
++              day = await shot();
++              await a.timeOfDay.set('night'); night = await shot();
++              if (!(night.leafSky >= 0 && night.leafSky < day.leafSky) || night.hash === day.hash)
++                throw Error('night did not reduce leaf skylight/change the frame');
++              await a.timeOfDay.set(ownTime); restored = await shot();
++              a.setConfidenceView(!confidence); graded = await shot();
++              if (graded.confidence === confidence || graded.hash === restored.hash) throw Error('Confidence view did not change the frame');
++            } finally {
++              await a.timeOfDay.set(ownTime); a.setConfidenceView(confidence); await shot();
++              a.setAnimationHold(false);
++              renderer.render = draw;
++            }
++            return { day, night, restored, graded, note: 'Animation held for single-frame mode/shader checks; hashes are diagnostic, not fidelity or timing measurements.' };
++          });
++        }
++        row.errors = [...errors];
++        observations.push(row);
++        fs.writeFileSync(path.join(out, `${tag}-${year}-${viewport}.json`), JSON.stringify(observations, null, 2));
++        console.log(JSON.stringify({ tag, year, viewport, detail, triangles: row.triangles, calls: row.calls, frameMs: row.frameMs, errors: errors.length }));
++        if (errors.length) throw Error(errors.join('\n'));
++      }
++      }
++      await context.close();
++    }
++  }
++} finally { await browser.close(); server.close(); }
+diff --git a/chicago/4d/tools/smoke_budget.mjs b/chicago/4d/tools/smoke_budget.mjs
+index 6122db564c..f74cfce6c1 100644
+--- a/chicago/4d/tools/smoke_budget.mjs
++++ b/chicago/4d/tools/smoke_budget.mjs
+@@ -533,8 +533,13 @@ const COVERAGE = [
+   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
+   ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
+   // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
+-  ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
+-  ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
++  ['renderers/web/js/tree-model.js', [5, 10, 11, 14], 'the grown species trees, their detail ceilings, the timber parts and the 1904 parkway elms'],
++  ['renderers/web/js/tree-instances.js', [5, 10, 11, 14], 'the grown trees\' instancing, detail ceilings, levels and shadow ring: the timber parts and the 1904 elms'],
++  ['renderers/web/js/leaf-light.js', [10, 11, 14], 'the shared thin-leaf lighting of grown trees, vines and woody shrubs (T-3747)'],
++  ['tools/test_tree_rebuilds.mjs', NONE, 'a native regression for overlapping seasonal tree builds'],
++  ['tools/test_leaf_lighting_browser.mjs', NONE, 'a rendering test of shadowed leaf light, not a shipped renderer'],
++  ['tools/qa_vegetation_t3747.mjs', NONE, 'captures fixed-camera vegetation evidence; no runtime consumer'],
++  ['tools/qa_tree_gallery_t3747.mjs', NONE, 'isolated tree geometry/material diagnostic; no runtime consumer'],
+   // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
+   ['renderers/web/js/batch-instance.js', [10, 11, 14], 'the grown trees\' copies of one template drawn as one instanced draw'],
+   ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
+diff --git a/chicago/4d/tools/smoke_renderer.mjs b/chicago/4d/tools/smoke_renderer.mjs
+index f89ed6b442..5d402d464e 100644
+--- a/chicago/4d/tools/smoke_renderer.mjs
++++ b/chicago/4d/tools/smoke_renderer.mjs
+@@ -1950,6 +1950,52 @@ for (const [label, viewport, touch] of [
+     }
+   }, on);
+ 
++  // T-3747 integration: an actor's requested LOD finishes from its promise, even
++  // with the animation clock held. Finish that work BEFORE the UI-only resource
++  // reading, and prevent its update from asking for another level across it.
++  // Raster is omitted only while awaiting this unmeasured preparation; the
++  // ordinary draw is restored and warmed before any renderer.info is sampled.
++  // Rows keep the people visible, so their materials remain part of the check.
++  const holdHumanResources = (hide = false) => page.evaluate(async (hide) => {
++    const a = window.__chicago4d, h = a.humans;
++    a.setAnimationHold(true);
++    if (!h) return;
++    if (!h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
++    if (hide && h.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
++    const draw = a.renderer.render;
++    let timer, stopped = false;
++    try {
++      try {
++        a.renderer.render = (scene, camera) => camera?.updateMatrixWorld?.();
++        const { pendingBuilds } = await import(`${window.__MODULE_BASE}humans.js`);
++        const settle = async () => {
++          while (!stopped) {
++            const jobs = (h.actors ?? []).map(actor => actor.pending).filter(Boolean);
++            if (jobs.length) await Promise.all(jobs);
++            if (stopped) return;
++            await new Promise(resolve => requestAnimationFrame(resolve));
++            if (!(h.actors ?? []).some(actor => actor.pending) && pendingBuilds() === 0) return;
++          }
++        };
++        await Promise.race([settle(), new Promise((_, reject) => {
++          timer = setTimeout(() => reject(new Error('UI resource fixture: actor preparations did not settle')), 90_000);
++        })]);
++      } finally { stopped = true; clearTimeout(timer); a.renderer.render = draw; }
++      a.step();
++    } catch (error) {
++      if (h.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
++      if (h.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
++      if (hide) a.setAnimationHold(false);
++      throw error;
++    }
++  }, hide);
++  const releaseHumanResources = (resumeAnimation = false) => page.evaluate((resume) => {
++    const a = window.__chicago4d, h = a.humans;
++    if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
++    if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
++    if (resume) a.setAnimationHold(false);
++  }, resumeAnimation);
++
+   const enterTown = () => page.evaluate(async () => {
+     if (!document.getElementById('gate').hasAttribute('hidden')) {
+       const welcome = window.__chicago4d.welcome;
+@@ -17616,7 +17662,9 @@ for (const [label, viewport, touch] of [
+     check(`${label}: Full Ghost40% triangles stay inside the declared view budget (T-2981)`,
+       rowLookStats.detail !== 'full' || rowLookStats.triangles <= rowLookStats.budget.triangles, JSON.stringify(rowLookStats));
+     // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
+-    const rowSweep = await page.evaluate(() => {
++    await holdHumanResources();
++    let rowSweep;
++    try { rowSweep = await page.evaluate(() => {
+       const a = window.__chicago4d;
+       const before = a.stats();
+       const t0 = performance.now();
+@@ -17632,7 +17680,7 @@ for (const [label, viewport, touch] of [
+       a.step();
+       const after = a.stats();
+       return { ms: Math.round(ms), programs: [before.programs, after.programs], geometries: [before.geometries, after.geometries] };
+-    });
++    }); } finally { await releaseHumanResources(); }
+     check(`${label}: ten row changes add no shader program and no geometry (T-2648)`,
+       rowSweep.programs[0] === rowSweep.programs[1] && rowSweep.geometries[0] === rowSweep.geometries[1],
+       JSON.stringify(rowSweep));
+@@ -17687,29 +17735,12 @@ for (const [label, viewport, touch] of [
+           streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
+       });
+       const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
+-      // T-3613: the town is held STILL across the two readings, not waited on. T-3556 waited for
+-      // no figure to have a level in flight and then held `humans.update`, and dev stayed red on
+-      // it (+19 geometries and +19 draws desktop, every content build from f90dc7d7d on): a level
+-      // already asked for lands from its own promise (Actor.setLod -> show), not from `update`,
+-      // and that wait gave up silently after 20 s on a slow runner, holding nothing. So from the
+-      // first reading to the second: the people's layer is not drawn at all (a figure that lands
+-      // or comes out meanwhile is never uploaded, so it cannot be counted as the overlays'), its
+-      // `update` is held (no level is asked for or let go), and the frame clock is held
+-      // (setAnimationHold: traffic, the sun and every walk stand where they are). The overlays
+-      // are a DOM layer with their own frame loop and read none of it. Held only after the
+-      // teleport has settled, so the camera is already where the labels are read from.
+-      const townHeld = () => page.evaluate(() => {
+-        const a = window.__chicago4d, h = a.humans;
+-        a.setAnimationHold(true);
+-        if (h && !h.heldBySmoke) { h.heldBySmoke = h.update; h.update = () => {}; }
+-        if (h?.group && h.hiddenBySmoke == null) { h.hiddenBySmoke = h.group.visible; h.group.visible = false; }
+-      }).catch(() => {});
+-      const townLetGo = () => page.evaluate(() => {
+-        const a = window.__chicago4d, h = a.humans;
+-        a.setAnimationHold(false);
+-        if (h?.heldBySmoke) { h.update = h.heldBySmoke; delete h.heldBySmoke; }
+-        if (h?.group && h.hiddenBySmoke != null) { h.group.visible = h.hiddenBySmoke; delete h.hiddenBySmoke; }
+-      }).catch(() => {});
++      // T-3613 / T-3747 integration: hold the clock and the people's update,
++      // and finish already-requested levels before sampling renderer resources.
++      // Their group stays hidden for this DOM-only overlay check, as before;
++      // the ordinary renderer is restored and warmed before the first reading.
++      const townHeld = () => holdHumanResources(true);
++      const townLetGo = () => releaseHumanResources(true);
+       // What each top-level layer of the scene draws, read beside the stats, so a red reading
+       // names the layer whose geometry it was instead of leaving it to be guessed.
+       const sceneCensus = () => page.evaluate(() => {
+diff --git a/chicago/4d/tools/step_isolation.json b/chicago/4d/tools/step_isolation.json
+index 9133cfcbb4..7057bdb512 100644
+--- a/chicago/4d/tools/step_isolation.json
++++ b/chicago/4d/tools/step_isolation.json
+@@ -6406,6 +6406,10 @@
+       "wrote": [],
+       "wrote_ignored": []
+     },
++    "tools/test_human_preparation_memory.mjs": {
++      "wrote": [],
++      "wrote_ignored": []
++    },
+     "tools/test_human_regulars.mjs": {
+       "wrote": [],
+       "wrote_ignored": []
+@@ -7394,6 +7398,10 @@
+       "wrote": [],
+       "wrote_ignored": []
+     },
++    "tools/test_tree_rebuilds.mjs": {
++      "wrote": [],
++      "wrote_ignored": []
++    },
+     "tools/test_underpinning.mjs": {
+       "wrote": [],
+       "wrote_ignored": []
+diff --git a/chicago/4d/tools/test_driven_assembly.mjs b/chicago/4d/tools/test_driven_assembly.mjs
+index ea45d6473c..f62bc41595 100644
+--- a/chicago/4d/tools/test_driven_assembly.mjs
++++ b/chicago/4d/tools/test_driven_assembly.mjs
+@@ -302,12 +302,33 @@ const { webcrypto } = await import('node:crypto');
+ const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
+ const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
+ // T-3559: the horse's gaits and levels, imported with 'three' resolved to the vendored copy.
+-const { createHorseGait, attachHorseLods, loadGaitClip } = await (async () => {
++const { createHorseGait, attachHorseLods, loadGaitClip, GLTFLoader } = await (async () => {
+   const { registerHooks } = await import('node:module');
+   const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+   const hooks = registerHooks({ resolve: (specifier, context, next) => specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context) });
+-  try { return await import('../renderers/web/js/horse-rig.js'); } finally { hooks.deregister(); }
++  try {
++    return { ...await import('../renderers/web/js/horse-rig.js'),
++      ...await import('../renderers/web/vendor/three-0.185.1/addons/loaders/GLTFLoader.js') };
++  } finally { hooks.deregister(); }
+ })();
++// The human store releases parser scratch. The real GLTF loader retains scene
++// extras on userData, including the actual 1904 driver's identity/vehicle proof.
++{
++  const loops = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
++  const row = loops.rows.find(row => row.id === 'prairie_driven_brougham_loop_1904');
++  const bytes = readFileSync(new URL(`../assets/humans/web/${row.driver_asset}.lod0.glb`, import.meta.url));
++  const source = JSON.parse(bytes.subarray(20, 20 + bytes.readUInt32LE(12)).toString());
++  const extras = source.scenes[0].extras;
++  // Parse the source's actual scene metadata without its mesh/texture payload.
++  const loaded = await new GLTFLoader().parseAsync(JSON.stringify({ asset: { version: '2.0' },
++    scene: 0, scenes: [{ extras }] }), '');
++  loaded.parser = null;
++  assert.deepEqual(loaded.scenes[0].userData, extras);
++  assert.equal(loaded.scenes[0].userData.chicago4d_human.person_reference_scene, row.scene);
++  assert.equal(loaded.scenes[0].userData.chicago4d_human.person_reference_id, row.driver_export_person_id ?? row.driver_instance.person_id);
++  const study = JSON.parse(loaded.scenes[0].userData.driver_study_json);
++  assert.equal(study.vehicle_sidecar_sha256, (row.driver_binding.fitted_on ?? row.driver_binding).vehicle_sidecar_sha256);
++}
+ const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
+ const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
+ const fixtureBytes = readFileSync(path);
+@@ -330,10 +351,12 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
+     horse_offset_m: [0, 0, 5], team_half_spacing_m: .63,
+     driver_binding: { scene: '1835', asset_id: 'control_asset', vehicle_file: 'wagon.glb', root_offset_m: [0, 0, 0],
+       vehicle_glb_sha256: wrongHash ? '0'.repeat(64) : fixtureHash, vehicle_sidecar_sha256: 'source-sidecar-binding' } };
+-  const human = { parser: { json: { scenes: [{ extras: {
++  const humanScene = new THREE.Group();
++  humanScene.userData = {
+     chicago4d_human: { person_reference_scene: wrongMetadata ? '1904' : '1835', person_reference_id: 'control_person' },
+     driver_study_json: JSON.stringify({ scene: '1835', person_reference_id: 'control_person',
+-      vehicle_sidecar_sha256: row.driver_binding.vehicle_sidecar_sha256, vehicle_glb_sha256: fixtureHash }) } }] } } };
++      vehicle_sidecar_sha256: row.driver_binding.vehicle_sidecar_sha256, vehicle_glb_sha256: fixtureHash }) };
++  const human = { parser: null, scene: humanScene, scenes: [humanScene] };
+   let humanReady = false;
+   const assets = {
+     acquire() {
+diff --git a/chicago/4d/tools/test_human_preparation_memory.mjs b/chicago/4d/tools/test_human_preparation_memory.mjs
+new file mode 100644
+index 0000000000..164e35b9b6
+--- /dev/null
++++ b/chicago/4d/tools/test_human_preparation_memory.mjs
+@@ -0,0 +1,149 @@
++// SPDX-License-Identifier: GPL-3.0-or-later
++// A compact clothing work grid must return the same point as a full scan. No mesh,
++// query radius, cell size or ordering changes are allowed by this memory correction.
++import fs from 'node:fs/promises';
++import assert from 'node:assert/strict';
++const here = new URL('../', import.meta.url);
++const three = new URL('renderers/web/vendor/three-0.185.1/three.core.js', here).href;
++const source = (await fs.readFile(new URL('renderers/web/js/human-drape.js', here), 'utf8'))
++  .replace("from 'three'", `from '${three}'`);
++const { kit } = await import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`);
++
++// Independent oracle: examine every point inside the allowed cell cube. Equal
++// distances follow the original shell, x/y/z, then source-vertex order.
++function scan(P, cell, query, reach) {
++  const lo = [0, 1, 2].map((axis) => {
++    let m = Infinity; for (let i = axis; i < P.length; i += 3) m = Math.min(m, P[i]);
++    return Number.isFinite(m) ? m - cell : -cell;
++  });
++  const q = query.map((v, axis) => Math.floor((v - lo[axis]) / cell));
++  let best = Infinity, index = -1, order = null;
++  for (let i = 0; i < P.length; i += 3) {
++    const c = [0, 1, 2].map((axis) => Math.floor((P[i + axis] - lo[axis]) / cell));
++    const ring = Math.max(...c.map((v, axis) => Math.abs(v - q[axis])));
++    if (ring > reach) continue;
++    const d = (P[i] - query[0]) ** 2 + (P[i + 1] - query[1]) ** 2 + (P[i + 2] - query[2]) ** 2;
++    const rank = [ring, ...c, i], earlier = !order || rank.some((v, j) => v < order[j] && rank.slice(0, j).every((x, k) => x === order[k]));
++    if (d < best || (d === best && earlier)) { best = d; index = i / 3; order = rank; }
++  }
++  return index;
++}
++let seed = 3747, count = 0;
++const rand = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
++const fixtures = [[], [0, 0, 0], [0, 0, 0, 0, 0, 0], [-1, 0, 0, 1, 0, 0]];
++for (const n of [31, 300, 2000]) {
++  const shell = [], solid = [];
++  for (let i = 0; i < n; i++) {
++    const angle = rand() * 2 * Math.PI;
++    shell.push(.4 * Math.cos(angle), 2 * rand(), .2 * Math.sin(angle));
++    solid.push(.2 * rand(), .2 * rand(), .2 * rand());
++  }
++  fixtures.push(shell, solid);
++}
++for (const values of fixtures) for (const cell of [.01, .02, .03, .2]) {
++  const P = Float64Array.from(values), near = kit.pointGrid(P, cell);
++  const queries = [[0, 0, 0], [-4, -4, -4], [4, 4, 4]];
++  for (let i = 0; i < 240; i++) queries.push([rand() - .5, 2.4 * rand() - .2, rand() - .5]);
++  for (let i = 0; i < Math.min(P.length, 90); i += 3) queries.push([P[i], P[i + 1], P[i + 2]]);
++  for (const q of queries) for (const reach of [0, 1, 4, 8]) {
++    assert.equal(near(...q, reach), scan(P, cell, q, reach), JSON.stringify({ cell, q, reach })); count++;
++  }
++}
++console.log(`OK: ${count} clothing nearest-point queries match an independent full scan, including sparse shells, dense fallback, bounds, reach, duplicate points and ties`);
++
++// Run the real asset-store lifetime with small loader/pass stand-ins. The ordinary
++// clothing tests exercise real exports; this checks who still owns their resources.
++const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
++const begin = humans.indexOf('export function createHumanAssets(');
++const end = humans.indexOf('/** Hit proxy:', begin);
++assert(begin >= 0 && end > begin);
++const code = humans.slice(begin, end).replace(/^export /gm, '');
++const dependencies = {
++  globalThis: {}, THREE: {},
++  createCheckpoint: () => () => null,
++  shareImageSources() {},
++  disposeVariants() {},
++};
++let current, fetches = 0, parses = 0, disposed = 0, stages = 0;
++const header = new TextEncoder().encode(JSON.stringify({ extensionsUsed: [] }));
++const bytes = new ArrayBuffer(20 + header.length);
++new DataView(bytes).setUint32(12, header.length, true);
++new Uint8Array(bytes, 20).set(header);
++const material = { color: 'fixture' };
++const scene = { traverse(f) { f({ geometry, material }); } };
++const geometry = { attributes: { position: { array: new Float32Array([1, 2, 3]) } } };
++const clips = [{ name: 'walk' }], metadata = { author: 'fixture' };
++const shared = geometry.attributes.position.array;
++const ensureLive = (root) => {
++  assert.equal(current.parser, null, 'loader scratch is released before the first clothing slice');
++  assert.equal(root, scene); assert.equal(geometry.attributes.position.array, shared); stages++;
++};
++for (const name of ['drapeGarments', 'fairOuter', 'refineTrims', 'settleOnBody', 'layOver', 'tuckPits', 'bindLayers', 'cullHidden']) {
++  dependencies[name + 'Steps'] = function* (root) { ensureLive(root); yield; };
++}
++for (const name of ['dressCollars', 'easeSeats', 'fitCoats', 'fitSleeves', 'tailor1835', 'fitRegulars', 'fitFrockCoat', 'fitGown', 'fitWaist', 'engraveSilver']) dependencies[name] = ensureLive;
++dependencies.disposeLoadedAsset = (asset) => {
++  assert.equal(asset.scene, scene); assert.equal(asset.animations, clips); disposed++;
++};
++const factory = new Function(...Object.keys(dependencies), code + '\nreturn createHumanAssets;')(...Object.values(dependencies));
++const assets = factory({ assetBase: new URL('https://fixture.invalid/assets/'),
++  fetchImpl: async () => { fetches++; return { ok: true, arrayBuffer: async () => bytes }; },
++  loader: { async parseAsync(input, base) {
++    assert.equal(input, bytes, 'the exact fetched buffer reaches the loader');
++    assert.equal(base, 'https://fixture.invalid/assets/humans/web/'); parses++;
++    current = { parser: { binary: new Uint8Array(1048576) }, scene, scenes: [scene], animations: clips, asset: metadata };
++    return current;
++  } },
++});
++const first = assets.acquire('fixture', 0), second = assets.acquire('fixture', 0);
++assert.equal(first, second, 'two users share the same source promise');
++const [a, b] = await Promise.all([first, second]);
++assert.equal(a, b); assert.equal(a.scene, scene); assert.equal(a.scenes[0], scene);
++assert.equal(a.animations, clips); assert.equal(a.asset, metadata); assert.equal(a.parser, null);
++scene.traverse((mesh) => assert.equal(mesh.material, material));
++assert.equal(fetches, 1); assert.equal(parses, 1); assert.equal(stages, 18);
++assets.release('fixture', 0); await Promise.resolve(); assert.equal(disposed, 0);
++assert.deepEqual(assets.loaded, ['fixture.lod0']);
++assets.release('fixture', 0); await Promise.resolve(); assert.equal(disposed, 1);
++assert.deepEqual(assets.loaded, []);
++await assets.acquire('fixture', 0); assert.equal(fetches, 2); assert.equal(parses, 2);
++assets.release('fixture', 0); await Promise.resolve(); assert.equal(disposed, 2);
++console.log('OK: shared human sources release parser scratch before clothing, preserve geometry/material/animation identity and metadata, and dispose only after the final user');
++
++// Distinct sources may decode together; their long sliced clothing work must not
++// keep multiple welded graphs live. Exercise the real store, including recovery
++// after one source's clothing pass rejects.
++let unblock, blocked = false, active = 0, peak = 0, decoded = 0;
++const pause = new Promise((resolve) => { unblock = resolve; });
++const jobs = { ...dependencies,
++  createCheckpoint: () => () => { if (!blocked) { blocked = true; return pause; } return null; },
++  disposeLoadedAsset() {},
++};
++for (const name of ['dressCollars', 'easeSeats', 'fitCoats', 'fitSleeves', 'tailor1835', 'fitRegulars', 'fitFrockCoat', 'fitGown', 'fitWaist', 'engraveSilver']) jobs[name] = () => {};
++for (const name of ['drapeGarments', 'fairOuter', 'refineTrims', 'settleOnBody', 'layOver', 'tuckPits', 'bindLayers', 'cullHidden']) jobs[name + 'Steps'] = function* () {};
++jobs.drapeGarmentsSteps = function* (root) {
++  if (root.fail) throw Error('fixture clothing failure');
++  active++; peak = Math.max(peak, active); yield;
++};
++jobs.cullHiddenSteps = function* () { active--; };
++const make = new Function(...Object.keys(jobs), code + '\nreturn createHumanAssets;')(...Object.values(jobs));
++const queued = make({ assetBase: new URL('https://fixture.invalid/assets/'),
++  fetchImpl: async () => ({ ok: true, arrayBuffer: async () => bytes }),
++  loader: { async parseAsync(input, base) { decoded++; return { parser: { input }, scene: { traverse() {} }, animations: [] }; } },
++});
++const both = Promise.all([queued.acquire('one', 0), queued.acquire('two', 0)]);
++for (let i = 0; i < 30 && (decoded < 2 || active < 1); i++) await Promise.resolve();
++assert.equal(decoded, 2, 'both source decodes complete while the first clothing pass waits');
++assert.equal(active, 1, 'only one source clothing graph stays live');
++assert.equal(peak, 1); unblock(); await both; assert.equal(active, 0); assert.equal(peak, 1);
++queued.release('one', 0); queued.release('two', 0);
++let attempts = 0;
++const resilient = make({ assetBase: new URL('https://fixture.invalid/assets/'),
++  fetchImpl: async () => ({ ok: true, arrayBuffer: async () => bytes }),
++  loader: { async parseAsync() { return { parser: {}, scene: { fail: ++attempts === 1, traverse() {} }, animations: [] }; } },
++});
++const failed = resilient.acquire('bad', 0), next = resilient.acquire('good', 0);
++await assert.rejects(failed, /fixture clothing failure/); await next;
++assert.deepEqual(resilient.loaded, ['good.lod0'], 'a failed preparation cannot poison the next source or remain cached');
++resilient.release('good', 0);
++console.log('OK: source decoding stays parallel, clothing preparation holds one work graph, and rejection does not block the next source');
+diff --git a/chicago/4d/tools/test_leaf_lighting_browser.mjs b/chicago/4d/tools/test_leaf_lighting_browser.mjs
+new file mode 100644
+index 0000000000..2d87525e43
+--- /dev/null
++++ b/chicago/4d/tools/test_leaf_lighting_browser.mjs
+@@ -0,0 +1,155 @@
++// T-3747: render real standard materials. Backlighting must be shadowed,
++// disabled on wood and absent with no light. Exercise both shader variants.
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import http from 'node:http';
++import path from 'node:path';
++import { createRequire } from 'node:module';
++const root = path.resolve(new URL('..', import.meta.url).pathname);
++const require = createRequire(import.meta.url);
++const { chromium } = require('playwright');
++const server = http.createServer((req, res) => {
++  if (req.url === '/') {
++    res.setHeader('Content-Type', 'text/html');
++    res.end(`<link rel="icon" href="data:,"><script type="importmap">{"imports":{"three":"/vendor/three-0.185.1/three.module.js","three/addons/":"/vendor/three-0.185.1/addons/"}}</script>`);
++    return;
++  }
++  const file = path.join(root, 'renderers/web', req.url.split('?')[0]);
++  if (!fs.existsSync(file)) { res.writeHead(404); res.end(); return; }
++  res.setHeader('Content-Type', file.endsWith('.js') ? 'text/javascript' : 'application/octet-stream');
++  fs.createReadStream(file).pipe(res);
++});
++await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
++const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined,
++  args: ['--no-sandbox', '--enable-unsafe-swiftshader'] });
++try {
++  const page = await browser.newPage();
++  const errors = [];
++  page.on('pageerror', e => errors.push(String(e)));
++  page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
++  await page.goto(`http://127.0.0.1:${server.address().port}/`);
++  const rows = await page.evaluate(async () => {
++    const THREE = await import('three');
++    const { patchLeafLight } = await import('/js/leaf-light.js');
++    const { LEAF_SKY } = await import('/js/time-of-day.js');
++    const { buildTreeTemplate } = await import('/js/tree-model.js');
++    const { TreeInstances } = await import('/js/tree-instances.js');
++    const geometry = [];
++    const same = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
++    const identical = (a, b) => ['wood', 'leaves'].every(k =>
++      same(a[k].index.array, b[k].index.array)
++      && Object.keys(a[k].attributes).every(n => same(a[k].attributes[n].array, b[k].attributes[n].array)));
++    for (const speciesId of ['ulmus_americana', 'quercus_alba', 'salix_nigra', 'populus_deltoides', 'fraxinus_pennsylvanica', 'acer_saccharinum', 'ulmus_americana_vase']) {
++      const spec = { speciesId, arch: speciesId, form: 'open', h: [16, 16] };
++      const base = buildTreeTemplate(spec, 3747, 'near');
++      const full = buildTreeTemplate(spec, 3747, 'near', { fullSprays: true });
++      const coarse = buildTreeTemplate(spec, 3747, 'mid', { coarse: true });
++      const coarseFull = buildTreeTemplate(spec, 3747, 'mid', { coarse: true, fullSprays: true });
++      const bare = buildTreeTemplate(spec, 3747, 'near', { leafCover: 0 });
++      const bareFull = buildTreeTemplate(spec, 3747, 'near', { leafCover: 0, fullSprays: true });
++      geometry.push({ speciesId, coarseUnchanged: identical(coarse, coarseFull), bareUnchanged: identical(bare, bareFull),
++        heightUnchanged: base.height === full.height && base.crownR === full.crownR && base.trunkR === full.trunkR,
++        baseTriangles: (base.wood.index.count + base.leaves.index.count) / 3,
++        fullTriangles: (full.wood.index.count + full.leaves.index.count) / 3 });
++      for (const t of [base, full, coarse, coarseFull, bare, bareFull]) { t.wood.dispose(); t.leaves.dispose(); }
++    }
++    const instances = new TreeInstances({ level: 'full', variants: () => 1 });
++    instances.add({ speciesId: 'quercus_alba', form: 'open', h: [6, 6] }, 0, 0, 0);
++    const woodMat = new THREE.MeshStandardMaterial(), leafMat = woodMat.clone();
++    const rig = await instances.build({ woodMat, leafMat });
++    rig.update(new THREE.Vector3(5, 1.7, 0));
++    const closeTriangles = rig.stats.triangles;
++    rig.update(new THREE.Vector3(20, 1.7, 0));
++    const transitioning = rig.stats.fading;
++    rig.settle();
++    const nearTriangles = rig.stats.triangles;
++    rig.update(new THREE.Vector3(60, 1.7, 0));
++    rig.settle();
++    const midTriangles = rig.stats.triangles;
++    const ranges = { closeTriangles, nearTriangles, midTriangles, transitioning, settled: rig.stats.fading, draws: rig.stats.drawCalls };
++    rig.dispose(); woodMat.dispose(); leafMat.dispose();
++    const renderer = new THREE.WebGLRenderer();
++    renderer.shadowMap.enabled = true;
++    renderer.setSize(64, 64);
++    const target = new THREE.WebGLRenderTarget(64, 64);
++    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 20);
++    camera.position.z = 3;
++    const scene = new THREE.Scene();
++    const light = new THREE.DirectionalLight(0xffffff, 2);
++    light.castShadow = true;
++    Object.assign(light.shadow.camera, { left: -2, right: 2, top: 2, bottom: -2, near: 0.1, far: 10 });
++    light.shadow.bias = -0.0001;
++    scene.add(light);
++    const plane = new THREE.Mesh(new THREE.PlaneGeometry(2, 2));
++    plane.receiveShadow = true;
++    scene.add(plane);
++    const blocker = new THREE.Mesh(new THREE.PlaneGeometry(2, 2),
++      new THREE.MeshBasicMaterial({ side: THREE.DoubleSide }));
++    blocker.position.z = -1;
++    blocker.castShadow = true;
++    scene.add(blocker);
++    const pixels = new Uint8Array(64 * 64 * 4);
++    function read() {
++      renderer.setRenderTarget(target);
++      renderer.render(scene, camera);
++      renderer.readRenderTargetPixels(target, 0, 0, 64, 64, pixels);
++      let green = 0;
++      for (let y = 24; y < 40; y++) for (let x = 24; x < 40; x++) green += pixels[(y * 64 + x) * 4 + 1];
++      return green / 256;
++    }
++    const rows = [];
++    for (const lowSpec of [true, false]) {
++      let hooks = 0;
++      const material = new THREE.MeshStandardMaterial({ color: 0x80cc40, side: THREE.DoubleSide });
++      material.onBeforeCompile = () => { hooks++; };
++      patchLeafLight(material, { lowSpec });
++      plane.material = material;
++      LEAF_SKY.value = 0;
++      blocker.visible = false;
++      light.position.set(0, 0, 4);
++      light.intensity = 2;
++      const front = read();
++      light.position.z = -4;
++      const back = read();
++      blocker.visible = true;
++      const shadow = read();
++      blocker.visible = false;
++      const wood = new THREE.MeshStandardMaterial({ color: 0x80cc40, side: THREE.DoubleSide });
++      patchLeafLight(wood, { lowSpec, mask: '0.0' });
++      plane.material = wood;
++      const masked = read();
++      plane.material = material;
++      light.intensity = 0;
++      const night = read();
++      LEAF_SKY.value = 0.22;
++      const sky = read();
++      rows.push({ lowSpec, front, back, shadow, masked, night, sky, hooks });
++      material.dispose(); wood.dispose();
++    }
++    LEAF_SKY.value = 0.22;
++    const runnable = renderer.info.programs.every(p => p.diagnostics?.runnable !== false);
++    renderer.dispose(); target.dispose();
++    return { rows, runnable, geometry, ranges };
++  });
++  for (const row of rows.rows) {
++    assert(row.front > row.back && row.back > 2, 'front-lit and transmitted surfaces differ');
++    assert(row.shadow < row.back * 0.1, 'an occluder stops direct transmission');
++    assert(row.masked < 1, 'wood does not transmit');
++    assert(row.night === 0 && row.sky > 2, 'no unlit glow; sky is independently bounded');
++    assert(row.hooks > 0, 'the existing shader hook still runs');
++  }
++  assert(rows.runnable && !errors.length, errors.join('\n'));
++  for (const g of rows.geometry) {
++    assert(g.coarseUnchanged && g.bareUnchanged && g.heightUnchanged, JSON.stringify(g));
++    assert(g.fullTriangles > g.baseTriangles, 'Full carries additional close sprays');
++  }
++  assert(rows.ranges.closeTriangles > rows.ranges.nearTriangles && rows.ranges.nearTriangles > rows.ranges.midTriangles);
++  assert(rows.ranges.draws === 4, 'the close level uses the existing batches');
++  assert(rows.ranges.transitioning > 0 && rows.ranges.settled === 0, 'the new close boundary dissolves and settles');
++  console.log('LEAF LIGHT PASS — Light and detailed shaders; shadowed backlight, wood mask, night, sky, hook composition', JSON.stringify(rows.rows));
++  console.log('TREE DETAIL PASS — seven species/habits, Full close foliage, unchanged coarse and bare templates and tree dimensions', JSON.stringify(rows.geometry));
++  console.log('TREE RANGES PASS — extra detail confined to the close ring', JSON.stringify(rows.ranges));
++} finally {
++  await browser.close();
++  server.close();
++}
+diff --git a/chicago/4d/tools/test_tree_rebuilds.mjs b/chicago/4d/tools/test_tree_rebuilds.mjs
+new file mode 100644
+index 0000000000..1b1d8b2e93
+--- /dev/null
++++ b/chicago/4d/tools/test_tree_rebuilds.mjs
+@@ -0,0 +1,93 @@
++#!/usr/bin/env node
++// T-3747: season/detail preparation can overlap. A new forest must not consume
++// another forest's templates or overwrite its live instance records.
++import assert from 'node:assert/strict';
++import {register} from 'node:module';
++const vendor=new URL('../renderers/web/vendor/three-0.185.1/',import.meta.url).href;
++register(`data:text/javascript,${encodeURIComponent(`export function resolve(s,c,next) {
++  if(s==='three')return {url:'${vendor}three.module.js',shortCircuit:true};
++  if(s.startsWith('three/addons/'))return {url:'${vendor}addons/'+s.slice(13),shortCircuit:true};
++  return next(s,c);
++}`)}`,import.meta.url);
++const THREE=await import('three');
++const {TreeInstances}=await import('../renderers/web/js/tree-instances.js');
++const builder=new TreeInstances({level:'full',variants:()=>2});
++for(const [i,id] of ['ulmus_americana','quercus_alba'].entries()) {
++  for(let j=0;j<3;j++)builder.add({speciesId:id,arch:id,form:'open',h:[6,6]},i*12+j*3,0,0);
++}
++const woodMat=new THREE.MeshStandardMaterial(),leafMat=woodMat.clone();
++const checkpoint=()=>new Promise(resolve=>setImmediate(resolve));
++const options={woodMat,leafMat,checkpoint};
++const rigs=[];
++try {
++  const [summer,winter]=await Promise.all([
++    builder.build({...options,season:{leafCover:1}}),
++    builder.build({...options,season:{leafCover:0}}),
++  ]);
++  rigs.push(summer,winter);
++  const eye=new THREE.Vector3(5,1.7,4);
++  for(const rig of rigs){rig.update(eye);rig.settle();assert.equal(rig.stats.stems,6);}
++  const support=rig=>{
++    let area=0;const a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
++    for(const batch of Object.values(rig.batches)) {
++      const g=batch.leaves.geometry,p=g.attributes.position,ix=g.index;
++      for(let i=0;i<ix.count;i+=3){
++        a.fromBufferAttribute(p,ix.getX(i));b.fromBufferAttribute(p,ix.getX(i+1));c.fromBufferAttribute(p,ix.getX(i+2));
++        area+=b.sub(a).cross(c.sub(a)).length()/2;
++      }
++    }
++    return area;
++  };
++  assert(support(summer)>0,'summer retains its leaves');
++  assert.equal(support(winter),0,'winter has no leaf support, including empty batch slots');
++  const before=summer.stats.triangles;
++  winter.dispose();rigs.splice(rigs.indexOf(winter),1);
++  const spring=await builder.build({...options,season:{leafCover:.55,leafScale:.45}});rigs.push(spring);
++  summer.update(eye);summer.settle();
++  assert.equal(summer.stats.triangles,before,'rebuilding and retiring another forest cannot change the live one');
++  assert(support(summer)>0);
++  // Exercise the actual upload-release callbacks and cached per-LOD bounds.
++  // A later LOD/instance update must not need the discarded vertex arrays.
++  for(const batch of Object.values(summer.batches))for(const part of Object.values(batch)) {
++    const g=part.geometry;
++    assert(g.userData.uploadReleased,'Full woodland uses the established release path');
++    for(const attr of [...Object.values(g.attributes),g.index])attr.onUploadCallback();
++    assert.equal(g.attributes.position.array,null);
++    assert.equal(g.index.array.length,0);
++    for(let id=0;id<part._geometryCount;id++) {
++      part.getBoundingBoxAt(id,new THREE.Box3());
++      part.getBoundingSphereAt(id,new THREE.Sphere());
++    }
++  }
++  summer.update(new THREE.Vector3(400,1.7,0));summer.settle();
++  summer.update(eye);summer.settle();
++  assert.equal(summer.stats.triangles,before,'released arrays are not needed for returning to the close LOD');
++  // The upstream Great Fire API must mutate this snapshot's live slots,
++  // including after geometry release and another seasonal forest was built.
++  const visible = (role, test) => {
++    const found = new Set(), m = new THREE.Matrix4();
++    for (const set of Object.values(summer.batches)) {
++      const batch = set[role];
++      for (const [i, slot] of batch._instanceInfo.entries()) {
++        if (!slot.active || !batch.getVisibleAt(i)) continue;
++        batch.getMatrixAt(i, m);
++        if (test(m.elements[12], -m.elements[14])) found.add(m.elements[12]);
++      }
++    }
++    return found.size;
++  };
++  const burnt = e => e < 10;
++  assert.equal(summer.setBare(burnt), 3, 'the fire marks this live forest, not the reused planner');
++  summer.update(new THREE.Vector3(400,1.7,0)); summer.settle();
++  summer.update(eye); summer.settle();
++  assert.equal(visible('wood', burnt), 3, 'scorched wood survives LOD changes after CPU release');
++  assert.equal(visible('leaves', burnt), 0, 'scorched stems cannot regain leaves during LOD changes');
++  assert.equal(spring.stats.bare ?? 0, 0, 'another live seasonal forest stays independent');
++  assert.equal(summer.setBare(null), 3);
++  assert.equal(visible('leaves', burnt), 3, 'leaving the fire restores the live summer leaves');
++  console.log('PASS integrated fire/tree ownership: scorched wood and hidden leaves survive released arrays and LOD, with independent forests and exact restore');
++  console.log('PASS overlapping tree rebuilds: independent summer/winter templates, stable live instances after another rebuild/disposal');
++  console.log('PASS Full woodland upload release: cached LOD bounds and instance updates survive discarded CPU triangles');
++} finally {
++  for(const rig of rigs)rig.dispose();woodMat.dispose();leafMat.dispose();
++}
