@@ -10171,14 +10171,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "sherman_house_2100_prairie"
     },
-    "sherman_house_2100_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "sherman_house_2100_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 166584,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "d854211795167b4d74d5a82ae0c29bdcb408ece05b3a0d836527a2128020cf05",
+      "bytes": 175164,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "0d7e13489ff14f5c7b2453dbed0718d2ed632e35c7863da4c5b065ca815decd4",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "sherman_house_2100_prairie_coach_house"
     },
     "shortall_gregory_house_1638_prairie_coach_house__as_standing_1904.glb": {
