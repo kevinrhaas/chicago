@@ -54,13 +54,13 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 284,
+  "surfaces": 286,
   "doors": 126,
   "posts": 112,
   "gardens": 28,
   "by_kind": {
    "alley_walk": 22,
-   "coach_walk": 30,
+   "coach_walk": 32,
    "drying_yard": 56,
    "front_walk": 10,
    "gangway": 31,
@@ -15509,7 +15509,64 @@
    "grade": "reconstructed",
    "sources": [],
    "note": "",
-   "surfaces": [],
+   "surfaces": [
+    {
+     "id": "prairie_2031:coach_walk:0",
+     "kind": "coach_walk",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1436.81,
+       -3575.31
+      ],
+      [
+       1436.82,
+       -3576.51
+      ],
+      [
+       1442.52,
+       -3576.47
+      ],
+      [
+       1442.51,
+       -3575.27
+      ]
+     ],
+     "along_deg": 179.56,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk from the back door to the coach house, in Portland cement walk (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2031:coach_walk:1",
+     "kind": "coach_walk",
+     "material": "cement",
+     "polygon_local_m": [
+      [
+       1441.31,
+       -3575.27
+      ],
+      [
+       1441.33,
+       -3578.47
+      ],
+      [
+       1442.53,
+       -3578.47
+      ],
+      [
+       1442.51,
+       -3575.27
+      ]
+     ],
+     "along_deg": 179.56,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk from the back door to the coach house, in Portland cement walk (L-prairie-back-yards-3488)."
+    }
+   ],
    "doors": [
     {
      "id": "prairie_2031:back_door",
