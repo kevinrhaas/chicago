@@ -142,6 +142,7 @@
   "effective_upstream_tree": "3c9eee3a79c40232ee7154471ed1150b01f45f2e",
   "timing_helper_sha256": "539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25",
   "ceilings_sha256": "d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e",
-  "apply_helper_sha256": "841a7666a94ae32adad222e7e64e8701639b011bd0e021bd413fa06df6ca0525",
-  "source_note": "Complete currentDev feature plus exact pendingfivefilePR2397 reading fix. Actualreadingtest/check pass; noappfeaturecommit orprereqmergeclaim. Bothfeaturecode deltas exact; fullnewNativebeforeauthorship. OldfailedNative never reused."
+  "apply_helper_sha256": "4c6d441efb73b23c548b36ca36220658ee3ff4a34d3a965c04e06a32a33cea39",
+  "source_note": "Complete currentDev feature plus exact pendingfivefilePR2397 reading fix. Actualreadingtest/check pass; noappfeaturecommit orprereqmergeclaim. Bothfeaturecode deltas exact; fullnewNativebeforeauthorship. OldfailedNative never reused.",
+  "native_plan_verified_inside_every_job": true
 }

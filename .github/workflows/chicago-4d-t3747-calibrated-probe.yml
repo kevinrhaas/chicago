@@ -1,121 +1,112 @@
 name: Better Trees core — reading-fix working source
-
-# Temporary diagnostic only. Owner-visible PR targets the held feature branch.
-# Exact full working source before app authorship.
-# Fresh complete Native. Prior exact calibrated1835 workload is retained; inputequivalence must be verified separately, never called a new timing.
-# Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
-on:
+'on':
   pull_request:
-    branches: [steward/t3747-vegetation-realism]
-    paths: ['.github/workflows/chicago-4d-t3747-calibrated-probe.yml']
-  workflow_dispatch:
-
+    branches:
+    - steward/t3747-vegetation-realism
+    paths:
+    - .github/workflows/chicago-4d-t3747-calibrated-probe.yml
+  workflow_dispatch: null
 permissions:
   contents: read
-
 jobs:
-  source-plan:
-    runs-on: ubuntu-22.04
-    outputs:
-      matrix: ${{ steps.plan.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-          filter: blob:none
-          sparse-checkout: .github/diagnostics
-      - name: Verify the source manifest and every native partition residue
-        id: plan
-        run: |
-          python3 - <<'PYTHON'
-          import hashlib,json,os
-          from pathlib import Path
-          raw=Path('.github/diagnostics/t3747-reading-fix-core-source.json').read_bytes()
-          assert hashlib.sha256(raw).hexdigest()=='83541c77eae1d5d46793ad7060c7fd4be62501b8f35e6e2fe616ef8052fa36f8'
-          m=json.loads(raw);assert m['role']=='complete-uncommitted-feature' and m['qualifies_feature_candidate']
-          assert len(m['source_sha256'])==33 and all(p.startswith('chicago/4d/') for p in m['source_sha256'])
-          plan=m['native_matrix']
-          for r in range(32):
-            assert sum(r%int(x['part'].split('/')[1])==int(x['part'].split('/')[0])-1 for x in plan)==1
-          serial=[x for x in plan if x['serial']];assert len(serial)==1
-          k,n=map(int,serial[0]['part'].split('/'));assert (m['drape_ordinal']-1)%n==k-1
-          matrix={'include':[{**x,'key':x['part'].replace('/','of')} for x in plan]}
-          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('matrix='+json.dumps(matrix)+'\n')
-          print(json.dumps({'sourceBase':m['base_dev'],'candidateTree':m['candidate_tree'],'sourcePaths':len(m['source_sha256']),'matrix':matrix,'coverage':'all32 exactly once','noAppCommitAuthored':True}))
-          PYTHON
-
   native-working-source:
     name: Native working source ${{ matrix.part }}
-    needs: source-plan
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
       max-parallel: 9
-      matrix: ${{ fromJSON(needs.source-plan.outputs.matrix) }}
+      matrix:
+        include:
+        - part: 1/8
+          serial: false
+          key: 1of8
+        - part: 2/8
+          serial: false
+          key: 2of8
+        - part: 3/8
+          serial: false
+          key: 3of8
+        - part: 4/8
+          serial: false
+          key: 4of8
+        - part: 5/8
+          serial: false
+          key: 5of8
+        - part: 6/8
+          serial: false
+          key: 6of8
+        - part: 7/16
+          serial: true
+          key: 7of16
+        - part: 15/16
+          serial: false
+          key: 15of16
+        - part: 8/8
+          serial: false
+          key: 8of8
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 83541c77eae1d5d46793ad7060c7fd4be62501b8f35e6e2fe616ef8052fa36f8
+      SOURCE_MANIFEST_SHA: a2fab1631eec8d77be1aabd2a1cf41c53d66f22e342b221fde23ec13a9414562
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
-          fetch-depth: 0
-          filter: blob:none
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Install the full required native readers
-        run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
-      - name: Read actual runner cores
-        id: cores
-        run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
-      - name: Apply and verify the frozen complete working source
-        run: |
-          python3 - <<'PYTHON'
-          import hashlib,os,re,subprocess
-          from pathlib import Path
-          head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
-          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
-          raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-reading-fix-core-apply-working-source.py'])
-          assert hashlib.sha256(raw).hexdigest()=='53e324ce510087b0c5f17530c229636dc463e90aadb23da7cc3d29c9c89d52af'
-          p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
-          subprocess.run(['python3',str(p)],check=True)
-          PYTHON
-
-      - name: Run the unchanged native gate and verify source stability
-        env:
-          C4D_GATE_REQUIRE_READERS: '1'
-          C4D_GATE_REQUIRE_BASE: '1'
-          CHECK_JOBS: ${{ matrix.serial && '1' || steps.cores.outputs.n }}
-        run: |
-          set +e
-          (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}") > /tmp/native-part.log 2>&1
-          native_status=$?
-          set -e
-          SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py --verify
-          cat /tmp/native-part.log
-          exit "$native_status"
-      - name: Keep the complete native log and exact before/after source receipts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: native-working-${{ matrix.key }}
-          path: |
-            /tmp/native-part.log
-            /tmp/native-source-before.json
-            /tmp/native-source-after.json
-          if-no-files-found: error
-
+    - uses: actions/checkout@v4
+      with:
+        ref: 3da00efeb8400bdb0f5b0d3c42ad271b5234ea93
+        fetch-depth: 0
+        filter: blob:none
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+    - name: Install the full required native readers
+      run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+    - name: Read actual runner cores
+      id: cores
+      run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
+    - name: Apply and verify the frozen complete working source
+      run: |
+        python3 - <<'PYTHON'
+        import hashlib,os,re,subprocess
+        from pathlib import Path
+        head=os.environ['DIAGNOSTIC_HEAD'];assert re.fullmatch('[0-9a-f]{40}',head)
+        subprocess.run(['git','fetch','--quiet','origin',head],check=True)
+        raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3747-reading-fix-core-apply-working-source.py'])
+        assert hashlib.sha256(raw).hexdigest()=='da965c96f08d32bed548cbe1b1c7604214ace3fb5d772b2b9c441766f36ea544'
+        p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
+        subprocess.run(['python3',str(p)],check=True)
+        PYTHON
+    - name: Run the unchanged native gate and verify source stability
+      env:
+        C4D_GATE_REQUIRE_READERS: '1'
+        C4D_GATE_REQUIRE_BASE: '1'
+        CHECK_JOBS: ${{ matrix.serial && '1' || steps.cores.outputs.n }}
+      run: |
+        set +e
+        (cd chicago/4d && timeout --kill-after=5s 900s ./tools/check.sh --part "${{ matrix.part }}") > /tmp/native-part.log 2>&1
+        native_status=$?
+        set -e
+        SOURCE_RECEIPT_PATH=/tmp/native-source-after.json python3 /tmp/t3747-apply-source.py --verify
+        cat /tmp/native-part.log
+        exit "$native_status"
+    - name: Keep the complete native log and exact before/after source receipts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: native-working-${{ matrix.key }}
+        path: |
+          /tmp/native-part.log
+          /tmp/native-source-before.json
+          /tmp/native-source-after.json
+        if-no-files-found: error
   native-complete:
     name: Complete Native on the exact working source
-    needs: [source-plan, native-working-source]
+    needs:
+    - native-working-source
     if: always()
     runs-on: ubuntu-22.04
     steps:
-      - run: test "${{ needs.native-working-source.result }}" = success
+    - run: test "${{ needs.native-working-source.result }}" = success
