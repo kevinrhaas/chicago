@@ -7370,11 +7370,11 @@
  ],
  "capacity": 512,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "53c8b555054fd50acd6e6c46e1805a966eff07f2dd643a23d2a9e58398b72695",
+  "tools/photo_face_library.py": "9a6b443a4ba6c412b5a5c73827f788e294f092b2d58b66b1025cdcf79fcc097a",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
-  "renderers/web/js/human-skin.js": "faedb2eaaa6d4c95738152531a4325ac66fd551efcd69959252dca8c65e6893b",
+  "renderers/web/js/human-skin.js": "b9158e3bb326762bc5da24f6cfd168d3389131b84fad410f7c12f73537cb5aaf",
   "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
   "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
   "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",
@@ -7395,7 +7395,7 @@
   "data/humans/variation/fits/glessner_frances_m.json": "9c1cd3245a1d4485619cf1a144313f3df2d5c0a05a291e08873bf93071adc83b",
   "data/humans/variation/portraits/glessner_frances_m.json": "3657b3c37fbee13f3db263047cfc3a26f6299e88c3699760d822bf01270540a0",
   "tools/historical_photo_state.mjs": "de9ed47a175b9d218a832b833801fc42a8414489b06390e6f8d9ad69e65168f3",
-  "renderers/web/js/human-variation.js": "6ed54f3cdfe4a168a3510cd154dbc795fb2d8a97eef806aa55c8ad496fd9059c",
+  "renderers/web/js/human-variation.js": "70f2ef74c6124c775111abb732f8ceb61f7a03b70076c7c464aae52b0213d1d3",
   "assets/humans/web/hm08_variation_persons.json": "447c9e039201ee3dd63e58181c910fd4f8b7b75c90f479eb3ca7229a6131b509",
   "data/humans/variation/fits/glessner_john_j.json": "fe467d7b57439631829291c336ef5b94ff50692844e37f9a791471573ad211cf",
   "data/humans/variation/portraits/glessner_john_j.json": "5410bbb90884433d2a6d9400f01fa6c821a366efce101547b27d217e3c9a584f",
@@ -7480,5 +7480,5 @@
   ],
   "request": "Apply all existing person photographs to their matching people; keep explicit stand-in labels."
  },
- "recipe_sha256": "18a56ec7de88c9bcd621c61bcf4aee05ae99f29e1ea81b6348ad8a913158f8bf"
+ "recipe_sha256": "27d84a604a65855706d8ecec4f0bcdc327b75dbab56ef619b4df3b5bfdfb80c8"
 }

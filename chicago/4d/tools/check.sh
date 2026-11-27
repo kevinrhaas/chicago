@@ -918,6 +918,8 @@ step "Personal portraits and owner-chosen Stirling references stay with their ex
   node tools/test_historical_photo_faces.mjs
 step "Each photo-face library's runtime.json is the part of its review.json the walk reads, and gives every drawn person the same face (T-3775)" \
   node tools/photo_face_runtime.mjs --check
+step "The You tab's face library pictures are the photo library's own source previews, one sheet in its order (T-3553)" \
+  python3 tools/photo_face_thumbs.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \

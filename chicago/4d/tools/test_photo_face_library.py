@@ -14,6 +14,25 @@ import photo_reference_fit as R
 
 
 class ImportBoundaries(unittest.TestCase):
+    def test_photo_forehead_does_not_paint_bangs_on_the_skin(self):
+        # Same relative hair/skin contrast on light and dark skin. The cleanup
+        # takes its replacement from the person's own skin, not a fixed colour.
+        for skin in ([.5,.3,.2],[.13,.07,.04]):
+            rgb=np.full((100,100,3),skin,dtype=float)
+            points=[[50,75]for _ in range(478)]
+            boundary=(10,338,297,332,284,251,389,300,293,334,296,336,
+                      107,66,105,63,70,162,21,54,103,67,109)
+            corners=[[15,10],[85,10],[85,55],[15,55]]
+            for k,i in enumerate(boundary):points[i]=corners[min(3,k*4//len(boundary))]
+            rgb[20:48,45:49]=np.array(skin)*.08  # a fringe down the forehead
+            rgb[62:65,25:40]=.005               # eyebrow below the forehead
+            rgb[30,25]=np.array(skin)*.2        # an isolated natural freckle
+            before=rgb.copy();after=P.clean_reference_forehead(rgb,points)
+            self.assertTrue(np.array_equal(rgb,before),'input/source pixels are immutable')
+            np.testing.assert_allclose(after[28:40,46],np.tile(skin,(12,1)),atol=.01)
+            np.testing.assert_array_equal(after[62:65,25:40],before[62:65,25:40])
+            np.testing.assert_array_equal(after[30,25],before[30,25])
+
     def test_blue_reference_iris_is_not_limited_to_the_stock_brown_channels(self):
         image=np.full((110,170,3),[195,191,187],dtype=np.uint8)
         points=[[85,55]for _ in range(478)]

@@ -16,8 +16,8 @@
     512,
     512
    ],
-   "bytes": 82915,
-   "sha256": "23846436d1e53142407f4c2f252073cd8cf2af6ed6e9cdc8f8ea873573b8702c",
+   "bytes": 83529,
+   "sha256": "a800824b27ad2c5d5764ba2f1ea4437b7e297aca13c9e40f76b11f53a82b725b",
    "gpu_bytes_rgba8_mipmaps": 1398102
   }
  },
@@ -90,8 +90,8 @@
       1024,
       1024
      ],
-     "bytes": 214594,
-     "sha256": "316a675dca59e675379139fd4eb3fc1e35c0871aba5835c96fdd583732c6e22d",
+     "bytes": 216387,
+     "sha256": "6b1f2a22e0f846a3caac02e1a93a63b41f1759894851a93276ecae4133b63898",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -100,8 +100,8 @@
       512,
       512
      ],
-     "bytes": 67134,
-     "sha256": "9262405cc74588060d3d9174c383f7991476527ba181d43cc9c8d9e50e8a2755",
+     "bytes": 67817,
+     "sha256": "e2ba1d01cdded728e8617f4e51d62a40997acb3e5f18ae1ad626d6a8a0a7325e",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -143,8 +143,8 @@
       1024,
       1024
      ],
-     "bytes": 209335,
-     "sha256": "67058fe42f65ca683ba8635e5ca60ecd42c25d01d023576a450f3d0c51451c71",
+     "bytes": 211434,
+     "sha256": "3f756dd4e892f49289f4b3e4ec5dc183abb9590fac041d3c6c81dff15364b327",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -153,8 +153,8 @@
       512,
       512
      ],
-     "bytes": 66098,
-     "sha256": "bd34a25fc690f2d79bbd2a5f2921205f6a36c0f3d3ebf7c427dc06e2e1e4b196",
+     "bytes": 66977,
+     "sha256": "277e2be16c3a7f938dbc17478f532f28367e50c138a1249e5b8db69905a996a5",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -196,8 +196,8 @@
       1024,
       1024
      ],
-     "bytes": 196041,
-     "sha256": "f41013b18fd6e340844f80d45c403ad890089f6187f90befa994f2bd53c394bf",
+     "bytes": 196780,
+     "sha256": "5d55ff4596f57898e8d454330b443bd84fbb89437a5bc89fd7a7e4262dc038b6",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -206,8 +206,8 @@
       512,
       512
      ],
-     "bytes": 61123,
-     "sha256": "ea84e366682274a064547ef9764d3fa86650d331f978491be208591cf8957f71",
+     "bytes": 61421,
+     "sha256": "dc608e7e45ebdcf23aca9a4dc2f9f925b0c7a6156fd5b54b6a9bab8a376d1f44",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -3987,12 +3987,12 @@
     ]
    },
    "tone_rgb": [
-    0.467783796112159,
+    0.47065764613008426,
     0.23455058216100522,
     0.19120168274079138
    ],
    "body_gain": [
-    0.6632258374360338,
+    0.6673003941022657,
     0.8026226602989243,
     1.4781341857931
    ],
@@ -5053,12 +5053,12 @@
    "tone_rgb": [
     0.386429433787049,
     0.1651321945016676,
-    0.09874303769448817
+    0.09758734714186246
    ],
    "body_gain": [
     0.547881279692506,
     0.5650757292128472,
-    0.7633586563312249
+    0.7544242908510317
    ],
    "hair_rgb": [
     0.033104766570885055,
@@ -5982,12 +5982,12 @@
     ]
    },
    "tone_rgb": [
-    0.467783796112159,
+    0.47065764613008426,
     0.23455058216100522,
     0.16826940018969075
    ],
    "body_gain": [
-    0.6632258374360338,
+    0.6673003941022657,
     0.8026226602989243,
     1.300850229338585
    ],
@@ -8751,11 +8751,11 @@
  ],
  "capacity": 512,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "53c8b555054fd50acd6e6c46e1805a966eff07f2dd643a23d2a9e58398b72695",
+  "tools/photo_face_library.py": "9a6b443a4ba6c412b5a5c73827f788e294f092b2d58b66b1025cdcf79fcc097a",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
-  "renderers/web/js/human-skin.js": "faedb2eaaa6d4c95738152531a4325ac66fd551efcd69959252dca8c65e6893b",
+  "renderers/web/js/human-skin.js": "b9158e3bb326762bc5da24f6cfd168d3389131b84fad410f7c12f73537cb5aaf",
   "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
   "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
   "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",

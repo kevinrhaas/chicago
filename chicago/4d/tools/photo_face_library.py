@@ -20,7 +20,7 @@ from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 from PIL import Image, ImageOps, ImageDraw
 from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
-from scipy.ndimage import distance_transform_edt, gaussian_filter
+from scipy.ndimage import distance_transform_edt, gaussian_filter, label, binary_dilation
 
 import face_library as L
 import fit_portrait_face as F
@@ -136,13 +136,48 @@ def blend_face_photo(photo, fallback, covered):
     return L.srgb8(joined + front * weight + back * (1 - weight))
 
 
+def clean_reference_forehead(rgb, points):
+    """Keep photographic bangs in the hair layer, rather than painting them on skin.
+
+    Only dark connected intrusions above the eyebrows are filled, from this
+    face's own nearby skin. The source photograph and the eyebrows stay intact.
+    """
+    boundary=(10,338,297,332,284,251,389,300,293,334,296,336,
+              107,66,105,63,70,162,21,54,103,67,109)
+    mask=Image.new('L',(rgb.shape[1],rgb.shape[0]))
+    ImageDraw.Draw(mask).polygon([tuple(points[i]) for i in boundary],fill=255)
+    inside=distance_transform_edt(np.asarray(mask)>0)>2
+    if not inside.any():return rgb
+    light=rgb@np.array([.2126,.7152,.0722])
+    cheeks=[points[i] for i in (50,101,118,205,280,330,347,425)]
+    anchor=float(np.median([light[min(rgb.shape[0]-1,max(0,round(y))),min(rgb.shape[1]-1,max(0,round(x)))] for x,y in cheeks]))
+    if anchor<=.004:return rgb
+    components,_=label(inside&(light<anchor*.35))
+    sizes=np.bincount(components.ravel())
+    keep=sizes>=8;keep[0]=False
+    bad=keep[components]
+    valid=inside&(light>anchor*.6)
+    if not bad.any() or not valid.any():return rgb
+    # A soft reconstruction from nearby skin removes strand edges too, without
+    # changing freckles, facial outlines, brows or an individual's skin colour.
+    bad=binary_dilation(bad,iterations=1)&inside
+    valid&=~bad
+    if not valid.any():return rgb
+    nearest=distance_transform_edt(~valid,return_distances=False,return_indices=True)
+    weight=gaussian_filter(valid.astype(float),3)
+    smooth=gaussian_filter(rgb*valid[...,None],(3,3,0))/np.maximum(weight[...,None],1e-6)
+    fill=np.where((weight>1e-4)[...,None],smooth,rgb[nearest[0],nearest[1]])
+    blend=gaussian_filter(bad.astype(float),.6)*inside
+    return rgb*(1-blend[...,None])+fill*blend[...,None]
+
+
 def reference_albedo(im, points):
     """Reduce broad studio illumination before the 3D face is lit again.
 
     One smooth scalar gain per pixel preserves chroma and fine facial detail;
     the cheek exposure anchors it. The original source remains unchanged.
     """
-    rgb=L.linear(np.asarray(im,dtype=float))
+    rgb=clean_reference_forehead(L.linear(np.asarray(im,dtype=float)),points)
     luma=np.maximum(.004,np.sum(rgb*np.array([.2126,.7152,.0722]),axis=2))
     radius=max(3,np.linalg.norm(np.array(points[468])-points[473])*.28)
     broad=gaussian_filter(np.log(luma),radius)

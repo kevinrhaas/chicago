@@ -14,7 +14,7 @@ const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
 const hooks = registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair, fitPhotoHairline } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressHair, growHair, growHairSteps, CARDS, headFrame, keepsHair, fitPhotoHairline, metricSurface } = await import(new URL('renderers/web/js/human-hair.js', here));
 const { dressSpectacles, fitSpectacles, PEOPLE_SPECTACLES, spectaclesFor } = await import(new URL('renderers/web/js/human-spectacles.js', here));
 const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, PEOPLE_HAIR, ERA_DEFAULT, hairFor } = await import(new URL('renderers/web/js/human-hair-styles.js', here));
 const { dressSkin, domeCornea, SKIN } = await import(new URL('renderers/web/js/human-skin.js', here));
@@ -82,6 +82,27 @@ function figure() {
   const child=figure();assert.equal(fitPhotoHairline(child.root,{...face,population:'child'}),null);
   const known=figure();assert.equal(fitPhotoHairline(known.root,{...face,historical:{shape_mode:'existing_fit'}}),null,'curated historical hair is preserved');
   let disposed=false;fitted.addEventListener('dispose',()=>{disposed=true;});original.dispose();assert(disposed,'the source cap releases its fitted geometry');
+}
+
+// Published meshes carry normalized integer normals. Triangle cross-products
+// must accumulate as floats; otherwise small hair triangles round to zero.
+{
+  const {root,cap}=figure();cap.geometry.translate(0,.04/UNIT,0);
+  const n=cap.geometry.attributes.normal;
+  const packed=new Int16Array(n.count*3);
+  for(let i=0;i<n.count;i++)for(let k=0;k<3;k++)packed[i*3+k]=Math.round(n.getComponent(i,k)*32767);
+  cap.geometry.setAttribute('normal',new THREE.Int16BufferAttribute(packed,3,true));
+  fitPhotoHairline(root,{id:'compressed-woman',sex:'female',eyes:{centres_uv:[[.4,.5],[.6,.5]]},hair_projection:{hairline_v:.34}});
+  const fitted=cap.geometry.attributes.normal;
+  assert(fitted.array instanceof Float32Array,'fitted cap normals accumulate in float precision');
+  for(const i of new Set(cap.geometry.index.array))assert(Math.hypot(fitted.getX(i),fitted.getY(i),fitted.getZ(i))>.99,'every drawn cap vertex has a usable lighting normal');
+  const surface=metricSurface(cap,root),p=new THREE.Vector3();let inspected=0;
+  for(const i of new Set(surface.index)){
+    p.fromArray(surface.P,3*i);
+    if(Math.abs(p.x)>.07||p.y<1.68||p.y>1.72||p.z<.1)continue;
+    assert(p.distanceTo(FACE)>=R_HEAD+.001,'frontal hair stays outside the independently defined skin sphere');inspected++;
+  }
+  assert(inspected>4,'the clearance assertion examines the frontal cap');
 }
 
 // 1. The cards lie over the cap, a few millimetres off it, and are skinned exactly as the cap.

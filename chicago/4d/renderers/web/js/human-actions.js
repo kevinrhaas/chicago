@@ -670,7 +670,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     },
     /** One-shot: true once after a greeting starts, for the life layer to nod. */
     takeNod() { const n = nodRequest; nodRequest = 0; return n > 0; },
-    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null, sink: down = 0, posed = 0 } = {}) {
+    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null, sink: down = 0, posed = 0, plant = null } = {}) {
       if (!bound) return;
       root = r;
       sink = Number.isFinite(down) && down > 0 ? down : 0;
@@ -685,21 +685,25 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       const walking = state === 'walking';
       if (state !== lastState) { lastState = state; if (!standing) { pose = 'rest'; poseW = 1; } else if (skirt && pose === 'rest') { prevPose = 'rest'; pose = 'clasp'; poseW = 0; } }
 
+      // T-3553: a lying figure whose posture laid its arms out (human-life.js POSTURES limbs)
+      // keeps them: the arms hanging by the sides were drawn over them (owner, 2026-11-16: the
+      // stiff fallen; seen again 2026-11-27).
+      const keepLaid = clamp(fin(plant?.yield), 0, 1);
       // The arms hang in by the sides, elbows soft: the base every pose starts from.
       for (const s of SIDES) {
-        if (s === hold?.side) continue;
+        if (s === hold?.side || keepLaid >= 0.999) continue;
         const sx = s === 'l' ? 1 : -1;
         const inward = toWorldDir(fig.up.clone().multiplyScalar(-1).addScaledVector(fig.left, sx * (skirt ? 0.16 : 0.075))
           .addScaledVector(fig.fwd, 0.04));
-        aim(`upperarm_${s}`, inward, 0.85);
+        aim(`upperarm_${s}`, inward, 0.85 * (1 - keepLaid));
         bones[`upperarm_${s}`].updateMatrixWorld(true);
         const forearm = toWorldDir(fig.up.clone().multiply(new THREE.Vector3(0, -1, 0)).addScaledVector(fig.left, sx * (skirt ? 0.12 : 0.03))
           .addScaledVector(fig.fwd, walking ? 0.32 : 0.2));
-        aim(`lowerarm_${s}`, forearm, 0.85);
+        aim(`lowerarm_${s}`, forearm, 0.85 * (1 - keepLaid));
         // The hand hangs relaxed: fingers down and a little forward, palm to the thigh,
         // fingers loosely curled (the clip holds them open and turned out).
         bones[`lowerarm_${s}`].updateMatrixWorld(true);
-        orientHand(s, toWorldDir(new THREE.Vector3(0, -1, walking ? 0.25 : 0.12)), toWorldDir(new THREE.Vector3(-sx, 0, -0.25)), 0.8);
+        orientHand(s, toWorldDir(new THREE.Vector3(0, -1, walking ? 0.25 : 0.12)), toWorldDir(new THREE.Vector3(-sx, 0, -0.25)), 0.8 * (1 - keepLaid));
         curl(s, 0.26);
         thumbIn(s, 0.8);
       }
@@ -917,6 +921,17 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
             curl(s, empty ? 0.35 : 0.88, w); thumbIn(s, empty ? 0.6 : 0.95, w);
           }
         }
+      }
+      // T-3553: hands on the ground (human-motions.js: pushing up off it, or lying on the
+      // forearms), over everything above: the wrist where it is put, the elbow toward its pole,
+      // the palm flat and the fingers ahead.
+      for (const s of SIDES) {
+        const p = plant?.[s];
+        if (!p || !(p.w > 1e-3)) continue;
+        reach(s, p.pos, p.pole, p.w);
+        bones[`lowerarm_${s}`].updateMatrixWorld(true);
+        orientHand(s, p.fingers, new THREE.Vector3(0, -1, 0), p.w);
+        curl(s, 0.12, p.w);
       }
       for (const s of SIDES) shapeHand(s);
       if (greet >= 0 && brim?.touch) fingertip();

@@ -686,7 +686,15 @@ export default {
   "jump.title.plain": "¿Partir hacia {to}?",
   "jump.body": "Esto suelta la fijación en Chicago, {from}. Rumbo fijado: {when}.",
   "jump.body.plain": "Esto suelta la fijación en este destino. Rumbo fijado: {when}.",
-  "jump.confirm": "Partir"
+  "jump.confirm": "Partir",
+  "end.eyebrow": "Control de salida",
+  "end.code": "Terminar paseo",
+  "end.title": "¿Terminar este paseo?",
+  "end.body": "{title} se cierra. Paseos lo pausa en su lugar.",
+  "end.body.plain": "La salida se cierra. Paseos lo pausa en su lugar.",
+  "end.body.closing": "{title} se cierra antes de que termine su última mirada.",
+  "end.body.closing.plain": "La salida se cierra antes de que termine su última mirada.",
+  "end.confirm": "Terminar"
  },
  "research": {
   "switch": "Investigación experta",

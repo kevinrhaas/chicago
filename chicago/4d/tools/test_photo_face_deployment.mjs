@@ -84,12 +84,15 @@ const catalogs=[kit.photoFaces,kit.photoChildren,kit.photoPortraits];
 // member of that community. Saved visitor selections always win over defaults.
 const Visitor=await import(new URL('renderers/web/js/visitor-person.js',root));
 const catalog=await read('data/humans/visitor_person.json');
-catalog.faces=kit.header.faces;catalog.photo_faces=kit.photoFaces;
+catalog.faces=kit.header.faces;catalog.photoFaces=Visitor.photoCatalog(kit.photoFaces,new URL('photo_faces/pilot/runtime.json',kit.base));
+const photoGroups=(type,tone)=>Visitor.faceGroups(catalog,type,tone).filter(g=>g.kind==='photo').flatMap(g=>g.bands.flatMap(b=>b.faces));
 for(const type of catalog.sexes.map(s=>s.id)){
- const a=Visitor.faceChoices(catalog.faces,type,'fair',catalog).filter(f=>f.photographic);
- const b=Visitor.faceChoices(catalog.faces,type,'deep_brown',catalog).filter(f=>f.photographic);
+ const a=photoGroups(type,'fair');
+ const b=photoGroups(type,'deep_brown');
+ const compatible=kit.photoFaces.faces.filter(f=>Visitor.bodiesOf(catalog,type).includes(f.sex));
+ assert.deepEqual(a.map(f=>f.id).sort(),compatible.map(f=>f.id).sort(),`${type}: every compatible photograph appears exactly once in the actual Settings groups`);
  assert.deepEqual(a.map(f=>f.id),b.map(f=>f.id),'a visitor’s complexion does not restrict photographic choices');
- assert.equal(new Set(a.map(f=>f.reference_pool).filter(Boolean)).size,4,`${type}: all four authored reference pools remain available`);
+ assert.equal(new Set(a.map(f=>kit.photoFaces.faces.find(source=>source.id===f.id)?.reference_pool).filter(Boolean)).size,4,`${type}: all four authored reference pools remain available`);
 }
 for(const pool of ['european','native_metis','black','east_asian']){
  const face=kit.photoFaces.faces.find(f=>f.reference_pool===pool&&f.sex==='female');

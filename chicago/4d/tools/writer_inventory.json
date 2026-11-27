@@ -2433,6 +2433,13 @@
       "finding": "Reproduces on T-3762: two actual adult/child writes retain all 349 final generic outputs byte for byte. The enclosing three-catalog writes took 205.27 s and 192.63 s; per-catalog timings are not claimed. All 272 generic face/eye/head records and 345 raster/scalp files match the deployed forehead correction; only the two catalog input hashes change. No landmark model or network is needed. Generic inputs stayed frozen; the final named processing-source consolidation is measured separately by historical_photo_faces.py. Proof: chicago-evidence/evidence/person-photo-deployment-T-3762/generic-and-child-writer-reproduction.json.",
       "placed": "Follows calibrated canonical/web bodies, hm08_variation_kit, the source face-library record, portrait-axis records and pinned landmark correspondences. Body/variation/face-library writers are themselves pending, so this consumer is not appended blindly to the full manifest. It writes only the adult pilot and child library directories consumed by the owner-approved default dev renderer and publish; the one-photo path remains explicit review output. Full-manifest ordering is unmeasured."
     },
+    "photo_face_thumbs.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-27",
+      "finding": "Reproduces: a bare run rewrites assets/humans/web/photo_faces/pilot/thumbs.jpg byte for byte (same SHA-256 before and after) from the 256 committed pilot_*_source.jpg previews and runtime.json; it writes nothing else. --check compares decoded pixels (within 24 levels) so another Pillow build's JPEG bits do not fail it.",
+      "placed": "Follows tools/photo_face_runtime.mjs (it reads the pilot library's runtime.json for each face's index) and tools/photo_face_library.py (which writes the source previews); both are pending, so this consumer is not appended to the manifest on its own."
+    },
     "town_people_1835.py": {
       "placement": "pending",
       "write_mode": "(bare)",

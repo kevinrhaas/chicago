@@ -16,8 +16,8 @@
     1024,
     1024
    ],
-   "bytes": 380325,
-   "sha256": "fc8f3b9d06c196c32b112c080f074141584425bff78430243d063c026c9511ca",
+   "bytes": 380824,
+   "sha256": "956fcfe8ba756111c565aa01dc6f7da492c7b86845439666bc86b2e1948e601d",
    "gpu_bytes_rgba8_mipmaps": 5592406
   }
  },
@@ -885,8 +885,8 @@
       1024,
       1024
      ],
-     "bytes": 235799,
-     "sha256": "54ecb6a2b5b31fa4d52c07b435c6075a3d45b60bfcd50bf32f44ab463fd9b983",
+     "bytes": 236061,
+     "sha256": "d71ab20493d2e8166c00311947c63b77f568c85058e77332413f14a06692eadd",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -895,8 +895,8 @@
       512,
       512
      ],
-     "bytes": 72164,
-     "sha256": "3971fa6f32326ddf247de2a50b6987318373bb0dfe446b39b1fb1427d2439e61",
+     "bytes": 72243,
+     "sha256": "7880ae17d11ac880b18af49dc06ca1d3db1a45d6828f67cb86994561c5a78954",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -938,8 +938,8 @@
       1024,
       1024
      ],
-     "bytes": 228237,
-     "sha256": "5b5757c5a807b4cff9b69f4aa7f3c42bcd44f1cd66823c187d1ca2ec7c46519e",
+     "bytes": 229181,
+     "sha256": "e3aab6064d368df84355ccbbced71724c638b17dc413cd4e335385e77ef7f9fe",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -948,8 +948,8 @@
       512,
       512
      ],
-     "bytes": 68590,
-     "sha256": "38b949436601101bbc71d22d2d97d821d667f2b75e6640bee60ece0c3c8344a6",
+     "bytes": 68940,
+     "sha256": "fdac08b520d5176a97c47db47da66f63d696004962e081a7e2ab4c851f649134",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -991,8 +991,8 @@
       1024,
       1024
      ],
-     "bytes": 227232,
-     "sha256": "8c60de927db1c884b1edeebf8e30e7eef5f7c2a32b4232cf3cd2607a5de04dd4",
+     "bytes": 229674,
+     "sha256": "54491a8d63709eab5bba855c2961576dd4063d07cb36ddbf9bc55b389fd68ca7",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -1001,8 +1001,8 @@
       512,
       512
      ],
-     "bytes": 69202,
-     "sha256": "56221a7622fff8ac8d74a1d41095983c6e3b2b446463ca35c4704278b68f309f",
+     "bytes": 70060,
+     "sha256": "33293ac6c2e07e63f541ec5de25461b156fae0e7c846802cd7c33be07bda1ba5",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -1044,8 +1044,8 @@
       1024,
       1024
      ],
-     "bytes": 229164,
-     "sha256": "c41bbfe0488e799ccf80efdf0579a3f748b7b61d8fbcc6b692da11208bf4f452",
+     "bytes": 230810,
+     "sha256": "642179053db6aa58c86180a99a240a796994c7f4bc9916860f1b8468aa328431",
      "gpu_bytes_rgba8_mipmaps": 5592406
     },
     "light": {
@@ -1054,8 +1054,8 @@
       512,
       512
      ],
-     "bytes": 69179,
-     "sha256": "7aa24e41c75f7167c1565db97f7003dbe0127d7552243b0aaace27678472b130",
+     "bytes": 69924,
+     "sha256": "306c6e29c9edb41bad3870d820f5c5d04851e425a5863c711ff771c86cb14024",
      "gpu_bytes_rgba8_mipmaps": 1398102
     }
    },
@@ -48168,12 +48168,12 @@
     ]
    },
    "tone_rgb": [
-    0.5118994931157276,
+    0.5149176653765214,
     0.24620132670783548,
     0.19120168274079138
    ],
    "body_gain": [
-    0.6674481227765385,
+    0.6713834136622977,
     0.7326268639804647,
     1.176570084849921
    ],
@@ -51708,12 +51708,12 @@
     ]
    },
    "tone_rgb": [
-    0.46493039788328305,
+    0.467783796112159,
     0.2704977910130658,
     0.2195261997292692
    ],
    "body_gain": [
-    0.6062067367954819,
+    0.6099271844947074,
     0.8049264030925246,
     1.3508665600626708
    ],
@@ -51886,12 +51886,12 @@
    },
    "tone_rgb": [
     0.4178850708481375,
-    0.22885296101722374,
+    0.23074004852434915,
     0.184474994500441
    ],
    "body_gain": [
     0.5313416485187087,
-    0.5258483667333985,
+    0.530184434220112,
     0.7376616513936729
    ],
    "hair_rgb": [
@@ -54187,12 +54187,12 @@
    },
    "tone_rgb": [
     0.4072402119017367,
-    0.20155625379439707,
+    0.203317495092357,
     0.1589608350608804
    ],
    "body_gain": [
     0.5309864897472836,
-    0.5997755093670672,
+    0.6050164749869174,
     0.9781742530422473
    ],
    "hair_rgb": [
@@ -55250,12 +55250,12 @@
    "tone_rgb": [
     0.20685780326778636,
     0.10946171077829933,
-    0.07324270953123355
+    0.07227185068231748
    ],
    "body_gain": [
     0.26302008342673533,
     0.25151635170794356,
-    0.29287621453338863
+    0.28899403340796853
    ],
    "hair_rgb": [
     0.20155625379439707,
@@ -57487,11 +57487,11 @@
  ],
  "capacity": 512,
  "inputs_sha256": {
-  "tools/photo_face_library.py": "53c8b555054fd50acd6e6c46e1805a966eff07f2dd643a23d2a9e58398b72695",
+  "tools/photo_face_library.py": "9a6b443a4ba6c412b5a5c73827f788e294f092b2d58b66b1025cdcf79fcc097a",
   "tools/fit_portrait_face.py": "12f977e5c2d7969a57ff94cc5836afcf6cdb47bb07d81d9507bbfaab28900640",
   "tools/face_library.py": "b7e409cd1b1a7007c82f5ac8488c1dd367809aa7a50c2fd8051b5782d3e42e82",
   "tools/bake_likeness_skin.py": "cdd7ddad9faba5c922243b360542e20fc5ec862709cf42cdfbb94d459b304427",
-  "renderers/web/js/human-skin.js": "faedb2eaaa6d4c95738152531a4325ac66fd551efcd69959252dca8c65e6893b",
+  "renderers/web/js/human-skin.js": "b9158e3bb326762bc5da24f6cfd168d3389131b84fad410f7c12f73537cb5aaf",
   "assets/humans/web/hm08_variation_kit.json": "4702c06f2c2853bd1e38ca9671689b6e2bec0550e3c9696d74261fd4dcb8291c",
   "assets/humans/web/hm08_variation_kit.bin": "244b25e9f31bf1b45b13339cf7e5721ea8512657e7dbcff1eb365e3a100f8282",
   "data/humans/variation/axes.json": "f6c98f53c074b1a85760a09e2dc4a87eb14286840a805aef15f00e98270bf4f3",

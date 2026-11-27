@@ -786,10 +786,11 @@ export function fitPhotoHairline(root, face) {
     const forehead=[],R=restMatrix(skin,root),Rn=new THREE.Matrix3().getNormalMatrix(R),sp=skin.geometry.attributes.position,sn=skin.geometry.attributes.normal,v=new THREE.Vector3(),normal=new THREE.Vector3();
     for(let i=0;i<sp.count;i++){
       v.fromBufferAttribute(sp,i).applyMatrix4(R).sub(f.o);const x=v.dot(f.x),y=v.dot(f.y),z=v.dot(f.z);
-      if(Math.abs(x)<.08&&y>.025&&y<.14&&z>-.045&&(!sn||normal.fromBufferAttribute(sn,i).applyMatrix3(Rn).dot(f.z)>.1))forehead.push([x,y,z]);
+      normal.copy(f.z);if(sn)normal.fromBufferAttribute(sn,i).applyMatrix3(Rn).normalize();
+      if(Math.abs(x)<.08&&y>.025&&y<.14&&z>-.045&&normal.dot(f.z)>.1)forehead.push([x,y,z,normal.dot(f.x),normal.dot(f.y),normal.dot(f.z)]);
     }
     geometry=new THREE.BufferGeometry();geometry.setIndex(src.index?.clone()??null);
-    for(const [name,attribute]of Object.entries(src.attributes))geometry.setAttribute(name,name==='position'||name==='normal'?attribute.clone():attribute);
+    for(const [name,attribute]of Object.entries(src.attributes))geometry.setAttribute(name,name==='normal'?new THREE.Float32BufferAttribute(new Float32Array(attribute.count*3),3):name==='position'?attribute.clone():attribute);
     const attr=geometry.attributes.position,inv=scalp.R.clone().invert();
     for(let i=0;i<local.length;i++){
       const [x,y,z]=local[i],w=smooth(-.065,-.012,z)*(1-smooth(.04,.085,Math.abs(x)))*smooth(.025,.05,y)*(1-smooth(native+.02,native+.06,y));
@@ -799,6 +800,25 @@ export function fitPhotoHairline(root, face) {
       if(nearest.length){let sum=0,depth=0;for(const q of nearest){const gain=1/Math.max(1e-8,q.d);sum+=gain;depth+=gain*q.q[2];}p.addScaledVector(f.z,(depth/sum+.0018-z)*w);}
       p.applyMatrix4(inv);attr.setXYZ(i,p.x,p.y,p.z);
     }
+    // Lowering the edge must also keep the whole frontal cap outside the fitted
+    // forehead. A weighted depth alone left parts of its triangles 2.5 mm inside
+    // real exported heads. Keep 3.8 mm of ease, in metres, using their own skin.
+    for(const i of used){
+      v.fromBufferAttribute(attr,i).applyMatrix4(scalp.R).sub(f.o);
+      let x=v.dot(f.x),y=v.dot(f.y),z=v.dot(f.z);
+      if(Math.abs(x)>.08||y<.03||y>.14||z<-.065)continue;
+      let changed=false;
+      for(let pass=0;pass<2;pass++){
+        let nearest=null,distance=Infinity;
+        for(const q of forehead){const d=(q[0]-x)**2+(q[1]-y)**2+(q[2]-z)**2;if(d<distance){nearest=q;distance=d;}}
+        if(!nearest)continue;
+        const gap=(x-nearest[0])*nearest[3]+(y-nearest[1])*nearest[4]+(z-nearest[2])*nearest[5];
+        if(gap<.0038){const lift=.0038-gap;x+=lift*nearest[3];y+=lift*nearest[4];z+=lift*nearest[5];changed=true;}
+      }
+      if(changed){v.copy(f.o).addScaledVector(f.x,x).addScaledVector(f.y,y).addScaledVector(f.z,z).applyMatrix4(inv);attr.setXYZ(i,v.x,v.y,v.z);}
+    }
+    // computeVertexNormals accumulates small triangle cross-products before it
+    // normalizes them. Accumulating into normalized Int16 rounds many to zero.
     attr.needsUpdate=true;geometry.computeVertexNormals();geometry.computeBoundingSphere();cache.set(key,geometry);
   }
   hair.geometry=geometry;hair.userData.chiPhotoHairline={face:face.id,line_m:line,addedTriangles:0};

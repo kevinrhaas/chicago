@@ -89,6 +89,8 @@ A source with several people needs a crop containing one face. The batch recipe'
 is an integer rectangle on the EXIF-oriented image. A four-view head sheet and the older
 `photo_face.py` path remain useful where real side views are available.
 
+New fictional references separate dark hair intruding onto the upper forehead from the skin albedo, using only that face’s nearby skin. The original source photo, eyebrows, fitted head and eye geometry remain unchanged. Native frontal caps keep clearance from the fitted forehead and use float normals; measured eye whites are not darkened a second time.
+
 ## Rebuild the adult face library
 
 ```
@@ -135,7 +137,7 @@ submission time, catalog/page counts and atlas bytes. A 256-entry catalog does n
 256 people are drawn in that measurement. Software renderers are labelled explicitly.
 The measurement does not certify the complete town or replace a real weak-PC GPU test.
 
-The importer refuses a 257th entry within one library and checks actual image dimensions and hashes. The
+The importer refuses a 513th entry within one library and checks actual image dimensions and hashes. The
 runtime refuses oversized crowd/detail metadata; decoded detail dimensions are checked
 before upload. One resident-or-loading slot and page-failure/late-delivery behavior have
 executable regression checks. The owner explicitly authorized this dev rollout. Whole-town

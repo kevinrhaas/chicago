@@ -54,7 +54,7 @@ import { teethStrip, teethOf, createMouth, drawnTeeth, drawnLook, TEETH_DRAWN } 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6, environment: 2.1 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
-export const EYES = Object.freeze({ roughness: .16, sclera_value: .78, cornea_roughness: .14, cornea_sky: 1.4, cornea_radius_m: .0078, corner_shade: .22, like_sky: 1.15, sclera_sky: 1.2, photo_cornea_roughness: .22, photo_sclera_roughness: .3 });
+export const EYES = Object.freeze({ roughness: .16, sclera_value: .78, cornea_roughness: .14, cornea_sky: 1.4, cornea_radius_m: .0078, corner_shade: .22, like_sky: 1.15, sclera_sky: 1.2, photo_cornea_roughness: .14, photo_sclera_roughness: .3, photo_sky: 2.1 });
 
 /** What a material of a portable human is, by the contract's slot names (HUMAN-ASSET-CONTRACT § 5). */
 export function surfaceFor(material) {
@@ -722,10 +722,12 @@ function patchEyes(material, mesh, root) {
   const cornea = /__(iris|pupil)$/.test(material.name);
   material.roughness = Math.min(material.roughness, cornea ? EYES.cornea_roughness : EYES.roughness);
   // A wet cornea mirrors the bright sky over the dark iris: the catchlight of every portrait.
-  material.envMapIntensity = cornea ? material.userData?.chiPhotoOwned ? EYES.like_sky : EYES.cornea_sky : EYES.sclera_sky;
+  material.envMapIntensity = material.userData?.chiPhotoOwned ? EYES.photo_sky : cornea ? EYES.cornea_sky : EYES.sclera_sky;
   if (material.userData?.chiPhotoOwned) material.roughness = cornea ? EYES.photo_cornea_roughness : EYES.photo_sclera_roughness;
   if (!/sclera/.test(material.name)) return null;
-  material.color.multiplyScalar(EYES.sclera_value);
+  // Photographic whites are already measured and muted in the library. Applying
+  // the stock-eye correction again made them dark beside the face's sky fill.
+  if (!material.userData?.chiPhotoOwned) material.color.multiplyScalar(EYES.sclera_value);
   const uniforms = {
     chiSkinRest: { value: restMatrix(mesh, root) },
     chiSclera: { value: new THREE.Vector4(...forwardOf(mesh, root).toArray(), EYES.corner_shade) },

@@ -134,11 +134,12 @@ export function attachPhotoPortraits(kit,library,manifestURL){
 }
 
 /** Stable age-compatible assignment. Personal portraits and visitor-selected faces win. */
-export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null, pool = null, visitor = false }) {
+export function photoFaceFor(kit, { key, sex, age, own = false, pick = null, complexion = null, pool = null, visitor = false, faceOf = null }) {
   const child=Number.isFinite(age)&&age<18,P=child?kit?.photoChildren:kit?.photoFaces;
   if (!P || own || !Number.isFinite(age)) return null;
   if (pick) return visitor ? P.faces.find(f=>f.id===pick)??null : null;
-  let candidates = P.faces.filter(f => (f.sex===sex||child&&sex==='either')
+  const wears = !child && (faceOf === 'male' || faceOf === 'female') ? faceOf : sex;
+  let candidates = P.faces.filter(f => (f.sex===wears||child&&sex==='either')
     &&(child?f.population==='child'&&f.age>=2&&f.age<18&&f.age>=age-4&&f.age<=age+3:f.age>=18));
   // Community belongs to the population records, never to a guess from a name
   // or a face. New fictional references declare their creation brief. Visitors
@@ -390,7 +391,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     f.id===key&&f.historical.scene===String(sceneYear??record?.scene)&&f.sex===(record?.sex??asset.sex??'male')):null;
   const photo = portrait??photoFaceFor(kit, { key, sex: record?.sex ?? asset.sex ?? 'male', age: childBody||age<18?age:record?.age?age:35,
     own: !!face?.values || !!record?.skin, pick: record?.looks?.face_pick, complexion: record?.looks?.complexion?.drawn,
-    pool:record?.photo_pool??null,visitor:!!record?.visitor });
+    pool:record?.photo_pool??null,visitor:!!record?.visitor,faceOf:record?.looks?.face_of??null });
   if (photo&&!photo.texture_only) for (const [k,v] of Object.entries(photo.values)) {
     if (k.endsWith('.option')) option[k.slice(0,-7)] = v;
     else values[k] = v;
