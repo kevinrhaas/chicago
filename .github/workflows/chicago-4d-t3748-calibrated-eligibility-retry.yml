@@ -1,4 +1,4 @@
-name: Better Trees seasons — one eligibility-only calibration retry
+name: Better Trees seasons — calibrated complete working source
 'on':
   pull_request:
     branches:
@@ -77,6 +77,41 @@ jobs:
         raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-apply-working-source.py'])
         assert hashlib.sha256(raw).hexdigest()=='4c6d441efb73b23c548b36ca36220658ee3ff4a34d3a965c04e06a32a33cea39'
         p=Path('/tmp/t3747-apply-source.py');p.write_bytes(raw)
+
+        """Materialize exact tracked preimages for a frozen patch in a sparse checkout."""
+        import hashlib,json,subprocess
+        from pathlib import Path
+
+        def materialize_preimages(manifest,repo,env=None):
+            def git(*args):return subprocess.check_output(['git',*args],cwd=repo,env=env)
+            base=manifest['base_dev'];assert git('rev-parse','HEAD').decode().strip()==base
+            assert git('write-tree')==git('rev-parse',base+'^{tree}')
+            tracked=[]
+            for name in manifest['source_sha256']:
+                path=Path(name);assert not path.is_absolute() and '..' not in path.parts
+                entry=git('ls-files','--stage','--',name).decode().strip()
+                if not entry:
+                    assert not (Path(repo)/name).exists(),name
+                    continue
+                header,actual=entry.split('\t');mode,blob,stage=header.split()
+                assert actual==name and stage=='0' and mode in ('100644','100755')
+                assert git('rev-parse',base+':'+name).decode().strip()==blob
+                file=Path(repo)/name
+                if file.exists():assert git('hash-object',name).decode().strip()==blob,('Unexpected modified baseline; never overwrite it',name)
+                tracked.append(name)
+            if tracked:
+                subprocess.run(['git','update-index','--no-skip-worktree','--',*tracked],cwd=repo,env=env,check=True)
+                subprocess.run(['git','checkout-index','--force','--index','--',*tracked],cwd=repo,env=env,check=True)
+            for name in tracked:
+                assert git('hash-object',name)==git('rev-parse',base+':'+name),name
+            assert git('write-tree')==git('rev-parse',base+'^{tree}')
+            return tracked
+
+        manifest_raw=subprocess.check_output(['git','show',head+':.github/diagnostics/t3748-reading-fix-seasonal-source.json'])
+        assert hashlib.sha256(manifest_raw).hexdigest()==os.environ['SOURCE_MANIFEST_SHA']
+        manifest=json.loads(manifest_raw)
+        tracked=materialize_preimages(manifest,Path.cwd())
+        print('Exact tracked baseline preimages materialized and index stats verified:',len(tracked))
         subprocess.run(['python3',str(p)],check=True)
         PYTHON
     - name: Install Playwright
