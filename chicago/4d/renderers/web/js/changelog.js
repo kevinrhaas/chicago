@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 3287, ts: '2026-11-27T11:46:55.125Z', date: 'Nov 27, 2026, 5:46 AM CT', title: '2130 Prairie\'s roof now matches its two photographs', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie loses the tall gable on its street front, which neither old photograph shows.',
+      'Its roof now runs along the avenue instead, with a gable of rough-faced stone on the south side, as the photographs show it.',
+      'Its one visible chimney now stands on that ridge beside the round tower, where the picture puts it.',
+      'Still different from the photographs: the columned porch, the small window in the south gable, and the wall that rises beside the tower.',
+    ] },
   { v: 3286, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'No look-around tag in front of a Jaunt', kind: 'fix',
     items: [
       'Starting a Jaunt, even straight after signing in, no longer leaves CLICK TO LOOK AROUND sitting in the middle of the view in front of the first stop.',
