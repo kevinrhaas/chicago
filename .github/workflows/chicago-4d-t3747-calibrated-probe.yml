@@ -1,11 +1,4 @@
-name: Better Trees core — current Dev072 working source
-'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3747-calibrated-probe.yml
-  workflow_dispatch: null
+name: Better Trees core — current Dev149 working source
 permissions:
   contents: read
 jobs:
@@ -47,13 +40,13 @@ jobs:
           key: 8of8
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 398af708858c863f8794a06fc7496c6fa5522b609963e66434a5a92dcc4a8b9d
+      SOURCE_MANIFEST_SHA: 0d476f924c2ae3f845c377f9ba67f07fb986f5cfb0f8c042bf03e899d80edb16
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: 072b828ae11299efd3f96a866bb06bd8b8e2a30a
+        ref: 14960ef3cb774a43dd0f5992a28cb973e8be3d20
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-python@v5
@@ -78,9 +71,9 @@ jobs:
 
         subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3747-dev072-apply-working-source.py''])
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3747-dev149-apply-working-source.py''])
 
-        assert hashlib.sha256(raw).hexdigest()==''26a1b31638f6000517acb4b7b4935bd33b12be8078c90d13a4318bd7ef390a80''
+        assert hashlib.sha256(raw).hexdigest()==''bdf504408a7676d3b4b0997be5d5ef1c5dea78a04b5c7f767ae2ec27bc66682e''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw)
 
@@ -132,3 +125,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - run: test "${{ needs.native-working-source.result }}" = success
+'on':
+  pull_request:
+    branches:
+    - diagnostic/t3747-held-source-base
+    paths:
+    - .github/workflows/chicago-4d-t3747-calibrated-probe.yml
+  workflow_dispatch: null

@@ -1,11 +1,4 @@
 name: Better Trees seasons — actual Light fix working source
-'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3748-working-source.yml
-  workflow_dispatch: null
 permissions:
   contents: read
 jobs:
@@ -132,3 +125,5 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - run: test "${{ needs.native-working-source.result }}" = success
+'on':
+  workflow_dispatch: null

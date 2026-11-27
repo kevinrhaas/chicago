@@ -1,0 +1,117 @@
+{
+  "role": "complete-uncommitted-feature",
+  "qualifies_feature_candidate": true,
+  "base_dev": "14960ef3cb774a43dd0f5992a28cb973e8be3d20",
+  "candidate_tree": "14e51b2dbc1ea34bb4a92eb390a1999bdfced9da",
+  "candidate_app_tree": "7e782ca77089b9644a7143d7fefad805769effa2",
+  "patch_sha256": "92ffc5504e014c17fe710783f6a82a82792ed1266a9546894b62bcd9c5cd11e8",
+  "source_sha256": {
+    "chicago/4d/changelog.d/T-3747.json": "bf7dce8c5a3f813d4505456af4e2f91857cbf38e2aebaec3caed9d8499d7b25a",
+    "chicago/4d/data/liberties.json": "cd3e94346958e53b56b5c1fad8477e01f59b9d8edf9035accddec0f31c8379d8",
+    "chicago/4d/docs/LIBERTIES.md": "481910965282293a722ad3f4657dc06cfb638564cebca377de936f9bde69a3b7",
+    "chicago/4d/docs/ROADMAP.md": "436103693f5cf936de903793cb525da9f2632f27c180596e342fc2acb6a13d43",
+    "chicago/4d/docs/STATUS.md": "a1b21688df5e600178a7bbef647841fb1cbd1bd1b0a21b07e0275d993fe88afc",
+    "chicago/4d/docs/measurements/source_use_coverage.md": "0cd4c8dc79c72089144bf402d6cac2ad27a11d4ed4fb047278e1f2ddb58589dc",
+    "chicago/4d/renderers/web/js/driven-assembly-loader.js": "4ffb7eed6a20f0dadd88b522631cee75a148b85b1faa4fe8b193a01d9dca0d5b",
+    "chicago/4d/renderers/web/js/human-drape.js": "9d6adac11d713608246e1f74172313f844cad21d5706ad5c51509ee26cc29ae8",
+    "chicago/4d/renderers/web/js/human-layover.js": "b427eba1a116ca6f82248ceab1de72dc435428b8fc23e2ea0b43f30db74ee805",
+    "chicago/4d/renderers/web/js/humans.js": "fa6c50fd571c179417aa21980a5174963a96b5ae3d67f9c79a7330313457a017",
+    "chicago/4d/renderers/web/js/leaf-light.js": "76152d3f9919c0195f7059971353426022582747189e32674b59665efb8cb594",
+    "chicago/4d/renderers/web/js/tree-instances.js": "b0b39325fb5ccf1e65af9388a9a7bf52df9c43876642d97767f174484f069778",
+    "chicago/4d/renderers/web/js/tree-model.js": "60d22ce6a3c1df28fd11132277263eb0a2e956fbe92108bb10fc2845f4f90a09",
+    "chicago/4d/renderers/web/js/tree-surface.js": "3d6717f3a805ac3302f550e9f4e937c9d88608fdb557249e3e195cc37f562b5a",
+    "chicago/4d/renderers/web/js/trees.js": "16758b008ac6a5bca8c244988d7ee355bd955d4a92b52e17cd7391ef09d21d65",
+    "chicago/4d/tools/check.sh": "d1058c958a180a734b620dd320f8ff225b089c32a7f2ad92819043f901af0ece",
+    "chicago/4d/tools/check_upload_release.mjs": "89c3736b11214cc091b1e787238c5a2323c87dbc34cd1a1ff6cf90a8ada7b694",
+    "chicago/4d/tools/dev-smoke-state.json": "312e533c86d7fc6bb10b762a096c7cf4dd7450590266aa8bb3e8ba7d0e150ead",
+    "chicago/4d/tools/measure_walk_frames.mjs": "640f5b512fbe9ed3b245381a6e6b9072aeae230147787e62fda8c3b140d310ab",
+    "chicago/4d/tools/qa_tree_gallery_t3747.mjs": "fb70126936fed2475e7cc85ae6cb120e299794876083d240c6429ae75a3581b8",
+    "chicago/4d/tools/qa_vegetation_t3747.mjs": "02ed849edadc563a9cf3b1776fd2e2f576ae74cc8652adec18e730809dddeda9",
+    "chicago/4d/tools/smoke_budget.mjs": "685306d37c2d748350bfa085a8ee3a72d527a76f34ab457548d0aabc5db7d98e",
+    "chicago/4d/tools/smoke_renderer.mjs": "940fdb636a889b3cb5b336c370e5ae5aa8ee9626468a1774e93e33372635ac5b",
+    "chicago/4d/tools/step_isolation.json": "4a08f93005e576e0c0e98f0c52bcf4ecb577dbd84329e4ef03d11f4919d171eb",
+    "chicago/4d/tools/test_driven_assembly.mjs": "73669951f740ad1799a2d04001ee53d203e23b7ad25e7057c3ce3708b915dbb3",
+    "chicago/4d/tools/test_human_preparation_memory.mjs": "1681fbd4e0dbadd2d8f3a91fe612fe8245dba3f3336f0a0019fa59650c318272",
+    "chicago/4d/tools/test_leaf_lighting_browser.mjs": "0ed92169bcc84e60d593f449ca5567c65f2c4bf4208bcd705ba0e91664fe6c61",
+    "chicago/4d/tools/test_tree_rebuilds.mjs": "af1d0e5271743dd677b7b4eff2b50a5fdff8cc3c14db02d47c822bf8f45209e6"
+  },
+  "native_matrix": [
+    {
+      "part": "1/8",
+      "serial": false
+    },
+    {
+      "part": "2/8",
+      "serial": false
+    },
+    {
+      "part": "3/8",
+      "serial": false
+    },
+    {
+      "part": "4/8",
+      "serial": false
+    },
+    {
+      "part": "5/8",
+      "serial": false
+    },
+    {
+      "part": "6/8",
+      "serial": false
+    },
+    {
+      "part": "7/16",
+      "serial": true
+    },
+    {
+      "part": "15/16",
+      "serial": false
+    },
+    {
+      "part": "8/8",
+      "serial": false
+    }
+  ],
+  "drape_ordinal": 311,
+  "declared_steps": 1439,
+  "feature_paths": [
+    "chicago/4d/changelog.d/T-3747.json",
+    "chicago/4d/data/liberties.json",
+    "chicago/4d/docs/LIBERTIES.md",
+    "chicago/4d/docs/ROADMAP.md",
+    "chicago/4d/docs/STATUS.md",
+    "chicago/4d/docs/measurements/source_use_coverage.md",
+    "chicago/4d/renderers/web/js/driven-assembly-loader.js",
+    "chicago/4d/renderers/web/js/human-drape.js",
+    "chicago/4d/renderers/web/js/human-layover.js",
+    "chicago/4d/renderers/web/js/humans.js",
+    "chicago/4d/renderers/web/js/leaf-light.js",
+    "chicago/4d/renderers/web/js/tree-instances.js",
+    "chicago/4d/renderers/web/js/tree-model.js",
+    "chicago/4d/renderers/web/js/tree-surface.js",
+    "chicago/4d/renderers/web/js/trees.js",
+    "chicago/4d/tools/check.sh",
+    "chicago/4d/tools/check_upload_release.mjs",
+    "chicago/4d/tools/dev-smoke-state.json",
+    "chicago/4d/tools/measure_walk_frames.mjs",
+    "chicago/4d/tools/qa_tree_gallery_t3747.mjs",
+    "chicago/4d/tools/qa_vegetation_t3747.mjs",
+    "chicago/4d/tools/smoke_budget.mjs",
+    "chicago/4d/tools/smoke_renderer.mjs",
+    "chicago/4d/tools/step_isolation.json",
+    "chicago/4d/tools/test_driven_assembly.mjs",
+    "chicago/4d/tools/test_human_preparation_memory.mjs",
+    "chicago/4d/tools/test_leaf_lighting_browser.mjs",
+    "chicago/4d/tools/test_tree_rebuilds.mjs"
+  ],
+  "effective_upstream_tree": "92720f549e8e180e572d9d9900d9521a42b57ddd",
+  "ticket_ids": [
+    "T-3747"
+  ],
+  "native_plan_verified_inside_every_job": true,
+  "timing_helper_sha256": "539e595bc1c9d2ec5d94e7108666827990f1f0c5ff016af2145c681ebadccd25",
+  "ceilings_sha256": "d77a8c8dda10832eac1c24316debb2f7d6a05bf176b36eeff392be5bde482c3e",
+  "apply_helper_sha256": "bdf504408a7676d3b4b0997be5d5ef1c5dea78a04b5c7f767ae2ec27bc66682e",
+  "source_note": "Core tree/rendering implementation is byte-identical to qualified3bdf. New actual Dev149 adds student-data/sign-in UI and two status/roadmap prefixes; preserve them and the entire prior research/feature text. The complete new combined working source must pass fresh Native before the rebased T3747 commit. Prior calibration/images/smoke remain bound to their original source; any scoped carry must be independently proved, never relabelled as a new execution."
+}

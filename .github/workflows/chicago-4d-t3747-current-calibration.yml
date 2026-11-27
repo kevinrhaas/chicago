@@ -1,11 +1,4 @@
 name: Better Trees core — exact-profile current source calibration
-'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3747-current-calibration.yml
-  workflow_dispatch: null
 permissions:
   contents: read
 jobs:
@@ -116,3 +109,5 @@ jobs:
 
           chicago/4d/still-frame-mobile.json'
         if-no-files-found: error
+'on':
+  workflow_dispatch: null

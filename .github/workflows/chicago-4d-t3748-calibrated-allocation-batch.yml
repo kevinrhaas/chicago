@@ -1,11 +1,4 @@
 name: Better Trees m2 — exact-profile current source calibration
-'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3748-calibrated-allocation-batch.yml
-  workflow_dispatch: null
 permissions:
   contents: read
 jobs:
@@ -112,3 +105,5 @@ jobs:
 
           chicago/4d/still-frame-desktop.json'
         if-no-files-found: error
+'on':
+  workflow_dispatch: null
