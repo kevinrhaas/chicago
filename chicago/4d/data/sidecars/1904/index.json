@@ -949,9 +949,9 @@
     },
     {
       "id": "house_2011_prairie_coach_house",
-      "name": "2011 S. Prairie Avenue — the alley building of the house at 2011 (district draft; refined by T-1938)",
+      "name": "2011 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_2011_prairie_coach_house.json",
-      "asset": "gltf/house_2011_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_2011_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_2013_indiana",
@@ -997,9 +997,9 @@
     },
     {
       "id": "house_2017_prairie_coach_house",
-      "name": "2017 S. Prairie Avenue — the alley building of the house at 2017 (district draft; refined by T-1938)",
+      "name": "2017 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/house_2017_prairie_coach_house.json",
-      "asset": "gltf/house_2017_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/house_2017_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "house_2018_prairie",

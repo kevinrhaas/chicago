@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 3275, ts: '2026-11-27T01:55:06.270Z', date: 'Nov 26, 2026, 7:55 PM CT', title: 'A lighter first visit with the new faces', kind: 'fix',
+    items: [
+      'The photographic faces now load only what the street draws, about a third of their old download, and every person keeps the face they had.',
+    ] },
+  { v: 3274, ts: '2026-11-27T01:55:06.270Z', date: 'Nov 26, 2026, 7:55 PM CT', title: 'Glessner jaunts read aloud at every age', kind: 'improvement',
+    items: [
+      'The Glessner Household tour is now read aloud for ages 14-15 and 16-17, and Meet the Glessner House and Frances Glessner Lee for ages 8-10, 14-15 and 16-17, as their main tellings already were.',
+    ] },
   { v: 3273, ts: '2026-11-27T01:24:06.603Z', date: 'Nov 26, 2026, 7:24 PM CT', title: '2140 Prairie\'s Tucker/Smith mansion: banded red brick and three towers', kind: 'improvement',
     items: [
       'The corner mansion at Prairie Avenue and 22nd Street now stands on the house kit: red brick banded in pale stone over a stone basement, a slated mansard with dormers and iron cresting, a round tower across the corner, a polygonal tower on 22nd Street and a square tower on Prairie, each under a crested slate cap, read off the 1911 map and two photographs.',
