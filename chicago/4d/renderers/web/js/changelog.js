@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 3286, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'No look-around tag in front of a Jaunt', kind: 'fix',
+    items: [
+      'Starting a Jaunt, even straight after signing in, no longer leaves CLICK TO LOOK AROUND sitting in the middle of the view in front of the first stop.',
+      'The tag stays away for the whole Jaunt, and comes back after it only if you still have not clicked the scene to look around.',
+    ] },
+  { v: 3285, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'Brick stables behind 2109 and 2123 Prairie', kind: 'feature',
+    items: [
+      'The stable behind 2109 Prairie now stands on the alley as a long two-storey brick building between two fire walls, with two carriage doors and a loft hatch, the window the 1911 fire-insurance map marks there, and a paved yard and a walk back to the house.',
+      'The stable behind 2123 Prairie stands against a fire wall to the north and opens a gable end to its own yard on the south, with a window on the alley and another in the gable where the map marks them.',
+    ] },
   { v: 3284, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: '2021 Prairie gains its finials and third chimney', kind: 'improvement',
     items: [
       'The corner turret\'s cone now ends in a pale metal cap and knob, as the old photograph shows.',
