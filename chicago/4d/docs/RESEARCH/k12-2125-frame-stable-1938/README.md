@@ -64,8 +64,8 @@ the door in the middle where the workyard walk leaves for the house's rear range
 The sheet draws no window mark here, because the key marks openings only where a wall looks onto a near building. So
 every opening is the kit's.
 
-`validate.py --stale`: 0 errors. `draft_prairie_1904.py --check`: 154 draft records. Back yards: 134 lots, none
-lost; 2125's lot gains its alley walk.
+`validate.py --stale`: 0 errors. `draft_prairie_1904.py --check`: 154 draft records. Back yards: unchanged, 134
+lots; their `--check` holds every surface clear of the stable's new, larger outline.
 
 ## In the app
 
