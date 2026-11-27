@@ -29,10 +29,10 @@ the rules in `docs/SIGN-IN.md` decide who reads it.
 | `readers/<uid>` | reading ages, time | The same reading level on every device | The visitor |
 | `people/<uid>` | the visitor's own person (look and dress), time | The same person on every device | The visitor |
 | `bugs/<id>` | uid, email, the report, build, device, graphics chip, place in the town, recent errors, an optional screenshot | Fixing what broke | The visitor (to delete), the owner |
-| `users/<uid>/notebook/<id>`, `users/<uid>/metfound/<year>-<kind>`, `users/<uid>/settings/prefs` | **Only while `cloudFeatures` is on (T-3777).** The field notebook (one document per entry: notes, places, people, citations, a small photo copy), people met and places found (ids and the day first recorded, per year), and the Settings that are the person's (not the device's graphics); each `{ v, deleted, at }` | The same work on every device the student signs in to | The visitor |
+| `users/<uid>/notebook/<id>`, `users/<uid>/metfound/<year>-<kind>`, `users/<uid>/settings/prefs` | Cloud save (T-3777), while `cloudFeatures` is on. The field notebook (one document per entry: notes, places, people, citations, a small photo copy), people met and places found (ids and the day first recorded, per year), and the Settings that are the person's (not the device's graphics); each `{ v, deleted, at }` | The same work on every device the student signs in to | The visitor |
 
-Not kept on a server: teacher routes, the field log, and (while `cloudFeatures` is off) the field
-notebook, people met and places found, and Settings. They stay in the browser until a ticket
+Not kept on a server: teacher routes and the field log (and, if `cloudFeatures` is set back to
+off, the field notebook, people met and places found, and Settings). They stay in the browser until a ticket
 moves them, with this page updated in the same change.
 
 Cloud save (T-3777, `js/cloud-save.js`) never runs for a sign-in with the email alone (no
