@@ -1,3 +1,26 @@
+## T-3814 — The Great Fire's people carry what they saved (27 November 2026)
+
+Owner request, 27 November 2026: "would there have been more people crowds running around
+existing buildings carrying things or dumping things into wagons ... you may have to start a crowd
+development stream". The research is `docs/RESEARCH/fire-night-scenes-3814/README.md` (what the
+accounts say people did, by kind and by stop; what stays out of the student tellings; crowd
+dynamics; the rendering plan), and the stream is four tickets: T-3814 (this), T-3815 (runaway
+teams and burning loads), T-3816 (a fire-night crowd for crowd.js at the jaunt's budgets) and
+T-3817 (the Court House prisoners, the North Side sands, roofs and the gunpowder).
+
+This first piece restages the Great Fire jaunt with what was carried. A castmate may `carry` a
+thing (`renderers/web/js/stage-props.js` GOODS: a bundle or bolt on the shoulder, a bird cage,
+basket, shawl bundle or papers in the hand, a feather bed on the back, a trunk dragged on a
+1.3 m cord), from the start or from a beat; the hands hold it through `setCarry` in
+`human-actions.js`. A borne castmate with `bier: "mattress"` is carried on a doubled mattress; a
+stage team may carry a `load` on its bed (a streamed wagon row is now built for a stage at any
+hour, `townTransport.stageWant`); `stage.props` sets chairs, trunks and bundles on the ground.
+The jaunt (`docs/RESEARCH/jaunt-great-fire-3691/build.py`) now has 101 castmates (was 82): carriers
+at nine stops, a sick woman borne out at St. Paul's, four men loading an express wagon at
+Field, Leiter & Co.'s door that drives off north, and goods set down at the Ogden house and the
+old cemetery. Reconstructed under `L-1871-fire-night-3814`. Tested in
+`tools/test_jaunt_stage.mjs` and `tools/test_human_actions.mjs`.
+
 ## T-3776 — Student data policy and Delete my saved data (27 November 2026)
 
 Stage 1 of the owner's server plan (decision card, 26 November 2026: "All five Stage 1 tickets")
