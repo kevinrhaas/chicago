@@ -1284,9 +1284,9 @@
     "high_house_2021_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3498096,
+      "bytes": 3440328,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "df41607b595c5e04e0f2bef54c5d9f56d6f32d50de76bed5f13dc2eb7525d344",
+      "inputs_sha256": "83d074d0b188c181ecf5b1f977820870ece2c52f8ed0793c403b105558e01d58",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "high_house_2021_prairie"

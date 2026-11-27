@@ -2,7 +2,7 @@
   "structure_id": "high_house_2021_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/high_house_2021_prairie__as_mapped_1904.glb",
-  "glb_sha256": "73fbea08d1d8eacfa8acf820031e0b13d0e0014fefb35a3c196d970b5a587c28",
+  "glb_sha256": "032a2d61fcc836f8a04cfa4bfc1a9f1c286e49323e0bd92b9e66b4a9c84d98d6",
   "camera_sha256": "31f4e79f431095049899c7efa1abef58e63bd0f4ac99681ff2e6cb782fb05aa1",
   "photo_sha256": "0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "a04b5afd8b04f1d4c448f1c2f1ac5912d766a190a5d0a2d3c0ac1b208fd2faa2"
     }
   ],
-  "flora_sha256": "96fced42f643fe261973348f9cd4eff2421ceea857f5f64c0488a715fb160cd1",
+  "flora_sha256": "81eff9b8b4fa30330c22d705a14e60c229dfcd7fd8644bba842cf68ca1cbb0f1",
   "side_by_side": "docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -130,7 +130,11 @@
       "status": "within tolerance"
     },
     {
-      "what": "the fence: the photograph's low picket fence before the south wing; the render's street line is K11's lowest boarded fence (1.2 m) with a walk gate. K11 draws no picket",
+      "what": "the fence: the photograph's street front is open (no fence before the front, the stoop's flight or the basement lights) and its one fence is a low run of pointed white pickets on two rails between square posts before the south wing, its top rising toward the horizon as it runs right, so receding along the south lot line. The render's 1.2 m boarded street-line fence and walk gate, which hid the basement and the stoop's foot, are gone (boundary layout open), and the pickets are built as K11's new side_pickets on the lot line, s 14.85, from X 11.3 m back (T-3634): the first post prints at x 1302 px against the photograph's 1325, and the run carries on past the print's right edge as the photograph's does",
+      "status": "fixed"
+    },
+    {
+      "what": "the side yard's fall toward the street: the photograph's pickets stand lower than the yard at the house, their foot below the print's edge (y over 1738 px) and their top at y 1630 px at the first post, about 1610 at x 1600; K14 lays the yard level at the house's grade, so the render's 0.9 m pickets on that grade print their top at y 1566 px at the first post, about 0.5 m higher in place, though alike in height on the print (about 95 px against 100+). The fence is right; the ground under it is not (the camera's own solve reads the street lower than the yard)",
       "status": "open"
     },
     {

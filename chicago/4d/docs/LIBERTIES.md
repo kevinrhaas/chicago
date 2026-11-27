@@ -45354,7 +45354,8 @@ eave (11.0 m) and its south-facing gable (to 14.6 m); the places of two of its t
 north flank's and rear's common brick and every light there; the plain stone heads over the street lights;
 the stoop's width, tread and landing; the turret's rounded apron; the slopes behind the gable (a hip at 49
 degrees, its street end hidden by the gable); the body behind the front block (a slate hip, two storeys)
-and the ranges' storeys, flat roofs and lights; the boarded street-line fence and its gate; the yard.
+and the ranges' storeys, flat roofs and lights; the picket fence's run past the print's right edge, to the south
+wing's rear corner, and its pale paint's colour (T-3634); the yard.
 
 **What is built otherwise than the evidence, and why.** The front gable is K01's coped wall gable, with a
 pale coping where the photograph's slate runs past brick rakes, and the slopes behind it pitch at 49 degrees
@@ -45368,8 +45369,10 @@ lights are built at the contract's widest, 1.15 m, against about 1.3 m; the narr
 the porch is not built (a brick K01 front lays its principal storey's lights only in its bays). The south
 wing's cut south-west corner (about a metre on the sheet) is built square, and its lights take one row of
 sizes a storey, so its low broad light of small panes stands about half a metre lower than the photograph's.
-The third stack, on the ridge about 11 m back, is not built: K01 lays stacks in the front block only. K11
-draws no picket fence, so the photograph's low pickets are the kit's lowest boarded fence. The photograph is
+The third stack, on the ridge about 11 m back, is not built: K01 lays stacks in the front block only. The
+street front is open and the photograph's low pickets run along the south lot line (T-3634: they were the
+kit's lowest boarded fence across the whole street line until K11 drew pickets), but on a level yard: the
+photograph's side yard falls toward the street, so they stand about half a metre higher. The photograph is
 undated and later than 1886 (its form may be High's of 1886-1887 rather than Adams's of the late 1870s); its
 forms are carried to 1904 because the 1911 sheet draws the same plan. Each of these is written into the match
 record (`data/reference_views/high_house_2021_prairie/chicagology_photo.match.json`).

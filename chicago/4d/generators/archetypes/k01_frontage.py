@@ -271,6 +271,9 @@ MATERIALS = {
     "vent_galvanized": {"color": (0.60, 0.61, 0.60), "roughness": 0.5},
     # T-2406: a yard's close-boarded fence, weathered timber (k11_frontage `side_fence`)
     "fence_boards": {"color": (0.40, 0.36, 0.30), "roughness": 0.92},
+    # T-3634: a picket fence's pickets, painted pale as 2021's photograph shows them against the
+    # snow (k11_frontage `side_pickets`); a plain colour, reconstructed (the picture is monochrome)
+    "fence_pickets": {"color": (0.72, 0.71, 0.66), "roughness": 0.8},
     # T-2366: what stands proud of a stone front (keystones, pilasters, a hood, a portico):
     # the dressed stone, under a name outside the envelope materials, since the contract's
     # envelope is the wall and a portico stands metres before it (the stoop's reasoning)
