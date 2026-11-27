@@ -26,13 +26,15 @@ const SHIRT_GREY = Object.freeze([0.3, 0.3, 0.29]);
 const SHIRT_BLUE = Object.freeze([0.2, 0.24, 0.3]);
 const BROWN = Object.freeze([0.042, 0.032, 0.024]);
 const CHARCOAL = Object.freeze([0.03, 0.03, 0.032]);
-const TWEED = Object.freeze([0.09, 0.074, 0.054]);
+const TWEED = Object.freeze([0.12, 0.1, 0.07]);
+const CAP_TWEED = Object.freeze([0.07, 0.06, 0.045]);
 const OLIVE = Object.freeze([0.04, 0.042, 0.03]);
 const NAVY = Object.freeze([0.022, 0.026, 0.04]);
 const DARK = Object.freeze([0.026, 0.024, 0.022]);
 const GREY = Object.freeze([0.06, 0.06, 0.062]);
 const BOOT = Object.freeze([0.03, 0.02, 0.014]);
 const HORN = Object.freeze([0.02, 0.016, 0.012]);
+const GLOVE = Object.freeze([0.06, 0.04, 0.025]);
 const LINEN = Object.freeze([0.62, 0.6, 0.55]);
 const SERGE_BLUE = Object.freeze([0.03, 0.04, 0.075]);
 const PLUM = Object.freeze([0.05, 0.022, 0.034]);
@@ -42,7 +44,7 @@ const CALICO = Object.freeze([0.09, 0.12, 0.19]);
 const MADDER = Object.freeze([0.15, 0.045, 0.04]);
 const BUTTERNUT = Object.freeze([0.2, 0.13, 0.07]);
 
-const cap = (rgb) => Object.freeze({ kind: 'cap', rgb });
+const cap = (rgb) => Object.freeze({ kind: 'cap', rgb: rgb === TWEED ? CAP_TWEED : rgb });
 
 export const WEARS = Object.freeze({
   // The shirt-and-waistcoat body (anonymous_working_driver_1904): every working man, groom and
@@ -87,12 +89,14 @@ export const WEARS = Object.freeze({
   // the colourings its cloth was worn in. Worn only where an outfit names them: the town's people
   // in these bodies keep their own dress.
   // A long overcoat and cap: the coachman's body (nelson_charles_1904_coachman) with its livery
-  // made a plain overcoat (horn buttons, no gloves, no silk hat) over dark trousers and boots.
+  // made a plain overcoat (horn buttons, leather gloves, no silk hat) over dark trousers and boots.
   long_coat_1904: Object.freeze({
     label: 'Long coat and cap',
     base: Object.freeze({
-      hide: Object.freeze(['white_gloves', 'headwear_top_hat']),
+      // The gloves are kept, in leather: the body has no hands under them.
+      hide: Object.freeze(['headwear_top_hat']),
       colours: Object.freeze({ garment_outer__livery_coat_green_1904: BROWN, garment_upper__white_stock_1904: SHIRT_OAT,
+        accessory__white_cotton_gloves: GLOVE,
         garment_lower__breeches_white_1904: DARK, footwear__black_top_boots: BOOT, accessory__white_metal_livery_buttons: HORN }),
       hat: cap(TWEED),
     }),

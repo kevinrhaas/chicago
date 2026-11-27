@@ -108,12 +108,12 @@ export function hatSpec(hat) {
   const lady = LADY_HATS.includes(kind);
   return {
     kind, rgb: hat.rgb, band: Array.isArray(hat.band) && hat.band.length === 3 ? hat.band : null,
-    crown: lady ? clamp(hat.crown_m, .03, .12, { picture: .065, sailor: .07, toque: .085 }[kind]) : kind === 'cap' ? clamp(hat.crown_m, .03, .08, .05) : clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
+    crown: lady ? clamp(hat.crown_m, .03, .12, { picture: .065, sailor: .07, toque: .085 }[kind]) : kind === 'cap' ? clamp(hat.crown_m, .03, .08, .042) : clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
     brim: kind === 'toque' ? 0 : lady ? clamp(hat.brim_m, .03, .17, kind === 'sailor' ? .065 : .12) : kind === 'cap' ? clamp(hat.brim_m, .03, .07, .05) : clamp(hat.brim_m, 0, .13, kind === 'straw' ? .085 : .06),
     taper: clamp(hat.taper, .78, 1.12, kind === 'sailor' ? 1 : .94),
     // A flat cap's crown: how far its top is drawn forward over the peak, and how full it is.
-    pull: kind === 'cap' ? clamp(hat.pull_m, 0, .05, .028) : 0,
-    puff: kind === 'toque' ? clamp(hat.puff, 0, .5, .25) : kind === 'cap' ? clamp(hat.puff, 0, .25, .1) : 0,
+    pull: kind === 'cap' ? clamp(hat.pull_m, 0, .05, .035) : 0,
+    puff: kind === 'toque' ? clamp(hat.puff, 0, .5, .25) : kind === 'cap' ? clamp(hat.puff, 0, .25, .07) : 0,
     roll: clamp(hat.roll, 0, 1, 0),
     droop: clamp(hat.droop, -.4, .6, 0),
     tilt: clamp(hat.tilt, -.03, .03, 0),
@@ -139,7 +139,7 @@ function lathe(spec, pts, f, seg) {
   const front = .046 + spec.tilt + spec.perch, back = .022 + spec.tilt + spec.perch * 1.3;
   const bearings = Array.from({ length: seg }, (_, k) => -Math.PI + 2 * Math.PI * k / seg);
   const bandY = th => back + (front - back) * (1 + Math.cos(th)) / 2;
-  const clear = spec.kind === 'knit' ? .006 : .009;
+  const clear = spec.kind === 'knit' || spec.kind === 'cap' ? .006 : .009;
   const ring0 = smoothRing(bearings.map(th => radiusAt(pts, bandY(th), th, cz, seg)), .085).map(r => r + clear);
   const position = [], index = [], groupsAt = [];
   const P = (x, y, z) => { const p = f.o.clone().addScaledVector(f.x, x).addScaledVector(f.y, y).addScaledVector(f.z, z); position.push(p.x, p.y, p.z); return position.length / 3 - 1; };
@@ -211,17 +211,23 @@ function lathe(spec, pts, f, seg) {
       groupsAt.push(index.length);
     } else strip(base, bandTop);
     const crownRows = [bandTop];
-    const crownSteps = spec.kind === 'toque' ? [.2, .4, .6, .78, .92, 1] : spec.kind === 'cap' ? [.4, .75, 1] : [.55, .85, 1];
+    const crownSteps = spec.kind === 'toque' ? [.2, .4, .6, .78, .92, 1] : spec.kind === 'cap' ? [.3, .55, .75, .9, 1] : [.55, .85, 1];
+    // A flat cap's crown follows the head over its top (its height is the head's above the
+    // band, `crown` only the least it may be), close but for its small belly.
+    const capTop = spec.kind === 'cap' ? Math.max(.1, ...pts.filter(([x, , z]) => Math.hypot(x, z - cz) < .03).map(([, y]) => y)) : 0;
     for (const t of crownSteps) {
       crownRows.push(ringAt((th, k) => {
         const y = bandY(th) + bandH + (H - bandH) * t;
         if (spec.kind === 'cap') {
           // A flat cap: the cloth bellies out a little over the band, its top lies near flat
           // and is drawn forward over the peak (lower before than behind).
-          const full = 1 + spec.puff * Math.sin(Math.PI * Math.min(1, t * .9)) * (.6 + .4 * Math.cos(th));
-          const r = ring0[k] * full * (t === 1 ? .82 : 1);
-          const flat = (front + back) / 2 + H - .012 * Math.cos(th);
-          return [r, t === 1 ? flat : y, spec.pull * t * t];
+          const y0 = bandY(th) + bandH, top = Math.max(capTop + .008 - .012 * Math.max(0, Math.cos(th)), y0 + H * .6);
+          const yc = y0 + (top - y0) * t;
+          const head = radiusAt(pts, yc, th, cz, seg);
+          // The crown's cloth lies forward over the peak: full before, close behind.
+          const full = 1 + spec.puff * Math.sin(Math.PI * Math.min(1, t * 1.1)) * Math.max(.15, Math.cos(th));
+          const r = Math.max(.012, (head ? head + clear + .007 : ring0[k] * (1 - t * t * .9)) * full);
+          return [t === 1 ? Math.min(r, ring0[k] * .45) : r, yc, spec.pull * t * t];
         }
         if (spec.kind === 'toque') {
           // Ruched silk puffed out round the hair and drawn in over the top.
@@ -233,7 +239,7 @@ function lathe(spec, pts, f, seg) {
       }));
     }
     for (let j = 0; j + 1 < crownRows.length; j++) strip(crownRows[j], crownRows[j + 1]);
-    const topY = (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : spec.kind === 'sailor' ? 0 : spec.kind === 'cap' ? -.002 : .003);
+    const topY = spec.kind === 'cap' ? capTop + .014 : (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : spec.kind === 'sailor' ? 0 : .003);
     fan(crownRows[crownRows.length - 1], P(0, topY, cz - .003 + spec.pull));
     if (!spec.band) groupsAt.push(index.length);
   }

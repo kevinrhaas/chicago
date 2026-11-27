@@ -132,7 +132,7 @@
     "1904": {
       "male": [
         { "id": "working", "label": "Shirt and waistcoat", "asset": "anonymous_working_driver_1904", "worn": "A collarless shirt, a wool waistcoat and trousers, with a flat cap.", "dress": { "wear": "working_1904" } },
-        { "id": "long_coat", "label": "Long coat and cap", "asset": "nelson_charles_1904_coachman", "worn": "A long wool overcoat with horn buttons over dark trousers and boots, with a flat cap.", "dress": { "wear": "long_coat_1904" } },
+        { "id": "long_coat", "label": "Long coat and cap", "asset": "nelson_charles_1904_coachman", "worn": "A long wool overcoat with horn buttons over dark trousers and boots, leather gloves and a flat cap.", "dress": { "wear": "long_coat_1904" } },
         { "id": "shirtsleeves", "label": "Shirtsleeves", "asset": "billings_august_1904_stable_helper", "worn": "A shirt in shirtsleeves, black braces, a leather belt and dark trousers, with a felt hat.", "dress": { "wear": "shirtsleeves_1904" } }
       ],
       "female": [
