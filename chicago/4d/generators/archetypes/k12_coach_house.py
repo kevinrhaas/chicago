@@ -23,6 +23,11 @@ each variant on a specimen lot the way T-2321 will build one behind a named hous
   flat           (T-1937) or four walls carried up past a flat roof as a parapet, for a
                  building a photograph shows that way (2108 and 2110 Prairie's shared one)
                  off level at a felted deck, for a building the sheet roofs that way
+  free gables    (T-1938) a second open gable where the party wall would stand, for a
+                 building the sheet draws clear of both its neighbours (`west_end: gable`)
+  frame          (T-1938) the same shell in painted clapboard on a thinner wall, its rings,
+                 sills and lintels in painted timber trim, for a building the sheet colours
+                 yellow (`construction: frame`)
 
 EVERY PIECE STANDS ON SOMETHING, as in K09 and K10 (whose mesh primitives this module
 reuses): an open piece leaves its open edges lying on another surface (a wall's foot on the
@@ -63,7 +68,10 @@ X, Y, Z = (1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0)
 ROLE_MATERIAL = {"brick": "brick", "arch": "rubbed_brick", "stone": "dressed_stone", "roof": "slate",
                  "lean_roof": "tarred_felt", "timber": "painted_timber", "stair": "weathered_timber",
                  "sash": "white_sash", "glass": "glass", "iron": "wrought_iron", "paving": "brick_paving",
-                 "ground": "ground", "backing": "house_wall"}
+                 "ground": "ground", "backing": "house_wall",
+                 # T-1938: a frame building's walls and its trim (FRAME_ROLE). Last, so that a
+                 # brick building's file keeps its bytes
+                 "clapboard": "painted_clapboard", "frame_trim": "painted_trim"}
 BOARD_ROLES = ("ground", "backing")
 MATERIALS = {
     "brick": {"color": (0.52, 0.30, 0.22), "roughness": 0.92, "metallic": 0.0},
@@ -79,7 +87,18 @@ MATERIALS = {
     "brick_paving": {"color": (0.45, 0.30, 0.25), "roughness": 0.95, "metallic": 0.0},
     "ground": {"color": (0.36, 0.34, 0.30), "roughness": 1.0, "metallic": 0.0},
     "house_wall": {"color": (0.62, 0.55, 0.46), "roughness": 0.95, "metallic": 0.0},
+    # T-1938: K16's restrained frame palette (k16_timber.json `paint`: body and trim), so a
+    # frame stable is painted as the district's frame houses are; reconstructed
+    "painted_clapboard": {"color": (0.78, 0.71, 0.56), "roughness": 0.78, "metallic": 0.0},
+    "painted_trim": {"color": (0.91, 0.88, 0.79), "roughness": 0.7, "metallic": 0.0},
 }
+
+#: T-1938: what a frame building (`construction: frame`) makes of the kit's masonry roles: its
+#: walls are clapboard, and the carriage bay's ring, the sills and the lintels are timber
+#: trim boards in the same places and sizes. Everything else (leaves, sash, iron, slate) is
+#: the same in either construction.
+FRAME_ROLE = {"brick": "clapboard", "arch": "frame_trim", "stone": "frame_trim"}
+CONSTRUCTIONS = ("brick", "frame")
 
 
 class VentilatorRefused(ValueError):
@@ -262,8 +281,11 @@ class Variant:
         self.pieces: list[Piece] = []
         self.walls: dict = {}
         self.meta: dict = {"openings": [], "stands": []}
+        self.frame = v.get("construction", "brick") == "frame"
 
     def piece(self, name, role, rests, host=None, **meta):
+        if self.frame:
+            role = FRAME_ROLE.get(role, role)
         p = Piece(name, role, rests, host, **meta)
         self.pieces.append(p)
         return p
@@ -280,6 +302,29 @@ class Variant:
                                     "evidence authors one")
         W, D = v["width_m"], v["depth_m"]
         t, tp = P["wall"]["brick_m"], P["wall"]["brick_m"]
+        # T-1938: a frame building (the sheet's yellow) and a building free at both ends (the
+        # sheet's outline clear of both neighbours). A frame building stands free: a party wall
+        # is a brick fire wall on the lot line, and the kit's frame is not one. Neither takes a
+        # fitting yet: each fitting is drawn against a brick party wall or a brick yard wall
+        construction = v.get("construction", "brick")
+        if construction not in CONSTRUCTIONS:
+            raise ValueError(f"{v['id']}: construction {construction!r} is neither 'brick' nor 'frame'")
+        west = v.get("west_end", "party")
+        if west not in ("party", "gable"):
+            raise ValueError(f"{v['id']}: west_end {west!r} is neither 'gable' nor 'party'")
+        if west == "gable" and (v.get("roof_form", "gable") != "gable" or v.get("east_end", "gable") != "gable"):
+            raise ValueError(f"{v['id']}: west_end 'gable' needs a gable roof and an east gable (a party wall "
+                             "at the east end alone is the kit's own west party wall in mirror image)")
+        if construction == "frame":
+            if west != "gable" and v.get("roof_form", "gable") == "gable":
+                raise ValueError(f"{v['id']}: a frame building stands free, so it takes west_end 'gable' "
+                                 "and no party wall")
+            t = P["wall"]["frame_m"]
+        if construction == "frame" or west == "gable":
+            fitted = [k for k in ("ramp", "stair", "lean_to", "wing", "range") if v.get(k)]
+            if fitted:
+                raise ValueError(f"{v['id']}: the kit fits no {', '.join(fitted)} to a free-standing "
+                                 "or frame coach house")
         B = P["basement"]["depth_m"]
         # T-3308: a named lot may state its own loft height, for a building the sheet counts a
         # storey and a half (1709 Prairie's by the tracks): the loft is a half-storey under the
@@ -319,7 +364,12 @@ class Variant:
                 raise ValueError(f"{v['id']}: east_end {east!r} is neither 'gable' nor 'party'")
         tan = math.tan(math.radians(pitch))
         dr = R["thickness_m"] / math.cos(math.radians(pitch))
-        self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr, east=east)
+        # tw: what stands at the west end before the alley and yard walls begin (the party
+        # wall's thickness, or nothing where a gable, a hip end or a flat roof's four walls
+        # stand between them)
+        tw = tp if east not in ("hip", "flat") and west == "party" else 0.0
+        self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr, east=east,
+                         west="hip" if east == "hip" else west, tw=tw)
         if east == "hip":
             self.hip_deck()
         elif east == "flat":
@@ -355,22 +405,39 @@ class Variant:
         wall at the east end, the party wall on the lot line and the gable roof (T-2320)."""
         v, P, d = self.v, self.P, self.dims
         W, D, t, tp, B, E, tan, dr, east = (d[k] for k in ("W", "D", "t", "tp", "B", "E", "tan", "dr", "east"))
+        west, tw = d["west"], d["tw"]
         R = P["roof"]
         yu = lambda s: E + min(s, D - s) * tan          # roof underside, s back from the alley face
         tpe = tp if east == "party" else 0.0
-        L = W - tp - tpe
+        L = W - tw - tpe
 
         # the alley wall, the yard wall: full length from the party wall to the open gable
-        # (an end that meets a party wall is left open: it lies on the party wall's face)
-        self.wall("alley", Frame((-W / 2 + tp, 0.0, 0.0), X, Z),
-                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 1, 3} if tpe else {0, 3})
+        # (an end that meets a party wall is left open: it lies on the party wall's face; an
+        # end at a gable is closed, the gable standing between the two walls' inner faces).
+        # Edge 3 is each wall's start (the alley wall's west end, the yard wall's east end)
+        alley_open, yard_open = {0}, {0}
+        if tw:
+            alley_open.add(3)
+            yard_open.add(1)
+        if tpe:
+            alley_open.add(1)
+            yard_open.add(3)
+        self.wall("alley", Frame((-W / 2 + tw, 0.0, 0.0), X, Z),
+                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges=alley_open)
         self.wall("yard", Frame((W / 2 - tpe, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)),
-                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges={0, 1, 3} if tpe else {0, 1})
+                  [(0.0, -B), (L, -B), (L, E), (0.0, E)], t, open_edges=yard_open)
+        gable_outline = [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)]
         if east == "gable":
             # the open gable: between the eave walls below the eave, over their tops above it
-            self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X),
-                      [(t, -B), (D - t, -B), (D - t, E), (D, E), (D / 2, yu(D / 2)), (0.0, E), (t, E)], t,
+            self.wall("gable", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X), gable_outline, t,
                       open_edges=set(range(7)))
+        if west == "gable":
+            # T-1938: the west gable is the east one turned about the building's middle, so its
+            # s counts from the YARD face (an opening on it is placed back from the yard wall)
+            self.wall("gable_west", Frame((-W / 2, 0.0, -D), Z, (-1.0, 0.0, 0.0)), gable_outline, t,
+                      open_edges=set(range(7)), name="west gable wall")
+            self._roof(sec_of=yu)
+            return
         # the party wall on the lot line: past both eaves and above the roof by the parapet
         PW = P["party_wall"]
         ret, par = PW["return_m"], PW["parapet_m"]
@@ -392,13 +459,22 @@ class Variant:
             sweep(cop.mesh, [(W / 2 - tp / 2, yt(s), s - D - ret) for s in (0.0, Lp / 2, Lp)], X,
                   PW["coping"]["points"], closed=True, caps=(True, True))
 
-        # the roof: one slab across the ridge, dying into the party wall, a verge at the gable
+        self._roof(sec_of=yu)
+
+    def _roof(self, sec_of):
+        """The roof: one slab across the ridge, dying into each party wall, a verge at each
+        gable (both ends capped where both are gables, T-1938)."""
+        d, R = self.dims, self.P["roof"]
+        W, D, tp, dr, east, west = (d[k] for k in ("W", "D", "tp", "dr", "east", "west"))
+        yu = sec_of
         o = R["eave_m"]
         sec = [(-o, yu(-o)), (D / 2, yu(D / 2)), (D + o, yu(D + o)),
                (D + o, yu(D + o) + dr), (D / 2, yu(D / 2) + dr), (-o, yu(-o) + dr)]
         roof = self.piece("roof", "roof", "open")
         if east == "party":     # dying into a party wall at both ends: neither end is capped
             sides(roof.mesh, sec, -W / 2 + tp, W / 2 - tp)
+        elif west == "gable":   # T-1938: a verge at both gables, both ends capped
+            prism(roof.mesh, sec, -W / 2 - R["verge_m"], W / 2 + R["verge_m"], back=True)
         else:
             prism(roof.mesh, sec, -W / 2 + tp, W / 2 + R["verge_m"], back=False)
         WORLD_E.apply(roof.mesh)
@@ -838,7 +914,7 @@ class Variant:
         hole += [(W / 2 - tp, 0.0), (W / 2 - tp, ret), (W / 2, ret), (W / 2, -D - ret), (W / 2 - tp, -D - ret),
                  (W / 2 - tp, -D)] if east else [(W / 2, 0.0), (W / 2, -D)]
         hole += [(-W / 2 + tp, -D), (-W / 2 + tp, -D - ret), (-W / 2, -D - ret)]
-        if d["east"] in ("hip", "flat"):      # T-1935: no party wall, so no return: the four walls' outline
+        if d["east"] in ("hip", "flat") or d["west"] == "gable":   # T-1935, T-1937, T-1938: no party wall, no return
             hole = [(-W / 2, 0.0), (W / 2, 0.0), (W / 2, -D), (-W / 2, -D)]
         wy = self.meta.get("workyard")
         z_far = (wy["z_house"] if wy else -D) - 14.0
@@ -859,7 +935,7 @@ class Variant:
         W, D, tp = d["W"], d["D"], d["tp"]
         east = d["east"] == "party"
         gap = WP["clear_of_walls_m"]
-        x0, x1 = -W / 2 + tp + gap, ((W / 2 - tp) if east else W / 2) - gap
+        x0, x1 = -W / 2 + d["tw"] + gap, ((W / 2 - tp) if east else W / 2) - gap
         if d["east"] in ("hip", "flat"):      # T-1935: no party wall: the apron runs the yard wall's length
             x0 = -W / 2 + gap
         if self.v.get("lean_to"):
@@ -909,7 +985,7 @@ class Variant:
         cb = next(o for o in self.meta["openings"] if o["kind"] == "carriage")
         hip = d["east"] == "hip"
         flat = d["east"] == "flat"
-        cs = cb["s0"] - W / 2 + (0.0 if (hip or flat) else d["tp"]) + (cb["s1"] - cb["s0"]) / 2
+        cs = cb["s0"] - W / 2 + d["tw"] + (cb["s1"] - cb["s0"]) / 2
         far = D + 10.0
         self.meta["stands"] = [
             ("alley front, 14 m", (0.5, 1.6, 14.0), (0.0, 4.2, -D / 2), "diffuse"),
@@ -921,6 +997,8 @@ class Variant:
              "diffuse") if hip else
             ("parapet and flat roof from the alley corner, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0),
              (-W / 2, E + 0.2, 0.0), "diffuse") if flat else
+            ("west gable and verge from the alley corner, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.8, 0.0),
+             "diffuse") if d["west"] == "gable" else
             ("party wall return and coping, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.4, 0.2), "diffuse"),
         ]
         if self.v.get("range"):
