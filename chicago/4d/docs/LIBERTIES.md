@@ -47069,3 +47069,34 @@ view settles the porch-or-canopy state with the towers'.
 **Ticket:** T-3771 (piece 2 of T-1928, the S17A package of T-1837).
 **Review:** `docs/RESEARCH/k01-2140-tucker-3771/README.md`.
 **Recorded:** 2026-11-27 (T-3771).
+
+### L-k01-2140-tucker-3772 — 2140 Prairie's '3SB' rear range lit on its three yard faces; the 1911 sheet's gravel deck, parapet tick and fire escapes not built
+
+**Decision:** 2140 Prairie (T-3772, piece 3 of T-1928) gives the '3SB' rear range that piece 1
+(`L-k01-2140-tucker-3770`) stood behind the main body's north half the lights it lacked: two a storey on its
+rear wall (where it had one), two a storey on its south face toward 22nd Street, one a storey on its north face, and
+square-headed basement lights in its 1.6 m high basement under the rear and south lights, as the main body's are.
+The back yards (`tools/lay_prairie_1904_back_yards.py`) now lay the kitchen door between the two rear lights, a
+metre south of where it stood when the rear wall had one light in its middle.
+**What is read, not invented.** Sheet 35 of the 1911 Sanborn (`sanborn_1911_chicago_v3_sheet_35`), read at full
+size against its key (`sanborn_1911_vol3_key.jpg`): the range's plan, its pink (brick) colour and its '3SB'; a
+filled dot inside it (column 649.5, row 1621: the key's composition or gravel roof, where the main body's open
+circle by its south-east corner is the key's slate or metal); a double tick across the line of its south wall at its
+south-west corner (columns 639-642, rows 1621-1629: the key's fire wall twelve inches over the roof); an iron fire
+escape, the key's hatched stair lettered 'F.E.', against its rear wall's north part (columns 626-644, rows
+1592-1615). On the main body's north flank near the front, a second 'F.E.' (columns 722-737, rows 1544-1559)
+beside a narrow yellow (frame) strip about 3 by 1.3 m (columns 704-720, rows 1552-1559) lettered too small to read
+on this scan.
+**What is invented.** Every light: no picture shows the rear or the range, so their count, places and sizes are a
+service range's (0.9 m wide; 2.2, 2.0 and 1.6 m high, storey by storey, as piece 1 set them), the basement lights'
+0.9 by 0.9 m on a 0.3 m sill, and the kitchen door's place between the rear lights.
+**What is built otherwise than the evidence, and why.** The range's deck is K04's painted tin, where the sheet marks
+composition or gravel: a K01 wing is decked in tin only, and the two read alike from the street. Not built: the
+foot-high fire wall over the deck (K01 has no parapet on a flat wing; its 0.3 m fascia stands in its place); both
+fire escapes, which no kit builds and nothing dates before the 1911 sheet — a house of the 1870s carrying none until
+a later code or a later use is the likelier reading for 1904; the north flank's yellow strip, which cannot be read.
+**How to resolve:** a photograph of the rear or the 22nd Street yard, or a dated permit for the fire escapes, replaces
+the lights and settles the escapes; a K01 parapet on a flat wing would carry the fire wall.
+**Ticket:** T-3772 (piece 3 of T-1928, the S17A package of T-1837).
+**Review:** `docs/RESEARCH/k01-2140-tucker-3772/README.md`.
+**Recorded:** 2026-11-27 (T-3772).

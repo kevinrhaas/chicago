@@ -10468,9 +10468,9 @@
     "tucker_smith_house_2140_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 9528288,
+      "bytes": 10044084,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1f2991521216044781d87065521806980aba5fa2dde79fb74bac068a12b3c52f",
+      "inputs_sha256": "e182a251b14acca331b69889903323e3479f4c4d8d4e67738a5959ec41b28af1",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "tucker_smith_house_2140_prairie"
