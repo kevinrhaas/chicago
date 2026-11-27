@@ -1,12 +1,14 @@
 {
   "id": "sherman_house_2100_prairie_coach_house",
-  "phase": "draft_1904",
-  "name": "2100 S. Prairie Avenue — the alley building of the house at 2100 (district draft; refined by T-1937)",
+  "phase": "as_standing_1904",
+  "name": "2100 Prairie Avenue (the Sherman house): the brick wagon house and stable on the alley under a hip and deck, K12",
   "aka": [
-    "2100 S. Prairie Avenue"
+    "2100 S. Prairie Avenue",
+    "2100 S. Prairie Avenue, alley building",
+    "the Sherman wagon house and stable (2100 Prairie)"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/sherman_house_2100_prairie_coach_house__draft_1904.glb",
+  "archetype": "k12_coach_house",
+  "asset": "gltf/sherman_house_2100_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -21,20 +23,20 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The draft's claim, kept: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped), the Sherman stable and wagon house. TO is the last day of the year the sheet was published, the latest date anything read here shows it whole; it is not a demolition date.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1343.142,
-    "local_n": -3638.676,
+    "local_e": 1341.295,
+    "local_n": -3629.132,
     "rotation_deg": -0.614,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.750, v -9.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.614 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-    "symbolic_location": "2100 S. Prairie Avenue, parcel prairie_2100 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "position_note": "The middle of the building's alley (west) wall at grade, read off the sheet 35 trace (data/traces/prairie_1904_footprints_s35.json, s35fp-2100-b2, which carries the committed raster through the sheet's fitted similarity in data/traces/gcp/sanborn_1911_v3_sheet_35_gcps.json) as 2108 and 2110's record reads its own: the alley line half-way between the median of the trace's alley-side vertices (local E 1341.43) and its outermost (1341.16), E 1341.295; the north and south wall lines the same way (N -3618.065 and -3617.70, so -3617.88; -3640.21 and -3640.56, so -3640.385), the middle N -3629.13. Plus the datum origin (data/datum.json, 447072.700, 4637395.800). The bearing is the parcel's (prairie_2100, the draft's -0.614 degrees). The trace is a pixel outline on a coarse copy (0.186 m a pixel), so the two readings of each line differ by 0.25-0.4 m; the middle of them is all that is claimed, plus the fit's 0.05 m RMS.",
+    "symbolic_location": "2100 S. Prairie Avenue, rear: west side of Prairie Avenue between 21st and 22nd Streets, the alley end of parcel prairie_2100 (data/street_grid/1904.json); its alley wall on the alley's east line, its south wall about 0.7 m from 2108 and 2110's shared coach house (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -44,26 +46,26 @@
     "polygon": [
       [
         0.0,
-        0.0
+        -11.25
       ],
       [
-        6.5,
-        0.0
+        10.74,
+        -11.25
       ],
       [
-        6.5,
-        20.25
+        10.74,
+        11.25
       ],
       [
         0.0,
-        20.25
+        11.25
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "About the middle of the alley wall, u east (toward the street) and v along the alley. Depth 10.74 m: the alley line (E 1341.295) to the yard wall line read the same way (the median of the trace's yard-side vertices 1351.91, its outermost 1352.15, so 1352.03); by darkness profile across the wagon house the sheet's two wall lines stand 59 pixels apart, 10.97 m, so the reading is good to about 0.2 m. Width 22.50 m along the alley, between the north and south wall lines above (by profile 122 pixels, 22.67 m). A plain rectangle: the sheet draws no step, wing or porch on it. The draft had fitted a 6.5 x 20.25 m main body and two 2.5 m wings on the yard side, because its rectangle fit read the dashed roof line as an outline; the building is one rectangle, 241.6 m2 against the trace's 220.7 m2 fill."
   },
   "attributes": {
     "stories": {
@@ -72,127 +74,251 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The census reading '2-storey brick building on the alley lettered PRIVATE WAGON HOUSE, its south part marked as a stable': 2 storeys."
+      "geometry": "simplified",
+      "note": "'2' lettered in the building's north-west corner inside the dashed deck line's corner, and again at the stable's south-west corner. Built as the kit's carriage room (3.6 m) under a loft whose walls rise 2.7 m more to the eave; the hip rises over that to the deck, 1.71 m above the eave line, and holds no storey."
     },
     "construction": {
       "value": "brick",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The trace's fabric colour on the main part: brick."
+      "geometry": "simplified",
+      "note": "Drawn pink, the sheet's colour for brick, on the whole rectangle, wagon house and stable alike. The kit builds its own 13-inch walls in its own brick colour."
     },
-    "draft_plan": {
+    "coach_house": {
       "value": {
-        "parts": [
+        "id": "k12.coach_house.prairie_2100",
+        "kind": "coach_house",
+        "class": "coach_house",
+        "alley_side": "west",
+        "width_m": 22.5,
+        "depth_m": 10.74,
+        "roof_form": "hip_deck",
+        "deck_inset_m": 2.04,
+        "pitch_deg": 40,
+        "ventilator": false,
+        "ramp": null,
+        "stair": null,
+        "lean_to": null,
+        "wing": null,
+        "workyard": null,
+        "confidence": "reconstructed",
+        "note": "Everything but the plan, the two storeys, the brick, the roof's plan and the division between the wagon house and the stable is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-2100-wagon-house-1937. The sheet draws ONE rectangle on the alley line, 22.50 m along the alley and 10.74 m deep, lettered PRIVATE WAGON HOUSE with '2' storeys, its south part crossed (the key's sign for a stable) behind a solid line across the building 10.2 m south of the north wall (row 1053 against the north wall's 998, at the sheet's 0.1859 m a pixel). Inside its walls a dashed line runs 2.04 m in from the alley wall (column 485 against 474), 2.23 m in from the yard wall (521 against 533) and 1.86 m in from the north wall (row 1008), with a diagonal from each of its north corners into the building's: the sheet's plan of a roof's deck and hips, as it is read on 1912's barn (T-1935). So the building stands under the kit's hip_deck roof, the deck 2.04 m in on every side (the three readings' mean), its edge 1.71 m over the eave at the kit's 40 degrees. WHERE THE KIT DIFFERS FROM THE SHEET: the sheet's dashed line runs on down to the south wall, which stands about 0.7 m from 2108 and 2110's taller flat-roofed coach house, and draws no hip at that end; the kit hips all four sides alike, so a south hip stands where the sheet's deck runs through to the end wall. That end is the one 2108's building screens from the alley. The division line is inside the building, under the one roof the dashed line covers, so nothing of it is built. The alley wall is the kit's laid out for a wagon house in the north 10.2 m (two carriage bays 3.0 m clear, the loft hatch and hoist over the northern one, a loft sash over the other) and a stable in the south 12.3 m (a man door, three stable sash, loft sash over each); s counts on the alley wall from the north wall's outer face and on the yard wall from the south wall's. The yard wall has a door into each part toward the house, and stable sash with loft sash over them. The ends are blank: the sheet marks no opening on them. The deck is felted (the kit's). The sheet's small rings inside the corners are the key's slate-or-tin roof sign; the kit's slate stands on the hips. The two '18' figures lettered inside the stable's side walls are not read here as heights: the kit's two storeys (3.6 m carriage room, 2.7 m loft) stand.",
+        "openings": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "gable",
-            "rect": [
-              0.0,
-              0.0,
-              6.5,
-              20.25
-            ],
-            "from": "s35fp-2100-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
+            "id": "carriage",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 1.2,
+            "s1": 4.2,
+            "sill": 0.0,
+            "head": 3.0
           },
           {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              6.5,
-              10.75,
-              9.0,
-              20.25
-            ],
-            "from": "s35fp-2100-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill"
+            "id": "loft_hatch",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 2.1,
+            "s1": 3.3,
+            "sill": 3.9,
+            "head": 5.3
           },
           {
-            "id": "r3",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              6.5,
-              0.75,
-              9.0,
-              7.0
-            ],
-            "from": "s35fp-2100-b2 outline (main, brick), rectangle 3 of that part; the part's rectangles cover 77% of its fill"
+            "id": "carriage_2",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 5.9,
+            "s1": 8.9,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "loft_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 6.95,
+            "s1": 7.85,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "man_door",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 11.3,
+            "s1": 12.25,
+            "sill": 0.0,
+            "head": 2.3
+          },
+          {
+            "id": "loft_sash_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 11.35,
+            "s1": 12.2,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "stable_sash_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 14.2,
+            "s1": 15.2,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_3",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 14.25,
+            "s1": 15.15,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "stable_sash_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 17.1,
+            "s1": 18.1,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_4",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 17.15,
+            "s1": 18.05,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "stable_sash_3",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 20.0,
+            "s1": 21.0,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_5",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 20.05,
+            "s1": 20.95,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.6,
+            "s1": 2.6,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.65,
+            "s1": 2.55,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_door",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 5.3,
+            "s1": 6.25,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_loft_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.35,
+            "s1": 6.2,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.9,
+            "s1": 9.9,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_3",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.95,
+            "s1": 9.85,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_door_2",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 14.9,
+            "s1": 15.85,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_loft_sash_4",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 14.95,
+            "s1": 15.8,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_3",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 18.6,
+            "s1": 19.6,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_5",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 18.65,
+            "s1": 19.55,
+            "sill": 4.3,
+            "head": 5.6
           }
-        ],
-        "lot_v": [
-          -2.105,
-          21.105
-        ],
-        "street_u": 52.817
+        ]
       },
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2100-b2 outline (main, brick), rectangle 1 of that part; the part's rectangles cover 77% of its fill; s35fp-2100-b2 outline (main, brick), rectangle 2 of that part; the part's rectangles cover 77% of its fill; s35fp-2100-b2 outline (main, brick), rectangle 3 of that part; the part's rectangles cover 77% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "service",
-        "seed": 1165633831,
-        "principal_floor_m": 0.0,
-        "storey_heights_m": [
-          3.4,
-          2.8,
-          2.6
-        ],
-        "roof_pitch_deg": 40,
-        "mansard_lower_m": 3.0,
-        "front_bays": 6,
-        "entrance": "centre",
-        "side_spacing_m": 2.6,
-        "chimneys": 0,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2351",
-          "refined_by": [
-            "T-1937"
-          ]
-        }
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The John B. Sherman house (Burnham & Root, 1874), standing empty in 1904 after Sherman's death: the register's 'steep slate roof and stone dormers' and 'carved chimney tops' as a steep hip with dormers and three stacks over the 3S.B. brick body, the curved stair and clustered columns as a central entrance. The 1911 lettering McCORMICK MEDICAL COLLEGE is a later use and is not drawn; the oriel on its column is T-1919's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1165633831 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2351",
-        "liberty": "L-draft-prairie-20-22-west-2351",
-        "register_row": "frontage-35-064",
-        "census_ids": [
-          "s35-2100-rear"
-        ],
-        "trace_building": "s35fp-2100-b2",
-        "seed": 1165633831,
-        "replaceable_by": [
-          "T-1937"
-        ],
-        "card": "District draft — refined by T-1937."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The K12 kit's coach house on the plan and roof the 1911 sheet draws; see the value's note."
     },
     "function": {
-      "value": "barn_or_carriage_shed",
+      "value": "stable",
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The 1911 sheet reads '2-storey brick building on the alley lettered PRIVATE WAGON HOUSE, its south part marked as a stable'. The Sherman stable and wagon house; a private wagon house in 1911, so no 1904 backcast of use is needed."
+      "note": "Sheet 35 of the 1911 Sanborn letters the two-storey brick building on the alley behind 2100 PRIVATE WAGON HOUSE and crosses its south part, the key's sign for a stable. The T-1842 sheet census (row s35-2100-rear) carries the building into 1904 as the Sherman stable and wagon house, a private wagon house in 1911, so no backcast of use is needed. INFERRED from the 1911 lettering carried back to 1904; no source read names a horse or a carriage on this lot."
     }
   },
   "residents": [],
@@ -217,8 +343,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1937 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2100-b2), the T-1842 census (s35-2100-rear) and the T-1837 register row frontage-35-064; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-1937 refines the district draft (T-2351) in place under the same id onto the K12 coach-house kit. The sheet census (row s35-2100-rear, trace s35fp-2100-b2) carries the building into 1904; the draft rules now skip that row. Read afresh off the committed sheet 35 raster by darkness profiles rather than taken from the draft's fitted rectangles (which stood a notched block, a 6.5 m deep main body under a gable with two flat wings on its yard side, because the fit read the sheet's dashed roof line as an outline): the sheet draws one rectangle 22.50 m along the alley and 10.74 m deep, a wagon house in its north 10.2 m and a stable in the rest, under a dashed deck line with hips into its north corners, so it is built under the kit's hip_deck roof. Neither picture T-1937's image gate names for it shows it: Chicagology's c. 1895 view north along the west side from 2110 and the Glessner House blog's 1890s print of the 2100 block's west side show the house fronts on Prairie Avenue, and the alley buildings stand behind them; no camera is solved.",
   "research_doc": "",
   "review_required": false,
-  "called": "2100 S. Prairie Avenue — the alley building of the house at 2100"
+  "called": "2100 Prairie Avenue (the Sherman house): the brick wagon house and stable on the alley under a hip and deck"
 }
