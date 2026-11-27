@@ -2510,11 +2510,6 @@
    "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
   ]
  },
- "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2125-b2 outline (main, frame), rectangle 1 of that part; the part's rectangles cover 72% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).": {
-  "8-10": [
-   "The shape is a box fitted inside the outline drawn from the 1911 map. The box covers most of it. How many floors it has, and its roof, are our guesses."
-  ]
- },
  "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2126-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2126-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).": {
   "8-10": [
    "The shape is made of boxes fitted inside the outlines drawn from the 1911 map. The boxes cover most of each part. The biggest box is the main house. How many floors each box has, and its roof, are our guesses."
@@ -3418,11 +3413,6 @@
  "The census reading '2-storey frame (yellow) building lettered ILLINOIS CENTRAL R.R. 16TH ST. STATION': 2 storeys.": {
   "8-10": [
    "The 1911 map shows a wood building two floors high. It is the train station at 16th Street, for the Illinois Central Railroad. So it has 2 floors."
-  ]
- },
- "The census reading '2-storey frame stable (crossed) on the alley': 2 storeys.": {
-  "8-10": [
-   "The 1911 map shows a wood stable two floors high, on the alley. So it has 2 floors."
   ]
  },
  "The census reading '3-storey brick building at the alley corner, numbered 220 (old 76) East 22nd Street and lettered CATERER and PORTABLE STEEL OVENS 1ST, with an elevator': 3 storeys.": {
