@@ -69,6 +69,8 @@ SHORE_W = (-0.975, -0.220)
 
 
 CHARGE_M = 10.0    # how far up the bank the company runs in the students' scene (T-3553)
+# T-3553: the postures a man springs up out of into a run (renderers/web/js/human-motions.js chooseMotion).
+SPRINGS = ('prone', 'kneel', 'kneel2', 'crouch')
 
 
 def shore(u, v):
@@ -440,9 +442,16 @@ def battle(b):
         v = 30.0 + 3.5 * (i % 5) + 3.0 * ((i * 0.382) % 1.0)
         at = shore(u, v)
         pose = poses[i % len(poses)]
+        # Up and away at once (the owner, 2026-11-27: "they just rise like a plank, that is not how
+        # someone would jump up to attack from a prone position"): one lying or kneeling in the grass
+        # springs up into the run (human-motions.js), so the run is asked for as he begins to rise
+        # and waits for him to be up; one sitting stands first, then goes, as before.
+        up = 36 + 0.25 * (i % 13)
+        ease = 1.1 + 0.1 * (i % 4)
+        go = up + 0.2 if pose in SPRINGS else 41 + 0.2 * (i % 9)
         cast.append(member(who, P(*at), heading=(east + (i % 7) * 4 - 12) % 360, pose=pose, tier='desktop' if i % 3 else None,
-                           beats=[{'t': 36 + 0.25 * (i % 13), 'pose': 'stand', 'ease': 1.1 + 0.1 * (i % 4)},
-                                  {'t': 41 + 0.2 * (i % 9), 'walk': [P(*shore(u + (i % 3) - 1, v - 6.0))], 'pace': 'jog', 'heading': east}]))
+                           beats=[{'t': up, 'pose': 'stand', 'ease': ease},
+                                  {'t': round(go, 2), 'walk': [P(*shore(u + (i % 3) - 1, v - 6.0))], 'pace': 'jog', 'heading': east}]))
     st['the-bank'] = {'caption': "Watch the column come down the beach and halt, the wagons with it, the warriors waiting behind the bank, and Wells hurry back.", 'cast': cast, 'teams': teams}
 
     # 10 — the small elevation, about half past ten. Heald's men who are left, standing,

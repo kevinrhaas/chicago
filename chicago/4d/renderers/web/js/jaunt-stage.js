@@ -101,6 +101,8 @@ export const PACES = Object.freeze({ walk: null, brisk: 1.75, hurry: 2.2, slow: 
 export const POSES = Object.freeze(['stand', 'kneel', 'kneel2', 'crouch', 'sit', 'prone', 'lie', 'fallen']);
 /** How far beyond the people layer's animation range a posed figure keeps its pose drawn. */
 export const STAGE_ANIMATE_M = 160;
+/** T-3553: a stand with a run beginning within this many seconds of it is a spring up into the run. */
+export const SPRING_S = 6;
 /** A walk's end (or a figure shown) this near a hung door's way goes through that door. */
 export const DOOR_NEAR_M = 1.8;
 /** The door stands open while its castmate is this near its leaf, outside. */
@@ -581,7 +583,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
         m.door = { p: door.p, leaf: door.w.leaf, until: Infinity };
       }
       const speed = Number.isFinite(b.pace) ? b.pace : PACES[b.pace] ?? null;
-      if (a.posture) a.setPosture?.('stand', { seconds: 0 });
+      // (One getting up off the ground runs once up: humans.js holds the walk for it.)
+      if (a.posture && !a.rising) a.setPosture?.('stand', { seconds: 0 });
       a.walkPath?.(pts, { speed, endHeading: Number.isFinite(b.heading) ? b.heading : null, onArrive: () => {
         if (!m.hideAtEnd) return;
         a.setIndoors?.(true);
@@ -593,7 +596,11 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
       else if (Number.isFinite(b.heading)) a.turnTo?.(b.heading);
       if (b.hide) a.setIndoors?.(true);
     }
-    if (b.pose) a.setPosture?.(b.pose, { seconds: Number.isFinite(b.ease) ? b.ease : 0.9 });
+    // T-3553: up off the ground into a run that follows at once (a walk at a jog or faster within
+    // SPRING_S): driven up leaning into the stride, not stood up and then set off (human-motions.js).
+    const spring = b.pose === 'stand' && m.beats.some((x) => x !== b && x.t >= b.t && x.t - b.t <= SPRING_S && Array.isArray(x.walk)
+      && (Number.isFinite(x.pace) ? x.pace : PACES[x.pace] ?? 0) >= PACES.jog);
+    if (b.pose) a.setPosture?.(b.pose, { seconds: Number.isFinite(b.ease) ? b.ease : 0.9, spring });
     if (typeof b.talk === 'boolean') a.actions?.setTalk?.(b.talk);
     if (b.greet) a.actions?.greet?.();
     if (b.arm) arm(m, b.arm);
