@@ -25741,6 +25741,25 @@ draws them: this camera, fitted on the front, foreshortens the flank more than t
 rear stands near x 440 px where the print's flank runs to about 370 — so their x is not read through it); their
 form, the first flank dormer's; the range's rear and south faces (unseen) and its plain fascia where the main
 walls carry K10's cornice; the main deck's cresting run on along its old rear curb across the joined deck.
+**T-3713 (short end pass, the sign-off):** the front's south end beyond the pavilion no longer stands under the
+main mansard. Both pictures draw it lower and railed: the Armour photograph's cornice south of the crown (x
+1440-1600, y 512-540 px) carries a low railing with a pale die (top y 475) and no slate over it, and the Tribune's
+halftone drops the roof line from the crown to a band of balusters with sky over it (x 930-1020, y 382-400 px).
+K01 gained the part (`mansard.short_end`, generators/archetypes/k01_mansard_short.py): the mansard's ring, deck,
+crown, dormers and stacks are read on a plan 2.04 m narrower, so the mansard ends at the pavilion's south side
+(10.6 m from the north wall, the camera's reading of that corner), and the strip beyond is roofed flat at the wall
+head, the eave's own box carried round it so the cornice is unbroken, under a stone balustrade. **Read:** that no
+mansard stands over the stretch (both pictures); the cornice's height there (the Armour print's, within about 5
+px); the railing's top, 0.6 m over the wall head (the Armour print's die, within about 4 px; the halftone reads it
+about 0.5 m lower, within that camera's own error, which already sets the two stacks 0.3-0.6 m off the Armour
+camera's). **Invented:** the strip carried the main body's full depth to the rear wall (neither picture shows it
+past the front; the sheet draws the body one '3B' block, its storey count read off the mansard part); the
+balustrade's balusters, plinth and rail and its dies at the strip's corners (the print shows one die about midway
+and nothing between it can resolve); the tin deck; the deck's iron cresting left off the mansard's new south curb
+(behind the crown in both pictures), where the south stack, triangulated at 10.4 m, now stands through the
+mansard's end; the kit stacks carried 2.78 m over the 0.18 m lower ridge, so their tops stay where the pictures
+put them. The sheet's '2B' piece beyond the south wall is still not built (no K01 part stands a wing beside the
+body); neither picture shows it. With this both match records read `matches` and the image gate signs 2115 off.
 
 ### L-k01-2123-prairie-3724 — 2123 Prairie, the stone-front masonry house, refined from the district draft onto K01: its plan off the 1911 sheet, the north half of its front, its roof and north stack off the Armour photograph, the rest the kits'
 

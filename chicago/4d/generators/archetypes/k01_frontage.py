@@ -4790,6 +4790,9 @@ class Assembly:
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
                               **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
                                   "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
+                              **({"short_end": {"wall": m["short_end"]["wall"],
+                                                "width_m": m["short_end"]["width_m"]}}
+                                 if (m or {}).get("short_end") else {}),
                               **({"side_parapet": {"wall": m["side_parapet"]["wall"],
                                                    "top_m": m["side_parapet"]["top_m"]}}
                                  if (m or {}).get("side_parapet") else {}),
@@ -4812,6 +4815,8 @@ class Assembly:
                    o + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0))) if p.cant_corner else None
             # T-3384: run on past a wall carried up through it, so no hip reaches that wall
             mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
+            if m.get("short_end"):   # T-3713: the ring stopped short of the north wall (2115's)
+                mz0 = -W + m["short_end"]["width_m"]
             hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
                                             cut=cut, x1_run=m.get("street_run_m"),   # T-1890: a leaned street face
@@ -4844,6 +4849,9 @@ class Assembly:
                 wing, _, _ = k5.mansard_element(u0, into, -wv1, -wv0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                                 m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
                 solids += [wing, k5.body_box(u0, 0.0, -wv1, -wv0, hs - 1.0, hs)]
+        if (m or {}).get("short_end"):   # T-3713: the strip beyond it under the eave's box, decked flat
+            from . import k01_mansard_short
+            solids.append(k01_mansard_short.deck(k5, m["short_end"], D, W, E, yf, o))
         if (p.shaped_gable or {}).get("roof_to_gable"):   # T-3715: the ridge run on to the gable
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.roof_to_gable(k5, p, E, ye, tp, o, f, hs))
@@ -5101,6 +5109,9 @@ class Assembly:
             self.round_dormer_sash(g, conf)
             if g["d"].get("dress"):   # T-3307: its pediment's cornices, its pilasters
                 k10_frontage.dress_lower_dormer(self, g, max(conf, p.conf("mansard")))
+        if (m or {}).get("short_end"):   # T-3713: and its railing
+            from . import k01_mansard_short
+            k01_mansard_short.balustrade(self, m["short_end"], D, W, E, o, seed, conf)
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
