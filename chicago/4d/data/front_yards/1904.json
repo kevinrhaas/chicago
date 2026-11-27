@@ -158,7 +158,7 @@
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
-  "lots_with_a_door": 123,
+  "lots_with_a_door": 122,
   "schemes": {
    "corners": 73,
    "group": 22,
@@ -1308,13 +1308,8 @@
     ],
     "width_m": 7.16
    },
-   "front_m": 2.34,
-   "doors": [
-    [
-     4.79,
-     3.19
-    ]
-   ],
+   "front_m": 2.6,
+   "doors": [],
    "scheme": "corners",
    "grade": "reconstructed",
    "shrubs": [],

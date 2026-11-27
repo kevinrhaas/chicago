@@ -1255,9 +1255,9 @@
     },
     {
       "id": "house_213_e20th",
-      "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
+      "name": "213 East Twentieth Street — four-storey red-fronted rowhouse behind a bracketed cornice, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_213_e20th.json",
-      "asset": "gltf/house_213_e20th__draft_1904.glb"
+      "asset": "gltf/house_213_e20th__as_mapped_1904.glb"
     },
     {
       "id": "house_2140_calumet",
@@ -1279,9 +1279,9 @@
     },
     {
       "id": "house_215_e20th",
-      "name": "215 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
+      "name": "215 East Twentieth Street — red brick rowhouse with round-headed lights behind its front yard, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_215_e20th.json",
-      "asset": "gltf/house_215_e20th__draft_1904.glb"
+      "asset": "gltf/house_215_e20th__as_mapped_1904.glb"
     },
     {
       "id": "house_217_e20th",
