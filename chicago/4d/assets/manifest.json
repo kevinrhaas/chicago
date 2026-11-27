@@ -4198,14 +4198,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "otis_house_2033_prairie"
     },
-    "otis_house_2033_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "otis_house_2033_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 26120,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "0c4e5424f3f6c0f1cf4a657ef0a38aad47ce70114fd6bed0f340aae38b9a7208",
+      "bytes": 91888,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "9d1d6be33a08c8b70f4ed0dce1383859a313dfec7044fd4b5708c6ea261f1d1d",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "otis_house_2033_prairie_coach_house"
     },
     "ouilmette_house_1812__ouilmette_1812.glb": {
@@ -10417,14 +10417,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "tolman_house_2031_prairie"
     },
-    "tolman_house_2031_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "tolman_house_2031_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 56108,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "c0f704ccc4f5cc5e28806b49b58dccdf7855d986091af99c422217d61e5e4800",
+      "bytes": 91900,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "bade61510fbd411ee1f22dfc561a4f00217d10be01f8e870827bf4d1c7f97fb9",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "tolman_house_2031_prairie_coach_house"
     },
     "tremont_house_1871__hotel_1850_1871.glb": {

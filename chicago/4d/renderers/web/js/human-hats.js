@@ -418,6 +418,10 @@ export function dressHat(root, hat, { person = null, lod = 0 } = {}) {
   };
   const materials = [new THREE.MeshStandardMaterial({ name: `headwear__${spec.kind}_hat_t3522`,
     color: new THREE.Color().setRGB(...spec.rgb, THREE.LinearSRGBColorSpace), roughness: spec.finish ?? FINISH[spec.kind], metalness: 0, side: THREE.DoubleSide })];
+  // T-3553 round 8: what it is made of, for its surface (fabric.js HATS): a summer picture hat in
+  // a straw's colour is straw (tools/finery_1904.py), every other made hat by its kind.
+  const STRAWS = [[.5, .42, .25], [.62, .58, .48]];
+  materials[0].userData.chiHat = spec.kind === 'picture' && STRAWS.some((c) => c.every((v, i) => Math.abs(v - spec.rgb[i]) < .03)) ? 'straw' : null;
   const m = wear(entry.geometry, materials[0]);
   // The band is named so the hair's cut passes over it (human-hair.js skips /band/): the crown is the hat.
   if (entry.band) {

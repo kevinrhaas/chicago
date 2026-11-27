@@ -1465,9 +1465,9 @@
     },
     {
       "id": "otis_house_2033_prairie_coach_house",
-      "name": "2033 S. Prairie Avenue — the alley building of the house at 2033 (district draft; refined by T-1938)",
+      "name": "2033 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/otis_house_2033_prairie_coach_house.json",
-      "asset": "gltf/otis_house_2033_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/otis_house_2033_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "pullman_glasshouse_1800_calumet_east",
@@ -1663,9 +1663,9 @@
     },
     {
       "id": "tolman_house_2031_prairie_coach_house",
-      "name": "2031 S. Prairie Avenue — the alley building of the house at 2031 (district draft; refined by T-1938)",
+      "name": "2031 Prairie Avenue: the brick stable on the alley, K12",
       "sidecar": "sidecars/1904/tolman_house_2031_prairie_coach_house.json",
-      "asset": "gltf/tolman_house_2031_prairie_coach_house__draft_1904.glb"
+      "asset": "gltf/tolman_house_2031_prairie_coach_house__as_standing_1904.glb"
     },
     {
       "id": "tucker_smith_house_2140_prairie",
