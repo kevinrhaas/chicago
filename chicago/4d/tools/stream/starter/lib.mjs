@@ -32,6 +32,15 @@ export const GPUS = Object.freeze([
   { gpu: 'l4', machineType: MACHINE_TYPE, zones: ZONES },
   { gpu: 't4', machineType: 'n1-standard-4', accelerator: 'nvidia-tesla-t4', zones: T4_ZONES },
 ]);
+/** The GPUs players may be given, from the starter's GPUS setting: 'l4' by default, because the
+ * L4 is the one measured good (2026-11-27). 'l4,t4' lets the older T4 stand in when no L4 is
+ * free, once it has been measured too; no code change either way. Never empty: a player always
+ * gets a GPU or nothing. */
+export const gpusFrom = (setting) => {
+  const want = String(setting || 'l4').split(',').map((x) => x.trim());
+  const out = GPUS.filter((x) => want.includes(x.gpu));
+  return out.length ? out : [GPUS[0]];
+};
 export const IMAGE_FAMILY = 'chicago-stream';
 export const MAX_RUN_SECONDS = 2 * 3600;
 export const YEARS = ['1835', '1904', '1812', '1871'];
@@ -267,12 +276,12 @@ export function probeSummary(log) {
 }
 /** Start a machine: Spot in each L4 zone in turn, then in each T4 zone; on demand (the same order)
  * only for an admin when Spot is refused everywhere. → { ok, zone, name, spot, gpu } or { ok: false, why } */
-export async function startMachine(g, { year, player, machineSA, admin, site, wait = sleep }) {
+export async function startMachine(g, { year, player, machineSA, admin, site, gpus = GPUS, wait = sleep }) {
   const token = crypto.randomBytes(24).toString('hex');
   const name = `stream-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;
   let last = 'no zone';
   for (const spot of admin ? [true, false] : [true]) {
-    for (const gpu of GPUS) for (const zone of gpu.zones) {
+    for (const gpu of gpus) for (const zone of gpu.zones) {
       const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site, gpu }));
       if (!r.ok) { last = r.body?.error?.message || `insert ${r.status}`; if (/GPUS_ALL_REGIONS/.test(last)) return { ok: false, why: 'quota', detail: last }; continue; }
       // The insert is accepted at once; capacity is known only when its operation ends.

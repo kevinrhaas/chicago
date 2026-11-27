@@ -52,9 +52,22 @@ systemctl start caddy
 docker rm -f town >/dev/null 2>&1 || true
 # The starter only asks for GPU machines; without one (an admin's plumbing test on a plain
 # machine) the town still opens, drawn by the CPU.
+# With the GPU the town draws on it and the stream is encoded on it (NVENC): the container gets
+# the render node and the modeset device, and the CDI list of driver files is made afresh so it
+# names the graphics and encoder libraries (a list made before they were installed left them out,
+# and Chromium fell back to drawing in software; 2026-11-27).
 GPU=()
-grep -qi 0x10de /sys/bus/pci/devices/*/vendor && GPU=(--gpus all --runtime nvidia -e NVIDIA_DRIVER_CAPABILITIES=all -e DRINODE=/dev/dri/renderD128)
-docker run -d --name town "${GPU[@]}" \
+if grep -qi 0x10de /sys/bus/pci/devices/*/vendor; then
+  nvidia-ctk cdi generate --output=/var/run/cdi/nvidia.yaml >/dev/null 2>&1 || true
+  GPU=(--gpus all --runtime nvidia --device /dev/nvidia-modeset --device /dev/dri:/dev/dri
+       -e NVIDIA_DRIVER_CAPABILITIES=all -e DRINODE=/dev/dri/renderD128 -e DRI_NODE=/dev/dri/renderD128)
+fi
+# The player gets the town and nothing else: no desktop menus or window frames, no file
+# transfer, no shared viewers, no clipboard and no Selkies side panel.
+LOCK=(-e HARDEN_DESKTOP=true -e HARDEN_OPENBOX=true -e NO_DECOR=true
+      -e SELKIES_FILE_TRANSFERS=none -e SELKIES_ENABLE_SHARING=false
+      -e "SELKIES_ENABLE_CLIPBOARD=false|locked" -e "SELKIES_UI_SHOW_SIDEBAR=false|locked")
+docker run -d --name town "${GPU[@]}" "${LOCK[@]}" \
   -e PUID=1000 -e PGID=1000 -e TZ=America/Chicago -e TITLE="Chicago 4D" \
   -e CHROME_CLI="--kiosk --start-fullscreen --ignore-gpu-blocklist --enable-gpu-rasterization --autoplay-policy=no-user-gesture-required $URL" \
   -p 127.0.0.1:3000:3000 --shm-size=2g \

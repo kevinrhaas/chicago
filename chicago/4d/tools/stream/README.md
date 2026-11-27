@@ -22,6 +22,17 @@ launch page ──POST /start (Firebase ID token, year)──▶ chicago-stream-
 | `machine/session.sh` | One session at boot: the gate, the town at the year, ready flag, idle end. |
 | `starter/` | The Cloud Run service (`server.mjs`, logic in `lib.mjs`, tested by `tools/test_stream_starter.mjs`). |
 
+## What a player gets (measured 2026-11-27, Spot L4, us-central1, from a home connection)
+
+* The town at Full detail (its own device check scores the L4 79, Good), drawn on the GPU and the
+  stream encoded on it (NVENC H.264, about 4 ms from capture to sent).
+* Walking a jaunt: 23 to 48 frames a second; standing still the town draws fewer, as on any
+  computer. About 40 ms from the machine to the screen.
+* 2 to 7 Mbit/s while moving, peaks of 13: roughly 1 to 2 GB an hour, which Google bills as
+  internet traffic (about 12 cents a GB).
+* The driver Google ships is compute-only; `machine/provision.sh` adds its OpenGL and video-encoder
+  parts. Without them the town drew in software and the CPU encoded the stream.
+
 ## Money
 
 * A Spot L4 hour with its streamed bytes is about **$0.71**; on demand about $1.00.
@@ -29,8 +40,10 @@ launch page ──POST /start (Firebase ID token, year)──▶ chicago-stream-
   $1.05 on demand, rounded up) and starts no machine that could take it past **$90** (90 % of the $100
   budget). Budget alerts lag by hours, so this count is the hard cap.
 * L4s are often all taken (2026-11-27: none free in any US zone, Spot or on demand, nor any T4). The
-  starter tries a Spot L4 in every US zone, then a Spot T4 (n1-standard-4, older and cheaper); if
-  none is free a player hears so plainly, and an admin falls back to on demand in the same order.
+  starter tries a Spot L4 in every US zone; if none is free a player hears so plainly, and an admin
+  falls back to on demand. The older T4 (n1-standard-4) can stand in when no L4 is free, but only
+  with `GPUS=l4,t4` at setup: it is off until it is measured, so nobody is handed a weaker machine
+  untested. The launch page names the machine before the stream opens.
 * The image build runs on demand and needs no GPU: with none free it builds on a plain machine and
   the GPU is first checked by the first session.
 * For a week from setup, Cloud Scheduler calls the starter's `/probe` hourly: it asks for a Spot

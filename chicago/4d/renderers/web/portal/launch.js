@@ -339,7 +339,12 @@ $('#play-cloud').addEventListener('click', async () => {
   if (live) { veil.hidden = false; musicFade(0, 500); }
   const r = access?.startCloud ? await access.startCloud({ year: chosen, account: state.account, config,
     progress: (s) => { line.textContent = `STARTING A CLOUD MACHINE · ${s} S · USUALLY ABOUT A MINUTE`; } }).catch(() => null) : null;
-  if (r?.ok) { line.textContent = 'CLOUD MACHINE READY · CONNECTING'; location.assign(r.link); return; }
+  if (r?.ok) {
+    // Long enough to read what they were given before the stream takes the page.
+    line.textContent = `CLOUD MACHINE READY · ${r.machine || 'CONNECTING'}`;
+    setTimeout(() => location.assign(r.link), 2200);
+    return;
+  }
   veil.hidden = true;
   line.textContent = 'LOCK CONFIRMED · LOADING THE TOWN';
   say(r?.title || 'Cloud play did not start', r?.message || 'Something went wrong. Try again in a moment.');

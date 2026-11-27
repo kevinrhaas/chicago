@@ -60,8 +60,17 @@ export async function startCloud({ year, account, config, progress = () => {}, f
     if (next.ok) s = next; else if (next.why === 'gone') return { ok: false, title: 'The cloud machine stopped', message: 'Google took the machine back before it was ready. Press the cloud button to try again.' };
   }
   if (!s.ready || !/^https:\/\/[0-9-]+\.sslip\.io\/\?k=[0-9a-f]+$/.test(s.link)) return { ok: false, title: 'The cloud machine is slow to start', message: 'It did not answer in five minutes. Press the cloud button again to reach it, or play here.' };
-  return { ok: true, link: s.link, seconds: Math.round((Date.now() - t0) / 1000) };
+  const gpu = s.gpu || started.gpu || 'l4';
+  return { ok: true, link: s.link, seconds: Math.round((Date.now() - t0) / 1000), gpu, machine: MACHINE_WORDS[gpu] || MACHINE_WORDS.l4 };
 }
+/** What the player was given, said plainly before the stream opens (the owner, 2026-11-27:
+ * "let the user know what kind of machine they get and if it's any good"). Every machine has a
+ * graphics card; the starter never hands out one without, and hands out the older T4 only when
+ * its GPUS setting allows (tools/stream/README.md). */
+export const MACHINE_WORDS = Object.freeze({
+  l4: 'NVIDIA L4 GRAPHICS · FULL DETAIL',
+  t4: 'NVIDIA T4 GRAPHICS · AN OLDER CARD · LESS SMOOTH THAN USUAL',
+});
 const CLOUD_WORDS = (r) => ({
   'no cloud play': { title: 'No cloud play on this account', message: 'Join the cloud waitlist, and an admin can let you in.' },
   closed: { title: 'Cloud play is not open yet', message: 'The machines are being tested. Your account is ready for when it opens.' },

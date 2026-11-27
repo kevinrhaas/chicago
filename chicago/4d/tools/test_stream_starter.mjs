@@ -109,6 +109,12 @@ g = fakeG([{ code: 'QUOTA_EXCEEDED', message: "Quota 'NVIDIA_L4_GPUS' exceeded. 
 r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
 ok(r.ok && g.tried.length === 2, 'a region\'s own quota only rules out that region');
 
+ok(lib.gpusFrom('').length === 1 && lib.gpusFrom('')[0].gpu === 'l4' && lib.gpusFrom('l4,t4').length === 2 && lib.gpusFrom('nonsense')[0].gpu === 'l4', 'players get the measured L4 only unless GPUS=l4,t4; a bad setting never leaves them without an L4');
+ok(/GPUS=\$\{GPUS:-l4\}/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup deploys L4 only by default');
+g = fakeG(lib.ZONES.map(() => stockout));
+r = await lib.startMachine(g, { year: '1904', player: 'x', gpus: lib.gpusFrom('l4'), wait: noWait });
+ok(!r.ok && g.tried.length === lib.ZONES.length, 'with the T4 dropped, no L4 means no machine');
+
 // ---- The availability probe ----------------------------------------------------------------
 ok(lib.refusal("ZONE_RESOURCE_POOL_EXHAUSTED The zone does not have enough resources") === 'stockout'
   && lib.refusal("QUOTA_EXCEEDED Quota 'GPUS_ALL_REGIONS' exceeded") === 'busy'
@@ -164,6 +170,12 @@ const session = fs.readFileSync(path.join(STREAM, 'machine/session.sh'), 'utf8')
 // Caddy reads a first argument starting with / as a path matcher: `redir / 302` sent players to
 // "302" (seen on the first test machine, 2026-11-27). Every redir names its matcher.
 ok(/redir \* \/ 302/.test(session) && !/redir \/ /.test(session), 'the link sends the player to / (redir names its matcher)');
+// The GPU draws and encodes (2026-11-27: Google's driver lacked GL and NVENC, and a stale CDI list
+// hid them from the container, so the town was drawn and encoded by the CPU).
+const provision = fs.readFileSync(path.join(STREAM, 'machine/provision.sh'), 'utf8');
+ok(/libnvidia-gl-\$DRV-server/.test(provision) && /libnvidia-encode-\$DRV-server/.test(provision), 'the image adds the driver\'s graphics and encoder parts');
+ok(/nvidia-ctk cdi generate/.test(session) && /--device \/dev\/nvidia-modeset/.test(session) && /DRI_NODE=\/dev\/dri\/renderD128/.test(session), 'the town container gets the GPU to draw and encode');
+ok(/SELKIES_ENABLE_CLIPBOARD=false\|locked/.test(session) && /SELKIES_UI_SHOW_SIDEBAR=false\|locked/.test(session) && /SELKIES_FILE_TRANSFERS=none/.test(session), 'the player gets the town only: no clipboard, side panel or file transfer');
 ok(/@ok header_regexp session Cookie chicago_stream=\$TOKEN/.test(session) && /respond "This cloud machine belongs to another session\." 403/.test(session), 'the stream answers only the session cookie');
 ok(/-p 127\.0\.0\.1:3000:3000/.test(session), 'the streamer listens only behind Caddy');
 ok(/\[\[ "\$TOKEN" =~ \^\[0-9a-f\]\{32,\}\$ \]\]/.test(session), 'the token is checked before it goes into the Caddyfile');
@@ -189,6 +201,11 @@ const starter = async (url, init) => {
 const seen = [];
 r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app/' }, fetchFn: starter, wait: noWait, progress: (s, st) => seen.push(st) });
 ok(r.ok && r.link.startsWith('https://34-1-2-3.sslip.io/?k=') && polls === 3 && seen.length === 3, 'it waits for ready and hands back the link');
+ok(r.gpu === 'l4' && /L4 GRAPHICS · FULL DETAIL/.test(r.machine), `the player is told what machine they got (${r.machine})`);
+r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app' }, wait: noWait,
+  fetchFn: async (url) => (String(url).endsWith('/start') ? { status: 200, json: async () => ({ ok: true, name: 'n', gpu: 't4' }) } : { status: 200, json: async () => ({ ok: true, ready: true, gpu: 't4', link: `https://34-1-2-3.sslip.io/?k=${'ab'.repeat(24)}` }) }) });
+ok(r.ok && /T4 GRAPHICS · AN OLDER CARD/.test(r.machine), 'a T4 is named as the older card');
+ok(/CLOUD MACHINE READY · \$\{r\.machine/.test(fs.readFileSync(path.join(STREAM, '../../renderers/web/portal/launch.js'), 'utf8')), 'the launch page shows it before the stream opens');
 r = await startCloud({ year: '1835', account, config: { streamStarter: 'https://s.run.app' }, wait: noWait,
   fetchFn: async (url) => (String(url).endsWith('/start') ? { status: 200, json: async () => ({ ok: true, name: 'n' }) } : { status: 200, json: async () => ({ ok: true, ready: true, link: 'https://evil.example/' }) }) });
 ok(!r.ok, 'a link that is not an sslip.io stream is never followed');

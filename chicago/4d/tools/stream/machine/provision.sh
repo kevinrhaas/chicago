@@ -34,6 +34,15 @@ curl -1sLf https://dl.cloudsmith.io/public/caddy/stable/gpg.key | gpg --batch --
 curl -1sLf https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt > /etc/apt/sources.list.d/caddy-stable.list
 apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io nvidia-container-toolkit caddy
+# Google's driver is the compute-only "server" set: no OpenGL/EGL and no video encoder, so the
+# town drew in software and the stream was encoded by the CPU (found 2026-11-27). Add those parts
+# of the same driver, at the installed version.
+DRV=$(dpkg-query -W -f '${Package}\n' 'libnvidia-compute-*-server' | sed -n 's/^libnvidia-compute-\([0-9]*\)-server$/\1/p' | head -1)
+if [ -n "$DRV" ]; then
+  VER=$(dpkg-query -W -f '${Version}' "libnvidia-compute-$DRV-server")
+  apt-get install -y "libnvidia-gl-$DRV-server=$VER" "libnvidia-encode-$DRV-server=$VER" \
+    "libnvidia-decode-$DRV-server=$VER" "libnvidia-extra-$DRV-server=$VER"
+fi
 nvidia-ctk runtime configure --runtime=docker
 systemctl restart docker
 # Caddy starts only with a session's own Caddyfile (session.sh).
@@ -44,6 +53,8 @@ for _ in 1 2 3 4 5 6; do docker pull lscr.io/linuxserver/chromium:latest && brea
 docker image inspect lscr.io/linuxserver/chromium:latest >/dev/null
 # The GPU reaches a container.
 [ "$GPU" = 0 ] || docker run --rm --gpus all --runtime nvidia --entrypoint nvidia-smi lscr.io/linuxserver/chromium:latest -L
+# The image cannot start without them (above): fail the build rather than ship a CPU-drawn town.
+[ -z "${DRV:-}" ] || ls /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1 /usr/lib/x86_64-linux-gnu/libEGL_nvidia.so.0
 
 install -d /opt/chicago-stream
 curl -sf -H 'Metadata-Flavor: Google' "$MD/instance/attributes/session-script" > /opt/chicago-stream/session.sh

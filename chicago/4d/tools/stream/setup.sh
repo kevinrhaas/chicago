@@ -4,6 +4,7 @@
 # Shell is simplest), from the repository:
 #
 #   bash chicago/4d/tools/stream/setup.sh [project]
+#   GPUS=l4,t4 bash …/setup.sh    let the older T4 stand in when no L4 is free (default: L4 only)
 #
 # It makes
 #   stream-starter@   the starter's account: may start and delete machines, write the ledger
@@ -64,7 +65,7 @@ SECRET=$(gc run services describe "$SERVICE" --region "$REGION" --format=json 2>
 [ -n "$SECRET" ] || SECRET=$(python3 -c 'import secrets; print(secrets.token_hex(24))')
 gc run deploy "$SERVICE" --source "$HERE/starter" --region "$REGION" --service-account "$STARTER" \
   --allow-unauthenticated --max-instances 2 --memory 256Mi --cpu 1 --timeout 600 --quiet \
-  --set-env-vars "LEDGER_BUCKET=$BUCKET,MACHINE_SA=$MACHINE,MAX_MACHINES=1,BUDGET_SECRET=$SECRET"
+  --set-env-vars "LEDGER_BUCKET=$BUCKET,MACHINE_SA=$MACHINE,MAX_MACHINES=1,BUDGET_SECRET=$SECRET,GPUS=${GPUS:-l4}"
 URL=$(gc run services describe "$SERVICE" --region "$REGION" --format "value(status.url)")
 
 echo "== budget stop"
