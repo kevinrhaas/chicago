@@ -446,6 +446,11 @@ DRESSED_CELLS = ("K01.surround", "K01.quoin", "K01.panel")
 # masonry basement stands.
 K08_FRAME_ROLES = {"plinth": "bay_brick", "band": "fascia", "corbel": "fascia",
                    "sill": "fascia", "head": "fascia"}
+# T-3781: a copper bay (217 E. Twentieth's corner oriel, sheathed in sheet copper in its
+# photographs) has no stone in it either: its walls, bands, corbels, apron, sills and heads
+# are the sheet that covers it, the K08 copper its roofs already wear.
+K08_COPPER_ROLES = {"plinth": "bay_copper", "band": "bay_copper", "corbel": "bay_copper",
+                    "apron": "bay_copper", "sill": "bay_copper", "head": "bay_copper"}
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
               "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
@@ -3350,8 +3355,9 @@ class Assembly:
                               "junction_right": _add(O, _mul(R, s_at + hi_ if cant else b["span_m"][1]))})
         base = _add(O, _mul(R, s_at))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
-        body = {"brick": "bay_brick", "frame": "bay_frame"}.get(b["fabric"], "bay_stone")
-        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {})
+        body = {"brick": "bay_brick", "frame": "bay_frame", "copper": "bay_copper"}.get(b["fabric"], "bay_stone")
+        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {}) \
+            | (K08_COPPER_ROLES if b["fabric"] == "copper" else {})
         if b["fabric"] == "frame" and self.p.stone.get("all_round"):
             roles = roles | {"plinth": "bay_stone"}   # T-2788: the house's stone carried out under it
         cover = K08_COVERS[v["roof"]["covering"]]
