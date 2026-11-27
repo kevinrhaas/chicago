@@ -11,7 +11,7 @@ the draft builder stands no second building in their place, and their phase is `
 These are the eighth and ninth of T-1938's alley buildings to leave the draft, and the first south of 21st
 Street. Still the draft's: 2013 (Reid, the image gate), 2021 (its tin-clad upper storey and one-storey south
 end), 2035 (brick and frame), 2101 (a two-storey block on 21st Street with a one-storey range south of it,
-which the kit has no fitting for along the alley), 2115 and 2125 (frame).
+which the kit has no fitting for along the alley), 2115 (brick, the largest on the alley) and 2125 (frame).
 
 ## What the source says
 
