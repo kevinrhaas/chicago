@@ -54,17 +54,17 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 284,
+  "surfaces": 282,
   "doors": 126,
-  "posts": 112,
-  "gardens": 28,
+  "posts": 110,
+  "gardens": 27,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 30,
-   "drying_yard": 56,
+   "drying_yard": 55,
    "front_walk": 10,
    "gangway": 31,
-   "garden_bed": 28,
+   "garden_bed": 27,
    "rear_terrace": 107
   }
  },
@@ -3411,7 +3411,7 @@
    "structures": [
     "house_217_e20th"
    ],
-   "scheme": "drying_yard",
+   "scheme": "service_court",
    "grade": "reconstructed",
    "sources": [],
    "note": "",
@@ -3419,168 +3419,72 @@
     {
      "id": "e20th_217:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1326.61,
-       -3501.29
+       1327.38,
+       -3502.78
       ],
       [
-       1329.31,
-       -3501.26
+       1331.08,
+       -3502.74
       ],
       [
-       1329.36,
-       -3506.43
+       1331.12,
+       -3507.11
       ],
       [
-       1326.67,
-       -3506.46
+       1327.42,
+       -3507.15
       ]
      ],
      "along_deg": 89.44,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "e20th_217:drying_yard:1",
-     "kind": "drying_yard",
-     "material": "trodden",
-     "polygon_local_m": [
-      [
-       1328.28,
-       -3508.25
-      ],
-      [
-       1332.78,
-       -3508.2
-      ],
-      [
-       1332.81,
-       -3511.4
-      ],
-      [
-       1328.31,
-       -3511.45
-      ]
-     ],
-     "along_deg": 89.44,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A drying yard of trodden earth, with its clothes posts (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "e20th_217:garden_bed:2",
-     "kind": "garden_bed",
-     "material": "loam",
-     "polygon_local_m": [
-      [
-       1330.61,
-       -3501.39
-      ],
-      [
-       1333.32,
-       -3501.37
-      ],
-      [
-       1333.35,
-       -3504.73
-      ],
-      [
-       1330.65,
-       -3504.75
-      ]
-     ],
-     "along_deg": 179.44,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A kitchen garden of a few dug rows against the sunny fence. No source names a garden on any lot of the district: this one is reconstructed (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "e20th_217:back_door",
      "structure": "house_217_e20th",
-     "e": 1327.96,
-     "n": -3501.13,
+     "e": 1329.23,
+     "n": -3502.51,
      "facing_deg": 179.44,
-     "sill_m": 1.4,
+     "sill_m": 0.55,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
      "stoop": {
       "depth_m": 1.1,
       "width_m": 1.6,
-      "risers": 8,
-      "run_m": 3.06,
-      "material": "wood"
+      "risers": 3,
+      "run_m": 1.66,
+      "material": "stone"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.55 m up, 3 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
-   "posts": [
-    {
-     "kind": "clothes_post",
-     "e": 1328.6,
-     "n": -3509.84,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 89.44,
-     "line_to": 1,
-     "grade": "reconstructed"
-    },
-    {
-     "kind": "clothes_post",
-     "e": 1332.5,
-     "n": -3509.8,
-     "height_m": 2.3,
-     "arm_m": 0.9,
-     "facing_deg": 89.44,
-     "line_to": null,
-     "grade": "reconstructed"
-    }
+   "posts": [],
+   "crops": [],
+   "shrubs": [
+    [
+     1327.82,
+     -3511.85,
+     "lilac",
+     2.56,
+     2.03
+    ],
+    [
+     1327.79,
+     -3509.35,
+     "lilac",
+     3.09,
+     2.14
+    ]
    ],
-   "crops": [
-    {
-     "bed": "e20th_217:garden_bed:2",
-     "rows": [
-      [
-       1330.92,
-       -3501.64,
-       1330.94,
-       -3504.5,
-       "beet"
-      ],
-      [
-       1331.62,
-       -3501.63,
-       1331.65,
-       -3504.49,
-       "lettuce"
-      ],
-      [
-       1332.32,
-       -3501.63,
-       1332.35,
-       -3504.49,
-       "onion"
-      ],
-      [
-       1333.02,
-       -3501.62,
-       1333.05,
-       -3504.48,
-       "beet"
-      ]
-     ]
-    }
-   ],
-   "shrubs": [],
    "trees": [],
    "creeper": [],
    "beds": []
