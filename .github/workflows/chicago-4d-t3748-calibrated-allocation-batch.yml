@@ -2,9 +2,9 @@ name: Better Trees seasons — calibrated allocation batch
 'on':
   pull_request:
     branches:
-    - steward/t3747-vegetation-realism
+    - diagnostic/t3747-held-source-base
     paths:
-    - .github/workflows/chicago-4d-t3748-calibrated-eligibility-retry.yml
+    - .github/workflows/chicago-4d-t3748-calibrated-allocation-batch.yml
 permissions:
   contents: read
 jobs:
