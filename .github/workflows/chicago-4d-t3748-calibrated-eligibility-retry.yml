@@ -62,6 +62,7 @@ jobs:
         if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
             raise SystemExit('Native publication directories cannot be established')
         paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
+                 'chicago/4d/docs/RESEARCH/reading-levels-3645',
                  'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
         paths += ['chicago/4d/' + os.fsdecode(name)
                   for name in sorted(directories) if name != b'docs']
