@@ -1,3 +1,23 @@
+## T-3778 — Class codes and a teacher view (27 November 2026)
+
+Stage 1's third piece, behind `cloudFeatures`. `js/classes.js` keeps a class on Firestore:
+`classes/<id>` (teacher, name, year group, code), `classes/<id>/members/<uid>` (the name the
+student gave, joined, last in), `classes/<id>/handins/<uid>_<entry>` (one notebook entry the
+student chose to hand in) and `codes/<code>` (which class, until when; read by name, never
+listed), plus the student's own note `users/<uid>/classes/<id>`. `js/classes-view.js` draws
+Guide › For teachers › Your classes (make, code, roster with joined / last in / handed in /
+reflections, each student's work, CSV, print, remove, close), Settings › About › Your class
+(code, confirm, join under a chosen name, leave) and Hand in / Hand in again / Take back on
+each notebook entry. A jaunt's understanding check gains Save to my notebook, marked as a
+reflection (`topic`), as Make your case and route answers now are. Closing a class deletes it
+with everything handed in, as the school agreement promises; the end-of-school-year deletion
+the agreement also promises is not automatic yet (it needs a scheduled job with database
+access), and the teacher's page asks teachers to close each class when its year ends.
+`tools/test_classes.mjs` (gate) holds the codes, every write against its rule and a whole class
+against a fake Firestore; `tools/test_classes_emulator.mjs` (not a gate step: Java and the
+Firestore emulator) runs the rules themselves, 48 checks, including T-3777's users tree. The
+rules publish when this reaches dev.
+
 ## T-3777 — Cloud save: notebook, people met, places found and Settings (27 November 2026)
 
 Stage 1's second piece, behind T-3776's `cloudFeatures` switch (on since the owner's

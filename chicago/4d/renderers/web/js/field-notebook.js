@@ -26,8 +26,12 @@ function entryOf(value, { id, now } = {}) {
     text: text(value.text, LIMITS.noteChars), excerpt: text(value.excerpt, 12000),
     sources: sourceRows(value.sources), photo, link: safeNotebookURL(value.link),
     createdAt: text(now || value.createdAt, 40),
+    // T-3778: what a written entry is, for the teacher's page: a jaunt's reflection, a Make
+    // your case answer, a route answer. Kept only when set, so older entries are unchanged.
+    ...(TOPICS.includes(value.topic) ? { topic: value.topic } : {}),
   };
 }
+export const TOPICS = Object.freeze(['reflection', 'case', 'route']);
 /** One stored entry as the notebook would keep it, or null (T-3777: cloud save checks an
  * entry from the account with this before it goes into the browser's copy). */
 export const cleanEntry = (value) => entryOf(value);

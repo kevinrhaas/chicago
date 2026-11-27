@@ -190,8 +190,9 @@ assert.match(cloudSaveLine({ state: 'saved', at: '2026-11-27T15:00:00Z' }, { clo
 const rules = readFileSync(new URL('../docs/SIGN-IN.md', import.meta.url), 'utf8');
 assert.ok(rules.includes(`request.resource.data.v.size() <= ${MAX_V}`), 'the rule\'s size is MAX_V');
 assert.ok(rules.includes("request.resource.data.at == request.time"), 'and at is the server\'s time');
-assert.ok(rules.includes(`part in [${CLOUD_PARTS.map((p) => `'${p}'`).join(', ')}]`), 'in exactly the parts written');
-assert.deepEqual([...ACCOUNT_TREES.users], [...CLOUD_PARTS], 'Delete my saved data removes every part');
+// T-3778 adds the student's note of their class (`classes`), written by js/classes.js.
+assert.ok(rules.includes(`part in [${[...CLOUD_PARTS, 'classes'].map((p) => `'${p}'`).join(', ')}]`), 'in exactly the parts written');
+assert.deepEqual([...ACCOUNT_TREES.users], [...CLOUD_PARTS, 'classes'], 'Delete my saved data removes every part');
 assert.equal(writeOf('p', 'u', 'notebook/x', undefined).update.fields.deleted.booleanValue, true);
 
 // ---- debouncing: twenty quick changes, one commit ------------------------------------------

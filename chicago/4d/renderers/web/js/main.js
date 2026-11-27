@@ -43,6 +43,7 @@ import { createGestureGate } from './gesture-gate.js';
 import { signInGate, showAccount } from './sign-in.js';
 import { showSavedData } from './student-data.js';
 import { cloudSaveFor, startCloudSave, cloudSaveLine } from './cloud-save.js';
+import { startClasses } from './classes-view.js';
 import { fieldNotebook } from './field-notebook.js';
 import { SIGN_IN } from './sign-in-config.js';
 import { syncReading, setLevelsSource, loadSceneLevels, readingTabs, forgetAge } from './reading-level.js';
@@ -2068,6 +2069,9 @@ async function boot() {
       sources: [fieldNotebook, metFound], onStatus: (s) => { if (line) { line.hidden = false; line.textContent = cloudSaveLine(s); } } });
     await Promise.race([api.cloudSave.ready.catch(() => {}), new Promise((r) => setTimeout(r, CLOUD_WAIT_MS))]);
   }
+  // T-3778: the class a student is in (Settings › About › Your class, Hand in in the notebook),
+  // read once per visit, not waited for.
+  void startClasses({ account: api.signIn.account, config: SIGN_IN, projectId: SIGN_IN.firebase?.projectId }).catch(() => {});
   setLevelsSource(() => loadSceneLevels(resolveBases().dataBase, YEAR));
   bootController.start('scene');
   await yieldToPaint();

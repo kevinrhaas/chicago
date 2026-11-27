@@ -5846,6 +5846,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_classes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_cloud_save.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6791,6 +6795,14 @@
       "wrote_ignored": []
     },
     "tools/test_ktx2_texture_policy.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_launch_page.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_launch_rights.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

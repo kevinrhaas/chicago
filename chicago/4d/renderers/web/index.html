@@ -902,6 +902,9 @@
         <div class="field row account-row" id="s-account" hidden><span class="account-who">Signed in as
           <b id="s-account-who"></b> <span id="s-account-how"></span></span>
           <button class="setting-button" id="s-sign-out" type="button">Sign out</button></div>
+        <!-- T-3778: the class a student is in, and the code to join one (js/classes-view.js
+             mountStudentClass fills it). Hidden unless the cloud features are on and someone is signed in. -->
+        <div class="saved-data class-box" id="s-class" hidden></div>
         <!-- T-3776: what this account keeps, and the way to delete all of it (js/student-data.js
              showSavedData). Hidden unless someone is signed in. -->
         <div class="saved-data" id="s-saved-data" hidden>

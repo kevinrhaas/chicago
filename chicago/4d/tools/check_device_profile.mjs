@@ -215,7 +215,9 @@ check('a stored choice is read before the profile, so the visitor keeps the last
 });
 
 // T-2901: the front door's device meter scores the same profile, inside its class's band.
-const portalHtml = await readFile(path.join(web, 'portal/index.html'), 'utf8');
+// T-3798: the meter lives on the classic console (/4d/console/); the launch page has its own check.
+const portalHtml = await readFile(path.join(web, 'portal/console.html'), 'utf8');
+const launchJs = await readFile(path.join(web, 'portal/launch.js'), 'utf8');
 check('the meter score stays inside the band of the class the town boots on', () => {
   const band = { weak: [8, 39], standard: [40, 79], strong: [76, 99] };
   for (const cls of dp.DEVICE_CLASSES) {
@@ -244,7 +246,11 @@ check('a strong desktop reads near peak, a weak phone low, a software rasteriser
 check('the front door measures with the town\'s profile and never writes the town\'s cache', () => {
   assert.match(meter, /import \{[^}]*profileDevice[^}]*scoreProfile[^}]*\} from '\.\.\/js\/device-profile\.js'/);
   assert.match(meter, /profileDevice\(\{ touch, storage: null,/);
-  assert.match(portalHtml, /<script type="module" src="walk\/portal\/device-meter\.js"><\/script>/);
+  assert.match(portalHtml, /<script type="module" src="\.\.\/walk\/portal\/device-meter\.js"><\/script>/);
+  // T-3798: the launch page's System check reads the same profile and never writes the cache either.
+  assert.match(launchJs, /import\('\.\.\/js\/device-profile\.js'\)/);
+  assert.match(launchJs, /profileDevice\(\{ touch, storage: null,/);
+  assert.match(launchJs, /scoreProfile\(profile\)/);
   assert.equal((portalHtml.match(/<i style="--i:\d+"><\/i>/g) || []).length, 20, 'twenty segments, four per grade');
 });
 

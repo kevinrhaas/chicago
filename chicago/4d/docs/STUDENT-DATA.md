@@ -30,6 +30,20 @@ the rules in `docs/SIGN-IN.md` decide who reads it.
 | `people/<uid>` | the visitor's own person (look and dress), time | The same person on every device | The visitor |
 | `bugs/<id>` | uid, email, the report, build, device, graphics chip, place in the town, recent errors, an optional screenshot | Fixing what broke | The visitor (to delete), the owner |
 | `users/<uid>/notebook/<id>`, `users/<uid>/metfound/<year>-<kind>`, `users/<uid>/settings/prefs` | Cloud save (T-3777), while `cloudFeatures` is on. The field notebook (one document per entry: notes, places, people, citations, a small photo copy), people met and places found (ids and the day first recorded, per year), and the Settings that are the person's (not the device's graphics); each `{ v, deleted, at }` | The same work on every device the student signs in to | The visitor |
+| `classes/<id>` | Classes (T-3778): the teacher's uid and name (from their Google or Microsoft account), the class's name and year group, its current join code, when it was made | The teacher's class | The teacher; a student in it (its name and teacher only) |
+| `classes/<id>/members/<uid>` | The name the student gave their teacher, the code they joined with, when they joined and were last in | The teacher's roster | The teacher, that student |
+| `classes/<id>/handins/<uid>_<entry>` | One notebook entry the student chose to hand in (a copy of it, with its kind and whether it is a reflection), and when | The teacher reads the work handed in | The teacher, that student |
+| `codes/<code>` | Which class the code admits to, its name and teacher's name, the teacher's uid, until when (30 days) | A student finds the class by its code | Anyone signed in who types the code (it cannot be listed) |
+| `users/<uid>/classes/<id>` | The class a student is in, and the name they gave | The same class on every device | The visitor |
+| `access/<email>` | Launch access (T-3797): the sign-in address the owner gave rights to, the rights (cloud play, admin), his note, who added it and when | Who may start a cloud machine and who may manage people | That person (their own), the owner and admins |
+| `waitlist/<email>` | The cloud play waitlist (T-3797): the address and name of a player who asked for cloud play, the year they had chosen, the system check's verdict, when | The owner lets people in, those who need it most first | That person, the owner and admins |
+| `launch/cloud` | Whether cloud play is open yet, a note, who changed it and when | The launch page's cloud button | Anyone signed in |
+
+Classes (T-3778, `js/classes.js`) never run for a sign-in with the email alone; the rules refuse
+it too. A student is in one class at a time. A hand-in is the student's choice, one entry at a
+time from the field notebook; they can take it back, and leaving the class takes every hand-in
+back. Only the class's teacher reads its roster and hand-ins; a student reads only their own,
+never a classmate's. Nothing is graded, scored or ranked.
 
 Not kept on a server: teacher routes and the field log (and, if `cloudFeatures` is set back to
 off, the field notebook, people met and places found, and Settings). They stay in the browser until a ticket
@@ -40,21 +54,32 @@ password; the rules refuse it too). A delete on one device is kept on the accoun
 record marked `deleted`, so the student's other devices learn of it; Delete my saved data removes
 those as well.
 
+Launch access (T-3797, `js/launch-rights.js`) is the owner's own record, made by him in the
+launch page's Admin sheet before or after the person signs in; nothing in it comes from playing.
+Delete my saved data removes the person's own rights and waitlist rows (their cloud play goes
+with them), and the owner removes any on request. Letting someone in from the waitlist removes
+their waitlist row.
+
 Firebase's own sign-in service holds the account itself (email, and the Google or Microsoft
 link). Firebase Analytics counts page views and the `login` and `enter_year` events with no
 email. Neither is sold, shared or used for advertising, and no third party reads any of it.
 
 ## How long
 
-Until the visitor deletes it, or until the owner removes a record on request. A school's class
-records (T-3778) are kept for the school year the class names and deleted when the teacher
-closes the class; the agreement states the same.
+Until the visitor deletes it, or until the owner removes a record on request. A class's records
+(T-3778) are deleted when its teacher closes the class: the class, its roster, everything handed
+in and its code go together, after the page offers the teacher a CSV and a printed copy. A
+student who leaves, or whom the teacher removes, takes their row and hand-ins with them. The
+agreement also promises deletion at the end of the school year. That does not run by itself yet
+(it needs a scheduled job with access to the database); until it does, the teacher's page asks
+teachers to close each class when its school year ends.
 
 ## Deleting it
 
-Settings › About › **Delete my saved data** (`js/student-data.js` `deleteMyData`): the visitor's
-`visitors`, `readers` and `people` documents and every `visits` and `bugs` row carrying their uid,
-at once, then a sign-out (so the next entry does not write the visitor row straight back).
+Settings › About › **Delete my saved data** (`js/student-data.js` `deleteMyData`): a student's
+rows and hand-ins in their class, every class the visitor teaches with all it holds, then the
+visitor's `visitors`, `readers` and `people` documents and every `visits` and `bugs` row carrying
+their uid, the `users/<uid>` tree and their `access/<email>` and `waitlist/<email>` rows (T-3797), at once, then a sign-out (so the next entry does not write the visitor row straight back).
 Signing in again starts a new record. The account itself in Firebase sign-in is removed by the
 owner on request (the contact page), because deleting it from the page needs a fresh sign-in.
 
@@ -66,7 +91,6 @@ code, the rules, this table and the visitor's page to the same list.
 
 Each adds its rows to the table above before it ships, and only behind the switch:
 
-- T-3778: classes (teacher uid, name, join code) and membership; hand-ins the student chooses.
 - T-3779: the teacher's routes and route answers handed in to a class.
 - T-3780: the teacher's current stop; a classmate's position in the town, kept only while the
   class is in session.

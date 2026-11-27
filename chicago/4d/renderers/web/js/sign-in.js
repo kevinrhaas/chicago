@@ -304,6 +304,8 @@ export async function signInGate({
   nav = globalThis.navigator,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   win = globalThis,
+  // T-3798: the launch page signs a player in without entering a year, so it records no visit.
+  record = true,
 } = {}) {
   const mode = gateMode({ config, hostname: loc?.hostname, search: loc?.search, webdriver: !!nav?.webdriver });
   if (mode === 'off' || mode === 'robot' || !gate) return { how: mode === 'robot' ? 'robot' : 'off' };
@@ -337,6 +339,7 @@ export async function signInGate({
   const { auth, authMod } = fb;
   const device = deviceClass(win);
   const enter = (user, email) => {
+    if (!record) return;
     const method = methodOf(user);
     if (user) {
       const name = user.displayName || user.providerData?.[0]?.displayName || '';
@@ -358,6 +361,8 @@ export async function signInGate({
   const accountOf = (user, email) => (user ? {
     email: email || user.email || user.providerData?.find(p => p.email)?.email || '',
     method: methodOf(user),
+    // T-3778: the name a class shows its teacher (the student can change it when joining).
+    name: user.displayName || user.providerData?.[0]?.displayName || '',
     // T-3645: the reader's ages ride the account (reading-level.js § syncReading).
     // T-3644: whose row the visitor's own person is kept in (visitor-person.js), and a token for it.
     uid: user.uid,

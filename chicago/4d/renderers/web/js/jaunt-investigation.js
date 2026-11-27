@@ -69,7 +69,7 @@ export function investigationNote(model, draft) {
   const selected = model.claims.filter(c => draft.selected?.includes(c.id));
   if (!selected.length) return { ok: false, reason: 'evidence' };
   const sources = [...new Map(model.claims.flatMap(c => c.sources).map(s => [s.id, s])).values()];
-  const entry = { kind: 'note', title: `${t('investigation.title')} · ${model.title}`, year: model.year,
+  const entry = { kind: 'note', topic: 'case', title: `${t('investigation.title')} · ${model.title}`, year: model.year,
     place: model.place,
     text: [model.question, `${t('investigation.claim')}\n${claim}`,
       `${t('investigation.selected')}\n${selected.map(c => c.label).join('\n')}`,
