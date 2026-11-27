@@ -25221,7 +25221,7 @@ storey at the corner with its lights bent round it, the slated roof.
 **What is invented.** The principal floor (0.55 m) and the storey heights, read by proportion, not through a
 solved camera; the roof's form and pitch behind the gable; the walls' thickness; the flank's and the rear's lights
 beyond the bay of them the photographs show; the stack; the gutters and downpipe; the stoop's steps and landing;
-the kits' sash and door; the keys over the round heads; the stone: K02 has no red sandstone and its brown stands in.
+the kits' sash and door; the keys over the round heads; the iron railing on a curb at the walk's inner edge, its gate and the flagged walk to the stoop (no picture shows 217's strip in 1904); the stone: K02 has no red sandstone and its brown stands in.
 **What is not built.** The steep gable with a finial over the east flank (photograph 106) and its small turreted
 dormer: K01 stands a shaped gable on the street front only. The oriel turning the corner onto the east flank: K01
 keeps 0.3 m of wall between a bay and its corner, so the oriel stands on the front 1.9 m in from the corner, 3.2 m on
@@ -25234,7 +25234,7 @@ frame strip across the plan and the rear range's cut south-west corner (built sq
 gate, writing into the match record what is under the good-enough bar; a K01 flank gable, or a corner-turning
 round oriel, would stand the two forms not built; a dated photograph of the house nearer 1904, ingested as a
 source, would settle the copper's colour.
-**Covers:** `house_217_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_217_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_217_e20th.as_mapped_1904.form.stair_tread_m`, `house_217_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_217_e20th.as_mapped_1904.form.eave_overhang_m`, `house_217_e20th.as_mapped_1904.form.service_wall_brick`, `house_217_e20th.as_mapped_1904.form.wall_head`, `house_217_e20th.as_mapped_1904.form.roof_form`, `house_217_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_217_e20th.as_mapped_1904.form.stoop_width_m`, `house_217_e20th.as_mapped_1904.form.side_bays`, `house_217_e20th.as_mapped_1904.form.rear_bays`, `house_217_e20th.as_mapped_1904.form.sash_by_storey`, `house_217_e20th.as_mapped_1904.form.window_kit`, `house_217_e20th.as_mapped_1904.form.chimneys`, `house_217_e20th.as_mapped_1904.form.rainwater`.
+**Covers:** `house_217_e20th.as_mapped_1904.form.wall_thickness_front_m`, `house_217_e20th.as_mapped_1904.form.wall_thickness_side_m`, `house_217_e20th.as_mapped_1904.form.stair_tread_m`, `house_217_e20th.as_mapped_1904.form.stair_landing_depth_m`, `house_217_e20th.as_mapped_1904.form.eave_overhang_m`, `house_217_e20th.as_mapped_1904.form.service_wall_brick`, `house_217_e20th.as_mapped_1904.form.wall_head`, `house_217_e20th.as_mapped_1904.form.roof_form`, `house_217_e20th.as_mapped_1904.form.roof_pitch_deg`, `house_217_e20th.as_mapped_1904.form.stoop_width_m`, `house_217_e20th.as_mapped_1904.form.side_bays`, `house_217_e20th.as_mapped_1904.form.rear_bays`, `house_217_e20th.as_mapped_1904.form.sash_by_storey`, `house_217_e20th.as_mapped_1904.form.window_kit`, `house_217_e20th.as_mapped_1904.form.chimneys`, `house_217_e20th.as_mapped_1904.form.rainwater`, `house_217_e20th.as_mapped_1904.form.boundary`, `house_217_e20th.as_mapped_1904.form.yard`.
 **Ticket:** T-3781 (piece 1 of T-1939, the X01 package of T-1837).
 **Review:** `docs/RESEARCH/k01-217-e20th-3781/README.md`.
 **Recorded:** 2026-11-27 (T-3781).

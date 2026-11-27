@@ -120,7 +120,7 @@
       "note": "The contract's ordinary tread."
     },
     "stair_landing_depth_m": {
-      "value": 0.5,
+      "value": 0.3,
       "confidence": "reconstructed",
       "note": "A shallow top step before the door: the front stands on the street line and the stoop stays inside the strip before the walk (front_yard_m); its depth unread."
     },
@@ -430,6 +430,46 @@
       },
       "confidence": "reconstructed",
       "note": "The kit's half-round copper gutter on the hip's eaves, a pipe down the east flank's rear end."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 1.55,
+        "lot_s_m": [
+          -0.02,
+          7.13
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 0.9,
+          "drawn_deg": 10
+        },
+        "posts": {
+          "section_m": 0.1,
+          "height_m": 1.1
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "A low iron railing on a stone curb along the walk's inner edge, 1.55 m before the front, with a walk gate: the strip before the front is enclosed in photographs 223 and 224 along this row (215's railing), but no picture shows 217's in 1904; the kit's spear railing, its pattern unread. The lot lines are the sheet's (columns 399.2 and 437.6)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k14_condition",
+        "built": 1904,
+        "lawn": "none",
+        "grass_edge": "street_front",
+        "under_stoop": "earth",
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.75,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "A short walk of stone flags across the strip from the public walk to the stoop's foot, as the street's other K01 fronts; the strip's 2009 planting is not read as 1904's."
     },
     "rear_wings": {
       "value": [

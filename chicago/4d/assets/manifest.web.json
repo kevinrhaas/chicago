@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -316,7 +316,7 @@
     "house_2140_calumet_coach_house__draft_1904.glb": "ccfc21b3e2fb8dd410ad09cf401598e362d5bc6c523c2ce054cc63e794bff079",
     "house_2140_calumet_shed__draft_1904.glb": "0b6b0ec07b11be8b4d3923446987e63b357336aea74a55990a753a19387f367a",
     "house_215_e20th__draft_1904.glb": "d41d091e90e05534b8f9ffa6efb32dbae3e17dc7b64aa9e78864eddb55956e75",
-    "house_217_e20th__as_mapped_1904.glb": "0de5c449b4739ff58097f1a373c393606854409638e8ae180f444ad7bf3e81cb",
+    "house_217_e20th__as_mapped_1904.glb": "f92ea2ae9c40aad0dc04aee1e41ac51d5ca240c59360b5c3a5db06dc79c000d4",
     "ic_16th_street_station_1605_prairie__draft_1904.glb": "58a6a09990c4176b4a79af0a96d13818ccd5bf05dcb8713ef55faba2863e743f",
     "ice_cream_works_1605_indiana__draft_1904.glb": "80aefef824da6213490ee45bdc2c2e946e1e537147ee3480ed6ccf7a7fefd289",
     "inf_artisan_dwelling_west_a__inferred_1835.glb": "967e8303955c8eddbd9bf55ce2ac2e1707dc294f0881dfb9df22e24381ccf852",

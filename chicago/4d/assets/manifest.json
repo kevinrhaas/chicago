@@ -3063,9 +3063,9 @@
     "house_217_e20th__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 3996984,
+      "bytes": 4289880,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "e3eda4d7fbaffcfb9170bb06fe91fd0cb3f4aba52748f4cdf48ce407a900ab2b",
+      "inputs_sha256": "51e7d4dc1f3b1673e474b21716af1502443c370bfc07f5af72cef88dc2932b73",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_217_e20th"
