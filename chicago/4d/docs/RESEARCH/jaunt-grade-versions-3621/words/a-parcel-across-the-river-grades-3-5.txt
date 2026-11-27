@@ -1,0 +1,88 @@
+== premise
+Be the Sauganash tavern's young errand runner on a summer morning in 1835. Carry a forgotten parcel over the river, guess which tavern its owner went to, and pick your way home.
+
+== opening
+JAUNT: A PARCEL ACROSS THE RIVER. It is a summer morning in 1835, and you are thirteen. You run errands for the Sauganash, a tavern by the river. A traveller slept here last night. This morning he went across the river, and he left his parcel behind! He told the kitchen which tavern he was going to, but the kitchen forgot.
+
+Carry the parcel over the bridge and find him. The town, the taverns and the bridge are real. The errand runner is you.
+
+== stop sauganash
+This is the Sauganash, at the corner of Lake and Market Streets, on the east side of the river. It is a white building, two floors high, with bright blue shutters. In June the town's newspaper said it had been fixed up, with nice new furniture. The parcel is tied with string, and it is heavier than it looks. Across the river stand two taverns. The traveller went to one of them. Which one?
+
+== narrative sauganash
+The Green Tree, or Wolf Point?
+
+== label sauganash green-tree
+Try the Green Tree
+
+== consequence sauganash green-tree
+It is the big tavern right across the bridge.
+
+== label sauganash wolf-point
+Try Wolf Point
+
+== consequence sauganash wolf-point
+It is the old tavern up where the rivers meet.
+
+== stop green-tree
+Over the bridge is the Green Tree, at Lake and West Water Streets. James Kinzie built it in 1833. It was the first building in town made to be a hotel. Chester Ingersoll runs it now. It got its name from an oak tree that stood close by. Here is a surprise. This building will still be standing in 1880! Then it will be moved to Milwaukee Avenue. Ask at the door for the traveller. Then go back to the bridge.
+
+== narrative green-tree
+The tavern named for a tree.
+
+== stop wolf-point
+This is Wolf Point, on the west side, where two branches of the river meet. The tavern here is partly made of logs and partly made of boards. Its sign was made from a piece of a box. Someone painted a wolf on it! Now, who runs this tavern? Nobody is quite sure. One story says William Walters ran it until 1836. Another says it stopped being a tavern in 1834. Ask at the door for the traveller. Then go back to the bridge.
+
+== narrative wolf-point
+The tavern with a wolf on its sign.
+
+== stop the-crossing
+You are back on the bridge over the river. It sits between Lake and Randolph Streets. Some old settlers remembered that it stood on logs, about six feet above the water. In winter, wagons could even drive under it on the ice! A later book says it was first made of floating logs tied together. People in town paid for it. The book says "the Indians of the vicinity contributed $200" of the money. Which story is right? The books do not agree. The parcel has found its owner! Go straight home, or take a look at the new drawbridge?
+
+== narrative the-crossing
+Straight home, or the drawbridge?
+
+== label the-crossing home
+Go back to the Sauganash
+
+== consequence the-crossing home
+There will be more errands waiting.
+
+== label the-crossing draw
+Go look at the drawbridge
+
+== consequence the-crossing draw
+Just a quick look at the town's newest bridge.
+
+== stop back-at-the-sauganash
+You are back at the Sauganash. One old book calls it the nicest place to stay in the whole town. It says the owner played a happy fiddle and was the best-liked host around. The parcel found its owner. Your hands are empty, and the morning is not even half over. Someone is already calling you from the kitchen!
+
+== narrative back-at-the-sauganash
+Back where you started.
+
+== stop the-draw
+This is the end of Dearborn Street, where the town's first drawbridge crosses the river. Nelson Norton, a ship builder, cut the wood for it in the winter. He started building it in March 1834. It is about three hundred feet long. The open part, where boats go through, is about sixty feet wide. A frame stands at each end of the part that opens. Watch it for a minute. Then run back to the Sauganash before anyone misses you!
+
+== narrative the-draw
+The town's first drawbridge.
+
+== leg 0
+Over the bridge and straight ahead.
+
+== leg 1
+Over the bridge and up to where the rivers meet.
+
+== leg 5
+Just a quick look.
+
+== ending green-tree-and-home
+The traveller was at the Green Tree, just like you guessed! He gave you a penny for bringing his parcel. You ran right back over the bridge. At the Sauganash, the kitchen had three more errands waiting.
+
+== ending green-tree-and-draw
+The traveller was at the Green Tree, and he has his parcel back. Then you took a few minutes to watch the drawbridge. The kitchen at the Sauganash noticed! Next time, come straight back.
+
+== ending wolf-point-and-home
+Wolf Point was the right guess! The traveller was there, and he was glad to get his parcel. You hurried back over the bridge, and all the morning's errands were done before lunch.
+
+== ending wolf-point-and-draw
+The traveller was at Wolf Point, and he has his parcel back. On the way home you stopped to watch the drawbridge, for much longer than you meant to. The kitchen at the Sauganash has been calling you for an hour!

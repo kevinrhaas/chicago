@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Employment",
+  "menu_group": "Work",
+  "grade_band": "3-5",
+  "review_required": false,
+  "long_form": true,
+  "id": "flowers-for-prairie-avenue-grades-3-5",
+  "scene": "1904",
+  "title": "Flowers for Prairie Avenue",
+  "premise": "Be a flower shop's young delivery runner on a spring morning in 1904. Carry flowers to four houses on Prairie Avenue, and pick the order of your trip.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "ambience": {
+    "hour": "morning",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: FLOWERS FOR PRAIRIE AVENUE. It is a spring morning in 1904, and you are thirteen. You carry flowers for a flower shop. This morning your basket has flowers for four houses on Prairie Avenue, a street of very big, fancy houses. Every bunch has a house number on its tag.\n\nYou pick the order. The houses and the people in them are real. The flower runner is you.",
+    "read_s": 26
+  },
+  "variables": {
+    "first": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "last": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "This is 1800 Prairie Avenue, the Glessner house, on the corner of Eighteenth Street. The first bunch is for this house. Now, about the lady who lives here. Frances Glessner has written in her journal since 1879. She keeps bees! And this year she set up a workbench in the basement, so she can make silver things with her own hands. She and her husband moved in on 1 December 1887. You have three bunches left. Go north first, or south?",
+      "narrative": "North first, or south?",
+      "read_s": 25,
+      "action_s": 10,
+      "evidence": [
+        "glessner-frances",
+        "glessner-present",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "north",
+          "label": "Go north to 1700",
+          "consequence": "Start with the house one block north.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 1
+            }
+          ],
+          "next": "lee"
+        },
+        {
+          "id": "south",
+          "label": "Go south to 1834",
+          "consequence": "Start with the house a few doors south.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "first",
+              "value": 2
+            }
+          ],
+          "next": "jones"
+        }
+      ]
+    },
+    {
+      "id": "lee",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_lee_house_1700_prairie"
+      },
+      "text": "This is 1700 Prairie, one block north. John and Frances Glessner built this house for one of their grown children. Their daughter, also named Frances, lives here now with her husband, Blewett Lee. Here is something no one on this street could guess. One day she will build tiny model rooms called the Nutshell Studies. They are tiny crime scenes, and they are still used for training today! Hand in the flowers. Then walk south past Twentieth Street.",
+      "narrative": "The Glessners' daughter's house.",
+      "read_s": 25,
+      "action_s": 5,
+      "evidence": [
+        "lee-listing",
+        "lee-house",
+        "lee-nutshell",
+        "role"
+      ],
+      "next": "buckingham"
+    },
+    {
+      "id": "jones",
+      "destination": {
+        "kind": "structure",
+        "id": "jones_house_1834_prairie"
+      },
+      "text": "This is 1834 Prairie, the Fernando Jones house, a few doors south. Jane Grahame Jones has worked for many years so that women can vote. A scrapbook from her family keeps newspaper stories about it from 1875. But she still cannot vote! In 1913, Illinois will be the first state east of the Mississippi River to let women vote for president. This house will be torn down in 1942. Hand in the flowers, and keep going south past Twentieth Street.",
+      "narrative": "A house where women work for the vote.",
+      "read_s": 25,
+      "action_s": 5,
+      "evidence": [
+        "jones-listing",
+        "jones-suffrage",
+        "jones-scrapbook",
+        "illinois-1913",
+        "jones-razed",
+        "role"
+      ],
+      "next": "buckingham"
+    },
+    {
+      "id": "buckingham",
+      "destination": {
+        "kind": "structure",
+        "id": "buckingham_house_2036_prairie"
+      },
+      "text": "This is 2036 Prairie, the Buckingham house. Clarence Buckingham lives here. His sister, Kate Sturges Buckingham, gives money to help the city and its art. In 1927 she will give Chicago a giant fountain to remember him. It will be twice as big as the fountain in France that gave her the idea. Its water will shoot 150 feet into the air! You have one bunch left in the basket.",
+      "narrative": "South to 2115, or back north to 1608?",
+      "read_s": 22,
+      "action_s": 10,
+      "evidence": [
+        "buckingham-listing",
+        "buckingham-fountain",
+        "buckingham-same",
+        "role"
+      ],
+      "choices": [
+        {
+          "id": "armour",
+          "label": "Go south to 2115",
+          "consequence": "It is a short walk, one block on.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 1
+            }
+          ],
+          "next": "armour"
+        },
+        {
+          "id": "frank",
+          "label": "Go back north to 1608",
+          "consequence": "It is a long walk with the last bunch.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "last",
+              "value": 2
+            }
+          ],
+          "next": "frank"
+        }
+      ]
+    },
+    {
+      "id": "armour",
+      "destination": {
+        "kind": "structure",
+        "id": "armour_house_2115_prairie"
+      },
+      "text": "This is 2115 Prairie, the Kelley-Armour house. Mrs. Philip D. Armour lives here. Her first name is Belle, and she was born in Ohio. In the years to come, many of the big families will die or move away to towns outside the city. But she will stay. She will be one of the last people living on the street, until 1927. Her house will be torn down in 1937. Your basket is empty! Back to the shop for the afternoon's orders.",
+      "narrative": "The last house on your trip.",
+      "read_s": 26,
+      "action_s": 5,
+      "evidence": [
+        "armour-listing",
+        "armour-belle",
+        "armour-last",
+        "armour-leaving",
+        "armour-razed",
+        "role"
+      ],
+      "next": "$end"
+    },
+    {
+      "id": "frank",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1608_prairie"
+      },
+      "text": "This is 1608 Prairie, the Frank house, at the north end of your trip. Henrietta Greenebaum Frank works hard to help train nurses better, at a school for nurses in Illinois. In 1876 she and her sister Hannah were the first Jewish women to join the Chicago Woman's Club. Later, Hannah started the National Council of Jewish Women. Your basket is empty! Back to the shop for the afternoon's orders.",
+      "narrative": "The north end of your trip.",
+      "read_s": 22,
+      "action_s": 5,
+      "evidence": [
+        "frank-listing",
+        "frank-nursing",
+        "frank-club",
+        "role"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "glessner",
+      "to": "lee",
+      "note": "North across Eighteenth Street to 1700.",
+      "evidence": [
+        "lee-listing"
+      ],
+      "story": "North first.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "glessner",
+      "to": "jones",
+      "note": "South along the west side of the avenue to 1834.",
+      "evidence": [
+        "jones-listing"
+      ],
+      "story": "South first.",
+      "story_evidence": [
+        "role"
+      ]
+    },
+    {
+      "from": "lee",
+      "to": "buckingham",
+      "note": "South along the avenue, past the Glessner house and Twentieth Street, to 2036.",
+      "evidence": [
+        "buckingham-listing"
+      ]
+    },
+    {
+      "from": "jones",
+      "to": "buckingham",
+      "note": "South past Twentieth Street to 2036.",
+      "evidence": [
+        "buckingham-listing"
+      ]
+    },
+    {
+      "from": "buckingham",
+      "to": "armour",
+      "note": "On south and across the avenue to 2115.",
+      "evidence": [
+        "armour-listing"
+      ]
+    },
+    {
+      "from": "buckingham",
+      "to": "frank",
+      "note": "All the way back north along the avenue to 1608.",
+      "evidence": [
+        "frank-listing"
+      ],
+      "story": "The long walk back north.",
+      "story_evidence": [
+        "role"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "north-then-south",
+      "text": "You went north first, then all the way south. That is four houses and four doors, and you did not drop a single bunch! The shop owner says you learned the street in one morning. Next week you can plan the trip yourself.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "first",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "last",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "north-and-back",
+      "text": "You went north, then south, then all the way back north again. That was the long way around, and the last bunch got droopy in the sun. But every bunch got there! Next time you will plan your trip before you start.",
+      "read_s": 13,
+      "completion_eligible": true,
+      "when": {
+        "var": "first",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "south-and-on",
+      "text": "You went south and kept going south, in a straight line down the street. That is the fastest way! Every bunch got there, and you are back at the shop before anyone expects you.",
+      "read_s": 11,
+      "completion_eligible": true,
+      "when": {
+        "var": "last",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "south-and-back",
+      "text": "You went south first, then took the long walk back north to 1608. Every bunch got there, but your arms are tired. Tomorrow you will sort the basket by house number before you go.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "a-flower-round-grades-3-5",
+    "title": "A Flower Round",
+    "text": "A made-up florist's slip for one spring morning on Prairie Avenue in 1904: which way you went first, and where the last bunch went. No real order, florist or delivery runner is written on it."
+  },
+  "evidence": [
+    {
+      "id": "glessner-frances",
+      "text": "Frances Macbeth Glessner kept a journal from 1879 for forty years; in 1904 she set up a silversmith's workbench in the basement of the house; she kept bees; and she held the Monday Morning Reading Class in the library from 1893.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Macbeth Glessner."
+    },
+    {
+      "id": "glessner-present",
+      "text": "John and Frances Glessner lived in the house from 1 December 1887 until their deaths (1936 and 1932).",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data pages pp. 1-2 and 9, as data/residents_1904/households/hh_glessner_john_j.json carries them."
+    },
+    {
+      "id": "lee-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Blewett Lee household at 1700.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
+    },
+    {
+      "id": "lee-house",
+      "text": "1700 and 1706 Prairie were twin townhouses John and Frances Glessner built for their two married children; the daughter Frances, married to Blewett Lee in February 1898, moved into 1700 within a few years. George Glessner photographed the pair under construction in 1901.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ],
+      "locator": "The family page's biography of Frances Glessner Lee; the blog's 1901 construction photograph and caption."
+    },
+    {
+      "id": "lee-nutshell",
+      "text": "Frances Glessner Lee's later work in legal medicine: the Nutshell Studies of Unexplained Death, miniature crime scenes still used in training.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page"
+      ],
+      "locator": "The biography of Frances Glessner Lee."
+    },
+    {
+      "id": "jones-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Fernando Jones household at 1834.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
+    },
+    {
+      "id": "jones-suffrage",
+      "text": "Jane Grahame Jones (1834) fought for woman suffrage.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's paragraph on the residents' causes."
+    },
+    {
+      "id": "jones-scrapbook",
+      "text": "Prairie Avenue resident Jane G. Jones was a longtime and outspoken activist for women suffrage; the document is the Fernando Jones Scrapbook's clippings on the Illinois Woman Suffrage Association, 1875.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_fernando_jones_scrapbook"
+      ],
+      "locator": "The caption under the document image."
+    },
+    {
+      "id": "illinois-1913",
+      "text": "Illinois became the first state east of the Mississippi River to give women the right to vote for president, in 1913.",
+      "confidence": "attested",
+      "sources": [
+        "nprillinois_2019_illinois_led_suffrage"
+      ],
+      "locator": "The paragraph on the 1913 law."
+    },
+    {
+      "id": "buckingham-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the E. Buckingham household and Clarence Buckingham at 2036.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
+    },
+    {
+      "id": "buckingham-fountain",
+      "text": "Philanthropist and art patron Kate Sturges Buckingham (1858-1937) gave the funds for the fountain, dedicated to her brother, philanthropist and businessman Clarence Buckingham (1854-1913); dedicated 26 August 1927; twice the size of the Latona Basin at Versailles that inspired it; its major display sprays water 150 feet high.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_park_district_buckingham_fountain"
+      ],
+      "locator": "The page's history section."
+    },
+    {
+      "id": "buckingham-same",
+      "text": "The Clarence Buckingham of the 1904 listing is the Clarence Buckingham (1854-1913) the fountain honours.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_park_district_buckingham_fountain"
+      ],
+      "reasoning": "The Blue Book lists a Clarence Buckingham in the E. Buckingham household of 2036 Prairie; the fountain honours a Chicago philanthropist and businessman of that name living in 1904 (1854-1913). Same name, same city, same years; no source read here states the identity in words."
+    },
+    {
+      "id": "armour-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints Mrs. Philip D. Armour at 2115.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
+    },
+    {
+      "id": "armour-belle",
+      "text": "The 1900 census lists Belle O. Armour at 2115 Prairie as the wife of the household, born in Ohio.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 14B, line 69, leaf n821, as data/residents_1904/households/hh_armour_mrs_philip_d.json reads it."
+    },
+    {
+      "id": "armour-last",
+      "text": "David Kelley-Philip D. Armour Residence: for nearly 50 years the home of the family of meatpacker Philip D. Armour; Armour's widow was among the last residents of the street, dying here in 1927.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-leaving",
+      "text": "After the 1890s many of the leading Prairie Avenue families died or moved to suburbs such as Lake Forest.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's closing paragraph on the street's decline."
+    },
+    {
+      "id": "jones-razed",
+      "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-razed",
+      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "frank-listing",
+      "text": "The 1904 Blue Book's Prairie Avenue list prints the Henry L. Frank household at 1608.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as the Prairie library's civic dossier reads it (chicago/prairie_1904_v1/research/civic-dossier.json)."
+    },
+    {
+      "id": "frank-nursing",
+      "text": "Henrietta Greenebaum Frank (1608) and Ella Walker (1720) worked steadily for quality nursing education at the Illinois Training School for Nurses.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's paragraph on the residents' causes, which gives each woman's house number in parentheses."
+    },
+    {
+      "id": "frank-club",
+      "text": "Solomon and her sister Henrietta Frank became the first Jewish members of the prestigious Chicago Woman's Club in 1876. Hannah Greenebaum Solomon founded and served as the first president of the National Council of Jewish Women.",
+      "confidence": "attested",
+      "sources": [
+        "jwa_encyclopedia_hannah_greenebaum_solomon"
+      ],
+      "locator": "The article's paragraphs on the Chicago Woman's Club and the National Council of Jewish Women."
+    },
+    {
+      "id": "role",
+      "text": "The flower runner the visitor plays, their age and work for a florist, the basket and its four orders, the route, the two choices, the four endings, the timing inputs and the A Flower Round keepsake are invented connective narrative. No such florist, order or delivery is recorded; no named person is met or speaks, and no interior is entered.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-play-a-part-3766"
+    }
+  ],
+  "liberties": [
+    "L-play-a-part-3766"
+  ],
+  "version_of": "flowers-for-prairie-avenue"
+}

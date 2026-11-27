@@ -23,7 +23,13 @@ it requires:
      passes the boundary only where it is open or gated;
   3. a way in on foot: no leg, carried into the scene by the house's sidecar placement, lies
      across any footprint the walker holds solid (the house's own included), so a visitor
-     walking up it is not stopped short of the door.
+     walking up it is not stopped short of the door;
+  4. a walk square to its door (T-3773; the owner, 2026-11-26, at 2010 Prairie: "the walkway
+     straight to the door from the sidewalk, it's not straight"): the first leg's middle is the
+     stair's axis, which is the front door's (data/humans/doors_1904.json's hung plan) unless the
+     entrance kit stands the stair off the door where a picture draws it so (`stoop_v_m`), and a
+     walk that does not turn runs out on that line. A side stoop's walk leaves from its flight's
+     end, and a house with no hung front door has no line to be held to.
 
 A house that fails and is in PENDING is reported and does not fail the gate: the 1600 and 1700
 blocks' houses were worked before this rule, and their lanes (T-3204; T-3205 emptied the 1700
@@ -48,6 +54,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKED = ("k01_frontage", "k16_timber")
 SCENE_DAY = dt.date(1904, 7, 1)
 EPS = 0.02          # metres a leg may overlap a barrier's line or a footprint's edge by rounding
+AXIS_EPS = 0.05     # metres a walk's middle may stand off its stair's axis (T-3773)
 MARGIN = 0.05       # a leg must clear a laid run's end by this much to pass beside it
 
 # The houses worked before this gate, which fail it today, each with the lane that fixes it.
@@ -204,9 +211,10 @@ def solid_footprints(sidecars: dict) -> list[tuple[str, list]]:
 
 # -- the rule ------------------------------------------------------------------------------
 
-def judge(sid, extras, sidecar, solids, yard_m=None) -> list[str]:
+def judge(sid, extras, sidecar, solids, yard_m=None, axis_s=None) -> list[str]:
     """Why house `sid` cannot be walked into, as reasons; [] when it can. `yard_m` is the
-    record's front_yard_m: the public walk's inner edge stands that far before the street front."""
+    record's front_yard_m: the public walk's inner edge stands that far before the street front;
+    `axis_s` the line its stair stands on (rule 4), None where it is not held to one."""
     inst = list(instances(extras))
     legs = walk_legs(inst)
     if not legs:
@@ -226,6 +234,10 @@ def judge(sid, extras, sidecar, solids, yard_m=None) -> list[str]:
         if not (touch_u and touch_s):
             why.append(f"the walk's legs {a} and {b} do not meet")
     axis = (legs[0][2] + legs[0][3]) / 2
+    if axis_s is not None and abs(axis - axis_s) > AXIS_EPS:
+        why.append(f"the walk starts on s {axis:.2f}, {abs(axis - axis_s):.2f} m off its stair and door's line s {axis_s:.2f}")
+    if axis_s is not None and len(legs) == 1 and abs((legs[-1][2] + legs[-1][3]) / 2 - axis) > AXIS_EPS:
+        why.append("the walk does not run straight out on its stair's line")
     for seg in barriers(inst, axis):
         for leg in legs:
             if _seg_hits_rect(seg, leg):
@@ -279,6 +291,36 @@ def worked_houses():
                 yield st["id"], ph["id"], _front_yard(ph)
 
 
+def stair_axes() -> dict:
+    """Rule 4's line for each worked house (T-3773): its hung front door's middle along the front
+    (data/humans/doors_1904.json, the plan in the model's frame), or the entrance kit's `stoop_v_m`
+    where a picture stands the stair off the door; a side stoop's house is not held to one."""
+    try:
+        rows = json.loads((ROOT / "data" / "humans" / "doors_1904.json").read_text())["structures"]
+    except (OSError, ValueError, KeyError):
+        return {}
+    door = {}
+    for r in rows:
+        for d in r.get("doors") or []:
+            if d.get("id", "").endswith(":front") and (d.get("plan") or {}).get("origin"):
+                door[r["structure"]] = float(d["plan"]["origin"][1])
+    out = {}
+    for p in sorted((ROOT / "data" / "structures").glob("*.json")):
+        sid = p.stem
+        if sid not in door:
+            continue
+        try:
+            st = json.loads(p.read_text())
+        except json.JSONDecodeError:
+            continue
+        kits = [((ph.get("form") or {}).get("entrance_kit") or {}).get("value") or {} for ph in st.get("phases", []) if _covers(ph)]
+        kit = (kits[0] if kits else {}).get("k01.opening.door_leaf") or {}
+        if kit.get("side_stoop"):
+            continue
+        out[sid] = float(kit["stoop_v_m"]) if "stoop_v_m" in kit else door[sid]
+    return out
+
+
 def load_sidecars() -> dict:
     out = {}
     for p in sorted((ROOT / "data" / "sidecars" / "1904").glob("*.json")):
@@ -289,8 +331,9 @@ def load_sidecars() -> dict:
     return out
 
 
-def run(houses, read_extras, sidecars, pending) -> tuple[list[str], list[str]]:
-    """(failures, report lines)."""
+def run(houses, read_extras, sidecars, pending, axes=None) -> tuple[list[str], list[str]]:
+    """(failures, report lines). `axes`: each house's stair line (stair_axes), rule 4."""
+    axes = axes or {}
     solids = solid_footprints(sidecars)
     fails, lines, seen = [], [], set()
     for sid, phase, yard_m in houses:
@@ -300,7 +343,7 @@ def run(houses, read_extras, sidecars, pending) -> tuple[list[str], list[str]]:
         except FileNotFoundError:
             why = [f"no GLB for its 1904 phase {phase}"]
         else:
-            why = judge(sid, ex, sidecars.get(sid), solids, yard_m)
+            why = judge(sid, ex, sidecars.get(sid), solids, yard_m, axes.get(sid))
         if not why:
             if sid in pending:
                 fails.append(f"{sid}: passes now; take it out of PENDING (it names {pending[sid]})")
@@ -389,12 +432,21 @@ def self_test() -> int:
     case("a K16 walk through its fence's gateway passes", k16, {"h": sc}, {}, False)
     e = copy.deepcopy(k16); e["k16"]["components"][1]["instances"][1]["sockets"]["end_a"] = [15.85, 0.0, -3.3]
     case("a K16 walk across its fence's run is refused", e, {"h": sc}, {}, True)
+    # T-3773: the walk is held to its stair and door's line
+    def case_axis(name, ex, axis_s, want_fail):
+        nonlocal bad
+        fails, _ = run([("h", "p", 6.0)], lambda s, p: ex, {"h": sc}, {}, {"h": axis_s})
+        ok = bool(fails) == want_fail
+        print(f"   self-test | {'ok  ' if ok else 'FAIL'} {name}: {fails[0] if fails else 'passes'}")
+        bad += not ok
+    case_axis("a walk on its door's line passes", ex, 4.0, False)
+    case_axis("a walk 1.14 m off its door's line is refused (2010 Prairie, T-3773)", ex, 2.86, True)
     fails, _ = run([], lambda s, p: ex, {"h": sc}, {"ghost": "T-0000"})
     ok = bool(fails)
     print(f"   self-test | {'ok  ' if ok else 'FAIL'} a PENDING id that is not a worked house is refused: "
           f"{fails[0] if fails else 'passes'}")
     bad += not ok
-    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {15 - bad} of 15 cases")
+    print(f"   self-test | {'ok' if not bad else 'FAIL'}: {17 - bad} of 17 cases")
     return 1 if bad else 0
 
 
@@ -408,7 +460,7 @@ def main(argv=None) -> int:
     if a.self_test:
         return self_test()
     houses = list(worked_houses())
-    fails, lines = run(houses, _real_extras, load_sidecars(), PENDING)
+    fails, lines = run(houses, _real_extras, load_sidecars(), PENDING, stair_axes())
     if a.report or fails:
         print("\n".join(lines))
     n_ok = sum(l.startswith("  ok") for l in lines)
