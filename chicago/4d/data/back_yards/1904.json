@@ -16076,8 +16076,7 @@
    "street": "prairie",
    "side": "east",
    "structures": [
-    "roloson_house_2109_prairie",
-    "roloson_house_2109_prairie_coach_house"
+    "roloson_house_2109_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -16137,7 +16136,15 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
+   "shrubs": [
+    [
+     1459.41,
+     -3640.75,
+     "lilac",
+     3.04,
+     1.82
+    ]
+   ],
    "trees": [],
    "creeper": [],
    "beds": []
@@ -16562,8 +16569,7 @@
    "street": "prairie",
    "side": "east",
    "structures": [
-    "house_2123_prairie",
-    "house_2123_prairie_coach_house"
+    "house_2123_prairie"
    ],
    "scheme": "service_court",
    "grade": "reconstructed",
@@ -16679,17 +16685,24 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [],
-   "trees": [],
-   "creeper": [
+   "shrubs": [
     [
-     1457.81,
-     -3679.04,
-     269.54,
-     2.76,
-     3.58
+     1456.42,
+     -3674.3,
+     "lilac",
+     2.23,
+     1.9
+    ],
+    [
+     1456.2,
+     -3678.3,
+     "lilac",
+     3.03,
+     2.01
     ]
    ],
+   "trees": [],
+   "creeper": [],
    "beds": []
   },
   {
