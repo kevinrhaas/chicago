@@ -1,0 +1,125 @@
+{
+ "_doc": "T-3786: the 20th-22nd Prairie block walked in the published /walk/?year=1904 at 390x780 and 1280x800 (full detail, SwiftShader on the runner, so triangles and draw calls are the readings; frame times are not), by `node tools/front_yard_shots.mjs <site> /walk/ <out> --block 20th-22nd --viewport mobile|desktop --phase after|before [--layers front_yards,back_yards] --stands ...`. AFTER is the page as published with this change; BEFORE is the same page with the front_yards and back_yards layers taken out of the 1904 scene, so after minus before is what the block's yards cost where the visitor stands. Stands: the west side from 20th Street (2000 and 2010), 2130 from the street, 2010's and 2130's back yards 9 m out square to their kitchen doors, and the middle of Prairie at N -3478 (20th Street), -3598 (mid-block) and -3718 (22nd Street). Page errors: 0 at every reading.",
+ "ticket": "T-3786",
+ "scene": "1904",
+ "detail": "full",
+ "mobile_390x780": {
+  "after": {
+   "w-2000-2010-from-20th": {
+    "triangles": 1812473,
+    "draw_calls": 1692
+   },
+   "w-2130": {
+    "triangles": 1117358,
+    "draw_calls": 480
+   },
+   "rear-2010": {
+    "triangles": 1412860,
+    "draw_calls": 1557
+   },
+   "rear-2130": {
+    "triangles": 1387779,
+    "draw_calls": 799
+   },
+   "walk-3478": {
+    "triangles": 3047391,
+    "draw_calls": 2635
+   },
+   "walk-3598": {
+    "triangles": 2125333,
+    "draw_calls": 1264
+   },
+   "walk-3718": {
+    "triangles": 1221802,
+    "draw_calls": 409
+   }
+  },
+  "before_without_yards": {
+   "w-2000-2010-from-20th": {
+    "triangles": 1606535,
+    "draw_calls": 1140
+   },
+   "w-2130": {
+    "triangles": 903492,
+    "draw_calls": 329
+   },
+   "rear-2010": {
+    "triangles": 1196022,
+    "draw_calls": 1055
+   },
+   "rear-2130": {
+    "triangles": 1166914,
+    "draw_calls": 626
+   },
+   "walk-3478": {
+    "triangles": 2831020,
+    "draw_calls": 2111
+   },
+   "walk-3598": {
+    "triangles": 1916541,
+    "draw_calls": 957
+   },
+   "walk-3718": {
+    "triangles": 996302,
+    "draw_calls": 263
+   }
+  },
+  "yards_cost": {
+   "w-2000-2010-from-20th": {
+    "triangles": 205938,
+    "draw_calls": 552
+   },
+   "w-2130": {
+    "triangles": 213866,
+    "draw_calls": 151
+   },
+   "rear-2010": {
+    "triangles": 216838,
+    "draw_calls": 502
+   },
+   "rear-2130": {
+    "triangles": 220865,
+    "draw_calls": 173
+   },
+   "walk-3478": {
+    "triangles": 216371,
+    "draw_calls": 524
+   },
+   "walk-3598": {
+    "triangles": 208792,
+    "draw_calls": 307
+   },
+   "walk-3718": {
+    "triangles": 225500,
+    "draw_calls": 146
+   }
+  }
+ },
+ "desktop_1280x800": {
+  "after": {
+   "w-2000-2010-from-20th": {
+    "triangles": 2511172,
+    "draw_calls": 2204
+   },
+   "rear-2130": {
+    "triangles": 1667811,
+    "draw_calls": 993
+   },
+   "walk-3478": {
+    "triangles": 3276915,
+    "draw_calls": 2804
+   },
+   "walk-3598": {
+    "triangles": 2371018,
+    "draw_calls": 1441
+   },
+   "walk-3718": {
+    "triangles": 1348722,
+    "draw_calls": 413
+   }
+  },
+  "note": "the BEFORE pass was not taken at desktop: a desktop stand streams for about a minute on the runner, and the layers' cost is the mobile column's, the same scene at the same stands"
+ },
+ "headless_whole_layer": "tools/test_back_yards.mjs on the committed data/back_yards/1904.json: 72 surface meshes in 12 chunks, 6565 triangles, 6881 fixture boxes, 349 crop plants, 101 draws for the whole district",
+ "page_errors": 0
+}

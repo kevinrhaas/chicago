@@ -28929,7 +28929,9 @@ tool follows it.
 lays out each lot's yard (`data/back_yards/1904.json`, drawn by `renderers/web/js/back-yards.js`):
 a back door on the main house's rear wall where its model has none, on a stretch of wall with no
 window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's
-windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace
+windows or a shallow yard leave no room, at grade a step up (since T-3786, where no stretch is
+flat beyond the door's casing or wide enough between two windows, a second look slides the door
+along the wall in 5 cm steps and hangs a 2 ft 8 in leaf where a full one will not fit); its steps and landing; a paved terrace
 at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot
 gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach
 house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side
