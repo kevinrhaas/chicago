@@ -44876,7 +44876,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "behind and beside the 1904 district's houses, the lay prairie 1904 back yards tool lays out each lot's yard (the 1904 back yards data, drawn by the walkthrough's back yards code): a back door on the main house's rear wall where its model has none, on a stretch of wall with no window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and glasshouse ground, and Field's south lawn are left as their own records draw them."
+          "text": "behind and beside the 1904 district's houses, the lay prairie 1904 back yards tool lays out each lot's yard (the 1904 back yards data, drawn by the walkthrough's back yards code): a back door on the main house's rear wall where its model has none, on a stretch of wall with no window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's windows or a shallow yard leave no room, at grade a step up (since, where no stretch is flat beyond the door's casing or wide enough between two windows, a second look slides the door along the wall in 5 cm steps and hangs a 2 ft 8 in leaf where a full one will not fit); its steps and landing; a paved terrace at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and glasshouse ground, and Field's south lawn are left as their own records draw them."
         },
         {
           "label": "What it stands on",
@@ -44904,6 +44904,7 @@
         }
       ],
       "work_refs": [
+        "T-3786",
         "T-3554",
         "T-3488"
       ]
