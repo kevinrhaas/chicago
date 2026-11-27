@@ -1,9 +1,9 @@
 /**
  * T-3798: the /4d/ launch page. Four parts, each optional to the others:
  *
- *   years     choosing a tile sets the hero (its still, date, marker and words) and the Play
- *             button; a second click, Enter or Play goes. The links are plain hrefs, so the
- *             page works without this script.
+ *   years     the page opens on Chicago 4D with no year chosen; choosing a tile sets the hero
+ *             (its still, date, marker and words) and the Play button; a second click, Enter or
+ *             Play goes. The links are plain hrefs, so the page works without this script.
  *   check     the System check runs by itself on arrival: the town's own device profile
  *             (graphics, cores, memory, the short draw test), a download timing, then one
  *             verdict in plain words (launch-check.js). It never writes the town's cache.
@@ -28,42 +28,93 @@ const store = {
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 export const MUSIC_KEY = 'chicago4d.launch.music';
 export const MUSIC_VOLUME_KEY = 'chicago4d.launch.musicVolume';
-export const YEAR_KEY = 'chicago4d.launch.year';
 export const MUSIC_ASSET = 'score-bed-1904-places';
 const SETTINGS_KEY = 'chicago4d.settings';
 const LANG_KEY = 'chicago.lang';
 
-const state = { year: document.body.dataset.selected || '1904', reading: null, cloud: { offered: false, ready: false }, waiting: false, account: null, rights: [] };
+const state = { year: '', reading: null, cloud: { offered: false, ready: false }, waiting: false, account: null, rights: [] };
 
 // ---- Years ---------------------------------------------------------------------------------
+// The page opens on Chicago 4D itself, with no year chosen (owner, 2026-11-27: the page should
+// not decide a year for the player). Calm by design (same day: "not jumpy and busy"):
+//   - with nothing chosen, the backdrop drifts slowly through the four years' stills;
+//   - a mouse resting on a tile fades only the backdrop to that year; the words stay put;
+//   - choosing a year (click, tap, or keyboard focus) crossfades the hero's words, which sit in
+//     space reserved for the longest of them, so nothing below moves;
+//   - Play, a click on the chosen year, or a double click goes there; Escape goes back to none.
 const tiles = $$('.year-tile');
 const stills = $$('.backdrop-still');
-function select(year, { remember = true } = {}) {
-  const tile = tiles.find((t) => t.dataset.year === year);
-  if (!tile) return;
-  state.year = year;
-  document.body.dataset.selected = year;
-  for (const t of tiles) { const on = t === tile; t.classList.toggle('is-selected', on); if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); }
-  const nominal = tile.dataset.state === 'LOCK NOMINAL';
-  $('#hero-coord').textContent = `DESTINATION ${tile.dataset.index} · ${tile.dataset.date}`;
-  const st = $('#hero-state'); st.textContent = tile.dataset.state; st.classList.toggle('nominal', nominal);
-  $('#hero-year').textContent = year;
-  $('#hero-name').textContent = tile.querySelector('.tile-name').textContent;
-  $('#hero-lede').textContent = tile.dataset.lede;
-  $('#play-year').textContent = year;
-  $('#play').href = tile.getAttribute('href');
-  $('#launching-year').textContent = year;
-  // The backdrop crossfades between its two layers.
+const hero = $('.hero-words');
+const home = { coord: $('#hero-coord').textContent, state: $('#hero-state').textContent, title: [...$('#hero-year').childNodes].map((n) => n.cloneNode(true)),
+  name: $('#hero-name').textContent, lede: $('#hero-lede').textContent };
+let chosen = '';
+let backdrop = '';
+function showStill(year) {
+  if (!year || year === backdrop) return;
+  backdrop = year;
   const [a, b] = stills;
   const on = a.classList.contains('is-on') ? a : b, off = on === a ? b : a;
   const src = `walk/portal/stills/${year}.webp`;
-  if (!on.getAttribute('src')?.endsWith(`${year}.webp`)) {
-    off.srcset = `walk/portal/stills/${year}-800.webp 800w, ${src} 1600w`; off.sizes = '100vw'; off.src = src;
-    const show = () => { off.classList.add('is-on'); on.classList.remove('is-on'); };
-    if (off.complete && off.naturalWidth) show(); else off.addEventListener('load', show, { once: true });
-  }
-  if (remember) store.set(YEAR_KEY, year);
+  off.srcset = `walk/portal/stills/${year}-800.webp 800w, ${src} 1600w`; off.sizes = '100vw'; off.src = src;
+  const show = () => { if (backdrop !== year) return; off.classList.add('is-on'); on.classList.remove('is-on'); };
+  if (off.complete && off.naturalWidth) show(); else off.addEventListener('load', show, { once: true });
 }
+function paintPlay(year) {
+  const play = $('#play'), label = $('#play-label');
+  play.dataset.ready = String(!!year);
+  if (year) { const b = document.createElement('b'); b.id = 'play-year'; b.textContent = year; label.replaceChildren('Play ', b); play.href = `${year}/`; }
+  else { label.replaceChildren('Choose a year'); play.href = '#years'; }
+}
+function writeHero(year) {
+  const tile = tiles.find((t) => t.dataset.year === year);
+  const st = $('#hero-state');
+  if (tile) {
+    $('#hero-coord').textContent = `DESTINATION ${tile.dataset.index} · ${tile.dataset.date}`;
+    st.textContent = tile.dataset.state; st.classList.toggle('nominal', tile.dataset.state === 'LOCK NOMINAL');
+    $('#hero-year').replaceChildren(year);
+    $('#hero-name').textContent = tile.querySelector('.tile-name').textContent;
+    $('#hero-lede').textContent = tile.dataset.lede;
+  } else {
+    $('#hero-coord').textContent = home.coord;
+    st.textContent = home.state; st.classList.add('nominal');
+    $('#hero-year').replaceChildren(...home.title.map((n) => n.cloneNode(true)));
+    $('#hero-name').textContent = home.name;
+    $('#hero-lede').textContent = home.lede;
+  }
+  document.body.dataset.selected = tile ? year : '';
+}
+// The words fade out, change, and fade back in; a quick second choice just retargets.
+let heroTimer = 0;
+function crossfadeHero(year) {
+  clearTimeout(heroTimer);
+  if (reduced.matches) { writeHero(year); return; }
+  hero.classList.add('is-changing');
+  heroTimer = setTimeout(() => { writeHero(year); requestAnimationFrame(() => hero.classList.remove('is-changing')); }, 200);
+}
+function choose(year) {
+  if (year === chosen) return;
+  chosen = year;
+  state.year = year;
+  for (const t of tiles) { const on = t.dataset.year === year; t.classList.toggle('is-selected', on); if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); }
+  paintPlay(year);
+  crossfadeHero(year);
+  if (year) showStill(year);
+}
+// A resting mouse previews a year in the backdrop only, after a short pause so a sweep across
+// the rail does not flicker; leaving the rail settles back.
+let hoverTimer = 0;
+const preview = (year) => { clearTimeout(hoverTimer); hoverTimer = setTimeout(() => showStill(year || chosen || backdrop), year ? 140 : 260); };
+// With nothing chosen and nothing under the mouse, the backdrop drifts from year to year.
+let hovering = false;
+let drift = 0;
+if (!reduced.matches) {
+  setInterval(() => {
+    if (chosen || hovering || document.hidden) return;
+    drift = (drift + 1) % tiles.length;
+    showStill(tiles[drift].dataset.year);
+  }, 9000);
+}
+backdrop = tiles[0]?.dataset.year || '';
 function launch(href, year) {
   const veil = $('#launching');
   if (!veil.hidden) return;
@@ -72,30 +123,34 @@ function launch(href, year) {
   musicFade(0, 500);
   setTimeout(() => location.assign(href), reduced.matches ? 0 : 650);
 }
-// A mouse hover previews a year; a click (or a keyboard focus) chooses it, and a click on the
-// chosen year, a double click, or Play goes there. A tap focuses the tile too, so a focus only
-// chooses when it came from the keyboard (:focus-visible), or the first tap would launch.
-let chosen = state.year;
+// A tap focuses the tile too, so a focus only chooses when it came from the keyboard
+// (:focus-visible), or the first tap would launch.
 for (const tile of tiles) {
   tile.addEventListener('click', (e) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
     e.preventDefault();
     if (tile.dataset.year === chosen) launch(tile.getAttribute('href'), tile.dataset.year);
-    else { chosen = tile.dataset.year; select(chosen); }
+    else choose(tile.dataset.year);
   });
   tile.addEventListener('dblclick', (e) => { e.preventDefault(); launch(tile.getAttribute('href'), tile.dataset.year); });
-  tile.addEventListener('focus', () => { if (tile.matches(':focus-visible')) { chosen = tile.dataset.year; select(chosen); } });
-  tile.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') select(tile.dataset.year, { remember: false }); });
+  tile.addEventListener('focus', () => { if (tile.matches(':focus-visible')) choose(tile.dataset.year); });
+  tile.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovering = true; preview(tile.dataset.year); } });
 }
-$('#year-rail').addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') select(chosen, { remember: false }); });
+$('#year-rail').addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovering = false; preview(''); } });
 $('#play').addEventListener('click', (e) => {
   if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
-  e.preventDefault(); launch($('#play').getAttribute('href'), state.year);
+  e.preventDefault();
+  if (chosen) { launch($('#play').getAttribute('href'), chosen); return; }
+  // No year yet: point at the years rather than pick one.
+  const rail = $('#year-rail');
+  rail.scrollIntoView({ block: 'nearest', behavior: reduced.matches ? 'auto' : 'smooth' });
+  rail.classList.remove('is-calling'); void rail.offsetWidth; rail.classList.add('is-calling');
 });
-{
-  const saved = store.get(YEAR_KEY);
-  if (saved && tiles.some((t) => t.dataset.year === saved)) { chosen = saved; select(saved, { remember: false }); }
-}
+addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape' || !chosen || document.querySelector('dialog[open]') || !$('#launching').hidden) return;
+  document.activeElement?.blur?.();
+  choose('');
+});
 // Back from a year with the browser's Back button: the page comes from the cache, veiled.
 addEventListener('pageshow', (e) => { if (e.persisted) $('#launching').hidden = true; });
 

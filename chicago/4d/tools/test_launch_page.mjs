@@ -101,7 +101,8 @@ for (const [, href, year, body] of tiles) {
   }
 }
 for (const f of fs.readdirSync(path.join(PORTAL, 'stills'))) check(f === 'SOURCES.md' || /^(1835|1904|1812|1871)(-800)?\.webp$/.test(f), `stills/${f} is shipped but no tile uses it`);
-check((html.match(/class="year-tile is-selected"/g) || []).length === 1, 'exactly one tile starts selected');
+check(!/year-tile is-selected/.test(html) && /<body[^>]*data-selected=""/.test(html), 'a tile starts selected; the page opens on Chicago 4D with no year chosen');
+check(/id="play" href="#years"/.test(html) && html.includes('Choose a year</span>'), 'Play must start as "Choose a year", pointing at the years');
 for (const id of ['music-toggle', 'settings-open', 'account-open', 'admin-open', 'play', 'play-cloud', 'check', 'check-meter', 'verdict-title', 'hero-verdict', 'settings', 'account', 'admin', 'launching', 's-skins', 'set-detail', 'set-lang', 'set-music', 'admin-body']) {
   check(html.includes(`id="${id}"`), `#${id} is missing`);
 }
@@ -162,11 +163,37 @@ if (process.argv.includes('--browser')) {
       }
       check(read.sideways <= 1, `${name}: the page scrolls sideways by ${read.sideways}px`);
       check(read.tilesShown === 4, `${name}: ${read.tilesShown} tiles shown`);
+      // No year is chosen at first; Play points at the years and goes nowhere.
+      const hero = () => page.evaluate(() => ({ year: document.getElementById('hero-year').textContent, href: document.getElementById('play').getAttribute('href'),
+        state: document.getElementById('hero-state').textContent, label: document.getElementById('play-label').textContent,
+        selected: document.querySelectorAll('.year-tile.is-selected').length }));
+      assert.deepEqual(await hero(), { year: 'Chicago 4D', href: '#years', state: 'STANDING BY', label: 'Choose a year', selected: 0 }, `${name}: the page opens on no year`);
+      const playAt = () => page.evaluate(() => { const r = document.getElementById('play').getBoundingClientRect(); return { y: r.top + scrollY, height: r.height }; });
+      const playBox = await playAt();
+      await page.locator('#play').click();
+      await page.waitForTimeout(300);
+      check(page.url() === base && (await hero()).selected === 0, `${name}: Play with no year chose one or left the page`);
+      if (!phone) {
+        // A resting mouse fades only the backdrop; the words stay.
+        await page.locator('.year-tile[data-year="1812"]').hover();
+        await page.waitForTimeout(500);
+        check((await hero()).year === 'Chicago 4D', `${name}: hovering a tile changed the hero's words`);
+        check(await page.evaluate(() => document.querySelector('.backdrop-still.is-on')?.getAttribute('src')?.endsWith('/1812.webp')), `${name}: hovering 1812 did not fade its still in`);
+      }
       // First click selects, second launches.
       await page.locator('.year-tile[data-year="1835"]').click();
-      const sel = await page.evaluate(() => ({ year: document.getElementById('hero-year').textContent, href: document.getElementById('play').getAttribute('href'),
-        state: document.getElementById('hero-state').textContent, remembered: localStorage.getItem('chicago4d.launch.year') }));
-      assert.deepEqual(sel, { year: '1835', href: '1835/', state: 'LOCK NOMINAL', remembered: '1835' }, `${name}: selecting 1835`);
+      await page.waitForTimeout(600);
+      assert.deepEqual(await hero(), { year: '1835', href: '1835/', state: 'LOCK NOMINAL', label: 'Play 1835', selected: 1 }, `${name}: selecting 1835`);
+      const playAfter = await playAt();
+      check(Math.abs(playAfter.y - playBox.y) < 1 && Math.abs(playAfter.height - playBox.height) < 1, `${name}: choosing a year moved Play from y ${playBox.y} to ${playAfter.y}`);
+      if (!phone) {
+        await page.mouse.move(5, 5);
+        await page.keyboard.press('Escape');
+        await page.waitForTimeout(600);
+        check((await hero()).selected === 0 && (await hero()).year === 'Chicago 4D', `${name}: Escape did not go back to no year`);
+        await page.locator('.year-tile[data-year="1835"]').click();
+        await page.waitForTimeout(600);
+      }
       // Settings write the town's own keys.
       await page.locator('#settings-open').click();
       await page.locator('#set-detail').selectOption('light');
