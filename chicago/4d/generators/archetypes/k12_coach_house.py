@@ -20,6 +20,8 @@ each variant on a specimen lot the way T-2321 will build one behind a named hous
   lean-to        a one-storey lean-to whose single-pitch roof dies into the yard wall
   wing           a flat-roofed connecting wing from the yard wall to the house's rear wall
   hip and deck   (T-1935) instead of the gable and party wall: four walls under a hip cut
+  flat           (T-1937) or four walls carried up past a flat roof as a parapet, for a
+                 building a photograph shows that way (2108 and 2110 Prairie's shared one)
                  off level at a felted deck, for a building the sheet roofs that way
   free gables    (T-1938) a second open gable where the party wall would stand, for a
                  building the sheet draws clear of both its neighbours (`west_end: gable`)
@@ -339,9 +341,17 @@ class Variant:
         # diagonal into every corner, its walls standing clear above the one-storey buildings
         # either side); see hip_deck()
         form = v.get("roof_form", "gable")
-        if form not in ("gable", "hip_deck"):
-            raise ValueError(f"{v['id']}: roof_form {form!r} is neither 'gable' nor 'hip_deck'")
-        if form == "hip_deck":
+        if form not in ("gable", "hip_deck", "flat"):
+            raise ValueError(f"{v['id']}: roof_form {form!r} is not 'gable', 'hip_deck' or 'flat'")
+        if form == "flat":
+            # T-1937: four walls carried up past a flat roof as a parapet (see flat())
+            if "east_end" in v:
+                raise ValueError(f"{v['id']}: a flat roof stands inside four walls, so it takes no east_end")
+            fitted = [k for k in ("ramp", "stair", "lean_to", "wing", "range") if v.get(k)]
+            if fitted:
+                raise ValueError(f"{v['id']}: the kit fits no {', '.join(fitted)} to a flat-roofed coach house")
+            east = "flat"
+        elif form == "hip_deck":
             if "east_end" in v:
                 raise ValueError(f"{v['id']}: a hip_deck roof hips both ends, so it takes no east_end")
             fitted = [k for k in ("ramp", "stair", "lean_to", "wing", "range") if v.get(k)]
@@ -355,17 +365,22 @@ class Variant:
         tan = math.tan(math.radians(pitch))
         dr = R["thickness_m"] / math.cos(math.radians(pitch))
         # tw: what stands at the west end before the alley and yard walls begin (the party
-        # wall's thickness, or nothing where a gable or a hip end stands between them)
-        tw = tp if east != "hip" and west == "party" else 0.0
+        # wall's thickness, or nothing where a gable, a hip end or a flat roof's four walls
+        # stand between them)
+        tw = tp if east not in ("hip", "flat") and west == "party" else 0.0
         self.dims = dict(W=W, D=D, t=t, tp=tp, B=B, E=E, tan=tan, dr=dr, east=east,
                          west="hip" if east == "hip" else west, tw=tw)
         if east == "hip":
             self.hip_deck()
+        elif east == "flat":
+            self.flat()
         else:
             self.gabled()
         self.meta["roof"] = {"E": E, "tan": tan, "D": D, "pitch_deg": pitch}
         if east == "hip":
             self.meta["roof"].update(form=form, deck_m=self.meta["deck"]["y"])
+        if east == "flat":
+            self.meta["roof"].update(form=form, deck_m=self.meta["deck"]["y"], parapet_top=self.meta["deck"]["top"])
 
         # T-2321: the fittings are the variant's to ask for. The specimen asks for all four;
         # a named lot builds only what its own sheet leaves room for
@@ -516,6 +531,38 @@ class Variant:
         cov = self.piece("roof deck covering", "lean_roof", "rooted", host="roof")
         box(cov.mesh, X0 + q + e, X1 - q - e, top - c, top + c, Z0 + q + e, Z1 - q - e)
         self.meta["deck"] = {"inset_m": k, "y": round(top, 4), "x": (X0 + q, X1 - q), "z": (Z0 + q, Z1 - q)}
+
+    def flat(self):
+        """T-1937: four walls carried up past a flat roof as a parapet (the variant's
+        `roof_form` 'flat'), for a building a photograph shows with level wall heads and no
+        roof seen above them from the ground (2108 and 2110 Prairie's shared coach house, the
+        Glessner House photograph of 2014). The alley and yard walls run the building's whole
+        length and the two end walls stand between their inner faces, as under the hip and
+        deck; every wall rises `parapet_m` above the roof's upper face. The roof is one closed
+        slab as thick as the gable's, its upper face level at the eave height E, running into
+        the four walls to half their thickness (so it passes through what carries it and lays
+        no face on theirs), and a tarred-felt covering is let into it clear of the parapets'
+        inner faces. No eave, no gutter on the face: the walls' heads are the building's top."""
+        v, P, d = self.v, self.P, self.dims
+        W, D, t, B, E, dr = (d[k] for k in ("W", "D", "t", "B", "E", "dr"))
+        FP = P["flat"]
+        top = E + FP["parapet_m"]
+        long_ = [(0.0, -B), (W, -B), (W, top), (0.0, top)]
+        self.wall("alley", Frame((-W / 2, 0.0, 0.0), X, Z), long_, t, open_edges={0})
+        self.wall("yard", Frame((W / 2, 0.0, -D), (-1.0, 0.0, 0.0), (0.0, 0.0, -1.0)), long_, t, open_edges={0})
+        end = [(t, -B), (D - t, -B), (D - t, top), (t, top)]
+        self.wall("end_east", Frame((W / 2, 0.0, 0.0), (0.0, 0.0, -1.0), X), end, t,
+                  open_edges={0, 1, 3}, name="east end wall")
+        self.wall("end_west", Frame((-W / 2, 0.0, -D), Z, (-1.0, 0.0, 0.0)), end, t,
+                  open_edges={0, 1, 3}, name="west end wall")
+        h = t / 2
+        roof = self.piece("roof", "roof", "rooted", host="alley wall")
+        box(roof.mesh, -W / 2 + h, W / 2 - h, E - dr, E, -D + h, -h)
+        c, e = FP["covering_m"], FP["covering_in_m"]
+        cov = self.piece("roof covering", "lean_roof", "rooted", host="roof")
+        box(cov.mesh, -W / 2 + t + e, W / 2 - t - e, E - c, E + c, -D + t + e, -t - e)
+        self.meta["deck"] = {"y": round(E + c, 4), "top": round(top, 4), "x": (-W / 2 + t, W / 2 - t),
+                             "z": (-D + t, -t)}
 
     def wall(self, key, frame, outline, thick, open_edges=(), name=None):
         name = name or f"{key} wall"
@@ -867,7 +914,7 @@ class Variant:
         hole += [(W / 2 - tp, 0.0), (W / 2 - tp, ret), (W / 2, ret), (W / 2, -D - ret), (W / 2 - tp, -D - ret),
                  (W / 2 - tp, -D)] if east else [(W / 2, 0.0), (W / 2, -D)]
         hole += [(-W / 2 + tp, -D), (-W / 2 + tp, -D - ret), (-W / 2, -D - ret)]
-        if d["east"] == "hip" or d["west"] == "gable":     # T-1935, T-1938: no party wall, no return
+        if d["east"] in ("hip", "flat") or d["west"] == "gable":   # T-1935, T-1937, T-1938: no party wall, no return
             hole = [(-W / 2, 0.0), (W / 2, 0.0), (W / 2, -D), (-W / 2, -D)]
         wy = self.meta.get("workyard")
         z_far = (wy["z_house"] if wy else -D) - 14.0
@@ -889,7 +936,7 @@ class Variant:
         east = d["east"] == "party"
         gap = WP["clear_of_walls_m"]
         x0, x1 = -W / 2 + d["tw"] + gap, ((W / 2 - tp) if east else W / 2) - gap
-        if d["east"] == "hip":      # T-1935: no party wall: the apron runs the yard wall's length
+        if d["east"] in ("hip", "flat"):      # T-1935: no party wall: the apron runs the yard wall's length
             x0 = -W / 2 + gap
         if self.v.get("lean_to"):
             # T-1932: the apron starts clear of a lean-to on the yard wall (1730's), not under it
@@ -937,6 +984,7 @@ class Variant:
         W, D, E = d["W"], d["D"], d["E"]
         cb = next(o for o in self.meta["openings"] if o["kind"] == "carriage")
         hip = d["east"] == "hip"
+        flat = d["east"] == "flat"
         cs = cb["s0"] - W / 2 + d["tw"] + (cb["s1"] - cb["s0"]) / 2
         far = D + 10.0
         self.meta["stands"] = [
@@ -947,6 +995,8 @@ class Variant:
             ("carriage bay, 3 m, raking", (cs + 1.4, 1.6, 2.7), (cs, 1.7, 0.0), "raking"),
             ("hip and deck from the alley corner, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.8, 0.0),
              "diffuse") if hip else
+            ("parapet and flat roof from the alley corner, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0),
+             (-W / 2, E + 0.2, 0.0), "diffuse") if flat else
             ("west gable and verge from the alley corner, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.8, 0.0),
              "diffuse") if d["west"] == "gable" else
             ("party wall return and coping, 4 m", (-W / 2 - 2.6, E + 2.4, 3.0), (-W / 2, E + 0.4, 0.2), "diffuse"),

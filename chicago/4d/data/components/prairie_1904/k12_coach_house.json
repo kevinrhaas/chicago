@@ -63,6 +63,13 @@
       "confidence": "reconstructed",
       "note": "T-1935: a hip cut off level at a deck, the roof a variant asks for with roof_form 'hip_deck' where its sheet draws a dashed deck line inside the walls with a diagonal into every corner (1912 Prairie's barn on sheet 28), in place of the gable and the party wall: four walls, their tops level at the eave. The variant states deck_inset_m, how far in from the wall lines the deck's edge stands, which must lie inside inset_range_m and leave at least min_deck_m of deck across; the slopes keep the roof's pitch, thickness and eave, so the deck stands deck_inset_m x tan(pitch) over the eave line. The deck is covered in tarred felt, a 0.06 m sheet let 0.03 m into the slab and 0.05 m in from its edge. The felt, the 45-degree hips on plan and the four equal insets are the kit's (reconstructed); a source showing a rail, cresting or skylight on the deck authors it. The kit fits no ramp, stair, lean-to, wing or range to a hipped coach house."
     },
+    "flat": {
+      "parapet_m": 0.45,
+      "covering_m": 0.03,
+      "covering_in_m": 0.05,
+      "confidence": "reconstructed",
+      "note": "T-1937: a flat roof inside four walls carried up past it as a parapet, the roof a variant asks for with roof_form 'flat' where a picture shows the building's wall heads level all round and no roof above them from the ground (2108 and 2110 Prairie's shared coach house, photographed in 2014 before its south half was moved). The walls rise parapet_m above the roof's upper face, the party wall's parapet height; the roof is one slab as thick as the gable's with its upper face at the eave height, run into the walls to half their thickness; a tarred-felt covering 0.06 m thick is let 0.03 m into it, 0.05 m in from the parapets' inner faces. The parapet's height, the slab and the felt are a working interpretation: no picture shows the roof itself, and the fall to its outlet, the coping and the brick corbel under the head are not built."
+    },
     "party_wall": {
       "parapet_m": 0.45,
       "return_m": 0.5,

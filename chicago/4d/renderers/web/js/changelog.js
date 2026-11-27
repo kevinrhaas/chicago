@@ -1,4 +1,46 @@
 export const CHANGELOG = [ // newest first
+  { v: 3295, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2008 Calumet: the Hanford house, built from its 1883 drawing', kind: 'feature',
+    items: [
+      '2008 Calumet Avenue is rebuilt from its rough draft. Read off the 1911 fire-insurance map and the architects\' 1883 drawing, it is now a brownstone house of two storeys over a raised basement under a steep slate roof with gabled dormers. A corner pavilion rises to a tall pointed roof with an iron finial, a columned porch with a balcony stands over the front steps, and two tall stone chimneys rise from the south side.',
+    ] },
+  { v: 3294, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2000, 2010 and 2018 Prairie each get their own yard', kind: 'fix',
+    items: [
+      'The 1911 map draws one lot for these three houses, so their yards were planted as one.',
+      'Each house now has its own front yard, planted round its own front steps.',
+      '2000 and 2018 each gain a back door with its steps and a paved terrace; 2018 also gets a side passage and a path round to the front.',
+      'The lines between the three are our reconstruction, listed under Liberties.',
+    ] },
+  { v: 3293, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '217 East Twentieth: red brick and a copper corner oriel', kind: 'feature',
+    items: [
+      '217 East Twentieth Street is rebuilt from the 1911 fire-insurance map and three photographs of the house that still stands: three storeys of red pressed brick over a sandstone base, a slate roof, and its rear wing.',
+      'Its signature corner oriel now stands at the street front\'s east end, sheathed in copper on a rounded copper underside, with two tiers of curved windows.',
+      'Under the oriel, the two round-headed windows the photographs show; the door sits on a short stoop beside them.',
+    ] },
+  { v: 3292, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2115 Prairie\'s south end drops to a railed roof, matching both photographs', kind: 'improvement',
+    items: [
+      'The Armour house\'s tall slate mansard now ends at its south tower. The narrow end of the front beyond it has a flat roof at the cornice with a low stone balustrade, as the winter photograph and the Tribune\'s 1928 picture both show.',
+      'With that, the house matches both of its photographs, and its picture check is signed off.',
+    ] },
+  { v: 3291, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2021 Prairie gains the narrow window beside its porch', kind: 'improvement',
+    items: [
+      'The High house at 2021 Prairie now has the tall, narrow window between its arched porch and the broad front window, where the old photograph shows it.',
+      'It stands on the same sill as the broad window and its top is level with it, as in the picture.',
+      'Still different from the photograph: the open porch behind the arch, the steps running along the front, the cut corner of the south wing and the low picket fence.',
+    ] },
+  { v: 3290, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: 'The coach house 2108 and 2110 Prairie shared', kind: 'feature',
+    items: [
+      'Behind 2108 and 2110 Prairie now stands one two-storey brick coach house across both lots, flat-roofed behind level brick parapets, 15.5 m along the alley and 10.7 m deep. Mark Kimball built it, and Harriet Rees took its south half when she bought her lot from him in 1888.',
+      'Each half has its own carriage door, loft hatch and doors toward its own house. The south half, 25 by 35 ft and 23 ft high, still survives and was moved with the Rees house in 2014.',
+    ] },
+  { v: 3289, ts: '2026-11-27T16:52:42.108Z', date: 'Nov 27, 2026, 10:52 AM CT', title: 'Younger readers\' tellings caught up with rewritten building notes', kind: 'fix',
+    items: [
+      'Thirty-six of the house notes rewritten this week read again at the 8-10 age: the turret windows, the four chimney pots and the new finials now say what the houses show.',
+      'Tellings of notes that no longer exist are retired, so a card never offers words for a line it does not show.',
+    ] },
+  { v: 3288, ts: '2026-11-27T14:41:32.154Z', date: 'Nov 27, 2026, 8:41 AM CT', title: '2140 Prairie\'s back wing gets its windows', kind: 'improvement',
+    items: [
+      '1904: the Tucker/Smith house\'s three-storey back wing at 2140 Prairie now has windows on all three of its yard sides, with cellar windows under them. Its kitchen door and steps moved to stand between the back windows. The 1911 fire map\'s gravel roof and two fire escapes are noted on the house\'s card but not built, because nothing shows them there by 1904.',
+    ] },
   { v: 3287, ts: '2026-11-27T11:46:55.125Z', date: 'Nov 27, 2026, 5:46 AM CT', title: '2130 Prairie\'s roof now matches its two photographs', kind: 'improvement',
     items: [
       'The Murdoch house at 2130 Prairie loses the tall gable on its street front, which neither old photograph shows.',

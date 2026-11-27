@@ -2939,7 +2939,7 @@ def _brick_belts(front: dict) -> tuple:
     return tuple(out)
 
 
-BAY_FABRICS = ("stone", "brick", "front_stone", "frame")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay
+BAY_FABRICS = ("stone", "brick", "front_stone", "frame", "copper")   # T-2350: front_stone, the K02 front's own fabric; T-2356: frame, a painted timber bay; T-3781: copper, an oriel sheathed in sheet copper (217 E. Twentieth's, its photographs)
 #: T-3562: a cornice stack's sunk panels stop this far over its foot on the cornice
 PANEL_FOOT_OVER_BASE_M = 0.6
 BAY_PIER_M = 0.30          # masonry left between a bay's junction and its wall's corner
@@ -7537,9 +7537,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     for key, xs in (val("front_bays_by_storey") or {}).items():
         k = int(key)
         read_ = [x for x in xs if isinstance(x, dict)]
-        if read_ and (k == 0 or sfo or sfw):
-            raise ParamError(f"front_bays_by_storey[{key}] reads a light off its picture on an upper storey "
+        # T-3634: the principal storey's too (2021's narrow light between the arched porch and
+        # the broad window, the Chicagology halftone), standing on its own floor or over it
+        if read_ and (sfo or sfw):
+            raise ParamError(f"front_bays_by_storey[{key}] reads a light off its picture on a storey "
                              f"of a front laid by front_bays only")
+        if k == 0 and any(float(e.get("sill_m", 0.0)) < floors[0] for e in read_):
+            raise ParamError(f"front_bays_by_storey[0] reads a principal-storey light: its sill stands on the "
+                             f"principal floor ({floors[0]} m) or over it, a basement light being basement_lights'")
         front_read += [(f"front_bays_by_storey[{key}]", "k01.wall.street_front", j, e) for j, e in enumerate(read_)]
         xs = tuple(float(x) for x in xs if not isinstance(x, dict))
         if sfo or not 0 <= k < stories:
@@ -7948,9 +7953,23 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         flat_roof = _flat_crown(flat_roof, float(val("flat_crown_m")), eave)
     if val("flat_balustrade"):
         flat_roof["balustrade"] = _flat_balustrade(val("flat_balustrade"), flat_roof, width, eave)
-    mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
+    # T-3713: a mansard stopped short of a side wall, the strip beyond it railed and flat (2115's):
+    # the mansard, its crown, dormers, deck and stacks are all read on the narrower plan
+    short_end = None
+    if mansard and (val("mansard") or {}).get("short_end"):
+        from .k01_mansard_short import resolve as resolve_short
+        short_end = resolve_short(val("mansard")["short_end"], width=width,
+                                  overhang=float(val("eave_overhang_m")))
+        if any((val("mansard") or {}).get(k) for k in ("walled_ends", "straight", "side_parapet")) \
+                or val("cant_corner"):
+            raise ParamError("mansard.short_end stops a plain mansard's ring short of a wall: no walled ends, "
+                             "straight walls, side parapet or cant corner")
+    mwidth = width - short_end["width_m"] if short_end else width
+    mansard_roof = _mansard_roof(val("mansard"), depth, mwidth, eave, pitch,
                                  float(val("eave_overhang_m")), shaped=bool(val("shaped_gable")),
                                  side_wall=float(val("wall_thickness_side_m"))) if mansard else {}
+    if short_end:
+        mansard_roof["short_end"] = short_end
     # T-2995: a mansard on the street front and part of a side, the rest a straight brick storey
     if mansard and (val("mansard") or {}).get("straight"):
         from .k01_mansard_straight import resolve as resolve_straight
@@ -9595,7 +9614,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"bays: a bay stands in front of the arched group in bay {g['bay']}")
         g["ops"] = tuple(at)
     if (val("mansard") or {}).get("crown"):
-        mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, width, eave,
+        mansard_roof["crown"] = _mansard_crown(val("mansard")["crown"], mansard_roof, bays, depth, mwidth, eave,
                                                pitch, float(val("eave_overhang_m")), val("cant_corner"), chimneys)
         cr = mansard_roof["crown"]
         if cr.get("deck") and not val("mansard").get("deck"):
@@ -9618,7 +9637,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("chimneys.k15 dresses a mansard's or a hip's plain stacks (plan_m); a hip's "
                              "K15 specimens may instead name their variant in chimney_positions")
         _k15_heads(ch["k15"], ch["stacks"], chimneys,
-                   mansard_cover(mansard_roof, depth, width, eave, pitch, float(val("eave_overhang_m")))
+                   mansard_cover(mansard_roof, depth, mwidth, eave, pitch, float(val("eave_overhang_m")))
                    if mansard else hip_cover)
     spp = (mansard_roof or {}).get("side_parapet")
     if spp:
@@ -9646,9 +9665,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             and not (mansard_roof or {}).get("walled_ends"):
         raise ParamError("rainwater.downpipes: a shared pipe stands on a party wall carried up through the mansard")
     if (val("mansard") or {}).get("dormers"):
-        mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
+        mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, mwidth, eave,
                                                    float(val("eave_overhang_m")), chimneys, val("cant_corner"),
-                                                   reach=_mansard_reach(val("rear_wings"), width))
+                                                   reach=_mansard_reach(val("rear_wings"), mwidth))
     if (val("mansard") or {}).get("deck"):
         # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
         from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
@@ -9660,9 +9679,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         railed = set() if not cr_ else set(cr_.get("sides") or ("south", "north", "street", "rear"))
         deck_chimneys = [c for c in chimneys
                          if not ((c["v_m"] - c["plan_m"][1] / 2 < 0.0 and "south" not in railed)
-                                 or (c["v_m"] + c["plan_m"][1] / 2 > width and "north" not in railed))]
+                                 or (c["v_m"] + c["plan_m"][1] / 2 > mwidth and "north" not in railed))]
         try:
-            mansard_roof["deck"] = resolve_deck(dk_, mansard_roof, depth, width,
+            mansard_roof["deck"] = resolve_deck(dk_, mansard_roof, depth, mwidth,
                                                 float(val("eave_overhang_m")), pitch, deck_chimneys, bays=bays)
         except DeckError as e:
             raise ParamError(str(e)) from None
@@ -9671,6 +9690,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""),
                         stone=bool(val("stone_front")), kit=kit)
     _mansard_wings(wings, mansard_roof, eave)
+    if short_end and any((w["roof"] or {}).get("kind") == "mansard" and w["rect"][3] > mwidth + 1e-9 for w in wings):
+        raise ParamError("mansard.short_end: a rear wing under the house's mansard stands behind the mansard, "
+                         "not behind the railed strip")
     if wing_towers:
         wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
                                    float(val("eave_overhang_m")))

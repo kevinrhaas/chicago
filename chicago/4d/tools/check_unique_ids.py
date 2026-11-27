@@ -206,6 +206,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3724); two storeys wear the flat lintel",
     ("data/sidecars/1904/house_2123_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3724)",
+    ("data/structures/hanford_house_2008_calumet.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3790); both storeys wear the corniced lintel",
+    ("data/sidecars/1904/hanford_house_2008_calumet.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3790)",
     ("data/structures/marshall_field_house_1905_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3260); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/marshall_field_house_1905_prairie.json", "by_storey"):
@@ -358,6 +362,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-3729); both storeys wear the flat lintel",
     ("data/sidecars/1904/murdoch_house_2130_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3729)",
+    ("data/structures/house_217_e20th.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3781); its three storeys wear the flat lintel",
+    ("data/sidecars/1904/house_217_e20th.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3781)",
     ("data/structures/flats_2127_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-1931); the flats' two upper storeys take the same flat lintel",
     ("data/sidecars/1904/flats_2127_prairie.json", "by_storey"):
