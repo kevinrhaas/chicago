@@ -250,7 +250,28 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.05,
                 "head": "gable",
-                "gable_pitch_deg": 50
+                "gable_pitch_deg": 60,
+                "ornament": {
+                  "coping": {
+                    "width_m": 0.2,
+                    "proud_m": 0.06,
+                    "back_m": 0.25
+                  },
+                  "crockets": {
+                    "count": 3,
+                    "size_m": 0.15
+                  },
+                  "pinnacles": {
+                    "shaft_m": 0.2,
+                    "rise_m": 0.6,
+                    "cap_m": 0.1,
+                    "spire_m": 0.5
+                  },
+                  "finial": {
+                    "height_m": 0.8,
+                    "radius_m": 0.1
+                  }
+                }
               },
               {
                 "face": "south",
@@ -264,7 +285,28 @@
                 "surround_m": 0.3,
                 "face_setback_m": 0.05,
                 "head": "gable",
-                "gable_pitch_deg": 50
+                "gable_pitch_deg": 60,
+                "ornament": {
+                  "coping": {
+                    "width_m": 0.2,
+                    "proud_m": 0.06,
+                    "back_m": 0.25
+                  },
+                  "crockets": {
+                    "count": 3,
+                    "size_m": 0.15
+                  },
+                  "pinnacles": {
+                    "shaft_m": 0.2,
+                    "rise_m": 0.6,
+                    "cap_m": 0.1,
+                    "spire_m": 0.5
+                  },
+                  "finial": {
+                    "height_m": 0.8,
+                    "radius_m": 0.1
+                  }
+                }
               }
             ],
             "deck": {
@@ -289,7 +331,7 @@
             "chicagology_2140_photo_a",
             "chicagology_2140_photo_b"
           ],
-          "note": "The mansard's lower faces rise about 3.8 m at about 75 degrees in both photographs (the second's curb at about y 345 px over the cornice at about y 610 px between the towers). Its dormers are read where both pictures put them: one over the Prairie front's light column north of the entrance (8.7 m), one over its north bay (17.2 m) and one over the 22nd Street flank's light column (7.2 m from the rear), each under a steep gable; the photographs' tall crocketed gables are T-3771's. Iron cresting round the deck in the second photograph."
+          "note": "The mansard's lower faces rise about 3.8 m at about 75 degrees in both photographs (the second's curb at about y 345 px over the cornice at about y 610 px between the towers). Its dormers are read where both pictures put them: one over the Prairie front's light column north of the entrance (8.7 m), one over its north bay (17.2 m) and one over the 22nd Street flank's light column (7.2 m from the rear), each under a steep gable. T-3771: the gables as both photographs draw them (the second's street dormer x 1080-1200 px, y 230-520 px): pitched steeply, about 60 degrees, a stone coping up each rake with crockets along its back, a square pinnacle engaged at each edge of the face, and a cross-topped finial at the apex (built as K01's turned finial). Iron cresting round the deck in the second photograph."
         },
         "roof_covering": {
           "value": {
@@ -312,14 +354,20 @@
           "note": "K07's tread."
         },
         "stair_landing_depth_m": {
-          "value": 1.2,
-          "confidence": "reconstructed",
-          "note": "K07's landing; the porch and its stair are T-3771's."
+          "value": 2.0,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2140_photo_b"
+          ],
+          "note": "T-3771: the landing under the porch, as deep as the porch stands out (about 2.0 m in the second photograph); the flight falls from its front edge to the walk."
         },
         "stoop_width_m": {
-          "value": 1.8,
-          "confidence": "reconstructed",
-          "note": "K07's stoop before the door; the columned porch and the glass room the sheet draws there are T-3771's."
+          "value": 3.0,
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2140_photo_b"
+          ],
+          "note": "T-3771: the stair as wide as the porch it climbs to, between the porch's plinths in the second photograph, so the paired columns stand on its landing (K01: a porch's columns stand on the stoop's landing)."
         },
         "entrance_bay": {
           "value": 2,
@@ -422,11 +470,64 @@
           "value": {
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 4.8
+              "front_yard_m": 4.8,
+              "hood": {
+                "fabric": "stone",
+                "soffit_m": 4.9,
+                "width_m": 3.0,
+                "out_m": 2.0,
+                "fascia_m": 0.5,
+                "cornice": {
+                  "height_m": 0.2,
+                  "proud_m": 0.15
+                },
+                "brackets": "k08.bay.canted_hooded",
+                "railing": {
+                  "height_m": 0.6,
+                  "post_m": 0.22,
+                  "baluster_m": 0.08,
+                  "pitch_m": 0.2,
+                  "rail_m": [
+                    0.2,
+                    0.1
+                  ]
+                },
+                "railing_fabric": "stone",
+                "columns": {
+                  "diameter_m": 0.28,
+                  "plinth_m": [
+                    0.4,
+                    0.45
+                  ],
+                  "capital_m": 0.4,
+                  "respond_m": 0.12,
+                  "carved": {
+                    "tiers": 2,
+                    "abacus_m": 0.06
+                  },
+                  "cluster": {
+                    "sides": [
+                      "left",
+                      "right"
+                    ],
+                    "count": 2,
+                    "diameter_m": 0.26,
+                    "gap_m": 0.08,
+                    "plinth_m": [
+                      0.75,
+                      0.45
+                    ]
+                  }
+                }
+              }
             }
           },
-          "confidence": "reconstructed",
-          "note": "K07's door and stoop before the door bay, the street line 4.8 m before the front (the sheet: column 770); the porch is T-3771's."
+          "confidence": "inferred",
+          "sources": [
+            "chicagology_2140_photo_b",
+            "chicagology_2140_photo_a"
+          ],
+          "note": "T-3771: the columned porch before the door bay in the second photograph (x 1000-1290 px, y 940-1400 px; the 1898 quarter-century plate draws the same porch square-on): a stone porch about 3.0 m wide and 2.0 m out, carried at each front corner on a pair of turned shafts with carved Corinthian bells (two tiers of leaves under a thin abacus) on one plinth, a plain entablature over them (its soffit about 4.9 m over the walk, the stone frieze about 0.5 m deep under a 0.2 m cornice), and a stone balustrade about 0.6 m high round its flat top, the balcony before the door bay's chamber light. The pair stands side by side along the front, read so off the oblique; neither picture is square to the porch's flank, so a pair standing one behind the other is the alternative reading. Its straight stair falls to the walk toward the street between iron rails (the second photograph's rails, x 1050-1462 px, y 1270-1460 px), the street line 4.8 m before the front (the 1911 sheet: column 770). The first photograph's arched glass canopy over the same door, and the 1911 sheet's one-storey GLASS room there, are the later state that came with the conical spires; the declared 1904 state keeps the flat-topped towers and this porch (L-k01-2140-tucker-3771)."
         },
         "chimneys": {
           "value": {
@@ -440,20 +541,63 @@
             "stacks": [
               {
                 "u_m": 9.6,
-                "v_m": 1.9
+                "v_m": 1.9,
+                "plan_m": [
+                  1.5,
+                  0.8
+                ],
+                "across": "x",
+                "flues": 4,
+                "pot": "long"
               },
               {
                 "u_m": 5.5,
-                "v_m": 16.6
+                "v_m": 16.6,
+                "pot": false,
+                "panelled": false
               }
-            ]
+            ],
+            "k15": {
+              "kit": "data/components/prairie_1904/k15_chimneys.json",
+              "from": "k15.stack.sherman",
+              "omit": [
+                "bands"
+              ],
+              "flues": 2,
+              "corbels": [
+                [
+                  0.15,
+                  0.05
+                ],
+                [
+                  0.2,
+                  0.1
+                ],
+                [
+                  0.2,
+                  0.16
+                ]
+              ],
+              "cap": {
+                "thickness_m": 0.25,
+                "projection_m": 0.2
+              },
+              "panels": {
+                "count": 2,
+                "width_m": 0.08,
+                "depth_m": 0.04,
+                "above_roof_m": 0.5,
+                "under_head_m": 0.3,
+                "min_height_m": 0.6
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2140_photo_a",
             "chicagology_2140_photo_b"
           ],
-          "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). Their pots and panels are T-3771's."
+          "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). T-3771: the tall stack's head as both photographs draw it — a row of four tall ribbed pots running back along the 22nd Street flank (four in the first photograph, x 625-700 px, y 230-330 px; three in the second, x 565-655 px, the fourth behind them), on a corbelled stone head with a dentil course and no bands down the shaft, and two narrow sunk panels down each face (the second photograph, x 580-640 px, y 350-600 px); its plan widened to 1.5 m along the flank to carry the four. The north stack, which no picture shows, stays a plain shaft with no pots or panels (reconstructed)."
         },
         "rainwater": {
           "value": {
