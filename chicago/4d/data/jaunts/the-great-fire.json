@@ -247,13 +247,14 @@
           },
           {
             "extra": "fire_st_pauls_watch_3",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               -258.1,
               -1547.75
             ],
-            "heading": 12.8
+            "heading": 12.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_st_pauls_flee_0",
@@ -409,13 +410,14 @@
           },
           {
             "extra": "fire_parmelee_stables_watch_2",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               219.24,
               -964.42
             ],
-            "heading": 134.8
+            "heading": 134.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_parmelee_stables_flee_0",
@@ -536,13 +538,14 @@
           },
           {
             "extra": "fire_court_house_watch_1",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               563.98,
               -392.86
             ],
-            "heading": 317.8
+            "heading": 317.8,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_court_house_watch_2",
@@ -701,13 +704,14 @@
         "cast": [
           {
             "extra": "fire_sherman_house_watch_0",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               567.69,
               -269.62
             ],
-            "heading": 43.7
+            "heading": 43.7,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_sherman_house_watch_1",
@@ -1172,13 +1176,14 @@
           },
           {
             "extra": "fire_water_works_watch_2",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               1106.57,
               1109.56
             ],
-            "heading": 51.5
+            "heading": 51.5,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_water_works_watch_3",
@@ -1310,13 +1315,14 @@
           },
           {
             "extra": "fire_tribune_watch_1",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               692.97,
               -512.1
             ],
-            "heading": 138.1
+            "heading": 138.1,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_tribune_watch_2",
@@ -1437,13 +1443,14 @@
         "cast": [
           {
             "extra": "fire_field_leiter_watch_0",
-            "dress": "anonymous_working_driver_1904",
+            "dress": "glessner_john_j_1904",
             "name": "A man watching (unnamed)",
             "at": [
               839.81,
               -386.48
             ],
-            "heading": 48.2
+            "heading": 48.2,
+            "wear": "working_coat_1904"
           },
           {
             "extra": "fire_field_leiter_watch_1",

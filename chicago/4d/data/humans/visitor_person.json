@@ -131,11 +131,14 @@
     },
     "1904": {
       "male": [
-        { "id": "working", "label": "Working clothes", "asset": "anonymous_working_driver_1904", "worn": "A sack coat, a waistcoat and trousers, with a cap." },
-        { "id": "shirtsleeves", "label": "Shirtsleeves", "asset": "billings_august_1904_stable_helper", "worn": "A striped shirt in shirtsleeves, black braces, a leather belt and dark trousers." }
+        { "id": "working", "label": "Shirt and waistcoat", "asset": "anonymous_working_driver_1904", "worn": "A collarless shirt, a wool waistcoat and trousers, with a flat cap.", "dress": { "wear": "working_1904" } },
+        { "id": "long_coat", "label": "Long coat and cap", "asset": "nelson_charles_1904_coachman", "worn": "A long wool overcoat with horn buttons over dark trousers and boots, with a flat cap.", "dress": { "wear": "long_coat_1904" } },
+        { "id": "shirtsleeves", "label": "Shirtsleeves", "asset": "billings_august_1904_stable_helper", "worn": "A shirt in shirtsleeves, black braces, a leather belt and dark trousers, with a felt hat.", "dress": { "wear": "shirtsleeves_1904" } }
       ],
       "female": [
-        { "id": "errand", "label": "Shirtwaist and skirt", "asset": "nelson_christine_1904_errand", "worn": "A white shirtwaist with a tall collar and a dark walking skirt, with a straw hat." },
+        { "id": "errand", "label": "Shirtwaist and skirt", "asset": "nelson_christine_1904_errand", "worn": "A white shirtwaist with a tall collar and a walking skirt, with a straw hat.", "dress": { "wear": "errand_1904" } },
+        { "id": "suit", "label": "Jacket and skirt", "asset": "glessner_frances_m_1904", "worn": "A tailored jacket and gored skirt of one cloth over a white shirtwaist, with a trimmed hat.", "dress": { "wear": "suit_1904" } },
+        { "id": "work_dress", "label": "Work dress and apron", "asset": "williamson_mattie_1904_cook_study", "worn": "A plain long-sleeved work dress with a standing collar, under a white bib apron.", "dress": { "wear": "work_dress_1904" } },
         { "id": "maid", "label": "House dress", "asset": "reynolds_mary_1904_maid", "worn": "A black long-sleeved dress with a high neck, white collar and cuffs." },
         {"id": "riding_habit", "label": "Riding habit", "asset": "nelson_christine_1904_errand", "worn": "A dark navy habit, its jacket over the collar and tie of a shirtwaist and its long safety skirt of one cloth, and a low black hard hat.", "dress": {"pieces": {"errand_shirtwaist": [0.011, 0.014, 0.03]}, "colours": {"garment_lower__errand_skirt_navy": [0.011, 0.014, 0.03]}, "hide": ["headwear_errand_boater", "headwear_errand_boater_ribbon", "market_basket", "basket_cloth"], "hat": {"kind": "round", "rgb": [0.01, 0.01, 0.01], "band": [0.004, 0.004, 0.004], "crown_m": 0.11, "brim_m": 0.045, "taper": 0.98, "roll": 0.9, "droop": 0}}}
       ]

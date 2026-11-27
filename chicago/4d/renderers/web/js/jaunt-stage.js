@@ -247,7 +247,8 @@ export function createJauntStage({ humans, parent = null, resolve = () => null, 
     }
     if (c.extra && c.dress) {
       return { instance: { ...base, id: `stage:${stopKey}:${i}:${c.extra}`, scene: String(c.scene ?? ''), placement,
-        appearance: { asset_id: c.dress, ...(c.dress_of ? { dress_of: c.dress_of } : {}) }, provenance: null }, person: null };
+        appearance: { asset_id: c.dress, ...(c.dress_of ? { dress_of: c.dress_of } : {}), ...(c.wear !== undefined ? { wear: c.wear } : {}),
+          ...(c.look ? { look: c.look } : {}) }, provenance: null }, person: null };
     }
     return null;
   }

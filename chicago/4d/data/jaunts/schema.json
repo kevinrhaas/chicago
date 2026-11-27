@@ -905,6 +905,18 @@
                     "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
                     "maxLength": 90
                   },
+                  "wear": {
+                    "description": "T-3553: how the figure's plain clothes are worn, a wear of renderers/web/js/human-wear.js WEARS (its colours, what is set aside, its hat).",
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 60
+                  },
+                  "look": {
+                    "description": "T-3553: one of that wear's colourings (WEARS[wear].looks[].id); left out, the figure's own key picks one.",
+                    "type": "string",
+                    "pattern": "^[a-z0-9_]+$",
+                    "maxLength": 40
+                  },
                   "name": {
                     "type": "string",
                     "maxLength": 120

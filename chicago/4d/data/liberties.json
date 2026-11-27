@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1256,
+  "count": 1257,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -82309,6 +82309,44 @@
         "T-1909",
         "T-3785",
         "T-1945"
+      ]
+    },
+    {
+      "id": "L-wear-3553",
+      "title": "Plain working clothes worn in the colours of the photographs, a flat cap, and the visitor's dress in colourings",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-27, of the 1904 working clothes on offer for the visitor's own person: *\"That outfit as described does not look very good, when I typed that Description this is image I got, provide better coloring and more options and more people with more clothing options\"*, and *\"And fix any people with that clothes\"*, with a photograph of a working man of the time in a dark sack coat, waistcoat, collarless shirt, dark trousers and a flat cap. The body every 1904 working man, groom and watcher wears (anonymous working driver 1904) came in a tan shirt and a pale grey waistcoat over pale trousers, with no hat, so at any distance it read as one knit suit. It is now worn as such a man is photographed (the walkthrough's human wear code working 1904): a collarless shirt gone to oatmeal, a dark wool waistcoat and trousers and a flat cap (the walkthrough's human hats code `cap`), in one of four colourings (brown, charcoal, tweed, navy) that each wearer's own key picks, so a crowd is not one suit. A coachman in livery keeps his own hat. The watchers of the Great Fire and the men at the Eighteenth Street bronze wear the coat and cap of the photograph (working coat 1904: the 1904 gentleman's body with its frock coat's skirts, tie and derby set aside, so its body is a short coat, in a working man's wool). The visitor may choose among more dresses in 1904 (a long overcoat and cap on the coachman's body with its livery made plain; a tailored jacket and skirt on the 1904 lady's body, never in her own black; a work dress and bib apron on the cook's study body), each in colourings of its own, shown drawn in the character creator."
+        },
+        {
+          "label": "Not invented",
+          "text": "nothing about anybody. Every body is one the town's own people are already drawn with, and no garment of any person is claimed."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "the colours and the cap's cut are reconstructed, the general run of working dress in photographs of Chicago streets of about 1890 to 1910, not read from any one record; the short coat is a frock coat's body without its skirts, not a sack coat's own cut; the colourings are a selection. The flat cap is drawn only on the figure, not on the far crowd's picture of it."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a sack coat body of its own to draw; the owner wanting other colours or dresses on offer."
+        },
+        {
+          "label": "Review",
+          "text": "the walkthrough's human wear code, the walkthrough's human hats code, the walkthrough's humans code, the walkthrough's crowd code, the visitor person data, the the great fire data, the bronze at eighteenth data, the riding test, the visitor person test, the person creator test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {

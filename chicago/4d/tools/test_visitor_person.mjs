@@ -266,11 +266,24 @@ ok(V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30
     && base.years['1904'].female.outfit !== 'riding_habit', 'patchedChoice lays a patch on a copy: the year\'s dress under the body, the rest on the person');
   ok(dressed.saved === 's0' && P.patchedChoice(base, { outfit: 'nonesuch' }, '1904', catalog).years['1904'].female.outfit === base.years['1904'].female.outfit,
     'and keeps the stamp, and a dress the year has not falls back');
+  // Colourings (Kevin, 2026-11-27: "provide better coloring and more options"): an outfit's looks,
+  // kept by id across outfits, carried in the record for humans.js to wear.
+  const man = P.normalChoice({ sex: 'male' }, catalog);
+  const working = catalog.outfits['1904'].male.find((o) => o.id === 'working');
+  ok(P.outfitLooks(working).length >= 4 && P.outfitLooks(working).every((l) => l.id && l.label && l.swatch?.length === 3), 'the working clothes come in colourings, each with a swatch');
+  ok(catalog.outfits['1904'].male.length >= 3 && catalog.outfits['1904'].female.length >= 5, '1904 offers more dress to each body');
+  const navy = P.patchedChoice(man, { outfit: 'working', look: 'navy' }, '1904', catalog);
+  ok(P.personRecord(navy, '1904', catalog).dress?.wear === 'working_1904' && P.personRecord(navy, '1904', catalog).dress.look === 'navy', 'a colouring chosen is worn (the record\'s dress names it)');
+  ok(P.yearChoice(P.patchedChoice(navy, { outfit: 'long_coat' }, '1904', catalog), '1904', catalog).look?.id === 'navy', 'and kept by another outfit that has it');
+  ok(P.yearChoice(P.patchedChoice(navy, { outfit: 'shirtsleeves' }, '1904', catalog), '1904', catalog).look?.id === 'stripe', 'one that has it not opens in its first');
+  ok(!('look' in P.normalChoice({ ...navy, years: { 1904: { male: { outfit: 'working', look: 'Bad Look!' } } } }, catalog).years['1904'].male), 'a stray colouring is dropped');
+  ok(P.yearChoice(navy, '1812', catalog).look === null, 'a dress worn as drawn has no colouring');
   let seed = 7; const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
   const lib = { ...catalog, photoFaces: P.photoCatalog(JSON.parse(read('assets/humans/web/photo_faces/pilot/runtime.json')), new URL('https://example.invalid/r.json')) };
   const rolls = Array.from({ length: 24 }, () => P.randomChoice(base, '1904', lib, rand));
   ok(rolls.every((r) => r.sex === 'female' && JSON.stringify(P.normalChoice(r, lib)) === JSON.stringify(r)), 'randomChoice keeps the body style and gives a choice the renderer draws');
   ok(new Set(rolls.map((r) => `${r.age}/${r.complexion}/${r.hair_colour}/${r.face}`)).size > 18, 'rolls differ');
+  ok(new Set(rolls.map((r) => r.years['1904'].female.look).filter(Boolean)).size > 2, 'and roll the colouring too');
   ok(rolls.some((r) => r.face !== 'auto' && lib.photoFaces.faces.some((f) => f.id === r.face)), 'a roll wears a photographed face of the library');
   const times = ['t1', 't2', 't3'];
   const store = new Map();

@@ -51,6 +51,7 @@ import * as THREE from 'three';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { enuToWorld } from './terrain.js';
 import { COMPLEXION_TINT, dressInSeason } from './human-looks.js';
+import { wornDress } from './human-wear.js';
 import { HAIR_COLOURS } from './human-hair-styles.js';
 
 /** Middle tier, metres from the eye: [near edge, far edge], by scene detail. */
@@ -909,15 +910,16 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
    * A person's own tints: skin by their complexion, hair by its colour, a shade of cloth; and
    * (T-3553) their own dress for the season, as the body's slots (`dressSlots`) and as the
    * card's deltas from the body's colours. `dressOf` is whose dress they wear (a staged
-   * figure's `dress_of`).
+   * figure's `dress_of`); `actor` their figure (or as much of one as the day lists), for the
+   * plain clothes of their body as humans.js puts them on (human-wear.js wornDress).
    */
-  function looksOf(key, body, dressOf = key) {
+  function looksOf(key, body, dressOf = key, actor = null) {
     const looks = kit?.persons?.[key]?.looks ?? null;
     const skin = COMPLEXION_TINT[looks?.complexion?.drawn] ?? DEFAULT_SKIN;
     const hair = HAIR_COLOURS[looks?.hair?.drawn] ?? DEFAULT_HAIR;
     const scale = Number.isFinite(looks?.height_scale) ? Math.min(1.08, Math.max(0.92, looks.height_scale)) : 0.97 + hash01(`h:${key}`) * 0.06;
     const season = humans?.season ?? 'summer';
-    const slots = body ? dressSlots(body, kit?.persons?.[dressOf]?.dress ?? null, { season, skin, hair }) : null;
+    const slots = body ? dressSlots(body, wornDress(kit?.persons?.[dressOf]?.dress ?? null, actor), { season, skin, hair }) : null;
     let card = null;
     if (slots) {
       card = new Float32Array(CARD_SLOTS * 3);
@@ -1167,7 +1169,8 @@ export function createCrowd({ humans, days = null, renderer = null, tier = 'full
           groundMs += performance.now() - g0;
           p.y = Number.isFinite(h) ? h : 0; p.ye = p.e; p.yn = p.n;
         }
-        if (!p.look || (!p.look.looked && kit) || p.look.body !== b.body || p.look.season !== (humans?.season ?? 'summer')) p.look = looksOf(p.key, b.body, p.dressOf ?? p.key);
+        if (!p.look || (!p.look.looked && kit) || p.look.body !== b.body || p.look.season !== (humans?.season ?? 'summer')) p.look = looksOf(p.key, b.body, p.dressOf ?? p.key,
+          p.actor ?? { personId: p.key, instance: { appearance: { asset_id: p.assetId } } });
         const yaw = Math.PI - ((p.heading ?? 0) * Math.PI) / 180;
         // The walk's frame: the stride's phase by the ground covered.
         p.cycle = ((p.cycle ?? p.phase) + (p.walk ? (PACE_M_S * step) / STRIDE_M : 0)) % 1;

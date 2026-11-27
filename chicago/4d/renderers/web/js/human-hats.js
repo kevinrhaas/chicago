@@ -102,15 +102,18 @@ function trimSpec(t, clamp) {
 /** A hat's spec, with its numbers held to what a hat of 1812 (or a lady's of 1904) could be. */
 export function hatSpec(hat) {
   if (!hat || typeof hat !== 'object') return null;
-  const kind = ['round', 'straw', 'knit', ...LADY_HATS].includes(hat.kind) ? hat.kind : null;
+  const kind = ['round', 'straw', 'knit', 'cap', ...LADY_HATS].includes(hat.kind) ? hat.kind : null;
   if (!kind || !Array.isArray(hat.rgb) || hat.rgb.length !== 3) return null;
   const clamp = (v, lo, hi, d) => (Number.isFinite(v) ? Math.min(hi, Math.max(lo, v)) : d);
   const lady = LADY_HATS.includes(kind);
   return {
     kind, rgb: hat.rgb, band: Array.isArray(hat.band) && hat.band.length === 3 ? hat.band : null,
-    crown: lady ? clamp(hat.crown_m, .03, .12, { picture: .065, sailor: .07, toque: .085 }[kind]) : clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
-    brim: kind === 'toque' ? 0 : lady ? clamp(hat.brim_m, .03, .17, kind === 'sailor' ? .065 : .12) : clamp(hat.brim_m, 0, .13, kind === 'straw' ? .085 : .06),
+    crown: lady ? clamp(hat.crown_m, .03, .12, { picture: .065, sailor: .07, toque: .085 }[kind]) : kind === 'cap' ? clamp(hat.crown_m, .03, .08, .05) : clamp(hat.crown_m, .04, .19, kind === 'straw' ? .085 : .13),
+    brim: kind === 'toque' ? 0 : lady ? clamp(hat.brim_m, .03, .17, kind === 'sailor' ? .065 : .12) : kind === 'cap' ? clamp(hat.brim_m, .03, .07, .05) : clamp(hat.brim_m, 0, .13, kind === 'straw' ? .085 : .06),
     taper: clamp(hat.taper, .78, 1.12, kind === 'sailor' ? 1 : .94),
+    // A flat cap's crown: how far its top is drawn forward over the peak, and how full it is.
+    pull: kind === 'cap' ? clamp(hat.pull_m, 0, .05, .028) : 0,
+    puff: kind === 'toque' ? clamp(hat.puff, 0, .5, .25) : kind === 'cap' ? clamp(hat.puff, 0, .25, .1) : 0,
     roll: clamp(hat.roll, 0, 1, 0),
     droop: clamp(hat.droop, -.4, .6, 0),
     tilt: clamp(hat.tilt, -.03, .03, 0),
@@ -119,7 +122,6 @@ export function hatSpec(hat) {
     // side of the brim is turned up (+ her left, - her right), how wide a toque puffs out.
     perch: lady ? clamp(hat.perch_m, 0, .06, .03) : 0,
     cock: lady ? clamp(hat.cock, -1, 1, 0) : 0,
-    puff: kind === 'toque' ? clamp(hat.puff, 0, .5, .25) : 0,
     finish: lady ? clamp(hat.finish, .3, 1, kind === 'sailor' ? .7 : kind === 'toque' ? .55 : .8) : null,
     trim: lady ? trimSpec(hat.trim, clamp) : null,
   };
@@ -186,8 +188,11 @@ function lathe(spec, pts, f, seg) {
       const u = s / Math.max(1, steps);
       brimRows.push(ringAt((th, k) => {
         const side = Math.sin(th) ** 2, ends = Math.cos(th) ** 2;
-        const out = spec.brim * u * (1 - .12 * ends * (spec.kind === 'straw' ? 0 : 1));
+        // A flat cap's peak is before only: full ahead, gone by the temples.
+        const peak = spec.kind === 'cap' ? Math.max(0, Math.cos(th)) ** 2.2 : 1;
+        const out = spec.brim * u * peak * (1 - .12 * ends * (spec.kind === 'straw' || spec.kind === 'cap' ? 0 : 1));
         let lift = spec.roll * spec.brim * .55 * side * u * u - spec.droop * spec.brim * .5 * ends * u ** 1.5;
+        if (spec.kind === 'cap') lift -= .3 * spec.brim * peak * u ** 1.4;
         // T-3553: a picture hat's one side turned up, and its edge gently waved.
         if (spec.cock) lift += Math.abs(spec.cock) * spec.brim * .75 * Math.max(0, Math.sign(spec.cock) * Math.sin(th)) ** 2 * u ** 1.5;
         if (spec.kind === 'picture') lift += .006 * Math.sin(th * 5 + 1) * u * u;
@@ -206,10 +211,18 @@ function lathe(spec, pts, f, seg) {
       groupsAt.push(index.length);
     } else strip(base, bandTop);
     const crownRows = [bandTop];
-    const crownSteps = spec.kind === 'toque' ? [.2, .4, .6, .78, .92, 1] : [.55, .85, 1];
+    const crownSteps = spec.kind === 'toque' ? [.2, .4, .6, .78, .92, 1] : spec.kind === 'cap' ? [.4, .75, 1] : [.55, .85, 1];
     for (const t of crownSteps) {
       crownRows.push(ringAt((th, k) => {
         const y = bandY(th) + bandH + (H - bandH) * t;
+        if (spec.kind === 'cap') {
+          // A flat cap: the cloth bellies out a little over the band, its top lies near flat
+          // and is drawn forward over the peak (lower before than behind).
+          const full = 1 + spec.puff * Math.sin(Math.PI * Math.min(1, t * .9)) * (.6 + .4 * Math.cos(th));
+          const r = ring0[k] * full * (t === 1 ? .82 : 1);
+          const flat = (front + back) / 2 + H - .012 * Math.cos(th);
+          return [r, t === 1 ? flat : y, spec.pull * t * t];
+        }
         if (spec.kind === 'toque') {
           // Ruched silk puffed out round the hair and drawn in over the top.
           const puff = 1 + spec.puff * Math.sin(Math.PI * Math.min(1, t * 1.15)) + .03 * Math.sin(th * 9 + t * 7);
@@ -220,8 +233,8 @@ function lathe(spec, pts, f, seg) {
       }));
     }
     for (let j = 0; j + 1 < crownRows.length; j++) strip(crownRows[j], crownRows[j + 1]);
-    const topY = (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : spec.kind === 'sailor' ? 0 : .003);
-    fan(crownRows[crownRows.length - 1], P(0, topY, cz - .003));
+    const topY = (front + back) / 2 + H + (spec.kind === 'straw' ? .008 : spec.kind === 'sailor' ? 0 : spec.kind === 'cap' ? -.002 : .003);
+    fan(crownRows[crownRows.length - 1], P(0, topY, cz - .003 + spec.pull));
     if (!spec.band) groupsAt.push(index.length);
   }
   // T-3553: the trimming, as its own small mesh laid on the band and crown.
@@ -358,7 +371,7 @@ function trimming(spec, { ring0, bandY, cz, H, f, seg }) {
 }
 
 /** The finish of each kind's material: felt is matte, straw a little glossier. */
-const FINISH = { round: .9, straw: .72, knit: .97, picture: .8, sailor: .7, toque: .55 };
+const FINISH = { round: .9, straw: .72, knit: .97, cap: .95, picture: .8, sailor: .7, toque: .55 };
 
 /**
  * Put `hat` (a dress record's spec) on the figure at `root`. Returns { mesh, materials } or null

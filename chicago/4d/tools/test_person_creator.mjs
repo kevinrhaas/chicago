@@ -100,6 +100,18 @@ try {
     }
     ok(tiles.body === 6 && tiles.skin >= 14 && tiles.hair >= 13 && tiles.clothes >= 2 && tiles.face > 20,
       `${name}: every category is picture choices (${Object.entries(tiles).map(([k, v]) => `${k} ${v}`).join(', ')})`);
+    // Colourings (Kevin, 2026-11-27: "provide better coloring and more options"): the outfit's,
+    // drawn, under the outfits; one picked is worn at once.
+    await p.click('.pc-tab[data-tab="clothes"]');
+    await p.waitForTimeout(150);
+    const colours = p.locator('.pc-panel [role="radiogroup"][aria-label="Colour"] [role="radio"]');
+    ok(await colours.count() >= 4 && await p.locator('.pc-panel [role="radiogroup"][aria-label="Colour"] canvas.pc-pic').count() === await colours.count(),
+      `${name}: the working clothes' colourings, each drawn (${await colours.count()})`);
+    const look = await p.evaluate(() => t.person.year('1904').look?.id);
+    await p.click('.pc-panel [role="radiogroup"][aria-label="Colour"] [role="radio"][aria-checked="false"] >> nth=0');
+    ok(await p.evaluate((l) => t.person.year('1904').look?.id !== l && t.person.record('1904').dress?.look === t.person.year('1904').look?.id, look),
+      `${name}: a colouring picked is the person's at once`);
+    await p.click('.pc-undo');
     // The pictures: the open category's only; the person's own from their own figure.
     const seen = await p.evaluate(() => t.calls.filter((c) => c.kind === 'preview').map((c) => c.record.looks?.face_pick ?? c.record.sex));
     ok(seen.length > 0, `${name}: option pictures are drawn (${seen.length})`);

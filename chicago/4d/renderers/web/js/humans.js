@@ -70,6 +70,9 @@ import { fitFrockCoat } from './human-frockcoat.js';
 import { fitGown } from './human-gown.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
+// T-3553 (Kevin, 2026-11-27): a recorded dress is worn over the plain clothes of its body as the
+// town wore them, each wearer in a colouring of their own (human-wear.js).
+import { wornDress } from './human-wear.js';
 // T-3627: the adults jaunts' fight motions (human-fight.js) load with the outing, not with the
 // town; main.js hands them in with useFightMotions, and every hand reads them as it moves.
 let fightModule = null;
@@ -765,7 +768,7 @@ export class HumanActor {
     // T-3506: their own cloth colours and pieces worn (human-looks.js); T-3553: for the
     // season, with its pattern and trimming (human-finery.js) on their own clones. A jaunt's
     // unnamed staged figure may wear a carded person's dress (`dress_of`).
-    const recorded = variation?.persons?.[this.instance.appearance?.dress_of ?? this.personId]?.dress ?? null;
+    const recorded = wornDress(variation?.persons?.[this.instance.appearance?.dress_of ?? this.personId]?.dress ?? null, this);
     const dress = dressInSeason(recorded, dressSeason);
     if (dress) looked.push(...dressCloth(scene, dress));
     if (dress?.finery) looked.push(...dressFinery(scene, dress.finery, looked));

@@ -37,6 +37,7 @@
  * and the side saddle read it as they read anyone's.
  */
 import { SIGN_IN } from './sign-in-config.js';
+import { WEARS } from './human-wear.js';
 
 export const VISITOR_PERSON_ID = 'visitor:you';
 export const CHOICE_VERSION = 1;
@@ -48,6 +49,20 @@ const yearKey = (year, catalog) => {
   const y = String(year ?? '');
   return (catalog.years ?? []).includes(y) ? y : null;
 };
+
+/**
+ * The colourings an outfit is offered in (Kevin, 2026-11-27: "provide better coloring and more
+ * options"): the looks of the wear its dress names (human-wear.js WEARS), each { id, label,
+ * swatch } with `swatch` the linear rgb of its main cloth. None for an outfit worn as drawn.
+ */
+export function outfitLooks(outfit) {
+  const w = WEARS[outfit?.dress?.wear];
+  if (!w?.looks?.length) return [];
+  return w.looks.map((l) => {
+    const c = { ...w.base?.colours, ...l.colours };
+    return { id: l.id, label: l.label, swatch: Object.values(l.colours ?? {})[0] ?? Object.values(c)[0] ?? null };
+  });
+}
 
 /** A body type of the catalog (`sexes`) by id. */
 export const bodyType = (catalog, id) => byId(catalog.sexes, id);
@@ -98,6 +113,10 @@ export function normalChoice(raw, catalog) {
         outfit: pickId(wardrobe(catalog, 'outfits', y, s), h.outfit, start.outfit ?? null),
         cut: pickId(wardrobe(catalog, 'cuts', y, s), h.cut, start.cut ?? null),
       };
+      // The colouring, kept by id across outfits (Charcoal stays Charcoal) and read against the
+      // outfit's own looks when worn (yearChoice); a stray id is dropped here.
+      if (typeof h.look === 'string' && /^[a-z0-9_]{1,40}$/.test(h.look)) out.years[y][s].look = h.look;
+      else delete out.years[y][s].look;
     }
   }
   return out;
@@ -199,8 +218,8 @@ export function faceGroupOf(groups, face, ageId) {
   return (groups.find((g) => g.id === ageId) ?? groups[0])?.id ?? null;
 }
 
-/** The year's own entry of the choice: { sex (the body type), body (the outfit's), outfit, cut }
- * with the catalog's records. */
+/** The year's own entry of the choice: { sex (the body type), body (the outfit's), outfit, cut,
+ * look (its colouring, outfitLooks; null for one worn as drawn) } with the catalog's records. */
 export function yearChoice(choice, year, catalog) {
   const y = yearKey(year, catalog) ?? (catalog.years ?? [])[0];
   const sex = choice.sex;
@@ -209,7 +228,9 @@ export function yearChoice(choice, year, catalog) {
   const cuts = wardrobe(catalog, 'cuts', y, sex);
   const start = bodyType(catalog, sex)?.start?.[y] ?? {};
   const outfit = byId(outfits, mine.outfit) ?? byId(outfits, start.outfit) ?? first(outfits);
-  return { year: y, sex, body: outfit?.body ?? sex, outfit, cut: byId(cuts, mine.cut) ?? byId(cuts, start.cut) ?? first(cuts) };
+  const looks = outfitLooks(outfit);
+  return { year: y, sex, body: outfit?.body ?? sex, outfit, cut: byId(cuts, mine.cut) ?? byId(cuts, start.cut) ?? first(cuts),
+    look: byId(looks, mine.look) ?? first(looks) };
 }
 
 /** The body the visitor wears in `year`. */
@@ -222,7 +243,7 @@ export function personAsset(choice, year, catalog) {
  * human-variation.js reads `looks.face_pick`). Pure.
  */
 export function personRecord(choice, year, catalog) {
-  const { sex: type, body: sex, cut, outfit, year: y } = yearChoice(choice, year, catalog);
+  const { sex: type, body: sex, cut, outfit, look, year: y } = yearChoice(choice, year, catalog);
   const age = byId(catalog.ages, choice.age)?.years ?? 35;
   const facial = [...(byId(catalog.facial?.[type], choice.facial)?.wears ?? []), ...(catalog.brows?.[type] ?? [])];
   const graded = (value) => ({ value, drawn: value, grade: 'reconstructed' });
@@ -246,8 +267,8 @@ export function personRecord(choice, year, catalog) {
       grade: 'reconstructed', basis: PERSON_BASIS, liberty: catalog.liberty,
     },
     // A dress worn on its body in other colours, pieces set aside, a hat of its own (human-looks.js
-    // dressCloth, human-hats.js): the riding habits.
-    ...(outfit?.dress ? { dress: outfit.dress } : {}),
+    // dressCloth, human-hats.js): the riding habits; or a wear and its colouring (human-wear.js).
+    ...(outfit?.dress ? { dress: { ...outfit.dress, ...(look ? { look: look.id } : {}) } } : {}),
   };
 }
 
@@ -263,13 +284,13 @@ export async function layPersonRow(humans, record, personId = VISITOR_PERSON_ID)
 
 /**
  * A choice with `patch` laid on it, as `set` lays it (Kevin, 2026-11-27, the character creator:
- * its previews draw a choice before it is made). Fields of the year's dress (`outfit`, `cut`)
+ * its previews draw a choice before it is made). Fields of the year's dress (`outfit`, `cut`, `look`)
  * go to `year`'s entry for the choice's body type. Pure: returns a new, normal choice.
  */
 export function patchedChoice(choice, patch, year, catalog, saved = choice?.saved ?? '') {
   const next = structuredClone(choice);
   for (const [k, v] of Object.entries(patch ?? {})) {
-    if (k === 'outfit' || k === 'cut') {
+    if (k === 'outfit' || k === 'cut' || k === 'look') {
       const y = yearKey(year, catalog);
       if (y) next.years[y][next.sex] = { ...next.years[y][next.sex], [k]: v };
     } else next[k] = v;
@@ -293,6 +314,7 @@ export function randomChoice(choice, year, catalog, rand = Math.random) {
     hair_colour: pick(catalog.hair_colours)?.id, facial: pick(catalog.facial?.[sex])?.id,
     outfit: pick(wardrobe(catalog, 'outfits', y, sex))?.id, cut: pick(wardrobe(catalog, 'cuts', y, sex))?.id,
   };
+  patch.look = pick(outfitLooks(byId(wardrobe(catalog, 'outfits', y, sex), patch.outfit)))?.id ?? null;
   const faces = photoFaceChoices(catalog, sex);
   patch.face = faces.length && rand() >= 0.25 ? pick(faces).id : 'auto';
   return patchedChoice(choice, patch, y, catalog);
@@ -377,7 +399,7 @@ export function createVisitorPerson({ catalog, storage = null, account = null, f
   const api = {
     catalog,
     get choice() { return choice; },
-    /** Change the choice. Fields of the year's dress (`outfit`, `cut`) need `year`. `sex` is the body type. */
+    /** Change the choice. Fields of the year's dress (`outfit`, `cut`, `look`) need `year`. `sex` is the body type. */
     set(patch = {}, year = null) {
       choice = patchedChoice(choice, patch, year, catalog, now());
       keep(choice);

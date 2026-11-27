@@ -18,7 +18,7 @@
  * built one at a time after the person is drawn, only for the category open, each kept until the
  * choice it shows changes. Opened from the You tab (person-settings.js) and loaded on that click.
  */
-import { faceGroups, faceGroupOf, wardrobe, patchedChoice, randomChoice, personRecord, personAsset } from './visitor-person.js';
+import { faceGroups, faceGroupOf, wardrobe, patchedChoice, randomChoice, personRecord, personAsset, outfitLooks } from './visitor-person.js';
 import { HAIR_COLOURS } from './human-hair-styles.js';
 
 /* ------------------------------------------------------------ the pieces */
@@ -94,11 +94,12 @@ export function summaryOf(catalog, choice, yc) {
   return [lab(catalog.sexes, choice.sex), lab(catalog.ages, choice.age), lab(catalog.complexions, choice.complexion),
     lab(catalog.eyes, choice.eyes) && `${lab(catalog.eyes, choice.eyes).toLowerCase()} eyes`,
     lab(catalog.hair_colours, choice.hair_colour) && `${lab(catalog.hair_colours, choice.hair_colour).toLowerCase()} hair`,
-    yc?.outfit?.label].filter(Boolean).join(' · ');
+    yc?.outfit?.label && (yc.look ? `${yc.outfit.label}, ${yc.look.label.toLowerCase()}` : yc.outfit.label)].filter(Boolean).join(' · ');
 }
 
-/** A choice's key for its pictures: everything that changes how it is drawn (not when it was kept). */
-export const choiceKey = (choice) => JSON.stringify({ ...choice, saved: '' });
+/** A choice's key for its pictures in `year`: what is drawn (the body and the people layer's row),
+ * so two choices drawn alike share it (an outfit's first colouring, named or not). */
+export const choiceKey = (choice, year, catalog) => JSON.stringify([personAsset(choice, year, catalog), personRecord(choice, year, catalog)]);
 
 /* ------------------------------------------------------------ the creator */
 
@@ -227,7 +228,7 @@ export function createPersonCreator({ doc = globalThis.document, person, year, p
   }
   function drawMain() {
     if (!portrait || !shown) return Promise.resolve(false);
-    const key = choiceKey(person.choice);
+    const key = choiceKey(person.choice, Y, C);
     const rebuild = key !== mainKey;
     if (rebuild) busy.hidden = false;
     const run = portrait.draw(view, { year: Y, turn, frame }).then((ok) => {
@@ -288,7 +289,7 @@ export function createPersonCreator({ doc = globalThis.document, person, year, p
     }
     if (!portrait) return canvas;
     const choice = patchedChoice(person.choice, patch, Y, C);
-    const key = `${choiceKey(choice)}|${f}|${t}`;
+    const key = `${choiceKey(choice, Y, C)}|${f}|${t}`;
     if (canvas.dataset.key !== key) {
       canvas.classList.toggle('is-stale', !!canvas.dataset.key);
       canvas.classList.toggle('is-empty', !canvas.dataset.key);
@@ -310,7 +311,7 @@ export function createPersonCreator({ doc = globalThis.document, person, year, p
         const job = queue.shift();
         if (!job || !job.canvas.isConnected || job.canvas.dataset.key === job.key) continue;
         // The person as they are: their own figure, already built. Anyone else: a figure of its own.
-        const own = choiceKey(job.choice) === choiceKey(person.choice);
+        const own = choiceKey(job.choice, Y, C) === choiceKey(person.choice, Y, C);
         const ok = await (own ? portrait.draw(job.canvas, { year: Y, frame: job.frame, turn: job.turn })
           : portrait.preview(job.canvas, { catalog: C, record: (y) => personRecord(job.choice, y, C), asset: (y) => personAsset(job.choice, y, C) },
             { year: Y, frame: job.frame, turn: job.turn })).catch(() => false);
@@ -376,9 +377,15 @@ export function createPersonCreator({ doc = globalThis.document, person, year, p
     },
     clothes(choice) {
       const yc = person.year(Y);
+      // Its colourings (Kevin, 2026-11-27: "provide better coloring and more options"): the
+      // outfit worn in each, drawn, under the outfits.
+      const looks = outfitLooks(yc.outfit);
       return [section(`Dress in ${Y}`, [radios(`Dress in ${Y}`, 'pc-grid-cards', wardrobe(C, 'outfits', yc.year, choice.sex).map((o) => tile({
         label: o.label, sub: o.worn ?? null, cls: 'pc-card', pressed: o.id === yc.outfit?.id, onPick: () => apply({ outfit: o.id }),
-        media: picture(`outfit:${o.id}`, { outfit: o.id }, { w: 120, h: 180 }) })))])];
+        media: picture(`outfit:${o.id}`, { outfit: o.id }, { w: 120, h: 180 }) })))]),
+      looks.length > 1 ? section('Colour', [radios('Colour', 'pc-grid-tall', looks.map((l) => tile({
+        label: l.label, pressed: l.id === yc.look?.id, onPick: () => apply({ look: l.id }),
+        media: picture(`look:${yc.outfit.id}:${l.id}`, { look: l.id }, { w: 96, h: 144 }) })))]) : null].filter(Boolean);
     },
   };
 
