@@ -2433,6 +2433,13 @@
       "finding": "Reproduces after T-3769's forehead lighting blend: two actual offline writes of both pinned recipes reproduce all 349 outputs byte for byte and advance every output mtime (125.27 s and 122.73 s): 325 adult outputs and 24 child outputs. All 272 face, eye, hair and fitted-head records, texture dimensions and GPU budgets are identical to the deployed library; only 37 atlas/catalog outputs change. Neither write needs a landmark model or network. A one-byte change in children/page_00_face_full.jpg is refused by --check and restored byte-exact by the second write. Read-only parents and both authored recipes retain their SHA-256 values. Identical crowd and Light review textures share one canonical file. This measures the feature working tree, not a Git-clean source claim. Proof: chicago-evidence, evidence/photo-forehead-T-3769/forehead-writer-reproduction.json.",
       "placed": "Follows calibrated canonical/web bodies, hm08_variation_kit, the source face-library record, portrait-axis records and pinned landmark correspondences. Body/variation/face-library writers are themselves pending, so this consumer is not appended blindly to the full manifest. It writes only the adult pilot and child library directories consumed by the owner-approved default dev renderer and publish; the one-photo path remains explicit review output. Full-manifest ordering is unmeasured."
     },
+    "photo_face_thumbs.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-27",
+      "finding": "Reproduces: a bare run rewrites assets/humans/web/photo_faces/pilot/thumbs.jpg byte for byte (same SHA-256 before and after) from the 256 committed pilot_*_source.jpg previews and runtime.json; it writes nothing else. --check compares decoded pixels (within 24 levels) so another Pillow build's JPEG bits do not fail it.",
+      "placed": "Follows tools/photo_face_runtime.mjs (it reads the pilot library's runtime.json for each face's index) and tools/photo_face_library.py (which writes the source previews); both are pending, so this consumer is not appended to the manifest on its own."
+    },
     "town_people_1835.py": {
       "placement": "pending",
       "write_mode": "(bare)",

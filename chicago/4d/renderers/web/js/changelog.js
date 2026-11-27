@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 3286, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'No look-around tag in front of a Jaunt', kind: 'fix',
+    items: [
+      'Starting a Jaunt, even straight after signing in, no longer leaves CLICK TO LOOK AROUND sitting in the middle of the view in front of the first stop.',
+      'The tag stays away for the whole Jaunt, and comes back after it only if you still have not clicked the scene to look around.',
+    ] },
+  { v: 3285, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'Brick stables behind 2109 and 2123 Prairie', kind: 'feature',
+    items: [
+      'The stable behind 2109 Prairie now stands on the alley as a long two-storey brick building between two fire walls, with two carriage doors and a loft hatch, the window the 1911 fire-insurance map marks there, and a paved yard and a walk back to the house.',
+      'The stable behind 2123 Prairie stands against a fire wall to the north and opens a gable end to its own yard on the south, with a window on the alley and another in the gable where the map marks them.',
+    ] },
+  { v: 3284, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: '2021 Prairie gains its finials and third chimney', kind: 'improvement',
+    items: [
+      'The corner turret\'s cone now ends in a pale metal cap and knob, as the old photograph shows.',
+      'A finial stands on the front gable\'s peak.',
+      'The short chimney on the ridge behind the front gable is built, so the house has all three stacks the photograph shows.',
+    ] },
+  { v: 3283, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: 'Choose your own face from a library of photographed faces', kind: 'fix',
+    items: [
+      'Settings, You: the Face row is now a library of the photographed faces the town wears, sorted by age and then by skin tone.',
+      'The painted faces are still there under their own tab, and Auto still picks one for you.',
+      'Your chosen eye colour now shows on a photographed face, and Style 3 on Auto gets its own face again.',
+      'The face close-up redraws once the sharp photograph has loaded.',
+    ] },
+  { v: 3282, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'End asks before it leaves a jaunt', kind: 'fix',
+    items: [
+      'End now asks "End this jaunt?" first, by mouse, touch, keys or controller.',
+      'Cancel is the key already picked, so a second bump keeps you at your stop.',
+    ] },
+  { v: 3281, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'Warriors spring up out of the grass at the sand bank', kind: 'fix',
+    items: [
+      'In the 1812 battle jaunts, a man lying face down no longer swings up stiff from his toes: he pushes up on his hands, brings a knee in under him, crouches and drives off into his run.',
+      'Some come up through both knees first; each has his own side, pace and lean, so no two rise alike.',
+      'Men kneeling or crouched in wait drive up off the front foot leaning into the run, and the run starts as they come up rather than after a pause.',
+      'Men dropping into the grass on the way to the bank go down to a crouch, their hands and knees, then flat.',
+      'Lying in wait, a man rests on his forearms, elbows out, and the fallen keep their arms where they fell.',
+    ] },
   { v: 3280, ts: '2026-11-27T07:41:45.171Z', date: 'Nov 27, 2026, 1:41 AM CT', title: 'The Built-so-far walk counts the two new stables', kind: 'fix',
     items: [
       'The 1904 Built-so-far walk\'s opening card now reads 129 Prairie Avenue buildings, with 79 waiting outside the walk. Before, it still said 127 and 77 from before 2031 and 2033 Prairie\'s alley stables were added.',

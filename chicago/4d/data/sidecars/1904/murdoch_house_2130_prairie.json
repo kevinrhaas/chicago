@@ -1,7 +1,7 @@
 {
   "id": "murdoch_house_2130_prairie",
   "phase": "as_mapped_1904",
-  "name": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a steep street gable with a round corner tower, K01 frontage assembly",
+  "name": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a side-gabled front roof with a round corner tower, K01 frontage assembly",
   "aka": [
     "2130 S. Prairie Avenue"
   ],
@@ -75,7 +75,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "'2½B' printed on the 1911 sheet over the main block: two full storeys and a half storey in the roof, the street gable's attic in both photographs. The round tower is '3B' (see bays)."
+      "note": "'2½B' printed on the 1911 sheet over the main block: two full storeys and a half storey in the roof, the side-gabled front roof's attic in both photographs. The round tower is '3B' (see bays)."
     },
     "construction": {
       "value": "brick_with_stone_front",
@@ -132,7 +132,7 @@
       "sources": [
         "chicagology_2140_photo_a"
       ],
-      "note": "The street gable's slate runs a little past its rakes in the first photograph, and the main roof's eave over the south flank stands out from the wall on a moulded course; 0.3 m, its depth unread."
+      "note": "The front's slate runs a little past the wall over its moulded course in the first photograph (the eave over the front's south bay, x 1575-1665 px, y 870-900 px); 0.3 m, its depth unread."
     },
     "service_wall_brick": {
       "value": "common_buff_common_6",
@@ -183,24 +183,24 @@
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "note": "No bracketed cornice on the front: the street gable rises straight off the wall, and the tower carries its own moulded course at its cone's eave (see bays)."
+      "note": "No bracketed cornice on the front: the side-gabled roof's slope rises off the wall's moulded course, and the tower carries its own moulded course at its cone's eave (see bays)."
     },
     "roof_form": {
-      "value": "hip",
-      "confidence": "inferred",
-      "sources": [
-        "chicagology_2140_photo_a"
-      ],
-      "note": "A steep slated roof over the whole block, its ridge running back from the street gable: the first photograph shows its long east-facing slope behind the tower, a stack standing near its ridge. K01 lays a hip over the body and the street gable (shaped_gable) stands over the front's hip end, as 2021's is built."
-    },
-    "roof_pitch_deg": {
-      "value": 50,
+      "value": "gable",
       "confidence": "inferred",
       "sources": [
         "chicagology_2140_photo_a",
         "glessner_blog_2015_08_2140_photo"
       ],
-      "note": "About 50 degrees: the street gable's north rake falls toward the tower at about 45 degrees on the first photograph, which sees it from the south-east, so the face's true pitch is a little steeper; the Glessner/Van Osdel print, nearer the front, shows a steep gable. T-3730's cameras measure it."
+      "note": "A side-gabled front block (T-3730): neither photograph, on its solved camera, shows a gable on the street front. The Chicagology print shows the south flank carried up as a gable in the front's rock-faced stone, its front rake falling from behind 2140's mansard to the front's south eave (x 1482-1590 px, y 740-877 px), and a slated ridge with cresting running along the avenue from it toward the tower (y 670 px at x 1465, 705 px at x 1550), the street slope falling from it to the front's eave; the Van Osdel print shows the same slope behind the tower. K01's gable roof (T-2459) is that roof: a ridge parallel to the front, the side walls carried up as coped gables. Behind the ridge nothing is seen (2140 hides the flank past its first few metres), so the rear slope is the kit's plain fall to the rear wall's head (L-k01-2130-murdoch-3730). Until T-3730 the front was carried up as a steep street gable over a hip (T-3729's reading), which neither picture shows."
+    },
+    "roof_pitch_deg": {
+      "value": 52,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2140_photo_a"
+      ],
+      "note": "The street slope's pitch, off the Chicagology print's south gable on its solved camera (T-3730): the rake from the front's south eave (8.8 m, x 1585 px, y 876 px) passes x 1482 px, y 740 px, which a 52 degree slope does (50 puts it 10 px low, 55 about 25 px high); with the ridge's line (y 670 px at x 1465, 705 px at x 1550) it sets the ridge about 4.0 m behind the front at about 13.9 m. Inside K05's steep band (45-65); the Van Osdel print shows the same steep slope behind the tower."
     },
     "roof_covering": {
       "value": {
@@ -214,47 +214,6 @@
         "glessner_blog_2015_08_2140_photo"
       ],
       "note": "Slate on the main roof and the tower's cone in both photographs."
-    },
-    "shaped_gable": {
-      "value": {
-        "profile_m": [
-          [
-            4.625,
-            8.8
-          ],
-          [
-            2.312,
-            12.085
-          ],
-          [
-            0.0,
-            15.37
-          ]
-        ],
-        "foot_m": 7.9,
-        "thickness_m": 0.45,
-        "proud_m": 0.02,
-        "lights": {
-          "variant": "k06.opening.sash_2over2_flat",
-          "sill_m": 9.3,
-          "width_m": 0.9,
-          "height_m": 1.4,
-          "at_m": [
-            -1.8
-          ]
-        },
-        "coping": {
-          "width_m": 0.3,
-          "proud_m": 0.04
-        },
-        "ledge_m": 8.8
-      },
-      "confidence": "inferred",
-      "sources": [
-        "chicagology_2140_photo_a",
-        "glessner_blog_2015_08_2140_photo"
-      ],
-      "note": "The steep street gable over the whole front (the first photograph's north rake from its apex, hidden behind 2140's corner, down to the tower's cone; the Glessner/Van Osdel print's south rake): the front wall carried up over its width to an apex at about 15.37 m at the roof's pitch, with one attic light in its south half (the first photograph's, x 1460-1490 px, y 790-860 px). The tower stands before the gable's north half (see bays)."
     },
     "stoop_width_m": {
       "value": 1.5,
@@ -452,15 +411,15 @@
       "value": {
         "plan_m": [
           0.9,
-          0.75
+          1.0
         ],
         "top_above_ridge_m": 0.75,
         "cap_proud_m": 0.06,
         "cap_depth_m": 0.25,
         "stacks": [
           {
-            "u_m": 13.0,
-            "v_m": 6.4
+            "u_m": 17.93,
+            "v_m": 9.0
           },
           {
             "u_m": 3.0,
@@ -472,27 +431,12 @@
       "sources": [
         "chicagology_2140_photo_a"
       ],
-      "note": "The first photograph shows one plain brick stack near the ridge behind the tower (x 1595-1640 px, y 670-690 px); the second, near the rear on the south wall, is reconstructed."
+      "note": "The Chicagology print shows one short, broad brick stack just south of the tower's cone (x 1598-1645 px, its top at about y 675 px): on the solved camera it stands on the ridge (u 17.93, 4.0 m behind the front) about 9.0 m from the south wall, about 1.0 m along the ridge (the print's breadth, about 47 px), its top the kit's 0.75 m over the ridge (T-3730); it had stood at u 13.0, far behind, where the hip's ridge ran. The second, near the rear on the south wall, is reconstructed."
     },
     "rainwater": {
-      "value": {
-        "gutter": "half_round",
-        "fabric": "copper_sheet",
-        "downpipe": "round",
-        "ends_at": "grade_with_splash_stone",
-        "downpipes": [
-          {
-            "wall": "k01.wall.side.south",
-            "s_m": 0.4
-          },
-          {
-            "wall": "k01.wall.side.south",
-            "s_m": 21.5
-          }
-        ]
-      },
+      "value": {},
       "confidence": "reconstructed",
-      "note": "No gutter or pipe reads in either picture: the kit's half-round copper gutter on the hip's eaves, its pipes down the south flank's ends."
+      "note": "No gutter or pipe reads in either picture. T-3730: with the front block side-gabled, the house carries none: a K01 gable roof hangs no eave gutter yet (T-2459) and neither picture shows a pipe on the front for front_pipes to stand; until T-3730 the kit's half-round copper gutter ran round the hip's eaves with two pipes down the south flank, which no picture saw either."
     },
     "boundary": {
       "value": {
@@ -583,6 +527,24 @@
       ],
       "note": "The '1B' brick range the 1911 sheet draws behind the main block: columns 572-620.5 and rows 1481-1508, so 9.0 m deep and 5.0 m wide, its rear corners chamfered (built square). One storey under a flat roof; no picture sees it."
     },
+    "gable_roof": {
+      "value": {
+        "ridge_back_m": 4.0,
+        "ends": {
+          "north": {
+            "style": "coped"
+          },
+          "south": {
+            "style": "coped"
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2140_photo_a"
+      ],
+      "note": "The ridge 4.0 m behind the front's plane, at about 13.9 m (the Chicagology print's rake and ridge on its solved camera, see roof_pitch_deg), so the rear slope falls about 16 degrees to the rear wall's head, the kit's plain gable; no picture sees it (L-k01-2130-murdoch-3730). Both side walls are carried up as K05 coped parapets: the south one, the print's stone gable over the front part, in the flank's rock-faced stone (stone_front.flanks); the north one, which neither picture sees, to match in the north wall's brick. The print shows a plain verge on the rake; the coping is the kit's."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
@@ -648,8 +610,8 @@
       ]
     }
   ],
-  "research_note": "T-3729 (piece 1 of T-1927, the S16 package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a rock-faced stone front, a K08 round tower of three stages under a slated cone, the front carried up as a steep street gable, K06 sash, a K07 door, the K11 railing and the one-storey brick rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (the outline, the '3B' tower's bow, '2½B', the stone/brick division and the '1B' range), and the two photographs of 2140 next door, which show this house past 2140's north side (forms only). What is not built, and why, is the liberty L-k01-2130-murdoch-3729; T-3730 solves the photographs' cameras and works the match down.",
+  "research_note": "T-3729 (piece 1 of T-1927, the S16 package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 brick body behind a rock-faced stone front, a K08 round tower of three stages under a slated cone, the front carried up as a steep street gable, K06 sash, a K07 door, the K11 railing and the one-storey brick rear range — instead of the draft builder. What is read: sheet 35 of the 1911 Sanborn at full size (the outline, the '3B' tower's bow, '2½B', the stone/brick division and the '1B' range), and the two photographs of 2140 next door, which show this house past 2140's north side (forms only). What is not built, and why, is the liberty L-k01-2130-murdoch-3729; T-3730 solves the photographs' cameras and works the match down. T-3730, second pass: the front is roofed as the side-gabled block both pictures show (K01's gable roof, its ridge 4.0 m behind the front at about 13.9 m, the south gable in the flank's stone) in place of T-3729's street gable over a hip, and the print's stack stands on that ridge.",
   "research_doc": "",
   "review_required": false,
-  "called": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a steep street gable with a round corner tower"
+  "called": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a side-gabled front roof with a round corner tower"
 }

@@ -37,9 +37,12 @@ export const GESTURE_TARGETS = ['#view', `#welcome ${CONTROL}`, `#navigator ${CO
  * iOS Safari only resumes audio from touchend or click, so those are the ones heard. */
 export const GESTURE_EVENTS = Object.freeze(['pointerup', 'touchend', 'click', 'keydown']);
 
-/** Should the CLICK TO ENGAGE LOOK tag show? Desktop only, in the town, before first lock. */
-export function lookTagVisible({ inWorld = false, backend = 'none', locked = false, engaged = false } = {}) {
-  return !!inWorld && backend === 'pointerlock' && !locked && !engaged;
+/** Should the CLICK TO ENGAGE LOOK tag show? Desktop only, in the town, before first lock.
+ * Never while a Jaunt is under way (the owner, 2026-11-27: a Jaunt started just after signing
+ * in left "Click to look around" in front of the visitor): the Jaunt's own card says what to
+ * do next, and the tag would sit over the view the outing is flying and walking through. */
+export function lookTagVisible({ inWorld = false, backend = 'none', locked = false, engaged = false, onJaunt = false } = {}) {
+  return !!inWorld && backend === 'pointerlock' && !locked && !engaged && !onJaunt;
 }
 
 export function createGestureGate({
@@ -53,7 +56,7 @@ export function createGestureGate({
   let audio = null;
   let gestured = false;
   let engaged = false;
-  let look = { inWorld: false, backend: 'none', locked: false };
+  let look = { inWorld: false, backend: 'none', locked: false, onJaunt: false };
 
   const armed = () => !UNARMED.includes(journey?.state ?? 'landed');
 

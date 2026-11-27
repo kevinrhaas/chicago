@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1250,
+  "count": 1252,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1219,7 +1219,7 @@
     },
     {
       "id": "house_2123_prairie_coach_house",
-      "name": "2123 S. Prairie Avenue — the alley building of the house at 2123"
+      "name": "2123 Prairie Avenue: the brick stable on the alley"
     },
     {
       "id": "house_2124_calumet",
@@ -1667,7 +1667,7 @@
     },
     {
       "id": "murdoch_house_2130_prairie",
-      "name": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a steep street gable with a round corner tower"
+      "name": "2130 Prairie Avenue — the Murdoch house, rock-faced stone under a side-gabled front roof with a round corner tower"
     },
     {
       "id": "murdoch_house_2130_prairie_coach_house",
@@ -3503,7 +3503,7 @@
     },
     {
       "id": "roloson_house_2109_prairie_coach_house",
-      "name": "2109 S. Prairie Avenue — the alley building of the house at 2109"
+      "name": "2109 Prairie Avenue: the brick stable on the alley"
     },
     {
       "id": "rothschild_house_2112_prairie",
@@ -36315,7 +36315,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "2130 Prairie Avenue (the S16 package) is no longer a district draft. It stands, under the draft's own id (2130 Prairie Avenue — the Murdoch house, rock-faced stone under a steep street gable with a round corner tower), as a k01 frontage record built by the k01 emit generator. Two storeys of K03 buff common brick over a basement stand behind a rock-faced limestone front on a two-course rusticated base. The front is carried up as a steep street gable over its whole width, one attic light in its south half, before a K05 slated hip running back over the body. A K08 round tower of three stages under a slated cone with a turned finial stands before the front's north half; the door, square-headed, is at the front's south end with a light over it. The sheet's '1B' brick range stands on K01's rear wing under a flat deck. A K11 spear railing on a curb with a walk gate on piers runs along the street. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size (0.186 m a pixel): the main body's 21.93 m depth and 9.85 m front, 5.85 m behind the street line; the stone front and brick rear; '2½B'; the '3B' round tower bowed about 2.2 m out over the front's north part (its dashed ring about 5.6 m across); the '1B' rear range, 9.0 by 5.0 m; the lot lines. From the Chicagology photograph of 2140 ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph from the south-east…, forms only, check required) and the Glessner House blog's print of 2140 ([2140 S. Prairie Ave.] Photograph from the south-east, on Prairie Avenue near…, forms only, check required), both of which show this house past 2140's north side: the rough-faced ashlar of the front and tower; the street gable and its attic light; the tower's three stages of lights, the short top stage over the main eave, its slated cone and finial; the plain stack near the ridge; the slated roof; the railing and piers. **What is invented.** The principal floor and the storey heights (read by proportion off the tower's string courses, not through a solved camera); the roof's pitch; the walls' thickness; the stone's quarry; the flanks', the rear's and the rear range's windows and the range's flat deck; the second stack; the gutters and downpipes; the basement lights; the kits' sash and door; the three lights a stage round the drum (the pictures see two or three of each, unplaced); the railing's pattern and the piers' caps; the front walk's flags. **What is not built.** The columned porch across the front's south end that both photographs show (its posts and entablature under the second storey's lights): K01's corner porch stands on a podium at a corner, not under a front gable, and no K01 part stands a recessed loggia. The tower's centre about 0.6 m inside the front's face on a ring about 2.8 m in radius (the sheet's dashed circle): K01 stands a single-capped front tower's centre on the face or before it, so it is built 2.4 m in radius on a centre 0.1 m before the face, bowing 2.5 m proud (the sheet's 2.2) on a 4.8 m chord (the sheet's about 6.3). The north wall's step in by about 0.9 m over the rear 11.8 m (the body is one rectangle). The rear range's chamfered rear corners (built square). The gable's carved and moulded detail and the tower's moulded string courses beyond the kit's plain bands."
+          "text": "2130 Prairie Avenue (the S16 package) is no longer a district draft. It stands, under the draft's own id (2130 Prairie Avenue — the Murdoch house, rock-faced stone under a side-gabled front roof with a round corner tower), as a k01 frontage record built by the k01 emit generator. Two storeys of K03 buff common brick over a basement stand behind a rock-faced limestone front on a two-course rusticated base. The front is carried up as a steep street gable over its whole width, one attic light in its south half, before a K05 slated hip running back over the body. A K08 round tower of three stages under a slated cone with a turned finial stands before the front's north half; the door, square-headed, is at the front's south end with a light over it. The sheet's '1B' brick range stands on K01's rear wing under a flat deck. A K11 spear railing on a curb with a walk gate on piers runs along the street. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size (0.186 m a pixel): the main body's 21.93 m depth and 9.85 m front, 5.85 m behind the street line; the stone front and brick rear; '2½B'; the '3B' round tower bowed about 2.2 m out over the front's north part (its dashed ring about 5.6 m across); the '1B' rear range, 9.0 by 5.0 m; the lot lines. From the Chicagology photograph of 2140 ([2140 S. Prairie Ave. (Tucker / Smith house).] Photograph from the south-east…, forms only, check required) and the Glessner House blog's print of 2140 ([2140 S. Prairie Ave.] Photograph from the south-east, on Prairie Avenue near…, forms only, check required), both of which show this house past 2140's north side: the rough-faced ashlar of the front and tower; the street gable and its attic light; the tower's three stages of lights, the short top stage over the main eave, its slated cone and finial; the plain stack near the ridge; the slated roof; the railing and piers. **What is invented.** The principal floor and the storey heights (read by proportion off the tower's string courses, not through a solved camera); the roof's pitch; the walls' thickness; the stone's quarry; the flanks', the rear's and the rear range's windows and the range's flat deck; the second stack; the gutters and downpipes; the basement lights; the kits' sash and door; the three lights a stage round the drum (the pictures see two or three of each, unplaced); the railing's pattern and the piers' caps; the front walk's flags. **What is not built.** The columned porch across the front's south end that both photographs show (its posts and entablature under the second storey's lights): K01's corner porch stands on a podium at a corner, not under a front gable, and no K01 part stands a recessed loggia. The tower's centre about 0.6 m inside the front's face on a ring about 2.8 m in radius (the sheet's dashed circle): K01 stands a single-capped front tower's centre on the face or before it, so it is built 2.4 m in radius on a centre 0.1 m before the face, bowing 2.5 m proud (the sheet's 2.2) on a 4.8 m chord (the sheet's about 6.3). The north wall's step in by about 0.9 m over the rear 11.8 m (the body is one rectangle). The rear range's chamfered rear corners (built square). The gable's carved and moulded detail and the tower's moulded string courses beyond the kit's plain bands."
         },
         {
           "label": "How to resolve",
@@ -37432,18 +37432,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2123_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2123_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2125_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -37463,18 +37451,6 @@
         {
           "domain": "structure",
           "structure": "reid_house_2013_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "roloson_house_2109_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "roloson_house_2109_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -37496,7 +37472,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`."
+          "text": "`armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -37572,7 +37548,7 @@
         },
         {
           "label": "Retired in part",
-          "text": "2127-2129, the double building of flats, by earlier work (the S19 package), which refined it in place on the K01 frontage kit under `“2127-2129 Prairie, the double building of flats, refined from the district draft onto K01: its plan, party wall, two stoops and three-storey rear porch off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone, its closed two-storey frame range at the rear rebuilt as the sheet's open three-storey porch (2141 stays open ground, as this draft left it). **2027's alley barn retired from this liberty by earlier work (2026-11-25):** 2027 Prairie Avenue: the brick barn on the alley now stands as the K12 coach house under `“The brick barn on the alley behind 2027 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`, under the same id, on the outline, storeys, brick and window mark the sheet draws; its draft attributes are gone. **2001's and 2009's alley buildings retired from this liberty by earlier work (2026-11-26):** 2001 Prairie Avenue: the brick stable on the alley at 20th Street and 2009 Prairie Avenue (Meyer): the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2001 Prairie on 20th Street, built from the K12 kit at its alley end's width on the outline the 1911 sheet draws”` and `“The brick stable behind the Meyer house at 2009 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, storeys and brick the sheet draws (2001's at its alley end's width, 2009's with its window mark); their draft attributes are gone. **2011's and 2017's alley buildings retired from this liberty by earlier work (2026-11-26):** 2011 Prairie Avenue: the brick stable on the alley and 2017 Prairie Avenue: the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2011 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”` and `“The brick stable behind 2017 Prairie, built from the K12 kit in mirror image on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, brick and window marks the sheet draws (2011's between two party walls, 2017's with its party wall on the north lot line); their draft attributes are gone. **2031's and 2033's alley buildings retired from this liberty by earlier work (2026-11-27):** 2031 Prairie Avenue: the brick stable on the alley and 2033 Prairie Avenue: the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2031 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”` and `“The brick stable behind 2033 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, storeys, brick and window marks the sheet draws, each between two party walls; their draft attributes are gone."
+          "text": "2127-2129, the double building of flats, by earlier work (the S19 package), which refined it in place on the K01 frontage kit under `“2127-2129 Prairie, the double building of flats, refined from the district draft onto K01: its plan, party wall, two stoops and three-storey rear porch off the 1911 sheet, everything above the plan a bounded design”`, under the same id; its draft attributes are gone, its closed two-storey frame range at the rear rebuilt as the sheet's open three-storey porch (2141 stays open ground, as this draft left it). **2027's alley barn retired from this liberty by earlier work (2026-11-25):** 2027 Prairie Avenue: the brick barn on the alley now stands as the K12 coach house under `“The brick barn on the alley behind 2027 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`, under the same id, on the outline, storeys, brick and window mark the sheet draws; its draft attributes are gone. **2001's and 2009's alley buildings retired from this liberty by earlier work (2026-11-26):** 2001 Prairie Avenue: the brick stable on the alley at 20th Street and 2009 Prairie Avenue (Meyer): the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2001 Prairie on 20th Street, built from the K12 kit at its alley end's width on the outline the 1911 sheet draws”` and `“The brick stable behind the Meyer house at 2009 Prairie, built from the K12 kit on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, storeys and brick the sheet draws (2001's at its alley end's width, 2009's with its window mark); their draft attributes are gone. **2011's and 2017's alley buildings retired from this liberty by earlier work (2026-11-26):** 2011 Prairie Avenue: the brick stable on the alley and 2017 Prairie Avenue: the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2011 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”` and `“The brick stable behind 2017 Prairie, built from the K12 kit in mirror image on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, brick and window marks the sheet draws (2011's between two party walls, 2017's with its party wall on the north lot line); their draft attributes are gone. **2031's and 2033's alley buildings retired from this liberty by earlier work (2026-11-27):** 2031 Prairie Avenue: the brick stable on the alley and 2033 Prairie Avenue: the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2031 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”` and `“The brick stable behind 2033 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”`, under the same ids, on the outlines, storeys, brick and window marks the sheet draws, each between two party walls; their draft attributes are gone. **2109's and 2123's alley buildings retired from this liberty by earlier work (2026-11-27):** 2109 Prairie Avenue: the brick stable on the alley and 2123 Prairie Avenue: the brick stable on the alley now stand as K12 coach houses under `“The brick stable behind 2109 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”` and `“The brick stable behind 2123 Prairie, built from the K12 kit with its party wall to the north and an open south gable, on the outline the 1911 sheet draws and its two window marks”`, under the same ids, on the outlines, storeys, brick and window marks the sheet draws (2109's between two party walls, 2123's with its party wall on the north lot line and its open gable to the south); their draft attributes are gone."
         },
         {
           "label": "Recorded",
@@ -72600,12 +72576,25 @@
         },
         {
           "label": "How to resolve",
-          "text": "running measured in period footwear and dress."
+          "text": "running measured in period footwear and dress. **Getting up off the ground and down onto it (Kevin 2026-11-27, of the warriors rising from the grass behind the sand bank in the 1812 battle jaunts: \"they just rise like a plank, that is not how someone would jump up to attack from a prone position\").** A held posture used to be eased in and out as one weight, so a man lying face down was swung up whole about his toes. Now he passes through key poses (the walkthrough's human motions code): the hands come back under the shoulders, the arms push the chest up with the hips still low, a knee comes in under the hips onto the ground, the foot comes through to a crouch as the hands leave the ground, and he drives up off it leaning into his first stride, where the run takes him (about 1.1-1.9 s); some go up through both knees on all fours first. He stands up where his knees were, not where his toes were. Lying in wait, a man rests on his forearms with the elbows out (the arm layer had been hanging the arms of every lying figure by its sides, the fallen too, over the limbs its posture laid; it now leaves them). A man kneeling or crouched who runs at once drives up off his front foot leaning forward; a calm rise, and one off a seat, stay the plain ease. Going down into the grass is the way up in reverse. The legs are solved to each key's ankles on the figure's own thigh and shin, the hands planted by the arm layer's reach."
+        },
+        {
+          "label": "What is read",
+          "text": "nothing measured; the order of the movements is the ordinary way a person gets up off their face in a hurry."
+        },
+        {
+          "label": "What is invented",
+          "text": "every key pose, its timing, the share who go up on all fours (about two in five), and each man's own side, pace (about a fifth either side), lean, hip height and look, drawn from his id so no two rise alike."
+        },
+        {
+          "label": "How to resolve",
+          "text": "motion capture of people rising from prone and kneeling into a run, reviewed in the town."
         }
       ],
       "work_refs": [
         "T-3496",
-        "T-3472"
+        "T-3472",
+        "T-3553"
       ]
     },
     {
@@ -78070,7 +78059,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the district draft at 2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S13 package of the programme): Robert Roloson's house, a '3B' brick house with a stone front under a slated mansard, a one-storey frame veranda across its front and down its south side, a three-storey rear block stepping out south behind it and a frame back porch. Its coach house (2109 S. Prairie Avenue — the alley building of the house at 2109) is still the draft's. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the fit): the front block 7.72 m wide with its stone front 7.44 m behind the street line, run back 7.81 m to where the rear block steps out 2.32 m south; the rear block to 25.1 m from the street line; the frame back porch in its north-east corner; the veranda 1.8 m deep across the front and 2.7 m down the south side to the step. From the one picture of the house, the left edge of the Armour photograph (2115 S. Prairie (Armour mansion). Photograph of the Philip D. Armour house's…, check required: forms only), through a camera solved on it (the chicagology armour photo data): two storeys of wall under a bracketed cornice over a frieze, the slated mansard over them with a round-headed dormer; the south bay's round-headed, keyed lights; the stack over the deck; the veranda's height, its floor about 1.7 m up on open piers, its columns, deep entablature and almost flat roof; the rear block's cornice at the front's height. **What is invented.** Everything north of the photograph's frame: the front's north and middle bays (repeating the south one), the door in the north bay and the steps to the veranda; the north flank's lights; the rear block's and the back porch's heights, lights and flat decks; the second dormer; the second stack; the stone's colour (a Lemont limestone; the print is monochrome) and the common brick of the flanks and rear; the basement; the low stone curb's opening; the yard. **What is built otherwise than the evidence, and why.** The photograph's veranda stands on round columns on panelled pedestals with a turned balustrade between them, its floor on open square piers; K01 builds the front run as the entrance kit's veranda on square posts over an open deck and the south run as its side porch on round columns over a solid podium with a low balustrade on its roof, which the photograph does not show. The front run stops at the house's south corner and the side porch carries the corner. The dormer's scrolled, carved surround is a plain moulded one; the frieze's sunk panel and lozenge and the corner's carved pilaster strip are not laid."
+          "text": "the district draft at 2109 Prairie Avenue — the Robert Roloson house, a stone front under a mansard with a veranda across the front and down the south side is refined in place, under its own id, to a k01 frontage record built by the k01 emit generator (the S13 package of the programme): Robert Roloson's house, a '3B' brick house with a stone front under a slated mansard, a one-storey frame veranda across its front and down its south side, a three-storey rear block stepping out south behind it and a frame back porch. Its coach house (2109 Prairie Avenue: the brick stable on the alley) is still the draft's. **What is read, not invented.** From the 1911 Sanborn sheet 35 raster at full size (0.186 m a pixel, through the fit): the front block 7.72 m wide with its stone front 7.44 m behind the street line, run back 7.81 m to where the rear block steps out 2.32 m south; the rear block to 25.1 m from the street line; the frame back porch in its north-east corner; the veranda 1.8 m deep across the front and 2.7 m down the south side to the step. From the one picture of the house, the left edge of the Armour photograph (2115 S. Prairie (Armour mansion). Photograph of the Philip D. Armour house's…, check required: forms only), through a camera solved on it (the chicagology armour photo data): two storeys of wall under a bracketed cornice over a frieze, the slated mansard over them with a round-headed dormer; the south bay's round-headed, keyed lights; the stack over the deck; the veranda's height, its floor about 1.7 m up on open piers, its columns, deep entablature and almost flat roof; the rear block's cornice at the front's height. **What is invented.** Everything north of the photograph's frame: the front's north and middle bays (repeating the south one), the door in the north bay and the steps to the veranda; the north flank's lights; the rear block's and the back porch's heights, lights and flat decks; the second dormer; the second stack; the stone's colour (a Lemont limestone; the print is monochrome) and the common brick of the flanks and rear; the basement; the low stone curb's opening; the yard. **What is built otherwise than the evidence, and why.** The photograph's veranda stands on round columns on panelled pedestals with a turned balustrade between them, its floor on open square piers; K01 builds the front run as the entrance kit's veranda on square posts over an open deck and the south run as its side porch on round columns over a solid podium with a low balustrade on its roof, which the photograph does not show. The front run stops at the house's south corner and the side porch carries the corner. The dormer's scrolled, carved surround is a plain moulded one; the frieze's sunk panel and lozenge and the corner's carved pilaster strip are not laid."
         },
         {
           "label": "How to resolve",
@@ -81514,7 +81503,7 @@
     },
     {
       "id": "L-k01-2130-murdoch-3730",
-      "title": "2130 Prairie through the two 2140 photographs' cameras: its cone lowered, its south flank laid in the front's stone, its street gable and missing porch written into both match records",
+      "title": "2130 Prairie through the two 2140 photographs' cameras: its cone lowered, its south flank laid in the front's stone, its front roofed as a side-gabled block, its missing porch written into both match records",
       "section": "per_subject",
       "subjects": [
         "murdoch_house_2130_prairie"
@@ -81525,11 +81514,15 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "This work (the S16 package) solves the cameras of the two pictures that show the Murdoch house past 2140's north side — the Chicagology photograph from the south-east corner of Prairie and 22nd Street and the Glessner House blog's Van Osdel print (the murdoch house 2130 prairie data) — renders the house through each with the photo match tool, and changes what both pictures read differently from the record and K01 can already build. The tower's cone falls from 2.0 rise to 1 run to 1.6, about 1.1 m lower, which both pictures' cones agree on. The south flank is laid in the front's rock-faced stone its whole length (stone front flanks), where earlier work had laid K03 brick: the Chicagology photograph shows the stone round the corner and along the flank as far as 2140 lets it be seen, and sheet 35 of the 1911 Sanborn colours the main body's whole south edge blue. **What is read, not invented.** Through the Chicagology camera (7.4 px RMS on a 2000 px print): the cone's apex where its edges converge behind the lamp head, the stone on the flank, its second-storey light in place. Through the Van Osdel camera (3.4 px RMS on a 675 px copy): the cone's apex and finial. From sheet 35 at full size: the diagonal between the blue and the pink runs from the south wall's rear corner (column 622, row 1518) to the north wall at about column 684, so the south flank is stone to the rear and the north flank's front 10.1 m is stone. **What is invented.** The cone's 1.6 is fitted to two apexes, one of them hidden behind a lamp head and the other about thirteen pixels a metre; it is good to about 0.2 m. Both cameras' distances along their lines of sight are soft (they trade against focal length; the Chicagology eye is held at the corner its record names, the Van Osdel eye on Prairie's east street line); places across the line of sight are good to 0.2 to 0.3 m. **What is still not as the photographs show** (written in both match records, `open`): neither picture shows a gable on the street front, which the build carries up to 15.4 m beside the tower's cone; both show the south flank rising into a stone gable over the front part (apex about 13.5 m, about 2.3 m behind the front, one attic light) under a roof whose ridge runs along the avenue to the cone — a side-gabled front block that K01's shaped gable and hip do not stand. The columned porch across the front's south end is still not built (`“2130 Prairie, the Murdoch house, refined from the district draft onto K01: its plan off the 1911 sheet, its stone front, street gable and round tower off the two photographs of 2140 next door, the rest the kits'”`). The Chicagology photograph's one visible stack stands on that ridge beside the cone, where none is built. The north flank's stone (the sheet's front 10.1 m) is not laid: K01's stone front flanks takes one stopping length for both walls, and neither picture sees the north flank."
+          "text": "This work (the S16 package) solves the cameras of the two pictures that show the Murdoch house past 2140's north side — the Chicagology photograph from the south-east corner of Prairie and 22nd Street and the Glessner House blog's Van Osdel print (the murdoch house 2130 prairie data) — renders the house through each with the photo match tool, and changes what both pictures read differently from the record and K01 can already build. The tower's cone falls from 2.0 rise to 1 run to 1.6, about 1.1 m lower, which both pictures' cones agree on. The south flank is laid in the front's rock-faced stone its whole length (stone front flanks), where earlier work had laid K03 brick: the Chicagology photograph shows the stone round the corner and along the flank as far as 2140 lets it be seen, and sheet 35 of the 1911 Sanborn colours the main body's whole south edge blue. **What is read, not invented.** Through the Chicagology camera (7.4 px RMS on a 2000 px print): the cone's apex where its edges converge behind the lamp head, the stone on the flank, its second-storey light in place. Through the Van Osdel camera (3.4 px RMS on a 675 px copy): the cone's apex and finial. From sheet 35 at full size: the diagonal between the blue and the pink runs from the south wall's rear corner (column 622, row 1518) to the north wall at about column 684, so the south flank is stone to the rear and the north flank's front 10.1 m is stone. **What is invented.** The cone's 1.6 is fitted to two apexes, one of them hidden behind a lamp head and the other about thirteen pixels a metre; it is good to about 0.2 m. Both cameras' distances along their lines of sight are soft (they trade against focal length; the Chicagology eye is held at the corner its record names, the Van Osdel eye on Prairie's east street line); places across the line of sight are good to 0.2 to 0.3 m. **The front's roof (a second pass, the same day).** The street gable over a hip is gone. Both pictures, on their solved cameras, show no gable on the street front: the Chicagology photograph shows the south flank carried up as a gable in the front's rock-faced stone, its front rake falling from behind 2140's mansard to the front's south eave (x 1482-1590 px, y 740-877 px), and a slated ridge with cresting running along the avenue from it toward the tower (y 670 px at x 1465, 705 px at x 1550). On the camera the rake fits a pitch of about 52 degrees and the ridge stands about 4.0 m behind the front at about 13.9 m, within a few pixels along both lines (the first pass's reading, 2.3 m back and 13.5 m, puts the rake about 40 px off the print's). So the front block is roofed with K01's gable roof: roof form: \"gable\", gable roof ridge back (m) 4.0, roof pitch (deg) 52, both side walls carried up as K05 coped parapets, the south one laid in the flank's rock-faced stone (k01 frontage now lays a gable parapet on a stone front flanks wall in that stone). The print's one stack, short and broad just south of the cone, now stands on the ridge (u 17.93, v 9.0) where it reads; it had stood at u 13.0 on the hip."
+        },
+        {
+          "label": "Invented here",
+          "text": "the rear slope, which no picture sees (2140 hides the flank behind its first few metres): it falls from the ridge to the rear wall's head at about 16 degrees, the kit's plain gable; the north parapet, which neither picture sees, is built to match the south one in the north wall's brick; the coping on both rakes is K05's where the print shows a plain verge. The kit's half-round gutter and the two pipes down the south flank are gone with the hip (a K01 gable roof hangs no gutter, and no picture shows a pipe). **What is still not as the photographs show** (written in both match records, `open`): the columned porch across the front's south end, its posts and entablature under the second storey's lights, wrapping onto the south flank's first metre in the Chicagology print (no K01 part stands a recessed corner porch, `“2130 Prairie, the Murdoch house, refined from the district draft onto K01: its plan off the 1911 sheet, its stone front, street gable and round tower off the two photographs of 2140 next door, the rest the kits'”`); the attic light both pictures place in the south gable (a K05 parapet carries no light); and the front's north part beside the tower, which both pictures carry up as wall to the cone's eave (about 11.2 m) under an eave of its own, where the build's street slope comes down to the 8.8 m eave there. The north flank's stone (the sheet's front 10.1 m) is not laid: K01's stone front flanks takes one stopping length for both walls, and neither picture sees the north flank."
         },
         {
           "label": "How to resolve",
-          "text": "a K01 roof that stands a side-gabled front block (a ridge along the street from a gable on the flank to the tower) behind a front with no street gable, and a recessed porch under a front; then both cameras re-run; a to (m) per wall would lay the north flank's stone."
+          "text": "a recessed corner porch under a K01 front; a light in a K05 gable parapet; the front's north part carried up to the cone's eave beside the tower; then both cameras re-run; a to (m) per wall would lay the north flank's stone."
         },
         {
           "label": "Review",
@@ -81544,6 +81537,7 @@
         "T-1927",
         "T-1837",
         "T-3730",
+        "T-2459",
         "T-3729"
       ]
     },
@@ -81830,6 +81824,123 @@
       ],
       "work_refs": [
         "T-1938"
+      ]
+    },
+    {
+      "id": "L-k12-2109-stable-1938",
+      "title": "The brick stable behind 2109 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark",
+      "section": "per_subject",
+      "subjects": [
+        "roloson_house_2109_prairie",
+        "roloson_house_2109_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie_coach_house",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "roloson_house_2109_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 2109 Prairie Avenue is refined in place, under its own id 2109 Prairie Avenue: the brick stable on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”), facing the alley on its east (alley side: east), with a party wall at both ends (east end: party), as 2031's and 2033's stables are (“The brick stable behind 2031 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark”). Built in the same PR as 2123's. **What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline, 10.37 m deep from the alley line by 15.22 m along it, measured between line centres by median darkness profiles (the alley line at column 1171.94, on which the alley wall is drawn, the west wall at 1116.13, the north and south walls at rows 1118.64 and 1200.53) and carried by the sheet's fitted similarity; both end walls on lot lines (the lot lines read at rows 1119.07 and 1201.17 west of the building), with 2101's one-storey range against it on the north line and 2115's two-storey garage against it on the south line; the key's fire-wall ticks on the alley line at the north junction; '2' storeys; the brick; the label GARAGE; one of the key's window marks on the alley wall, a cross with a dot for each storey, 5.67 m from the south wall (its strokes over rows 1165-1175, read to about a pixel); a second window mark on the north wall; a dashed line about 1.3 m inside the yard wall, its ends turned toward it; and a small open circle inside the south-east corner. The house's brick rear block stands 19.21 m west of the yard wall (column 1012.76, rows 1141-1182). The draft had fitted a 14.0 x 8.5 m rectangle. Inferred for 1904 as every reading of these sheets is. **The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back (s35-2109-rear, present as mapped), which the district draft already made. **What is invented.** The use: GARAGE is the 1911 sheet's word and is not carried to 1904 (the kit's no 1911 use labels); the census reconstructs it as a stable and coach house, and that is what is built. Both ends are the kit's party walls, rising 0.45 m over the roof and returning 0.5 m past the eaves, so there is no open gable. Every opening but the alley mark is the kit's laid out for this lot, as 2017's stable of the same 15.2 m length is: on the alley a man door with a loft sash over it, the mark as a stable sash with a loft sash over it, a carriage bay 3.0 m clear under the loft hatch and hoist, and a second carriage bay with a loft sash over it toward the north end; on the yard wall three stable sash and a door, each with a loft sash over it, the door set where a walk from it meets the house's rear block. The workyard is the kit's: a 2.4 m brick apron along the yard wall and a walk to the rear block's wall line. The roof is the kit's gable with the ridge along the alley at 40 degrees, as 2017's 10.63 m deep stable takes; no dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. Flat colours. **Left out.** The north wall's window mark: it would look out over 2101's one-storey roof, and the kit's party wall takes no opening, so that wall is built blind. The dashed line inside the yard wall and the open circle, which this copy is too coarse to read against the key, and the small figures inside the south wall line; none of them builds anything here. **What is not.** The outline, its place on the lot, the storeys, the brick, the party-wall ends and the alley mark's place are the map's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the alley behind the 2100 block of Prairie, a finer copy of sheet 35, or a building permit for the building, entered as a source, gives its openings, roof, use and date their true form, and says what the dashed line is. This work's image gate names pictures for 2013 Reid's coach house only; none for this one."
+        },
+        {
+          "label": "Covers",
+          "text": "`roloson_house_2109_prairie_coach_house.as_standing_1904.form.coach_house`, `roloson_house_2109_prairie_coach_house.as_standing_1904.form.stories`, `roloson_house_2109_prairie_coach_house.as_standing_1904.form.construction`, `roloson_house_2109_prairie_coach_house.function`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-1938)."
+        }
+      ],
+      "work_refs": [
+        "T-1938"
+      ]
+    },
+    {
+      "id": "L-k12-2123-stable-1938",
+      "title": "The brick stable behind 2123 Prairie, built from the K12 kit with its party wall to the north and an open south gable, on the outline the 1911 sheet draws and its two window marks",
+      "section": "per_subject",
+      "subjects": [
+        "house_2123_prairie",
+        "house_2123_prairie_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2123_prairie_coach_house",
+          "phase": null,
+          "aspect": "function"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2123_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.coach_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2123_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2123_prairie_coach_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
+      "recorded": "2026-11-27",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the district draft's alley building behind 2123 Prairie Avenue is refined in place, under its own id 2123 Prairie Avenue: the brick stable on the alley, onto the K12 coach-house kit (“The Prairie coach-house kit: every coach house, stable fitting and service wing reconstructed”), facing the alley on its east (alley side: east), built in mirror image (`mirror`) with its party wall on the north lot line and its open gable to the south (east end: gable), as 2017's stable is (“The brick stable behind 2017 Prairie, built from the K12 kit in mirror image on the outline the 1911 sheet draws and its window mark”). Built in the same PR as 2109's. **What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline, 13.74 m deep from the alley line by 11.66 m along it, measured between line centres by median darkness profiles (the alley line at column 1172.93, on which the alley wall is drawn, the west wall at 1098.99, the north and south walls at rows 1301.26 and 1364.02) and carried by the sheet's fitted similarity; the north wall on the 2115/2123 lot line (read at row 1300.0 west of the building, within a pixel and a half), with 2115's garage 0.43 m north (its south wall at row 1298.92) and the key's fire-wall ticks on the alley line at that junction; the south wall free, 0.56 m inside the 2123/2125 lot line (row 1367.01); '2' storeys; the brick; the label GARAGE; one of the key's window marks on the alley wall, 6.08 m from the north wall (its strokes over rows 1329-1339), and another on the south wall, 5.80 m back from the alley line (its strokes over columns 1137-1147), each read to about a pixel; and a small cross inside the south-east corner. The house's two-storey brick rear range stands 5.97 m west of the yard wall (column 1066.89, rows 1320-1355). The draft had fitted a 12.0 x 10.5 m rectangle. Inferred for 1904 as every reading of these sheets is. **The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's carry-back (s35-2123-rear, present as mapped), which the district draft already made. **What is invented.** The use: GARAGE is the 1911 sheet's word and is not carried to 1904 (the kit's no 1911 use labels); the census reconstructs it as a stable and coach house, and that is what is built. The north end is the kit's party wall, rising 0.45 m over the roof and returning 0.5 m past the eaves; the south end is the kit's open gable. Every opening but the two marks is the kit's laid out for this lot: on the alley a carriage bay 3.0 m clear under the loft hatch and hoist toward the north end, the mark as a stable sash with a loft sash over it, and a man door with a loft sash over it; on the south gable the mark as a stable sash with a loft sash over it; on the yard wall two stable sash and a door, each with a loft sash over it, the door set where a walk from it meets the house's rear range. The workyard is the kit's: a 2.4 m brick apron along the yard wall and a walk to the range's rear wall line. The roof is the kit's gable with the ridge along the alley at 30 degrees, as 2031's and 2033's 14.7 m deep stables take; no dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by nothing. Flat colours. **Left out.** The small figures inside the north and south wall lines and the small cross inside the south-east corner: too coarse on this copy to read, and they build nothing here. **What is not.** The outline, its place on the lot, the storeys, the brick, the party wall on the north and both marks' places are the map's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the alley behind the 2100 block of Prairie, a finer copy of sheet 35, or a building permit for the building, entered as a source, gives its openings, roof, use and date their true form. The Armour photograph solved for 2123's house shows its front, not the alley. This work's image gate names pictures for 2013 Reid's coach house only; none for this one."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2123_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2123_prairie_coach_house.as_standing_1904.form.stories`, `house_2123_prairie_coach_house.as_standing_1904.form.construction`, `house_2123_prairie_coach_house.function`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-27 (T-1938)."
+        }
+      ],
+      "work_refs": [
+        "T-1938",
+        "T-3725"
       ]
     },
     {

@@ -13,6 +13,7 @@
  */
 import * as THREE from 'three';
 import { visitorActor } from './visitor-person.js';
+import { likenessSheetsReady, photoFacePagesReady, photoFaceTextureStats } from './human-skin.js';
 
 export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
   const stage = new THREE.Scene();
@@ -70,6 +71,21 @@ export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
       camera.lookAt(mid);
     }
     camera.updateMatrixWorld();
+    render(canvas);
+    // T-3553: a photographed face is drawn from its sharp page only once that page has loaded
+    // (human-skin.js asks for it as the face is drawn near the camera, and the crowd's small
+    // sheet stands in till then), and a face sheet still on its way shows the body's own skin.
+    // So when either was still coming, draw again once it has: the face, not its stand-in.
+    const tick = new Promise((done) => setTimeout(() => done(true), 0));
+    const sheets = await Promise.race([likenessSheetsReady().then(() => false), tick]);
+    if (sheets || photoFaceTextureStats().pendingPages > 0) {
+      await Promise.all([likenessSheetsReady(), photoFacePagesReady()]);
+      if (held?.actor === actor) render(canvas);
+    }
+    return true;
+  }
+
+  function render(canvas) {
     const W = canvas.width, H = canvas.height;
     const rt = new THREE.WebGLRenderTarget(W, H, { colorSpace: THREE.SRGBColorSpace, samples: 4 });
     const was = renderer.getRenderTarget();
@@ -90,7 +106,6 @@ export function createPersonPortrait({ renderer, humans, person, lod = 1 }) {
     const img = new ImageData(W, H);
     for (let y = 0; y < H; y++) img.data.set(px.subarray((H - 1 - y) * W * 4, (H - y) * W * 4), y * W * 4);
     canvas.getContext('2d').putImageData(img, 0, 0);
-    return true;
   }
 
   /** The face's centre (between the eyes, a little under them) with the figure turned `turn`

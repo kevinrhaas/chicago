@@ -243,6 +243,51 @@ assert.equal(pageYear({ pathname: '/4d/dev/1835/index.html', search: '' }), '183
 assert.equal(pageYear({ pathname: '/4d/walk/', search: '?year=1812' }), '1812');
 assert.equal(pageYear({ pathname: '/4d/walk/', search: '' }), null);
 
+// ---- the owner, 2026-11-27: End on a jaunt asks first: CANCEL / END ----------------------
+{
+  const h = harness();
+  let ended = 0;
+  const end = h.doc.createElement('button');
+  h.doc.activeElement = end;
+  assert.equal(h.r.askEndJaunt({ title: 'The Glessner Household' }, () => { ended += 1; }), true);
+  const shade = find(h.doc, 'recall-confirm');
+  assert.equal(shade.getAttribute('role'), 'alertdialog');
+  assert.equal(shade.getAttribute('aria-modal'), 'true', 'the controller keeps its focus in the prompt (gamepad.js TRAPS)');
+  assert.match(text(shade), /Outing control/);
+  assert.match(text(shade), /End this jaunt\?/);
+  assert.match(text(shade), /The Glessner Household closes\. Jaunts pauses it instead\./, 'it names the jaunt and the way to keep it');
+  assert.doesNotMatch(text(shade), /\{|\}|undefined|null/);
+  const no = find(h.doc, 'recall-cancel'), yes = find(h.doc, 'recall-go');
+  assert.equal(no.textContent, 'Cancel');
+  assert.equal(yes.textContent, 'End');
+  assert.equal(h.doc.activeElement, no, 'the safe answer has the focus, so a second bump (or A) keeps the jaunt');
+  assert.ok(h.win.key('d').stopped, 'a walk key does not reach the town under it');
+  no.click();
+  assert.equal(h.doc.activeElement, end, 'CANCEL puts focus back on End');
+  h.r.askEndJaunt({ title: 'X' }, () => { ended += 1; });
+  assert.ok(h.win.key('Escape').prevented, 'Esc (and the controller\'s B, which presses Esc) is a no');
+  h.r.askEndJaunt({ title: 'X' }, () => { ended += 1; });
+  const s2 = find(h.doc, 'recall-confirm'); s2.click(s2);
+  assert.equal(h.r.open, null, 'so is a tap outside the card');
+  assert.equal(ended, 0, 'no answer but END ends the jaunt');
+  h.r.askEndJaunt({ title: 'X' }, () => { ended += 1; });
+  find(h.doc, 'recall-go').click();
+  assert.equal(ended, 1, 'END ends it');
+  assert.equal(h.r.open, null);
+  assert.deepEqual(h.went, [], 'and the page stays');
+  assert.equal(h.timers.length, 0, 'with no recall ring');
+  h.r.askEndJaunt({ title: 'The Great Fire' }, () => {}, { closing: true });
+  assert.match(text(find(h.doc, 'recall-confirm')), /The Great Fire closes before its last look ends\./, 'in the closing scene Jaunts no longer pauses it');
+  assert.doesNotMatch(text(find(h.doc, 'recall-confirm')), /pauses/);
+  h.r.close();
+  h.r.askEndJaunt(null, () => {});
+  assert.match(text(find(h.doc, 'recall-confirm')), /The outing closes\./);
+  assert.doesNotMatch(text(find(h.doc, 'recall-confirm')), /\{|undefined|null/);
+  h.r.close();
+  const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
+  assert.match(main, /name === 'end' && recallHome\) return recallHome\.askEndJaunt\(/, 'the panel\'s End (both keys) asks through the prompt');
+}
+
 // ---- the page wires it: its own module ahead of main.js, a stylesheet, the tail --------
 {
   const index = readFileSync(path.join(web, 'index.html'), 'utf8');
@@ -261,4 +306,4 @@ assert.equal(pageYear({ pathname: '/4d/walk/', search: '' }), null);
   assert.match(skinJs, /chicago4d\.recall/);
 }
 
-console.log('RECALL PASS — All destinations and Recall ask first; Cancel, Esc or a tap outside stay put; Return runs the reverse ring, stamps the trip and goes; Esc aborts the ring; reduced motion asks and skips the ring; a Jump asks CANCEL / DEPART first (T-3390)');
+console.log('RECALL PASS — All destinations and Recall ask first; Cancel, Esc or a tap outside stay put; Return runs the reverse ring, stamps the trip and goes; Esc aborts the ring; reduced motion asks and skips the ring; a Jump asks CANCEL / DEPART first (T-3390); End on a jaunt asks CANCEL / END first');
