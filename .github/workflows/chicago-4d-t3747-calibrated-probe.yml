@@ -48,7 +48,7 @@ jobs:
     needs: source-plan
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
+      SOURCE_MANIFEST_SHA: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
     # T-3169: pinned — Playwright 1.56.1 cannot install chromium on ubuntu-26.04,
     # which `ubuntu-latest` became on 2026-10-26 (tools/check_runner_images.py).
     runs-on: ubuntu-22.04
@@ -170,7 +170,7 @@ jobs:
       matrix: ${{ fromJSON(needs.source-plan.outputs.matrix) }}
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
+      SOURCE_MANIFEST_SHA: a0c78fd4d5433841bc49e7005b541ead9f313a60a340a39f330fea1c3d019971
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
