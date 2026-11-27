@@ -1,8 +1,9 @@
 name: Better Trees — calibrated desktop diagnostic
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
-# The checked-out app is exactly2358's1605 head. All seven ordinary core runs
-# remain mandatory. No app, measurement, sample, raster or ceiling edits.
+# App1605 receives one exact-SHA leaf shader override after real CPU eligibility.
+# This probes a genuinely changed candidate; the previous timing failure remains.
+# All ordinary final-head CI remains required; never merge this workflow.
 on:
   pull_request:
     branches: [steward/t3747-vegetation-realism]
@@ -78,6 +79,25 @@ jobs:
           if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
           NODE
 
+      - name: Apply only the verified zero-contribution leaf shader candidate
+        run: |
+          python3 - <<'PYTHON'
+          import base64,hashlib,json,subprocess
+          from pathlib import Path
+          p=Path('chicago/4d/renderers/web/js/leaf-light.js')
+          before=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert before == '76152d3f9919c0195f7059971353426022582747189e32674b59665efb8cb594'
+          raw=base64.b64decode('LyoqCiAqIFRoaW4gZm9saWFnZSBpbiB0aGUgZXhpc3Rpbmcgb3BhcXVlLCBhbHBoYS10ZXN0ZWQgcGFzcyAoVC0zNzQ3KS4KICogVGhpcyBpcyBhbiBhcnRpc3RpYyB0aGluLXNoZWV0IGFwcHJveGltYXRpb24sIG5vdCBhIG1lYXN1cmVkIGxlYWYgQlNERi4KICogRGlyZWN0IHRyYW5zbWlzc2lvbiB1c2VzIHRocmVlJ3MgYWxyZWFkeSBzaGFkb3dlZCBpbmNpZGVudCBsaWdodDsgdGhlIHNtYWxsCiAqIHNreSB0ZXJtIGZvbGxvd3MgdGltZS1vZi1kYXkuanMuIE5vIG5ldyB0ZXh0dXJlLCBsaWdodCwgcmVuZGVyIHRhcmdldCBvciBwYXNzLgogKi8KaW1wb3J0ICogYXMgVEhSRUUgZnJvbSAndGhyZWUnOwppbXBvcnQgeyBMRUFGX1NLWSB9IGZyb20gJy4vdGltZS1vZi1kYXkuanMnOwoKZXhwb3J0IGZ1bmN0aW9uIHBhdGNoTGVhZkxpZ2h0KG1hdGVyaWFsLCB7IG1hc2sgPSAnMS4wJywgbG93U3BlYyA9IGZhbHNlIH0gPSB7fSkgewogIGNvbnN0IHByaW9yID0gbWF0ZXJpYWwub25CZWZvcmVDb21waWxlOwogIGNvbnN0IGtleSA9IG1hdGVyaWFsLmN1c3RvbVByb2dyYW1DYWNoZUtleSA9PT0gVEhSRUUuTWF0ZXJpYWwucHJvdG90eXBlLmN1c3RvbVByb2dyYW1DYWNoZUtleQogICAgPyBTdHJpbmcocHJpb3IpIDogbWF0ZXJpYWwuY3VzdG9tUHJvZ3JhbUNhY2hlS2V5KCk7CiAgbWF0ZXJpYWwub25CZWZvcmVDb21waWxlID0gKHNoYWRlciwgcmVuZGVyZXIpID0+IHsKICAgIHByaW9yKHNoYWRlciwgcmVuZGVyZXIpOwogICAgY29uc3QgcGFycyA9ICcjaW5jbHVkZSA8bGlnaHRzX3BoeXNpY2FsX3BhcnNfZnJhZ21lbnQ+JzsKICAgIGNvbnN0IGVuZCA9ICcjaW5jbHVkZSA8bGlnaHRzX2ZyYWdtZW50X2VuZD4nOwogICAgaWYgKCFzaGFkZXIuZnJhZ21lbnRTaGFkZXIuaW5jbHVkZXMocGFycykgfHwgIXNoYWRlci5mcmFnbWVudFNoYWRlci5pbmNsdWRlcyhlbmQpKSB7CiAgICAgIHRocm93IG5ldyBFcnJvcignbGVhZiBsaWdodGluZzogbWlzc2luZyBzdGFuZGFyZCBsaWdodGluZyBhbmNob3JzJyk7CiAgICB9CiAgICBzaGFkZXIudW5pZm9ybXMudUxlYWZTa3kgPSBMRUFGX1NLWTsKICAgIHNoYWRlci5mcmFnbWVudFNoYWRlciA9ICd1bmlmb3JtIGZsb2F0IHVMZWFmU2t5O1xuJyArIHNoYWRlci5mcmFnbWVudFNoYWRlcgogICAgICAucmVwbGFjZShwYXJzLCBgJHtwYXJzfQp2b2lkIGNoaUxlYWZEaXJlY3QoY29uc3QgaW4gSW5jaWRlbnRMaWdodCBsaWdodCwgY29uc3QgaW4gdmVjMyBwb3NpdGlvbiwKICAgIGNvbnN0IGluIHZlYzMgbm9ybWFsLCBjb25zdCBpbiB2ZWMzIHZpZXdEaXIsIGNvbnN0IGluIHZlYzMgY2xlYXJjb2F0Tm9ybWFsLAogICAgY29uc3QgaW4gUGh5c2ljYWxNYXRlcmlhbCBtYXRlcmlhbCwgaW5vdXQgUmVmbGVjdGVkTGlnaHQgcmVmbGVjdGVkTGlnaHQpIHsKICAvLyBTaGFkb3dlZCBhbmQgaW5hY3RpdmUgbGlnaHRzIGNvbnRyaWJ1dGUgZXhhY3RseSB6ZXJvLCBpbmNsdWRpbmcgdHJhbnNtaXNzaW9uLgogIGlmIChhbGwoZXF1YWwobGlnaHQuY29sb3IsIHZlYzMoMC4wKSkpKSByZXR1cm47CiAgZmxvYXQgY2hpQ29zID0gZG90KG5vcm1hbCwgbGlnaHQuZGlyZWN0aW9uKTsKI2lmZGVmIFVTRV9DTEVBUkNPQVQKICAvLyBUaGUgY2xlYXJjb2F0IG5vcm1hbCBtYXkgZmFjZSB0aGUgbGlnaHQgd2hpbGUgdGhlIGJhc2Ugbm9ybWFsIGZhY2VzIGF3YXkuCiAgUkVfRGlyZWN0X1BoeXNpY2FsKGxpZ2h0LCBwb3NpdGlvbiwgbm9ybWFsLCB2aWV3RGlyLCBjbGVhcmNvYXROb3JtYWwsIG1hdGVyaWFsLCByZWZsZWN0ZWRMaWdodCk7CiNlbHNlCiAgaWYgKGNoaUNvcyA+IDAuMCkgewogICAgUkVfRGlyZWN0X1BoeXNpY2FsKGxpZ2h0LCBwb3NpdGlvbiwgbm9ybWFsLCB2aWV3RGlyLCBjbGVhcmNvYXROb3JtYWwsIG1hdGVyaWFsLCByZWZsZWN0ZWRMaWdodCk7CiAgfQojZW5kaWYKICBmbG9hdCBjaGlCYWNrID0gbWF4KC1jaGlDb3MsIDAuMCk7CiAgJHtsb3dTcGVjID8gJ2Zsb2F0IGNoaVRyYW5zbWl0ID0gMC4xNjsnIDogYAogIGZsb2F0IGNoaUZvcndhcmQgPSBtYXgoZG90KHZpZXdEaXIsIC1saWdodC5kaXJlY3Rpb24pLCAwLjApOwogIGZsb2F0IGNoaVRyYW5zbWl0ID0gMC4wOCArIDAuMjAgKiBjaGlGb3J3YXJkICogY2hpRm9yd2FyZDtgfQogIC8vIGxpZ2h0LmNvbG9yIGhhcyBhbHJlYWR5IHJlY2VpdmVkIHRoZSBsaWdodCdzIGF0dGVudWF0aW9uIGFuZCBzaGFkb3cgdGVzdC4KICAvLyBUaGUgcmVjb3JkJ3MgbGVhZiBjb2xvdXIgc3RpbGwgY29udHJvbHMgdGhlIGh1ZTsgd29vZCBpcyBtYXNrZWQgb3V0LgogIHJlZmxlY3RlZExpZ2h0LmRpcmVjdERpZmZ1c2UgKz0gbWF0ZXJpYWwuZGlmZnVzZUNvbG9yICogdmVjMygwLjgsIDEuMCwgMC42KQogICAgKiBsaWdodC5jb2xvciAqIChSRUNJUFJPQ0FMX1BJICogY2hpQmFjayAqIGNoaVRyYW5zbWl0ICogKCR7bWFza30pKTsKfQojdW5kZWYgUkVfRGlyZWN0CiNkZWZpbmUgUkVfRGlyZWN0IGNoaUxlYWZEaXJlY3QKYCkKICAgICAgLnJlcGxhY2UoZW5kLCBgJHtlbmR9CmZsb2F0IGNoaUxlYWZGaWxsID0gMS4wOwojaWYgTlVNX0RJUl9MSUdIVFMgPiAwCiAgZmxvYXQgY2hpTGVhZkJhY2sgPSBtYXgoLWRvdChub3JtYWwsIGRpcmVjdGlvbmFsTGlnaHRzWzBdLmRpcmVjdGlvbiksIDAuMCk7CiAgY2hpTGVhZkZpbGwgPSAwLjcyICsgMC41NiAqIGNoaUxlYWZCYWNrOwojZW5kaWYKcmVmbGVjdGVkTGlnaHQuaW5kaXJlY3REaWZmdXNlICs9IGRpZmZ1c2VDb2xvci5yZ2IgKiAodUxlYWZTa3kgKiBjaGlMZWFmRmlsbCAqICgke21hc2t9KSk7CmApOwogIH07CiAgbWF0ZXJpYWwuY3VzdG9tUHJvZ3JhbUNhY2hlS2V5ID0gKCkgPT4gYCR7a2V5fXxsZWFmLWxpZ2h0LTM3NDctemVyby1saWdodC0ke21hc2t9LSR7bG93U3BlY31gOwp9Cg==')
+          assert hashlib.sha256(raw).hexdigest() == 'd9c0d10a81a803dabf9e483acf530066fa0be25bd96337d0fc9c5a5ec89d4de6'
+          assert not subprocess.check_output(['git','status','--porcelain']).strip()
+          p.write_bytes(raw)
+          assert subprocess.check_output(['git','diff','--name-only'],text=True).splitlines() == [str(p)]
+          diff=subprocess.check_output(['git','diff','--binary'])
+          reading={'baseHead':'1605dcbd4b58bedf98084a16d4b32d95a59bd20e','onlyChangedPath':str(p),'originalSHA256':before,'candidateSHA256':hashlib.sha256(raw).hexdigest(),'patchSHA256':hashlib.sha256(diff).hexdigest(),'candidateSourceIsWorkingTreeOverride':True,'measurementAndLimitsUnchanged':True}
+          Path('chicago/4d/calibrated-source.json').write_text(json.dumps(reading,indent=2)+'\n')
+          print(json.dumps(reading))
+          PYTHON
+
       # Globally, as the smoke does: the tool falls back to `npm root -g`.
       - name: Install Playwright
         run: |
@@ -105,5 +125,6 @@ jobs:
           path: |
             chicago/4d/still-frame-${{ matrix.viewport }}.json
             chicago/4d/calibrated-host.json
+            chicago/4d/calibrated-source.json
           if-no-files-found: ignore
 
