@@ -17043,8 +17043,8 @@
   {
    "structure": "e20th_217:back_door:stoop",
    "placement": {
-    "local_e": 1327.96,
-    "local_n": -3501.13,
+    "local_e": 1329.23,
+    "local_n": -3502.51,
     "rotation_deg": 89.44
    },
    "barrier": {
@@ -17052,7 +17052,7 @@
     "u0": 0.05,
     "v0": -0.75,
     "count": 1,
-    "rects": "0 34 0 16"
+    "rects": "0 20 0 16"
    },
    "what": "back stoop"
   },
