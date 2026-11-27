@@ -126,9 +126,4 @@ jobs:
     steps:
     - run: test "${{ needs.native-working-source.result }}" = success
 'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3747-calibrated-probe.yml
   workflow_dispatch: null
