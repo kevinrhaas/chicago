@@ -77,14 +77,16 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
     kit.base = jsonURL.href;   // T-3553: what a person's row names beside the kit (a skin sheet) is fetched from here
     // Owner-approved dev rollout (T-3767, T-3768). Each age group shares its crowd
     // atlas; nearby detail shares one bounded cache. Explicit off supports comparison.
+    // T-3775: each library's runtime.json, the part of its review.json the walk reads
+    // (tools/photo_face_runtime.mjs), so the first visit does not download the review.
     const photoMode=typeof location!=='undefined'?new URLSearchParams(location.search).get('photoFaces'):null;
     if(photoMode!=='off') {
       try {
-        const url = new URL('photo_faces/pilot/review.json', jsonURL), r = await fetchImpl(url);
+        const url = new URL('photo_faces/pilot/runtime.json', jsonURL), r = await fetchImpl(url);
         if (r.ok) attachPhotoLibrary(kit, await r.json(), url);
       } catch { /* the ordinary library remains available if the review assets cannot load */ }
       try{
-        const url=new URL('photo_faces/children/review.json',jsonURL),r=await fetchImpl(url);
+        const url=new URL('photo_faces/children/runtime.json',jsonURL),r=await fetchImpl(url);
         if(r.ok)attachChildPhotoLibrary(kit,await r.json(),url);
       }catch{/* Keep the child's existing appearance if its own source library fails. */}
     }

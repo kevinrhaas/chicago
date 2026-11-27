@@ -3,6 +3,39 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 114,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-11-26T22:53:22.572Z",
+      "ref": "steward/t3770-2140-tucker-k01",
+      "commit": "00d1e2be4d2f",
+      "devCommit": "c5a638e6fb5b",
+      "treeHash": "sha256:909ec710567da9a0",
+      "treeDirty": false,
+      "changelogHash": "sha256:de9af087bb359b41",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.8,
+          4.4
+        ]
+      },
+      "source": "/tmp/smoke-d14.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "8",
       "parts": [
         8
@@ -1645,41 +1678,6 @@
         ]
       },
       "source": "/tmp/m/smoke_m.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-4",
-      "parts": [
-        3,
-        4
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 114,
-      "failed": 2,
-      "failures": [
-        "mobile 390x780: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed",
-        "mobile 390x780: zero page errors — request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-andreas-1884-sauganash.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833-thumb.jpg | request failed (net::ERR_CERT_AUTHORITY_INVALID) https://kevinrhaas.github.io/chicago-images/prairie-1904/files/early-cameron-first-post-office-1833.jpg"
-      ],
-      "wallSeconds": null,
-      "takenAt": "2026-11-11T23:28:04.084Z",
-      "ref": "steward/t1789-pr1933-recovery-20261111",
-      "commit": "57151be9a3b1",
-      "devCommit": "8a643db9e089",
-      "treeHash": "sha256:1d20a673cec8b682",
-      "treeDirty": true,
-      "changelogHash": "sha256:201c13ccfa57d164",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          1.7,
-          3.3,
-          3.5
-        ]
-      },
-      "source": "/workspace/work/pr1933/smoke-mobile-3-4.log"
     },
     {
       "viewport": "desktop",
