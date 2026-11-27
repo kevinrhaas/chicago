@@ -2,7 +2,7 @@
   "structure_id": "high_house_2021_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/high_house_2021_prairie__as_mapped_1904.glb",
-  "glb_sha256": "569f43eff5aae7f952b7250a212781e2bd16871263ac06b18db027fafb03c7c7",
+  "glb_sha256": "73fbea08d1d8eacfa8acf820031e0b13d0e0014fefb35a3c196d970b5a587c28",
   "camera_sha256": "31f4e79f431095049899c7efa1abef58e63bd0f4ac99681ff2e6cb782fb05aa1",
   "photo_sha256": "0b34cbeac19178d9f667bca892a9bf5cc692d534ee917d89a3a18e67e3fa05be",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "a04b5afd8b04f1d4c448f1c2f1ac5912d766a190a5d0a2d3c0ac1b208fd2faa2"
     }
   ],
-  "flora_sha256": "fe0ff6bc75d1d3d7aa5d64181a7702ba79f46b7d35c9e177b6018b4573081ec3",
+  "flora_sha256": "96fced42f643fe261973348f9cd4eff2421ceea857f5f64c0488a715fb160cd1",
   "side_by_side": "docs/RESEARCH/photo-match/high_house_2021_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -98,8 +98,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the narrow ground-floor light between the porch and the broad window (x 505-560 px) is not built: a brick K01 front lays its principal storey's lights only in its bays",
-      "status": "open"
+      "what": "the narrow ground-floor light between the porch and the broad window (x 505-560 px, y 1150-1425) is built as a plain-headed light read off the camera on the principal storey (front_bays_by_storey \"0\", T-3634), 0.65 m across on the broad light's 2.30 m sill to 4.95 m: it prints at x 510-560 px, y 1155-1425 against the photograph's; the halftone's paler band across it at y 1230-1280 is read as its meeting rails, not drawn",
+      "status": "fixed"
     },
     {
       "what": "the window heads: the render lays K09 stone hoods over the street lights where the halftone shows plain pale heads; the hood's projection is under the bar",

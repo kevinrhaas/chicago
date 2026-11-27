@@ -8,7 +8,9 @@
   * such a light is held to the side walls' read-window rules (the narrow light's reason
     and width, the front's own length for its ends) and kept clear of the street front's
     windows and door;
-  * the principal storey takes none: its entries are the door's bay and columns.
+  * T-3634: the principal storey may take one too (2021 Prairie's narrow light between the
+    arched porch and the broad window), its sill on the principal floor or over it; one
+    under it is a basement light, and is refused.
 
     python3 tools/test_k01_front_read_light.py
 """
@@ -72,8 +74,20 @@ refused(lambda v: v["1"][0].pop("why_not_ordinary"), "a read light narrower than
 refused(lambda v: v["1"][0].update(s_m=-0.3), "a read light past the front's north corner", "wall's ends")
 refused(lambda v: v["1"][0].update(s_m=5.6), "a read light against the column's window",
         "meets a window or the door")
-refused(lambda v: v.update({"0": [{**v["1"][0], "sill_m": 2.5}, -0.7]}), "a read light on the principal storey",
-        "on an upper storey")
+refused(lambda v: v.update({"0": [{**v["1"][0], "sill_m": 0.5}, -0.7]}), "a read light under the principal floor",
+        "principal floor")
+
+# T-3634: 2021 Prairie's principal storey takes the narrow light read between its porch and
+# its broad window, laid once at its own size beside the storey's columns
+st21 = json.loads((ROOT / "data" / "structures" / "high_house_2021_prairie.json").read_text())
+p21 = KP.from_phase(st21["phases"][-1], st21)
+f21 = [o for o in p21.openings if o.wall == "k01.wall.street_front" and o.component == "k01.opening.sash_flat"]
+nl = [o for o in f21 if abs(o.s_m - 4.86) < 1e-6]
+check(len(nl) == 1 and nl[0].narrow and nl[0].plain and abs(nl[0].sill_m - 2.3) < 1e-6
+      and abs(nl[0].width_m - 0.65) < 1e-6,
+      f"2021's narrow principal-storey light is laid once, 0.65 m across on a 2.3 m sill ({len(nl)})")
+check(sorted(round(o.s_m, 2) for o in f21 if o.sill_m < 5.0) == [4.86, 7.4],
+      "2021's principal storey: the read light and the broad light's column (the porch's bay is its door)")
 
 if failures:
     print(f"\n{len(failures)} failure(s)")
