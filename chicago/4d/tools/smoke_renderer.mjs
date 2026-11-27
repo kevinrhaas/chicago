@@ -19038,9 +19038,13 @@ for (const [label, viewport, touch] of [
     await openSection('whatsnew');
     // The tab imports the changelog when it opens (T-1973), so wait for the feed
     // to paint and the marker to clear rather than a fixed beat; the checks below
-    // still judge what arrived.
+    // still judge what arrived. T-3813: 120 s, not 20. Measured in a cloud container
+    // drawing the town on a software renderer: the tab's import request sat about 50 s
+    // behind the town's own downloads, and the 4.5 MB changelog arrived and painted
+    // some 10 s after that. The same first open failed on dev's own renderer
+    // (2026-11-26, PR 2356) and on PR 2381's runners at 20 s.
     await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
-      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 120000 })
       .catch(() => {});
     const wn = await page.evaluate(() => {
       const host = document.getElementById('whatsnew');
@@ -19050,6 +19054,9 @@ for (const [label, viewport, touch] of [
         folded: host.querySelectorAll('.wn-latest .wn-entry > details.wn-fold:not([open])').length,
         history: !!document.getElementById('wn-history-toggle'),
         fourth: host.querySelectorAll('.wn-entry')[3]?.dataset.v ?? '',
+        tab: window.__chicago4d.hud.tab,
+        busy: host.getAttribute('aria-busy'),
+        said: host.textContent.slice(0, 60),
         newest: host.querySelector('.wn-title')?.textContent || '',
         dated: /CT$/.test(host.querySelector('.wn-meta')?.textContent || ''),
         cleared: document.getElementById('help-dot')?.hasAttribute('hidden'),
@@ -19060,7 +19067,7 @@ for (const [label, viewport, touch] of [
     // tap away), with every older release behind the Full history button.
     check(`${label}: the what's-new tab renders the latest releases, the rest behind Full history`,
       wn.entries >= 5 && wn.items >= wn.entries && wn.folded === wn.entries && wn.history,
-      `${wn.entries} entries, ${wn.items} items, ${wn.folded} folded, history ${wn.history}`);
+      `${wn.entries} entries, ${wn.items} items, ${wn.folded} folded, history ${wn.history}; tab ${wn.tab}, busy ${wn.busy}, "${wn.said}"`);
     check(`${label}: entries carry a title and a stamped date`,
       wn.newest.length > 4 && wn.dated, `"${wn.newest}", dated ${wn.dated}`);
     check(`${label}: opening the tab clears the unread marker`,
@@ -19082,9 +19089,13 @@ for (const [label, viewport, touch] of [
     await openSection('whatsnew');
     // The tab imports the changelog when it opens (T-1973), so wait for the feed
     // to paint and the marker to clear rather than a fixed beat; the checks below
-    // still judge what arrived.
+    // still judge what arrived. T-3813: 120 s, not 20. Measured in a cloud container
+    // drawing the town on a software renderer: the tab's import request sat about 50 s
+    // behind the town's own downloads, and the 4.5 MB changelog arrived and painted
+    // some 10 s after that. The same first open failed on dev's own renderer
+    // (2026-11-26, PR 2356) and on PR 2381's runners at 20 s.
     await page.waitForFunction(() => document.querySelector('#whatsnew .wn-entry')
-      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 20000 })
+      && document.getElementById('help-dot')?.hasAttribute('hidden'), null, { timeout: 120000 })
       .catch(() => {});
     const ret = await page.evaluate(() => ({
       flagged: [...document.querySelectorAll('#whatsnew .wn-entry.is-new .wn-title')]
