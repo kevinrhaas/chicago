@@ -9,13 +9,14 @@ and a parent; the visitor's own page is `renderers/web/privacy.html` (published 
 
 ## The switch
 
-`cloudFeatures` in `renderers/web/js/sign-in-config.js` is **off**. Every Stage 1 feature that
-writes student work (T-3777 cloud save, T-3778 classes, T-3779 shared routes and hand-ins,
-T-3780 follow the teacher and classmates) checks `cloudFeaturesOn()` in
-`js/student-data.js` first and writes nothing while it is off. The owner turns it on once he has
-read this page; a class uses those features only once its school has the agreement.
+`cloudFeatures` in `renderers/web/js/sign-in-config.js` is **on**: the owner switched it on on
+27 November 2026 ("Turn on the cloud features"). Every Stage 1 feature that writes student work
+(T-3777 cloud save, T-3778 classes, T-3779 shared routes and hand-ins, T-3780 follow the teacher
+and classmates) checks `cloudFeaturesOn()` in `js/student-data.js` first and writes nothing while
+it is off, so setting it back to `false` stops them all at once. Each feature adds its rows to
+the table below before it ships. A school gets the agreement before its classes use them.
 
-## What is kept today (switch off)
+## What is kept today
 
 Everything below lives in Google Cloud Firestore, project `chicago-61643`, location `nam5`
 (United States). Each record is written over HTTPS with the visitor's own Firebase sign-in, and

@@ -8,8 +8,8 @@ from the sign-in panel and Settings › About) says the same for a visitor; and
 owner, not legal advice. Settings › About gains *Your saved data* with **Delete my saved data**
 (`js/student-data.js`): the visitor's `visitors`, `readers` and `people` documents and every
 `visits` and `bugs` row with their uid, behind an inline confirm, then a sign-out.
-`cloudFeatures: false` in `js/sign-in-config.js` is the one switch T-3777..T-3780 check before
-writing student work.
+`cloudFeatures` in `js/sign-in-config.js` is the one switch T-3777..T-3780 check before
+writing student work; the owner switched it on on 27 November 2026.
 
 The rules are now published from the repo (the owner, 26 November 2026: "you can push directly
 to firestore"): `tools/publish_firestore_rules.mjs`, run by the workflow

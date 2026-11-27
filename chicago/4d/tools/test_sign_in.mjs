@@ -132,7 +132,7 @@ assert.ok(visitorsPage.includes('"https://www.gstatic.com/firebasejs/13.3.0/": "
 // T-3776: what an account keeps, and Delete my saved data.
 {
   // One switch, off until the owner turns it on; a gate that is off turns it off too.
-  assert.equal(SIGN_IN.cloudFeatures, false, 'the Stage 1 cloud features stay off until the owner switches them on (docs/STUDENT-DATA.md)');
+  assert.equal(SIGN_IN.cloudFeatures, true, 'the Stage 1 cloud features are on: the owner, 2026-11-27, "Turn on the cloud features" (docs/STUDENT-DATA.md)');
   assert.equal(cloudFeaturesOn({ enabled: true, cloudFeatures: true }), true);
   assert.equal(cloudFeaturesOn({ enabled: false, cloudFeatures: true }), false, 'no sign-in, no cloud feature');
   assert.equal(cloudFeaturesOn({ enabled: true }), false, 'absent is off');
