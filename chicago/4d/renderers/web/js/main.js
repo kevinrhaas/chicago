@@ -4764,14 +4764,15 @@ async function boot() {
   // worn in the saddle (visitor-person.js, person-settings.js). Off the boot's path.
   api.person = null;
   void (async () => {
-    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT }] = await Promise.all([
+    const [{ loadVisitorPerson }, { wirePersonSettings, personHost }, { createPersonPortrait }, { COMPLEXION_TINT, EYE_COLOUR }] = await Promise.all([
       import('./visitor-person.js'), import('./person-settings.js'), import('./person-portrait.js'), import('./human-looks.js')]);
     personHost(document);   // the You tab's group, with its "loads with the town" line until then
     const person = await loadVisitorPerson({ dataBase: bases.dataBase, assetBase: bases.assetBase, storage: safeStorage(),
       account: api.signIn?.account ?? null });
     api.person = person;
     const portrait = createPersonPortrait({ renderer, humans: () => api.humans ?? null, person, lod: 1 });
-    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT });
+    api.personPortrait = portrait;   // its stats() for the QA run: builds and renders, and their time
+    api.personSettings = wirePersonSettings({ doc: document, person, year: YEAR, portrait, tints: COMPLEXION_TINT, eyes: EYE_COLOUR });
     person.onChange(() => { void api.riding?.reseat?.(); });
   })().catch((error) => { problems.push(`person: ${error.message}`); });
 

@@ -878,6 +878,8 @@ step "Ride a horse: each year's saddle horse, its tack on the coat, the rider se
   node tools/test_riding.mjs
 step "The visitor's own person: every choice one the renderer draws and a body the saddle seats, kept per year and sex, the chosen face drawn, kept with the account (T-3644)" \
   node tools/test_visitor_person.mjs
+step "The character creator: the You tab opens it full screen, every category picture choices, Undo, Randomize, Esc; nothing off a phone's side; the portrait's pixels read behind a fence (T-3553)" \
+  node tools/test_person_creator.mjs
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \

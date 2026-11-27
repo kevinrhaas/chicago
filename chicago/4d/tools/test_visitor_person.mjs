@@ -253,8 +253,36 @@ ok(V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30
   // Nobody of the town draws differently: no pick, no faceOf, the same face as before.
   const town = V.photoFaceFor(photoKit, { key: 'someone:1904', sex: 'male', age: 40, complexion: 'light' });
   ok(town && V.photoFaceFor(photoKit, { key: 'someone:1904', sex: 'male', age: 40, complexion: 'light', faceOf: null, pick: null })?.id === town.id, 'everyone else\'s photographed face is drawn as before');
-  const ps = read('renderers/web/js/person-settings.js');
-  ok(ps.includes('faceGroups(') && ps.includes("role: 'tablist'") && ps.includes('person-face-band'), 'the You tab shows the library by type, in bands');
+  const pc = read('renderers/web/js/person-creator.js');
+  ok(pc.includes('faceGroups(') && pc.includes("role: 'tablist'") && pc.includes('pc-band'), 'the character creator shows the library by type, in bands');
+}
+
+// --- the character creator's choosing (T-3553, Kevin 2026-11-27): a choice drawn before it is made,
+// a roll, the whole choice put back (Undo), a preview under a row of its own.
+{
+  const base = P.normalChoice({ sex: 'female', saved: 's0' }, catalog);
+  const dressed = P.patchedChoice(base, { outfit: 'riding_habit', hair_colour: 'red' }, '1904', catalog);
+  ok(dressed.years['1904'].female.outfit === 'riding_habit' && dressed.hair_colour === 'red' && base.hair_colour !== 'red'
+    && base.years['1904'].female.outfit !== 'riding_habit', 'patchedChoice lays a patch on a copy: the year\'s dress under the body, the rest on the person');
+  ok(dressed.saved === 's0' && P.patchedChoice(base, { outfit: 'nonesuch' }, '1904', catalog).years['1904'].female.outfit === base.years['1904'].female.outfit,
+    'and keeps the stamp, and a dress the year has not falls back');
+  let seed = 7; const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const lib = { ...catalog, photoFaces: P.photoCatalog(JSON.parse(read('assets/humans/web/photo_faces/pilot/runtime.json')), new URL('https://example.invalid/r.json')) };
+  const rolls = Array.from({ length: 24 }, () => P.randomChoice(base, '1904', lib, rand));
+  ok(rolls.every((r) => r.sex === 'female' && JSON.stringify(P.normalChoice(r, lib)) === JSON.stringify(r)), 'randomChoice keeps the body style and gives a choice the renderer draws');
+  ok(new Set(rolls.map((r) => `${r.age}/${r.complexion}/${r.hair_colour}/${r.face}`)).size > 18, 'rolls differ');
+  ok(rolls.some((r) => r.face !== 'auto' && lib.photoFaces.faces.some((f) => f.id === r.face)), 'a roll wears a photographed face of the library');
+  const times = ['t1', 't2', 't3'];
+  const store = new Map();
+  const me2 = P.createVisitorPerson({ catalog, storage: { getItem: (k) => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) }, now: () => times.shift() ?? 'tz' });
+  const first = structuredClone(me2.choice);
+  let told = 0; me2.onChange(() => told++);
+  me2.set({ eyes: 'blue' }); me2.replace(first);
+  ok(me2.choice.eyes === first.eyes && me2.choice.saved === 't2' && told === 2 && JSON.parse(store.get(catalog.storage_key ?? 'chicago4d.person')).saved === 't2',
+    'replace puts a whole choice back (Undo), stamped, kept and told');
+  const pv = { persons: {} };
+  await P.layPersonRow({ assets: { variation: async () => pv } }, { sex: 'male' }, 'visitor:you:preview');
+  ok(pv.persons['visitor:you:preview'] && !pv.persons[P.VISITOR_PERSON_ID], 'a preview\'s row is its own: the visitor\'s is never written with a choice not made');
 }
 
 // --- keeping it with the account
@@ -310,6 +338,7 @@ ok(!/data-set-pane="you"/.test(html) && !html.includes('id="s-person"'), 'its gr
 {
   const ps = read('renderers/web/js/person-settings.js'), pp = read('renderers/web/js/person-portrait.js');
   ok(FACE_TURNS[0] === 0 && ps.includes("frame: 'face'") && /person-face-close/.test(read('renderers/web/css/navigator.css')), 'the You tab draws the face up close beside the figure');
+  ok(ps.includes("import('./person-creator.js')") && ps.includes('person-edit') && !ps.includes("'select'"), 'the You tab opens the character creator (loaded on that click); it has no lists of its own');
   ok(/frame === 'face'/.test(pp) && /eye_l/.test(pp) && (pp.match(/visitorActor\(/g) ?? []).length === 1, 'person-portrait.js frames the face on the eyes of the one figure it builds');
 }
 ok(/^rgb\(\d+, \d+, \d+\)$/.test(swatchColour(COMPLEXION_TINT.deep_brown)), 'complexion swatches are drawn colours');
