@@ -54,13 +54,13 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 286,
+  "surfaces": 287,
   "doors": 126,
   "posts": 112,
   "gardens": 28,
   "by_kind": {
    "alley_walk": 22,
-   "coach_walk": 32,
+   "coach_walk": 33,
    "drying_yard": 56,
    "front_walk": 10,
    "gangway": 31,
@@ -16111,6 +16111,34 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+    },
+    {
+     "id": "prairie_2109:coach_walk:1",
+     "kind": "coach_walk",
+     "material": "gravel",
+     "polygon_local_m": [
+      [
+       1444.32,
+       -3642.27
+      ],
+      [
+       1444.36,
+       -3647.22
+      ],
+      [
+       1445.56,
+       -3647.21
+      ],
+      [
+       1445.52,
+       -3642.26
+      ]
+     ],
+     "along_deg": 179.55,
+     "lift_m": 0.03,
+     "order": 1,
+     "grade": "reconstructed",
+     "note": "The walk from the back door to the coach house, in gravel (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
@@ -16681,15 +16709,7 @@
    "crops": [],
    "shrubs": [],
    "trees": [],
-   "creeper": [
-    [
-     1457.81,
-     -3679.04,
-     269.54,
-     2.76,
-     3.58
-    ]
-   ],
+   "creeper": [],
    "beds": []
   },
   {

@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 3284, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: '2021 Prairie gains its finials and third chimney', kind: 'improvement',
+    items: [
+      'The corner turret\'s cone now ends in a pale metal cap and knob, as the old photograph shows.',
+      'A finial stands on the front gable\'s peak.',
+      'The short chimney on the ridge behind the front gable is built, so the house has all three stacks the photograph shows.',
+    ] },
+  { v: 3283, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: 'Choose your own face from a library of photographed faces', kind: 'fix',
+    items: [
+      'Settings, You: the Face row is now a library of the photographed faces the town wears, sorted by age and then by skin tone.',
+      'The painted faces are still there under their own tab, and Auto still picks one for you.',
+      'Your chosen eye colour now shows on a photographed face, and Style 3 on Auto gets its own face again.',
+      'The face close-up redraws once the sharp photograph has loaded.',
+    ] },
   { v: 3282, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'End asks before it leaves a jaunt', kind: 'fix',
     items: [
       'End now asks "End this jaunt?" first, by mouse, touch, keys or controller.',

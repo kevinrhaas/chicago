@@ -360,6 +360,12 @@ console.log('JOURNEY PASS — every transition once and in order; landing flash,
   gate.setLook({ inWorld: true }); assert.equal(tagEl.hidden, false, 'CLICK TO ENGAGE LOOK in the town');
   gate.setLook({ backend: 'touch' }); assert.equal(tagEl.hidden, true, 'a touch backend never shows it');
   gate.setLook({ backend: 'pointerlock' }); assert.equal(tagEl.hidden, false);
+  // The owner, 2026-11-27: a Jaunt under way never has the tag in front of it, and the tag
+  // comes back after the Jaunt for a visitor who has still not clicked the scene.
+  assert.equal(lookTagVisible({ inWorld: true, backend: 'pointerlock', onJaunt: true }), false);
+  gate.setLook({ onJaunt: true }); assert.equal(tagEl.hidden, true, 'no look tag over a Jaunt');
+  gate.setLook({ inWorld: true }); assert.equal(tagEl.hidden, true, 'entering the town on a Jaunt keeps it away');
+  gate.setLook({ onJaunt: false }); assert.equal(tagEl.hidden, false, 'back after the Jaunt, until the first lock');
   gate.setLook({ locked: true }); assert.equal(tagEl.hidden, true, 'gone once the pointer locks');
   gate.setLook({ locked: false }); assert.equal(tagEl.hidden, true, 'and it does not come back after Esc');
   assert.ok(gate.engaged);

@@ -25,6 +25,7 @@
 //   QA_TARGET=2001 node tools/qa_k12_t1932.mjs       T-1938: 2001's stable on 20th Street and 2009's (Meyer) on the east alley, 20th-21st (sheet 35)
 //   QA_TARGET=2011 node tools/qa_k12_t1932.mjs       T-1938: 2011's stable between two party walls and 2017's (mirror, two carriage bays) on the east alley, 20th-21st (sheet 35)
 //   QA_TARGET=2031 node tools/qa_k12_t1932.mjs       T-1938: 2031's and 2033's pair of stables, each between two party walls, on the east alley, 20th-21st (sheet 35)
+//   QA_TARGET=2109 node tools/qa_k12_t1932.mjs       T-1938: 2109's stable between two party walls and 2123's (mirror, open south gable) on the east alley, 21st-22nd (sheet 35)
 //   QA_TARGET=shed node tools/qa_k12_t1932.mjs       T-1935: the open frame shed on the strip between 1834 and 1900 (K16, open on its dashed north and east sides)
 import fs from 'node:fs';
 import http from 'node:http';
@@ -133,6 +134,12 @@ const TARGETS={
   ['street-face',[1458,-3472,1.7],[1462,-3486,4]],
   ['yard-face',[1446,-3497,1.7],[1458,-3500,4]],
   ['air',[1486,-3519,36],[1464,-3497,0]]]},
+ '2109':{dir:'k12-2109-2123-stables-1938',ids:['roloson_house_2109_prairie_coach_house','house_2123_prairie_coach_house','roloson_house_2109_prairie','house_2123_prairie'],glb:['roloson_house_2109_prairie_coach','house_2123_prairie_coach'],stands:[
+  ['alley-from-north',[1474,-3628,1.7],[1470,-3647,4]],
+  ['alley-from-south',[1474,-3702,1.7],[1470,-3680,4]],
+  ['yard-2109',[1449,-3652,1.7],[1460,-3647,4]],
+  ['yard-2123',[1453,-3688,1.7],[1460,-3679,4]],
+  ['air',[1492,-3697,36],[1466,-3675,0]]]},
  '2031':{dir:'k12-2031-2033-stables-1938',ids:['tolman_house_2031_prairie_coach_house','otis_house_2033_prairie_coach_house','tolman_house_2031_prairie','otis_house_2033_prairie'],glb:['tolman_house_2031_prairie_coach','otis_house_2033_prairie_coach'],stands:[
   ['alley-from-north',[1473,-3563,1.7],[1469,-3581,4]],
   ['alley-from-south',[1473,-3602,1.7],[1469,-3582,4]],

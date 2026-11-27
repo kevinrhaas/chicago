@@ -25548,7 +25548,7 @@ darker than its brown sandstone, which a buff brick cannot do) and laid in the f
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
-**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2123_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2123_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft_elevation`, `roloson_house_2109_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
+**Covers:** `armour_house_2115_prairie_coach_house.draft_1904.form.draft_elevation`, `armour_house_2115_prairie_coach_house.draft_1904.form.draft`, `high_house_2021_prairie_coach_house.draft_1904.form.draft_elevation`, `high_house_2021_prairie_coach_house.draft_1904.form.draft`, `house_2101_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2101_prairie_coach_house.draft_1904.form.draft`, `house_2125_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2125_prairie_coach_house.draft_1904.form.draft`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft_elevation`, `reid_house_2013_prairie_coach_house.draft_1904.form.draft`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft_elevation`, `stone_house_2035_prairie_rear_building.draft_1904.form.draft`.
 **Decision:** the district draft's 20th-22nd block, east side (T-2352, piece 2 of T-2161), run
 by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is invented"
 and "What is not" hold here word for word, reading sheet 35's trace (T-2340) and the T-1842
@@ -25614,6 +25614,11 @@ attributes are gone.
 `tolman_house_2031_prairie_coach_house` and `otis_house_2033_prairie_coach_house` now stand as K12 coach houses under
 `L-k12-2031-stable-1938` and `L-k12-2033-stable-1938`, under the same ids, on the outlines, storeys, brick and window
 marks the sheet draws, each between two party walls; their draft attributes are gone.
+**2109's and 2123's alley buildings retired from this liberty by T-1938 (2026-11-27):**
+`roloson_house_2109_prairie_coach_house` and `house_2123_prairie_coach_house` now stand as K12 coach houses under
+`L-k12-2109-stable-1938` and `L-k12-2123-stable-1938`, under the same ids, on the outlines, storeys, brick and window
+marks the sheet draws (2109's between two party walls, 2123's with its party wall on the north lot line and its open
+gable to the south); their draft attributes are gone.
 **Recorded:** 2026-10-11 (T-2352).
 
 ### L-k01-2115-armour-3712 — 2115 Prairie, the Kelley/Armour house, refined from the district draft onto K01: its plan off the 1911 sheet, its front, roof and stoop off the Armour photograph, its unseen flanks and rear the kits'
@@ -46905,6 +46910,89 @@ its place on the lot, the storeys, the brick, the fire-wall ends and the mark's 
 building permit for the building, entered as a source, gives its openings, roof, use and date their true form.
 T-1938's image gate names pictures for 2013 Reid's coach house only; none for this one.
 **Covers:** `otis_house_2033_prairie_coach_house.as_standing_1904.form.coach_house`, `otis_house_2033_prairie_coach_house.as_standing_1904.form.stories`, `otis_house_2033_prairie_coach_house.as_standing_1904.form.construction`, `otis_house_2033_prairie_coach_house.function`
+**Ticket:** T-1938.
+**Recorded:** 2026-11-27 (T-1938).
+
+### L-k12-2109-stable-1938 — The brick stable behind 2109 Prairie, built from the K12 kit between two party walls on the outline the 1911 sheet draws and its window mark
+
+**Decision:** the district draft's alley building behind 2109 Prairie Avenue (T-1938) is refined in place, under its
+own id `roloson_house_2109_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the
+alley on its east (`alley_side: east`), with a party wall at both ends (`east_end: party`), as 2031's and 2033's stables
+are (L-k12-2031-stable-1938). Built in the same PR as 2123's.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline,
+10.37 m deep from the alley line by 15.22 m along it, measured between line centres by median darkness profiles (the
+alley line at column 1171.94, on which the alley wall is drawn, the west wall at 1116.13, the north and south walls at
+rows 1118.64 and 1200.53) and carried by the sheet's fitted similarity; both end walls on lot lines (the lot lines read
+at rows 1119.07 and 1201.17 west of the building), with 2101's one-storey range against it on the north line and 2115's
+two-storey garage against it on the south line; the key's fire-wall ticks on the alley line at the north junction; '2'
+storeys; the brick; the label GARAGE; one of the key's window marks on the alley wall, a cross with a dot for each
+storey, 5.67 m from the south wall (its strokes over rows 1165-1175, read to about a pixel); a second window mark on the
+north wall; a dashed line about 1.3 m inside the yard wall, its ends turned toward it; and a small open circle inside
+the south-east corner. The house's brick rear block stands 19.21 m west of the yard wall (column 1012.76, rows
+1141-1182). The draft had fitted a 14.0 x 8.5 m rectangle. Inferred for 1904 as every reading of these sheets is.
+**The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's
+carry-back (s35-2109-rear, present_as_mapped), which the district draft already made.
+**What is invented.** The use: GARAGE is the 1911 sheet's word and is not carried to 1904 (the kit's
+no_1911_use_labels); the census reconstructs it as a stable and coach house, and that is what is built. Both ends are
+the kit's party walls, rising 0.45 m over the roof and returning 0.5 m past the eaves, so there is no open gable.
+Every opening but the alley mark is the kit's laid out for this lot, as 2017's stable of the same 15.2 m length is: on
+the alley a man door with a loft sash over it, the mark as a stable sash with a loft sash over it, a carriage bay 3.0 m
+clear under the loft hatch and hoist, and a second carriage bay with a loft sash over it toward the north end; on the
+yard wall three stable sash and a door, each with a loft sash over it, the door set where a walk from it meets the
+house's rear block. The workyard is the kit's: a 2.4 m brick apron along the yard wall and a walk to the rear block's
+wall line. The roof is the kit's gable with the ridge along the alley at 40 degrees, as 2017's 10.63 m deep stable
+takes; no dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement,
+reached by nothing. Flat colours.
+**Left out.** The north wall's window mark: it would look out over 2101's one-storey roof, and the kit's party wall
+takes no opening, so that wall is built blind. The dashed line inside the yard wall and the open circle, which this
+copy is too coarse to read against the key, and the small figures inside the south wall line; none of them builds
+anything here. **What is not.** The outline, its place on the lot, the storeys, the brick, the party-wall ends and the
+alley mark's place are the map's.
+**How to resolve:** a photograph of the alley behind the 2100 block of Prairie, a finer copy of sheet 35, or a
+building permit for the building, entered as a source, gives its openings, roof, use and date their true form, and
+says what the dashed line is. T-1938's image gate names pictures for 2013 Reid's coach house only; none for this one.
+**Covers:** `roloson_house_2109_prairie_coach_house.as_standing_1904.form.coach_house`, `roloson_house_2109_prairie_coach_house.as_standing_1904.form.stories`, `roloson_house_2109_prairie_coach_house.as_standing_1904.form.construction`, `roloson_house_2109_prairie_coach_house.function`
+**Ticket:** T-1938.
+**Recorded:** 2026-11-27 (T-1938).
+
+### L-k12-2123-stable-1938 — The brick stable behind 2123 Prairie, built from the K12 kit with its party wall to the north and an open south gable, on the outline the 1911 sheet draws and its two window marks
+
+**Decision:** the district draft's alley building behind 2123 Prairie Avenue (T-1938) is refined in place, under its
+own id `house_2123_prairie_coach_house`, onto the K12 coach-house kit (L-k12-coach-house-kit-2320), facing the alley on
+its east (`alley_side: east`), built in mirror image (`mirror`) with its party wall on the north lot line and its open
+gable to the south (`east_end: gable`), as 2017's stable is (L-k12-2017-stable-1938). Built in the same PR as 2109's.
+**What is read.** From sheet 35 of the 1911 Sanborn, on the committed copy at 0.186 m a pixel: the building's outline,
+13.74 m deep from the alley line by 11.66 m along it, measured between line centres by median darkness profiles (the
+alley line at column 1172.93, on which the alley wall is drawn, the west wall at 1098.99, the north and south walls at
+rows 1301.26 and 1364.02) and carried by the sheet's fitted similarity; the north wall on the 2115/2123 lot line (read
+at row 1300.0 west of the building, within a pixel and a half), with 2115's garage 0.43 m north (its south wall at row
+1298.92) and the key's fire-wall ticks on the alley line at that junction; the south wall free, 0.56 m inside the
+2123/2125 lot line (row 1367.01); '2' storeys; the brick; the label GARAGE; one of the key's window marks on the alley
+wall, 6.08 m from the north wall (its strokes over rows 1329-1339), and another on the south wall, 5.80 m back from the
+alley line (its strokes over columns 1137-1147), each read to about a pixel; and a small cross inside the south-east
+corner. The house's two-storey brick rear range stands 5.97 m west of the yard wall (column 1066.89, rows 1320-1355).
+The draft had fitted a 12.0 x 10.5 m rectangle. Inferred for 1904 as every reading of these sheets is.
+**The date.** Nothing read dates the building before the 1911 sheet; that it stood by 1904 is the census's
+carry-back (s35-2123-rear, present_as_mapped), which the district draft already made.
+**What is invented.** The use: GARAGE is the 1911 sheet's word and is not carried to 1904 (the kit's
+no_1911_use_labels); the census reconstructs it as a stable and coach house, and that is what is built. The north end
+is the kit's party wall, rising 0.45 m over the roof and returning 0.5 m past the eaves; the south end is the kit's
+open gable. Every opening but the two marks is the kit's laid out for this lot: on the alley a carriage bay 3.0 m clear
+under the loft hatch and hoist toward the north end, the mark as a stable sash with a loft sash over it, and a man door
+with a loft sash over it; on the south gable the mark as a stable sash with a loft sash over it; on the yard wall two
+stable sash and a door, each with a loft sash over it, the door set where a walk from it meets the house's rear range.
+The workyard is the kit's: a 2.4 m brick apron along the yard wall and a walk to the range's rear wall line. The roof
+is the kit's gable with the ridge along the alley at 30 degrees, as 2031's and 2033's 14.7 m deep stables take; no
+dormer and no ventilator. The kit's storey heights (3.6 m and 2.7 m to the eave) and its 1.8 m basement, reached by
+nothing. Flat colours.
+**Left out.** The small figures inside the north and south wall lines and the small cross inside the south-east
+corner: too coarse on this copy to read, and they build nothing here. **What is not.** The outline, its place on the
+lot, the storeys, the brick, the party wall on the north and both marks' places are the map's.
+**How to resolve:** a photograph of the alley behind the 2100 block of Prairie, a finer copy of sheet 35, or a
+building permit for the building, entered as a source, gives its openings, roof, use and date their true form. The
+Armour photograph solved for 2123's house (T-3725) shows its front, not the alley. T-1938's image gate names pictures
+for 2013 Reid's coach house only; none for this one.
+**Covers:** `house_2123_prairie_coach_house.as_standing_1904.form.coach_house`, `house_2123_prairie_coach_house.as_standing_1904.form.stories`, `house_2123_prairie_coach_house.as_standing_1904.form.construction`, `house_2123_prairie_coach_house.function`
 **Ticket:** T-1938.
 **Recorded:** 2026-11-27 (T-1938).
 
