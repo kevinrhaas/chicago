@@ -46832,7 +46832,7 @@ felt; no fall, outlet, coping or corbel. The split of the 7.01 m into the kit's 
 The 23 ft read as grade to the wall head. Every opening: each half has on the alley a man door, a carriage bay 3.0 m
 clear under the loft hatch and hoist, and a stable sash, laid out mirror-wise so the carriage bays stand toward the
 ends, and on the yard a door toward its own house between two stable sash, every one with a loft sash over it. The
-kit's 1.8 m basement. Flat colours. **Left out.** The middle party wall, which stands inside under the one roof and
+kit's 1.8 m basement. Flat colours: the kit's own brick colour and 13-inch walls, not the photograph's common brick. **Left out.** The middle party wall, which stands inside under the one roof and
 shows nothing outside. The ramp: attested, but placed by no source, and the scene's yard layer makes no cut for it, so
 it would stand under the ground. The photograph's segmental heads with keystones. **What is not.** The outline, its
 place, the two storeys, the brick, the one building of two halves, the depth, the south half's width, the height and
@@ -46840,6 +46840,6 @@ the flat roof are the sources'.
 **How to resolve:** T-1937's image gate: solve the 2014 photograph's camera, settle which of its faces is the alley's,
 and read its openings and heads onto that wall; the NRHP nomination's 2006 alley photograph (link-only) and its site
 plan, and a permit or an older view of the north half, would place the carriage doors and the ramp.
-**Covers:** `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.coach_house`, `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.stories`
+**Covers:** `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.coach_house`, `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.stories`, `mark_kimball_house_2108_prairie_coach_house.as_standing_1904.form.construction`
 **Ticket:** T-1937.
 **Recorded:** 2026-11-27 (T-1937).
