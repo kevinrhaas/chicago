@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 3277, ts: '2026-11-27T03:36:42.565Z', date: 'Nov 26, 2026, 9:36 PM CT', title: 'Clean lapels, finer coat cloth, real felt and straw hats', kind: 'fix',
+    items: [
+      'Gentlemen\'s lapels are whole and pressed at every distance; the dark torn shards on their chests are gone.',
+      'Lapel facings have a soft silk sheen instead of a glossy blob.',
+      'Coat, jacket and trouser cloth has a much finer weave, with no zigzag where it turns round the body.',
+      'Hats are drawn as felt, silk plush or woven straw, and derbies, top hats and ladies\' felt hats wear a grosgrain band.',
+    ] },
+  { v: 3276, ts: '2026-11-27T03:17:37.657Z', date: 'Nov 26, 2026, 9:17 PM CT', title: 'Brick stables behind 2011 and 2017 Prairie', kind: 'feature',
+    items: [
+      'The stable behind 2011 Prairie now stands on the alley as a two-storey brick building 14.6 m deep, filling its lot from line to line with a fire wall at each end, as the 1911 fire-insurance map draws it, and with the one window the map marks on its alley wall.',
+      'The stable behind 2017 Prairie, the longest on this alley at 15.2 m along it, now stands with two carriage doors, a fire wall on its north lot line, the window the map marks, and a paved yard and walk back to the house.',
+    ] },
   { v: 3275, ts: '2026-11-27T01:55:06.270Z', date: 'Nov 26, 2026, 7:55 PM CT', title: 'A lighter first visit with the new faces', kind: 'fix',
     items: [
       'The photographic faces now load only what the street draws, about a third of their old download, and every person keeps the face they had.',

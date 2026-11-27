@@ -246,7 +246,10 @@ export const BACK_COLLAR = Object.freeze({ lapels: /frock_coat_lapels(_lod\d+)?$
   height: 0.028, fall: 0.022, gap: 0.004, span: 100, under: 4, taper: 25, K: [48, 32, 16, 10] });
 
 /** Append points and triangles to a skinned mesh's geometry (attributes made plain). */
-function appendGeometry(mesh, add) {
+/** `laid`: the points added lie over the cloth outside this mesh's own layer (a lapel's silk
+ * facing and the buttons, in the tie's mesh, lie on the coat): recorded as
+ * geometry.userData.chicagoLaidFrom, the first of them. */
+function appendGeometry(mesh, add, laid = false) {
   const geo = mesh.geometry, n0 = geo.attributes.position.count, n1 = n0 + add.P.length / 3;
   const out = new THREE.BufferGeometry(), v = new THREE.Vector3();
   const pos = new Float32Array(n1 * 3), nrm = new Float32Array(n1 * 3), uv = new Float32Array(n1 * 2);
@@ -271,6 +274,7 @@ function appendGeometry(mesh, add) {
   out.setAttribute('skinIndex', new THREE.BufferAttribute(SI, 4)); out.setAttribute('skinWeight', new THREE.BufferAttribute(SW, 4, sw.normalized));
   out.setIndex(new THREE.BufferAttribute(n1 > 65535 ? Uint32Array.from(idx) : Uint16Array.from(idx), 1));
   out.name = geo.name; out.userData = { ...geo.userData };
+  if (laid) out.userData.chicagoLaidFrom = Math.min(geo.userData?.chicagoLaidFrom ?? Infinity, n0);
   out.computeBoundingBox(); out.computeBoundingSphere();
   mesh.geometry = out; geo.dispose();
 }
@@ -522,7 +526,7 @@ function buildFrontButtons(coat, lapels, silk, lod, brk0 = null) {
   const Pa = Float64Array.from(P);
   let agree = 0; for (let t = 0; t < index.length; t += 3) { const i0 = index[t] * 3, i1 = index[t + 1] * 3, i2 = index[t + 2] * 3; const f = cross([Pa[i1] - Pa[i0], Pa[i1 + 1] - Pa[i0 + 1], Pa[i1 + 2] - Pa[i0 + 2]], [Pa[i2] - Pa[i0], Pa[i2 + 1] - Pa[i0 + 1], Pa[i2 + 2] - Pa[i0 + 2]]); agree += Math.sign(f[0] * N[i0] + f[1] * N[i0 + 1] + f[2] * N[i0 + 2]); }
   if (agree < 0) for (let t = 0; t < index.length; t += 3) { const q = index[t + 1]; index[t + 1] = index[t + 2]; index[t + 2] = q; }
-  appendGeometry(silk, { P: Pa, N: Float64Array.from(N), UV, SI, SW, index });
+  appendGeometry(silk, { P: Pa, N: Float64Array.from(N), UV, SI, SW, index }, true);
   return { buttons: C.count, points: Pa.length / 3 };
 }
 
@@ -624,7 +628,7 @@ function offShoulders(mesh, J) {
  * edge, faced in silk all over (in the silk's mesh); the drawn lapels and their facings are
  * left out. Every level, at its own fineness. */
 export const LAPEL = Object.freeze({ piece: /frock_coat_lapels(_lod\d+)?$/, coat: /frock_coat_body(_lod\d+)?$/, silk: /four_in_hand_tie(_lod\d+)?$/,
-  width: 0.062, widest: 0.62, point: 0.86, gorge: 0.22, front: 0.045, even: 6, rows: [44, 26, 14, 8],
+  width: 0.062, widest: 0.62, press: 6, point: 0.86, gorge: 0.22, front: 0.045, even: 6, rows: [44, 26, 14, 8], under: 0.003, fade: 0.012, drop: 0.006, silkRoughness: 0.6,
   across: [[-0.12, 0.0008], [0, 0.0034], [0.08, 0.0044], [0.22, 0.0038], [0.45, 0.0034], [0.7, 0.0033], [0.9, 0.0031], [1, 0.0016]], lods: [0, 0, 1, 2] });
 
 /** Before refining: the drawn lapels and their silk facings left out. Returns the break height. */
@@ -648,7 +652,7 @@ function clearLapels(lapels, silk) {
 function cutLapels(coat, silk, brk, lod) {
   const C = LAPEL, S = surfaceOf(coat), W = S.W, rows = C.rows[Math.min(lod, 3)];
   const loops = loopsOf(W);
-  const P = [], N = [], UV = [], SI = [], SW = [], index = [], tops = [], L = [];
+  const P = [], N = [], UV = [], SI = [], SW = [], index = [], tops = [], L = [], sides = [];
   const smooth = (A, it) => { for (let k = 0; k < it; k++) { const B = A.map((p) => p.slice()); for (let i = 1; i + 1 < A.length; i++) for (let d = 0; d < 3; d++) B[i][d] = 0.25 * A[i - 1][d] + 0.5 * A[i][d] + 0.25 * A[i + 1][d]; A.splice(0, A.length, ...B); } };
   for (const side of [1, -1]) {
     // The coat's front edge on this side, from the break up to the neck.
@@ -660,7 +664,7 @@ function cutLapels(coat, silk, brk, lod) {
     const len = [0]; for (let i = 1; i < edge.length; i++) len.push(len[i - 1] + Math.hypot(edge[i][0] - edge[i - 1][0], edge[i][1] - edge[i - 1][1], edge[i][2] - edge[i - 1][2]));
     const R = []; for (let r = 0; r <= rows; r++) { const want = len.at(-1) * r / rows; let i = 1; while (i < len.length - 1 && len[i] < want) i++; const f = (want - len[i - 1]) / Math.max(1e-9, len[i] - len[i - 1]); R.push([0, 1, 2].map((d) => edge[i - 1][d] + (edge[i][d] - edge[i - 1][d]) * Math.min(1, Math.max(0, f)))); }
     smooth(R, 12);
-    const base = P.length / 3, cols = C.across.length;
+    const base = P.length / 3, cols = C.across.length, row = [];
     for (let r = 0; r <= rows; r++) {
       const u = r / rows, p = R[r], a = R[Math.max(0, r - 1)], b = R[Math.min(rows, r + 1)];
       const here = S.at(p); const nC = here ? here.n : [0, 0, 1];
@@ -669,26 +673,37 @@ function cutLapels(coat, silk, brk, lod) {
       if (o[0] * side < 0) { o[0] = -o[0]; o[1] = -o[1]; }
       // Width: from nothing at the break to full across the chest, square at the point, then the
       // gorge up to the neck.
-      const f = u < C.widest ? Math.sin((u / C.widest) * Math.PI / 2) ** 0.8 : u < C.point ? 1 : 1 - (1 - C.gorge) * ((u - C.point) / (1 - C.point));
+      const f = u < C.point ? (u < C.widest ? Math.sin((u / C.widest) * Math.PI / 2) ** 0.8 : 1) : 1 - (1 - C.gorge) * ((u - C.point) / (1 - C.point));
       const w = C.width * f;
       // A ruled strip from the front edge out to the cloth under the lapel's outer edge, bowed as
-      // the chest bows under it (measured at its middle), each column at its own height.
+      // the chest bows under it (measured at its middle).
       const onCoat = (v) => { const q = [p[0] + o[0] * v * w, p[1] + o[1] * v * w, p[2]]; const h = S.hit([q[0], q[1], q[2] + 0.3], [0, 0, -1], 0.5); return h && h[2] > p[2] - 0.02 ? h : null; };
       const out = onCoat(1) ?? [p[0] + o[0] * w, p[1] + o[1] * w, p[2]], mid = onCoat(0.5);
-      const atOut = S.at(out) ?? here, n = atOut ? atOut.n : nC;
+      const atOut = S.at(out) ?? here, n = atOut ? atOut.n.slice() : nC.slice();
       const chord = [(p[0] + out[0]) / 2, (p[1] + out[1]) / 2, (p[2] + out[2]) / 2];
       const bow = mid ? Math.max(0, (mid[0] - chord[0]) * n[0] + (mid[1] - chord[1]) * n[1] + (mid[2] - chord[2]) * n[2]) : 0;
+      row.push({ u, p, o, out: out.slice(), n, bow: [bow] });
+    }
+    // The lapel is pressed cloth, smooth along its length: its outer edge, its tilt and its bow
+    // are evened row to row (the coat under it is set back beneath it after, so the facing no
+    // longer follows the coat's every facet; drawn, it shone on each one as a lump).
+    for (const key of ['out', 'n', 'bow']) { const A = row.map((q) => q[key]); for (let k = 0; k < Math.round(C.press * rows / C.rows[0]); k++) { const B = A.map((q) => q.slice()); for (let i = 1; i + 1 < A.length; i++) for (let d = 0; d < A[i].length; d++) B[i][d] = 0.25 * A[i - 1][d] + 0.5 * A[i][d] + 0.25 * A[i + 1][d]; A.splice(0, A.length, ...B); } row.forEach((q, i) => { q[key] = A[i]; }); }
+    for (const q of row) { const l = Math.hypot(...q.n) || 1; q.n = q.n.map((x) => x / l); }
+    for (const { u, p, o, out, n, bow: [bow] } of row) {
       for (const [v, lift] of C.across) {
         const vv = Math.max(0, v), b = bow * 4 * vv * (1 - vv) + lift;
         const x = [p[0] + (out[0] - p[0]) * vv + o[0] * Math.min(0, v) * 0.06, p[1] + (out[1] - p[1]) * vv + o[1] * Math.min(0, v) * 0.06, p[2] + (out[2] - p[2]) * vv];
         P.push(x[0] + n[0] * b, x[1] + n[1] * b, x[2] + n[2] * b); L.push(lift);
-        const at = S.at(x) ?? atOut;
-        if (at) S.skin(at.v, SI, SW); else { SI.push(0, 0, 0, 0); SW.push(255, 0, 0, 0); }
+        S.skinAt(x, SI, SW);
         UV.push(0.05 + 0.4 * u, 0.05 + 0.1 * vv);
       }
-      if (r === rows) tops.push(p);
+      if (u === 1) tops.push(p);
     }
+    // Each side wound to face out from the chest (the two sides mirror, so one was wound in:
+    // its normals pointed into the coat and the cull took that whole lapel for covered).
+    const t0 = index.length;
     for (let r = 0; r < rows; r++) for (let c = 0; c + 1 < cols; c++) { const i0 = base + r * cols + c, i1 = i0 + 1, i2 = i0 + cols, i3 = i2 + 1; index.push(i0, i2, i1, i1, i2, i3); }
+    sides.push([t0, index.length]);
   }
   if (!index.length) return null;
   const Pa = Float64Array.from(P), n = Pa.length / 3;
@@ -699,13 +714,102 @@ function cutLapels(coat, silk, brk, lod) {
       for (let i = 0; i < n; i++) { if (!nb[i].size) continue; let x = 0, y = 0, z = 0; for (const j of nb[i]) { x += Pa[j * 3]; y += Pa[j * 3 + 1]; z += Pa[j * 3 + 2]; } T[i * 3] = 0.5 * Pa[i * 3] + 0.5 * x / nb[i].size; T[i * 3 + 1] = 0.5 * Pa[i * 3 + 1] + 0.5 * y / nb[i].size; T[i * 3 + 2] = 0.5 * Pa[i * 3 + 2] + 0.5 * z / nb[i].size; }
       Pa.set(T);
     } }
+  // Face outward (as the coat faces), side by side: the face normal of each triangle against the
+  // coat's under it; a side that faces in is wound the other way.
+  for (const [t0, t1] of sides) {
+    let agree = 0;
+    for (let t = t0; t < t1; t += 3) {
+      const a = index[t] * 3, b = index[t + 1] * 3, c = index[t + 2] * 3;
+      const ux = Pa[b] - Pa[a], uy = Pa[b + 1] - Pa[a + 1], uz = Pa[b + 2] - Pa[a + 2], vx = Pa[c] - Pa[a], vy = Pa[c + 1] - Pa[a + 1], vz = Pa[c + 2] - Pa[a + 2];
+      const at = S.at([Pa[a], Pa[a + 1], Pa[a + 2]]); if (!at) continue;
+      agree += (uy * vz - uz * vy) * at.n[0] + (uz * vx - ux * vz) * at.n[1] + (ux * vy - uy * vx) * at.n[2];
+    }
+    if (agree < 0) for (let t = t0; t < t1; t += 3) { const q = index[t + 1]; index[t + 1] = index[t + 2]; index[t + 2] = q; }
+  }
   const Nn = graphNormals(Pa, index, n);
-  // Face outward (as the coat faces): flip winding and normals together if needed.
-  let agree = 0; for (let i = 0; i < n; i++) { const at = S.at([Pa[i * 3], Pa[i * 3 + 1], Pa[i * 3 + 2]]); if (at) agree += Nn[i * 3] * at.n[0] + Nn[i * 3 + 1] * at.n[1] + Nn[i * 3 + 2] * at.n[2]; }
-  if (agree < 0) { for (let t = 0; t < index.length; t += 3) { const q = index[t + 1]; index[t + 1] = index[t + 2]; index[t + 2] = q; } for (let i = 0; i < Nn.length; i++) Nn[i] = -Nn[i]; }
-  appendGeometry(silk, { P: Pa, N: Nn, UV, SI, SW, index });
-  return { rows, points: n, tops };
+  appendGeometry(silk, { P: Pa, N: Nn, UV, SI, SW, index }, true);
+  // Faced in a faille's soft sheen, not a glaze: at the tie's drawn 0.45 each lapel shone as one
+  // broad highlight, a blob on the chest (round 8).
+  for (const m of [silk.material].flat()) if (m && 'roughness' in m) m.roughness = Math.max(m.roughness, C.silkRoughness);
+  const sunk = sinkUnderLapels(S.W, Pa, index);
+  return { rows, points: n, tops, sunk };
 }
+
+/** The coat under a lapel kept `LAPEL.under` beneath it: drawn coarse, the coat's facets bulged
+ * up between the lapel's rows and came through the silk as dark shards (and the cull, finding
+ * the silk covered there, cut it into shards; the owner, 2026-11-26: "Look how bad their lapels
+ * are"). Each point of the coat lying under a lapel, seen from in front, is set back to
+ * `under` behind the lapel's face there; out past the lapel's edge, by less, over `fade`. The
+ * coat there is never seen. Positions only. Returns the points moved. */
+function sinkUnderLapels(W, Pa, index) {
+  const C = LAPEL, tris = [];
+  for (let t = 0; t < index.length; t += 3) {
+    const a = index[t] * 3, b = index[t + 1] * 3, c = index[t + 2] * 3;
+    tris.push([Pa[a], Pa[a + 1], Pa[a + 2], Pa[b], Pa[b + 1], Pa[b + 2], Pa[c], Pa[c + 1], Pa[c + 2]]);
+  }
+  // The lapel's face, seen from in front: its height (z) over a point, and how far outside it lies.
+  const faceAt = (x, y) => {
+    let best = null, bestOut = Infinity;
+    for (const q of tris) {
+      const minX = Math.min(q[0], q[3], q[6]) - C.fade, maxX = Math.max(q[0], q[3], q[6]) + C.fade;
+      const minY = Math.min(q[1], q[4], q[7]) - C.fade, maxY = Math.max(q[1], q[4], q[7]) + C.fade;
+      if (x < minX || x > maxX || y < minY || y > maxY) continue;
+      const v0x = q[3] - q[0], v0y = q[4] - q[1], v1x = q[6] - q[0], v1y = q[7] - q[1], v2x = x - q[0], v2y = y - q[1];
+      const den = v0x * v1y - v1x * v0y; if (Math.abs(den) < 1e-12) continue;
+      const b1 = (v2x * v1y - v1x * v2y) / den, b2 = (v0x * v2y - v2x * v0y) / den, b0 = 1 - b1 - b2;
+      // how far outside, in metres (roughly: the most negative coordinate times the triangle's size)
+      const size = Math.sqrt(Math.abs(den)), out = -Math.min(0, b0, b1, b2) * size;
+      if (out < bestOut) {
+        const c0 = Math.max(0, b0), c1 = Math.max(0, b1), c2 = Math.max(0, b2), cs = c0 + c1 + c2 || 1;
+        bestOut = out; best = (c0 * q[2] + c1 * q[5] + c2 * q[8]) / cs;
+        if (out === 0) break;
+      }
+    }
+    return best === null || bestOut > C.fade ? null : { z: best, out: bestOut };
+  };
+  let moved = 0;
+  for (let g = 0; g < W.G; g++) {
+    const x = W.P[g * 3], y = W.P[g * 3 + 1], z = W.P[g * 3 + 2];
+    const f = faceAt(x, y); if (!f || z < f.z - 0.05) continue;
+    const want = f.z - C.under * (1 - smooth01(f.out / C.fade));
+    if (z > want) { W.P[g * 3 + 2] = want; moved++; }
+  }
+  // A far level's coat faces are long: one whose corners all lie outside the lapel can still pass
+  // in front of it between them. Each lapel point's coat face, seen from in front, is set back
+  // under it, corners and all (twice over: setting one back can raise none).
+  const T = W.tris, box = [];
+  for (let t = 0; t < T.length; t += 3) {
+    const a = T[t] * 3, b = T[t + 1] * 3, c = T[t + 2] * 3;
+    box.push([Math.min(W.P[a], W.P[b], W.P[c]), Math.max(W.P[a], W.P[b], W.P[c]), Math.min(W.P[a + 1], W.P[b + 1], W.P[c + 1]), Math.max(W.P[a + 1], W.P[b + 1], W.P[c + 1])]);
+  }
+  const lowered = new Set();
+  for (let pass = 0; pass < 2; pass++) {
+    // each corner set back once a pass, by the most any face of it needs (summed, a corner
+    // shared by many faces went back by all of them)
+    const need = new Map();
+    for (let i = 0; i < Pa.length / 3; i++) {
+      const x = Pa[i * 3], y = Pa[i * 3 + 1], z = Pa[i * 3 + 2];
+      for (let t = 0, k = 0; t < T.length; t += 3, k++) {
+        const bx = box[k]; if (x < bx[0] || x > bx[1] || y < bx[2] || y > bx[3]) continue;
+        const a = T[t] * 3, b = T[t + 1] * 3, c = T[t + 2] * 3;
+        const v0x = W.P[b] - W.P[a], v0y = W.P[b + 1] - W.P[a + 1], v1x = W.P[c] - W.P[a], v1y = W.P[c + 1] - W.P[a + 1], v2x = x - W.P[a], v2y = y - W.P[a + 1];
+        const den = v0x * v1y - v1x * v0y; if (Math.abs(den) < 1e-14) continue;
+        const b1 = (v2x * v1y - v1x * v2y) / den, b2 = (v0x * v2y - v2x * v0y) / den, b0 = 1 - b1 - b2;
+        if (b0 < 0 || b1 < 0 || b2 < 0) continue;
+        const zc = b0 * W.P[a + 2] + b1 * W.P[b + 2] + b2 * W.P[c + 2];
+        if (zc < z - 0.05 || zc <= z - C.under * 0.5) continue;
+        const drop = Math.min(C.drop, zc - (z - C.under));
+        for (const q of [a, b, c]) need.set(q, Math.max(need.get(q) ?? 0, drop));
+      }
+    }
+    if (!need.size) break;
+    for (const [q, d] of need) { W.P[q + 2] -= d; lowered.add(q); }
+  }
+  moved += lowered.size;
+  if (moved) writeBack(W, null);
+  return moved;
+}
+const smooth01 = (t) => { t = Math.min(1, Math.max(0, t)); return t * t * (3 - 2 * t); };
 
 /** An apron's shoulder frills gathered as cloth: drawn, each was one flat sheet standing off the
  * strap like a wing ("the way that apron lays is messy and does not look like fabric"). Cut again
