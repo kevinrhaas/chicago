@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 301199386,
+  "content_version": 7907517,
   "category": "Build log",
   "menu_group": "Build log",
   "grade_band": "6-8",
@@ -21,7 +21,7 @@
     "season": "summer"
   },
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 129 Prairie Avenue buildings modelled past their first rough model, in 2 areas. A walk holds 50 stops, so 79 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 134 Prairie Avenue buildings modelled past their first rough model, in 2 areas. A walk holds 50 stops, so 84 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -222,8 +222,8 @@
         "kind": "structure",
         "id": "house_1712_prairie"
       },
-      "text": "1712 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Tyrrell-Walker House, 1720 Prairie.",
-      "read_s": 13,
+      "text": "1712 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: 1736 Prairie.",
+      "read_s": 12,
       "evidence": [
         "stood-10",
         "tour"
@@ -241,34 +241,12 @@
       "id": "stop-11",
       "destination": {
         "kind": "structure",
-        "id": "walker_house_1720_prairie"
-      },
-      "text": "Tyrrell-Walker House, 1720 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 2 of the pictures on the Images tab show it. TORN DOWN 1910, the first of many Prairie Avenue houses to go. Next: 1736 Prairie.",
-      "read_s": 18,
-      "evidence": [
-        "stood-11",
-        "razed-11",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "walker_house_1720_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-12"
-    },
-    {
-      "id": "stop-12",
-      "destination": {
-        "kind": "structure",
         "id": "house_1736_prairie"
       },
       "text": "1736 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Osborn Keith House, 1808 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-12",
+        "stood-11",
         "tour"
       ],
       "links": [
@@ -278,10 +256,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-13"
+      "next": "stop-12"
     },
     {
-      "id": "stop-13",
+      "id": "stop-12",
       "destination": {
         "kind": "structure",
         "id": "keith_house_1808_prairie"
@@ -289,8 +267,8 @@
       "text": "Osborn Keith House, 1808 Prairie. DETAIL 4/5: a kit build matched to its picture; 16 solved pictures, 16 matching. Pictured: 16 of the pictures on the Images tab show it. RAZED 1968, all but its north wall, kept to screen the Glessner courtyard. Next: Wheeler House, 1812 Prairie.",
       "read_s": 20,
       "evidence": [
-        "stood-13",
-        "razed-13",
+        "stood-12",
+        "razed-12",
         "tour"
       ],
       "links": [
@@ -300,10 +278,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-14"
+      "next": "stop-13"
     },
     {
-      "id": "stop-14",
+      "id": "stop-13",
       "destination": {
         "kind": "structure",
         "id": "wheeler_house_1812_prairie"
@@ -311,8 +289,8 @@
       "text": "Wheeler House, 1812 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1968. Next: Henderson House, 1816 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-14",
-        "razed-14",
+        "stood-13",
+        "razed-13",
         "tour"
       ],
       "links": [
@@ -322,10 +300,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-15"
+      "next": "stop-14"
     },
     {
-      "id": "stop-15",
+      "id": "stop-14",
       "destination": {
         "kind": "structure",
         "id": "henderson_house_1816_prairie"
@@ -333,7 +311,7 @@
       "text": "Henderson House, 1816 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-15",
+        "stood-14",
         "tour"
       ],
       "links": [
@@ -343,10 +321,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-16"
+      "next": "stop-15"
     },
     {
-      "id": "stop-16",
+      "id": "stop-15",
       "destination": {
         "kind": "structure",
         "id": "marsh_house_1824_prairie"
@@ -354,8 +332,8 @@
       "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 4 of the pictures on the Images tab show it. RAZED in the 1940s. Next: 1828 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-16",
-        "razed-16",
+        "stood-15",
+        "razed-15",
         "tour"
       ],
       "links": [
@@ -365,10 +343,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-17"
+      "next": "stop-16"
     },
     {
-      "id": "stop-17",
+      "id": "stop-16",
       "destination": {
         "kind": "structure",
         "id": "house_1828_prairie"
@@ -376,7 +354,7 @@
       "text": "1828 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Jones House, 1834 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-17",
+        "stood-16",
         "tour"
       ],
       "links": [
@@ -386,10 +364,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-18"
+      "next": "stop-17"
     },
     {
-      "id": "stop-18",
+      "id": "stop-17",
       "destination": {
         "kind": "structure",
         "id": "jones_house_1834_prairie"
@@ -397,8 +375,8 @@
       "text": "Jones House, 1834 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1942. Next: Edson Keith House, 1906 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-18",
-        "razed-18",
+        "stood-17",
+        "razed-17",
         "tour"
       ],
       "links": [
@@ -408,10 +386,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-19"
+      "next": "stop-18"
     },
     {
-      "id": "stop-19",
+      "id": "stop-18",
       "destination": {
         "kind": "structure",
         "id": "edson_keith_house_1906_prairie"
@@ -419,7 +397,7 @@
       "text": "Edson Keith House, 1906 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Moulton-Lowden House, 1912 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-19",
+        "stood-18",
         "tour"
       ],
       "links": [
@@ -429,10 +407,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-20"
+      "next": "stop-19"
     },
     {
-      "id": "stop-20",
+      "id": "stop-19",
       "destination": {
         "kind": "structure",
         "id": "moulton_lowden_house_1912_prairie"
@@ -440,8 +418,8 @@
       "text": "Moulton-Lowden House, 1912 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 3 of the pictures on the Images tab show it. RAZED 1939. Next: 1918 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-20",
-        "razed-20",
+        "stood-19",
+        "razed-19",
         "tour"
       ],
       "links": [
@@ -451,10 +429,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-21"
+      "next": "stop-20"
     },
     {
-      "id": "stop-21",
+      "id": "stop-20",
       "destination": {
         "kind": "structure",
         "id": "house_1918_prairie"
@@ -462,7 +440,7 @@
       "text": "1918 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: 2017 Prairie.",
       "read_s": 12,
       "evidence": [
-        "stood-21",
+        "stood-20",
         "tour"
       ],
       "links": [
@@ -472,10 +450,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-22"
+      "next": "stop-21"
     },
     {
-      "id": "stop-22",
+      "id": "stop-21",
       "destination": {
         "kind": "structure",
         "id": "house_2017_prairie"
@@ -483,7 +461,7 @@
       "text": "2017 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Reid House, 2013 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-22",
+        "stood-21",
         "tour"
       ],
       "links": [
@@ -493,10 +471,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-23"
+      "next": "stop-22"
     },
     {
-      "id": "stop-23",
+      "id": "stop-22",
       "destination": {
         "kind": "structure",
         "id": "reid_house_2013_prairie"
@@ -504,7 +482,7 @@
       "text": "Reid House, 2013 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 7 of the pictures on the Images tab show it. Next: 2011 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-23",
+        "stood-22",
         "tour"
       ],
       "links": [
@@ -514,10 +492,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-24"
+      "next": "stop-23"
     },
     {
-      "id": "stop-24",
+      "id": "stop-23",
       "destination": {
         "kind": "structure",
         "id": "house_2011_prairie"
@@ -525,7 +503,7 @@
       "text": "2011 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Mayer House, 2009 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-24",
+        "stood-23",
         "tour"
       ],
       "links": [
@@ -535,10 +513,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-25"
+      "next": "stop-24"
     },
     {
-      "id": "stop-25",
+      "id": "stop-24",
       "destination": {
         "kind": "structure",
         "id": "mayer_house_2009_prairie"
@@ -546,8 +524,8 @@
       "text": "Mayer House, 2009 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1955. Next: Armour-Corwith House, 1945 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-25",
-        "razed-25",
+        "stood-24",
+        "razed-24",
         "tour"
       ],
       "links": [
@@ -557,10 +535,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-26"
+      "next": "stop-25"
     },
     {
-      "id": "stop-26",
+      "id": "stop-25",
       "destination": {
         "kind": "structure",
         "id": "armour_corwith_house_1945_prairie"
@@ -568,7 +546,7 @@
       "text": "Armour-Corwith House, 1945 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Kellogg House, 1923 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-26",
+        "stood-25",
         "tour"
       ],
       "links": [
@@ -578,10 +556,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-27"
+      "next": "stop-26"
     },
     {
-      "id": "stop-27",
+      "id": "stop-26",
       "destination": {
         "kind": "structure",
         "id": "kellogg_house_1923_prairie"
@@ -589,7 +567,7 @@
       "text": "Kellogg House, 1923 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Marshall Field Jr. House, 1919 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-27",
+        "stood-26",
         "tour"
       ],
       "links": [
@@ -599,10 +577,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-28"
+      "next": "stop-27"
     },
     {
-      "id": "stop-28",
+      "id": "stop-27",
       "destination": {
         "kind": "structure",
         "id": "marshall_field_jr_house_1919_prairie"
@@ -610,7 +588,7 @@
       "text": "Marshall Field Jr. House, 1919 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Marshall Field House, 1905 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-28",
+        "stood-27",
         "tour"
       ],
       "links": [
@@ -620,10 +598,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-29"
+      "next": "stop-28"
     },
     {
-      "id": "stop-29",
+      "id": "stop-28",
       "destination": {
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
@@ -631,8 +609,8 @@
       "text": "Marshall Field House, 1905 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 16 of the pictures on the Images tab show it. RAZED 1955, after a spell as an aeronautical university. Next: Ream House, 1901 Prairie.",
       "read_s": 18,
       "evidence": [
-        "stood-29",
-        "razed-29",
+        "stood-28",
+        "razed-28",
         "tour"
       ],
       "links": [
@@ -642,10 +620,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-30"
+      "next": "stop-29"
     },
     {
-      "id": "stop-30",
+      "id": "stop-29",
       "destination": {
         "kind": "structure",
         "id": "ream_house_1901_prairie"
@@ -653,8 +631,8 @@
       "text": "Ream House, 1901 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1929, after years as the Radford Architectural Company's offices. Next: Doane House, 1827 Prairie.",
       "read_s": 18,
       "evidence": [
-        "stood-30",
-        "razed-30",
+        "stood-29",
+        "razed-29",
         "tour"
       ],
       "links": [
@@ -664,10 +642,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-31"
+      "next": "stop-30"
     },
     {
-      "id": "stop-31",
+      "id": "stop-30",
       "destination": {
         "kind": "structure",
         "id": "doane_house_1827_prairie"
@@ -675,8 +653,8 @@
       "text": "Doane House, 1827 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 3 of the pictures on the Images tab show it. RAZED 1936. Next: Dent House, 1823 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-31",
-        "razed-31",
+        "stood-30",
+        "razed-30",
         "tour"
       ],
       "links": [
@@ -686,10 +664,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-32"
+      "next": "stop-31"
     },
     {
-      "id": "stop-32",
+      "id": "stop-31",
       "destination": {
         "kind": "structure",
         "id": "dent_house_1823_prairie"
@@ -697,8 +675,8 @@
       "text": "Dent House, 1823 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1945. Next: Sears-Meeker House, 1815 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-32",
-        "razed-32",
+        "stood-31",
+        "razed-31",
         "tour"
       ],
       "links": [
@@ -708,10 +686,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-33"
+      "next": "stop-32"
     },
     {
-      "id": "stop-33",
+      "id": "stop-32",
       "destination": {
         "kind": "structure",
         "id": "sears_meeker_house_1815_prairie"
@@ -719,8 +697,8 @@
       "text": "Sears-Meeker House, 1815 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 6 of the pictures on the Images tab show it. RAZED 1967. Next: Coleman-Ames House, 1811 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-33",
-        "razed-33",
+        "stood-32",
+        "razed-32",
         "tour"
       ],
       "links": [
@@ -730,10 +708,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-34"
+      "next": "stop-33"
     },
     {
-      "id": "stop-34",
+      "id": "stop-33",
       "destination": {
         "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
@@ -741,7 +719,7 @@
       "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 4 of the pictures on the Images tab show it. Next: W. W. Kimball House, 1801 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-34",
+        "stood-33",
         "tour"
       ],
       "links": [
@@ -751,10 +729,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-35"
+      "next": "stop-34"
     },
     {
-      "id": "stop-35",
+      "id": "stop-34",
       "destination": {
         "kind": "structure",
         "id": "kimball_house_1801_prairie"
@@ -762,7 +740,7 @@
       "text": "W. W. Kimball House, 1801 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Pullman conservatory, 1729 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-35",
+        "stood-34",
         "tour"
       ],
       "links": [
@@ -772,10 +750,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-36"
+      "next": "stop-35"
     },
     {
-      "id": "stop-36",
+      "id": "stop-35",
       "destination": {
         "kind": "structure",
         "id": "pullman_house_1729_prairie_conservatory"
@@ -783,7 +761,7 @@
       "text": "Pullman conservatory, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-36",
+        "stood-35",
         "tour"
       ],
       "links": [
@@ -793,10 +771,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-37"
+      "next": "stop-36"
     },
     {
-      "id": "stop-37",
+      "id": "stop-36",
       "destination": {
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
@@ -804,8 +782,8 @@
       "text": "Pullman House, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 6 solved pictures, 5 matching. Pictured: 21 of the pictures on the Images tab show it. RAZED 1922. Next: Dexter frame house, 1721 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-37",
-        "razed-37",
+        "stood-36",
+        "razed-36",
         "tour"
       ],
       "links": [
@@ -815,10 +793,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-38"
+      "next": "stop-37"
     },
     {
-      "id": "stop-38",
+      "id": "stop-37",
       "destination": {
         "kind": "structure",
         "id": "dexter_house_1721_prairie_frame_house"
@@ -826,7 +804,7 @@
       "text": "Dexter frame house, 1721 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Dexter House, 1721 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-38",
+        "stood-37",
         "tour"
       ],
       "links": [
@@ -836,10 +814,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-39"
+      "next": "stop-38"
     },
     {
-      "id": "stop-39",
+      "id": "stop-38",
       "destination": {
         "kind": "structure",
         "id": "dexter_house_1721_prairie"
@@ -847,8 +825,8 @@
       "text": "Dexter House, 1721 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1927. Next: Kellogg House, 1709 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-39",
-        "razed-39",
+        "stood-38",
+        "razed-38",
         "tour"
       ],
       "links": [
@@ -858,10 +836,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-40"
+      "next": "stop-39"
     },
     {
-      "id": "stop-40",
+      "id": "stop-39",
       "destination": {
         "kind": "structure",
         "id": "kellogg_house_1709_prairie"
@@ -869,7 +847,7 @@
       "text": "Kellogg House, 1709 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Hibbard House, 1701 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-40",
+        "stood-39",
         "tour"
       ],
       "links": [
@@ -879,10 +857,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-41"
+      "next": "stop-40"
     },
     {
-      "id": "stop-41",
+      "id": "stop-40",
       "destination": {
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
@@ -890,8 +868,8 @@
       "text": "Hibbard House, 1701 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1932; from 1921 Louis Sullivan kept a free office here until his death in 1924. Next: Spalding House, 1637 Prairie.",
       "read_s": 21,
       "evidence": [
-        "stood-41",
-        "razed-41",
+        "stood-40",
+        "razed-40",
         "tour"
       ],
       "links": [
@@ -901,10 +879,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-42"
+      "next": "stop-41"
     },
     {
-      "id": "stop-42",
+      "id": "stop-41",
       "destination": {
         "kind": "structure",
         "id": "spalding_house_1637_prairie"
@@ -912,7 +890,7 @@
       "text": "Spalding House, 1637 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: McBirney House, 1625 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-42",
+        "stood-41",
         "tour"
       ],
       "links": [
@@ -922,10 +900,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-43"
+      "next": "stop-42"
     },
     {
-      "id": "stop-43",
+      "id": "stop-42",
       "destination": {
         "kind": "structure",
         "id": "house_1625_prairie"
@@ -933,7 +911,7 @@
       "text": "McBirney House, 1625 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Farwell House, 1623 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-43",
+        "stood-42",
         "tour"
       ],
       "links": [
@@ -943,10 +921,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-44"
+      "next": "stop-43"
     },
     {
-      "id": "stop-44",
+      "id": "stop-43",
       "destination": {
         "kind": "structure",
         "id": "house_1623_prairie"
@@ -954,7 +932,7 @@
       "text": "Farwell House, 1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Hamline House, 1621 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-44",
+        "stood-43",
         "tour"
       ],
       "links": [
@@ -964,18 +942,18 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-45"
+      "next": "stop-44"
     },
     {
-      "id": "stop-45",
+      "id": "stop-44",
       "destination": {
         "kind": "structure",
         "id": "house_1621_prairie"
       },
-      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: walk on to the 2026-2110 Prairie area, starting at 2026 Prairie.",
+      "text": "Hamline House, 1621 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: walk on to the 2026-2115 Prairie area, starting at 2026 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-45",
+        "stood-44",
         "tour"
       ],
       "links": [
@@ -985,10 +963,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-46"
+      "next": "stop-45"
     },
     {
-      "id": "stop-46",
+      "id": "stop-45",
       "destination": {
         "kind": "structure",
         "id": "house_2026_prairie"
@@ -996,7 +974,7 @@
       "text": "2026 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Buckingham House, 2036 Prairie.",
       "read_s": 13,
       "evidence": [
-        "stood-46",
+        "stood-45",
         "tour"
       ],
       "links": [
@@ -1006,10 +984,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-47"
+      "next": "stop-46"
     },
     {
-      "id": "stop-47",
+      "id": "stop-46",
       "destination": {
         "kind": "structure",
         "id": "buckingham_house_2036_prairie"
@@ -1017,7 +995,7 @@
       "text": "Buckingham House, 2036 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Mark Kimball House, 2108 Prairie.",
       "read_s": 15,
       "evidence": [
-        "stood-47",
+        "stood-46",
         "tour"
       ],
       "links": [
@@ -1027,10 +1005,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-48"
+      "next": "stop-47"
     },
     {
-      "id": "stop-48",
+      "id": "stop-47",
       "destination": {
         "kind": "structure",
         "id": "mark_kimball_house_2108_prairie"
@@ -1038,7 +1016,7 @@
       "text": "Mark Kimball House, 2108 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Rees House, 2110 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-48",
+        "stood-47",
         "tour"
       ],
       "links": [
@@ -1048,24 +1026,46 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-49"
+      "next": "stop-48"
     },
     {
-      "id": "stop-49",
+      "id": "stop-48",
       "destination": {
         "kind": "structure",
         "id": "rees_house_2110_prairie"
       },
-      "text": "Rees House, 2110 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 11 of the pictures on the Images tab show it. Next: Roloson House, 2109 Prairie.",
+      "text": "Rees House, 2110 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 11 of the pictures on the Images tab show it. Next: Kelley-Armour House, 2115 Prairie.",
       "read_s": 14,
       "evidence": [
-        "stood-49",
+        "stood-48",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
           "id": "rees_house_2110_prairie",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-49"
+    },
+    {
+      "id": "stop-49",
+      "destination": {
+        "kind": "structure",
+        "id": "armour_house_2115_prairie"
+      },
+      "text": "Kelley-Armour House, 2115 Prairie. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 2 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1937. Next: Roloson House, 2109 Prairie.",
+      "read_s": 15,
+      "evidence": [
+        "stood-49",
+        "razed-49",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "armour_house_2115_prairie",
           "label": "About this building"
         }
       ],
@@ -1231,24 +1231,6 @@
     },
     {
       "id": "stood-11",
-      "text": "Tyrrell-Walker House, 1720 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
-      "id": "razed-11",
-      "text": "In 1910 wreckers destroyed the mansion at 1720 Prairie, the first of many Prairie Avenue homes to be torn down, as the street's residences increasingly gave way to offices, warehouses and factories.",
-      "confidence": "attested",
-      "sources": [
-        "encyclopedia_chicago_worlds_of_prairie_avenue"
-      ],
-      "locator": "The essay's closing paragraphs on the street's decline."
-    },
-    {
-      "id": "stood-12",
       "text": "1736 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
@@ -1259,7 +1241,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). THE HOUSE'S DATE AND ITS MANSARD'S (T-2962): the house was 'completed in 1864' for Granville S. Ingraham (glessner_blog_2020_07_early_history_prairie_iv) — or, as the Prairie library reads an 1875 permit for this lot, built for Gen. Henry Strong in 1875 (T-3037; the structure's `built` carries both) — and that post's author judges the mansard 'may well have been a later addition' to an Italianate house of the Civil War years; nothing read here dates the mansard, and the Keith house at 1900 Prairie had its mansard added in the 1880s (glessner_blog_2014_11_elbridge_keith_house), so a later mansard is the street's own pattern, not a proof for this house. For this phase the question is bounded either way: the c. 1890 photograph (earliest 1885) shows the mansard and the veranda front, and the 1911 sheet draws the mansard's curb and prints the house '3B', so the house as built here stood from at least the late 1880s to 1911. The range keeps to the 1904 target because only the front is seen in c. 1890; the flank's bays are the 1911 sheet's. When the house lost the mansard or was demolished is not read."
     },
     {
-      "id": "stood-13",
+      "id": "stood-12",
       "text": "Osborn Keith House, 1808 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_vol3_sheet_28",
@@ -1269,7 +1251,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on the 1911 Sanborn sheet 28 carried back seven years, the same reading the Glessner record and the 1904 parcels make of it (the Glessner House correspondent reads no change on this sheet between 1904 and 1911). FROM: the T-1837 building register reports 1886 (Cobb & Frost); it is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the loss in 1968; same footing, the year's last day."
     },
     {
-      "id": "razed-13",
+      "id": "razed-12",
       "text": "Osborn R. Keith Residence, 1808 S. Prairie Avenue: the north wall was retained during demolition in 1968 to preserve the private courtyard of the adjacent Glessner house.",
       "confidence": "attested",
       "sources": [
@@ -1278,7 +1260,7 @@
       "locator": "The 1808 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-14",
+      "id": "stood-13",
       "text": "Wheeler House, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1288,7 +1270,7 @@
       "reasoning": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
     },
     {
-      "id": "razed-14",
+      "id": "razed-13",
       "text": "George H. Wheeler Residence, 1812 S. Prairie Avenue: razed 1968.",
       "confidence": "attested",
       "sources": [
@@ -1297,7 +1279,7 @@
       "locator": "The 1812 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-15",
+      "id": "stood-14",
       "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1306,7 +1288,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
     },
     {
-      "id": "stood-16",
+      "id": "stood-15",
       "text": "Pomeroy-Marsh House, 1824 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1316,7 +1298,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front."
     },
     {
-      "id": "razed-16",
+      "id": "razed-15",
       "text": "Samuel B. Pomeroy Residence, 1824 S. Prairie Avenue: razed in the 1940s.",
       "confidence": "attested",
       "sources": [
@@ -1325,7 +1307,7 @@
       "locator": "The 1824 S. Prairie Avenue entry and its photograph caption."
     },
     {
-      "id": "stood-17",
+      "id": "stood-16",
       "text": "1828 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1334,7 +1316,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904."
     },
     {
-      "id": "stood-18",
+      "id": "stood-17",
       "text": "Jones House, 1834 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1343,7 +1325,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1866 and given its mansard storey in 1886 (the marker); the photograph shows it before 1886."
     },
     {
-      "id": "razed-18",
+      "id": "razed-17",
       "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
       "confidence": "attested",
       "sources": [
@@ -1352,7 +1334,7 @@
       "locator": "The 1834 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-19",
+      "id": "stood-18",
       "text": "Edson Keith House, 1906 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1362,7 +1344,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the Tribune drew its front in January 1898 with the composition of the undated engraving; nothing read so far records an alteration before 1904."
     },
     {
-      "id": "stood-20",
+      "id": "stood-19",
       "text": "Moulton-Lowden House, 1912 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1371,7 +1353,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the marker dates it to 1882 for Byron P. Moulton. The undated photograph (an electric lamp at the curb) and the 1883 album's vignette show the same house."
     },
     {
-      "id": "razed-20",
+      "id": "razed-19",
       "text": "Bryan P. Moulton Residence, 1912 S. Prairie Avenue: razed 1939.",
       "confidence": "attested",
       "sources": [
@@ -1380,7 +1362,7 @@
       "locator": "The 1912 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-21",
+      "id": "stood-20",
       "text": "1918 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1390,7 +1372,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: built 1869-70 (Tribune), the T-1841 census rules it present in 1904 (present_as_mapped), and it was razed in 1915 after the Hump Hairpin Company bought it in 1912."
     },
     {
-      "id": "stood-22",
+      "id": "stood-21",
       "text": "2017 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1400,7 +1382,7 @@
       "reasoning": "Drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the undated photograph shows the house as William Armour's. The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "stood-23",
+      "id": "stood-22",
       "text": "Reid House, 2013 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1410,7 +1392,7 @@
       "reasoning": "Standing in February 1895, when the Inland Architect publishes its plate of the house, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "stood-24",
+      "id": "stood-23",
       "text": "2011 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1420,7 +1402,7 @@
       "reasoning": "Standing in February 1895, when the Inland Architect's plate of Reid's house next door shows it whole, and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). No build date is found; the record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "stood-25",
+      "id": "stood-24",
       "text": "Mayer House, 2009 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1430,7 +1412,7 @@
       "reasoning": "Built 1888 (the marker) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "razed-25",
+      "id": "razed-24",
       "text": "Max A. Meyer Residence, 2009 S. Prairie Avenue: razed 1955.",
       "confidence": "attested",
       "sources": [
@@ -1439,7 +1421,7 @@
       "locator": "The 2009 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-26",
+      "id": "stood-25",
       "text": "Armour-Corwith House, 1945 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1449,7 +1431,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1928 photograph shows the same house still standing. Its building and loss dates are the register's (1872; lost about 1931) and are not read here."
     },
     {
-      "id": "stood-27",
+      "id": "stood-26",
       "text": "Kellogg House, 1923 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1458,7 +1440,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-28",
+      "id": "stood-27",
       "text": "Marshall Field Jr. House, 1919 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1467,7 +1449,7 @@
       "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws it and the T-1841 census rules it present in 1904 (present_as_mapped); the 1912 and 1913 plates photograph it c. 1909-1912 in the form its 1902 enlargement gave it. Its building and loss dates are T-1907's to read."
     },
     {
-      "id": "stood-29",
+      "id": "stood-28",
       "text": "Marshall Field House, 1905 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1477,7 +1459,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the 1893 Pictorial Chicago plate shows the house standing before the target. Its building and loss dates are the register's (1871-1873; lost 1955) and are not read here."
     },
     {
-      "id": "razed-29",
+      "id": "razed-28",
       "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
       "confidence": "attested",
       "sources": [
@@ -1486,7 +1468,7 @@
       "locator": "The 1905 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-30",
+      "id": "stood-29",
       "text": "Ream House, 1901 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1495,7 +1477,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The 1893 plate, the 1898 photograph and the undated exterior view draw the same composition, the post-1887 rebuilding; nothing read so far records an alteration before 1904."
     },
     {
-      "id": "razed-30",
+      "id": "razed-29",
       "text": "Osborn R. Keith-Norman B. Ream Residence, 1901 S. Prairie Avenue: the house later served as offices for the Radford Architectural Company. Razed 1929.",
       "confidence": "attested",
       "sources": [
@@ -1504,7 +1486,7 @@
       "locator": "The 1901 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-31",
+      "id": "stood-30",
       "text": "Doane House, 1827 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1513,7 +1495,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (undated, after the house's completion in 1882) shows the same main block. Its building and loss dates are not read here."
     },
     {
-      "id": "razed-31",
+      "id": "razed-30",
       "text": "John W. Doane Residence, 1827 S. Prairie Avenue: razed 1936.",
       "confidence": "attested",
       "sources": [
@@ -1522,7 +1504,7 @@
       "locator": "The 1827 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-32",
+      "id": "stood-31",
       "text": "Dent House, 1823 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1531,7 +1513,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904."
     },
     {
-      "id": "razed-32",
+      "id": "razed-31",
       "text": "Thomas Dent Residence, 1823 S. Prairie Avenue: razed 1945.",
       "confidence": "attested",
       "sources": [
@@ -1540,7 +1522,7 @@
       "locator": "The 1823 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-33",
+      "id": "stood-32",
       "text": "Sears-Meeker House, 1815 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1549,7 +1531,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The photographs are undated; their dating is in the match record."
     },
     {
-      "id": "razed-33",
+      "id": "razed-32",
       "text": "Joseph Sears Residence, 1815 S. Prairie Avenue: razed 1967.",
       "confidence": "attested",
       "sources": [
@@ -1558,7 +1540,7 @@
       "locator": "The 1815 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-34",
+      "id": "stood-33",
       "text": "Coleman-Ames House, 1811 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1567,7 +1549,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-35",
+      "id": "stood-34",
       "text": "W. W. Kimball House, 1801 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1577,7 +1559,7 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
     },
     {
-      "id": "stood-36",
+      "id": "stood-35",
       "text": "Pullman conservatory, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1586,7 +1568,7 @@
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
     },
     {
-      "id": "stood-37",
+      "id": "stood-36",
       "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1595,7 +1577,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
     },
     {
-      "id": "razed-37",
+      "id": "razed-36",
       "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
       "confidence": "attested",
       "sources": [
@@ -1604,7 +1586,7 @@
       "locator": "The 1729 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-38",
+      "id": "stood-37",
       "text": "Dexter frame house, 1721 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
@@ -1615,7 +1597,7 @@
       "reasoning": "STANDING IN 1904 on the owner's ruling (2026-11-12) and the maps either side of it: Robinson's 1886 plate draws the frame house on this lot's north line, the Detroit print (1893-1901) shows its south front, and the 1911 sheet draws a two-storey range in the same place behind the brick front. FROM: the record claims the 1904 target and no earlier day. TO: the last day of the year the sheet was published."
     },
     {
-      "id": "stood-39",
+      "id": "stood-38",
       "text": "Dexter House, 1721 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20",
@@ -1625,7 +1607,7 @@
       "reasoning": "The 1891 plate shows Arthur Little's front of 1889; the 1911 sheet draws the same plan and the T-1840 census rules it present in 1904 (present_as_mapped). The c. 1888 photographs show the house before that front and are not this phase."
     },
     {
-      "id": "razed-39",
+      "id": "razed-38",
       "text": "Wirt Dexter Residence, 1721 S. Prairie Avenue: razed 1927.",
       "confidence": "attested",
       "sources": [
@@ -1634,7 +1616,7 @@
       "locator": "The 1721 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-40",
+      "id": "stood-39",
       "text": "Kellogg House, 1709 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1643,7 +1625,7 @@
       "reasoning": "The house claims the 1904 target and the 1911 sheet that draws it: the T-1840 census rules it present in 1904 (present_as_mapped), and the 1893 drawing shows it standing then. Its building date (c. 1882 in the T-1837 register) is not re-read here."
     },
     {
-      "id": "stood-41",
+      "id": "stood-40",
       "text": "Hibbard House, 1701 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1652,7 +1634,7 @@
       "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped); the photographs are undated (after the 1874 addition). Its building and loss dates are the per-building tickets' to read."
     },
     {
-      "id": "razed-41",
+      "id": "razed-40",
       "text": "William G. Hibbard Residence, 1701 S. Prairie Avenue: in 1921 the house was bought by the American Terra Cotta & Ceramic Co., which gave the architect Louis Sullivan free office space there until his death in 1924. Razed 1932.",
       "confidence": "attested",
       "sources": [
@@ -1661,7 +1643,7 @@
       "locator": "The 1701 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-42",
+      "id": "stood-41",
       "text": "Spalding House, 1637 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1670,7 +1652,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-43",
+      "id": "stood-42",
       "text": "McBirney House, 1625 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1679,7 +1661,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-44",
+      "id": "stood-43",
       "text": "Farwell House, 1623 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1688,7 +1670,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-45",
+      "id": "stood-44",
       "text": "Hamline House, 1621 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1697,7 +1679,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-46",
+      "id": "stood-45",
       "text": "2026 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1707,7 +1689,7 @@
       "reasoning": "The house claims the 1904 target and no more: the 1911 sheet draws it and the T-1842 census rules it present in 1904 (present_as_mapped). The Land Owner engraving of May 1874 shows it standing then; its building and loss dates are not read."
     },
     {
-      "id": "stood-47",
+      "id": "stood-46",
       "text": "Buckingham House, 2036 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1717,7 +1699,7 @@
       "reasoning": "The house stands in the c. 1880 engraving and on the 1911 sheet, and the T-1842 census rules it present in 1904 (present_as_mapped); this phase claims the 1904 target and the sheet's date, no more. Its building and loss dates are not read."
     },
     {
-      "id": "stood-48",
+      "id": "stood-47",
       "text": "Mark Kimball House, 2108 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
@@ -1726,7 +1708,7 @@
       "reasoning": "Standing in 1904 (empty and to let that spring, the register's note) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped); the Tribune drew it in January 1898 and the street photograph of the early 1890s shows it. The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "stood-49",
+      "id": "stood-48",
       "text": "Rees House, 2110 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1734,6 +1716,25 @@
       ],
       "confidence": "inferred",
       "reasoning": "Built in 1888 (Cobb & Frost, the register's row frontage-35-066), shown in the early-1890s street photograph and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more; the house stood here until it was moved in November 2014."
+    },
+    {
+      "id": "stood-49",
+      "text": "Kelley-Armour House, 2115 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "chicago_tribune_1928_07_08_armour_famous_homes"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1842 census rules it present in 1904 (present_as_mapped), and the Tribune's photograph shows it standing in 1928. Built 1871 (the marker); its loss is not read here."
+    },
+    {
+      "id": "razed-49",
+      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
     },
     {
       "id": "stood-50",

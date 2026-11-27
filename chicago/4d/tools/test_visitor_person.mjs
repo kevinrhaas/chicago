@@ -190,6 +190,73 @@ ok(V.libraryFace(based, { key: 'someone', assetId: asset, sex: 'female', age: 30
   ok(!three.record('1835').looks.face_of, 'a face chosen by hand is worn as chosen');
 }
 
+// --- T-3553 (Kevin, 2026-11-27): the face library by type, the photographed faces the town wears
+{
+  const runtimeURL = new URL('assets/humans/web/photo_faces/pilot/runtime.json', here);
+  const runtime = JSON.parse(read('assets/humans/web/photo_faces/pilot/runtime.json'));
+  const lib = { ...catalog, photoFaces: P.photoCatalog(runtime, new URL('https://example.invalid/humans/web/photo_faces/pilot/runtime.json')) };
+  ok(lib.photoFaces.faces.length === runtime.faces.length && lib.photoFaces.thumbs.url.endsWith('/photo_faces/pilot/thumbs.jpg'), 'the You tab keeps every photographed face and its picture sheet');
+  // The sheet tools/photo_face_thumbs.py writes is the size photoCatalog lays it out at.
+  const jpg = fs.readFileSync(new URL('assets/humans/web/photo_faces/pilot/thumbs.jpg', here));
+  let at = 2, size = null;
+  while (at < jpg.length && !size) { const mark = jpg[at + 1], len = jpg.readUInt16BE(at + 2); if (mark >= 0xc0 && mark <= 0xc2) size = [jpg.readUInt16BE(at + 7), jpg.readUInt16BE(at + 5)]; at += 2 + len; }
+  ok(size && size.join() === lib.photoFaces.thumbs.size_px.join(), `thumbs.jpg is ${size} as laid out`);
+  for (const type of ['male', 'female', 'neutral']) {
+    const groups = P.faceGroups(lib, type, 'light');
+    const photo = groups.filter((g) => g.kind === 'photo'), ids = groups.flatMap((g) => g.bands.flatMap((b) => b.faces.map((f) => f.id)));
+    ok(photo.map((g) => g.id).join() === catalog.ages.map((a) => a.id).join() && groups.at(-1).id === 'painted', `${type}: a type for each age (${photo.map((g) => `${g.label} ${g.count}`).join(', ')}), then the painted faces`);
+    ok(new Set(ids).size === ids.length && photo.reduce((a, g) => a + g.count, 0) === P.photoFaceChoices(lib, type).length, `${type}: every face once`);
+    ok(groups.every((g) => !/\b(men|women|man|woman|male|female|masculine|feminine)\b/i.test(g.label + g.bands.map((b) => b.label).join())), `${type}: no type named for a sex`);
+    ok(photo.every((g) => g.bands.every((b) => b.faces.every((f, k, a) => !k || P.faceTone(a[k - 1]) >= P.faceTone(f)))), `${type}: lighter to deeper within each band`);
+    const wears = P.bodiesOf(catalog, type);
+    ok(P.photoFaceChoices(lib, type).every((f) => wears.includes(f.sex) && f.age >= 18), `${type}: the adults of the bodies it wears`);
+  }
+  ok(P.faceGroupOf(P.faceGroups(lib, 'male', 'light'), 'auto', 'older') === 'older', 'on Auto the library opens at the person\'s own age');
+  // A photographed face chosen is kept, and is the face drawn (human-variation.js photoFaceFor `pick`).
+  const box4 = new Map();
+  const me = P.createVisitorPerson({ catalog: lib, storage: { getItem: (k) => box4.get(k) ?? null, setItem: (k, v) => box4.set(k, v) } });
+  me.set({ sex: 'female', eyes: 'blue', age: 'young' });
+  const hers = P.faceGroups(lib, 'female', 'light')[2].bands[0].faces[0];
+  me.set({ face: hers.id });
+  ok(me.choice.face === hers.id, 'a photographed face of hers is kept');
+  me.set({ face: P.photoFaceChoices(lib, 'male')[0].id });
+  ok(me.choice.face === 'auto', 'one of the other body\'s faces is not hers to keep (Style 2)');
+  me.set({ face: hers.id });
+  const photoKit = { ...based };
+  ok(V.attachPhotoLibrary(photoKit, runtime, runtimeURL), 'the library attaches as the walk attaches it');
+  const rec4 = me.record('1904');
+  ok(rec4.looks.eyes.chosen === true && rec4.looks.face_pick === hers.id, 'the record carries the chosen face, and eyes marked chosen');
+  const pv4 = V.personVariation({ kit: photoKit, key: P.VISITOR_PERSON_ID, record: rec4, assetId: me.asset('1904'), sceneYear: 1904 });
+  ok(pv4.photoFace?.id === hers.id && pv4.lib?.id === hers.id, 'personVariation wears the photographed face she chose, though she is young and it is older');
+  ok(read('renderers/web/js/humans.js').includes('looks?.eyes?.chosen === true'), 'a chosen eye colour is worn over the photograph\'s own iris (humans.js, after dressPhotoLooks)');
+  // A painted face chosen keeps the photographs off her; Auto draws one as for anyone.
+  me.set({ face: P.faceGroups(lib, 'female', 'light').at(-1).bands[0].faces[0].id });
+  const pv5 = V.personVariation({ kit: photoKit, key: P.VISITOR_PERSON_ID, record: me.record('1904'), assetId: me.asset('1904'), sceneYear: 1904 });
+  ok(!pv5.photoFace && pv5.lib?.id === me.choice.face, 'a painted face chosen is the painted face');
+  me.set({ face: 'auto' });
+  const pv6 = V.personVariation({ kit: photoKit, key: P.VISITOR_PERSON_ID, record: me.record('1904'), assetId: me.asset('1904'), sceneYear: 1904 });
+  ok(pv6.photoFace && pv6.photoFace.sex === 'female', 'Auto: a photographed face drawn for her, as for anyone of the town');
+  // Style 3 on Auto: the other body's photographed faces too (T-3756's rule, kept under the photographs).
+  me.set({ sex: 'neutral' });
+  const r7 = me.record('1835');
+  const pv7 = V.personVariation({ kit: photoKit, key: P.VISITOR_PERSON_ID, record: r7, assetId: me.asset('1835'), sceneYear: 1835 });
+  ok(pv7.photoFace && pv7.photoFace.sex !== r7.sex, `Style 3's Auto photographed face is the other body's (${pv7.photoFace?.sex} on ${r7.sex})`);
+  // Auto follows the complexion and the age (before, every complexion gave the same face).
+  me.set({ sex: 'male', age: 'middle' });
+  const autoFor = (complexion) => { me.set({ complexion }); return me.record('1835').looks.face_pick; };
+  const pale = autoFor('fair'), deep = autoFor('deep_brown');
+  const byId = (id) => lib.photoFaces.faces.find((f) => f.id === id);
+  ok(pale && deep && P.faceTone(byId(pale)) > 2 * P.faceTone(byId(deep)), `Auto: a fair complexion a lighter face (${pale}), a deep brown one a deeper (${deep})`);
+  ok([pale, deep].every((id) => byId(id).sex === 'male' && byId(id).age >= 35 && byId(id).age < 55), 'Auto: a face of the body\'s own faces and the person\'s age group');
+  me.set({ age: 'older' });
+  ok(byId(me.record('1835').looks.face_pick).age >= 55, 'an older person, an older face');
+  // Nobody of the town draws differently: no pick, no faceOf, the same face as before.
+  const town = V.photoFaceFor(photoKit, { key: 'someone:1904', sex: 'male', age: 40, complexion: 'light' });
+  ok(town && V.photoFaceFor(photoKit, { key: 'someone:1904', sex: 'male', age: 40, complexion: 'light', faceOf: null, pick: null })?.id === town.id, 'everyone else\'s photographed face is drawn as before');
+  const ps = read('renderers/web/js/person-settings.js');
+  ok(ps.includes('faceGroups(') && ps.includes("role: 'tablist'") && ps.includes('person-face-band'), 'the You tab shows the library by type, in bands');
+}
+
 // --- keeping it with the account
 const w = P.personWrite({ projectId: 'p', uid: 'u1', choice: person.choice })[0];
 const fields = [...Object.keys(w.update.fields), ...w.updateTransforms.map((x) => x.fieldPath)];

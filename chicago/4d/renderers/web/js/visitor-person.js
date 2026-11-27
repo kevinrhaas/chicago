@@ -117,8 +117,86 @@ export function faceChoices(faces, sex, complexion, catalog = null) {
 
 function faceOk(face, sex, complexion, catalog) {
   if (face === 'auto' || face === 'body') return true;
-  if (typeof face !== 'string' || !catalog.faces) return false;
-  return faceChoices(catalog.faces, sex, complexion, catalog).some((f) => f.id === face);
+  if (typeof face !== 'string') return false;
+  if (photoFaceChoices(catalog, sex).some((f) => f.id === face)) return true;
+  return !!catalog.faces && faceChoices(catalog.faces, sex, complexion, catalog).some((f) => f.id === face);
+}
+
+/**
+ * T-3553 (Kevin, 2026-11-27: "maybe if easier to present as a category library of faces
+ * organized by type so a person can choose from the library in addition to any of the other
+ * customizations hair color, eye color et al"). The photographed faces the town wears since
+ * T-3767 (human-variation.js photoFaceFor), as the You tab offers them: the adults' library,
+ * each face of the bodies a body type wears (`bodiesOf`), in the library's order. A face's
+ * picture is its tile on `catalog.photoFaces.thumbs` (tools/photo_face_thumbs.py).
+ */
+export function photoFaceChoices(catalog, sex) {
+  const F = catalog?.photoFaces?.faces;
+  if (!Array.isArray(F)) return [];
+  const wears = bodiesOf(catalog, sex);
+  return F.filter((f) => wears.includes(f.sex) && f.population !== 'child' && f.age >= 18);
+}
+
+/** A face's tone as one number (the light it gives back, linear): what the library sorts by. */
+const LUMA = [0.2126, 0.7152, 0.0722];
+export const faceTone = (f) => (Array.isArray(f?.tone_rgb) ? LUMA.reduce((a, w, k) => a + w * f.tone_rgb[k], 0) : f?.tone ?? 0);
+
+/**
+ * The library by type: one group for each of the catalog's ages (by the face's own age, cut
+ * half way between the ages' years: Young, Middle-aged, Older), each in three bands of tone,
+ * lighter to deeper (cut at the library's own thirds, so each band holds about as many of its
+ * faces), and last the painted faces (face_library.json) the tab offered before the photographs.
+ * Every face once. Pure. Labels name what a face looks like, never a sex (Kevin, 2026-11-26:
+ * the body styles are Style 1, 2, 3).
+ */
+export function faceGroups(catalog, sex, complexion) {
+  const photos = photoFaceChoices(catalog, sex);
+  const ages = (catalog.ages ?? []).filter((a) => Number.isFinite(a.years)).sort((a, b) => a.years - b.years);
+  const cuts = ages.slice(1).map((a, k) => (ages[k].years + a.years) / 2);
+  const ageOf = (f) => { let k = 0; while (k < cuts.length && f.age >= cuts[k]) k++; return k; };
+  const all = (catalog.photoFaces?.faces ?? []).filter((f) => f.population !== 'child').map(faceTone).sort((a, b) => a - b);
+  const third = [all[Math.floor(all.length / 3)], all[Math.floor((2 * all.length) / 3)]];
+  const TONES = [{ id: 'lighter', label: 'Lighter' }, { id: 'medium', label: 'Medium' }, { id: 'deeper', label: 'Deeper' }];
+  const toneOf = (f) => { const t = faceTone(f); return t >= third[1] ? 0 : t >= third[0] ? 1 : 2; };
+  const groups = ages.map((a, k) => {
+    const mine = photos.filter((f) => ageOf(f) === k);
+    const bands = TONES.map((t, j) => ({ ...t, faces: mine.filter((f) => toneOf(f) === j)
+      .sort((x, y) => faceTone(y) - faceTone(x) || x.age - y.age || x.index - y.index) }))
+      .filter((b) => b.faces.length);
+    return { id: a.id, label: a.label, kind: 'photo', bands, count: mine.length };
+  }).filter((g) => g.count);
+  const painted = catalog.faces ? faceChoices(catalog.faces, sex, complexion, catalog) : [];
+  if (painted.length) groups.push({ id: 'painted', label: 'Painted', kind: 'painted', bands: [{ id: 'all', label: '', faces: painted }], count: painted.length });
+  return groups;
+}
+
+/**
+ * The photographed face Auto gives the visitor (T-3553, 2026-11-27): of the faces of their own
+ * age's group, the one nearest in tone to their complexion (the skin most bodies of that sex
+ * wear under its tint, as human-variation.js photoFaceFor aims at), so a lighter or a deeper
+ * complexion is a lighter or a deeper face. The town's seeded draw leans to the tone too gently
+ * for a choice: before this, every complexion gave the same face. `wears` is the body whose
+ * faces are drawn (the other body's, for Style 3: `face_of`). Null without the library.
+ */
+export function autoPhotoFace(catalog, choice, wears) {
+  const ages = catalog.ages ?? [];
+  const groups = faceGroups(catalog, choice.sex, choice.complexion).filter((g) => g.kind === 'photo');
+  const group = groups.find((g) => g.id === choice.age) ?? groups[Math.min(groups.length - 1, Math.max(0, ages.findIndex((a) => a.id === choice.age)))];
+  const faces = (group?.bands ?? []).flatMap((b) => b.faces).filter((f) => f.sex === wears);
+  if (!faces.length) return null;
+  const H = catalog.faces ?? {};
+  const body = H.person_tone_rgb?.[wears === 'male' ? 'male' : 'female'] ?? [0.6, 0.3, 0.15];
+  const tint = H.complexions?.[choice.complexion] ?? [1, 1, 1];
+  const target = LUMA.reduce((a, w, k) => a + w * body[k] * tint[k], 0);
+  const years = (ages.find((a) => a.id === choice.age)?.years) ?? 45;
+  const off = (f) => Math.abs(Math.log2(faceTone(f) / target));
+  return faces.reduce((best, f) => (!best || off(f) < off(best) - 1e-9 || (Math.abs(off(f) - off(best)) <= 1e-9 && Math.abs(f.age - years) < Math.abs(best.age - years)) ? f : best), null);
+}
+
+/** The group a choice's face sits in (or the group of the person's own age, on Auto). */
+export function faceGroupOf(groups, face, ageId) {
+  for (const g of groups) if (g.bands.some((b) => b.faces.some((f) => f.id === face))) return g.id;
+  return (groups.find((g) => g.id === ageId) ?? groups[0])?.id ?? null;
 }
 
 /** The year's own entry of the choice: { sex (the body type), body (the outfit's), outfit, cut }
@@ -152,15 +230,18 @@ export function personRecord(choice, year, catalog) {
   const build = bodyType(catalog, type)?.build?.[sex] ?? null;
   // ...and the faces an Auto face is drawn from on it (`face_of`, T-3756): the other body's.
   const faceOf = choice.face === 'auto' ? bodyType(catalog, type)?.face_of?.[sex] ?? null : null;
+  // Auto, with the photographed faces: the one of the person's age nearest their complexion.
+  const auto = choice.face === 'auto' ? autoPhotoFace(catalog, choice, faceOf ?? sex) : null;
   return {
     sex, visitor: true, scene: y, ...(type !== sex ? { body_type: type } : {}),
     age: { years: age, grade: 'reconstructed' },
     looks: {
       complexion: graded(choice.complexion),
-      eyes: graded(choice.eyes),
+      // Chosen, so worn over a photographed face's own iris (human-skin.js dressPhotoLooks).
+      eyes: { ...graded(choice.eyes), chosen: true },
       hair: { value: choice.hair_colour, drawn: choice.hair_colour, cut: cut?.id ?? null, facial, grade: 'reconstructed' },
-      face_pick: choice.face === 'auto' ? null : choice.face,
-      ...(faceOf ? { face_of: faceOf } : {}),
+      face_pick: choice.face === 'auto' ? auto?.id ?? null : choice.face,
+      ...(faceOf && !auto ? { face_of: faceOf } : {}),
       ...(build ? { build: { ...build } } : {}),
       grade: 'reconstructed', basis: PERSON_BASIS, liberty: catalog.liberty,
     },
@@ -300,6 +381,18 @@ export function createVisitorPerson({ catalog, storage = null, account = null, f
   return api;
 }
 
+/** What the You tab keeps of the photo library: each face's id, body, age, tone and place,
+ * and where its picture is (tools/photo_face_thumbs.py lays the sheet in the library's order). */
+export const PHOTO_THUMBS = Object.freeze({ file: 'thumbs.jpg', cols: 16, tile_px: 64 });
+export function photoCatalog(library, url) {
+  if (!Array.isArray(library?.faces)) return null;
+  const faces = library.faces.filter((f) => typeof f.id === 'string' && Number.isInteger(f.index))
+    .map((f) => ({ id: f.id, sex: f.sex, age: f.age, index: f.index, tone_rgb: f.tone_rgb, ...(f.population ? { population: f.population } : {}) }));
+  const rows = Math.ceil((Math.max(-1, ...faces.map((f) => f.index)) + 1) / PHOTO_THUMBS.cols);
+  return { faces, thumbs: { url: new URL(PHOTO_THUMBS.file, url).href, cols: PHOTO_THUMBS.cols, tile_px: PHOTO_THUMBS.tile_px,
+    size_px: [PHOTO_THUMBS.cols * PHOTO_THUMBS.tile_px, rows * PHOTO_THUMBS.tile_px] } };
+}
+
 /** Fetch the catalog (and the face library's header from the people kit). */
 export async function loadVisitorPerson({ dataBase, assetBase = null, storage = null, account = null, fetchFn = globalThis.fetch?.bind(globalThis) }) {
   const res = await fetchFn(new URL('humans/visitor_person.json', dataBase));
@@ -310,6 +403,17 @@ export async function loadVisitorPerson({ dataBase, assetBase = null, storage = 
       const kit = await (await fetchFn(new URL('humans/web/hm08_variation_kit.json', assetBase))).json();
       if (kit?.faces) catalog.faces = { ...kit.faces, base: new URL('humans/web/', assetBase).href };
     } catch { /* no faces to choose among: Auto only */ }
+    // The photographed faces (T-3553): the same runtime.json the people layer reads
+    // (human-variation.js loadVariationKit, so the browser has it already), unless the page
+    // was opened with the photographs off.
+    const off = typeof location !== 'undefined' && new URLSearchParams(location.search).get('photoFaces') === 'off';
+    if (!off) {
+      try {
+        const url = new URL('humans/web/photo_faces/pilot/runtime.json', assetBase);
+        const res = await fetchFn(url);
+        if (res.ok) catalog.photoFaces = photoCatalog(await res.json(), url);
+      } catch { /* the painted faces only */ }
+    }
   }
   const person = createVisitorPerson({ catalog, storage, account, fetchFn });
   void person.sync();

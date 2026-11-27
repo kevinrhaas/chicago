@@ -1,4 +1,94 @@
 export const CHANGELOG = [ // newest first
+  { v: 3296, ts: '2026-11-27T19:19:58.233Z', date: 'Nov 27, 2026, 1:19 PM CT', title: 'The public site carries a small Preview marker', kind: 'change',
+    items: [
+      'Every page of the public site shows a quiet Preview pill in the corner, with a Feedback link to Contact.',
+      'One click on its × hides it for good on that browser.',
+    ] },
+  { v: 3295, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2008 Calumet: the Hanford house, built from its 1883 drawing', kind: 'feature',
+    items: [
+      '2008 Calumet Avenue is rebuilt from its rough draft. Read off the 1911 fire-insurance map and the architects\' 1883 drawing, it is now a brownstone house of two storeys over a raised basement under a steep slate roof with gabled dormers. A corner pavilion rises to a tall pointed roof with an iron finial, a columned porch with a balcony stands over the front steps, and two tall stone chimneys rise from the south side.',
+    ] },
+  { v: 3294, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2000, 2010 and 2018 Prairie each get their own yard', kind: 'fix',
+    items: [
+      'The 1911 map draws one lot for these three houses, so their yards were planted as one.',
+      'Each house now has its own front yard, planted round its own front steps.',
+      '2000 and 2018 each gain a back door with its steps and a paved terrace; 2018 also gets a side passage and a path round to the front.',
+      'The lines between the three are our reconstruction, listed under Liberties.',
+    ] },
+  { v: 3293, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '217 East Twentieth: red brick and a copper corner oriel', kind: 'feature',
+    items: [
+      '217 East Twentieth Street is rebuilt from the 1911 fire-insurance map and three photographs of the house that still stands: three storeys of red pressed brick over a sandstone base, a slate roof, and its rear wing.',
+      'Its signature corner oriel now stands at the street front\'s east end, sheathed in copper on a rounded copper underside, with two tiers of curved windows.',
+      'Under the oriel, the two round-headed windows the photographs show; the door sits on a short stoop beside them.',
+    ] },
+  { v: 3292, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2115 Prairie\'s south end drops to a railed roof, matching both photographs', kind: 'improvement',
+    items: [
+      'The Armour house\'s tall slate mansard now ends at its south tower. The narrow end of the front beyond it has a flat roof at the cornice with a low stone balustrade, as the winter photograph and the Tribune\'s 1928 picture both show.',
+      'With that, the house matches both of its photographs, and its picture check is signed off.',
+    ] },
+  { v: 3291, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2021 Prairie gains the narrow window beside its porch', kind: 'improvement',
+    items: [
+      'The High house at 2021 Prairie now has the tall, narrow window between its arched porch and the broad front window, where the old photograph shows it.',
+      'It stands on the same sill as the broad window and its top is level with it, as in the picture.',
+      'Still different from the photograph: the open porch behind the arch, the steps running along the front, the cut corner of the south wing and the low picket fence.',
+    ] },
+  { v: 3290, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: 'The coach house 2108 and 2110 Prairie shared', kind: 'feature',
+    items: [
+      'Behind 2108 and 2110 Prairie now stands one two-storey brick coach house across both lots, flat-roofed behind level brick parapets, 15.5 m along the alley and 10.7 m deep. Mark Kimball built it, and Harriet Rees took its south half when she bought her lot from him in 1888.',
+      'Each half has its own carriage door, loft hatch and doors toward its own house. The south half, 25 by 35 ft and 23 ft high, still survives and was moved with the Rees house in 2014.',
+    ] },
+  { v: 3289, ts: '2026-11-27T16:52:42.108Z', date: 'Nov 27, 2026, 10:52 AM CT', title: 'Younger readers\' tellings caught up with rewritten building notes', kind: 'fix',
+    items: [
+      'Thirty-six of the house notes rewritten this week read again at the 8-10 age: the turret windows, the four chimney pots and the new finials now say what the houses show.',
+      'Tellings of notes that no longer exist are retired, so a card never offers words for a line it does not show.',
+    ] },
+  { v: 3288, ts: '2026-11-27T14:41:32.154Z', date: 'Nov 27, 2026, 8:41 AM CT', title: '2140 Prairie\'s back wing gets its windows', kind: 'improvement',
+    items: [
+      '1904: the Tucker/Smith house\'s three-storey back wing at 2140 Prairie now has windows on all three of its yard sides, with cellar windows under them. Its kitchen door and steps moved to stand between the back windows. The 1911 fire map\'s gravel roof and two fire escapes are noted on the house\'s card but not built, because nothing shows them there by 1904.',
+    ] },
+  { v: 3287, ts: '2026-11-27T11:46:55.125Z', date: 'Nov 27, 2026, 5:46 AM CT', title: '2130 Prairie\'s roof now matches its two photographs', kind: 'improvement',
+    items: [
+      'The Murdoch house at 2130 Prairie loses the tall gable on its street front, which neither old photograph shows.',
+      'Its roof now runs along the avenue instead, with a gable of rough-faced stone on the south side, as the photographs show it.',
+      'Its one visible chimney now stands on that ridge beside the round tower, where the picture puts it.',
+      'Still different from the photographs: the columned porch, the small window in the south gable, and the wall that rises beside the tower.',
+    ] },
+  { v: 3286, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'No look-around tag in front of a Jaunt', kind: 'fix',
+    items: [
+      'Starting a Jaunt, even straight after signing in, no longer leaves CLICK TO LOOK AROUND sitting in the middle of the view in front of the first stop.',
+      'The tag stays away for the whole Jaunt, and comes back after it only if you still have not clicked the scene to look around.',
+    ] },
+  { v: 3285, ts: '2026-11-27T11:24:52.725Z', date: 'Nov 27, 2026, 5:24 AM CT', title: 'Brick stables behind 2109 and 2123 Prairie', kind: 'feature',
+    items: [
+      'The stable behind 2109 Prairie now stands on the alley as a long two-storey brick building between two fire walls, with two carriage doors and a loft hatch, the window the 1911 fire-insurance map marks there, and a paved yard and a walk back to the house.',
+      'The stable behind 2123 Prairie stands against a fire wall to the north and opens a gable end to its own yard on the south, with a window on the alley and another in the gable where the map marks them.',
+    ] },
+  { v: 3284, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: '2021 Prairie gains its finials and third chimney', kind: 'improvement',
+    items: [
+      'The corner turret\'s cone now ends in a pale metal cap and knob, as the old photograph shows.',
+      'A finial stands on the front gable\'s peak.',
+      'The short chimney on the ridge behind the front gable is built, so the house has all three stacks the photograph shows.',
+    ] },
+  { v: 3283, ts: '2026-11-27T10:57:50.968Z', date: 'Nov 27, 2026, 4:57 AM CT', title: 'Choose your own face from a library of photographed faces', kind: 'fix',
+    items: [
+      'Settings, You: the Face row is now a library of the photographed faces the town wears, sorted by age and then by skin tone.',
+      'The painted faces are still there under their own tab, and Auto still picks one for you.',
+      'Your chosen eye colour now shows on a photographed face, and Style 3 on Auto gets its own face again.',
+      'The face close-up redraws once the sharp photograph has loaded.',
+    ] },
+  { v: 3282, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'End asks before it leaves a jaunt', kind: 'fix',
+    items: [
+      'End now asks "End this jaunt?" first, by mouse, touch, keys or controller.',
+      'Cancel is the key already picked, so a second bump keeps you at your stop.',
+    ] },
+  { v: 3281, ts: '2026-11-27T10:19:15.243Z', date: 'Nov 27, 2026, 4:19 AM CT', title: 'Warriors spring up out of the grass at the sand bank', kind: 'fix',
+    items: [
+      'In the 1812 battle jaunts, a man lying face down no longer swings up stiff from his toes: he pushes up on his hands, brings a knee in under him, crouches and drives off into his run.',
+      'Some come up through both knees first; each has his own side, pace and lean, so no two rise alike.',
+      'Men kneeling or crouched in wait drive up off the front foot leaning into the run, and the run starts as they come up rather than after a pause.',
+      'Men dropping into the grass on the way to the bank go down to a crouch, their hands and knees, then flat.',
+      'Lying in wait, a man rests on his forearms, elbows out, and the fallen keep their arms where they fell.',
+    ] },
   { v: 3280, ts: '2026-11-27T07:41:45.171Z', date: 'Nov 27, 2026, 1:41 AM CT', title: 'The Built-so-far walk counts the two new stables', kind: 'fix',
     items: [
       'The 1904 Built-so-far walk\'s opening card now reads 129 Prairie Avenue buildings, with 79 waiting outside the walk. Before, it still said 127 and 77 from before 2031 and 2033 Prairie\'s alley stables were added.',

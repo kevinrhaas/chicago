@@ -1,0 +1,30 @@
+{
+  "id": "inland_architect_1883_12_hanford_plate",
+  "type": "illustration",
+  "citation": "\"Residence of P. C. Hanford, Esq., Chicago.—Jaffrey [Jaffray] & Scott, Architects. Paul C. Lautrup, del.\" Pen perspective. The Inland Architect and Builder, vol. II, no. 5 (December 1883), p. 147.",
+  "author": "Paul C. Lautrup (delineator); Jaffray & Scott, architects",
+  "date": "1883-12",
+  "describes_date": "1883 (the design, as published the year the house was built)",
+  "repository": "Published in The Inland Architect and Builder; the Internet Archive's scan of the issue (serials in microfilm), leaf n8. Prairie library image dw-inland-1883-12-hanford-plate (chicago/prairie_1904_v1/research/images/stream-drawings.json), its 1636 x 2400 px greyscale copy in the image store.",
+  "url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/dw-inland-1883-12-hanford-plate.jpg",
+  "locator": "The page printed sideways: the drawing fills the frame, the caption along its foot. The Calumet front is the right-hand face (its porch and stoop at the north end), the south flank the left-hand face.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "An 1883 US architectural periodical's plate, in the public domain. Read for forms, counts and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-27 (T-3790) from the image store's copy (635,472 bytes, sha256 76b58c0580a944642375c5ffeed4ed57ba8ea3ad3c7942e22bce7331e900c3ea), rotated to read. The Glessner House blog's engraving (library image a20-glessner-hanford-engraving) is the same drawing, cropped.",
+  "note": "The house as designed in 1883, drawn from the south-east: a brownstone house of two storeys over a rusticated basement under a steep slated roof with gabled dormers; a corner pavilion at the south end of the Calumet front under a tall pointed hip roof with an iron finial; a columned entrance porch with a balustraded balcony at the front's north end, its stoop running north along the front; a round oriel on corbels on the south flank's chamber storey, a projecting bay further back under a gabled dormer, and two tall panelled stacks on that flank. What stood in 1904 is argued against the 1911 Sanborn sheet, which controls the plan.",
+  "what_it_supplies": [
+    "the storeys, the roof's form and the dormers' places",
+    "the front's three bays: the corner pavilion, a window bay, the entrance bay and its porch",
+    "the south flank's projecting bay, oriel and stacks",
+    "the stone's coursing and the cornice"
+  ],
+  "what_it_does_not_supply": [
+    "the plan: the 1911 sheet controls it",
+    "colour: the plate is monochrome",
+    "the north flank and the rear",
+    "any change between 1883 and 1904"
+  ]
+}

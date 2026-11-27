@@ -1,0 +1,29 @@
+{
+ "id": "jyoti_blog_2009_cullerton_rowhouses",
+ "type": "photograph",
+ "citation": "Jyoti Srivastava, 'Three Row Houses at East Cullerton', Chicago - Architecture & Cityscape (blog), September 2009: colour photographs of 213, 215 and 217 E. Cullerton Street (East Twentieth Street before the 1930s renaming), c. 2009.",
+ "author": "Jyoti Srivastava",
+ "date": "2009 (post date; the photographs c. 2008-2009)",
+ "describes_date": "2008-2009",
+ "repository": "Chicago - Architecture & Cityscape (blog). Prairie library images a19-jyoti-cullerton-106, a19-jyoti-cullerton-220, a19-jyoti-cullerton-223 and a19-jyoti-cullerton-224 (stream-1900.json).",
+ "url": "http://chicago-architecture-jyoti.blogspot.com/2009/09/three-row-houses-at-east-cullerton.html",
+ "locator": "Photograph 106 (217's east flank and corner oriel, from the north-east, 267 x 400 px); photograph 220 (looking west along the street past 217's east flank and oriel, 400 x 266 px); photograph 223 (217's ground storey on the street: the oriel's copper underside, two round-headed lights and the door, 400 x 266 px).",
+ "tier": 2,
+ "rights_status": "check_required",
+ "rights_note": "Copyright the photographer ('(c) 2009' on some prints); the Prairie library's ruling is link only. Only what stands in the street and its forms are read from it; nothing is derived from the image as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-27 (T-3781) from the image store's reference copies (kevinrhaas/chicago-images, prairie-1904/files/a19-jyoti-cullerton-106.jpg, -220.jpg, -223.jpg), each about 400 px on its long side.",
+ "note": "Modern photographs of the surviving house, about 105 years after the scene date: they show its forms, not its 1904 condition. The copper's green patina, the window grilles and the planting are 2009's; the register warns that modern grilles and patina are not proof of the 1904 state.",
+ "what_it_supplies": [
+  "217's street front: two round-headed lights under the oriel and the door in a carved stone surround west of them (223)",
+  "217's corner oriel: a rounded bay sheathed in copper over the ground storey, two storeys tall, its lights bent round it, on a rounded copper underside (106, 220, 223)",
+  "217's walls: red brick over a red sandstone base course, stone sills and heads, the ground storey's round-headed openings (106, 220, 223)",
+  "a steep gable with a finial over 217's east flank (106)"
+ ],
+ "what_it_does_not_supply": [
+  "a 1904 date: the photographs are of the surviving house in 2009",
+  "the rear, the west flank and the roof behind the gable",
+  "dimensions: no scale stands in the frame"
+ ]
+}

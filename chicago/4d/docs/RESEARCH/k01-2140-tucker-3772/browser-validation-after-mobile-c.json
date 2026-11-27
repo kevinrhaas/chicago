@@ -1,0 +1,164 @@
+{
+  "method": "Actual published /1904/ app, normal boot (TAG after); js heap after a forced GC via CDP Runtime.getHeapUsage; desktop 1280x800 at full detail, mobile 390x780 at light. Animation paused after readiness so the stands are deterministic; frame_ms_median is 5 renders each waited on with a one-pixel read, on this machine's software GL (a relative reading, not a device claim).",
+  "results": [
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 41719,
+      "js_heap_used_bytes": 122300052,
+      "js_heap_total_bytes": 129343488,
+      "draft_records_in_registry": 145,
+      "placed": [
+        "tucker_smith_house_2140_prairie",
+        "murdoch_house_2130_prairie"
+      ],
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "glb": {
+        "count": 1,
+        "bytes": 1153588
+      },
+      "stands": [
+        {
+          "name": "draft-south-walk",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 10667,
+            "rendererCalls": 1149,
+            "multiDraw": true,
+            "triangles": 2749883,
+            "programs": 78,
+            "geometries": 1095,
+            "textures": 2746,
+            "batches": 747,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 110,
+                "rough_red_brown_running": 27,
+                "cream_rough_running": 1
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 67255200,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": false,
+            "farBudget": null
+          },
+          "frame_ms_median": 5776.4,
+          "camera": [
+            1399.5,
+            -3778,
+            6.11
+          ],
+          "target": [
+            1386,
+            -3722,
+            12.44
+          ]
+        },
+        {
+          "name": "draft-air",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1785,
+            "rendererCalls": 477,
+            "multiDraw": true,
+            "triangles": 815935,
+            "programs": 79,
+            "geometries": 1100,
+            "textures": 2760,
+            "batches": 747,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "brickBond": {
+              "off": false,
+              "panels": {
+                "common_buff_common_6": 110,
+                "rough_red_brown_running": 27,
+                "cream_rough_running": 1
+              }
+            },
+            "structures": 286,
+            "structuresExpected": 286,
+            "structuresStanding": 286,
+            "bytes": 67255200,
+            "fps": 0,
+            "cameraNear": 3,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true,
+            "farBudget": null
+          },
+          "frame_ms_median": 2659.6,
+          "camera": [
+            1445,
+            -3560,
+            79.53
+          ],
+          "target": [
+            1365,
+            -3640,
+            4.47
+          ]
+        }
+      ]
+    }
+  ]
+}

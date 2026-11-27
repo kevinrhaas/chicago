@@ -6685,6 +6685,11 @@ async function boot() {
         // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
         // (and nothing it had queued plays), rather than talking over the next part. So are
         // Skip to the Start and Finish Jaunt (2026-11-16), over the opening and the ending.
+        // The owner, 2026-11-27 ("I bumped it inadvertently and it dumped me out"): the panel's End
+        // asks first (recall.js askEndJaunt), the same prompt by mouse, touch, keys or controller;
+        // nothing stops until END is pressed.
+        if (name === 'end' && recallHome) return recallHome.askEndJaunt(jauntRuntime?.state?.jaunt, () => { narration.stop(); jauntRuntime.end(); },
+          { closing: jauntRuntime?.state?.phase === 'closing' });
         if (['next', 'prev', 'jump', 'end', 'skip', 'finish'].includes(name)) narration.stop();
         if (['next', 'prev', 'jump', 'straight'].includes(name)) narration.prime();
         return jauntRuntime[name](...args); }]));
@@ -6794,6 +6799,9 @@ async function boot() {
         },
         render: state => {
           jauntPanel.render(state);
+          // The owner, 2026-11-27: no "Click to look around" over a Jaunt, from its start to its
+          // end (a Jaunt parked at Home is not under way; the town is not showing then anyway).
+          gesture.setLook({ onJaunt: !!state?.jaunt && state.phase !== 'menu' });
           closingClock.update(state); // the owner, 2026-11-16: the closing scene ends on its own
           if (closingClock.active) closingTimer ??= setInterval(() => { if (!closingClock.tick() && closingClock.active) return; clearInterval(closingTimer); closingTimer = null; }, 400);
           if (meterNow()) meterTimer ??= setInterval(() => { if (meterNow()) return; clearInterval(meterTimer); meterTimer = null; }, 250);

@@ -2,7 +2,7 @@
   "structure_id": "murdoch_house_2130_prairie",
   "view": "glessner_2140_vanosdel",
   "glb": "assets/gltf/murdoch_house_2130_prairie__as_mapped_1904.glb",
-  "glb_sha256": "571a269aa70b7121f46b168d805c10b28d6a721cc6356fc356977d6255d4150d",
+  "glb_sha256": "61f1df58900eb008af20463ad2389ed5790bae44ea487a1ef450eeaeb9cf0d1c",
   "camera_sha256": "3df21672242dca30d35a782b47dc9dcfa5810d5d602059bc46a070fbfccac399",
   "photo_sha256": "51d5e6b7c5501d56698d35581dab5edebebf4890f5fa75abb3d7b1989fd91e22",
   "side_by_side": "docs/RESEARCH/photo-match/murdoch_house_2130_prairie/glessner_2140_vanosdel-side-by-side.jpg",
@@ -25,14 +25,17 @@
       "status": "not shown"
     },
     {
-      "what": "the roof over the front: the build carries the front up as a steep street gable to 15.4 m (shaped_gable), its apex standing in the sky beside the tower's cone; neither picture shows any gable on the street front. Both show instead the south flank rising into a gable of rock-faced stone over its front part (the Chicagology print: its apex at about (1487, 662) px, on this camera about 13.5 m over grade and 2.3 m behind the front, with one attic light in it at x 1460-1490, y 790-860) and a slated roof whose ridge runs along the avenue from that apex to the tower's cone (near level at y 690-700 across x 1490-1690), its east slope falling to the front's eave. A side-gabled front block behind the tower, which K01's shaped_gable and hip do not stand; one difference, both pictures",
+      "what": "the roof over the front: T-3729 carried the front up as a steep street gable to 15.4 m over a hip; neither picture shows any gable on the street front. Now the front block is side-gabled (K01's gable roof): the south flank carried up as a gable in the front's rock-faced stone, its rake from the front's south eave at 52 degrees, and the ridge along the avenue 4.0 m behind the front at about 13.9 m. On the Chicagology camera the rake lies along the print's (x 1482-1590 px, y 740-877 px) within about 10 px (0.2 m) and the ridge along its cresting (y 670 px at x 1465, 705 px at x 1550) within about 5 px; the T-3730 first pass's reading (apex 2.3 m back at 13.5 m) put the rake about 40 px off; on this camera the slope behind the tower stands where the print's does",
+      "status": "fixed"
+    },
+    {
+      "what": "the columned porch across the front's south end (posts and an entablature at about the principal floor's head, the Chicagology print's x 1460-1680 px, y 1030-1200, wrapping onto the south flank's first metre; the Van Osdel print's x 546-575, y 399-440): not built, the door stands bare at the top of the stoop (L-k01-2130-murdoch-3729: no K01 part stands a recessed corner porch under a front)",
       "status": "open"
     },
     {
-      "what": "the columned porch across the front's south end (posts and an entablature at about the principal floor's head, the Chicagology print's x 1460-1680 px, y 1030-1200, the Van Osdel print's x 546-575, y 399-440): not built, the door stands bare at the top of the stoop (L-k01-2130-murdoch-3729: no K01 part stands a recessed porch under a front)",
+      "what": "the front's north part beside the tower: both pictures carry it up as wall to about the cone's eave (about 11.2 m) under an eave of its own, which runs on from the cone's eave course to the left of the drum (the Chicagology print's x 1600-1673 px, y 790-880 px, a valley rising from the front's eave near x 1657, y 880 to the ridge near x 1550, y 707; the Van Osdel print's pale wall left of the drum up to y 280 px), where the build's street slope comes down to the 8.8 m eave there: about 1.5 m of wall and eave a visitor would see as slate (L-k01-2130-murdoch-3730)",
       "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "T-3730, 2026-11-26: the side-by-side read element by element against the picture on its solved camera after the cone and the south flank were rebuilt; two differences a street visitor would notice stay open (the front's roof and the porch), both needing K01 parts this run could not add"
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

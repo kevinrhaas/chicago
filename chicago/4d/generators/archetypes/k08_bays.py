@@ -26,7 +26,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   roof         the plan's own lines offset to the eaves and lifted at one pitch: a
                hipped roof over a polygon (trimmed at its hips), a cone over a curve;
                a tower's cap is the whole ring's, closed at the back where the wall
-               plane cuts it, with a finial at the apex; a bay's hip may FLARE (T-2408):
+               plane cuts it, with a finial at the apex (T-3634: or a half round's cone,
+               whose apex stands on its wall plane); a bay's hip may FLARE (T-2408):
                flat at the eaves and steepening inward, cut into bands at one
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
@@ -4095,6 +4096,12 @@ class Bay:
                            (0.0, 0.0, -1.0))
         self.meta["roof"] = {"kind": "cone", "pitch": pitch, "eave_radius_m": round(Re, 4), "segments": len(phis) - 1,
                              "apex": [round(c[0], 4), round(apex_y, 4), round(cz, 4)] if tower else None}
+        if not tower and cz == 0.0 and not whole:
+            # T-3634: a half round's cone closes against its wall in one point, its apex on the
+            # wall plane over the round's centre, so it can carry a finial there as a tower's
+            # cap does (2021 Prairie's turret, the spike over its cone in the photograph). Kept
+            # off the roof's meta, which a segmental bow (no apex) shares
+            self._half_apex = [round(c[0], 4), round(y_e + pitch * Re, 4), 0.0]
         yb = self.v.get("cone_back_from_m")
         if yb is not None:
             # T-3294: a half round's cone carried past its house's eave (1912's corner turret) has
@@ -4232,6 +4239,16 @@ class Bay:
         self.meta["roof"]["cresting"] = {"height_m": h, "thickness_m": t}
         self._finial_at = [(p[0], y_d + h, p[1]) for p in top]
 
+    def _finial_apex(self):
+        """The point a cap's finial stands on: its roof's apex, or (T-3634) a half round's,
+        on the wall plane. A segmental bow's cone meets its wall along a line, not a point,
+        and a hip has no single apex, so neither carries one."""
+        ap = self.meta["roof"].get("apex") or getattr(self, "_half_apex", None)
+        if ap is None:
+            raise ValueError(f"{self.v['id']}: a finial stands on a cap's apex: a tower's, a spire's, "
+                             f"or a half round's cone against its wall")
+        return ap
+
     def _finial(self, world):
         f = part(self.v, self.data, "finial")
         if getattr(self, "_finial_at", None):
@@ -4243,7 +4260,7 @@ class Bay:
             return
         if f.get("form") == "turned":
             return self._turned_finial(world, f)
-        ax, ay, az = self.meta["roof"]["apex"]
+        ax, ay, az = self._finial_apex()
         r0, H = f["radius_m"], f["height_m"]
         k = 8
         ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y, az + r * math.sin(2 * math.pi * j / k))
@@ -4287,12 +4304,16 @@ class Bay:
         — the pale crocketed collar and knobbed pinnacle of 1801's tower. A whole cap
         (`cap_whole`: a corner turret's, its axis maybe behind its wall's face) stands into no
         wall, so nothing of it is held in front of the wall's plane (1801's east turret)."""
-        ax, ay, az = self.meta["roof"]["apex"]
+        ax, ay, az = self._finial_apex()
         # T-3293: a turning may be lathed in fewer `segments` (1912's tower: 6, inside its budget)
         r0, H, k = f["radius_m"], f["height_m"], int(f.get("segments", self.TURNED_SEGS))
         # T-3616: and so does a two-stage cap whose axis stands behind its wall's face (2011's)
         clip = not (self.v.get("cap_whole") or self.meta["roof"].get("upper", {}).get("whole"))
-        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip)
+        # T-3634: a half round's turnings stand ON the wall plane (their axis is on it), so a
+        # flattened back would be half of every ring laid on one plane, the collar's and the
+        # finial's over each other; there the back halves are left out, as the cone's is
+        drop = self.meta["roof"].get("apex") is None
+        self._lathe(world, ax, az, [(r0 * r, ay + H * y) for r, y in self.TURNED], k, clip=clip, drop=drop)
         top = {"top_m": round(ay + H, 4), "form": "turned"}
         c = f.get("collar_m")
         if c:
@@ -4300,7 +4321,7 @@ class Bay:
             # its back, where the tower stands into its wall, is closed CLIP_M in front of the
             # wall's plane (z 0), as the cone's is on it, and a crocket that would stand behind
             # that is not laid
-            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=clip)
+            self._lathe(world, ax, az, [(c * r, ay + D * y) for r, y in self.COLLAR], k, clip=clip, drop=drop)
             flare = self.COLLAR[3:-1]   # the sweep, rim to neck, y rising
 
             def on(y):   # the flare's r (as a fraction of c) at y, a hair inside it
@@ -4321,11 +4342,12 @@ class Bay:
         self.meta["finial"] = top
 
     @staticmethod
-    def _lathe(world, ax, az, prof, k, clip=False):
+    def _lathe(world, ax, az, prof, k, clip=False, drop=False):
         """A turned solid on the axis (ax, az): `prof` (r, y) from its foot up, each band of
         quads shaded square to its own slope; a ring at r 0 closes it. `clip` holds it in front
         of the wall's plane (z 0), flattening what would stand behind onto CLIP_M in front of it,
-        clear of the cone's back face on the plane itself."""
+        clear of the cone's back face on the plane itself; `drop` (T-3634) leaves out the
+        faces that clip would flatten wholly onto that plane."""
         ring = lambda r, y: [(ax + r * math.cos(2 * math.pi * j / k), y,
                               max(az + r * math.sin(2 * math.pi * j / k), Bay.CLIP_M) if clip
                               else az + r * math.sin(2 * math.pi * j / k)) for j in range(k)]
@@ -4339,6 +4361,8 @@ class Bay:
                 n = (math.cos(t) * dy / ln, -dr / ln, math.sin(t) * dy / ln)
                 q = [a[j], a[jj], b[jj], b[j]]
                 q = [p for i, p in enumerate(q) if p != q[i - 1]]
+                if drop and all(p[2] <= Bay.CLIP_M for p in q):
+                    continue
                 if len(q) >= 3:
                     world.face("finial", q, n)
 

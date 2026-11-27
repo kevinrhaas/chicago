@@ -918,6 +918,8 @@ step "Child photo sources, untouched child shapes and bounded atlas pages reprod
   python3 tools/photo_face_library.py --check assets/humans/web/photo_faces/children/review.json
 step "Each photo-face library's runtime.json is the part of its review.json the walk reads, and gives every drawn person the same face (T-3775)" \
   node tools/photo_face_runtime.mjs --check
+step "The You tab's face library pictures are the photo library's own source previews, one sheet in its order (T-3553)" \
+  python3 tools/photo_face_thumbs.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
@@ -1873,6 +1875,15 @@ step "a K01 hip a source reads may stand below the ordinary pitch band, to the f
 # stepped ends, out of its pitch range, over the ridge or with too long a head refused.
 step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
   python3 tools/test_k01_rear_fall.py
+
+# T-3713. ...and a K01 mansard may stop short of a side wall, the strip beyond it roofed flat at the
+# wall head under a stone balustrade (2115 Prairie's front south of its pavilion: no mansard over it
+# in the Armour photograph, the roof line dropping from the crown to a railing in the Tribune's 1928
+# halftone): the mansard read on the narrower plan, nothing over the strip but its deck and railing,
+# the plain mansard unchanged, and a south short end, a strip out of range, a short end beside
+# walled ends and a balustrade out of its bounds refused.
+step "a K01 mansard stops short of a side wall, the strip beyond it railed and flat (T-3713)" \
+  python3 tools/test_k01_mansard_short.py
 
 # T-3144. A K07 swept stoop's cheek drawn in to its newel (a negative flare) and a cheek pierced
 # by a row of openings under its top, as Levy's print shows 1812 Prairie's: built so, each

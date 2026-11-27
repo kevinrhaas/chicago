@@ -2,11 +2,11 @@
   "structure_id": "armour_house_2115_prairie",
   "view": "chicagology_armour_photo",
   "glb": "assets/gltf/armour_house_2115_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bc3d2f1c84943ede352ffe7eee5500116276e054b11bde1dc68c04f4b3a2810c",
+  "glb_sha256": "9d593580ca01a97962ba620dad08ca71f1e0b30a2013ba82d44f646112cb920f",
   "camera_sha256": "ae483e0a78744bc01e41870fcb4cfc2922716959e999bcce049f66321f1f1b36",
   "photo_sha256": "e2ca5b9e18c332a9ceaeab71caa4c605ccefb41f1abce49d1029a644812a7c3b",
   "side_by_side": "docs/RESEARCH/photo-match/armour_house_2115_prairie/chicagology_armour_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the door (T-3713): T-3712 laid it in the second column from the north with a window south of it (entrance_bay 2, K01 counting from its own 'south' end, the real north here); the print's door is the third opening, after two windows (x 1085-1180 px). Now bay 3: the door, its fanlight and the stoop stand at x 1100-1180, the two windows at x 830-890 and 970-1030 as the print's",
@@ -61,12 +61,16 @@
       "status": "within tolerance"
     },
     {
+      "what": "the strip's railing: the print shows one pale die about midway along the strip (x about 1536) and dark between, read as a balustrade whose balusters are lost against 2123's dark front; the render's dies stand at the strip's corners (x about 1560), its balusters the kit's square bars at 0.3 m (no pattern can be read from the print)",
+      "status": "within tolerance"
+    },
+    {
       "what": "the crown's curb stands about 25 px (about 0.4 m) over the print's at the pavilion's face, where the main curb stands within 10 px: the same order as the camera's own distance uncertainty at the pavilion (about 15%, see the pavilion's south corner), and the Tribune halftone's crown top is too dark to say",
       "status": "within tolerance"
     },
     {
-      "what": "the front's south end beyond the pavilion (x 1440-1555 px): the print shows it lower than the main cornice (its cornice about y 510-540), under a balustrade or cresting rather than the mansard, and the Tribune's 1928 photograph draws the same lower, railed end (x 880-1000 px); the render carries the main cornice and mansard over it. Likely the 1911 sheet's '2B' south piece, which no K01 part builds (liberty L-k01-2115-armour-3712)",
-      "status": "open"
+      "what": "the front's south end beyond the pavilion (x 1440-1600 px), lower than the main roof in the print: no mansard over it, its cornice (y about 512-540) under a low railing with a pale die (x 1527-1545, top y 475). T-3713 stops the main mansard at the pavilion's south side (K01 mansard.short_end, 2.04 m short of the south wall) and roofs the strip flat at the wall head, the cornice carried round it unbroken, under a stone balustrade 0.6 m high: the render's cornice top at y about 507-512 and its die's top at y 471, against the print's 512 and 475",
+      "status": "fixed"
     },
     {
       "what": "the pavilion's south corner and the front's end: the render's front ends about x 1515 against the print's 1555 px and its south light stands at x 1460 against 1495 (about 0.4-0.6 m through this camera, whose distance is uncertain by about 15%); the sheet reads the pavilion about a metre wider than this camera does, a disagreement between a plan and a picture",

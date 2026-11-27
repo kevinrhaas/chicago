@@ -446,6 +446,11 @@ DRESSED_CELLS = ("K01.surround", "K01.quoin", "K01.panel")
 # masonry basement stands.
 K08_FRAME_ROLES = {"plinth": "bay_brick", "band": "fascia", "corbel": "fascia",
                    "sill": "fascia", "head": "fascia"}
+# T-3781: a copper bay (217 E. Twentieth's corner oriel, sheathed in sheet copper in its
+# photographs) has no stone in it either: its walls, bands, corbels, apron, sills and heads
+# are the sheet that covers it, the K08 copper its roofs already wear.
+K08_COPPER_ROLES = {"plinth": "bay_copper", "band": "bay_copper", "corbel": "bay_copper",
+                    "apron": "bay_copper", "sill": "bay_copper", "head": "bay_copper"}
 K08_COVERS = {"copper_standing_seam": "bay_copper", "copper_sheet": "bay_copper",
               "tin_flat_seam_painted": "bay_tin", "slate_pennsylvania": "bay_slate"}
 
@@ -3350,8 +3355,9 @@ class Assembly:
                               "junction_right": _add(O, _mul(R, s_at + hi_ if cant else b["span_m"][1]))})
         base = _add(O, _mul(R, s_at))
         W = lambda q: _add(base, _add(_add(_mul(R, q[0]), _mul(Y, q[1])), _mul(N, q[2])))
-        body = {"brick": "bay_brick", "frame": "bay_frame"}.get(b["fabric"], "bay_stone")
-        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {})
+        body = {"brick": "bay_brick", "frame": "bay_frame", "copper": "bay_copper"}.get(b["fabric"], "bay_stone")
+        roles = K08_ROLES | (K08_FRAME_ROLES if b["fabric"] == "frame" else {}) \
+            | (K08_COPPER_ROLES if b["fabric"] == "copper" else {})
         if b["fabric"] == "frame" and self.p.stone.get("all_round"):
             roles = roles | {"plinth": "bay_stone"}   # T-2788: the house's stone carried out under it
         cover = K08_COVERS[v["roof"]["covering"]]
@@ -4784,6 +4790,9 @@ class Assembly:
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
                               **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
                                   "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
+                              **({"short_end": {"wall": m["short_end"]["wall"],
+                                                "width_m": m["short_end"]["width_m"]}}
+                                 if (m or {}).get("short_end") else {}),
                               **({"side_parapet": {"wall": m["side_parapet"]["wall"],
                                                    "top_m": m["side_parapet"]["top_m"]}}
                                  if (m or {}).get("side_parapet") else {}),
@@ -4806,6 +4815,8 @@ class Assembly:
                    o + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0))) if p.cant_corner else None
             # T-3384: run on past a wall carried up through it, so no hip reaches that wall
             mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
+            if m.get("short_end"):   # T-3713: the ring stopped short of the north wall (2115's)
+                mz0 = -W + m["short_end"]["width_m"]
             hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
                                             cut=cut, x1_run=m.get("street_run_m"),   # T-1890: a leaned street face
@@ -4838,6 +4849,9 @@ class Assembly:
                 wing, _, _ = k5.mansard_element(u0, into, -wv1, -wv0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                                 m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f)
                 solids += [wing, k5.body_box(u0, 0.0, -wv1, -wv0, hs - 1.0, hs)]
+        if (m or {}).get("short_end"):   # T-3713: the strip beyond it under the eave's box, decked flat
+            from . import k01_mansard_short
+            solids.append(k01_mansard_short.deck(k5, m["short_end"], D, W, E, yf, o))
         if (p.shaped_gable or {}).get("roof_to_gable"):   # T-3715: the ridge run on to the gable
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.roof_to_gable(k5, p, E, ye, tp, o, f, hs))
@@ -5095,6 +5109,9 @@ class Assembly:
             self.round_dormer_sash(g, conf)
             if g["d"].get("dress"):   # T-3307: its pediment's cornices, its pilasters
                 k10_frontage.dress_lower_dormer(self, g, max(conf, p.conf("mansard")))
+        if (m or {}).get("short_end"):   # T-3713: and its railing
+            from . import k01_mansard_short
+            k01_mansard_short.balustrade(self, m["short_end"], D, W, E, o, seed, conf)
         if k:
             self.dress(pts, tris, seed, conf)
         if p.rainwater:
@@ -5773,6 +5790,18 @@ class Assembly:
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         return any(b[0] <= cx <= b[1] and b[2] <= cz <= b[3] for b in getattr(self, "stone_stack_boxes", ()))
 
+    def _on_stone_flank(self, tri):
+        """T-3730: whether a gable roof's parapet face stands on a side wall the record lays in
+        the front's stone (`stone_front.flanks`): the south parapet is the slab from z -t to 0,
+        the north one from z -W to -W + t (k01_gable_roof.elements), t the side wall's thickness."""
+        flanks = (self.p.stone or {}).get("flanks") or ()
+        if not flanks or not self.p.gable:
+            return False
+        t, W = self.p.gable["parapet_m"], self.p.width_m
+        zs = [q[2] for q in tri]
+        return (("south" in flanks and min(zs) >= -t - 1e-6 and max(zs) <= 1e-6)
+                or ("north" in flanks and min(zs) >= -W - 1e-6 and max(zs) <= -W + t + 1e-6))
+
     def _in_gable_dormer(self, tri, boxes=None):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box
         (T-3307: or in one of `boxes`, and then only those, never a turned one)."""
@@ -5812,6 +5841,9 @@ class Assembly:
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_parapet_u", math.inf)):
                 mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone;
                                                           # T-2788: every parapet, on an all-stone house
+            elif role == "parapet" and self._on_stone_flank((pts[a], pts[b], pts[c])):
+                mat = "rough_stone_trim"                  # T-3730: a gable roof's parapet carried up on a
+                                                          # flank laid in the front's stone (2130's south gable)
             elif role == "parapet" and self.front_brick != "brick" and min(
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_gable_u", math.inf):
                 mat = self.front_brick                    # T-3093: the shaped gable's brick, the front's

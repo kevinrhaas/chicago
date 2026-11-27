@@ -28,4 +28,13 @@ export default register('recall', {
   'jump.body': 'This releases the lock on Chicago, {from}. Course set: {when}.',
   'jump.body.plain': 'This releases the lock on this destination. Course set: {when}.',
   'jump.confirm': 'Depart',
+  // The owner, 2026-11-27: the same prompt before End leaves a jaunt.
+  'end.eyebrow': 'Outing control',
+  'end.code': 'End jaunt',
+  'end.title': 'End this jaunt?',
+  'end.body': '{title} closes. Jaunts pauses it instead.',
+  'end.body.plain': 'The outing closes. Jaunts pauses it instead.',
+  'end.body.closing': '{title} closes before its last look ends.',
+  'end.body.closing.plain': 'The outing closes before its last look ends.',
+  'end.confirm': 'End',
 });
