@@ -110,9 +110,4 @@ jobs:
           chicago/4d/still-frame-mobile.json'
         if-no-files-found: error
 'on':
-  pull_request:
-    branches:
-    - diagnostic/t3747-held-source-base
-    paths:
-    - .github/workflows/chicago-4d-t3747-dev149-calibration.yml
   workflow_dispatch: null

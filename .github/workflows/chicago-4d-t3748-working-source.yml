@@ -1,4 +1,4 @@
-name: Better Trees seasons — actual Light fix working source
+name: Better Trees seasons — complete Core and privacy integration working source
 permissions:
   contents: read
 jobs:
@@ -40,13 +40,13 @@ jobs:
           key: 8of8
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: 1e6544c8d5f506e834787cf1dfcff2c0028c47c3e63ad74d0116d245376704f8
+      SOURCE_MANIFEST_SHA: a5f8856506378308055d198bc4b47b6e5a14a9735fbed265e58c8321a299fd94
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: 3bdf2349cf29f374833d015e91b84dab6611d636
+        ref: 14960ef3cb774a43dd0f5992a28cb973e8be3d20
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-python@v5
@@ -71,9 +71,9 @@ jobs:
 
         subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-light-fix-apply.py''])
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-dev149-apply-working-source.py''])
 
-        assert hashlib.sha256(raw).hexdigest()==''90a64e6f6b45258bc30b0698b609b858854946b99a1a88cc51f6ae9fc6cd122e''
+        assert hashlib.sha256(raw).hexdigest()==''d12c98a76099649bcc99ee45c376caab556b7d3d42ab369e89b0f7e15104fb06''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw)
 
@@ -126,4 +126,9 @@ jobs:
     steps:
     - run: test "${{ needs.native-working-source.result }}" = success
 'on':
+  pull_request:
+    branches:
+    - diagnostic/t3747-held-source-base
+    paths:
+    - .github/workflows/chicago-4d-t3748-working-source.yml
   workflow_dispatch: null
