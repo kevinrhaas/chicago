@@ -1,7 +1,7 @@
 {
   "about": "T-3811: what .github/workflows/chicago-4d-music.yml makes (cues, one take each, at most max_usd at fal's list price) and hosts (deliveries under renderers/web/audio/). A push that changes this file runs it; clear cues after a run.",
-  "request": "T-3811 take 1, the rest: the 1871 beds and the Great Fire suite (fal timed out on bed-1871-city in the first run)",
-  "cues": "bed-1871-city,bed-1871-inquiry,fire-1-rising,fire-2-inferno,fire-3-ruins",
-  "max_usd": 3,
+  "request": "T-3811 take 1 made (13 cues, 2026-11-27); nothing requested now",
+  "cues": "",
+  "max_usd": 0,
   "host": []
 }
