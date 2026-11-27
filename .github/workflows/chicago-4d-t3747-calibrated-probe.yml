@@ -206,7 +206,7 @@ jobs:
       - name: Run the unchanged native gate and verify source stability
         env:
           C4D_GATE_REQUIRE_READERS: '1'
-          C4D_GATE_REQUIRE_67761214056dd916555d11cedf8c1a04c971b447: '1'
+          C4D_GATE_REQUIRE_BASE: '1'
           CHECK_JOBS: ${{ matrix.serial && '1' || steps.cores.outputs.n }}
         run: |
           set +e
