@@ -22,7 +22,7 @@
     "note": "The marker: 'William F. Tucker-Byron L. Smith Residence. Built 1876'."
   },
   "review_required": false,
-  "research_note": "T-3770 (piece 1 of T-1928, the S17A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 red brick body over a pale stone basement, banded in stone, under a K05 slated mansard with dormers and cresting; a round tower at the Prairie/22nd Street corner, a polygonal tower on the 22nd Street flank and a square tower on the Prairie front, each under a slated cap with a crested deck (K08; the 1904 state the district draft declared, L-k01-2140-tucker-3770); K06 sash, a K07 door and the '3SB' rear range. What is read: sheet 35 of the 1911 Sanborn at full size and the two Chicagology photographs (forms only). The 1904 roof state of the towers is the flat-topped, crested one the 1898 plate and the second photograph show, as the district draft declared: the spires of the first photograph and the 1928 Tribune are not dated before July 1904 (L-k01-2140-tucker-3770). The porch, the glass room, the gabled dormers' crockets and the stacks' pots are T-3771's; the rear range's lights and the before/after views and costs T-3772's (L-k01-2140-tucker-3772); the cameras and the image gate T-1929's.",
+  "research_note": "T-3770 (piece 1 of T-1928, the S17A package of the T-1837 programme) refines the district draft (T-2351) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits — a K03 red brick body over a pale stone basement, banded in stone, under a K05 slated mansard with dormers and cresting; a round tower at the Prairie/22nd Street corner, a polygonal tower on the 22nd Street flank and a square tower on the Prairie front, each under a slated cap with a crested deck (K08; the 1904 state the district draft declared, L-k01-2140-tucker-3770); K06 sash, a K07 door and the '3SB' rear range. What is read: sheet 35 of the 1911 Sanborn at full size and the two Chicagology photographs (forms only). The 1904 roof state of the towers is the flat-topped, crested one the 1898 plate and the second photograph show, as the district draft declared: the spires of the first photograph and the 1928 Tribune are not dated before July 1904 (L-k01-2140-tucker-3770). The porch, the glass room, the gabled dormers' crockets and the stacks' pots are T-3771's; the rear range's lights and the before/after views and costs T-3772's (L-k01-2140-tucker-3772); the cameras and the image gate T-1929's. T-3799 (piece 1 of T-1929) fits the cameras on the Chicagology print and the Van Osdel print (data/reference_views/tucker_smith_house_2140_prairie/), jointly with 2130's tower, and sets the tall stack to the place and height both put it; what they still show differently is in their match records: the round tower's place at the corner (T-3800), and the other pictures and the sign-off (T-3801).",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -540,15 +540,16 @@
             "cap_depth_m": 0.3,
             "stacks": [
               {
-                "u_m": 9.6,
-                "v_m": 1.9,
+                "u_m": 9.15,
+                "v_m": 2.25,
                 "plan_m": [
                   1.5,
                   0.8
                 ],
                 "across": "x",
                 "flues": 4,
-                "pot": "long"
+                "pot": "long",
+                "top_m": 16.65
               },
               {
                 "u_m": 5.5,
@@ -586,8 +587,8 @@
                 "count": 2,
                 "width_m": 0.08,
                 "depth_m": 0.04,
-                "above_roof_m": 0.5,
-                "under_head_m": 0.3,
+                "above_roof_m": 0.3,
+                "under_head_m": 0.2,
                 "min_height_m": 0.6
               }
             }
@@ -595,9 +596,10 @@
           "confidence": "inferred",
           "sources": [
             "chicagology_2140_photo_a",
-            "chicagology_2140_photo_b"
+            "chicagology_2140_photo_b",
+            "glessner_blog_2015_08_2140_photo"
           ],
-          "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). T-3771: the tall stack's head as both photographs draw it — a row of four tall ribbed pots running back along the 22nd Street flank (four in the first photograph, x 625-700 px, y 230-330 px; three in the second, x 565-655 px, the fourth behind them), on a corbelled stone head with a dentil course and no bands down the shaft, and two narrow sunk panels down each face (the second photograph, x 580-640 px, y 350-600 px); its plan widened to 1.5 m along the flank to carry the four. The north stack, which no picture shows, stays a plain shaft with no pots or panels (reconstructed)."
+          "note": "The tall stack with its clustered pots beside the round tower over the 22nd Street flank in both photographs (the first's x 600-700 px, its pots to about y 230): stood on the deck just inside the curb, where K01 lets a stack stand (the photographs' rises from the wall), about 2.6 m over it; a second on the north side, reconstructed (the first photograph's stack behind the roof). T-3771: the tall stack's head as both photographs draw it — a row of four tall ribbed pots running back along the 22nd Street flank (four in the first photograph, x 625-700 px, y 230-330 px; three in the second, x 565-655 px, the fourth behind them), on a corbelled stone head with a dentil course and no bands down the shaft, and two narrow sunk panels down each face (the second photograph, x 580-640 px, y 350-600 px); its plan widened to 1.5 m along the flank to carry the four. The north stack, which no picture shows, stays a plain shaft with no pots or panels (reconstructed). T-3799: the tall stack's place and height off both post-1890 photographs through cameras fitted on this house and 2130 together (data/reference_views/tucker_smith_house_2140_prairie/): its shaft's axis (the first photograph's x 645 px, the Van Osdel print's x 284 px) meets at u 9.15, v 2.25, about 0.55 m from where it stood, and its head's cap top (y 310 and 85 px) at 16.6 m and its pots' lips (y 230 and 53 px) at 17.9 m, the two pictures agreeing within 0.05 m. Its cap now stands at 16.65 m (top_m), the long pots' 1.1 m over it, where it had risen about 1.5 m higher at 2.6 m over the deck. With about 1.2 m of shaft left over the deck under its head, the two sunk panels run from 0.3 m over the deck to 0.2 m under the head (they had 0.5 and 0.3), so they still run most of the shaft as the Van Osdel print draws them."
         },
         "rainwater": {
           "value": {
