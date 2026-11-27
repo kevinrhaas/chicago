@@ -153,7 +153,7 @@ export function buildPanel(doc, { year, providers = ['google', 'email'] }) {
       </p>
     </form>` : ''}
     <p class="signin-msg" role="status" aria-live="polite"></p>
-    <p class="signin-note">We keep your email so we know who has visited.</p>`;
+    <p class="signin-note">We keep your email so we know who has visited. <a href="./privacy.html" target="_blank" rel="noopener">What we keep</a></p>`;
   el.querySelector('.signin-eyebrow b').textContent = year ? String(year) : '';
   const q = sel => el.querySelector(sel);
   if (manual) q('.signin-manual').textContent = manualLabel(providers);
