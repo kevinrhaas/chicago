@@ -15840,7 +15840,8 @@
    "street": "prairie",
    "side": "west",
    "structures": [
-    "sherman_house_2100_prairie"
+    "sherman_house_2100_prairie",
+    "sherman_house_2100_prairie_coach_house"
    ],
    "scheme": "side_lawn",
    "grade": "reconstructed",
@@ -15900,22 +15901,7 @@
    ],
    "posts": [],
    "crops": [],
-   "shrubs": [
-    [
-     1342.56,
-     -3639.68,
-     "lilac",
-     3.17,
-     1.86
-    ],
-    [
-     1353.05,
-     -3639.08,
-     "lilac",
-     2.77,
-     2.49
-    ]
-   ],
+   "shrubs": [],
    "trees": [],
    "creeper": [],
    "beds": []
