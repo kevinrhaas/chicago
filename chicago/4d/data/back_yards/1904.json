@@ -54,17 +54,17 @@
  },
  "summary": {
   "lots": 134,
-  "surfaces": 287,
+  "surfaces": 286,
   "doors": 126,
   "posts": 112,
-  "gardens": 28,
+  "gardens": 27,
   "by_kind": {
    "alley_walk": 22,
    "coach_walk": 33,
    "drying_yard": 56,
    "front_walk": 10,
    "gangway": 31,
-   "garden_bed": 28,
+   "garden_bed": 27,
    "rear_terrace": 107
   }
  },
@@ -1708,30 +1708,30 @@
     {
      "id": "calumet_2008:rear_terrace:0",
      "kind": "rear_terrace",
-     "material": "cement",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1495.34,
-       -3508.73
+       1495.6,
+       -3508.87
       ],
       [
-       1495.36,
-       -3510.76
+       1495.62,
+       -3512.37
       ],
       [
-       1490.19,
-       -3510.8
+       1488.08,
+       -3512.42
       ],
       [
-       1490.18,
-       -3508.77
+       1488.06,
+       -3508.93
       ]
      ],
      "along_deg": 179.56,
      "lift_m": 0.03,
      "order": 0,
      "grade": "reconstructed",
-     "note": "A paved terrace at the back door, in Portland cement walk: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
+     "note": "A paved terrace at the back door, in brick paving, laid herringbone: the kitchen's and the household's outdoor room. No source shows this yard; its size follows the lot's (L-prairie-back-yards-3488)."
     },
     {
      "id": "calumet_2008:drying_yard:1",
@@ -1739,20 +1739,20 @@
      "material": "trodden",
      "polygon_local_m": [
       [
-       1490.4,
-       -3513.03
+       1490.41,
+       -3514.28
       ],
       [
-       1490.44,
-       -3517.53
+       1490.45,
+       -3518.78
       ],
       [
-       1487.24,
-       -3517.56
+       1487.25,
+       -3518.81
       ],
       [
-       1487.2,
-       -3513.06
+       1487.21,
+       -3514.31
       ]
      ],
      "along_deg": 179.56,
@@ -1760,42 +1760,14 @@
      "order": 0,
      "grade": "reconstructed",
      "note": "A drying yard of trodden earth, with its clothes posts (L-prairie-back-yards-3488)."
-    },
-    {
-     "id": "calumet_2008:garden_bed:2",
-     "kind": "garden_bed",
-     "material": "loam",
-     "polygon_local_m": [
-      [
-       1494.21,
-       -3504.69
-      ],
-      [
-       1494.24,
-       -3507.82
-      ],
-      [
-       1489.79,
-       -3507.85
-      ],
-      [
-       1489.76,
-       -3504.72
-      ]
-     ],
-     "along_deg": 269.56,
-     "lift_m": 0.03,
-     "order": 0,
-     "grade": "reconstructed",
-     "note": "A kitchen garden of a few dug rows against the sunny fence. No source names a garden on any lot of the district: this one is reconstructed (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "calumet_2008:back_door",
      "structure": "hanford_house_2008_calumet",
-     "e": 1495.69,
-     "n": -3509.74,
+     "e": 1495.7,
+     "n": -3510.99,
      "facing_deg": 269.56,
      "sill_m": 1.4,
      "width_m": 0.95,
@@ -1806,7 +1778,7 @@
       "width_m": 1.6,
       "risers": 8,
       "run_m": 3.06,
-      "material": "wood"
+      "material": "stone"
      },
      "grade": "reconstructed",
      "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.40 m up, 8 steps down to the yard (L-prairie-back-yards-3488)."
@@ -1815,8 +1787,8 @@
    "posts": [
     {
      "kind": "clothes_post",
-     "e": 1488.81,
-     "n": -3513.35,
+     "e": 1488.82,
+     "n": -3514.6,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
@@ -1825,8 +1797,8 @@
     },
     {
      "kind": "clothes_post",
-     "e": 1488.84,
-     "n": -3517.25,
+     "e": 1488.85,
+     "n": -3518.5,
      "height_m": 2.3,
      "arm_m": 0.9,
      "facing_deg": 179.56,
@@ -1834,59 +1806,54 @@
      "grade": "reconstructed"
     }
    ],
-   "crops": [
-    {
-     "bed": "calumet_2008:garden_bed:2",
-     "rows": [
-      [
-       1493.97,
-       -3504.99,
-       1490.02,
-       -3505.02,
-       "lettuce"
-      ],
-      [
-       1493.97,
-       -3505.62,
-       1490.02,
-       -3505.65,
-       "carrot"
-      ],
-      [
-       1493.98,
-       -3506.26,
-       1490.03,
-       -3506.29,
-       "beet"
-      ],
-      [
-       1493.98,
-       -3506.89,
-       1490.03,
-       -3506.92,
-       "lettuce"
-      ],
-      [
-       1493.98,
-       -3507.52,
-       1490.04,
-       -3507.55,
-       "carrot"
-      ]
-     ]
-    }
-   ],
-   "shrubs": [],
-   "trees": [],
-   "creeper": [
+   "crops": [],
+   "shrubs": [
     [
-     1484.97,
-     -3516.08,
-     89.56,
-     3.65,
-     4.23
+     1498.41,
+     -3526.22,
+     "lilac",
+     2.91,
+     2.02
+    ],
+    [
+     1518.16,
+     -3526.07,
+     "lilac",
+     2.65,
+     1.9
+    ],
+    [
+     1494.16,
+     -3526.25,
+     "spiraea",
+     1.33,
+     1.85
+    ],
+    [
+     1504.65,
+     -3525.92,
+     "lilac",
+     2.49,
+     2.45
+    ],
+    [
+     1514.16,
+     -3526.1,
+     "lilac",
+     2.95,
+     1.89
     ]
    ],
+   "trees": [
+    [
+     1507.63,
+     -3522.9,
+     "linden",
+     8.97,
+     5.39
+    ]
+   ],
+   "creeper": [],
    "beds": []
   },
   {

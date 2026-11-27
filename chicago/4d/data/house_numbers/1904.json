@@ -65,13 +65,13 @@
   }
  },
  "summary": {
-  "numbers": 125,
+  "numbers": 126,
   "forms": {
-   "transom": 125
+   "transom": 126
   },
   "hands": {
    "gilt_block": 21,
-   "gilt_italic": 17,
+   "gilt_italic": 18,
    "gilt_roman": 25,
    "gilt_shaded": 26,
    "white_block": 16,
@@ -292,6 +292,31 @@
    "height_m": 0.16,
    "form": "transom",
    "hand": "gilt_shaded",
+   "grade": "reconstructed",
+   "number_grade": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28",
+    "sanborn_1911_chicago_v3_sheet_35"
+   ]
+  },
+  {
+   "structure": "hanford_house_2008_calumet",
+   "lot": "calumet_2008",
+   "street": "calumet",
+   "number": "2008",
+   "at": [
+    23.969,
+    3.835,
+    -8.7
+   ],
+   "normal": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "height_m": 0.121,
+   "form": "transom",
+   "hand": "gilt_italic",
    "grade": "reconstructed",
    "number_grade": "inferred",
    "sources": [
