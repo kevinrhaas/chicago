@@ -33,6 +33,10 @@ launch page ──POST /start (Firebase ID token, year)──▶ chicago-stream-
   none is free a player hears so plainly, and an admin falls back to on demand in the same order.
 * The image build runs on demand and needs no GPU: with none free it builds on a plain machine and
   the GPU is first checked by the first session.
+* For a week from setup, Cloud Scheduler calls the starter's `/probe` hourly: it asks for a Spot
+  machine as the starter would (and on demand only if none), in the US and Canada, deletes it at
+  once, and logs what was free. At most one machine-minute an hour, about $1 for the week. The
+  tally is at `<starter>/probe`.
 * The $100 budget's 100 % alert reaches `/budget`, which deletes every machine and stops the starter
   until next month or until an admin calls `/resume`.
 * Nothing here touches the Firebase project (chicago-61643): the starter reads rights with the

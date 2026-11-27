@@ -14,6 +14,8 @@
 #                     who may start a machine is checked inside it, against the Firestore rules
 #   budget-alerts     the Pub/Sub topic the $100 budget reports to, pushed to the starter's
 #                     /budget, which stops every machine at 100 % (T-3795)
+#   chicago-stream-probe  an hourly Cloud Scheduler call to the starter's /probe: for a week it
+#                     asks Google for a GPU machine (deleted at once) and logs whether one was free
 # and prints the starter's address for js/sign-in-config.js (streamStarter).
 set -euo pipefail
 PROJECT=${1:-chicago-stream}
@@ -23,7 +25,7 @@ gc() { gcloud --project "$PROJECT" "$@"; }
 
 echo "== APIs"
 gc services enable compute.googleapis.com run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com \
-  pubsub.googleapis.com storage.googleapis.com billingbudgets.googleapis.com iam.googleapis.com
+  pubsub.googleapis.com storage.googleapis.com billingbudgets.googleapis.com iam.googleapis.com cloudscheduler.googleapis.com
 
 echo "== accounts"
 for sa in stream-starter stream-machine; do
@@ -80,6 +82,15 @@ if [ -n "$BUDGET" ]; then
 else
   echo "!! no budget named chicago-stream found on billing account $ACCOUNT: link its alerts to projects/$PROJECT/topics/budget-alerts by hand"
 fi
+
+echo "== availability probe (hourly; the starter stops it after a week)"
+if gc scheduler jobs describe chicago-stream-probe --location "$REGION" >/dev/null 2>&1; then
+  gc scheduler jobs update http chicago-stream-probe --location "$REGION" --uri "$URL/probe?secret=$SECRET" >/dev/null
+else
+  gc scheduler jobs create http chicago-stream-probe --location "$REGION" --schedule "7 * * * *" --time-zone America/Chicago \
+    --uri "$URL/probe?secret=$SECRET" --http-method POST --attempt-deadline 540s --max-retry-attempts 0
+fi
+echo "the week's tally: $URL/probe"
 
 echo
 echo "starter: $URL"

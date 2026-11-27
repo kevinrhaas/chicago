@@ -105,6 +105,40 @@ ok(!body.guestAccelerators && body.labels.gpu === 'l4', 'an L4 machine has its G
 g = fakeG([{ code: 'QUOTA_EXCEEDED', message: 'GPUS_ALL_REGIONS' }]);
 r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
 ok(!r.ok && r.why === 'quota' && g.tried.length === 1, 'a quota refusal stops at once');
+g = fakeG([{ code: 'QUOTA_EXCEEDED', message: "Quota 'NVIDIA_L4_GPUS' exceeded. Limit: 0.0 in region us-east4." }]);
+r = await lib.startMachine(g, { year: '1904', player: 'x', wait: noWait });
+ok(r.ok && g.tried.length === 2, 'a region\'s own quota only rules out that region');
+
+// ---- The availability probe ----------------------------------------------------------------
+ok(lib.refusal("ZONE_RESOURCE_POOL_EXHAUSTED The zone does not have enough resources") === 'stockout'
+  && lib.refusal("QUOTA_EXCEEDED Quota 'GPUS_ALL_REGIONS' exceeded") === 'busy'
+  && lib.refusal("QUOTA_EXCEEDED Quota 'NVIDIA_T4_GPUS' exceeded. Limit: 0.0 in region northamerica-northeast1") === 'quota'
+  && lib.refusal("Invalid value for field 'resource.machineType': does not exist in zone") === 'not offered', 'refusals read as stockout, busy, quota, not offered');
+const probeG = (outcomes) => {
+  const made = [], removed = [];
+  return { made, removed, project: 'p',
+    insert: async (zone, b) => { made.push(`${b.labels.gpu}@${zone}:${b.scheduling.provisioningModel}`); return { ok: true, body: { name: 'op', status: 'RUNNING' } }; },
+    operation: async () => { const o = outcomes.shift(); return { body: o ? { status: 'DONE', error: { errors: [o] } } : { status: 'DONE' } }; },
+    remove: async (zone, name) => { removed.push(name); return { ok: true }; } };
+};
+const pb = lib.probeBody({ zone: 'us-east4-a', name: 'probe-x', gpu: lib.GPUS[1], spot: true });
+ok(pb.labels.app === 'chicago-stream-probe' && pb.scheduling.maxRunDuration.seconds === '600' && pb.scheduling.instanceTerminationAction === 'DELETE'
+  && !pb.networkInterfaces[0].accessConfigs && pb.disks[0].initializeParams.diskSizeGb === '10', 'a probe machine: no address, a small disk, gone by itself in ten minutes');
+let pg = probeG([stockout, stockout]);
+let po = await lib.probe(pg, { wait: noWait });
+ok(po.spot?.gpu === 'l4' && po.spot.zone === 'us-central1-c' && po.demand === 'not tried' && pg.removed.length === 1 && pg.made.length === 3, `a free Spot L4 ends the probe, deleted at once (${pg.made})`);
+const allSpot = lib.PROBE_ZONES.l4.length + lib.PROBE_ZONES.t4.length;
+ok(lib.PROBE_ZONES.l4.some((z) => z.startsWith('northamerica-')) && lib.PROBE_ZONES.t4.some((z) => z.startsWith('northamerica-')), 'Canada is probed');
+pg = probeG(Array.from({ length: allSpot }, () => stockout));
+po = await lib.probe(pg, { wait: noWait });
+ok(po.spot === null && po.demand?.gpu === 'l4' && pg.made[allSpot].endsWith(':STANDARD') && pg.removed.length === 1, 'no Spot anywhere: on demand is tried, and that machine deleted');
+pg = probeG([{ code: 'QUOTA_EXCEEDED', message: "Quota 'GPUS_ALL_REGIONS' exceeded" }]);
+po = await lib.probe(pg, { wait: noWait });
+ok(po.busy && pg.made.length === 1, 'the project\'s GPU in use: the probe stops and says busy');
+const row = lib.probeRow('2026-11-28T00:07:00Z', { spot: { gpu: 't4', zone: 'us-east4-b' }, demand: 'not tried', busy: false, tries: [{ gpu: 'l4', zone: 'us-central1-a', spot: true, outcome: 'stockout' }, { gpu: 't4', zone: 'us-east4-b', spot: true, outcome: 'ok' }] });
+ok(row.spot === 't4@us-east4-b' && row.refused.stockout[0] === 'l4@us-central1-a', 'a log row names what was found and what refused');
+const sum = lib.probeSummary({ rows: [row, { ...row, spot: 'none', demand: 'none' }, { ...row, busy: true, spot: 'none' }] });
+ok(sum.probes === 3 && sum.busy === 1 && sum.spot === 1 && sum.anyMachine === 1 && sum.byZone['t4@us-east4-b'] === 1, `the week's tally (${JSON.stringify(sum)})`);
 
 // ---- Hours -------------------------------------------------------------------------------
 const t = Date.parse('2026-12-10T12:00:00Z');
@@ -127,11 +161,15 @@ const all = ['setup.sh', 'build-image.sh', 'machine/provision.sh', 'machine/sess
   .map((f) => fs.readFileSync(path.join(STREAM, f), 'utf8')).join('\n');
 ok(!/BEGIN (RSA )?PRIVATE KEY|"private_key"|AIza[0-9A-Za-z_-]{30}/.test(all), 'no key in tools/stream');
 const session = fs.readFileSync(path.join(STREAM, 'machine/session.sh'), 'utf8');
+// Caddy reads a first argument starting with / as a path matcher: `redir / 302` sent players to
+// "302" (seen on the first test machine, 2026-11-27). Every redir names its matcher.
+ok(/redir \* \/ 302/.test(session) && !/redir \/ /.test(session), 'the link sends the player to / (redir names its matcher)');
 ok(/@ok header_regexp session Cookie chicago_stream=\$TOKEN/.test(session) && /respond "This cloud machine belongs to another session\." 403/.test(session), 'the stream answers only the session cookie');
 ok(/-p 127\.0\.0\.1:3000:3000/.test(session), 'the streamer listens only behind Caddy');
 ok(/\[\[ "\$TOKEN" =~ \^\[0-9a-f\]\{32,\}\$ \]\]/.test(session), 'the token is checked before it goes into the Caddyfile');
 ok(/"\$idle" -ge 600/.test(session), 'ten idle minutes end a session');
 const server = fs.readFileSync(path.join(STREAM, 'starter/server.mjs'), 'utf8');
+ok(/'POST \/probe'[\s\S]*BUDGET_SECRET/.test(server) && /scheduler jobs create http chicago-stream-probe/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'the probe answers only the scheduler, which setup.sh makes');
 ok(/BUDGET_SECRET/.test(server) && /costAmount\) >= Number\(note\.budgetAmount\)/.test(server), 'the budget push stops machines at 100 %');
 ok(/usage\(data\)/.test(server) && /SPEND_CAP/.test(server), 'the starter checks the month\'s spending before it starts one');
 ok(!/chicago-61643/.test(fs.readFileSync(path.join(STREAM, 'setup.sh'), 'utf8')), 'setup touches nothing in the Firebase project');

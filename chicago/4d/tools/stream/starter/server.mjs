@@ -8,12 +8,14 @@
  *   POST /budget?secret=…      the budget's Pub/Sub push: at 100 % every machine stops and the
  *                              starter refuses until next month or until the owner resumes it
  *   POST /resume               an admin turns the starter back on after a budget stop
+ *   POST /probe?secret=…       Cloud Scheduler, hourly for a week: is a GPU machine to be had?
+ *   GET  /probe                that week's tally (no names, no addresses)
  *   GET  /health
  *
  * Every player call carries `Authorization: Bearer <Firebase ID token>`.
  */
 import http from 'node:http';
-import { verifyIdToken, rightsOf, google, usage, startMachine, playerLabel, emailId, monthKey, sslipHost, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
+import { verifyIdToken, rightsOf, google, usage, startMachine, playerLabel, emailId, monthKey, sslipHost, probe, probeRow, probeSummary, PROBE_DAYS, SPEND_CAP, HOUR_COST, YEARS } from './lib.mjs';
 
 const env = process.env;
 const PROJECT = env.GOOGLE_CLOUD_PROJECT || env.PROJECT || 'chicago-stream';
@@ -115,6 +117,30 @@ const routes = {
     for (const m of await g.machines()) await g.remove(m.zone, m.name);
     await withLedger((d) => { d.stopped = true; d.stoppedAt = new Date().toISOString(); d.stoppedCost = Number(note.costAmount); return d; });
     return [200, { ok: true, stopped: true }];
+  },
+  'POST /probe': async (req, url) => {
+    if (!env.BUDGET_SECRET || url.searchParams.get('secret') !== env.BUDGET_SECRET) return [403, { ok: false }];
+    const now = new Date();
+    const { data: log } = await g.object(BUCKET, 'probe/log.json', { rows: [] });
+    if (log.until && now.toISOString() > log.until) return [200, { ok: true, done: true }];
+    const { data } = await g.ledger(BUCKET, monthKey());
+    if (data.stopped) return [200, { ok: true, skipped: 'budget' }];
+    // A player's machine holds the project's one GPU: count the hour as busy, try nothing.
+    const live = (await g.machines()).filter((m) => m.status !== 'TERMINATED' && m.status !== 'STOPPED');
+    const out = live.length ? { spot: null, demand: 'not tried', busy: true, tries: [] } : await probe(g);
+    const row = probeRow(now.toISOString(), out);
+    for (let i = 0; i < 5; i++) {
+      const { generation, data: cur } = await g.object(BUCKET, 'probe/log.json', { rows: [] });
+      cur.started ??= now.toISOString();
+      cur.until ??= new Date(now.getTime() + PROBE_DAYS * 86400e3).toISOString();
+      cur.rows = [...(cur.rows ?? []), row];
+      if (await g.saveObject(BUCKET, 'probe/log.json', generation, cur)) break;
+    }
+    return [200, { ok: true, ...row }];
+  },
+  'GET /probe': async () => {
+    const { data: log } = await g.object(BUCKET, 'probe/log.json', { rows: [] });
+    return [200, { ok: true, ...probeSummary(log), last: (log.rows ?? []).slice(-6) }];
   },
   'POST /resume': async (req) => {
     const p = await player(req);

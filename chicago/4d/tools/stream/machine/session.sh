@@ -36,7 +36,7 @@ $HOST {
 	@enter query k=$TOKEN
 	handle @enter {
 		header Set-Cookie "chicago_stream=$TOKEN; Path=/; Secure; HttpOnly; SameSite=Lax; Max-Age=7200"
-		redir / 302
+		redir * / 302
 	}
 	@ok header_regexp session Cookie chicago_stream=$TOKEN
 	handle @ok {

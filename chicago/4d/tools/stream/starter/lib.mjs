@@ -126,19 +126,22 @@ export function google({ project, fetchFn = fetch, tokenFn }) {
       const r = await call(`${C}/zones/${zone}/instances/${name}/getGuestAttributes?queryPath=chicago%2F`);
       return r.ok && (r.body?.queryValue?.items ?? []).some((i) => i.key === 'ready' && i.value === '1');
     },
-    // The ledger: one JSON object per month in the ledger bucket, written with a generation
-    // match so two starts never lose each other's session.
-    async ledger(bucket, month) {
-      const r = await call(`https://storage.googleapis.com/storage/v1/b/${bucket}/o/${encodeURIComponent(`hours/${month}.json`)}?alt=json`);
-      if (r.status === 404) return { generation: '0', data: { month, sessions: {}, stopped: false } };
-      if (!r.ok) throw new Error(`ledger ${r.status}`);
-      const media = await call(`https://storage.googleapis.com/storage/v1/b/${bucket}/o/${encodeURIComponent(`hours/${month}.json`)}?alt=media&generation=${r.body.generation}`);
+    // JSON objects in the ledger bucket, written with a generation match so two writers never
+    // lose each other's change.
+    async object(bucket, path, empty) {
+      const r = await call(`https://storage.googleapis.com/storage/v1/b/${bucket}/o/${encodeURIComponent(path)}?alt=json`);
+      if (r.status === 404) return { generation: '0', data: empty };
+      if (!r.ok) throw new Error(`object ${r.status}`);
+      const media = await call(`https://storage.googleapis.com/storage/v1/b/${bucket}/o/${encodeURIComponent(path)}?alt=media&generation=${r.body.generation}`);
       return { generation: r.body.generation, data: media.body };
     },
-    async saveLedger(bucket, month, generation, data) {
-      const r = await call(`https://storage.googleapis.com/upload/storage/v1/b/${bucket}/o?uploadType=media&name=${encodeURIComponent(`hours/${month}.json`)}&ifGenerationMatch=${generation}`, { method: 'POST', body: JSON.stringify(data) });
+    async saveObject(bucket, path, generation, data) {
+      const r = await call(`https://storage.googleapis.com/upload/storage/v1/b/${bucket}/o?uploadType=media&name=${encodeURIComponent(path)}&ifGenerationMatch=${generation}`, { method: 'POST', body: JSON.stringify(data) });
       return r.ok;
     },
+    // The ledger: one object per month, hours/YYYY-MM.json.
+    ledger(bucket, month) { return this.object(bucket, `hours/${month}.json`, { month, sessions: {}, stopped: false }); },
+    saveLedger(bucket, month, generation, data) { return this.saveObject(bucket, `hours/${month}.json`, generation, data); },
   };
 }
 
@@ -180,6 +183,88 @@ export function machineBody({ project, zone, name, year, token, player, spot = t
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// ---- The availability probe (owner, 2026-11-27: "yes" to a week of tries) ----------------
+/** Canada (Montreal, Toronto: as near Chicago as Virginia) is probed before the starter uses it;
+ * a zone that does not offer the GPU, or a region with no quota, is logged as such. */
+export const PROBE_ZONES = Object.freeze({
+  l4: [...ZONES, 'northamerica-northeast2-a', 'northamerica-northeast2-b', 'northamerica-northeast2-c'],
+  t4: [...T4_ZONES, 'northamerica-northeast1-a', 'northamerica-northeast1-b', 'northamerica-northeast1-c'],
+});
+export const PROBE_DAYS = 7;
+/** A probe machine: the smallest disk, no address, gone by itself after ten minutes whatever
+ * happens to the starter. It is deleted as soon as Google says it exists. */
+export function probeBody({ zone, name, gpu, spot }) {
+  return {
+    name,
+    machineType: `zones/${zone}/machineTypes/${gpu.machineType}`,
+    ...(gpu.accelerator ? { guestAccelerators: [{ acceleratorType: `zones/${zone}/acceleratorTypes/${gpu.accelerator}`, acceleratorCount: 1 }] } : {}),
+    labels: { app: 'chicago-stream-probe', gpu: gpu.gpu },
+    scheduling: { provisioningModel: spot ? 'SPOT' : 'STANDARD', instanceTerminationAction: 'DELETE', maxRunDuration: { seconds: '600' }, onHostMaintenance: 'TERMINATE', automaticRestart: false },
+    disks: [{ boot: true, autoDelete: true, initializeParams: { sourceImage: 'projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts', diskSizeGb: '10', diskType: `zones/${zone}/diskTypes/pd-standard` } }],
+    networkInterfaces: [{ network: 'global/networks/default' }],
+  };
+}
+/** What a refusal means. */
+export function refusal(text) {
+  const t = String(text || '');
+  if (/GPUS_ALL_REGIONS/.test(t)) return 'busy';
+  if (/RESOURCE_POOL_EXHAUSTED|does not have enough resources|STOCKOUT/i.test(t)) return 'stockout';
+  if (/QUOTA|quota/.test(t)) return 'quota';
+  if (/not found|does not exist|not available in|Invalid value|unsupported|not supported/i.test(t)) return 'not offered';
+  return 'error';
+}
+/** One probe: a Spot machine the way the starter looks for one (L4 zones, then T4); only if
+ * none, an on-demand one the same way. At most one machine is made, for about a minute.
+ * → { spot: {gpu, zone} | null, demand: {gpu, zone} | null | 'not tried', busy, tries } */
+export async function probe(g, { wait = sleep } = {}) {
+  const tries = [];
+  const one = async (gpu, zone, spot) => {
+    const name = `probe-${Date.now().toString(36)}-${crypto.randomBytes(2).toString('hex')}`;
+    const r = await g.insert(zone, probeBody({ zone, name, gpu, spot }));
+    let outcome;
+    if (!r.ok) outcome = refusal(`${r.body?.error?.errors?.[0]?.reason || ''} ${r.body?.error?.message || r.status}`);
+    else {
+      let op = r.body;
+      for (let i = 0; i < 40 && op?.status !== 'DONE'; i++) { await wait(1500); op = (await g.operation(zone, op.name)).body; }
+      const err = op?.error?.errors?.[0];
+      if (err) outcome = refusal(`${err.code} ${err.message}`);
+      else if (op?.status !== 'DONE') outcome = 'error';
+      else { outcome = 'ok'; await g.remove(zone, name); }
+    }
+    tries.push({ gpu: gpu.gpu, zone, spot, outcome });
+    return outcome;
+  };
+  const pass = async (spot) => {
+    for (const gpu of GPUS) for (const zone of PROBE_ZONES[gpu.gpu]) {
+      const o = await one(gpu, zone, spot);
+      if (o === 'ok') return { gpu: gpu.gpu, zone };
+      if (o === 'busy') return 'busy';
+    }
+    return null;
+  };
+  const spot = await pass(true);
+  if (spot === 'busy') return { spot: null, demand: 'not tried', busy: true, tries };
+  const demand = spot ? 'not tried' : await pass(false);
+  if (demand === 'busy') return { spot: null, demand: 'not tried', busy: true, tries };
+  return { spot, demand, busy: false, tries };
+}
+/** The week's log, one short row a probe: when, what was found, and the zones that refused. */
+export function probeRow(at, out) {
+  const code = (x) => (x && typeof x === 'object' ? `${x.gpu}@${x.zone}` : x || 'none');
+  const refused = {};
+  for (const t of out.tries) if (t.outcome !== 'ok') (refused[t.outcome] ??= []).push(`${t.gpu}${t.spot ? '' : '!'}@${t.zone}`);
+  return { at, spot: code(out.spot), demand: code(out.demand), busy: out.busy, refused };
+}
+export function probeSummary(log) {
+  const rows = log?.rows ?? [];
+  const tried = rows.filter((r) => !r.busy);
+  const spot = tried.filter((r) => r.spot !== 'none').length;
+  const any = tried.filter((r) => r.spot !== 'none' || (r.demand !== 'none' && r.demand !== 'not tried')).length;
+  const byZone = {};
+  for (const r of tried) for (const k of ['spot', 'demand']) if (r[k] && r[k].includes('@')) byZone[r[k]] = (byZone[r[k]] ?? 0) + 1;
+  return { started: log?.started ?? null, until: log?.until ?? null, probes: rows.length, busy: rows.length - tried.length, spot, anyMachine: any, byZone };
+}
 /** Start a machine: Spot in each L4 zone in turn, then in each T4 zone; on demand (the same order)
  * only for an admin when Spot is refused everywhere. → { ok, zone, name, spot, gpu } or { ok: false, why } */
 export async function startMachine(g, { year, player, machineSA, admin, site, wait = sleep }) {
@@ -189,14 +274,16 @@ export async function startMachine(g, { year, player, machineSA, admin, site, wa
   for (const spot of admin ? [true, false] : [true]) {
     for (const gpu of GPUS) for (const zone of gpu.zones) {
       const r = await g.insert(zone, machineBody({ project: g.project, zone, name, year, token, player, spot, machineSA, site, gpu }));
-      if (!r.ok) { last = r.body?.error?.message || `insert ${r.status}`; if (/QUOTA|quota/.test(last)) return { ok: false, why: 'quota', detail: last }; continue; }
+      if (!r.ok) { last = r.body?.error?.message || `insert ${r.status}`; if (/GPUS_ALL_REGIONS/.test(last)) return { ok: false, why: 'quota', detail: last }; continue; }
       // The insert is accepted at once; capacity is known only when its operation ends.
       let op = r.body;
       for (let i = 0; i < 40 && op?.status !== 'DONE'; i++) { await wait(1500); op = (await g.operation(zone, op.name)).body; }
       const err = op?.error?.errors?.[0];
       if (!err) return { ok: true, zone, name, spot, token, gpu: gpu.gpu };
       last = `${err.code}: ${err.message}`;
-      if (/QUOTA/.test(err.code)) return { ok: false, why: 'quota', detail: last };
+      // The project's one GPU is in use (or not granted): no other zone can help. A region's own
+      // quota (say, none yet in Canada) only rules out that region.
+      if (/GPUS_ALL_REGIONS/.test(last)) return { ok: false, why: 'quota', detail: last };
     }
   }
   return { ok: false, why: 'no capacity', detail: last };
