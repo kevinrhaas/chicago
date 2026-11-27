@@ -1,13 +1,15 @@
 {
   "id": "mark_kimball_house_2108_prairie_coach_house",
-  "phase": "draft_1904",
-  "name": "2108 S. Prairie Avenue — the coach house of 2108 and 2110, one building divided on their lot line (district draft; refined by T-1937)",
+  "phase": "as_standing_1904",
+  "name": "2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley, K12",
   "aka": [
     "2108 S. Prairie Avenue",
-    "2110 S. Prairie Avenue (the south half)"
+    "2110 S. Prairie Avenue (the south half)",
+    "Mark Kimball's coach house",
+    "the Rees coach house (the south half, moved in 2014)"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/mark_kimball_house_2108_prairie_coach_house__draft_1904.glb",
+  "archetype": "k12_coach_house",
+  "asset": "gltf/mark_kimball_house_2108_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -24,20 +26,20 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "note": "The draft's claim, kept: the 1911 sheet draws the building, the T-1842 census rules it present in 1904 (present_as_mapped), and the 2108 to-let notice of February 1904 offers 'a good brick barn'. The post's account carries it from before 1888 (Kimball's, divided that year) to the 1930s, when 'the Kimball house and its half of the coach house were demolished'; the range still claims the 1904 target and no more. TO is the last day of the year the sheet was published, the latest date anything read here shows it whole; it is not a demolition date.",
     "to_is": "seen"
   },
   "change_note": "",
   "placement": {
-    "local_e": 1342.007,
-    "local_n": -3656.233,
+    "local_e": 1341.52,
+    "local_n": -3648.8,
     "rotation_deg": -0.682,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.500, v -11.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.682 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
-    "symbolic_location": "2108 S. Prairie Avenue, parcel prairie_2108 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
+    "position_note": "The middle of the building's alley (west) wall at grade, read off the sheet 35 trace of its two halves (data/traces/prairie_1904_footprints_s35.json, s35fp-2108-b2 and s35fp-2110-b2, which carry the committed raster through the sheet's fitted similarity in data/traces/gcp/sanborn_1911_v3_sheet_35_gcps.json): the alley line half-way between the median of the trace's alley-side vertices (local E 1341.73) and its outermost (1341.31), E 1341.52; the north and south wall lines the same way (N -3641.36 and -3640.75, so -3641.05; -3656.32 and -3656.78, so -3656.55), the middle N -3648.80. Plus the datum origin (data/datum.json, 447072.700, 4637395.800). The bearing is the parcel's (prairie_2108, the draft's -0.682 degrees). The trace is a pixel outline on a coarse copy (0.186 m a pixel), so the two readings of each line differ by 0.4-0.8 m; the middle of them is all that is claimed, plus the fit's 0.05 m RMS.",
+    "symbolic_location": "2108 and 2110 S. Prairie Avenue, rear: west side of Prairie Avenue between 21st and 22nd Streets, across the alley ends of parcels prairie_2108 and prairie_2110 (data/street_grid/1904.json); its alley wall on the alley's east line, 2100's alley building to the north and 2112's to the south (Sanborn 1911 vol. 3 sheet 35).",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -47,139 +49,325 @@
     "polygon": [
       [
         0.0,
-        0.0
+        -7.74
       ],
       [
-        10.0,
-        0.0
+        10.67,
+        -7.74
       ],
       [
-        10.0,
-        14.75
+        10.67,
+        7.74
       ],
       [
         0.0,
-        14.75
+        7.74
       ]
     ],
     "confidence": "inferred",
     "sources": [
-      "sanborn_1911_chicago_v3_sheet_35"
+      "sanborn_1911_chicago_v3_sheet_35",
+      "glessner_blog_2014_10_rees_coach_house_relocated"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "About the middle of the alley wall, u east (toward the street) and v along the alley. Depth 10.67 m: the post's 35 ft for the surviving south half, which the sheet's two readings of the building's depth bracket (10.27 m between the medians of the trace's vertices, 11.06 m between its outermost); the sheet draws both halves to one depth. Width 15.48 m along the alley: the middle of the trace's two readings (14.96 and 16.00 m). The south half is the post's 25 ft (7.62 m); the north half is the rest, 7.86 m, and the lot line between them (the sheet's 2108 south edge and 2110 north edge read at N -3648.17 and -3649.23) falls within 0.25 m of where those two widths put it. A plain rectangle: the sheet draws no step, wing or porch on it. The draft had fitted a 10.0 x 14.75 m rectangle."
   },
   "attributes": {
     "stories": {
       "value": 2,
       "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2014_10_rees_coach_house_relocated"
       ],
-      "note": "The census reading 'The north half of a 2-storey brick stable (crossed) on the alley, one building with 2110's half (ruling r35-2108-2110-coach-house)': 2 storeys."
+      "geometry": "simplified",
+      "note": "The census reading 'The north half of a 2-storey brick stable (crossed) on the alley, one building with 2110's half (ruling r35-2108-2110-coach-house)': 2 storeys, and the post's 'two-story Rees coach house'. Built as the kit's carriage room (3.6 m) under a loft whose walls rise 2.96 m more to the roof, with a parapet 0.45 m over it; the split between the two storeys is RECONSTRUCTED, the 7.01 m to the wall head is the post's 23 ft."
     },
     "construction": {
       "value": "brick",
-      "confidence": "inferred",
+      "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2014_10_rees_coach_house_relocated"
       ],
-      "note": "The trace's fabric colour on the main part: brick."
+      "geometry": "simplified",
+      "note": "Drawn pink on the sheet, its colour for brick; and the 2014 photograph's common brick on both faces it shows. The kit builds its own 13-inch walls in its own brick colour."
     },
-    "draft_plan": {
+    "coach_house": {
       "value": {
-        "parts": [
+        "id": "k12.coach_house.prairie_2108_2110",
+        "kind": "coach_house",
+        "class": "coach_house",
+        "alley_side": "west",
+        "width_m": 15.48,
+        "depth_m": 10.67,
+        "roof_form": "flat",
+        "loft_m": 2.96,
+        "ventilator": false,
+        "ramp": null,
+        "stair": null,
+        "lean_to": null,
+        "wing": null,
+        "workyard": null,
+        "confidence": "reconstructed",
+        "note": "Everything but the plan, the two storeys, the brick, the overall height and the flat roof is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-2108-2110-coach-house-1937. ONE building on the alley ends of both lots, as the sheet draws it and the census rules it (r35-2108-2110-coach-house): Mark Kimball's coach house, which 'extended across the back of both lots' when Harriet Rees bought 2110 from him in 1888, Rees taking 'the south half' and 'a party wall was constructed in the middle to divide it into two separate sections' (the Glessner House post of 1 October 2014). The two occupancies stand on the outside as two matching halves either side of the lot line, 7.86 m north (2108's) and 7.62 m south (2110's, the post's 25 ft): each has on the alley a man door, a carriage bay 3.0 m clear under the loft hatch and hoist, and a stable sash, each with a loft sash over it, laid out mirror-wise so the two carriage bays stand toward the building's ends; on the yard wall each half has a door toward its own house between two stable sash, each with a loft sash over it. The post's 'carriages utilized the ground floor' is the carriage room; its coachman's rooms 'on the second story' are the loft. The party wall in the middle is inside the building and under its one roof, so nothing of it is built: the 2014 photograph shows no wall or break rising through the roof line. The roof is the kit's flat form (roof_form flat, T-1937): the 2014 photograph shows level wall heads and no roof above them, so the four walls rise 0.45 m past a flat roof as a parapet. The loft walls rise 2.96 m over the kit's 3.6 m carriage room (loft_m), so the parapet's head stands 7.01 m over grade, the post's 23 ft, read here as grade to the wall head. Both ends are blank: the building stands against 2100's alley building to the north (0.5 m off on the trace) and 2112's to the south (on the line), and the photograph's long face is blank. NOT BUILT: the ramp. The post's 'a ramp was used to take the horses down to the stables in the basement level' and its 'full basement' are attested, and the kit builds the basement; but no source places the ramp, and the K12 ramp needs a cut in the ground the scene's yard layer does not make, so a ramp here would stand under the yard's ground. NOT BUILT either: the photograph's segmental heads with keystones (the kit's sash take stone lintels), and the brick corbel under the wall head. Which of the photograph's faces is the alley's, and so where its three-bay front's windows go, is the image gate's to solve with the camera (T-1937's gate); this record does not read the photograph's openings onto a wall.",
+        "openings": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 2,
-            "roof": "gable",
-            "rect": [
-              0.0,
-              0.0,
-              10.0,
-              14.75
-            ],
-            "from": "s35fp-2108-b2 s35fp-2108-b2+s35fp-2110-b2 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
-          }
-        ],
-        "lot_v": [
-          -0.56,
-          15.44
-        ],
-        "street_u": 54.121
-      },
-      "confidence": "inferred",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
-      ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2108-b2 s35fp-2108-b2+s35fp-2110-b2 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "service",
-        "seed": 1070065418,
-        "principal_floor_m": 0.0,
-        "storey_heights_m": [
-          3.4,
-          2.8,
-          2.6
-        ],
-        "roof_pitch_deg": 40,
-        "mansard_lower_m": 3.0,
-        "front_bays": 6,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 0,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [
+            "id": "man_door_2108",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 0.6,
+            "s1": 1.55,
+            "sill": 0.0,
+            "head": 2.3
+          },
           {
-            "kind": "party_wall",
-            "v": 7.56
+            "id": "loft_sash_2108_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 0.625,
+            "s1": 1.525,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "carriage_2108",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 2.3,
+            "s1": 5.3,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "loft_hatch_2108",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 3.2,
+            "s1": 4.4,
+            "sill": 3.9,
+            "head": 5.3
+          },
+          {
+            "id": "stable_sash_2108",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 6.1,
+            "s1": 7.1,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_2108_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 6.15,
+            "s1": 7.05,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "stable_sash_2110",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 8.4,
+            "s1": 9.4,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "loft_sash_2110_1",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 8.45,
+            "s1": 9.35,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "carriage",
+            "wall": "alley",
+            "kind": "carriage",
+            "s0": 10.1,
+            "s1": 13.1,
+            "sill": 0.0,
+            "head": 3.0
+          },
+          {
+            "id": "loft_hatch",
+            "wall": "alley",
+            "kind": "hatch",
+            "s0": 11.0,
+            "s1": 12.2,
+            "sill": 3.9,
+            "head": 5.3
+          },
+          {
+            "id": "man_door",
+            "wall": "alley",
+            "kind": "door",
+            "s0": 13.9,
+            "s1": 14.85,
+            "sill": 0.0,
+            "head": 2.3
+          },
+          {
+            "id": "loft_sash_2110_2",
+            "wall": "alley",
+            "kind": "sash",
+            "s0": 13.925,
+            "s1": 14.825,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2110_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.2,
+            "s1": 2.2,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_2110_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 1.25,
+            "s1": 2.15,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_door_2110",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 3.6,
+            "s1": 4.55,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_loft_sash_2110_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 3.625,
+            "s1": 4.525,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2110_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.9,
+            "s1": 6.9,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_2110_3",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 5.95,
+            "s1": 6.85,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2108_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.6,
+            "s1": 9.6,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_2108_1",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 8.65,
+            "s1": 9.55,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_door_2108",
+            "wall": "yard",
+            "kind": "door",
+            "s0": 10.9,
+            "s1": 11.85,
+            "sill": 0.05,
+            "head": 2.3
+          },
+          {
+            "id": "yard_loft_sash_2108_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 10.925,
+            "s1": 11.825,
+            "sill": 4.3,
+            "head": 5.6
+          },
+          {
+            "id": "yard_sash_2108_2",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 13.3,
+            "s1": 14.3,
+            "sill": 1.3,
+            "head": 2.5
+          },
+          {
+            "id": "yard_loft_sash_2108_3",
+            "wall": "yard",
+            "kind": "sash",
+            "s0": 13.35,
+            "s1": 14.25,
+            "sill": 4.3,
+            "head": 5.6
           }
-        ],
-        "draft_label": {
-          "pass": "T-2351",
-          "refined_by": [
-            "T-1937"
-          ]
-        }
+        ]
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: The Mark Kimball house, empty and to let in the spring of 1904 (not W. W. Kimball's at 1801): the register's 'two-storey/basement brick house with simple cornice/roof' as a flat roof behind a plain cornice over the 2B body and its rear range. The to-let notice calls it a stone front and the sheet colours it brick; the draft keeps the sheet's brick, and T-1921 chooses. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1070065418 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2351",
-        "liberty": "L-draft-prairie-20-22-west-2351",
-        "register_row": "frontage-35-065",
-        "census_ids": [
-          "s35-2108-rear",
-          "s35-2110-rear"
-        ],
-        "trace_building": "s35fp-2108-b2+s35fp-2110-b2",
-        "seed": 1070065418,
-        "replaceable_by": [
-          "T-1937"
-        ],
-        "card": "District draft — refined by T-1937."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2014_10_rees_coach_house_relocated"
+      ],
+      "note": "The building's dimensions are the footprint's (inferred, below the post's measure), its flat roof and height the 2014 photograph's and the post's; its openings and the loft are the kit's, laid out for these two lots, and RECONSTRUCTED. See the value's own note for each choice and what bounds it."
     },
     "function": {
-      "value": "barn_or_carriage_shed",
-      "confidence": "inferred",
+      "value": "stable",
+      "confidence": "attested",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_35"
+        "sanborn_1911_chicago_v3_sheet_35",
+        "glessner_blog_2014_10_rees_coach_house_relocated"
       ],
-      "note": "The 1911 sheet reads 'The north half of a 2-storey brick stable (crossed) on the alley, one building with 2110's half (ruling r35-2108-2110-coach-house)' and 'The south half of the 2-storey brick stable (crossed) on the alley, divided from 2108's half on the lot line (ruling r35-2108-2110-coach-house)'. A \"good brick barn\" in the to-let notices of February 1904, so its 1904 use is attested. One building, not two (census ruling r35-2108-2110-coach-house): the sheet draws a single two-storey brick stable across the alley end of both lots, divided on the lot line; Mark Kimball's coach house spanned both lots when Rees bought 2110 from him in 1888, Rees taking the south half behind a new party wall, and the February 1904 to-let notice for 2108 includes a good brick barn. The draft fills the two traced halves as one envelope and stands the lot line through it as that party wall."
+      "note": "A coach house and stable: the 1911 sheet draws one two-storey brick stable (crossed) across the alley ends of 2108 and 2110 (ruling r35-2108-2110-coach-house); the Tribune's to-let notice for 2108 of February 1904 offers 'a good brick barn' with the house; and the Glessner House post of 2014 has carriages on the ground floor, horses in the basement down a ramp and the coachman upstairs. One building divided on the lot line: Kimball's coach house spanned both lots when Rees bought 2110 from him in 1888, and 'a party wall was constructed in the middle to divide it into two separate sections', the north half 2108's and the south half 2110's."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "glessner_blog_2014_10_rees_coach_house_relocated",
+      "citation": "Glessner House Museum, 'Rees coach house relocated', The Story of a House (blog), 1 October 2014, with a photograph of the coach house behind 2110 S. Prairie Avenue before the move.",
+      "url": "https://glessnerhouse.blogspot.com/2014/10/rees-coach-house-relocated.html",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "one building across the alley ends of 2108 and 2110, divided by a party wall in the middle from 1888",
+        "the south (Rees) half's size in 2014: 25 ft wide, 35 ft deep, 23 ft high",
+        "the full basement and the ramp the horses went down to it; carriages on the ground floor, the coachman upstairs",
+        "the flat roof behind level wall heads, and the segmental-headed upper windows, as the building stood in 2014"
+      ],
+      "what_it_does_not_supply": [
+        "the north (Kimball) half, demolished in the 1930s",
+        "which face the photograph's three-bay front is, or where the carriage doors were",
+        "the ramp's place",
+        "a date of building: 'may actually pre-date the Great Chicago Fire' is the post's belief"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_35",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
@@ -200,8 +388,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1937 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2108-b2 and s35fp-2110-b2, filled as one building), the T-1842 census (s35-2108-rear, s35-2110-rear) and the T-1837 register row frontage-35-065; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-1937 refines the district draft (T-2351) in place under the same id onto the K12 coach-house kit, under a flat roof the kit now builds for it (roof_form flat). The sheet census (rows s35-2108-rear and s35-2110-rear, traces s35fp-2108-b2 and s35fp-2110-b2) carries the building into 1904; the draft rules now skip both rows. Its size is the sheet's, with the depth and the south half's width the Glessner House post's measure of the surviving half (25 by 35 ft, 23 ft high); its flat roof and level wall heads are the post's 2014 photograph's, which grades it attested. The south half survives: it was moved with the Rees house in October 2014. Its image gate (the 2014 photograph's camera, and the NRHP's 2006 alley view, which is link-only) is still T-1937's.",
   "research_doc": "",
   "review_required": false,
-  "called": "2108 S. Prairie Avenue — the coach house of 2108 and 2110, one building divided on their lot line"
+  "called": "2108 and 2110 Prairie Avenue: the coach house the two houses shared on the alley"
 }

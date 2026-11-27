@@ -3185,7 +3185,7 @@
    "We fit simple boxes inside the building's outline from the old fire map. The biggest box is the main part. A shallow box at the front is a bay. The porches and other parts keep the kind the map gives them. How many floors each part has, and its roof, are our guesses."
   ]
  },
- "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35xfp-e20th 217-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s35xfp-e20th 217-b1 p2 (range, brick), rectangle 1 of that part; the part's rectangles cover 74% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).": {
+ "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2126-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2126-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 84% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed).": {
   "8-10": [
    "We fit simple boxes inside the building's outline from the old fire map. The biggest box is the main part. A shallow box at the front is a bay. The porches and other parts keep the kind the map gives them. How many floors each part has, and its roof, are our guesses."
   ]

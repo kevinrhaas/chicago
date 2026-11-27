@@ -2,11 +2,11 @@
   "structure_id": "armour_house_2115_prairie",
   "view": "tribune_1928_front",
   "glb": "assets/gltf/armour_house_2115_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bc3d2f1c84943ede352ffe7eee5500116276e054b11bde1dc68c04f4b3a2810c",
+  "glb_sha256": "9d593580ca01a97962ba620dad08ca71f1e0b30a2013ba82d44f646112cb920f",
   "camera_sha256": "9ede48c5d5d7a0f7ab858bd05ce8fbed44a76bfe6840fb7569c80dc44344b990",
   "photo_sha256": "e7a6cf89a2d7c814cd804c860b6035d403633b336d6855d47a45aa3b8a9309d7",
   "side_by_side": "docs/RESEARCH/photo-match/armour_house_2115_prairie/tribune_1928_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the front's openings: the three north columns (x 400, 520, 630 px), the door over the middle of the straight stoop, the pavilion's two lights a storey and the south end's light (x 975) stand on the halftone's. T-3712's door in the second column would have stood at x 520, over a window here",
@@ -21,8 +21,12 @@
       "status": "fixed"
     },
     {
-      "what": "the front's south end beyond the pavilion: lower, under a railed roof (x 880-1000, y 350-380 px), where the render carries the main mansard (as in the Armour photograph's record)",
-      "status": "open"
+      "what": "the front's south end beyond the pavilion: lower, under a railed roof (x 880-1000, y 350-400 px), where the render carried the main mansard. T-3713 stops the mansard at the pavilion's south side and rails the strip's flat deck (as in the Armour photograph's record): sky now stands over the strip from the crown's side, as in the halftone",
+      "status": "fixed"
+    },
+    {
+      "what": "the strip's railing: the halftone's band of balusters stands at y about 382-400, the render's at y about 354-384, about 0.5 m higher; the Armour photograph, the sharper print, puts the railing's top within about 0.06 m of the render's, and this camera already reads the north stack 0.6 m and the south stack 0.3 m off the Armour camera's, so the railing is built to the Armour print",
+      "status": "within tolerance"
     },
     {
       "what": "the pavilion's crown's top, dark and ragged against the sky (y 110-200 px): the crown's own deck now carries the K10 kit's iron cresting round its curb, its posts standing over the slates as the halftone's do, and the tall dark spike at x about 855 is the south stack, now 18.35 m: its top at y 117 against the halftone's about 105 (at the kit's 17.71 m it stood at about y 145), about 0.3 m short here where the Armour photograph reads it about 0.3 m over; the two readings disagree by about 0.6 m and the stack stands between them",
