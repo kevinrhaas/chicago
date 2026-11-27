@@ -1,0 +1,8 @@
+{
+  "title": "No look-around tag in front of a Jaunt",
+  "kind": "fix",
+  "items": [
+    "Starting a Jaunt, even straight after signing in, no longer leaves CLICK TO LOOK AROUND sitting in the middle of the view in front of the first stop.",
+    "The tag stays away for the whole Jaunt, and comes back after it only if you still have not clicked the scene to look around."
+  ]
+}

@@ -48,7 +48,7 @@ import { enuToWorld } from './terrain.js';
 import { dressSkin, dressPhotoLooks, restingLid } from './human-skin.js';
 import { dressHairSteps, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressCloth, looksHairStyle, dressInSeason } from './human-looks.js';
+import { dressCloth, looksHairStyle, dressInSeason, EYE_COLOUR } from './human-looks.js';
 import { dressFinery } from './human-finery.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
@@ -777,6 +777,17 @@ export class HumanActor {
     dressSkin(scene, { age: this.variation?.age ?? null, person: this.personId ?? null, year: Number(this.instance.scene) || null });
     if (this.variation?.photoFace) scene.traverse(o => {
       if (o.isMesh && o.material?.userData?.chiPhotoOwned && !looked.includes(o.material)) looked.push(o.material);
+    });
+    // T-3553: the eye colour a visitor chose for their own person (visitor-person.js `chosen`)
+    // is worn over a photographed face's own iris, as a recorded one is: on its own iris
+    // clone, flat in the chosen colour (dressPhotoEyes, in dressSkin, gave it the photograph's).
+    if (looks?.eyes?.chosen === true && EYE_COLOUR[looks.eyes.drawn]) scene.traverse((o) => {
+      const m = o.isMesh ? o.material : null;
+      if (m?.name !== 'eyes__iris' || !looked.includes(m)) return;
+      m.map = null;
+      m.color.setRGB(...EYE_COLOUR[looks.eyes.drawn], THREE.LinearSRGBColorSpace);
+      m.userData.chiPhotoRecordedIris = true;
+      m.needsUpdate = true;
     });
     yield;
     // Measured through the node transforms: a quantised derivative's positions are not metres.
