@@ -6,7 +6,7 @@ name: Better Trees seasons — exact working-source validation
 # Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
 on:
   pull_request:
-    branches: [steward/t3748-vegetation-realism]
+    branches: [steward/t3747-vegetation-realism]
     paths: ['.github/workflows/chicago-4d-t3748-working-source.yml']
   workflow_dispatch:
 
