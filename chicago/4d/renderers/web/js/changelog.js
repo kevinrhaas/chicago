@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 3297, ts: '2026-11-27T21:56:53.593Z', date: 'Nov 27, 2026, 3:56 PM CT', title: 'See what your account keeps, and delete it', kind: 'feature',
+    items: [
+      'Settings › About lists what is saved when you are signed in: your visits, reading age, your own person and any bug reports.',
+      'Delete my saved data removes all of it at once and signs you out.',
+      'A new What we keep page, linked from the sign-in panel, says who can see it and that nothing is sold or used for ads.',
+    ] },
   { v: 3296, ts: '2026-11-27T19:19:58.233Z', date: 'Nov 27, 2026, 1:19 PM CT', title: 'The public site carries a small Preview marker', kind: 'change',
     items: [
       'Every page of the public site shows a quiet Preview pill in the corner, with a Feedback link to Contact.',
