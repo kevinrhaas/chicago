@@ -85,6 +85,9 @@ jobs:
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
 
+      - name: Install the publication schema validator
+        run: python3 -m pip install --quiet --upgrade 'jsonschema>=4,<5'
+
       # The mirror is generated (T-0938); the gate reads what ships.
       - name: Publish the mirror the gate serves (site/4d/ is generated)
         working-directory: chicago/4d
