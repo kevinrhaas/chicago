@@ -1,9 +1,9 @@
 name: Better Trees — calibrated desktop diagnostic
 
 # Temporary diagnostic only. Owner-visible PR targets the held feature branch.
-# App1605 receives one exact-SHA leaf shader override after real CPU eligibility.
-# This probes a genuinely changed candidate; the previous timing failure remains.
-# All ordinary final-head CI remains required; never merge this workflow.
+# The exact complete uncommitted current-Dev feature is a frozen patch/manifest.
+# All28source hashes and full candidate tree must match before stock timing.
+# Real CPU eligibility precedes asset downloads. Never merge this diagnostic.
 on:
   pull_request:
     branches: [steward/t3747-vegetation-realism]
@@ -26,11 +26,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 1605dcbd4b58bedf98084a16d4b32d95a59bd20e
+          ref: 2d7eea18c028f527981fb633d1ab9dbfbb96460d
           filter: blob:none
           sparse-checkout: |
             .github
             chicago/4d/tools
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Require a real calibrated desktop CPU before measuring
+        env:
+          SOURCE_HEAD: 2d7eea18c028f527981fb633d1ab9dbfbb96460d
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const os = require('node:os');
+          const { execFileSync } = require('node:child_process');
+          const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+          const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
+          const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
+          const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
+          const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
+          const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
+          const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
+          fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
+          console.log(JSON.stringify(reading));
+          if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
+          if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
+          NODE
 
       # Publish reads the app, two sibling browsers and the production site.
       # Keep their complete native inputs; unrelated app research archives need
@@ -54,48 +79,38 @@ jobs:
           PYTHON
 
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Require a real calibrated desktop CPU before measuring
+      - name: Apply and verify the frozen complete current-source candidate
         env:
-          SOURCE_HEAD: 1605dcbd4b58bedf98084a16d4b32d95a59bd20e
-        run: |
-          node <<'NODE'
-          const fs = require('node:fs');
-          const os = require('node:os');
-          const { execFileSync } = require('node:child_process');
-          const source = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-          const appTree = execFileSync('git', ['rev-parse', 'HEAD:chicago/4d'], { encoding: 'utf8' }).trim();
-          const cpu = os.cpus()[0].model.trim(), cores = os.cpus().length;
-          const limits = JSON.parse(fs.readFileSync('chicago/4d/tools/still_frame_ceilings.json', 'utf8'));
-          const machine = limits.machines.find(m => m.cpu === cpu && m.cores === cores);
-          const calibrated = ['full', 'balanced', 'light'].every(t => typeof machine?.tiers[t]?.desktop === 'number');
-          const reading = { source, appTree, cpu, cores, calibrated, tiers: machine?.tiers, eligibilityOnly: true };
-          fs.writeFileSync('chicago/4d/calibrated-host.json', JSON.stringify(reading, null, 2) + '\n');
-          console.log(JSON.stringify(reading));
-          if (source !== process.env.SOURCE_HEAD) throw new Error('Unexpected app source');
-          if (!calibrated) throw new Error('This runner has no stock desktop calibration; no timing verdict is possible');
-          NODE
-
-      - name: Apply only the verified zero-contribution leaf shader candidate
+          DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha }}
         run: |
           python3 - <<'PYTHON'
-          import base64,hashlib,json,subprocess
+          import hashlib,json,os,re,subprocess
           from pathlib import Path
-          p=Path('chicago/4d/renderers/web/js/leaf-light.js')
-          before=hashlib.sha256(p.read_bytes()).hexdigest()
-          assert before == '76152d3f9919c0195f7059971353426022582747189e32674b59665efb8cb594'
-          raw=base64.b64decode('LyoqCiAqIFRoaW4gZm9saWFnZSBpbiB0aGUgZXhpc3Rpbmcgb3BhcXVlLCBhbHBoYS10ZXN0ZWQgcGFzcyAoVC0zNzQ3KS4KICogVGhpcyBpcyBhbiBhcnRpc3RpYyB0aGluLXNoZWV0IGFwcHJveGltYXRpb24sIG5vdCBhIG1lYXN1cmVkIGxlYWYgQlNERi4KICogRGlyZWN0IHRyYW5zbWlzc2lvbiB1c2VzIHRocmVlJ3MgYWxyZWFkeSBzaGFkb3dlZCBpbmNpZGVudCBsaWdodDsgdGhlIHNtYWxsCiAqIHNreSB0ZXJtIGZvbGxvd3MgdGltZS1vZi1kYXkuanMuIE5vIG5ldyB0ZXh0dXJlLCBsaWdodCwgcmVuZGVyIHRhcmdldCBvciBwYXNzLgogKi8KaW1wb3J0ICogYXMgVEhSRUUgZnJvbSAndGhyZWUnOwppbXBvcnQgeyBMRUFGX1NLWSB9IGZyb20gJy4vdGltZS1vZi1kYXkuanMnOwoKZXhwb3J0IGZ1bmN0aW9uIHBhdGNoTGVhZkxpZ2h0KG1hdGVyaWFsLCB7IG1hc2sgPSAnMS4wJywgbG93U3BlYyA9IGZhbHNlIH0gPSB7fSkgewogIGNvbnN0IHByaW9yID0gbWF0ZXJpYWwub25CZWZvcmVDb21waWxlOwogIGNvbnN0IGtleSA9IG1hdGVyaWFsLmN1c3RvbVByb2dyYW1DYWNoZUtleSA9PT0gVEhSRUUuTWF0ZXJpYWwucHJvdG90eXBlLmN1c3RvbVByb2dyYW1DYWNoZUtleQogICAgPyBTdHJpbmcocHJpb3IpIDogbWF0ZXJpYWwuY3VzdG9tUHJvZ3JhbUNhY2hlS2V5KCk7CiAgbWF0ZXJpYWwub25CZWZvcmVDb21waWxlID0gKHNoYWRlciwgcmVuZGVyZXIpID0+IHsKICAgIHByaW9yKHNoYWRlciwgcmVuZGVyZXIpOwogICAgY29uc3QgcGFycyA9ICcjaW5jbHVkZSA8bGlnaHRzX3BoeXNpY2FsX3BhcnNfZnJhZ21lbnQ+JzsKICAgIGNvbnN0IGVuZCA9ICcjaW5jbHVkZSA8bGlnaHRzX2ZyYWdtZW50X2VuZD4nOwogICAgaWYgKCFzaGFkZXIuZnJhZ21lbnRTaGFkZXIuaW5jbHVkZXMocGFycykgfHwgIXNoYWRlci5mcmFnbWVudFNoYWRlci5pbmNsdWRlcyhlbmQpKSB7CiAgICAgIHRocm93IG5ldyBFcnJvcignbGVhZiBsaWdodGluZzogbWlzc2luZyBzdGFuZGFyZCBsaWdodGluZyBhbmNob3JzJyk7CiAgICB9CiAgICBzaGFkZXIudW5pZm9ybXMudUxlYWZTa3kgPSBMRUFGX1NLWTsKICAgIHNoYWRlci5mcmFnbWVudFNoYWRlciA9ICd1bmlmb3JtIGZsb2F0IHVMZWFmU2t5O1xuJyArIHNoYWRlci5mcmFnbWVudFNoYWRlcgogICAgICAucmVwbGFjZShwYXJzLCBgJHtwYXJzfQp2b2lkIGNoaUxlYWZEaXJlY3QoY29uc3QgaW4gSW5jaWRlbnRMaWdodCBsaWdodCwgY29uc3QgaW4gdmVjMyBwb3NpdGlvbiwKICAgIGNvbnN0IGluIHZlYzMgbm9ybWFsLCBjb25zdCBpbiB2ZWMzIHZpZXdEaXIsIGNvbnN0IGluIHZlYzMgY2xlYXJjb2F0Tm9ybWFsLAogICAgY29uc3QgaW4gUGh5c2ljYWxNYXRlcmlhbCBtYXRlcmlhbCwgaW5vdXQgUmVmbGVjdGVkTGlnaHQgcmVmbGVjdGVkTGlnaHQpIHsKICAvLyBTaGFkb3dlZCBhbmQgaW5hY3RpdmUgbGlnaHRzIGNvbnRyaWJ1dGUgZXhhY3RseSB6ZXJvLCBpbmNsdWRpbmcgdHJhbnNtaXNzaW9uLgogIGlmIChhbGwoZXF1YWwobGlnaHQuY29sb3IsIHZlYzMoMC4wKSkpKSByZXR1cm47CiAgZmxvYXQgY2hpQ29zID0gZG90KG5vcm1hbCwgbGlnaHQuZGlyZWN0aW9uKTsKI2lmZGVmIFVTRV9DTEVBUkNPQVQKICAvLyBUaGUgY2xlYXJjb2F0IG5vcm1hbCBtYXkgZmFjZSB0aGUgbGlnaHQgd2hpbGUgdGhlIGJhc2Ugbm9ybWFsIGZhY2VzIGF3YXkuCiAgUkVfRGlyZWN0X1BoeXNpY2FsKGxpZ2h0LCBwb3NpdGlvbiwgbm9ybWFsLCB2aWV3RGlyLCBjbGVhcmNvYXROb3JtYWwsIG1hdGVyaWFsLCByZWZsZWN0ZWRMaWdodCk7CiNlbHNlCiAgaWYgKGNoaUNvcyA+IDAuMCkgewogICAgUkVfRGlyZWN0X1BoeXNpY2FsKGxpZ2h0LCBwb3NpdGlvbiwgbm9ybWFsLCB2aWV3RGlyLCBjbGVhcmNvYXROb3JtYWwsIG1hdGVyaWFsLCByZWZsZWN0ZWRMaWdodCk7CiAgfQojZW5kaWYKICBmbG9hdCBjaGlCYWNrID0gbWF4KC1jaGlDb3MsIDAuMCk7CiAgJHtsb3dTcGVjID8gJ2Zsb2F0IGNoaVRyYW5zbWl0ID0gMC4xNjsnIDogYAogIGZsb2F0IGNoaUZvcndhcmQgPSBtYXgoZG90KHZpZXdEaXIsIC1saWdodC5kaXJlY3Rpb24pLCAwLjApOwogIGZsb2F0IGNoaVRyYW5zbWl0ID0gMC4wOCArIDAuMjAgKiBjaGlGb3J3YXJkICogY2hpRm9yd2FyZDtgfQogIC8vIGxpZ2h0LmNvbG9yIGhhcyBhbHJlYWR5IHJlY2VpdmVkIHRoZSBsaWdodCdzIGF0dGVudWF0aW9uIGFuZCBzaGFkb3cgdGVzdC4KICAvLyBUaGUgcmVjb3JkJ3MgbGVhZiBjb2xvdXIgc3RpbGwgY29udHJvbHMgdGhlIGh1ZTsgd29vZCBpcyBtYXNrZWQgb3V0LgogIHJlZmxlY3RlZExpZ2h0LmRpcmVjdERpZmZ1c2UgKz0gbWF0ZXJpYWwuZGlmZnVzZUNvbG9yICogdmVjMygwLjgsIDEuMCwgMC42KQogICAgKiBsaWdodC5jb2xvciAqIChSRUNJUFJPQ0FMX1BJICogY2hpQmFjayAqIGNoaVRyYW5zbWl0ICogKCR7bWFza30pKTsKfQojdW5kZWYgUkVfRGlyZWN0CiNkZWZpbmUgUkVfRGlyZWN0IGNoaUxlYWZEaXJlY3QKYCkKICAgICAgLnJlcGxhY2UoZW5kLCBgJHtlbmR9CmZsb2F0IGNoaUxlYWZGaWxsID0gMS4wOwojaWYgTlVNX0RJUl9MSUdIVFMgPiAwCiAgZmxvYXQgY2hpTGVhZkJhY2sgPSBtYXgoLWRvdChub3JtYWwsIGRpcmVjdGlvbmFsTGlnaHRzWzBdLmRpcmVjdGlvbiksIDAuMCk7CiAgY2hpTGVhZkZpbGwgPSAwLjcyICsgMC41NiAqIGNoaUxlYWZCYWNrOwojZW5kaWYKcmVmbGVjdGVkTGlnaHQuaW5kaXJlY3REaWZmdXNlICs9IGRpZmZ1c2VDb2xvci5yZ2IgKiAodUxlYWZTa3kgKiBjaGlMZWFmRmlsbCAqICgke21hc2t9KSk7CmApOwogIH07CiAgbWF0ZXJpYWwuY3VzdG9tUHJvZ3JhbUNhY2hlS2V5ID0gKCkgPT4gYCR7a2V5fXxsZWFmLWxpZ2h0LTM3NDctemVyby1saWdodC0ke21hc2t9LSR7bG93U3BlY31gOwp9Cg==')
-          assert hashlib.sha256(raw).hexdigest() == 'd9c0d10a81a803dabf9e483acf530066fa0be25bd96337d0fc9c5a5ec89d4de6'
+          head=os.environ['DIAGNOSTIC_HEAD']
+          assert re.fullmatch('[0-9a-f]{40}',head)
+          subprocess.run(['git','fetch','--quiet','origin',head],check=True)
+          def show(p):return subprocess.check_output(['git','show',head+':'+p])
+          raw=show('.github/diagnostics/t3747-physical-source.json')
+          assert hashlib.sha256(raw).hexdigest()=='e5259693375dcbdaf8801791c5e0f889c2671baf92ccc31bfe5047b71aebdee4'
+          m=json.loads(raw);patch=show('.github/diagnostics/t3747-physical-source.patch')
+          assert hashlib.sha256(patch).hexdigest()==m['patch_sha256']
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==m['base_dev']
+          subprocess.run(['git','sparse-checkout','add','chicago/4d/docs/measurements'],check=True)
           assert not subprocess.check_output(['git','diff','--name-only','HEAD']).strip()
-          p.write_bytes(raw)
-          assert subprocess.check_output(['git','diff','--name-only'],text=True).splitlines() == [str(p)]
-          diff=subprocess.check_output(['git','diff','--binary'])
-          reading={'baseHead':'1605dcbd4b58bedf98084a16d4b32d95a59bd20e','onlyChangedPath':str(p),'originalSHA256':before,'candidateSHA256':hashlib.sha256(raw).hexdigest(),'patchSHA256':hashlib.sha256(diff).hexdigest(),'candidateSourceIsWorkingTreeOverride':True,'measurementAndLimitsUnchanged':True}
+          p=Path('/tmp/vegetation-physical-current.patch');p.write_bytes(patch)
+          subprocess.run(['git','apply','--index','--check',str(p)],check=True)
+          subprocess.run(['git','apply','--index',str(p)],check=True)
+          tree=subprocess.check_output(['git','write-tree'],text=True).strip()
+          assert tree==m['candidate_tree']
+          assert subprocess.check_output(['git','rev-parse',tree+':chicago/4d'],text=True).strip()==m['candidate_app_tree']
+          assert set(subprocess.check_output(['git','diff','--cached','--name-only','HEAD'],text=True).splitlines())==set(m['source_sha256'])
+          assert not subprocess.check_output(['git','diff','--name-only']).strip()
+          for name,h in m['source_sha256'].items():assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==h,name
+          for p,k in [('chicago/4d/tools/measure_still_frame.mjs','timing_helper_sha256'),('chicago/4d/tools/still_frame_ceilings.json','ceilings_sha256')]:assert hashlib.sha256(Path(p).read_bytes()).hexdigest()==m[k]
+          Path('/tmp/vegetation-physical-current-manifest.json').write_bytes(raw)
+          reading={**m,'workflowHead':head,'candidateSourceIsWorkingTreePatch':True,'all28TrackedSourcePathsVerified':True,'noAuthoredAppCommit':True,'measurementRasterGeometryPopulationLimitsUnchanged':True}
           Path('chicago/4d/calibrated-source.json').write_text(json.dumps(reading,indent=2)+'\n')
-          print(json.dumps(reading))
+          print(json.dumps({k:v for k,v in reading.items() if k!='source_sha256'}))
           PYTHON
 
       # Globally, as the smoke does: the tool falls back to `npm root -g`.
@@ -115,7 +130,14 @@ jobs:
 
       - name: Hold the still-frame ceiling
         working-directory: chicago/4d
-        run: node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib,json
+          from pathlib import Path
+          m=json.loads(Path('/tmp/vegetation-physical-current-manifest.json').read_text())
+          for name,h in m['source_sha256'].items():assert hashlib.sha256(Path('../..',name).read_bytes()).hexdigest()==h,name
+          PYTHON
+          node tools/measure_still_frame.mjs --gate --only ${{ matrix.viewport }} --json still-frame-${{ matrix.viewport }}.json
 
       - name: Keep the reading
         if: always()
