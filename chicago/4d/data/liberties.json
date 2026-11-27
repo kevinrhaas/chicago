@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1256,
+  "count": 1257,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -82309,6 +82309,36 @@
         "T-1909",
         "T-3785",
         "T-1945"
+      ]
+    },
+    {
+      "id": "L-leaf-light-3747",
+      "title": "Rounded foliage and thin-leaf light in every wood",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-25",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Liberty",
+          "text": "for grown woodland and street trees, yard shrubs and vines, and bank thickets in 1812, 1835, 1871 and 1904, a spray's vertex normals curve across its existing cutout, suggesting a volume. Full adds a close level within 14 m: each large spray becomes three smaller sprays at different depths and turns, each joined to its existing attachment by fine round wood. This botanical detail is reconstructed within the original clump; the species, skeleton, trunk, height, crown dimensions and planting remain the records' own. The existing near mesh is retained beyond that short ring. Balanced and Light retain their geometry counts. Balanced woodland uses the existing half-size atlases and omits additional leaf-relief sampling; Full retains the larger sheets and relief. A small green-filtered backlight term uses the light already attenuated and shadowed by the renderer. The existing time-of-day skylight term is distributed toward the backlit face. These coefficients are artistic approximations of a thin leaf, not measured species transmittances or an archival lighting reconstruction. Capable devices reuse the existing leaf colour sheet for subtle bump relief; a weak device or Light omits that extra sampling. Bark, fruit, solid flowers and bare winter branches retain their existing materials and receive no leaf transmission."
+        },
+        {
+          "label": "Evidence",
+          "text": "species, crown dimensions, colour, season, placement and confidence remain the existing records' claims. No new historical assertion or external asset is introduced. The atlases retain their current photographic and procedural provenance in the licenses model."
+        },
+        {
+          "label": "How to resolve",
+          "text": "measured leaf scattering and a calibrated, licensed surface-normal source could replace the artistic coefficients and albedo-derived relief. The present approximation must remain bounded by sun, shadow and time of day."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-25 (T-3747)."
+        }
+      ],
+      "work_refs": [
+        "T-3747"
       ]
     },
     {

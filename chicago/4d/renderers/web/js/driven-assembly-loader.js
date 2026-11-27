@@ -464,7 +464,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const failed = acquired.find(result => result.status === 'rejected');
       if (failed) throw failed.reason;
       const sha256 = acquired[0].value.sha256, inspected = acquired[1].value;
-      const extras = inspected.parser.json.scenes?.[0]?.extras;
+      // The human store releases parser scratch after decoding. GLTFLoader keeps
+      // these source scene extras on userData for the lifetime of the asset.
+      const extras = inspected.scenes?.[0]?.userData;
       const metadata = extras?.chicago4d_human;
       const study = JSON.parse(extras?.driver_study_json ?? 'null');
       // Kevin, 2026-11-13: more coachmen on the same brougham. A row may name the person its
