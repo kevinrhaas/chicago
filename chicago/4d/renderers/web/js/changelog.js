@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 3273, ts: '2026-11-27T01:24:06.603Z', date: 'Nov 26, 2026, 7:24 PM CT', title: '2140 Prairie\'s Tucker/Smith mansion: banded red brick and three towers', kind: 'improvement',
+    items: [
+      'The corner mansion at Prairie Avenue and 22nd Street now stands on the house kit: red brick banded in pale stone over a stone basement, a slated mansard with dormers and iron cresting, a round tower across the corner, a polygonal tower on 22nd Street and a square tower on Prairie, each under a crested slate cap, read off the 1911 map and two photographs.',
+    ] },
   { v: 3272, ts: '2026-11-26T22:44:53.711Z', date: 'Nov 26, 2026, 4:44 PM CT', title: '1904 front walks run straight to the door, and frame-house doors swing', kind: 'fix',
     items: [
       'At 2010 Prairie, the Greys\' house, the front walk now runs straight up to the porch steps and the door above them. It used to come in more than a metre to one side.',

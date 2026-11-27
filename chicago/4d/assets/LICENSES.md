@@ -3370,6 +3370,7 @@ humans/web/photo_faces/pilot/pilot_98_source.jpg
 humans/web/photo_faces/pilot/pilot_99_source.jpg
 humans/web/photo_faces/pilot/recipe.json
 humans/web/photo_faces/pilot/review.json
+humans/web/photo_faces/pilot/runtime.json
 authored/humans/photo_face_pilot/sources_a.png
 authored/humans/photo_face_pilot/sources_b.png
 authored/humans/photo_face_pilot/sources_c.png
@@ -3417,4 +3418,5 @@ humans/web/photo_faces/children/page_00_hair_full.png
 humans/web/photo_faces/children/page_00_hair_light.png
 humans/web/photo_faces/children/recipe.json
 humans/web/photo_faces/children/review.json
+humans/web/photo_faces/children/runtime.json
 ```
