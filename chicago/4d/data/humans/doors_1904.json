@@ -212,9 +212,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1945:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "06a6a40e4d19c62ea7acb614bb26b635e22cc12d0acc224f380c9de0cc999d8e",
+   "model_inputs_sha256": "b48683c83fc5f5709df369e0839d1a2265baa52c9735aa1b283b8a0b6723e941",
    "barrier": {
-    "key": "3d1e9518b0d0a2cc",
+    "key": "62517f20db984504",
     "cell": 0.1,
     "u0": -3.9,
     "v0": -0.6,
@@ -222,7 +222,7 @@
     "rects": "2 3 14 54 3 39 14 15 3 39 53 54 7 8 56 139 8 39 56 57 8 39 138 139 38 39 89 91 112 113 139 140 113 114 139 141 114 115 140 142 115 116 141 144 116 117 142 145 117 118 143 146 118 119 144 147 119 120 145 148 120 144 147 148 144 145 145 148 145 146 144 147 146 147 143 146 147 148 142 145 148 149 141 144 149 150 140 142 150 151 139 141 151 152 139 140 189 190 4 6 197 198 9 11 197 198 49 50 197 198 51 73 197 198 81 94 197 198 100 113 197 219 75 76 198 199 9 12 198 200 49 73 198 204 26 36 199 200 10 13 200 201 11 14 200 201 48 51 200 219 52 73 201 202 12 15 201 203 47 50 202 203 13 15 203 204 14 16 203 204 46 48 203 219 49 50 204 205 15 47 219 244 49 76 282 283 58 59 282 283 66 67 283 285 57 59 283 285 66 68 285 286 57 58 285 286 67 68 286 287 1 58 286 287 67 162 287 290 1 57 287 290 68 162"
    },
    "floor": {
-    "key": "7db2af8ad9986bf2",
+    "key": "27782fdda01adbed",
     "cell": 0.1,
     "u0": 14.7,
     "v0": 4.2,
@@ -462,9 +462,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2115:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "40ab4c2ed6bebd2f3d06a83da0407248a436c9c70f12b8039eea479800bb9baa",
+   "model_inputs_sha256": "b0c6b1d16d1d91ddb0f302f3f2e4abbdfdaccc64c5ebf79bcc387b25d14354b7",
    "barrier": {
-    "key": "1339660351526064",
+    "key": "6438bfc4cd511e5d",
     "cell": 0.1,
     "u0": -6.0,
     "v0": -0.1,
@@ -472,7 +472,7 @@
     "rects": "1 2 1 94 2 60 1 2 2 60 93 94 58 59 5 6 59 60 5 7 246 247 12 24 246 247 33 45 246 247 112 124 246 255 70 71 246 255 73 74 246 255 107 108 247 267 44 45 247 274 41 42 249 253 76 86 249 255 93 104 253 255 76 87 255 256 70 108 256 267 70 71 256 274 73 74 267 274 44 71 274 298 41 74"
    },
    "floor": {
-    "key": "7145ab571e63c35a",
+    "key": "938e3a72590e95f7",
     "cell": 0.1,
     "u0": 18.1,
     "v0": 3.9,
@@ -692,9 +692,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2036:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "86d73811154c632915271d277563f7e057fa1d773fe97ddb5a0c05e76df6e386",
+   "model_inputs_sha256": "344230bf607bd6604b0f4c2af868439d5e5dc681e276da8f9fa1fd9aaed2059c",
    "barrier": {
-    "key": "3c7c4e97c37f229f",
+    "key": "4e150e5d8e116de6",
     "cell": 0.1,
     "u0": -10.9,
     "v0": -1.9,
@@ -702,7 +702,7 @@
     "rects": "1 121 2 6 2 3 38 161 3 109 38 39 3 109 160 161 107 108 170 171 108 109 169 171 109 141 174 175 112 113 18 19 113 114 17 19 114 115 15 18 115 116 14 16 116 117 13 15 117 118 11 14 118 119 10 12 119 120 8 11 120 121 7 10 121 122 2 8 122 140 2 7 140 141 2 8 141 142 7 10 141 142 174 177 141 334 2 6 142 143 8 11 142 143 175 178 143 144 10 12 143 144 177 179 144 145 11 14 144 145 178 181 145 146 13 15 145 146 179 182 146 147 14 16 146 163 181 182 147 148 15 18 148 149 17 19 149 150 18 19 163 164 180 182 164 165 179 182 165 166 177 180 166 167 176 179 167 168 175 177 168 169 174 176 169 249 174 175 225 238 18 19 249 250 174 176 250 253 174 175 253 254 32 175 254 274 78 79 254 274 81 110 254 274 112 113 274 304 78 113 330 331 90 92 330 331 99 100 331 333 90 91 331 333 99 101 333 334 89 91 333 334 100 101 334 335 1 6 334 335 18 90 334 335 100 190 335 337 1 90 335 338 101 190 337 338 1 4 337 338 18 90"
    },
    "floor": {
-    "key": "8b9ab873f53bf469",
+    "key": "30de37daebe13ad1",
     "cell": 0.1,
     "u0": 14.2,
     "v0": 6.2,
@@ -942,9 +942,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1823:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "46f517e3da54cc2053e24a60a87fcfcb1655bc3e281564a55f91f7e98b5bad32",
+   "model_inputs_sha256": "09008ed2120ab4e826cc0d84e14853888468efa3637d54c56a77b7999a33b359",
    "barrier": {
-    "key": "70470364aac65b43",
+    "key": "5c2da1456723455b",
     "cell": 0.1,
     "u0": -6.8,
     "v0": -1.2,
@@ -952,7 +952,7 @@
     "rects": "1 2 12 134 2 49 12 13 2 68 133 134 49 50 11 13 50 58 11 22 58 59 11 13 59 68 12 13 66 67 147 148 67 68 147 149 68 78 11 12 68 189 151 152 80 81 10 12 85 95 11 12 122 144 11 12 173 184 11 12 189 190 12 152 190 192 56 84 190 200 93 94 190 200 151 152 192 215 29 84 196 199 109 117 196 199 128 136 199 200 109 118 199 200 128 137 200 201 93 152 215 217 29 53 215 217 56 57 217 218 29 57 287 291 2 10 287 291 28 177"
    },
    "floor": {
-    "key": "e56c8a621093759c",
+    "key": "f79511daa2e12ebb",
     "cell": 0.1,
     "u0": 11.9,
     "v0": 1.7,
@@ -1126,9 +1126,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "01af7e636c3173541ba7ff96882d60e1f95edbaad1d672aa4c6b90684c5088a9",
+   "model_inputs_sha256": "2d8868a35a6df1a24e9eebbae65d611a8e918a39f2214f62fce3a276cec8a2f7",
    "barrier": {
-    "key": "4a17b78ca17e35ed",
+    "key": "018ae20fc6f3793a",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.4,
@@ -1136,7 +1136,7 @@
     "rects": "1 107 190 191 78 79 13 14 79 107 13 52 107 109 13 191 109 110 62 64 109 110 107 109 109 110 111 142 109 110 182 185 109 129 13 52 110 111 61 65 110 111 106 110 110 111 111 143 110 111 182 186 111 112 60 66 111 112 105 145 111 112 180 187 112 113 61 67 112 113 104 110 112 113 139 146 112 113 179 186 113 114 62 69 113 114 103 109 113 114 140 147 113 114 178 185 114 115 63 70 114 115 101 108 114 115 141 149 114 115 177 184 115 116 64 71 115 116 100 107 115 116 142 150 115 116 175 183 116 117 65 73 116 117 98 106 116 117 143 153 116 117 173 182 117 118 66 75 117 118 96 105 117 118 144 156 117 118 170 180 118 119 67 78 118 119 92 104 118 119 146 179 119 120 69 102 119 120 148 177 120 121 71 79 120 121 80 91 120 121 92 100 120 121 150 157 120 121 168 175 121 122 73 78 121 122 93 98 121 122 153 157 121 122 168 172 122 123 75 78 122 123 93 96 212 217 2 24 212 217 41 208"
    },
    "floor": {
-    "key": "260bc19f61b838d5",
+    "key": "5134cdbc424adc07",
     "cell": 0.1,
     "u0": 7.6,
     "v0": 0.3,
@@ -1386,9 +1386,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1906:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "ffbe57c50ace075be7fe8693357800ac49b22c8b069b307e6bc705b413361808",
+   "model_inputs_sha256": "0def9191c93622dc3294d38c41b684d86ffc0132b966e042c40eb89e6b7d1360",
    "barrier": {
-    "key": "906c7373a2d55846",
+    "key": "251866847acba57c",
     "cell": 0.1,
     "u0": -3.1,
     "v0": -12.7,
@@ -1396,7 +1396,7 @@
     "rects": "1 2 202 293 2 31 202 203 2 249 292 293 29 31 222 223 30 31 104 128 30 31 286 288 31 32 104 127 32 56 104 105 56 57 104 106 57 66 104 111 66 83 104 105 83 92 104 111 92 93 104 106 93 117 104 105 117 118 104 127 118 177 104 105 177 178 104 127 249 250 261 272 249 250 280 293 249 259 132 134 249 259 181 183 250 271 280 281 259 260 132 135 259 260 180 183 260 261 134 136 260 261 179 181 260 271 182 183 261 262 135 137 261 262 140 142 261 262 173 175 261 262 178 180 262 263 136 143 262 263 172 179 263 264 136 144 263 264 171 179 264 265 137 145 264 265 170 178 265 266 138 146 265 266 169 177 266 267 139 145 266 267 170 176 267 268 140 144 267 268 171 175 268 269 141 144 268 269 171 174 269 270 142 145 269 270 170 173 269 273 154 161 270 271 143 146 270 271 169 172 270 271 205 207 270 271 232 234 271 272 144 147 271 272 168 171 271 272 182 208 271 272 231 281 272 273 145 148 272 273 167 170 272 280 204 208 272 280 231 235 273 274 146 169 280 311 204 235 342 346 2 208 342 346 231 308"
    },
    "floor": {
-    "key": "2d8d8453cc39ad47",
+    "key": "61f8fc42c07b24bb",
     "cell": 0.1,
     "u0": 21.7,
     "v0": 5.7,
@@ -1636,9 +1636,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1900:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f0b9e00c1aaf3c9526b1a434eda40f35c05675e54389a09cb3d2b4151f012deb",
+   "model_inputs_sha256": "d1f1c141aec3277029ac62fa68169b32551f3d921555ef4cebe2456aafbc36d7",
    "barrier": {
-    "key": "2728f7d84529ca08",
+    "key": "0d74785fccf7586e",
     "cell": 0.1,
     "u0": -2.0,
     "v0": -2.6,
@@ -1646,7 +1646,7 @@
     "rects": "1 2 48 125 2 20 48 49 2 20 124 125 18 20 137 138 20 219 149 150 90 91 25 26 91 92 24 26 92 93 23 25 93 94 22 24 94 95 21 24 95 96 20 23 96 97 19 22 97 98 18 21 98 99 17 20 99 100 16 19 100 101 15 18 101 102 14 17 102 145 14 16 145 146 14 17 146 147 15 18 147 148 16 19 148 149 17 20 149 150 18 21 150 151 19 22 151 152 20 23 152 153 21 24 153 154 22 24 154 155 23 25 155 156 24 26 156 157 25 26 205 206 24 26 219 220 26 150 220 221 29 31 220 221 67 71 220 221 102 115 220 221 124 137 220 239 149 150 221 222 30 32 221 222 67 69 221 245 70 71 222 223 31 33 222 223 66 68 223 224 32 34 223 224 65 68 224 225 33 35 224 225 64 66 224 252 67 68 225 226 34 36 225 226 63 65 226 227 35 37 226 227 62 64 227 228 36 38 227 228 61 63 228 229 37 62 229 230 38 61 239 240 96 150 240 245 96 97 240 252 99 100 245 252 70 97 252 276 67 100 301 306 1 71 301 306 96 157"
    },
    "floor": {
-    "key": "f486d60d18715cd9",
+    "key": "adfd087dc0bcf0f3",
     "cell": 0.1,
     "u0": 19.8,
     "v0": 4.0,
@@ -1836,9 +1836,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1700:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d70e503128efa5af51d71f9e3bc2ede9edfab29ffd32003798593d810c8e4013",
+   "model_inputs_sha256": "de63973f6ee064a5486c3bceec7d7da3ceb3fa7d7480e51f8a21f12fcb38146a",
    "barrier": {
-    "key": "f843fa53d312c7fe",
+    "key": "08115051bd6b0cc3",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.3,
@@ -1846,7 +1846,7 @@
     "rects": "1 2 20 33 2 3 3 50 3 4 21 22 3 4 31 32 3 22 49 50 3 83 3 4 22 23 49 51 23 24 48 51 24 33 49 51 33 34 48 51 34 35 49 51 35 57 49 50 57 58 49 51 58 59 48 51 59 68 49 51 68 69 48 51 69 70 49 51 70 83 49 50 82 83 62 76 82 83 81 83 82 83 87 101 83 214 114 115 214 215 3 115 215 217 113 115 215 218 63 79 215 218 89 105 215 234 5 60 234 249 24 45 294 295 30 31 294 295 38 39 295 296 29 31 295 296 38 40 296 298 29 30 296 298 39 40 298 299 2 30 298 299 39 115 299 302 2 29 299 302 40 115"
    },
    "floor": {
-    "key": "f8be80061a8647fc",
+    "key": "85f0a3115e796c82",
     "cell": 0.1,
     "u0": 13.0,
     "v0": 0.1,
@@ -1912,7 +1912,7 @@
     }
    ],
    "barrier": {
-    "key": "f843fa53d312c7fe",
+    "key": "08115051bd6b0cc3",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.3,
@@ -2077,9 +2077,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "8d84a6751a03a27185bc2b536c9850ba7fbc9e694d556ffe5cfa51e7aa56b147",
+   "model_inputs_sha256": "be0796d0abf415bb030a7263c48b42ca83429a8970dc2cbe53f88cd50cc7e9ee",
    "barrier": {
-    "key": "b9aa3b2c4cc647a6",
+    "key": "930c0c1a1143fd0d",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.1,
@@ -2087,7 +2087,7 @@
     "rects": "1 2 84 97 2 3 67 114 3 4 85 86 3 4 95 96 3 16 67 68 3 214 113 114 16 17 67 69 17 26 67 68 26 27 67 69 27 51 67 68 51 52 67 69 52 61 67 68 61 62 67 69 62 83 67 68 81 83 34 35 82 83 14 29 82 83 39 54 214 215 1 114 215 218 10 26 215 218 35 51 215 234 57 113 234 249 72 93 294 295 78 79 294 295 86 87 295 296 77 79 295 296 86 88 296 298 77 78 296 298 87 88 298 299 1 78 298 299 87 114 299 302 1 77 299 302 88 114"
    },
    "floor": {
-    "key": "aa23ce10bf587e09",
+    "key": "e9e1296cbadcff45",
     "cell": 0.1,
     "u0": 12.9,
     "v0": 5.5,
@@ -2297,9 +2297,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1612:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "988ddeb87131489b11e494fa802e8acf95af70425e078150b00db5116a816a73",
+   "model_inputs_sha256": "f10fc1d0cd5f3da7adbf622ea4e86b75632e3c40aa3743e01d79a29d1da94b58",
    "barrier": {
-    "key": "62fe62f532d5d008",
+    "key": "72f1cf4f4b34cece",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.7,
@@ -2307,7 +2307,7 @@
     "rects": "2 4 144 145 3 4 42 44 202 203 37 150 203 204 51 61 203 204 62 72 203 204 116 136 203 209 85 103 209 214 80 108 214 241 85 103 242 243 89 90 242 243 97 99 243 245 88 90 243 245 98 99 245 246 88 89 245 246 98 100 246 247 1 5 246 247 36 89 246 250 99 158 247 248 1 89 248 249 1 88 249 250 1 5 249 250 36 88"
    },
    "floor": {
-    "key": "f4ee14c604d64efc",
+    "key": "be5ef130f1e5fe4c",
     "cell": 0.1,
     "u0": 19.4,
     "v0": 4.7,
@@ -2537,9 +2537,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1816:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "48e718393d1eaf5307f74b1aa9f42f636d22c9ecbf2448dc96318d3a19626607",
+   "model_inputs_sha256": "1ecba28fad3fbd14fb3a659e4c0fcbb5d47e1ae75ca9a1b65a755066082b7c8c",
    "barrier": {
-    "key": "b18f4964e7935ced",
+    "key": "2e295c70bed82234",
     "cell": 0.1,
     "u0": -12.1,
     "v0": -6.8,
@@ -2547,7 +2547,7 @@
     "rects": "2 3 118 195 3 4 135 146 3 4 164 175 3 27 118 119 3 121 194 195 27 38 118 120 38 77 118 119 77 88 118 120 88 121 118 119 119 120 213 214 120 121 212 214 125 127 67 68 127 128 66 68 128 129 65 67 129 131 64 67 131 133 63 68 133 134 62 68 134 136 61 67 136 137 60 66 137 138 60 62 137 138 63 66 138 139 59 61 139 140 59 60 140 141 58 60 141 145 58 59 145 153 58 65 153 157 58 59 157 158 58 60 158 159 59 60 159 160 59 61 160 161 60 62 160 161 63 66 161 162 60 66 162 164 61 67 164 165 62 68 165 167 63 68 167 169 64 67 169 170 65 67 170 171 66 68 171 173 67 68 237 238 66 68 241 242 68 217 242 243 72 74 242 243 138 141 242 243 178 190 242 243 198 211 242 264 143 144 242 264 173 174 242 270 176 177 243 244 81 82 243 244 130 131 243 244 137 139 243 270 140 141 244 245 75 77 244 245 81 83 244 245 129 132 244 245 135 137 245 246 76 78 245 246 79 85 245 246 127 133 245 246 134 136 246 247 77 86 246 247 126 135 247 248 78 88 247 248 125 134 248 249 80 89 248 249 123 133 249 250 81 89 249 250 123 131 250 251 82 88 250 251 124 130 251 252 83 88 251 252 124 129 252 253 85 88 252 253 125 127 252 256 101 111 253 254 86 89 253 254 123 126 254 255 122 124 255 256 90 92 255 256 120 122 256 257 91 93 256 257 100 112 256 257 119 121 257 258 92 120 258 259 99 113 264 270 143 174 270 295 140 177 308 309 153 155 308 309 162 163 309 311 153 154 309 311 162 164 311 312 152 154 311 312 163 164 312 313 2 5 312 313 33 153 312 313 163 229 313 315 2 153 313 316 164 229 315 316 2 5 315 316 33 153"
    },
    "floor": {
-    "key": "a540fcf8272c75af",
+    "key": "cd911d5b50838b84",
     "cell": 0.1,
     "u0": 11.9,
     "v0": 7.1,
@@ -2777,9 +2777,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1701:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1e6e7101a32f8729a5aeba7547718b45e51f82a00b684979ff46df4b52304450",
+   "model_inputs_sha256": "a5df75c3798497839034386c0e7cdd5c8368a81cc6395ef2d724023cbef8021e",
    "barrier": {
-    "key": "ac2c72b568299f3c",
+    "key": "55823c680e09c30c",
     "cell": 0.1,
     "u0": -17.9,
     "v0": -6.4,
@@ -2787,7 +2787,7 @@
     "rects": "2 3 64 133 3 179 64 65 3 179 132 133 123 126 148 150 123 126 158 161 126 153 148 160 153 179 143 212 179 263 211 212 263 264 211 244 264 273 243 244 264 293 211 212 273 279 236 244 279 280 241 244 280 293 243 244 289 290 62 64 293 294 211 244 294 304 211 212 304 305 64 212 305 306 83 94 305 307 160 161 305 307 196 197 305 311 122 123 305 311 146 147 305 313 64 65 305 313 67 68 305 313 116 117 305 313 119 120 307 309 161 162 307 309 195 196 309 311 162 163 309 311 194 195 310 315 170 176 310 315 181 187 311 313 163 164 311 313 193 194 311 339 122 147 313 314 64 120 313 315 164 165 313 315 192 193 314 316 64 65 314 316 119 120 315 316 164 166 315 316 170 177 315 316 180 187 315 316 191 193 316 317 64 120 316 317 165 192 372 373 130 131 372 373 138 139 373 374 129 131 373 374 138 140 374 376 129 130 374 376 139 140 376 377 1 4 376 377 63 130 376 377 139 333 377 379 1 129 377 380 140 333 379 380 1 4 379 380 63 129"
    },
    "floor": {
-    "key": "d978ea6b0df8dd68",
+    "key": "653235439387124b",
     "cell": 0.1,
     "u0": -5.4,
     "v0": 5.7,
@@ -3027,9 +3027,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2021:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "5b994da705e12ae056e76e279c6fc25471a39de37beb2c6492139643d49940b9",
+   "model_inputs_sha256": "df41607b595c5e04e0f2bef54c5d9f56d6f32d50de76bed5f13dc2eb7525d344",
    "barrier": {
-    "key": "64b0f3a6a863d08a",
+    "key": "cc07e8b3442d478f",
     "cell": 0.1,
     "u0": -18.5,
     "v0": -0.6,
@@ -3037,7 +3037,7 @@
     "rects": "1 2 41 52 2 3 14 80 3 38 79 80 3 79 14 15 38 39 79 93 39 79 92 93 79 80 6 15 79 80 92 119 80 133 118 119 80 186 6 7 133 134 118 141 134 185 140 141 185 186 98 141 189 190 4 6 259 260 99 102 264 281 20 21 264 281 39 40 264 288 16 17 264 288 43 44 281 288 20 40 288 312 16 44 324 325 25 27 324 325 33 35 325 327 25 26 325 327 34 35 327 328 17 26 327 328 34 42 328 329 35 42 328 330 17 25 329 330 1 3 329 330 35 43 329 330 64 66 329 330 86 88 329 330 109 111 329 330 131 133 329 330 154 156 330 331 35 156 330 332 1 25 331 332 36 156 332 334 17 25 332 334 36 42"
    },
    "floor": {
-    "key": "35b6e3e021800500",
+    "key": "cfbbff4c8374d67a",
     "cell": 0.1,
     "u0": 7.4,
     "v0": 1.0,
@@ -3227,9 +3227,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1600:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b8757afee6501f75a382d534b1f505683f72429d49e46bf940f13fd10ad405a9",
+   "model_inputs_sha256": "ec28a38823431015b490ff0430f31c01329b83d0f8e1753c623d90050d93d4dd",
    "barrier": {
-    "key": "7330bf46a82bd79a",
+    "key": "35580ad6815453a9",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.8,
@@ -3237,7 +3237,7 @@
     "rects": "3 4 41 43 3 4 104 106 4 202 108 109 94 95 36 38 202 204 41 43 202 206 44 71 202 206 100 102 206 207 70 71 206 207 100 101 206 235 44 69 207 209 70 72 207 209 99 101 209 211 71 73 209 211 98 100 211 212 72 74 211 212 97 99 212 213 73 75 212 213 96 98 213 214 73 76 213 214 95 98 214 215 74 77 214 215 94 97 215 216 76 79 215 216 92 95 216 217 77 82 216 217 89 94 217 218 80 91 218 219 85 86 280 281 52 53 280 281 60 61 281 282 51 53 281 282 60 62 282 284 23 30 282 284 44 52 282 284 61 69 282 285 1 9 284 285 23 52 284 285 61 110 285 286 1 51 285 288 62 110 286 288 23 51 286 289 1 9 288 289 23 30 288 289 44 51 288 289 62 69"
    },
    "floor": {
-    "key": "54acbc53f691ce71",
+    "key": "c02ef60adb6cfea6",
     "cell": 0.1,
     "u0": 19.6,
     "v0": 0.9,
@@ -3427,9 +3427,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1604:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1783d56d65b4dae7fbad6403ba847ef98eeb54fd4ae6586eb4b8599b9c27c503",
+   "model_inputs_sha256": "b7953964e2d024a6efbdcc177458c463a1d543566a044a26267ad1ce5a195464",
    "barrier": {
-    "key": "b57367e29e64f5a7",
+    "key": "91e356f823f52aa5",
     "cell": 0.1,
     "u0": -12.2,
     "v0": -0.6,
@@ -3437,7 +3437,7 @@
     "rects": "1 2 67 78 2 3 56 89 3 4 67 77 3 15 56 57 3 16 88 89 4 12 68 77 15 16 55 57 16 25 55 66 16 25 79 89 25 26 55 58 25 26 87 89 26 39 56 57 26 244 88 89 39 40 6 57 40 122 6 7 165 167 5 6 244 245 6 89 245 246 18 29 245 246 42 53 245 247 9 11 245 278 59 84 323 324 67 68 323 324 75 76 324 326 66 68 324 326 75 77 326 328 59 67 326 328 76 84 328 332 1 66 328 332 77 89 332 333 59 66 332 333 77 84"
    },
    "floor": {
-    "key": "46c6e793c0d1afd8",
+    "key": "f3239280d15f2ff1",
     "cell": 0.1,
     "u0": 12.0,
     "v0": 5.2,
@@ -3627,9 +3627,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1608:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b26a9674d3ed7c217fea8324352c79d3bfc2e114ad51bb467d664f782e85e6b1",
+   "model_inputs_sha256": "40a80bc8bc041ad7b61699283bd6acd3089c85ea1f540c7b2fe8b6caeb1aec5f",
    "barrier": {
-    "key": "e88042c1d0c43747",
+    "key": "c613a35dce2da252",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -1.1,
@@ -3637,7 +3637,7 @@
     "rects": "2 4 75 76 3 4 14 16 88 89 9 11 98 99 5 11 99 138 5 6 138 139 5 11 197 198 18 20 197 200 53 78 198 199 19 21 199 200 20 22 200 201 21 23 200 201 52 78 201 202 22 24 201 202 51 78 202 203 23 25 202 203 50 52 202 230 53 78 203 204 24 26 203 204 49 51 204 205 25 27 204 205 48 50 205 206 26 28 205 206 47 49 206 207 27 29 206 207 46 48 207 208 28 30 207 208 45 47 208 209 29 46 279 280 60 62 279 280 68 70 280 282 60 61 280 282 69 70 282 283 53 61 282 283 69 78 283 286 2 60 283 287 70 91 286 287 2 59 287 289 53 59 287 289 70 78"
    },
    "floor": {
-    "key": "f0de714390214f9b",
+    "key": "a7101008e2720ae7",
     "cell": 0.1,
     "u0": 19.1,
     "v0": 4.4,
@@ -3811,9 +3811,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "9dacb562a6cb054c6c444bab6954a1bb921bdafeb8b4edf576615b55ec0ecec1",
+   "model_inputs_sha256": "43ab636837dd8f2d93f09e1b67716ced4568ecab2e305b0ed6a04fb827b9cd65",
    "barrier": {
-    "key": "69abd4b7adab6095",
+    "key": "c2fb2da547de1ec7",
     "cell": 0.1,
     "u0": -2.8,
     "v0": -2.8,
@@ -3821,7 +3821,7 @@
     "rects": "1 2 77 88 2 3 71 94 3 4 77 87 3 10 71 72 3 263 93 94 4 11 78 87 10 11 70 72 11 12 70 87 12 20 70 81 20 21 70 72 21 28 71 72 27 28 31 33 27 28 68 70 131 132 26 28 263 264 28 94 264 266 31 33 264 297 63 88 345 346 71 73 345 346 79 81 346 348 71 72 346 348 80 81 348 349 63 72 348 349 80 88 349 351 63 71 349 351 81 88 351 353 1 71 351 353 81 106 353 355 63 71 353 355 81 88"
    },
    "floor": {
-    "key": "b514e9caa9f11d6e",
+    "key": "d5dc8b880e6ab039",
     "cell": 0.1,
     "u0": 23.3,
     "v0": 3.8,
@@ -4011,9 +4011,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1619:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "3775e7a311e0970e8274486faaf3bfc733f8efb2f26225fd963d36a45e1c875c",
+   "model_inputs_sha256": "0ce130187ea0bdf8ccecddbc51f7d2a00bd5bd2ec60cd03a82bf0f0ddb804b29",
    "barrier": {
-    "key": "eaa516c655282ebe",
+    "key": "048748c5ac637af8",
     "cell": 0.1,
     "u0": -9.1,
     "v0": -0.8,
@@ -4021,7 +4021,7 @@
     "rects": "1 2 41 90 2 31 41 42 2 31 89 90 31 32 36 42 31 32 89 94 32 91 36 37 32 224 93 94 224 225 8 94 225 226 8 43 225 226 46 48 225 226 83 85 225 226 87 94 226 227 47 49 226 227 82 84 226 255 17 39 227 228 47 50 227 228 81 83 228 229 48 51 228 229 80 82 229 230 49 52 229 230 79 81 230 231 50 53 230 231 77 80 231 232 52 55 231 232 76 79 232 233 53 57 232 233 73 77 233 234 55 60 233 234 71 75 234 235 58 73 235 236 62 68 255 260 1 18 255 260 38 93"
    },
    "floor": {
-    "key": "ae9b3d5f37869434",
+    "key": "e6234761e69333a9",
     "cell": 0.1,
     "u0": 13.1,
     "v0": 1.1,
@@ -4231,9 +4231,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1621:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "e5c9a0713a1a069e8eee4b1c5dec79e1e6866fd8403fada19e98a828359a9d04",
+   "model_inputs_sha256": "da9193e16e13b0d2f7a3856838925a47dd0488098c02d04f4c5efc543e371f63",
    "barrier": {
-    "key": "163a2643ac88c499",
+    "key": "13fc61cedf538554",
     "cell": 0.1,
     "u0": -6.2,
     "v0": -0.5,
@@ -4241,7 +4241,7 @@
     "rects": "1 2 5 68 2 62 5 6 2 195 67 68 195 196 5 68 196 197 64 65 196 198 15 42 197 199 63 65 198 200 15 43 199 200 46 48 199 200 57 60 199 200 63 64 200 201 15 44 200 201 45 50 200 201 56 61 200 201 62 64 201 202 43 52 201 202 54 63 201 207 15 42 202 204 44 51 202 204 55 62 204 205 46 51 204 205 55 60 205 206 47 59 206 207 50 55 207 220 15 62 220 223 41 62 226 231 2 59 226 231 76 81"
    },
    "floor": {
-    "key": "ebaa3545af3c1a58",
+    "key": "a5ab93d298392811",
     "cell": 0.1,
     "u0": 12.4,
     "v0": 0.9,
@@ -4361,9 +4361,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1625:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1424896d83de8782f5bfb2ecdf9ff05fc7f216c93963753453a662d528d168c0",
+   "model_inputs_sha256": "64c1a3235c7cf2d95dd85f1840467c5ceaebc92ab086ff38d0fbac6dfed18424",
    "barrier": {
-    "key": "a8a157ebf8d6e7e3",
+    "key": "8ee455674495da62",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.3,
@@ -4371,7 +4371,7 @@
     "rects": "1 2 19 32 1 2 51 64 2 3 79 98 3 78 97 98 76 77 81 91 77 78 81 82 77 78 90 91 78 79 79 82 78 79 90 98 79 83 79 80 83 89 79 81 89 108 79 80 108 116 79 81 116 137 79 80 137 143 79 81 143 167 79 80 167 180 79 81 180 195 79 80 195 196 79 82 196 197 79 80 197 198 3 80 198 199 5 7 198 199 41 80 199 204 50 72 228 232 1 51 228 232 71 93"
    },
    "floor": {
-    "key": "8933d5baa7719ef3",
+    "key": "056726d0a014cfb7",
     "cell": 0.1,
     "u0": 19.4,
     "v0": 4.6,
@@ -4561,9 +4561,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1626:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "c8f7b6b52bee0300194b1c26a31ee8fbb57e7fb48351141b53a109d9e592dbcb",
+   "model_inputs_sha256": "e28b82ce11b8781f04a3e21820bbdd81cc389a694df073d61b733f243d450237",
    "barrier": {
-    "key": "cdb08546142b5416",
+    "key": "de6c76fa5b004eb7",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -0.1,
@@ -4571,7 +4571,7 @@
     "rects": "3 4 4 6 3 4 77 79 4 127 81 82 127 128 10 12 127 128 46 48 127 161 55 80 128 129 10 13 128 129 45 48 129 130 11 14 129 130 44 47 130 131 12 15 130 131 43 46 131 132 13 16 131 132 42 45 132 133 15 17 132 133 41 43 133 134 16 18 133 134 40 42 134 135 17 19 134 135 39 41 135 136 17 20 135 136 38 41 136 137 18 21 136 137 37 40 137 138 19 22 137 138 36 39 138 139 20 38 213 214 63 64 213 214 71 72 214 215 62 64 214 215 71 73 215 216 62 63 215 216 72 73 216 217 55 63 216 217 72 80 217 218 1 63 217 218 72 84 218 221 1 62 218 221 73 84 221 223 55 62 221 223 73 80"
    },
    "floor": {
-    "key": "be567696ca187c93",
+    "key": "f8bf91bb1a9f7e07",
     "cell": 0.1,
     "u0": 12.1,
     "v0": 5.7,
@@ -4761,9 +4761,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1628:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "6b03703c814f282d1ec00ab89bcfd4a4b7ee261a2ae6286aae403b0e050971e5",
+   "model_inputs_sha256": "3ecedd64d2647f70c53e7710c61a6299e92d46a4bbd3c6a3a3af4368aedf98d9",
    "barrier": {
-    "key": "5535fc11ce8d0a0e",
+    "key": "0648f6b6ac821f1f",
     "cell": 0.1,
     "u0": -4.9,
     "v0": -0.9,
@@ -4771,7 +4771,7 @@
     "rects": "2 3 29 70 3 49 29 30 3 172 69 70 48 49 12 14 48 49 26 28 91 93 8 9 172 173 47 60 172 174 65 67 172 206 13 38 258 259 21 22 258 259 29 30 259 260 20 22 259 260 29 31 260 261 20 21 260 261 30 31 261 262 13 21 261 262 30 38 262 263 2 21 262 263 30 72 263 266 2 20 263 266 31 72 266 268 13 20 266 268 31 38"
    },
    "floor": {
-    "key": "ee244620ad40ce8f",
+    "key": "c0ed2647547cd395",
     "cell": 0.1,
     "u0": 12.1,
     "v0": 0.7,
@@ -4961,9 +4961,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1634:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b0219332ef1aa10a69d7f98ce68256f1a9b5ea1d6dc5549f0d43b488f39cd0d3",
+   "model_inputs_sha256": "8a126677c72c7b0655b2be5fd487151ae754800526585c971e085c179f77a669",
    "barrier": {
-    "key": "880a314fd75cfdc5",
+    "key": "d48f8810a354e50f",
     "cell": 0.1,
     "u0": -8.4,
     "v0": -0.2,
@@ -4971,7 +4971,7 @@
     "rects": "2 3 2 52 3 12 26 36 3 84 2 3 3 84 51 52 238 239 2 77 239 240 36 38 239 240 72 74 239 272 8 33 240 241 37 39 240 241 71 73 241 242 38 40 241 242 70 72 242 243 39 41 242 243 69 71 243 244 40 42 243 244 68 70 244 245 41 43 244 245 67 69 245 246 42 44 245 246 66 68 246 247 43 45 246 247 65 67 247 248 44 46 247 248 64 66 248 249 45 47 248 249 63 65 249 250 46 64 320 321 16 18 320 321 24 26 321 322 16 17 321 322 25 26 322 323 15 17 322 323 25 27 323 324 8 17 323 324 25 33 324 327 1 16 324 327 26 77 327 328 1 15 327 328 27 77 328 330 8 15 328 330 27 33"
    },
    "floor": {
-    "key": "62b33867799c691a",
+    "key": "510536142c16e09a",
     "cell": 0.1,
     "u0": 15.2,
     "v0": 0.9,
@@ -5161,9 +5161,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1636:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "c48defdcad32b59ca22613952819781d6d74c3b42a17a274ff290cd85835ece1",
+   "model_inputs_sha256": "fdc8fbe67b470185f9ec53d7fac6f8508c61b7f1c8a3fd6947ec49b2801bc8e6",
    "barrier": {
-    "key": "c91ec0fee73a22f6",
+    "key": "29193c549e07a59e",
     "cell": 0.1,
     "u0": -8.4,
     "v0": -0.3,
@@ -5171,7 +5171,7 @@
     "rects": "2 3 30 81 3 84 30 31 3 238 80 81 238 239 3 81 239 240 6 9 239 240 42 45 239 272 49 74 240 241 8 10 240 241 41 43 241 242 9 11 241 242 40 42 242 243 10 12 242 243 39 41 243 244 11 13 243 244 38 40 244 245 12 14 244 245 37 39 245 246 13 15 245 246 36 38 246 247 14 16 246 247 35 37 247 248 15 17 247 248 34 36 248 249 16 18 248 249 33 35 249 250 17 34 320 321 65 67 320 322 57 58 321 322 66 67 322 323 49 58 322 324 66 74 323 324 49 57 324 326 2 57 324 328 67 80 326 328 2 56 328 329 49 56 328 329 67 74"
    },
    "floor": {
-    "key": "df57897dfb1d039c",
+    "key": "07c0b1f9398ac1d4",
     "cell": 0.1,
     "u0": 15.3,
     "v0": 4.9,
@@ -5351,9 +5351,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1708:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "2de9b0afa00c5da91beaa2f4da1454fb7ae967a7cae30b11743925f270d19727",
+   "model_inputs_sha256": "953b6849ca5dcf37f0f880d3c6a1e741ff5a31294417e58d2a3ddc9df9fc98af",
    "barrier": {
-    "key": "872fbe43a400c490",
+    "key": "c88840e6bd9755a9",
     "cell": 0.1,
     "u0": -16.4,
     "v0": -1.3,
@@ -5361,7 +5361,7 @@
     "rects": "2 3 62 89 3 71 62 63 3 292 88 89 71 72 26 63 72 164 26 27 164 292 13 14 292 293 13 89 293 294 16 18 293 294 51 54 293 323 61 83 294 295 17 19 294 295 51 53 295 296 50 52 295 297 18 20 296 297 49 51 297 298 19 21 297 298 48 50 298 299 20 22 298 299 47 50 299 300 21 23 299 300 47 49 300 301 21 24 300 301 46 48 301 302 22 47 302 303 23 46 374 375 68 69 374 375 76 77 375 376 67 69 375 376 76 78 376 378 67 68 376 378 77 78 378 379 2 5 378 379 12 68 378 379 77 90 379 381 2 67 379 382 78 90 381 382 2 5 381 382 12 67"
    },
    "floor": {
-    "key": "3de26aa69df1f5d1",
+    "key": "202dfddb8ba7622e",
     "cell": 0.1,
     "u0": 12.6,
     "v0": 4.8,
@@ -5611,9 +5611,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1712:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "9bc606a44d598514d1ed41f0f9c1f704ab5837ee7cce5b5209eba36f8ad12d9e",
+   "model_inputs_sha256": "b73037eaa9ffecedc5178c2a10c6baa53131072688269235e566a2986c1cb37e",
    "barrier": {
-    "key": "54579b0fb210e93b",
+    "key": "25a2af35af149fc6",
     "cell": 0.1,
     "u0": -9.4,
     "v0": -4.3,
@@ -5621,7 +5621,7 @@
     "rects": "2 3 63 99 3 12 76 86 3 17 98 99 3 94 63 64 17 18 98 132 18 94 131 132 92 94 146 147 150 151 34 43 151 175 34 36 175 176 34 43 212 213 150 151 213 214 41 43 213 214 150 153 217 218 43 88 217 218 105 150 218 220 146 147 218 227 87 88 218 227 105 106 227 237 87 89 227 237 104 106 237 268 87 106 303 307 1 88 303 307 105 158"
    },
    "floor": {
-    "key": "c46d70afd9cb1e10",
+    "key": "da9213abbc687de8",
     "cell": 0.1,
     "u0": 12.0,
     "v0": 4.4,
@@ -5831,9 +5831,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1726:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "129dfafd4cec9bac6365fdbdb0980a5eb16a32150d9efe5d7044a7eb868520b3",
+   "model_inputs_sha256": "de28c12878aba496999b1c99922fa717f0f24e609498ff33f9917fe914f4afae",
    "barrier": {
-    "key": "0c35edc8a31e7eb0",
+    "key": "139853278bd09c55",
     "cell": 0.1,
     "u0": -2.0,
     "v0": -4.5,
@@ -5841,7 +5841,7 @@
     "rects": "1 2 50 120 2 20 50 51 2 20 82 83 2 20 119 120 19 20 125 127 20 48 129 130 38 40 32 45 40 98 32 34 48 50 129 140 50 96 129 130 50 96 139 140 96 98 129 140 98 100 32 45 98 232 129 130 136 137 44 45 137 138 43 45 138 139 42 44 139 140 41 43 140 141 40 42 141 142 39 41 142 143 38 40 143 144 37 39 144 145 36 38 145 146 35 37 146 147 34 36 147 148 32 35 148 185 32 34 185 186 32 35 186 187 34 36 187 188 35 37 188 189 36 38 189 190 37 39 190 191 38 40 191 192 39 41 192 193 40 42 193 194 41 43 194 195 42 44 195 196 43 45 196 197 44 45 229 230 43 45 232 234 129 131 234 236 129 130 236 237 45 130 237 238 52 54 237 238 93 95 237 239 125 127 237 252 99 100 237 252 102 121 237 252 123 124 238 239 53 55 238 239 92 94 239 240 53 56 239 240 91 94 240 241 54 56 240 241 91 93 241 242 55 57 241 242 90 92 242 243 56 58 242 243 89 91 243 244 56 59 243 244 88 91 244 245 57 59 244 245 88 90 245 246 58 60 245 246 87 89 246 248 59 61 246 248 86 88 248 249 60 87 249 250 61 86 252 276 99 124 325 330 1 103 325 330 120 188"
    },
    "floor": {
-    "key": "f9a14cad5047c72a",
+    "key": "fa36c0868f6a0cff",
     "cell": 0.1,
     "u0": 21.4,
     "v0": 5.3,
@@ -6061,9 +6061,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1730:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "9d5cf69886429f4d2f6f6127794d932231489d8a4df5e97de4bcf1de6f573edd",
+   "model_inputs_sha256": "f95eb24e035d6b9056af78a2869c5e84ff3e0a7c59f87faee69b1c6935afe6a4",
    "barrier": {
-    "key": "fb717e7e28f4992d",
+    "key": "9318ca5560fe129e",
     "cell": 0.1,
     "u0": -11.8,
     "v0": -10.1,
@@ -6071,7 +6071,7 @@
     "rects": "1 2 145 180 2 15 145 146 2 15 179 180 15 16 101 146 15 16 179 181 16 118 101 102 16 243 180 181 117 118 104 106 121 123 100 101 146 148 88 101 148 202 88 90 202 203 88 101 203 240 88 90 240 241 88 101 243 244 101 181 244 245 139 141 244 245 165 167 244 246 176 178 244 261 105 106 244 261 108 127 244 261 129 130 245 246 139 142 245 246 164 167 246 247 140 142 246 247 164 166 247 248 141 143 247 248 163 165 248 249 142 144 248 249 162 164 249 251 143 145 249 251 161 163 251 252 144 146 251 252 160 162 252 253 144 162 261 286 105 130 326 327 113 114 326 327 121 122 327 328 112 114 327 328 121 123 328 331 1 8 328 331 18 25 328 331 105 113 328 331 122 130 331 333 1 112 331 333 123 181 333 335 1 8 333 335 18 25 333 335 105 112 333 335 123 130"
    },
    "floor": {
-    "key": "41d9a4d7b755de48",
+    "key": "0955a4a0350ab3ab",
     "cell": 0.1,
     "u0": 12.3,
     "v0": 0.3,
@@ -6301,9 +6301,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1736:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "e6a3368bd7444825d22d6e544506f7f8aeb6063716b55c3921746168cc78170e",
+   "model_inputs_sha256": "0bb618c9399adec5bcbc573c8ba803a3110220b45b594427726ada1738cfbb06",
    "barrier": {
-    "key": "6590d77a034b51ca",
+    "key": "84687b39f8c28fd8",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.0,
@@ -6311,7 +6311,7 @@
     "rects": "1 234 78 79 35 36 8 10 36 37 7 10 37 38 5 8 38 39 4 7 39 40 3 5 40 41 1 4 41 42 1 3 42 55 1 2 55 56 1 3 56 57 1 5 57 58 3 6 58 59 4 7 59 60 6 9 60 61 7 10 61 62 8 10 95 96 9 10 96 97 7 10 97 98 6 8 98 99 4 7 99 100 2 5 100 101 1 4 101 123 1 2 123 124 1 3 124 125 1 4 125 126 3 6 126 127 4 8 127 128 6 9 128 129 8 10 129 130 9 10 134 135 8 10 161 162 8 10 162 163 7 10 163 164 5 8 164 165 4 7 165 166 2 5 166 167 1 4 167 187 1 2 187 188 1 3 188 189 2 5 189 190 3 6 190 191 5 8 191 192 6 9 192 193 8 10 193 194 9 10 196 230 4 8 230 231 4 10 231 321 4 8 234 235 10 79 235 236 16 27 235 236 37 48 235 247 10 11 235 247 78 79 247 248 10 59 247 249 76 79 248 249 10 58 249 250 10 61 249 252 75 79 250 251 10 59 250 251 60 61 251 252 10 61 252 253 10 79 253 258 58 60 253 258 61 75 253 258 76 77 258 281 58 77 321 326 4 61 321 326 73 89"
    },
    "floor": {
-    "key": "18c15d2b0d5a3d16",
+    "key": "a80c2526a0a29352",
     "cell": 0.1,
     "u0": 23.1,
     "v0": 0.1,
@@ -6566,9 +6566,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1828:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "52882af77c26780d8b573405faaac7a683dfc1e76b825a49e10e9d882f618224",
+   "model_inputs_sha256": "d699a1d60ca99183275147d771efd993c7417237b261833460082103ea95d41c",
    "barrier": {
-    "key": "0eebb11eb21de983",
+    "key": "3e211e64c5cfe601",
     "cell": 0.1,
     "u0": -7.2,
     "v0": -3.8,
@@ -6576,7 +6576,7 @@
     "rects": "1 2 39 121 2 72 39 40 2 266 120 121 71 72 116 118 77 78 36 38 78 79 35 38 79 80 34 36 80 81 33 35 81 82 32 34 82 83 31 33 83 84 30 32 84 86 29 31 86 87 28 30 87 88 28 29 88 90 27 29 90 91 27 28 91 93 26 28 93 102 26 27 102 105 26 28 105 107 27 29 107 108 28 29 108 109 28 30 109 111 29 31 111 112 30 32 112 113 31 33 113 114 31 34 114 115 33 35 115 116 34 36 116 117 35 38 117 118 36 38 125 127 37 38 127 128 36 38 128 129 34 37 129 130 33 36 130 131 32 35 131 132 31 34 132 133 30 33 133 134 29 32 134 135 28 31 135 174 28 30 174 175 28 31 175 176 29 32 176 177 30 33 177 178 31 34 178 179 32 35 179 180 33 36 180 181 34 37 181 182 36 38 182 184 37 38 214 215 36 38 223 224 15 38 224 263 15 17 263 264 15 38 266 267 38 121 267 268 41 43 267 268 47 49 267 268 78 82 267 268 85 87 267 293 111 112 267 298 114 115 268 269 42 50 268 269 78 83 268 269 84 86 269 270 43 51 269 270 77 85 270 271 44 52 270 271 76 84 271 272 45 53 271 272 75 83 272 273 46 54 272 273 74 82 273 274 47 53 273 274 75 81 273 277 60 69 274 275 48 53 274 275 76 80 275 276 49 52 275 277 76 79 276 277 50 53 277 278 51 54 277 278 59 69 277 278 75 77 277 284 78 79 278 279 52 76 279 280 54 75 284 285 78 88 285 293 84 88 293 298 84 112 298 324 84 115 333 334 95 96 333 334 103 104 334 335 94 96 334 335 103 105 335 337 94 95 335 337 104 105 337 338 2 5 337 338 14 95 337 338 104 135 338 340 2 94 338 341 105 135 340 341 2 5 340 341 14 94"
    },
    "floor": {
-    "key": "231c709344191111",
+    "key": "c632bb21f470f6af",
     "cell": 0.1,
     "u0": 19.3,
     "v0": 4.0,
@@ -6746,9 +6746,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2000:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "abbf97f2039a2e3eb3435782dc9db813f7f32261e2c8603fba0ba843e325e025",
+   "model_inputs_sha256": "bc5e4856d2a03de6e571c4ce4cf5ee02a8c35d773337da81a429f727a43ac25e",
    "barrier": {
-    "key": "9eed39d2bf5e13fb",
+    "key": "ae1640102ed01976",
     "cell": 0.1,
     "u0": -1.1,
     "v0": -4.7,
@@ -6756,7 +6756,7 @@
     "rects": "1 2 39 114 2 53 39 40 2 111 113 114 53 54 16 40 54 55 15 40 55 56 14 18 55 110 39 40 56 57 13 18 57 58 12 15 57 58 16 19 58 59 11 14 58 108 16 18 59 60 10 14 60 61 9 13 61 62 8 12 62 63 7 11 63 64 6 10 64 65 5 9 65 66 4 8 66 67 3 6 67 68 2 5 68 69 1 4 69 78 1 3 78 88 1 4 88 97 1 3 97 98 1 4 98 99 2 5 99 100 3 7 100 101 4 8 101 102 6 9 102 103 7 10 103 104 8 11 104 105 9 12 105 106 10 14 106 107 11 14 107 108 12 15 108 109 13 18 108 110 20 21 109 110 14 18 109 110 23 34 110 111 16 40 111 112 113 115 111 114 39 40 112 113 113 116 113 114 113 117 114 115 115 118 114 116 23 40 114 169 113 114 115 116 115 119 116 117 21 25 116 117 117 120 116 171 39 40 117 118 20 25 117 118 118 121 118 119 19 22 118 119 23 27 118 119 119 122 119 120 18 22 119 120 120 123 119 169 23 25 120 121 17 20 120 121 121 124 121 122 16 19 121 122 122 125 122 123 14 18 122 123 122 126 123 124 13 17 123 124 124 127 124 125 12 15 124 157 126 128 125 126 11 15 126 127 10 13 127 128 9 12 128 129 8 11 129 138 8 10 138 149 8 11 149 158 8 10 157 158 125 128 158 159 8 11 158 159 124 127 159 160 9 12 159 160 122 126 160 161 10 13 160 161 122 125 161 162 11 15 161 162 121 124 162 163 13 16 162 163 120 123 163 164 14 17 163 164 119 122 164 165 15 18 164 165 118 121 165 166 16 19 165 166 117 120 166 167 17 20 166 167 116 119 167 168 18 22 167 168 116 118 168 169 19 22 168 169 115 118 169 170 20 25 169 170 113 117 169 171 27 28 170 171 21 25 170 171 113 116 171 172 23 40 171 172 113 115 172 173 24 25 172 173 39 40 172 173 113 118 173 174 39 118 174 175 113 114 174 186 116 118 174 234 98 99 174 237 42 44 186 197 115 118 197 216 116 118 216 227 115 118 227 234 116 118 234 235 96 99 234 235 115 118 235 237 46 47 235 237 98 99 235 237 116 118 236 237 54 64 236 237 77 87 236 237 102 113 237 238 42 118 238 256 43 117 256 270 52 67"
    },
    "floor": {
-    "key": "8425204d02d7ca02",
+    "key": "9265c4934fd86166",
     "cell": 0.1,
     "u0": 22.5,
     "v0": -0.5,
@@ -6966,9 +6966,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2001:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "0256f0b3de6be8693fb993f0da815d1dff817f51e9fc8855c5a8014c9febf4d6",
+   "model_inputs_sha256": "3414d78237dff159da10eebe5c644c049a0ce46f4c234b2890030607bcf48751",
    "barrier": {
-    "key": "149bc2fa29879858",
+    "key": "c9eb863aab618c6f",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -1.1,
@@ -6976,7 +6976,7 @@
     "rects": "2 3 74 75 3 4 74 76 4 5 1 11 4 191 78 79 5 121 1 3 121 123 1 11 191 192 9 11 191 192 78 81 192 195 78 79 195 196 32 79 195 211 11 12 195 211 14 30 196 197 74 76 196 211 32 33 197 198 74 75 211 235 11 33"
    },
    "floor": {
-    "key": "96418206b92edffe",
+    "key": "3fe2158d358b8f28",
     "cell": 0.1,
     "u0": 18.9,
     "v0": 0.0,
@@ -7150,9 +7150,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "114d623293db78bff9d4c32ac41368b3ca6ca58af20820dadb6fa95c99c098ae",
+   "model_inputs_sha256": "aeb8a9d58d2b77ca6d1e5f9c20579a54544596da5c7f9bb7f186529f7f4a3308",
    "barrier": {
-    "key": "dabfb502388e3e0b",
+    "key": "bb5ab96e7c606a8a",
     "cell": 0.1,
     "u0": -11.7,
     "v0": -0.5,
@@ -7160,7 +7160,7 @@
     "rects": "2 3 5 52 3 93 51 52 3 117 5 6 93 94 42 52 94 117 42 43 303 304 2 3 304 305 2 22 304 305 65 68 305 306 2 23 305 306 63 67 306 307 2 25 306 307 62 65 307 308 23 28 307 308 59 63 307 338 2 22 308 309 25 30 308 309 56 61 309 310 28 34 309 310 52 58 310 311 31 55 311 312 36 50"
    },
    "floor": {
-    "key": "441a57b7daecd56a",
+    "key": "9ef2cbf19c2d9aeb",
     "cell": 0.1,
     "u0": 18.5,
     "v0": 0.0,
@@ -7350,9 +7350,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2005:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "e9401f7299369e2568714aacd3d8ed8b4da5310d9df3f3bb1bbd9d9577881cb0",
+   "model_inputs_sha256": "258757a1c93a6ab87343554128fd2042a501f4ac5f33d364c3a1e6fe335e6427",
    "barrier": {
-    "key": "fc6244c61bd72e16",
+    "key": "584b1bbbfd8e4913",
     "cell": 0.1,
     "u0": -12.8,
     "v0": -0.1,
@@ -7360,7 +7360,7 @@
     "rects": "2 3 25 72 3 104 25 26 3 315 71 72 104 105 25 35 105 128 34 35 315 316 5 8 315 316 49 71 316 317 7 10 316 317 47 71 317 318 8 12 317 318 45 49 317 349 51 71 318 319 10 14 318 319 43 47 319 320 12 17 319 320 41 45 320 321 15 20 320 321 37 43 321 322 17 40 322 323 22 35"
    },
    "floor": {
-    "key": "c8180f23ae82d540",
+    "key": "03a6c42bb16dd175",
     "cell": 0.1,
     "u0": 18.5,
     "v0": 5.3,
@@ -7514,9 +7514,9 @@
      "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks): its panelled leaf is read off the model's stained wood inside the door's casing, and the way up to it off the model's porch steps (derive_doors_scene.py stoop_way); one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3773); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "20503b7eb9c7c74de7b92c78337ba3ad1f617d1cf5a29a037b7be741621788b7",
+   "model_inputs_sha256": "ae5d765744da96d6aa89124ff3f96ba4b0fc3e594be8f3388fc28fe5eb61284e",
    "barrier": {
-    "key": "7c5766d734ad06b2",
+    "key": "4321126d49f1d0f6",
     "cell": 0.1,
     "u0": -2.2,
     "v0": -5.5,
@@ -7524,7 +7524,7 @@
     "rects": "2 3 56 126 3 20 56 57 3 108 125 126 20 21 19 57 21 22 33 44 21 23 19 21 21 103 56 57 23 24 19 22 24 46 19 21 46 47 18 21 47 48 17 21 48 49 16 21 49 50 15 18 49 102 19 21 50 51 14 17 51 52 12 16 52 53 11 15 53 54 10 13 54 55 9 12 55 56 8 11 56 57 7 10 57 58 6 9 58 59 5 8 59 60 3 6 60 61 2 5 61 92 2 4 92 93 3 6 93 94 4 7 94 95 5 10 95 96 6 11 96 97 8 12 97 98 9 14 98 99 10 15 99 100 12 16 100 101 13 16 101 102 14 17 102 103 16 21 102 104 22 23 103 104 17 21 103 104 27 57 104 105 18 57 105 106 20 21 105 107 27 29 105 167 56 57 107 108 27 30 108 109 26 29 108 109 125 127 109 110 125 128 109 111 25 29 110 111 127 129 110 164 125 126 111 112 24 26 111 112 127 130 111 165 27 29 112 113 23 26 112 113 128 131 113 114 129 132 113 115 22 25 114 115 130 133 115 116 21 23 115 116 131 134 116 117 20 23 116 117 132 135 117 118 19 22 117 118 133 136 118 119 19 21 118 120 134 137 119 120 18 21 120 121 17 20 120 121 136 138 121 122 16 20 121 122 137 139 122 123 16 18 122 150 138 140 123 124 15 17 124 125 14 17 125 126 13 16 126 135 13 15 135 146 13 16 146 155 13 15 150 151 137 139 151 152 136 138 152 153 135 138 153 154 133 137 154 155 133 136 155 156 14 16 155 156 132 135 156 157 15 17 156 157 131 135 157 158 16 19 157 158 131 134 158 159 17 20 158 159 130 133 159 160 18 21 159 160 129 133 160 161 19 22 160 161 129 132 161 162 20 23 161 162 128 131 162 163 21 24 162 163 128 130 163 164 22 26 163 164 127 130 164 165 23 26 164 165 125 129 165 166 24 29 165 166 125 128 166 167 25 29 166 167 30 41 166 167 125 132 167 168 26 132 168 169 27 126 168 169 127 128 168 178 130 132 169 225 98 99 169 228 43 45 178 188 129 132 188 209 130 132 209 219 129 132 219 225 130 132 225 226 96 99 225 226 128 132 226 228 98 99 226 228 130 132 227 228 47 48 227 228 55 63 228 230 43 132 230 250 43 131 250 264 52 67"
    },
    "floor": {
-    "key": "979aecd970ae97a4",
+    "key": "dc7c2596a759d8ea",
     "cell": 0.1,
     "u0": 20.6,
     "v0": -1.2,
@@ -7734,9 +7734,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2011:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "3b2794e864167ab8e43d7991d1a6b448333ca5ce7d27189f399a6cf89ed336dc",
+   "model_inputs_sha256": "f7d76735e81b04185fcadda4e05c2e7092f34a388dd880cb868706840cf36afc",
    "barrier": {
-    "key": "712de2b7784b0887",
+    "key": "bc0d4ac153bf3a27",
     "cell": 0.1,
     "u0": -16.7,
     "v0": -0.1,
@@ -7744,7 +7744,7 @@
     "rects": "2 3 1 46 3 31 45 46 3 168 1 2 31 32 45 68 32 102 67 68 102 103 45 68 103 167 45 46 167 168 45 75 168 296 74 75 296 297 1 5 296 298 31 33 296 298 67 69 296 310 7 24 296 310 26 27 297 310 4 5 298 299 32 34 298 299 66 68 299 300 32 35 299 300 65 68 300 301 33 36 300 301 65 67 301 302 34 36 301 302 64 66 302 303 35 38 302 303 62 65 303 304 36 39 303 304 61 64 304 305 37 40 304 305 60 63 305 306 39 42 305 306 58 61 306 307 40 45 306 307 55 60 307 308 43 57 308 309 47 53 310 335 4 27 361 366 24 75"
    },
    "floor": {
-    "key": "3aa9ca0c860b84cc",
+    "key": "cefa4c82b064ebb9",
     "cell": 0.1,
     "u0": 12.4,
     "v0": 0.6,
@@ -7944,9 +7944,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2017:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "42ffe439833bb674b182dd22128a50ca5c9fcbbd6c8570249bd3524e46f141c9",
+   "model_inputs_sha256": "32512d5caa6c5350bc2c123f3b550b5b49841f422e7d7b8ca5f5f2b13873aa70",
    "barrier": {
-    "key": "63ed2de31afee6ac",
+    "key": "e1156e0b9e5b34a7",
     "cell": 0.1,
     "u0": -6.6,
     "v0": -0.4,
@@ -7954,7 +7954,7 @@
     "rects": "1 2 19 80 2 66 19 20 2 66 79 80 70 71 2 4 227 228 107 110 231 232 4 108 232 234 76 84 232 235 37 70 232 235 92 101 232 235 106 108 234 235 75 85 235 236 37 108 236 237 74 86 236 237 91 102 236 240 37 70 240 243 4 107 243 273 37 70"
    },
    "floor": {
-    "key": "ef811fdb71965470",
+    "key": "18e9e950af887b1c",
     "cell": 0.1,
     "u0": 16.3,
     "v0": 3.1,
@@ -8144,9 +8144,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2018:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "068bf38a1aceaf5ef987ca17a7a79699523d67a9feb0b75110f5c2b1df6b4c82",
+   "model_inputs_sha256": "c74677841332ee168644386d46d4c66c45bd13946060b494a0329edd339e51bc",
    "barrier": {
-    "key": "f02b2f1d40d9dceb",
+    "key": "f19241f6e8c2339d",
     "cell": 0.1,
     "u0": -2.2,
     "v0": -0.8,
@@ -8154,7 +8154,7 @@
     "rects": "2 3 61 90 3 22 61 62 3 65 89 90 65 66 89 91 66 67 89 92 67 68 91 93 67 113 89 90 68 69 92 94 69 70 93 95 70 71 94 96 71 72 94 97 72 73 95 98 73 108 97 99 108 109 95 98 109 110 94 97 110 111 93 96 111 112 92 95 112 113 91 94 113 114 89 93 114 115 89 92 115 116 89 91 116 150 89 90 122 123 7 8 123 124 6 8 124 125 5 8 125 126 5 7 126 127 3 6 127 128 2 5 128 129 1 4 129 158 1 3 150 151 89 91 151 152 89 92 152 153 91 93 152 177 89 90 153 154 92 94 154 155 92 95 155 156 93 96 156 157 94 97 157 158 95 98 158 159 2 4 158 172 96 98 159 160 3 5 160 161 4 6 161 162 5 7 162 163 6 8 163 164 7 8 172 173 95 97 173 174 94 96 174 175 93 95 175 176 92 94 176 177 91 93 177 178 89 92 178 179 89 91 179 202 89 90 202 204 89 98 204 263 89 90 204 263 96 98 263 264 8 98 264 265 11 13 264 266 65 97 265 266 12 13 266 267 12 14 266 267 64 66 266 287 67 97 267 268 13 14 267 268 64 65 268 269 13 15 268 269 63 65 269 270 62 64 269 271 14 16 270 271 61 64 271 272 15 17 271 272 61 63 272 273 16 18 272 273 60 62 273 274 17 19 273 274 59 61 274 275 18 20 274 275 58 60 275 276 19 21 275 276 57 59 276 277 20 23 276 277 55 58 277 278 21 24 277 278 54 57 278 279 23 26 278 279 52 55 279 280 24 28 279 280 50 54 280 281 27 31 280 281 47 52 281 282 29 36 281 282 42 49 282 283 33 46 287 308 67 88"
    },
    "floor": {
-    "key": "0c4c5a8aed1c24ac",
+    "key": "063d28a1249ed990",
     "cell": 0.1,
     "u0": 24.0,
     "v0": 5.8,
@@ -8384,9 +8384,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2026:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "eefda7185b190caac7cc4a8c0e3d31a9f01c6e48fb3b8962026d4e3e10543cac",
+   "model_inputs_sha256": "f4ca499874d1136959d768f78928d10115f802c1093cc4d7fec6892ac10ffca0",
    "barrier": {
-    "key": "6e4a3fcdab35455c",
+    "key": "310ba8185fb7ff77",
     "cell": 0.1,
     "u0": -2.2,
     "v0": -19.4,
@@ -8394,7 +8394,7 @@
     "rects": "1 2 216 228 1 2 261 273 2 3 197 292 3 4 217 218 3 4 226 227 3 4 262 263 3 4 271 272 3 6 197 198 3 21 291 292 6 7 196 198 7 8 196 199 8 16 196 198 16 17 196 199 17 18 196 198 18 22 197 198 21 22 290 292 132 133 192 194 150 151 193 194 151 152 192 194 152 153 190 193 153 154 189 192 154 155 188 192 155 156 187 193 156 157 185 193 157 158 184 192 158 159 183 191 159 160 186 190 159 164 183 184 160 161 187 189 164 173 183 189 173 178 183 184 176 177 187 189 177 178 186 190 178 179 183 191 179 180 184 192 180 181 185 193 181 182 187 193 182 183 188 192 183 184 189 192 184 185 190 193 185 186 192 194 186 187 193 194 247 248 194 295 248 249 197 199 248 249 230 232 248 258 260 262 248 258 291 293 248 266 237 238 248 266 257 258 248 272 234 235 249 250 198 200 249 250 229 231 250 251 198 201 250 251 228 231 251 252 199 201 251 252 228 230 252 253 200 202 252 253 227 229 252 257 210 219 252 257 264 272 252 257 282 290 253 254 201 203 253 254 226 228 254 256 202 204 254 256 225 227 256 257 203 205 256 257 224 226 257 258 204 206 257 258 209 220 257 258 223 225 257 258 263 272 257 258 281 290 258 259 205 224 258 259 260 293 259 272 260 261 266 272 237 258 272 297 234 261 353 354 243 244 353 354 251 252 354 355 242 244 354 355 251 253 355 357 242 243 355 357 252 253 357 358 2 5 357 358 24 243 357 358 252 357 358 360 2 242 358 361 253 357 360 361 2 5 360 361 24 242"
    },
    "floor": {
-    "key": "c384246ea60899dc",
+    "key": "4fcc678cb4cdcac7",
     "cell": 0.1,
     "u0": 22.4,
     "v0": 3.9,
@@ -8584,9 +8584,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2027:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d1d04c1933232aaabeeefc3c1c2b7f5c0537b71d911b1741f79fc6528b3e8ae2",
+   "model_inputs_sha256": "5a5bb1a34c6827f206fc75bce562078ab2d69be74caa78ed325e24acb9a963e6",
    "barrier": {
-    "key": "c114c0360f352537",
+    "key": "c7cdb02b0c844508",
     "cell": 0.1,
     "u0": -8.4,
     "v0": -1.1,
@@ -8594,7 +8594,7 @@
     "rects": "1 2 31 112 2 84 31 32 2 84 111 112 82 83 15 16 83 84 14 16 87 89 10 11 105 106 10 11 106 107 9 11 107 108 8 10 108 109 6 9 109 110 5 8 110 111 4 7 111 112 3 5 112 113 2 4 113 149 1 3 149 150 2 4 150 151 3 5 151 152 4 7 152 153 5 8 153 154 6 9 154 155 8 10 155 156 9 11 156 157 10 11 249 250 140 141 249 251 10 11 250 251 140 142 253 254 140 141 254 255 32 43 254 265 64 66 254 265 117 141 265 267 64 141 267 287 117 141"
    },
    "floor": {
-    "key": "0db9e687ba7aca53",
+    "key": "a6bcd2efb5b995c1",
     "cell": 0.1,
     "u0": 16.7,
     "v0": 10.9,
@@ -8804,9 +8804,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2101:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "0389d6583a627861cd9ef778aa59739b6cd37f35fbc2fa8bdf7546297c68a7b5",
+   "model_inputs_sha256": "382409dffb44f04fba59a317cdbbfbb4e0de8709aae6666ed9e920a62a040a28",
    "barrier": {
-    "key": "4eaeef51724e1c95",
+    "key": "9d7e55914d6392e3",
     "cell": 0.1,
     "u0": -4.8,
     "v0": -1.1,
@@ -8814,7 +8814,7 @@
     "rects": "1 2 69 157 2 48 69 70 2 48 156 157 46 48 119 120 48 49 123 157 51 53 10 11 125 126 10 11 126 127 9 11 127 128 8 11 128 129 7 10 129 130 6 8 130 131 5 8 131 132 4 7 132 133 3 6 133 134 2 5 134 135 1 4 135 162 1 3 162 163 1 4 163 164 2 5 164 165 3 6 165 166 4 7 166 167 5 8 167 168 6 8 168 169 7 10 169 170 8 11 170 171 9 11 171 172 10 11 174 175 123 136 175 219 135 136 195 196 10 11 196 197 9 11 197 198 8 11 198 199 7 10 199 200 6 8 200 201 5 7 201 202 4 6 202 203 3 5 203 204 2 4 204 205 1 4 205 230 1 3 219 220 123 136 230 231 2 4 231 232 3 5 232 233 4 6 233 234 5 7 234 235 6 8 235 236 7 9 236 237 8 10 237 238 9 11 238 239 10 11 263 265 123 125 268 269 51 64 268 269 77 90 268 269 103 116 268 271 119 120 268 283 17 18 268 283 20 36 268 283 38 39 283 307 17 39"
    },
    "floor": {
-    "key": "61d5c18f5de4b584",
+    "key": "475fc46089582cfb",
     "cell": 0.1,
     "u0": 21.8,
     "v0": 0.5,
@@ -9024,9 +9024,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2120:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "6879bca09e80d9b32efc260637d76e5af9a4e2c94c1eadf88ce79ee38585916a",
+   "model_inputs_sha256": "3d348f9af3c325f3a04f091abdca81b8c4a987ba0e04f74d6d6e1acf6e663656",
    "barrier": {
-    "key": "98c09dfb79a00ce5",
+    "key": "5447a33d5d8e2d7b",
     "cell": 0.1,
     "u0": -11.9,
     "v0": -1.4,
@@ -9034,7 +9034,7 @@
     "rects": "1 2 26 37 1 2 58 69 2 3 14 81 3 4 27 37 3 4 58 68 3 12 80 81 3 19 14 15 4 12 27 36 4 12 59 68 12 13 80 82 13 22 71 82 19 20 13 16 20 29 13 24 22 23 79 82 23 35 80 81 29 30 13 15 30 53 14 15 35 36 79 82 36 45 71 82 45 46 79 82 46 59 80 81 53 54 13 16 54 63 13 24 59 60 80 82 60 69 71 82 63 64 13 15 64 80 14 15 69 70 80 82 70 80 80 81 80 81 14 33 80 81 63 81 81 119 32 33 81 119 63 64 118 119 17 19 119 184 132 133 122 124 13 14 184 185 132 134 185 186 132 135 186 187 134 136 186 210 132 133 187 188 135 137 188 189 136 138 189 190 137 139 190 191 138 140 191 205 139 141 205 206 138 141 206 207 13 14 206 207 137 140 207 208 12 14 207 208 136 139 208 209 11 13 208 209 135 138 209 210 10 12 209 210 134 137 210 211 9 11 210 211 132 136 211 212 8 10 211 212 132 135 212 213 7 9 212 213 132 134 213 214 6 8 213 278 132 133 214 215 5 7 215 216 4 6 216 217 3 5 217 218 2 4 218 241 2 3 241 242 2 4 242 243 2 5 243 244 3 6 244 245 5 7 245 246 5 8 246 247 6 9 247 248 7 10 248 249 8 11 249 250 9 12 250 251 10 13 251 253 12 14 253 254 13 14 278 279 132 135 279 282 132 133 282 283 22 34 282 283 41 54 282 283 93 106 282 283 113 125 282 284 17 19 282 305 55 92 305 308 61 62 305 308 64 83 305 308 85 86 308 331 61 86"
    },
    "floor": {
-    "key": "809918ff30be5b8e",
+    "key": "cd440eef408c8d03",
     "cell": 0.1,
     "u0": 16.1,
     "v0": 4.1,
@@ -9294,9 +9294,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2123:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f0625d447e5766ee7ce31311e389a01edf9803b487a8f81ec74a4d6b6becca27",
+   "model_inputs_sha256": "66d53cb8b4aaa348765e9252c518a4ce0eb2436d0c5dbefec906951336f7a738",
    "barrier": {
-    "key": "570025fedb306bd8",
+    "key": "e628310969262c4e",
     "cell": 0.1,
     "u0": -6.9,
     "v0": -0.1,
@@ -9304,7 +9304,7 @@
     "rects": "1 2 29 97 2 69 29 30 2 284 96 97 67 68 86 87 68 69 85 87 284 285 1 98 285 286 10 12 285 286 17 18 285 286 47 49 285 308 74 75 285 308 94 95 285 315 71 72 285 315 97 98 286 287 10 13 286 287 16 20 286 287 46 48 287 288 12 14 287 288 15 22 287 288 45 47 288 289 13 25 288 289 43 46 289 290 14 26 289 290 42 45 290 291 15 26 290 291 40 44 291 292 17 26 291 292 38 42 292 293 19 26 292 293 34 40 293 294 22 37 308 315 74 95 315 339 71 98"
    },
    "floor": {
-    "key": "1b3ad763851f2c1d",
+    "key": "325d8911226bc002",
     "cell": 0.1,
     "u0": 21.1,
     "v0": 7.2,
@@ -9569,9 +9569,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1834:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "606c31e950e0b5797093d32fe3622f52524940bd9e687b703fab1712c8e3a68a",
+   "model_inputs_sha256": "82d87bbb5400e09ad3b80f16c744bb944dca6bc5ae5d4caff4f001da09a45fad",
    "barrier": {
-    "key": "f3eaa3de0ccdea4c",
+    "key": "c2a24084f0f6e318",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.8,
@@ -9579,7 +9579,7 @@
     "rects": "2 3 119 120 3 4 118 120 4 106 134 135 106 107 134 136 107 108 134 137 108 109 134 139 109 110 137 140 109 135 134 135 110 111 139 142 111 112 140 144 112 113 142 145 113 114 144 147 114 115 145 147 115 119 146 147 119 125 140 147 125 129 146 147 129 130 145 147 130 131 144 147 131 132 142 145 132 133 140 144 133 134 139 142 134 135 137 140 135 136 134 139 136 137 134 137 137 138 134 136 138 227 134 135 213 214 36 38 227 228 44 56 227 228 85 135 227 240 61 62 227 241 38 39 228 230 110 113 228 230 132 134 228 240 85 86 240 241 61 63 240 248 84 86 241 242 38 63 242 248 61 63 248 279 61 86 279 281 67 80 281 282 67 95 282 285 67 87 285 288 67 88 288 291 67 89 291 293 67 90 293 294 67 95 298 302 2 155"
    },
    "floor": {
-    "key": "e8b566df93ea4257",
+    "key": "51055ddf21a2f5a7",
     "cell": 0.1,
     "u0": 21.9,
     "v0": 0.0,
@@ -9823,9 +9823,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "5e9e41fec3b9ec46918a191bb4d1001c2dc1d0818300bfbe60a068fc1ca38476",
+   "model_inputs_sha256": "2684a64e2ba50a38903d69d6556b67c57b523e964a2be1e7c5ccccc00d7d628a",
    "barrier": {
-    "key": "8d27227eb72df368",
+    "key": "0506f08e5b23d6fb",
     "cell": 0.1,
     "u0": -14.8,
     "v0": -0.2,
@@ -9833,7 +9833,7 @@
     "rects": "1 2 81 104 2 6 81 82 6 7 81 104 137 138 68 85 138 139 67 69 138 139 84 86 139 140 66 68 139 140 85 87 140 141 64 67 140 141 86 89 141 142 63 66 141 142 87 90 142 143 62 65 142 143 88 91 143 144 61 64 143 144 89 92 144 145 61 63 144 145 90 92 145 146 60 62 145 146 91 93 146 147 59 61 146 147 92 94 147 148 57 60 147 148 93 96 148 495 106 107 495 496 2 107 496 497 2 11 496 497 14 16 496 497 63 65 496 503 49 50 496 504 51 52 496 522 106 107 497 498 15 17 497 498 21 23 497 498 62 64 498 499 16 18 498 499 20 25 498 499 61 63 499 500 17 26 499 500 60 62 500 501 18 27 500 501 58 61 501 502 19 27 501 502 57 60 502 503 20 26 502 503 31 35 502 503 44 48 502 503 56 59 503 504 22 26 503 504 54 57 503 505 30 37 503 505 42 50 504 505 24 28 504 505 51 55 505 506 26 37 505 506 42 53 506 507 28 38 506 507 41 52 507 508 31 48 507 508 49 52 507 510 70 71 508 510 51 52 508 515 49 50 510 515 51 71 515 526 49 71 518 522 80 96 522 523 73 107 523 526 73 74 526 534 49 74 534 536 48 74 536 537 2 6 536 537 24 29 536 537 46 76 536 537 101 105 537 539 2 105 539 540 2 51 539 540 71 105"
    },
    "floor": {
-    "key": "2bfa1b51075d8629",
+    "key": "19aa1b23ddb0910e",
     "cell": 0.1,
     "u0": 34.6,
     "v0": 0.0,
@@ -10053,9 +10053,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1709:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "16927be978e5fcda6a63b499f9f3fd46c6d100b557dec5e6b853cccf5e3adf4a",
+   "model_inputs_sha256": "e999e55204e44936c844b55d7bad26c1ec0c7841ee845ae980a8aa0a0982d596",
    "barrier": {
-    "key": "013bd5b30f38dca1",
+    "key": "633b05da14a55fe8",
     "cell": 0.1,
     "u0": -13.9,
     "v0": -1.2,
@@ -10063,7 +10063,7 @@
     "rects": "2 3 35 77 3 12 51 61 3 31 76 77 3 139 35 36 31 32 76 93 32 84 92 93 84 85 92 138 85 138 137 138 85 139 92 93 138 139 137 139 139 184 141 142 142 144 11 12 184 185 141 143 185 186 141 144 186 187 143 145 186 222 141 142 187 188 144 146 188 189 144 147 189 190 145 148 190 191 146 149 191 192 147 150 192 193 148 151 193 194 149 152 194 195 150 153 195 196 151 154 196 197 152 154 197 212 153 154 208 209 6 12 209 225 6 8 212 213 152 154 213 214 151 153 214 215 150 152 215 216 149 151 216 217 148 150 217 218 147 149 218 219 146 148 219 220 145 147 220 221 144 146 221 222 143 146 222 223 141 144 223 224 141 143 224 268 141 142 225 227 6 12 268 269 141 143 269 270 141 144 270 271 141 145 271 272 143 146 271 291 141 142 272 273 145 147 273 274 146 148 274 275 147 149 275 276 147 150 276 277 148 151 277 278 149 152 278 279 150 153 279 280 152 154 280 281 153 155 281 282 154 156 282 283 154 157 283 284 155 158 284 285 156 159 285 286 157 160 286 287 158 160 287 288 157 159 288 289 156 158 289 290 155 157 290 291 154 156 291 292 54 66 291 292 90 103 291 292 127 130 291 292 153 155 291 308 13 50 292 293 128 131 292 293 152 154 293 294 129 132 293 294 151 153 294 295 130 133 294 295 150 152 295 296 131 134 295 296 149 151 296 297 132 135 296 297 148 150 297 298 133 136 297 298 147 149 298 299 134 137 298 299 146 148 299 300 135 138 299 300 145 147 300 301 136 139 300 301 144 146 301 302 137 140 301 302 143 145 302 303 138 141 302 303 142 144 303 304 139 143 304 305 140 142 308 313 19 20 308 313 22 41 308 313 43 44 313 338 19 44 362 367 2 23 362 367 40 308"
    },
    "floor": {
-    "key": "3a826d3154303669",
+    "key": "74e8ce8e2ffc2f56",
     "cell": 0.1,
     "u0": 15.0,
     "v0": 0.1,
@@ -10323,9 +10323,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1923:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "7c9d2f85aa3577d3bd47192480ec2b7b31d7ac62d5aab5f5175b7a2824b67e01",
+   "model_inputs_sha256": "cb405268daf781b4e1cb00035cf9563dfcdce6a0cb72faf5c33e56c58cadcbd6",
    "barrier": {
-    "key": "3fca4303187898c9",
+    "key": "f6f7fce768f08c16",
     "cell": 0.1,
     "u0": -12.1,
     "v0": -1.2,
@@ -10333,7 +10333,7 @@
     "rects": "1 2 38 102 2 61 38 39 2 61 101 102 61 62 12 39 61 62 101 145 62 121 12 13 62 121 144 145 121 134 179 180 134 135 179 181 135 136 179 182 136 137 181 183 136 178 179 180 137 138 182 184 138 139 183 186 139 140 184 187 140 141 185 188 141 142 186 189 142 143 187 190 143 144 189 191 144 145 190 192 145 146 191 193 146 147 192 194 147 167 193 194 167 168 192 194 168 169 191 193 169 170 190 192 170 171 189 191 171 172 187 190 172 173 186 189 173 174 185 188 174 175 184 187 175 176 183 186 176 177 182 184 177 178 181 183 178 179 179 182 179 180 179 181 180 241 179 180 240 241 10 12 241 242 179 182 242 245 179 180 245 246 12 180 246 247 15 17 246 247 66 68 246 272 75 76 246 272 78 79 246 272 126 127 246 272 129 130 247 248 16 18 247 248 65 67 248 249 17 19 248 249 64 66 249 250 18 20 249 250 63 65 250 251 19 21 250 251 62 64 251 252 20 22 251 252 61 63 252 253 21 23 252 253 60 62 253 254 22 24 253 254 59 61 254 255 23 25 254 255 58 60 255 256 24 59 272 273 74 76 272 273 77 79 272 273 126 128 272 273 129 131 273 277 74 75 273 277 77 78 273 277 127 128 273 277 130 131 277 278 73 75 277 278 130 132 277 282 76 129 278 282 73 74 278 282 131 132 282 283 72 73 282 283 75 130 282 283 132 133 283 286 72 133 286 290 71 134 290 295 70 135 295 301 69 136 301 308 66 139 330 331 98 99 330 331 106 107 331 333 97 99 331 333 106 108 333 334 97 98 333 334 107 108 334 335 96 98 334 335 107 109 335 338 2 97 335 338 108 308"
    },
    "floor": {
-    "key": "52e86e75090803d6",
+    "key": "0dbaff1d0aefdc8b",
     "cell": 0.1,
     "u0": 12.3,
     "v0": 5.4,
@@ -10517,9 +10517,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "d91ae0bab67479966e433e4d11dc69c2314656e6452ef83e7f1de2cd22999468",
+   "model_inputs_sha256": "68f99f5bb6d5e1107264af703db6b593afbc35bddbbcfc929e14e8381913db1c",
    "barrier": {
-    "key": "5554d57ac57382c6",
+    "key": "a5f2cd0b00a00df7",
     "cell": 0.1,
     "u0": -18.1,
     "v0": -1.5,
@@ -10527,7 +10527,7 @@
     "rects": "1 2 82 95 1 2 122 135 1 2 162 175 2 3 13 199 3 4 11 15 3 4 82 94 3 4 122 135 3 4 162 175 3 26 198 199 4 5 9 13 4 12 83 94 4 12 123 134 4 12 163 174 5 6 8 11 6 7 7 10 7 8 6 9 8 9 6 8 9 11 5 7 11 13 4 6 13 16 4 5 16 20 4 11 20 21 4 12 21 22 4 11 22 23 5 9 23 24 5 8 24 25 6 8 25 26 6 9 26 27 7 10 26 27 198 200 27 28 8 11 27 38 189 200 28 29 9 13 29 30 11 15 30 31 13 16 31 42 15 16 38 39 198 200 39 60 198 199 42 43 13 16 43 52 13 15 52 62 13 20 60 61 197 200 61 72 189 200 62 63 13 16 63 70 13 15 70 72 13 16 72 73 197 200 72 87 15 16 73 96 198 199 87 88 13 16 87 95 90 101 87 95 125 136 87 95 160 171 88 99 13 15 95 96 89 102 95 96 124 137 95 96 159 172 96 97 75 199 97 98 89 102 97 98 124 137 97 98 159 172 97 181 75 76 99 100 14 20 100 106 15 17 100 106 19 20 106 107 14 20 107 118 13 15 118 119 13 16 119 148 15 16 148 149 13 16 149 178 13 15 178 179 13 16 179 180 15 16 180 181 121 123 180 188 13 16 180 205 125 127 181 298 2 6 188 189 15 16 189 190 13 16 190 222 15 16 205 250 125 126 222 293 13 16 250 251 125 127 251 252 125 128 252 253 127 129 252 311 125 126 253 254 128 130 254 255 129 131 255 256 130 132 256 257 131 133 257 258 132 134 258 259 133 135 259 276 134 135 276 288 132 135 288 304 134 135 293 295 15 16 295 296 14 16 296 297 9 16 297 298 7 11 297 318 15 16 298 299 2 9 299 300 2 7 300 315 2 6 304 305 133 135 305 306 132 134 306 307 131 133 307 308 130 132 308 309 129 132 309 310 128 130 310 311 127 129 311 312 125 128 312 314 125 127 314 378 125 126 315 316 2 7 316 317 2 9 317 318 7 11 317 459 2 6 318 319 9 16 319 355 15 16 355 356 14 16 356 385 11 16 379 386 125 126 385 386 14 16 386 387 15 120 386 387 122 125 387 388 16 47 387 388 59 62 387 388 95 98 387 388 117 119 387 388 121 125 387 393 78 79 388 389 60 64 388 389 65 66 388 389 93 97 388 389 116 118 388 389 121 124 388 407 17 46 389 390 62 67 389 390 92 95 389 390 119 124 389 391 115 117 390 391 63 69 390 391 91 94 390 391 118 123 391 392 65 71 391 392 89 92 391 392 114 116 391 392 118 122 392 393 66 75 392 393 86 91 392 393 113 120 393 394 68 79 393 394 83 95 393 394 96 107 393 394 113 117 394 395 71 114 395 396 77 114 407 412 16 47 412 413 17 20 412 413 43 46 459 464 2 19 459 464 43 259"
    },
    "floor": {
-    "key": "b24b1059a9e47adb",
+    "key": "b67c27ac9ff75e5b",
     "cell": 0.1,
     "u0": 17.5,
     "v0": -0.4,
@@ -10777,9 +10777,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1620:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "6633686c8f053a45b2254ea5f105259ccf5aa54bbbf9abf6f0b6f1c72c71002a",
+   "model_inputs_sha256": "7b9bcf93ba20fda093f33ffd243eb3dd2e453bfdd942dfa5462641c25575c378",
    "barrier": {
-    "key": "a1d0ee1e07a6f96c",
+    "key": "34d9dc371e10e021",
     "cell": 0.1,
     "u0": -25.6,
     "v0": -7.9,
@@ -10787,7 +10787,7 @@
     "rects": "1 3 237 239 3 25 238 239 25 27 237 239 27 49 238 239 49 51 237 239 51 73 238 239 73 75 237 239 75 97 238 239 97 99 237 239 99 121 238 239 121 123 237 239 123 145 238 239 145 147 237 239 147 169 238 239 169 171 237 239 171 192 238 239 192 194 237 239 194 216 238 239 216 218 237 239 218 240 238 239 240 242 237 239 242 264 238 239 254 256 188 189 255 256 82 84 264 266 237 239 266 288 238 239 288 290 237 239 290 312 238 239 312 314 237 239 314 336 238 239 336 338 237 239 338 360 238 239 341 342 77 79 360 362 237 239 362 384 238 239 373 380 1 8 380 400 2 7 384 386 237 239 386 408 238 239 400 406 1 8 406 426 2 7 408 410 237 239 410 432 238 239 424 425 76 193 425 426 83 85 425 426 95 97 425 426 124 126 425 427 153 155 425 427 191 193 425 436 76 77 426 427 96 98 426 427 123 125 426 432 1 8 427 428 97 99 427 428 122 124 427 429 153 193 428 429 98 100 428 429 121 123 429 430 99 122 429 436 191 192 430 431 100 121 432 434 237 239 432 452 2 7 434 456 238 239 435 436 134 136 435 436 155 157 436 437 76 137 436 437 154 192 437 438 133 137 437 438 154 158 438 469 133 158 452 459 1 8 456 458 237 239 458 480 238 239 459 479 2 7 476 477 141 142 476 477 149 150 477 478 140 142 477 478 149 151 478 480 17 23 478 480 133 141 478 480 150 158 479 481 1 8 480 481 17 141 480 481 150 207 480 481 237 239 481 482 1 140 481 483 151 240 482 484 17 140 482 485 1 8 483 484 151 207 484 485 17 23 484 485 133 140 484 485 151 158"
    },
    "floor": {
-    "key": "82c2b4eafb141b82",
+    "key": "7ebc15071ef73e8d",
     "cell": 0.1,
     "u0": 16.7,
     "v0": -0.2,
@@ -11017,9 +11017,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1824:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "2b459a9f0cccfde9fc62eacc3092ce0a15617073d019b0e5769884536288f8fb",
+   "model_inputs_sha256": "17bc40e5d5b20cebe6824ffa9b06718e119285bdc17685e6d1f62afaa9e40fb1",
    "barrier": {
-    "key": "ed963bcb39a8e89a",
+    "key": "d2e94445552f7094",
     "cell": 0.1,
     "u0": -13.1,
     "v0": -7.6,
@@ -11027,7 +11027,7 @@
     "rects": "1 2 46 168 2 131 46 47 2 247 167 168 131 132 46 76 136 137 74 76 247 248 167 170 248 252 167 168 252 253 76 168 253 254 79 81 253 254 128 130 253 270 133 134 253 270 162 163 253 277 165 166 254 255 80 82 254 255 127 130 255 256 81 84 255 256 125 128 255 277 129 130 256 257 82 85 256 257 124 127 257 258 83 86 257 258 123 126 258 259 84 87 258 259 122 125 259 260 86 88 259 260 121 123 260 261 87 89 260 261 120 122 261 262 88 90 261 262 119 121 262 263 89 120 270 277 133 163 277 302 129 166 335 336 143 145 335 336 151 153 336 337 143 144 336 337 152 153 337 338 142 144 337 338 152 154 338 339 142 143 338 339 153 154 339 340 2 5 339 340 20 143 339 342 153 211 340 342 2 143 342 343 2 5 342 343 20 143 342 343 154 211"
    },
    "floor": {
-    "key": "82310397a7583388",
+    "key": "bcc3b81ed29bbe29",
     "cell": 0.1,
     "u0": 12.0,
     "v0": 5.3,
@@ -11241,9 +11241,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "8fe9e8820bf16149710143555f5701bad04b9ce7dbe39c33979c3287034662cc",
+   "model_inputs_sha256": "06e872837201f928cda251365ada074ca7cb5170403283df2c3adabb589bc767",
    "barrier": {
-    "key": "13f4b98c56ed10dc",
+    "key": "a9bdcf0cef2e4ced",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -11.3,
@@ -11251,7 +11251,7 @@
     "rects": "1 2 160 267 2 26 160 161 2 26 266 267 26 104 281 282 80 81 104 113 81 123 104 106 104 105 281 283 105 106 281 285 106 107 284 286 106 187 281 282 107 108 286 288 108 109 288 290 109 110 289 291 110 111 290 292 111 112 291 293 113 114 294 296 114 115 295 296 116 117 297 298 117 118 297 299 118 119 298 300 119 120 299 301 120 121 300 301 121 122 300 302 122 123 301 302 123 124 104 113 123 125 302 303 124 125 111 113 125 126 303 304 126 127 303 305 127 129 304 305 129 131 305 306 131 132 305 307 132 135 306 307 135 139 307 308 139 140 307 309 140 141 308 309 141 142 307 309 142 151 304 309 144 145 111 113 151 152 307 309 152 153 308 309 153 154 307 309 154 158 307 308 158 161 306 307 161 162 305 307 162 164 305 306 164 166 304 305 166 167 303 305 167 168 303 304 168 169 302 304 169 170 302 303 170 171 301 303 171 172 300 302 172 173 300 301 173 174 299 300 174 175 298 300 175 176 298 299 176 177 296 298 177 178 296 297 182 183 290 292 183 184 289 291 184 185 287 289 185 186 286 288 186 187 284 287 187 188 281 285 188 189 281 283 189 216 281 282 206 207 111 113 236 237 113 261 237 259 176 177 237 259 202 203 237 265 174 175 237 265 206 207 259 265 176 203 265 290 174 207 321 322 185 187 321 322 193 195 322 323 185 186 322 323 194 195 323 324 184 186 323 324 194 196 324 326 184 185 324 326 195 196 325 326 74 183 325 326 197 511 326 328 1 185 326 328 195 511 328 329 74 183 328 329 197 511"
    },
    "floor": {
-    "key": "29c3f6a180144cb2",
+    "key": "167836fd5895446e",
     "cell": 0.1,
     "u0": 20.9,
     "v0": 6.0,
@@ -11445,9 +11445,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "bad11d329f72cd0f290600386463fed9cf83f512cc073ce43f312d1b14856594",
+   "model_inputs_sha256": "2d342c003f41e23d0d2a2c3d0ec71d856971f6084f58e328b29f0e09a70787ae",
    "barrier": {
-    "key": "e9d590a26ff6b3b9",
+    "key": "f8bd474658af6cff",
     "cell": 0.1,
     "u0": -28.4,
     "v0": -8.0,
@@ -11455,7 +11455,7 @@
     "rects": "2 3 32 189 3 12 57 68 3 12 105 116 3 12 153 164 3 22 32 33 3 214 188 189 22 33 32 42 33 57 32 33 57 68 32 42 68 92 32 33 92 103 32 42 103 139 32 33 139 140 31 33 140 141 30 32 141 142 29 31 142 143 28 30 143 144 27 29 144 145 26 28 145 146 25 27 146 147 24 26 147 148 23 25 148 149 22 24 149 150 21 23 150 151 20 22 151 179 19 21 179 180 20 22 180 181 21 23 181 182 22 24 182 183 23 25 183 184 24 26 184 185 25 27 185 186 26 28 186 187 27 29 187 188 28 30 188 189 29 31 189 190 30 32 190 191 31 33 191 214 32 33 214 215 32 50 214 215 188 190 215 284 49 50 215 284 189 190 284 285 49 80 284 285 179 190 285 464 179 180 287 289 79 80 405 406 74 80 406 407 72 76 407 408 71 74 408 409 70 72 409 410 69 71 410 411 68 70 411 413 67 69 413 415 66 68 415 418 66 67 418 419 65 67 419 422 66 67 422 424 66 68 424 426 67 69 426 427 68 70 427 428 69 71 428 429 70 72 429 430 71 74 430 431 72 76 431 432 74 80 432 433 79 80 464 466 179 181 466 468 179 180 468 469 86 180 469 470 92 95 469 470 150 153 469 508 158 177 470 471 94 96 470 471 149 152 471 472 95 98 471 472 147 150 472 473 96 100 472 473 145 148 473 474 98 102 473 474 143 147 474 475 100 104 474 475 141 145 475 476 103 107 475 476 138 142 476 477 105 111 476 477 134 140 477 478 108 116 477 478 130 137 478 479 112 133 479 480 123 124 539 540 162 164 539 540 170 172 540 541 162 163 540 541 171 172 541 542 161 163 541 542 171 173 542 543 161 162 542 543 172 173 543 544 2 5 543 544 60 162 543 546 172 190 544 545 2 162 545 546 2 5 545 546 60 162 546 547 61 160 546 547 174 190"
    },
    "floor": {
-    "key": "f40db216f4513485",
+    "key": "f62eafb7e8e540c4",
     "cell": 0.1,
     "u0": 17.9,
     "v0": 7.7,
@@ -11669,9 +11669,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "648c465ecd5cf9c53a6e94788b26042d9a0c577b9446813fa84d3bdd861af287",
+   "model_inputs_sha256": "e35323a34ed8d99290eeef8a1a068498f74f905a085deeaa8e933861a1c7e0e0",
    "barrier": {
-    "key": "e9e7224e0f3d62aa",
+    "key": "2854652b591ae67c",
     "cell": 0.1,
     "u0": -7.8,
     "v0": -1.5,
@@ -11679,7 +11679,7 @@
     "rects": "2 3 31 92 3 64 31 32 3 339 91 92 64 65 31 77 65 78 76 77 78 221 15 16 221 222 1 16 222 280 1 3 222 280 15 16 280 281 1 16 281 309 15 16 309 310 11 16 310 318 11 12 310 318 15 16 318 319 11 16 319 334 15 16 334 335 13 16 335 339 15 16 339 340 15 66 339 340 89 92 339 353 68 69 339 353 86 87 340 360 65 66 340 360 89 90 353 360 68 87 360 384 65 90 404 409 21 69"
    },
    "floor": {
-    "key": "0285557a660c803c",
+    "key": "048a43260926ccdf",
     "cell": 0.1,
     "u0": 25.8,
     "v0": 5.0,
@@ -11899,9 +11899,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1912:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "eafadc3befdfcb2b3f02a55e47199f782d485a8424e5302b53378586d3560a18",
+   "model_inputs_sha256": "ef9ea34c0290ab5fe49105e18fc9faeadb18c2ba20edd252ec67b9bb2a7c9002",
    "barrier": {
-    "key": "9c3f052565604114",
+    "key": "4e9bc7bb68e8d99d",
     "cell": 0.1,
     "u0": -7.6,
     "v0": -3.2,
@@ -11909,7 +11909,7 @@
     "rects": "2 3 32 160 3 75 159 160 3 76 32 33 75 76 158 160 76 281 162 163 275 276 30 32 281 282 32 163 282 285 36 38 282 285 73 75 282 288 90 92 282 288 129 131 282 296 135 136 282 296 157 158 282 302 132 133 282 302 160 161 285 286 36 75 288 290 91 93 288 290 128 130 290 291 92 93 290 291 128 129 291 293 92 94 291 293 127 129 293 294 93 95 293 294 126 128 294 295 94 96 294 295 125 127 295 296 94 97 295 296 124 127 296 297 95 98 296 297 123 126 296 302 135 158 297 298 96 99 297 298 122 125 298 299 97 100 298 299 121 124 299 300 99 102 299 300 119 122 300 301 100 104 300 301 117 121 301 302 102 108 301 302 113 119 302 303 105 116 302 321 132 161 321 327 131 162 348 349 142 143 348 349 150 151 349 350 141 143 349 350 150 152 350 352 141 142 350 352 151 152 352 353 1 4 352 353 17 142 352 353 151 174 353 355 1 141 353 356 152 174 355 356 1 4 355 356 17 141"
    },
    "floor": {
-    "key": "64244f17816dabb5",
+    "key": "71167d8ac2b46009",
     "cell": 0.1,
     "u0": 19.9,
     "v0": 10.3,
@@ -12119,9 +12119,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2033:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "11ff6421234c43540cfb40ea8b4d32b19e614def4ee2adb0e3f53917f28e2a58",
+   "model_inputs_sha256": "34155fe048ce89df334b6d05977e88612d9b8611afc9a2ba53ad1f9dcb145466",
    "barrier": {
-    "key": "e9f020e87fd007af",
+    "key": "32bcd091e46de5a3",
     "cell": 0.1,
     "u0": -4.5,
     "v0": -0.1,
@@ -12129,7 +12129,7 @@
     "rects": "2 3 1 54 3 45 1 2 3 45 53 54 174 175 1 78 175 176 34 37 175 176 63 66 175 190 4 5 175 190 7 27 175 190 29 30 176 177 35 37 176 177 38 39 176 177 61 62 176 177 63 65 177 178 36 39 177 178 61 64 178 180 37 39 178 180 61 63 180 181 38 40 180 181 41 42 180 181 58 59 180 181 60 62 181 182 39 42 181 182 58 61 182 183 40 42 182 183 58 60 183 185 41 43 183 185 57 59 184 185 45 46 184 185 53 54 185 186 42 58 186 187 43 57 190 214 4 30 243 245 13 14 243 245 21 22 245 246 12 14 245 246 21 23 246 247 12 13 246 247 22 23 247 248 11 13 247 248 22 24 248 251 1 12 248 251 23 78 251 252 1 11 251 252 24 78"
    },
    "floor": {
-    "key": "146a663f07100845",
+    "key": "125c414cafe3cf68",
     "cell": 0.1,
     "u0": 12.6,
     "v0": 0.3,
@@ -12368,9 +12368,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "12bcf37585d5a1195b3333d6a5f195a56a97862a0d074b41c354fed590fd3a7e",
+   "model_inputs_sha256": "314557d50541582e10eb5a9bfc7014c59a1b385b71b25da619a5ec7a608ac196",
    "barrier": {
-    "key": "6ef954d94d624de8",
+    "key": "59fefc7f48f83fbd",
     "cell": 0.1,
     "u0": -36.6,
     "v0": -16.3,
@@ -12378,7 +12378,7 @@
     "rects": "2 144 440 445 144 156 436 448 156 163 440 445 195 206 436 448 213 225 436 448 225 263 440 445 263 274 436 448 285 297 436 448 297 345 440 445 345 357 436 448 356 357 162 173 356 357 269 280 357 358 162 280 357 412 440 445 358 366 162 164 358 366 278 279 364 365 339 340 364 365 342 345 365 366 338 340 365 379 343 345 366 367 162 163 379 435 343 344 412 424 436 448 437 439 343 357 439 456 355 357 452 497 439 445 456 468 350 357 468 469 354 357 469 470 355 357 470 482 350 357 482 483 354 357 483 496 355 357 496 498 355 366 496 498 393 404 497 506 437 447 498 500 355 357 498 500 365 366 498 500 393 394 498 500 398 399 498 511 402 404 500 501 355 366 500 501 393 399 501 511 398 399 501 522 355 357 506 529 439 445 511 512 398 404 522 525 355 374 525 526 354 374 526 539 350 374 529 541 436 448 536 537 398 404 537 546 398 399 537 551 402 404 539 542 355 374 541 640 440 445 542 546 355 357 546 547 355 366 546 547 393 399 547 551 355 357 547 551 365 366 547 551 393 394 547 551 398 399 551 552 355 366 551 552 393 404 552 571 355 357 571 573 343 357 575 637 343 344 594 595 150 163 595 643 150 152 637 644 343 345 640 652 436 448 643 644 150 163 644 645 150 164 644 645 251 345 644 660 212 215 645 646 251 258 645 646 285 289 645 646 300 304 645 646 331 345 645 673 162 164 646 660 251 253 652 701 440 445 660 661 211 253 660 673 179 180 661 662 211 223 661 662 242 253 662 673 213 215 662 693 247 248 662 699 250 251 673 674 162 215 674 675 162 173 674 675 204 215 674 689 179 180 689 690 179 217 690 693 216 217 690 697 213 214 693 697 216 248 697 699 213 248 699 706 213 251 701 713 436 448 706 710 213 252 710 715 213 251 713 810 440 445 715 719 213 252 719 728 213 251 728 732 213 252 732 810 224 240 810 815 1 445"
    },
    "floor": {
-    "key": "516df288257e5663",
+    "key": "93a2636b901983aa",
     "cell": 0.1,
     "u0": -21.1,
     "v0": 2.0,
@@ -12643,9 +12643,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1901:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "a1e8637a25272672dcf4b026fd215b5131f073ae5957a6483982f26cde3f7cb0",
+   "model_inputs_sha256": "0ed80bdd5613d0f0688fd674b17fb12aeab860582ad77c422f45d63385835852",
    "barrier": {
-    "key": "e86ac1c990f470e6",
+    "key": "b4a682b79d37af18",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -2.3,
@@ -12653,7 +12653,7 @@
     "rects": "2 3 79 176 3 33 79 80 3 85 175 176 32 33 171 173 39 40 21 23 85 86 175 178 86 87 175 179 87 88 7 23 87 88 178 180 87 172 175 176 88 89 179 182 88 161 7 8 89 90 180 183 90 91 182 184 91 92 183 186 92 93 184 187 93 94 185 188 94 95 187 190 95 96 188 191 96 97 189 193 97 98 191 194 98 99 192 194 99 160 193 194 160 161 192 194 161 162 7 23 161 162 191 194 162 163 189 193 163 164 188 191 164 165 187 190 165 166 185 188 166 167 184 187 167 168 183 186 168 169 182 184 169 170 180 183 170 171 179 182 171 172 178 180 172 173 175 179 173 174 175 178 174 241 175 176 257 258 23 159 258 259 44 56 258 259 134 147 258 278 67 112 278 302 73 106 341 342 85 86 341 342 93 94 342 343 84 86 342 343 93 95 343 345 20 27 343 345 77 85 343 345 94 102 343 346 1 8 345 346 20 85 345 346 94 249 346 348 1 84 346 349 95 249 348 349 20 84 348 350 1 8 349 350 20 27 349 350 77 84 349 350 95 102"
    },
    "floor": {
-    "key": "bee75a719012a6e1",
+    "key": "0fc6085d5d268ca9",
     "cell": 0.1,
     "u0": 22.2,
     "v0": 4.4,
@@ -12873,9 +12873,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2110:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d6dc472ea63206331d3e2260df3fb0fba1f0ef556e564f8110049fd49d14d641",
+   "model_inputs_sha256": "0d4d950fbe298fe1e9c2dbc3436cf23ad74c48776df6345c05ab9170440c06da",
    "barrier": {
-    "key": "194821fc942316fd",
+    "key": "d256eec3c8c89f0a",
     "cell": 0.1,
     "u0": -17.3,
     "v0": -0.4,
@@ -12883,7 +12883,7 @@
     "rects": "2 3 39 72 3 12 50 60 3 22 39 40 3 121 71 72 22 31 39 49 31 32 39 41 32 50 39 40 50 51 19 40 51 173 19 20 121 122 71 83 122 270 82 83 183 184 2 4 270 271 7 9 270 271 81 83 270 272 55 79 271 273 8 10 271 295 81 82 272 273 54 79 273 274 9 11 273 274 53 55 273 280 56 79 274 275 9 12 274 276 52 54 275 276 10 12 276 277 11 13 276 277 51 53 277 278 12 14 277 278 50 52 278 279 13 15 278 279 49 51 279 280 14 17 279 280 47 50 280 281 15 18 280 281 46 79 281 282 17 20 281 282 44 47 281 283 49 79 282 283 19 22 282 283 42 46 283 284 21 25 283 284 39 79 284 285 23 41 284 285 44 79 285 286 19 25 285 286 27 37 285 286 39 79 286 290 19 79 290 295 56 57 290 295 59 79 295 320 56 82"
    },
    "floor": {
-    "key": "444df606b01a4099",
+    "key": "0ce9eb803fa5076b",
     "cell": 0.1,
     "u0": 9.1,
     "v0": 3.9,
@@ -13093,9 +13093,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2013:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "db70778544eca081b73c90ec05fab00aa220ae564856593a867582161a414e6b",
+   "model_inputs_sha256": "a6dd1f106e05e9dc8f3c839dfd3daae613434b14087db461e3c774a7c83dab69",
    "barrier": {
-    "key": "ad8ef88ad9028009",
+    "key": "ab6efad1ddc600b6",
     "cell": 0.1,
     "u0": -10.4,
     "v0": -0.7,
@@ -13103,7 +13103,7 @@
     "rects": "2 3 7 53 3 56 52 53 3 104 7 8 56 57 52 55 57 104 54 55 286 287 7 84 287 303 9 32 303 305 10 11 303 305 13 28 303 305 30 31 305 330 10 31 349 350 16 17 349 350 24 25 350 351 15 17 350 351 24 26 351 353 15 16 351 353 25 26 353 354 1 16 353 354 25 84 354 357 1 15 354 357 26 84"
    },
    "floor": {
-    "key": "8a5f3743c66382d8",
+    "key": "ab274f8d9f7b4af0",
     "cell": 0.1,
     "u0": 18.1,
     "v0": 0.2,
@@ -13363,9 +13363,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2109:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "c27fcfa25f089a9bb5fcb77444458bd21b594fb33dddc7c978008df370f7f075",
+   "model_inputs_sha256": "295b911721844ab65dcc0e0590ed5c264b1ff3d52c4d0b8e0231b551284b2452",
    "barrier": {
-    "key": "96772d99a0aec13e",
+    "key": "088aa54c911865a3",
     "cell": 0.1,
     "u0": -11.3,
     "v0": -1.4,
@@ -13373,7 +13373,7 @@
     "rects": "2 3 14 39 3 14 38 39 3 113 14 15 14 15 38 97 15 62 38 39 15 113 96 97 113 192 92 119 117 118 12 14 192 210 14 119 210 213 16 19 210 213 20 35 210 213 36 38 213 237 16 38 262 267 1 21 262 267 34 153"
    },
    "floor": {
-    "key": "8c15eca4221d7b90",
+    "key": "234d99b27d5fae5b",
     "cell": 0.1,
     "u0": 7.6,
     "v0": 0.2,
@@ -13623,9 +13623,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2112:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "7e595c37262efcf974204481edb1ef179df637f02abf124c222ea581bd858cbc",
+   "model_inputs_sha256": "f8557fa44c347afb3a210483a7b089d1931b22dfe4431963f6ce792514e9573c",
    "barrier": {
-    "key": "79740597c3eb17e5",
+    "key": "7a7dd6cadbe8b7eb",
     "cell": 0.1,
     "u0": -9.8,
     "v0": -0.4,
@@ -13633,7 +13633,7 @@
     "rects": "2 3 29 112 3 98 29 30 3 98 111 112 97 98 117 119 98 243 121 122 108 109 2 4 243 244 4 122 244 245 13 15 244 245 56 58 244 245 96 107 244 267 61 62 244 267 82 83 244 273 85 86 245 246 14 16 245 246 55 58 246 247 15 17 246 247 54 56 246 273 57 58 247 248 16 19 247 248 53 55 248 249 17 20 248 249 52 54 249 250 18 21 249 250 50 53 249 253 31 40 250 251 19 22 250 251 49 52 251 252 20 23 251 252 48 51 252 253 21 24 252 253 47 50 253 254 23 25 253 254 31 41 253 254 46 49 254 255 24 48 267 273 61 83 273 298 57 86"
    },
    "floor": {
-    "key": "9f03972b304563b9",
+    "key": "12e9160839edd05f",
     "cell": 0.1,
     "u0": 14.1,
     "v0": 5.3,
@@ -13737,9 +13737,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "6f0b8c4a73822c39b72ce4c86f43d0bfef11bc5d3ccc2c70d832c632fc2ce06e",
+   "model_inputs_sha256": "0270232ad99786ae7bff1f724929e4678a92415cdddf16c2499036a9425d291b",
    "barrier": {
-    "key": "9f6da82a5746a0bc",
+    "key": "71d2355fc7649384",
     "cell": 0.1,
     "u0": -8.1,
     "v0": -4.6,
@@ -13787,9 +13787,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1638:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "70ebc0d8c04a0a9ea1b12124af90d09918322feba616462b98739cd87befc776",
+   "model_inputs_sha256": "1f12d81ccc686c9f7ff471c84b92324d218b5f7d7e3b1f8898924f934c9d8b67",
    "barrier": {
-    "key": "463cc5b3c5901806",
+    "key": "7759f940f5463fcf",
     "cell": 0.1,
     "u0": -24.8,
     "v0": -4.5,
@@ -13797,7 +13797,7 @@
     "rects": "1 2 94 124 2 14 94 95 2 29 123 124 14 15 45 95 29 48 110 111 48 49 110 124 49 70 123 124 70 71 110 124 71 119 110 111 119 120 15 45 119 120 110 128 120 249 127 128 182 183 15 45 249 250 99 128 250 267 99 123 260 261 65 81 267 299 99 122 350 351 37 44 350 351 56 63 351 357 2 44 351 357 56 129"
    },
    "floor": {
-    "key": "5324e73a1a61b0c5",
+    "key": "b91567842e522491",
     "cell": 0.1,
     "u0": -0.1,
     "v0": 5.3,
@@ -14047,9 +14047,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1637:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b32b3f80beb3b4fcc45f19acf931c3bbf912d4175d0e25793d9d0df15eab42a1",
+   "model_inputs_sha256": "020243d6ee34a433d58a65287ad4a64d10ed88c042bc6038b47210059b0ad8a2",
    "barrier": {
-    "key": "e8383ba99be66452",
+    "key": "512576393b990c8f",
     "cell": 0.1,
     "u0": -5.8,
     "v0": -3.5,
@@ -14057,7 +14057,7 @@
     "rects": "1 2 87 167 2 58 87 88 2 66 166 167 57 58 162 164 58 61 35 36 61 63 34 36 63 164 35 36 66 67 166 169 67 68 166 170 68 69 168 171 68 101 166 167 69 70 170 173 70 71 171 174 71 72 173 176 72 73 174 177 73 95 176 177 95 96 175 177 96 97 173 176 97 98 172 175 98 99 170 173 99 100 169 172 100 101 168 170 101 102 166 169 102 168 166 167 164 165 33 36 165 168 35 36 168 169 35 167 169 170 39 40 169 170 85 87 169 178 118 119 169 178 166 167 169 180 90 91 169 180 93 94 169 180 111 112 169 180 114 115 170 171 39 41 170 171 84 86 171 172 40 42 171 172 84 85 172 173 41 43 172 177 130 139 172 178 146 155 173 174 42 44 174 175 43 45 174 175 80 82 175 176 44 46 175 176 79 81 176 177 46 48 176 177 78 80 177 178 47 49 177 178 76 79 177 178 129 140 177 179 59 68 178 179 49 51 178 179 74 77 178 179 118 167 179 180 51 54 179 180 59 69 179 180 72 75 179 180 129 140 179 180 145 156 180 181 53 72 180 187 90 94 180 187 111 115 181 182 57 70 182 183 62 63 187 213 90 115 257 258 96 97 257 258 108 109 258 259 108 110 258 260 95 97 259 260 109 110 260 261 95 96 260 262 109 111 261 262 94 96 262 264 87 95 262 264 110 118 263 264 1 7 263 264 21 27 263 264 41 47 264 265 4 95 264 265 110 178 264 268 1 2 265 267 4 5 265 267 6 7 265 267 21 22 265 267 26 27 265 267 41 42 265 267 44 94 265 268 111 178 267 268 4 94 268 269 1 7 268 269 21 27 268 269 41 47 268 269 87 94 268 269 111 118"
    },
    "floor": {
-    "key": "d3db93a8adddc5b3",
+    "key": "8c5edee4903333c6",
     "cell": 0.1,
     "u0": 10.9,
     "v0": 5.8,
@@ -14251,9 +14251,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "7d8a324e19120abf6f35171ec71ba1a3cd15cf439f13e5e9a15201e221075b0e",
+   "model_inputs_sha256": "d57c8f2136e77ff8b3f4a3948033d3373849ca0c29088038ff870744433a44fb",
    "barrier": {
-    "key": "4a918a153bbb6f82",
+    "key": "c40691b19fddd847",
     "cell": 0.1,
     "u0": -10.0,
     "v0": -1.0,
@@ -14261,7 +14261,7 @@
     "rects": "1 2 14 87 2 100 14 15 2 259 86 87 259 260 9 87 260 261 9 44 260 261 79 81 261 262 9 45 261 263 78 80 262 263 44 46 262 279 9 43 263 264 45 47 263 264 77 79 264 265 46 48 264 265 76 78 265 266 47 49 265 266 74 77 266 267 48 51 266 267 73 76 267 268 49 52 267 268 71 75 268 269 50 54 268 269 69 73 269 270 53 58 269 270 66 71 270 271 55 69 279 284 9 36 284 285 8 36 285 287 8 37 287 289 7 37 289 292 6 38 292 295 5 39 295 300 4 40 300 306 2 42 329 330 18 19 329 330 26 27 330 331 17 19 330 331 26 28 331 333 17 18 331 333 27 28 333 334 10 18 333 334 27 87 334 336 10 17 334 336 28 87 336 337 10 16 336 337 29 87"
    },
    "floor": {
-    "key": "7ba1c6d535f603ea",
+    "key": "f217f6c5d9136369",
     "cell": 0.1,
     "u0": 15.6,
     "v0": -0.8,
@@ -14471,9 +14471,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2031:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "896df110bb3c8615bd74520cd8289bc4ac638ab539967a162a1efb32be5a812e",
+   "model_inputs_sha256": "c6f972e9ef386ca30cc2c5ad3d11fccc7ce0f9cc8ec2737368eb1ea2948a952a",
    "barrier": {
-    "key": "d35256f116978c14",
+    "key": "d24b58bf82a5fc99",
     "cell": 0.1,
     "u0": -4.4,
     "v0": -0.1,
@@ -14481,7 +14481,7 @@
     "rects": "1 2 32 80 2 44 32 33 2 186 79 80 186 187 6 8 186 187 47 49 186 187 75 80 186 202 52 53 186 202 55 73 187 188 6 9 187 188 46 49 187 202 75 76 188 189 7 9 188 189 46 48 189 190 8 10 189 190 45 47 190 191 9 11 190 191 44 46 191 192 9 12 191 192 43 46 192 193 10 13 192 193 42 45 193 194 11 13 193 194 42 44 194 195 12 14 194 195 41 43 195 197 13 42 202 225 52 76 244 245 59 61 244 245 67 69 245 246 59 60 245 246 68 69 246 247 58 60 246 247 68 70 247 248 58 59 247 248 69 70 248 252 1 59 248 252 69 80"
    },
    "floor": {
-    "key": "f8aa75622e6293ff",
+    "key": "bb59efbda56650dd",
     "cell": 0.1,
     "u0": 14.0,
     "v0": 5.0,
@@ -14677,12 +14677,12 @@
     {
      "id": "tucker_smith_house_2140_prairie:back",
      "leaf": {
-      "local_e": 1373.23,
-      "local_n": -3729.77
+      "local_e": 1373.22,
+      "local_n": -3728.77
      },
      "step": {
-      "local_e": 1369.47,
-      "local_n": -3729.8
+      "local_e": 1369.46,
+      "local_n": -3728.8
      },
      "outward_deg": 269.5,
      "width_m": 0.95,
@@ -14691,9 +14691,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2140:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "e182a251b14acca331b69889903323e3479f4c4d8d4e67738a5959ec41b28af1",
+   "model_inputs_sha256": "be4e265a76cbac7d55c168e187a8e1ab5bd438996279a4a083d024939ef414cb",
    "barrier": {
-    "key": "71ee67ef35f9d83e",
+    "key": "994cb79301e90faf",
     "cell": 0.1,
     "u0": -5.5,
     "v0": -3.8,
@@ -14701,7 +14701,7 @@
     "rects": "2 3 107 175 3 4 118 128 3 4 153 163 3 12 107 108 3 55 174 175 4 12 119 128 4 12 154 163 12 13 106 109 13 22 106 117 22 23 106 109 23 35 107 108 35 36 106 109 36 45 106 117 45 46 106 109 46 55 107 108 53 54 42 43 53 54 220 221 54 55 41 43 54 55 219 221 54 189 224 225 66 67 17 35 67 68 16 18 67 68 34 36 68 69 15 17 68 69 35 37 69 70 14 16 69 70 36 38 70 71 13 15 70 71 37 38 71 72 12 14 72 73 11 13 73 74 10 12 74 75 9 11 75 76 8 10 76 77 7 9 77 78 6 8 78 94 6 7 94 95 6 8 95 96 6 9 96 97 7 9 97 98 8 11 98 99 9 12 99 100 10 13 100 101 11 14 101 102 12 14 101 102 37 38 102 103 13 15 102 103 36 38 103 104 14 16 103 104 35 38 104 105 15 18 104 105 34 37 105 106 16 36 106 107 17 35 139 140 22 29 140 141 18 33 141 142 15 20 141 142 31 36 142 143 13 17 142 143 34 38 143 144 12 15 143 144 36 38 144 145 10 13 145 146 9 12 146 147 8 11 147 148 7 10 148 149 7 9 149 150 6 8 150 151 5 7 151 153 4 6 153 154 4 5 154 155 3 5 155 156 3 4 156 159 2 4 159 163 2 3 163 164 1 3 164 168 2 3 168 170 2 4 170 171 3 4 171 173 3 5 173 175 4 6 175 177 5 7 177 178 6 8 178 179 7 9 179 180 8 10 180 181 9 11 181 182 10 13 182 183 11 14 182 183 37 38 183 184 12 16 183 184 35 38 184 185 14 18 184 185 33 37 185 186 16 22 185 186 29 35 186 187 19 32 189 190 38 225 190 201 149 150 190 201 196 197 190 212 78 79 190 212 81 112 190 212 114 115 201 202 149 197 212 237 78 115"
    },
    "floor": {
-    "key": "221e46c09e060269",
+    "key": "8f0150d1f0201877",
     "cell": 0.1,
     "u0": 13.3,
     "v0": 4.3,
@@ -14936,9 +14936,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1720:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f85d1592fb8fffb9cf46e4e4ee0858eec41a389e7d50a871b3d8603140c811a9",
+   "model_inputs_sha256": "9674e4a40e6c86c06e5e0e5f522483ff2505895d9e31c52b0ad4077dfd6fb229",
    "barrier": {
-    "key": "3e14fd8525c2a876",
+    "key": "bc82c76959ab3b3b",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -12.3,
@@ -14946,7 +14946,7 @@
     "rects": "1 2 122 225 2 101 122 123 2 224 223 225 101 103 72 123 103 105 72 74 103 217 122 123 105 106 72 76 106 217 72 74 216 217 76 77 217 219 72 123 219 224 122 123 224 225 110 123 224 225 223 237 225 241 110 237 241 260 161 186 260 262 160 187 262 263 160 163 262 263 184 187 311 315 2 163 311 315 184 197 311 315 206 250"
    },
    "floor": {
-    "key": "2713affcf1e72037",
+    "key": "eb25d83075ee7624",
     "cell": 0.1,
     "u0": 22.2,
     "v0": -1.3,
@@ -15166,9 +15166,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1812:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "ea4348bdfd80c42e097a36b115fcb8ad391b2adcfe79d4d3f7da8667616b50c5",
+   "model_inputs_sha256": "5830edfebf5dc9d837261b90d3701209049d162b5c88971aba3b5d0ac8425061",
    "barrier": {
-    "key": "e62f917af1311876",
+    "key": "925a33bc08ed3a03",
     "cell": 0.1,
     "u0": -10.8,
     "v0": -0.7,
@@ -15176,7 +15176,7 @@
     "rects": "1 2 30 92 2 42 30 31 2 108 91 92 42 43 23 31 43 108 23 24 106 108 13 14 108 259 92 93 236 237 1 7 237 246 1 2 246 247 1 7 259 260 7 93 260 261 58 93 260 271 7 8 260 271 55 56 261 263 91 92 261 270 58 90 266 270 23 42 270 271 23 43 270 271 58 82 271 272 7 82 272 273 22 44 272 274 8 10 272 276 58 83 272 278 55 56 276 278 58 84 278 279 55 85 279 281 56 85 281 283 56 86 283 286 56 87 286 287 57 87 287 289 57 88 289 295 55 90 295 296 55 61 295 296 83 90 316 319 4 58 316 319 79 91"
    },
    "floor": {
-    "key": "495e4962b987f6f7",
+    "key": "419119375f25b6cd",
     "cell": 0.1,
     "u0": 14.5,
     "v0": 5.1,
@@ -15248,7 +15248,7 @@
     "rotation_deg": 179.444
    },
    "barrier": {
-    "key": "fbf8c2fb8087fa58",
+    "key": "fa3ae3ded2796c39",
     "cell": 0.1,
     "u0": -18.5,
     "v0": -1.0,
@@ -15256,7 +15256,7 @@
     "rects": "1 2 30 115 2 18 114 115 2 185 30 31 18 28 105 115 28 29 113 115 29 60 114 115 60 71 105 115 71 86 114 115 86 97 105 115 97 112 114 115 112 123 105 115 123 138 114 115 138 149 105 115 149 164 114 115 164 175 105 115 175 258 114 115 185 186 10 31 258 259 114 116 259 261 114 115 261 262 10 114 262 263 19 23 262 263 75 76 262 263 78 101 262 263 103 104 262 263 105 113 262 268 70 71 263 264 19 20 263 264 21 24 263 264 75 111 264 265 22 25 264 267 75 76 264 267 78 101 264 267 103 104 265 266 24 27 265 270 58 68 265 271 39 49 266 267 25 28 267 268 26 29 267 268 75 104 268 269 28 31 268 270 70 73 268 271 75 76 268 271 78 101 268 271 103 104 269 270 29 32 270 271 31 34 270 271 57 68 270 271 70 71 271 272 32 71 271 289 75 104 332 337 1 87 332 337 110 115 332 337 123 142"
    },
    "floor": {
-    "key": "d2c7e6cfd88afb4a",
+    "key": "ef79a5e1ce87f366",
     "cell": 0.1,
     "u0": 5.8,
     "v0": 6.7,
@@ -15292,7 +15292,7 @@
     "rotation_deg": -0.393
    },
    "barrier": {
-    "key": "680bba464d5005ee",
+    "key": "f6a2d4eabf72b6bc",
     "cell": 0.1,
     "u0": -2.9,
     "v0": -7.6,
@@ -15308,7 +15308,7 @@
     "rotation_deg": 89.607
    },
    "barrier": {
-    "key": "a4ac73b72fac5152",
+    "key": "b06bb71a6de1814b",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.2,
@@ -15316,7 +15316,7 @@
     "rects": "1 2 2 243 2 64 2 3 2 64 241 243 64 66 2 16 64 66 86 151 64 66 221 243 66 85 89 149 66 88 15 16 66 88 86 88 66 88 150 151 66 88 221 223 85 103 108 130 94 95 37 66 94 95 172 201 95 96 38 65 95 96 173 200 103 104 108 111 103 104 127 130"
    },
    "floor": {
-    "key": "91dc552ceea32bbd",
+    "key": "f17f2bce62c5a9d2",
     "cell": 0.1,
     "u0": 6.1,
     "v0": 8.7,
@@ -15336,7 +15336,7 @@
     "rotation_deg": 179.449
    },
    "barrier": {
-    "key": "be15d37437796ede",
+    "key": "ccb7900918e24eeb",
     "cell": 0.1,
     "u0": -4.0,
     "v0": -2.2,
@@ -15344,7 +15344,7 @@
     "rects": "2 3 30 139 3 40 30 32 3 40 138 139 38 40 28 29 40 41 177 194 41 73 193 194 41 186 177 178 73 74 192 194 73 88 21 22 74 85 187 194 85 86 192 194 86 118 193 194 118 119 192 194 119 130 187 194 123 138 21 22 130 131 192 194 131 163 193 194 163 164 192 194 164 175 187 194 173 188 21 22 175 176 192 194 176 186 193 194 186 187 177 194 187 207 177 178 207 222 177 179 222 257 177 178 223 238 21 22 257 258 177 179 258 259 177 180 259 260 179 181 259 284 177 178 260 261 180 182 261 262 181 183 262 263 182 184 263 264 182 185 264 265 182 186 265 266 181 187 266 267 180 188 267 268 181 189 268 269 182 190 269 270 183 187 269 270 189 191 270 271 184 186 270 271 189 192 271 272 188 193 272 273 187 194 273 274 187 195 274 275 188 196 275 276 189 194 275 276 195 197 276 277 190 193 276 277 196 198 277 278 197 199 278 279 198 200 279 280 199 201 280 281 199 202 281 282 199 201 282 283 198 200 283 284 191 192 283 284 196 199 284 285 22 178 284 285 190 193 284 285 195 198 285 286 135 151 285 286 158 161 285 286 189 197 285 288 84 92 285 288 97 110 285 288 115 122 285 289 75 76 285 289 130 131 285 312 23 74 286 287 159 162 286 287 188 196 287 288 160 163 287 288 187 195 288 289 83 92 288 289 96 110 288 289 114 123 288 289 161 164 288 289 188 194 289 290 75 131 289 290 162 165 289 290 168 170 289 290 188 193 290 291 163 171 290 291 184 186 290 291 189 192 291 292 164 172 291 292 183 191 292 293 165 173 292 293 182 190 293 294 166 173 293 294 181 189 294 295 167 172 294 295 180 188 295 296 168 172 295 296 181 187 296 297 169 172 296 297 182 186 297 298 170 173 297 298 182 185 298 299 171 174 298 299 182 184 299 300 172 175 299 300 181 183 300 301 173 176 300 301 179 182 301 302 174 177 301 302 178 181 302 303 175 180 303 304 176 179 312 333 46 72 369 370 54 56 369 370 62 64 370 371 54 55 370 371 63 64 371 372 53 55 371 372 63 65 372 373 53 54 372 373 64 65 372 373 241 248 373 374 2 5 373 374 16 54 373 377 64 248 374 376 2 54 376 377 2 5 376 377 16 53 377 379 241 248"
    },
    "floor": {
-    "key": "ad260c76f8651d92",
+    "key": "33f153311dcfaaa7",
     "cell": 0.1,
     "u0": 24.3,
     "v0": 0.1,
@@ -15380,7 +15380,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "a4a41942eb53eba5",
+    "key": "00abe262235536c1",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -20.7,
@@ -15396,7 +15396,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "b347878b7bffee33",
+    "key": "d7b5306e6a7aaba0",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.9,
@@ -15412,7 +15412,7 @@
     "rotation_deg": 179.313
    },
    "barrier": {
-    "key": "331edd61e971c9fc",
+    "key": "455b287ef2afab13",
     "cell": 0.1,
     "u0": -6.9,
     "v0": -0.1,
@@ -15420,7 +15420,7 @@
     "rects": "1 4 41 43 1 4 52 54 4 23 41 54 23 69 36 103 69 309 140 141 309 310 1 141 310 350 54 91"
    },
    "floor": {
-    "key": "7614128d4e058db1",
+    "key": "02209cb43532c5b7",
     "cell": 0.1,
     "u0": -6.6,
     "v0": 3.7,
@@ -15468,7 +15468,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "72013652af123b12",
+    "key": "86387f7b9d69b036",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.8,
@@ -15484,7 +15484,7 @@
     "rotation_deg": -0.578
    },
    "barrier": {
-    "key": "e6dfffb89e79b955",
+    "key": "cd9e5868af823408",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.8,
@@ -15500,7 +15500,7 @@
     "rotation_deg": -0.621
    },
    "barrier": {
-    "key": "2dd71fbbdf2610ce",
+    "key": "a8f34cfaa270dd66",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -11.3,
@@ -15548,7 +15548,7 @@
     "rotation_deg": 179.601
    },
    "barrier": {
-    "key": "41e4b52e92705717",
+    "key": "c1324c1ec9bb96c2",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -1.9,
@@ -15556,7 +15556,7 @@
     "rects": "1 2 18 76 2 54 18 19 2 157 74 76 54 55 3 19 55 58 3 5 55 127 18 19 58 59 3 6 59 66 3 5 66 76 3 14 76 86 3 5 86 96 3 14 96 106 3 5 106 107 3 6 107 116 3 14 116 117 3 6 117 127 3 5 126 127 7 8 127 129 3 19 129 157 18 19 157 159 18 76 159 170 51 71 170 176 54 67 179 184 2 53 179 184 70 152"
    },
    "floor": {
-    "key": "1bcad0138d372a34",
+    "key": "8e18c860ef5db593",
     "cell": 0.1,
     "u0": 15.4,
     "v0": 3.2,
@@ -15576,7 +15576,7 @@
     "rotation_deg": 179.605
    },
    "barrier": {
-    "key": "276022124e3fc003",
+    "key": "24f138cc47dbabb1",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -5.7,
@@ -15584,7 +15584,7 @@
     "rects": "1 2 56 105 2 107 56 57 107 109 56 105 109 122 59 76 122 128 61 73 144 148 1 59 144 148 76 106"
    },
    "floor": {
-    "key": "cd1b129829d14c0f",
+    "key": "a90ad9b8f6943b02",
     "cell": 0.1,
     "u0": 10.4,
     "v0": 0.1,
@@ -15604,7 +15604,7 @@
     "rotation_deg": 179.605
    },
    "barrier": {
-    "key": "23225ad559a1f6f7",
+    "key": "f41966062d7128b8",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.2,
@@ -15612,7 +15612,7 @@
     "rects": "1 2 2 56 2 107 55 56 107 109 2 56 109 122 36 54 122 128 39 51 143 148 2 36"
    },
    "floor": {
-    "key": "f1560fb0ed80375c",
+    "key": "59d637e9e0db669e",
     "cell": 0.1,
     "u0": 10.4,
     "v0": 3.4,
@@ -15632,7 +15632,7 @@
     "rotation_deg": 179.611
    },
    "barrier": {
-    "key": "737f35c7841650a2",
+    "key": "8c743dbdad18ad92",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -1.4,
@@ -15640,7 +15640,7 @@
     "rects": "1 2 14 81 2 26 14 15 2 151 80 81 151 152 14 81 152 153 43 54 152 153 62 73 152 185 16 41 187 192 2 17 187 192 40 80"
    },
    "floor": {
-    "key": "56cbc46046ee7844",
+    "key": "cce46ac7a0131f72",
     "cell": 0.1,
     "u0": 12.3,
     "v0": 0.1,
@@ -15660,7 +15660,7 @@
     "rotation_deg": 179.611
    },
    "barrier": {
-    "key": "466e0b5f7edb02f5",
+    "key": "5f7544a1ebfa855b",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -0.2,
@@ -15668,7 +15668,7 @@
     "rects": "1 2 2 69 2 26 2 3 2 42 68 69 42 43 68 75 43 59 68 69 43 59 74 75 59 60 68 75 60 151 68 69 151 152 2 69 152 153 9 21 152 153 28 40 152 185 42 66 187 192 2 43 187 192 65 80"
    },
    "floor": {
-    "key": "621d303d5160950b",
+    "key": "ed3df226cb6014dc",
     "cell": 0.1,
     "u0": 12.3,
     "v0": 3.9,
@@ -15688,7 +15688,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "a6331a6ed7da1043",
+    "key": "920c013b1545273d",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.1,
@@ -15704,7 +15704,7 @@
     "rotation_deg": 179.604
    },
    "barrier": {
-    "key": "16d2efbe5b52e64c",
+    "key": "fcc3d6ca5eb0f005",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.3,
@@ -15712,7 +15712,7 @@
     "rects": "1 4 13 14 4 6 12 14 6 196 13 14 192 194 76 77 196 197 13 76 197 198 13 19 197 198 26 30 197 198 37 41 197 205 56 57 197 205 75 76 198 204 40 41 204 205 40 42 205 206 40 76 206 231 40 57 227 232 1 37 227 232 60 76"
    },
    "floor": {
-    "key": "4c555b77d68692f2",
+    "key": "e7797963b9f8e1e6",
     "cell": 0.1,
     "u0": 18.5,
     "v0": 2.6,
@@ -15732,7 +15732,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "10cfb17e2b24c7a5",
+    "key": "4f3b83807aaf84c4",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -15748,7 +15748,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "f6c6876887041873",
+    "key": "8ab580c1c66f17f4",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -3.7,
@@ -15764,7 +15764,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "3bbbf8f8386c1407",
+    "key": "5f5e17add02b97ae",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -2.7,
@@ -15772,7 +15772,7 @@
     "rects": "1 2 26 84 2 11 26 27 2 135 82 84 11 13 4 27 13 14 11 22 13 15 4 6 13 47 26 27 14 22 12 21 15 16 4 7 16 25 4 6 25 35 4 15 35 47 4 6 38 47 12 22 45 47 7 8 47 49 4 27 49 135 26 27 135 136 26 84 136 151 29 81 151 156 64 77 212 217 2 64 212 217 78 88"
    },
    "floor": {
-    "key": "4875d6aa0d0f6747",
+    "key": "9cd9b3176f33c79b",
     "cell": 0.1,
     "u0": 13.2,
     "v0": 0.1,
@@ -15792,7 +15792,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "71b0a5ed934159de",
+    "key": "1b7d079791212678",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -3.3,
@@ -15808,7 +15808,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "43ca1de3c3ac31c9",
+    "key": "e4e8ebc2aab11dbb",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -6.1,
@@ -15824,7 +15824,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "70383ef7fd0004ef",
+    "key": "d0b625e24a1f6388",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.2,
@@ -15840,7 +15840,7 @@
     "rotation_deg": -0.582
    },
    "barrier": {
-    "key": "ff53c854c5a2ced3",
+    "key": "6964cf11d359496f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -13.4,
@@ -15856,7 +15856,7 @@
     "rotation_deg": -0.618
    },
    "barrier": {
-    "key": "5f8b5ca41f217512",
+    "key": "4d2ff248e6dbaf39",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -15888,7 +15888,7 @@
     "rotation_deg": -0.628
    },
    "barrier": {
-    "key": "d1c41d4f14d8a26b",
+    "key": "26b5ffb8965310cd",
     "cell": 0.1,
     "u0": -10.3,
     "v0": -26.4,
@@ -15896,7 +15896,7 @@
     "rects": "2 3 287 364 3 103 287 288 3 103 363 364 101 103 270 271 102 103 247 265 102 103 416 418 103 104 247 264 103 107 422 424 104 194 247 249 107 108 422 426 108 109 424 427 108 179 422 423 109 110 426 428 110 111 427 430 111 112 428 431 112 113 429 432 113 114 431 433 114 115 432 435 115 116 433 436 116 171 435 436 171 172 433 436 172 173 432 435 173 174 431 433 174 175 429 432 175 176 428 431 176 177 427 430 177 178 426 428 178 179 424 427 179 180 422 426 180 280 422 424 193 194 263 264 194 196 247 264 196 209 263 264 209 210 262 264 210 211 260 264 211 212 259 263 212 213 257 261 213 214 256 260 214 215 254 258 215 216 253 257 216 217 251 255 217 218 250 253 218 219 248 252 219 220 247 250 220 255 247 249 255 256 247 250 256 257 248 252 257 258 249 253 258 259 251 255 259 260 253 256 260 261 254 258 261 262 256 260 262 263 257 261 263 264 259 262 264 265 260 264 265 266 262 264 266 280 263 264 280 281 263 424 281 289 264 265 281 289 267 268 281 289 337 338 281 289 340 341 281 293 342 344 281 293 382 384 289 290 264 341 290 292 264 265 290 292 340 341 292 293 264 341 293 295 342 413 295 319 360 361 295 319 382 413 319 320 360 413 320 322 382 383 320 322 388 413 322 323 382 413 347 348 366 368 347 348 374 376 348 350 366 367 348 350 375 376 350 351 365 367 350 351 375 377 351 352 365 366 351 352 376 377 352 353 2 5 352 353 19 366 352 354 376 507 353 354 2 366 354 355 2 5 354 355 19 366 354 355 377 507"
    },
    "floor": {
-    "key": "2220113ae1f0dfdf",
+    "key": "70653c700b962006",
     "cell": 0.1,
     "u0": 18.8,
     "v0": 9.6,
@@ -15948,7 +15948,7 @@
     "rotation_deg": -0.601
    },
    "barrier": {
-    "key": "8d89df6e8a15c50d",
+    "key": "addedeee5f23f306",
     "cell": 0.1,
     "u0": -16.7,
     "v0": -3.5,
@@ -15980,7 +15980,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "4a95de72a10bc1bb",
+    "key": "ba87ea344408a229",
     "cell": 0.1,
     "u0": -15.3,
     "v0": -4.1,
@@ -15996,7 +15996,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "bf805ac839379eb2",
+    "key": "a5654fec6894c78b",
     "cell": 0.1,
     "u0": -11.3,
     "v0": -7.8,
@@ -16044,7 +16044,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "3c0fe32ebe9a1ae2",
+    "key": "c6e0918990c6999e",
     "cell": 0.1,
     "u0": -11.4,
     "v0": -7.4,
@@ -16092,7 +16092,7 @@
     "rotation_deg": -0.682
    },
    "barrier": {
-    "key": "b837a6fd79ca1f79",
+    "key": "573b9d6c46c8263d",
     "cell": 0.1,
     "u0": -14.4,
     "v0": -6.0,
@@ -16108,7 +16108,7 @@
     "rotation_deg": 179.318
    },
    "barrier": {
-    "key": "b594213068a7f079",
+    "key": "d5e7d72d24ebd3f8",
     "cell": 0.1,
     "u0": -6.5,
     "v0": -1.2,
@@ -16116,7 +16116,7 @@
     "rects": "2 3 22 78 3 4 33 43 3 4 57 67 3 5 22 24 3 5 74 75 3 16 77 78 5 6 22 25 6 18 22 24 16 27 76 78 18 28 22 25 27 42 77 78 28 42 22 24 42 52 22 25 42 53 76 78 52 64 22 24 53 64 77 78 64 65 11 93 65 76 91 93 65 90 11 12 76 77 91 96 77 78 91 99 78 79 91 102 79 80 96 104 79 104 91 93 80 85 102 104 85 95 101 104 90 91 2 12 91 118 2 4 91 118 11 12 95 100 102 104 100 101 99 104 101 102 97 102 102 103 95 100 103 104 94 99 104 105 91 97 105 106 91 95 106 107 91 94 107 174 91 93 118 120 2 12 120 174 11 12 174 175 11 93 175 189 12 92 189 203 18 32"
    },
    "floor": {
-    "key": "3f5628ac449f971c",
+    "key": "90cb368856805679",
     "cell": 0.1,
     "u0": 10.8,
     "v0": -0.1,
@@ -16168,7 +16168,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "c09b3c131bf02917",
+    "key": "96c46384aae266cb",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -16184,7 +16184,7 @@
     "rotation_deg": -0.391
    },
    "barrier": {
-    "key": "f9243f26f4c2c293",
+    "key": "3b1b120a7b84d34b",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.0,
@@ -16216,7 +16216,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "1790bba08dce49f6",
+    "key": "84c5d47e432b5275",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -16232,7 +16232,7 @@
     "rotation_deg": -0.682
    },
    "barrier": {
-    "key": "c21eb1a6f69a2221",
+    "key": "76df505d80a28708",
     "cell": 0.1,
     "u0": -9.3,
     "v0": -0.1,
@@ -16240,7 +16240,7 @@
     "rects": "2 3 26 74 3 93 26 27 3 217 73 74 217 218 1 74 218 228 48 49 218 228 67 68 228 236 48 50 228 236 66 68 236 267 48 68"
    },
    "floor": {
-    "key": "d3b5533b0cf78ce3",
+    "key": "c21cb9102cc1f7c2",
     "cell": 0.1,
     "u0": 11.9,
     "v0": 4.6,
@@ -16276,7 +16276,7 @@
     "rotation_deg": -0.627
    },
    "barrier": {
-    "key": "bf5333b580c7186c",
+    "key": "afdc2b8ce713f4b4",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.0,
@@ -16308,7 +16308,7 @@
     "rotation_deg": -0.611
    },
    "barrier": {
-    "key": "78660cdbf722a22b",
+    "key": "31f0f628ec666d5f",
     "cell": 0.1,
     "u0": -14.5,
     "v0": -4.4,
@@ -16324,7 +16324,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "392a6b0afaa5d3b4",
+    "key": "e266860687ba9577",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -8.9,
@@ -16340,7 +16340,7 @@
     "rotation_deg": -0.679
    },
    "barrier": {
-    "key": "690820f7021df195",
+    "key": "48461f55830e092b",
     "cell": 0.1,
     "u0": -9.1,
     "v0": -3.1,
@@ -16348,7 +16348,7 @@
     "rects": "1 2 51 102 2 91 51 52 2 91 101 102 91 311 30 31 91 311 130 131 311 312 31 71 311 312 124 131 311 316 73 74 311 316 121 122 312 344 40 62 316 319 73 75 316 319 120 122 319 320 74 75 319 320 120 121 320 322 74 76 320 322 119 121 322 324 75 77 322 324 118 120 324 325 76 78 324 325 117 119 325 327 77 79 325 327 116 118 327 328 78 80 327 328 115 117 328 329 79 81 328 329 114 116 329 330 80 82 329 330 113 115 330 331 81 84 330 331 111 114 331 332 82 85 331 332 110 113 332 333 83 87 332 333 108 112 333 334 85 89 333 334 106 110 334 335 87 92 334 335 103 108 335 336 89 106 336 337 94 102 359 360 46 47 359 360 54 55 360 361 45 47 360 361 54 56 361 363 45 46 361 363 55 56 363 364 32 46 363 364 55 135 364 365 2 5 364 365 30 45 364 367 56 135 365 366 2 45 366 367 2 5 366 367 30 45"
    },
    "floor": {
-    "key": "1bcbd6afc3a86f35",
+    "key": "f2936493fc235e22",
     "cell": 0.1,
     "u0": 21.8,
     "v0": 1.1,
@@ -16384,7 +16384,7 @@
     "rotation_deg": -0.615
    },
    "barrier": {
-    "key": "0d248e9e26731971",
+    "key": "eedee84f2a60427b",
     "cell": 0.1,
     "u0": -15.4,
     "v0": -4.0,
@@ -16400,7 +16400,7 @@
     "rotation_deg": -0.815
    },
    "barrier": {
-    "key": "a17d411cc15466fa",
+    "key": "99504d08ce987f0f",
     "cell": 0.1,
     "u0": -12.3,
     "v0": -24.6,
@@ -16408,7 +16408,7 @@
     "rects": "11 12 49 246 12 72 49 50 61 76 177 186 67 72 17 32 72 83 17 50 76 77 67 186 77 101 67 68 83 95 1 50 93 153 160 161 95 98 1 32 95 101 49 50 98 102 17 32 101 102 49 68 153 154 160 186 155 158 25 32 155 158 58 186 158 159 25 186 159 161 25 57 159 161 58 186 161 162 25 186 162 173 31 186 173 174 25 186 174 175 25 57 174 175 58 186 175 176 25 186 176 180 25 32 176 180 58 186 220 221 186 291"
    },
    "floor": {
-    "key": "9c8f52e8ca776d08",
+    "key": "3581bfc785d0e9a0",
     "cell": 0.1,
     "u0": -11.2,
     "v0": -24.5,
@@ -16492,7 +16492,7 @@
     "rotation_deg": -0.688
    },
    "barrier": {
-    "key": "85f8bf0faf1fcfcd",
+    "key": "8aa4ba31d9189920",
     "cell": 0.1,
     "u0": -11.0,
     "v0": -7.8,
@@ -16540,7 +16540,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "87cd75dd65652836",
+    "key": "f51c6cf8643d004a",
     "cell": 0.1,
     "u0": -0.3,
     "v0": -2.1,
@@ -16556,7 +16556,7 @@
     "rotation_deg": -0.614
    },
    "barrier": {
-    "key": "6793b2e189330bfd",
+    "key": "ac7d2ca77b9a5e13",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -7.9,
@@ -16564,7 +16564,7 @@
     "rects": "3 4 217 219 4 140 221 222 8 9 77 79 140 141 221 224 141 142 221 225 142 143 224 226 142 172 221 222 143 144 225 228 144 145 226 229 145 146 228 230 146 147 229 231 147 167 230 231 167 168 229 231 168 169 228 230 169 170 226 229 170 171 225 228 171 172 224 226 172 173 221 225 173 174 221 224 174 263 221 222 263 267 221 230 267 268 79 82 267 268 135 202 267 271 222 230 267 274 85 86 268 274 135 183 271 273 93 101 271 273 120 128 273 274 93 102 273 274 119 128 274 276 85 183 276 290 136 183 290 297 140 141 290 297 143 168 290 298 170 171 297 298 140 168 298 300 139 169 298 300 171 172 300 302 139 172 302 308 138 173 308 320 137 174 330 331 151 152 330 331 159 160 331 332 150 152 331 332 159 161 332 334 150 151 332 334 160 161 334 335 2 5 334 335 49 151 334 335 160 236 335 337 2 150 335 338 161 236 337 338 2 5 337 338 49 150"
    },
    "floor": {
-    "key": "376916c584046ebf",
+    "key": "13a17b67307dd056",
     "cell": 0.1,
     "u0": 26.1,
     "v0": 5.8,
@@ -16600,7 +16600,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "4e8b56b81bed7c81",
+    "key": "c4bcbaccb92e7b95",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.7,
@@ -16616,7 +16616,7 @@
     "rotation_deg": -0.397
    },
    "barrier": {
-    "key": "79e34c5be23021a2",
+    "key": "6863e8a9e90e8aff",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -8.9,
@@ -16648,7 +16648,7 @@
     "rotation_deg": -0.61
    },
    "barrier": {
-    "key": "5eb97553aecdc9ee",
+    "key": "543364247a3b1e10",
     "cell": 0.1,
     "u0": -15.3,
     "v0": -4.1,
@@ -16696,7 +16696,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "03dab44ae8c62c91",
+    "key": "b26dd4c70e33403c",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -15.4,
@@ -16712,7 +16712,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "9629061301471a3c",
+    "key": "ac291bd11a981d16",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.4,
@@ -16851,8 +16851,8 @@
   {
    "structure": "calumet_2008:back_door:stoop",
    "placement": {
-    "local_e": 1495.7,
-    "local_n": -3510.99,
+    "local_e": 1495.69,
+    "local_n": -3509.74,
     "rotation_deg": 179.56
    },
    "barrier": {
@@ -17075,8 +17075,8 @@
   {
    "structure": "e20th_217:back_door:stoop",
    "placement": {
-    "local_e": 1329.23,
-    "local_n": -3502.51,
+    "local_e": 1327.96,
+    "local_n": -3501.13,
     "rotation_deg": 89.44
    },
    "barrier": {
@@ -17084,7 +17084,7 @@
     "u0": 0.05,
     "v0": -0.75,
     "count": 1,
-    "rects": "0 20 0 16"
+    "rects": "0 34 0 16"
    },
    "what": "back stoop"
   },
@@ -18755,8 +18755,8 @@
   {
    "structure": "prairie_2140:back_door:stoop",
    "placement": {
-    "local_e": 1373.23,
-    "local_n": -3729.77,
+    "local_e": 1373.22,
+    "local_n": -3728.77,
     "rotation_deg": 179.48
    },
    "barrier": {
