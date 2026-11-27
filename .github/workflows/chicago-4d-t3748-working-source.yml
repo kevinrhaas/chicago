@@ -1,4 +1,4 @@
-name: Better Trees seasons — complete Core and privacy integration working source
+name: Better Trees seasons — complete Core and current yard integration working source
 permissions:
   contents: read
 jobs:
@@ -40,13 +40,13 @@ jobs:
           key: 8of8
     env:
       DIAGNOSTIC_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-      SOURCE_MANIFEST_SHA: a5f8856506378308055d198bc4b47b6e5a14a9735fbed265e58c8321a299fd94
+      SOURCE_MANIFEST_SHA: bbb71fa654a84e6fb09e49f32ee37572836265b28f26bd20ebbbf8723c13000a
       NATIVE_PART: ${{ matrix.part }}
       SOURCE_RECEIPT_PATH: /tmp/native-source-before.json
     steps:
     - uses: actions/checkout@v4
       with:
-        ref: 14960ef3cb774a43dd0f5992a28cb973e8be3d20
+        ref: 118bd2e6d614bb594bc88419c74df807956d5a1c
         fetch-depth: 0
         filter: blob:none
     - uses: actions/setup-python@v5
@@ -71,9 +71,9 @@ jobs:
 
         subprocess.run([''git'',''fetch'',''--quiet'',''origin'',head],check=True)
 
-        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-dev149-apply-working-source.py''])
+        raw=subprocess.check_output([''git'',''show'',head+'':.github/diagnostics/t3748-dev118-apply-working-source.py''])
 
-        assert hashlib.sha256(raw).hexdigest()==''d12c98a76099649bcc99ee45c376caab556b7d3d42ab369e89b0f7e15104fb06''
+        assert hashlib.sha256(raw).hexdigest()==''bc3b227565e7875e80b77012db5da8b6ec4cb373d492b112cdf4f1dcfa6b0f08''
 
         p=Path(''/tmp/t3747-apply-source.py'');p.write_bytes(raw)
 
