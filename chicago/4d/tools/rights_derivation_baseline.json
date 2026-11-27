@@ -4779,6 +4779,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "murdoch_house_2130_prairie/as_mapped_1904/form.gable_roof": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2140_photo_a"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "murdoch_house_2130_prairie/as_mapped_1904/form.principal_floor_m": {
       "kind": "structure",
       "blocked_sources": [
@@ -4799,7 +4807,8 @@
     "murdoch_house_2130_prairie/as_mapped_1904/form.roof_form": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_2140_photo_a"
+        "chicagology_2140_photo_a",
+        "glessner_blog_2015_08_2140_photo"
       ],
       "sole_support": true,
       "confidence": "inferred"
@@ -4807,17 +4816,7 @@
     "murdoch_house_2130_prairie/as_mapped_1904/form.roof_pitch_deg": {
       "kind": "structure",
       "blocked_sources": [
-        "chicagology_2140_photo_a",
-        "glessner_blog_2015_08_2140_photo"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
-    "murdoch_house_2130_prairie/as_mapped_1904/form.shaped_gable": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_2140_photo_a",
-        "glessner_blog_2015_08_2140_photo"
+        "chicagology_2140_photo_a"
       ],
       "sole_support": true,
       "confidence": "inferred"

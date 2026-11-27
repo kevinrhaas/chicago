@@ -5784,6 +5784,18 @@ class Assembly:
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
         return any(b[0] <= cx <= b[1] and b[2] <= cz <= b[3] for b in getattr(self, "stone_stack_boxes", ()))
 
+    def _on_stone_flank(self, tri):
+        """T-3730: whether a gable roof's parapet face stands on a side wall the record lays in
+        the front's stone (`stone_front.flanks`): the south parapet is the slab from z -t to 0,
+        the north one from z -W to -W + t (k01_gable_roof.elements), t the side wall's thickness."""
+        flanks = (self.p.stone or {}).get("flanks") or ()
+        if not flanks or not self.p.gable:
+            return False
+        t, W = self.p.gable["parapet_m"], self.p.width_m
+        zs = [q[2] for q in tri]
+        return (("south" in flanks and min(zs) >= -t - 1e-6 and max(zs) <= 1e-6)
+                or ("north" in flanks and min(zs) >= -W - 1e-6 and max(zs) <= -W + t + 1e-6))
+
     def _in_gable_dormer(self, tri, boxes=None):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box
         (T-3307: or in one of `boxes`, and then only those, never a turned one)."""
@@ -5823,6 +5835,9 @@ class Assembly:
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_parapet_u", math.inf)):
                 mat = "rough_stone_trim"                  # T-2350: the blocking course, in the front's stone;
                                                           # T-2788: every parapet, on an all-stone house
+            elif role == "parapet" and self._on_stone_flank((pts[a], pts[b], pts[c])):
+                mat = "rough_stone_trim"                  # T-3730: a gable roof's parapet carried up on a
+                                                          # flank laid in the front's stone (2130's south gable)
             elif role == "parapet" and self.front_brick != "brick" and min(
                     q[0] for q in (pts[a], pts[b], pts[c])) >= getattr(self, "front_gable_u", math.inf):
                 mat = self.front_brick                    # T-3093: the shaped gable's brick, the front's
