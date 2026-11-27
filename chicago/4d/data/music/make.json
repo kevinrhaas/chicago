@@ -1,7 +1,34 @@
 {
   "about": "T-3811: what .github/workflows/chicago-4d-music.yml makes (cues, one take each, at most max_usd at fal's list price) and hosts (deliveries under renderers/web/audio/). A push that changes this file runs it; clear cues after a run.",
-  "request": "T-3811 take 1 made (13 cues, 2026-11-27); nothing requested now",
+  "request": "T-3811: host the 13 approved cues' deliveries (Opus and AAC) on the media host",
   "cues": "",
   "max_usd": 0,
-  "host": []
+  "host": [
+    "score/score-bed-1904-scandal.ogg",
+    "score/score-bed-1904-scandal.m4a",
+    "score/score-jaunt-opening-1835.ogg",
+    "score/score-jaunt-opening-1835.m4a",
+    "score/score-jaunt-closing-1835.ogg",
+    "score/score-jaunt-closing-1835.m4a",
+    "score/score-bed-1835-town.ogg",
+    "score/score-bed-1835-town.m4a",
+    "score/score-bed-1835-river.ogg",
+    "score/score-bed-1835-river.m4a",
+    "score/score-bed-1835-trades.ogg",
+    "score/score-bed-1835-trades.m4a",
+    "score/score-jaunt-opening-1871.ogg",
+    "score/score-jaunt-opening-1871.m4a",
+    "score/score-jaunt-closing-1871.ogg",
+    "score/score-jaunt-closing-1871.m4a",
+    "score/score-bed-1871-city.ogg",
+    "score/score-bed-1871-city.m4a",
+    "score/score-bed-1871-inquiry.ogg",
+    "score/score-bed-1871-inquiry.m4a",
+    "score/score-fire-1-rising.ogg",
+    "score/score-fire-1-rising.m4a",
+    "score/score-fire-2-inferno.ogg",
+    "score/score-fire-2-inferno.m4a",
+    "score/score-fire-3-ruins.ogg",
+    "score/score-fire-3-ruins.m4a"
+  ]
 }

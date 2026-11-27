@@ -296,8 +296,16 @@ nothing it makes is played by the app.
   the era playlist when the jaunt is over. The same gesture-unlocked element plays both; a
   change dips a fader over about a second, and a closing cue is never cut. Narration ducks it
   like any music. Deliveries go to R2 like the rest (`package_audio.py`, then
-  `verify_audio_host.py`). The scandal jaunts use the stories bed until `bed-1904-scandal` is
-  made. Liberty: L-score-3710.
+  `verify_audio_host.py`). Liberty: L-score-3710.
+- **Every jaunt (T-3809, T-3811, 2026-11-27).** Every jaunt of every year has a plan. The
+  owner approved thirteen more cues: 1835's opening, closing and town, river and trades beds;
+  1871's opening, closing, city and inquiry beds; the Great Fire's three movements (rising,
+  inferno, ruins, by stop, closing on Remembrance); the scandal bed. Their openings and closings
+  carry the fixed fanfare phrase (the master's 1.2-7.2 s, crossfaded 2 s into the take) and the
+  cadence (27.4-32.0 s, crossfaded 1 s), as the 1812 and 1904 ones do. `REUSE` in
+  build_jaunt_music.py lists what a scene may borrow from another era: now only Remembrance
+  for 1871. A rebuild keeps every unchanged cue's row and bytes, so hosted deliveries stand;
+  new deliveries are hosted by the music workflow's `host` list.
 
 ## Implemented foundation
 

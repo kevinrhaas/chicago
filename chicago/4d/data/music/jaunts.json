@@ -147,6 +147,125 @@
       "role": "bed",
       "lufs": -23,
       "loop": true
+    },
+    "bed-1904-scandal": {
+      "file": "assets/audio/originals/score-v1/53-bed-1904-scandal.mp3",
+      "era": "1904",
+      "title": "Scandal on the Avenue",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "jaunt-opening-1835": {
+      "file": "assets/audio/originals/score-v1/32-jaunt-opening-1835.mp3",
+      "era": "1835",
+      "title": "Jaunt Opening, 1835",
+      "role": "opening",
+      "lufs": -21,
+      "loop": false,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "jaunt-closing-1835": {
+      "file": "assets/audio/originals/score-v1/33-jaunt-closing-1835.mp3",
+      "era": "1835",
+      "title": "Jaunt Closing, 1835",
+      "role": "closing",
+      "lufs": -21,
+      "loop": false,
+      "keep_last_s": 32,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "bed-1835-town": {
+      "file": "assets/audio/originals/score-v1/54-bed-1835-town.mp3",
+      "era": "1835",
+      "title": "The Town",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "bed-1835-river": {
+      "file": "assets/audio/originals/score-v1/55-bed-1835-river.mp3",
+      "era": "1835",
+      "title": "The River",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "bed-1835-trades": {
+      "file": "assets/audio/originals/score-v1/56-bed-1835-trades.mp3",
+      "era": "1835",
+      "title": "The Trades",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "jaunt-opening-1871": {
+      "file": "assets/audio/originals/score-v1/32-jaunt-opening-1871.mp3",
+      "era": "1871",
+      "title": "Jaunt Opening, 1871",
+      "role": "opening",
+      "lufs": -21,
+      "loop": false,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "jaunt-closing-1871": {
+      "file": "assets/audio/originals/score-v1/33-jaunt-closing-1871.mp3",
+      "era": "1871",
+      "title": "Jaunt Closing, 1871",
+      "role": "closing",
+      "lufs": -21,
+      "loop": false,
+      "keep_last_s": 32,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "bed-1871-city": {
+      "file": "assets/audio/originals/score-v1/57-bed-1871-city.mp3",
+      "era": "1871",
+      "title": "The Wooden City",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "bed-1871-inquiry": {
+      "file": "assets/audio/originals/score-v1/58-bed-1871-inquiry.mp3",
+      "era": "1871",
+      "title": "The Inquiry",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "fire-1-rising": {
+      "file": "assets/audio/originals/score-v1/59-fire-1-rising.mp3",
+      "era": "1871",
+      "title": "The Fire I: Rising",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "fire-2-inferno": {
+      "file": "assets/audio/originals/score-v1/60-fire-2-inferno.mp3",
+      "era": "1871",
+      "title": "The Fire II: Inferno",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
+    },
+    "fire-3-ruins": {
+      "file": "assets/audio/originals/score-v1/61-fire-3-ruins.mp3",
+      "era": "1871",
+      "title": "The Fire III: Ruins",
+      "role": "bed",
+      "lufs": -23,
+      "loop": true,
+      "selected": "2026-11-27 (T-3811)"
     }
   },
   "jaunts": [
@@ -674,69 +793,69 @@
     {
       "id": "scandal-at-1612",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "scandal-at-1612-adults",
       "version_of": "scandal-at-1612",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "scandal-at-1612-grades-11-12",
       "version_of": "scandal-at-1612",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "scandal-at-1612-grades-3-5",
       "version_of": "scandal-at-1612",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "scandal-at-1612-grades-9-10",
       "version_of": "scandal-at-1612",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "sisters-of-the-levee",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "sisters-of-the-levee-adults",
       "version_of": "sisters-of-the-levee",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "sisters-of-the-levee-grades-11-12",
       "version_of": "sisters-of-the-levee",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "sisters-of-the-levee-grades-3-5",
       "version_of": "sisters-of-the-levee",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
       "id": "sisters-of-the-levee-grades-9-10",
       "version_of": "sisters-of-the-levee",
       "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "bed": "bed-1904-scandal",
       "closing": "jaunt-closing-1904"
     },
     {
@@ -945,174 +1064,229 @@
     },
     {
       "id": "the-great-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
+      "opening": "fire-1-rising",
+      "bed": "fire-1-rising",
+      "stops": {
+        "court-house": "fire-2-inferno",
+        "sherman-house": "fire-2-inferno",
+        "crosbys": "fire-2-inferno",
+        "north-side": "fire-2-inferno",
+        "water-works": "fire-2-inferno",
+        "tribune": "fire-2-inferno",
+        "state-street": "fire-2-inferno",
+        "ogden-house": "fire-3-ruins",
+        "old-cemetery": "fire-3-ruins"
+      },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-great-fire-adults",
       "version_of": "the-great-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
+      "opening": "fire-1-rising",
+      "bed": "fire-1-rising",
+      "stops": {
+        "court-house": "fire-2-inferno",
+        "sherman-house": "fire-2-inferno",
+        "crosbys": "fire-2-inferno",
+        "north-side": "fire-2-inferno",
+        "water-works": "fire-2-inferno",
+        "tribune": "fire-2-inferno",
+        "state-street": "fire-2-inferno",
+        "ogden-house": "fire-3-ruins",
+        "old-cemetery": "fire-3-ruins"
+      },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-great-fire-grades-11-12",
       "version_of": "the-great-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
+      "opening": "fire-1-rising",
+      "bed": "fire-1-rising",
+      "stops": {
+        "court-house": "fire-2-inferno",
+        "sherman-house": "fire-2-inferno",
+        "crosbys": "fire-2-inferno",
+        "north-side": "fire-2-inferno",
+        "water-works": "fire-2-inferno",
+        "tribune": "fire-2-inferno",
+        "state-street": "fire-2-inferno",
+        "ogden-house": "fire-3-ruins",
+        "old-cemetery": "fire-3-ruins"
+      },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-great-fire-grades-3-5",
       "version_of": "the-great-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
+      "opening": "fire-1-rising",
+      "bed": "fire-1-rising",
+      "stops": {
+        "court-house": "fire-2-inferno",
+        "sherman-house": "fire-2-inferno",
+        "crosbys": "fire-2-inferno",
+        "north-side": "fire-2-inferno",
+        "water-works": "fire-2-inferno",
+        "tribune": "fire-2-inferno",
+        "state-street": "fire-2-inferno",
+        "ogden-house": "fire-3-ruins",
+        "old-cemetery": "fire-3-ruins"
+      },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-great-fire-grades-9-10",
       "version_of": "the-great-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
+      "opening": "fire-1-rising",
+      "bed": "fire-1-rising",
+      "stops": {
+        "court-house": "fire-2-inferno",
+        "sherman-house": "fire-2-inferno",
+        "crosbys": "fire-2-inferno",
+        "north-side": "fire-2-inferno",
+        "water-works": "fire-2-inferno",
+        "tribune": "fire-2-inferno",
+        "state-street": "fire-2-inferno",
+        "ogden-house": "fire-3-ruins",
+        "old-cemetery": "fire-3-ruins"
+      },
       "closing": "theme-remembrance"
     },
     {
       "id": "who-started-the-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
-      "closing": "jaunt-closing-1904"
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-inquiry",
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "who-started-the-fire-adults",
       "version_of": "who-started-the-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
-      "closing": "jaunt-closing-1904"
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-inquiry",
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "who-started-the-fire-grades-11-12",
       "version_of": "who-started-the-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
-      "closing": "jaunt-closing-1904"
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-inquiry",
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "who-started-the-fire-grades-3-5",
       "version_of": "who-started-the-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
-      "closing": "jaunt-closing-1904"
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-inquiry",
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "who-started-the-fire-grades-9-10",
       "version_of": "who-started-the-fire",
-      "opening": "bed-1904-ghosts",
-      "bed": "bed-1904-ghosts",
-      "closing": "jaunt-closing-1904"
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-inquiry",
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "the-last-sunday",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-places",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts",
-        "dekoven": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins",
+        "dekoven": "fire-1-rising"
       },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-last-sunday-adults",
       "version_of": "the-last-sunday",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-places",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts",
-        "dekoven": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins",
+        "dekoven": "fire-1-rising"
       },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-last-sunday-grades-11-12",
       "version_of": "the-last-sunday",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-places",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts",
-        "dekoven": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins",
+        "dekoven": "fire-1-rising"
       },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-last-sunday-grades-3-5",
       "version_of": "the-last-sunday",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-places",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts",
-        "dekoven": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins",
+        "dekoven": "fire-1-rising"
       },
       "closing": "theme-remembrance"
     },
     {
       "id": "the-last-sunday-grades-9-10",
       "version_of": "the-last-sunday",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-places",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts",
-        "dekoven": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins",
+        "dekoven": "fire-1-rising"
       },
       "closing": "theme-remembrance"
     },
     {
       "id": "a-message-for-the-opera-house",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins"
       },
-      "closing": "jaunt-closing-1904"
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "a-message-for-the-opera-house-adults",
       "version_of": "a-message-for-the-opera-house",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins"
       },
-      "closing": "jaunt-closing-1904"
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "a-message-for-the-opera-house-grades-11-12",
       "version_of": "a-message-for-the-opera-house",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins"
       },
-      "closing": "jaunt-closing-1904"
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "a-message-for-the-opera-house-grades-3-5",
       "version_of": "a-message-for-the-opera-house",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins"
       },
-      "closing": "jaunt-closing-1904"
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "a-message-for-the-opera-house-grades-9-10",
       "version_of": "a-message-for-the-opera-house",
-      "opening": "jaunt-opening-1904",
-      "bed": "bed-1904-stories",
+      "opening": "jaunt-opening-1871",
+      "bed": "bed-1871-city",
       "stops": {
-        "saturday-ruins": "bed-1904-ghosts"
+        "saturday-ruins": "fire-3-ruins"
       },
-      "closing": "jaunt-closing-1904"
+      "closing": "jaunt-closing-1871"
     },
     {
       "id": "errands-before-the-march",
@@ -1258,989 +1432,989 @@
     },
     {
       "id": "a-decent-coat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "a-decent-coat-adults",
       "version_of": "a-decent-coat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "a-decent-coat-grades-11-12",
       "version_of": "a-decent-coat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "a-decent-coat-grades-3-5",
       "version_of": "a-decent-coat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "a-decent-coat-grades-9-10",
       "version_of": "a-decent-coat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "a-parcel-across-the-river",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "a-parcel-across-the-river-adults",
-      "version_of": "a-parcel-across-the-river",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "a-parcel-across-the-river-grades-11-12",
-      "version_of": "a-parcel-across-the-river",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "a-parcel-across-the-river-grades-3-5",
-      "version_of": "a-parcel-across-the-river",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "a-parcel-across-the-river-grades-9-10",
-      "version_of": "a-parcel-across-the-river",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "across-wolf-point",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "across-wolf-point-adults",
-      "version_of": "across-wolf-point",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "across-wolf-point-grades-11-12",
-      "version_of": "across-wolf-point",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "across-wolf-point-grades-3-5",
-      "version_of": "across-wolf-point",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "across-wolf-point-grades-9-10",
-      "version_of": "across-wolf-point",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "along-the-harbor",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "along-the-harbor-adults",
-      "version_of": "along-the-harbor",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "along-the-harbor-grades-11-12",
-      "version_of": "along-the-harbor",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "along-the-harbor-grades-3-5",
-      "version_of": "along-the-harbor",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "along-the-harbor-grades-9-10",
-      "version_of": "along-the-harbor",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "an-evening-stroll",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "an-evening-stroll-adults",
-      "version_of": "an-evening-stroll",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "an-evening-stroll-grades-11-12",
-      "version_of": "an-evening-stroll",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "an-evening-stroll-grades-3-5",
-      "version_of": "an-evening-stroll",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "an-evening-stroll-grades-9-10",
-      "version_of": "an-evening-stroll",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "apprentice-at-the-democrat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "apprentice-at-the-democrat-adults",
-      "version_of": "apprentice-at-the-democrat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "apprentice-at-the-democrat-grades-11-12",
-      "version_of": "apprentice-at-the-democrat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "apprentice-at-the-democrat-grades-3-5",
-      "version_of": "apprentice-at-the-democrat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "apprentice-at-the-democrat-grades-9-10",
-      "version_of": "apprentice-at-the-democrat",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "bed-for-the-night",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "bed-for-the-night-adults",
       "version_of": "bed-for-the-night",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "bed-for-the-night-grades-11-12",
       "version_of": "bed-for-the-night",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "bed-for-the-night-grades-3-5",
       "version_of": "bed-for-the-night",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "bed-for-the-night-grades-9-10",
       "version_of": "bed-for-the-night",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "boots-and-leather",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "boots-and-leather-adults",
-      "version_of": "boots-and-leather",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "boots-and-leather-grades-11-12",
-      "version_of": "boots-and-leather",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "boots-and-leather-grades-6-8",
-      "version_of": "boots-and-leather",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "boots-and-leather-grades-9-10",
-      "version_of": "boots-and-leather",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "calling-on-neighbors",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "calling-on-neighbors-adults",
       "version_of": "calling-on-neighbors",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "calling-on-neighbors-grades-11-12",
       "version_of": "calling-on-neighbors",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "calling-on-neighbors-grades-3-5",
       "version_of": "calling-on-neighbors",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "calling-on-neighbors-grades-9-10",
       "version_of": "calling-on-neighbors",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "fort-dearborn-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "fort-dearborn-errand-adults",
-      "version_of": "fort-dearborn-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "fort-dearborn-errand-grades-11-12",
-      "version_of": "fort-dearborn-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "fort-dearborn-errand-grades-3-5",
-      "version_of": "fort-dearborn-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "fort-dearborn-errand-grades-9-10",
-      "version_of": "fort-dearborn-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "freight-for-the-store",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "freight-for-the-store-adults",
-      "version_of": "freight-for-the-store",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "freight-for-the-store-grades-11-12",
-      "version_of": "freight-for-the-store",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "freight-for-the-store-grades-3-5",
-      "version_of": "freight-for-the-store",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "freight-for-the-store-grades-9-10",
-      "version_of": "freight-for-the-store",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "from-prairie-to-town",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "from-prairie-to-town-adults",
-      "version_of": "from-prairie-to-town",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "from-prairie-to-town-grades-11-12",
-      "version_of": "from-prairie-to-town",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "from-prairie-to-town-grades-3-5",
-      "version_of": "from-prairie-to-town",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "from-prairie-to-town-grades-9-10",
-      "version_of": "from-prairie-to-town",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "gossip-or-notice",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "gossip-or-notice-adults",
       "version_of": "gossip-or-notice",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "gossip-or-notice-grades-11-12",
       "version_of": "gossip-or-notice",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "gossip-or-notice-grades-3-5",
       "version_of": "gossip-or-notice",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "gossip-or-notice-grades-9-10",
       "version_of": "gossip-or-notice",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "household-provisions",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "household-provisions-adults",
       "version_of": "household-provisions",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "household-provisions-grades-11-12",
       "version_of": "household-provisions",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "household-provisions-grades-6-8",
       "version_of": "household-provisions",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "household-provisions-grades-9-10",
       "version_of": "household-provisions",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "inspect-a-lot",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "inspect-a-lot-adults",
       "version_of": "inspect-a-lot",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "inspect-a-lot-grades-11-12",
       "version_of": "inspect-a-lot",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "inspect-a-lot-grades-3-5",
       "version_of": "inspect-a-lot",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "inspect-a-lot-grades-9-10",
       "version_of": "inspect-a-lot",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "letter-home",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "letter-home-adults",
       "version_of": "letter-home",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "letter-home-grades-11-12",
       "version_of": "letter-home",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "letter-home-grades-3-5",
       "version_of": "letter-home",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "letter-home-grades-9-10",
       "version_of": "letter-home",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "materials-for-a-roof",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "materials-for-a-roof-adults",
-      "version_of": "materials-for-a-roof",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "materials-for-a-roof-grades-11-12",
-      "version_of": "materials-for-a-roof",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "materials-for-a-roof-grades-3-5",
-      "version_of": "materials-for-a-roof",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "materials-for-a-roof-grades-9-10",
-      "version_of": "materials-for-a-roof",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "mend-the-harness",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "mend-the-harness-adults",
-      "version_of": "mend-the-harness",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "mend-the-harness-grades-11-12",
-      "version_of": "mend-the-harness",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "mend-the-harness-grades-3-5",
-      "version_of": "mend-the-harness",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "mend-the-harness-grades-9-10",
-      "version_of": "mend-the-harness",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "new-in-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "new-in-chicago-adults",
       "version_of": "new-in-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "new-in-chicago-grades-11-12",
       "version_of": "new-in-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "new-in-chicago-grades-3-5",
       "version_of": "new-in-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "new-in-chicago-grades-9-10",
       "version_of": "new-in-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "news-before-breakfast",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "news-before-breakfast-adults",
       "version_of": "news-before-breakfast",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "news-before-breakfast-grades-11-12",
       "version_of": "news-before-breakfast",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "news-before-breakfast-grades-3-5",
       "version_of": "news-before-breakfast",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "news-before-breakfast-grades-9-10",
       "version_of": "news-before-breakfast",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "notable-women-1835",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "notable-women-1835-adults",
       "version_of": "notable-women-1835",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "notable-women-1835-grades-11-12",
       "version_of": "notable-women-1835",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "notable-women-1835-grades-3-5",
       "version_of": "notable-women-1835",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "notable-women-1835-grades-6-8",
       "version_of": "notable-women-1835",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "outfit-for-the-west",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "outfit-for-the-west-adults",
       "version_of": "outfit-for-the-west",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "outfit-for-the-west-grades-11-12",
       "version_of": "outfit-for-the-west",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "outfit-for-the-west-grades-3-5",
       "version_of": "outfit-for-the-west",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "outfit-for-the-west-grades-9-10",
       "version_of": "outfit-for-the-west",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "over-the-draw",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "over-the-draw-adults",
-      "version_of": "over-the-draw",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "over-the-draw-grades-11-12",
-      "version_of": "over-the-draw",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "over-the-draw-grades-3-5",
-      "version_of": "over-the-draw",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
-    },
-    {
-      "id": "over-the-draw-grades-9-10",
-      "version_of": "over-the-draw",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "schoolday-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "schoolday-errand-adults",
       "version_of": "schoolday-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "schoolday-errand-grades-11-12",
       "version_of": "schoolday-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "schoolday-errand-grades-3-5",
       "version_of": "schoolday-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "schoolday-errand-grades-9-10",
       "version_of": "schoolday-errand",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "shopping-south-water",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "shopping-south-water-adults",
       "version_of": "shopping-south-water",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "shopping-south-water-grades-11-12",
       "version_of": "shopping-south-water",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "shopping-south-water-grades-3-5",
       "version_of": "shopping-south-water",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "shopping-south-water-grades-9-10",
       "version_of": "shopping-south-water",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "soap-and-candles",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "soap-and-candles-adults",
       "version_of": "soap-and-candles",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "soap-and-candles-grades-11-12",
       "version_of": "soap-and-candles",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "soap-and-candles-grades-6-8",
       "version_of": "soap-and-candles",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "soap-and-candles-grades-9-10",
       "version_of": "soap-and-candles",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "sunday-circuit",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "sunday-circuit-adults",
       "version_of": "sunday-circuit",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "sunday-circuit-grades-11-12",
       "version_of": "sunday-circuit",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "sunday-circuit-grades-3-5",
       "version_of": "sunday-circuit",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "sunday-circuit-grades-9-10",
       "version_of": "sunday-circuit",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
-      "id": "taverns-of-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "id": "an-evening-stroll",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
-      "id": "taverns-of-chicago-adults",
-      "version_of": "taverns-of-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "id": "an-evening-stroll-adults",
+      "version_of": "an-evening-stroll",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
-      "id": "taverns-of-chicago-grades-11-12",
-      "version_of": "taverns-of-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "id": "an-evening-stroll-grades-11-12",
+      "version_of": "an-evening-stroll",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
-      "id": "taverns-of-chicago-grades-3-5",
-      "version_of": "taverns-of-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "id": "an-evening-stroll-grades-3-5",
+      "version_of": "an-evening-stroll",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
     },
     {
-      "id": "taverns-of-chicago-grades-9-10",
-      "version_of": "taverns-of-chicago",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "id": "an-evening-stroll-grades-9-10",
+      "version_of": "an-evening-stroll",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "from-prairie-to-town",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "from-prairie-to-town-adults",
+      "version_of": "from-prairie-to-town",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "from-prairie-to-town-grades-11-12",
+      "version_of": "from-prairie-to-town",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "from-prairie-to-town-grades-3-5",
+      "version_of": "from-prairie-to-town",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "from-prairie-to-town-grades-9-10",
+      "version_of": "from-prairie-to-town",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "fort-dearborn-errand",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "fort-dearborn-errand-adults",
+      "version_of": "fort-dearborn-errand",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "fort-dearborn-errand-grades-11-12",
+      "version_of": "fort-dearborn-errand",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "fort-dearborn-errand-grades-3-5",
+      "version_of": "fort-dearborn-errand",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "fort-dearborn-errand-grades-9-10",
+      "version_of": "fort-dearborn-errand",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-town",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "a-parcel-across-the-river",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "a-parcel-across-the-river-adults",
+      "version_of": "a-parcel-across-the-river",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "a-parcel-across-the-river-grades-11-12",
+      "version_of": "a-parcel-across-the-river",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "a-parcel-across-the-river-grades-3-5",
+      "version_of": "a-parcel-across-the-river",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "a-parcel-across-the-river-grades-9-10",
+      "version_of": "a-parcel-across-the-river",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "across-wolf-point",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "across-wolf-point-adults",
+      "version_of": "across-wolf-point",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "across-wolf-point-grades-11-12",
+      "version_of": "across-wolf-point",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "across-wolf-point-grades-3-5",
+      "version_of": "across-wolf-point",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "across-wolf-point-grades-9-10",
+      "version_of": "across-wolf-point",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "along-the-harbor",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "along-the-harbor-adults",
+      "version_of": "along-the-harbor",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "along-the-harbor-grades-11-12",
+      "version_of": "along-the-harbor",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "along-the-harbor-grades-3-5",
+      "version_of": "along-the-harbor",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "along-the-harbor-grades-9-10",
+      "version_of": "along-the-harbor",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "freight-for-the-store",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "freight-for-the-store-adults",
+      "version_of": "freight-for-the-store",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "freight-for-the-store-grades-11-12",
+      "version_of": "freight-for-the-store",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "freight-for-the-store-grades-3-5",
+      "version_of": "freight-for-the-store",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "freight-for-the-store-grades-9-10",
+      "version_of": "freight-for-the-store",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "over-the-draw",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "over-the-draw-adults",
+      "version_of": "over-the-draw",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "over-the-draw-grades-11-12",
+      "version_of": "over-the-draw",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "over-the-draw-grades-3-5",
+      "version_of": "over-the-draw",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "over-the-draw-grades-9-10",
+      "version_of": "over-the-draw",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "work-on-waterfront",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "work-on-waterfront-adults",
       "version_of": "work-on-waterfront",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "work-on-waterfront-grades-11-12",
       "version_of": "work-on-waterfront",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "work-on-waterfront-grades-3-5",
       "version_of": "work-on-waterfront",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
     },
     {
       "id": "work-on-waterfront-grades-9-10",
       "version_of": "work-on-waterfront",
-      "opening": "jaunt-opening-1812",
-      "bed": "bed-1812-fort",
-      "closing": "jaunt-closing-1812"
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-river",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "apprentice-at-the-democrat",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "apprentice-at-the-democrat-adults",
+      "version_of": "apprentice-at-the-democrat",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "apprentice-at-the-democrat-grades-11-12",
+      "version_of": "apprentice-at-the-democrat",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "apprentice-at-the-democrat-grades-3-5",
+      "version_of": "apprentice-at-the-democrat",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "apprentice-at-the-democrat-grades-9-10",
+      "version_of": "apprentice-at-the-democrat",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "boots-and-leather",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "boots-and-leather-adults",
+      "version_of": "boots-and-leather",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "boots-and-leather-grades-11-12",
+      "version_of": "boots-and-leather",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "boots-and-leather-grades-6-8",
+      "version_of": "boots-and-leather",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "boots-and-leather-grades-9-10",
+      "version_of": "boots-and-leather",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "materials-for-a-roof",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "materials-for-a-roof-adults",
+      "version_of": "materials-for-a-roof",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "materials-for-a-roof-grades-11-12",
+      "version_of": "materials-for-a-roof",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "materials-for-a-roof-grades-3-5",
+      "version_of": "materials-for-a-roof",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "materials-for-a-roof-grades-9-10",
+      "version_of": "materials-for-a-roof",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "mend-the-harness",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "mend-the-harness-adults",
+      "version_of": "mend-the-harness",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "mend-the-harness-grades-11-12",
+      "version_of": "mend-the-harness",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "mend-the-harness-grades-3-5",
+      "version_of": "mend-the-harness",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "mend-the-harness-grades-9-10",
+      "version_of": "mend-the-harness",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "taverns-of-chicago",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "taverns-of-chicago-adults",
+      "version_of": "taverns-of-chicago",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "taverns-of-chicago-grades-11-12",
+      "version_of": "taverns-of-chicago",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "taverns-of-chicago-grades-3-5",
+      "version_of": "taverns-of-chicago",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
+    },
+    {
+      "id": "taverns-of-chicago-grades-9-10",
+      "version_of": "taverns-of-chicago",
+      "opening": "jaunt-opening-1835",
+      "bed": "bed-1835-trades",
+      "closing": "jaunt-closing-1835"
     }
   ]
 }

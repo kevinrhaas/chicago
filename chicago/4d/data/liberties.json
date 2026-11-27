@@ -80883,11 +80883,15 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-20",
-      "revised": null,
+      "revised": "2026-11-27",
       "fields": [
         {
           "label": "Decision",
           "text": "the owner, 2026-11-20, asked for an instrumental score for the whole app (\"in the style of John Williams... no vocals instrumentation only and use native and other instruments to make this a unique and cool and respectful story, maybe not as many native things in 1904 and less in 1835 and 1871, use music and styles from the era\"), narrated jaunts first, then \"Ok can you go ahead and add the music to the jaunts correctly\". The music under the 22 narrated 1812 and 1904 jaunts and their versions is generated for the app (ElevenLabs Music through fal, Stable Audio 2.5 inpainting for joins; the score data, the jaunts data) and chosen by the owner by ear. Its main theme is one recording he fixed and is never regenerated. Everything in it is reconstructed: no piece is a period composition, arrangement or performance, and none was heard in Chicago in 1812 or 1904. The period is suggested by instrument colour only, over a cinematic orchestra: in 1812 a Woodlands cedar flute, a soft hand drum, a Métis fiddle, fife and rope snare; in 1904 a romantic orchestra, salon strings and ragtime piano touches. The Native colour in 1812 is kept to timbre, under rules written into every 1812 cue (the music score generator): no stereotyped tom-tom beat and no war whoops, and in every cue no vocals, choir, singing or humming. Nothing in it is presented as a Potawatomi or other nation's song. Which cue plays at which stop (the battle's build, march, fight and aftermath), and the scandal jaunts' stand-in bed, are ours."
+        },
+        {
+          "label": "Every jaunt (revised 2026-11-27, and)",
+          "text": "the owner: *\"every jaunt should have music, pull from the existing library and let me know if you need anything to fill in\"*, then, of thirteen new cues made for 1835, 1871 and the scandal jaunts, *\"These are all fine\"*. Every jaunt of every year now has music. 1835 has its own opening and closing (the fixed fanfare phrase and cadence around a fiddle, fife and keyed-bugle bed) and three beds, for the town, the river and the trades; 1871 has its own opening and closing, a bed for the wooden city and one for the inquiry into the fire's start, and the Great Fire three movements of its own (rising from the barn to the river, the inferno through the business district and the North Side, the ruins at the last refuges), closing on the 1812 Remembrance theme as the battle does. The scandal jaunts have their own bed. Like the rest, these are newly made, not period music; which movement plays at which stop of the fire is ours."
         },
         {
           "label": "Re-opens on",
@@ -80896,9 +80900,15 @@
         {
           "label": "Recorded",
           "text": "2026-11-20."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-27."
         }
       ],
       "work_refs": [
+        "T-3809",
+        "T-3811",
         "T-3710"
       ]
     },

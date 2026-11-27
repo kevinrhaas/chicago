@@ -5049,6 +5049,396 @@
       }
     },
     {
+      "id": "score-bed-1904-scandal",
+      "kind": "music",
+      "era": "1904",
+      "title": "Scandal on the Avenue",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 53.0,
+      "original": "assets/audio/originals/score-v1/53-bed-1904-scandal.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "e78c7b45c5242fcb4d6519f7ca9ab08c2417a5418105388bfcd8a300486a25ea"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (56.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1904-scandal.ogg",
+      "aac": "score/score-bed-1904-scandal.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 514912,
+          "sha256": "be28ad591288127022e5e41c479fa0aca08e0b004c6e2e3a056c426eb80cd2df"
+        },
+        "aac": {
+          "bytes": 755287,
+          "sha256": "ba5f0a516885ab03b907261bb6b4e2308fb4770d4d25748e7134b2637234b592"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-opening-1835",
+      "kind": "music",
+      "era": "1835",
+      "title": "Jaunt Opening, 1835",
+      "playlist": false,
+      "score_role": "opening",
+      "loop": false,
+      "duration_s": 60.921,
+      "original": "assets/audio/originals/score-v1/32-jaunt-opening-1835.mp3",
+      "original_integrity": {
+        "bytes": 1026342,
+        "sha256": "6cd064779221408a66c8ef80d1e708d0b84c96346542f788f28de23adb291a26"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.00 dB from -22.0 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-opening-1835.ogg",
+      "aac": "score/score-jaunt-opening-1835.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 543200,
+          "sha256": "0337128503a8a58b46a2ac38310430349ddd521050b2110d1ea029ebbf609e81"
+        },
+        "aac": {
+          "bytes": 868187,
+          "sha256": "a114e22cfdbbb2bbeb706cedc9f97fcbc0bd984bf85ef881514ec78e3f521761"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-closing-1835",
+      "kind": "music",
+      "era": "1835",
+      "title": "Jaunt Closing, 1835",
+      "playlist": false,
+      "score_role": "closing",
+      "loop": false,
+      "duration_s": 32.0,
+      "original": "assets/audio/originals/score-v1/33-jaunt-closing-1835.mp3",
+      "original_integrity": {
+        "bytes": 1019655,
+        "sha256": "c18601d74e2fa8026b355ce9674dcdf9f1ee39bb9755ae4c091f232a7b60b2fa"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.70 dB from -22.7 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; only its last 32 s kept, faded in over 2 s; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-closing-1835.ogg",
+      "aac": "score/score-jaunt-closing-1835.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 284067,
+          "sha256": "ad50d12d531ea66bf10f9471d6aa75d406051fa7b79a97d31d5dbacd488dd4f9"
+        },
+        "aac": {
+          "bytes": 455725,
+          "sha256": "28775cf9c3d7400177454f79933d2a4f047b5e96ae3b70d4d75374b1bc635360"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1835-town",
+      "kind": "music",
+      "era": "1835",
+      "title": "The Town",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 50.0,
+      "original": "assets/audio/originals/score-v1/54-bed-1835-town.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "2201201dee626d59fb645c00f75abf5da92ed2a5aa854b49e467aa2fe48ccc26"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (53.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1835-town.ogg",
+      "aac": "score/score-bed-1835-town.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 461361,
+          "sha256": "4f8cb93fe1de3925390e9007782a1b1db465a1ec86c145959b5935986477c9b6"
+        },
+        "aac": {
+          "bytes": 712090,
+          "sha256": "d5b4d7c1b0491cf21aba50618e457c88b94b0ad6e33e08be70d155f2ebed9aa5"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1835-river",
+      "kind": "music",
+      "era": "1835",
+      "title": "The River",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 55.0,
+      "original": "assets/audio/originals/score-v1/55-bed-1835-river.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "eaecb2d9f8b3d06bdfb531a09f1ca0272aac58516bdd64094cd17acb94a59456"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.10 dB from -22.9 to -23 LUFS integrated; leading silence and closing fade cut (58.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1835-river.ogg",
+      "aac": "score/score-bed-1835-river.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 472912,
+          "sha256": "1a344530d1407728de17032433f31b54b88b5ed0f404929f8b6982f3819dcb5f"
+        },
+        "aac": {
+          "bytes": 783038,
+          "sha256": "b620a61e5cea0deff4820d76be11a2676ad91cedf94fc57e7721116871987c98"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1835-trades",
+      "kind": "music",
+      "era": "1835",
+      "title": "The Trades",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 51.0,
+      "original": "assets/audio/originals/score-v1/56-bed-1835-trades.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "ce664146c5db901851888d814ffccd41f9b4149882a23fa2cea372cc7d19e6f5"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (54.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1835-trades.ogg",
+      "aac": "score/score-bed-1835-trades.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 479048,
+          "sha256": "0bd9c1555051758c0f33b6ebe3fc834832bc766bad811468a883e81ca012789c"
+        },
+        "aac": {
+          "bytes": 726457,
+          "sha256": "d6344b50a4a37786d894b92897498f419c853892b45c82dca239816086b2d900"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-opening-1871",
+      "kind": "music",
+      "era": "1871",
+      "title": "Jaunt Opening, 1871",
+      "playlist": false,
+      "score_role": "opening",
+      "loop": false,
+      "duration_s": 62.169,
+      "original": "assets/audio/originals/score-v1/32-jaunt-opening-1871.mp3",
+      "original_integrity": {
+        "bytes": 1026342,
+        "sha256": "5a51695c7861aefd4b0af38419a15208eb49bf35e688e57c591f9a1c054295ed"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.20 dB from -22.2 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-opening-1871.ogg",
+      "aac": "score/score-jaunt-opening-1871.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 594056,
+          "sha256": "6724ada3d159d0f32faf82620317188586edb6761f1ed4e3633312a4d08ea752"
+        },
+        "aac": {
+          "bytes": 886294,
+          "sha256": "712d92b14d20994e4af7b223da178f13e22010420f3321a3e243c36f60fca2e8"
+        }
+      }
+    },
+    {
+      "id": "score-jaunt-closing-1871",
+      "kind": "music",
+      "era": "1871",
+      "title": "Jaunt Closing, 1871",
+      "playlist": false,
+      "score_role": "closing",
+      "loop": false,
+      "duration_s": 32.0,
+      "original": "assets/audio/originals/score-v1/33-jaunt-closing-1871.mp3",
+      "original_integrity": {
+        "bytes": 1019655,
+        "sha256": "85792e118eac2415cf23d9f3a5bf64037d8d2bc1f1257e731d6ca4a86372a118"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +1.80 dB from -22.8 to -21 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; only its last 32 s kept, faded in over 2 s; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-jaunt-closing-1871.ogg",
+      "aac": "score/score-jaunt-closing-1871.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 327804,
+          "sha256": "d8078964eb0df9840355636f3af4a51af1d2ddba0e3921a32f57ef12a76a52e9"
+        },
+        "aac": {
+          "bytes": 455554,
+          "sha256": "f6e8f857fde69731e241122a3550c189532d6249f0523eb241193a83d53ed18a"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1871-city",
+      "kind": "music",
+      "era": "1871",
+      "title": "The Wooden City",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/57-bed-1871-city.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "76d362ffecf0fd01c6f0ff5a7881b12dece817b2bcfdd39956044f9bb0096af6"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.10 dB from -22.9 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1871-city.ogg",
+      "aac": "score/score-bed-1871-city.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 492181,
+          "sha256": "1400a6a168094e2e304cb4da7f21954653f352babd0c5b0a2ff2fa46b7c6f1e4"
+        },
+        "aac": {
+          "bytes": 740361,
+          "sha256": "34c3f6e5bffed31bc3a43e57db94ddeff02246551c3cb44e4d8210099267fa50"
+        }
+      }
+    },
+    {
+      "id": "score-bed-1871-inquiry",
+      "kind": "music",
+      "era": "1871",
+      "title": "The Inquiry",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 54.0,
+      "original": "assets/audio/originals/score-v1/58-bed-1871-inquiry.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "d9742dd325e522fe091aa645de11738a955d85b636ab29030817c33f69368622"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.10 dB from -22.9 to -23 LUFS integrated; leading silence and closing fade cut (57.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-bed-1871-inquiry.ogg",
+      "aac": "score/score-bed-1871-inquiry.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 524323,
+          "sha256": "7f6f4a12b5f60772ae3bb6431e1109c76cb0f5dde095b49e0444d9914139cfd7"
+        },
+        "aac": {
+          "bytes": 770633,
+          "sha256": "906f734131bc3a328228a003230d2bb2945e8f47ef593afbdb9b0ebe59f1059c"
+        }
+      }
+    },
+    {
+      "id": "score-fire-1-rising",
+      "kind": "music",
+      "era": "1871",
+      "title": "The Fire I: Rising",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/59-fire-1-rising.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "f582b5fd54eb8d6c91d9e6d12533766230be22fc76be4016a02ac979a43aa396"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-fire-1-rising.ogg",
+      "aac": "score/score-fire-1-rising.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 416057,
+          "sha256": "7ddfa666a4c81fa6307e18ec8502a568a350032bd33d1a07240d0c7def3e7c8f"
+        },
+        "aac": {
+          "bytes": 740110,
+          "sha256": "a0b5f4b1b3c461265cef437c6c940819b9db61dc7bcdb4bec95219e402dc28e1"
+        }
+      }
+    },
+    {
+      "id": "score-fire-2-inferno",
+      "kind": "music",
+      "era": "1871",
+      "title": "The Fire II: Inferno",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 54.0,
+      "original": "assets/audio/originals/score-v1/60-fire-2-inferno.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "792073a419c0b089a71f5995c3563cfbd1bfc3f9a20686803f20b00d4fbfaf6a"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (57.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-fire-2-inferno.ogg",
+      "aac": "score/score-fire-2-inferno.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 468506,
+          "sha256": "470ed059f478a858c5ecfc1689385c890547e5112f8ef147aaab084f3c18d7bf"
+        },
+        "aac": {
+          "bytes": 769086,
+          "sha256": "7fa3b128c1b9e57417fc83872d750b1d3acd5b29b8277bb9dd5a2c44fa0f4acb"
+        }
+      }
+    },
+    {
+      "id": "score-fire-3-ruins",
+      "kind": "music",
+      "era": "1871",
+      "title": "The Fire III: Ruins",
+      "playlist": false,
+      "score_role": "bed",
+      "loop": true,
+      "duration_s": 52.0,
+      "original": "assets/audio/originals/score-v1/61-fire-3-ruins.mp3",
+      "original_integrity": {
+        "bytes": 961977,
+        "sha256": "a1e2c6116c40f7ceac33fc36c1030fa37c525f1f888dc35e2777b523ccfd0640"
+      },
+      "provenance": "Generated for the app through fal (ElevenLabs Music; Stable Audio 2.5 inpainting for joins), from the cue plans in data/music/score.json, and selected by the owner, 2026-11-27 (T-3811). The main theme's phrases are cut from the owner's fixed recording, never regenerated. Instrumental; a modern score in period colours, not a period composition or performance.",
+      "rights": "Generated on the owner's fal account for use in the app, 2026-11-27; owner authorized use and distribution in the app. No open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.00 dB from -23.0 to -23 LUFS integrated; leading silence and closing fade cut (55.0 s body); tail crossfaded 3 s equal-power into the head for a seamless loop; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "score/score-fire-3-ruins.ogg",
+      "aac": "score/score-fire-3-ruins.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 452527,
+          "sha256": "09435d7446eee8425c8a78255f60d20ac1285bec070c2cb08f9744cb75847f05"
+        },
+        "aac": {
+          "bytes": 740248,
+          "sha256": "2b0f0a5940ea28c5ec18bbb07cdfc675d1a3899bfde5293bc7758217af01b266"
+        }
+      }
+    },
+    {
       "id": "wind",
       "kind": "environment",
       "title": "Wind through leaves",
@@ -7967,52 +8357,52 @@
       },
       "scandal-at-1612": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "scandal-at-1612-adults": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "scandal-at-1612-grades-11-12": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "scandal-at-1612-grades-3-5": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "scandal-at-1612-grades-9-10": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "sisters-of-the-levee": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "sisters-of-the-levee-adults": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "sisters-of-the-levee-grades-11-12": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "sisters-of-the-levee-grades-3-5": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "sisters-of-the-levee-grades-9-10": {
         "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
+        "bed": "score-bed-1904-scandal",
         "closing": "score-jaunt-closing-1904"
       },
       "prairie-architects": {
@@ -8166,138 +8556,193 @@
         "closing": "score-jaunt-closing-1904"
       },
       "the-great-fire": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-theme-remembrance"
-      },
-      "the-great-fire-adults": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-theme-remembrance"
-      },
-      "the-great-fire-grades-11-12": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-theme-remembrance"
-      },
-      "the-great-fire-grades-3-5": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-theme-remembrance"
-      },
-      "the-great-fire-grades-9-10": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-theme-remembrance"
-      },
-      "who-started-the-fire": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-jaunt-closing-1904"
-      },
-      "who-started-the-fire-adults": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-jaunt-closing-1904"
-      },
-      "who-started-the-fire-grades-11-12": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-jaunt-closing-1904"
-      },
-      "who-started-the-fire-grades-3-5": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-jaunt-closing-1904"
-      },
-      "who-started-the-fire-grades-9-10": {
-        "opening": "score-bed-1904-ghosts",
-        "bed": "score-bed-1904-ghosts",
-        "closing": "score-jaunt-closing-1904"
-      },
-      "the-last-sunday": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-places",
+        "opening": "score-fire-1-rising",
+        "bed": "score-fire-1-rising",
         "closing": "score-theme-remembrance",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts",
-          "dekoven": "score-bed-1904-ghosts"
+          "court-house": "score-fire-2-inferno",
+          "sherman-house": "score-fire-2-inferno",
+          "crosbys": "score-fire-2-inferno",
+          "north-side": "score-fire-2-inferno",
+          "water-works": "score-fire-2-inferno",
+          "tribune": "score-fire-2-inferno",
+          "state-street": "score-fire-2-inferno",
+          "ogden-house": "score-fire-3-ruins",
+          "old-cemetery": "score-fire-3-ruins"
+        }
+      },
+      "the-great-fire-adults": {
+        "opening": "score-fire-1-rising",
+        "bed": "score-fire-1-rising",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "court-house": "score-fire-2-inferno",
+          "sherman-house": "score-fire-2-inferno",
+          "crosbys": "score-fire-2-inferno",
+          "north-side": "score-fire-2-inferno",
+          "water-works": "score-fire-2-inferno",
+          "tribune": "score-fire-2-inferno",
+          "state-street": "score-fire-2-inferno",
+          "ogden-house": "score-fire-3-ruins",
+          "old-cemetery": "score-fire-3-ruins"
+        }
+      },
+      "the-great-fire-grades-11-12": {
+        "opening": "score-fire-1-rising",
+        "bed": "score-fire-1-rising",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "court-house": "score-fire-2-inferno",
+          "sherman-house": "score-fire-2-inferno",
+          "crosbys": "score-fire-2-inferno",
+          "north-side": "score-fire-2-inferno",
+          "water-works": "score-fire-2-inferno",
+          "tribune": "score-fire-2-inferno",
+          "state-street": "score-fire-2-inferno",
+          "ogden-house": "score-fire-3-ruins",
+          "old-cemetery": "score-fire-3-ruins"
+        }
+      },
+      "the-great-fire-grades-3-5": {
+        "opening": "score-fire-1-rising",
+        "bed": "score-fire-1-rising",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "court-house": "score-fire-2-inferno",
+          "sherman-house": "score-fire-2-inferno",
+          "crosbys": "score-fire-2-inferno",
+          "north-side": "score-fire-2-inferno",
+          "water-works": "score-fire-2-inferno",
+          "tribune": "score-fire-2-inferno",
+          "state-street": "score-fire-2-inferno",
+          "ogden-house": "score-fire-3-ruins",
+          "old-cemetery": "score-fire-3-ruins"
+        }
+      },
+      "the-great-fire-grades-9-10": {
+        "opening": "score-fire-1-rising",
+        "bed": "score-fire-1-rising",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "court-house": "score-fire-2-inferno",
+          "sherman-house": "score-fire-2-inferno",
+          "crosbys": "score-fire-2-inferno",
+          "north-side": "score-fire-2-inferno",
+          "water-works": "score-fire-2-inferno",
+          "tribune": "score-fire-2-inferno",
+          "state-street": "score-fire-2-inferno",
+          "ogden-house": "score-fire-3-ruins",
+          "old-cemetery": "score-fire-3-ruins"
+        }
+      },
+      "who-started-the-fire": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-inquiry",
+        "closing": "score-jaunt-closing-1871"
+      },
+      "who-started-the-fire-adults": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-inquiry",
+        "closing": "score-jaunt-closing-1871"
+      },
+      "who-started-the-fire-grades-11-12": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-inquiry",
+        "closing": "score-jaunt-closing-1871"
+      },
+      "who-started-the-fire-grades-3-5": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-inquiry",
+        "closing": "score-jaunt-closing-1871"
+      },
+      "who-started-the-fire-grades-9-10": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-inquiry",
+        "closing": "score-jaunt-closing-1871"
+      },
+      "the-last-sunday": {
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-theme-remembrance",
+        "stops": {
+          "saturday-ruins": "score-fire-3-ruins",
+          "dekoven": "score-fire-1-rising"
         }
       },
       "the-last-sunday-adults": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-places",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
         "closing": "score-theme-remembrance",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts",
-          "dekoven": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins",
+          "dekoven": "score-fire-1-rising"
         }
       },
       "the-last-sunday-grades-11-12": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-places",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
         "closing": "score-theme-remembrance",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts",
-          "dekoven": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins",
+          "dekoven": "score-fire-1-rising"
         }
       },
       "the-last-sunday-grades-3-5": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-places",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
         "closing": "score-theme-remembrance",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts",
-          "dekoven": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins",
+          "dekoven": "score-fire-1-rising"
         }
       },
       "the-last-sunday-grades-9-10": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-places",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
         "closing": "score-theme-remembrance",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts",
-          "dekoven": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins",
+          "dekoven": "score-fire-1-rising"
         }
       },
       "a-message-for-the-opera-house": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
-        "closing": "score-jaunt-closing-1904",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-jaunt-closing-1871",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins"
         }
       },
       "a-message-for-the-opera-house-adults": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
-        "closing": "score-jaunt-closing-1904",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-jaunt-closing-1871",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins"
         }
       },
       "a-message-for-the-opera-house-grades-11-12": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
-        "closing": "score-jaunt-closing-1904",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-jaunt-closing-1871",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins"
         }
       },
       "a-message-for-the-opera-house-grades-3-5": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
-        "closing": "score-jaunt-closing-1904",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-jaunt-closing-1871",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins"
         }
       },
       "a-message-for-the-opera-house-grades-9-10": {
-        "opening": "score-jaunt-opening-1904",
-        "bed": "score-bed-1904-stories",
-        "closing": "score-jaunt-closing-1904",
+        "opening": "score-jaunt-opening-1871",
+        "bed": "score-bed-1871-city",
+        "closing": "score-jaunt-closing-1871",
         "stops": {
-          "saturday-ruins": "score-bed-1904-ghosts"
+          "saturday-ruins": "score-fire-3-ruins"
         }
       },
       "errands-before-the-march": {
@@ -8406,729 +8851,729 @@
         "closing": "score-jaunt-closing-1904"
       },
       "a-decent-coat": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "a-decent-coat-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "a-decent-coat-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "a-decent-coat-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "a-decent-coat-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "a-parcel-across-the-river": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "a-parcel-across-the-river-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "a-parcel-across-the-river-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "a-parcel-across-the-river-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "a-parcel-across-the-river-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "across-wolf-point": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "across-wolf-point-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "across-wolf-point-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "across-wolf-point-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "across-wolf-point-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "along-the-harbor": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "along-the-harbor-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "along-the-harbor-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "along-the-harbor-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "along-the-harbor-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "an-evening-stroll": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "an-evening-stroll-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "an-evening-stroll-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "an-evening-stroll-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "an-evening-stroll-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "apprentice-at-the-democrat": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "apprentice-at-the-democrat-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "apprentice-at-the-democrat-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "apprentice-at-the-democrat-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "apprentice-at-the-democrat-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "bed-for-the-night": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "bed-for-the-night-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "bed-for-the-night-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "bed-for-the-night-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "bed-for-the-night-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "boots-and-leather": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "boots-and-leather-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "boots-and-leather-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "boots-and-leather-grades-6-8": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "boots-and-leather-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "calling-on-neighbors": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "calling-on-neighbors-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "calling-on-neighbors-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "calling-on-neighbors-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "calling-on-neighbors-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "fort-dearborn-errand": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "fort-dearborn-errand-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "fort-dearborn-errand-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "fort-dearborn-errand-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "fort-dearborn-errand-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "freight-for-the-store": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "freight-for-the-store-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "freight-for-the-store-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "freight-for-the-store-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "freight-for-the-store-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "from-prairie-to-town": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "from-prairie-to-town-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "from-prairie-to-town-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "from-prairie-to-town-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "from-prairie-to-town-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "gossip-or-notice": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "gossip-or-notice-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "gossip-or-notice-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "gossip-or-notice-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "gossip-or-notice-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "household-provisions": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "household-provisions-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "household-provisions-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "household-provisions-grades-6-8": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "household-provisions-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "inspect-a-lot": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "inspect-a-lot-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "inspect-a-lot-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "inspect-a-lot-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "inspect-a-lot-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "letter-home": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "letter-home-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "letter-home-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "letter-home-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "letter-home-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "materials-for-a-roof": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "materials-for-a-roof-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "materials-for-a-roof-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "materials-for-a-roof-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "materials-for-a-roof-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "mend-the-harness": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "mend-the-harness-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "mend-the-harness-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "mend-the-harness-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "mend-the-harness-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "new-in-chicago": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "new-in-chicago-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "new-in-chicago-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "new-in-chicago-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "new-in-chicago-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "news-before-breakfast": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "news-before-breakfast-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "news-before-breakfast-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "news-before-breakfast-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "news-before-breakfast-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "notable-women-1835": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "notable-women-1835-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "notable-women-1835-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "notable-women-1835-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "notable-women-1835-grades-6-8": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "outfit-for-the-west": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "outfit-for-the-west-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "outfit-for-the-west-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "outfit-for-the-west-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "outfit-for-the-west-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "over-the-draw": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "over-the-draw-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "over-the-draw-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "over-the-draw-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
-      },
-      "over-the-draw-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "schoolday-errand": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "schoolday-errand-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "schoolday-errand-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "schoolday-errand-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "schoolday-errand-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "shopping-south-water": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "shopping-south-water-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "shopping-south-water-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "shopping-south-water-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "shopping-south-water-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "soap-and-candles": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "soap-and-candles-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "soap-and-candles-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "soap-and-candles-grades-6-8": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "soap-and-candles-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "sunday-circuit": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "sunday-circuit-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "sunday-circuit-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "sunday-circuit-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
       "sunday-circuit-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
-      "taverns-of-chicago": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+      "an-evening-stroll": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
-      "taverns-of-chicago-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+      "an-evening-stroll-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
-      "taverns-of-chicago-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+      "an-evening-stroll-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
-      "taverns-of-chicago-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+      "an-evening-stroll-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
       },
-      "taverns-of-chicago-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+      "an-evening-stroll-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "from-prairie-to-town": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "from-prairie-to-town-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "from-prairie-to-town-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "from-prairie-to-town-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "from-prairie-to-town-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "fort-dearborn-errand": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "fort-dearborn-errand-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "fort-dearborn-errand-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "fort-dearborn-errand-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "fort-dearborn-errand-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-town",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "a-parcel-across-the-river": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "a-parcel-across-the-river-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "a-parcel-across-the-river-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "a-parcel-across-the-river-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "a-parcel-across-the-river-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "across-wolf-point": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "across-wolf-point-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "across-wolf-point-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "across-wolf-point-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "across-wolf-point-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "along-the-harbor": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "along-the-harbor-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "along-the-harbor-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "along-the-harbor-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "along-the-harbor-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "freight-for-the-store": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "freight-for-the-store-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "freight-for-the-store-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "freight-for-the-store-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "freight-for-the-store-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "over-the-draw": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "over-the-draw-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "over-the-draw-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "over-the-draw-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "over-the-draw-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
       },
       "work-on-waterfront": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
       },
       "work-on-waterfront-adults": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
       },
       "work-on-waterfront-grades-11-12": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
       },
       "work-on-waterfront-grades-3-5": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
       },
       "work-on-waterfront-grades-9-10": {
-        "opening": "score-jaunt-opening-1812",
-        "bed": "score-bed-1812-fort",
-        "closing": "score-jaunt-closing-1812"
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-river",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "apprentice-at-the-democrat": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "apprentice-at-the-democrat-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "apprentice-at-the-democrat-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "apprentice-at-the-democrat-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "apprentice-at-the-democrat-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "boots-and-leather": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "boots-and-leather-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "boots-and-leather-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "boots-and-leather-grades-6-8": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "boots-and-leather-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "materials-for-a-roof": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "materials-for-a-roof-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "materials-for-a-roof-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "materials-for-a-roof-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "materials-for-a-roof-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "mend-the-harness": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "mend-the-harness-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "mend-the-harness-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "mend-the-harness-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "mend-the-harness-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "taverns-of-chicago": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "taverns-of-chicago-adults": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "taverns-of-chicago-grades-11-12": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "taverns-of-chicago-grades-3-5": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
+      },
+      "taverns-of-chicago-grades-9-10": {
+        "opening": "score-jaunt-opening-1835",
+        "bed": "score-bed-1835-trades",
+        "closing": "score-jaunt-closing-1835"
       }
     }
   }

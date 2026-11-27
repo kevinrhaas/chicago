@@ -43,6 +43,22 @@ CUES = {
     'bed-1904-architecture': ('50-bed-1904-architecture.mp3', '1904', 'Architecture', 'bed', -23),
     'bed-1904-ghosts': ('51-bed-1904-ghosts.mp3', '1904', 'Night on the Avenue', 'bed', -23),
     'bed-1904-bronze': ('52-bed-1904-bronze.mp3', '1904', 'The Bronze', 'bed', -23),
+    # T-3811 (the owner, 2026-11-27: "These are all fine"): 1835 and 1871 cues of their own, the
+    # Great Fire's three movements and the Scandal bed. Openings and closings carry the fixed
+    # fanfare phrase and cadence cut from the owner's recording, as the 1812 and 1904 ones do.
+    'bed-1904-scandal': ('53-bed-1904-scandal.mp3', '1904', 'Scandal on the Avenue', 'bed', -23),
+    'jaunt-opening-1835': ('32-jaunt-opening-1835.mp3', '1835', 'Jaunt Opening, 1835', 'opening', -21),
+    'jaunt-closing-1835': ('33-jaunt-closing-1835.mp3', '1835', 'Jaunt Closing, 1835', 'closing', -21, 32),
+    'bed-1835-town': ('54-bed-1835-town.mp3', '1835', 'The Town', 'bed', -23),
+    'bed-1835-river': ('55-bed-1835-river.mp3', '1835', 'The River', 'bed', -23),
+    'bed-1835-trades': ('56-bed-1835-trades.mp3', '1835', 'The Trades', 'bed', -23),
+    'jaunt-opening-1871': ('32-jaunt-opening-1871.mp3', '1871', 'Jaunt Opening, 1871', 'opening', -21),
+    'jaunt-closing-1871': ('33-jaunt-closing-1871.mp3', '1871', 'Jaunt Closing, 1871', 'closing', -21, 32),
+    'bed-1871-city': ('57-bed-1871-city.mp3', '1871', 'The Wooden City', 'bed', -23),
+    'bed-1871-inquiry': ('58-bed-1871-inquiry.mp3', '1871', 'The Inquiry', 'bed', -23),
+    'fire-1-rising': ('59-fire-1-rising.mp3', '1871', 'The Fire I: Rising', 'bed', -23),
+    'fire-2-inferno': ('60-fire-2-inferno.mp3', '1871', 'The Fire II: Inferno', 'bed', -23),
+    'fire-3-ruins': ('61-fire-3-ruins.mp3', '1871', 'The Fire III: Ruins', 'bed', -23),
 }
 
 # The battle: April to the eve of the march builds; the march out of the gate; the fight at
@@ -52,6 +68,13 @@ BATTLE_STOPS = {'river-mouth': 'battle-2-march', 'the-bank': 'battle-3-fight', '
     'ouilmette': 'battle-4-aftermath'}
 
 O12, C12, O04, C04 = 'jaunt-opening-1812', 'jaunt-closing-1812', 'jaunt-opening-1904', 'jaunt-closing-1904'
+T3811 = {'bed-1904-scandal', 'jaunt-opening-1835', 'jaunt-closing-1835', 'bed-1835-town', 'bed-1835-river',
+    'bed-1835-trades', 'jaunt-opening-1871', 'jaunt-closing-1871', 'bed-1871-city', 'bed-1871-inquiry',
+    'fire-1-rising', 'fire-2-inferno', 'fire-3-ruins'}
+O35, C35, O71, C71 = 'jaunt-opening-1835', 'jaunt-closing-1835', 'jaunt-opening-1871', 'jaunt-closing-1871'
+# The 1835 beds' jaunts, as data/music/score.json's cue plans list them (tools/build_music_score.py J35).
+J35 = {g: next(c['jaunts'] for c in json.loads((ROOT / 'data/music/score.json').read_text())['cues'] if c['id'] == f'bed-1835-{g}')
+    for g in ('town', 'river', 'trades')}
 PLANS = {
     # A tragedy: no fanfare. It opens on its own build and closes on Remembrance.
     'battle-of-fort-dearborn': {'opening': 'battle-1-buildup', 'bed': 'battle-1-buildup', 'stops': BATTLE_STOPS,
@@ -64,48 +87,38 @@ PLANS = {
     'prairie-notable-women': {'opening': O04, 'bed': 'bed-1904-people', 'closing': C04},
     **{j: {'opening': O04, 'bed': 'bed-1904-stories', 'closing': C04} for j in (
         'field-and-mrs-caton', 'frances-glessner-lee', 'monday-reading-class', 'one-year-and-a-day',
-        'pullmans-other-son', 'the-pullman-twins', 'the-walk-to-the-lake',
-        # Their own bed (bed-1904-scandal in data/music/score.json) is not made yet: fal's
-        # balance ran out on 2026-11-20. The stories bed stands in until it is.
-        'scandal-at-1612', 'sisters-of-the-levee')},
+        'pullmans-other-son', 'the-pullman-twins', 'the-walk-to-the-lake')},
+    **{j: {'opening': O04, 'bed': 'bed-1904-scandal', 'closing': C04} for j in ('scandal-at-1612', 'sisters-of-the-levee')},
     **{j: {'opening': O04, 'bed': 'bed-1904-architecture', 'closing': C04} for j in (
         'prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire')},
     'prairie-ghosts-at-night': {'opening': O04, 'bed': 'bed-1904-ghosts', 'closing': C04},
     'bronze-at-eighteenth': {'opening': O04, 'bed': 'bed-1904-bronze', 'closing': C04},
-    # 1871 has no score of its own yet. The owner, 2026-11-27: "you should reuse some
-    # appropriate music we have already recorded for now". The orchestral 1904 cues stand in
-    # (REUSE); the 1812 cues are left out, their cedar flute and hand drum are the fort's.
-    # The fire by night: Night on the Avenue under every stop, Remembrance at the rain.
-    'the-great-fire': {'opening': 'bed-1904-ghosts', 'bed': 'bed-1904-ghosts', 'closing': 'theme-remembrance'},
-    'who-started-the-fire': {'opening': 'bed-1904-ghosts', 'bed': 'bed-1904-ghosts', 'closing': C04},
-    # The last ordinary day: the Avenue's bed through the city, the night's at Saturday's
-    # ruins and the barn on DeKoven Street, Remembrance to close.
-    'the-last-sunday': {'opening': O04, 'bed': 'bed-1904-places',
-        'stops': {'saturday-ruins': 'bed-1904-ghosts', 'dekoven': 'bed-1904-ghosts'}, 'closing': 'theme-remembrance'},
-    'a-message-for-the-opera-house': {'opening': O04, 'bed': 'bed-1904-stories',
-        'stops': {'saturday-ruins': 'bed-1904-ghosts'}, 'closing': C04},
+    # 1871 (T-3811). The fire, a tragedy like the battle: no fanfare. It rises from the barn
+    # to the river, burns through the business district and the North Side, and ends in the
+    # last refuges, closing on Remembrance at the rain.
+    'the-great-fire': {'opening': 'fire-1-rising', 'bed': 'fire-1-rising', 'stops': {
+        **{s: 'fire-2-inferno' for s in ('court-house', 'sherman-house', 'crosbys', 'north-side', 'water-works',
+            'tribune', 'state-street')},
+        **{s: 'fire-3-ruins' for s in ('ogden-house', 'old-cemetery')}}, 'closing': 'theme-remembrance'},
+    'who-started-the-fire': {'opening': O71, 'bed': 'bed-1871-inquiry', 'closing': C71},
+    # The last ordinary day: the wooden city's bed, the ruins of Saturday's fire and the barn
+    # on DeKoven Street under the fire's, Remembrance to close.
+    'the-last-sunday': {'opening': O71, 'bed': 'bed-1871-city',
+        'stops': {'saturday-ruins': 'fire-3-ruins', 'dekoven': 'fire-1-rising'}, 'closing': 'theme-remembrance'},
+    'a-message-for-the-opera-house': {'opening': O71, 'bed': 'bed-1871-city',
+        'stops': {'saturday-ruins': 'fire-3-ruins'}, 'closing': C71},
     # The owner, 2026-11-27: "every jaunt should have music, pull from the existing library".
     'errands-before-the-march': {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12},
     'water-for-the-garrison': {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12},
     'ice-for-prairie-avenue': {'opening': O04, 'bed': 'bed-1904-places', 'closing': C04},
     'flowers-for-prairie-avenue': {'opening': O04, 'bed': 'bed-1904-places', 'closing': C04},
     'prairie-built-so-far': {'opening': O04, 'bed': 'bed-1904-architecture', 'closing': C04},
-    # 1835 has no score of its own yet either: the frontier town under the 1812 cues (fiddle,
-    # fife, a soft drum), the nearest in time; the fort's errand keeps the fort's own bed.
-    **{j: {'opening': O12, 'bed': 'bed-1812-fort', 'closing': C12} for j in (
-        'a-decent-coat', 'a-parcel-across-the-river', 'across-wolf-point', 'along-the-harbor', 'an-evening-stroll',
-        'apprentice-at-the-democrat', 'bed-for-the-night', 'boots-and-leather', 'calling-on-neighbors',
-        'fort-dearborn-errand', 'freight-for-the-store', 'from-prairie-to-town', 'gossip-or-notice',
-        'household-provisions', 'inspect-a-lot', 'letter-home', 'materials-for-a-roof', 'mend-the-harness',
-        'new-in-chicago', 'news-before-breakfast', 'notable-women-1835', 'outfit-for-the-west', 'over-the-draw',
-        'schoolday-errand', 'shopping-south-water', 'soap-and-candles', 'sunday-circuit', 'taverns-of-chicago',
-        'work-on-waterfront')},
+    # 1835 (T-3811): the town's, the river's and the trades' beds (data/music/score.json `jaunts`).
+    **{j: {'opening': O35, 'bed': 'bed-1835-' + group, 'closing': C35} for group, js in J35.items() for j in js},
 }
 
-# Cues a scene without its own score may borrow, by scene (see the 1871 plans above).
-REUSE = {'1871': {'jaunt-opening-1904', 'jaunt-closing-1904', 'bed-1904-places', 'bed-1904-stories',
-    'bed-1904-ghosts', 'theme-remembrance'},
-    '1835': {'jaunt-opening-1812', 'jaunt-closing-1812', 'bed-1812-fort'}}
+# Cues a scene may borrow from another era's score: 1871 closes its fire on Remembrance.
+REUSE = {'1871': {'theme-remembrance'}}
 
 
 def build():
@@ -117,7 +130,8 @@ def build():
     for cid, row in CUES.items():
         file, era, title, role, lufs, *tail = row
         cues[cid] = {'file': ORIGINALS + file, 'era': era, 'title': title, 'role': role, 'lufs': lufs,
-            'loop': role == 'bed', **({'keep_last_s': tail[0]} if tail else {})}
+            'loop': role == 'bed', **({'keep_last_s': tail[0]} if tail else {}),
+            **({'selected': '2026-11-27 (T-3811)'} if cid in T3811 else {})}
     rows = []
     for jid, plan in PLANS.items():
         doc = docs.get(jid)
