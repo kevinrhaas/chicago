@@ -8,13 +8,15 @@
  * portrait of the person (person-portrait.js, the figure the town draws, turned with a tap) and
  * beside it their face up close (Kevin, 2026-11-19: "the face would be nice in addition to the
  * body to see the face up close"), then the body type (Kevin, 2026-11-19: named for the person's
- * style, not their gender, with a third type), age, complexion (swatches), the face (the
- * library's faces, Auto first), eyes, hair
+ * style, not their gender, with a third type), age, complexion (swatches), the face (Auto, or
+ * one from the face library by type: Kevin, 2026-11-27, "a category library of faces organized by
+ * type"; the photographed faces the town wears, by age and then tone, and the painted ones),
+ * eyes, hair
  * colour and cut, whiskers, and the dress for the year the visitor is in, each year's kept
  * separately. Every change is the person's at once: a figure already in the saddle is re-made.
  * The lists come from data/humans/visitor_person.json; nothing here names an id of its own.
  */
-import { faceChoices, wardrobe } from './visitor-person.js';
+import { faceChoices, faceGroups, faceGroupOf, wardrobe } from './visitor-person.js';
 
 /**
  * Swatch colours for the complexions: a light skin as the portrait's light shows it (linear)
@@ -114,7 +116,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
   choiceRow('sex', C.body_label ?? 'Body style');
   selectRow('age', 'Age');
   choiceRow('complexion', 'Complexion', { swatch: true });
-  choiceRow('face', 'Face');
+  faceRow();
   selectRow('eyes', 'Eyes');
   selectRow('hair_colour', 'Hair colour');
   selectRow('cut', 'Hair');
@@ -137,7 +139,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
       const b = el(doc, 'button', { type: 'button', class: 'person-choice', role: 'radio', 'aria-checked': String(o.id === value),
         'aria-label': o.label, title: o.label, 'data-id': o.id });
       if (paintOne) paintOne(b, o); else b.textContent = o.label;
-      b.addEventListener('click', () => set(row === rows.face ? 'face' : row === rows.complexion ? 'complexion' : 'sex', o.id));
+      b.addEventListener('click', () => set(row === rows.complexion ? 'complexion' : 'sex', o.id));
       return b;
     }));
   };
@@ -146,17 +148,75 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
     rows[key].select.addEventListener('change', (e) => set(key, e.target.value));
   }
 
-  function faceThumb(b, f) {
-    const F = C.faces;
-    if (f.id === 'auto' || !F) { b.textContent = f.label; b.classList.add('person-face-word'); return; }
-    // The library sheet's tile, turned upright (the atlas lays a face on its side).
-    const [W, H] = F.size_px ?? [1280, 1280], t = F.tile_px ?? 256, cols = F.cols ?? 5;
-    const i = f.index, x = (i % cols) * t, y = Math.floor(i / cols) * t;
+  // The face library (T-3553): Auto, then a tab for each type (the photographed faces by age,
+  // the painted ones), and under it that type's faces in bands of tone. One face pressed in all.
+  function faceRow() {
+    const box = el(doc, 'div', { class: 'person-row person-faces' });
+    const head = el(doc, 'span', { class: 'person-label', text: 'Face' });
+    const auto = el(doc, 'button', { type: 'button', class: 'person-choice person-face-word', role: 'radio', 'aria-checked': 'false',
+      'data-id': 'auto', title: 'A face from the library for your age and complexion', text: 'Auto' });
+    auto.addEventListener('click', () => set('face', 'auto'));
+    const tabs = el(doc, 'div', { class: 'person-face-tabs', role: 'tablist', 'aria-label': 'Face library' });
+    const list = el(doc, 'div', { class: 'person-face-library', role: 'radiogroup', 'aria-label': 'Face' });
+    const note = el(doc, 'p', { class: 'legend-note person-face-note' });
+    box.append(head, el(doc, 'div', { class: 'person-choices' }, [auto]), tabs, list, note);
+    host.append(box);
+    rows.face = { box, head, auto, tabs, list, note, tab: null };
+  }
+
+  function faceThumb(f, kind) {
     const tile = el(doc, 'span', { class: 'person-face-tile' });
+    if (kind === 'photo') {
+      // The face's own picture on the library's sheet (tools/photo_face_thumbs.py), upright.
+      const T = C.photoFaces.thumbs, [W, H] = T.size_px, t = T.tile_px;
+      const x = (f.index % T.cols) * t, y = Math.floor(f.index / T.cols) * t;
+      tile.style.backgroundImage = `url("${T.url}")`;
+      tile.style.backgroundSize = `${(W / t) * 100}% ${(H / t) * 100}%`;
+      tile.style.backgroundPosition = `${(x / Math.max(1, W - t)) * 100}% ${(y / Math.max(1, H - t)) * 100}%`;
+      return tile;
+    }
+    // A painted face: the library sheet's tile, turned upright (the atlas lays a face on its side).
+    const F = C.faces, [W, H] = F.size_px ?? [1280, 1280], t = F.tile_px ?? 256, cols = F.cols ?? 5;
+    const x = (f.index % cols) * t, y = Math.floor(f.index / cols) * t;
+    tile.classList.add('person-face-painted');
     tile.style.backgroundImage = `url("${new URL(F.map, F.base).href}")`;
     tile.style.backgroundSize = `${(W / t) * 100}% ${(H / t) * 100}%`;
     tile.style.backgroundPosition = `${(x / (W - t)) * 100}% ${(y / (H - t)) * 100}%`;
-    b.append(tile);
+    return tile;
+  }
+
+  function showFaces(choice) {
+    const R = rows.face, groups = faceGroups(C, choice.sex, choice.complexion);
+    // On Auto, the face Auto gives (visitor-person.js personRecord) is ringed, and its type opens.
+    const autoId = choice.face === 'auto' ? person.record(year).looks.face_pick : null;
+    R.auto.setAttribute('aria-checked', String(choice.face === 'auto'));
+    // The tab open: the one picked, else the face's own type, else the person's age.
+    if (!groups.some((g) => g.id === R.tab)) R.tab = null;
+    R.tab ??= faceGroupOf(groups, autoId ?? choice.face, choice.age);
+    R.tabs.hidden = groups.length < 2;
+    R.tabs.replaceChildren(...groups.map((g) => {
+      const t = el(doc, 'button', { type: 'button', class: 'person-face-tab', role: 'tab', 'aria-selected': String(g.id === R.tab),
+        'data-group': g.id, text: g.label, title: `${g.label} faces (${g.count})` });
+      if (g.bands.some((b) => b.faces.some((f) => f.id === choice.face))) t.classList.add('has-choice');
+      t.addEventListener('click', () => { R.tab = g.id; showFaces(person.choice); });
+      return t;
+    }));
+    const group = groups.find((g) => g.id === R.tab);
+    let n = 0;
+    R.list.replaceChildren(...(group?.bands ?? []).map((band) => {
+      const grid = el(doc, 'div', { class: 'person-face-grid' }, band.faces.map((f) => {
+        n++;
+        const label = group.kind === 'photo' ? `${group.label} face ${n}, ${band.label.toLowerCase()}` : `Painted face ${n}`;
+        const b = el(doc, 'button', { type: 'button', class: 'person-choice person-face', role: 'radio', 'aria-checked': String(f.id === choice.face),
+          'aria-label': label, title: label, 'data-id': f.id }, [faceThumb(f, group.kind)]);
+        if (f.id === autoId) b.classList.add('is-auto');
+        b.addEventListener('click', () => set('face', f.id));
+        return b;
+      }));
+      return el(doc, 'div', { class: 'person-face-band' }, [band.label ? el(doc, 'span', { class: 'person-face-band-label', text: band.label }) : null, grid]);
+    }));
+    R.note.textContent = choice.face === 'auto' ? `Auto: the ${autoId ? 'ringed ' : ''}face of your age nearest your complexion. Pick any face to keep it.`
+      : group?.kind === 'photo' ? 'Your complexion, eyes and hair are worn with the face you pick.' : '';
   }
 
   function show(choice = person.choice) {
@@ -168,8 +228,7 @@ export function wirePersonSettings({ doc = globalThis.document, person, year, po
       const c = swatchColour(tints[o.id]);
       if (c) b.style.background = c;
     });
-    const faces = [{ id: 'auto', label: 'Auto' }, ...(C.faces ? facesFor(C, sex, choice.complexion) : [])];
-    fillButtons(rows.face, faces, choice.face, faceThumb);
+    showFaces(choice);
     fillSelect(rows.eyes.select, C.eyes, choice.eyes);
     fillSelect(rows.hair_colour.select, C.hair_colours, choice.hair_colour);
     fillSelect(rows.cut.select, wardrobe(C, 'cuts', yc.year, sex), yc.cut?.id);
