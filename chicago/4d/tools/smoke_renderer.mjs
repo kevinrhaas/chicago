@@ -22303,9 +22303,24 @@ for (const [label, viewport, touch] of [
     await atStop();
     check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
       (await jaunt()).stopIndex === 1);
-    const endMs = await p14.evaluate(() => {
-      const t0 = performance.now();
+    // The owner, 2026-11-27: End asks first; Cancel leaves the outing at its stop.
+    const asked = await p14.evaluate(() => {
       document.querySelector('#jaunt-panel [data-action="end"]').click();
+      const shade = document.querySelector('.recall-confirm');
+      return { open: !!shade, modal: shade?.getAttribute('aria-modal'), focus: document.activeElement?.className ?? '',
+        text: shade?.textContent ?? '' };
+    });
+    const keptAt = (await jaunt()).stopIndex;
+    const shut = await p14.evaluate(() => { document.querySelector('.recall-confirm .recall-cancel').click(); return !document.querySelector('.recall-confirm'); });
+    const kept = await jaunt();
+    check(`${label}: End asks first (Cancel focused) and Cancel keeps the outing at its stop`,
+      asked.open && asked.modal === 'true' && asked.focus === 'recall-cancel' && /End this jaunt\?/.test(asked.text)
+      && keptAt === 1 && kept.stopIndex === 1 && kept.id !== null && shut,
+      JSON.stringify({ asked, keptAt, kept: kept.stopIndex }));
+    const endMs = await p14.evaluate(() => {
+      document.querySelector('#jaunt-panel [data-action="end"]').click();
+      const t0 = performance.now();
+      document.querySelector('.recall-confirm .recall-go').click();
       const shown = !document.getElementById('gate').hidden;
       return shown ? performance.now() - t0 : null;
     });

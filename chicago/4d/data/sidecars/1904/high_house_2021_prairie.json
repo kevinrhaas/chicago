@@ -230,13 +230,17 @@
           "width_m": 0.3,
           "proud_m": 0.04
         },
-        "ledge_m": 9.8
+        "ledge_m": 9.8,
+        "finial": {
+          "height_m": 0.45,
+          "radius_m": 0.08
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2021_high_photo"
       ],
-      "note": "The steep front gable the register names: the front wall carried up over its whole width to an apex at 15.5 m (see roof_pitch_deg), its raking edges straight, with three attic lights from 9.85 to 11.5 m read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json) (x 445-500, 535-590 and 628-688 px, about 0.6 m each, the left two paired), their centres 0.5 m north and 0.6 and 1.7 m south of the front's middle. The photograph's slate runs a little past the rakes; K01's wall gable carries a coping there instead (within tolerance, recorded in the match record)."
+      "note": "The steep front gable the register names: the front wall carried up over its whole width to an apex at 15.5 m (see roof_pitch_deg), its raking edges straight, with three attic lights from 9.85 to 11.5 m read off the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json) (x 445-500, 535-590 and 628-688 px, about 0.6 m each, the left two paired), their centres 0.5 m north and 0.6 and 1.7 m south of the front's middle. The photograph's slate runs a little past the rakes; K01's wall gable carries a coping there instead (within tolerance, recorded in the match record). A finial stands on the apex (T-3634): a knob on a slender turned neck, its foot spreading onto the rakes, from the apex at about y 75 px up to y 30 px, about 0.45 m tall and 0.16 m across through the solved camera; built as K01's turned spike at that size (its turning is the kit's, the halftone giving only its outline)."
     },
     "stoop_width_m": {
       "value": 2.0,
@@ -421,9 +425,17 @@
           ],
           "roof": {
             "kind": "cone",
-            "pitch": 3.0,
+            "pitch": 2.8,
             "covering": "slate_pennsylvania",
-            "finial": false
+            "finial": true
+          },
+          "finial": {
+            "height_m": 0.3,
+            "radius_m": 0.05,
+            "form": "turned",
+            "collar_m": 0.2,
+            "crockets": false,
+            "fabric": "zinc_sheet"
           }
         }
       ],
@@ -432,7 +444,7 @@
         "chicagology_2021_high_photo",
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial (not built: K08 sets no finial on a half cone closed against the roof; in the match record); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel on a rounded apron (its foot 0.5 m under the second floor, where the photograph's ledge runs over the porch) over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side)."
+      "note": "The turret, read off the photograph and the 1911 sheet: the round corner turret the register names stands at the front's north corner over the porch, its body from the second floor (the ledge over the porch at y 1000-1060 px) to the main eave (y 690 px, 9.8 m) and a slate cone to about 14.2 m (y 245 px) under a finial: the cone's top sheathed in a pale metal cap that flares to a lip about 0.5 m across (y 255-330 px) under a short dark knob, built as K08's turned finial on a plain collar 0.2 m out (the kit's least; its fall, at the cone's pitch, 0.6 m) laid in zinc (the metal is reconstructed: the halftone shows only that it is pale; T-3634); the sheet draws its round about 1.3 m before the front (traced part, 2.8 m across). Built as a round K08 oriel on a rounded apron (its foot 0.5 m under the second floor, where the photograph's ledge runs over the porch) over the porch's mouth, a half round 2.4 m across and 1.2 m out (the kit's deepest round oriel, a half round so its cone closes against the roof; the trace's round is about 2.8 m across, within about 0.2 m a side)."
     },
     "chimneys": {
       "value": {
@@ -458,7 +470,7 @@
       "sources": [
         "chicagology_2021_high_photo"
       ],
-      "note": "Two of the photograph's three stacks, placed through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the tall one on the south flank about 5 m behind the front (x 1090-1210 px, its top at about 16.5 m, y 25 px), and one over the north wall behind the turret (x 400-440 px). The third, on the ridge about 11 m back (x 1010-1080 px), stands over the body behind the front block, a rear wing, where K01 lays no stack (recorded in the match record)."
+      "note": "Two of the photograph's three stacks, placed through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): the tall one on the south flank about 5 m behind the front (x 1090-1210 px, its top at about 16.5 m, y 25 px), and one over the north wall behind the turret (x 400-440 px). The third, on the ridge about 11 m back (x 1010-1080 px), stands over the body behind the front block, the south wing, and is built as that wing's stack (rear_wings, T-3634)."
     },
     "rainwater": {
       "value": {
@@ -602,7 +614,20 @@
             "overhang_m": 0.3,
             "fascia_m": 0.25,
             "covering": "slate_pennsylvania"
-          }
+          },
+          "stacks": [
+            {
+              "u_m": -2.6,
+              "v_m": 5.0,
+              "plan_m": [
+                0.8,
+                0.7
+              ],
+              "top_m": 15.6,
+              "cap_proud_m": 0.06,
+              "cap_depth_m": 0.3
+            }
+          ]
         },
         {
           "id": "main_rear",
@@ -723,7 +748,7 @@
         "sanborn_1911_chicago_v3_sheet_35",
         "chicagology_2021_high_photo"
       ],
-      "note": "Everything the 1911 sheet draws behind the front block, as K01 wings (traced parts s35fp-2021-b1 p2-p3). THE SOUTH WING: the broad side wing with a secondary gable the register names, the sheet's projection on the south flank 7.8 m behind the front, 5.2 m along the flank and 4.15 m out, seen in the photograph from x 1287 px to the picture's edge through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): a light a storey in its west face (a low broad light of small panes at 3.35-4.25 m, then 6.25-8.35 m and 9.8-10.9 m, built in the wing's one row of sizes a storey, so its lowest light is 2.8-4.3 m and its top light 9.15-10.65 m: each within about half a metre), its eave at 11.0 m (y 590 px) and its slate gable facing south to an apex at about 14.6 m (y 290 px), 54 degrees over its 2.6 m half-width; the light at its south-west corner (x 1610-1700 px) is set in its south face, since the sheet's cut corner there (about a metre) is not built. THE BODY BEHIND IT, 5.4 m to the rear wall and 11.2 m across, two storeys under a slate hip continuing the front's 49 degrees, its lights RECONSTRUCTED. THE '2B' AND '1B' RANGES behind that: the two-storey range 4.1 m deep and the one-storey range 3.6 m behind it, a little narrower, their floors, flat roofs and lights RECONSTRUCTED: no picture sees them."
+      "note": "Everything the 1911 sheet draws behind the front block, as K01 wings (traced parts s35fp-2021-b1 p2-p3). THE SOUTH WING: the broad side wing with a secondary gable the register names, the sheet's projection on the south flank 7.8 m behind the front, 5.2 m along the flank and 4.15 m out, seen in the photograph from x 1287 px to the picture's edge through the photograph's solved camera (data/reference_views/high_house_2021_prairie/chicagology_photo.json): a light a storey in its west face (a low broad light of small panes at 3.35-4.25 m, then 6.25-8.35 m and 9.8-10.9 m, built in the wing's one row of sizes a storey, so its lowest light is 2.8-4.3 m and its top light 9.15-10.65 m: each within about half a metre), its eave at 11.0 m (y 590 px) and its slate gable facing south to an apex at about 14.6 m (y 290 px), 54 degrees over its 2.6 m half-width; the light at its south-west corner (x 1610-1700 px) is set in its south face, since the sheet's cut corner there (about a metre) is not built. THE BODY BEHIND IT, 5.4 m to the rear wall and 11.2 m across, two storeys under a slate hip continuing the front's 49 degrees, its lights RECONSTRUCTED. THE '2B' AND '1B' RANGES behind that: the two-storey range 4.1 m deep and the one-storey range 3.6 m behind it, a little narrower, their floors, flat roofs and lights RECONSTRUCTED: no picture sees them. THE THIRD STACK: the photograph's short stack on the ridge about 10.4 m behind the front (x 1010-1090 px, its cap at about y 310 px), placed through the solved camera on the south wing's ridge 5.0 m south of the north flank, 0.8 x 0.7 m in plan (narrower than the front's stacks in the print), its top at 15.6 m, about a metre over the 14.6 m ridge; from this camera its south half stands behind the tall south stack, as the photograph's meets that stack's edge (T-3634)."
     },
     "function": {
       "value": "residence",
