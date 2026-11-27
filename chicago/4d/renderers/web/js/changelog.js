@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 3296, ts: '2026-11-27T19:19:58.233Z', date: 'Nov 27, 2026, 1:19 PM CT', title: 'The public site carries a small Preview marker', kind: 'change',
+    items: [
+      'Every page of the public site shows a quiet Preview pill in the corner, with a Feedback link to Contact.',
+      'One click on its × hides it for good on that browser.',
+    ] },
   { v: 3295, ts: '2026-11-27T18:14:43.558Z', date: 'Nov 27, 2026, 12:14 PM CT', title: '2008 Calumet: the Hanford house, built from its 1883 drawing', kind: 'feature',
     items: [
       '2008 Calumet Avenue is rebuilt from its rough draft. Read off the 1911 fire-insurance map and the architects\' 1883 drawing, it is now a brownstone house of two storeys over a raised basement under a steep slate roof with gabled dormers. A corner pavilion rises to a tall pointed roof with an iron finial, a columned porch with a balcony stands over the front steps, and two tall stone chimneys rise from the south side.',
